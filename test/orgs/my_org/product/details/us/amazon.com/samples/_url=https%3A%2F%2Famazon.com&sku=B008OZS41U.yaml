@@ -1,0 +1,36 @@
+input:
+  _url: https://amazon.com
+  sku: B008OZS41U
+extractions:
+  - html: https://workbench.import.io/html/run=b093d43e-6095-4674-96c9-dbbfbda48a06/task=c31221ba-b691-40dc-8587-e54dd21ee7d1/f6c368b4-c16c-496c-a720-9dc50cd596bd.html
+    extractionConfigId: product/details/extract/us/amazon.com
+    data:
+      - group:
+          - h1:
+              - text: Pull Up Assist Bands Set by Functional Fitness. Heavy Duty Resistance and
+                  Assistance Training BandX
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[1]/div[1]/h1[1]
+            title:
+              - text: "Amazon.com : Functional Fitness Set of 2 Pull Up Bands - #3, 4-30-130lbs
+                  (14-59 kg) Resistance: for Assisted Pull Ups Calisthenics
+                  Crossfit Powerlifting Physical Therapy Pilates Stretching
+                  Full-Body Workouts : Sports & Outdoors"
+                xpath: /html/head[1]/title[1]
+        xpath: /html
+    timestamp: 1587998584976
+  - html: https://workbench.import.io/html/run=b093d43e-6095-4674-96c9-dbbfbda48a06/task=c31221ba-b691-40dc-8587-e54dd21ee7d1/28419025-96a6-4aa2-b13f-49f36fdab814.html
+    extractionConfigId: product/details/extract/us/amazon.com2
+    data:
+      - group:
+          - h12:
+              - text: Pull Up Assist Bands Set by Functional Fitness. Heavy Duty Resistance and
+                  Assistance Training Band
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[1]/div[1]/h1[1]
+            title2:
+              - text: "Amazon.com : Functional Fitness Set of 2 Pull Up Bands - #3, 4-30-130lbs
+                  (14-59 kg) Resistance: for Assisted Pull Ups Calisthenics
+                  Crossfit Powerlifting Physical Therapy Pilates Stretching
+                  Full-Body Workouts : Sports & Outdoors"
+                xpath: /html/head[1]/title[1]
+        xpath: /html
+    timestamp: 1587998584976
