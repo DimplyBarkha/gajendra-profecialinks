@@ -2,29 +2,29 @@ module.exports = {
   parameters: [
     {
       name: 'country',
-      description: '2 letter ISO code for the country'
+      description: '2 letter ISO code for the country',
     },
     {
       name: 'store',
-      description: 'store name'
-    }
+      description: 'store name',
+    },
   ],
   inputs: [
     {
       name: 'keywords',
       description: 'keywords to search for',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'results',
       description: 'the minimum number of results required',
-      type: 'number'
-    }
+      type: 'number',
+    },
   ],
   dependencies: {
     execute: 'action:product/search/execute/stores/${store[0:1]}/${store}/${country}',
     paginate: 'action:product/search/paginate/stores/${store[0:1]}/${store}/${country}',
-    extract: 'action:product/search/extract/stores/${store[0:1]}/${store}/${country}'
+    extract: 'action:product/search/extract/stores/${store[0:1]}/${store}/${country}',
   },
   path: 'stores/${store[0:1]}/${store}/${country}',
   implementation: async ({ keywords, results = 100 }, { country, store }, context, { execute, extract, paginate }) => {
@@ -56,5 +56,5 @@ module.exports = {
       collected += count;
       console.log('Got more results', collected);
     }
-  }
+  },
 };

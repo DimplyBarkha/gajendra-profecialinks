@@ -3,6 +3,6 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'amazon',
-    nextLinkSelector: '#pagnNextString, #pagnNextLink, ul.a-pagination li.a-last:not(.a-disabled) a'
-  }
+    nextLinkSelector: '#pagnNextString, #pagnNextLink, ul.a-pagination li.a-last:not(.a-disabled) a',
+  },
 };
