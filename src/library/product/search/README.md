@@ -66,13 +66,16 @@ module.exports = {
 };
 ```
 
-## Edit the extraction
+This is the simplest case - no code necessary.
 
-### Copy of another one for the same store
+## Edit the extraction
+
+### Copy of another one for the same store
 
 ```yaml
 extends: ./base
 ```
+
 
 ### Single extraction
 
