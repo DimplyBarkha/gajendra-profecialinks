@@ -23,7 +23,7 @@ module.exports = {
   dependencies: {
     pager: 'action:product/search/paginate/pager',
   },
-  implementation: async (inputs, { nextLinkSelector, mutationSelector }, context, { pager }) => {
-    return await pager({ nextLinkSelector, mutationSelector });
+  implementation: async (inputs, { nextLinkSelector, loadedSelector, mutationSelector }, context, { pager }) => {
+    return await pager({ nextLinkSelector, loadedSelector, mutationSelector });
   },
 };

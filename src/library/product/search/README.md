@@ -28,6 +28,9 @@ proxy:
 
 ## Edit the search execute action
 
+If you are waiting for something on the page to have loaded, ensure you also give the option of waiting for both the 
+"results" state and the "no results" state, either by xpath (text contains) or selector.
+
 Example:
 
 ```js
@@ -37,7 +40,7 @@ module.exports = {
   implementation: async ({ keywords }, { country, store }, context, { goto }) => {
     const url = `https://groceries.asda.com/search/${encodeURIComponent(keywords)}/products`;
     await goto({ url });
-    await context.waitForSelector('div.co-product');
+    await context.waitForSelector('div.co-product, #listingsContainer');
   }
 };
 ```
@@ -46,7 +49,7 @@ module.exports = {
 
 ### Next link/button
 
-Supply a `mutationSelector` if it is in-page navigation.
+Supply a `mutationSelector` if it is in-page navigation or a `loadedSelector` if not in page but there is a need to wait.
 
 Example:
 
