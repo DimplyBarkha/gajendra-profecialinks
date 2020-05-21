@@ -1,7 +1,7 @@
 # Creating a search robot
 
 ```bash
-import-io extractor:new --org <workbench org slug> --parameters country=UK domain=groceries.asda.com store=asda --robot product/search
+import-io extractor:new --org <workbench org slug> --parameters country=GB domain=groceries.asda.com store=asda --robot product/search
 npm run lint:fix
 ```
 
@@ -18,7 +18,7 @@ Example:
 ```yaml
 robot: product/search
 parameters:
-  country: UK
+  country: GB
   domain: groceries.asda.com
   store: asda
 proxy:
@@ -36,7 +36,7 @@ Example:
 ```js
 module.exports = {
   implements: 'product/search/execute',
-  parameterValues: { country: 'UK', domain: 'groceries.asda.com', store: 'asda' },
+  parameterValues: { country: 'GB', domain: 'groceries.asda.com', store: 'asda' },
   implementation: async ({ keywords }, { country, store }, context, { goto }) => {
     const url = `https://groceries.asda.com/search/${encodeURIComponent(keywords)}/products`;
     await goto({ url });
@@ -57,7 +57,7 @@ Example:
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'UK',
+    country: 'GB',
     domain: 'groceries.asda.com',
     store: 'asda',
     nextLinkSelector: 'button[aria-label="next page"] > span:not(.asda-icon--gray)',
