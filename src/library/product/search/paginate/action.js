@@ -16,6 +16,10 @@ module.exports = {
       name: 'mutationSelector',
       description: 'CSS selector for what to wait to change (if in-page pagination)',
     },
+    {
+      name: 'spinnerSelector',
+      description: 'CSS selector for a spinner to wait to disappear (if in-page pagination)',
+    },
   ],
   inputs: [
   ],
@@ -23,7 +27,7 @@ module.exports = {
   dependencies: {
     pager: 'action:product/search/paginate/pager',
   },
-  implementation: async (inputs, { nextLinkSelector, loadedSelector, mutationSelector }, context, { pager }) => {
-    return await pager({ nextLinkSelector, loadedSelector, mutationSelector });
+  implementation: async (inputs, { nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector }, context, { pager }) => {
+    return await pager({ nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
   },
 };
