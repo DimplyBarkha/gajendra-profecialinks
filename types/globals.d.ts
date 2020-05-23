@@ -205,4 +205,9 @@ export interface IContext {
      */
     extract(id: string, mergeOptions?: IMergeOptions): Promise<any>;
 }
+
+export interface Action {
+  (input: Record<string, any>): Promise<any>;
+}
+
 export as namespace ImportIO

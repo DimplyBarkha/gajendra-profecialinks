@@ -32,10 +32,10 @@ module.exports = {
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     // do the search
-    await execute({ keywords }, { country, store });
+    await execute({ keywords });
 
     // try gettings some search results
-    const pageOne = await extract({}, { country, store });
+    const pageOne = await extract({});
 
     let collected = length(pageOne);
 
@@ -47,7 +47,7 @@ module.exports = {
     }
 
     while (collected < results && await paginate()) {
-      const data = await extract({}, { country, store });
+      const data = await extract({});
       const count = length(data);
       if (count === 0) {
         // no results

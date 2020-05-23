@@ -1,10 +1,10 @@
 
 /**
  *
- * @param { {[k:string]: string} } inputs
- * @param { {[k:string]: any} } parameters
+ * @param { { nextLinkSelector: string, mutationSelector: string, loadedSelector: string, spinnerSelector: string  } } inputs
+ * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
- * @param { {[k:string]: any} } dependencies
+ * @param { Record<string, any> } dependencies
  */
 async function implementation (
   inputs,
