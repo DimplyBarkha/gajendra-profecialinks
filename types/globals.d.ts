@@ -21,7 +21,8 @@ export declare enum MergeType {
     MERGE_ROWS = "MERGE_ROWS"
 }
 export interface IMergeOptions {
-    type: MergeType;
+    type?: MergeType;
+    transform?: (data: Group[]) => Group[];
 }
 export interface Group {
     rows?: number;
@@ -205,9 +206,7 @@ export interface IContext {
      */
     extract(id: string, mergeOptions?: IMergeOptions): Promise<any>;
 }
-
 export interface Action {
-  (input: Record<string, any>): Promise<any>;
+    (input: Record<string, any>): Promise<any>;
 }
-
 export as namespace ImportIO

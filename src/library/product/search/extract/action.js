@@ -1,3 +1,21 @@
+/**
+ *
+ * @param { { } } inputs
+ * @param { Record<string, any> } parameters
+ * @param { ImportIO.IContext } context
+ * @param { Record<string, any> } dependencies
+ */
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  return await context.extract(productDetails, { transform });
+}
+
 module.exports = {
   parameters: [
     {
@@ -8,6 +26,11 @@ module.exports = {
       name: 'store',
       description: 'store name',
     },
+    {
+      name: 'transform',
+      description: 'transform function for the extraction',
+      optional: true,
+    },
   ],
   inputs: [
   ],
@@ -15,7 +38,5 @@ module.exports = {
     productDetails: 'extraction:product/search/extract/stores/${store[0:1]}/${store}/${country}',
   },
   path: 'stores/${store[0:1]}/${store}/${country}',
-  implementation: async (inputs, parameters, context, { productDetails }) => {
-    return await context.extract(productDetails);
-  },
+  implementation,
 };
