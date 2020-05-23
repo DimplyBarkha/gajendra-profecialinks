@@ -1,11 +1,16 @@
-# Creating a search robot
+# Creating a search implementation
+
+Note if `www.` strip that off the domain.
 
 ```bash
-import-io extractor:new --org <workbench org slug> --parameters country=GB domain=groceries.asda.com store=asda --robot product/search
+import-io extractor:new --org <workbench org slug> --parameters country=<iso 2 country code, e.g. US> domain=<domain> store=<store name> --robot product/search
 npm run lint:fix
 ```
 
 See the new files created in VS Code.
+
+* Make sheet to track what is to be built
+
 
 ## Set the proxy configuration
 
