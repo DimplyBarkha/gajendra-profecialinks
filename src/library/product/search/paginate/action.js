@@ -23,7 +23,7 @@ module.exports = {
   ],
   inputs: [
   ],
-  path: 'stores/${store[0:1]}/${store}/${country}',
+  path: '../stores/${store[0:1]}/${store}/${country}/paginate',
   dependencies: {
     pager: 'action:product/search/paginate/pager',
   },

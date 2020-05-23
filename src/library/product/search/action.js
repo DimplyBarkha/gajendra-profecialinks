@@ -22,11 +22,11 @@ module.exports = {
     },
   ],
   dependencies: {
-    execute: 'action:product/search/execute/stores/${store[0:1]}/${store}/${country}',
-    paginate: 'action:product/search/paginate/stores/${store[0:1]}/${store}/${country}',
-    extract: 'action:product/search/extract/stores/${store[0:1]}/${store}/${country}',
+    execute: 'action:product/search/stores/${store[0:1]}/${store}/${country}/execute',
+    paginate: 'action:product/search/stores/${store[0:1]}/${store}/${country}/paginate',
+    extract: 'action:product/search/stores/${store[0:1]}/${store}/${country}/extract',
   },
-  path: 'stores/${store[0:1]}/${store}/${country}',
+  path: 'stores/${store[0:1]}/${store}/${country}/search',
   implementation: async ({ keywords, results = 100 }, { country, store }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
