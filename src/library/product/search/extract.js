@@ -35,8 +35,8 @@ module.exports = {
   inputs: [
   ],
   dependencies: {
-    productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
+    productDetails: 'extraction:product/search/extract',
   },
-  path: 'stores/${store[0:1]}/${store}/${country}/extract',
+  path: './stores/${store[0:1]}/${store}/${country}/extract',
   implementation,
 };

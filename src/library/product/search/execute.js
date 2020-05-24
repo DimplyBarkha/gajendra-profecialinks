@@ -21,9 +21,9 @@ module.exports = {
     },
   ],
   dependencies: {
-    goto: 'action:navigation/goto/domains/${domain[0:2]}/${domain}',
+    goto: 'action:navigation/goto',
   },
-  path: 'stores/${store[0:1]}/${store}/${country}/execute',
+  path: './stores/${store[0:1]}/${store}/${country}/execute',
   implementation: async ({ keywords }, { country, store }, context, dependencies) => {
     throw new Error('No default implementation');
   },
