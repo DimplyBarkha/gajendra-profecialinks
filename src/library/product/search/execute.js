@@ -1,7 +1,7 @@
 /**
  *
  * @param { { keywords: string } } inputs
- * @param { { url: string } } parameters
+ * @param { { url: string, loadedXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
@@ -14,6 +14,9 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url });
+  if (parameters.loadedXPath) {
+    await context.waitForXPath(parameters.loadedXPath);
+  }
 }
 
 module.exports = {
@@ -33,6 +36,11 @@ module.exports = {
     {
       name: 'url',
       description: 'Open Search search url pattern, e.g. http://example.com/?q={searchTerms}',
+    },
+    {
+      name: 'loadedXPath',
+      description: 'XPath to tell us the page has loaded',
+      optional: true,
     },
   ],
   inputs: [

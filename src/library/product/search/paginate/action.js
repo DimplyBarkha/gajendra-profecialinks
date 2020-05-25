@@ -20,6 +20,10 @@ module.exports = {
       name: 'spinnerSelector',
       description: 'CSS selector for a spinner to wait to disappear (if in-page pagination)',
     },
+    {
+      name: 'loadedXPath',
+      description: 'XPath to tell us the page has loaded',
+    },
   ],
   inputs: [
   ],
@@ -27,7 +31,7 @@ module.exports = {
   dependencies: {
     pager: 'action:product/search/paginate/pager',
   },
-  implementation: async (inputs, { nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector }, context, { pager }) => {
-    return await pager({ nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
+  implementation: async (inputs, { nextLinkSelector, loadedXPath, mutationSelector, spinnerSelector }, context, { pager }) => {
+    return await pager({ nextLinkSelector, loadedXPath, mutationSelector, spinnerSelector });
   },
 };
