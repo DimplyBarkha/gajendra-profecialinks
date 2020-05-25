@@ -8,7 +8,7 @@
  * @param {{
  *  nextLinkSelector: string,
  *  mutationSelector: string,
- *  loadedXPath: string,
+ *  loadedSelector: string,
  *  spinnerSelector: string,
  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
  * }} parameters
@@ -22,9 +22,9 @@ async function implementation (
   dependencies,
 ) {
   const { keywords, page, offset } = inputs;
-  const { nextLinkSelector, loadedXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
+  const { nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
   const { pager } = dependencies;
-  const success = await pager({ keywords, nextLinkSelector, loadedXPath, mutationSelector, spinnerSelector });
+  const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
   if (success) {
     return true;
   }
@@ -51,8 +51,8 @@ async function implementation (
 
   console.log('Going to url', url);
   await dependencies.goto({ url });
-  if (parameters.loadedXPath) {
-    await context.waitForXPath(parameters.loadedXPath);
+  if (parameters.loadedSelector) {
+    await context.waitForSelector(parameters.loadedSelector);
   }
   return true;
 }
@@ -80,7 +80,7 @@ module.exports = {
       description: 'CSS selector for a spinner to wait to disappear (if in-page pagination)',
     },
     {
-      name: 'loadedXPath',
+      name: 'loadedSelector',
       description: 'XPath to tell us the page has loaded',
     },
     {

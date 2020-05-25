@@ -5,6 +5,6 @@ module.exports = {
     domain: 'groceries.asda.com',
     store: 'asda',
     nextLinkSelector: 'button[aria-label="next page"] > span:not(.asda-icon--gray)',
-    spinnerSelector: 'div.asda-spinner',
+    spinnerSelector: 'div.search-page-content div.asda-spinner',
   },
 };

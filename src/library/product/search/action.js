@@ -32,7 +32,12 @@ module.exports = {
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     // do the search
-    await execute({ keywords });
+    const resultsReturned = await execute({ keywords });
+
+    if (!resultsReturned) {
+      console.log('No results were returned');
+      return;
+    }
 
     // try gettings some search results
     const pageOne = await extract({});

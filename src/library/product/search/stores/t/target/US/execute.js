@@ -6,6 +6,7 @@ module.exports = {
     store: 'target',
     domain: 'target.com',
     url: 'https://www.target.com/s?searchTerm={searchTerms}',
-    loadedXPath: '//div[@data-test="productGridContainer"]//li',
+    loadedSelector: 'div[data-test="productGridContainer"] li',
+    noResultsXPath: '//h1[contains(.,"no results found")]',
   },
 };

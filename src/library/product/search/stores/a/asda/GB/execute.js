@@ -1,9 +1,11 @@
 module.exports = {
   implements: 'product/search/execute',
-  parameterValues: { country: 'GB', domain: 'groceries.asda.com', store: 'asda' },
-  implementation: async ({ keywords }, { country, store }, context, { goto }) => {
-    const url = `https://groceries.asda.com/search/${encodeURIComponent(keywords)}`;
-    await goto({ url });
-    await context.waitForSelector('div.co-product, #listingsContainer');
+  parameterValues: {
+    country: 'GB',
+    domain: 'groceries.asda.com',
+    store: 'asda',
+    url: 'https://groceries.asda.com/search/{searchTerms}',
+    loadedSelector: 'div.co-product',
+    noResultsXPath: '//div[@id="listingsContainer"]//div[contains(@class,"no-result")]',
   },
 };
