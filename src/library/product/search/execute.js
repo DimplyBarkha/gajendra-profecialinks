@@ -1,3 +1,21 @@
+/**
+ *
+ * @param { { keywords: string } } inputs
+ * @param { { url: string } } parameters
+ * @param { ImportIO.IContext } context
+ * @param { Record<string, any> } dependencies
+ */
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  console.log('params', parameters);
+  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  await dependencies.goto({ url });
+}
+
 module.exports = {
   parameters: [
     {
@@ -12,6 +30,10 @@ module.exports = {
       name: 'domain',
       description: 'top private domain (e.g. amazon.com)',
     },
+    {
+      name: 'url',
+      description: 'Open Search search url pattern, e.g. http://example.com/?q={searchTerms}',
+    },
   ],
   inputs: [
     {
@@ -24,4 +46,5 @@ module.exports = {
     goto: 'action:navigation/goto',
   },
   path: './stores/${store[0:1]}/${store}/${country}/execute',
+  implementation,
 };

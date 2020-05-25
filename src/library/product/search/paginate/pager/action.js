@@ -39,10 +39,7 @@ async function implementation (
       context.waitForMutuation(mutationSelector, { timeout: 10000 }),
     ]);
   } else {
-    await Promise.all([
-      context.waitForNavigation({ timeout: 10000, waitUntil: 'load' }),
-      context.click(nextLinkSelector),
-    ]);
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 30000 });
     if (loadedSelector) {
       await context.waitForSelector(loadedSelector, { timeout: 10000 });
     }

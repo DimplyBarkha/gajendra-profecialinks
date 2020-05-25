@@ -95,13 +95,16 @@ export interface IContext {
      * ]);
      * ```
      */
-    click(selector: string, options?: {
-        button?: Button;
-    }): Promise<void>;
+    click(selector: string, options?: {}): Promise<void>;
+    clickAndWaitForNavigation(selector: string, clickOptions?: {}, navigationOptions?: IWaitOptions): Promise<void>;
     /**
      * Gets the full HTML contents of the page, may include the doctype.
      */
     content(): Promise<string>;
+    /**
+     * Stop the page (window.stop)
+     */
+    stop(): Promise<void>;
     /**
      * Returns all cookies the current page
      */
@@ -199,7 +202,10 @@ export interface IContext {
     solveCaptcha(options: ISolveCaptchaOptions): Promise<any>;
     waitForSelector(selector: string, options?: ITimeoutable): Promise<void>;
     waitForFunction(predicate: string | Function, options?: ITimeoutable, ...args: Json[]): Promise<void>;
-    waitForNavigation(options?: IWaitOptions): Promise<void>;
+    /**
+     * This will return a promise of a promise when the hook is in place to detect the page change
+     */
+    waitForNavigation(options?: IWaitOptions): Promise<() => Promise<void>>;
     waitForXPath(xpath: string, options?: ITimeoutable): Promise<void>;
     /**
      * Carry out an extraction, and merge with the data that should be returned
