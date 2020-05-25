@@ -46,7 +46,8 @@ module.exports = {
       return;
     }
 
-    while (collected < results && await paginate()) {
+    let page = 2;
+    while (collected < results && await paginate({ keywords, page, offset: collected })) {
       const data = await extract({});
       const count = length(data);
       if (count === 0) {
@@ -55,6 +56,7 @@ module.exports = {
       }
       collected += count;
       console.log('Got more results', collected);
+      page++;
     }
   },
 };

@@ -4,9 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'target',
-    nextLinkSelector: 'a[data-test="next"]',
-    mutationSelector: 'div[data-test="productGridContainer"]',
-    spinnerSelector: null,
+    url: {
+      indexOffset: 0,
+      template: 'https://www.target.com/s?searchTerm={searchTerms}&Nao={startIndex}',
+    },
+    loadedXPath: '//div[@data-test="productGridContainer"]//li',
     domain: 'target.com',
   },
 };

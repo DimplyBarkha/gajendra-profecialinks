@@ -1,7 +1,12 @@
 
 /**
  *
- * @param { { nextLinkSelector: string, mutationSelector: string, loadedSelector: string, spinnerSelector: string  } } inputs
+ * @param {{
+ *  nextLinkSelector: string,
+ *  mutationSelector: string,
+ *  loadedXPath: string,
+ *  spinnerSelector: string,
+ * }} inputs
  * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -15,13 +20,17 @@ async function implementation (
   const {
     nextLinkSelector,
     mutationSelector,
-    loadedSelector,
+    loadedXPath,
     spinnerSelector,
+    url,
+    keywords,
   } = inputs;
 
-  const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
-  if (!hasNextLink) {
-    return false;
+  if (nextLinkSelector) {
+    const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
+    if (!hasNextLink) {
+      return false;
+    }
   }
 
   if (spinnerSelector) {
@@ -31,20 +40,29 @@ async function implementation (
       console.log(selector, document.querySelector(selector));
       return !document.querySelector(selector);
     }, { timeout: 30000 }, spinnerSelector);
-  } else if (mutationSelector) {
+    return;
+  }
+
+  if (mutationSelector) {
     // this may replace the section with a loader
     await Promise.all([
       context.click(nextLinkSelector),
       // possible race condition if the data returned too fast, but unlikely
       context.waitForMutuation(mutationSelector, { timeout: 10000 }),
     ]);
-  } else {
-    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 30000 });
-    if (loadedSelector) {
-      await context.waitForSelector(loadedSelector, { timeout: 10000 });
-    }
+    return;
   }
-  return true;
+
+  if (nextLinkSelector) {
+    console.log('Clicking', nextLinkSelector);
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 30000 });
+    if (loadedXPath) {
+      await context.waitForXPath(loadedXPath, { timeout: 10000 });
+    }
+    return true;
+  }
+
+  return false;
 }
 
 module.exports = {

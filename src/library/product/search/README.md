@@ -54,7 +54,7 @@ module.exports = {
 
 ### Next link/button
 
-Supply a `mutationSelector` or `spinnerSelector` if it is in-page navigation or a `loadedSelector` if not in page but there is a need to wait.
+Supply a `mutationSelector` or `spinnerSelector` if it is in-page navigation or a `loadedXPath` if not in page but there is a need to wait.
 
 Example:
 
