@@ -49,6 +49,7 @@ async function implementation (
     return false;
   }
 
+  console.log('Going to url', url);
   await dependencies.goto({ url });
   if (parameters.loadedXPath) {
     await context.waitForXPath(parameters.loadedXPath);
@@ -100,6 +101,7 @@ module.exports = {
   path: './stores/${store[0:1]}/${store}/${country}/paginate',
   dependencies: {
     pager: 'action:product/search/paginate/pager',
+    goto: 'action:navigation/goto',
   },
   implementation,
 };
