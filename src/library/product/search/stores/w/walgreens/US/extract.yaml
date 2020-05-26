@@ -51,9 +51,11 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
+    selector: span.price__contain .sr-only
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    selector: span.wag-reg-sale-price
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
