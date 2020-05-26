@@ -9,8 +9,9 @@ npm run lint:fix
 
 See the new files created in VS Code.
 
-* Make sheet to track what is to be built
+You should not generally be writing code, everything is configuration driven. The code for a particular pattern is written once, and then the actions are set up with parameters.
 
+There are of course exceptions, e.g. dealing with site specific block detection, where code will be necessary.
 
 ## Set the proxy configuration
 
@@ -33,24 +34,63 @@ proxy:
 
 ## Edit the search execute action
 
-If you are waiting for something on the page to have loaded, ensure you also give the option of waiting for both the 
-"results" state and the "no results" state, either by xpath (text contains) or selector.
+Docs:
+
+```js
+/**
+ *
+ * @param { { keywords: string } } inputs
+ * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
+ * @param { ImportIO.IContext } context
+ * @param { { goto: ImportIO.Action} } dependencies
+ */
+```
+
+The URL is a OpenSearch style pattern with a `{searchTerms}` placeholder.
 
 Example:
 
 ```js
 module.exports = {
   implements: 'product/search/execute',
-  parameterValues: { country: 'GB', domain: 'groceries.asda.com', store: 'asda' },
-  implementation: async ({ keywords }, { country, store }, context, { goto }) => {
-    const url = `https://groceries.asda.com/search/${encodeURIComponent(keywords)}/products`;
-    await goto({ url });
-    await context.waitForSelector('div.co-product, #listingsContainer');
-  }
+  parameterValues: {
+    country: 'US',
+    store: 'amazon',
+    domain: 'amazon.com',
+    url: 'https://www.amazon.com/s?k={searchTerms}&ref=nb_sb_noss_2',
+    loadedSelector: 'div[data-asin]',
+    noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "No results")]',
+  },
 };
 ```
 
 ## Edit the pagination action
+
+Docs:
+
+```js
+/**
+ *
+ * @param {{
+ *  keywords: string,
+ *  page: number,
+ *  offset: number,
+ * }} inputs
+ * @param {{
+ *  nextLinkSelector: string,
+ *  mutationSelector: string,
+ *  loadedSelector: string,
+ *  spinnerSelector: string,
+ *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
+ * }} parameters
+ * @param { ImportIO.IContext } context
+ * @param { Record<string, any> } dependencies
+ */
+ ```
+
+#### `<link rel="next">`
+
+This is supported out of the box.
 
 ### Next link/button
 
@@ -66,12 +106,30 @@ module.exports = {
     domain: 'groceries.asda.com',
     store: 'asda',
     nextLinkSelector: 'button[aria-label="next page"] > span:not(.asda-icon--gray)',
-    spinnerSelector: 'div.asda-spinner',
+    spinnerSelector: 'div.search-page-content div.asda-spinner',
+  },
+};
+
+```
+
+### URL Pattern
+
+```js
+
+module.exports = {
+  implements: 'product/search/paginate',
+  parameterValues: {
+    country: 'US',
+    store: 'target',
+    url: {
+      indexOffset: 0,
+      template: 'https://www.target.com/s?searchTerm={searchTerms}&Nao={startIndex}',
+    },
+    loadedSelector: 'div[data-test="productGridContainer"] li',
+    domain: 'target.com',
   },
 };
 ```
-
-This is the simplest case - no code necessary.
 
 ## Edit the extraction
 
