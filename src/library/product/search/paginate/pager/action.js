@@ -24,13 +24,6 @@ async function implementation (
     spinnerSelector,
   } = inputs;
 
-  if (nextLinkSelector) {
-    const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
-    if (!hasNextLink) {
-      return false;
-    }
-  }
-
   if (spinnerSelector) {
     // this may replace the section with a loader
     await context.click(nextLinkSelector);

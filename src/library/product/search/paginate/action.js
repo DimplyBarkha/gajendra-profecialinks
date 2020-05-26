@@ -23,6 +23,14 @@ async function implementation (
 ) {
   const { keywords, page, offset } = inputs;
   const { nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
+
+  if (nextLinkSelector) {
+    const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
+    if (!hasNextLink) {
+      return false;
+    }
+  }
+
   const { pager } = dependencies;
   const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
   if (success) {
