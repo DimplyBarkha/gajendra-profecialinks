@@ -88,7 +88,7 @@ Docs:
  */
  ```
 
-### `<link rel="next">`
+#### `<link rel="next">`
 
 This is supported out of the box.
 
