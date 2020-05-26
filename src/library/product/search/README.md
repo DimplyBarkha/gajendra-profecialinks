@@ -90,7 +90,7 @@ Docs:
 
 #### `<link rel="next">`
 
-This is supported out of the box.
+This is supported out of the box, and you don't need any configuration.
 
 ### Next link/button
 
@@ -113,6 +113,8 @@ module.exports = {
 ```
 
 ### URL Pattern
+
+Note that you still shoudl use a loaded selector to detect the end of pagination.
 
 ```js
 
