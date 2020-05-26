@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'target',
-    url: {
+    openSearchDefinition: {
       indexOffset: 0,
       template: 'https://www.target.com/s?searchTerm={searchTerms}&Nao={startIndex}',
     },
