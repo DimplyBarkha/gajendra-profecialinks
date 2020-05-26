@@ -3,7 +3,7 @@
  * @param { { keywords: string } } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
- * @param { Record<string, any> } dependencies
+ * @param { { goto: ImportIO.Action} } dependencies
  */
 async function implementation (
   inputs,
