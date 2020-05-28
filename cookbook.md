@@ -75,13 +75,14 @@ exampleInput:
 ```
 
 
-## Update *src/orgs/mjgp2/product/s/safeway/US/search/extractor.yaml*
+## Update *src/library/product/search/stores/s/safeway/US/extract.yaml*
+This is where your training lives
 ```
-robot: product/search
-parameters:
-  country: US
-  domain: safeway.com
-  store: safeway
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
   - name: title
     singleValue: true
     description: The product title
