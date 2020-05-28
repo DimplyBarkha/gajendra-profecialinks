@@ -1,0 +1,11 @@
+robot: product/search
+parameters:
+  country: US
+  domain: safeway.com
+  store: safeway
+  - name: title
+    singleValue: true
+    description: The product title
+    example: Wonder Bread
+    selector: a.product-title
+
