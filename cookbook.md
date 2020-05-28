@@ -1,26 +1,25 @@
-Goal: Demo the creating a Search extractor for safeway.com using the Extractor SDK.
+Goal: Demo creating a Search extractor for safeway.com using the Extractor SDK.
 
 The Extractor SDK will scaffold the required files and directory structure. 
 The files will need to  be updated to match the site you are extracting from.  
 
 In this scenario we will:
 
-    1. Search for a product using this Url example:
+1. Search for a product using this Url example:
 
-            *https://www.safeway.com/shop/search-results.html?q=soap&zipcode=94611*
+*https://www.safeway.com/shop/search-results.html?q=soap&zipcode=94611*
     
-    2. Paginate
-    3. Extract data 
+2. Paginate
+3. Extract data 
 
 # Create extractor scaffolding
-Install the SDK for you platform from https://github.com/import-io/import-io-cli-public
+Install the SDK for you system from https://github.com/import-io/import-io-cli-public
 
 Execute this command to create the structure for your new extractor.
 
 ```
 import-io extractor:new --org mjgp2 --parameters country=US domain=safeway.com store=safeway --robot product/search
 ```
-
 
 # This creates the following files for your new extractor.
 
