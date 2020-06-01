@@ -23,6 +23,12 @@ TODO: CLI command for `(cat ../import-io-cli/lib/context/icontext.d.ts; echo exp
 
 ### Getting started
 
+Clone down this repository and run 
+
+```shell
+npm install
+```
+
 1. Download [CLI](https://import-io.github.io/import-io-cli-public/#cli) and [Desktop App](https://import-io.github.io/import-io-cli-public/#desktop-app)
 2. Familiarize yourself with the [CLI tool](https://import-io.github.io/import-io-cli-public/). 
 3. Know the [core concepts](https://import-io.github.io/import-io-cli-public/#concepts)
