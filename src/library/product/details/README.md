@@ -41,7 +41,7 @@ Example:
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'uk',
+    country: 'UK',
     store: 'asda',
     domain: 'groceries.asda.com',
   },
@@ -71,7 +71,7 @@ module.exports = {
   parameterValues: {
     domain: 'groceries.asda.com',
     prefix: 'search',
-    country: 'uk',
+    country: 'UK',
     store: 'asda',
   },
 };
