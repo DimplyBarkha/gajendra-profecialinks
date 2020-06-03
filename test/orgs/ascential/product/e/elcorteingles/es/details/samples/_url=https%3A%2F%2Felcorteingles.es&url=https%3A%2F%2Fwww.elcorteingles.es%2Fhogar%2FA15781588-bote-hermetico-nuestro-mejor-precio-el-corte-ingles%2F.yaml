@@ -1,0 +1,125 @@
+input:
+  _url: https://elcorteingles.es
+  url: https://www.elcorteingles.es/hogar/A15781588-bote-hermetico-nuestro-mejor-precio-el-corte-ingles/
+extractions:
+  - html: https://workbench.import.io/html/run=a013d23e-c8f3-42d9-99bd-e9f709bffd32/task=ed87da67-b96e-468d-a595-29e8d3bd489b/d6de47d5-3ac4-4de5-a90e-ad211a89f2b7.html
+    extractionConfigId: product/details/stores/e/elcorteingles/es/extract
+    data:
+      - group:
+          - brand:
+              - text: Nuestro Mejor Precio - El Corte Inglés
+                xpath: /html/body/div[8]
+            category:
+              - text: Hogar
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/span[1]
+            colour:
+              - text: Transparente
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/div[3]/ul[1]/li[1]/div[1]/p[1]
+            customer_review_rating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/button[1]
+            image_alt_text:
+              - text: Bote hermético Nuestro Mejor Precio - El Corte Inglés
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]/img[1]/@alt
+            number_of_customer_reviews:
+              - text: "4"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/meta[1]/@content
+            online_price:
+              - text: "2"
+                xpath: /html/body/div[7]
+            online_price_currency:
+              - text: EUR
+                xpath: /html/body/div[9]
+            product_description:
+              - text: >-
+                  Un básico para guardar salsas, líquidos, recetas sobrantes y
+                  todo lo que necesites. Este bote de vidrio se cierra de manera
+                  hermética para que tus alimentos se conserven mejor y no se
+                  produzcan derrames. 
+
+                  Con Nuestro Mejor Precio tienes indispensables de calidad para tu casa por muy poco.
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/div[6]/div[2]/div[1]/div[1]
+            product_id:
+              - text: "001007313319761"
+                xpath: /html/body/div[11]
+            product_image:
+              - text: https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201604/13/00107313319787____1__640x640.jpg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]/img[1]/@src
+            promotion:
+              - text: Nuevas financiaciones a tu medida. Elige la tuya.
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/div[5]/div[1]
+              - text: >-
+                  Envío GRATIS a España desde 50€
+
+                  Entrega en el día GRATIS a partir de 40€ 
+
+                  Si el importe de tu pedido es entre 20€ y 40€, el coste será de 2,95€. Si es inferior a 20€, el coste será de 7,90€
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/div[5]/div[2]
+            secondary_image:
+              - text: https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201810/04/00107313319761____4__1200x1200.jpg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]/div[3]/ul[1]/li[2]/img[1]/@data-zoom-src
+            shipping_details:
+              - text: |-
+                  Gastos de envío
+                  Domicilio
+                  Supercor
+                  Otros puntos de recogida
+                  España peninsular, Mallorca, Menorca, Ibiza y Formentera
+                  5,90€
+                  1€
+                  2€
+                  Canarias (Tenerife, Gran Canaria), Unión Europea
+                  5,90€
+                  -
+                  -
+                  Canarias (Lanzarote, Fuerteventura, La Palma, Hierro y Gomera)
+                  9,80€
+                  -
+                  -
+                  Ceuta y Melilla, Resto Europa, América
+                  20€
+                  -
+                  -
+                  Portugal Islas (Azores y Madeira)
+                  6,90€
+                  -
+                  -
+                  África, Asia, Oceanía
+                  30€
+                  -
+                  -
+                  España peninsular, Mallorca-Entrega en 2 horas
+                  7,90€
+                  -
+                  -
+                  Canarias (Tenerife, Gran Canaria)-Entrega en 2 horas
+                  7,90€
+                  -
+                  -
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/div[6]/div[3]/table[1]
+            specifications:
+              - text: |-
+                  Caracteristicas color primario
+                  Color primario
+                  Transparente
+                  Características Generales
+                  Material
+                  Vidrio
+                  Tipo de producto
+                  Botes
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/div[6]/div[2]/div[2]/div[1]
+            sub_category:
+              - text: Ordenación
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Organización de cocina
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Botes de cocina
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/span[1]
+            upc:
+              - text: "401966907118"
+                xpath: /html/head[1]/meta[22]/@content
+            url:
+              - text: https://www.elcorteingles.es/hogar/A15781588-bote-hermetico-nuestro-mejor-precio-el-corte-ingles/
+                xpath: /html/head[1]/link[7]/@href
+        xpath: /
+    timestamp: 1591198705368
