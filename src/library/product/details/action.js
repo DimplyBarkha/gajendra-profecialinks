@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { url: string, id: any } } inputs
+ * @param { { URL: string, id: any, RPC: string, SKU: string } } inputs
  * @param { { store: any, country: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
@@ -12,9 +12,10 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { url, id } = inputs;
+  const { URL, RPC, SKU } = inputs;
   const { execute, extract } = dependencies;
-
+  const url = URL;
+  const id = (RPC) || ((SKU) || inputs.id);
   await execute({ url, id });
 
   await extract({});
@@ -30,10 +31,14 @@ module.exports = {
       name: 'store',
       description: 'store name',
     },
+    {
+      name: 'domain',
+      description: 'The top private domain of the website (e.g. amazon.com)',
+    },
   ],
   inputs: [
     {
-      name: 'url',
+      name: 'URL',
       description: 'direct url for product',
       type: 'string',
       optional: true,
@@ -41,6 +46,18 @@ module.exports = {
     {
       name: 'id',
       description: 'unique identifier for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'RPC',
+      description: 'rpc for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'SKU',
+      description: 'sku for product',
       type: 'string',
       optional: true,
     },
