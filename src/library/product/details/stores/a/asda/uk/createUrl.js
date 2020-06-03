@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'groceries.asda.com',
     prefix: 'search',
-    country: 'uk',
+    country: 'UK',
     store: 'asda',
   }
 };
