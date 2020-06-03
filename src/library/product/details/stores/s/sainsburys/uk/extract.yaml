@@ -1,0 +1,111 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: product_image
+    singleValue: true
+    xpath: //div[@class="pd__wrapper skipto-content__focus"]//img/@src
+  - name: secondary_image
+    singleValue: true
+    xpath: //div[@class="pd__wrapper skipto-content__focus"]/div/img/@src
+  - name: image_alt_text
+    singleValue: true
+    xpath: //div[@class="pd__wrapper skipto-content__focus"]/div/img/@alt
+  - name: url
+    singleValue: true
+    xpath: /html/head//script[@type = "application/ld+json"]/text()
+    regExp: (.*)(\"url\":\s\")(.*)(\")(.*)
+    regExpReplace: $3
+  - name: category
+    singleValue: true
+    xpath: //nav//ol//li[position()>=2 and position()<=(last()-1)]
+  - name: keywords
+    singleValue: true
+    xpath:
+  - name: download_time
+    singleValue: true
+    xpath:
+  - name: sub_category
+    singleValue: true
+    xpath:
+  - name: product_description
+    singleValue: true
+    xpath: normalize-space(//div[@id="mainPart"][1]/div[1])
+  - name: list_price
+    singleValue: true
+    xpath: //div[@class="pd__cost"]/div
+  - name: harvested_list_price
+    singleValue: true
+    xpath:
+  - name: online_price
+    singleValue: true
+    xpath: //div[@class="pd__cost"]/div
+  - name: online_price_currency
+    singleValue: true
+    defaultValue: £
+  - name: harvested_price
+    singleValue: true
+    xpath:
+  - name: availability
+    singleValue: true
+    xpath: /html/head//script[@type = "application/ld+json"]/text()
+    regExp: (.*)(\"availability\":\s\"https:\/\/schema.org\/)(.*)(\")(.*)
+    regExpReplace: $3
+  - name: additional_description
+    singleValue: true
+    xpath:
+  - name: additional_desc_bullet_count
+    singleValue: true
+    xpath:
+  - name: brand
+    singleValue: true
+    xpath: //div[@class="pd__label"]
+  - name: manufacturer_name
+    singleValue: true
+    xpath: normalize-space(//div[@id="mainPart"][2]/div[1]//p)
+  - name: size
+    singleValue: true
+    xpath:
+  - name: net_weight
+    singleValue: true
+    xpath: //h1[@data-test-id="pd-product-title"]
+    regExp: (\d+)(\w\w?)
+  - name: gross_weight
+    singleValue: true
+    xpath: //h1[@data-test-id="pd-product-title"]
+    regExp: (\d+)(\w\w?)
+  - name: upc
+    singleValue: true
+    xpath:
+  - name: ean_gtin
+    singleValue: true
+    xpath:
+  - name: sku_number
+    singleValue: true
+    xpath: //span[@id="productSKU"]
+  - name: retailer_product_code
+    singleValue: true
+    xpath: //span[@id="productSKU"]
+  - name: mpc
+    singleValue: true
+    xpath: //span[@id="productSKU"]
+  - name: rpc_sku_hybrid
+    singleValue: true
+    xpath:
+  - name: pack_size
+    singleValue: true
+    xpath:
+  - name: legal_disclaimer
+    singleValue: true
+    xpath:
+  - name: directions_information
+    singleValue: true
+    xpath:
+  - name: warnings
+    singleValue: true
+    xpath:
+  - name: number_of_customer_reviews
+    singleValue: false
+    xpath: //span[@data-test-id="review-count"]
+    regExp: \d+
