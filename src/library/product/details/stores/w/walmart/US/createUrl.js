@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'walmart.com',
-    prefix: null,
+    prefix: 'ip',
     country: 'US',
     store: 'walmart',
   },

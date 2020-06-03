@@ -25,7 +25,7 @@ fields:
   regExpReplace: $2
 - name: listPrice
   singleValue: true
-  xpath: //span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')]
+  xpath: //section[contains(@class,'prod-PriceSection')]//span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')]
 - name: price
   singleValue: true
   xpath: //span[@itemprop="highPrice"]/@content|//*[@id="price"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
@@ -157,3 +157,32 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   xpath: //div[contains(@class,'about-desc')]//ul/li
+- name: ageSuitability
+  singleValue: false
+  xpath: //td[contains(text(),'Age Range')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
+- name: energyEfficiency
+  singleValue: false  
+- name: technicalInformationPdfPresent
+  singleValue: false  
+  defaultValue: No
+- name: termsAndConditions
+  singleValue: false  
+  defaultValue: No
+- name: privacyPolicy
+  singleValue: false
+  defaultValue: No
+- name: customerServiceAvailability
+  singleValue: false 
+  defaultValue: No
+- name: materials
+  singleValue: false
+  xpath: //td[contains(text(),'Material')]/following-sibling::td[@class='s-padding-ends s-padding-sides']|//td[contains(text(),'Fabric Content')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
+- name: 360ImagePresent
+  singleValue: false
+  defaultValue: No
+- name: imageZoomFeaturePresent
+  singleValue: false
+  xpath: //div[contains(@class,'hover-zoom-hero-image-container')]
+  regExp: (.*)
+  regExpReplace: Yes
+  defaultValue: No
