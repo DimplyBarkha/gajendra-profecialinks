@@ -80,9 +80,15 @@ export interface IGoToOptions extends IWaitOptions {
     method?: 'GET' | 'POST';
     referer?: string;
     checkBlocked?: boolean;
+    captureRequests?: boolean;
 }
 export declare type ScreenshotType = 'jpeg' | 'png' | 'pdf';
 export interface IContext {
+    /**
+     * Function that starts capturing Network Requests happening in the background while the browser is loading the page.
+     * This function is required to be called if you want to use searchForRequest function.
+     */
+    captureRequests(): Promise<void>;
     /**
      * This method fetches an element with selector, scrolls it into view if needed, and then uses page.mouse to click in the center of the element. If there's no element matching selector, the method throws an error.
      *
@@ -134,6 +140,13 @@ export interface IContext {
      */
     goto(url: string, options?: IGoToOptions): Promise<IResponse>;
     /**
+     * Report if the extractor got blocked on the target site.
+     * When the target site starts blocking connections, or throwing captchas, and there is no way to bypass it, extractor should report that it got blocked.
+     * That way the system will know that the proxy used in this connection should be taken out of rotation for the particular domain,
+     * and that this extractor should get a new proxy information on the next attempt.
+     */
+    reportBlocked(code: number, details?: string): Promise<any>;
+    /**
      * Hover over an element
      */
     /**
@@ -145,6 +158,10 @@ export interface IContext {
         type?: ScreenshotType;
         fullPage?: boolean;
     }): Promise<void>;
+    /**
+     * Searches for a Network Request that was performed on the website, and allows gathering details of that request. Requires captureRequests to be called or used during goto
+     */
+    searchForRequest(urlPattern: string, method: string, pastTimestamp: number, timeout: number): Promise<any>;
     /**
      * Set `select` element values
      */
