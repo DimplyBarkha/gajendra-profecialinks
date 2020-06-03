@@ -1,0 +1,86 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: product_image
+    singleValue: false
+    xpath: //img[@itemprop="image"]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: image_alt_text
+    singleValue: true
+    xpath: //img[@itemprop="image"]/@alt
+  - name: secondary_image
+    singleValue: true
+    xpath: //ul[@class="alternate-images"]/li[2]//img/@data-zoom-src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: url
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+  - name: category
+    singleValue: true
+    xpath: //ul[@id="breadcrumbs"]/li[1]//span[@itemprop="title"]
+  - name: sub_category
+    singleValue: false
+    xpath: //ul[@id="breadcrumbs"]/li[position()>1]//span[@itemprop="title"]
+  - name: product_description
+    singleValue: true
+    xpath: //div[@class="description-container"]
+  - name: online_price
+    singleValue: true
+    xpath: //div[@id='pd_price']
+  - name: online_price_currency
+    singleValue: true
+    xpath: //div[@id='pd_price_currency']
+  - name: harvested_list_price
+    singleValue: true
+    xpath: //div[@id='pd_harvested_list_price']
+  - name: availability
+    singleValue: true
+    xpath: //meta[@itemprop="availability"]/@content
+    regExp: http:\/\/schema.org\/([^"]+)
+    regExpReplace: $1
+  - name: brand
+    singleValue: true
+    xpath: //div[@id='pd_brand']
+  - name: upc
+    singleValue: true
+    xpath: //meta[@itemprop="identifier"]/@content
+    regExp: (\d+)
+  - name: ean_gtin
+    singleValue: true
+    xpath: //span[@id="ean-ref"]
+  - name: sku_number
+    singleValue: true
+    xpath: //span[@id="sku-ref"]
+  - name: number_of_customer_reviews
+    singleValue: true
+    xpath: //meta[@itemprop="reviewCount"]/@content
+    defaultValue: 0
+  - name: customer_review_rating
+    singleValue: true
+    xpath: //button[@itemprop="ratingValue"]
+    defaultValue: 0
+  - name: shipping_details
+    singleValue: true
+    xpath: //div[@id="shipping_and_returns"]//table
+  - name: colour
+    singleValue: true
+    xpath: //p[contains(@class,'variant-title')][contains(text(), "Color")]/../div/p
+  - name: mpc
+    singleValue: true
+    xpath: //p[contains(@class,'variant-title')][contains(text(), "Modelo")]/../div/p
+  - name: product_id
+    singleValue: true
+    xpath: //div[@id='pd_id']
+  - name: specifications
+    singleValue: true
+    xpath: //div[contains(@class,"product-features")]
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,"product-promotion")]
+  - name: video
+    singleValue: true
+    xpath: //video/source/@src
