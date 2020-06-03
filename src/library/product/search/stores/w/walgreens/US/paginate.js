@@ -8,6 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: 'div.wag-search-loading-icon',
     loadedSelector: '//div[contains(@class, "wag-coupon-productcard")]',
+    noResultsXPath: '//h1[@id="zero-result-alert"]',
     openSearchDefinition: null,
     domain: 'walgreens.com',
   },
