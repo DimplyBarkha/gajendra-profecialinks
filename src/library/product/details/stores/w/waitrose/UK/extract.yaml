@@ -41,7 +41,7 @@ fields:
     singleValue: true
   - name: additional_description
     singleValue: true
-    xpath: //section[@id="productDescription"]
+    xpath: concat(//section[@id="productDescription"], " ", //section[@id="marketingDescriptionBop"])
   - name: ingredients_list
     singleValue: true
     xpath: //div[@class="ingredientsText___Ztpzh"]
@@ -54,6 +54,7 @@ fields:
     singleValue: true
   - name: size
     singleValue: true
+    xpath: //span[@class="size___2HSwr sizeMessage___3o5Ri"]
   - name: net_weight
     singleValue: true
   - name: gross_weight
@@ -64,12 +65,15 @@ fields:
     singleValue: true
   - name: hidden_upc
     singleValue: true
-  - name: sku_number
-    singleValue: true
+  # - name: sku_number
+  #   xpath: //script[contains(text(),"lineNumber")]
+  #   regExp: lineNumber":"([^"]+)
+  #   regExpReplace: $1
   - name: retailer_product_code
     singleValue: true
   - name: directions_information
     singleValue: true
+    xpath: //section[@id="preparationAndUsage"]/p
   - name: warnings
     singleValue: true
     xpath: //div[@id="sectproductDetails"]//h3[contains(.,"Warning")]/../ul
@@ -157,7 +161,9 @@ fields:
   - name: harvested_price
     singleValue: true
   - name: scrape_code
-    singleValue: true
+    xpath: //script[contains(text(),"lineNumber")]
+    regExp: lineNumber":"([^"]+)
+    regExpReplace: $1 
   - name: promotion
     singleValue: true
   - name: harvested_review_rating
@@ -267,10 +273,6 @@ fields:
     singleValue: true
   - name: additional_desc_bullet_info
     singleValue: true
-  - name: magnesium_per_serving
-    singleValue: true
-  - name: magnesium_per_serving_uom
-    singleValue: true
   - name: amazon_choice
     singleValue: true
   - name: amazon_choice_text
@@ -360,6 +362,34 @@ fields:
     singleValue: true
     xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Salt")]/../td[1]
     regExp: ([^\d]+$) 
+  - name: iron_per_serving
+    singleValue: true
+    xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Iron")]/../td[1]
+  - name: iron_per_serving_uom
+    singleValue: true
+    xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Iron")]/../td[1]
+    regExp: ([^\d]+$)  
+  - name: magnesium_per_serving
+    singleValue: true
+    xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Magnesium")]/../td[1]
+  - name: magnesium_per_serving_uom
+    singleValue: true
+    xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Magnesium")]/../td[1]
+    regExp: ([^\d]+$)  
+  - name: protein_per_serving
+    singleValue: true
+    xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Protein")]/../td[1]
+  - name: protein_per_serving_uom
+    singleValue: true
+    xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Protein")]/../td[1]
+    regExp: ([^\d]+$)  
+  - name: calcium_per_serving
+    singleValue: true
+    xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Calcium")]/../td[1]
+  - name: calcium_per_serving_uom
+    singleValue: true
+    xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Calcium")]/../td[1]
+    regExp: ([^\d]+$)                   
   - name: category_ranking
     singleValue: true    
     xpath: //ul[@class="crumbs___SEVo6"]
@@ -369,6 +399,10 @@ fields:
   - name: price_per_unit_currency
     singleValue: true
     defaultValue: £
+  - name: sku_number
+    xpath: //script[contains(text(),"lineNumber")]
+    regExp: lineNumber":"([^"]+)
+    regExpReplace: $1     
 
     
     
