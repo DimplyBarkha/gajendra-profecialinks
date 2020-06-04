@@ -6,9 +6,9 @@ module.exports = {
     store: 'booker',
     country: 'UK',
   },
-  dependencies: {
-    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
-  },
+  // dependencies: {
+  //   productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+  // },
   implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
     console.log('producturl', url);
     await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
@@ -29,6 +29,6 @@ module.exports = {
     await context.waitForSelector('td.info div.info_r1 div a');
     await context.click('td.info div.info_r1 div a');
     await context.waitForSelector('div.piTopInfo img');
-    await context.extract(productDetails);
+    // await context.extract(productDetails);
   },
 };

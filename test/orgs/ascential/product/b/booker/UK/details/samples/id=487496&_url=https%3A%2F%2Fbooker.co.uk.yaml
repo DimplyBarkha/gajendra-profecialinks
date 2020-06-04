@@ -2,38 +2,31 @@ input:
   id: 487496
   _url: https://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=60b5989b-d99d-44ab-9092-34ccab23b0bf/task=97ab5fb9-9c77-4b1c-b514-fef5140fc51b/7e683e0d-0c43-4b78-b323-966dd69bae65.html
+  - html: https://workbench.import.io/html/run=09d4e5e9-a80e-49e6-9d31-df970c353b9d/task=ae709eb4-aa1b-4e4a-83c9-ba21cea43b2d/e49f9a8d-b56a-45f6-acb0-4289083abfc3.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
-          - image_alt_text:
-              - text: Marmite Yeast Extract 600g - Click for larger image
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            product_image:
-              - text: https://www.booker.co.uk/bbimages/1/b181a137-cb5d-44d5-9c82-7a06c3d55e21.jpg
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            products_per_page:
-              - text: "1"
-            scrape_code:
-              - text: "487496"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            size:
-              - text: 6 x 600g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
-            sub_category:
-              - text: Booker Home
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[1]
-        xpath: /html
-      - group:
-          - allergy_advice:
+          - additional_description:
+              - text: Rich in B vitamins. Suitable for vegetarians.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
+            allergy_advice:
               - text: Contains Barley
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]/li[1]
             brand:
               - text: Marmite
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
+            brand_url:
+              - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=2488&searchTerm=By+Brand%3a+Marmite
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]/a[1]/@href
             harvested_product_description:
               - text: Rich in B vitamins. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
+            image:
+              - text: https://www.booker.co.uk/bbimages/1/b181a137-cb5d-44d5-9c82-7a06c3d55e21.jpg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Marmite Yeast Extract 600g - Click for larger image
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             ingredients_list:
               - text: >-
                   Yeast Extract (contains Barley, Wheat, Oats, Rye),
@@ -46,143 +39,65 @@ extractions:
 
                   Natural Flavouring (contains Celery)
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/ul[1]
-            legal_disclaimer:
+            legalDisclaimer:
               - text: The image and summary details have been prepared for illustration and
                   information purposes only. On occasion the actual product may
                   differ from that shown.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]
             manufacturer_name:
-              - text: Unilever Food Solutions, Unilever UK, Freepost ADM 3940, London, SW1A 1YR,
-                  UK. Unilever Food Solutions, Unilever Ireland, 20 Riverwalk,
-                  Citywest Business Campus, Dublin 24.
+              - text: Unilever Food Solutions
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
+            metaKeywords:
+              - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
+                  Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
+                  House Vintners, Chef's Larder, Drop Shipment
+                xpath: /html/head[1]/meta[1]/@content
             packaging:
               - text: Type Tub
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[9]/ul[1]/li[1]
             product_description:
-              - text: Rich in B vitamins. Suitable for vegetarians.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
+              - text: Marmite Yeast Extract 600g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             products_per_page:
               - text: "1"
-          - legal_disclaimer:
-              - text: Whilst we have taken every care in preparing this summary and believe it
-                  to be accurate, it is not a substitute for reading the product
-                  packaging or label prior to use. You should note that products
-                  and their ingredients are subject to change. If you do require
-                  precise ingredient information you should consult the
-                  manufacturer, whose contact details will appear on the
-                  packaging or label.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[11]
-            products_per_page:
-              - text: "1"
-          - legal_disclaimer:
-              - text: Booker is therefore unable to accept liability for any incorrect
-                  information. Where this description contains a link to another
-                  party's website for further information on the product, please
-                  note that Booker has no control over and no liability for the
-                  contents of that website.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[12]
-            products_per_page:
-              - text: "1"
-          - legal_disclaimer:
-              - text: This data is supplied for personal use only. It may not be reproduced in
-                  any way whatsoever without Booker's prior consent, nor without
-                  due acknowledgement.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[13]
-            products_per_page:
-              - text: "1"
-        xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]
-        htmlExtraction: https://crawl-assets.import.io/html/run=60b5989b-d99d-44ab-9092-34ccab23b0bf/task=97ab5fb9-9c77-4b1c-b514-fef5140fc51b/7e683e0d-0c43-4b78-b323-966dd69bae65.html
-    timestamp: 1591281889701
-  - html: https://workbench.import.io/html/run=60b5989b-d99d-44ab-9092-34ccab23b0bf/task=97ab5fb9-9c77-4b1c-b514-fef5140fc51b/da9322f9-120f-4fd8-ae33-d52f540324ac.html
-    extractionConfigId: product/details/stores/b/booker/UK/extract
-    data:
-      - group:
-          - image_alt_text:
-              - text: Marmite Yeast Extract 600g - Click for larger image
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            product_image:
-              - text: https://www.booker.co.uk/bbimages/1/b181a137-cb5d-44d5-9c82-7a06c3d55e21.jpg
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            products_per_page:
-              - text: "1"
+            protein_per_serving:
+              - text: "34.0"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+            protein_per_serving_uom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+            retailer_product_code:
+              - text: "487496"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            salt_per_serving:
+              - text: "10.8"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
+            salt_per_serving_uom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
             scrape_code:
               - text: "487496"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            serving_size:
+              - text: " 100g as sold"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             size:
               - text: 6 x 600g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
             sub_category:
-              - text: Booker Home
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[1]
-        xpath: /html
-      - group:
-          - allergy_advice:
+              - text: Browse Categories
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
+            total_fat_per_serving:
+              - text: <0.5
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            total_fat_per_serving_uom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            url:
+              - text: https://www.booker.co.uk/productinformation.aspx?code=487496&settype=03&categoryName=305266&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3d487496%26view%3dUnGrouped
+                xpath: /html/body/form[1]/@action
+            warnings:
               - text: Contains Barley
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]/li[1]
-            brand:
-              - text: Marmite
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
-            harvested_product_description:
-              - text: Rich in B vitamins. Suitable for vegetarians.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
-            ingredients_list:
-              - text: >-
-                  Yeast Extract (contains Barley, Wheat, Oats, Rye),
-
-                  Salt,
-
-                  Vegetable Juice Concentrate,
-
-                  Vitamins (Thiamin, Riboflavin, Niacin, Vitamin B12 and Folic Acid),
-
-                  Natural Flavouring (contains Celery)
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/ul[1]
-            legal_disclaimer:
-              - text: The image and summary details have been prepared for illustration and
-                  information purposes only. On occasion the actual product may
-                  differ from that shown.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]
-            manufacturer_name:
-              - text: Unilever Food Solutions, Unilever UK, Freepost ADM 3940, London, SW1A 1YR,
-                  UK. Unilever Food Solutions, Unilever Ireland, 20 Riverwalk,
-                  Citywest Business Campus, Dublin 24.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
-            packaging:
-              - text: Type Tub
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[9]/ul[1]/li[1]
-            product_description:
-              - text: Rich in B vitamins. Suitable for vegetarians.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
-            products_per_page:
-              - text: "1"
-          - legal_disclaimer:
-              - text: Whilst we have taken every care in preparing this summary and believe it
-                  to be accurate, it is not a substitute for reading the product
-                  packaging or label prior to use. You should note that products
-                  and their ingredients are subject to change. If you do require
-                  precise ingredient information you should consult the
-                  manufacturer, whose contact details will appear on the
-                  packaging or label.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[11]
-            products_per_page:
-              - text: "1"
-          - legal_disclaimer:
-              - text: Booker is therefore unable to accept liability for any incorrect
-                  information. Where this description contains a link to another
-                  party's website for further information on the product, please
-                  note that Booker has no control over and no liability for the
-                  contents of that website.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[12]
-            products_per_page:
-              - text: "1"
-          - legal_disclaimer:
-              - text: This data is supplied for personal use only. It may not be reproduced in
-                  any way whatsoever without Booker's prior consent, nor without
-                  due acknowledgement.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[13]
-            products_per_page:
-              - text: "1"
-        xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]
-        htmlExtraction: https://crawl-assets.import.io/html/run=60b5989b-d99d-44ab-9092-34ccab23b0bf/task=97ab5fb9-9c77-4b1c-b514-fef5140fc51b/da9322f9-120f-4fd8-ae33-d52f540324ac.html
-    timestamp: 1591281889701
+        xpath: /
+    timestamp: 1591301053452
