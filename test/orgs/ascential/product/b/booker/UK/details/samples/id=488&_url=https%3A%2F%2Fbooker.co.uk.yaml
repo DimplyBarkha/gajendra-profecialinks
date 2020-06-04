@@ -1,0 +1,350 @@
+input:
+  id: 488
+  _url: https://booker.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=60b5989b-d99d-44ab-9092-34ccab23b0bf/task=7bed4769-9ea4-4a0a-84eb-2c14f5557280/4896f8d1-1620-480d-af15-2c0a34389273.html
+    extractionConfigId: product/details/stores/b/booker/UK/extract
+    data:
+      - group:
+          - category:
+              - text: Chocolate
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[3]
+            image_alt_text:
+              - text: Smarties Milk Chocolate Sweets Tube 38g - Click for larger image
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            product_image:
+              - text: https://www.booker.co.uk/bbimages/1/a7018dea-cbf7-41e6-adad-a0d20cf41bf9.jpg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            products_per_page:
+              - text: "0"
+            scrape_code:
+              - text: "488"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            size:
+              - text: 48 x 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
+            sub_category:
+              - text: Booker Home
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[1]
+        xpath: /html
+      - group:
+          - allergy_advice:
+              - text: Contains Milk
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]/li[1]
+            brand:
+              - text: Smarties
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
+            harvested_product_description:
+              - text: Release the fun of Nestlé® Smarties® Milk Chocolate Sweets. Smooth milk
+                  chocolate sweets covered in colourful crisp sugar shells -
+                  which colour are you?. A deliciously fun and colourful treat
+                  in a convenient resealable Smarties® tube. Includes orange
+                  Smarties®, made using natural orange oil. Coloured using food
+                  & plant extracts - no artificial flavours, colours or
+                  preservatives. Quality, 100% certified sustainable cocoa beans
+                  selected through the Nestlé® Cocoa Plan®. Bring some Smarties®
+                  fun into your life! Yummy smooth milk chocolate sweets covered
+                  in colourful crisp sugar shells. Nestlé® Smarties® Hexatube
+                  contains red, yellow, green, blue, violet, pink, brown and
+                  orange Smarties® - what's your favourite? This convenient
+                  resealable Smarties® tube offers the ideal no mess treat when
+                  you're out and about. Release the colourful fun of Smarties®.
+                  Deliciously smooth milk chocolate has been at the heart of
+                  Smarties® for more than 80 years and, in 2005, Smarties® were
+                  the first UK major confectionery brand to move to no
+                  artificial colours - more reasons to enjoy Smarties®. We
+                  select only quality, 100% certified sustainable cocoa beans
+                  through the Nestlé® Cocoa Plan ®, which aims to improve the
+                  lives of cocoa farming communities and the quality of their
+                  products. Enjoy Smarties® as part of a varied, balanced diet
+                  and a healthy lifestyle. Each 38g tube contains two portions
+                  (16 sweets per portion), so why not share with a friend or
+                  save some for later. Have you tried our Smarties® Cartons and
+                  Sharing Bags, filled with everyone's favourite colour
+                  Smarties®, perfect for family film nights or sharing with
+                  friends. And, if you love Smarties® chocolate, then get ready
+                  to experience chocolate heaven with Smarties® Sharing Block -
+                  yummy smooth milk chocolate Smarties® covered in more yummy
+                  milk chocolate! www.smarties.co.uk
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
+            ingredients_list:
+              - text: >-
+                  Sugar,
+
+                  Cocoa Butter,
+
+                  Skimmed Milk Powder,
+
+                  Cocoa Mass,
+
+                  Wheat Flour,
+
+                  Lactose and Proteins from Whey (from Milk),
+
+                  Butterfat (from Milk),
+
+                  Rice Starch,
+
+                  Emulsifier (Sunflower Lecithin),
+
+                  Fruit and Vegetable Concentrates (Safflower, Radish, Black Carrot, Lemon, Hibiscus),
+
+                  Spirulina Concentrate,
+
+                  Orange Extract,
+
+                  Glazing Agents (Carnauba Wax, Beeswax),
+
+                  Natural Vanilla Flavouring,
+
+                  Invert Sugar Syrup
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/ul[1]
+            legal_disclaimer:
+              - text: The image and summary details have been prepared for illustration and
+                  information purposes only. On occasion the actual product may
+                  differ from that shown.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[9]
+            manufacturer_name:
+              - text: PO Box 203, York, YO91 1XY, UK.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/p[1]
+            packaging:
+              - text: Type Box
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/ul[1]/li[1]
+            product_description:
+              - text: Release the fun of Nestlé® Smarties® Milk Chocolate Sweets. Smooth milk
+                  chocolate sweets covered in colourful crisp sugar shells -
+                  which colour are you?. A deliciously fun and colourful treat
+                  in a convenient resealable Smarties® tube. Includes orange
+                  Smarties®, made using natural orange oil. Coloured using food
+                  & plant extracts - no artificial flavours, colours or
+                  preservatives. Quality, 100% certified sustainable cocoa beans
+                  selected through the Nestlé® Cocoa Plan®. Bring some Smarties®
+                  fun into your life! Yummy smooth milk chocolate sweets covered
+                  in colourful crisp sugar shells. Nestlé® Smarties® Hexatube
+                  contains red, yellow, green, blue, violet, pink, brown and
+                  orange Smarties® - what's your favourite? This convenient
+                  resealable Smarties® tube offers the ideal no mess treat when
+                  you're out and about. Release the colourful fun of Smarties®.
+                  Deliciously smooth milk chocolate has been at the heart of
+                  Smarties® for more than 80 years and, in 2005, Smarties® were
+                  the first UK major confectionery brand to move to no
+                  artificial colours - more reasons to enjoy Smarties®. We
+                  select only quality, 100% certified sustainable cocoa beans
+                  through the Nestlé® Cocoa Plan ®, which aims to improve the
+                  lives of cocoa farming communities and the quality of their
+                  products. Enjoy Smarties® as part of a varied, balanced diet
+                  and a healthy lifestyle. Each 38g tube contains two portions
+                  (16 sweets per portion), so why not share with a friend or
+                  save some for later. Have you tried our Smarties® Cartons and
+                  Sharing Bags, filled with everyone's favourite colour
+                  Smarties®, perfect for family film nights or sharing with
+                  friends. And, if you love Smarties® chocolate, then get ready
+                  to experience chocolate heaven with Smarties® Sharing Block -
+                  yummy smooth milk chocolate Smarties® covered in more yummy
+                  milk chocolate! www.smarties.co.uk
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
+            products_per_page:
+              - text: "0"
+          - legal_disclaimer:
+              - text: Whilst we have taken every care in preparing this summary and believe it
+                  to be accurate, it is not a substitute for reading the product
+                  packaging or label prior to use. You should note that products
+                  and their ingredients are subject to change. If you do require
+                  precise ingredient information you should consult the
+                  manufacturer, whose contact details will appear on the
+                  packaging or label.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]
+            products_per_page:
+              - text: "0"
+          - legal_disclaimer:
+              - text: Booker is therefore unable to accept liability for any incorrect
+                  information. Where this description contains a link to another
+                  party's website for further information on the product, please
+                  note that Booker has no control over and no liability for the
+                  contents of that website.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[11]
+            products_per_page:
+              - text: "0"
+          - legal_disclaimer:
+              - text: This data is supplied for personal use only. It may not be reproduced in
+                  any way whatsoever without Booker's prior consent, nor without
+                  due acknowledgement.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[12]
+            products_per_page:
+              - text: "0"
+        xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]
+        htmlExtraction: https://crawl-assets.import.io/html/run=60b5989b-d99d-44ab-9092-34ccab23b0bf/task=7bed4769-9ea4-4a0a-84eb-2c14f5557280/4896f8d1-1620-480d-af15-2c0a34389273.html
+    timestamp: 1591281892950
+  - html: https://workbench.import.io/html/run=60b5989b-d99d-44ab-9092-34ccab23b0bf/task=7bed4769-9ea4-4a0a-84eb-2c14f5557280/5111e510-db59-4426-9ba8-0ec34f18fe59.html
+    extractionConfigId: product/details/stores/b/booker/UK/extract
+    data:
+      - group:
+          - category:
+              - text: Chocolate
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[3]
+            image_alt_text:
+              - text: Smarties Milk Chocolate Sweets Tube 38g - Click for larger image
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            product_image:
+              - text: https://www.booker.co.uk/bbimages/1/a7018dea-cbf7-41e6-adad-a0d20cf41bf9.jpg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            products_per_page:
+              - text: "0"
+            scrape_code:
+              - text: "488"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            size:
+              - text: 48 x 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
+            sub_category:
+              - text: Booker Home
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[1]
+        xpath: /html
+      - group:
+          - allergy_advice:
+              - text: Contains Milk
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]/li[1]
+            brand:
+              - text: Smarties
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
+            harvested_product_description:
+              - text: Release the fun of Nestlé® Smarties® Milk Chocolate Sweets. Smooth milk
+                  chocolate sweets covered in colourful crisp sugar shells -
+                  which colour are you?. A deliciously fun and colourful treat
+                  in a convenient resealable Smarties® tube. Includes orange
+                  Smarties®, made using natural orange oil. Coloured using food
+                  & plant extracts - no artificial flavours, colours or
+                  preservatives. Quality, 100% certified sustainable cocoa beans
+                  selected through the Nestlé® Cocoa Plan®. Bring some Smarties®
+                  fun into your life! Yummy smooth milk chocolate sweets covered
+                  in colourful crisp sugar shells. Nestlé® Smarties® Hexatube
+                  contains red, yellow, green, blue, violet, pink, brown and
+                  orange Smarties® - what's your favourite? This convenient
+                  resealable Smarties® tube offers the ideal no mess treat when
+                  you're out and about. Release the colourful fun of Smarties®.
+                  Deliciously smooth milk chocolate has been at the heart of
+                  Smarties® for more than 80 years and, in 2005, Smarties® were
+                  the first UK major confectionery brand to move to no
+                  artificial colours - more reasons to enjoy Smarties®. We
+                  select only quality, 100% certified sustainable cocoa beans
+                  through the Nestlé® Cocoa Plan ®, which aims to improve the
+                  lives of cocoa farming communities and the quality of their
+                  products. Enjoy Smarties® as part of a varied, balanced diet
+                  and a healthy lifestyle. Each 38g tube contains two portions
+                  (16 sweets per portion), so why not share with a friend or
+                  save some for later. Have you tried our Smarties® Cartons and
+                  Sharing Bags, filled with everyone's favourite colour
+                  Smarties®, perfect for family film nights or sharing with
+                  friends. And, if you love Smarties® chocolate, then get ready
+                  to experience chocolate heaven with Smarties® Sharing Block -
+                  yummy smooth milk chocolate Smarties® covered in more yummy
+                  milk chocolate! www.smarties.co.uk
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
+            ingredients_list:
+              - text: >-
+                  Sugar,
+
+                  Cocoa Butter,
+
+                  Skimmed Milk Powder,
+
+                  Cocoa Mass,
+
+                  Wheat Flour,
+
+                  Lactose and Proteins from Whey (from Milk),
+
+                  Butterfat (from Milk),
+
+                  Rice Starch,
+
+                  Emulsifier (Sunflower Lecithin),
+
+                  Fruit and Vegetable Concentrates (Safflower, Radish, Black Carrot, Lemon, Hibiscus),
+
+                  Spirulina Concentrate,
+
+                  Orange Extract,
+
+                  Glazing Agents (Carnauba Wax, Beeswax),
+
+                  Natural Vanilla Flavouring,
+
+                  Invert Sugar Syrup
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/ul[1]
+            legal_disclaimer:
+              - text: The image and summary details have been prepared for illustration and
+                  information purposes only. On occasion the actual product may
+                  differ from that shown.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[9]
+            manufacturer_name:
+              - text: PO Box 203, York, YO91 1XY, UK.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/p[1]
+            packaging:
+              - text: Type Box
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/ul[1]/li[1]
+            product_description:
+              - text: Release the fun of Nestlé® Smarties® Milk Chocolate Sweets. Smooth milk
+                  chocolate sweets covered in colourful crisp sugar shells -
+                  which colour are you?. A deliciously fun and colourful treat
+                  in a convenient resealable Smarties® tube. Includes orange
+                  Smarties®, made using natural orange oil. Coloured using food
+                  & plant extracts - no artificial flavours, colours or
+                  preservatives. Quality, 100% certified sustainable cocoa beans
+                  selected through the Nestlé® Cocoa Plan®. Bring some Smarties®
+                  fun into your life! Yummy smooth milk chocolate sweets covered
+                  in colourful crisp sugar shells. Nestlé® Smarties® Hexatube
+                  contains red, yellow, green, blue, violet, pink, brown and
+                  orange Smarties® - what's your favourite? This convenient
+                  resealable Smarties® tube offers the ideal no mess treat when
+                  you're out and about. Release the colourful fun of Smarties®.
+                  Deliciously smooth milk chocolate has been at the heart of
+                  Smarties® for more than 80 years and, in 2005, Smarties® were
+                  the first UK major confectionery brand to move to no
+                  artificial colours - more reasons to enjoy Smarties®. We
+                  select only quality, 100% certified sustainable cocoa beans
+                  through the Nestlé® Cocoa Plan ®, which aims to improve the
+                  lives of cocoa farming communities and the quality of their
+                  products. Enjoy Smarties® as part of a varied, balanced diet
+                  and a healthy lifestyle. Each 38g tube contains two portions
+                  (16 sweets per portion), so why not share with a friend or
+                  save some for later. Have you tried our Smarties® Cartons and
+                  Sharing Bags, filled with everyone's favourite colour
+                  Smarties®, perfect for family film nights or sharing with
+                  friends. And, if you love Smarties® chocolate, then get ready
+                  to experience chocolate heaven with Smarties® Sharing Block -
+                  yummy smooth milk chocolate Smarties® covered in more yummy
+                  milk chocolate! www.smarties.co.uk
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
+            products_per_page:
+              - text: "0"
+          - legal_disclaimer:
+              - text: Whilst we have taken every care in preparing this summary and believe it
+                  to be accurate, it is not a substitute for reading the product
+                  packaging or label prior to use. You should note that products
+                  and their ingredients are subject to change. If you do require
+                  precise ingredient information you should consult the
+                  manufacturer, whose contact details will appear on the
+                  packaging or label.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]
+            products_per_page:
+              - text: "0"
+          - legal_disclaimer:
+              - text: Booker is therefore unable to accept liability for any incorrect
+                  information. Where this description contains a link to another
+                  party's website for further information on the product, please
+                  note that Booker has no control over and no liability for the
+                  contents of that website.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[11]
+            products_per_page:
+              - text: "0"
+          - legal_disclaimer:
+              - text: This data is supplied for personal use only. It may not be reproduced in
+                  any way whatsoever without Booker's prior consent, nor without
+                  due acknowledgement.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[12]
+            products_per_page:
+              - text: "0"
+        xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]
+        htmlExtraction: https://crawl-assets.import.io/html/run=60b5989b-d99d-44ab-9092-34ccab23b0bf/task=7bed4769-9ea4-4a0a-84eb-2c14f5557280/5111e510-db59-4426-9ba8-0ec34f18fe59.html
+    timestamp: 1591281892950
