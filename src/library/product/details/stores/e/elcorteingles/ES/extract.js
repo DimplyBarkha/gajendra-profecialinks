@@ -7,6 +7,7 @@ module.exports = {
     transform: null,
     domain: 'elcorteingles.es',
   },
+  // @ts-ignore
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
@@ -17,9 +18,10 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function findJsonObj (scriptSelector, startString, endString) {
+      function findJsonData (scriptSelector, startString, endString) {
         const xpath = `//script[contains(.,'${scriptSelector}')]`;
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        // @ts-ignore
         const scriptContent = element.innerText;
         const startIdx = scriptContent.indexOf(startString);
         const endIdx = scriptContent.indexOf(endString);
@@ -28,15 +30,45 @@ module.exports = {
         return JSON.parse(jsonStr);
       }
 
-      // elements from dataayer object
-      const dataObj = findJsonObj('dataLayer', '=', ';');
+      function findJsonObj (scriptSelector) {
+        const xpath = `//script[contains(.,'${scriptSelector}')]`;
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        // @ts-ignore
+        let jsonStr = element.innerText;
+        jsonStr = jsonStr.trim();
+        return JSON.parse(jsonStr);
+      }
+
+      const imageData = findJsonObj('image');
+      if (imageData) {
+        addElementToDocument('product_image', `https:${imageData.image}`);
+        addElementToDocument('product_description', imageData.description);
+        addElementToDocument('sku', imageData.sku);
+      }
+
+      // elements from data Layer object
+      const dataObj = findJsonData('dataLayer', '=', ';');
       if (dataObj) {
-        addElementToDocument('pd_harvested_list_price', dataObj[0].product.price.original);
-        addElementToDocument('pd_price', dataObj[0].product.price.final);
-        addElementToDocument('pd_brand', dataObj[0].product.brand);
-        addElementToDocument('pd_price_currency', dataObj[0].product.currency);
-        addElementToDocument('pd_gtin', dataObj[0].product.gtin);
-        addElementToDocument('pd_id', dataObj[0].product.id);
+        if (dataObj[0].product.status.toLowerCase() === "available") {
+          addElementToDocument('availability', "In Stock");
+        } else {
+          addElementToDocument('availability', "Out Of Stock");
+        }
+        addElementToDocument('brand', dataObj[0].product.brand);
+        if (dataObj[0].product.id) {
+          if (dataObj[0].product.id.match(/[0-9](.*)___/)) {
+            let retailer_product_code = dataObj[0].product.id.match(/[0-9](.*)___/)[1];
+            addElementToDocument('retailer_product_code', retailer_product_code);
+          }
+        }
+
+      }
+
+      // @ts-ignore
+      const breadcrumb = [...document.querySelectorAll("li.breadcrumbs-item")]
+      if(breadcrumb) {
+        const subCategory = breadcrumb.map(i => i.innerText ).join('>');
+        addElementToDocument('sub_category', subCategory);
       }
     });
     await context.extract(productDetails);

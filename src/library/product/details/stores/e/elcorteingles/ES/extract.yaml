@@ -3,84 +3,149 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: product_image
+  - name: image
     singleValue: false
-    xpath: //img[@itemprop="image"]/@src
-    regExp: (.+)
-    regExpReplace: https:$1
-  - name: image_alt_text
+    xpath: //div[@id='product_image']
+  - name: imageAlt
     singleValue: true
-    xpath: //img[@itemprop="image"]/@alt
-  - name: secondary_image
-    singleValue: true
-    xpath: //ul[@class="alternate-images"]/li[2]//img/@data-zoom-src
-    regExp: (.+)
-    regExpReplace: https:$1
-  - name: url
+    xpath: //div[contains(@class,'elements_slider-slide')]/img/@alt
+  - name: _url
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
   - name: category
-    singleValue: true
-    xpath: //ul[@id="breadcrumbs"]/li[1]//span[@itemprop="title"]
-  - name: sub_category
     singleValue: false
-    xpath: //ul[@id="breadcrumbs"]/li[position()>1]//span[@itemprop="title"]
-  - name: product_description
+    xpath: //div[@id='sub_category']
+  - name: description
     singleValue: true
-    xpath: //div[@class="description-container"]
-  - name: online_price
+    xpath: //div[contains(@class,"pdp-title")]
+  - name: price
     singleValue: true
-    xpath: //div[@id='pd_price']
-  - name: online_price_currency
+    xpath: normalize-space(//div[@class="prices pdp-prices"]/div/div[1])
+  - name: availabilityText
     singleValue: true
-    xpath: //div[@id='pd_price_currency']
-  - name: harvested_list_price
+    xpath: //div[@id='availability']
+  - name: descriptionBullets
     singleValue: true
-    xpath: //div[@id='pd_harvested_list_price']
-  - name: availability
+    xpath: //div[@class="pdp-info-container"]//div[@class="info"][1]
+  - name: nameExtended
     singleValue: true
-    xpath: //meta[@itemprop="availability"]/@content
-    regExp: http:\/\/schema.org\/([^"]+)
-    regExpReplace: $1
-  - name: brand
+    xpath: //h1[@itemprop="name"]
+  - name: brandLink
     singleValue: true
-    xpath: //div[@id='pd_brand']
-  - name: upc
+    xpath: //div[contains(@class,'pdp-title')]/a/@href
+  - name: ingredients_list
     singleValue: true
-    xpath: //meta[@itemprop="identifier"]/@content
+    xpath: //div[@class="pdp-info-container"]//div[@class="info"][2]
+  - name: brandText
+    singleValue: true
+    xpath: //div[@id="brand"]
+  - name: quantity
+    singleValue: true
+    xpath: normalize-space(//h1[@itemprop="name"])
+    regExp: (\d+)(.*)
+  - name: sku
+    singleValue: true
+    xpath: //div[@id="sku"]
+  - name: retailer_product_code
+    singleValue: true
+    xpath: //div[@id="retailer_product_code"]
+  - name: directions_information
+    singleValue: true
+    xpath: //div[@class="info"][3]//ul[@class="info-list"]/li[last()]
+  - name: serving_size
+    singleValue: true
+    xpath: //div[@class="info _nutrients"]//table//tr[1]//th[last()]
     regExp: (\d+)
-  - name: ean_gtin
+  - name: serving_size_uom
     singleValue: true
-    xpath: //span[@id="ean-ref"]
-  - name: sku_number
+    xpath: //div[@class="info _nutrients"]//table//tr[1]//th[last()]
+    regExp: ([A-Z])\w+
+  - name: calories_per_serving
     singleValue: true
-    xpath: //span[@id="sku-ref"]
-  - name: number_of_customer_reviews
-    singleValue: true
-    xpath: //meta[@itemprop="reviewCount"]/@content
-    defaultValue: 0
-  - name: customer_review_rating
-    singleValue: true
-    xpath: //button[@itemprop="ratingValue"]
-    defaultValue: 0
-  - name: shipping_details
-    singleValue: true
-    xpath: //div[@id="shipping_and_returns"]//table
-  - name: colour
-    singleValue: true
-    xpath: //p[contains(@class,'variant-title')][contains(text(), "Color")]/../div/p
-  - name: mpc
-    singleValue: true
-    xpath: //p[contains(@class,'variant-title')][contains(text(), "Modelo")]/../div/p
-  - name: product_id
-    singleValue: true
-    xpath: //div[@id='pd_id']
-  - name: specifications
-    singleValue: true
-    xpath: //div[contains(@class,"product-features")]
-  - name: promotion
+    xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])[1]
+  - name: total_fat_per_serving
     singleValue: false
-    xpath: //div[contains(@class,"product-promotion")]
-  - name: video
+    xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
+    regExp: (.+)\sg
+    regExpReplace: $1
+  - name: total_fat_per_serving_uom
     singleValue: true
-    xpath: //video/source/@src
+    xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
+    regExp: \s(.*)
+  - name: total_carb_per_serving
+    singleValue: false
+    xpath: (//td[contains(text(),'Hidratos de carbono')]/../td[2]//td[1])[1]
+    regExp: (.+)\sg
+    regExpReplace: $1
+  - name: total_carb_per_serving_uom
+    singleValue: true
+    xpath: (//td[contains(text(),'Hidratos de carbono')]/../td[2]//td[1])[1]
+    regExp: \s(.*)
+  - name: dietary_fibre_per_serving
+    singleValue: false
+    xpath: (//td[contains(text(),'Fibra alimentaria')]/../td[2]//td[1])[1]
+    regExp: (.+)\sg
+    regExpReplace: $1
+  - name: dietary_fibre_per_serving_uom
+    singleValue: true
+    xpath: (//td[contains(text(),'Fibra alimentaria')]/../td[2]//td[1])[1]
+    regExp: \s(.*)
+  - name: total_sugars_per_serving
+    singleValue: false
+    xpath: (//td[contains(text(),'Azúcares')]/../td[2]//td[1])[1]
+    regExp: (.+)\sg
+    regExpReplace: $1
+  - name: total_sugars_per_serving_uom
+    singleValue: true
+    xpath: (//td[contains(text(),'Azúcares')]/../td[2]//td[1])[1]
+    regExp: \s(.*)
+  - name: protein_per_serving
+    singleValue: false
+    xpath: (//td[contains(text(),'Proteínas')]/../td[2]//td[1])[1]
+    regExp: (.+)\sg
+    regExpReplace: $1
+  - name: protein_per_serving_uom
+    singleValue: true
+    xpath: (//td[contains(text(),'Proteínas')]/../td[2]//td[1])[1]
+    regExp: \s(.*)
+  - name: aggregateRatings
+    singleValue: true
+    xpath: //h4[@itemprop="headline"]
+    regExp: \d+
+  - name: ratingCount
+    singleValue: false
+    xpath: normalize-space(//div[@class="bv-content-pagination-pages-current"])
+    regExp: (.*)de(.*)\sOpiniones
+    regExpReplace: $2
+  - name: storage
+    singleValue: false
+    xpath: //h3[contains(text(),'Conservación y utilización')]/../ul/li[1]
+  - name: salt_per_serving
+    singleValue: false
+    xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
+    regExp: (.+)\sg
+    regExpReplace: $1
+  - name: salt_per_serving_uom
+    singleValue: false
+    xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
+    regExp: \s(.*)
+  - name: harvested_price
+    singleValue: false
+    xpath: normalize-space(//div[@class="prices pdp-prices"]/div/div[1])
+    regExp: (.*)\s
+  - name: price_per_unit
+    singleValue: false
+    xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
+    regExp: \((.*)€\s\/(.*)
+    regExpReplace: $1
+  - name: price_per_unit_uom
+    singleValue: false
+    xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
+    regExp: \(\d+\,\d+\s(.*)\)
+    regExpReplace: $1
+  - name: scrape_code
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: alcohol_content
+    singleValue: false
+    xpath: //span[contains(text(),'Porcentaje de alcohol:')]/../text()
