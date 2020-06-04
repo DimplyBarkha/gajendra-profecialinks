@@ -1,0 +1,72 @@
+input:
+  id: 103063
+  _url: https://booker.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=46c73e4b-f21c-4a07-8d70-4326571fd6cd/task=ab7131e4-60a4-47f9-a6e7-343352862649/bde74b44-29db-4e71-a369-c57f79de7705.html
+    extractionConfigId: product/details/stores/b/booker/UK/extract
+    data:
+      - group:
+          - brand:
+              - text: Farm Fresh
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/span[1]
+            category:
+              - text: Fresh Vegetables
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[10]/ul[1]/li[3]
+            image_alt_text:
+              - text: Farm Fresh Loose 40's Baking Potatoes 1kg - Click for larger image
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            legal_disclaimer:
+              - text: The image and summary details have been prepared for illustration and
+                  information purposes only. On occasion the actual product may
+                  differ from that shown.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]
+            product_image:
+              - text: https://www.booker.co.uk/bbimages/1/cb82be10-88ab-4235-856d-3ce439d1777b.jpg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            products_per_page:
+              - text: "0"
+            scrape_code:
+              - text: "103063"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            size:
+              - text: 15kg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
+            sub_category:
+              - text: Booker Home
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[1]
+        xpath: /html/body/form[1]/div[3]
+    timestamp: 1591274016619
+  - html: https://workbench.import.io/html/run=46c73e4b-f21c-4a07-8d70-4326571fd6cd/task=ab7131e4-60a4-47f9-a6e7-343352862649/4f01dce1-602a-406e-879d-59d77393c7be.html
+    extractionConfigId: product/details/stores/b/booker/UK/extract
+    data:
+      - group:
+          - brand:
+              - text: Farm Fresh
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/span[1]
+            category:
+              - text: Fresh Vegetables
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[10]/ul[1]/li[3]
+            image_alt_text:
+              - text: Farm Fresh Loose 40's Baking Potatoes 1kg - Click for larger image
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            legal_disclaimer:
+              - text: The image and summary details have been prepared for illustration and
+                  information purposes only. On occasion the actual product may
+                  differ from that shown.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]
+            product_image:
+              - text: https://www.booker.co.uk/bbimages/1/cb82be10-88ab-4235-856d-3ce439d1777b.jpg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            products_per_page:
+              - text: "0"
+            scrape_code:
+              - text: "103063"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            size:
+              - text: 15kg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
+            sub_category:
+              - text: Booker Home
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[1]
+        xpath: /html/body/form[1]/div[3]
+    timestamp: 1591274016619
