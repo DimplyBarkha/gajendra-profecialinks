@@ -3,12 +3,12 @@ regionsSelector: null
 recordSelector: div.wag-product-card-details
 recordXPath: null
 fields:
-  - name: wic
-    singleValue: true
-    xpath: //div[@class='extra-info']/@data-wic
+  - name: id
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-id
   - name: rankOrganic
     singleValue: false
-    xpath: //div[@class='extra-info']/text()
+    # xpath: //div[@class='extra-info']/text()
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 'wag-prod-title')]//a/text()
@@ -16,25 +16,21 @@ fields:
     singleValue: false
     xpath: //div[@class='extra-info']/@data-url
   - name: gtin
-    singleValue: false
-    xpath: //div[@class='extra-info']/@data-gtin
+    singleValue: true
   - name: thumbnail
     singleValue: false
     xpath: //img
-  # - name: id
-  #   singleValue: false
-    # xpath: //div[contains(@class, 'wag-product-cards')]//div[contains(@class, 'wag-prod-title')]//a/@id
-    # regExp: \s([^\s]*)$
-    # regExpReplace: $1
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='wag-prod-review-info mb15']//img/@title
+    xpath: //div[contains(@class, 'wag-prod-review-info')]//img/@title
     regExp: (\d*\.?\d+) out of 5
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class='wag-prod-review-info mb15']//span
+    xpath: //div[contains(@class, 'wag-prod-review-info')]//span
     regExp: (\d+)
+  - name: ratingCount
+    singleValue: false
   - name: price
     singleValue: false
     xpath: //span[contains(@class, 'price__contain')]//span[@class='sr-only']
@@ -45,7 +41,8 @@ fields:
   - name: soldBy
     singleValue: true
   - name: rank
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='extra-info']/text()
   - name: endorsementText
     singleValue: false
     xpath: boolean(//div[contains(@class, 'sponsored-text wag-small')])
