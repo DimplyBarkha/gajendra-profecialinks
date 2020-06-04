@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'waitrose.com',
-    prefix: null,
+    prefix: 'serach',
     country: 'UK',
     store: 'waitrose',
   },

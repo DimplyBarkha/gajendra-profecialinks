@@ -3,86 +3,72 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: product_image
+  - name: image
     singleValue: true
     xpath: //div[contains(@class,"detailsContainer___1x_EW")]/img/@src
-  - name: image_alt_text
+  - name: imageAlt
     singleValue: true
     xpath: //div[contains(@class,"detailsContainer___1x_EW")]/img/@alt
-  - name: keywords
+  - name: metaKeywords
     singleValue: true
-    xpath: //meta[@name="keywords"]/@content
-  - name: download_time
+    xpath: normalize-space(//meta[@name="keywords"]/@content)
+  - name: pageTimestamp
     singleValue: true
   - name: url
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: true
-    xpath: //ul[@class="crumbs___SEVo6"]/li[2]//a[@class="link___3bK7L"]
-  - name: sub_category
-    singleValue: true
-    xpath: //ul[@class="crumbs___SEVo6"]
-  - name: product_description
+    xpath: //ul[@class="crumbs___SEVo6"]/li
+  - name: nameExtended
     singleValue: true
     xpath: //h1[@id="productName"]
-  - name: online_price
+  - name: price
     singleValue: true
     xpath: //span[@itemprop="offers"]
-  - name: online_price_currency
-    singleValue: true
-    xpath: //meta[@itemprop="priceCurrency"]/@content
-  - name: availability
+  - name: availabilityText
     singleValue: true
     xpath: //div[@class="controlWithText___1GxrW"]/button/@data-origincomponent
-  - name: in_store_price
+  - name: inStorePrice
     singleValue: true
-  - name: in_store_price_currency
-    singleValue: true
-  - name: additional_description
+  - name: description
     singleValue: true
     xpath: concat(//section[@id="productDescription"], " ", //section[@id="marketingDescriptionBop"])
   - name: ingredients_list
     singleValue: true
     xpath: //div[@class="ingredientsText___Ztpzh"]
-  - name: brand
+  - name: brandText
     singleValue: true
     xpath: //script[contains(text(),"brand")]
     regExp: brand":"([^"]+)
     regExpReplace: $1
-  - name: manufacturer_name
+  - name: manufacturer
     singleValue: true
-  - name: size
+  - name: quantity
     singleValue: true
     xpath: //span[@class="size___2HSwr sizeMessage___3o5Ri"]
-  - name: net_weight
+  - name: weightNet
     singleValue: true
-  - name: gross_weight
+  - name: weightGross
     singleValue: true
-  - name: upc
-    singleValue: true
-  - name: asin
+  - name: gtin
     singleValue: true
   - name: hidden_upc
     singleValue: true
-  # - name: sku_number
-  #   xpath: //script[contains(text(),"lineNumber")]
-  #   regExp: lineNumber":"([^"]+)
-  #   regExpReplace: $1
-  - name: retailer_product_code
+  - name: variantId
     singleValue: true
-  - name: directions_information
+  - name: directions
     singleValue: true
     xpath: //section[@id="preparationAndUsage"]/p
   - name: warnings
     singleValue: true
     xpath: //div[@id="sectproductDetails"]//h3[contains(.,"Warning")]/../ul
-  - name: secondary_image
+  - name: alternateImages
     singleValue: true
-  - name: number_of_customer_reviews
+  - name: ratingCount
     singleValue: true
     xpath: //span[@itemprop="reviewCount"]
-  - name: customer_review_rating
+  - name: aggregateRating
     singleValue: true
     xpath: //span[@itemprop="ratingValue"]
   - name: serving_size
@@ -90,17 +76,17 @@ fields:
     xpath: //div[@class="nutrition___24-Nx"]/section/p
     regExp: (.*)(\d+)(.*)
     regExpReplace: $2    
-  - name: aplus_images
+  - name: manufacturerImages
     singleValue: true
   - name: category_ranking
     singleValue: true
   - name: shipping_details
     singleValue: true
-  - name: shipping_dimensions
+  - name: shippingDimensions
     singleValue: true
   - name: specifications
     singleValue: true
-  - name: shipping_weight
+  - name: shippingWeight
     singleValue: true
   - name: warranty
     singleValue: true
@@ -138,19 +124,19 @@ fields:
     singleValue: true
   - name: drive
     singleValue: true
-  - name: enhanced_content
+  - name: manufacturerDescription
     singleValue: true
   - name: retailer_category
     singleValue: true
   - name: retailer_subcategory
     singleValue: true
-  - name: additional_desc_bullet_count
+  - name: descriptionBullets
     singleValue: true
   - name: video
     singleValue: true
   - name: coupons
     singleValue: true
-  - name: products_per_page
+  - name: variantCount
     singleValue: true
   - name: retailer_id
     singleValue: true
@@ -158,28 +144,26 @@ fields:
     singleValue: true
   - name: syndicated_data
     singleValue: true
-  - name: harvested_price
-    singleValue: true
-  - name: scrape_code
+  - name: input
     xpath: //script[contains(text(),"lineNumber")]
     regExp: lineNumber":"([^"]+)
     regExpReplace: $1 
   - name: promotion
     singleValue: true
-  - name: harvested_review_rating
+  - name: aggregateRating
     singleValue: true
+  - name: aggregateRatingText
+    singleValue: true    
   - name: extended_product_description
     singleValue: true
     xpath: //section[@id="productDescription"]
-  - name: rpc_sku_hybrid
-    singleValue: true
   - name: lbb
     singleValue: true
   - name: lbb_price
     singleValue: true
   - name: feature_bullets
     singleValue: true
-  - name: pack_size
+  - name: packSize
     singleValue: true
   - name: secondary_image_total
     singleValue: true
@@ -195,9 +179,9 @@ fields:
     singleValue: true
   - name: coupon_on_full_page_text
     singleValue: true
-  - name: brand_url
+  - name: brandLink
     singleValue: true
-  - name: international_shipping
+  - name: internationalShipping
     singleValue: true
   - name: sales_rank
     singleValue: true
@@ -243,18 +227,16 @@ fields:
     singleValue: true
   - name: sales_volume_per_month
     singleValue: true
-  - name: legal_disclaimer
+  - name: legalDisclaimer
     singleValue: true
     xpath: //section[@class="disclaimer___2uRzl"]
   - name: mpc
     singleValue: true
   - name: drive_id
     singleValue: true
-  - name: harvested_list_price
-    singleValue: true
   - name: in_store_availability
     singleValue: true
-  - name: harvested_product_description
+  - name: name
     singleValue: true
     xpath: //span[@data-test="product-name"]
   - name: new_version
@@ -273,9 +255,9 @@ fields:
     singleValue: true
   - name: additional_desc_bullet_info
     singleValue: true
-  - name: amazon_choice
+  - name: amazonChoice
     singleValue: true
-  - name: amazon_choice_text
+  - name: amazonChoiceCategory
     singleValue: true
   - name: deal_type
     singleValue: true
@@ -290,7 +272,7 @@ fields:
     singleValue: true
   - name: colour
     singleValue: true
-  - name: colour_ref
+  - name: colorCode
     singleValue: true
   - name: fast_track
     singleValue: true
@@ -399,7 +381,7 @@ fields:
   - name: price_per_unit_currency
     singleValue: true
     defaultValue: £
-  - name: sku_number
+  - name: sku
     xpath: //script[contains(text(),"lineNumber")]
     regExp: lineNumber":"([^"]+)
     regExpReplace: $1     
