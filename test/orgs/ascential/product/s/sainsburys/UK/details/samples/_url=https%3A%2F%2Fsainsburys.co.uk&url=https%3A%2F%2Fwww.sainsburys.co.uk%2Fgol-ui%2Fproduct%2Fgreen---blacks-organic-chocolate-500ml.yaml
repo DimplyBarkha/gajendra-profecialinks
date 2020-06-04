@@ -1,0 +1,125 @@
+input:
+  _url: https://sainsburys.co.uk
+  url: https://www.sainsburys.co.uk/gol-ui/product/green---blacks-organic-chocolate-500ml
+extractions:
+  - html: https://workbench.import.io/html/run=3db97248-5e1f-4c90-b1c7-12fbba53a7d4/task=5458de8a-225b-4620-bb1b-bd0a87309f94/1b54fb0e-0243-4e03-a6c5-30c670a71695.html
+    extractionConfigId: product/details/stores/s/sainsburys/UK/extract
+    data:
+      - group:
+          - additional_description:
+              - text: Description Chocolate ice cream Organic Made with fresh cream Suitable for
+                  vegetarians The combination of our intense dark chocolate and
+                  the finest organic cream is perfectly complementary. We
+                  believe this to be a revelation in chocolate ice cream and
+                  very much hope you agree! To find out more about our ice cream
+                  and chocolate visit www.greenandblacks.co.uk EU Organic Soil
+                  Association Organic (GB Organic Certification 5) Manufactured
+                  under license R&R Ice Cream UK Ltd
+            alcohol_content:
+              - text: ""
+            availability:
+              - text: InStock
+                xpath: /html/head[1]/script[43]/text()[1]
+            brand:
+              - text: Frozen
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]
+            calcium_per_serving:
+              - text: ""
+            calcium_per_serving_uom:
+              - text: ""
+            calories_per_serving:
+              - text: 1035kJ
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            category:
+              - text: Ice cream & ice
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]/li[2]
+            country_of_origin:
+              - text: ""
+            customer_review_rating:
+              - text: "4.375"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/a[2]/span[1]/@aria-label
+            dietary_fibre_per_serving:
+              - text: 2.4g
+            dietary_information:
+              - text: Organic Suitable for Vegetarians Contains Milk May Contain Nuts Contains
+                  Soya
+            image_alt_text:
+              - text: Green & Black's Organic Ice Cream Chocolate 500ml
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            ingredients_list:
+              - text: "Whole Milk #, Sugar #, Double Cream # (from Milk) (13%), Dark Chocolate #
+                  (12%) (Cocoa Mass #, Raw Cane Sugar #, Cocoa Butter #,
+                  Emulsifier (Soya Lecithin), Vanilla Extract #, Minimum Cocoa
+                  Solids 60%), Skimmed Milk Powder #, Fat-Reduced Cocoa Powder #
+                  (Cocoa #, Acidity Regulator: Potassium Carbonate), Stabiliser
+                  (Guar Gum #), # = Organic Ingredient"
+            legal_disclaimer:
+              - text: The above details have been prepared to help you select suitable products.
+                  Products and their ingredients are liable to change.
+            list_price:
+              - text: £4.20
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]
+            manufacturer_name:
+              - text: |-
+                  R&R Ice Cream UK Ltd,
+                  Part of Froneri International Plc,
+                  Leeming Bar,
+                  United Kingdom,
+                  DL7 9UL.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
+            number_of_customer_reviews:
+              - text: "8"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            online_price:
+              - text: £4.20
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]
+            online_price_currency:
+              - text: £
+            packaging:
+              - text: Tub
+            product_description:
+              - text: Green & Black's Organic Ice Cream Chocolate 500ml
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/h1[1]
+            product_image:
+              - text: https://assets.sainsburys-groceries.co.uk/gol/2994079/1/640x640.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            protein_per_serving:
+              - text: 5.1g
+            protein_per_serving_uom:
+              - text: 5.1g
+            retailer_product_code:
+              - text: "2994079"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[3]/div[1]/p[1]/span[1]
+            salt_per_serving:
+              - text: 0.12g
+            salt_per_serving_uom:
+              - text: 0.12g
+            secondary_image:
+              - text: https://assets.sainsburys-groceries.co.uk/gol/2994079/1/640x640.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            size:
+              - text: 500ml
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/h1[1]
+            storage:
+              - text: "Keep frozen below -18°CDo not refreeze once thawedBest Before End: See
+                  base of tub Keep Frozen"
+            sub_category:
+              - text: |-
+                  Frozen
+                  Ice cream & ice
+                  All ice creams
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]
+            total_fat_per_serving:
+              - text: 13.3g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
+            total_fat_per_serving_uom:
+              - text: 13.3g
+            total_sugars_per_serving:
+              - text: ""
+            total_sugars_per_serving_uom:
+              - text: ""
+            url:
+              - text: https://www.sainsburys.co.uk/shop/gb/groceries/product/details/green---blacks-organic-chocolate-500ml
+                xpath: /html/head[1]/script[43]/text()[1]
+        xpath: /
+    timestamp: 1591298286148
