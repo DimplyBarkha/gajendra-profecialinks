@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'uk',
+    country: 'UK',
     store: 'morrisons',
     domain: 'groceries.morrisons.com',
   },

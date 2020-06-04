@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'groceries.morrisons.com',
     prefix: null,
-    country: 'uk',
+    country: 'UK',
     store: 'morrisons',
   },
 };
