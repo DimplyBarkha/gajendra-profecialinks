@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'bestwaywholesale.co.uk',
     prefix: null,
-    country: 'uk',
+    country: 'UK',
     store: 'bestwaywholesale',
   }
 };

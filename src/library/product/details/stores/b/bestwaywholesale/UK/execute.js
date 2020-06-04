@@ -1,8 +1,8 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/details/execute',
   parameterValues: {
-    country: 'uk',
+    country: 'UK',
     store: 'bestwaywholesale',
     domain: 'bestwaywholesale.co.uk',
   },

@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'uk',
+    country: 'UK',
     store: 'bestwaywholesale',
     transform: null,
     domain: 'bestwaywholesale.co.uk',
