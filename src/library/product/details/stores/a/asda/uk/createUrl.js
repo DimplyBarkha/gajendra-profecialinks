@@ -6,5 +6,5 @@ module.exports = {
     prefix: 'search',
     country: 'UK',
     store: 'asda',
-  }
+  },
 };
