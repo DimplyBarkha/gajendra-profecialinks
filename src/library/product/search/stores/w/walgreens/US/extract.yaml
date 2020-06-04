@@ -19,7 +19,7 @@ fields:
     singleValue: true
   - name: thumbnail
     singleValue: false
-    xpath: //img
+    xpath: //div[@class='extra-info']/@data-thumbnail 
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class, 'wag-prod-review-info')]//img/@title

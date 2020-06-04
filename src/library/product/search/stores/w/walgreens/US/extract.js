@@ -22,6 +22,7 @@ async function implementation (
       newDiv.style.display = 'none';
       newDiv.dataset.id = productCards[i].querySelector('a').getAttribute('id').split('_sku')[1];
       newDiv.dataset.url = 'https://www.walgreens.com' + productCards[i].querySelector('a').getAttribute('href');
+      newDiv.dataset.thumbnail = productCards[i].querySelector('img').getAttribute('src').slice(2);
       productCards.item(i).appendChild(newDiv);
     }
 
