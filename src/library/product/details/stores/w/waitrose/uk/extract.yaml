@@ -47,6 +47,9 @@ fields:
     xpath: //div[@class="ingredientsText___Ztpzh"]
   - name: brand
     singleValue: true
+    xpath: //script[contains(text(),"brand")]
+    regExp: brand":"([^"]+)
+    regExpReplace: $1
   - name: manufacturer_name
     singleValue: true
   - name: size
@@ -152,10 +155,6 @@ fields:
   - name: syndicated_data
     singleValue: true
   - name: harvested_price
-    singleValue: true
-  - name: price_per_unit
-    singleValue: true
-  - name: price_per_unit_uom
     singleValue: true
   - name: scrape_code
     singleValue: true
@@ -365,9 +364,11 @@ fields:
     singleValue: true    
     xpath: //ul[@class="crumbs___SEVo6"]
   - name: price_per_unit
-    singleValue: true
     xpath: //span[@class="pricePerUnit___1L8TG"]
+    regExp: (?<=\().*?(?=\))
   - name: price_per_unit_currency
     singleValue: true
-    xpath: //span[@class="pricePerUnit___1L8TG"]
-    regExp: ([^\d]+$)   
+    defaultValue: £
+
+    
+    
