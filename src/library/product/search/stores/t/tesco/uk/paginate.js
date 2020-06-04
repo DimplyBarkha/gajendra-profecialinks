@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'uk',
+    country: 'UK',
     store: 'tesco',
     spinnerSelector: 'div.loading-spa',
     loadedSelector: 'div.product-image__container',

@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search',
   parameterValues: {
-    country: 'uk',
+    country: 'UK',
     store: 'tesco',
     domain: 'tesco.com',
   },
