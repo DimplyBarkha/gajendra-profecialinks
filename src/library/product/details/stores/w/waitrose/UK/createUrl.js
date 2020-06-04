@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'waitrose.com',
     prefix: null,
-    country: 'uk',
+    country: 'UK',
     store: 'waitrose',
   },
 };

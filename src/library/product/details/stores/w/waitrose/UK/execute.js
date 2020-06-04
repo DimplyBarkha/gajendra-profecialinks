@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'product/details/extract',
+  implements: 'product/details/execute',
   parameterValues: {
-    country: 'uk',
+    country: 'UK',
     store: 'waitrose',
-    transform: null,
     domain: 'waitrose.com',
   },
 };
