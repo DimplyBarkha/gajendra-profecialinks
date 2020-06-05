@@ -2,7 +2,7 @@ input:
   id: 49643
   _url: https://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=f72a2561-2b24-4e5c-a422-7225f58f6b83/task=5adc5fe1-3fb5-470b-89e4-8093405608c4/66113e1f-26a1-428c-b86c-76a78534f105.html
+  - html: https://workbench.import.io/html/run=52814e98-ea9b-4da7-9abf-d11d6e011a2c/task=7987f88b-750f-428e-8a74-4fb4eb7d4abb/af12e082-39ac-4426-84e8-431cb375e24e.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -29,6 +29,9 @@ extractions:
             brandText:
               - text: Hellmann's
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/span[1]
+            caloriesPerServing:
+              - text: 2986 kJ/714 kcal
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             category:
               - text: Grocery - Catering
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[11]
@@ -123,4 +126,4 @@ extractions:
               - text: Contains Eggs
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]/li[1]
         xpath: /
-    timestamp: 1591360195008
+    timestamp: 1591367344336

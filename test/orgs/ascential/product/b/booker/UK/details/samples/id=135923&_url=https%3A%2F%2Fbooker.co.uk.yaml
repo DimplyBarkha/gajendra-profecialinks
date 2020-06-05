@@ -2,7 +2,7 @@ input:
   id: 135923
   _url: https://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=f72a2561-2b24-4e5c-a422-7225f58f6b83/task=3e80ba06-da9b-4284-8142-f2cdaf4bafe6/595a19b1-1cce-4c57-ab2b-46c3c724916e.html
+  - html: https://workbench.import.io/html/run=52814e98-ea9b-4da7-9abf-d11d6e011a2c/task=5075b23d-c700-49fb-8a9a-1a38864b71f1/d4e9a39e-1dc8-457f-8e33-d3a41b7f2339.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -20,6 +20,9 @@ extractions:
             brandText:
               - text: Chef's Larder
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/span[1]
+            caloriesPerServing:
+              - text: 338kJ/81kcal
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             category:
               - text: Grocery - Catering
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[11]
@@ -160,4 +163,4 @@ extractions:
               - text: Contains Mustard
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]/li[1]
         xpath: /
-    timestamp: 1591360195142
+    timestamp: 1591367342216

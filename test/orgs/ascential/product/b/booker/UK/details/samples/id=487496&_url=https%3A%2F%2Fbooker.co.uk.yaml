@@ -2,7 +2,7 @@ input:
   id: 487496
   _url: https://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=f72a2561-2b24-4e5c-a422-7225f58f6b83/task=e6323a70-9c64-4cd0-a332-9a2e794326ff/ca0c6c57-6c79-4317-b86f-cecb7b29a62c.html
+  - html: https://workbench.import.io/html/run=52814e98-ea9b-4da7-9abf-d11d6e011a2c/task=7d94a632-b411-4ef7-86e0-345d6af48e25/a8634ffa-fec9-4bef-9e37-b4a15098b5a2.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -18,6 +18,9 @@ extractions:
             brandText:
               - text: Marmite
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
+            caloriesPerServing:
+              - text: 1100 kJ / 260 kcal
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             description:
               - text: Marmite Yeast Extract 600g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
@@ -100,4 +103,4 @@ extractions:
               - text: Contains Barley
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]/li[1]
         xpath: /
-    timestamp: 1591360193306
+    timestamp: 1591367343466

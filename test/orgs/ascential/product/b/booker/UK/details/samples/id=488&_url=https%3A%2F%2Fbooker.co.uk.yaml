@@ -2,7 +2,7 @@ input:
   id: 488
   _url: https://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=f72a2561-2b24-4e5c-a422-7225f58f6b83/task=28d3af31-979c-4dd4-8067-87bddbd40861/7d347905-08fe-43d4-b29d-dbff3257f205.html
+  - html: https://workbench.import.io/html/run=52814e98-ea9b-4da7-9abf-d11d6e011a2c/task=589a34c9-a7d7-4801-b2ac-95b6f8cba3fd/b0a7cc83-8b91-4758-a3d3-6a91dc25703e.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -48,6 +48,9 @@ extractions:
             brandText:
               - text: Smarties
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
+            caloriesPerServing:
+              - text: 1941 kJ
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             category:
               - text: Confectionery
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[5]
@@ -183,4 +186,4 @@ extractions:
               - text: Contains Milk
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]/li[1]
         xpath: /
-    timestamp: 1591360196245
+    timestamp: 1591367344009
