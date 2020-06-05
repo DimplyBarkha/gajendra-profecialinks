@@ -4,7 +4,7 @@ async function implementation(
   context,
   dependencies,
 ) {
-  const { url } = inputs;
+  const { url, id } = inputs;
   const cookies = [
     { name: "gtm_store_info", value: "ALLAR SERVICES EDF|98731" },
     { name: "auchanCook", value: "98731|" }
@@ -18,8 +18,15 @@ async function implementation(
   };
 
   // // Need to load the webpage first to start a session
-  await context.goto(url);
+  await context.goto('https://www.auchandrive.fr/recherche/');
   await context.setCookie(...cookies);
+
+  if (id) {
+    const newUrl = 'https://www.auchandrive.fr/recherche/' + id;
+    await context.goto(newUrl, gotoOptions);
+    return await context.clickAndWaitForNavigation('a.product-item__main', undefined, { waitUntil: 'networkidle0' });
+  }
+
   await context.goto(url, gotoOptions);
 
   // TODO: Check for not found?
