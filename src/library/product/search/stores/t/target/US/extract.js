@@ -97,7 +97,7 @@ async function implementation (
       }
       await stall(500);
       await context.evaluate(clickNextBtn);
-      if(counter == 100) {
+      if(counter === 7) {
         break;
       }
       counter++;
