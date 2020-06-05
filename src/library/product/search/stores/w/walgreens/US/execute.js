@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'walgreens',
     domain: 'walgreens.com',
-    url: 'https://www.walgreens.com/search/results.jsp?Ntt=${searchTerms}',
+    url: 'https://www.walgreens.com/search/results.jsp?Ntt={searchTerms}',
     loadedSelector: 'div.wag-product-card-details',
     noResultsXPath: '//h1[@id="zero-result-alert"]|//div[@id="noProducts-Drug"]',
   },
