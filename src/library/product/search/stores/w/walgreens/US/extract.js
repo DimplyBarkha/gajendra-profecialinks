@@ -20,7 +20,8 @@ async function implementation (
       newDiv.className = 'extra-info';
       newDiv.textContent = pageNum === 1 ? i + 1 : ((pageNum - 1) * numberOfProductsPerPage) + 1 + i;
       newDiv.style.display = 'none';
-      newDiv.dataset.id = productCards[i].querySelector('a').getAttribute('id').split('_sku')[1];
+      const skuId = productCards[i].querySelector('a').getAttribute('id').split('_sku')[1];
+      newDiv.dataset.id = skuId !== undefined ? skuId : productCards[i].querySelector('a').getAttribute('id').split('compare_')[1];
       newDiv.dataset.url = 'https://www.walgreens.com' + productCards[i].querySelector('a').getAttribute('href');
       newDiv.dataset.thumbnail = productCards[i].querySelector('img').getAttribute('src').slice(2);
       productCards.item(i).appendChild(newDiv);
