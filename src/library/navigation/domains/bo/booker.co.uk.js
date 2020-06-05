@@ -6,6 +6,7 @@ module.exports = {
     store: 'booker',
     country: 'UK',
   },
+  // For navigating from home page to product page because product page is redirecting to home page.
   implementation: async ({ url }, { country, domain }, context, { dependencies }) => {
     console.log('producturl', url);
     await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
