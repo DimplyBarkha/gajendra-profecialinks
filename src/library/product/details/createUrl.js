@@ -2,7 +2,7 @@
 /**
  *
  * @param { { id: any } } inputs
- * @param { { domain: string, prefix: string } } parameters
+ * @param { { domain: string, prefix?: string, suffix?: string, url?: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { } } dependencies
  */
@@ -13,8 +13,21 @@ async function implementation (
   dependencies,
 ) {
   const { id } = inputs;
-  const { domain, prefix } = parameters;
-  return `https://${domain}/${prefix}/${id}`;
+  const { domain, prefix, suffix } = parameters;
+
+  if (parameters.url) {
+    const url = parameters.url.replace('{id}', encodeURIComponent(id));
+    return url;
+  }
+  let gotoUrl = `https://${domain}`;
+  if (prefix) {
+    gotoUrl += `/${prefix}`;
+  }
+  gotoUrl += `/${id}`;
+  if (suffix) {
+    gotoUrl += `/${suffix}`;
+  }
+  return gotoUrl;
 }
 
 module.exports = {
@@ -28,6 +41,9 @@ module.exports = {
       name: 'prefix',
       description: '',
       optional: false,
+    },
+    {
+      name: 'url',
     },
   ],
   inputs: [
