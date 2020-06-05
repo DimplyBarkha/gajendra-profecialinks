@@ -110,7 +110,7 @@ fields:
     xpath: /html/body//table[@class='prodtable']//*[contains(text(), 'Retail EAN')]/following-sibling::td
   - name: storage
     singleValue: true
-    xpath: //*[@id='productStorage']
+    xpath: normalize-space(//h2[contains(text(), 'Storage')]/following-sibling::p[1])
   - name: countryOfOrigin
     singleValue: true
     xpath: //*[contains(text(), 'Country of Origin')]/following-sibling::td[1]
@@ -125,7 +125,7 @@ fields:
     xpath: //*[@id='saltPerServingUom']
   - name: productOtherInformation
     singleValue: true
-    xpath: //*[@id="productOtherInformation"]
+    xpath: normalize-space(//h2[contains(.,"Product Marketing")]/following-sibling::span[1])
   - name: descriptionBullets
     singleValue: true
     xpath: //*[@id="addDescBulletCount"]

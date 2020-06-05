@@ -13,10 +13,6 @@ module.exports = {
 
       addEleToDoc('productId', productData.id);
       addEleToDoc('productName', productData.name);
-      // Escaping new lines & adding to DOM
-      addEleToDoc('productStorage', getEleByXpath(`//h2[contains(text(), 'Storage')]/following-sibling::p[1]`));
-      addEleToDoc('productOtherInformation', getEleByXpath(`//h2[contains(.,"Product Marketing")]/following-sibling::span[1]`));
-
       // Add description bullets only if description exists
       const additionalDescBulletCount = getMultipleNodeLengthByXpath('//div[contains(@class,"prodtabcontents current")]/ul/li');
       if (additionalDescBulletCount) {
@@ -24,16 +20,16 @@ module.exports = {
       }
 
       // Add secondary image total only if secondary images exists
-      const secondaryImageTotal = getMultipleNodeLengthByXpath(`//*[@id='prodthumbs']/li[position()>1]/img/@data-lrgurl`);
+      const secondaryImageTotal = getMultipleNodeLengthByXpath('//*[@id=\'prodthumbs\']/li[position()>1]/img/@data-lrgurl');
       if (secondaryImageTotal) {
         addEleToDoc('secondaryImageTotal', secondaryImageTotal);
       }
 
       // Normalizing & Adding nutritional info to DOM
-      addNutritionalEle('saltPerServing', `/html/body//table//th[contains(text(), 'Salt')]/following-sibling::td[1]`, `saltPerServingUom`);
-      addNutritionalEle('servingSize', `//h2[contains(.,"Nutritional Information")]/following-sibling::table//tr[1]/th[2]`, `servingSizeUom`);
+      addNutritionalEle('saltPerServing', '/html/body//table//th[contains(text(), \'Salt\')]/following-sibling::td[1]', 'saltPerServingUom');
+      addNutritionalEle('servingSize', '//h2[contains(.,"Nutritional Information")]/following-sibling::table//tr[1]/th[2]', 'servingSizeUom');
 
-      let multiNutriObj = {
+      const multiNutriObj = {
         totalFatPerServing: 'Fat',
         saturatedFatPerServing: 'saturates',
         totalCarbPerServingUom: 'Carbohydrate',
@@ -41,7 +37,7 @@ module.exports = {
         totalSugarsPerServing: 'sugars',
         proteinPerServing: 'Protein',
         calciumPerServing: 'Calcium',
-        vitaminCPerServing: 'Vitamin C'
+        vitaminCPerServing: 'Vitamin C',
       };
 
       addMultipleNutritionalEle(multiNutriObj);
@@ -53,13 +49,13 @@ module.exports = {
 
       function getEleByXpath (xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        console.log('Element' + element)
+        console.log('Element' + element);
         const text = element ? element.textContent : null;
         return text;
       }
 
       function addNutritionalEle (property, xpath, propertyUom) {
-        let servingProp = getEleByXpath(xpath);
+        const servingProp = getEleByXpath(xpath);
         if (servingProp) {
           addEleToDoc(property, servingProp.replace('mg', '').replace('g', '').replace('ml', '').replace('Per', '').replace(':', '').split('(')[0].trim());
           if (servingProp.includes('mg')) {
@@ -73,37 +69,37 @@ module.exports = {
       }
 
       function addMultipleNutritionalEle (propertiesObj) {
-        for (let prop in propertiesObj) {
-          let xpath = `//th[contains(.,'${propertiesObj[prop]}')]/following-sibling::td[1]`;
-          addNutritionalEle(`${prop}`, xpath, `${prop}Uom`)
+        for (const prop in propertiesObj) {
+          const xpath = `//th[contains(.,'${propertiesObj[prop]}')]/following-sibling::td[1]`;
+          addNutritionalEle(`${prop}`, xpath, `${prop}Uom`);
         }
       }
 
       function findProductDetails () {
-        const xpath = `//script[contains(.,'productDetails')]`;
+        const xpath = '//script[contains(.,\'productDetails\')]';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        console.log('Element' + element)
+        console.log('Element' + element);
         const scriptContent = element.textContent;
-        let scriptContentArr = scriptContent.split(';')
+        let scriptContentArr = scriptContent.split(';');
         scriptContentArr = scriptContentArr.filter(function (item) { if (item.includes('productsObject.')) return item; });
-        let productDetails = {};
+        const productDetails = {};
         for (let i = 0; i < scriptContentArr.length; i++) {
-          let chunk = scriptContentArr[i];
-          let productProp = chunk.substring(chunk.indexOf('productsObject.') + 'productsObject.'.length, chunk.indexOf(" ="));
-          let productPropVal = chunk.substring(chunk.indexOf(`productsObject.${productProp} = "`) + `productsObject.${productProp} = "`.length, chunk.lastIndexOf("\""));
+          const chunk = scriptContentArr[i];
+          const productProp = chunk.substring(chunk.indexOf('productsObject.') + 'productsObject.'.length, chunk.indexOf(' ='));
+          const productPropVal = chunk.substring(chunk.indexOf(`productsObject.${productProp} = "`) + `productsObject.${productProp} = "`.length, chunk.lastIndexOf('"'));
           productDetails[productProp] = productPropVal;
         }
         return productDetails;
       }
 
       function addEleToDoc (key, value) {
-        const prodEle = document.createElement('div')
-        prodEle.id = key
-        prodEle.textContent = value
-        prodEle.style.display = 'none'
-        document.body.appendChild(prodEle)
+        const prodEle = document.createElement('div');
+        prodEle.id = key;
+        prodEle.textContent = value;
+        prodEle.style.display = 'none';
+        document.body.appendChild(prodEle);
       }
     });
     return await context.extract(productDetails);
-  }
+  },
 };

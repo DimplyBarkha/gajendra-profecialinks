@@ -6,5 +6,5 @@ module.exports = {
     prefix: null,
     country: 'UK',
     store: 'bestwaywholesale',
-  }
+  },
 };
