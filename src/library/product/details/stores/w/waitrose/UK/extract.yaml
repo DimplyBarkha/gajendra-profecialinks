@@ -19,7 +19,7 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: true
-    xpath: //ul[@class="crumbs___SEVo6"]/li
+    xpath: //body[@categoryRanking]/@categoryRanking
   - name: nameExtended
     singleValue: true
     xpath: //h1[@id="productName"]
@@ -28,9 +28,7 @@ fields:
     xpath: //span[@itemprop="offers"]
   - name: availabilityText
     singleValue: true
-    xpath: //div[@class="controlWithText___1GxrW"]/button/@data-origincomponent
-  - name: inStorePrice
-    singleValue: true
+    xpath: //body[@availableStatus]/@availableStatus
   - name: description
     singleValue: true
     xpath: concat(//section[@id="productDescription"], " ", //section[@id="marketingDescriptionBop"])
@@ -106,8 +104,6 @@ fields:
   - name: additives
     singleValue: true
     xpath: //div[@id="sectproductDetails"]//h3[contains(.,"Additives")]/../ul
-  - name: awardSymbol
-    singleValue: true
   - name: drive
     singleValue: true
   - name: manufacturerDescription
@@ -222,11 +218,12 @@ fields:
     regExp: ([^\d]+$)                   
   - name: categoryRanking
     singleValue: true    
-    xpath: //ul[@class="crumbs___SEVo6"]
+    xpath: //body[@categoryRanking]/@categoryRanking
   - name: pricePerUnit
     xpath: //span[@class="pricePerUnit___1L8TG"]
-    regExp: (?<=\().*?(?=\))
-  - name: pricePerUnitCurrency
+    regExp: \(£(.*)\/(.*)
+    regExpReplace: $1   
+  - name: pricePerUnitUom
     singleValue: true
     defaultValue: £
   - name: sku
