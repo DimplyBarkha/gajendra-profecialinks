@@ -40,7 +40,7 @@ async function implementation (
     await Promise.all([
       context.click(nextLinkSelector),
       // possible race condition if the data returned too fast, but unlikely
-      context.waitForMutuation(mutationSelector, { timeout: 10000 }),
+      context.waitForMutuation(mutationSelector, { timeout: 30000 }),
     ]);
     return true;
   }
@@ -53,7 +53,6 @@ async function implementation (
     }
     return true;
   }
-
   return false;
 }
 

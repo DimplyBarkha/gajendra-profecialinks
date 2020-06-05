@@ -1,7 +1,7 @@
 
 module.exports = {
   implements: 'product/details/extract',
-  parameterValues: {
+  parameterValues: { 
     country: 'US',
     store: 'cvs',
     transform: null,
@@ -60,6 +60,21 @@ module.exports = {
           addHiddenDiv(`ii_${term}`, termsWithValues[term]);
         });
       }
+
+      function collectBools () {
+
+          const imageZoom = document.querySelector('div[data-class="zoom-btn"]');
+          const Image360 = document.querySelector('div#wc-360-view-2e50e148');
+
+          if (imageZoom) {
+            addHiddenDiv(`ii_imageZoom`, "true");
+          } 
+          if (Image360) {
+            addHiddenDiv(`ii_image360`, "true");
+          } 
+      }
+
+      collectBools()
       collectNutritionInfo();
 
       addHiddenDiv('ii_url', window.location.href);
