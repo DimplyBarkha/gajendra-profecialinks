@@ -1,17 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,'search-result-gridview-items')]/li
+recordXPath: null
 fields:
   - name: paid
     singleValue: true
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
+  - name: rankOrganic
+    singleValue: true
+    xpath: //li[@class='current-rank']
+  - name: rank
+    singleValue: true
+    xpath: //li[@class='current-rank']  
   - name: brand
     singleValue: true
     description: The brand name
     example: Panasonic
-    selector: a.product-title-link .product-brand
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -24,15 +29,15 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
-    xpath: //a[contains(@class,'product-title-link')]/@href
+    xpath: concat('https://www.kroger.com', //a[@class='Color Link']/@href)
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //a[contains(@class,'search-result-productimage')]//img/@data-image-src  
+    xpath: //img[@class='ImageLoader-image']/@src
   - name: name
     singleValue: true
     description: The product name
-    selector: a.product-title-link span:not(.product-brand)
+    xpath: //h3[@data-qa='cart-page-item-description']
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -48,26 +53,19 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    selector: span.stars-reviews-count > span
   - name: reviewCount
     singleValue: true
     description: The number of reviews
-    selector: span.seo-review-count
   - name: price
     singleValue: true
     description: The offered price for the product
-    selector: span.price-main span
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
+    xpath: //span[@class='kds-Price-singular']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: soldBy
     singleValue: true
     description: The name of the seller of the item (if available)
-    selector: span.marketplace-sold-by-company-name
-    defaultValue: Walmart.com
   - name: endorsementText
     singleValue: true
     description: The text that signifies that a product is endorsed
@@ -75,11 +73,8 @@ fields:
     singleValue: true
     description: Shipping information for the product
   - name: id
-    singleValue: false
+    singleValue: true
     description: Unique id (within this extractor)
-    xpath: //a[contains(@class,'product-title-link')]/@href
-    regExp: \/(\d+)$
-    regExpReplace: $1
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -88,18 +83,3 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    selector: span.seo-avg-rating
-  - name: rank
-    singleValue: false
-    description: search/listing rank
-    type: NUMBER    
-  - name: rankOrganic
-    singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER   
-  - name: sponsored
-    singleValue: true
-    description: Is sponsored/paid
-    type: BOOLEAN
-    selector: span.sponsored-product-search
-    
