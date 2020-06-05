@@ -49,5 +49,5 @@ module.exports = {
     loadedSelector: 'div[data-test="productGridContainer"] li',
     noResultsXPath: '//h1[contains(.,"no results found")]',
   },
-  implementation
+  implementation,
 };

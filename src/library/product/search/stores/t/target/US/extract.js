@@ -113,5 +113,5 @@ module.exports = {
     transform: null,
     domain: 'target.com',
   },
-  implementation
+  implementation,
 };
