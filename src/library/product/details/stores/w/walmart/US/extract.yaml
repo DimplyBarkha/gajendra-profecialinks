@@ -46,6 +46,9 @@ fields:
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[contains(@class,'about-desc')]//ul/li)
+- name: ingredientsList
+  singleValue: true
+  manualSelector: p.Ingredients
 - name: brandText
   singleValue: true
   xpath: //span[@itemprop='brand']
