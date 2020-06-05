@@ -14,20 +14,19 @@ fields:
     xpath: 
   - name: product_description
     singleValue: false
-    xpath: 
+    xpath: normalize-space(//p[contains(@class,"pdp-infos__title")])
   - name: online_price
     singleValue: false
-    xpath: 
-  - name: online_price_currency
-    singleValue: false
-    xpath: 
+    xpath: normalize-space(//div[contains(@class,"pdp-price")]/p[contains(@class,"price-standard")])
   - name: availability
     singleValue: false
-    xpath: 
+    xpath: normalize-space(//button[contains(@class,"addToCart")]/span[contains(@class,"addToCart")])
+    regExp: Ajouter|Add
+    regExpReplace: In stock
+    defaultValue: Out of stock
   - name: additional_description
     singleValue: false
     xpath: 
   - name: manufacturer_name
     singleValue: false
     xpath: 
-  
