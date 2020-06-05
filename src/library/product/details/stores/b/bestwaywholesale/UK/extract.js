@@ -13,11 +13,38 @@ module.exports = {
 
       addEleToDoc('productId', productData.id);
       addEleToDoc('productName', productData.name);
-      addEleToDoc('productPrice', productData.price);
-      addEleToDoc('productCategory', productData.category);
-      addEleToDoc('productVariant', productData.variant);
+      // Escaping new lines & adding to DOM
+      addEleToDoc('productStorage', getEleByXpath(`//h2[contains(text(), 'Storage')]/following-sibling::p[1]`));
+      addEleToDoc('productOtherInformation', getEleByXpath(`//h2[contains(.,"Product Marketing")]/following-sibling::span[1]`));
+
+      // Add description bullets only if description exists
       const additionalDescBulletCount = getMultipleNodeLengthByXpath('//div[contains(@class,"prodtabcontents current")]/ul/li');
-      addEleToDoc('addDescBulletCount', additionalDescBulletCount);
+      if (additionalDescBulletCount) {
+        addEleToDoc('addDescBulletCount', additionalDescBulletCount);
+      }
+
+      // Add secondary image total only if secondary images exists
+      const secondaryImageTotal = getMultipleNodeLengthByXpath(`//*[@id='prodthumbs']/li[position()>1]/img/@data-lrgurl`);
+      if (secondaryImageTotal) {
+        addEleToDoc('secondaryImageTotal', secondaryImageTotal);
+      }
+
+      // Normalizing & Adding nutritional info to DOM
+      addNutritionalEle('saltPerServing', `/html/body//table//th[contains(text(), 'Salt')]/following-sibling::td[1]`, `saltPerServingUom`);
+      addNutritionalEle('servingSize', `//h2[contains(.,"Nutritional Information")]/following-sibling::table//tr[1]/th[2]`, `servingSizeUom`);
+
+      let multiNutriObj = {
+        totalFatPerServing: 'Fat',
+        saturatedFatPerServing: 'saturates',
+        totalCarbPerServingUom: 'Carbohydrate',
+        dietaryFibrePerServingUom: 'Fibre',
+        totalSugarsPerServing: 'sugars',
+        proteinPerServing: 'Protein',
+        calciumPerServing: 'Calcium',
+        vitaminCPerServing: 'Vitamin C'
+      };
+
+      addMultipleNutritionalEle(multiNutriObj);
 
       function getMultipleNodeLengthByXpath (xpath) {
         const element = document.evaluate(xpath, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -27,8 +54,29 @@ module.exports = {
       function getEleByXpath (xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         console.log('Element' + element)
-        const text = element.textContent;
+        const text = element ? element.textContent : null;
         return text;
+      }
+
+      function addNutritionalEle (property, xpath, propertyUom) {
+        let servingProp = getEleByXpath(xpath);
+        if (servingProp) {
+          addEleToDoc(property, servingProp.replace('mg', '').replace('g', '').replace('ml', '').replace('Per', '').replace(':', '').split('(')[0].trim());
+          if (servingProp.includes('mg')) {
+            addEleToDoc(propertyUom, 'mg');
+          } else if (servingProp.includes('g')) {
+            addEleToDoc(propertyUom, 'g');
+          } else if (servingProp.includes('ml')) {
+            addEleToDoc(propertyUom, 'ml');
+          }
+        }
+      }
+
+      function addMultipleNutritionalEle (propertiesObj) {
+        for (let prop in propertiesObj) {
+          let xpath = `//th[contains(.,'${propertiesObj[prop]}')]/following-sibling::td[1]`;
+          addNutritionalEle(`${prop}`, xpath, `${prop}Uom`)
+        }
       }
 
       function findProductDetails () {

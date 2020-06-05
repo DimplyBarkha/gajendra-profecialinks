@@ -3,327 +3,141 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: product_image
+  - name: image
     singleValue: true
     xpath: //*[@id="prodimage"]/@src
-  - name: keywords
-    singleValue: true
-  - name: download_time
-    singleValue: true
-  - name: url
-    singleValue: true
-    xpath: //*[@id="productId"]
-    regExp: (.*)
-    regExpReplace: https://www.bestwaywholesale.co.uk/product/$1
   - name: category
     singleValue: true
-    xpath: //*[@id="productCategory"]
-  - name: sub_category
+    xpath: //div[contains(@class,"prodnav")]//li[contains(@class,"toplevel")]
+  - name: subCategory
     singleValue: true
-  - name: product_description
+    xpath: //div[contains(@class,"prodnav")]//li[contains(@class,"active")]
+  - name: nameExtended
     singleValue: true
     xpath: //*[@id="productName"]
-  - name: online_price
+  - name: price
     singleValue: true
     xpath: /html/body//table[@class='prodtable']/tbody//th[contains(.,'RSP')]/following-sibling::td
-    regExp: "[^£]+"
-  - name: online_price_currency
+  - name: availabilityText
     singleValue: true
-    defaultValue: £
-  - name: availability
-    singleValue: true
-  - name: in_store_price
-    singleValue: true
-  - name: in_store_price_currency
-    singleValue: true
-  - name: additional_description
+    xpath: //*[@id="prodmagnify"]/span[contains(@class,"must")]
+  - name: description
     singleValue: false
     xpath: //div[contains(@class,"prodtabcontents current")]/ul/li
-  - name: ingredients_list
+  - name: ingredientsList
     singleValue: true
     xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::p
   - name: brand
     singleValue: true
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Brand:')]/following-sibling::td
-  - name: manufacturer_name
+  - name: manufacturer
     singleValue: true
     xpath: //h2[contains(text(), 'Manufacturer’s Address')]/following-sibling::p/text()[1]
   - name: size
     singleValue: true
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Pack Size')]/following-sibling::td
-  - name: net_weight
+  - name: sku
     singleValue: true
-  - name: gross_weight
+    xpath: //*[@id="productId"]
+  - name: directions
     singleValue: true
-  - name: upc
-    singleValue: true
-  - name: asin
-    singleValue: true
-  - name: hidden_upc
-    singleValue: true
-  - name: sku_number
-    singleValue: true
-    xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Product Code')]/following-sibling::td
-  - name: retailer_product_code
-    singleValue: true
-    xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Product Code')]/following-sibling::td
-  - name: directions_information
-    singleValue: true
+    xpath: //h2[contains(.,"Preparation and Usage")]/following-sibling::p[1]
   - name: warnings
     singleValue: true
     xpath: //*[contains(text(), 'WARNING')]
-  - name: secondary_image
+  - name: servingSize
     singleValue: true
-    xpath: //*[@id='prodthumbs']/li[2]//@src
-  - name: number_of_customer_reviews
+    xpath: //*[@id='servingSize']
+  - name: servingSizeUom
     singleValue: true
-  - name: customer_review_rating
+    xpath: //*[@id='servingSizeUom']
+  - name: caloriesPerServing
     singleValue: true
-  - name: aplus_images
+    xpath: //th[contains(.,'Energy')]/following-sibling::td[1]
+  - name: totalFatPerServing
     singleValue: true
-  - name: category_ranking
+    xpath: //*[@id='totalFatPerServing']
+  - name: totalFatPerServingUom
     singleValue: true
-  - name: shipping_details
+    xpath: //*[@id='totalFatPerServingUom']
+  - name: saturatedFatPerServing
     singleValue: true
-  - name: shipping_dimensions
+    xpath: //*[@id='saturatedFatPerServing']
+  - name: saturatedFatPerServingUom
     singleValue: true
-  - name: specifications
+    xpath: //*[@id='saturatedFatPerServingUom']
+  - name: totalCarbPerServing
     singleValue: true
-  - name: shipping_weight
+    xpath: //*[@id='totalCarbPerServing']
+  - name: totalCarbPerServingUom
     singleValue: true
-  - name: warranty
+    xpath: //*[@id='totalCarbPerServingUom']
+  - name: dietaryFibrePerServing
     singleValue: true
-  - name: ean_gtin
+    xpath: //*[@id='dietaryFibrePerServing']
+  - name: dietaryFibrePerServingUom
+    singleValue: true
+    xpath: //*[@id='dietaryFibrePerServingUom']
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //*[@id='totalSugarsPerServing']
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    xpath: //*[@id='totalSugarsPerServingUom']
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //*[@id='proteinPerServing']
+  - name: proteinPerServingUom
+    singleValue: true
+    xpath: //*[@id='proteinPerServingUom']
+  - name: calciumPerServing
+    singleValue: true
+    xpath: //*[@id='calciumPerServing']
+  - name: calciumPerServingUom
+    singleValue: true
+    xpath: //*[@id='calciumPerServingUom']
+  - name: vitaminCPerServing
+    singleValue: true
+    xpath: //*[@id='vitaminCPerServing']
+  - name: vitaminCPerServingUom
+    singleValue: true
+    xpath: //*[@id='vitaminCPerServingUom']
+  - name: alternateImages
+    singleValue: false
+    xpath: //*[@id='prodthumbs']/li[position()>1]/img/@data-lrgurl
+  - name: gtin
     singleValue: true
     xpath: /html/body//table[@class='prodtable']//*[contains(text(), 'Retail EAN')]/following-sibling::td
   - name: storage
     singleValue: true
-    xpath: //h2[contains(text(), 'Storage')]/following-sibling::p[1]
-  - name: country_of_origin
+    xpath: //*[@id='productStorage']
+  - name: countryOfOrigin
     singleValue: true
-    xpath: //*[contains(text(), 'Country of Origin')]
-  - name: allergy_advice
-    singleValue: true
-  - name: recycling_information
+    xpath: //*[contains(text(), 'Country of Origin')]/following-sibling::td[1]
+  - name: recyclingInformation
     singleValue: true
     xpath: //*[contains(text(), 'Recycling')]
-  - name: salt_per_serving
+  - name: saltPerServing
     singleValue: true
-    xpath: /html/body//table//th[contains(text(), 'Salt')]/following-sibling::td[1]
-    regExp: "[^g]"
-  - name: salt_per_serving_uom
+    xpath: //*[@id='saltPerServing']
+  - name: saltPerServingUom
     singleValue: true
-    defaultValue: g
-  - name: serving_size_2
+    xpath: //*[@id='saltPerServingUom']
+  - name: productOtherInformation
     singleValue: true
-  - name: serving_size_2_uom
-    singleValue: true
-  - name: dietary_information
-    singleValue: true
-  - name: product_other_information
-    singleValue: true
-  - name: packaging
-    singleValue: true
-  - name: additives
-    singleValue: true
-  - name: footer_product_info
-    singleValue: true
-  - name: award_symbol
-    singleValue: true
-  - name: drive
-    singleValue: true
-  - name: enhanced_content
-    singleValue: true
-  - name: retailer_category
-    singleValue: true
-  - name: retailer_subcategory
-    singleValue: true
-  - name: additional_desc_bullet_count
+    xpath: //*[@id="productOtherInformation"]
+  - name: descriptionBullets
     singleValue: true
     xpath: //*[@id="addDescBulletCount"]
-  - name: video
-    singleValue: true
-  - name: coupons
-    singleValue: true
-  - name: products_per_page
-    singleValue: true
-  - name: retailer_id
-    singleValue: true
-    xpath: /html/body//table[@class='prodtable']//*[contains(text(), 'Retail EAN')]/following-sibling::td
-  - name: addon_item
-    singleValue: true
-  - name: syndicated_data
-    singleValue: true
-  - name: harvested_price
-    singleValue: true
-    xpath: /html/body//table[@class='prodtable']/tbody//th[contains(.,'RSP')]/following-sibling::td
-    regExp: "[^£]+"
-  - name: price_per_unit
-    singleValue: true
-  - name: price_per_unit_uom
-    singleValue: true
-  - name: scrape_code
-    singleValue: true
-    xpath: //*[@id="productId"]
-  - name: image_alt_text
+  - name: imageAlt
     singleValue: true
     xpath: //*[contains(@class, 'prodimage')]//img/@alt
-  - name: promotion
+  - name: secondaryImageTotal
     singleValue: true
-  - name: harvested_review_rating
-    singleValue: true
-  - name: extended_product_description
-    singleValue: true
-  - name: rpc_sku_hybrid
-    singleValue: true
-  - name: lbb
-    singleValue: true
-  - name: lbb_price
-    singleValue: true
-  - name: feature_bullets
-    singleValue: true
-  - name: pack_size
-    singleValue: true
-  - name: secondary_image_total
-    singleValue: true
-  - name: news
-    singleValue: true
-  - name: other_sellers_name
-    singleValue: true
-  - name: other_sellers_price
-    singleValue: true
-  - name: other_sellers_shipping
-    singleValue: true
-  - name: coupon_discount_percentage
-    singleValue: true
-  - name: coupon_on_full_page_text
-    singleValue: true
-  - name: brand_url
-    singleValue: true
-  - name: international_shipping
-    singleValue: true
-  - name: sales_rank
-    singleValue: true
-  - name: sales_rank_category
-    singleValue: true
-  - name: subscription_price
-    singleValue: true
-  - name: subscribe_and_save
-    singleValue: true
-  - name: hero_quick_promo_headline
-    singleValue: true
-  - name: hero_quick_promo_image_url
-    singleValue: true
-  - name: hero_quick_promo_url
-    singleValue: true
-  - name: pasin
-    singleValue: true
-  - name: video_length
-    singleValue: true
-  - name: other_sellers_prime
-    singleValue: true
-  - name: prime_note
-    singleValue: true
-  - name: deal_price
-    singleValue: true
-  - name: ingredient_image_present
-    singleValue: true
-  - name: fact_image_present
-    singleValue: true
-  - name: large_image_count
-    singleValue: true
-  - name: variant_asins
-    singleValue: true
-  - name: andon_cord
-    singleValue: true
-  - name: prime_flag
-    singleValue: true
-  - name: list_price
-    singleValue: true
-  - name: alcohol_content
+    xpath: //*[@id="secondaryImageTotal"]
+  - name: alcoholContent
     singleValue: true
     xpath: //*[contains(text(), 'ABV')]/following-sibling::td
-  - name: stock_number
-    singleValue: true
-  - name: sales_volume_per_month
-    singleValue: true
-  - name: legal_disclaimer
+  - name: legalDisclaimer
     singleValue: true
     xpath: //*[@class='disclaimer']
-  - name: mpc
-    singleValue: true
-  - name: drive_id
-    singleValue: true
-  - name: harvested_list_price
-    singleValue: true
-  - name: in_store_availability
-    singleValue: true
-  - name: harvested_product_description
-    singleValue: true
-    xpath: /html/body//table[@class='prodtable']/tbody//th[contains(.,'Product:')]/following-sibling::td
-  - name: new_version
-    singleValue: true
-  - name: new_asin
-    singleValue: true
-  - name: new_description
-    singleValue: true
-  - name: variant_information
-    singleValue: true
-    xpath: //*[@id="productVariant"]
-  - name: first_variant
-    singleValue: true
-  - name: variants
-    singleValue: true
-    xpath: //*[@id="productVariant"]
-  - name: platform
-    singleValue: true
-  - name: additional_desc_bullet_info
-    singleValue: true
-  - name: magnesium_per_serving
-    singleValue: true
-  - name: magnesium_per_serving_uom
-    singleValue: true
-  - name: amazon_choice
-    singleValue: true
-  - name: amazon_choice_text
-    singleValue: true
-  - name: deal_type
-    singleValue: true
-  - name: Prop_65_warning
-    singleValue: true
-  - name: allergy_information
-    singleValue: true
-  - name: product_id
-    singleValue: true
-    xpath: //*[@id="productId"]
-  - name: Shipping_Information
-    singleValue: true
-  - name: colour
-    singleValue: true
-  - name: colour_ref
-    singleValue: true
-  - name: fast_track
-    singleValue: true
-  - name: supplementary_image
-    singleValue: true
-  - name: supplementary_image_total
-    singleValue: true
-  - name: age_suitability  
-    singleValue: true
-  - name: energy_efficiency
-    singleValue: true
-    xpath: /html/body//table//th[contains(text(), 'Energy')]/following-sibling::td[1]
-  - name: technical_information_pdf_present
-    singleValue: true
-  - name: t_&_cs
-    singleValue: true
-  - name: privacy_policy
-    singleValue: true
-  - name: customer_service_availability
-    singleValue: true
-  - name: materials
-    singleValue: true
-  - name: 360_image_present
-    singleValue: true
-  - name: image_zoom_feature_present
-    singleValue: true
