@@ -19,12 +19,10 @@ fields:
     regExpReplace: $3
   - name: category
     singleValue: true
-    xpath: //nav//ol//li[position()>=2 and position()<=(last()-1)]
+    xpath: //nav//ol//li[1]
   - name: sub_category
     singleValue: false
-    xpath: //nav//ol
-    regExp:
-    regExpReplace:
+    xpath: //body/@breadcrumbs
   - name: product_description
     singleValue: true
     xpath: //h1[@data-test-id="pd-product-title"]
@@ -54,7 +52,7 @@ fields:
     xpath: //div[@class="pd__label"]
   - name: manufacturer_name
     singleValue: true
-    xpath: //h3[normalize-space(text())="Manufacturer"]/following-sibling::div[1]
+    xpath: normalize-space(//h3[normalize-space(text())="Manufacturer"]/following-sibling::div[1])
   - name: size
     singleValue: true
     xpath: //h1[@data-test-id="pd-product-title"]
