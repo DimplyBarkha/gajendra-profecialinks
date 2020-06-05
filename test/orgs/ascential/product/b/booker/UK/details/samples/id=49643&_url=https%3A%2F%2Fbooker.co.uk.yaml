@@ -2,7 +2,7 @@ input:
   id: 49643
   _url: https://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=09d4e5e9-a80e-49e6-9d31-df970c353b9d/task=91a9edcc-ee9e-43d7-aff9-1365d36280b7/6da93387-bcfc-43a5-84f4-c6d02bee3fe5.html
+  - html: https://workbench.import.io/html/run=f72a2561-2b24-4e5c-a422-7225f58f6b83/task=5adc5fe1-3fb5-470b-89e4-8093405608c4/66113e1f-26a1-428c-b86c-76a78534f105.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -20,18 +20,21 @@ extractions:
                   We're on the side of food. Find out more at
                   www.ufs.com/hellmanns
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
-            allergy_advice:
+            allergyAdvice:
               - text: Contains Eggs
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]/li[1]
-            brand:
-              - text: Hellmann's
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/span[1]
-            brand_url:
+            brandLink:
               - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=893&searchTerm=By+Brand%3a+Hellmann%27s
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/span[1]/a[1]/@href
+            brandText:
+              - text: Hellmann's
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/span[1]
             category:
               - text: Grocery - Catering
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[11]
+            description:
+              - text: Hellmann's Real Mayonnaise 5L
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             harvested_product_description:
               - text: 100% free range eggs. Committed to using free range eggs and sustainably
                   sourced oils. Gluten free. European Vegetarian Union. Nation's
@@ -52,7 +55,7 @@ extractions:
             imageAlt:
               - text: Hellmann's Real Mayonnaise 5L - Click for larger image
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            ingredients_list:
+            ingredientsList:
               - text: |-
                   Rapeseed Oil (78%),
                   Water,
@@ -70,7 +73,7 @@ extractions:
                   information purposes only. On occasion the actual product may
                   differ from that shown.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]
-            manufacturer_name:
+            manufacturer:
               - text: Unilever Food Solutions
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/p[1]
             metaKeywords:
@@ -81,24 +84,21 @@ extractions:
             packaging:
               - text: Type Unspecified Pack
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/ul[1]/li[1]
-            product_description:
-              - text: Hellmann's Real Mayonnaise 5L
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             products_per_page:
               - text: "0"
-            protein_per_serving:
+            proteinPerServing:
               - text: "1.2 "
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
-            protein_per_serving_uom:
+            proteinPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
             retailer_product_code:
               - text: "49643"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            salt_per_serving:
+            saltPerServing:
               - text: "1.2 "
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
-            salt_per_serving_uom:
+            saltPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
             scrape_code:
@@ -110,10 +110,10 @@ extractions:
             sub_category:
               - text: Ketchup & Sauce Catering
                 xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
-            total_fat_per_serving:
+            totalFatPerServing:
               - text: "79.0 "
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            total_fat_per_serving_uom:
+            totalFatPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             url:
@@ -123,4 +123,4 @@ extractions:
               - text: Contains Eggs
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]/li[1]
         xpath: /
-    timestamp: 1591301054947
+    timestamp: 1591360195008

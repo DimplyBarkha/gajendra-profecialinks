@@ -2,7 +2,7 @@ input:
   id: 135923
   _url: https://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=09d4e5e9-a80e-49e6-9d31-df970c353b9d/task=6e3c5de3-b33a-4c60-958b-f06efb2224ec/101333fc-8782-485a-b9ed-1d530698bc8b.html
+  - html: https://workbench.import.io/html/run=f72a2561-2b24-4e5c-a422-7225f58f6b83/task=3e80ba06-da9b-4284-8142-f2cdaf4bafe6/595a19b1-1cce-4c57-ab2b-46c3c724916e.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -11,21 +11,24 @@ extractions:
                   Marie Stable. UK salt target compliant. Suitable for
                   Vegetarians. Suitable for Vegans.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
-            allergy_advice:
+            allergyAdvice:
               - text: Contains Mustard
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]/li[1]
-            brand:
-              - text: Chef's Larder
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/span[1]
-            brand_url:
+            brandLink:
               - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=629&searchTerm=By+Brand%3a+Chef%27s+Larder
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/span[1]/a[1]/@href
+            brandText:
+              - text: Chef's Larder
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/span[1]
             category:
               - text: Grocery - Catering
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[11]
-            country_of_origin:
+            countryOfOrigin:
               - text: United Kingdom
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]/ul[1]/li[1]/span[1]
+            description:
+              - text: Chef's Larder Jalfrezi Sauce 2.15L
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             harvested_product_description:
               - text: Chilli rating - hot - 3. Ready to use, professional, culinary sauce. Bain
                   Marie Stable. UK salt target compliant. Suitable for
@@ -37,7 +40,7 @@ extractions:
             imageAlt:
               - text: Chef's Larder Jalfrezi Sauce 2.15L - Click for larger image
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            ingredients_list:
+            ingredientsList:
               - text: >-
                   Water,
 
@@ -104,7 +107,7 @@ extractions:
                   information purposes only. On occasion the actual product may
                   differ from that shown.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[13]
-            manufacturer_name:
+            manufacturer:
               - text: Chef's Larder
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[9]/p[1]
             metaKeywords:
@@ -115,30 +118,27 @@ extractions:
             packaging:
               - text: Type Plastic Bottle
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[11]/ul[1]/li[1]
-            product_description:
-              - text: Chef's Larder Jalfrezi Sauce 2.15L
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             products_per_page:
               - text: "1"
-            protein_per_serving:
+            proteinPerServing:
               - text: "1.2"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
-            protein_per_serving_uom:
+            proteinPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
             retailer_product_code:
               - text: "250705"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            salt_per_serving:
+            saltPerServing:
               - text: "0.59"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
-            salt_per_serving_uom:
+            saltPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
             scrape_code:
               - text: "250705"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            serving_size:
+            servingSize:
               - text: " 100g as sold"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             size:
@@ -147,10 +147,10 @@ extractions:
             sub_category:
               - text: Cooking Sauce & Paste Catering
                 xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
-            total_fat_per_serving:
+            totalFatPerServing:
               - text: "3.3"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            total_fat_per_serving_uom:
+            totalFatPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             url:
@@ -160,4 +160,4 @@ extractions:
               - text: Contains Mustard
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]/li[1]
         xpath: /
-    timestamp: 1591301056775
+    timestamp: 1591360195142

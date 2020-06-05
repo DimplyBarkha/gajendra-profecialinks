@@ -2,7 +2,7 @@ input:
   id: 488
   _url: https://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=09d4e5e9-a80e-49e6-9d31-df970c353b9d/task=9e79c4fb-72d8-4e98-8832-dedc553d214f/bb1f01c5-a76d-4010-86c3-7a197892c635.html
+  - html: https://workbench.import.io/html/run=f72a2561-2b24-4e5c-a422-7225f58f6b83/task=28d3af31-979c-4dd4-8067-87bddbd40861/7d347905-08fe-43d4-b29d-dbff3257f205.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -39,19 +39,22 @@ extractions:
                   yummy smooth milk chocolate Smarties® covered in more yummy
                   milk chocolate! www.smarties.co.uk
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
-            allergy_advice:
+            allergyAdvice:
               - text: Contains Milk
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]/li[1]
-            brand:
-              - text: Smarties
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
-            brand_url:
+            brandLink:
               - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=1804&searchTerm=By+Brand%3a+Smarties
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]/a[1]/@href
+            brandText:
+              - text: Smarties
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
             category:
               - text: Confectionery
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[5]
-            dietary_information:
+            description:
+              - text: Smarties Milk Chocolate Sweets Tube 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            dietaryInformation:
               - text: Free From Artificial Colours
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]/li[1]
             harvested_product_description:
@@ -93,7 +96,7 @@ extractions:
             imageAlt:
               - text: Smarties Milk Chocolate Sweets Tube 38g - Click for larger image
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            ingredients_list:
+            ingredientsList:
               - text: >-
                   Sugar,
 
@@ -130,7 +133,7 @@ extractions:
                   information purposes only. On occasion the actual product may
                   differ from that shown.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[9]
-            manufacturer_name:
+            manufacturer:
               - text: PO Box 203
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/p[1]
             metaKeywords:
@@ -141,24 +144,21 @@ extractions:
             packaging:
               - text: Type Box
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/ul[1]/li[1]
-            product_description:
-              - text: Smarties Milk Chocolate Sweets Tube 38g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             products_per_page:
               - text: "0"
-            protein_per_serving:
+            proteinPerServing:
               - text: "4.8 "
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
-            protein_per_serving_uom:
+            proteinPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
             retailer_product_code:
               - text: "488"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            salt_per_serving:
+            saltPerServing:
               - text: "0.15 "
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
-            salt_per_serving_uom:
+            saltPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
             scrape_code:
@@ -170,10 +170,10 @@ extractions:
             sub_category:
               - text: Chocolate
                 xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
-            total_fat_per_serving:
+            totalFatPerServing:
               - text: "18.4 "
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            total_fat_per_serving_uom:
+            totalFatPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             url:
@@ -183,4 +183,4 @@ extractions:
               - text: Contains Milk
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]/li[1]
         xpath: /
-    timestamp: 1591301056795
+    timestamp: 1591360196245

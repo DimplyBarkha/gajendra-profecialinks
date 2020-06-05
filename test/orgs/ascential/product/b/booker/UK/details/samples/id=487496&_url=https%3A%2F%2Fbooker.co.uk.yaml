@@ -2,22 +2,25 @@ input:
   id: 487496
   _url: https://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=09d4e5e9-a80e-49e6-9d31-df970c353b9d/task=ae709eb4-aa1b-4e4a-83c9-ba21cea43b2d/e49f9a8d-b56a-45f6-acb0-4289083abfc3.html
+  - html: https://workbench.import.io/html/run=f72a2561-2b24-4e5c-a422-7225f58f6b83/task=e6323a70-9c64-4cd0-a332-9a2e794326ff/ca0c6c57-6c79-4317-b86f-cecb7b29a62c.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
           - additional_description:
               - text: Rich in B vitamins. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
-            allergy_advice:
+            allergyAdvice:
               - text: Contains Barley
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]/li[1]
-            brand:
-              - text: Marmite
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
-            brand_url:
+            brandLink:
               - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=2488&searchTerm=By+Brand%3a+Marmite
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]/a[1]/@href
+            brandText:
+              - text: Marmite
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
+            description:
+              - text: Marmite Yeast Extract 600g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             harvested_product_description:
               - text: Rich in B vitamins. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
@@ -27,7 +30,7 @@ extractions:
             imageAlt:
               - text: Marmite Yeast Extract 600g - Click for larger image
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            ingredients_list:
+            ingredientsList:
               - text: >-
                   Yeast Extract (contains Barley, Wheat, Oats, Rye),
 
@@ -44,7 +47,7 @@ extractions:
                   information purposes only. On occasion the actual product may
                   differ from that shown.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]
-            manufacturer_name:
+            manufacturer:
               - text: Unilever Food Solutions
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
             metaKeywords:
@@ -55,30 +58,27 @@ extractions:
             packaging:
               - text: Type Tub
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[9]/ul[1]/li[1]
-            product_description:
-              - text: Marmite Yeast Extract 600g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             products_per_page:
               - text: "1"
-            protein_per_serving:
+            proteinPerServing:
               - text: "34.0"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
-            protein_per_serving_uom:
+            proteinPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
             retailer_product_code:
               - text: "487496"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            salt_per_serving:
+            saltPerServing:
               - text: "10.8"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
-            salt_per_serving_uom:
+            saltPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
             scrape_code:
               - text: "487496"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            serving_size:
+            servingSize:
               - text: " 100g as sold"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             size:
@@ -87,10 +87,10 @@ extractions:
             sub_category:
               - text: Browse Categories
                 xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
-            total_fat_per_serving:
+            totalFatPerServing:
               - text: <0.5
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            total_fat_per_serving_uom:
+            totalFatPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             url:
@@ -100,4 +100,4 @@ extractions:
               - text: Contains Barley
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]/li[1]
         xpath: /
-    timestamp: 1591301053452
+    timestamp: 1591360193306

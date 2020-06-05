@@ -20,33 +20,39 @@ fields:
   - name: sub_category
     xpath: //div[@id="csmpc"]/a[last()]
     singleValue: true
-  - name: product_description
+  - name: description
     xpath: //div[@class="pip"]/h3
     singleValue: true
-  - name: online_price
+  - name: price
     singleValue: true
-  - name: online_price_currency
+  - name: priceCurrency
     singleValue: true
-  - name: availability
+  - name: availabilityText
     singleValue: true
   - name: inStorePrice
     singleValue: true
-  - name: in_store_price_currency
+  - name: inStorePriceCurrency
+    singleValue: true
+  - name: calciumPerServing
+    singleValue: true
+  - name: calciumPerServingUom
     singleValue: true
   - name: additional_description
     xpath: //h1[contains(.,'Description')]/following-sibling::p
     singleValue: true
-  - name: ingredients_list
+  - name: ingredientsList
     xpath: //h1[contains(.,'Ingredients')]/following-sibling::ul
     singleValue: true
-  - name: brand
+  - name: brandText
     xpath: //ul[@id="catLinks"]/li/b[contains(.,'By Brand:')]/following-sibling::span
     singleValue: true
-  - name: manufacturer_name
+  - name: manufacturer
     xpath: //h1[contains(.,'Manufacturer')]/following-sibling::p
     regExp: ^(.+?),
     regExpReplace: $1
     singleValue: false
+  - name: manufacturerDescription
+    singleValue: true
   - name: size
     xpath: //div[contains(@class,"piTopInfo")]/div[2]/ul/li[contains(.,'Size:')]/span
     singleValue: true
@@ -65,14 +71,16 @@ fields:
   - name: retailer_product_code
     xpath: //div[contains(@class,"piTopInfo")]/div[2]/ul/li[contains(.,'Code:')]/span
     singleValue: true
-  - name: directions_information
+  - name: directions
     singleValue: true
   - name: warnings
     xpath: //h1[contains(.,'Allergy Advice')]/following-sibling::ul/li
     singleValue: true
-  - name: secondary_image
+  - name: alternateImages
     singleValue: true
   - name: number_of_customer_reviews
+    singleValue: true
+  - name: numberOfServingsInPackage
     singleValue: true
   - name: customer_review_rating
     singleValue: true
@@ -94,77 +102,92 @@ fields:
     singleValue: true
   - name: storage
     singleValue: true
-  - name: country_of_origin
+  - name: countryOfOrigin
     xpath: //h1[contains(.,'Country')]/following-sibling::ul/li/span
     singleValue: true
-  - name: allergy_advice
+  - name: allergyAdvice
     xpath: //h1[contains(.,'Allergy Advice')]/following-sibling::ul/li
     singleValue: true
-  - name: recycling_information
+  - name: recyclingInformation
     xpath: //h1[contains(.,'Recycling')]/following-sibling::ul/li
     singleValue: true
-  - name: salt_per_serving
+  - name: saltPerServing
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Salt')]/following-sibling::td[1]
     regExp: (.*)(\w)
     regExpReplace: $1
     singleValue: false
-  - name: salt_per_serving_uom
+  - name: saltPerServingUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Salt')]/following-sibling::td[1]
     regExp: (.*)(\w)
     regExpReplace: $2
     singleValue: false
-  - name: serving_size
+  - name: servingSize
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr[1]/th[2]
     regExp: (^per?)(.*)
     regExpReplace: $2
     singleValue: false
-  - name: serving_size_uom
+  - name: servingSizeUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr[1]/th[2]
     regExp: (^per?)(\d)(\w)(.*)
     regExpReplace: $3
     singleValue: false
-  - name: calories_per_serving
+  - name: caloriesPerServing
+    xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'Energy')]/following-sibling::td[1]
     singleValue: true
-  - name: calories_from_fat_per_serving
+  - name: caloriesFromFatPerServing
     singleValue: false
-  - name: total_fat_per_serving
+  - name: transFatPerServing
+    singleValue: true
+  - name: transFatPerServingUom
+    singleValue: false
+  - name: cholesterolPerServing
+    singleValue: true
+  - name: cholesterolPerServingUom
+    singleValue: false
+  - name: ironPerServing
+    singleValue: true
+  - name: ironPerServingUom
+    singleValue: false
+  - name: manufacturerImages
+    singleValue: false
+  - name: nameExtended
+    singleValue: false
+  - name: totalFatPerServing
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Fat')]/following-sibling::td[1]
     regExp: (.*)(\w)
     regExpReplace: $1
     singleValue: false
-  - name: total_fat_per_serving_uom
+  - name: totalFatPerServingUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Fat')]/following-sibling::td[1]
     regExp: (.*)(\w)
     regExpReplace: $2
     singleValue: false
-  - name: saturated_fat_per_serving
+  - name: saturatedFatPerServing
     singleValue: true
-  - name: saturated_fat_per_serving_uom
+  - name: saturatedFatPerServingUom
     singleValue: true
-  - name: saturated_fat_per_serving_uom
+  - name: sodiumPerServing
     singleValue: true
-  - name: sodium_per_serving
-    singleValue: true
-  - name: sodium_per_serving_uom
+  - name: sodiumPerServingUom
     singleValue:
-  - name: total_carb_per_serving
+  - name: totalCarbPerServing
     singleValue: true
-  - name: total_carb_per_serving_uom
+  - name: totalCarbPerServingUom
     singleValue: true
-  - name: dietary_fibre_per_serving
+  - name: dietaryFibrePerServing
     singleValue: true
-  - name: dietary_fibre_per_serving_uom
+  - name: dietaryFibrePerServingUom
     singleValue: true
-  - name: total_sugars_per_serving
+  - name: totalSugarsPerServing
     singleValue: true
-  - name: total_sugars_per_serving_uom
+  - name: totalSugarsPerServingUom
     singleValue: true
-  - name: protein_per_serving
+  - name: proteinPerServing
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Protein')]/following-sibling::td[1]
     regExp: (.*)(\w)
     regExpReplace: $1
     singleValue: false
-  - name: protein_per_serving_uom
+  - name: proteinPerServingUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Protein')]/following-sibling::td[1]
     regExp: (.*)(\w)
     regExpReplace: $2
@@ -173,15 +196,17 @@ fields:
     singleValue: true
   - name: serving_size_2_uom
     singleValue: true
-  - name: dietary_information
+  - name: dietaryInformation
     xpath: //h1[contains(.,'Dietary Information')]/following-sibling::ul/li
     singleValue: true
-  - name: product_other_information
+  - name: productOtherInformation
     singleValue: true
   - name: packaging
     xpath: //h1[contains(.,'Packaging')]/following-sibling::ul/li
     singleValue: true
   - name: additives
+    singleValue: true
+  - name: dietarySymbols
     singleValue: true
   - name: footer_product_info
     singleValue: true
@@ -206,15 +231,21 @@ fields:
     singleValue: true
   - name: retailer_id
     singleValue: true
-  - name: addon_item
+  - name: ratingCount
+    singleValue: true
+  - name: addonItem
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+  - name: aggregateRatingText
     singleValue: true
   - name: syndicated_data
     singleValue: true
   - name: harvested_price
     singleValue: true
-  - name: price_per_unit
+  - name: pricePerUnit
     singleValue: true
-  - name: price_per_unit_uom
+  - name: pricePerUnitUom
     singleValue: true
   - name: scrape_code
     xpath: //div[contains(@class,"piTopInfo")]/div[2]/ul/li[contains(.,'Code:')]/span
@@ -232,72 +263,76 @@ fields:
     singleValue: true
   - name: lbb
     singleValue: true
-  - name: lbb_price
+  - name: lbbPrice
     singleValue: true
-  - name: feature_bullets
+  - name: lbbPriceCurrency
+    singleValue: true
+  - name: featureBullets
     singleValue: true
   - name: packSize
     singleValue: true
-  - name: secondary_image_total
+  - name: secondaryImageTotal
     singleValue: true
   - name: news
     singleValue: true
-  - name: other_sellers_name
+  - name: otherSellersName
     singleValue: true
-  - name: other_sellers_price
-    singleValue: true
-  - name: other_sellers_shipping
+  - name: otherSellersShipping
     singleValue: true
   - name: coupon_discount_percentage
     singleValue: true
   - name: coupon_on_full_page_text
     singleValue: true
-  - name: brand_url
+  - name: brandLink
     xpath: //ul[@id="catLinks"]/li/b[contains(.,'By Brand:')]/following-sibling::span/a/@href
     regExp: (.+)
     regExpReplace: https://www.booker.co.uk$1
     singleValue: false
-  - name: international_shipping
+  - name: internationalShipping
     singleValue: true
-  - name: sales_rank
+  - name: amazonChoice
     singleValue: true
-  - name: sales_rank_category
+  - name: amazonChoiceCategory
     singleValue: true
-  - name: subscription_price
+  - name: salesRank
     singleValue: true
-  - name: subscribe_and_save
+  - name: salesRankCategory
     singleValue: true
-  - name: hero_quick_promo_headline
+  - name: subscriptionPrice
     singleValue: true
-  - name: hero_quick_promo_image_url
+  - name: subscribeAndSave
     singleValue: true
-  - name: hero_quick_promo_url
+  - name: heroQuickPromoHeadline
+    singleValue: true
+  - name: heroQuickPromoImageUrl
+    singleValue: true
+  - name: heroQuickPromoUrl
     singleValue: true
   - name: pasin
     singleValue: true
-  - name: video_length
+  - name: videoLength
     singleValue: true
-  - name: other_sellers_prime
+  - name: otherSellersPrime
     singleValue: true
-  - name: prime_note
+  - name: primeFlag
     singleValue: true
   - name: deal_price
     singleValue: true
-  - name: ingredient_image_present
+  - name: ingredientImagePresent
     singleValue: true
-  - name: fact_image_present
+  - name: factImagePresent
     singleValue: true
-  - name: large_image_count
+  - name: largeImageCount
     singleValue: true
-  - name: variant_asins
+  - name: variantAsins
     singleValue: true
   - name: andon_cord
     singleValue: true
-  - name: prime_flag
+  - name: prime_note
     singleValue: true
   - name: listPrice
     singleValue: true
-  - name: alcohol_content
+  - name: alcoholContent
     xpath: //div[contains(@class,"piTopInfo")]/div[2]/ul/li[contains(.,'Alcohol by Volume:')]/span
     singleValue: true
   - name: stock_number
@@ -326,7 +361,7 @@ fields:
     singleValue: true
   - name: variant_information
     singleValue: true
-  - name: first_variant
+  - name: firstVariant
     singleValue: true
   - name: variants
     singleValue: true
@@ -334,13 +369,17 @@ fields:
     singleValue: true
   - name: additional_desc_bullet_info
     singleValue: true
-  - name: magnesium_per_serving
+  - name: magnesiumPerServing
     singleValue: true
-  - name: magnesium_per_serving_uom
+  - name: magnesiumPerServingUom
     singleValue: true
-  - name: amazon_choice
+  - name: vitaminAPerServing
     singleValue: true
-  - name: amazon_choice_text
+  - name: vitaminAPerServingUom
+    singleValue: true
+  - name: vitaminCPerServing
+    singleValue: true
+  - name: vitaminCPerServingUom
     singleValue: true
   - name: deal_type
     singleValue: true
@@ -354,9 +393,9 @@ fields:
     singleValue: true
   - name: colour
     singleValue: true
-  - name: colour_ref
+  - name: colorCode
     singleValue: true
-  - name: fast_track
+  - name: fastTrack
     singleValue: true
   - name: supplementary_image
     singleValue: true
