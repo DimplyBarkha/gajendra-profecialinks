@@ -2,7 +2,7 @@ input:
   _url: https://sainsburys.co.uk
   url: https://www.sainsburys.co.uk/gol-ui/product/green---blacks-organic-chocolate-500ml
 extractions:
-  - html: https://workbench.import.io/html/run=3db97248-5e1f-4c90-b1c7-12fbba53a7d4/task=5458de8a-225b-4620-bb1b-bd0a87309f94/1b54fb0e-0243-4e03-a6c5-30c670a71695.html
+  - html: https://workbench.import.io/html/run=f1279868-ef58-45fe-89d9-adfda23fe140/task=9c45cc7c-e8a6-4fc0-9fb5-8b8522c56633/220c1a17-2e98-449a-a05a-6d30ba6fea64.html
     extractionConfigId: product/details/stores/s/sainsburys/UK/extract
     data:
       - group:
@@ -57,24 +57,20 @@ extractions:
               - text: The above details have been prepared to help you select suitable products.
                   Products and their ingredients are liable to change.
             list_price:
-              - text: £4.20
+              - text: "4.20"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]
             manufacturer_name:
-              - text: |-
-                  R&R Ice Cream UK Ltd,
-                  Part of Froneri International Plc,
-                  Leeming Bar,
-                  United Kingdom,
-                  DL7 9UL.
-                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
+              - text: R&R Ice Cream UK Ltd,Part of Froneri International Plc,Leeming Bar,United
+                  Kingdom,DL7 9UL.
             number_of_customer_reviews:
               - text: "8"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
             online_price:
-              - text: £4.20
+              - text: "4.20"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]
             online_price_currency:
-              - text: £
+              - text: "4.20"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]
             packaging:
               - text: Tub
             product_description:
@@ -104,11 +100,8 @@ extractions:
               - text: "Keep frozen below -18°CDo not refreeze once thawedBest Before End: See
                   base of tub Keep Frozen"
             sub_category:
-              - text: |-
-                  Frozen
-                  Ice cream & ice
-                  All ice creams
-                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]
+              - text: Ice cream & ice > All ice creams
+                xpath: /html/body/@breadcrumbs
             total_fat_per_serving:
               - text: 13.3g
                 xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
@@ -122,4 +115,4 @@ extractions:
               - text: https://www.sainsburys.co.uk/shop/gb/groceries/product/details/green---blacks-organic-chocolate-500ml
                 xpath: /html/head[1]/script[43]/text()[1]
         xpath: /
-    timestamp: 1591298286148
+    timestamp: 1591363120620
