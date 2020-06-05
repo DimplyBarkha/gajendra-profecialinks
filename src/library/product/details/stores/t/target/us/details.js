@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details',
   parameterValues: {
-    country: 'us',
+    country: 'US',
     store: 'target',
     domain: 'target.com',
   },
