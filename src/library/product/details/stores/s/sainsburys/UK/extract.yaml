@@ -20,35 +20,27 @@ fields:
   - name: category
     singleValue: true
     xpath: //nav//ol//li[position()>=2 and position()<=(last()-1)]
-  - name: keywords
-    singleValue: true
-    xpath:
-  - name: download_time
-    singleValue: true
-    xpath:
   - name: sub_category
-    singleValue: true
+    singleValue: false
     xpath: //nav//ol
     regExp:
+    regExpReplace:
   - name: product_description
     singleValue: true
     xpath: //h1[@data-test-id="pd-product-title"]
   - name: list_price
     singleValue: true
     xpath: //div[@class="pd__cost"]/div
-  - name: harvested_list_price
-    singleValue: true
-    xpath:
+    regExp: (\d+(\.\d+)?)
   - name: online_price
     singleValue: true
     xpath: //div[@class="pd__cost"]/div
-    regexp: \d+(\.\d+)?
+    regExp: (\d+(\.\d+)?)
   - name: online_price_currency
     singleValue: true
+    xpath: //div[@class="pd__cost"]/div
+    regExp: (\d+(\.\d+)?)
     defaultValue: £
-  - name: harvested_price
-    singleValue: true
-    xpath:
   - name: availability
     singleValue: true
     xpath: /html/head//script[@type = "application/ld+json"]/text()
@@ -57,9 +49,6 @@ fields:
   - name: additional_description
     singleValue: true
     xpath: normalize-space(//div[@id="mainPart"][1]/div[1])
-  - name: additional_desc_bullet_count
-    singleValue: true
-    xpath:
   - name: brand
     singleValue: true
     xpath: //div[@class="pd__label"]
@@ -70,135 +59,20 @@ fields:
     singleValue: true
     xpath: //h1[@data-test-id="pd-product-title"]
     regExp: (\d+)(\w\w?)
-  - name: net_weight
-    singleValue: true
-    xpath:
-  - name: gross_weight
-    singleValue: true
-    xpath:
-  - name: upc
-    singleValue: true
-    xpath:
-  - name: ean_gtin
-    singleValue: true
-    xpath:
-  - name: sku_number
-    singleValue: true
-    xpath:
   - name: retailer_product_code
     singleValue: true
     xpath: //span[@id="productSKU"]
-  - name: mpc
-    singleValue: true
-    xpath:
-  - name: rpc_sku_hybrid
-    singleValue: true
-    xpath:
-  - name: pack_size
-    singleValue: true
-    xpath:
   - name: legal_disclaimer
     singleValue: true
     xpath: normalize-space(//div[contains(@class,"pd__disclaimer")]//p[position()>1])
-  - name: directions_information
-    singleValue: true
-    xpath:
-  - name: warnings
-    singleValue: true
-    xpath:
   - name: number_of_customer_reviews
     singleValue: true
     xpath: //span[@data-test-id="review-count"]
     regExp: \d+
-  - name: harvested_review_rating
-    singleValue: true
-    xpath:
-  - name: harvested_review_rating
-    singleValue: true
-    xpath:
   - name: customer_review_rating
     singleValue: true
     xpath: //a[@class="star-rating-link"][2]/span/@aria-label
     regExp: \d+(\.\d+)?
-  - name: shipping_details
-    singleValue: false
-    xpath: 
-  - name: shipping_dimensions
-    singleValue: true
-    xpath:
-  - name: in_store_price
-    singleValue: true
-    xpath:
-  - name: in_store_price_currency
-    singleValue: true
-    xpath:
-  - name: products_per_page
-    singleValue: true
-    xpath:
-  - name: colour
-    singleValue: true
-    xpath:
-  - name: colour_ref
-    singleValue: true
-    xpath:
-  - name: enhanced_content
-    singleValue: true
-    xpath:
-  - name: aplus_images
-    singleValue: true
-    xpath:
-  - name: video
-    singleValue: true
-    xpath:
-  - name: harvested_product_description
-    singleValue: true
-    xpath:
-  - name: in_store_availability
-    singleValue: true
-    xpath:
-  - name: drive_id
-    singleValue: true
-    xpath:
-  - name: drive
-    singleValue: true
-    xpath:
-  - name: retailer_id
-    singleValue: true
-    xpath:
-  - name: asin
-    singleValue: true
-    xpath:
-  - name: coupons
-    singleValue: true
-    xpath:
-  - name: coupon_discount_percentage
-    singleValue: true
-    xpath:
-  - name: coupon_on_full_page_text
-    singleValue: true
-    xpath:
-    regExp:
-  - name: amazon_choice
-    singleValue: true
-    xpath:
-  - name: amazon_choice_text
-    singleValue: true
-    xpath:
-  - name: brand_url
-    singleValue: true
-    xpath:
-  - name: international_shipping
-    singleValue: true
-    xpath:
-  - name: sales_rank
-    singleValue: true
-    xpath:
-  - name: sales_rank_category
-    singleValue: true
-    xpath:
-  - name: subscription_price
-    singleValue: true
-    xpath:
   - name: ingredients_list
     singleValue: false
     xpath: normalize-space(//ul[contains(@class,"productIngredients")])
@@ -264,18 +138,6 @@ fields:
   - name: packaging
     singleValue: false
     xpath: normalize-space(//h3[normalize-space(text())="Packaging"]/following-sibling::div[1])
-  - name: price_per_unit
-    singleValue: true
-    xpath: 
-  - name: price_per_unit_uom
-    singleValue: true
-    xpath: 
-  - name: product_id
-    singleValue: true
-    xpath: 
-  - name: shipping_Information
-    singleValue: true
-    xpath: 
   - name: country_of_origin
     singleValue: false
     xpath: normalize-space(//h3[normalize-space(text())="Country of Origin"]/following-sibling::div[1])
