@@ -1,3 +1,5 @@
+const { transform } = require('../../../../shared');
+
 async function implementation (
   // @ts-ignore
   inputs,
@@ -9,16 +11,10 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.evaluate(() => {
-    // @ts-ignore
-    const numberOfProductsPerPage = parseInt(document.getElementById('pagenav-items-per-page').value);
-
     function addHiddenDiv (i, productCards) {
-      // @ts-ignore
-      const pageNum = document.getElementById('pag-counter') !== null ? parseInt(document.getElementById('pag-counter').value) : 1;
       const newDiv = document.createElement('div');
       newDiv.id = i;
       newDiv.className = 'extra-info';
-      newDiv.textContent = pageNum === 1 ? i + 1 : ((pageNum - 1) * numberOfProductsPerPage) + 1 + i;
       newDiv.style.display = 'none';
       const skuId = productCards[i].querySelector('a').getAttribute('id').split('_sku')[1];
       newDiv.dataset.id = skuId !== undefined ? skuId : productCards[i].querySelector('a').getAttribute('id').split('compare_')[1];
@@ -45,7 +41,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walgreens',
-    transform: null,
+    transform: transform,
     domain: 'walgreens.com',
   },
   implementation,
