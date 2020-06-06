@@ -204,148 +204,99 @@ fields:
   regExp: (.*)
   regExpReplace: Yes
   defaultValue: No
+- name: nutritionInfo
+  singleValue: true
+  manualSelector: script[id='item']
+  regExp: ("nutritionFacts":{"calorieInfo(.*)}})(,"legalBadges")
+  regExpReplace: $1
 - name: servingSize
-  singleValue: false 
-  xpath: //*[@class='nutrition-facts-all-facts-servingSize']//span[contains(text(),'Serving Size')]/following-sibling::span
-  regExp: ^(?:([\d\.\/]+)\s(\w+))$|^(?:([\d\.\/]+)\s(\w+\s\w+)$)
-  regExpReplace: $1$3
+  singleValue: false
+    
 - name: servingSizeUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-servingSize']//span[contains(text(),'Serving Size')]/following-sibling::span
-  regExp: ^(?:([\d\.\/]+)\s(\w+))$|^(?:([\d\.\/]+)\s(\w+\s\w+)$)
-  regExpReplace: $2$4
+
 - name: numberOfServingsInPackage
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-servingSize']//span[contains(text(),'Servings Per Container')]/following-sibling::span  
+
 - name: caloriesPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Amount Per Serving')]/following-sibling::span
+  
 - name: caloriesFromFatPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-nutrient-info']//span[contains(text(),'Calories')]/following-sibling::span
+
 - name: totalFatPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-nutrient-info']//span[contains(text(),'Total Fat')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1
+
 - name: totalFatPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2  
+
 - name: saturatedFatPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1  
+
 - name: saturatedFatPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2
+
 - name: transFatPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1  
+
 - name: transFatPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2
+
 - name: cholesterolPerServing
-  singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1  
+  singleValue: false 
 - name: cholesterolPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2  
 - name: saltPerServing
-  singleValue: true
-  xpath:  
+  singleValue: true   
 - name: saltPerServingUom
-  singleValue: true
-  xpath:  
+  singleValue: true   
 - name: sodiumPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1  
 - name: sodiumPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2
 - name: totalCarbPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1
 - name: totalCarbPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2 
+
 - name: dietaryFibrePerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1
+
 - name: dietaryFibrePerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2 
+
 - name: totalSugarsPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1   
+  
 - name: totalSugarsPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2 
+
 - name: proteinPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1
+
 - name: proteinPerServingUom
   singleValue: false  
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2 
+
 - name: vitaminAPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: ^(?:([\d\.]+)\s?(%))$
-  regExpReplace: $1 
+
 - name: vitaminAPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: ^(?:([\d\.]+)\s?(%))$
-  regExpReplace: $2   
+ 
 - name: vitaminCPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: ^(?:([\d\.]+)\s?(%))$
-  regExpReplace: $1 
+
 - name: vitaminCPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: ^(?:([\d\.]+)\s?(%))$
-  regExpReplace: $2
+
 - name: calciumPerServing
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: ^(?:([\d\.]+)\s?(%))$
-  regExpReplace: $1 
+
 - name: calciumPerServingUom
   singleValue: false
-  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
-  regExp: ^(?:([\d\.]+)\s?(%))$
-  regExpReplace: $2
+
+- name: ironPerServing
+  singleValue: false
+
+- name: ironPerServingUom
+  singleValue: false
