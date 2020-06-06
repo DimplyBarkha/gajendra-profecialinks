@@ -26,7 +26,115 @@ fields:
     defaultValue: Out of stock
   - name: additional_description
     singleValue: false
-    xpath: 
+    xpath: normalize-space(//div[contains(@id,"descriptionTab")]/following-sibling::div/div)
   - name: manufacturer_name
+    singleValue: false
+    xpath: normalize-space(//div[contains(@class,"pdp-bottom-infos")]/ul//li/span[contains(text(),'Adresse du fournisseur')]/following-sibling::span)
+  - name: sku_number
+    singleValue: false
+    xpath: //div[@class="pdp-add"]/button/@data-product-id
+  - name: retailer_product_code
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-gallery__main")]/img/@src
+    regExp: ([pP]\d+\-?\d?)(\-?\d?)$
+  - name: directions_information
+    singleValue: false
+    xpath: normalize-space(//div[contains(@class,"pdp-bottom-infos")][contains(text(),'Renseignements pratiques')])
+  - name: serving_size
+    singleValue: false
+    xpath: //table[@class="nutritional-table"]//thead//th//div[contains(text(),'Pour')]
+    regExp: \d+
+  - name: serving_size_uom
+    singleValue: false
+    xpath: //table[@class="nutritional-table"]//thead//th//div[contains(text(),'Pour')]
+    regExp: '[^\d]+$'
+  - name: calories_per_serving
+    singleValue: false
+    xpath: //table[@class="nutritional-table"]//tbody/tr[1]/td/div
+  - name: total_fat_per_serving
+    singleValue: false
+    xpath: //table[@class="nutritional-table"]//tr[3]/td/div
+  - name: total_fat_per_serving_uom
+    singleValue: false
+    xpath: //table[@class="nutritional-table"]//tr[3]/td/div
+    regExp: (.+)
+    regExpReplace: g
+  - name: saturated_fat_per_serving
+    singleValue: false
+    xpath: //table[@class="nutritional-table"]/tbody/tr[4]/td/div
+  - name: saturated_fat_per_serving_uom
+    singleValue: false
+    xpath: //table[@class="nutritional-table"]/tbody/tr[4]/td/div
+    regExp: (.+)
+    regExpReplace: g
+  - name: total_carb_per_serving
+    singleValue: false
+    xpath: //table[@class="nutritional-table"]/tbody/tr[5]/td/div
+  - name: total_carb_per_serving_uom
+    singleValue: false
+    xpath: //table[@class="nutritional-table"]/tbody/tr[5]/td/div
+    regExp: (.+)
+    regExpReplace: g 
+  - name: dietary_fibre_per_serving
+    singleValue: false
+    xpath: 
+  - name: dietary_fibre_per_serving_uom
+    singleValue: false
+    xpath: 
+    regExp: (.+)
+    regExpReplace: g 
+  - name: total_sugars_per_serving
+    singleValue: false
+    xpath: 
+  - name: total_sugars_per_serving_uom
+    singleValue: false
+    xpath: 
+  - name: protein_per_serving
+    singleValue: false
+    xpath: 
+  - name: protein_per_serving_uom
+    singleValue: false
+    xpath: 
+  - name: secondary_image
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-gallery")]/label/img/@src
+  - name: number_of_customer_reviews
+    singleValue: false
+    xpath: //div[@class="rating-quantity"]
+    regExp: \d+
+  - name: customer_review_rating
+    singleValue: false
+    xpath: //div[@class="rating-average"]
+  - name: search_terms
+    singleValue: false
+    xpath: 
+  - name: search_terms_ranking
+    singleValue: false
+    xpath: 
+  - name: storage
+    singleValue: false
+    xpath: //li[@class="pdp-meta"][2]/span[contains(text(),'Conservation')]/following-sibling::span
+  - name: salt_per_serving
+    singleValue: false
+    xpath: 
+  - name: salt_per_serving_uom
+    singleValue: false
+    xpath: 
+  - name: harvested_price
+    singleValue: false
+    xpath: 
+  - name: price_per_unit
+    singleValue: false
+    xpath: 
+  - name: price_per_unit_uom
+    singleValue: false
+    xpath: 
+  - name: scrape_code
+    xpath: //div[contains(@class,"pdp-gallery__main")]/img/@src
+    regExp: ([pP]\d+\-?\d?)(\-?\d?)$
+  - name: image_alt_text
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-gallery__main")]/img/@alt
+  - name: promotion
     singleValue: false
     xpath: 
