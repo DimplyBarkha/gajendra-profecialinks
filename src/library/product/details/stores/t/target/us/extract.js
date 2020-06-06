@@ -306,7 +306,7 @@ async function implementation (
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'us',
+    country: 'US',
     store: 'target',
     transform: null,
     domain: 'target.com',
