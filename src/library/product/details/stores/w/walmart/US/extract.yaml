@@ -38,7 +38,7 @@ fields:
 - name: manufacturer
   singleValue: true
   manualSelector: script[id='item']
-  regExp: (\"manufacturer\"\:\")([^"]+)(","v)
+  regExp: (\"manufacturer\"\:\")([^"]+)(",")
   regExpReplace: $2
 - name: description
   singleValue: false
@@ -63,8 +63,8 @@ fields:
   xpath: //*[@itemprop="gtin13"]/@content
 - name: sku
   singleValue: true
-  manualSelector: script[id='item']
-  regExp: (\"productId\"\:\")(\S+)(\",\"itemId\")
+  xpath: //script[@id='item']
+  regExp: (",\"productId\":\")(\w+)
   regExpReplace: $2
 - name: asin
   singleValue: true
@@ -76,6 +76,9 @@ fields:
   xpath: //meta[@itemprop='sku']/@content
 - name: mpc
   singleValue: true
+  manualSelector: script[id='item']
+  regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
+  regExpReplace: $2
 - name: packSize
   singleValue: true
 - name: legalDisclaimer
@@ -85,6 +88,12 @@ fields:
   xpath: //p[@class='Directions']
 - name: warnings
   singleValue: true
+  xpath: //p[@class='Warnings']
+- name: warranty
+  singleValue: true
+  manualSelector: script[id='item']
+  regExp: (warranty":{(.*),"information":")([^"]+)("})
+  regExpReplace: $3
   xpath: //p[@class='Warnings']
 - name: ratingCount
   singleValue: true
@@ -97,7 +106,8 @@ fields:
   singleValue: true
   xpath: //*[@itemprop='ratingValue']
 - name: shippingInfo
-  singleValue: true
+  singleValue: true 
+  xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"]
 - name: shippingDimensions
   singleValue: true
   xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
@@ -144,22 +154,27 @@ fields:
   xpath: //h1[@class='prod-ProductTitle font-normal']
 - name: otherSellersName
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: ("sellerName":")([^\"]+)(","sell)
-  regExpReplace: $2  
+  xpath: //div[@class='marketplace-body']//*[@data-tl-id="ProductSellerInfo-SellerName"]
 - name: otherSellersPrice
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: (,"price":)(\d+\.?\d*)(,"sell)
-  regExpReplace: $2
+  xpath: //div[contains(@class,'seller-offer')]//div[contains(@class,'prod-PriceHero')]//span[contains(@class,'price--stylized')]//span[@class='visuallyhidden']
 - name: otherSellersShipping
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: (,"shipPrice":)(\d+\.?\d*)(})
-  regExpReplace: $2
+  xpath: //div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
+  regExp: (\d+\.?\d*) delivery
+  regExpReplace: $ 1
+- name: lbb
+  singleValue: true
+  defaultValue: Yes
+  xpath: //div[@class='SellerInfo']//a[@class='seller-name']
+  regExp: Walmart
+  regExpReplace: No
 - name: additionalDescBulletInfo
   singleValue: false  
   xpath: //div[contains(@class,'about-desc')]//ul/li
+- name: promotion
+  singleValue: false
+  xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
 - name: ageSuitability
   singleValue: false
   xpath: //td[contains(text(),'Age Range')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
@@ -180,7 +195,7 @@ fields:
 - name: materials
   singleValue: false
   xpath: //td[contains(text(),'Material')]/following-sibling::td[@class='s-padding-ends s-padding-sides']|//td[contains(text(),'Fabric Content')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
-- name: 360ImagePresent
+- name: Image360Present
   singleValue: false
   defaultValue: No
 - name: imageZoomFeaturePresent
@@ -189,3 +204,148 @@ fields:
   regExp: (.*)
   regExpReplace: Yes
   defaultValue: No
+- name: servingSize
+  singleValue: false 
+  xpath: //*[@class='nutrition-facts-all-facts-servingSize']//span[contains(text(),'Serving Size')]/following-sibling::span
+  regExp: ^(?:([\d\.\/]+)\s(\w+))$|^(?:([\d\.\/]+)\s(\w+\s\w+)$)
+  regExpReplace: $1$3
+- name: servingSizeUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-servingSize']//span[contains(text(),'Serving Size')]/following-sibling::span
+  regExp: ^(?:([\d\.\/]+)\s(\w+))$|^(?:([\d\.\/]+)\s(\w+\s\w+)$)
+  regExpReplace: $2$4
+- name: numberOfServingsInPackage
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-servingSize']//span[contains(text(),'Servings Per Container')]/following-sibling::span  
+- name: caloriesPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Amount Per Serving')]/following-sibling::span
+- name: caloriesFromFatPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-nutrient-info']//span[contains(text(),'Calories')]/following-sibling::span
+- name: totalFatPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-nutrient-info']//span[contains(text(),'Total Fat')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $1
+- name: totalFatPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $2  
+- name: saturatedFatPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $1  
+- name: saturatedFatPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $2
+- name: transFatPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $1  
+- name: transFatPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $2
+- name: cholesterolPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $1  
+- name: cholesterolPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $2  
+- name: saltPerServing
+  singleValue: true
+  xpath:  
+- name: saltPerServingUom
+  singleValue: true
+  xpath:  
+- name: sodiumPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $1  
+- name: sodiumPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $2
+- name: totalCarbPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $1
+- name: totalCarbPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $2 
+- name: dietaryFibrePerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $1
+- name: dietaryFibrePerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $2 
+- name: totalSugarsPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $1   
+- name: totalSugarsPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $2 
+- name: proteinPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $1
+- name: proteinPerServingUom
+  singleValue: false  
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: (?:([\d\.]+)\s?(\w+))
+  regExpReplace: $2 
+- name: vitaminAPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: ^(?:([\d\.]+)\s?(%))$
+  regExpReplace: $1 
+- name: vitaminAPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: ^(?:([\d\.]+)\s?(%))$
+  regExpReplace: $2   
+- name: vitaminCPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: ^(?:([\d\.]+)\s?(%))$
+  regExpReplace: $1 
+- name: vitaminCPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: ^(?:([\d\.]+)\s?(%))$
+  regExpReplace: $2
+- name: calciumPerServing
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: ^(?:([\d\.]+)\s?(%))$
+  regExpReplace: $1 
+- name: calciumPerServingUom
+  singleValue: false
+  xpath: //*[@class='nutrition-facts-all-facts-calorie-info']//span[contains(text(),'Calories')]/following-sibling::span
+  regExp: ^(?:([\d\.]+)\s?(%))$
+  regExpReplace: $2
