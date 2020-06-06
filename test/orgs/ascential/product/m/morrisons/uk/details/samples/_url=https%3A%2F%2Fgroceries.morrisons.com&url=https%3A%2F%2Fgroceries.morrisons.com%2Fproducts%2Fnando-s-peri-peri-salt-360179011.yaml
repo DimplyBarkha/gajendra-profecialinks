@@ -2,7 +2,7 @@ input:
   _url: https://groceries.morrisons.com
   url: https://groceries.morrisons.com/products/nando-s-peri-peri-salt-360179011
 extractions:
-  - html: https://workbench.import.io/html/run=1b06ca26-d8f1-4aac-8683-f5c83661aa98/task=2dcb086f-c695-4d80-b50e-4447eecfd607/ed7a8132-50b4-411e-b904-2295cfb9e98e.html
+  - html: https://workbench.import.io/html/run=6b7dceb2-3e48-4b6d-ab2c-41eb07b2f2d8/task=eb463fcf-fe37-4029-8b22-58c6a8309339/890e42e8-2dfc-46d6-bdf9-ad61224c151e.html
     extractionConfigId: product/details/stores/m/morrisons/uk/extract
     data:
       - group:
@@ -11,7 +11,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[1]/button[1]
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/button[1]
             brandText:
               - text: Nandos
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[1]/div[1]
@@ -59,9 +59,6 @@ extractions:
                   Chilli Powder), Sugar, Cornflour, Yeast Extract, Acidity
                   Regulator (Citric Acid), Colour (Curcumin), Flavourings
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
-            input:
-              - text: "360179011"
-                xpath: /html/head[1]/meta[17]/@content
             legalDisclaimer:
               - text: This page serves as a summary for information purposes only, and are
                   designed to enhance your shopping experience on the website.
@@ -129,9 +126,6 @@ extractions:
             servingSize:
               - text: "100"
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
-            servingSizeUom:
-              - text: g
-                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             shippingInfo:
               - text: All About Food,The Tree House,Skelmersdale,WN8 9TG.grocery@nandos.co.uk
             sku:
@@ -158,4 +152,4 @@ extractions:
               - text: g
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
         xpath: /
-    timestamp: 1591436332955
+    timestamp: 1591461942973

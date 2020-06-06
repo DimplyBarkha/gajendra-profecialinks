@@ -16,11 +16,6 @@ fields:
     singleValue: true
   - name: download_time
     singleValue: true
-  - name: url
-    xpath: //meta[@property="og:url"]//@content
-    regExp: (?:(.+product)(.+)\/(\w+).+)
-    regExpReplace: https://groceries.morrisons.com/products/$2-$3
-    singleValue: true
   - name: category
     xpath: //ul[@class="u-inline gn-breadcrumbs__list"]//li
     singleValue: false
@@ -64,7 +59,7 @@ fields:
     singleValue: true
   - name: sku
     xpath: //meta[@property="og:url"]//@content
-    regExp: (\d+)
+    regExp: (\d+){3}
     singleValue: true
   - name: retailer_product_code
     singleValue: true
@@ -280,10 +275,6 @@ fields:
   - name: price_per_unit
     singleValue: true
   - name: price_per_unit_uom
-    singleValue: true
-  - name: input
-    xpath: //meta[@property="og:url"]//@content
-    regExp: (\d+)
     singleValue: true
   - name: image_alt_text
     singleValue: true
