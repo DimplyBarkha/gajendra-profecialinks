@@ -18,8 +18,8 @@ fields:
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
   - name: category
-    singleValue: true
-    xpath: //body[@category_ranking]/@category_ranking
+    singleValue: false
+    xpath: //ul[@class="crumbs___SEVo6"]/li
   - name: nameExtended
     singleValue: true
     xpath: //h1[@id="productName"]
