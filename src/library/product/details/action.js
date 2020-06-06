@@ -18,7 +18,7 @@ async function implementation (
   const id = (RPC) || ((SKU) || inputs.id);
   await execute({ url, id });
 
-  await extract({});
+  await extract({ url, id });
 }
 
 module.exports = {
