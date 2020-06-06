@@ -221,7 +221,7 @@ fields:
     xpath: //body[@category_ranking]/@category_ranking
   - name: pricePerUnit
     xpath: //span[@class="pricePerUnit___1L8TG"]
-    regExp: \(£(.*)\/(.*)
+    regExp: (\d+(\.\d+)?)
     regExpReplace: $1   
   - name: pricePerUnitUom
     singleValue: true
