@@ -9,13 +9,10 @@ fields:
   - name: imageAlt
     singleValue: true
     xpath: //div[contains(@class,'elements_slider-slide')]/img/@alt
-  - name: _url
-    singleValue: true
-    xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
     xpath: //div[@id='sub_category']
-  - name: description
+  - name: nameExtended
     singleValue: true
     xpath: //div[contains(@class,"pdp-title")]
   - name: price
@@ -24,18 +21,17 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //div[@id='availability']
-  - name: descriptionBullets
+  - name: description
     singleValue: true
-    xpath: //div[@class="pdp-info-container"]//div[@class="info"][1]
-  - name: nameExtended
-    singleValue: true
-    xpath: //h1[@itemprop="name"]
+    xpath: //div[@id="bulletDescription"]
   - name: brandLink
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'pdp-title')]/a/@href
-  - name: ingredients_list
+    regExp: (.*)
+    regExpReplace: https://www.elcorteingles.es$1
+  - name: ingredientsList
     singleValue: true
-    xpath: //div[@class="pdp-info-container"]//div[@class="info"][2]
+    xpath: //div[@id="ingredient"]
   - name: brandText
     singleValue: true
     xpath: //div[@id="brand"]
@@ -43,109 +39,117 @@ fields:
     singleValue: true
     xpath: normalize-space(//h1[@itemprop="name"])
     regExp: (\d+)(.*)
+  - name: gtin
+    singleValue: true
+    xpath: //div[@id="sku"]
   - name: sku
     singleValue: true
     xpath: //div[@id="sku"]
-  - name: retailer_product_code
+  - name: variantId
     singleValue: true
     xpath: //div[@id="retailer_product_code"]
-  - name: directions_information
+  - name: directions
     singleValue: true
     xpath: //div[@class="info"][3]//ul[@class="info-list"]/li[last()]
-  - name: serving_size
+  - name: servingSize
     singleValue: true
     xpath: //div[@class="info _nutrients"]//table//tr[1]//th[last()]
     regExp: (\d+)
-  - name: serving_size_uom
+  - name: servingSizeUom
     singleValue: true
     xpath: //div[@class="info _nutrients"]//table//tr[1]//th[last()]
     regExp: ([A-Z])\w+
-  - name: calories_per_serving
+  - name: caloriesPerServing
     singleValue: true
     xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])[1]
-  - name: total_fat_per_serving
+  - name: totalFatPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
     regExp: (.+)\sg
     regExpReplace: $1
-  - name: total_fat_per_serving_uom
+  - name: totalFatPerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
     regExp: \s(.*)
-  - name: total_carb_per_serving
+  - name: totalCarbPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Hidratos de carbono')]/../td[2]//td[1])[1]
     regExp: (.+)\sg
     regExpReplace: $1
-  - name: total_carb_per_serving_uom
+  - name: totalCarbPerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Hidratos de carbono')]/../td[2]//td[1])[1]
     regExp: \s(.*)
-  - name: dietary_fibre_per_serving
+  - name: dietaryFibrePerServing
     singleValue: false
     xpath: (//td[contains(text(),'Fibra alimentaria')]/../td[2]//td[1])[1]
     regExp: (.+)\sg
     regExpReplace: $1
-  - name: dietary_fibre_per_serving_uom
+  - name: dietaryFibrePerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Fibra alimentaria')]/../td[2]//td[1])[1]
     regExp: \s(.*)
-  - name: total_sugars_per_serving
+  - name: totalSugarsPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Azúcares')]/../td[2]//td[1])[1]
     regExp: (.+)\sg
     regExpReplace: $1
-  - name: total_sugars_per_serving_uom
+  - name: totalSugarsPerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Azúcares')]/../td[2]//td[1])[1]
     regExp: \s(.*)
-  - name: protein_per_serving
+  - name: proteinPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Proteínas')]/../td[2]//td[1])[1]
     regExp: (.+)\sg
     regExpReplace: $1
-  - name: protein_per_serving_uom
+  - name: proteinPerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Proteínas')]/../td[2]//td[1])[1]
     regExp: \s(.*)
-  - name: aggregateRatings
-    singleValue: true
-    xpath: //h4[@itemprop="headline"]
-    regExp: \d+
   - name: ratingCount
-    singleValue: false
-    xpath: normalize-space(//div[@class="bv-content-pagination-pages-current"])
-    regExp: (.*)de(.*)\sOpiniones
-    regExpReplace: $2
+    singleValue: true
+    xpath: //div[@id="reviewCount"]
   - name: storage
     singleValue: false
     xpath: //h3[contains(text(),'Conservación y utilización')]/../ul/li[1]
-  - name: salt_per_serving
+  - name: saltPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
     regExp: (.+)\sg
     regExpReplace: $1
-  - name: salt_per_serving_uom
+  - name: saltPerServingUom
     singleValue: false
     xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
     regExp: \s(.*)
-  - name: harvested_price
-    singleValue: false
-    xpath: normalize-space(//div[@class="prices pdp-prices"]/div/div[1])
-    regExp: (.*)\s
-  - name: price_per_unit
+  - name: pricePerUnit
     singleValue: false
     xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
     regExp: \((.*)€\s\/(.*)
     regExpReplace: $1
-  - name: price_per_unit_uom
+  - name: pricePerUnitUom
     singleValue: false
     xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
     regExp: \(\d+\,\d+\s(.*)\)
     regExpReplace: $1
-  - name: scrape_code
-    singleValue: false
-    xpath: //link[@rel='canonical']/@href
-  - name: alcohol_content
+  - name: alcoholContent
     singleValue: false
     xpath: //span[contains(text(),'Porcentaje de alcohol:')]/../text()
+  - name: magnesiumPerServing
+    singleValue: false
+    xpath: //div[@id="magnesium"]
+  - name: magnesiumPerServingUom
+    singleValue: false
+    xpath: //div[@id="magnesiumUnit"]
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //div[@id="sodium"]
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //div[@id="sodiumUnit"]
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //div[@id="calcium"]
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: //div[@id="calciumUnit"]

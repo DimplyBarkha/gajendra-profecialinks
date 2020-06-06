@@ -64,10 +64,65 @@ module.exports = {
 
       }
 
+      function ingredientContent (ingredientName) {
+        const content = document.querySelectorAll('div.pdp-info-container div.info');
+        if (content.length > 1) {
+          if (content[1].textContent.includes(ingredientName)) {
+            if (ingredientName.toLowerCase() === 'calcio') {
+              const calcium = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
+              addElementToDocument('calcium', calcium);
+              const calciumUnit = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+              addElementToDocument('calciumUnit', calciumUnit);
+            } else if (ingredientName.toLowerCase() === 'magnesio') {
+              const magnesium = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
+              addElementToDocument('magnesium', magnesium);
+              const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+              addElementToDocument('magnesiumUnit', magnesiumUnit);
+            } else if (ingredientName.toLowerCase() === 'sodio') {
+              const sodium = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
+              addElementToDocument('sodium', sodium);
+              const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+              addElementToDocument('sodiumUnit', sodiumUnit);
+            }
+          }
+        }
+      }
+      ingredientContent('Calcio');
+      ingredientContent('Magnesio');
+      ingredientContent('Sodio');
+
+      let reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
+      let reviewCount;
+      if (reviewsCount) {
+        reviewCount = reviewsCount.textContent.trim().match(/(.*)de\s(.*)\sOpiniones/);
+        if (reviewCount) {
+          addElementToDocument('reviewCount', reviewCount[2]);
+        }
+
+      } else if (document.querySelector('h4[itemprop="headline"]')) {
+        reviewCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
+        if (reviewCount) {
+          addElementToDocument('reviewCount', reviewCount[0]);
+        }
+
+      }
+
+      function textContent (selector, attributeName) {
+        const text = (selector && selector.textContent.trim()
+          .split(/[\n]/)
+          .filter((element) => element)
+          .join(' ')) ||
+          '';
+        addElementToDocument(attributeName, text);
+      }
+
+      textContent(document.querySelector('div.pdp-info-container div.info'), 'bulletDescription');
+      textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
+
       // @ts-ignore
       const breadcrumb = [...document.querySelectorAll("li.breadcrumbs-item")]
-      if(breadcrumb) {
-        const subCategory = breadcrumb.map(i => i.innerText ).join('>');
+      if (breadcrumb) {
+        const subCategory = breadcrumb.map(i => i.innerText).join('>');
         addElementToDocument('sub_category', subCategory);
       }
     });
