@@ -198,8 +198,43 @@ fields:
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Calcium')]/../td[2]
     regExp: ([a-z]+)
     singleValue: true
+  - name: ironPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Iron')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+    singleValue: true
+  - name: ironPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Iron')]/../td[2]
+    regExp: ([a-z]+)
+    singleValue: true
+  - name: magnesiumPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Magnesium')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+    singleValue: true
+  - name: magnesiumPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Magnesium')]/../td[2]
+    regExp: ([a-z]+)
+    singleValue: true
+  - name: vitaminAPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin A')]/../td[2]
+    regExp: (^[^µg]+)
+    singleValue: true
+  - name: vitaminAPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin A')]/../td[2]
+    regExp: (µg)
+    singleValue: true
+  - name: vitaminCPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin C')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+    singleValue: true
+  - name: vitaminCPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin C')]/../td[2]
+    regExp: ([a-z]+)
+    singleValue: true
   - name: promotion
     xpath: //p[contains(@class,'bop-promotion__title')]  
+    singleValue: true
+  - name: alcoholContent
+    xpath: //h6[contains(.,'Units')]/../div  
     singleValue: true
   - name: serving_size_2
     singleValue: true
