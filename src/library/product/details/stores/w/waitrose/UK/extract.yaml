@@ -19,7 +19,7 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: true
-    xpath: //body[@categoryRanking]/@categoryRanking
+    xpath: //body[@category_ranking]/@category_ranking
   - name: nameExtended
     singleValue: true
     xpath: //h1[@id="productName"]
@@ -28,7 +28,7 @@ fields:
     xpath: //span[@itemprop="offers"]
   - name: availabilityText
     singleValue: true
-    xpath: //body[@availableStatus]/@availableStatus
+    xpath: //body[@available_status]/@available_status
   - name: description
     singleValue: true
     xpath: concat(//section[@id="productDescription"], " ", //section[@id="marketingDescriptionBop"])
@@ -218,7 +218,7 @@ fields:
     regExp: ([^\d]+$)                   
   - name: categoryRanking
     singleValue: true    
-    xpath: //body[@categoryRanking]/@categoryRanking
+    xpath: //body[@category_ranking]/@category_ranking
   - name: pricePerUnit
     xpath: //span[@class="pricePerUnit___1L8TG"]
     regExp: \(£(.*)\/(.*)
