@@ -89,7 +89,7 @@ fields:
     xpath: //body[@country_of_origin]/@country_of_origin
   - name: allergyAdvice
     singleValue: true
-    xpath: //div[@id="sectproductDetails"]//h3[contains(.,"Allergy advice")]/../ul
+    xpath: //body[@allergy_advice]/@allergy_advice
   - name: recyclingInformation
     singleValue: true
     xpath: //section[@class="packaging___3zvWX"]
@@ -97,7 +97,7 @@ fields:
     singleValue: true
   - name: productOtherInformation
     singleValue: true
-    xpath: //div[@id="sectproductDetails"]
+    xpath: //body[@product_other_information]/@product_other_information
   - name: packaging
     singleValue: true
     xpath: //section[@class="packaging___3zvWX"]
@@ -131,7 +131,7 @@ fields:
     xpath: //section[@id="productDescription"]
   - name: legalDisclaimer
     singleValue: true
-    xpath: //section[@class="disclaimer___2uRzl"]
+    xpath: //body[@legal_disclaimer]/@legal_disclaimer
   - name: mpc
     singleValue: true
   - name: name
