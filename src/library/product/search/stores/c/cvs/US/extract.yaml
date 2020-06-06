@@ -9,7 +9,14 @@ fields:
     xpath: ./@href
     regExp: ([0-9]+$)
   - name: rankOrganic
+    singleValue: true
+    type: NUMBER
+  - name: rank
     singleValue: false
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    type: BOOLEAN
   - name: name
     singleValue: false
     xpath: (.//div[@class='css-901oao css-cens5h r-1khnkhu r-1jn44m2 r-ubezar r-29m4ib r-rjixqe r-kc8jnq r-fdjqy7 r-13qz1uu'])[1]
@@ -39,8 +46,6 @@ fields:
   - name: soldBy
     singleValue: false
     defaultValue: CVS
-  # - name: rank
-  #   singleValue: false
   - name: endorsementText
     singleValue: false
     xpath: (.//span[@class='css-901oao css-16my406 r-1jn44m2 r-1b6yd1w r-1hfyk0a'])[1]

@@ -1,0 +1,22 @@
+singleRecord: false
+recordSelector: 'div[data-component-type="s-search-result"]'
+fields:
+  - name: manufacturer
+    singleValue: true
+    xpath: (//span[@class='a-size-base-plus a-color-base a-text-normal'])[1]
+    regExp: (.+)
+    regExpReplace: $1
+  - name: soldBy
+    singleValue: true
+  - name: rank
+  - name: endorsementText
+  - name: id
+  - name: rankOrganic
+  - name: name
+  - name: productUrl
+  - name: gtin
+  - name: thumbnail
+  - name: aggregateRating
+  - name: reviewCount
+  - name: ratingCount
+  - name: price
