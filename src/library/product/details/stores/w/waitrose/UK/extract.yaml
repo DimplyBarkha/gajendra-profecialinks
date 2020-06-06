@@ -25,7 +25,7 @@ fields:
     xpath: //h1[@id="productName"]
   - name: price
     singleValue: true
-    xpath: //span[@itemprop="offers"]
+    xpath: //span[@data-test="product-pod-price"]
   - name: availabilityText
     singleValue: true
     xpath: //body[@available_status]/@available_status
@@ -58,7 +58,7 @@ fields:
     xpath: //section[@id="preparationAndUsage"]/p
   - name: warnings
     singleValue: true
-    xpath: //div[@id="sectproductDetails"]//h3[contains(.,"Warning")]/../ul
+    xpath: //body[@warnings]/@warnings
   - name: alternateImages
     singleValue: true
   - name: ratingCount
@@ -86,7 +86,7 @@ fields:
     singleValue: true
   - name: countryOfOrigin
     singleValue: true
-    xpath: //ul[@class="origins___1t3R-"]
+    xpath: //body[@country_of_origin]/@country_of_origin
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id="sectproductDetails"]//h3[contains(.,"Allergy advice")]/../ul
@@ -216,12 +216,9 @@ fields:
     singleValue: true
     xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Calcium")]/../td[1]
     regExp: ([^\d]+$)                   
-  - name: categoryRanking
-    singleValue: true    
-    xpath: //body[@category_ranking]/@category_ranking
   - name: pricePerUnit
     xpath: //span[@class="pricePerUnit___1L8TG"]
-    regExp: (\d+(\.\d+)?)
+    regExp: \((.*)\/(.*)
     regExpReplace: $1   
   - name: pricePerUnitUom
     singleValue: true

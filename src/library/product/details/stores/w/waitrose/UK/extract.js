@@ -13,12 +13,18 @@ module.exports = {
       document.querySelector('body').setAttribute('available_status', availableStatus);
 
       const breadcrumb = document.querySelectorAll('ul[class="crumbs___SEVo6"]>li');
-
       if (breadcrumb) {
         let categoryRanking;
         breadcrumb.forEach(el => { categoryRanking = (categoryRanking ? `${categoryRanking} > ` : '') + el.textContent });
         document.querySelector('body').setAttribute('category_ranking', categoryRanking);
       }
+
+      const countryOfOriginText = document.querySelector("ul.origins___1t3R-") ? document.querySelector("ul.origins___1t3R-").innerText.replace( /[\r\n]+/gm, " " ): " ";
+      document.querySelector('body').setAttribute('country_of_origin', countryOfOriginText);
+
+      const warningText = document.evaluate('//div[@id="sectproductDetails"]//h3[contains(.,"Warning")]/../ul', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() ? document.evaluate('//div[@id="sectproductDetails"]//h3[contains(.,"Warning")]/../ul', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().textContent.replace( /[\r<br>]+/gm, " " ): " ";
+      document.querySelector('body').setAttribute('warnings', warningText);
+
     });
     await context.extract(productDetails);
   },
