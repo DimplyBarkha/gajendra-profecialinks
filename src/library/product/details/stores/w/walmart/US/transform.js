@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 /**
  *
@@ -5,65 +6,77 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
+  const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
+  function getSplitValue (inputStr, count) {
+    if (inputStr) {
+      const result = inputStr.match(regexp);
+      return result[count];
+    }
+  }
   for (const { group } of data) {
     for (const row of group) {
       try {
         if (row.nutritionInfo) {
           const jsonStr = `{${row.nutritionInfo[0].text}}`;
-          console.log(JSON.stringify(jsonStr));
           if (jsonStr) {
             const info = JSON.parse(jsonStr);
-            const servingSize = info.nutritionFacts.servingInfo.values[0].value;
-            row.servingSize = [{ text: servingSize.split(' ')[0] }];
-            row.servingSizeUom = [{ text: servingSize.split(' ')[1] }];
+            console.log(JSON.stringify(info));
+            if (info && info.nutritionFacts && info.nutritionFacts.servingInfo) {
+              const servingSize = (info.nutritionFacts.servingInfo.values[0]) ? info.nutritionFacts.servingInfo.values[0].value : '';
+              row.servingSize = [{ text: getSplitValue(servingSize, 1) }];
+              row.servingSizeUom = [{ text: getSplitValue(servingSize, 2) }];
+              row.numberOfServingsInPackage = [{ text: (info.nutritionFacts.servingInfo.values[1]) ? info.nutritionFacts.servingInfo.values[1].value : '' }];
+            }
+            if (info && info.nutritionFacts && info.nutritionFacts.calorieInfo) {
+              row.caloriesPerServing = [{ text: (info.nutritionFacts.calorieInfo.mainNutrient && info.nutritionFacts.calorieInfo.mainNutrient.amount) ? info.nutritionFacts.calorieInfo.mainNutrient.amount.split(' ')[0] : '' }];
+              row.caloriesFromFatPerServing = [{ text: (info.nutritionFacts.calorieInfo.childNutrients[0] && info.nutritionFacts.calorieInfo.childNutrients[0].amount) ? info.nutritionFacts.calorieInfo.childNutrients[0].amount.split(' ')[0] : '' }];
+            }
+            if (info && info.nutritionFacts && info.nutritionFacts.keyNutrients) {
+              const totalFatPerServing = (info.nutritionFacts.keyNutrients.values[0] && info.nutritionFacts.keyNutrients.values[0].mainNutrient) ? info.nutritionFacts.keyNutrients.values[0].mainNutrient.amount : '';
+              row.totalFatPerServing = [{ text: getSplitValue(totalFatPerServing, 1) }];
+              row.totalFatPerServingUom = [{ text: getSplitValue(totalFatPerServing, 2) }];
 
-            row.numberOfServingsInPackage = [{ text: info.nutritionFacts.servingInfo.values[1].value }];
-            row.caloriesPerServing = [{ text: info.nutritionFacts.calorieInfo.mainNutrient.amount.split(' ')[0] }];
-            row.caloriesFromFatPerServing = [{ text: info.nutritionFacts.calorieInfo.childNutrients[0].amount.split(' ')[0] }];
+              const saturatedFatPerServing = (info.nutritionFacts.keyNutrients.values[0] && info.nutritionFacts.keyNutrients.values[0].childNutrients[0]) ? info.nutritionFacts.keyNutrients.values[0].childNutrients[0].amount : '';
+              row.saturatedFatPerServing = [{ text: getSplitValue(saturatedFatPerServing, 1) }];
+              row.saturatedFatPerServingUom = [{ text: getSplitValue(saturatedFatPerServing, 2) }];
 
-            const totalFatPerServing = info.nutritionFacts.servingInfo.values[0].value;
-            row.totalFatPerServing = [{ text: totalFatPerServing.split(' ')[0] }];
-            row.totalFatPerServingUom = [{ text: totalFatPerServing.split(' ')[1] }];
+              const transFatPerServing = (info.nutritionFacts.keyNutrients.values[0] && info.nutritionFacts.keyNutrients.values[0].childNutrients[1]) ? info.nutritionFacts.keyNutrients.values[0].childNutrients[1].amount : '';
+              row.transFatPerServing = [{ text: getSplitValue(transFatPerServing, 1) }];
+              row.transFatPerServingUom = [{ text: getSplitValue(transFatPerServing, 2) }];
 
-            const saturatedFatPerServing = info.nutritionFacts.keyNutrients.values[0].childNutrients[0].amount;
-            row.saturatedFatPerServing = [{ text: saturatedFatPerServing.split(' ')[0] }];
-            row.saturatedFatPerServingUom = [{ text: saturatedFatPerServing.split(' ')[1] }];
+              const cholesterolPerServing = (info.nutritionFacts.keyNutrients.values[1] && info.nutritionFacts.keyNutrients.values[1].mainNutrient) ? info.nutritionFacts.keyNutrients.values[1].mainNutrient.amount : '';
+              row.cholesterolPerServing = [{ text: getSplitValue(cholesterolPerServing, 1) }];
+              row.cholesterolPerServingUom = [{ text: getSplitValue(cholesterolPerServing, 2) }];
 
-            const transFatPerServing = info.nutritionFacts.keyNutrients.values[0].childNutrients[0].amount;
-            row.transFatPerServing = [{ text: transFatPerServing.split(' ')[0] }];
-            row.transFatPerServingUom = [{ text: transFatPerServing.split(' ')[1] }];
+              const sodiumPerServing = (info.nutritionFacts.keyNutrients.values[2] && info.nutritionFacts.keyNutrients.values[2].mainNutrient) ? info.nutritionFacts.keyNutrients.values[2].mainNutrient.amount : '';
+              row.sodiumPerServing = [{ text: getSplitValue(sodiumPerServing, 1) }];
+              row.sodiumPerServingUom = [{ text: getSplitValue(sodiumPerServing, 2) }];
 
-            const cholesterolPerServing = info.nutritionFacts.keyNutrients.values[0].childNutrients[0].amount;
-            row.cholesterolPerServing = [{ text: cholesterolPerServing.split(' ')[0] }];
-            row.cholesterolPerServingUom = [{ text: cholesterolPerServing.split(' ')[0] }];
+              const totalCarbPerServing = (info.nutritionFacts.keyNutrients.values[3] && info.nutritionFacts.keyNutrients.values[3].mainNutrient) ? info.nutritionFacts.keyNutrients.values[3].mainNutrient.amount : '';
+              row.totalCarbPerServing = [{ text: getSplitValue(totalCarbPerServing, 1) }];
+              row.totalCarbPerServingUom = [{ text: getSplitValue(totalCarbPerServing, 2) }];
 
-            const sodiumPerServing = info.nutritionFacts.keyNutrients.values[0].childNutrients[0].amount;
-            row.sodiumPerServing = [{ text: sodiumPerServing.split(' ')[0] }];
-            row.sodiumPerServingUom = [{ text: sodiumPerServing.split(' ')[1] }];
+              const dietaryFibrePerServing = (info.nutritionFacts.keyNutrients.values[3] && info.nutritionFacts.keyNutrients.values[3].childNutrients[0]) ? info.nutritionFacts.keyNutrients.values[3].childNutrients[0].amount : '';
+              row.dietaryFibrePerServing = [{ text: getSplitValue(dietaryFibrePerServing, 1) }];
+              row.dietaryFibrePerServingUom = [{ text: getSplitValue(dietaryFibrePerServing, 2) }];
 
-            const totalCarbPerServing = info.nutritionFacts.keyNutrients.values[0].childNutrients[0].amount;
-            row.totalCarbPerServing = [{ text: totalCarbPerServing.split(' ')[0] }];
-            row.totalCarbPerServingUom = [{ text: totalCarbPerServing.split(' ')[1] }];
+              const totalSugarsPerServing = (info.nutritionFacts.keyNutrients.values[3] && info.nutritionFacts.keyNutrients.values[3].childNutrients[1]) ? info.nutritionFacts.keyNutrients.values[3].childNutrients[1].amount : '';
+              row.totalSugarsPerServing = [{ text: getSplitValue(totalSugarsPerServing, 1) }];
+              row.totalSugarsPerServingUom = [{ text: getSplitValue(totalSugarsPerServing, 2) }];
 
-            const dietaryFibrePerServing = info.nutritionFacts.keyNutrients.values[0].childNutrients[0].amount;
-            row.dietaryFibrePerServing = [{ text: dietaryFibrePerServing.split(' ')[0] }];
-            row.dietaryFibrePerServingUom = [{ text: dietaryFibrePerServing.split(' ')[1] }];
-
-            const totalSugarsPerServing = info.nutritionFacts.keyNutrients.values[0].childNutrients[0].amount;
-            row.totalSugarsPerServing = [{ text: totalSugarsPerServing.split(' ')[0] }];
-            row.totalSugarsPerServingUom = [{ text: totalSugarsPerServing.split(' ')[1] }];
-
-            const proteinPerServing = info.nutritionFacts.keyNutrients.values[0].childNutrients[0].amount;
-            row.proteinPerServing = [{ text: proteinPerServing.split(' ')[0] }];
-            row.proteinPerServingUom = [{ text: proteinPerServing.split(' ')[1] }];
-
-            row.vitaminAPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[0].dvp }];
-            row.vitaminCPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[1].dvp }];
-            row.calciumPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp }];
-            row.ironPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[3].dvp }];
+              const proteinPerServing = (info.nutritionFacts.keyNutrients.values[4] && info.nutritionFacts.keyNutrients.values[4].mainNutrient) ? info.nutritionFacts.keyNutrients.values[4].mainNutrient.amount : '';
+              row.proteinPerServing = [{ text: getSplitValue(proteinPerServing, 1) }];
+              row.proteinPerServingUom = [{ text: getSplitValue(proteinPerServing, 2) }];
+            }
+            if (info && info.nutritionFacts && info.nutritionFacts.vitaminMinerals) {
+              row.vitaminAPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[0].dvp }];
+              row.vitaminCPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[1].dvp }];
+              row.calciumPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp }];
+              row.ironPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[3].dvp }];
+            }
           }
         }
-      } finally {}
+      } catch (exception) { console.log('Error in transform', exception); }
     }
   }
   return data;
