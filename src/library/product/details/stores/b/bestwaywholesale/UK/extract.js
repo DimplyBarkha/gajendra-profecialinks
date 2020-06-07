@@ -32,8 +32,8 @@ module.exports = {
       const multiNutriObj = {
         totalFatPerServing: 'Fat',
         saturatedFatPerServing: 'saturates',
-        totalCarbPerServingUom: 'Carbohydrate',
-        dietaryFibrePerServingUom: 'Fibre',
+        totalCarbPerServing: 'Carbohydrate',
+        dietaryFibrePerServing: 'Fibre',
         totalSugarsPerServing: 'sugars',
         proteinPerServing: 'Protein',
         calciumPerServing: 'Calcium',
