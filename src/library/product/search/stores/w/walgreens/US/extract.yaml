@@ -30,7 +30,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[contains(@class, 'price__contain')]//span[@class='sr-only']
+    xpath:  //div[@class='extra-info']/@data-price
     regExp: \$(\d+) and (\d+)
     regExpReplace: $1.$2
   - name: manufacturer
