@@ -61,34 +61,65 @@ module.exports = {
             addElementToDocument('retailer_product_code', retailerProductCode);
           }
         }
+        if(dataObj[0].product.quantity){
+            addElementToDocument('quantity', dataObj[0].product.quantity);
+        }
       }
 
-      function ingredientContent (ingredientName) {
+      function ingredientContent (ingredientName, text) {
         const content = document.querySelectorAll('div.pdp-info-container div.info');
         if (content.length > 1) {
           if (content[1].textContent.includes(ingredientName)) {
-            if (ingredientName.toLowerCase() === 'calcio') {
-              const calcium = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
-              addElementToDocument('calcium', calcium);
-              const calciumUnit = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
-              addElementToDocument('calciumUnit', calciumUnit);
-            } else if (ingredientName.toLowerCase() === 'magnesio') {
-              const magnesium = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
+            let calcium;
+            if(ingredientName.toLowerCase() === 'calcio') {
+                if (content[1].textContent.includes(text)) {
+                    calcium = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
+                    addElementToDocument('calcium', calcium);
+                    if(calcium) {
+                      let calciumUnit = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+                      addElementToDocument('calciumUnit', calciumUnit);
+                    }
+                  }else {
+                      calcium = content[1].textContent.replace(/(.+Calcio)\s(\d+\,\d+)\s(.*)/g, '$2');
+                      addElementToDocument('calcium', calcium);
+                    }
+                  }
+             else if (ingredientName.toLowerCase() === 'magnesio') {
+                let magnesium;
+                if (content[1].textContent.includes(text)) {
+                 magnesium = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
               addElementToDocument('magnesium', magnesium);
-              const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
-              addElementToDocument('magnesiumUnit', magnesiumUnit);
-            } else if (ingredientName.toLowerCase() === 'sodio') {
-              const sodium = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
-              addElementToDocument('sodium', sodium);
-              const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
-              addElementToDocument('sodiumUnit', sodiumUnit);
+              if(magnesium) {
+                let magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+                addElementToDocument('magnesiumUnit', magnesiumUnit);
+              }
+            }else {
+                magnesium = content[1].textContent.replace(/(.+Magnesio)\s(\d+\,\d+)\s(.*)/g, '$2');
+                addElementToDocument('magnesium', magnesium);
+              }
             }
-          }
+
+            } else if (ingredientName.toLowerCase() === 'sodio') {
+                let sodium;
+                if (content[1].textContent.includes(text)) {
+                    sodium = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
+              addElementToDocument('sodium', sodium);
+              if(sodium) {
+                let sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+              addElementToDocument('sodiumUnit', sodiumUnit);
+              }
+            }
+            else {
+                sodium = content[1].textContent.replace(/(.+Sodio)\s(\d+\,\d+)[\.\s](.*)/g, '$2');
+                addElementToDocument('sodium', sodium);
+              }
+
+            }
         }
       }
-      ingredientContent('Calcio');
-      ingredientContent('Magnesio');
-      ingredientContent('Sodio');
+      ingredientContent('Calcio', 'Calcio (');
+      ingredientContent('Magnesio', 'Magnesio (');
+      ingredientContent('Sodio', 'Sodio (');
 
       const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
       let reviewCount;
@@ -116,12 +147,6 @@ module.exports = {
       textContent(document.querySelector('div.pdp-info-container div.info'), 'bulletDescription');
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
 
-      const quantity = document.querySelector('h1[itemprop="name"]')
-        ? document.querySelector('h1[itemprop="name"]').textContent.match(/(.*)(\d+)(.*)/)
-        : '';
-      if (quantity) {
-        addElementToDocument('quantity', quantity[2]);
-      }
     });
     await context.extract(productDetails);
   },
