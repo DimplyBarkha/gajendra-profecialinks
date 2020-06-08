@@ -125,13 +125,13 @@ fields:
     xpath: normalize-space(//h2[contains(.,"Product Marketing")]/following-sibling::span[1])
   - name: descriptionBullets
     singleValue: true
-    xpath: //*[@id="addDescBulletCount"]
+    xpath: count(//div[contains(@class,"prodtabcontents current")]/ul/li)
   - name: imageAlt
     singleValue: true
     xpath: //*[contains(@class, 'prodimage')]//img/@alt
   - name: secondaryImageTotal
     singleValue: true
-    xpath: //*[@id="secondaryImageTotal"]
+    xpath: count(//*[@id='prodthumbs']/li[position()>1]/img/@data-lrgurl)
   - name: alcoholContent
     singleValue: true
     xpath: //*[contains(text(), 'ABV')]/following-sibling::td

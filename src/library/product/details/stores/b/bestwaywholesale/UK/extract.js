@@ -13,17 +13,6 @@ module.exports = {
 
       addEleToDoc('productId', productData.id);
       addEleToDoc('productName', productData.name);
-      // Add description bullets only if description exists
-      const additionalDescBulletCount = getMultipleNodeLengthByXpath('//div[contains(@class,"prodtabcontents current")]/ul/li');
-      if (additionalDescBulletCount) {
-        addEleToDoc('addDescBulletCount', additionalDescBulletCount);
-      }
-
-      // Add secondary image total only if secondary images exists
-      const secondaryImageTotal = getMultipleNodeLengthByXpath('//*[@id=\'prodthumbs\']/li[position()>1]/img/@data-lrgurl');
-      if (secondaryImageTotal) {
-        addEleToDoc('secondaryImageTotal', secondaryImageTotal);
-      }
 
       // Normalizing & Adding nutritional info to DOM
       addNutritionalEle('saltPerServing', '/html/body//table//th[contains(text(), \'Salt\')]/following-sibling::td[1]', 'saltPerServingUom');
@@ -41,11 +30,6 @@ module.exports = {
       };
 
       addMultipleNutritionalEle(multiNutriObj);
-
-      function getMultipleNodeLengthByXpath (xpath) {
-        const element = document.evaluate(xpath, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        return element.snapshotLength;
-      }
 
       function getEleByXpath (xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
