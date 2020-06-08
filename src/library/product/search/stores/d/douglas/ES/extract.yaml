@@ -3,8 +3,6 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //td[@class="docs depth_1"]/table[1]/tbody/tr
 fields:
-  - name: brand
-    xpath: td[@class="brand depth_2"]
   - name: productUrl
     xpath: td[@class="url depth_2"]
     regExp: (.+)
@@ -23,3 +21,7 @@ fields:
     xpath: td[@class="price depth_2"]
     regExp: "^[^\/]+"
     description: The offered price for the product
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
