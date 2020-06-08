@@ -4,13 +4,11 @@ recordSelector: null
 recordXPath: //div[@class="product-list--page product-list--current-page"]/div/ul/li
 fields:
   - name: productUrl
-    singleValue: true
     xpath: //a[@data-auto="product-tile--title"]/@href
     regExp: (.+)
     regExpReplace: https://www.tesco.com$1
     description: The URL for the product details page
   - name: thumbnail
-    singleValue: true
     xpath: //img[@class="product-image"]/@src
     description: The URL for the product thumbnail image
   - name: name
@@ -22,7 +20,6 @@ fields:
     xpath: //div[@data-auto-id]/@data-auto-id
     description: The store-specific product identifier
   - name: gtin
-    singleValue: false
     xpath: //img[@class="product-image"]/@src
     regExp: https://img.tesco.com/Groceries/pi/[^\/]+/([^\/]+)
     regExpReplace: $1
