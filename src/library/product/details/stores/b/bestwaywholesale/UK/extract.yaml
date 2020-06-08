@@ -7,11 +7,8 @@ fields:
     singleValue: true
     xpath: //*[@id="prodimage"]/@src
   - name: category
-    singleValue: true
-    xpath: //div[contains(@class,"prodnav")]//li[contains(@class,"toplevel")]
-  - name: subCategory
-    singleValue: true
-    xpath: //div[contains(@class,"prodnav")]//li[contains(@class,"active")]
+    singleValue: false
+    xpath: //div[contains(@class,"prodnav")]//li[contains(@class,"toplevel") or contains(@class,"active")]
   - name: nameExtended
     singleValue: true
     xpath: //*[@id="productName"]
