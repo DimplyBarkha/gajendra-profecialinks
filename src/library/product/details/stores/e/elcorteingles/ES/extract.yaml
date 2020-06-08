@@ -27,7 +27,7 @@ fields:
   - name: brandLink
     singleValue: false
     xpath: //div[contains(@class,'pdp-title')]/a/@href
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: https://www.elcorteingles.es$1
   - name: ingredientsList
     singleValue: true
