@@ -1,5 +1,3 @@
-
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
@@ -12,5 +10,4 @@ module.exports = {
     // loadedSelector: 'div.css-1dbjc4n.r-13awgt0.r-1wtj0ep',
     // openSearchDefinition: null,
   },
-  
 };
