@@ -1,10 +1,11 @@
+const { transform } = require('../../../../shared')
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
-    transform: null,
-    domain: 'cvs.com',
     store: 'cvs',
+    transform: transform,
+    domain: 'cvs.com',
   },
 };
