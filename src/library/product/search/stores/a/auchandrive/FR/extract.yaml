@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //article[@class="product-item"]
 fields:
   - name: productUrl
-    xpath: //a[@class="product-item__main"]
+    xpath: //a[@class="product-item__main"]/@href
     regExp: (.+)
     regExpReplace: https://www.auchandrive.fr$1
     description: The URL for the product details page
@@ -21,13 +21,17 @@ fields:
     xpath: "@data-product-id"
     description: The store-specific product identifier
   - name: aggregateRatingText
-    singleValue: true
+    xpath: //div[@class="rating-average"]
+    regExp: (^[^,]+),([^,]+$)
+    regExpReplace: $1.$2
     description: The stated aggregate rating
   - name: ratingCount
-    singleValue: true
+    xpath: //div[@class="rating-average"]
     description: The number of ratings
+    regExp: \d+
   - name: reviewCount
-    singleValue: true
+    xpath: //div[@class="rating-average"]
+    regExp: \d+
     description: The number of reviews
   - name: price
     singleValue: true

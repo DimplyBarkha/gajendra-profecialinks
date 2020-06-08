@@ -10,9 +10,7 @@
  *  mutationSelector: string,
  *  loadedSelector: string,
  *  spinnerSelector: string,
- *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number },
- * interactionFn: function,
- * interactionFnParams: object,
+ *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
  * }} parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -24,17 +22,7 @@ async function implementation (
   dependencies,
 ) {
   const { keywords, page, offset } = inputs;
-  const { nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, openSearchDefinition, interactionFn, interactionFnParams } = parameters;
-  if (interactionFn) {
-    console.log('running interaction function.');
-    await context.evaluate(async ({ externalFunction, interactionFnParams }) => {
-      console.log(externalFunction);
-      // eslint-disable-next-line no-eval
-      const func = eval(externalFunction);
-      await func(interactionFnParams);
-    }, { externalFunction: Object.assign(interactionFn), interactionFnParams });
-    console.log('DONE.');
-  }
+  const { nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
 
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
@@ -44,7 +32,7 @@ async function implementation (
   }
 
   const { pager } = dependencies;
-  const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, interactionFn, interactionFnParams });
+  const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
   if (success) {
     return true;
   }
@@ -60,9 +48,9 @@ async function implementation (
 
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
-      .replace('{searchTerms}', encodeURIComponent(keywords))
-      .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
-      .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
+      .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+      .replace(/{page}/g, (page + (openSearchDefinition.pageOffset || 0)).toString())
+      .replace(/{offset}/g, (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
 
   if (!url) {
@@ -106,14 +94,6 @@ module.exports = {
     {
       name: 'openSearchDefinition',
       description: 'Open search definition object',
-    },
-    {
-      name: 'interactionFn',
-      description: 'Function which will run after each page is loaded.',
-    },
-    {
-      name: 'interactionFnParams',
-      description: 'Function which will run after each page is loaded.',
     },
   ],
   inputs: [{
