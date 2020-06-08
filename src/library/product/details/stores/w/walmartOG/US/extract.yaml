@@ -8,14 +8,14 @@ fields:
   singleValue: true
   xpath: //section[@data-automation-id="productPage"]//h1[@data-automation-id="name"]
 - name: quantity
-  singleValue: true
+  singleValue: false
   xpath: //section[@data-automation-id="productPage"]//h1[@data-automation-id="name"]
-  #regExp: (?:\s([\d\.]+\s?)(oz|ct|[fF]l\soz|qt|count|pint|FO|Bar[s]?|[wW]ipes|Oz.|[pP]ops|pc))$
-  regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|count|ct|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|count|ct|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+  #regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|count|ct|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|count|ct|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+  regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
   regExpReplace: $1$2$3$4
 - name: image
   singleValue: false
-  xpath: //div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]/@src
+  xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]|//div[@data-automation-id="productPageTile"]//div[contains(@class,"imageContainer")]//img[@data-automation-id="image"])[1]/@src
 - name: alternateImages
   singleValue: false
   xpath: //li[@class='slider-slide']//img/@src
@@ -43,12 +43,10 @@ fields:
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//ul//li)
-# brandText , asin , gtin , sku , variantId and a few nutrient schema  - from below api
-# https://grocery.walmart.com/v3/api/products/100809383?itemFields=all&storeId=4250
+# brandText , asin , gtin , sku , variantId and a few nutrient schema  - from API
 - name: brandText
   singleValue: true
   xpath: //*[@id="iio_brandText"]
-#asin not in Data Dictionary yet
 - name: asin
   singleValue: true
   xpath: //*[@id="iio_asin"]
@@ -260,7 +258,7 @@ fields:
   defaultValue: No
 - name: materials
   singleValue: false
-- name: three_sixty_image_present
+- name: Image360Present
   singleValue: false
   defaultValue: No
 - name: imageZoomFeaturePresent
