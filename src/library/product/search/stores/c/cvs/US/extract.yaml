@@ -9,7 +9,15 @@ fields:
     xpath: ./@href
     regExp: ([0-9]+$)
   - name: rankOrganic
+    singleValue: true
+    type: NUMBER
+  - name: rank
     singleValue: false
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    type: BOOLEAN
+    selector: div.css-1dbjc4n.r-1d2f490.r-u8s1d.r-s5r7i3.r-uejdgs div[dir="auto"]
   - name: name
     singleValue: false
     xpath: (.//div[@class='css-901oao css-cens5h r-1khnkhu r-1jn44m2 r-ubezar r-29m4ib r-rjixqe r-kc8jnq r-fdjqy7 r-13qz1uu'])[1]
@@ -20,11 +28,18 @@ fields:
       ^(.*)$
     regExpReplace: >-
       https://www.cvs.com$1
+  # - name: gtin
+  #   singleValue: false
   - name: thumbnail
     singleValue: false
     xpath: (.//div[@class="css-1dbjc4n r-1mlwlqe r-1ldr0hp r-dnmrzs r-1udh08x r-417010"]//img/@src)[1]
   - name: aggregateRating
     singleValue: false
+    xpath: (//div[@class='css-1dbjc4n r-18u37iz r-zl2h9q']/section/@aria-label)[1]
+    # regExp: >- 
+    #   Rated ([.0-9]+)
+    # regExpReplace: >-
+    #   $1
   - name: reviewCount
     singleValue: false
     xpath:  (.//div[contains(@class,'css-1dbjc4n')]/div[@class='css-901oao r-1kihuf0 r-zdkpiq r-1jn44m2 r-1enofrn r-1bymd8e r-1uu6nss'])[1]
@@ -37,16 +52,9 @@ fields:
   - name: soldBy
     singleValue: false
     defaultValue: CVS
-  - name: rank
-    singleValue: false
-    type: NUMBER
   - name: endorsementText
     singleValue: false
     xpath: (.//span[@class='css-901oao css-16my406 r-1jn44m2 r-1b6yd1w r-1hfyk0a'])[1]
-  # - name: gtin
-  #   singleValue: false
-
-
   # - name: paid
   #   singleValue: true
   #   description: Whether this is a sponsored/paid result
