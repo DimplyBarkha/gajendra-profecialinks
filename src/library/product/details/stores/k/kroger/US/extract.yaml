@@ -1,0 +1,285 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: termsAndConditions
+    singleValue: true
+    xpath: //a[contains(text(),'Terms and Conditions')]
+    regExp: Terms and Conditions
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+    xpath: //ol[@class='list-reset']/li[position()=2]
+  - name: subCategory
+    singleValue: true
+    xpath: concat(//ol[@class='list-reset']/li[position()=2],' > ',//ol[@class='list-reset']/li[position()=3])
+  - name: description
+    singleValue: true
+    xpath: //div[@id='description']
+    # xpath: concat(//div[@class='RomanceDescription overflow-x-hidden']/p[position()=1], //div[@class='RomanceDescription overflow-x-hidden']/p[position()=2])
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+    xpath: //body/li[@class='ii_url']
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+  - name: image
+    singleValue: true
+    xpath: //head/meta[@name='og:image']/@content   
+  - name: alternateImages
+    singleValue: false
+    xpath: //img[@class='ProductImages-image']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@class='ProductImages-image']/@alt 
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='ProductDetails-header']/h1
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    xpath: //li[@class='my-price']
+    regExp: >-
+      [^$]+
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //li[@class='my-list-price']
+    regExp: >-
+      [^$]+
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: onlinePriceCurrency
+    singleValue: true
+    defaultValue: $
+  - name: availabilityText
+    singleValue: true
+    xpath: //li[@class='availability']
+  - name: quantity
+    singleValue: true
+    xpath: //span[@id="ProductDetails-sellBy-unit"]
+  - name: size
+    singleValue: true
+    xpath: //span[@id="ProductDetails-sellBy-unit"]
+  - name: weightNet
+    singleValue: true
+    xpath: //span[@id="ProductDetails-sellBy-unit"]
+  - name: weightGross
+    singleValue: true
+    xpath: //span[@id="ProductDetails-sellBy-unit"]
+  - name: sku
+    singleValue: true
+    xpath: //span[@class='ProductDetails-upc']
+    regExp: >-   
+      [0-9]+
+  - name: warnings
+    singleValue: true
+    xpath: //p[@class='NutritionIngredients-Disclaimer']/span
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //p[@class='NutritionIngredients-Disclaimer']/span
+  - name: ingredientsList
+    singleValue: true
+    xpath: //p[@class='NutritionIngredients-Ingredients']
+  - name: servingSize
+    singleValue: true
+    xpath: //div[@class='NutritionLabel-ServingSize font-bold flex justify-between']/span[2]
+    regExp: >-   
+      [0-9]+
+  - name: servingSizeUom
+    singleValue: true
+    xpath: //div[@class='NutritionLabel-ServingSize font-bold flex justify-between']/span[2]
+    regExp: >-   
+      [a-z]+
+  - name: numberOfServingsInPackage
+    singleValue: true
+    xpath: //div[@class='NutritionLabel-ServingsPerContainer']
+    regExp: >-   
+      [0-9]+
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //div[@class='NutritionLabel-Calories font-bold flex justify-between']
+    regExp: >-
+      \d+\+?(?=.)
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    xpath: (number(translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*/following-sibling::span,'%',''))*(//div[@class='NutritionLabel-Calories font-bold flex justify-between']/span)[2]) *0.01
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*
+    regExp: >-   
+      [0-9]+
+  - name: totalFatPerServingUom
+    singleValue: true
+    defaultValue: g
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Saturated Fat')]/parent::*
+    regExp: >-   
+      [0-9,.]+
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    defaultValue: g
+  - name: transFatPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Trans Fat')]/parent::*
+    regExp: >-   
+      [0-9]+
+  - name: transFatPerServingUom
+    singleValue: true
+    defaultValue: g
+  - name: cholesterolPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Cholesterol')]/parent::*
+    regExp: >-   
+      [0-9]+
+  - name: cholesterolPerServingUom
+    singleValue: true
+    defaultValue: mg
+  - name: sodiumPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sodium')]/parent::*
+    regExp: >-   
+      [0-9]+
+  - name: sodiumPerServingUom
+    singleValue: true
+    defaultValue: mg
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Carbohydrate')]/parent::*
+    regExp: >-   
+      [0-9]+
+  - name: totalCarbPerServingUom
+    singleValue: true
+    defaultValue: g
+  - name: dietaryFiberPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Dietary Fiber')]/parent::*
+    regExp: >-   
+      [0-9]+
+  - name: dietaryFiberPerServingUom
+    singleValue: true
+    defaultValue: g
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sugar')]/parent::*
+    regExp: >-   
+      [0-9]+
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    defaultValue: g
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Protein')]/parent::*
+    regExp: >-   
+      [0-9]+
+  - name: proteinPerServingUom
+    singleValue: true
+    defaultValue: g
+  - name: vitaminAPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Vitamin A')]/parent::*/following-sibling::span
+    regExp: >-   
+      [0-9]+
+  - name: vitaminAPerServingUom
+    singleValue: true
+    defaultValue: '%'
+  - name: vitaminCPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Vitamin C')]/parent::*/following-sibling::span
+    regExp: >-   
+      [0-9]+
+  - name: vitaminCPerServingUom
+    singleValue: true
+  - name: calciumPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Calcium')]/parent::*/following-sibling::span
+    regExp: >-   
+      [0-9]+
+  - name: calciumPerServingUom
+    singleValue: true
+    defaultValue: '%'
+  - name: ironPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Iron')]/parent::*/following-sibling::span
+    regExp: >-   
+      [0-9]+
+  - name: ironPerServingUom
+    singleValue: true
+    defaultValue: '%'
+  - name: dietarySymbols
+    singleValue: true
+  - name: magnesiumPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Magnesium')]/parent::*/following-sibling::span
+    regExp: >-   
+      [0-9]+
+  - name: magnesiumPerServingUom
+    singleValue: true
+    defaultValue: '%'
+  - name: saltPerServing
+    singleValue: true
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sodium')]/parent::*
+    regExp: >-   
+      [0-9]+
+  - name: saltPerServingUom
+    singleValue: true
+    defaultValue: mg

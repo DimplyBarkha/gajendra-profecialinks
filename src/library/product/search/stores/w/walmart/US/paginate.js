@@ -9,7 +9,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div[data-type="items"]',
     openSearchDefinition: {
-      template: 'https://www.walmart.com/search/search-ng.do?page={page}&ps=48&search_query={searchTerms}',
+      template: 'https://www.walmart.com/search/search-ng.do?grid=true&page={page}&ps=48&search_query={searchTerms}',
     },
     domain: 'walmart.com',
   },
