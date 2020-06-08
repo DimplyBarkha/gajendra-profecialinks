@@ -49,19 +49,18 @@ module.exports = {
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
       if (dataObj) {
-        if (dataObj[0].product.status.toLowerCase() === "available") {
-          addElementToDocument('availability', "In Stock");
+        if (dataObj[0].product.status.toLowerCase() === 'available') {
+          addElementToDocument('availability', 'In Stock');
         } else {
-          addElementToDocument('availability', "Out Of Stock");
+          addElementToDocument('availability', 'Out Of Stock');
         }
         addElementToDocument('brand', dataObj[0].product.brand);
         if (dataObj[0].product.id) {
           if (dataObj[0].product.id.match(/[0-9](.*)___/)) {
-            let retailer_product_code = dataObj[0].product.id.match(/[0-9](.*)___/)[1];
-            addElementToDocument('retailer_product_code', retailer_product_code);
+            const retailerProductCode = dataObj[0].product.id.match(/[0-9](.*)___/)[1];
+            addElementToDocument('retailer_product_code', retailerProductCode);
           }
         }
-
       }
 
       function ingredientContent (ingredientName) {
@@ -91,20 +90,18 @@ module.exports = {
       ingredientContent('Magnesio');
       ingredientContent('Sodio');
 
-      let reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
+      const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
       let reviewCount;
       if (reviewsCount) {
         reviewCount = reviewsCount.textContent.trim().match(/(.*)de\s(.*)\sOpiniones/);
         if (reviewCount) {
           addElementToDocument('reviewCount', reviewCount[2]);
         }
-
       } else if (document.querySelector('h4[itemprop="headline"]')) {
         reviewCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
         if (reviewCount) {
           addElementToDocument('reviewCount', reviewCount[0]);
         }
-
       }
 
       function textContent (selector, attributeName) {
@@ -119,11 +116,11 @@ module.exports = {
       textContent(document.querySelector('div.pdp-info-container div.info'), 'bulletDescription');
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
 
-      // @ts-ignore
-      const breadcrumb = [...document.querySelectorAll("li.breadcrumbs-item")]
-      if (breadcrumb) {
-        const subCategory = breadcrumb.map(i => i.innerText).join('>');
-        addElementToDocument('sub_category', subCategory);
+      const quantity = document.querySelector('h1[itemprop="name"]')
+        ? document.querySelector('h1[itemprop="name"]').textContent.match(/(.*)(\d+)(.*)/)
+        : '';
+      if (quantity) {
+        addElementToDocument('quantity', quantity[2]);
       }
     });
     await context.extract(productDetails);

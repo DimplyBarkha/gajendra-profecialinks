@@ -11,10 +11,10 @@ fields:
     xpath: //div[contains(@class,'elements_slider-slide')]/img/@alt
   - name: category
     singleValue: false
-    xpath: //div[@id='sub_category']
+    xpath: //li[@class="breadcrumbs-item"]
   - name: nameExtended
     singleValue: true
-    xpath: //div[contains(@class,"pdp-title")]
+    xpath: normalize-space(//div[contains(@class,"pdp-title")])
   - name: price
     singleValue: true
     xpath: normalize-space(//div[@class="prices pdp-prices"]/div/div[1])
@@ -37,8 +37,7 @@ fields:
     xpath: //div[@id="brand"]
   - name: quantity
     singleValue: true
-    xpath: normalize-space(//h1[@itemprop="name"])
-    regExp: (\d+)(.*)
+    xpath: //div[@id="quantity"]
   - name: gtin
     singleValue: true
     xpath: //div[@id="sku"]
@@ -125,7 +124,7 @@ fields:
   - name: pricePerUnit
     singleValue: false
     xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
-    regExp: \((.*)€\s\/(.*)
+    regExp: \((.*)\s\/(.*)
     regExpReplace: $1
   - name: pricePerUnitUom
     singleValue: false
@@ -153,3 +152,8 @@ fields:
   - name: calciumPerServingUom
     singleValue: false
     xpath: //div[@id="calciumUnit"]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id="bulletDescription"]
+    regExp: (.+Cantidad Neta)\:\s(\d+\s\w)(.*)
+    regExpReplace: $2
