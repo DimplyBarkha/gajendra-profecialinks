@@ -10,7 +10,9 @@
  *  mutationSelector: string,
  *  loadedSelector: string,
  *  spinnerSelector: string,
- *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
+ *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number },
+ * interactionFn: function,
+ * interactionFnParams: object,
  * }} parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -22,7 +24,17 @@ async function implementation (
   dependencies,
 ) {
   const { keywords, page, offset } = inputs;
-  const { nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
+  const { nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, openSearchDefinition, interactionFn, interactionFnParams } = parameters;
+  if (interactionFn) {
+    console.log('running interaction function.');
+    await context.evaluate(async ({ externalFunction, interactionFnParams }) => {
+      console.log(externalFunction);
+      // eslint-disable-next-line no-eval
+      const func = eval(externalFunction);
+      await func(interactionFnParams);
+    }, { externalFunction: Object.assign(interactionFn), interactionFnParams });
+    console.log('DONE.');
+  }
 
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
@@ -32,7 +44,7 @@ async function implementation (
   }
 
   const { pager } = dependencies;
-  const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
+  const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, interactionFn, interactionFnParams });
   if (success) {
     return true;
   }
@@ -94,6 +106,14 @@ module.exports = {
     {
       name: 'openSearchDefinition',
       description: 'Open search definition object',
+    },
+    {
+      name: 'interactionFn',
+      description: 'Function which will run after each page is loaded.',
+    },
+    {
+      name: 'interactionFnParams',
+      description: 'Function which will run after each page is loaded.',
     },
   ],
   inputs: [{
