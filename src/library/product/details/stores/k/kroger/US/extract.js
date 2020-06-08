@@ -48,12 +48,12 @@ async function implementation(
 
     let descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden')
     
-    if(descriptionItem){
-      let descriptionText = descriptionItem[0].textContent
-      addHiddenDiv('description',descriptionText)
+    if(descriptionItem && descriptionItem.length > 0){
+      //let descriptionText = descriptionItem[0].textContent
+      //addHiddenDiv('description',descriptionText)
     }
     
-
+    await new Promise(r => setTimeout(r, 8e3));
     let button = document.getElementsByClassName('kds-Tabs-tab')[1]
 
     if (button != null && button.textContent == 'Nutrition Info') {
