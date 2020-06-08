@@ -1,8 +1,8 @@
 input:
   _url: https://bestwaywholesale.co.uk
-  url: https://www.bestwaywholesale.co.uk/product/101-1
+  URL: https://www.bestwaywholesale.co.uk/product/101-1
 extractions:
-  - html: https://workbench.import.io/html/run=844ac644-c28e-4d77-b8b5-4cb9d0f3df64/task=b797f456-8aac-4d05-9e94-31526c780d16/81f09bce-1ff5-406a-aa82-90de22444225.html
+  - html: https://workbench.import.io/html/run=7c3060b4-8758-45ad-a3dc-08b0aa50a711/task=536bf51b-4723-4be6-8628-f11ec988bbf2/c1498a4f-3e74-44d0-a051-a0ea335cbee2.html
     extractionConfigId: product/details/stores/b/bestwaywholesale/UK/extract
     data:
       - group:
@@ -18,6 +18,8 @@ extractions:
             category:
               - text: Soft Drinks
                 xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[1]
+              - text: Individual Cans
+                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[11]
             directions:
               - text: Best served chilled.
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[6]/p[1]
@@ -73,34 +75,33 @@ extractions:
                   preservativesGluten-free, dairy-free and nut-free Serve ice
                   cold for maximum refreshment. Keep one cold in the fridge.
                   Please recycle.
-                xpath: /html/body/div[13]
             proteinPerServing:
               - text: "0"
-                xpath: /html/body/div[26]
+                xpath: /html/body/div[24]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[27]
+                xpath: /html/body/div[25]
             recyclingInformation:
               - text: "Recycling Info: Metal - Widely Recycled Can"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[6]/ul[1]/li[2]
             saltPerServing:
               - text: "0"
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[12]
             saltPerServingUom:
               - text: g
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[13]
             saturatedFatPerServing:
               - text: "0"
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[18]
             saturatedFatPerServingUom:
               - text: g
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[19]
             servingSize:
               - text: "100"
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[14]
             servingSizeUom:
               - text: ml
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[15]
             size:
               - text: 330ml
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[1]
@@ -109,24 +110,23 @@ extractions:
                 xpath: /html/body/div[10]
             storage:
               - text: "Store cool and dry.Best before end: See base of can for date."
-                xpath: /html/body/div[12]
-            subCategory:
-              - text: Individual Cans
-                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[11]
-            totalCarbPerServingUom:
+            totalCarbPerServing:
               - text: "10.6"
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[20]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[21]
             totalFatPerServing:
               - text: "0"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[16]
             totalFatPerServingUom:
               - text: g
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[17]
             totalSugarsPerServing:
               - text: "10.6"
-                xpath: /html/body/div[24]
+                xpath: /html/body/div[22]
             totalSugarsPerServingUom:
               - text: g
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[23]
         xpath: /html/body
-    timestamp: 1591377217571
+    timestamp: 1591617499668
