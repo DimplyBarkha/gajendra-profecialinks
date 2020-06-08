@@ -238,13 +238,13 @@ fields:
     xpath: 
   - name: secondaryImageTotal
     singleValue: true
-    xpath: 
+    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
   - name: news
     singleValue: true
     xpath: 
   - name: addonItem
     singleValue: true
-    xpath: 
+    xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
     singleValue: true
     xpath: 
@@ -253,7 +253,7 @@ fields:
     xpath: 
   - name: ingredientsList
     singleValue: true
-    xpath: 
+    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
   - name: servingSize
     singleValue: true
     xpath: 
@@ -364,10 +364,10 @@ fields:
     xpath: 
   - name: dietaryInformation
     singleValue: true
-    xpath: 
+    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
   - name: warranty
     singleValue: true
-    xpath: 
+    xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
   - name: storage
     singleValue: true
     xpath: 
@@ -376,13 +376,13 @@ fields:
     xpath: 
   - name: allergyAdvice
     singleValue: true
-    xpath: 
+    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
   - name: recyclingInformation
     singleValue: true
     xpath: 
   - name: productOtherInformation
     singleValue: true
-    xpath: 
+    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: packaging
     singleValue: true
     xpath: 
@@ -397,7 +397,7 @@ fields:
     xpath: 
   - name: promotion
     singleValue: true
-    xpath: 
+    xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
   - name: alcoholContent
     singleValue: true
     xpath: 
@@ -427,7 +427,7 @@ fields:
     xpath: 
   - name: technicalInformationPdfPresent
     singleValue: true
-    xpath: 
+    xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
   - name: termsAndConditions
     singleValue: true
     xpath: 
@@ -439,10 +439,10 @@ fields:
     xpath: 
   - name: materials
     singleValue: true
-    xpath: 
+    xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
   - name: 360ImagePresent
     singleValue: true
-    xpath: 
+    xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
   - name: imageZoomFeaturePresent
     singleValue: true
-    xpath: 
+    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
