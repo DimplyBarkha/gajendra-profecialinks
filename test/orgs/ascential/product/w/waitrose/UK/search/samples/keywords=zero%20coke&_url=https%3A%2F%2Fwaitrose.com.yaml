@@ -1,0 +1,73 @@
+input:
+  keywords: zero coke
+  _url: https://waitrose.com
+extractions:
+  - html: https://workbench.import.io/html/run=1843a16e-989f-4681-bf6e-10da7cb644e0/task=c880e60f-04f1-4f5a-ac68-45e3800e9c7b/f862b3d5-fc2e-4fa3-99ff-2861f8923fa4.html
+    extractionConfigId: product/search/stores/w/waitrose/UK/extract
+    data:
+      - group:
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[1]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[1]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/570225-585551-585552
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[1]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[2]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £4.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[2]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/729119-511902-511903
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[2]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[3]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[3]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/847695-722604-722605
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[3]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[4]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £9.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[4]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/892146-724228-724229
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[4]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[5]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £9.70
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[5]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/406243-724244-724245
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[5]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola zero
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[6]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.45
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[6]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero/832355-343578-343579
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[6]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coke Zero Multipack
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[7]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £2.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[7]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coke-zero-multipack/849951-653881-653882
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[7]/div[1]/section[1]/header[1]/a[1]/@href
+        xpath: /html
+    timestamp: 1591732879345
