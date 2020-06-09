@@ -4,11 +4,15 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'dm',
-    nextLinkSelector: 'div[data-dmid="search-results"] > div.dd > div:last-child button#load-more-products-button',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
-    openSearchDefinition: null,
+    loadedSelector: '[data-dmid="product-tile-container"]',
+    noResultsXPath: '//div[@data-dmid="content-search-count-container"]',
+    openSearchDefinition: {
+      pageOffset: 0,
+      template: 'https://www.dm.de/search?query={searchTerms}&searchType=product&currentPage={page}',
+    },
     domain: 'dm.de',
   },
 };

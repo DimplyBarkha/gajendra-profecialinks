@@ -9,13 +9,14 @@
  *  nextLinkSelector: string,
  *  mutationSelector: string,
  *  loadedSelector: string,
+ *  noResultsXPath: string,
  *  spinnerSelector: string,
  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
  * }} parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -51,6 +52,7 @@ async function implementation (
       .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
+    console.log({ url, page, pageOffset: openSearchDefinition.pageOffset });
   }
 
   if (!url) {
@@ -59,8 +61,11 @@ async function implementation (
 
   console.log('Going to url', url);
   await dependencies.goto({ url });
+
   if (parameters.loadedSelector) {
-    await context.waitForSelector(parameters.loadedSelector);
+    await context.waitForFunction(function (sel, xp) {
+      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   return true;
 }
@@ -90,6 +95,10 @@ module.exports = {
     {
       name: 'loadedSelector',
       description: 'XPath to tell us the page has loaded',
+    },
+    {
+      name: 'noResultsXPath',
+      description: 'XPath to tell us the page has no results and not wait for loadedSelector',
     },
     {
       name: 'openSearchDefinition',

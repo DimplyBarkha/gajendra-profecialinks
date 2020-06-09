@@ -7,6 +7,6 @@ module.exports = {
     domain: 'dm.de',
     url: 'https://www.dm.de/search?query={searchTerms}&searchType=product',
     loadedSelector: '[data-dmid="product-tile-container"]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@data-dmid="content-search-count-container"]',
   },
 };
