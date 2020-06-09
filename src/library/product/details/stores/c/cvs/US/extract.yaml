@@ -31,8 +31,8 @@ fields:
     singleValue: true
     xpath: //div[@id='ii_imageZoom']
   - name: additionalDescBulletInfo
-    singleValue: false
-    selector: div.wc-rich-content-description
+    # selector: div.wc-rich-content-description
+    xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
   - name: dietaryInformation
     singleValue: true
     xpath: //div[@id='ii_Ingredients']
@@ -47,10 +47,14 @@ fields:
     singleValue: true
   - name: firstVariant
     singleValue: true
+    xpath: //div[@id='ii_url']
+    regExp: ([0-9])+$ 
   - name: variants
-    xpath: //script[contains(@src,'scontent.webcollage.net')]
-    regExp: cpi=([0-9]+)
-    regExpReplace: $1
+    xpath: //div[@id="ii_variantId"]
+    # - name: variants
+  #   xpath: //script[contains(@src,'scontent.webcollage.net')]
+  #   regExp: cpi=([0-9]+)
+  #   regExpReplace: $1
   - name: ingredientImagePresent
     singleValue: true
     defaultValue: false
@@ -63,7 +67,7 @@ fields:
     singleValue: true
   - name: secondaryImageTotal
     singleValue: true
-    xpath: count((//div[@id='zoom-carousel-0']//img)/@src)
+    xpath: count((//div[contains(@id, 'zoom-carousel')]//img)/@src)
   - name: productOtherInformation
     singleValue: false
     selector: div.wc-rich-content-description
@@ -101,12 +105,16 @@ fields:
     xpath: //div[@id='ii_url']
   - name: category
     # selector: div.css-1dbjc4n.r-1awozwy.r-18u37iz.r-3hmvjm.r-1hvjb8t.r-15zeulg:nth-of-type(5) > a.css-4rbku5.css-18t94o4.css-1dbjc4n.r-1loqt21.r-1otgn73.r-eafdt9.r-1i6wzkk.r-lrvibr > div.css-901oao.r-ty2z48.r-1jn44m2.r-1enofrn.r-e2l8vt.r-1ddef8g
-    xpath: //nav[@aria-label='breadcrumbs']//a
+    xpath: //nav[@aria-label="breadcrumbs"]/div/div[position()>2]/a
   - name: description 
     singleValue: true
     selector: div[style].htmlView:nth-of-type(4)
+    # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
     # xpath: //div[@class='htmlView']/p
     # xpath: //div[@class='htmlView']/p|//div[@class='htmlView']/ul
+  - name: metaKeywords
+    singleValue: true
+    selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: price 
     # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
     xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
@@ -168,22 +176,18 @@ fields:
     # selector: div[style].css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs:nth-of-type(4) > div[style].htmlView
   - name: alternateImages
     singleValue: false
-    xpath: (//div[@id='zoom-carousel-0']//img)/@src
+    xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src
   - name: ratingCount
-    singleValue: true
-    selector: div.css-901oao.r-1khnkhu.r-ubezar
-    # xpath: (//div[@class='css-901oao r-1khnkhu r-ubezar'])
-    regExp: ^([0-9])+
+    # selector: div.css-901oao.r-1khnkhu.r-ubezar
+    xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//a
+    regExp: ([0-9])+
   - name: aggregateRating
-    singleValue: true
-    selector: div.css-901oao.r-suhe1l.r-vw2c0b.r-7o8qx1
-    # xpath: (//div[@class='css-901oao r-suhe1l r-vw2c0b r-7o8qx1'])
+    # selector: div.css-901oao.r-suhe1l.r-vw2c0b.r-7o8qx1
+    xpath: //div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
   - name: manufacturerImages
     singleValue: false
     # selector: div.wc-aplus-body div.wc-reset img[src]
     xpath: //div[@id='ii_manufImages']
-  - name: category_ranking
-
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id='ii_Warnings']
@@ -317,8 +321,7 @@ fields:
     selector: div.wc-rich-content-description
     # xpath: //div[@class='htmlView']/p
   - name: descriptionBullets
-    singleValue: true
-    # xpath: count(//div[@class='htmlView']/ul/li)
+    xpath: count(//div[@class='htmlView']/ul/li)
   # - name: videos ????????????????????????????/
   #   singleValue: true
   - name: coupon
@@ -328,20 +331,18 @@ fields:
     xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
     regExp: ^[0-9]+
   - name: variantInformation
-    singleValue: true
     xpath: //div[@id='ii_variantInfo']
   - name: _input 
     singleValue: true
   - name: imageAlt 
     singleValue: true
-    xpath: (//div[@id='zoom-carousel-0']//img)[2]/@src
+    xpath: (//div[contains(@id,'zoom-carousel')]//img)[2]/@src
   - name: promotion
     singleValue: true
     selector: div.css-1dbjc4n div.css-901oao.r-cme181.r-1jn44m2.r-ubezar.r-b88u0q
   - name: aggregateRatingText
-    singleValue: true
-    selector: div.css-901oao.r-suhe1l.r-vw2c0b.r-7o8qx1
-    # xpath: (//div[@class='css-901oao r-suhe1l r-vw2c0b r-7o8qx1'])
+    # selector: div.css-901oao.r-suhe1l.r-vw2c0b.r-7o8qx1
+    xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//section/@aria-label
 
   - name: vitaminAPerServing
     singleValue: true

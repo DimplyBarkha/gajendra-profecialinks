@@ -5,10 +5,10 @@ module.exports = {
   parameterValues: { 
     country: 'US',
     store: 'cvs',
-    transform,
+    transform: transform,
     domain: 'cvs.com',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
 
 
     await new Promise(r => setTimeout(r, 10000));
@@ -29,7 +29,13 @@ module.exports = {
     // await new Promise(r => setTimeout(r, 40000));
 
     const sectionsDiv = 'div.css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs';
+    const variantInfoDiv = 'div.css-1dbjc4n.r-16lk18l.r-11c0sde.r-1xi2sqm';
+    // const variantInfoDiv = 'div.css-1dbjc4n.r-16lk18l.r-11c0sde.r-1xi2sqm div.css-1dbjc4n.r-utggzx';
+
+
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
+    await context.waitForSelector(variantInfoDiv, { timeout: 90000 });
+
 
     await context.evaluate(function () {
       // document.body.setAttribute("ii_url", window.location.href);
@@ -57,9 +63,6 @@ module.exports = {
               
               console.log(section[sectionLast] + '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', nodeList[i].childNodes[1].innerText)
               addHiddenDiv(`ii_${section[sectionLast]}`, `${nodeList[i].childNodes[1].innerText}`);
-            } else{ 
-              console.log('Did Not Wrok')
-              // addHiddenDiv(`ii_Warnings`, `DID NOT WORK`);
             }
             i++;
           }
@@ -111,47 +114,75 @@ module.exports = {
             addHiddenDiv(`ii_manufImages`, `${img.src}`);
           })
         }
-    }
-
-    function collectVariantInfo () {
-
-      const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao')
-      const variantArray = []
-
-      if (variantInfo[1]) {
-          variantArray.push(variantInfo[1].innerText);
       }
 
-      if (variantInfo[3]) {
-        variantArray.push(variantInfo[3].innerText);
-    }
+      function collectVariantInfo () {
 
-      let variantString = variantArray.join(" ");
-      addHiddenDiv(`ii_variantInfo`, `${variantString}`);
-  }
+        const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao')
+        const variantArray = []
 
-  function collectBrand () {
+        if (variantInfo[1]) {
+            variantArray.push(variantInfo[1].innerText);
+        }
 
-    const brandBlock = document.querySelector('script#schema-json-ld')
-    const brandObject = JSON.parse(brandBlock.innerText)
+        if (variantInfo[3]) {
+          variantArray.push(variantInfo[3].innerText);
+        }
 
-    if (brandObject[0].brand) {
-      addHiddenDiv(`ii_Brand`, `${brandObject[0].brand}`);
+        let variantString = variantArray.join(" ");
+        addHiddenDiv(`ii_variantInfo`, `${variantString}`);
+      }
 
-    }
-}
+      function collectBrand () {
 
-      identifySections()
-      collectNutritionInfo();
-      collectBools()
-      collectManufImages()
-      collectVariantInfo()
-      collectBrand()
+        const brandBlock = document.querySelector('script#schema-json-ld')
+        const brandObject = JSON.parse(brandBlock.innerText)
 
+        if (brandObject[0].brand) {
+          addHiddenDiv(`ii_Brand`, `${brandObject[0].brand}`);
+
+        }
+      }
+
+      function collectVariantNums () {
+
+        const variant1 = document.querySelector('div#ii_url').innerText
+        const regex1 = /[0-9]+$/g
+        const variant2 = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)').innerText
+        const regex2 = /[0-9]+$/g
+        
+        let trans1 = regex1.exec(variant1)
+          addHiddenDiv(`ii_variantId`, `${trans1[0]}`);
+
+        let trans2 = regex2.exec(variant2)
+          addHiddenDiv(`ii_variantId`, `${trans2[0]}`);
+      }
+
+    
       addHiddenDiv('ii_url', window.location.href);
-    });
+      identifySections();
+      collectNutritionInfo();
+      collectBools();
+      collectManufImages();
+      collectVariantInfo();
+      collectBrand();
+      collectVariantNums()
+      
+  });
 
-    return await context.extract(productDetails, { transform });
-    // await context.extract(productDetails);
+    //   async function collectVideo() {
+    //     const secret = await context.evaluate(function() {
+    //       let ele = document.querySelector('video')
+    //       if(ele){
+    //         let eleSrc = ele.getAttribute('src')
+    //         return eleSrc
+    //       } else {
+    //         return "COULD NOT FIND!!!!!!!!!!!!!!!!!!!!"
+    //       }
+    //     }, [], 'iframe[title="Product Videos"]');
+    //     console.log(secret)
+    //   }
+    // collectVideo()
+    return await context.extract(productDetails, { transform: transformParam });
   },
 };

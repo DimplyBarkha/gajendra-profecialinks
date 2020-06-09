@@ -35,11 +35,11 @@ fields:
     xpath: (.//div[@class="css-1dbjc4n r-1mlwlqe r-1ldr0hp r-dnmrzs r-1udh08x r-417010"]//img/@src)[1]
   - name: aggregateRating
     singleValue: false
-    xpath: (//div[@class='css-1dbjc4n r-18u37iz r-zl2h9q']/section/@aria-label)[1]
-    # regExp: >- 
-    #   Rated ([.0-9]+)
-    # regExpReplace: >-
-    #   $1
+    xpath: (//div[@class='css-1dbjc4n r-18u37iz r-zl2h9q']//div/@aria-label)[1]
+    regExp: >- 
+      Rated ([.0-9]+)
+    regExpReplace: >-
+      $1
   - name: reviewCount
     singleValue: false
     xpath:  (.//div[contains(@class,'css-1dbjc4n')]/div[@class='css-901oao r-1kihuf0 r-zdkpiq r-1jn44m2 r-1enofrn r-1bymd8e r-1uu6nss'])[1]
