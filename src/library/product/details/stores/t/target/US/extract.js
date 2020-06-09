@@ -7,7 +7,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-
   await context.waitForXPath("//a[@class='Link-sc-1khjl8b-0 kTulu h-display-block']");
   await context.evaluate(async function () {
     function stall (ms) {
@@ -55,7 +54,6 @@ async function implementation (
     let quantity = 1;
     if (document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
       document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
-
         if (e.innerText.indexOf('UPC') > -1) {
           addHiddenDiv('upcInfo', e.innerText.replace('UPC: ', ''));
         }
@@ -287,28 +285,28 @@ async function implementation (
     const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0.gcwqAn').length;
     addHiddenDiv('variantCount', variationNum);
 
-    let similarItems = document.querySelector('a[href="#tabContent-Similaritems1"]');
-    if(similarItems) {
+    const similarItems = document.querySelector('a[href="#tabContent-Similaritems1"]');
+    if (similarItems) {
       similarItems.click();
       await stall(1000);
-      let variants = [];
+      const variants = [];
       document.getElementById('tabContent-Similaritems1').querySelectorAll('a').forEach(e => {
-        let split = e.getAttribute('href').split('/');
+        const split = e.getAttribute('href').split('/');
         variants.push(split[split.length - 1]);
       });
       console.log('variants', variants);
       addHiddenDiv('variants', variants.join(' | '));
     }
 
-    let video = document.querySelector('img[type="video"]');
-    if(video) {
+    const video = document.querySelector('img[type="video"]');
+    if (video) {
       video.click();
     }
 
-    let manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.fWPETf.h-padding-t-tight');
+    const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.fWPETf.h-padding-t-tight');
     if (manufacturerCTA) {
       manufacturerCTA.click();
-      let manufacturerImgs = [];
+      const manufacturerImgs = [];
       document.querySelectorAll('img.wc-media.wc-image').forEach(e => {
         manufacturerImgs.push(e.src);
       });
@@ -316,7 +314,6 @@ async function implementation (
       await stall(1000);
     }
   });
-
 
   return await context.extract(productDetails, { transform });
 }
