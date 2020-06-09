@@ -20,17 +20,33 @@ async function implementation (
     });
   }
 
-  const url = 'https://target.com';
+  const url = 'https://target.com/s?searchTerm=' + inputs.keywords;
   await dependencies.goto({ url });
-  await context.setInputValue('input#search', inputs.keywords);
+  await context.waitForXPath('//ul//li');
   await stall(2000);
-  await context.evaluate(function () {
-    const link = document.querySelector('.TypeaheadItemLink-sc-125kxr2-0');
-    if (link != null) {
-      link.click();
+  await context.evaluate(async function () {
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+    let isCategoryPage = false;
+    document.querySelectorAll('h2').forEach(e => {
+      if(e.innerHTML === 'Shop by category') {
+        isCategoryPage = true
+      }
+    });
+    if(isCategoryPage) {
+      document.getElementById("search").focus();
+      await stall(2000);
+      const link = document.querySelector('.TypeaheadItemLink-sc-125kxr2-0');
+      if (link != null) {
+        link.click();
+      }
     }
   });
-  await context.waitForXPath('//ul//li');
   return context.evaluate(function () {
     return document.querySelectorAll('li').length > 0;
   });
