@@ -101,10 +101,7 @@ async function implementation (
       break;
     }
     counter++;
-<<<<<<< HEAD
     return extract;
-=======
->>>>>>> b2df5dab5b3fab74900f0dcfd664ea46ff3ffe37
   }
 }
 
