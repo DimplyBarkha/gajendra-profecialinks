@@ -1,15 +1,12 @@
 input:
+  id: 360179011
   _url: https://groceries.morrisons.com
-  url: https://groceries.morrisons.com/products/nando-s-peri-peri-salt-360179011
 extractions:
-  - html: https://workbench.import.io/html/run=6b7dceb2-3e48-4b6d-ab2c-41eb07b2f2d8/task=eb463fcf-fe37-4029-8b22-58c6a8309339/890e42e8-2dfc-46d6-bdf9-ad61224c151e.html
-    extractionConfigId: product/details/stores/m/morrisons/uk/extract
+  - html: https://workbench.import.io/html/run=73f2766e-bf0c-4935-a46c-ab682facd7e4/task=440e57e3-8588-4b43-b769-853b4730ea03/d554a544-d5bc-4d32-93fa-3b60317615c6.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
     data:
       - group:
-          - aggregateRating:
-              - text: "5.0"
-                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
-            availabilityText:
+          - availabilityText:
               - text: In Stock
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/button[1]
             brandText:
@@ -109,8 +106,6 @@ extractions:
             proteinPerServingUom:
               - text: g
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
-            ratingCount:
-              - text: "0"
             saltPerServing:
               - text: "53.6"
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
@@ -126,11 +121,6 @@ extractions:
             servingSize:
               - text: "100"
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
-            shippingInfo:
-              - text: All About Food,The Tree House,Skelmersdale,WN8 9TG.grocery@nandos.co.uk
-            sku:
-              - text: "360179011"
-                xpath: /html/head[1]/meta[17]/@content
             storage:
               - text: Keep in a cool dry place. Keep sealed when not in use.
             totalCarbPerServing:
@@ -152,4 +142,4 @@ extractions:
               - text: g
                 xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
         xpath: /
-    timestamp: 1591461942973
+    timestamp: 1591714082692
