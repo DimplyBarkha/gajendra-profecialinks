@@ -16,6 +16,9 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
+        if (row.asin) {
+          row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
+        }
         if (row.nutritionInfo) {
           const jsonStr = `{${row.nutritionInfo[0].text}}`;
           if (jsonStr) {

@@ -67,9 +67,7 @@ fields:
   regExp: (",\"productId\":\")(\w+)
   regExpReplace: $2
 - name: asin
-  singleValue: true
-  regExp: (\d+)
-  regExpReplace: $1
+  singleValue: false
   xpath: //div[contains(@class,'wm-item-number')]  
 - name: variantId
   singleValue: true
