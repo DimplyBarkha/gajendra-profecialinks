@@ -1,0 +1,316 @@
+input:
+  keywords: coke
+  _url: https://waitrose.com
+extractions:
+  - html: https://workbench.import.io/html/run=754a8577-6219-404e-bcaa-e0dbe9ed2153/task=a3b3e6ae-7bbb-4a53-a0e9-1ee237c83118/056cb5ea-1dcd-4f7d-8e2c-955385b363df.html
+    extractionConfigId: product/search/stores/w/waitrose/UK/extract
+    data:
+      - group:
+          - name:
+              - text: Diet Coke
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[1]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[1]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke/532182-272120-272121
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[1]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[2]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £4.45
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[2]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coca-cola/058787-29588-29589
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[2]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca Cola Classic
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[3]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[3]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-classic/542906-653859-653860
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[3]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[4]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[4]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/570225-585551-585552
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[4]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke No Caffeine
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[5]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[5]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke-no-caffeine/501102-330897-330898
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[5]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[6]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £4.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[6]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke/631000-511836-511837
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[6]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[7]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[7]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke/426980-721815-721816
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[7]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[8]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £5.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[8]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola/058786-29586-29587
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[8]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke No Calories No Caffeine
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[9]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £4.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[9]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke-no-calories-no-caffeine/504230-511792-511793
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[9]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[10]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £4.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[10]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola/006392-2857-2858
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[10]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Signature Mixer Smoky
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-signature-mixer-smoky/592259-694177-694178
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[11]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £4.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[11]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/729119-511902-511903
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[11]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[12]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[12]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/847695-722604-722605
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[12]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[13]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £9.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[13]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke/880471-724206-724207
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[13]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[14]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £9.70
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[14]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke/497877-724246-724247
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[14]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[15]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £9.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[15]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola/620646-723866-723867
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[15]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[16]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £9.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[16]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/892146-724228-724229
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[16]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[17]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.35
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[17]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coca-cola/058091-29182-29183
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[17]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[18]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £2.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[18]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola/472444-662536-662537
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[18]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Zero Sugar
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[19]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £9.70
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[19]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero-sugar/406243-724244-724245
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[19]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke Sublime Lime
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[20]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £4.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[20]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke-sublime-lime/679812-722259-722260
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[20]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola minis
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[21]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £5.20
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[21]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-minis/093891-48198-48199
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[21]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[22]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.45
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[22]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke/803435-343458-343459
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[22]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[23]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £3.48
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[23]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola/449893-721845-721846
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[23]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke minis
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[24]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £4.65
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[24]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke-minis/042273-20926-20927
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[24]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola Signature Mixer Smoky
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[25]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[25]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-signature-mixer-smoky/592259-694177-694178
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[25]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[26]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £2.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[26]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke/793013-663060-663061
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[26]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola zero
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[27]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £1.45
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[27]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola-zero/832355-343578-343579
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[27]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[28]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £5.69
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[28]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola/713804-654243-654244
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[28]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[29]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: 65p
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[29]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke/505783-323127-323128
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[29]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[30]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: 41p
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[30]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola/058870-29616-29617
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[30]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Diet Coke
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[31]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: 87p
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[31]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/diet-coke/058726-29554-29555
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[31]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coca-Cola
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[32]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: 99p
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[32]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coca-cola/058725-29552-29553
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[32]/div[1]/section[1]/header[1]/a[1]/@href
+          - name:
+              - text: Coke Zero Multipack
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[33]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            price:
+              - text: £2.99
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[33]/div[1]/section[2]/div[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/coke-zero-multipack/849951-653881-653882
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/article[33]/div[1]/section[1]/header[1]/a[1]/@href
+        xpath: /html
+    timestamp: 1591730332160
