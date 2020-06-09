@@ -285,7 +285,7 @@ async function implementation (
     }
 
     const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0.gcwqAn').length;
-    addHiddenDiv('variationCount', variationNum);
+    addHiddenDiv('variantCount', variationNum);
 
     let similarItems = document.querySelector('a[href="#tabContent-Similaritems1"]');
     if(similarItems) {
