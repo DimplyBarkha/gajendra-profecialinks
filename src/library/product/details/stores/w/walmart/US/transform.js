@@ -19,6 +19,13 @@ const transform = (data, context) => {
         if (row.asin) {
           row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
         }
+        if (row.alternateImages) {
+          row.alternateImages.forEach(item => {
+            if (!item.text.match('https://') && item.text.startsWith('//')) {
+              item.text = `https:${item.text}`;
+            }
+          });
+        }
         if (row.nutritionInfo) {
           const jsonStr = `{${row.nutritionInfo[0].text}}`;
           if (jsonStr) {

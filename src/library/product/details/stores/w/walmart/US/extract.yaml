@@ -137,7 +137,7 @@ fields:
 - name: colorCode
   singleValue: true
 - name: manufacturerDescription
-  singleValue: true
+  singleValue: false
   xpath: //div[contains(@class,'wc-aplus-body')]
 - name: manufacturerImages
   singleValue: false
@@ -145,7 +145,7 @@ fields:
 - name: videos
   singleValue: false
   manualSelector: script[id='item']
-  regExp: ("SMALL":")(\S+.mp4)(",")
+  regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
   regExpReplace: $2
 - name: name
   singleValue: true
