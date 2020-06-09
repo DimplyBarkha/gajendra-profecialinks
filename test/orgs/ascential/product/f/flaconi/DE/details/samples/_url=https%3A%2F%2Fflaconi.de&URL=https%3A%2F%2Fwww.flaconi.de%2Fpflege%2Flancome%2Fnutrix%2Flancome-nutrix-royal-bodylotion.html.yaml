@@ -1,0 +1,69 @@
+input:
+  _url: https://flaconi.de
+  URL: https://www.flaconi.de/pflege/lancome/nutrix/lancome-nutrix-royal-bodylotion.html
+extractions:
+  - html: https://workbench.import.io/html/run=928c4b98-9b19-46e8-91fb-9368257998da/task=ebb8425a-3da2-4a43-96df-31db9b8cc5a7/686a9bb9-234b-4e99-b32e-2c5418a1be42.html
+    extractionConfigId: product/details/stores/f/flaconi/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[1]/span[1]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Lancôme
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/a[1]
+            category:
+              - text: Pflege
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+            description:
+              - text: NUTRIX ROYAL Bodylotion regt die natürliche Lipidproduktion der Haut an
+                  und pflegt sie geschmeidig zart. Die hauteigene Schutzbarriere
+                  wird so gestärkt. Sie ist widerstandsfähiger und vor äußeren
+                  Einflüssen geschützt. Durch 5 besonders reichhaltige Öle
+                  pflegt NUTRIX ROYAL Bodylotion selbst sehr trockene Haut
+                  intensiv und schenkt samtig weiches Wohlbefinden.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]
+            descriptionBullets:
+              - text: "2"
+            directions:
+              - text: Massieren Sie den Körperbalm nach dem Baden oder Duschen auf die
+                  handtuchtrockene Haut sanft ein.
+                xpath: /html/body/div[4]
+            gtin:
+              - text: "3605530314114"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[2]/@content
+            image:
+              - text: https://cdn.flaconi.de/media/catalog/product/l/a/lancome-nutrix-royal-bodylotion-400-ml-3605530314114.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/@data-small-image
+            imageAlt:
+              - text: Lancôme Nutrix Royal Bodylotion
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
+            list_price:
+              - text: 28,50 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/span[4]
+            name:
+              - text: Nutrix Royal
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/span[1]
+            nameExtended:
+              - text: Lancôme Nutrix Royal Bodylotion
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
+            price:
+              - text: "20.95"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/meta[1]/@content
+            quantity:
+              - text: "400"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/span[1]
+            ratingCount:
+              - text: "68"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            shippingInfo:
+              - text: kostenloser Versand
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/span[1]
+            sku:
+              - text: "40002431"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[1]/@content
+            url:
+              - text: https://www.flaconi.de/pflege/lancome/nutrix/lancome-nutrix-royal-bodylotion.html
+                xpath: /html/head[1]/meta[16]/@content
+        xpath: /
+    timestamp: 1591610259692

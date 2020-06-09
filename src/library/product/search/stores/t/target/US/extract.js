@@ -67,15 +67,19 @@ async function implementation (
             break;
           }
         }
-
+        
+        await stall(1000);
         let itemContainers = document.querySelectorAll('li.Col-favj32-0.bZxgbc.h-padding-a-none');
         let rank = 1;
         for(let itemContainer of itemContainers) {
           addHiddenDiv(itemContainer, 'itemId', itemContainer.querySelector('a').getAttribute('href').split("?")[0].split('/')[4]);
-          //addHiddenDiv(itemContainer, 'thumbnailInfo', itemContainer.querySelector('source').getAttribute('srcset'));
           let pageNum = document.querySelector('button[data-test="select"]') ? document.querySelector('button[data-test="select"]').innerText.split(" ")[1] : 1;
           totalRank = ((pageNum - 1) * 24) + rank;
           addHiddenDiv(itemContainer, 'rank', totalRank);
+          let endorsement = itemContainer.querySelector('.AtTargetMessage__AtTargetMessageWrapper-sc-1gv6org-0.liCFqa.h-text-grayDark');
+          if(endorsement) {
+            addHiddenDiv(itemContainer, 'endorsement', endorsement.innerText.trim());
+          }
           rank++;
         }
 

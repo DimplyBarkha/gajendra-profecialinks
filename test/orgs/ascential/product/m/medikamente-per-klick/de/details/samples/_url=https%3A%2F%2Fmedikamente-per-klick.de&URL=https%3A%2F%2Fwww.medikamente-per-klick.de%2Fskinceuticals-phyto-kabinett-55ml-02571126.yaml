@@ -1,0 +1,39 @@
+input:
+  _url: https://medikamente-per-klick.de
+  URL: https://www.medikamente-per-klick.de/skinceuticals-phyto-kabinett-55ml-02571126
+extractions:
+  - html: https://workbench.import.io/html/run=0ae95414-dd71-4dec-aa7b-3d5bbb811b08/task=9307ac8b-4532-4793-aee0-5b344c1bcf93/4ecf33fb-8d12-4114-b9fd-76d62cb03437.html
+    extractionConfigId: product/details/stores/m/medikamente-per-klick/de/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "0.0"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/a[1]/span[1]
+            availabilityText:
+              - text: out_of_stock
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/dl[3]/dd[1]/span[1]/@title
+            gtin:
+              - text: "126259"
+                xpath: /html/body/div[10]
+            image:
+              - text: /klick/images/designdata/images/noImageMedium.gif
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[2]/div[2]/img[1]/@src
+            metaKeywords:
+              - text: SKINCEUTICALS Phyto+
+                  Kabinett,medikamente-per-klick,versandapotheke,apotheke,internetapotheke,onlineapotheke,arzneimittel,
+                  homöopathie,naturheilkunde,kosmetik,gesundheit
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: SKINCEUTICALS Phyto+ Kabinett (55 ml)
+                xpath: /html/body/div[6]
+            quantity:
+              - text: 55 ml
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/dl[1]/dd[3]
+            ratingCount:
+              - text: "489"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/a[1]/span[1]/span[3]
+            variantId:
+              - text: "02571126"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/dl[1]/dd[4]
+        xpath: /
+    timestamp: 1591619082079
