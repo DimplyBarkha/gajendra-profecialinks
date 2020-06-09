@@ -2,7 +2,7 @@ input:
   _url: https://elcorteingles.es
   url: https://www.elcorteingles.es/supermercado/0110118630000737-lanjaron-agua-mineral-natural-botella-15-l/
 extractions:
-  - html: https://workbench.import.io/html/run=23bc1f2d-b57e-439b-bb36-dc46decadbc0/task=419c34a4-fd53-4c53-a3f8-fc08678aa291/87440123-0476-420c-9163-fe8d865077f2.html
+  - html: https://workbench.import.io/html/run=c1749696-ed23-4d44-a9b0-1747cfec3126/task=30b679c6-c92d-4301-8b78-939e06ab3b3f/ed7353fc-5356-48a6-985f-decfc9434181.html
     extractionConfigId: product/details/stores/e/elcorteingles/ES/extract
     data:
       - group:
@@ -12,25 +12,23 @@ extractions:
             brandLink:
               - text: https://www.elcorteingles.es/alimentacion/marcas/lanjaron/
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/a[1]/@href
-              - text: https://www.elcorteingles.es
-                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/a[1]/@href
             brandText:
               - text: LANJARON
                 xpath: /html/body/div[19]
             calciumPerServing:
-              - text: "Ingredientes y alérgenos Composición (en mg/L): Bicarbonatos 108 · Calcio
-                  28,9 · Magnesio 11,4 · Sodio 5,9. Conductividad (uS/cm) 200
-                  (CNTA-2018)"
-                xpath: /html/body/div[21]
-            calciumPerServingUom:
-              - text: "Ingredientes y alérgenos Composición (en mg/L): Bicarbonatos 108 · Calcio
-                  28,9 · Magnesio 11,4 · Sodio 5,9. Conductividad (uS/cm) 200
-                  (CNTA-2018)"
+              - text: 28,9
                 xpath: /html/body/div[22]
             category:
-              - text: Supermercado>Bebidas>Agua, Refrescos y Zumos>Agua y soda>Agua mineral sin
-                  gas>LANJARON agua mineral natural botella 1,5 l
-                xpath: /html/body/div[30]
+              - text: Supermercado
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[1]
+              - text: Bebidas
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[2]
+              - text: Agua, Refrescos y Zumos
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[3]
+              - text: Agua y soda
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[4]
+              - text: Agua mineral sin gas
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[5]
             description:
               - text: "Información generalDenominación del alimento: Agua Mineral Natural de
                   mineralización débil. Indicada para la preparación de
@@ -41,7 +39,7 @@ extractions:
                   LitrosOtras menciones obligatorias en la etiqueta: Exija que
                   se abra la botella en su presencia. Por su seguridad, no
                   reutilizar este envase."
-                xpath: /html/body/div[28]
+                xpath: /html/body/div[26]
             directions:
               - text: "Modo de empleo: El agua contribuye a mantener las funciones físicas y
                   cognitivas normales con una ingesta diaria de al menos 2L de
@@ -61,48 +59,32 @@ extractions:
               - text: "Ingredientes y alérgenos Composición (en mg/L): Bicarbonatos 108 · Calcio
                   28,9 · Magnesio 11,4 · Sodio 5,9. Conductividad (uS/cm) 200
                   (CNTA-2018)"
-                xpath: /html/body/div[29]
+                xpath: /html/body/div[27]
             magnesiumPerServing:
-              - text: "Ingredientes y alérgenos Composición (en mg/L): Bicarbonatos 108 · Calcio
-                  28,9 · Magnesio 11,4 · Sodio 5,9. Conductividad (uS/cm) 200
-                  (CNTA-2018)"
+              - text: 11,4
                 xpath: /html/body/div[23]
-            magnesiumPerServingUom:
-              - text: "Ingredientes y alérgenos Composición (en mg/L): Bicarbonatos 108 · Calcio
-                  28,9 · Magnesio 11,4 · Sodio 5,9. Conductividad (uS/cm) 200
-                  (CNTA-2018)"
-                xpath: /html/body/div[24]
             nameExtended:
-              - text: |-
-                  LANJARON 
-                  agua mineral natural botella 1,5 l
-                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]
+              - text: LANJARON agua mineral natural botella 1,5 l
             price:
               - text: 0,60 €
             pricePerUnit:
-              - text: "0,40 "
+              - text: 0,40 €
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[4]/div[1]/div[1]/div[2]
             pricePerUnitUom:
               - text: € / Litro
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[4]/div[1]/div[1]/div[2]
             quantity:
-              - text: agua mineral natural botella 1,5 l
+              - text: 1,5
+                xpath: /html/body/div[21]
             ratingCount:
               - text: "28"
-                xpath: /html/body/div[27]
+                xpath: /html/body/div[25]
             sku:
               - text: "8410728180120"
                 xpath: /html/body/div[17]
             sodiumPerServing:
-              - text: "Ingredientes y alérgenos Composición (en mg/L): Bicarbonatos 108 · Calcio
-                  28,9 · Magnesio 11,4 · Sodio 5,9. Conductividad (uS/cm) 200
-                  (CNTA-2018)"
-                xpath: /html/body/div[25]
-            sodiumPerServingUom:
-              - text: "Ingredientes y alérgenos Composición (en mg/L): Bicarbonatos 108 · Calcio
-                  28,9 · Magnesio 11,4 · Sodio 5,9. Conductividad (uS/cm) 200
-                  (CNTA-2018)"
-                xpath: /html/body/div[26]
+              - text: 5,9
+                xpath: /html/body/div[24]
             storage:
               - text: Conservar en lugar limpio, fresco y seco. Proteger de la luz solar y de
                   olores agresivos. Evitar contacto directo con el suelo. Exija
@@ -117,4 +99,4 @@ extractions:
               - text: "110118630000737"
                 xpath: /html/body/div[20]
         xpath: /html/body
-    timestamp: 1591439714405
+    timestamp: 1591708468487

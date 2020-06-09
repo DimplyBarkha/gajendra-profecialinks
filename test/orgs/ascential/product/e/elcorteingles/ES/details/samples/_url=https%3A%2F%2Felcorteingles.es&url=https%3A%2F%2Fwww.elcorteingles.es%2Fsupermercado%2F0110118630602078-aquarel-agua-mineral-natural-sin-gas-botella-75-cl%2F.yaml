@@ -2,7 +2,7 @@ input:
   _url: https://elcorteingles.es
   url: https://www.elcorteingles.es/supermercado/0110118630602078-aquarel-agua-mineral-natural-sin-gas-botella-75-cl/
 extractions:
-  - html: https://workbench.import.io/html/run=23bc1f2d-b57e-439b-bb36-dc46decadbc0/task=a68e6c86-f614-4fb7-86f8-89437bbe5746/82a738b3-c822-417c-9d79-442b37eaf592.html
+  - html: https://workbench.import.io/html/run=c1749696-ed23-4d44-a9b0-1747cfec3126/task=0feed173-c795-41c8-bdd9-3266884506fa/bbcd1893-9285-404d-acac-76c6f8a70f6b.html
     extractionConfigId: product/details/stores/e/elcorteingles/ES/extract
     data:
       - group:
@@ -12,21 +12,26 @@ extractions:
             brandLink:
               - text: https://www.elcorteingles.es/alimentacion/marcas/aquarel/
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/a[1]/@href
-              - text: https://www.elcorteingles.es
-                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/a[1]/@href
             brandText:
               - text: AQUAREL
                 xpath: /html/body/div[19]
             calciumPerServing:
               - text: "2.2"
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[22]
             calciumPerServingUom:
               - text: mg/L
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[23]
             category:
-              - text: Supermercado>Bebidas>Agua, Refrescos y Zumos>Agua y soda>Agua mineral sin
-                  gas>AQUAREL agua mineral natural sin gas botella 75 cl
-                xpath: /html/body/div[30]
+              - text: Supermercado
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[1]
+              - text: Bebidas
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[2]
+              - text: Agua, Refrescos y Zumos
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[3]
+              - text: Agua y soda
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[4]
+              - text: Agua mineral sin gas
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[5]
             description:
               - text: "Información generalDenominación del alimento: Agua Mineral NaturalPaís de
                   origen: EspañaNombre del operador: Nestlé España,
@@ -35,7 +40,7 @@ extractions:
                   Barcelona.Cantidad Neta: 75 CentilitrosOtras menciones
                   obligatorias en la etiqueta: Por seguridad no reutilizar esta
                   botella."
-                xpath: /html/body/div[28]
+                xpath: /html/body/div[29]
             directions:
               - text: Proteger de la luz solar. Conservar en un lugar fresco, seco y apartado de
                   olores intensos. Evitar contacto directo con el suelo. Por su
@@ -55,34 +60,32 @@ extractions:
                   Bicarbonato (13.2 mg/L), Calcio (2.2 mg/L), Sodio (4.7 mg/L),
                   Magnesio (2.3 mg/L), Sulfato (3.7 mg/L), Cloruro (6.8 mg/L),
                   Residuo seco (a 180°C) (40 mg/L)."
-                xpath: /html/body/div[29]
+                xpath: /html/body/div[30]
             magnesiumPerServing:
               - text: "2.3"
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[24]
             magnesiumPerServingUom:
               - text: mg/L
-                xpath: /html/body/div[24]
+                xpath: /html/body/div[25]
             nameExtended:
-              - text: |-
-                  AQUAREL 
-                  agua mineral natural sin gas botella 75 cl
-                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]
+              - text: AQUAREL agua mineral natural sin gas botella 75 cl
             price:
               - text: 0,55 €
             quantity:
-              - text: agua mineral natural sin gas botella 75 cl
+              - text: "75"
+                xpath: /html/body/div[21]
             ratingCount:
               - text: "6"
-                xpath: /html/body/div[27]
+                xpath: /html/body/div[28]
             sku:
               - text: "7613036954525"
                 xpath: /html/body/div[17]
             sodiumPerServing:
               - text: "4.7"
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[26]
             sodiumPerServingUom:
               - text: mg/L
-                xpath: /html/body/div[26]
+                xpath: /html/body/div[27]
             storage:
               - text: Proteger de la luz solar. Conservar en un lugar fresco, seco y apartado de
                   olores intensos. Evitar contacto directo con el suelo. Por su
@@ -91,5 +94,8 @@ extractions:
             variantId:
               - text: "110118630602078"
                 xpath: /html/body/div[20]
+            weightNet:
+              - text: 75 C
+                xpath: /html/body/div[29]
         xpath: /html/body
-    timestamp: 1591439709665
+    timestamp: 1591708466145

@@ -57,7 +57,7 @@ fields:
   - name: servingSizeUom
     singleValue: true
     xpath: //div[@class="info _nutrients"]//table//tr[1]//th[last()]
-    regExp: ([A-Z])\w+
+    regExp: \s(.*)
   - name: caloriesPerServing
     singleValue: true
     xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])[1]

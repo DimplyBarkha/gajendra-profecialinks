@@ -2,7 +2,7 @@ input:
   _url: https://elcorteingles.es
   url: https://www.elcorteingles.es/supermercado/0110118002200147-knorr-eco-pure-de-verduras-de-la-huerta-ecologico-envase-300-ml/
 extractions:
-  - html: https://workbench.import.io/html/run=23bc1f2d-b57e-439b-bb36-dc46decadbc0/task=b02fca19-ee44-4d68-be5b-0f7eaf17ed19/4bb594fa-ed3c-43b8-870e-36ad9b6d3f7a.html
+  - html: https://workbench.import.io/html/run=c1749696-ed23-4d44-a9b0-1747cfec3126/task=4df36b66-0350-456d-b72d-a36066a65265/3f108739-2370-4471-8b48-798751033560.html
     extractionConfigId: product/details/stores/e/elcorteingles/ES/extract
     data:
       - group:
@@ -12,8 +12,6 @@ extractions:
             brandLink:
               - text: https://www.elcorteingles.es/alimentacion/marcas/knorr/
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/a[1]/@href
-              - text: https://www.elcorteingles.es
-                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/a[1]/@href
             brandText:
               - text: KNORR
                 xpath: /html/body/div[19]
@@ -21,16 +19,20 @@ extractions:
               - text: 162 kJ
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
             category:
-              - text: Supermercado>Alimentación General>Caldos, sopas, purés y gazpachos>Cremas
-                  y purés de verdura>KNORR Eco puré de verduras de la huerta
-                  ecológico envase 300 ml
-                xpath: /html/body/div[24]
+              - text: Supermercado
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[1]
+              - text: Alimentación General
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[2]
+              - text: Caldos, sopas, purés y gazpachos
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[3]
+              - text: Cremas y purés de verdura
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[4]
             description:
               - text: "Información generalDenominación del alimento: Crema de verdurasNombre del
                   operador: Unilever España S.A.Dirección del operador:
                   C/Tecnología 19, 08840 Viladecans (Barcelona)Cantidad Neta:
                   300 Mililitros"
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[23]
             dietaryFibrePerServing:
               - text: "1.1"
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[13]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
@@ -56,16 +58,13 @@ extractions:
                   apio¹, cebolla¹, judía verde¹, brocoli¹, puerro¹), agua,
                   nata¹, almidón de maiz¹, sal y extracto de levadura.
                   ¹Procedente de agricultura ecológica.
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[24]
             nameExtended:
-              - text: |-
-                  KNORR 
-                  Eco puré de verduras de la huerta ecológico envase 300 ml
-                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]
+              - text: KNORR Eco puré de verduras de la huerta ecológico envase 300 ml
             price:
               - text: 1,75 €
             pricePerUnit:
-              - text: "5,83 "
+              - text: 5,83 €
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[4]/div[1]/div[1]/div[2]
             pricePerUnitUom:
               - text: € / Litro
@@ -77,10 +76,11 @@ extractions:
               - text: " g"
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
             quantity:
-              - text: Eco puré de verduras de la huerta ecológico envase 300 ml
+              - text: "300"
+                xpath: /html/body/div[21]
             ratingCount:
               - text: "4"
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[22]
             saltPerServing:
               - text: "0.68"
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[12]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
@@ -91,7 +91,7 @@ extractions:
               - text: "100"
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             servingSizeUom:
-              - text: Mililitros
+              - text: " Mililitros"
                 xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             sku:
               - text: "8714100769973"
@@ -122,5 +122,8 @@ extractions:
             variantId:
               - text: "110118002200147"
                 xpath: /html/body/div[20]
+            weightNet:
+              - text: 300 M
+                xpath: /html/body/div[23]
         xpath: /html/body
-    timestamp: 1591439548899
+    timestamp: 1591708381571

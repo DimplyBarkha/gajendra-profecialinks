@@ -19,24 +19,32 @@ module.exports = {
       }
 
       function findJsonData (scriptSelector, startString, endString) {
-        const xpath = `//script[contains(.,'${scriptSelector}')]`;
-        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        // @ts-ignore
-        const scriptContent = element.innerText;
-        const startIdx = scriptContent.indexOf(startString);
-        const endIdx = scriptContent.indexOf(endString);
-        let jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
-        jsonStr = jsonStr.trim();
-        return JSON.parse(jsonStr);
+        try {
+          const xpath = `//script[contains(.,'${scriptSelector}')]`;
+          const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          // @ts-ignore
+          const scriptContent = element.innerText;
+          const startIdx = scriptContent.indexOf(startString);
+          const endIdx = scriptContent.indexOf(endString);
+          let jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
+          jsonStr = jsonStr.trim();
+          return JSON.parse(jsonStr);
+        } catch (error) {
+          console.log(error.message);
+        }
       }
 
       function findJsonObj (scriptSelector) {
-        const xpath = `//script[contains(.,'${scriptSelector}')]`;
-        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        // @ts-ignore
-        let jsonStr = element.innerText;
-        jsonStr = jsonStr.trim();
-        return JSON.parse(jsonStr);
+        try {
+          const xpath = `//script[contains(.,'${scriptSelector}')]`;
+          const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          // @ts-ignore
+          let jsonStr = element.innerText;
+          jsonStr = jsonStr.trim();
+          return JSON.parse(jsonStr);
+        } catch (error) {
+          console.log(error.message);
+        }
       }
 
       const imageData = findJsonObj('image');
@@ -110,7 +118,6 @@ module.exports = {
                 addElementToDocument('magnesium', magnesium);
               }
             }
-            console.log(ingredientName.toLowerCase() === 'sodio');
           }
         }
       }
@@ -133,12 +140,16 @@ module.exports = {
       }
 
       function textContent (selector, attributeName) {
-        const text = (selector && selector.textContent.trim()
-          .split(/[\n]/)
-          .filter((element) => element)
-          .join(' ')) ||
-          '';
-        addElementToDocument(attributeName, text);
+        try {
+          const text = (selector && selector.textContent.trim()
+            .split(/[\n]/)
+            .filter((element) => element)
+            .join(' ')) ||
+            '';
+          addElementToDocument(attributeName, text);
+        } catch (error) {
+          console.log(error.message);
+        }
       }
 
       textContent(document.querySelector('div.pdp-info-container div.info'), 'bulletDescription');
