@@ -1,0 +1,105 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //ul[contains(@class,'product-list') and contains(@class,'multiple-variants')]/li[1]/@data-small-image
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='image-container']//div[contains(@class,'product-image-slider__slide') and contains(@class,'slick-slide') and not(contains(@class,'slick-active')) and not(contains(@class,'product-video'))]/img/@data-lazy
+  - name: metaKeywords
+    singleValue: true
+  - name: category
+    singleValue: true
+    xpath: //div[contains(@class, 'breadcrumbs')]/a[1]/span
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
+  - name: list_price
+    singleValue: true
+    xpath: //span[@class='old-price']
+  - name: price
+    singleValue: true
+    xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock ']
+  - name: description
+    singleValue: true
+    xpath: //div[@class='description-content']
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//ul[@class='product-properties-list']/li)
+  - name: brandText
+    singleValue: true
+    xpath: //a[@class='brand']
+  - name: manufacturer
+    singleValue: true
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class='size-box']/span[@class='amount']
+  - name: weightNet
+    singleValue: true
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: true
+    xpath: //meta[@itemprop='gtin13']/@content
+  - name: sku
+    singleValue: true
+    xpath: //meta[@itemprop='sku']/@content
+  - name: variantId
+    singleValue: true
+  - name: warnings
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+    xpath: //a[@class='text-m']/span
+  - name: aggregateRatingText
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class='bottom-line-items']/span[1]
+  - name: shippingInfo
+    singleValue: true
+    xpath: (//div[@class='shipping-cost']/span)[1]
+  - name: shippingDimensions
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: variantCount
+    singleValue: true
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+  - name: legalDisclaimer
+    singleValue: true
+  - name: colour
+    singleValue: true
+    xpath: //span[@id='makeup-color-select']
+  - name: colorCode
+    singleValue: true
+    xpath: //div[@id='fl_colorcode']
+  - name: directions
+    singleValue: true
+    xpath: //div[@id='fl_directioninfo']
+  - name: manufacturerDescription
+    singleValue: true
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='product-content-block']/img/@src
+  - name: video
+    singleValue: false
+    xpath: //div[@id='pd_video']/a/@href
+  - name: name
+    singleValue: true
+    xpath: //div[@class='product-name']//span[@itemprop='name']
+  - name: url
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
