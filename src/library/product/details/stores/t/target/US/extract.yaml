@@ -101,6 +101,9 @@ fields:
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@id="manufacturerImgs"]
+  - name: video
+    singleValue: true
+    xpath: //video//source/@src
   - name: name
     singleValue: true
     xpath: //div[@id="productName"]
@@ -227,6 +230,9 @@ fields:
   - name: alcoholContent
     singleValue: true
     xpath: //div[@id="alcoholInfo"]
+  - name: variants
+    singleValue: true
+    xpath: //div[@id="variants"]
   - name: additionDescBulletInfo
     singleValue: true
     xpath: //div[@id="additionalInfo"]

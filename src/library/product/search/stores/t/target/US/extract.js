@@ -67,7 +67,7 @@ async function implementation (
             break;
           }
         }
-        
+
         await stall(1000);
         let itemContainers = document.querySelectorAll('li.Col-favj32-0.bZxgbc.h-padding-a-none');
         let rank = 1;

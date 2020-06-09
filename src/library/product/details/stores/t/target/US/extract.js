@@ -7,7 +7,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  console.log('starting...');
+
   await context.waitForXPath("//a[@class='Link-sc-1khjl8b-0 kTulu h-display-block']");
   await context.evaluate(async function () {
     function stall (ms) {
@@ -23,7 +23,7 @@ async function implementation (
       link.click();
     }
   });
-  console.log('clicked...');
+
   await context.waitForXPath("//h1[@class='Heading__StyledHeading-sc-1m9kw5a-0 kWcXUA h-margin-b-none h-margin-b-tiny h-text-bold']");
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
@@ -44,6 +44,11 @@ async function implementation (
     });
     addHiddenDiv('alternateImages', alternateImages.join(' | '));
 
+    let inStock = document.querySelector('div[data-test="inStoreOnlyMessage"]');
+    if(inStock) {
+
+    }
+
     const subCategories = [];
     const categoryDiv = document.querySelector('.h-text-sm.h-padding-v-tiny');
     categoryDiv.querySelectorAll('a').forEach(e => {
@@ -55,7 +60,7 @@ async function implementation (
     let quantity = 1;
     if (document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
       document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
-        console.log('element', e);
+
         if (e.innerText.indexOf('UPC') > -1) {
           addHiddenDiv('upcInfo', e.innerText.replace('UPC: ', ''));
         }
@@ -112,9 +117,6 @@ async function implementation (
     }
     addHiddenDiv('quantityInfo', quantity);
 
-    const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0').length;
-    addHiddenDiv('variationCount', variationNum);
-
     const bulletCount = document.querySelectorAll('div[data-test="wellnessBadgeAndDescription"]').length;
     addHiddenDiv('bulletCount', bulletCount);
 
@@ -124,7 +126,7 @@ async function implementation (
     });
     addHiddenDiv('additionalInfo', additionalInfo.join(', '));
   });
-  console.log('done...');
+
   await context.evaluate(function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -140,10 +142,10 @@ async function implementation (
         addHiddenDiv('shippingInfo', document.querySelector('div[data-test="shippingOptionsMessage"]').innerText);
       }
     } else {
-      console.log('not clicking');
+
     }
   });
-  console.log('done2...');
+
   await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -286,11 +288,32 @@ async function implementation (
         break;
       }
     }
-    const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.fWPETf.h-padding-t-tight');
-    console.log('manufacturer', manufacturerCTA);
+
+    const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0.gcwqAn').length;
+    addHiddenDiv('variationCount', variationNum);
+
+    let similarItems = document.querySelector('a[href="#tabContent-Similaritems1"]');
+    if(similarItems) {
+      similarItems.click();
+      await stall(1000);
+      let variants = [];
+      document.getElementById('tabContent-Similaritems1').querySelectorAll('a').forEach(e => {
+        let split = e.getAttribute('href').split('/');
+        variants.push(split[split.length - 1]);
+      });
+      console.log('variants', variants);
+      addHiddenDiv('variants', variants.join(' | '));
+    }
+
+    let video = document.querySelector('img[type="video"]');
+    if(video) {
+      video.click();
+    }
+
+    let manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.fWPETf.h-padding-t-tight');
     if (manufacturerCTA) {
       manufacturerCTA.click();
-      const manufacturerImgs = [];
+      let manufacturerImgs = [];
       document.querySelectorAll('img.wc-media.wc-image').forEach(e => {
         manufacturerImgs.push(e.src);
       });
@@ -298,7 +321,7 @@ async function implementation (
       await stall(1000);
     }
   });
-  console.log('done3...');
+
 
   return await context.extract(productDetails, { transform });
 }
