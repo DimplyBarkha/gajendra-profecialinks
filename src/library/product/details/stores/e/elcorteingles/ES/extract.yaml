@@ -57,7 +57,7 @@ fields:
   - name: servingSizeUom
     singleValue: true
     xpath: //div[@class="info _nutrients"]//table//tr[1]//th[last()]
-    regExp: \s(.*)
+    regExp: \s(.+)
   - name: caloriesPerServing
     singleValue: true
     xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])[1]
@@ -69,7 +69,7 @@ fields:
   - name: totalFatPerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
-    regExp: \s(.*)
+    regExp: \s(.+)
   - name: totalCarbPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Hidratos de carbono')]/../td[2]//td[1])[1]
@@ -78,7 +78,7 @@ fields:
   - name: totalCarbPerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Hidratos de carbono')]/../td[2]//td[1])[1]
-    regExp: \s(.*)
+    regExp: \s(.+)
   - name: dietaryFibrePerServing
     singleValue: false
     xpath: (//td[contains(text(),'Fibra alimentaria')]/../td[2]//td[1])[1]
@@ -87,7 +87,7 @@ fields:
   - name: dietaryFibrePerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Fibra alimentaria')]/../td[2]//td[1])[1]
-    regExp: \s(.*)
+    regExp: \s(.+)
   - name: totalSugarsPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Azúcares')]/../td[2]//td[1])[1]
@@ -96,7 +96,7 @@ fields:
   - name: totalSugarsPerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Azúcares')]/../td[2]//td[1])[1]
-    regExp: \s(.*)
+    regExp: \s(.+)
   - name: proteinPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Proteínas')]/../td[2]//td[1])[1]
@@ -105,10 +105,10 @@ fields:
   - name: proteinPerServingUom
     singleValue: true
     xpath: (//td[contains(text(),'Proteínas')]/../td[2]//td[1])[1]
-    regExp: \s(.*)
+    regExp: \s(.+)
   - name: ratingCount
     singleValue: true
-    xpath: //div[@id="reviewCount"]
+    xpath: //div[@id="ratingCount"]
   - name: storage
     singleValue: false
     xpath: //h3[contains(text(),'Conservación y utilización')]/../ul/li[1]
@@ -120,16 +120,16 @@ fields:
   - name: saltPerServingUom
     singleValue: false
     xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
-    regExp: \s(.*)
+    regExp: \s(.+)
   - name: pricePerUnit
     singleValue: false
     xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
-    regExp: \((.*)\s\/(.*)
+    regExp: \((.+)\s\/(.+)
     regExpReplace: $1
   - name: pricePerUnitUom
     singleValue: false
     xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
-    regExp: \(\d+\,\d+\s(.*)\)
+    regExp: \(\d+\,\d+\s(.+)\)
     regExpReplace: $1
   - name: alcoholContent
     singleValue: false
