@@ -134,8 +134,6 @@ async function implementation (
       if (document.querySelector('div[data-test="shippingOptionsMessage"]')) {
         addHiddenDiv('shippingInfo', document.querySelector('div[data-test="shippingOptionsMessage"]').innerText);
       }
-    } else {
-
     }
   });
 
