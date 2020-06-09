@@ -31,8 +31,6 @@ fields:
   - name: price
     singleValue: false
     xpath:  //div[@class='extra-info']/@data-price
-    regExp: \$(\d+) and (\d+)
-    regExpReplace: $1.$2
   - name: manufacturer
     singleValue: true
   - name: soldBy
