@@ -1,8 +1,8 @@
 input:
   _url: https://elcorteingles.es
-  url: https://www.elcorteingles.es/supermercado/0110118630602078-aquarel-agua-mineral-natural-sin-gas-botella-75-cl/
+  URL: https://www.elcorteingles.es/supermercado/0110118630602078-aquarel-agua-mineral-natural-sin-gas-botella-75-cl/
 extractions:
-  - html: https://workbench.import.io/html/run=c1749696-ed23-4d44-a9b0-1747cfec3126/task=0feed173-c795-41c8-bdd9-3266884506fa/bbcd1893-9285-404d-acac-76c6f8a70f6b.html
+  - html: https://workbench.import.io/html/run=e26d8cfa-a646-4ce2-9ab5-bf8dd1f837c7/task=bbb8cb8d-c5b5-4456-ba10-a200ddb23ba9/ac55c956-ca2a-4e0b-91cd-37ed59a8e8f8.html
     extractionConfigId: product/details/stores/e/elcorteingles/ES/extract
     data:
       - group:
@@ -40,7 +40,7 @@ extractions:
                   Barcelona.Cantidad Neta: 75 CentilitrosOtras menciones
                   obligatorias en la etiqueta: Por seguridad no reutilizar esta
                   botella."
-                xpath: /html/body/div[29]
+                xpath: /html/body/div[28]
             directions:
               - text: Proteger de la luz solar. Conservar en un lugar fresco, seco y apartado de
                   olores intensos. Evitar contacto directo con el suelo. Por su
@@ -60,7 +60,7 @@ extractions:
                   Bicarbonato (13.2 mg/L), Calcio (2.2 mg/L), Sodio (4.7 mg/L),
                   Magnesio (2.3 mg/L), Sulfato (3.7 mg/L), Cloruro (6.8 mg/L),
                   Residuo seco (a 180°C) (40 mg/L)."
-                xpath: /html/body/div[30]
+                xpath: /html/body/div[29]
             magnesiumPerServing:
               - text: "2.3"
                 xpath: /html/body/div[24]
@@ -74,9 +74,6 @@ extractions:
             quantity:
               - text: "75"
                 xpath: /html/body/div[21]
-            ratingCount:
-              - text: "6"
-                xpath: /html/body/div[28]
             sku:
               - text: "7613036954525"
                 xpath: /html/body/div[17]
@@ -96,6 +93,6 @@ extractions:
                 xpath: /html/body/div[20]
             weightNet:
               - text: 75 C
-                xpath: /html/body/div[29]
+                xpath: /html/body/div[28]
         xpath: /html/body
-    timestamp: 1591708466145
+    timestamp: 1591719757975
