@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'li[id="san_pagingTopNext"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'section[id="san_resultSection"] article',
+    loadedSelector: "section[id='san_resultSection'] article[class*='product']",
     openSearchDefinition: null,
     domain: 'otto.de',
   },
