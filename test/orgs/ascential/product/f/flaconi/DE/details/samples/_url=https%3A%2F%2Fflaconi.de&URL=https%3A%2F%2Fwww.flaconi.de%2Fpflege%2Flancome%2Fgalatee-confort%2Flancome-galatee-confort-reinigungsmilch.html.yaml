@@ -1,0 +1,66 @@
+input:
+  _url: https://flaconi.de
+  URL: https://www.flaconi.de/pflege/lancome/galatee-confort/lancome-galatee-confort-reinigungsmilch.html
+extractions:
+  - html: https://workbench.import.io/html/run=928c4b98-9b19-46e8-91fb-9368257998da/task=d1e25a30-1ed4-4041-8ba9-caeddbddedbd/62640f03-273c-48b1-b9ed-ed7c1d636710.html
+    extractionConfigId: product/details/stores/f/flaconi/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[1]/span[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: nicht auf Lager
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[2]/div[2]
+            brandText:
+              - text: Lancôme
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/a[1]
+            category:
+              - text: Pflege
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+            description:
+              - text: Die Abschminkmilch mit ultraweicher Textur befreit die Haut selbst vom
+                  hartnäckigsten Make-up. Angereichert mit nährenden
+                  Lacto-Proteinen, feuchtigkeitsspendenden und beruhigenden
+                  Wirkstoffen ist sie eine wahre Wohltat für die Haut.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]
+            descriptionBullets:
+              - text: "2"
+            directions:
+              - text: Mit einem Wattepad abnehmen.
+                xpath: /html/body/div[4]
+            gtin:
+              - text: "3147758030228"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[2]/@content
+            imageAlt:
+              - text: Lancôme Galatée Confort Reinigungsmilch
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
+            list_price:
+              - text: 23,00 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/span[4]
+            name:
+              - text: Galatée Confort
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/span[1]
+            nameExtended:
+              - text: Lancôme Galatée Confort Reinigungsmilch
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
+            price:
+              - text: "19.95"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/meta[1]/@content
+            quantity:
+              - text: "200"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/span[1]
+            ratingCount:
+              - text: "21"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            shippingInfo:
+              - text: kostenloser Versand
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/span[1]
+            sku:
+              - text: "40002444"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[1]/@content
+            url:
+              - text: https://www.flaconi.de/pflege/lancome/galatee-confort/lancome-galatee-confort-reinigungsmilch.html
+                xpath: /html/head[1]/meta[16]/@content
+        xpath: /
+    timestamp: 1591610259681

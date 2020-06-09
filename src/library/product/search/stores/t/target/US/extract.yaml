@@ -20,7 +20,7 @@ fields:
     singleValue: true
   - name: thumbnail
     singleValue: true
-    xpath: //picture/source[position()=1]/@srcset
+    xpath: //source/@srcset
   - name: aggregateRating
     singleValue: false
     xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
@@ -39,4 +39,5 @@ fields:
     singleValue: false
     xpath: //div[@class="rank"]
   - name: endorsementText
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class="endorsement"]
