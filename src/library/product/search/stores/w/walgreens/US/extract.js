@@ -20,8 +20,7 @@ async function implementation (
       newDiv.dataset.id = skuId !== undefined ? skuId : productCards[i].querySelector('a').getAttribute('id').split('compare_')[1];
       newDiv.dataset.url = 'https://www.walgreens.com' + productCards[i].querySelector('a').getAttribute('href');
       newDiv.dataset.thumbnail = productCards[i].querySelector('img').getAttribute('src').slice(2);
-      let priceDiv = productCards[i].querySelector('div.wag-prod-price-info span.sr-only');
-      console.log(priceDiv);
+      const priceDiv = productCards[i].querySelector('div.wag-prod-price-info span.sr-only');
       const re = /\$(\d+) and (\d+) cents/;
       if (priceDiv) {
         const priceText = priceDiv.textContent;
@@ -29,8 +28,7 @@ async function implementation (
           const price = priceText.split('And')[0];
           newDiv.dataset.price = price.replace(re, '$1.$2');
         } else if (priceText.includes('1 for')) {
-          priceDiv = productCards[i].querySelectorAll('div.wag-prod-price-info span.sr-only')[1];
-          newDiv.dataset.price = priceDiv.textContent.split('1/')[1];
+          newDiv.dataset.price = (priceText.split('1 for')[1]).replace(/\$*(\d+) dollars and (\d+) cents/, '$1.$2');
         } else {
           const price = priceText;
           newDiv.dataset.price = price.replace(re, '$1.$2');
