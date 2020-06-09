@@ -83,7 +83,7 @@ async function implementation (
     });
 
     await stall(1000);
-    await context.extract(productDetails, { transform });
+    let extract = await context.extract(productDetails, { transform });
     await stall(500);
     const hasNextBtn = await context.evaluate(function () {
       const nextBtn = document.querySelector('a[data-test="next"]');
@@ -101,6 +101,7 @@ async function implementation (
       break;
     }
     counter++;
+    return extract;
   }
 }
 
