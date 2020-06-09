@@ -1,0 +1,70 @@
+input:
+  _url: https://flaconi.de
+  URL: https://www.flaconi.de/parfum/hugo-boss/boss-bottled/hugo-boss-boss-bottled-deodorant-spray.html
+extractions:
+  - html: https://workbench.import.io/html/run=928c4b98-9b19-46e8-91fb-9368257998da/task=5a1bf894-d5ed-4b93-857b-857d77d0a59e/5d81b1d8-3296-4bbe-bcee-2f42234552a9.html
+    extractionConfigId: product/details/stores/f/flaconi/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[1]/span[1]/div[1]/div[1]/span[1]
+            alternateImages:
+              - text: https://cdn.flaconi.de/media/catalog/product/h/u/hugo-boss-boss-bottled-deodorant-spray-150-ml-737052355054-detail.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@data-lazy
+            availabilityText:
+              - text: Auf Lager
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[2]
+            brandText:
+              - text: Hugo Boss
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/a[1]
+            category:
+              - text: Pflege
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+            description:
+              - text: >-
+                  Das Boss Bottled Deospray weiß zu begeistern!
+
+                  Der Duft des Boss Bottled Parfums ist einer der begehrtesten Herrendüfte überhaupt und kann mit seiner eleganten Note überzeugen. Das dazugehörige Boss Bottled Deospray steht diesen Duft allerdings in nichts nach und kann perfekt damit kombiniert werden. So wird dennoch die wahnsinnig maskuline Wirkung erreicht, aber zusätzlich noch die Transpiration des aktiven Mannes deutlich vermindert. Auch einzeln angewendet sorgt das Boss Bottled Deospray für eine leicht parfümierte Aura und sorgt für eine einnehmende Erscheinung. Die frische Kopfnote aus Bergamotte, grünem Apfel und zitrischer Lemone sorgt für ein sofort einsetzendes Frischegefühl, das auch in der Herz- und Basisnote nicht unterbrochen wird und seine langanhaltende Wirkung weiter entfaltet.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]
+            descriptionBullets:
+              - text: "2"
+            directions:
+              - text: Das Deodorant Spray in die Achselhöhlen sprühen. Kontakt mit den Augen
+                  vermeiden.
+                xpath: /html/body/div[4]
+            gtin:
+              - text: "737052355054"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[2]/@content
+            imageAlt:
+              - text: Hugo Boss Boss Bottled Deodorant Spray
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
+            list_price:
+              - text: 27,00 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/span[4]
+            name:
+              - text: Boss Bottled
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/span[1]
+            nameExtended:
+              - text: Hugo Boss Boss Bottled Deodorant Spray
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
+            price:
+              - text: "18.95"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/meta[1]/@content
+            quantity:
+              - text: "150"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/span[1]
+            ratingCount:
+              - text: "44"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            shippingInfo:
+              - text: zzgl. Versandkosten
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/span[1]
+            sku:
+              - text: "20101270"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[1]/@content
+            url:
+              - text: https://www.flaconi.de/parfum/hugo-boss/boss-bottled/hugo-boss-boss-bottled-deodorant-spray.html
+                xpath: /html/head[1]/meta[16]/@content
+        xpath: /
+    timestamp: 1591610262194
