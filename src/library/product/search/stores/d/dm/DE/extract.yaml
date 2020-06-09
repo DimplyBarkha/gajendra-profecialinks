@@ -3,25 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@data-dmid="product-tiles"]//div[@data-dmid="product-tile-container"]
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
+  - name: sponsored
+    defaultValue: false
   - name: productUrl
-    singleValue: true
     description: The URL for the product details page
     xpath: //div[contains(@data-dmid,"product-tile-image-wrapper")]//a//@href
     regExp: (.+)
@@ -34,53 +18,11 @@ fields:
     singleValue: true
     description: The product name
     xpath: //div[contains(@data-dmid,"product-tile-image-wrapper")]//a//@alt
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-  - name: reviewCount
-    singleValue: true
-    description: The number of reviews
   - name: price
     singleValue: true
     description: The offered price for the product
     xpath: //span[contains(@data-dmid,'price')]
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
   - name: id
-    singleValue: true
     description: Unique id (within this extractor)
     xpath: //div[@data-dmid="product-tile"]//@id[contains(.,'tile')]
     regExp: ([^-]+$)
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
