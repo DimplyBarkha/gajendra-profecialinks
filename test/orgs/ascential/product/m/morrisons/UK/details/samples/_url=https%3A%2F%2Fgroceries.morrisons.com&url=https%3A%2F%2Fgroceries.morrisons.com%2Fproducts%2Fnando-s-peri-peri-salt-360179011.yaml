@@ -1,0 +1,155 @@
+input:
+  _url: https://groceries.morrisons.com
+  url: https://groceries.morrisons.com/products/nando-s-peri-peri-salt-360179011
+extractions:
+  - html: https://workbench.import.io/html/run=b527a383-b302-4b30-b0cf-ddf1b0eebeb0/task=82a93142-9875-466c-88c7-fe256cc77b4c/5483046c-229d-4877-8686-bb731f9fba56.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/button[1]
+            brandText:
+              - text: Nandos
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[1]/div[1]
+            caloriesPerServing:
+              - text: 680 kJ/162 kcal
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            category:
+              - text: Food Cupboard
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Table Sauces, Condiments & Dressings
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Sweet Chilli & Hot Sauce
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Hot Sauces
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Nando's Peri Peri Salt
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[5]
+            countryOfOrigin:
+              - text: United Kingdom
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            description:
+              - text: Nando's Peri Peri Salt is a delicious blend of salt and spices with Peri
+                  Peri. Peri Peri is an especially fiery little African Bird's
+                  Eye Chilli that evokes a level of passion that is inversely
+                  proportionate to its size. Possibly the world's smallest
+                  chilli, it generates the world's warmest reaction, and is the
+                  famous ingredient that has made Nando's chilli sauce so
+                  successful across the world. What tastes amazing with our
+                  smoky Peri salt? We say chips (then again, we would). Truth
+                  is, this Nandos salt works well with any side or snack, from
+                  crisps and popcorn to mashed potato and corn on the cob,
+                  adding flavour, zest and a gentle dash of heat to any meal.
+                  Chilli rating - medium, Shared with love, No added MSG, No
+                  artificial preservatives or colours, Suitable for vegetarians
+                  and vegans Country of Origin United Kingdom
+                xpath: /html/body/@description
+            dietaryInformation:
+              - text: Free From Gluten
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]
+            image:
+              - text: https://groceries.morrisons.com//productImages/360/360179011_0_640x640.jpg?identifier=85338e1c3734992d44dadc0f16a415ad
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            ingredientsList:
+              - text: Salt, Spices (Paprika, Red Chilli Pepper, White Pepper, African Bird's Eye
+                  Chilli Powder), Sugar, Cornflour, Yeast Extract, Acidity
+                  Regulator (Citric Acid), Colour (Curcumin), Flavourings
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            legalDisclaimer:
+              - text: This page serves as a summary for information purposes only, and are
+                  designed to enhance your shopping experience on the website.
+                  While we have taken care in preparing this summary and believe
+                  it is accurate, it is not a substitute for your reading the
+                  product packaging and label prior to use. You should note that
+                  products and their ingredients are subject to change. If you
+                  do require precise ingredient information you should consult
+                  the manufacturer, whose contact details will appear on the
+                  packaging or label. Shop is therefore unable to accept
+                  liability for any incorrect information. Where this
+                  description contains a link to another party's website for
+                  further information on the product, please note that Shop has
+                  no control over and no liability for the contents of that
+                  website. You should also note that the picture images show
+                  only our serving suggestions of how to prepare your food - all
+                  table accessories and additional items and/or ingredients
+                  pictured with the product you are purchasing are not included.
+                  This data is supplied for personal use only. It may not be
+                  reproduced in any way whatsoever without Shop Limited's prior
+                  consent, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            manufacturer:
+              - text: All About Food Ltd,Maple Court,Skelmersdale,WN9 9TG.
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, Nandos, Hot Sauces, Food Cupboard, Table
+                  Sauces, Condiments & Dressings, Sweet Chilli & Hot Sauce
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: Nando's Peri Peri Salt 70g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            packaging:
+              - text: Dispenser
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[4]/div[1]
+            price:
+              - text: £2.00
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]
+            productOtherInformation:
+              - text: Full Product Name:A blend of salt, spices and Peri-Peri (African Bird's
+                  Eye Chilli).Storage:Keep in a cool dry place. Keep sealed when
+                  not in use.Origin:Born in South Africa. Made in the
+                  UKDistributor:All About Food,The Tree House,Skelmersdale,WN8
+                  9TG.
+            proteinPerServing:
+              - text: "4.6"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            ratingCount:
+              - text: "0"
+            saltPerServing:
+              - text: "53.6"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            saturatedFatPerServing:
+              - text: "0.6"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            shippingInfo:
+              - text: All About Food,The Tree House,Skelmersdale,WN8 9TG.grocery@nandos.co.uk
+            sku:
+              - text: "360179011"
+                xpath: /html/head[1]/meta[17]/@content
+            storage:
+              - text: Keep in a cool dry place. Keep sealed when not in use.
+            totalCarbPerServing:
+              - text: "24.6"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalFatPerServing:
+              - text: "3.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalSugarsPerServing:
+              - text: "13.7"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+        xpath: /
+    timestamp: 1591688184366
