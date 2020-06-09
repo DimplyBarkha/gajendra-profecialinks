@@ -1,0 +1,25 @@
+input:
+  keywords: Kaffee Eis
+  _url: https://dm.de
+extractions:
+  - html: https://workbench.import.io/html/run=7aff532a-4071-4ed3-af21-8426a9539088/task=ed9b0e40-dd54-40c1-ae0d-244e26debefc/1ac4819e-b5bf-47d6-9d76-dc5a197d0237.html
+    extractionConfigId: product/search/stores/d/dm/DE/extract
+    data:
+      - group:
+          - id:
+              - text: "4010355487186"
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/@id
+            name:
+              - text: Fleckensalz für Wäsche
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@alt
+            price:
+              - text: 0,85 €
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.dm.de/denkmit-fleckensalz-fuer-waesche-p4010355487186.html
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn02.dm-static.com/images/mediacatalog/h4010355487186-2156112/productimage_170x260/1590007770000/4010355487186-2156112_org.png
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-src
+        xpath: /html
+    timestamp: 1591705815918
