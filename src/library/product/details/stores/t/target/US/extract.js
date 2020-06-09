@@ -44,11 +44,6 @@ async function implementation (
     });
     addHiddenDiv('alternateImages', alternateImages.join(' | '));
 
-    let inStock = document.querySelector('div[data-test="inStoreOnlyMessage"]');
-    if(inStock) {
-
-    }
-
     const subCategories = [];
     const categoryDiv = document.querySelector('.h-text-sm.h-padding-v-tiny');
     categoryDiv.querySelectorAll('a').forEach(e => {
