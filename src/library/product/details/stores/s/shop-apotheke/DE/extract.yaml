@@ -1,0 +1,105 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: url
+    singleValue: true
+    xpath: //meta[@property='og:url']
+  - name: image
+    singleValue: true
+    xpath: //div[@id='pd_image']
+  - name: imageAlt
+    singleValue: true
+    xpath: //*[@id="tns1-item0"]//picture/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='o-ProductImageGallery__minor']/a/@href
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='description']
+  - name: category
+    singleValue: false
+    xpath: //div[@id='pd_category']
+  - name: nameExtended
+    singleValue: true
+    xpath: //meta[@property='og:title']
+  - name: listPrice
+    xpath: //*[contains(@class,'m-ProductVariant__label--last')]/div[2]
+    singleValue: true
+  - name: price
+    xpath: //div[@id='pd_price']
+    singleValue: true
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id='pd_availabilityText'] 
+  - name: description
+    singleValue: false
+    xpath: //div[@id='pd_description'] 
+  - name: descriptionBullets
+    singleValue: true
+    xpath: //*[@id="productActiveIngredients.headline"]
+  - name: brandText
+    xpath: //ul[contains(@class,'m-ProductData')]//li[3]//dd
+    singleValue: true
+  - name: manufacturer
+    xpath: //ul[contains(@class,'m-ProductData')]//li[4]//dd
+    singleValue: true
+  - name: quantity
+    xpath: //div[@id='pd_quantity']
+    singleValue: true
+  - name: weightNet
+    singleValue: true
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: true
+  - name: sku
+    singleValue: true
+    xpath: //div[@id='pd_sku'] 
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id='pd_variantId'] 
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+  - name: legalDisclaimer
+    singleValue: true
+  - name: directions
+    singleValue: true
+    xpath: //p//*[contains(text(), "use:")]/ancestor::strong/following-sibling::font | //p//strong//*[contains(text(), "use")]/ancestor::p
+  - name: warnings
+    xpath: //p//*[contains(text(), "Warning:")]/ancestor::p/child::font
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@id='pd_ratingCount'] 
+  - name: aggregateRatingText
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@id='pd_aggregateRating'] 
+  - name: shippingInfo
+    singleValue: true
+  - name: shippingDimensions
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: variantCount
+    singleValue: true
+  - name: color
+    singleValue: true
+  - name: colorCode
+    singleValue: true
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: .//*[contains(text(), "Product details & mandatory information")]/ancestor::h2/following-sibling::div
+  - name: manufacturerImages
+    singleValue: false
+  - name: videos
+    singleValue: false
+    xpath: //video[@class='a-Video a-fullwidth-image']/source/@src
+  - name: name
+    singleValue: true
+    xpath: //meta[@property='og:title']
