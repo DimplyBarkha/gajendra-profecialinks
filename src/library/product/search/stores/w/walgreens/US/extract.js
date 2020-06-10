@@ -7,10 +7,6 @@ async function implementation (
   context,
   dependencies,
 ) {
-  console.log('awka');
-  console.log(inputs);
-  console.log(parameters);
-  console.log(dependencies);
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
