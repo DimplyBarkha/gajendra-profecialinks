@@ -296,6 +296,10 @@ async function implementation (
       addHiddenDiv('variants', variants.join(' | '));
     }
 
+    if(document.querySelector('div[data-test="orderPickupMessage"]')) {
+      addHiddenDiv('availability', 'In stock');
+    }
+
     const video = document.querySelector('img[type="video"]');
     if (video) {
       video.click();

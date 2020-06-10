@@ -20,9 +20,6 @@ fields:
     xpath: //div[@id="urlInfo"]
   - name: category
     singleValue: true
-    xpath: //div[@class="h-text-sm h-padding-v-tiny"]//span[position()=2]//span
-  - name: category
-    singleValue: true
     xpath: //div[@id="subCategories"]
   - name: price
     singleValue: true
@@ -35,7 +32,7 @@ fields:
     xpath: //div[@class="style__PriceFontSize-gob4i1-0 fwkyhU h-text-bold"]
   - name: availabilityText
     singleValue: true
-    xpath: //div[@data-test="oosDeliveryOption"]|//div[@data-test="shipMethodMessage"]|//span[@data-test="getItMessage"]|//div[@data-test="soldOutBlock"]
+    xpath: //div[@data-test="oosDeliveryOption"]|//div[@data-test="shipMethodMessage"]|//span[@data-test="getItMessage"]|//div[@data-test="soldOutBlock"]|//div[@id="availability"]
   - name: description
     singleValue: true
     xpath: //div[@class="h-margin-v-default"]
