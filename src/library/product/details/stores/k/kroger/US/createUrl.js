@@ -5,11 +5,14 @@ async function implementation (
   dependencies,
 ) {
   const { id } = inputs;
+  const { domain, prefix } = parameters; // eslint-disable-line
 
+  // add leading zeroes if needed
   let extendedId = id.toString().split('');
 
   while (extendedId.length < 13) {
     extendedId.unshift('0');
+    console.log(extendedId);
   }
 
   extendedId = extendedId.join('');
