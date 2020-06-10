@@ -8,9 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise(r => setTimeout(r, 3e3));
-
-  // await context.click('div.ProductCard-imageBlock')
+  await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
 
   // click nutrition info button to view nutr facts, ingred, disclaimer
   await context.evaluate(async function () {
@@ -40,16 +38,22 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-    const descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden');
+    const productDetailsButton = document.getElementsByClassName('kds-Tabs-tab')[0];
 
-    if (descriptionItem) {
-      const descriptionText = descriptionItem[0].textContent;
-      addHiddenDiv('description', descriptionText);
+    if (productDetailsButton && productDetailsButton.textContent === 'Product Details') {
+      productDetailsButton.click();
+
+      const descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden');
+      if (descriptionItem[0]) {
+        const descriptionText = descriptionItem[0].textContent;
+        addHiddenDiv('description', descriptionText);
+      }
     }
 
+    await new Promise((resolve, reject) => setTimeout(resolve, 8e3));
     const button = document.getElementsByClassName('kds-Tabs-tab')[1];
 
-    if (button != null && button.textContent == 'Nutrition Info') {
+    if (button != null && button.textContent === 'Nutrition Info') {
       button.click();
       // click read more button to expand text
       const readMore = document.querySelectorAll('.NutritionIngredients-Disclaimer')[0].children[1].children;
