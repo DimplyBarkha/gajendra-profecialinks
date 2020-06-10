@@ -26,12 +26,8 @@ example commit message command:
 - [ ] Confirm `Source` Label is added
 - [ ] Link issue to the correct project
 - [ ] Link issue to the correct milestone
-- [ ] Confirm Source was added to Project dash
 - [ ] From Master, create a branch that references this issue.
 `git checkout -b {issue_title}`
-
-#### Workbench
-- [ ] Create a source in the Testing and Development collection. Source should have no extractor or parameters at this time
 
 #### Building
 - [ ] Promote Source to `Building` in Project Dash
@@ -41,7 +37,7 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractornew
 - [ ] Add additional extractor logic as needed
 - [ ] Edit extract.yaml to match expected output schema
 [Data Dictionary/Schema](https://docs.google.com/spreadsheets/d/1mSz64xLBNeojENyaoPJNnYZenDxToZ45jKvqUZayHRc/edit#gid=0)
-- [ ] Commit changes to local branch
+- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
 - [ ] Please remove `Building` Label
 
 #### Testing
@@ -52,36 +48,40 @@ https://import-io.github.io/import-io-cli-public/#import-io-actionrunlocal
 - [ ] Run extractor Remotely
 https://import-io.github.io/import-io-cli-public/#import-io-actionrunremote
 - [ ] Manual QA (run locally and remotely as needed to edit)
-- [ ] Commit changes to local branch
-- [ ] Please add `Testing` Label
+- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
+- [ ] Please remove `Testing` Label
+
 
 #### Internal Deployment
 - [ ] Promote Source to `Internal Deployment` in Project Dash
 - [ ] Please add `Deploying` Label
+- [ ] Create a Workbench source in the Development(internal) collection
 - [ ] Deploy to `development` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 - [ ] Link `dev` extractor GUID to TEST collection source in workbench
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `development`
 - [ ] Scale/High Volume run
-- [ ] Commit changes to local branch
+- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
 - [ ] Please remove `Deploying` Label
 
-#### QA
-- [ ] Promote Source to `QA` in Project Dash
+#### Peer Review
+- [ ] Promote Source to `Peer Review` in Project Dash
 - [ ] Please add `Peer Review Requested` Label
-- [ ] Peer Review QA Complete
-- [ ] Commit changes to local branch
+- [ ] Confirm that a reviewer has been assigned to this issue
+- [ ] Peer Review QA Complete (must be checked by reviewer)
+- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
 - [ ] Please remove `Peer Review Requested` Label
 
-#### Staging
-- [ ] Promote Source to `Staging` in Project Dash
-- [ ] Please add `Staging` Label
+#### Staging Deployment
+- [ ] Promote Source to `Staging Deployment` in Project Dash
+- [ ] Add `Staging` Label
+- [ ] Create a Workbench source in the Production(external) collection
 - [ ] Deploy to `staging` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 - [ ] Link `staging` extractor GUID to source in workbench
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `staging`
 - [ ] Scale/High Volume test
-- [ ] Commit changes to local branch
+- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
 
 #### Final Review
 - [ ] Promote Source to `Final Review` in Project Dash
@@ -93,7 +93,7 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 - [ ] Promote Source to `Pull Request` in Project Dash
 - [ ] Please add `Pull Request` Label
 - [ ] `npm run lint` or `npm run lint:fix` before creating pull request
-- [ ] Commit lint changes to local branch
+- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to linting
 - [ ] Create pull request
 - [ ] Ensure pull request passes build
 - [ ] Please add `Review Needed` Label to Pull request
@@ -102,10 +102,11 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 ------
 
 #### Production
+- [ ] Confirm PR is approved/closed and changes were merged with master
 - [ ] Confirm Source was promoted to `Production` in Project Dash
-- [ ] Confirm PR is approved and changes were merged with master
 - [ ] Please remove `Staging` Label
 - [ ] Please remove `Pull Request` Label
 - [ ] Please add `Production` Label
-- [ ] Link `production` extractor GUID to source in workbench
+- [ ] Ensure extractor gets deployed to the `production` branch in the daily production deployment
+- [ ] Link production extractor GUID to production source in workbench
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `production`
