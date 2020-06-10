@@ -258,18 +258,18 @@ async function implementation (
       }
     });
 
-    let terms = 'NO';
+    let terms = 'No';
     if (document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
-      terms = 'YES';
+      terms = 'Yes';
     }
     addHiddenDiv('terms', terms);
 
-    let privacy = 'NO';
+    let privacy = 'No';
     if (document.querySelector('a[href="/c/target-privacy-policy/-/N-4sr7p"]')) {
-      privacy = 'YES';
+      privacy = 'Yes';
     }
     addHiddenDiv('privacy', privacy);
-    addHiddenDiv('paid', false);
+    addHiddenDiv('customerServiceAvailability', 'Yes');
 
     let scrollTop = 500;
     while (true) {
