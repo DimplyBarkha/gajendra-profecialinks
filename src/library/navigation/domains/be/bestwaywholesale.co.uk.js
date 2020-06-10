@@ -23,12 +23,12 @@ module.exports = {
       const ACCOUNT_ID = '804999333';
       document.getElementById('account_number').value = ACCOUNT_ID;
     });
-    await context.clickAndWaitForNavigation('input[name="submit"]', {}, { timeout: 30000 });
+    await context.clickAndWaitForNavigation('input[name="submit"]', {}, { timeout: 30000, waitUntil: 'load'});
     await context.evaluate(async function () {
       const ACCOUNT_PWD = 'bestway804';
       document.getElementById('password').value = ACCOUNT_PWD;
     });
-    await context.clickAndWaitForNavigation('#btn-login', {}, { timeout: 30000 });
+    await context.clickAndWaitForNavigation('#btn-login', {}, { timeout: 50000, waitUntil: 'load' });
     await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true })
   }
 };
