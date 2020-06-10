@@ -43,7 +43,6 @@ async function implementation (
         newDiv.dataset.id = productInfo[i].productInfo.wic;
         newDiv.dataset.upc = productInfo[i].productInfo.upc;
       }
-
       productCards.item(i).appendChild(newDiv);
     }
 
