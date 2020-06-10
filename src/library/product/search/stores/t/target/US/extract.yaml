@@ -12,7 +12,7 @@ fields:
     xpath: //div[@class="rank"]
   - name: name
     singleValue: false
-    xpath: //a[@data-test="product-title"]
+    xpath: //div[@class="product-name"]
   - name: productUrl
     singleValue: false
     xpath: //a[@data-test="product-title"]/@href
@@ -20,7 +20,7 @@ fields:
     singleValue: true
   - name: thumbnail
     singleValue: true
-    xpath: //source/@srcset
+    xpath: //picture//source/@srcset
   - name: aggregateRating
     singleValue: false
     xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]

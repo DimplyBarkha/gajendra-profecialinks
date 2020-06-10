@@ -57,7 +57,7 @@ async function implementation (
       }
 
       let scrollTop = 0;
-      while (!isElementInViewport(document.querySelector('a[data-test="next"]'))) {
+      while (scrollTop != 20000) {
         await stall(500);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
@@ -70,7 +70,10 @@ async function implementation (
       const itemContainers = document.querySelectorAll('li.Col-favj32-0.bZxgbc.h-padding-a-none');
       let rank = 1;
       for (const itemContainer of itemContainers) {
-        addHiddenDiv(itemContainer, 'itemId', itemContainer.querySelector('a').getAttribute('href').split('?')[0].split('/')[4]);
+        if(itemContainer.querySelector('a[data-test="product-title"]')) {
+          addHiddenDiv(itemContainer, 'product-name', itemContainer.querySelector('a[data-test="product-title"]').innerText);
+          addHiddenDiv(itemContainer, 'itemId', itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('/')[4]);
+        }
         const pageNum = document.querySelector('button[data-test="select"]') ? document.querySelector('button[data-test="select"]').innerText.split(' ')[1] : 1;
         const totalRank = ((pageNum - 1) * 24) + rank;
         addHiddenDiv(itemContainer, 'rank', totalRank);
