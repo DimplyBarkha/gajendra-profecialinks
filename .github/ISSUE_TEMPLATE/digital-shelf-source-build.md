@@ -31,25 +31,25 @@ example commit message command:
 
 #### Building
 - [ ] Promote Source to `Building` in Project Dash
-- [ ] Please add `Building` Label
+- [ ] Add `Building` Label
 - [ ] Create extractor robot
 https://import-io.github.io/import-io-cli-public/#import-io-extractornew
 - [ ] Add additional extractor logic as needed
 - [ ] Edit extract.yaml to match expected output schema
 [Data Dictionary/Schema](https://docs.google.com/spreadsheets/d/1mSz64xLBNeojENyaoPJNnYZenDxToZ45jKvqUZayHRc/edit#gid=0)
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
-- [ ] Please remove `Building` Label
+- [ ] Remove `Building` Label
 
 #### Testing
 - [ ] Promote Source to `Testing` in Project Dash
-- [ ] Please add `Testing` Label
+- [ ] Add `Testing` Label
 - [ ] Run extractor Locally
 https://import-io.github.io/import-io-cli-public/#import-io-actionrunlocal
 - [ ] Run extractor Remotely
 https://import-io.github.io/import-io-cli-public/#import-io-actionrunremote
 - [ ] Manual QA (run locally and remotely as needed to edit)
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
-- [ ] Please remove `Testing` Label
+- [ ] Remove `Testing` Label
 
 
 #### Internal Deployment
@@ -65,11 +65,11 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 
 #### Peer Review
 - [ ] Promote Source to `Peer Review` in Project Dash
-- [ ] Please add `Peer Review Requested` Label
+- [ ] Add `Peer Review Requested` Label
 - [ ] Confirm that a reviewer has been assigned to this issue
 - [ ] Peer Review QA Complete (must be checked by reviewer)
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
-- [ ] Please remove `Peer Review Requested` Label
+- [ ] Remove `Peer Review Requested` Label
 
 #### Staging Deployment
 - [ ] Promote Source to `Staging Deployment` in Project Dash
