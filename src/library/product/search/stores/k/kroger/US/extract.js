@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -6,7 +6,6 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
 
   return await context.extract(productDetails, { transform });
 }
@@ -20,5 +19,6 @@ module.exports = {
     store: 'kroger',
     transform: transform,
     domain: 'kroger.com',
-  }, implementation
+  },
+  implementation,
 };
