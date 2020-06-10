@@ -22,7 +22,7 @@ example commit message command:
 - Use const/let instead of var
 - Make sure to capitalize the country codes
 - Use url parameterValue in the createUrl file instead of creating your own implementation
-- When making a PR, the PR should be named after your branch, following Dave's guidelines
+- When making a PR, the PR should be named after your branch ( i.e. `{issue_title}`)
 
 
 ## Communication Notes
