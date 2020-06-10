@@ -40,21 +40,17 @@ module.exports = {
   },
   path: './stores/${store[0:1]}/${store}/${country}/execute',
   implementation: async (inputs, parameters, context, dependencies) => {
-    console.log('hit!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     let { url, id } = inputs;
-    console.log('line 45!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     if (!url) {
       if (!id) {
         throw new Error('no id provided');
       }
       url = await dependencies.createUrl({ id });
     }
-
+    
+    // TODO: Check for not found?
     await dependencies.goto({ url, timeout: 50000 });
 
-    // await context.goto(url, {timeout: 10000, waitUntil: 'load', checkBlocked: true});
-
-    // TODO: Check for not found?
   },
 
 };

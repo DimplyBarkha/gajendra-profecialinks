@@ -16,6 +16,6 @@ module.exports = {
   },
   path: './domains/${domain[0:2]}/${domain}',
   implementation: async ({ url }, parameters, context, dependencies) => {
-    await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
   },
 };

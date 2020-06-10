@@ -5,7 +5,6 @@ recordXPath: null
 fields:
   - name: ageSuitability
     xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(., 'Warnings')]//div[contains(., 'Age')]
-    # selector: div[style].css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs:nth-of-type(4) > div[style].htmlView
   - name: energyEfficiency
     singleValue: true
     selector: 
@@ -31,12 +30,10 @@ fields:
     singleValue: true
     xpath: //div[@id='ii_imageZoom']
   - name: additionalDescBulletInfo
-    # selector: div.wc-rich-content-description
     xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
   - name: dietaryInformation
     singleValue: true
     xpath: //div[@id='ii_Ingredients']
-    # selector: div[style].css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs:nth-of-type(2) > div[style].htmlView
   - name: dietarySymbols
     singleValue: true
     selector:
@@ -51,7 +48,6 @@ fields:
     regExp: ([0-9])+$ 
   - name: variants
     xpath: //div[@id="ii_variantId"]
-    # - name: variants
   #   xpath: //script[contains(@src,'scontent.webcollage.net')]
   #   regExp: cpi=([0-9]+)
   #   regExpReplace: $1
@@ -87,7 +83,6 @@ fields:
   - name: id
     singleValue: true
     selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    # xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
     regExp: ([0-9])+$
   - name: image
     singleValue: true
@@ -97,26 +92,20 @@ fields:
   - name: nameExtended
     singleValue: true
     selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
-    # xpath: (//h1[@class='css-4rbku5 css-901oao r-1jn44m2 r-1ui5ee8 r-vw2c0b r-16krg75'])
   - name: _pageTimestamp
     singleValue: true
   - name: _url
     singleValue: true
     xpath: //div[@id='ii_url']
   - name: category
-    # selector: div.css-1dbjc4n.r-1awozwy.r-18u37iz.r-3hmvjm.r-1hvjb8t.r-15zeulg:nth-of-type(5) > a.css-4rbku5.css-18t94o4.css-1dbjc4n.r-1loqt21.r-1otgn73.r-eafdt9.r-1i6wzkk.r-lrvibr > div.css-901oao.r-ty2z48.r-1jn44m2.r-1enofrn.r-e2l8vt.r-1ddef8g
     xpath: //nav[@aria-label="breadcrumbs"]/div/div[position()>2]/a
   - name: description 
     singleValue: true
     selector: div[style].htmlView:nth-of-type(4)
-    # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
-    # xpath: //div[@class='htmlView']/p
-    # xpath: //div[@class='htmlView']/p|//div[@class='htmlView']/ul
   - name: metaKeywords
     singleValue: true
     selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: price 
-    # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
     xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
   - name: listPrice
     singleValue: true
@@ -129,107 +118,84 @@ fields:
   - name: inStorePrice 
     singleValue: true
     selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
-    # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
   - name: inStorePriceSymbol
     singleValue: true
     selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
-    # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
     regExp: ^[$]
   - name: ingredientsList
     singleValue: true
     xpath: //div[@id='ii_Ingredients']
-    # selector: div[style].css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs:nth-of-type(2) > div[style].htmlView
   - name: brandText
-    # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
     xpath: //div[@id='ii_Brand']
   - name: manufacturer 
     singleValue: true
-    # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
     xpath: //div[@id='ii_Brand']
   - name: quantity 
     singleValue: true
     selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    # xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
     regExp: ([0-9]+ ((CT)|(ct)|(OZ)|(oz)|(EA)|(ea)))
   - name: weightGross
     singleValue: true
     selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    # xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
     regExp: ([.0-9]+ (lbs))
-
   - name: sku 
     singleValue: true
     selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     regExp: ([0-9])+$ 
   - name: variantId 
     singleValue: true
-    # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     xpath: //div[@id='ii_url']
     regExp: ([0-9])+$ 
   - name: directions
     singleValue: true
     xpath: //div[@id='ii_Directions']
-    # selector: div[style].css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs:nth-of-type(3) > div[style].htmlView
   - name: warnings 
     singleValue: true
     xpath: //div[@id='ii_Warnings']
-    # selector: div[style].css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs:nth-of-type(4) > div[style].htmlView
   - name: alternateImages
     singleValue: false
     xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src
   - name: ratingCount
-    # selector: div.css-901oao.r-1khnkhu.r-ubezar
     xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//a
     regExp: ([0-9])+
   - name: aggregateRating
-    # selector: div.css-901oao.r-suhe1l.r-vw2c0b.r-7o8qx1
     xpath: //div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
   - name: manufacturerImages
     singleValue: false
-    # selector: div.wc-aplus-body div.wc-reset img[src]
     xpath: //div[@id='ii_manufImages']
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id='ii_Warnings']
-    # selector: div[style].css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs:nth-of-type(4) > div[style].htmlView
   - name: dietaryFiberPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(8)
     xpath: //div[@id='ii_Dietary Fiber']
     regExp: (^[.0-9]+)
   - name: dietaryFiberPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(8)
     xpath: //div[@id='ii_Dietary Fiber']
     regExp: ([g|mg|]+$)
   - name: totalSugarsPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(9)
     xpath: //div[@id='ii_Sugars']
     regExp: (^[.0-9]+)
   - name: totalSugarsPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(9)
     xpath: //div[@id='ii_Sugars']
     regExp: ([g|mg|]+$)
   - name: proteinPerServing
     singleValue: true
     xpath: //div[@id='ii_Protein']
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(10)
     regExp: (^[.0-9]+)
   - name: proteinPerServingUom
     singleValue: true
     xpath: //div[@id='ii_Protein']
     regExp: ([g|mg|]+$)
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(10)
   - name: ironPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(11)
     xpath: //div[@id='ii_Iron']
     regExp: (^[.0-9]+)
   - name: ironPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(11)
     xpath: //div[@id='ii_Iron']
     regExp: ([g|mg|]+$)
   - name: saltPerServing
@@ -238,70 +204,56 @@ fields:
     singleValue: true
   - name: totalCarbPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(7)
     xpath: //div[@id='ii_Total Carbohydrate']
     regExp: (^[.0-9]+)
   - name: totalCarbPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(7)
     xpath: //div[@id='ii_Total Carbohydrate']
     regExp: ([g|mg|]+$)
   - name: sodiumPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(6)
     xpath: //div[@id='ii_Sodium']
     regExp: (^[.0-9]+)
   - name: sodiumPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(6)
     xpath: //div[@id='ii_Sodium']
     regExp: ([g|mg|]+$)
   - name: totalFatPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(3)
     xpath: //div[@id='ii_Total Fat']
     regExp: (^[.0-9]+)
   - name: totalFatPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(3)
     xpath: //div[@id='ii_Total Fat']
     regExp: ([g|mg|]+$)
   - name: saturatedFatPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(4)
     xpath: //div[@id='ii_Saturated Fat']
     regExp: (^[.0-9]+)
   - name: saturatedFatPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(4)
     xpath: //div[@id='ii_Saturated Fat']
     regExp: ([g|mg|]+$)
   - name: transFatPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(14)
     xpath: //div[@id='ii_Trans Fat']
     regExp: (^[.0-9]+)
   - name: transFatPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(14)
     xpath: //div[@id='ii_Trans Fat']
     regExp: ([g|mg|]+$)
   - name: caloriesPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(1)
     xpath: //div[@id='ii_Calories']
   - name: caloriesFromFatPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(2)
     xpath: //div[@id='ii_Calories from Fat']
   - name: cholesterolPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(5)
     xpath: //div[@id='ii_Cholesterol']
     regExp: (^[.0-9]+)
   - name: cholesterolPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(5)
     xpath: //div[@id='ii_Cholesterol']
     regExp: ([g|mg|]+$)
   - name: numberOfServingsInPackage
@@ -315,11 +267,9 @@ fields:
     singleValue: true
     selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
     regExp: ([a-z]+$)
-
   - name: manufacturerDescription 
     singleValue: false
     selector: div.wc-rich-content-description
-    # xpath: //div[@class='htmlView']/p
   - name: descriptionBullets
     xpath: count(//div[@class='htmlView']/ul/li)
   # - name: videos ????????????????????????????/
@@ -338,276 +288,41 @@ fields:
     singleValue: true
     xpath: (//div[contains(@id,'zoom-carousel')]//img)[2]/@src
   - name: promotion
-    singleValue: true
-    selector: div.css-1dbjc4n div.css-901oao.r-cme181.r-1jn44m2.r-ubezar.r-b88u0q
+    # selector: div.css-1dbjc4n div.css-901oao.r-cme181.r-1jn44m2.r-ubezar.r-b88u0q
+    xpath: (//div[@class='css-1dbjc4n r-utggzx']//div[@class='css-1dbjc4n']/div[contains(., 'Sale') or (contains(., 'Buy'))])[1]
   - name: aggregateRatingText
-    # selector: div.css-901oao.r-suhe1l.r-vw2c0b.r-7o8qx1
     xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//section/@aria-label
-
   - name: vitaminAPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(7)
     xpath: //div[@id='ii_Vitamin A']
     regExp: (^[.0-9]+)
   - name: vitaminAPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(7)
     xpath: //div[@id='ii_Vitamin A']
     regExp: ([g|mg|mcg|IU]+$)
   - name: vitaminCPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(26)
     xpath: //div[contains(@id,'ii_Vitamin C')]
     regExp: (^[.0-9]+)
   - name: vitaminCPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(26)
     xpath: //div[contains(@id,'ii_Vitamin C')]
     regExp: ([g|mg|mcg|IU]+$)
   - name: calciumPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(8)
     xpath: //div[@id='ii_Calcium']
     regExp: (^[.0-9]+)
   - name: calciumPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(8)
     xpath: //div[@id='ii_Calcium']
     regExp: ([g|mg|mcg|IU]+$)
   - name: magnesiumPerServing
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(17)
     xpath: //div[@id='ii_Magnesium']
     regExp: (^[.0-9]+)
   - name: magnesiumPerServingUom
     singleValue: true
-    # selector: div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(17)
     xpath: //div[@id='ii_Magnesium']
     regExp: ([g|mg|mcg|IU]+$)
 
-  # - name: retailer_category
-  #   singleValue: true
-  # - name: retailer_subcategory
-  #   singleValue: true
-  # - name: amazon_choice
-  #   singleValue: true
-  # - name: amazon_choice_text
-  #   singleValue: true
-  # - name: deal_type
-  #   singleValue: true
-  # - name: Prop_65_warning
-  #   singleValue: true
-  # - name: allergy_information
-  #   singleValue: true
-  # # - name: color ????????????????????????????????
-  # #   singleValue: true
-  # # - name: colorCode ????????????????????????????
-  # #   singleValue: true
-  # - name: fast_track
-  #   singleValue: true
-  # - name: supplementary_image
-  #   singleValue: true
-  # - name: supplementary_image_total
-  #   singleValue: true
-  # - name: age_suitability  
-  #   singleValue: true
-  # - name: energy_efficiency
-  #   singleValue: true
-  # - name: technical_information_pdf_present
-  #   singleValue: true
-  # - name: t_&_cs
-  #   singleValue: true
-  # - name: privacy_policy
-  #   singleValue: true
-  # - name: customer_service_availability
-  #   singleValue: true
-  # - name: materials
-  #   singleValue: true
-  # - name: 360_image_present
-  #   singleValue: true
-  # - name: image_zoom_feature_present
-  #   singleValue: true
-  # - name: extended_product_description
-  #   singleValue: true
-  # - name: rpc_sku_hybrid
-  #   singleValue: true
-  # - name: lbb
-  #   singleValue: true
-  # - name: lbb_price
-  #   singleValue: true
-  # # - name: packSize !!!!!!!!!!!!!!!!!!!!!!! CHECK OTHER URLS
-  # #   singleValue: true
-  # #   xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
-  # #   regExp: ^[0-9]+
-  # - name: other_sellers_name
-  #   singleValue: true
-  # - name: other_sellers_price
-  #   singleValue: true
-  # - name: other_sellers_shipping
-  #   singleValue: true
-  # - name: coupon_discount_percentage
-  #   singleValue: true
-  # - name: coupon_on_full_page_text
-  #   singleValue: true
-  # - name: brand_url 
-  #   singleValue: true
-  # - name: international_shipping
-  #   singleValue: true
-  # - name: sales_rank
-  #   singleValue: true
-  # - name: sales_rank_category
-  #   singleValue: true
-  # - name: subscription_price
-  #   singleValue: true
-  # - name: subscribe_and_save
-  #   singleValue: true
-  # - name: hero_quick_promo_headline
-  #   singleValue: true
-  # - name: hero_quick_promo_image_url
-  #   singleValue: true
-  # - name: hero_quick_promo_url
-  #   singleValue: true
-  # - name: pasin
-  #   singleValue: true
-  # - name: video_length 
-  #   singleValue: true
-  # - name: other_sellers_prime
-  #   singleValue: true
-  # - name: prime_note
-  #   singleValue: true
-  # - name: deal_price
-  #   singleValue: true
-  # - name: fact_image_present
-  #   singleValue: true
-  # - name: large_image_count
-  #   singleValue: true
-  # - name: variant_asins
-  #   singleValue: true
-  # - name: andon_cord
-  #   singleValue: true
-  # - name: prime_flag
-  #   singleValue: true
-  # - name: alcohol_content
-  #   singleValue: true
-  # - name: stock_number
-  #   singleValue: true
-  # - name: sales_volume_per_month
-  #   singleValue: true
-  # - name: mpc
-  #   singleValue: true
-  # - name: drive_id
-  #   singleValue: true
-  # - name: in_store_availability
-  #   singleValue: true
-  # - name: new_version
-  #   singleValue: true
-  # - name: new_asin
-  #   singleValue: true
-  # - name: new_description
-  #   singleValue: true
-  # - name: variant_information
-  #   singleValue: true
-  # - name: first_variant
-  #   singleValue: true
-  # - name: variants
-  #   singleValue: true
-  # - name: platform
-  #   singleValue: true
-  # - name: retailer_id
-  #   singleValue: true
-  # - name: addon_item
-  #   singleValue: true
-  # - name: syndicated_data
-  #   singleValue: true
-  # - name: price_per_unit
-  #   singleValue: true
-  # - name: price_per_unit_uom
-  #   singleValue: true
-  # - name: packaging
-  #   singleValue: true
-  # - name: additives
-  #   singleValue: true
-  # - name: footer_product_info
-  #   singleValue: true
-  # - name: award_symbol
-  #   singleValue: true
-  # - name: drive
-  #   singleValue: true
-  # # - name: asin ????????????????????????????
-  # #   singleValue: true
-  # - name: hidden_upc
-  #   singleValue: true
-
-  # - name: paid
-  #   singleValue: true
-  #   description: Whether this is a sponsored/paid result
-  #   type: BOOLEAN
-  # - name: brand
-  #   singleValue: true
-  #   description: The brand name
-  #   example: Panasonic
-  # - name: category
-  #   singleValue: false
-  #   description: The categories (e.g. from breadcrumbs)
-  #   example:
-  #     - Dental Care
-  #     - Toothbrushes & Accessories
-  #     - Electric Toothbrushes & Accessories
-  #     - Electric Toothbrushes
-  #     - Rotating
-  # - name: productUrl
-  #   singleValue: true
-  #   description: The URL for the product details page
-  # - name: thumbnail
-  #   singleValue: true
-  #   description: The URL for the product thumbnail image
-  # - name: name
-  #   singleValue: true
-  #   description: The product name
-  # - name: sku
-  #   singleValue: true
-  #   description: The store-specific product identifier
-  # - name: mpc
-  #   singleValue: true
-  #   description: The model code of the product
-  # - name: gtin
-  #   singleValue: true
-  #   description: GTIN code (includes UPC/EAN)
-  # - name: aggregateRatingText
-  #   singleValue: true
-  #   description: The stated aggregate rating
-  # - name: ratingCount
-  #   singleValue: true
-  #   description: The number of ratings
-  # - name: reviewCount
-  #   singleValue: true
-  #   description: The number of reviews
-  # - name: price
-  #   singleValue: true
-  #   description: The offered price for the product
-  # - name: listPrice
-  #   singleValue: true
-  #   description: The stated undiscounted price for the product
-  # - name: manufacturer
-  #   singleValue: true
-  #   description: Product manufacturer
-  # - name: soldBy
-  #   singleValue: true
-  #   description: The name of the seller of the item (if available)
-  # - name: endorsementText
-  #   singleValue: true
-  #   description: The text that signifies that a product is endorsed
-  # - name: shippingInfo
-  #   singleValue: true
-  #   description: Shipping information for the product
-  # - name: id
-  #   singleValue: true
-  #   description: Unique id (within this extractor)
-  # - name: nameExtended
-  #   singleValue: true
-  #   description: The product name, prefixing "${brand} - " if not included in "name"
-  #     and appending " - ${variantType}" if necessary (fixed per extractor)
-  # - name: aggregateRating
-  #   singleValue: true
-  #   description: The stated aggregate rating normalized to be out of 5
-  #   type: NUMBER
+  

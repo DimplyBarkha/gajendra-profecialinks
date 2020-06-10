@@ -170,23 +170,6 @@ module.exports = {
       
   });
 
-    //   async function collectVideo() {
-    //     const secret = await context.evaluate(async function(a, b) {
-    //       let iframeUrl = document.querySelector('iframe[title="Product Videos"]').src
-    //       window.location = iframeUrl
-    //       console.log(a)
-    //       console.log(b)
-    //       debugger
-    //       if(ele !== null){
-    //         let eleSrc = ele.getAttribute('src')
-    //         return eleSrc
-    //       } else {
-    //         return "COULD NOT FIND!!!!!!!!!!!!!!!!!!!!"
-    //       }
-    //     }, ['quote1', 'quote2'], 'iframe[title="Product Videos"]');
-    //     console.log(secret)
-    //   }
-    // collectVideo()
     async function collectVideo() {
       const secret = await context.evaluate(function() {
         let ele = document.querySelector('video')
@@ -200,7 +183,7 @@ module.exports = {
       }, [], 'iframe[title="Product Videos"]');
       console.log(secret)
     }
-  collectVideo()
+  
 
     return await context.extract(productDetails, { transform: transformParam });
   },

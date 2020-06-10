@@ -73,7 +73,6 @@ module.exports = {
       collected += count;
       console.log('Got more results', collected);
       page++;
-      console.log(page + '!!!!!!!!!!!!!!!!!!!!!!')
     }
   },
 };
