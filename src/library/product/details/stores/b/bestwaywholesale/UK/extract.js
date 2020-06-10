@@ -32,9 +32,9 @@ module.exports = {
       addMultipleNutritionalEle(multiNutriObj);
 
       // Add availability to the DOM
-      let available = getEleByXpath(`//div/p[contains(@class,"prodstock") or contains(.,'available')]`);
-      if(available) {
-        if(available.includes('In stock')) {
+      const available = getEleByXpath('//div/p[contains(@class,"prodstock") or contains(.,\'available\')]');
+      if (available) {
+        if (available.includes('In stock')) {
           addEleToDoc('availabilityText', 'In Stock');
         } else {
           addEleToDoc('availabilityText', 'Out of Stock');
