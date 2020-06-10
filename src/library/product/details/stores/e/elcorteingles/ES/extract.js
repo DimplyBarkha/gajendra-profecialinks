@@ -163,17 +163,13 @@ module.exports = {
       }
 
       // Function to remove the `\n` from the textContent
-      function textContent (selector, attributeName) {
-        try {
-          const text = (selector && selector.textContent.trim()
+      function textContent (element, attributeName) {
+          const text = element && (element.textContent.trim()
             .split(/[\n]/)
-            .filter((element) => element)
+            .filter((ele) => ele)
             .join(' ')) ||
             '';
           addElementToDocument(attributeName, text);
-        } catch (error) {
-          console.log(error.message);
-        }
       }
 
       textContent(document.querySelector('div.pdp-info-container div.info'), 'bulletDescription');
