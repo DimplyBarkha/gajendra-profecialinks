@@ -24,6 +24,7 @@ async function implementation (
   await dependencies.goto({ url });
   await context.waitForXPath('//ul//li');
   await stall(2000);
+  await context.setInputValue('input#search', inputs.keywords);
   await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -39,7 +40,7 @@ async function implementation (
       }
     });
     if(isCategoryPage) {
-      document.getElementById("search").focus();
+      document.getElementById('search').focus();
       await stall(2000);
       const link = document.querySelector('.TypeaheadItemLink-sc-125kxr2-0');
       if (link != null) {
