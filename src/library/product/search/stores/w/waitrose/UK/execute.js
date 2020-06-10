@@ -6,7 +6,7 @@ module.exports = {
     store: 'waitrose',
     domain: 'waitrose.com',
     url: 'https://www.waitrose.com/ecom/shop/search?&searchTerm={searchTerms}',
-    loadedSelector: 'article[data-test="product-pod"]',
+    loadedSelector: 'picture[class="productPod___3mbxG podImage___1ajLe"]',
     noResultsXPath: '//h1[contains(@class,"title___3K4ea")]',
   },
 };
