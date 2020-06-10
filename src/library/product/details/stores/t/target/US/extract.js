@@ -292,7 +292,6 @@ async function implementation (
         const split = e.getAttribute('href').split('/');
         variants.push(split[split.length - 1]);
       });
-      console.log('variants', variants);
       addHiddenDiv('variants', variants.join(' | '));
     }
 
