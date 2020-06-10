@@ -37,10 +37,10 @@ fields:
   xpath: (//div[@data-automation-id="productPageTile"]//div[@data-automation-id="rollback-flag"])[1]
 - name: availabilityText
   singleValue: true
-  xpath: (//div[@data-automation-id="productPageTile"]//div[@data-automation-id="add-to-cart"])[1]
+  xpath: (//div[@data-automation-id="productPageTile"]//div[@data-automation-id="out-of-stock-label"]|//*[@id="shoppingContent"]//section[contains(@class,"ProductPage__errorContainer")]|//*[@id="shoppingContent"]//*[@data-automation-id="noResultsSearchTerm"])[1]
   regExp: (.+)
-  regExpReplace: In Stock
-  defaultValue: Out of Stock
+  regExpReplace: Out of Stock
+  defaultValue: In Stock
 - name: description
   singleValue: false
   xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeShortDescription"]
