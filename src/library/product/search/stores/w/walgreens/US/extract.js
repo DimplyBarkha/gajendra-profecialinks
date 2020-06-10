@@ -65,6 +65,7 @@ async function implementation (
       },
       referrer: refURL,
       referrerPolicy: 'no-referrer-when-downgrade',
+      // @ts-ignore
       body: '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","q":"' + window.__APP_INITIAL_STATE__.search.searchString + '","requestType":"search","sort":"relevance","couponStoreId":"4372"}',
       method: 'POST',
       mode: 'cors',
