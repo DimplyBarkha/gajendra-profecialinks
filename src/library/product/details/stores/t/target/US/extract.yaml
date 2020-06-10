@@ -35,7 +35,7 @@ fields:
     xpath: //div[@class="style__PriceFontSize-gob4i1-0 fwkyhU h-text-bold"]
   - name: availabilityText
     singleValue: true
-    xpath: //div[@data-test="oosDeliveryOption"]|//div[@data-test="shipMethodMessage"]
+    xpath: //div[@data-test="oosDeliveryOption"]|//div[@data-test="shipMethodMessage"]|//span[@data-test="getItMessage"]|//div[@data-test="soldOutBlock"]
   - name: description
     singleValue: true
     xpath: //div[@class="h-margin-v-default"]
@@ -56,6 +56,9 @@ fields:
   - name: weightNet
     singleValue: true
     xpath: //div[@id="weightInfo"]
+  - name: weightGross
+    singleValue: true
+    xpath: //div[@data-test="estimatedShipWeight"]
   - name: gtin
     singleValue: true
     xpath: //div[@id="upcInfo"]

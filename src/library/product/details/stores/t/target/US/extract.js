@@ -156,16 +156,16 @@ async function implementation (
 
     const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC');
     if (zoom) {
-      addHiddenDiv('zoomInfo', 'YES');
+      addHiddenDiv('zoomInfo', 'Yes');
     } else {
-      addHiddenDiv('zoomInfo', 'NO');
+      addHiddenDiv('zoomInfo', 'No');
     }
 
     const rotate = document.querySelector('button[data-test="button-model-viewer"]');
     if (rotate) {
-      addHiddenDiv('rotateInfo', 'YES');
+      addHiddenDiv('rotateInfo', 'Yes');
     } else {
-      addHiddenDiv('rotateInfo', 'NO');
+      addHiddenDiv('rotateInfo', 'No');
     }
 
     const button = document.querySelector("a[href='#tabContent-tab-Labelinfo']");
