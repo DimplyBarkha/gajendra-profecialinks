@@ -17,7 +17,20 @@ assignees: ''
 commit message template: `{build_task}`
 example commit message command:
 `git commit -m '#58. Created extractor robot.'`
+- If your circle ci build fails, we will not merge your PR- you will see this in the 'Review Required ' section of your PR.
+- Make sure that your branch is up to date. That you have pulled and merged master. You will see this in the same section.
+- Use const/let instead of var
+- Make sure to capitalize the country codes
+- Use url parameterValue in the createUrl file instead of creating your own implementation
+- When making a PR, the PR should be named after your branch, following Dave's guidelines
 
+
+## Communication Notes
+- Before sending the dev team a question, ask someone on your team whether they have dealt with the issue, and google the error
+- If there’s still an issue, instead of DMing the dev team, put it on the Slack `#digitalshelf_dsd` channel or on stack overflow
+- If adding a bug or asking for help on Slack, please add the steps needed to reproduce and a link to this issue and a reference to the code commit where you are seeing the problem. Also please make sure to push up your latest changes.
+
+------
 
 ## Build Checklist
 #### GitHub
@@ -94,10 +107,10 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 - [ ] Add `Pull Request` Label
 - [ ] `npm run lint` or `npm run lint:fix` before creating pull request
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to linting
-- [ ] Create pull request
-- [ ] Ensure pull request passes build
-- [ ] Add `Review Needed` Label to Pull request
+- [ ] Create pull request named after your branch ( i.e. `{issue_title}`)
 - [ ] Ensure pull request is linked to this issue
+- [ ] Ensure pull request passes build
+- [ ] Add `Review Ready` Label to Pull request
 - [ ] Confirm PR is approved/closed and changes were merged with master
 - [ ] Remove `Staging` Label
 - [ ] Remove `Pull Request` Label
