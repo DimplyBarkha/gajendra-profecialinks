@@ -54,15 +54,14 @@ https://import-io.github.io/import-io-cli-public/#import-io-actionrunremote
 
 #### Internal Deployment
 - [ ] Promote Source to `Internal Deployment` in Project Dash
-- [ ] Please add `Deploying` Label
+- [ ] Add `Development` Label
 - [ ] Create a Workbench source in the Development(internal) collection
 - [ ] Deploy to `development` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
-- [ ] Link `dev` extractor GUID to TEST collection source in workbench
+- [ ] Link `development` extractor GUID to Development(internal) collection > source in workbench
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `development`
 - [ ] Scale/High Volume run
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
-- [ ] Please remove `Deploying` Label
 
 #### Peer Review
 - [ ] Promote Source to `Peer Review` in Project Dash
@@ -74,29 +73,30 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 
 #### Staging Deployment
 - [ ] Promote Source to `Staging Deployment` in Project Dash
+- [ ] Remove `Development` Label
 - [ ] Add `Staging` Label
 - [ ] Create a Workbench source in the Production(external) collection
 - [ ] Deploy to `staging` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
-- [ ] Link `staging` extractor GUID to source in workbench
+- [ ] Link `staging` extractor GUID to Production(external) collection > source in workbench
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `staging`
 - [ ] Scale/High Volume test
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
 
 #### Final Review
 - [ ] Promote Source to `Final Review` in Project Dash
-- [ ] Please add `Final Review Requested` Label
+- [ ] Add `Final Review Requested` Label
 - [ ] SA QA approval Complete
-- [ ] Please remove `Final Review Requested` Label
+- [ ] Remove `Final Review Requested` Label
 
 #### Pull Request
 - [ ] Promote Source to `Pull Request` in Project Dash
-- [ ] Please add `Pull Request` Label
+- [ ] Add `Pull Request` Label
 - [ ] `npm run lint` or `npm run lint:fix` before creating pull request
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to linting
 - [ ] Create pull request
 - [ ] Ensure pull request passes build
-- [ ] Please add `Review Needed` Label to Pull request
+- [ ] Add `Review Needed` Label to Pull request
 - [ ] Ensure pull request is linked to this issue
 
 ------
@@ -104,9 +104,9 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 #### Production
 - [ ] Confirm PR is approved/closed and changes were merged with master
 - [ ] Confirm Source was promoted to `Production` in Project Dash
-- [ ] Please remove `Staging` Label
-- [ ] Please remove `Pull Request` Label
-- [ ] Please add `Production` Label
+- [ ] Remove `Staging` Label
+- [ ] Remove `Pull Request` Label
+- [ ] Add `Production` Label
 - [ ] Ensure extractor gets deployed to the `production` branch in the daily production deployment
 - [ ] Link production extractor GUID to production source in workbench
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `production`
