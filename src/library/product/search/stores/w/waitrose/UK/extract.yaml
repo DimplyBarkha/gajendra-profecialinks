@@ -9,7 +9,6 @@ fields:
     regExpReplace: https://www.waitrose.com$1
     description: The URL for the product details page
   - name: thumbnail
-    singleValue: true
     description: The URL for the product thumbnail image
     xpath: //picture[contains(@class,"productPod___3mbxG")]//img/@src
   - name: name
@@ -17,17 +16,14 @@ fields:
     xpath: //h2[@data-test="product-pod-name"]/div/span[1]
     description: The product name
   - name: aggregateRatingText
-    singleValue: true
     description: The stated aggregate rating
-    xpath: //p[@class="starRating___1qNOP"]//span[@class="stars___1LZ20"]/span/span
+    xpath: //div[@data-test="product-pod-content"]//p[@class="starRating___1qNOP"][1]//span[@class="stars___1LZ20"]/span/span
   - name: ratingCount
-    singleValue: true
     description: The number of ratings
-    xpath: //p[@class="starRating___1qNOP"]//span[@class="ratingText___2kURz"]/span
+    xpath: //div[@data-test="product-pod-content"]//p[@class="starRating___1qNOP"][1]//span[@class="ratingText___2kURz"]/span
   - name: reviewCount
-    singleValue: true
     description: The number of reviews
-    xpath: //p[@class="starRating___1qNOP"]//span[@class="ratingText___2kURz"]/span
+    xpath: //div[@data-test="product-pod-content"]//p[@class="starRating___1qNOP"][1]//span[@class="ratingText___2kURz"]/span
   - name: price
     singleValue: true
     description: The offered price for the product
