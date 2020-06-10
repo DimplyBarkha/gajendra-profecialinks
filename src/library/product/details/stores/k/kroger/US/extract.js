@@ -8,7 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise(r => setTimeout(r, 3e3));
+  await new Promise(r => setTimeout(r, 3e3)); // eslint-disable-line
 
   // await context.click('div.ProductCard-imageBlock')
 
@@ -49,7 +49,7 @@ async function implementation (
 
     const button = document.getElementsByClassName('kds-Tabs-tab')[1];
 
-    if (button != null && button.textContent == 'Nutrition Info') {
+    if (button != null && button.textContent == 'Nutrition Info') { // eslint-disable-line
       button.click();
       // click read more button to expand text
       const readMore = document.querySelectorAll('.NutritionIngredients-Disclaimer')[0].children[1].children;

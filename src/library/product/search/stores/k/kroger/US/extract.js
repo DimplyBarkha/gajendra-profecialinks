@@ -15,7 +15,7 @@ async function implementation (
 
   const currentElCount = await getElementsOnPage();
 
-  const totalElCount = currentElCount;
+  const totalElCount = currentElCount; // eslint-disable-line
 
   return await context.extract(productDetails, { transform });
 }

@@ -1,7 +1,7 @@
 ---
 name: Digital Shelf Source Build
 about: Create an issue with this template before starting a source build.
-title: DS:{:collection}:{:source}
+title: DS-{:collection}-{:source}
 labels: Source
 assignees: ''
 
@@ -10,7 +10,7 @@ assignees: ''
 ## Build Notes
 - For each issue, make sure to create a new branch and work on that issue's build tasks while on that branch. 
  branch template: `{issue_title}`
- example git branch creation command: `git checkout -b DS:details:amazon_us`
+ example git branch creation command: `git checkout -b DS-core-amazon_us`
 - Commit code for tasks as they are completed(if code was needed) to that issue's branch. When starting or continuing work on different issue, make sure to `git checkout master` and create a new branch from master, or `git checkout {branch_name}` if a. branch was already created. 
 - Work on 2 or more issues at once, but make sure to commit changes and `git checkout {branch_name}` your other issue's branch prior to starting the other issue's tasks. This will help avoid merge conflicts.
 - Include issue hash `#` in every commit message. Reference the build task in the commit message.
@@ -22,7 +22,7 @@ example commit message command:
 - Use const/let instead of var
 - Make sure to capitalize the country codes
 - Use url parameterValue in the createUrl file instead of creating your own implementation
-- When making a PR, the PR should be named after your branch, following Dave's guidelines
+- When making a PR, the PR should be named after your branch ( i.e. `{issue_title}`)
 
 
 ## Communication Notes

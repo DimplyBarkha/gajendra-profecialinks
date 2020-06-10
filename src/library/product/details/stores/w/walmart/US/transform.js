@@ -1,11 +1,23 @@
-// @ts-nocheck
-
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
+  function cleanUp (data) {
+    let dataStr = JSON.stringify(data);
+    dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/"\s{1,}/g, '"')
+      .replace(/\s{1,}"/g, '"')
+      .replace(/^ +| +$|( )+/g, ' ')
+      // eslint-disable-next-line no-control-regex
+      .replace(/[^\x00-\x7F]/g, '');
+    return JSON.parse(dataStr);
+  }
   const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
   function getSplitValue (inputStr, count) {
     if (inputStr) {
@@ -89,7 +101,7 @@ const transform = (data, context) => {
       } catch (exception) { console.log('Error in transform', exception); }
     }
   }
-  return data;
+  return cleanUp(data);
 };
 
 module.exports = { transform };
