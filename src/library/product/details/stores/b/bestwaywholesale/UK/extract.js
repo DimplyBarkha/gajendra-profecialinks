@@ -1,10 +1,10 @@
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'bestwaywholesale',
-    transform: null,
     domain: 'bestwaywholesale.co.uk',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
@@ -94,6 +94,6 @@ module.exports = {
         document.body.appendChild(prodEle);
       }
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
