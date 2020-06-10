@@ -21,6 +21,7 @@ example commit message command:
 
 ## Build Checklist
 #### GitHub
+- [ ] Please assign yourself to this issue
 - [ ] Please confirm `Source` Label is added
 - [ ] Please link issue to the correct project
 - [ ] Please link issue to the correct milestone
