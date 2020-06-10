@@ -1,0 +1,86 @@
+input:
+  id: 178662
+  _url: https://samsclub.com
+extractions:
+  - html: https://workbench.import.io/html/run=3485bb92-692c-4d31-a2d6-73ca45243883/task=3f9c9bc1-42cf-4f1f-8452-042f248e36d7/6582f54e-1c86-4034-8ede-e3486e56b5e1.html
+    extractionConfigId: product/details/stores/s/samsclub/US/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "4.2"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[2]
+            alternateImages:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0040611213729_A?$DT_Thumbnail$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+            brandText:
+              - text: by Kleenex
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            category:
+              - text: |-
+                  All Departments
+                  Household Essentials
+                  Paper & Plastic
+                  Facial Tissue
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]
+            description:
+              - text: All facial tissues are not created equal. In fact, more people choose
+                  Kleenex Facial Tissue than any other brand. Kleenex tissue
+                  offers superior performance, a premium feel and essential
+                  softness. When your employees, clients and visitors see the
+                  respected Kleenex brand in your offices and restrooms, they'll
+                  know that you select quality products, putting forth the best
+                  image for your business. For more than 80 years, Kleenex has
+                  delivered the highest quality among facial tissues, providing
+                  consumers with smart innovations like an ultra-soft texture
+                  and a low-alert dispenser (the last 10 tissues are cream
+                  colored instead of white, so you know it's almost time for a
+                  new box). Choosing Kleenex lets everyone know that you care
+                  enough to provide the very best. You'll want to buy them in
+                  bulk!
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            descriptionBullets:
+              - text: "4"
+            image:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0040611213729_A?$DT_PDP_Image$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/button[1]/img[1]/@src
+            imageAlt:
+              - text: Kleenex - Boutique White Facial Tissue, 2-Ply, Pop-Up Box (95 per box, 36
+                  boxes)
+                xpath: /html/body/@imagealt
+            metaKeywords:
+              - text: Kleenex White Facial Tissue, Dry Goods, Facility, Nurse's Office, Colds,
+                  KCC21270CT, 21270CT, Kimberly-Clark Professional, Kimberly
+                  Clark, global, hard roll towel, KCCberly-Clark Professional
+                xpath: /html/head[1]/meta[13]/@content
+            name:
+              - text: Kleenex - Boutique White Facial Tissue, 2-Ply, Pop-Up Box (95 per box, 36
+                  boxes)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            nameExtended:
+              - text: Kleenex - Boutique White Facial Tissue, 2-Ply, Pop-Up Box (95 per box, 36
+                  boxes)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            price:
+              - text: "current price: $54.50$54.50"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            ratingCount:
+              - text: "1013"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[3]/meta[1]/@content
+            shippingInfo:
+              - text: |-
+                  Shipping Info
+                  Standard - 2 to 6 business days 
+                   
+                   
+                  Delivery is not available to AK, HI or Puerto Rico
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]
+            sku:
+              - text: "178662"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/@data-bv-product-id
+            url:
+              - text: https://www.samsclub.com/p/kleenex-pop-up-facial-tissue-36-boxes-95-ct-each/178662
+                xpath: /html/head[1]/link[38]/@href
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1591522431655

@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: true
     xpath: //div[@class="h-text-sm h-padding-v-tiny"]//span[position()=2]//span
-  - name: sub_category
+  - name: category
     singleValue: true
     xpath: //div[@id="subCategories"]
   - name: price
@@ -89,9 +89,9 @@ fields:
   - name: shippingWeight
     singleValue: true
     xpath: //div[@data-test="estimatedShipWeight"]
-  - name: variationCount
+  - name: variantCount
     singleValue: true
-    xpath: //div[@id="variationCount"]
+    xpath: //div[@id="variantCount"]
   - name: color
     singleValue: true
     xpath: //div[@data-test="variationTheme-color"]//span/text()
@@ -101,6 +101,9 @@ fields:
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@id="manufacturerImgs"]
+  - name: videos
+    singleValue: true
+    xpath: //video//source/@src
   - name: name
     singleValue: true
     xpath: //div[@id="productName"]
@@ -227,6 +230,9 @@ fields:
   - name: alcoholContent
     singleValue: true
     xpath: //div[@id="alcoholInfo"]
+  - name: variants
+    singleValue: true
+    xpath: //div[@id="variants"]
   - name: additionDescBulletInfo
     singleValue: true
     xpath: //div[@id="additionalInfo"]

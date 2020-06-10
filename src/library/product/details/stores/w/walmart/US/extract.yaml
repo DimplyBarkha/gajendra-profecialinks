@@ -38,7 +38,7 @@ fields:
 - name: manufacturer
   singleValue: true
   manualSelector: script[id='item']
-  regExp: (\"manufacturer\"\:\")([^"]+)(","v)
+  regExp: (\"manufacturer\"\:\")([^"]+)(",")
   regExpReplace: $2
 - name: description
   singleValue: false
@@ -46,6 +46,9 @@ fields:
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[contains(@class,'about-desc')]//ul/li)
+- name: ingredientsList
+  singleValue: true
+  manualSelector: p.Ingredients
 - name: brandText
   singleValue: true
   xpath: //span[@itemprop='brand']
@@ -60,19 +63,20 @@ fields:
   xpath: //*[@itemprop="gtin13"]/@content
 - name: sku
   singleValue: true
-  manualSelector: script[id='item']
-  regExp: (\"productId\"\:\")(\S+)(\",\"itemId\")
+  xpath: //script[@id='item']
+  regExp: (",\"productId\":\")(\w+)
   regExpReplace: $2
 - name: asin
-  singleValue: true
-  regExp: (\d+)
-  regExpReplace: $1
+  singleValue: false
   xpath: //div[contains(@class,'wm-item-number')]  
 - name: variantId
   singleValue: true
   xpath: //meta[@itemprop='sku']/@content
 - name: mpc
   singleValue: true
+  manualSelector: script[id='item']
+  regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
+  regExpReplace: $2
 - name: packSize
   singleValue: true
 - name: legalDisclaimer
@@ -82,6 +86,12 @@ fields:
   xpath: //p[@class='Directions']
 - name: warnings
   singleValue: true
+  xpath: //p[@class='Warnings']
+- name: warranty
+  singleValue: true
+  manualSelector: script[id='item']
+  regExp: (warranty":{(.*),"information":")([^"]+)("})
+  regExpReplace: $3
   xpath: //p[@class='Warnings']
 - name: ratingCount
   singleValue: true
@@ -94,7 +104,8 @@ fields:
   singleValue: true
   xpath: //*[@itemprop='ratingValue']
 - name: shippingInfo
-  singleValue: true
+  singleValue: true 
+  xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"]
 - name: shippingDimensions
   singleValue: true
   xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
@@ -126,7 +137,7 @@ fields:
 - name: colorCode
   singleValue: true
 - name: manufacturerDescription
-  singleValue: true
+  singleValue: false
   xpath: //div[contains(@class,'wc-aplus-body')]
 - name: manufacturerImages
   singleValue: false
@@ -134,29 +145,34 @@ fields:
 - name: videos
   singleValue: false
   manualSelector: script[id='item']
-  regExp: ("SMALL":")(\S+.mp4)(",")
+  regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
   regExpReplace: $2
 - name: name
   singleValue: true
   xpath: //h1[@class='prod-ProductTitle font-normal']
 - name: otherSellersName
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: ("sellerName":")([^\"]+)(","sell)
-  regExpReplace: $2  
+  xpath: //div[@class='marketplace-body']//*[@data-tl-id="ProductSellerInfo-SellerName"]
 - name: otherSellersPrice
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: (,"price":)(\d+\.?\d*)(,"sell)
-  regExpReplace: $2
+  xpath: //div[contains(@class,'seller-offer')]//div[contains(@class,'prod-PriceHero')]//span[contains(@class,'price--stylized')]//span[@class='visuallyhidden']
 - name: otherSellersShipping
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: (,"shipPrice":)(\d+\.?\d*)(})
-  regExpReplace: $2
+  xpath: //div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
+  regExp: (\d+\.?\d*) delivery
+  regExpReplace: $ 1
+- name: lbb
+  singleValue: true
+  defaultValue: Yes
+  xpath: //div[@class='SellerInfo']//a[@class='seller-name']
+  regExp: Walmart
+  regExpReplace: No
 - name: additionalDescBulletInfo
   singleValue: false  
   xpath: //div[contains(@class,'about-desc')]//ul/li
+- name: promotion
+  singleValue: false
+  xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
 - name: ageSuitability
   singleValue: false
   xpath: //td[contains(text(),'Age Range')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
@@ -177,7 +193,7 @@ fields:
 - name: materials
   singleValue: false
   xpath: //td[contains(text(),'Material')]/following-sibling::td[@class='s-padding-ends s-padding-sides']|//td[contains(text(),'Fabric Content')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
-- name: 360ImagePresent
+- name: Image360Present
   singleValue: false
   defaultValue: No
 - name: imageZoomFeaturePresent
@@ -186,3 +202,99 @@ fields:
   regExp: (.*)
   regExpReplace: Yes
   defaultValue: No
+- name: nutritionInfo
+  singleValue: true
+  manualSelector: script[id='item']
+  regExp: ("nutritionFacts":{"calorieInfo(.*)}})(,"legalBadges")
+  regExpReplace: $1
+- name: servingSize
+  singleValue: false
+    
+- name: servingSizeUom
+  singleValue: false
+
+- name: numberOfServingsInPackage
+  singleValue: false
+
+- name: caloriesPerServing
+  singleValue: false
+  
+- name: caloriesFromFatPerServing
+  singleValue: false
+
+- name: totalFatPerServing
+  singleValue: false
+
+- name: totalFatPerServingUom
+  singleValue: false
+
+- name: saturatedFatPerServing
+  singleValue: false
+
+- name: saturatedFatPerServingUom
+  singleValue: false
+
+- name: transFatPerServing
+  singleValue: false
+
+- name: transFatPerServingUom
+  singleValue: false
+
+- name: cholesterolPerServing
+  singleValue: false 
+- name: cholesterolPerServingUom
+  singleValue: false
+- name: saltPerServing
+  singleValue: true   
+- name: saltPerServingUom
+  singleValue: true   
+- name: sodiumPerServing
+  singleValue: false
+- name: sodiumPerServingUom
+  singleValue: false
+- name: totalCarbPerServing
+  singleValue: false
+- name: totalCarbPerServingUom
+  singleValue: false
+
+- name: dietaryFibrePerServing
+  singleValue: false
+
+- name: dietaryFibrePerServingUom
+  singleValue: false
+
+- name: totalSugarsPerServing
+  singleValue: false
+  
+- name: totalSugarsPerServingUom
+  singleValue: false
+
+- name: proteinPerServing
+  singleValue: false
+
+- name: proteinPerServingUom
+  singleValue: false  
+
+- name: vitaminAPerServing
+  singleValue: false
+
+- name: vitaminAPerServingUom
+  singleValue: false
+ 
+- name: vitaminCPerServing
+  singleValue: false
+
+- name: vitaminCPerServingUom
+  singleValue: false
+
+- name: calciumPerServing
+  singleValue: false
+
+- name: calciumPerServingUom
+  singleValue: false
+
+- name: ironPerServing
+  singleValue: false
+
+- name: ironPerServingUom
+  singleValue: false

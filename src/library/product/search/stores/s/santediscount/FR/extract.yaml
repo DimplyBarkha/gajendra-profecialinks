@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[contains(@class, "products-grid")]//article
+fields:
+  - name: id
+    singleValue: false
+    xpath: //article/@data-product-gtm-id
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_rankOrganic')]
+  - name: name
+    singleValue: false
+    xpath: //h3[contains(@class, "product-name")]//a
+  - name: productUrl
+    singleValue: false
+    xpath: //h3[contains(@class, "product-name")]//a//@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //figure//img//@data-lazy-source
+  - name: aggregateRating
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class="special-price"] | //section[contains(@class, "products-grid")]//article//span[@class="regular-price"]
+    regExp: (Special Price )?(.*)
+    regExpReplace: $2
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: url
+    singleValue: false
