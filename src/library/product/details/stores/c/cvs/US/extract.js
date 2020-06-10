@@ -123,9 +123,9 @@ module.exports = {
 
       function collectBrand () {
         const brandBlock = document.querySelector('script#schema-json-ld');
-        const brandObject = JSON.parse(brandBlock.innerText);
-
-        if (brandObject[0].brand) {
+        
+        if (brandBlock) {
+          const brandObject = JSON.parse(brandBlock.innerText);
           addHiddenDiv('ii_Brand', `${brandObject[0].brand}`);
         }
       }
