@@ -43,7 +43,7 @@ async function implementation (
         el.appendChild(newDiv);
       }
 
-      function isElementInViewport (el) {
+      /*function isElementInViewport (el) {
         if (el) {
           const rect = el.getBoundingClientRect();
           return (
@@ -54,10 +54,10 @@ async function implementation (
           );
         }
         return false;
-      }
+      }*/
 
       let scrollTop = 0;
-      while (scrollTop != 20000) {
+      while (scrollTop !== 20000) {
         await stall(500);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
@@ -70,7 +70,7 @@ async function implementation (
       const itemContainers = document.querySelectorAll('li.Col-favj32-0.bZxgbc.h-padding-a-none');
       let rank = 1;
       for (const itemContainer of itemContainers) {
-        if(itemContainer.querySelector('a[data-test="product-title"]')) {
+        if (itemContainer.querySelector('a[data-test="product-title"]')) {
           addHiddenDiv(itemContainer, 'product-name', itemContainer.querySelector('a[data-test="product-title"]').innerText);
           addHiddenDiv(itemContainer, 'itemId', itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('/')[4]);
         }
@@ -86,7 +86,7 @@ async function implementation (
     });
 
     await stall(1000);
-    let extract = await context.extract(productDetails, { transform });
+    const extract = await context.extract(productDetails, { transform });
     await stall(500);
     const hasNextBtn = await context.evaluate(function () {
       const nextBtn = document.querySelector('a[data-test="next"]');

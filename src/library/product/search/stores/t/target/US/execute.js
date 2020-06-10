@@ -35,11 +35,11 @@ async function implementation (
     }
     let isCategoryPage = false;
     document.querySelectorAll('h2').forEach(e => {
-      if(e.innerHTML === 'Shop by category') {
-        isCategoryPage = true
+      if (e.innerHTML === 'Shop by category') {
+        isCategoryPage = true;
       }
     });
-    if(isCategoryPage) {
+    if (isCategoryPage) {
       document.getElementById('search').focus();
       await stall(2000);
       const link = document.querySelector('.TypeaheadItemLink-sc-125kxr2-0');
