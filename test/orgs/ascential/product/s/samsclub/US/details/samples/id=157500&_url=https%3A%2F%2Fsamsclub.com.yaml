@@ -1,0 +1,88 @@
+input:
+  id: 157500
+  _url: https://samsclub.com
+extractions:
+  - html: https://workbench.import.io/html/run=3485bb92-692c-4d31-a2d6-73ca45243883/task=02b5743c-c0bf-46ff-ad82-177b6831dedf/6d5a6289-0132-46d1-8748-dc10f570e256.html
+    extractionConfigId: product/details/stores/s/samsclub/US/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[2]
+            alternateImages:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0004100000868_A?$DT_Thumbnail$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+            brandText:
+              - text: by Lipton
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            category:
+              - text: |-
+                  All Departments
+                  Grocery
+                  Coffee, Tea & Cocoa
+                  Tea
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]
+            description:
+              - text: >-
+                  Enjoy fantastic savings with Lipton® Diet Iced Tea Mix, Lemon
+                  (5.9 oz., makes 20 quarts). Lipton is the world's leading tea
+                  brand, ethically sourced from all over the world. Lipton iced
+                  tea is one of the brand's most popular blends, rich in
+                  carefully-selected black teas and natural lemon flavor. Lipton
+                  diet iced tea lemon flavor features the same terrific, tangy
+                  taste with just five calories per serving.
+                   
+                  The Lipton Difference
+                   
+                  Terrific teas start with the highest-quality leaves. Lipton sources tea leaves from Argentina, Kenya, Tanzania and Sri Lanka, from over 1000 different plantations and 600,000 small farmers. Lipton works with the Rainforest Alliance to ensure that all farmers and workers are paid a fair wage, promote biodiversity and sustainable conservation efforts. Lipton was the first to receive Rainforest Alliance certification in 2007; as of 2019, 100 percent of the tea used to make Lipton teas, tisanes and powdered mixes, including Lipton iced tea and Lipton diet iced tea, are sourced exclusively from Rainforest Alliance Certified tea gardens.
+                   
+                  Lipton diet iced tea mix starts with real black tea leaves and natural lemon flavor. The powder mix makes it easy to create a glass, pitcher or party-sized dispenser. The powder formulation blends effortlessly in cold and room-temperature water, dissolving completely so there's never any grit, just the terrific taste of Lipton ice tea.
+                   
+                  How Many Carbohydrates are in Lipton Diet Iced Tea Mix?
+                   
+                  When you're counting calories, you're counting carbs. That's why Lipton diet lemon iced tea contains just one carbohydrate in each 8 fl oz prepared serving. Lipton diet iced tea contains no sodium, artificial colors or flavors. This 5.9-oz jar of Lipton diet iced tea mix yields 84 servings.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            descriptionBullets:
+              - text: "5"
+            image:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0004100000868_A?$DT_PDP_Image$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/button[1]/img[1]/@src
+            imageAlt:
+              - text: Lipton Diet Iced Tea Mix, Lemon (5.9 oz., makes 20 quarts)
+                xpath: /html/body/@imagealt
+            metaKeywords:
+              - text: beverage drink flavored-drink instant non-carbonated foodservice
+                  restaurant restaurants flavored beverages instant-beverage,Tea
+                  Lipton Lipton tea Instant Tea Iced Tea Ice tea diet ice tea
+                  mix,Tea, Lipton, Lipton tea, Instant Tea, Iced Tea, Ice tea,
+                  diet, ice tea mix, lemon ice tea, lemon flavor
+                xpath: /html/head[1]/meta[13]/@content
+            name:
+              - text: Lipton Diet Iced Tea Mix, Lemon (5.9 oz., makes 20 quarts)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            nameExtended:
+              - text: Lipton Diet Iced Tea Mix, Lemon (5.9 oz., makes 20 quarts)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            price:
+              - text: "current price: $5.38$5.38"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            ratingCount:
+              - text: "231"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[3]/meta[1]/@content
+            shippingInfo:
+              - text: |-
+                  Shipping Info
+                  Standard - 2 to 6 business days 
+                   
+                  Premium - 2 to 4 business days
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]
+            sku:
+              - text: "157500"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/@data-bv-product-id
+            url:
+              - text: https://www.samsclub.com/p/lipton-diet-iced-tea-mix-5-9-oz/157500
+                xpath: /html/head[1]/link[38]/@href
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1591522427635

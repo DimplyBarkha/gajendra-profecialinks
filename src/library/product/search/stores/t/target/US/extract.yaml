@@ -1,78 +1,43 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //div[@data-test="productGridContainer"]//li
+recordSelector: null
+recordXPath: //ul//li
+#recordXPath: null
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-  - name: category
+  - name: id
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
-  - name: productUrl
-    singleValue: true
-    description: The URL for the product details page
-  - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
+    xpath: //div[@class="itemId"]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@class="rank"]
   - name: name
-    singleValue: true
-    description: The product name
-    selector: a[data-test="product-title"]
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
+    singleValue: false
+    xpath: //a[@data-test="product-title"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@data-test="product-title"]/@href
   - name: gtin
     singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
+  - name: thumbnail
     singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
+    xpath: //source/@srcset
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
   - name: reviewCount
-    singleValue: true
-    description: The number of reviews
+    singleValue: false
+    xpath: //span[@data-test="product-rating-count"]
   - name: price
-    singleValue: true
-    description: The offered price for the product
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
+    singleValue: false
+    xpath: //span[@data-test="product-price"]
   - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
+    singleValue: false
+    xpath: //a[@data-test="itemDetail-brand"]
   - name: soldBy
     singleValue: true
-    description: The name of the seller of the item (if available)
+  - name: rank
+    singleValue: false
+    xpath: //div[@class="rank"]
   - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-  - name: id
-    singleValue: true
-    description: Unique id (within this extractor)
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    singleValue: false
+    xpath: //div[@class="endorsement"]

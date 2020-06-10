@@ -1,6 +1,6 @@
 /**
  *
- * @param { { } } inputs
+ * @param { { url?: string,  id?: string} } inputs
  * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -33,6 +33,18 @@ module.exports = {
     },
   ],
   inputs: [
+    {
+      name: 'url',
+      description: 'url of product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'id',
+      description: 'unique identifier for product',
+      type: 'string',
+      optional: true,
+    },
   ],
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',

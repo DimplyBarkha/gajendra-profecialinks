@@ -1,0 +1,238 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //meta[@property='og:image']/@content
+  - name: imageAlt
+    singleValue: true
+    xpath: (//div[contains(@class,'c-product-viewer__content')]//img/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[contains(@class,"c-product-viewer__content")]//div[contains(@class,"c-product-viewer__thumb-wrapper swiper-wrapper")]//img/@src)[position()>1]
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,"c-product-viewer__content")]//li[position()>=2]
+  - name: nameExtended
+    singleValue: true
+    xpath: (//div[contains(@class,"c-product-shop-box__title")])[1]
+  - name: listPrice
+    singleValue: true
+    defaultValue: 0
+    xpath: //span[contains(@class,"c-product-shop-box__price-nominal")]
+  - name: price
+    singleValue: true
+    defaultValue: 0
+    xpath: //span[contains(@class,"c-product-shop-box__price-current")]
+  - name: availabilityText
+    singleValue: true
+    defaultValue: Out of Stock
+    regExp: instock
+    regExpReplace: In stock
+    xpath: //meta[@property="product:availability"]/@content
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"page__section p-product-detail__about-product")]//div[contains(@class,"page__section-content")]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[contains(@class,"page__section p-product-detail__about-product")]//div[contains(@class,"page__section-content")]//li)
+  - name: brandText
+    singleValue: true
+    xpath: //div[contains(text(),'Brand')]/following-sibling::span
+  - name: manufacturer
+    singleValue: true
+  - name: quantity
+    singleValue: true
+    xpath: //div[@id="quantityInfo"]
+  - name: weightNet
+    singleValue: true
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: true
+    xpath: //div[contains(text(),'UPC')]/following-sibling::span
+    regExp: (\d+){12}
+  - name: sku 
+    singleValue: true
+    xpath: //div[contains(text(),'SKU')]/following-sibling::span
+  - name: variantId
+    singleValue: true
+    xpath: //div[contains(text(),'Stock Reference')]/following-sibling::span
+  - name: mpc
+    singleValue: true
+    xpath: //div[contains(text(),'MPN')]/following-sibling::span
+  - name: packSize
+    singleValue: true
+  - name: legalDisclaimer
+    singleValue: true
+  - name: directions
+    singleValue: true
+  - name: warnings 
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+    defaultValue: 0
+    xpath: (//span[contains(@class,"c-product-shop-box__review-rating")]//span)[1]
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: aggregateRatingText
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+    defaultValue: 0
+    xpath: (//span[contains(@class,"c-product-shop-box__review-rating")]//div/@class)[1]
+    regExp: (\d*)
+    regExpReplace: $1    
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@id="shippingInfo"]
+  - name: shippingDimension
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: variantCount
+    singleValue: true
+    xpath: count(//div[contains(@class,"c-multi-product-slider")]//img)
+  - name: name
+    singleValue: true
+    xpath: (//div[contains(@class,"c-product-shop-box__title")])[1]
+  - name: servingSize
+    singleValue: true
+    xpath: //div[@id="servingSize"]
+  - name: servingSizeUom
+    singleValue: true
+  - name: numberOfServingsInPackage
+    singleValue: true
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //div[@id="caloriesPerServing"]
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    xpath: //div[@id="caloriesFromFatPerServing"]
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //div[@id="totalFatPerServing"]
+  - name: totalFatPerServingUom
+    singleValue: true
+    xpath: //div[@id="totalFatPerServingUom"]
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: //div[@id="saturatedFatPerServing"]
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    xpath: //div[@id="saturatedFatPerServingUom"]
+  - name: transFatPerServing
+    singleValue: true
+    xpath: //div[@id="transFatPerServing"]
+  - name: transFatPerServingUom
+    singleValue: true
+    xpath: //div[@id="transFatPerServingUom"]
+  - name: cholestrolPerServing
+    singleValue: true
+    xpath: //div[@id="cholestrolPerServing"]
+  - name: cholestrolPerServingUom
+    singleValue: true
+    xpath: //div[@id="cholestrolPerServingUom"]
+  - name: sodiumPerServing
+    singleValue: true
+    xpath: //div[@id="sodiumPerServing"]
+  - name: sodiumPerServingUom
+    singleValue: true
+    xpath: //div[@id="sodiumPerServingUom"]
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //div[@id="totalCarbPerServing"]
+  - name: totalCarbPerServingUom
+    singleValue: true
+    xpath: //div[@id="totalCarbPerServingUom"]
+  - name: dietaryFibrePerServing
+    singleValue: true
+    xpath: //div[@id="dietaryFibrePerServing"]
+  - name: dietaryFibrePerServingUom
+    singleValue: true
+    xpath: //div[@id="dietaryFibrePerServingUom"]
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //div[@id="totalSugarsPerServing"]
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    xpath: //div[@id="totalSugarsPerServingUom"]
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //div[@id="proteinPerServing"]
+  - name: proteinPerServingUom
+    singleValue: true
+    xpath: //div[@id="proteinPerServingUom"]
+  - name: vitaminAPerServing
+    singleValue: true
+    xpath: //div[@id="vitaminAPerServing"]
+  - name: vitaminAPerServingPerServingUom
+    singleValue: true
+    xpath: //div[@id="vitaminAPerServingPerServingUom"]
+  - name: vitaminCPerServing
+    singleValue: true
+    xpath: //div[@id="vitaminCPerServing"]
+  - name: vitaminCPerServingPerServingUom
+    singleValue: true
+    xpath: //div[@id="vitaminCPerServingPerServingUom"]
+  - name: calciumPerServing
+    singleValue: true
+    xpath: //div[@id="calciumPerServing"]
+  - name: calciumPerServingUom
+    singleValue: true
+    xpath: //div[@id="calciumPerServingUom"]
+  - name: ironPerServing
+    singleValue: true
+    xpath: //div[@id="ironPerServing"]
+  - name: ironPerServingUom
+    singleValue: true
+    xpath: //div[@id="ironPerServingUom"]
+  - name: dietarySymbols
+    singleValue: true
+  - name: magnesiumPerServing
+    singleValue: true
+    xpath: //div[@id="magnesiumPerServing"]
+  - name: magnesiumPerServingUom
+    singleValue: true
+    xpath: //div[@id="magnesiumPerServingUom"]
+  - name: saltPerServing
+    singleValue: true
+    xpath: //div[@id="saltPerServing"]
+  - name: saltPerServingUom
+    singleValue: true
+    xpath: //div[@id="saltPerServingUom"]
+  - name: dietaryInformation
+    singleValue: true
+  - name: allergyAdvice
+    singleValue: true
+    xpath: //div[@id='allergens']
+  - name: alcoholContent
+    singleValue: true
+  - name: promotion
+    singleValue: true
+    xpath: //span[contains(@class,"c-product-shop-box__price-you-save")]
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    defaultValue: "No"
+  - name: termsAndConditions
+    singleValue: true
+    defaultValue: "No"
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: "No"
+  - name: materials
+    singleValue: true
+  - name: 360ImagePresent
+    singleValue: true
+    defaultValue: "No"
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    xpath: //div[@id='imageZoomFeaturePresent']
+    defaultValue: "No"
+  
+
