@@ -20,7 +20,6 @@ module.exports = {
       function addAllergensList () {
         const allergensList = [];
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-
         // @ts-ignore
         for (const div of rowDiv) {
           if (div.textContent.includes('Allergens')) {
@@ -37,7 +36,13 @@ module.exports = {
       }
 
       function addShippingInfo () {
-        const shippingDivText = document.querySelector('span.c-product-shop-box__ship-info-description-shipping').textContent;
+        const shippingDiv = document.querySelector('span.c-product-shop-box__ship-info-description-shipping');
+        let shippingDivText = '';
+        if (shippingDiv) {
+          shippingDivText = shippingDiv.textContent;
+        } else {
+          return;
+        }
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
         let shipText = '';
         // @ts-ignore
@@ -92,6 +97,8 @@ module.exports = {
           'saturated fat uom': 'saturatedFatPerServingUom',
           'trans fat': 'transFatPerServing',
           'trans fat uom': 'transFatPerServingUom',
+          'transfatty acids': 'transFatPerServing',
+          'transfatty acids uom': 'transFatPerServingUom',
           cholesterol: 'cholestrolPerServing',
           'cholesterol uom': 'cholestrolPerServingUom',
           'total carbohydrates': 'totalCarbPerServing',
@@ -112,8 +119,10 @@ module.exports = {
           'iron uom': 'ironPerServingUom',
           magnesium: 'magnesiumPerServing',
           'magnesium uom': 'magnesiumPerServingUom',
-          sodium: 'saltPerServing',
-          'sodium uom': 'saltPerServingUom',
+          salt: 'saltPerServing',
+          'salt uom': 'saltPerServingUom',
+          sodium: 'sodiumPerServing',
+          'sodium uom': 'sodiumPerServingUom',
         };
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
         // @ts-ignore
@@ -133,7 +142,7 @@ module.exports = {
       function hasZoomFeature () {
         const content = document.querySelector('.c-product-viewer__image-wrapper');
 
-        if (content.querySelector('div').hasAttribute('data-zoom')) {
+        if (content !== null && content.querySelector('div').hasAttribute('data-zoom')) {
           addHiddenDiv('imageZoomFeaturePresent', 'Yes');
         }
       }
