@@ -17,12 +17,22 @@ module.exports = {
 
     if (loginPageResponse.status !== 200) {
       console.log('Blocked: ' + loginPageResponse.status);
+      console.log('Loading the product page without login');
+      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+      return;
+    }
+    const hasAccountInput= await context.evaluate((selector) => !!document.querySelector(selector), '#account_number');
+    if (!hasAccountInput) {
+      console.log('Aleady logged in');
+      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
       return;
     }
     await context.evaluate(async function () {
       const ACCOUNT_ID = '804999333';
+      const ele = document.getElementById('account_number');
       document.getElementById('account_number').value = ACCOUNT_ID;
     });
+
     await context.clickAndWaitForNavigation('input[name="submit"]', {}, { timeout: 30000, waitUntil: 'load' });
     await context.evaluate(async function () {
       const ACCOUNT_PWD = 'bestway804';
