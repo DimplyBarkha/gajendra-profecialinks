@@ -1,0 +1,70 @@
+input:
+  _url: https://otto.de
+  URL: "https://www.otto.de/p/adidas-performance-sweatshorts-3-stripes-tape-short\
+    -960830665/#variationId=960831079\0"
+extractions:
+  - html: https://workbench.import.io/html/run=deaad475-dd93-44e5-9865-330d1c2c2e1d/task=5a91ec24-b169-467c-83bc-976dde4a9b7c/0085a63f-1d9c-4a5c-beaa-220faaffb9ef.html
+    extractionConfigId: product/details/stores/o/otto/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+            alternateImages:
+              - text: https://i.otto.de/i/otto/abbdaee8-0c29-5ce4-93d7-32a3533ac9ce?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://i.otto.de/i/otto/a9ecb09d-14ee-501e-9dd6-2cb653c63ca0?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://i.otto.de/i/otto/6aa1d999-56e6-532c-995b-0023ebf8015b?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://i.otto.de/i/otto/0543ab5d-2b77-5777-aee1-e52a9e9c3002?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://i.otto.de/i/otto/f6ded621-25e8-5e21-a897-283912011143?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://i.otto.de/i/otto/a8612f1e-346d-5273-9831-a7023d76ed1d?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
+              - text: https://i.otto.de/i/otto/45c53211-73e8-5469-a6e4-ba90a7c64375?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+              - text: https://i.otto.de/i/otto/95b4f07a-f488-57eb-b5b9-e84894cdd1c2?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[8]/img[1]/@src
+            brandText:
+              - text: adidas Performance
+                xpath: /html/body/div[8]
+            color:
+              - text: schwarz
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/@title
+            description:
+              - text: Article no. undefined Sweatshorts von adidas Performance Mit seitlichen
+                  Eingrifftaschen Gummizugbund mit außenliegender Kordel
+                  Logodruck am Bein Die sportiven Shorts von adidas Performance
+                  trumpfen auf der einen Seite mit einem kontrastfarbenen
+                  Logoprint und auf der anderen mit den labeltypischen drei
+                  Streifen auf. Beide Seiten verfügen zudem über eine praktische
+                  Eingrifftasche für Kleinigkeiten, die du beim Training dabei
+                  haben musst. Damit die trageangenehme Sporthose nicht
+                  verrutscht, besitzt sie einen elastischen Bund mit
+                  integriertem Tunnelzug. Jetzt bist du gefragt – mit den coolen
+                  Shorts von adidas Performance.
+                xpath: /html/body/div[9]
+            descriptionBullets:
+              - text: "4"
+            gtin:
+              - text: "4062049017971"
+                xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
+            image:
+              - text: https://i.otto.de/i/otto/abbdaee8-0c29-5ce4-93d7-32a3533ac9ce/adidas-performance-sweatshorts-3-stripes-tape-short-schwarz.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: adidas Performance Sweatshorts »3 STRIPES TAPE SHORT«, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            quantity:
+              - text: XL
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[3]/div[1]/span[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
+            variantId:
+              - text: "10"
+                xpath: /html/body/div[10]
+        xpath: /
+    timestamp: 1591766367269
