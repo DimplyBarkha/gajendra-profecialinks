@@ -21,14 +21,20 @@ example commit message command:
 
 ## Build Checklist
 #### GitHub
-- [ ] Please assign yourself to this issue
-- [ ] Please confirm `Source` Label is added
-- [ ] Please link issue to the correct project
-- [ ] Please link issue to the correct milestone
+- [ ] Ensure the CLI and repository are download correctly
+- [ ] Assign yourself to this issue
+- [ ] Confirm `Source` Label is added
+- [ ] Link issue to the correct project
+- [ ] Link issue to the correct milestone
+- [ ] Confirm Source was added to Project dash
 - [ ] From Master, create a branch that references this issue.
 `git checkout -b {issue_title}`
 
+#### Workbench
+- [ ] Create a source in the Testing and Development collection. Source should have no extractor or parameters at this time
+
 #### Building
+- [ ] Promote Source to `Building` in Project Dash
 - [ ] Please add `Building` Label
 - [ ] Create extractor robot
 https://import-io.github.io/import-io-cli-public/#import-io-extractornew
@@ -39,6 +45,7 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractornew
 - [ ] Please remove `Building` Label
 
 #### Testing
+- [ ] Promote Source to `Testing` in Project Dash
 - [ ] Please add `Testing` Label
 - [ ] Run extractor Locally
 https://import-io.github.io/import-io-cli-public/#import-io-actionrunlocal
@@ -49,22 +56,25 @@ https://import-io.github.io/import-io-cli-public/#import-io-actionrunremote
 - [ ] Please add `Testing` Label
 
 #### Internal Deployment
+- [ ] Promote Source to `Internal Deployment` in Project Dash
 - [ ] Please add `Deploying` Label
-- [ ] Deploy to `dev` branch
+- [ ] Deploy to `development` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 - [ ] Link `dev` extractor GUID to TEST collection source in workbench
-- [ ] Confirm source params are set up properly in workbench. Source `state` should be `dev`
+- [ ] Confirm source params are set up properly in workbench. Source `state` should be `development`
 - [ ] Scale/High Volume run
 - [ ] Commit changes to local branch
 - [ ] Please remove `Deploying` Label
 
 #### QA
+- [ ] Promote Source to `QA` in Project Dash
 - [ ] Please add `Peer Review Requested` Label
 - [ ] Peer Review QA Complete
 - [ ] Commit changes to local branch
 - [ ] Please remove `Peer Review Requested` Label
 
 #### Staging
+- [ ] Promote Source to `Staging` in Project Dash
 - [ ] Please add `Staging` Label
 - [ ] Deploy to `staging` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
@@ -74,11 +84,13 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 - [ ] Commit changes to local branch
 
 #### Final Review
+- [ ] Promote Source to `Final Review` in Project Dash
 - [ ] Please add `Final Review Requested` Label
 - [ ] SA QA approval Complete
 - [ ] Please remove `Final Review Requested` Label
 
 #### Pull Request
+- [ ] Promote Source to `Pull Request` in Project Dash
 - [ ] Please add `Pull Request` Label
 - [ ] `npm run lint` or `npm run lint:fix` before creating pull request
 - [ ] Commit lint changes to local branch
@@ -90,7 +102,10 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 ------
 
 #### Production
+- [ ] Confirm Source was promoted to `Production` in Project Dash
 - [ ] Confirm PR is approved and changes were merged with master
 - [ ] Please remove `Staging` Label
+- [ ] Please remove `Pull Request` Label
+- [ ] Please add `Production` Label
 - [ ] Link `production` extractor GUID to source in workbench
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `production`
