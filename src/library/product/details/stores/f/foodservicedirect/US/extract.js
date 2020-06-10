@@ -1,13 +1,13 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'foodservicedirect',
-    transform: null,
+    transform: cleanUp,
     domain: 'foodservicedirect.com',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(() => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -145,6 +145,6 @@ module.exports = {
       quantity();
     });
 
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform: transformParam });
   },
 };

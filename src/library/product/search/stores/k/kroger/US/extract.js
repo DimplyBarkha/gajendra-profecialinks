@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,20 +7,15 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  async function getElementsOnPage() {
+  async function getElementsOnPage () {
     return await context.evaluate(() => {
       return document.getElementsByClassName('kds-Text--m text-default-800 mt-12 mb-4 font-500').length;
     });
   }
 
-  let currentElCount = await getElementsOnPage();
+  const currentElCount = await getElementsOnPage();
 
-  let totalElCount = currentElCount;
-
-
-
-
-
+  const totalElCount = currentElCount; // eslint-disable-line
 
   return await context.extract(productDetails, { transform });
 }
@@ -34,5 +29,6 @@ module.exports = {
     store: 'kroger',
     transform: transform,
     domain: 'kroger.com',
-  }, implementation
+  },
+  implementation,
 };
