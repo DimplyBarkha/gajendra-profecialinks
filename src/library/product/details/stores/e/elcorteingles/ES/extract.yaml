@@ -55,57 +55,63 @@ fields:
     xpath: //div[@class="info _nutrients"]//table//tr[1]//th[last()]
     regExp: (\d+)
   - name: servingSizeUom
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="info _nutrients"]//table//tr[1]//th[last()]
     regExp: \s(.+)
+    regExpReplace: $1
   - name: caloriesPerServing
     singleValue: true
     xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])[1]
   - name: totalFatPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
-    regExp: (.+)\sg
+    regExp: (.+)\s(.+)
     regExpReplace: $1
   - name: totalFatPerServingUom
-    singleValue: true
+    singleValue: false
     xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
     regExp: \s(.+)
+    regExpReplace: $1
   - name: totalCarbPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Hidratos de carbono')]/../td[2]//td[1])[1]
-    regExp: (.+)\sg
+    regExp: (.+)\s(.+)
     regExpReplace: $1
   - name: totalCarbPerServingUom
-    singleValue: true
+    singleValue: false
     xpath: (//td[contains(text(),'Hidratos de carbono')]/../td[2]//td[1])[1]
     regExp: \s(.+)
+    regExpReplace: $1
   - name: dietaryFibrePerServing
     singleValue: false
     xpath: (//td[contains(text(),'Fibra alimentaria')]/../td[2]//td[1])[1]
-    regExp: (.+)\sg
+    regExp: (.+)\s(.+)
     regExpReplace: $1
   - name: dietaryFibrePerServingUom
-    singleValue: true
+    singleValue: false
     xpath: (//td[contains(text(),'Fibra alimentaria')]/../td[2]//td[1])[1]
     regExp: \s(.+)
+    regExpReplace: $1
   - name: totalSugarsPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Azúcares')]/../td[2]//td[1])[1]
-    regExp: (.+)\sg
+    regExp: (.+)\s(.+)
     regExpReplace: $1
   - name: totalSugarsPerServingUom
-    singleValue: true
+    singleValue: false
     xpath: (//td[contains(text(),'Azúcares')]/../td[2]//td[1])[1]
     regExp: \s(.+)
+    regExpReplace: $1
   - name: proteinPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Proteínas')]/../td[2]//td[1])[1]
-    regExp: (.+)\sg
+    regExp: (.+)\s(.+)
     regExpReplace: $1
   - name: proteinPerServingUom
-    singleValue: true
+    singleValue: false
     xpath: (//td[contains(text(),'Proteínas')]/../td[2]//td[1])[1]
     regExp: \s(.+)
+    regExpReplace: $1
   - name: ratingCount
     singleValue: true
     xpath: //div[@id="ratingCount"]
@@ -115,12 +121,13 @@ fields:
   - name: saltPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
-    regExp: (.+)\sg
+    regExp: (.+)\s(.+)
     regExpReplace: $1
   - name: saltPerServingUom
     singleValue: false
     xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
     regExp: \s(.+)
+    regExpReplace: $1
   - name: pricePerUnit
     singleValue: false
     xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
