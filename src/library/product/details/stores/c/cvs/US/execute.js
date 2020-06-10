@@ -47,10 +47,9 @@ module.exports = {
       }
       url = await dependencies.createUrl({ id });
     }
-    
+
     // TODO: Check for not found?
     await dependencies.goto({ url, timeout: 50000 });
-
   },
 
 };
