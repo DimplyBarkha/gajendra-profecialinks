@@ -98,14 +98,14 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 - [ ] Ensure pull request passes build
 - [ ] Add `Review Needed` Label to Pull request
 - [ ] Ensure pull request is linked to this issue
+- [ ] Confirm PR is approved/closed and changes were merged with master
+- [ ] Remove `Staging` Label
+- [ ] Remove `Pull Request` Label
 
 ------
 
 #### Production
-- [ ] Confirm PR is approved/closed and changes were merged with master
-- [ ] Confirm Source was promoted to `Production` in Project Dash
-- [ ] Remove `Staging` Label
-- [ ] Remove `Pull Request` Label
+- [ ] Promote Source to `Production` in Project Dash
 - [ ] Add `Production` Label
 - [ ] Ensure extractor gets deployed to the `production` branch in the daily production deployment
 - [ ] Link production extractor GUID to production source in workbench
