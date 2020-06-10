@@ -156,16 +156,16 @@ async function implementation (
 
     const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC');
     if (zoom) {
-      addHiddenDiv('zoomInfo', 'YES');
+      addHiddenDiv('zoomInfo', 'Yes');
     } else {
-      addHiddenDiv('zoomInfo', 'NO');
+      addHiddenDiv('zoomInfo', 'No');
     }
 
     const rotate = document.querySelector('button[data-test="button-model-viewer"]');
     if (rotate) {
-      addHiddenDiv('rotateInfo', 'YES');
+      addHiddenDiv('rotateInfo', 'Yes');
     } else {
-      addHiddenDiv('rotateInfo', 'NO');
+      addHiddenDiv('rotateInfo', 'No');
     }
 
     const button = document.querySelector("a[href='#tabContent-tab-Labelinfo']");
@@ -258,18 +258,18 @@ async function implementation (
       }
     });
 
-    let terms = 'NO';
+    let terms = 'No';
     if (document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
-      terms = 'YES';
+      terms = 'Yes';
     }
     addHiddenDiv('terms', terms);
 
-    let privacy = 'NO';
+    let privacy = 'No';
     if (document.querySelector('a[href="/c/target-privacy-policy/-/N-4sr7p"]')) {
-      privacy = 'YES';
+      privacy = 'Yes';
     }
     addHiddenDiv('privacy', privacy);
-    addHiddenDiv('paid', false);
+    addHiddenDiv('customerServiceAvailability', 'Yes');
 
     let scrollTop = 500;
     while (true) {
@@ -294,6 +294,10 @@ async function implementation (
         variants.push(split[split.length - 1]);
       });
       addHiddenDiv('variants', variants.join(' | '));
+    }
+
+    if (document.querySelector('div[data-test="orderPickupMessage"]')) {
+      addHiddenDiv('availability', 'In stock');
     }
 
     const video = document.querySelector('img[type="video"]');
