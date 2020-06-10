@@ -43,7 +43,7 @@ async function implementation (
         el.appendChild(newDiv);
       }
 
-      /*function isElementInViewport (el) {
+      /* function isElementInViewport (el) {
         if (el) {
           const rect = el.getBoundingClientRect();
           return (
@@ -54,7 +54,7 @@ async function implementation (
           );
         }
         return false;
-      }*/
+      } */
 
       let scrollTop = 0;
       while (scrollTop !== 20000) {
