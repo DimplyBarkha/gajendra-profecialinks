@@ -57,8 +57,8 @@ async function implementation (
         if (e.innerText.indexOf('UPC') > -1) {
           addHiddenDiv('upcInfo', e.innerText.replace('UPC: ', ''));
         }
-        if (e.innerText.indexOf('Item Number (DPCI)') > -1) {
-          addHiddenDiv('skuInfo', e.innerText.replace('Item Number (DPCI): ', ''));
+        if (e.innerText.indexOf('TCIN') > -1) {
+          addHiddenDiv('skuInfo', e.innerText.replace('TCIN: ', ''));
         }
         if (e.innerText.indexOf('Weight:') > -1 || e.innerText.indexOf('Net weight:') > -1) {
           addHiddenDiv('weightInfo', e.innerText.split(':')[1]);
@@ -269,6 +269,7 @@ async function implementation (
       privacy = 'YES';
     }
     addHiddenDiv('privacy', privacy);
+    addHiddenDiv('paid', false);
 
     let scrollTop = 500;
     while (true) {
@@ -310,6 +311,10 @@ async function implementation (
       addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
       await stall(1000);
     }
+
+
+
+
   });
   return await context.extract(productDetails, { transform });
 }
