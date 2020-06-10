@@ -12,7 +12,7 @@ module.exports = {
     await new Promise(resolve => setTimeout(resolve, 10000));
 
     const linkURL = await context.evaluate(function () {
-      var element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
+      const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
       if (element) {
         return element.href;
       } else {
