@@ -10,7 +10,7 @@ const transform = (data) => {
       if (row.directions) {
         let text = '';
         row.directions.forEach(item => {
-          text += item.text.replace(/\n/g, " ");
+          text += item.text.replace(/\n/g, ' ');
         });
         row.directions = [
           {

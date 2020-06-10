@@ -8,7 +8,10 @@ module.exports = {
     transform,
     domain: 'bestwaywholesale.co.uk',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies) => {
     await context.evaluate(async function () {
       const productData = findProductDetails();
 
@@ -95,6 +98,8 @@ module.exports = {
         document.body.appendChild(prodEle);
       }
     });
+    const { productDetails } = dependencies;
+    const { transform } = parameters;
     return await context.extract(productDetails, { transform });
   },
 };
