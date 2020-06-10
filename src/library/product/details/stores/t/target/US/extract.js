@@ -312,9 +312,6 @@ async function implementation (
       await stall(1000);
     }
 
-
-
-
   });
   return await context.extract(productDetails, { transform });
 }
