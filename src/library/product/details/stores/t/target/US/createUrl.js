@@ -5,6 +5,6 @@ module.exports = {
     prefix: null,
     country: 'US',
     store: 'target',
-    url: 'https://www.target.com/s?searchTerm={id}'
+    url: 'https://www.target.com/s?searchTerm=${id}',
   },
 };

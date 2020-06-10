@@ -30,9 +30,9 @@ async function implementation(
   await context.evaluate(()=>{
     let firstItem = document.querySelector('div.ProductCard-imageBlock a')
     firstItem.click()
-    
+
   })
-  
+
   await context.waitForSelector('div.ProductDetails-header')
 
 
@@ -47,12 +47,12 @@ async function implementation(
     }
 
     let descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden')
-    
+
     if(descriptionItem){
       let descriptionText = descriptionItem[0].textContent
       addHiddenDiv('description',descriptionText)
     }
-    
+
 
     let button = document.getElementsByClassName('kds-Tabs-tab')[1]
 
@@ -152,5 +152,5 @@ module.exports = {
   },
   path: './stores/${store[0:1]}/${store}/${country}/extract',
   implementation,
-  
+
 };

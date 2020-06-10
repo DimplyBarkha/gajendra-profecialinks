@@ -1,0 +1,382 @@
+input:
+  keywords: tartare sauce
+  _url: https://groceries.asda.com
+extractions:
+  - html: https://workbench.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=cc70ada5-b43d-486d-915c-ecc019d3e617/98352f08-7653-43b9-8dca-013bad6cc164.html
+    extractionConfigId: product/search/stores/a/asda/UK/extract
+    data:
+      - group:
+          - input:
+              - text: tartare sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[1]/div[1]/div[1]
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]
+      - group:
+          - name:
+              - text: ASDA Tartare Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.44"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000118273196
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.33"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172101566?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Colman's Tartare Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003020618
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.55"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "44"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8714100536148?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Extra Special Tartare Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.39"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/80755033
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.44"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "16"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5051413363140?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maille Tartare Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.76"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000566989
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8712566128761?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Winiary Tartar Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000833870
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5900862212540?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Colman's Seafood Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003020647
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.44"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "48"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8714100535301?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Light Seafood Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.59"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910001369634
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.92"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054070201732?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Extra Special Spicy Marie Rose Sauce with Brandy
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.39"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000559985
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.83"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5052449510782?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=cc70ada5-b43d-486d-915c-ecc019d3e617/98352f08-7653-43b9-8dca-013bad6cc164.html
+      - group:
+          - name:
+              - text: Maille Tartare Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.76"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000566989
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/128/761/8712566128761_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Pringles Texas BBQ Sauce Flavour Crisps
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003061623
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/138/661/5053990138661_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Cadbury Mini Fingers Biscuits Bag 6 Pack
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000191362495
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/737/236/7622210737236_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Pringles Sour Cream & Onion Flavour Crisps
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003062153
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.91"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/138/753/5053990138753_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Oreo Original Biscuits
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000022640
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "16"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/315/283/7622300315283_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maille Hollandaise Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.76"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/39512
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/128/785/8712566128785_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Pringles Original Flavour Crisps
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003062100
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/138/722/5053990138722_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Cadbury Animals Mini Biscuits 7 Pack
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000191362566
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/737/250/7622210737250_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Hellmann's Real Mayonnaise
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000057722
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/321/842/5000184321842_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Cadbury Fingers Chocolate Biscuits
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002444245
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.82"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com/g/v5/161/599/0072417161599_130_IDShot_4.jpeg
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=cc70ada5-b43d-486d-915c-ecc019d3e617/98352f08-7653-43b9-8dca-013bad6cc164.html
+      - group:
+          - name:
+              - text: Young's Wholetail Scampi
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "4.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000541692
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.8"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "20"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5000205040929?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Seafood Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.59"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910001369312
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054070201688?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Tomato & Garlic Pasta Sauce
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.59"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000868623
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5052449668629?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Peppercorn Sauce Mix
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.94"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000446522
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5052449295306?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Colman's Original English Mustard
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.10"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/19125
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.55"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/50147311?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=cc70ada5-b43d-486d-915c-ecc019d3e617/98352f08-7653-43b9-8dca-013bad6cc164.html
+    timestamp: 1591688338707

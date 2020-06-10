@@ -1,0 +1,102 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //button[@class="sc-image-viewer-img-button"]/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: /html/body/@imagealt
+  - name: alternateImages
+    singleValue: true
+    xpath: //img[@class="sc-image-viewer-thumb"]/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: /html/head/meta[@name="keywords"]/@content
+  - name: url
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="sc-breadcrumbs"]
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class="sc-product-header-title-container"]
+  - name: listPrice
+    singleValue: true
+    xpath: //span[@class="sc-channel-savings-list-price"]
+  - name: price
+    singleValue: true
+    xpath: //span[@class="Price-group"]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@class="sc-oos-card-label"]
+  - name: description
+    singleValue: true
+    xpath: //div[@class="sc-full-description-long"]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class="sc-short-description-content"]/ul/li)
+  - name: brandText
+    singleValue: true
+    xpath: //span[@class="sc-product-header-item-number"][1]
+  - name: manufacturer
+    singleValue: true
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class="sc-cart-qty-button online"]/form/div/div/input/@value
+  - name: weightNet
+    singleValue: true
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: true
+  - name: sku
+    singleValue: true
+    xpath: //div[@id="sc-bv-summary-container"]/@data-bv-product-id
+  - name: variantId
+    singleValue: true
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+  - name: legalDisclaimer
+    singleValue: true
+  - name: directions
+    singleValue: true
+  - name: warnings
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
+  - name: aggregateRatingText
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@itemprop="ratingValue"]
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@class="sc-full-description-spec-shipping sc-full-description-info"]
+  - name: shippingDimensions
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: variantCount
+    singleValue: true
+    xpath: count(//div[@class="sc-product-variants-container"]/div)
+  - name: color
+    singleValue: true
+    xpath: //span[@class="variant-swatch"]
+  - name: colorCode
+    singleValue: true
+  - name: manufacturerDescription
+    singleValue: true
+  - name: manufacturerImages
+    singleValue: true
+  - name: videos
+    singleValue: true
+  - name: name
+    singleValue: true
+    xpath: //div[@class="sc-product-header-title-container"]
