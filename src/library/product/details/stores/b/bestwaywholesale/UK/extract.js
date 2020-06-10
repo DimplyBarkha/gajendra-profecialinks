@@ -5,6 +5,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'bestwaywholesale',
+    transform,
     domain: 'bestwaywholesale.co.uk',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
