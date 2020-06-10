@@ -20,7 +20,6 @@ async function implementation (
     });
   }
 
-
   const url = 'https://target.com/s?searchTerm=' + inputs.keywords || inputs.Keywords;
   await dependencies.goto({ url });
   await context.waitForXPath('//ul//li');
