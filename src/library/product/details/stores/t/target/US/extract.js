@@ -311,7 +311,6 @@ async function implementation (
       addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
       await stall(1000);
     }
-
   });
   return await context.extract(productDetails, { transform });
 }
