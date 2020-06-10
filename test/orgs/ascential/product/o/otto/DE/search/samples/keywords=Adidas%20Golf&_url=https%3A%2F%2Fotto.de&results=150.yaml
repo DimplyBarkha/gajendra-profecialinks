@@ -3,171 +3,1384 @@ input:
   _url: https://otto.de
   results: 150
 extractions:
-  - html: https://workbench.import.io/html/run=20bd2d3f-d6e0-4de2-9517-1b98e5945f11/task=8c1d3a77-1020-4f87-9413-6e0ca1ddbe6d/3e8c247c-9906-4b8d-90cc-6b2f8cecf33b.html
+  - html: https://workbench.import.io/html/run=6d830e92-bff6-41b1-880d-655aa6e58b69/task=e0b57365-44a2-4ac1-91b8-3042c41bf176/eb05f9f2-000c-4845-94b3-51722260689c.html
     extractionConfigId: product/search/stores/o/otto/DE/extract
     data:
       - group:
-          - rank:
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "701750770"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »MH PLAIN POLO« mit versteckter Knopfleiste
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "34.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-mh-plain-polo-mit-versteckter-knopfleiste-701750770/#variationId=701624922
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "39"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "39"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/29550298?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "917942845"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/@data-id
+            name:
+              - text: adidas Performance T-Shirt »MUST HAVE TEE STA«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "23.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-t-shirt-must-have-tee-sta-917942845/#variationId=917942894
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/cdc84506-5576-5c1d-be9e-4d50cd1c1bae?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "962203318"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/@data-id
+            name:
+              - text: adidas Performance T-Shirt »DFB DNA GR TEE«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "29.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-t-shirt-dfb-dna-gr-tee-962203318/#variationId=962203429
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/da0cc6be-bc05-534f-99d6-2fda94845f46?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1151575005"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Novelty Colorblock Poloshirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "49.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-novelty-colorblock-poloshirt-1151575005/#variationId=1151575010
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/41834349-84ba-5e48-91dd-ce8270f2c853?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1151574811"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Novelty Colorblock Poloshirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "49.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-novelty-colorblock-poloshirt-1151574811/#variationId=1151574817
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "5"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/62bf9f7a-bb76-554b-8bb9-d52307c3ec05?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1088249064"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/@data-id
+            name:
+              - text: adidas Performance »CodeChaos Sport Wide Golfschuh« Fitnessschuh Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "149.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-codechaos-sport-wide-golfschuh-fitnessschuh-clima-rdy-1088249064/#variationId=1088249076
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "6"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/cd3ddd2e-3e38-57ad-a511-16dbe88e2468?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1073932965"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/@data-id
+            name:
+              - text: adidas Performance »Adicross Retro Golfschuh« Sneaker adicross
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "109.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-adicross-retro-golfschuh-sneaker-adicross-1073932965/#variationId=1073933011
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/81c815c4-2553-581b-bdba-65c79f67e876?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1056858094"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/@data-id
+            name:
+              - text: adidas Performance »CP Traxion Spikeless Schuh« Fitnessschuh Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "89.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-cp-traxion-spikeless-schuh-fitnessschuh-clima-rdy-1056858094/#variationId=1056858108
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "8"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/39ae1523-1bd2-50d9-b26a-156376c16831?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1088248866"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/@data-id
+            name:
+              - text: adidas Performance »CodeChaos Sport Wide Golfschuh« Fitnessschuh Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "119.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-codechaos-sport-wide-golfschuh-fitnessschuh-clima-rdy-1088248866/#variationId=1088248882
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/f6ae44d4-3e13-58e7-b685-51366ff555c6?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1138400065"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/@data-id
+            name:
+              - text: adidas Performance »Adicross Retro Golfschuh« Fitnessschuh adicross
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "34.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-adicross-retro-golfschuh-fitnessschuh-adicross-1138400065/#variationId=1138400071
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "10"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/a21c6907-da0e-566a-86d6-f61e04aeab33?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1101968562"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/@data-id
+            name:
+              - text: adidas Performance »S2G Golfschuh« Fitnessschuh S2G
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "109.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-s2g-golfschuh-fitnessschuh-s2g-1101968562/#variationId=1101968572
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "11"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/f7afd07c-770b-522a-8a74-22b9cd76e57c?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1148520785"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/@data-id
+            name:
+              - text: adidas Performance T-Shirt »Golf T-Shirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "149.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-t-shirt-golf-t-shirt-1148520785/#variationId=1148520786
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/4401079c-c194-5992-bd8e-672192b75370?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1148522267"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/@data-id
+            name:
+              - text: adidas Performance T-Shirt »Golf T-Shirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "109.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-t-shirt-golf-t-shirt-1148522267/#variationId=1148522273
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "13"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/063382f2-d786-575e-a57e-b35bb6a7ea2e?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1073938498"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/@data-id
+            name:
+              - text: adidas Performance »Adicross Retro Golfschuh« Sneaker adicross
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "64.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-adicross-retro-golfschuh-sneaker-adicross-1073938498/#variationId=1073938501
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "14"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/73750d39-ad64-5511-9e74-30788fed0d4e?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1013973658"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/@data-id
+            name:
+              - text: adidas Performance Shorts »Ultimate365 Shorts« Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "119.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-shorts-ultimate365-shorts-ultimate-1013973658/#variationId=1013973659
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "15"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36165505?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1101324431"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/@data-id
+            name:
+              - text: adidas Performance »S2G Golfschuh« Fitnessschuh S2G
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "34.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-s2g-golfschuh-fitnessschuh-s2g-1101324431/#variationId=1101324474
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "16"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/73924491-61e1-51cc-8fab-2b60651f0e72?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1073942532"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/@data-id
+            name:
+              - text: adidas Performance »Adicross Retro Golfschuh« Sneaker adicross
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "109.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-adicross-retro-golfschuh-sneaker-adicross-1073942532/#variationId=1073942593
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "17"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/87692869-a83d-55d8-a4a5-834b3696a93b?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1101972271"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/@data-id
+            name:
+              - text: adidas Performance »S2G Golfschuh« Fitnessschuh S2G
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "119.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-s2g-golfschuh-fitnessschuh-s2g-1101972271/#variationId=1101972276
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "18"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/583f71d7-f73a-551f-bc69-33e713d5ce19?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1088248943"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/@data-id
+            name:
+              - text: adidas Performance »CodeChaos Golfschuh« Fitnessschuh Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "169.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-codechaos-golfschuh-fitnessschuh-clima-rdy-1088248943/#variationId=1088248950
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "19"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/97c1bcf8-da00-5517-b527-fc46ae18fe73?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1101970747"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/@data-id
+            name:
+              - text: adidas Performance »S2G Golfschuh« Fitnessschuh S2G
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "159.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-s2g-golfschuh-fitnessschuh-s2g-1101970747/#variationId=1101970756
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "20"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/71561f14-8267-56eb-a76b-1c06eb85e692?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1073940951"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/@data-id
+            name:
+              - text: adidas Performance »Response Bounce 2.0 SL Golfschuh« Fitnessschuh Golf
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "149.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-response-bounce-2-0-sl-golfschuh-fitnessschuh-golf-1073940951/#variationId=1073940984
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "21"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/a5c46a1d-76e3-54cd-b88c-2ff27eec6e79?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1101968704"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/@data-id
+            name:
+              - text: adidas Performance »CodeChaos Golfschuh« Fitnessschuh Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "74.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-codechaos-golfschuh-fitnessschuh-clima-rdy-1101968704/#variationId=1101968715
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "22"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/3d73c208-9944-5889-a1fc-db9b7a247a31?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1021177078"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/@data-id
+            name:
+              - text: adidas Performance Sporthose »Ultimate365 Tapered Hose«
+                  Ultimate365;Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "89.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-sporthose-ultimate365-tapered-hose-ultimate365-ultimate-1021177078/#variationId=1021177089
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "23"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36373304?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1088249396"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/@data-id
+            name:
+              - text: adidas Performance »CodeChaos Sport Wide Golfschuh« Fitnessschuh Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "119.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-codechaos-sport-wide-golfschuh-fitnessschuh-clima-rdy-1088249396/#variationId=1088249409
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "24"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/fb395880-566d-56cd-8bf1-e0d6c1cdd597?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1021188265"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/@data-id
+            name:
+              - text: adidas Performance Sporthose »Ultimate365 Tapered Hose«
+                  Ultimate365;Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "74.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-sporthose-ultimate365-tapered-hose-ultimate365-ultimate-1021188265/#variationId=1021188266
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "25"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36373379?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1073934308"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/@data-id
+            name:
+              - text: adidas Performance »Crossknit DPR Golfschuh« Fitnessschuh adicross
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "159.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-crossknit-dpr-golfschuh-fitnessschuh-adicross-1073934308/#variationId=1073934337
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "26"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/7c92ace1-f4e4-527a-bf28-7c470b284339?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1021177164"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/@data-id
+            name:
+              - text: adidas Performance Sporthose »Ultimate365 Tapered Hose«
+                  Ultimate365;Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "74.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-sporthose-ultimate365-tapered-hose-ultimate365-ultimate-1021177164/#variationId=1021177175
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "27"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36373316?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[27]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1013973915"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[28]/@data-id
+            name:
+              - text: adidas Performance Shorts »Ultimate365 Shorts« Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[28]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "64.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[28]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-shorts-ultimate365-shorts-ultimate-1013973915/#variationId=1013973918
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[28]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[28]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "28"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[28]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36165474?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[28]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[28]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1013975255"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[29]/@data-id
+            name:
+              - text: adidas Performance Shorts »Ultimate365 Shorts« Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[29]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "159.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[29]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-shorts-ultimate365-shorts-ultimate-1013975255/#variationId=1013975277
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[29]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[29]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "29"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[29]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36165530?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[29]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[29]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1013976023"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[30]/@data-id
+            name:
+              - text: adidas Performance Shorts »Ultimate365 Shorts« Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[30]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "74.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[30]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-shorts-ultimate365-shorts-ultimate-1013976023/#variationId=1013976029
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[30]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[30]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "30"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[30]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36165395?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[30]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[30]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1021177323"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[31]/@data-id
+            name:
+              - text: adidas Performance Sporthose »Ultimate365 Tapered Hose«
+                  Ultimate365;Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[31]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "74.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[31]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-sporthose-ultimate365-tapered-hose-ultimate365-ultimate-1021177323/#variationId=1021177536
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[31]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[31]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "31"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[31]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36373333?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[31]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[31]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1020476235"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[32]/@data-id
+            name:
+              - text: adidas Performance Sporthose »Ultimate365 Tapered Hose«
+                  Ultimate365;Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[32]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "59.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[32]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-sporthose-ultimate365-tapered-hose-ultimate365-ultimate-1020476235/#variationId=1020476261
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[32]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[32]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "32"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[32]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36352395?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[32]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[32]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1088249278"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[33]/@data-id
+            name:
+              - text: adidas Performance »CodeChaos Golfschuh« Fitnessschuh Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[33]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "59.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[33]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-codechaos-golfschuh-fitnessschuh-clima-rdy-1088249278/#variationId=1088249282
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[33]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[33]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "33"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[33]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/3e29728c-ec84-5780-b4cc-e5d1bc3d199f?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[33]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[33]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1060689047"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[34]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Sport HEAT.RDY Poloshirt« Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[34]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "109.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[34]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-sport-heat-rdy-poloshirt-clima-rdy-1060689047/#variationId=1060689048
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[34]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[34]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "34"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[34]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/6be378a9-b26a-5ff4-87ca-53fc0892a693?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[34]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[34]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1088249474"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[35]/@data-id
+            name:
+              - text: adidas Performance »CodeChaos Golfschuh« Fitnessschuh Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[35]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "89.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[35]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-codechaos-golfschuh-fitnessschuh-clima-rdy-1088249474/#variationId=1088249485
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[35]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[35]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "35"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[35]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/e956fa3d-201e-57ce-a6b7-f23bebea5e73?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[35]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[35]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1138421848"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[36]/@data-id
+            name:
+              - text: adidas Performance »CP Traxion Schuh« Fitnessschuh Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[36]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "139.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[36]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-cp-traxion-schuh-fitnessschuh-clima-rdy-1138421848/#variationId=1138421863
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[36]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[36]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "36"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[36]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/dd495492-6593-5705-a472-3d43b7921ba6?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[36]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[36]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1128936345"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[37]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Sport HEAT.RDY Poloshirt« Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[37]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "89.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[37]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-sport-heat-rdy-poloshirt-clima-rdy-1128936345/#variationId=1128936359
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[37]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[37]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "37"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[37]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/4167c4c6-4d3c-58b5-85c0-b30ff5111167?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[37]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[37]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1064942117"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[38]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Gradient Poloshirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[38]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "169.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[38]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-gradient-poloshirt-1064942117/#variationId=1064942119
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[38]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[38]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "38"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[38]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/925a8e49-546c-5d00-a386-52aa3823f284?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[38]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[38]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1138410744"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[39]/@data-id
+            name:
+              - text: adidas Performance »360 Bounce 2.0 Golfschuh« Fitnessschuh
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[39]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "64.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[39]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-360-bounce-2-0-golfschuh-fitnessschuh-1138410744/#variationId=1138410771
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[39]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[39]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "39"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[39]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/c3754aee-9c3c-568e-8940-8067191cc927?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[39]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[39]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1101405007"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[40]/@data-id
+            name:
+              - text: adidas Performance Funktionstop »Racerback Poloshirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[40]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "59.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[40]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-funktionstop-racerback-poloshirt-1101405007/#variationId=1101405011
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[40]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[40]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "40"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[40]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/a6fa4bc3-8b46-5d5e-b88e-396343ddc267?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[40]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[40]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1073931916"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/@data-id
+            name:
+              - text: adidas Performance »Crossknit DPR Golfschuh« Sneaker adicross
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "49.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-crossknit-dpr-golfschuh-sneaker-adicross-1073931916/#variationId=1073931919
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "41"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/9d6fe388-ccad-535e-bf8d-99284c9d4871?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[41]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1064940817"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[42]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Ultimate365 Printed Poloshirt« Ultimate365
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[42]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "74.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[42]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-ultimate365-printed-poloshirt-ultimate365-1064940817/#variationId=1064940822
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[42]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[42]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "42"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[42]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/49e8ce91-e703-53e8-b773-f1c71a5d73f1?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[42]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[42]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1070031747"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[43]/@data-id
+            name:
+              - text: adidas Performance T-Shirt »Gradient Poloshirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[43]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "159.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[43]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-t-shirt-gradient-poloshirt-1070031747/#variationId=1070031748
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[43]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[43]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "43"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[43]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/3600cca5-b2a9-5ee1-b390-f1b72689e180?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[43]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[43]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1060689917"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Ultimate365 2.0 Solid Poloshirt« Ultimate365
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "49.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-ultimate365-2-0-solid-poloshirt-ultimate365-1060689917/#variationId=1060689920
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "44"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/d3da5e9f-04e7-583f-84b6-52fc3fa68a19?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[44]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1064942092"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[45]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Sport HEAT.RDY Poloshirt« Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[45]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "64.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[45]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-sport-heat-rdy-poloshirt-clima-rdy-1064942092/#variationId=1064942093
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[45]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[45]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "45"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[45]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/ff0343eb-9a07-5f13-8ed0-561d3dff9e93?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[45]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[45]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1025617748"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Microdot Poloshirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "89.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-microdot-poloshirt-1025617748/#variationId=1025617760
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "46"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/faecaa2a-812d-5a99-adc1-f7d41e9b1db4?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[46]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1080870350"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[47]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Ultimate365 Printed Poloshirt« Ultimate365
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[47]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "49.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[47]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-ultimate365-printed-poloshirt-ultimate365-1080870350/#variationId=1080870351
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[47]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[47]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "47"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[47]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/e6eef0c1-e125-5568-b327-2458d7b88c81?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[47]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[47]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "1060686127"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[48]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Ultimate365 2.0 Solid Poloshirt«
+                  Ultimate365;Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[48]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "59.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[48]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-ultimate365-2-0-solid-poloshirt-ultimate365-ultimate-1060686127/#variationId=1060686129
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[48]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[48]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "48"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[48]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/8e816ca5-41a6-5e19-849d-772fc132514f?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[48]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[48]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1140635111"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »Ultimate365 2.0 Solid Poloshirt«
+                  Ultimate365;Ultimate
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "69.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-ultimate365-2-0-solid-poloshirt-ultimate365-ultimate-1140635111/#variationId=1140635117
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "49"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/a05f9ebb-3df7-508a-83d0-261609fca9e0?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[49]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1064941851"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »HEAT.RDY Poloshirt« Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "49.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-heat-rdy-poloshirt-clima-rdy-1064941851/#variationId=1064941857
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "50"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/fbdc629b-9eb0-53b1-a095-54c0bd26706b?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[50]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1060689097"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[51]/@data-id
+            name:
+              - text: adidas Performance Poloshirt »HEAT.RDY Base Poloshirt« Clima;RDY
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[51]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "79.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[51]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-poloshirt-heat-rdy-base-poloshirt-clima-rdy-1060689097/#variationId=1060689104
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[51]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[51]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "51"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[51]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/faa207f1-52f8-52db-97bf-4ec1d6121056?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[51]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[51]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1013975558"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/@data-id
+            name:
+              - text: adidas Performance Sweatshirt »Go-To Adapt Sweatshirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "39.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-sweatshirt-go-to-adapt-sweatshirt-1013975558/#variationId=1013975561
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "52"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36165368?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[52]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1113049923"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/@data-id
+            name:
+              - text: adidas Performance Sweatshirt »Sweatshirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "74.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-sweatshirt-sweatshirt-1113049923/#variationId=1113049928
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "53"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/f00d35f2-1420-5bdc-9486-bd1f76719e6e?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[53]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1106191147"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[54]/@data-id
+            name:
+              - text: adidas Performance Funktionstop »Microdot Sleeveless Poloshirt«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[54]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "64.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[54]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/adidas-performance-funktionstop-microdot-sleeveless-poloshirt-1106191147/#variationId=1106191153
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[54]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[54]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "54"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[54]/@data-listposition
+            thumbnail:
+              - text: https://i.otto.de/i/otto/f9caf841-b3fd-58a9-ac0c-f289c5d8c4b8?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[54]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Adidas%20Golf/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[54]/div[3]/div[1]/a[1]/div[2]
         xpath: /html
-    timestamp: 1591691080816
+    timestamp: 1591785345467

@@ -3,87 +3,830 @@ input:
   _url: https://otto.de
   results: 150
 extractions:
-  - html: https://workbench.import.io/html/run=20bd2d3f-d6e0-4de2-9517-1b98e5945f11/task=a885349b-6fea-4f12-9bce-aa3c0c8f853b/f7d53b22-bfd5-4a07-a394-b71e4f745172.html
+  - html: https://workbench.import.io/html/run=6d830e92-bff6-41b1-880d-655aa6e58b69/task=618d32d2-b852-4672-a738-97ff0b2f5d67/5761b8e4-0fb1-4555-9ead-759eaa059185.html
     extractionConfigId: product/search/stores/o/otto/DE/extract
     data:
       - group:
-          - rank:
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "822572430"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/@data-id
+            name:
+              - text: Braun IPL-Haarentferner Silk·Expert Pro 5 PL5137, 400000 Lichtimpulse,
+                  Smart IPL
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "479.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/braun-ipl-haarentferner-silk-expert-pro-5-pl5137-400000-lichtimpulse-smart-ipl-822572430/#variationId=822579283
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "144"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "144"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/31611717?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "822572430"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/@data-id
+            name:
+              - text: Braun IPL-Haarentferner Silk·Expert Pro 5 PL5137, 400000 Lichtimpulse,
+                  Smart IPL
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "479.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/braun-ipl-haarentferner-silk-expert-pro-5-pl5137-400000-lichtimpulse-smart-ipl-822572430/#variationId=822579283
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "144"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "144"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/31611717?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "759784720"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/@data-id
+            name:
+              - text: Philips IPL-Haarentferner BRI924/00 Lumea Advanced, 250000 Lichtimpulse,
+                  Inklusive VisaPure Mini-Gesichtsbürste
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "269.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/philips-ipl-haarentferner-bri924-00-lumea-advanced-250000-lichtimpulse-inklusive-visapure-mini-gesichtsbuerste-759784720/#variationId=759785258
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "291"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "291"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/29590659?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "584142864"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/@data-id
+            name:
+              - text: Philips IPL-Haarentferner BRI956/00 Lumea Prestige, 250000 Lichtimpulse,
+                  für Körper, Gesicht, Achseln & Bikinizone
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "434.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/philips-ipl-haarentferner-bri956-00-lumea-prestige-250000-lichtimpulse-fuer-koerper-gesicht-achseln-bikinizone-584142864/#variationId=584142946
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "809"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "809"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/20153648?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "972268908"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/@data-id
+            name:
+              - text: Braun IPL-Haarentferner Silk·Expert Pro 5 PL5117 IPL, 400.000 Lichtimpulse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "369.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/braun-ipl-haarentferner-silk-expert-pro-5-pl5117-ipl-400-000-lichtimpulse-972268908/#variationId=972268909
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "5"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "93"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "93"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/35102486?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "584142241"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/@data-id
+            name:
+              - text: Philips IPL-Haarentferner BRI950/00 Lumea Prestige, 250000 Lichtimpulse,
+                  für Körper und Gesicht
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "429.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/philips-ipl-haarentferner-bri950-00-lumea-prestige-250000-lichtimpulse-fuer-koerper-und-gesicht-584142241/#variationId=584142429
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "6"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "24"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "24"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/18327184?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "686391158"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/@data-id
+            name:
+              - text: Philips IPL-Haarentferner BRI954/00 Lumea Prestige, 250000 Lichtimpulse,
+                  für Körper, Gesicht und empfindliche Bereiche
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "414.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/philips-ipl-haarentferner-bri954-00-lumea-prestige-250000-lichtimpulse-fuer-koerper-gesicht-und-empfindliche-bereiche-686391158/#variationId=686391918
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "63"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "63"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/25384046?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "734757776"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/@data-id
+            name:
+              - text: Philips IPL-Haarentferner BRI921/00 Lumea Advanced, 250000 Lichtimpulse,
+                  inkl. Präzisionstrimmer
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "244.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/philips-ipl-haarentferner-bri921-00-lumea-advanced-250000-lichtimpulse-inkl-praezisionstrimmer-734757776/#variationId=734758350
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "8"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "322"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "322"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/35888207?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "477778675"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/@data-id
+            name:
+              - text: BEURER IPL-Haarentferner 10000 Plus, 250000 Lichtimpulse, Dauerhafte
+                  Haarentfernung, schnelle Anwendung, Automatische
+                  Hauttonerkennung
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "274.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/beurer-ipl-haarentferner-10000-plus-250000-lichtimpulse-dauerhafte-haarentfernung-schnelle-anwendung-automatische-hauttonerkennung-477778675/#variationId=477779748
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "118"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "118"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/20328656?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "2.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "972374448"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/@data-id
+            name:
+              - text: Braun IPL-Haarentferner Silk·Expert Pro 3 PL3012, 300.000 Lichtimpulse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "384.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/braun-ipl-haarentferner-silk-expert-pro-3-pl3012-300-000-lichtimpulse-972374448/#variationId=972379138
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "10"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/35103356?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - id:
+              - text: "866065752"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/@data-id
+            name:
+              - text: Philips IPL-Haarentferner BG9041/00 Lumea for Men, 250000 Lichtimpulse,
+                  Lichtbasierte Haarentfernung für dauerhaft glatte Haut
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "249.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/philips-ipl-haarentferner-bg9041-00-lumea-for-men-250000-lichtimpulse-lichtbasierte-haarentfernung-fuer-dauerhaft-glatte-haut-866065752/#variationId=866065980
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "11"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/32624552?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "765155476"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/@data-id
+            name:
+              - text: ProfiCare Haarentfernungsgerät PC-IPL 3024
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "54.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/proficare-haarentfernungsgeraet-pc-ipl-3024-765155476/#variationId=765283286
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "77"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "77"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/32439392?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "765943580"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/@data-id
+            name:
+              - text: Remington IPL-Haarentferner IPL8500, 300000 Lichtimpulse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "299.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/remington-ipl-haarentferner-ipl8500-300000-lichtimpulse-765943580/#variationId=765942763
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "13"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/29694366?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "923330506"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/@data-id
+            name:
+              - text: Silk'n IPL-Haarentferner Infinity Velvet, 400.000 Lichtimpulse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "259.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/silk-n-ipl-haarentferner-infinity-velvet-400-000-lichtimpulse-923330506/#variationId=923330581
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "14"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/34015301?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[1]/div[1]/span[1]/img[2]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "596596469"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/@data-id
+            name:
+              - text: Silk'n HPL-Haarentferner Motion, 350000 Lichtimpulse, Triggerless system
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "199.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/silk-n-hpl-haarentferner-motion-350000-lichtimpulse-triggerless-system-596596469/#variationId=596596812
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "15"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "14"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/18959114?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "635016587"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/@data-id
+            name:
+              - text: BEURER IPL-Haarentferner Velvet Skin Pro, 300000 Lichtimpulse, schnelle
+                  Anwendung, Automatische Hauttonerkennung, Akkubetrieb
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "259.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/beurer-ipl-haarentferner-velvet-skin-pro-300000-lichtimpulse-schnelle-anwendung-automatische-hauttonerkennung-akkubetrieb-635016587/#variationId=635018832
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "16"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/20815855?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "822572419"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/@data-id
+            name:
+              - text: Braun IPL-Haarentferner Silk·Expert Pro 3 PL3132, 300000 Lichtimpulse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "329.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/braun-ipl-haarentferner-silk-expert-pro-3-pl3132-300000-lichtimpulse-822572419/#variationId=822581611
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "17"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/31612018?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - id:
+              - text: "972374444"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/@data-id
+            name:
+              - text: Braun IPL-Haarentferner Silk·Expert Pro 3 PL3111, 300.000 Lichtimpulse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "279.00"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/braun-ipl-haarentferner-silk-expert-pro-3-pl3111-300-000-lichtimpulse-972374444/#variationId=972380228
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "18"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/35102762?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "877132418"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/@data-id
+            name:
+              - text: Silk'n IPL-Haarentferner Infinity Smooth, 400000 Lichtimpulse, inkl.
+                  LadyShave & Verlängerungskabel
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "299.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/silk-n-ipl-haarentferner-infinity-smooth-400000-lichtimpulse-inkl-ladyshave-verlaengerungskabel-877132418/#variationId=877132982
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "19"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/33770154?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "877136074"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/@data-id
+            name:
+              - text: Silk'n IPL-Haarentferner Infinity Premium Smooth, 500000 Lichtimpulse,
+                  inkl. LadyShave &Verlängerungskabel
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "349.00"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/silk-n-ipl-haarentferner-infinity-premium-smooth-500000-lichtimpulse-inkl-ladyshave-verlaengerungskabel-877136074/#variationId=877137319
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "20"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/33771981?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[20]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "877136069"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/@data-id
+            name:
+              - text: Silk'n IPL-Haarentferner Jewel LUXX
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "139.00"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/silk-n-ipl-haarentferner-jewel-luxx-877136069/#variationId=877137104
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "21"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/33106029?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[21]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - id:
+              - text: "923330505"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/@data-id
+            name:
+              - text: Silk'n IPL-Haarentferner Infinity Fresh, 400.000 Lichtimpulse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "329.00"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/silk-n-ipl-haarentferner-infinity-fresh-400-000-lichtimpulse-923330505/#variationId=923330533
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "22"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/34015148?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[22]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "300081866"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/@data-id
+            name:
+              - text: Silk'n IPL Ersatz-Lampeneinsatz »Flash & Go«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "234.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/silk-n-ipl-ersatz-lampeneinsatz-flash-go-300081866/#variationId=300082280
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "23"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/6154842?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[23]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "635035360"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/@data-id
+            name:
+              - text: BEURER IPL-Haarentferner Pure Skin Pro, 200000 Lichtimpulse,
+                  Autoflash-Modus, mit App, sehr handlich
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "24.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/beurer-ipl-haarentferner-pure-skin-pro-200000-lichtimpulse-autoflash-modus-mit-app-sehr-handlich-635035360/#variationId=635036793
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "24"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "102"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "102"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/20815851?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[24]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "568813831"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/@data-id
+            name:
+              - text: Remington IPL-Haarentferner i-Light IPL6780, 300000 Lichtimpulse, für
+                  Körper und Gesicht, klinisch geprüft
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "89.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/remington-ipl-haarentferner-i-light-ipl6780-300000-lichtimpulse-fuer-koerper-und-gesicht-klinisch-geprueft-568813831/#variationId=551383702
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "25"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "64"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "64"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/17572075?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[25]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]
+            id:
+              - text: "687110093"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/@data-id
+            name:
+              - text: Remington HPL-Haarentferner i-Light IPL3500 Compact Control, 350000
+                  Lichtimpulse, mit HPL (Home Pulse Light)-Technologie, Unisex
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]
+            price:
+              - text: "149.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[2]/div[2]/div[1]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/remington-hpl-haarentferner-i-light-ipl3500-compact-control-350000-lichtimpulse-mit-hpl-home-pulse-light-technologie-unisex-687110093/#variationId=687111529
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "26"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/@data-listposition
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/25543618?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[1]/div[1]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/IPL/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[26]/div[2]/div[2]/div[1]/div[1]/a[1]/div[4]
         xpath: /html
-    timestamp: 1591691087856
+    timestamp: 1591785352386

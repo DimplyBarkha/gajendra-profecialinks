@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   // @ts-ignore
   // @ts-ignore
   // @ts-ignore
@@ -9,30 +9,41 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(() => {
+  await context.evaluate(async () => {
     // @ts-ignore
-    function addHiddenDiv (id, content, index) {
+    function addHiddenDiv(id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll("article[class*='product')] span[class*='name']")[index];
+      const originalDiv = document.querySelectorAll("article[class*='product'] span[class*='name']")[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    // const product = document.querySelectorAll("section[id*='san_resultSection'] article[class*='product')]");
-    // var elmnt = document.getElementById("footer[id*='footer']");
-    // elmnt.scrollIntoView();
+    async function tet() {
+     let prevScroll = document.documentElement.scrollTop
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight)
+        await new Promise(r => setTimeout(r, 500));
+        let currentScroll = document.documentElement.scrollTop
+        if (currentScroll === prevScroll) {
+          break
+        }
+        prevScroll = currentScroll
+      }
+    }
+    await tet();
     const product = document.querySelectorAll("script[type*='application/ld+json']");
+    console.log("Number of pages", product.length);
     for (let i = 0; i < product.length; i++) {
       // @ts-ignore
-      product[i] = (product[i]) ? JSON.parse(product[i]) : '';
-      if (product[i]) {
+      let node = (product[i]) ? JSON.parse(product[i].innerText) : '';
+      if (node) {
         // @ts-ignore
-        const aggregateRating = (product[i].aggregateRating && product[i].aggregateRating[0].ratingValue) ? product[i].aggregateRating[0].ratingValue : '';
+        const aggregateRating = (node.aggregateRating && node.aggregateRating[0].ratingValue) ? node.aggregateRating[0].ratingValue : '';
         // @ts-ignore
-        const reviewCount = (product[i].aggregateRating && product[i].aggregateRating[0].reviewCount) ? product[i].aggregateRating[0].reviewCount : '';
+        const reviewCount = (node.aggregateRating && node.aggregateRating[0].reviewCount) ? node.aggregateRating[0].reviewCount : '';
         // @ts-ignore
-        const price = (product[i].offers && product[i].offers[0].price) ? product[i].offers[0].price : '';
+        const price = (node.offers && node.offers[0].price) ? node.offers[0].price : '';
         const url = window.location.href;
         if (aggregateRating) addHiddenDiv('ii_aggregateRating', aggregateRating, i);
         if (reviewCount) addHiddenDiv('ii_reviewCount', reviewCount, i);

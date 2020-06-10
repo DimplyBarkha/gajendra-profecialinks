@@ -3,66 +3,564 @@ input:
   _url: https://otto.de
   results: 150
 extractions:
-  - html: https://workbench.import.io/html/run=20bd2d3f-d6e0-4de2-9517-1b98e5945f11/task=e1dc728b-a561-4884-82ca-35450eb714a7/a66e399d-84a2-4395-a75b-057e72834f8a.html
+  - html: https://workbench.import.io/html/run=6d830e92-bff6-41b1-880d-655aa6e58b69/task=f379623d-42b2-43f1-bddb-6e77d9d64552/12b9c268-5b79-4f90-94be-54d921d0b805.html
     extractionConfigId: product/search/stores/o/otto/DE/extract
     data:
       - group:
-          - rank:
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "532633204"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/@data-id
+            name:
+              - text: BLOMUS Papiertuchbox »MENOTO«, für Feuchttücher
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "62.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/blomus-papiertuchbox-menoto-fuer-feuchttuecher-532633204/#variationId=532633205
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/16225511?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[1]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "294751617"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/@data-id
+            name:
+              - text: Taschentücherbox mit Rosenrelief mit Rosenrelief mit Rosenrelief mit
+                  Rosenrelief
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "17.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/taschentuecherbox-mit-rosenrelief-mit-rosenrelief-mit-rosenrelief-mit-rosenrelief-294751617/#variationId=294755373
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "26"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "26"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/99b22003-d979-5f50-af46-e83de9b1f7de?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[2]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "634355457"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/@data-id
+            name:
+              - text: KEUCO Kosmetiktuchspender, verchromt
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "139.00"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/keuco-kosmetiktuchspender-verchromt-634355457/#variationId=634355458
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "24"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "24"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/2cdd736b-da75-584b-8f7f-d017e9374fa3?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[3]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "761097812"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/@data-id
+            name:
+              - text: MSV Mülleimer »Osaki«, 3L, mit herausnehmbarem Inneneimer
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "39.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/msv-muelleimer-osaki-3l-mit-herausnehmbarem-inneneimer-761097812/#variationId=761090860
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/0767315e-944f-5d74-ba9b-c19e12ef62b0?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[4]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "1003394429"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/@data-id
+            name:
+              - text: BLOMUS Kosmetikeimer »SONO«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "124.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/blomus-kosmetikeimer-sono-1003394429/#variationId=1003394546
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/36401878?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[5]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "3.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "765985075"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/@data-id
+            name:
+              - text: KLEINE WOLKE Schwingdeckel-Abfalleimer »Clap«, Extra klein, 1,5 Liter
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "69.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/kleine-wolke-schwingdeckel-abfalleimer-clap-extra-klein-1-5-liter-765985075/#variationId=765968051
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "5"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/a57fd8bd-1064-583a-ac44-74b70a95797b?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[6]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "1035083640"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/@data-id
+            name:
+              - text: WENKO Kosmetik-Abfalleimer »Leman«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "15.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/wenko-kosmetik-abfalleimer-leman-1035083640/#variationId=1027344281
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "6"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "22"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "22"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/3872943f-badb-5d76-82b2-9898805b8a7a?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[7]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "428033853"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/@data-id
+            name:
+              - text: Kleine Wolke Badezimmer-Abfalleimer »Jump«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "18.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/kleine-wolke-badezimmer-abfalleimer-jump-428033853/#variationId=470715236
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "35"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "35"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/7d0f48c0-3ba2-5fb1-94a7-ff69604e616f?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[8]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "3.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "600496028"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/@data-id
+            name:
+              - text: Joop! Kosmetikeimer »CHROMELINE«, mit Schwingdeckel
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "15.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/joop-kosmetikeimer-chromeline-mit-schwingdeckel-600496028/#variationId=600496029
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "8"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "16"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "16"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/19429990?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[9]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "901356316"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/@data-id
+            name:
+              - text: BLOMUS Kosmetikeimer »TUBO«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "179.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/blomus-kosmetikeimer-tubo-901356316/#variationId=901356324
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/33642313?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[10]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "765985071"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/@data-id
+            name:
+              - text: KLEINE WOLKE Treteimer »Silence«, 3 Liter
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "45.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/kleine-wolke-treteimer-silence-3-liter-765985071/#variationId=1022942728
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "10"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/cefaa34b-e375-55c5-85dd-3232d4889be9?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[11]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "957946811"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/@data-id
+            name:
+              - text: RIDDER Aufbewahrungsbox »Classic«, für Papiertücher
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "16.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/ridder-aufbewahrungsbox-classic-fuer-papiertuecher-957946811/#variationId=956660978
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "11"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "22"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "22"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/363d447e-cf33-544e-a6e2-16a8d75b5d1f?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[12]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "600496577"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/@data-id
+            name:
+              - text: Joop! Papiertuchbox »BATHLINE«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "19.95"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/joop-papiertuchbox-bathline-600496577/#variationId=600496640
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/19291593?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[13]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "551654732"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/@data-id
+            name:
+              - text: Wenko Kosmetik-Abfalleimer »Otranto«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "49.90"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/wenko-kosmetik-abfalleimer-otranto-551654732/#variationId=551654734
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "13"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "31"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "31"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/045c8426-bbd9-55c1-8b1a-cf114746de9a?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[14]/div[3]/div[1]/a[1]/div[4]
+          - aggregateRating:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "634354542"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/@data-id
+            name:
+              - text: KEUCO Feuchttücherbox »Elegance«, mit Porzellanbehälter, Wandmontage
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "23.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/keuco-feuchttuecherbox-elegance-mit-porzellanbehaelter-wandmontage-634354542/#variationId=634354543
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "14"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/7312d7c9-d8ca-53d9-b6f0-65cba32c7de4?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[15]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "379424890"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/@data-id
+            name:
+              - text: Zeller Kosmetikbox »Bamboo«
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "28.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/zeller-kosmetikbox-bamboo-379424890/#variationId=364487110
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "15"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/6ad7deec-cad7-5b6d-927d-7ea33c5483af?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[16]/div[3]/div[1]/a[1]/div[2]
+          - aggregateRating:
+              - text: "3.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[1]
+            id:
+              - text: "874975253"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/@data-id
+            name:
+              - text: Kosmetikeimer »BOWL«, mit Schwingmechanismus
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "16.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[3]
+            productUrl:
+              - text: https://www.otto.de/p/kosmetikeimer-bowl-mit-schwingmechanismus-874975253/#variationId=874968923
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "16"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/@data-listposition
-          - rank:
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[2]
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[2]
+            thumbnail:
+              - text: https://i.otto.de/i/otto/97e060d8-3555-5e3b-a368-bc8fbf358fbf?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[17]/div[3]/div[1]/a[1]/div[4]
+          - id:
+              - text: "764482324"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/@data-id
+            name:
+              - text: EMCO Feuchttücherbox »Loft«, chrom
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "79.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/emco-feuchttuecherbox-loft-chrom-764482324/#variationId=764475356
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "17"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/@data-listposition
-          - rank:
+            thumbnail:
+              - text: https://i.otto.de/i/otto/fd5d10d2-cf26-530d-8c89-d106129fef42?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[18]/div[3]/div[1]/a[1]/div[2]
+          - id:
+              - text: "874975339"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/@data-id
+            name:
+              - text: Kosmetik-Abfalleimer »SUN & MOON«, inkl. WC-Bürste
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/span[1]
+            price:
+              - text: "45.99"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/div[1]
+            productUrl:
+              - text: https://www.otto.de/p/kosmetik-abfalleimer-sun-moon-inkl-wc-buerste-874975339/#variationId=874972334
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/@href
+              - text: https://www.otto.de
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/@href
+            rankOrganic:
               - text: "18"
                 xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/@data-listposition
+            thumbnail:
+              - text: https://i.otto.de/i/otto/63a748e1-6907-5679-8408-8818bf57f199?$responsive_ft2$
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[2]/span[1]/img[1]/@src
+            url:
+              - text: https://www.otto.de/suche/Feuchtt%C3%BCcher/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[9]/section[1]/article[19]/div[3]/div[1]/a[1]/div[2]
         xpath: /html
-    timestamp: 1591691085247
+    timestamp: 1591785347980

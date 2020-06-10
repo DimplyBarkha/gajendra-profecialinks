@@ -10,7 +10,7 @@ fields:
     singleValue: true
     xpath: //article/@data-listposition
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@class,'name')]
   - name: productUrl
     singleValue: false
@@ -20,7 +20,7 @@ fields:
   - name: gtin
     singleValue: true
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     xpath: //img[contains(@class,'productImage')]/@src
   - name: url
     singleValue: true
@@ -29,7 +29,7 @@ fields:
     singleValue: true
     xpath: //div[@id='ii_aggregateRating']
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     xpath: //div[@id='ii_reviewCount']
   - name: price
     singleValue: true
@@ -44,4 +44,4 @@ fields:
     singleValue: true
   - name: ratingCount
     singleValue: true
-    xpath: 
+    xpath: //div[@id='ii_reviewCount']
