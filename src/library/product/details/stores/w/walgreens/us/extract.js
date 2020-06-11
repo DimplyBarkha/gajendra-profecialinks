@@ -124,7 +124,7 @@ module.exports = {
         weightGross: shipping ? shipping.shippingWeight : '',
         gtin: details.gtin,
         sku: infos.skuId.split('sku')[infos.skuId.split('sku').length - 1],
-        variantId: infos.skuId.split('sku')[infos.skuId.split('sku').length - 1],
+        variantId: jsonObj.inventory.wicId,
         mpc: '',
         packSize: infos.prodPacksAvailable,
         legalDisclaimer: '',
