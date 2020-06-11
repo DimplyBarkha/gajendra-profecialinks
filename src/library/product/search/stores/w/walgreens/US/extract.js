@@ -44,7 +44,7 @@ async function implementation (
 
     const refURL = window.location.href;
     let productInfo = null;
-    if (document.querySelector('.pagination') === null) {
+    if (document.querySelector('.pagination') !== null) {
       const pageNum = parseInt(document.querySelector('.pagination').querySelector('input').value);
 
       const response = await fetch('https://www.walgreens.com/productsearch/v1/products/search', {
