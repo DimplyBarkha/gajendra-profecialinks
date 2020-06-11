@@ -22,11 +22,14 @@ fields:
       - Electric Toothbrushes
       - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
-    xpath: //a[contains(@class,'product-title-link')]/@href
+    xpath: (//a[contains(@class,'product-title-link')])[1]/@href
+    #regExp: (.*)$
+    regExp: (.+)
+    regExpReplace: https://www.walmart.com$1
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
     xpath: //a[contains(@class,'search-result-productimage')]//img/@data-image-src  
   - name: name
@@ -57,9 +60,11 @@ fields:
     singleValue: true
     description: The offered price for the product
     selector: span.price-main span
+    defaultValue: 0
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    defaultValue: 0
   - name: manufacturer
     singleValue: true
     description: Product manufacturer

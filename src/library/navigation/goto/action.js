@@ -4,6 +4,12 @@ module.exports = {
       name: 'domain',
       description: 'The top private domain of the website (e.g. amazon.com)',
     },
+    {
+      name: 'timeout',
+      description: 'Timeout for loading',
+      type: 'number',
+      optional: true,
+    },
   ],
   inputs: [
     {
@@ -16,6 +22,7 @@ module.exports = {
   },
   path: './domains/${domain[0:2]}/${domain}',
   implementation: async ({ url }, parameters, context, dependencies) => {
-    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    const timeout = parameters.timeout ? parameters.timeout : 10000;
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
   },
 };

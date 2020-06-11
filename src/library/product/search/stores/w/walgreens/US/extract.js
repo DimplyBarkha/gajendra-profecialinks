@@ -43,38 +43,42 @@ async function implementation (
     }
 
     const refURL = window.location.href;
-    const pageNum = parseInt(document.querySelector('.pagination').querySelector('input').value);
-
     let productInfo = null;
+    if (document.querySelector('.pagination') !== null) {
+      const pageNum = parseInt(document.querySelector('.pagination').querySelector('input').value);
 
-    const response = await fetch('https://www.walgreens.com/productsearch/v1/products/search', {
-      headers: {
-        accept: 'application/json, text/plain, */*',
-        'accept-language': 'en-US,en;q=0.9',
-        'cache-control': 'no-cache',
-        'content-type': 'application/json; charset=UTF-8',
-        pragma: 'no-cache',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin',
-      },
-      referrer: refURL,
-      referrerPolicy: 'no-referrer-when-downgrade',
+      const response = await fetch('https://www.walgreens.com/productsearch/v1/products/search', {
+        headers: {
+          accept: 'application/json, text/plain, */*',
+          'accept-language': 'en-US,en;q=0.9',
+          'cache-control': 'no-cache',
+          'content-type': 'application/json; charset=UTF-8',
+          pragma: 'no-cache',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-origin',
+        },
+        referrer: refURL,
+        referrerPolicy: 'no-referrer-when-downgrade',
+        // @ts-ignore
+        body: '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","q":"' + window.__APP_INITIAL_STATE__.search.searchString + '","requestType":"search","sort":"relevance","couponStoreId":"4372"}',
+        method: 'POST',
+        mode: 'cors',
+      });
+
+      if (response && response.status === 404) {
+        console.log('Product Not Found!!!!');
+      }
+
+      if (response && response.status === 200) {
+        console.log('Product Found!!!!');
+        const data = await response.json();
+        console.log(data);
+        productInfo = data.products;
+      }
+    } else {
       // @ts-ignore
-      body: '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","q":"' + window.__APP_INITIAL_STATE__.search.searchString + '","requestType":"search","sort":"relevance","couponStoreId":"4372"}',
-      method: 'POST',
-      mode: 'cors',
-    });
-
-    if (response && response.status === 404) {
-      console.log('Product Not Found!!!!');
-    }
-
-    if (response && response.status === 200) {
-      console.log('Product Found!!!!');
-      const data = await response.json();
-      console.log(data);
-      productInfo = data.products;
+      productInfo = window.__APP_INITIAL_STATE__.searchResult.productList;
     }
 
     const productCards = document.getElementsByClassName('wag-product-card-details');
