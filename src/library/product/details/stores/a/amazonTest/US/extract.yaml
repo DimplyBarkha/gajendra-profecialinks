@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //span[@id='productTitle']
+  - name: price
+    singleValue: true
+    xpath: //span[@id='price_inside_buybox']
+  - name: asin
+    singleValue: true
+    xpath: //div[@id='cerberus-data-metrics']/@data-asin
+  
