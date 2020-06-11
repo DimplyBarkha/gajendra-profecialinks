@@ -20,9 +20,8 @@ fields:
     xpath: //div[@class='extra-info']/@data-thumbnail 
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class, 'wag-prod-review-info')]//img/@title
-    regExp: (\d*\.?\d+) out of 5
-    regExpReplace: $1
+    xpath: //div[@class='extra-info']/@data-rating
+    type: NUMBER
   - name: reviewCount
     singleValue: false
     xpath: //div[contains(@class, 'wag-prod-review-info')]//span

@@ -20,6 +20,19 @@ async function implementation (
       newDiv.dataset.id = skuId !== undefined ? skuId : productCards[i].querySelector('a').getAttribute('id').split('compare_')[1];
       newDiv.dataset.url = 'https://www.walgreens.com' + productCards[i].querySelector('a').getAttribute('href');
       newDiv.dataset.thumbnail = 'https://' + productCards[i].querySelector('img').getAttribute('src').slice(2);
+      const reForRatings = /(\d*\.?\d+) out of 5/;
+      if (productCards[i].querySelector('.wag-prod-review-info').querySelector('img')) {
+        const ratingText = productCards[i].querySelector('.wag-prod-review-info').querySelector('img').getAttribute('title');
+        if (ratingText) {
+          newDiv.dataset.rating = ratingText.replace(reForRatings, '$1');
+        } else {
+          // @ts-ignore
+          newDiv.dataset.rating = 0.0;
+        }
+      } else {
+        // @ts-ignore
+        newDiv.dataset.rating = 0.0;
+      }
       const priceDiv = productCards[i].querySelector('div.wag-prod-price-info span.sr-only');
       const re = /\$(\d+) and (\d+) cents/;
       if (priceDiv) {
@@ -38,6 +51,7 @@ async function implementation (
       if (productInfo !== null) {
         newDiv.dataset.id = productInfo[i].productInfo.wic;
         newDiv.dataset.upc = productInfo[i].productInfo.upc;
+        newDiv.dataset.rating = productInfo[i].productInfo.averageRating;
       }
       productCards.item(i).appendChild(newDiv);
     }
