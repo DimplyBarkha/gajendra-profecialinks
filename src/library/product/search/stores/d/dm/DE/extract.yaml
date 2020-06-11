@@ -4,7 +4,9 @@ recordSelector: null
 recordXPath: //div[@data-dmid="product-tiles"]//div[@data-dmid="product-tile-container"]
 fields:
   - name: rank
+    defaultValue: false
   - name: rankOrganic
+    defaultValue: false
   - name: sponsored
     defaultValue: false
   - name: productUrl
@@ -19,7 +21,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[contains(@data-dmid,"product-tile-image-wrapper")]//a//@alt
+    xpath: //div[@data-dmid="product-description"]
   - name: price
     singleValue: true
     description: The offered price for the product
@@ -28,3 +30,13 @@ fields:
     description: Unique id (within this extractor)
     xpath: //div[@data-dmid="product-tile"]//@id[contains(.,'tile')]
     regExp: ([^-]+$)
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@data-dmid="product-tile-rating"]//@rating
+  - name: ratingCount
+    xpath: //div[@data-dmid="product-tile-rating"]
+    regExp: (\d+)
+    singleValue: false
+
