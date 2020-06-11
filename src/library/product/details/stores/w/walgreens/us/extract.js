@@ -96,7 +96,7 @@ module.exports = {
         ...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
           return [...acc, ...[...frame.contentWindow.document.querySelectorAll('video')].map(v => v[prop || 'src'])];
         }, []),
-        ...[...document.querySelectorAll('video')].map(v => v[prop || 'src'])
+        ...[...document.querySelectorAll('video')].map(v => v[prop || 'src']),
       ];
 
       console.log(desc);
@@ -124,7 +124,7 @@ module.exports = {
         weightGross: shipping ? shipping.shippingWeight : '',
         gtin: details.gtin,
         sku: infos.skuId.split('sku')[infos.skuId.split('sku').length - 1],
-        variantId: infos.primaryAttribute,
+        variantId: infos.skuId.split('sku')[infos.skuId.split('sku').length - 1],
         mpc: '',
         packSize: infos.prodPacksAvailable,
         legalDisclaimer: '',
@@ -136,7 +136,7 @@ module.exports = {
         shippingInfo: jsonObj.inventory.shippingChargeMsg,
         shippingDimensions: shipping ? shipping.productInInches : '',
         shippingWeight: shipping ? shipping.shippingWeight : '',
-        variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc+arr.length), 0),
+        variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc + arr.length), 0),
         color: infos.color,
         colorCode: '',
         manufacturerDescription: getSelector('#wc-aplus', { property: 'innerText' }),
@@ -242,7 +242,7 @@ module.exports = {
         customerServiceAvailability: 'No',
         materials: '',
         Image360Present: 'No',
-        imageZoomFeaturePresent: document.querySelector('#zoomLensContainer') ? 'Yes' : 'No'
+        imageZoomFeaturePresent: document.querySelector('#zoomLensContainer') ? 'Yes' : 'No',
       };
       addObjectToDocument(obj);
     }, [id, url]);
