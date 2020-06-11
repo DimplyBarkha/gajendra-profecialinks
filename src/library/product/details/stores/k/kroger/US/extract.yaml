@@ -7,13 +7,19 @@ fields:
     singleValue: true
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
+  - name: allergyAdvice
+    singleValue: true
+    xpath: //p[@class='NutritionIngredients-Allergens']
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class='RomanceDescription overflow-x-hidden']/ul/li)  
   - name: termsAndConditions
     singleValue: true
     xpath: //a[contains(text(),'Terms and Conditions')]
     regExp: Terms and Conditions
     regExpReplace: 'Yes'
     defaultValue: 'No'
-  - name: brand
+  - name: brandText
     singleValue: true
     description: The brand name
     example: Panasonic
