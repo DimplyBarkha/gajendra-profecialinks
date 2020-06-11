@@ -132,15 +132,11 @@ fields:
     sinlgeValue: true
     xpath:
   - name: asin
-    singleValue: false
+    singleValue: true
     xpath: //link[@rel="canonical"]/@href
-    regExp: \/dp\/(.+)
-    regExpReplace: $1
   - name: sku
     singleValue: false
-    xpath: //link[@rel="canonical"]/@href
-    regExp: ^.+\/dp/\(.+)$
-    regExpReplace: $1
+    xpath: 
   - name: coupon
     singleValue: true
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]

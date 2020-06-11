@@ -27,6 +27,13 @@ const transform = (data, context) => {
     }
     for (const { group } of data) {
         for (const row of group) {
+          if (row.asin) {
+            row.asin = [
+              {
+                text: row.asin[0].text.replace(/.+\/dp\//g,'').trim()
+              },
+            ];
+          }
           if (row.specifications) {
             let text = '';
             row.specifications.forEach(item => {
