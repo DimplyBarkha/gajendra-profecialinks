@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -33,7 +32,7 @@ module.exports = {
       if (prodData) {
         addElementToDocument('ot_nameExtended', `${prodData.name} (${dataObj.id})`);
         addElementToDocument('ot_name', prodData.name);
-        const availabilityText = document.evaluate("//div[@id='availability']/span[@class='soldout']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let availabilityText = document.evaluate("//div[@id='availability']/span[@class='soldout']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         availabilityText = availabilityText ? availabilityText.innerText.trim() : 'In den Warenkorb';
         addElementToDocument('ot_availabilityText', availabilityText);
       }
@@ -41,6 +40,13 @@ module.exports = {
       if (colorlement && colorlement.value.indexOf('background-color') > -1) {
         const colorCode = colorlement.value.slice(colorlement.value.indexOf('#') + 1);
         addElementToDocument('ot_colorcode', colorCode);
+      }
+      const videoButton = document.querySelector('.prd_videoLink__icon');
+      if (videoButton) {
+        videoButton.click();
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        const videoElement = document.querySelector('.p_layer__wrapper video');
+        videoElement && addElementToDocument('ot_video', videoElement.src);
       }
     });
     await context.extract(productDetails);
