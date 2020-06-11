@@ -1,0 +1,33 @@
+input:
+  id: 120110
+  _url: https://samsclub.com
+extractions:
+  - html: https://workbench.import.io/html/run=3485bb92-692c-4d31-a2d6-73ca45243883/task=415b2d7b-a75c-4ded-b696-8031a6e15187/ea208a40-b99d-4dc6-8e2a-89b539c8f0b5.html
+    extractionConfigId: product/details/stores/s/samsclub/US/extract
+    data:
+      - group:
+          - category:
+              - text: |-
+                  All Departments
+                  Home
+                  Home Furnishings
+                  Framed Art & Paintings
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]
+            descriptionBullets:
+              - text: "0"
+            imageAlt:
+              - text: "null"
+                xpath: /html/body/@imagealt
+            listPrice:
+              - text: $159.87
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[3]
+            price:
+              - text: "current price: $142.24$142.24"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            url:
+              - text: https://www.samsclub.com/b/framed-art/1362
+                xpath: /html/head[1]/link[42]/@href
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1591522435412

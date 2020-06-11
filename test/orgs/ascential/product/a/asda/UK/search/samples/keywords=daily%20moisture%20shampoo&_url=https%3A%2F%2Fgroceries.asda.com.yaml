@@ -1,0 +1,181 @@
+input:
+  keywords: daily moisture shampoo
+  _url: https://groceries.asda.com
+extractions:
+  - html: https://workbench.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=b6f1606d-108f-4002-b2a3-a66decbdd573/a64e162a-fa5a-4237-8ebb-659b82f9d9ee.html
+    extractionConfigId: product/search/stores/a/asda/UK/extract
+    data:
+      - group:
+          - input:
+              - text: daily moisture shampoo
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[1]/div[1]/div[1]
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]
+      - group:
+          - name:
+              - text: Dove Daily Moisture Shampoo
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910001420866
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.57"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8712561384841?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Dove Daily Moisture Light Shampoo
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000102260867
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.53"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "32"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8710447337684?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Dove Daily Moisture 2 in 1 Shampoo & Conditioner
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910001420526
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.58"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8712561384704?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Dove Daily Moisture Conditioner
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910001419730
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.61"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8712561571388?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Dove Daily Moisture Light Conditioner
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000102260884
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.72"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "36"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8710447337677?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=b6f1606d-108f-4002-b2a3-a66decbdd573/a64e162a-fa5a-4237-8ebb-659b82f9d9ee.html
+      - group:
+          - name:
+              - text: Dove Intensive Repair Conditioner
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910001420140
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8712561571333?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Dove Intensive Repair Shampoo
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910001420399
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8712561488280?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: TRESemme Smooth & Silky Shampoo
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "4.50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000201883663
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.46"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "28"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8717163900192?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Garnier Ultimate Blends Argan Oil & Almond Cream Dry Hair Conditioner
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.98"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000010555723
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.78"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/3600542119238?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Dove Original Beauty Cream Soap Bars
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/19691
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8000700000012?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=b6f1606d-108f-4002-b2a3-a66decbdd573/a64e162a-fa5a-4237-8ebb-659b82f9d9ee.html
+    timestamp: 1591688331419
