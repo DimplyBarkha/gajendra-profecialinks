@@ -32,8 +32,6 @@ fields:
     regExp: ([^-]+$)
   - name: aggregateRating
     singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
     xpath: //div[@data-dmid="product-tile-rating"]//@rating
   - name: ratingCount
     xpath: //div[@data-dmid="product-tile-rating"]
