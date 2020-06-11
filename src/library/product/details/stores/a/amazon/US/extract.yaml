@@ -134,7 +134,7 @@ fields:
   - name: asin
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
-    regExp: ^.+\/dp/\(.+)$
+    regExp: \/dp\/(.+)
     regExpReplace: $1
   - name: sku
     singleValue: false
