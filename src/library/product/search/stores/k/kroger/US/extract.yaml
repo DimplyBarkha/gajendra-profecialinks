@@ -23,7 +23,11 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
-    xpath: concat('https://www.kroger.com', //a[@class='Color Link']/@href)
+    xpath: //a[@class='Color Link']/@href
+    regExp: >-
+       ^(.*)$
+    regExpReplace:
+      https://www.kroger.com$1
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
@@ -95,4 +99,4 @@ fields:
     singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //span[@data-qa='featured-product-tag']
+    xpath: //div[@data-qa='featured-product-tag']

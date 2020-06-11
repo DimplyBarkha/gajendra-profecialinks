@@ -3,9 +3,9 @@ const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'US',
-    store: 'kroger',
+    country: 'UK',
+    store: 'tesco',
     transform: transform,
-    domain: 'kroger.com',
+    domain: 'tesco.com',
   },
 };
