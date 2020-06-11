@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,7 +7,7 @@ async function implementation(
   const { productDetails } = dependencies;
   await context.waitForSelector('div.category-products > ul > li:not([class="no-hover"])');
   await context.evaluate(async function () {
-    function addElementToDocument(doc, key, value) {
+    function addElementToDocument (doc, key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;

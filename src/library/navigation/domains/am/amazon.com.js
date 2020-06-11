@@ -30,7 +30,11 @@ module.exports = {
           return 'true';
         } else {
           return 'false';
+<<<<<<< HEAD
         };
+=======
+        }
+>>>>>>> master
       });
     };
 
@@ -104,7 +108,7 @@ module.exports = {
             return 'true';
           } else {
             return 'false';
-          };
+          }
         });
 
         if (clickedOK === 'false') {
@@ -157,7 +161,7 @@ module.exports = {
           return 'true';
         } else {
           return 'false';
-        };
+        }
       });
 
       if (wrongLocale === 'true' && !benchmark) {

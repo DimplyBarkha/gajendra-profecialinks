@@ -13,7 +13,8 @@ fields:
     singleValue: false
     xpath: //div[@class='extra-info']/@data-url
   - name: gtin
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-upc
   - name: thumbnail
     singleValue: false
     xpath: //div[@class='extra-info']/@data-thumbnail 
@@ -30,9 +31,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[contains(@class, 'price__contain')]//span[@class='sr-only']
-    regExp: \$(\d+) and (\d+)
-    regExpReplace: $1.$2
+    xpath:  //div[@class='extra-info']/@data-price
   - name: manufacturer
     singleValue: true
   - name: soldBy
