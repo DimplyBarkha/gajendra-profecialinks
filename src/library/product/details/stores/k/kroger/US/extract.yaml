@@ -32,14 +32,13 @@ fields:
       - Electric Toothbrushes & Accessories
       - Electric Toothbrushes
       - Rotating
-    xpath: //ol[@class='list-reset']/li[position()=2]
+    xpath: //ol[@class='list-reset']/li
   - name: subCategory
     singleValue: true
     xpath: concat(//ol[@class='list-reset']/li[position()=2],' > ',//ol[@class='list-reset']/li[position()=3])
   - name: description
     singleValue: true
     xpath: //div[@id='description']
-    # xpath: concat(//div[@class='RomanceDescription overflow-x-hidden']/p[position()=1], //div[@class='RomanceDescription overflow-x-hidden']/p[position()=2])
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
@@ -172,10 +171,10 @@ fields:
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*
     regExp: >-   
-      [0-9]+
+      [0-9,.]+
   - name: totalFatPerServingUom
     singleValue: true
-    defaultValue: g
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*, "Total Fat 0123456789 .","")
   - name: saturatedFatPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Saturated Fat')]/parent::*
@@ -183,7 +182,7 @@ fields:
       [0-9,.]+
   - name: saturatedFatPerServingUom
     singleValue: true
-    defaultValue: g
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Saturated Fat')]/parent::*,"Saturated Fat 0123456789 .","")
   - name: transFatPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Trans Fat')]/parent::*
@@ -191,7 +190,7 @@ fields:
       [0-9]+
   - name: transFatPerServingUom
     singleValue: true
-    defaultValue: g
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Trans Fat')]/parent::*, "Trans Fat 0123456789 .","")
   - name: cholesterolPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Cholesterol')]/parent::*
@@ -199,7 +198,7 @@ fields:
       [0-9]+
   - name: cholesterolPerServingUom
     singleValue: true
-    defaultValue: mg
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Cholesterol')]/parent::*,"Cholesterol 0123456789 .","")
   - name: sodiumPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sodium')]/parent::*
@@ -207,7 +206,7 @@ fields:
       [0-9]+
   - name: sodiumPerServingUom
     singleValue: true
-    defaultValue: mg
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sodium')]/parent::*,"Sodium 01233456789 .","")
   - name: totalCarbPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Carbohydrate')]/parent::*
@@ -215,7 +214,7 @@ fields:
       [0-9]+
   - name: totalCarbPerServingUom
     singleValue: true
-    defaultValue: g
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Carbohydrate')]/parent::*,"Total Carbohydrate 0123456789 .","")
   - name: dietaryFiberPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Dietary Fiber')]/parent::*
@@ -223,7 +222,7 @@ fields:
       [0-9]+
   - name: dietaryFiberPerServingUom
     singleValue: true
-    defaultValue: g
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Dietary Fiber')]/parent::*,"Dietary Fiber 0123456789 .","")
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sugar')]/parent::*
@@ -231,6 +230,7 @@ fields:
       [0-9]+
   - name: totalSugarsPerServingUom
     singleValue: true
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sugar')]/parent::*,"Suars 0123456789 .","")
     defaultValue: g
   - name: proteinPerServing
     singleValue: false
@@ -239,7 +239,7 @@ fields:
       [0-9]+
   - name: proteinPerServingUom
     singleValue: true
-    defaultValue: g
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Protein')]/parent::*,"Protein 0123456789 .","")
   - name: vitaminAPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Vitamin A')]/parent::*/following-sibling::span
@@ -288,4 +288,4 @@ fields:
       [0-9]+
   - name: saltPerServingUom
     singleValue: true
-    defaultValue: mg
+    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sodium')]/parent::*,"Sodium 01233456789 .","")
