@@ -136,9 +136,7 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: sku
     singleValue: false
-    xpath: //link[@rel="canonical"]/@href
-    regExp: ^.+\/dp/\([0-9A-Z])$
-    regExpReplace: $1
+    xpath: 
   - name: coupon
     singleValue: true
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
