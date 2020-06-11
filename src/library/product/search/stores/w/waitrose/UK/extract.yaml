@@ -10,7 +10,9 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //picture[contains(@class,"productPod___3mbxG")]//img/@src
+    xpath: //a[@data-origincomponent="ProductPod"]/@href
+    regExp: ^(.+)\/(.+)-(.+)-(.+)$
+    regExpReplace: https://duetogsaij514.cloudfront.net/images/products/3/LN_$2_BP_3.jpg
   - name: name
     singleValue: true
     xpath: //h2[@data-test="product-pod-name"]/div/span[1]
