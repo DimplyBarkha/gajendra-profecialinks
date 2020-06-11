@@ -1,0 +1,75 @@
+input:
+  _url: https://otto.de
+  URL: https://www.otto.de/p/reebok-classic-daytona-dmx-sneaker-781144301/
+extractions:
+  - html: https://workbench.import.io/html/run=8ee118f8-29bc-4c0a-aae1-f2b293da1f99/task=f68e9f1a-2fa3-471e-81a3-2f950be1c251/a775c9c4-f729-4ea0-bf07-8623f4b27151.html
+    extractionConfigId: product/details/stores/o/otto/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+            alternateImages:
+              - text: https://i.otto.de/i/otto/34162166?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162171?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162397?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162244?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162141?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162661?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162164?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162560?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[8]/img[1]/@src
+              - text: https://i.otto.de/i/otto/32036976?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/img[1]/@src
+            brandText:
+              - text: Reebok Classic
+                xpath: /html/body/div[8]
+            description:
+              - text: Article no. undefined Sportlicher Dad Sneaker von Reebok Atmungsaktives
+                  Obermaterial aus Textil und Synthetik Chunky Sneaker
+                  Gummilaufsohle Dämpfendes DMX Element in der Ferse Weich
+                  gepolstert Der sportliche Sneaker »Daytona DMX« von Reebok
+                  Classic zieht die Blicke mit seiner klobigen Gummilaufsohle im
+                  angesagten Chunky Sneaker-Style auf sich. Ein weiteres
+                  Highlight des Freizeitschuhs, der im Design an einen Laufschuh
+                  der 90er-Jahre erinnert, sind die farbigen Streifen aus
+                  Synthetikmaterial an der Seite. Eine Fersenlasche sowie die
+                  weiche Polsterung des Turnschuhs sorgen für einen bequemen
+                  Einstieg, das dämpfende DMX-Element in der Ferse federt deine
+                  Schritte auf dem Asphalt ab. Modemutige kombinieren den
+                  stylischen Joggingschuh mit einer Radlerhose und einem Hoodie.
+                  Auffallen ist jedenfalls garantiert mit dem coolen Sneaker
+                  »Daytona DMX« von Reebok Classic.
+                xpath: /html/body/div[9]
+            descriptionBullets:
+              - text: "5"
+            gtin:
+              - text: "4061624496057"
+                xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
+            image:
+              - text: https://i.otto.de/i/otto/34162166/reebok-classic-daytona-dmx-sneaker-white-regprp-brgcya.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: Reebok Classic »DAYTONA DMX« Sneaker, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            listPrice:
+              - text: 119,99
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: "69.99"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]/@content
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
+            variantId:
+              - text: "18"
+                xpath: /html/body/div[10]
+        xpath: /
+    timestamp: 1591884122274

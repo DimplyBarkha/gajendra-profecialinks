@@ -1,0 +1,59 @@
+input:
+  _url: https://otto.de
+  URL: https://www.otto.de/p/reebok-classic-club-c-m-sneaker-645371272/
+extractions:
+  - html: https://workbench.import.io/html/run=8ee118f8-29bc-4c0a-aae1-f2b293da1f99/task=e68dec0a-6f3a-4eac-90c2-f85dfab386ce/bc024f15-ede4-450d-aef9-eba1308a0a53.html
+    extractionConfigId: product/details/stores/o/otto/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+            alternateImages:
+              - text: https://i.otto.de/i/otto/31189426?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://i.otto.de/i/otto/31189324?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://i.otto.de/i/otto/31189480?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://i.otto.de/i/otto/31189453?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://i.otto.de/i/otto/31189745?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://i.otto.de/i/otto/31189203?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
+              - text: https://i.otto.de/i/otto/31189284?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+            brandText:
+              - text: Reebok Classic
+                xpath: /html/body/div[8]
+            description:
+              - text: Article no. undefined Klassischer Sneaker von Reebok Hochwertiges
+                  Obermaterial aus Leder Stabile Gummilaufsohle Gepolsterter
+                  Einstieg für hohen Tragekomfort null
+                xpath: /html/body/div[9]
+            descriptionBullets:
+              - text: "4"
+            gtin:
+              - text: "4060513430912"
+                xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
+            image:
+              - text: https://i.otto.de/i/otto/31189426/reebok-classic-club-c-sneaker.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: Reebok Classic »Club C« Sneaker, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            listPrice:
+              - text: 54,99
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: "39.99"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[2]/span[1]/span[2]/@content
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
+            variantId:
+              - text: "8"
+                xpath: /html/body/div[10]
+        xpath: /
+    timestamp: 1591884128205

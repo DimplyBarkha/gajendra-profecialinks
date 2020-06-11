@@ -1,0 +1,63 @@
+input:
+  _url: https://otto.de
+  URL: https://www.otto.de/p/siemens-pyrolyse-backofen-iq700-pyrolyse-selbstreinigung-484819248/#variationId=484820578
+extractions:
+  - html: https://workbench.import.io/html/run=8ee118f8-29bc-4c0a-aae1-f2b293da1f99/task=38c4007c-f1b6-4d7a-993a-20813be67585/ed48351a-a836-48e1-bfda-b5ecc6779860.html
+    extractionConfigId: product/details/stores/o/otto/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[8]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+            alternateImages:
+              - text: https://i.otto.de/i/otto/15618319?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://i.otto.de/i/otto/15618320?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://i.otto.de/i/otto/15618322?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://i.otto.de/i/otto/15618325?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://i.otto.de/i/otto/15618329?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://i.otto.de/i/otto/14144098?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
+            brandText:
+              - text: SIEMENS
+                xpath: /html/body/div[8]
+            color:
+              - text: weiß
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/@title
+            description:
+              - text: Article no. undefined Mikrowellenfunktion 13 Beheizungsarten TFT-
+                  Farbdisplay mit Klartext 1-fach Teleskopauszug
+                  Pyrolyse-Selbstreinigung null
+                xpath: /html/body/div[9]
+            descriptionBullets:
+              - text: "5"
+            gtin:
+              - text: "4242003671979"
+                xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
+            image:
+              - text: https://i.otto.de/i/otto/15121498/siemens-pyrolyse-backofen-iq700-pyrolyse-selbstreinigung-edelstahlfarben.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: SIEMENS Pyrolyse Backofen iQ700 »Pyrolyse-Selbstreinigung«, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            listPrice:
+              - text: 2.338,00
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[7]/div[1]/div[1]/span[2]/span[1]
+            price:
+              - text: "1309.00"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[7]/div[1]/div[2]/span[1]/span[1]/@content
+            ratingCount:
+              - text: "43"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[8]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
+            variantId:
+              - text: "2"
+                xpath: /html/body/div[10]
+            videos:
+              - text: https://mycliplister.com/vx/86605/115b49ae212dd7ac2f2c7573502363cbcfaa7045de080b34a874a17399d2a33534515df4cebef243877589135474c03048945b8dabe1834daf8f31e72718d7e5d_x4c002731b13c1f45b3e232a7d57a46cb969a76fdec369f9f7a6e542bb4b37860008397b9ed5ad85d2bf7f28bd5dd5400b9c9262b5b1258816095b874a3506cf2fdb0659802784790caf8612e23b95454458b9188d31ac2b219abc43c2560cecd237c4036404387727348dcbee57618017dda2c64f1140104057666fd4700ba02b8c67d2f44a1ee6cbde5fbe185e2b591007e07c18f0189c14e3c232755cde07537164f1ea729a3c1e13733d7bff498db01db2e474ac0cbd35bc5cf049cd470dc
+                xpath: /html/body/div[13]
+        xpath: /
+    timestamp: 1591884121931
