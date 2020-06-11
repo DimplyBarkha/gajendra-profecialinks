@@ -1,0 +1,2233 @@
+input:
+  keywords: Jelly sweets
+  _url: https://groceries.asda.com
+extractions:
+  - html: https://workbench.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=0d3b8284-a733-43cd-bf5d-fddca8704be4/714b8b7f-5584-4c4d-aa75-8814f633dfae.html
+    extractionConfigId: product/search/stores/a/asda/UK/extract
+    data:
+      - group:
+          - input:
+              - text: Jelly sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[1]/div[1]/div[1]
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]
+      - group:
+          - name:
+              - text: ASDA Fruit Jellies Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000115100594
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172098538?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Midget Gems Jelly Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003081383
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.78"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054781569343?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Wine Gums Jelly Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.48"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003081748
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.78"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "36"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054781569329?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Fizzy Cherry Jellies Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000122916900
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.75"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172099511?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Cherry Jellies
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112907032
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172091935?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Teeth & Lips Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000122916850
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.67"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172099528?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Jelly Beans Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000115100488
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172099658?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Pick 'n' Mix
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112907016
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172091942?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Strawberry Laces
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000113394451
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172099436?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Shrimps & Bananas Foam Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000115100492
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172099634?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Cola Flavour Bottles
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112907123
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172091928?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Dolly Mixture Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000115100617
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172099641?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Strawberry Cables
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112907109
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172091973?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Super Fruit Jellies Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000196324482
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622201109691?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Super Sour Snakes
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112906992
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172091911?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Haribo Jelly Babies Double Trouble
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003081563
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.23"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5012035951795?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Milk Bottles
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000115100619
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172099696?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Rowntree's Jelly Tots
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002406140
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.57"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7613035419056?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Barratt Chewy Nougat Sweet
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.30"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002423071
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5010511471751?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Wine Gums Bag Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000539236
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.63"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622300700218?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Haribo Starmix
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000000985870
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5012035952808?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Jelly Babies Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.54"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003081005
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.33"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054781569459?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Fruit Pastilles Jelly Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003081702
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054781569336?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Fizzy Cola Bottles
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112907102
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172091959?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Jelly Babies Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000539228
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.17"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622300700157?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Mini Marti Mushrooms
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112907089
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172091904?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Jurassic Jellies
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000197281053
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172310272?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Barratt Flumps Marshmallow Sweet
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.30"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000130541970
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5010511473687?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Swizzels Drumstick Squashies Original Raspberry & Milk Flavour
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000039942609
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5010478456655?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Haribo Tangfastics
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000000985912
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5012035952754?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Fizzy Rainbow Belts
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000113394386
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: ASDA Ice Cream Sundaes
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[33]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[33]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112907072
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[33]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[33]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[33]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Haribo Giant Strawbs Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[34]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[34]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000061868524
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[34]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: Maynards Bassetts Sports Mix Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000539226
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.14"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Haribo Super Mix
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[36]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[36]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000000986400
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[36]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: Rowntree's Fruit Pastilles Strawberry & Blackcurrant
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002407091
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.69"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: ASDA Unicorn Foams
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112907035
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.29"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Maynards Bassetts Fizzy Fish Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[39]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[39]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000107813999
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[39]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.17"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[39]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[39]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Skittles Giants Fruit Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[40]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[40]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000197855524
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[40]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: ASDA Rainbow Laces
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[41]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[41]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000113394379
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[41]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: ASDA Fizzy Strawberry Flavour Wands
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[42]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[42]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000112907068
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[42]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: Haribo 30% Less Sugar Fruitilicious
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[43]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[43]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000014355494
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[43]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[43]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[43]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Barratt Wham Original Chew Bar Sweet
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[44]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.30"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[44]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000130541994
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[44]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: Maynards Bassetts Liquorice Allsorts Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[45]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[45]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000539208
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[45]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[45]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[45]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Rowntree's Fruit Pastilles 4 Pack
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[46]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[46]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000197663542
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[46]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: Rowntree's Randoms Squish'ems Sweets Sharing Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000115100444
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.65"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "49"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: ASDA Cola Wands
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[48]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[48]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000113394452
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[48]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[48]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[48]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Rowntree's Fruit Pastilles
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002406039
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Maynards Bassetts Mix Ups Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[50]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[50]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000000987064
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[50]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[50]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[50]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Maoam Joystixx
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[51]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[51]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000000987076
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[51]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: Fruittella Juicy Chews Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[52]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[52]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000044365900
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[52]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[52]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[52]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: ASDA Marshmallow Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.88"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003081653
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.23"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Rowntree's Randoms
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002406102
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.45"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: ASDA Pick & Mix Cup
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[55]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[55]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000107813956
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[55]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[55]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[55]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Maoam Stripes
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[56]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[56]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000000986315
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[56]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: ASDA Giant Shrimps & Bananas Foam Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[57]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[57]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003080762
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[57]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[57]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[57]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Swizzels Drumstick Squashies Bubblegum Flavour
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[58]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[58]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000039942479
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[58]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[58]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[58]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: ASDA Under the Sea Mix
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[59]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[59]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000113394494
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[59]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: Rowntree's Fruit Gums
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[60]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[60]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002407919
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[60]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.51"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[60]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[60]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Haribo Balla Stixx Strawberry
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[61]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[61]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000039942689
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[61]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=0d3b8284-a733-43cd-bf5d-fddca8704be4/714b8b7f-5584-4c4d-aa75-8814f633dfae.html
+      - group:
+          - name:
+              - text: Skittles Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085247
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.75"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Pringles Sour Cream & Onion Flavour Crisps
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003062153
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.91"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Starburst Original Fruit Chews Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085424
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Oreo Original Biscuits
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000022640
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "16"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Pringles Original Flavour Crisps
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003062100
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Pringles Texas BBQ Sauce Flavour Crisps
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003061623
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Skittles Crazy Sours Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085196
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Cadbury Animals Mini Biscuits 7 Pack
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000191362566
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+          - name:
+              - text: Starburst Minis Original Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000061868101
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Skittles Chewies Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000063598227
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.77"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[2]/button[1]/span[1]
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=0d3b8284-a733-43cd-bf5d-fddca8704be4/714b8b7f-5584-4c4d-aa75-8814f633dfae.html
+      - group:
+          - name:
+              - text: Skittles Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085247
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.75"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Maynards Bassetts Midget Gems Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002112382
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Starburst Minis Original Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000061868101
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Starburst Original Fruit Chews Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085424
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+          - name:
+              - text: Skittles Chewies Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000063598227
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.77"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/span[1]
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=0d3b8284-a733-43cd-bf5d-fddca8704be4/714b8b7f-5584-4c4d-aa75-8814f633dfae.html
+    timestamp: 1591688343790
+  - html: https://workbench.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=0d3b8284-a733-43cd-bf5d-fddca8704be4/c13bb429-7bc0-4813-b2f7-cbeff09820bd.html
+    extractionConfigId: product/search/stores/a/asda/UK/extract
+    data:
+      - group:
+          - input:
+              - text: Jelly sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[1]/div[1]/div[1]
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]
+      - group:
+          - name:
+              - text: Swizzels Drumstick Squashies Sour Cherry & Apple Flavour
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000039942528
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5010478670242?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Pink & White Mini Marshmallows
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002418863
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054070730133?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Fruittella Koalas Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000123161016
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8003440993125?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Skittles Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085247
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.75"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900482967?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Fruittella Duo Stix Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000044365929
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8723400782964?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Midget Gems Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002112382
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622210394453?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Haribo Squidglets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000048933182
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.33"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5012035957940?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Rowntree's Randoms Juicers Sweets Sharing Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000197281132
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8593893769816?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[8]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maoam Pinballs
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000000985360
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5012035952273?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Dessert Flavour Cables
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003081507
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054781569589?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Fruittella Sour Snakes Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000123160826
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8003440993149?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Sour Patch Kids Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000224037781
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622210026125?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Strawberry Bon Bons Chewy Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.70"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000009131752
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054781685623?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Swizzels Great British Puds Chew Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000193463887
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5010478862517?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Haribo Fairyland
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.90"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003080757
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5012035949006?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Barratt Refreshers Softies sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002421031
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5010511475414?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Skittles Chewies Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000063598227
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.77"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900527958?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[18]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Barratt Fruit Salad Softies Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000178940597
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5010511475421?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: The Jelly Bean Factory 36 Gourmet Flavours
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002404783
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/0745092010932?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Jealous Sweets Tangy Worms Apple, Lemon, Strawberry & Orange
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000120961322
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060276370929?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Jealous Sweets Grizzly Bears Lemon, Apple, Orange & Strawberry
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000120961286
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.71"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060276370912?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Magical Unicorns
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000113394415
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172091997?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[23]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Tropical Fruit Mix
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000113394476
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5057172092031?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Starburst Minis Original Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000061868101
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900528061?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Wine Gums Tangy Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003061861
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622210683137?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Jealous Sweets Tropic Wonder Mango, Melon, Pineapple & Grapefruit
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000120961445
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060276370936?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Starburst Original Fruit Chews Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085424
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900482943?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Rocky Mountain Mega Marshmallow
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000811286
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/0054300090506?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Mini Mallows
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002418806
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054070730140?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Haribo Starmix Tub
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "5.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000000985354
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5012035952310?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[31]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Cadbury Dairy Milk Marvellous Smashables Jelly Popping Chocolate Bar
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002112245
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622210464507?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[32]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Jelly Babies Carton
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[33]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[33]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000003092422
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[33]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622210753366?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[33]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Liquorice Allsorts Sweets Carton
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[34]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[34]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000003092388
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[34]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622210753342?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[34]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Just Wholefoods Vegebears Vegan & Organic Fruit Jellies
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000150899859
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5022775001018?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[35]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Just Wholefoods Frooty Fruits Vegan & Organic Fruit Jellies
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[36]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[36]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000150900006
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[36]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5022775001117?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[36]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Skittles Tropical Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085030
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.33"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900504782?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[37]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Skittles Crazy Sours Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085196
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900513791?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[38]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Candy Kittens Wild Strawberry Gourmet Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[39]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[39]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000207689205
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[39]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060384261775?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[39]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Candy Kittens Tropical Mango Gourmet Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[40]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[40]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000207689239
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[40]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060384261799?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[40]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Candy Kittens Sour Watermelon Gourmet Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[41]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[41]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000207689316
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[41]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060384261782?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[41]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Candy Kittens Blueberry Bliss Gourmet Sweets
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[42]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[42]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000207689260
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[42]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060384261829?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[42]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Fruittella Zoo Mania Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[43]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[43]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000044365867
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[43]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8723400782995?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[43]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Rowntree's Randoms Sours Sweets Sharing Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[44]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[44]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000115100443
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[44]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.67"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[44]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "48"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[44]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/8593893765795?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[44]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Sour then Sweet Sour Patch Watermelon
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[45]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.95"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[45]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000102025594
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[45]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/0070462098525?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[45]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Wine Gums Carton
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[46]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[46]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000003093476
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[46]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622210753304?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[46]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Jealous Sweets Fizzy Friends Grapefruit & Peach
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000120961253
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060276370943?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[47]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Mega Marshmallows
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[48]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "3.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[48]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000102025703
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[48]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/05060403366733?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[48]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Starburst Strawberry Limited Edition Fruit Chews Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000000983253
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900521383?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[49]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: SweetZone Mega Stix
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[50]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.20"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[50]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000151138632
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[50]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5032860020220?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[50]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Haribo Strawberry Balla Stixx Gluten Free
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[51]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[51]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000182530878
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[51]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5012035960025?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[51]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: American PickNMix Cup
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[52]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[52]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000052709658
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[52]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060251410800?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[52]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Ahmed Banana Jelly
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.55"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000464281
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/0054529013072?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[53]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Ahmed Halal Strawberry Jelly Crystals
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.55"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000464102
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/0054529013027?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[54]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Ahmed Halal Mango Jelly Crystals
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[55]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.55"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[55]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000464103
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[55]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/0054529013089?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[55]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=0d3b8284-a733-43cd-bf5d-fddca8704be4/c13bb429-7bc0-4813-b2f7-cbeff09820bd.html
+      - group:
+          - name:
+              - text: Skittles Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085247
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.75"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900482967?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Pringles Sour Cream & Onion Flavour Crisps
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003062153
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.91"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5053990138753?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Starburst Original Fruit Chews Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085424
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900482943?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Oreo Original Biscuits
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000022640
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "16"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622300315283?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Pringles Original Flavour Crisps
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003062100
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5053990138722?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Pringles Texas BBQ Sauce Flavour Crisps
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003061623
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5053990138661?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[6]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Skittles Crazy Sours Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085196
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900513791?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[7]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Cadbury Animals Mini Biscuits 7 Pack
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000191362566
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622210737250?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[8]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Starburst Minis Original Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000061868101
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900528061?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[9]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Skittles Chewies Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000063598227
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.77"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900527958?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[10]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=0d3b8284-a733-43cd-bf5d-fddca8704be4/c13bb429-7bc0-4813-b2f7-cbeff09820bd.html
+      - group:
+          - name:
+              - text: Skittles Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085247
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.75"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900482967?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Maynards Bassetts Midget Gems Sweets Bag
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910002112382
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/7622210394453?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Starburst Minis Original Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000061868101
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900528061?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Starburst Original Fruit Chews Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910003085424
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "2.25"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900482943?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Skittles Chewies Fruits Sweets Pouch
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000063598227
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.77"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/4009900527958?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[3]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=0d3b8284-a733-43cd-bf5d-fddca8704be4/c13bb429-7bc0-4813-b2f7-cbeff09820bd.html
+    timestamp: 1591688343790

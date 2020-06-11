@@ -19,7 +19,21 @@ async function implementation (
       const skuId = productCards[i].querySelector('a').getAttribute('id').split('_sku')[1];
       newDiv.dataset.id = skuId !== undefined ? skuId : productCards[i].querySelector('a').getAttribute('id').split('compare_')[1];
       newDiv.dataset.url = 'https://www.walgreens.com' + productCards[i].querySelector('a').getAttribute('href');
-      newDiv.dataset.thumbnail = productCards[i].querySelector('img').getAttribute('src').slice(2);
+      newDiv.dataset.thumbnail = 'https://' + productCards[i].querySelector('img').getAttribute('src').slice(2);
+      const priceDiv = productCards[i].querySelector('div.wag-prod-price-info span.sr-only');
+      const re = /\$(\d+) and (\d+) cents/;
+      if (priceDiv) {
+        const priceText = priceDiv.textContent;
+        if (priceText.includes('Sale price')) {
+          const price = priceText.split('And')[0];
+          newDiv.dataset.price = price.replace(re, '$1.$2');
+        } else if (priceText.includes('1 for')) {
+          newDiv.dataset.price = (priceText.split('1 for')[1]).replace(/\$*(\d+) dollars and (\d+) cents/, '$1.$2');
+        } else {
+          const price = priceText;
+          newDiv.dataset.price = price.replace(re, '$1.$2');
+        }
+      }
       productCards.item(i).appendChild(newDiv);
     }
 
