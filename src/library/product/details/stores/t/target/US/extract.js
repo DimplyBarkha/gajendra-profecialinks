@@ -281,7 +281,8 @@ async function implementation (
       }
     }
 
-    const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0.gcwqAn').length;
+    const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0').length;
+    console.log(document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0'));
     addHiddenDiv('variantCount', variationNum);
 
     const similarItems = document.querySelector('a[href="#tabContent-Similaritems1"]');
@@ -291,12 +292,12 @@ async function implementation (
       const variants = [];
       document.getElementById('tabContent-Similaritems1').querySelectorAll('a').forEach(e => {
         const split = e.getAttribute('href').split('/');
-        variants.push(split[split.length - 1]);
+        variants.push(split[split.length - 1].split('-')[1]);
       });
       addHiddenDiv('variants', variants.join(' | '));
     }
 
-    if (document.querySelector('div[data-test="orderPickupMessage"]')) {
+    if (document.querySelector('div[data-test="orderPickupMessage"]') || document.querySelector('div[data-test="deliverToZipCodeMessage"]') ) {
       addHiddenDiv('availability', 'In stock');
     }
 
