@@ -297,7 +297,7 @@ async function implementation (
       addHiddenDiv('variants', variants.join(' | '));
     }
 
-    if (document.querySelector('div[data-test="orderPickupMessage"]') || document.querySelector('div[data-test="deliverToZipCodeMessage"]') ) {
+    if (document.querySelector('div[data-test="orderPickupMessage"]') || document.querySelector('div[data-test="deliverToZipCodeMessage"]')) {
       addHiddenDiv('availability', 'In stock');
     }
 
