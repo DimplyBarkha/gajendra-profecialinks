@@ -23,7 +23,7 @@ async function implementation (
       let prevScroll = document.documentElement.scrollTop;
       while (true) {
         window.scrollBy(0, document.documentElement.clientHeight);
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 800));
         const currentScroll = document.documentElement.scrollTop;
         if (currentScroll === prevScroll) {
           break;
