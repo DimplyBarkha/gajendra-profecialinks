@@ -116,7 +116,7 @@ module.exports = {
 
         console.log('Going back to desired page');
         lastResponseData = await context.goto(url, {
-          timeout: 10000,
+          timeout: 60000,
           waitUntil: 'load',
           checkBlocked: true,
           js_enabled: true,
@@ -141,7 +141,7 @@ module.exports = {
         return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       }
 
-      if (!await solveCaptchaIfNecessary) {
+      if (await solveCaptchaIfNecessary()) {
         hasCaptcha = true;
         return;
       }
