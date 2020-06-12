@@ -52,6 +52,7 @@ const transform = (data, context) => {
       } catch (exception) { console.log('Error in transform', exception); }
     }
   }
+  return data;
 };
 
 module.exports = { transform };
