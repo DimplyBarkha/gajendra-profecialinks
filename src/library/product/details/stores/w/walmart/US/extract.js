@@ -52,7 +52,7 @@ module.exports = {
         const id = allVariants[i];
         const url = await dependencies.createUrl({ id });
         await dependencies.goto({ url });
-        await context.extract(dependencies.productDetails);
+        await context.extract(dependencies.productDetails, {transform: transformParam, type: 'APPEND'});
         const pageVariants = await getVariants();
         for (let j = 0; j < pageVariants.length; j++) {
           const pageVariant = pageVariants[j];
