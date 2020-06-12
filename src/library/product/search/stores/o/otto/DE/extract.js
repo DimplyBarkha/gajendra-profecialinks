@@ -10,6 +10,17 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async () => {
+    function ratingTransformation (rating) {
+      const stars = rating.split('*').length - 1;
+      const slash = rating.split('/').length - 1;
+      if (stars > 0 && slash > 0) {
+        return stars + 0.5;
+      } else if (stars > 0) {
+        return stars;
+      } else {
+        return '';
+      }
+    }
     // @ts-ignore
     function addHiddenDiv (id, content, index) {
       const newDiv = document.createElement('div');
@@ -23,7 +34,7 @@ async function implementation (
       let prevScroll = document.documentElement.scrollTop;
       while (true) {
         window.scrollBy(0, document.documentElement.clientHeight);
-        await new Promise(resolve => setTimeout(resolve, 800));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         const currentScroll = document.documentElement.scrollTop;
         if (currentScroll === prevScroll) {
           break;
@@ -32,17 +43,16 @@ async function implementation (
       }
     }
     await infiniteScroll();
-    const product = document.querySelectorAll("script[type*='application/ld+json']");
+    const product = document.querySelectorAll("section[id='san_resultSection'] article[class*='product']");
     for (let i = 0; i < product.length; i++) {
-      // @ts-ignore
-      const node = (product[i]) ? JSON.parse(product[i].innerText) : '';
+      const node = product[i];
       if (node) {
         // @ts-ignore
-        const aggregateRating = (node.aggregateRating && node.aggregateRating[0].ratingValue) ? node.aggregateRating[0].ratingValue : '';
+        const aggregateRating = (node.querySelector('span[class*="stars p_rating50"]')) ? ratingTransformation(node.querySelector('span[class*="stars p_rating50"]').innerText) : '';
         // @ts-ignore
-        const reviewCount = (node.aggregateRating && node.aggregateRating[0].reviewCount) ? node.aggregateRating[0].reviewCount : '';
+        const reviewCount = (node.querySelector('span[class*="nrOfReviews"]')) ? node.querySelector('span[class*="nrOfReviews"]').innerText.replace(/\((\d+)\)/, '$1') : '';
         // @ts-ignore
-        const price = (node.offers && node.offers[0].price) ? node.offers[0].price : '';
+        const price = (node.querySelector("span[class*='reduce' ],span[class*='retail']")) ? node.querySelector("span[class*='reduce' ],span[class*='retail']").innerText.replace('ab ', '') : '';
         const url = window.location.href;
         if (aggregateRating) {
           addHiddenDiv('ii_aggregateRating', aggregateRating, i);
@@ -50,11 +60,11 @@ async function implementation (
         if (reviewCount) {
           addHiddenDiv('ii_reviewCount', reviewCount, i);
         };
-        if (price) {
-          addHiddenDiv('ii_price', price, i);
-        };
         if (url) {
           addHiddenDiv('ii_url', url, i);
+        };
+        if (price) {
+          addHiddenDiv('ii_price', price, i);
         };
       }
     }
