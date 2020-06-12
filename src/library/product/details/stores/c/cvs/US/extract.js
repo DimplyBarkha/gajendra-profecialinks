@@ -11,6 +11,19 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 10000));
 
+    const skuFromUrl = await context.evaluate(function () {
+      const skuNumber = window.location.href;
+      if(skuNumber) {
+        const skuNum = skuNumber.split("=");
+        if(skuNum.length > 2) {
+          return skuNum[2];
+        } else {
+          return null;
+        }
+      }
+    });
+
+
     const linkURL = await context.evaluate(function () {
       const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
       if (element) {
@@ -20,7 +33,7 @@ module.exports = {
       }
     });
     console.log(linkURL);
-    await context.goto(linkURL);
+    await context.goto(linkURL + `?skuid=${skuFromUrl}`);
 
     // await new Promise(r => setTimeout(r, 40000));
 
@@ -31,7 +44,7 @@ module.exports = {
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     await context.waitForSelector(variantInfoDiv, { timeout: 90000 });
 
-    await context.evaluate(function () {
+    await context.evaluate(function (skuFromUrl) {
       // document.body.setAttribute("ii_url", window.location.href);
 
       function addHiddenDiv (id, content) {
@@ -55,6 +68,10 @@ module.exports = {
           if (sectionList.includes(section[sectionLast])) {
             console.log(section[sectionLast] + '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', nodeList[i].childNodes[1].innerText);
             addHiddenDiv(`ii_${section[sectionLast]}`, `${nodeList[i].childNodes[1].innerText}`);
+          }
+          if (sectionList.includes(section[0])) {
+            console.log(section[sectionLast] + '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', nodeList[i].childNodes[1].innerText);
+            addHiddenDiv(`ii_${section[0]}`, `${nodeList[i].childNodes[1].innerText}`);
           }
           i++;
         }
@@ -105,20 +122,53 @@ module.exports = {
         }
       }
 
+      function collectManufDesc () {
+        const manufDesc = document.querySelector('div#wc-power-page div.wc-fragment');
+
+        if (manufDesc) {
+            addHiddenDiv('ii_manufDesc', `${manufDesc.innerText}`);
+        }
+      }
+
       function collectVariantInfo () {
         const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
         const variantArray = [];
+        const packSize = ['Pack: ', 'Group Size: ']
+        const packSizeResult = []
 
         if (variantInfo[1]) {
+          if(packSize.includes(variantInfo[0].innerText)) {
+            packSizeResult.push(variantInfo[1].innerText);
+          }
           variantArray.push(variantInfo[1].innerText);
         }
-
         if (variantInfo[3]) {
+          if(packSize.includes(variantInfo[2].innerText)) {
+            packSizeResult.push(variantInfo[3].innerText);
+          }
           variantArray.push(variantInfo[3].innerText);
         }
+        if (variantInfo[5]) {
+          if(packSize.includes(variantInfo[4].innerText)) {
+            packSizeResult.push(variantInfo[5].innerText);
+          }
+          variantArray.push(variantInfo[5].innerText);
+        }
+        if (variantInfo[7]) {
+          if(packSize.includes(variantInfo[6].innerText)) {
+            packSizeResult.push(variantInfo[7].innerText);
+          }
+          variantArray.push(variantInfo[7].innerText);
+        }
 
-        const variantString = variantArray.join(' ');
-        addHiddenDiv('ii_variantInfo', `${variantString}`);
+        if(variantArray.length) {
+          const variantString = variantArray.join(' || ');
+          addHiddenDiv('ii_variantInfo', `${variantString}`);
+        }
+        if(packSizeResult.length) {
+          const packString = packSizeResult.join(' ');
+          addHiddenDiv('ii_packSize', `${packString}`);
+        }
       }
 
       function collectBrand () {
@@ -131,19 +181,24 @@ module.exports = {
       }
 
       function collectVariantNums () {
-        const variant1 = document.querySelector('div#ii_url').innerText;
+
+        const variant1 = document.querySelector('div#ii_url');
         const regex1 = /[0-9]+$/g;
-        const variant2 = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)').innerText;
+        const variant2 = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
         const regex2 = /[0-9]+$/g;
-
-        const trans1 = regex1.exec(variant1);
+        if(variant1) {
+        const trans1 = regex1.exec(variant1.innerText);
         addHiddenDiv('ii_variantId', `${trans1[0]}`);
-
-        const trans2 = regex2.exec(variant2);
-        addHiddenDiv('ii_variantId', `${trans2[0]}`);
+        }
+        if(variant2) {
+          const trans2 = regex2.exec(variant2.innerText);
+          addHiddenDiv('ii_variantId', `${trans2[0]}`);
+        }
       }
 
       addHiddenDiv('ii_url', window.location.href);
+      addHiddenDiv('ii_sku', skuFromUrl);
+
       identifySections();
       collectNutritionInfo();
       collectBools();
@@ -151,20 +206,21 @@ module.exports = {
       collectVariantInfo();
       collectBrand();
       collectVariantNums();
-    });
+      collectManufDesc()
+    }, skuFromUrl);
 
     async function collectVideo () {
-      const secret = await context.evaluate(function () {
-        const ele = document.querySelector('video');
-        if (ele) {
-          const eleSrc = ele.getAttribute('src');
-          console.log('RETURNING SOURCE');
-          return eleSrc;
-        } else {
-          return 'COULD NOT FIND!!!!!!!!!!!!!!!!!!!!';
-        }
-      }, [], 'iframe[title="Product Videos"]');
-      console.log(secret);
+      // const secret = await context.evaluate(function () {
+      //   const ele = document.querySelector('video');
+      //   if (ele) {
+      //     const eleSrc = ele.getAttribute('src');
+      //     console.log('RETURNING SOURCE');
+      //     return eleSrc;
+      //   } else {
+      //     return 'COULD NOT FIND!!!!!!!!!!!!!!!!!!!!';
+      //   }
+      // }, [], 'iframe[title="Product Videos"]');
+      // console.log(secret);
     }
     collectVideo();
 

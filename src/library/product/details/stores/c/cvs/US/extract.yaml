@@ -74,6 +74,8 @@ fields:
   - name: shippingInfo
     singleValue: true
     selector: h1[aria-label="Ships free with CarePass"]
+  - name: packSize
+    xpath: //div[@id='ii_packSize']
   - name: gtin
     xpath: (//div[contains(@id, 'zoom-carousel')]//img/@src)[1] 
     regExp: ([0-9]+)
@@ -140,10 +142,12 @@ fields:
     regExp: ([.0-9]+ (lbs))
   - name: sku 
     singleValue: true
-    selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    regExp: ([0-9])+$ 
+    xpath: //div[@id='ii_sku']
+    # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
+    # regExp: ([0-9])+$ 
   - name: variantId 
     singleValue: true
+    # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     xpath: //div[@id='ii_url']
     regExp: ([0-9])+$ 
   - name: directions
@@ -161,8 +165,8 @@ fields:
   - name: aggregateRating
     xpath: //div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
   - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@id='ii_manufImages']
+    xpath: //div[@id='wc-aplus']//img/@src
+    # xpath: //div[@id='ii_manufImages']
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id='ii_Warnings']
@@ -269,11 +273,12 @@ fields:
     regExp: ([a-z]+$)
   - name: manufacturerDescription 
     singleValue: false
-    selector: div.wc-rich-content-description
+    # selector: div.wc-rich-content-description
+    xpath: //div[@id='ii_manufDesc']
   - name: descriptionBullets
     xpath: count(//div[@class='htmlView']/ul/li)
-  # - name: videos ????????????????????????????/
-  #   singleValue: true
+  - name: videos 
+    xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
   - name: coupon
     singleValue: true
   - name: variantCount
