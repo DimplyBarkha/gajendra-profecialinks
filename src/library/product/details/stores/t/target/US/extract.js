@@ -70,6 +70,12 @@ async function implementation (
         if (e.innerText.indexOf('TCIN') > -1) {
           addHiddenDiv('skuInfo', e.innerText.replace('TCIN: ', ''));
         }
+        if (e.innerText.indexOf('Item Number (DPCI)') === 0) {
+          addHiddenDiv('variantIdInfo', e.innerText.split(':')[1]);
+        }
+        if (e.innerText.indexOf('Contains:') === 0) {
+          addHiddenDiv('allergyAdviceInfo', e.innerText.split(':')[1]);
+        }
         if (e.innerText.indexOf('Weight:') > -1 || e.innerText.indexOf('Net weight:') > -1) {
           addHiddenDiv('weightInfo', e.innerText.split(':')[1]);
         }
@@ -194,7 +200,7 @@ async function implementation (
       await stall(1000);
       document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
         if (e.innerText.indexOf('Ingredients:') > -1) {
-          addHiddenDiv('ingredientsInfo', e.innerText.replace('Ingredients: ', ''));
+          addHiddenDiv('ingredientsInfo', e.innerText.replace('Ingredients: ', '').toUpperCase());
         }
       });
       document.querySelectorAll('p').forEach(e => {
@@ -258,8 +264,8 @@ async function implementation (
           addHiddenDiv('vitaminCUomInfo', e.querySelector('span').innerText.replace('Vitamin C', '').replace('.', '').replace(/[0-9]/g, ''));
         }
         if (e.innerText.indexOf('Calcium') > -1) {
-          addHiddenDiv('calciumInfo', e.querySelector('span').innerText.replace('Calcium', ''));
-          addHiddenDiv('calciumUomInfo', e.querySelector('span').innerText.replace('Calcium', '').replace('.', '').replace(/[0-9]/g, '') || 0);
+          addHiddenDiv('calciumInfo', e.querySelector('span').innerText.replace('Calcium', '').trim() || 0);
+          addHiddenDiv('calciumUomInfo', e.querySelector('span').innerText.replace('Calcium', '').replace('.', '').replace(/[0-9]/g, '') || '%');
         }
         if (e.innerText.indexOf('Iron') > -1) {
           addHiddenDiv('ironInfo', e.querySelector('span').innerText.replace('Iron', ''));
@@ -272,11 +278,34 @@ async function implementation (
       });
     }
 
-    document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
+    const drugFacts = document.querySelector('a[href="#tabContent-tab-Drugfacts"]');
+    if (drugFacts) {
+      drugFacts.click();
+      await stall(1000);
+      const warning = [];
+      document.querySelectorAll('h4').forEach(e => {
+        console.log('drugs', e.innerText.trim());
+        if (e.innerText.trim() === 'Directions') {
+          addHiddenDiv('directionsInfo', e.parentElement.innerText.replace('Directions', '').trim());
+        }
+        if (e.innerText.trim() === 'Inactive ingredients') {
+          addHiddenDiv('ingredientsInfo', e.parentElement.innerText.replace('Inactive ingredients', '').trim().toUpperCase());
+        }
+        if (e.innerText.trim() === 'For use' || e.innerText.trim() === 'Keep out of reach' || e.innerText.trim() === 'Do not use' || e.innerText.trim() === 'When using') {
+          warning.push(e.innerText.trim());
+          warning.push(e.parentElement.innerText.replace(e.innerText.trim(), '').trim());
+        }
+      });
+      if (warning.length) {
+        addHiddenDiv('warningInfo', warning.join(' '));
+      }
+    }
+
+    /* document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
       if (e.innerText.indexOf('Allergens & Warnings:') > -1) {
         addHiddenDiv('allergyAdviceInfo', e.innerText.replace('Allergens & Warnings:', '').replace('CONTAINS:', ''));
       }
-    });
+    }); */
 
     let terms = 'No';
     if (document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
@@ -301,9 +330,32 @@ async function implementation (
       }
     }
 
-    const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0').length;
-    console.log(document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0'));
-    addHiddenDiv('variantCount', variationNum);
+    const variants = document.querySelectorAll('.Button__ButtonWithStyles-y45r97-0.StyledButton__VariationButton-qhksha-0');
+    if (variants.length) {
+      variants.forEach(e => {
+        if (e.getAttribute('aria-label').indexOf('checked') > -1) {
+          addHiddenDiv('variantInfo', e.innerText);
+        }
+      });
+    }
+
+    const details = document.querySelector('a[href="#tabContent-tab-Details"]');
+    const variations = document.querySelectorAll('.Button__ButtonWithStyles-y45r97-0.StyledButton__VariationButton-qhksha-0');
+    console.log('varations', variations);
+    if(variations.length) {
+      details.click();
+      await stall(1000);
+      addHiddenDiv('variantCount', variations.length);
+      variations[0].click();
+      await stall(1000);
+      if (document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
+        document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
+          if (e.innerText.indexOf('TCIN') > -1) {
+            addHiddenDiv('firstVariant', e.innerText.split(':')[1]);
+          }
+        });
+      }
+    }
 
     const similarItems = document.querySelector('a[href="#tabContent-Similaritems1"]');
     if (similarItems) {
@@ -317,10 +369,21 @@ async function implementation (
       addHiddenDiv('variants', variants.join(' | '));
     }
 
-    if (document && (document.querySelector('div[data-test="orderPickupMessage"]'))) {
-      addHiddenDiv('availability', 'In stock');
-    } else {
-      addHiddenDiv('availability', '');
+    let deliver = false;
+    let inStore = false;
+    document.querySelectorAll('.h-text-bold.h-text-greenDark').forEach(e => {
+      if (e.innerText.trim() === 'Deliver') {
+        deliver = true;
+      }
+      if (e.innerText.trim().indexOf('Pick up') > -1) {
+        inStore = true;
+      }
+    });
+
+    if (deliver) {
+      addHiddenDiv('availability', 'In Stock');
+    } else if (inStore) {
+      addHiddenDiv('availability', 'In Store Only');
     }
 
     const video = document.querySelector('img[type="video"]');
@@ -335,10 +398,19 @@ async function implementation (
     const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.fWPETf.h-padding-t-tight');
     if (manufacturerCTA) {
       manufacturerCTA.click();
+
+      addHiddenDiv('manufacturerDesc', document.getElementById('wc-power-page').innerText);
+
       const manufacturerImgs = [];
       document.querySelectorAll('img.wc-media.wc-image').forEach(e => {
         manufacturerImgs.push(e.src);
       });
+      const aplusBody = document.querySelector('.wc-product-image-row');
+      if (aplusBody) {
+        aplusBody.querySelectorAll('.wc-pct-product-image').forEach(e => {
+          manufacturerImgs.push(e.src);
+        });
+      }
       addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
       await stall(1000);
     }

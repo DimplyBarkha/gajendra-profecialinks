@@ -66,13 +66,19 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[@id="skuInfo"]
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id="variantIdInfo"]
   - name: packSize
     singleValue: true
     xpath: //div[@id="packSize"]|//div[@id="quantityInfo"]
   - name: disclaimer
     singleValue: true
     xpath: //div[@id="disclaimerInfo"]
-  - name: warning
+  - name: directions
+    singleValue: true
+    xpath: //div[@id="directionsInfo"]
+  - name: warnings
     singleValue: true
     xpath: //div[@data-test="chokingHazard"]|//div[@id='warningInfo']
   - name: ratingCount
@@ -101,7 +107,7 @@ fields:
     xpath: //div[@data-test="variationTheme-color"]//span/text()
   - name: manufacturerDescription
     singleValue: true
-    xpath: //div[@class="wc-rich-content-description"]
+    xpath: //div[@id="manufacturerDesc"]
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@id="manufacturerImgs"]
@@ -165,10 +171,10 @@ fields:
   - name: totalCarbPerServingUom
     singleValue: true
     xpath: //div[@id="totalCarbUomInfo"]
-  - name: dietaryFiberPerServing
+  - name: dietaryFibrePerServing
     singleValue: true
     xpath: //div[@id="dietaryFiberInfo"]
-  - name: dietaryFiberPerServingUom
+  - name: dietaryFibrePerServingUom
     singleValue: true
     xpath: //div[@id="dietaryFiberUomInfo"]
   - name: totalSugarsPerServing
@@ -234,6 +240,12 @@ fields:
   - name: alcoholContent
     singleValue: true
     xpath: //div[@id="alcoholInfo"]
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@id="variantInfo"]
+  - name: firstVariant
+    singleValue: true
+    xpath: //div[@id="firstVariant"]
   - name: variants
     singleValue: true
     xpath: //div[@id="variants"]
