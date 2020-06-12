@@ -48,7 +48,6 @@ const transform = (data, context) => {
             },
           ];
         }
-
         row = cleanUp(row);
       } catch (exception) { console.log('Error in transform', exception); }
     }

@@ -89,7 +89,7 @@ module.exports = {
 
         console.log('Waiting for page to reload on homepage');
         context.waitForNavigation();
-        if (!await solveCaptchaIfNecessary()) {
+        if (await solveCaptchaIfNecessary() === 'false') {
           hasCaptcha = true;
           return;
         }
@@ -116,7 +116,7 @@ module.exports = {
 
         console.log('Going back to desired page');
         lastResponseData = await context.goto(url, {
-          timeout: 10000,
+          timeout: 60000,
           waitUntil: 'load',
           checkBlocked: true,
           js_enabled: true,
