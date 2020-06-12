@@ -11,7 +11,7 @@ module.exports = {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ url, id }, { country, domain }, context, { productDetails }) => {
-    await context.evaluate(([{ id: _input }, _url]) => {
+    await context.evaluate(async ([{ id: _input }, _url]) => {
       const addElementToDocument = (key, value, { parentID = '', type = 'span' } = {}) => {
         const htmlString = `<${type} style="display:none" id="added_${key}" ></${type}>`;
         const root = parentID ? document.querySelector(parentID) : document.body;
@@ -99,8 +99,7 @@ module.exports = {
         ...[...document.querySelectorAll('video')].map(v => v[prop || 'src']),
       ];
 
-      console.log(desc);
-      console.log(fullDescription);
+      await new Promise(resolve => setTimeout(resolve, 2e3));
 
       const obj = {
         _input,
@@ -115,14 +114,14 @@ module.exports = {
         listPrice: priceValue('regularPrice'),
         price: priceValue(['regularPrice', 'salePrice']),
         availabilityText: jsonObj.inventory.shipAvailableMessage ? jsonObj.inventory.shipAvailableMessage : 'In stock',
-        description: [desc ? decodeURIComponent(desc.quickView) : '', fullDescription],
+        description: [fullDescription],
         descriptionBullets: document.querySelectorAll('#prodDesc ul > li').length,
         brandText: infos.brandName,
         manufacturer: fullDescription.split('©')[fullDescription.split('©').length - 1],
         quantity: infos.sizeCount,
         weightNet: '',
         weightGross: shipping ? shipping.shippingWeight : '',
-        gtin: details.gtin,
+        gtin: details.gtin ? details.gtin.slice(0, details.gtin.length - 1) : '', // one digit shortening to match old output
         sku: infos.skuId.split('sku')[infos.skuId.split('sku').length - 1],
         variantId: jsonObj.inventory.wicId,
         mpc: '',
@@ -230,7 +229,7 @@ module.exports = {
         newAsin: '',
         newDescription: '',
         variantInformation: Object.keys(jsonObj.inventory.relatedProducts),
-        firstVariant: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
+        firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
         variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
         additionalDescBulletInfo: '',
         prop65Warning: '',
@@ -245,6 +244,10 @@ module.exports = {
         imageZoomFeaturePresent: document.querySelector('#zoomLensContainer') ? 'Yes' : 'No',
       };
       addObjectToDocument(obj);
+      console.log('""""""""""""""""""""""""');
+      console.log(obj.manufacturerImages);
+      console.log('""""""""""""""""""""""""');
+
     }, [id, url]);
     await context.extract(productDetails);
   },
