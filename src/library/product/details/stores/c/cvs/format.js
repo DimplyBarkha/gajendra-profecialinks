@@ -66,6 +66,6 @@ const transform = (data) => {
     }
   }
 
-  return cleanUp(data);
+  return data;
 };
 module.exports = { transform };
