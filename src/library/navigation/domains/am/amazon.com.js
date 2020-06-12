@@ -71,7 +71,7 @@ module.exports = {
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
-        timeout: 10000,
+        timeout: 60000,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
