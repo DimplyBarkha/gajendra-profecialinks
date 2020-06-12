@@ -13,16 +13,15 @@ module.exports = {
 
     const skuFromUrl = await context.evaluate(function () {
       const skuNumber = window.location.href;
-      if(skuNumber) {
-        const skuNum = skuNumber.split("=");
-        if(skuNum.length > 2) {
+      if (skuNumber) {
+        const skuNum = skuNumber.split('=');
+        if (skuNum.length > 2) {
           return skuNum[2];
         } else {
           return null;
         }
       }
     });
-
 
     const linkURL = await context.evaluate(function () {
       const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
@@ -126,46 +125,46 @@ module.exports = {
         const manufDesc = document.querySelector('div#wc-power-page div.wc-fragment');
 
         if (manufDesc) {
-            addHiddenDiv('ii_manufDesc', `${manufDesc.innerText}`);
+          addHiddenDiv('ii_manufDesc', `${manufDesc.innerText}`);
         }
       }
 
       function collectVariantInfo () {
         const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
         const variantArray = [];
-        const packSize = ['Pack: ', 'Group Size: ']
-        const packSizeResult = []
+        const packSize = ['Pack: ', 'Group Size: '];
+        const packSizeResult = [];
 
         if (variantInfo[1]) {
-          if(packSize.includes(variantInfo[0].innerText)) {
+          if (packSize.includes(variantInfo[0].innerText)) {
             packSizeResult.push(variantInfo[1].innerText);
           }
           variantArray.push(variantInfo[1].innerText);
         }
         if (variantInfo[3]) {
-          if(packSize.includes(variantInfo[2].innerText)) {
+          if (packSize.includes(variantInfo[2].innerText)) {
             packSizeResult.push(variantInfo[3].innerText);
           }
           variantArray.push(variantInfo[3].innerText);
         }
         if (variantInfo[5]) {
-          if(packSize.includes(variantInfo[4].innerText)) {
+          if (packSize.includes(variantInfo[4].innerText)) {
             packSizeResult.push(variantInfo[5].innerText);
           }
           variantArray.push(variantInfo[5].innerText);
         }
         if (variantInfo[7]) {
-          if(packSize.includes(variantInfo[6].innerText)) {
+          if (packSize.includes(variantInfo[6].innerText)) {
             packSizeResult.push(variantInfo[7].innerText);
           }
           variantArray.push(variantInfo[7].innerText);
         }
 
-        if(variantArray.length) {
+        if (variantArray.length) {
           const variantString = variantArray.join(' || ');
           addHiddenDiv('ii_variantInfo', `${variantString}`);
         }
-        if(packSizeResult.length) {
+        if (packSizeResult.length) {
           const packString = packSizeResult.join(' ');
           addHiddenDiv('ii_packSize', `${packString}`);
         }
@@ -181,16 +180,15 @@ module.exports = {
       }
 
       function collectVariantNums () {
-
         const variant1 = document.querySelector('div#ii_url');
         const regex1 = /[0-9]+$/g;
         const variant2 = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
         const regex2 = /[0-9]+$/g;
-        if(variant1) {
-        const trans1 = regex1.exec(variant1.innerText);
-        addHiddenDiv('ii_variantId', `${trans1[0]}`);
+        if (variant1) {
+          const trans1 = regex1.exec(variant1.innerText);
+          addHiddenDiv('ii_variantId', `${trans1[0]}`);
         }
-        if(variant2) {
+        if (variant2) {
           const trans2 = regex2.exec(variant2.innerText);
           addHiddenDiv('ii_variantId', `${trans2[0]}`);
         }
@@ -206,7 +204,7 @@ module.exports = {
       collectVariantInfo();
       collectBrand();
       collectVariantNums();
-      collectManufDesc()
+      collectManufDesc();
     }, skuFromUrl);
 
     async function collectVideo () {
