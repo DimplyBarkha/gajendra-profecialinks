@@ -24,7 +24,7 @@ async function implementation (
   await dependencies.goto({ url });
   await context.waitForXPath('//ul//li');
   await stall(2000);
-  await context.setInputValue('input#search', inputs.keywords || inputs.Keywords);
+/* await context.setInputValue('input#search', inputs.keywords || inputs.Keywords);
   await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -46,8 +46,10 @@ async function implementation (
       if (link != null) {
         link.click();
       }
+    } else {
+      document.getElementById('mainContainer').click();
     }
-  });
+  });*/
   return context.evaluate(function () {
     return document.querySelectorAll('li').length > 0;
   });

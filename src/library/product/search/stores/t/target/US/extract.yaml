@@ -15,12 +15,12 @@ fields:
     xpath: //div[@class="product-name"]
   - name: productUrl
     singleValue: false
-    xpath: //a[@data-test="product-title"]/@href
+    xpath: //div[@class="productUrl"]
   - name: gtin
     singleValue: true
   - name: thumbnail
-    singleValue: true
-    xpath: //picture//source/@srcset
+    singleValue: false
+    xpath: //div[@class="thumbnail"]
   - name: aggregateRating
     singleValue: false
     xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
