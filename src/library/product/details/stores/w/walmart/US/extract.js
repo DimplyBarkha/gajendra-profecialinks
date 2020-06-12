@@ -8,7 +8,7 @@ const { transform } = require('./transform');
  */
 
 module.exports = {
-  implements: 'product/search/extract',
+  implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'walmart',
