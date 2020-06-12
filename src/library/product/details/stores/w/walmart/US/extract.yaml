@@ -28,7 +28,7 @@ fields:
   xpath: //section[contains(@class,'prod-PriceSection')]//span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')]
 - name: price
   singleValue: true
-  xpath: //span[@itemprop="highPrice"]/@content|//*[@id="price"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
+  xpath: //span[@itemprop="highPrice"]/@content|//*[@class="prod-PriceHero"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
 - name: availabilityText
   singleValue: true
   xpath: //link[@itemprop="availability"]/@href
@@ -37,7 +37,7 @@ fields:
   regExpReplace: Out of Stock
 - name: manufacturer
   singleValue: true
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: (\"manufacturer\"\:\")([^"]+)(",")
   regExpReplace: $2
 - name: description
@@ -64,7 +64,7 @@ fields:
 - name: sku
   singleValue: true
   xpath: //script[@id='item']
-  regExp: (",\"productId\":\")(\w+)
+  regExp: (","productId":\")(\w+)
   regExpReplace: $2
 - name: asin
   singleValue: false
@@ -74,7 +74,7 @@ fields:
   xpath: //meta[@itemprop='sku']/@content
 - name: mpc
   singleValue: true
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
   regExpReplace: $2
 - name: packSize
@@ -89,23 +89,23 @@ fields:
   xpath: //p[@class='Warnings']
 - name: warranty
   singleValue: true
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: (warranty":{(.*),"information":")([^"]+)("})
   regExpReplace: $3
   xpath: //p[@class='Warnings']
 - name: ratingCount
   singleValue: true
-  xpath: //span[@class='stars-reviews-count-node']
+  xpath: //*[@itemprop='aggregateRating']//span[@class='stars-reviews-count-node']
   regExp: (\d*)
   regExpReplace: $1
 - name: aggregateRatingText
   singleValue: true
 - name: aggregateRating
   singleValue: true
-  xpath: //*[@itemprop='ratingValue']
+  xpath: //*[@itemprop='aggregateRating']//*[@itemprop='ratingValue']
 - name: shippingInfo
   singleValue: true 
-  xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"]
+  xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
 - name: shippingDimensions
   singleValue: true
   xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
@@ -116,22 +116,22 @@ fields:
   singleValue: true
 - name: firstVariant
   singleValue: true
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: (\"primaryProductId\"\:\")(\S+)(\",\"primaryUsItemId\")
   regExpReplace: $2
 - name: variantInformation
   singleValue: true
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: \{\"name\"\:\"(\w*_\w*)\",\"value\"\:\"(\w*_\w*)-([^\"]*)\"\}
   regExpReplace: $3  
 - name: variants
   singleValue: false
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: ({"productId":")(\w+)
   regExpReplace: $2
 - name: color
   singleValue: true 
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: \{\"name\"\:\"actual_color\",\"value\"\:\"actual_color-([^\"]*)\"\}
   regExpReplace: $1
 - name: colorCode
@@ -144,7 +144,7 @@ fields:
   xpath: //div[contains(@class,'wc-aplus-body')]//img/@src
 - name: videos
   singleValue: false
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
   regExpReplace: $2
 - name: name
@@ -204,7 +204,7 @@ fields:
   defaultValue: No
 - name: nutritionInfo
   singleValue: true
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: ("nutritionFacts":{"calorieInfo(.*)}})(,"legalBadges")
   regExpReplace: $1
 - name: servingSize
