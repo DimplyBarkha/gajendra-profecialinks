@@ -7,6 +7,7 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
+      // Hack: Escaping new lines in the text
       if (row.directions) {
         let text = '';
         row.directions.forEach(item => {

@@ -13,12 +13,12 @@ module.exports = {
     context,
     dependencies) => {
     await context.evaluate(async function () {
+      // Getting the available details from script
       const productData = findProductDetails();
-
       addEleToDoc('productId', productData.id);
       addEleToDoc('productName', productData.name);
 
-      // Normalizing & Adding nutritional info to DOM
+      // Normalizing & Adding nutritional info to DOM as there are lot of escape formats involved
       addNutritionalEle('saltPerServing', '/html/body//table//th[contains(text(), \'Salt\')]/following-sibling::td[1]', 'saltPerServingUom');
       addNutritionalEle('servingSize', '//h2[contains(.,"Nutritional Information")]/following-sibling::table//tr[1]/th[2]', 'servingSizeUom');
 
@@ -35,7 +35,7 @@ module.exports = {
 
       addMultipleNutritionalEle(multiNutriObj);
 
-      // Add availability to the DOM
+      // Add availability to the DOM as we need to show only Out of Stock & In Stock values for this
       const available = getEleByXpath('//div/p[contains(@class,"prodstock") or contains(.,\'available\')]');
       if (available) {
         if (available.includes('In stock')) {

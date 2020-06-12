@@ -17,7 +17,7 @@ module.exports = {
 
     if (loginPageResponse.status !== 200) {
       console.log('Blocked: ' + loginPageResponse.status);
-      console.log('Loading the product page without login');
+      console.log('Loading the product page without login to get all properties except availability');
       await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
       return;
     }
