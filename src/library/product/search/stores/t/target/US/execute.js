@@ -24,32 +24,6 @@ async function implementation (
   await dependencies.goto({ url });
   await context.waitForXPath('//ul//li');
   await stall(2000);
-/* await context.setInputValue('input#search', inputs.keywords || inputs.Keywords);
-  await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    let isCategoryPage = false;
-    document.querySelectorAll('h2').forEach(e => {
-      if (e.innerHTML === 'Shop by category') {
-        isCategoryPage = true;
-      }
-    });
-    if (isCategoryPage) {
-      document.getElementById('search').focus();
-      await stall(2000);
-      const link = document.querySelector('.TypeaheadItemLink-sc-125kxr2-0');
-      if (link != null) {
-        link.click();
-      }
-    } else {
-      document.getElementById('mainContainer').click();
-    }
-  });*/
   return context.evaluate(function () {
     return document.querySelectorAll('li').length > 0;
   });

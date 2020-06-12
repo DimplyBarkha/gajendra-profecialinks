@@ -45,7 +45,7 @@ async function implementation (
 
     const desc = [];
     document.querySelectorAll('h3').forEach(e => {
-      if(e.innerText === 'Highlights') {
+      if (e.innerText === 'Highlights') {
         e.parentElement.querySelectorAll('li').forEach(li => {
           desc.push(li.innerText);
         });
@@ -147,14 +147,13 @@ async function implementation (
         addHiddenDiv('shippingInfo', document.querySelector('div[data-test="shippingOptionsMessage"]').innerText);
       }
 
-      if(document && document.querySelector('div[data-test="estimatedShipDimensions"]')) {
+      if (document && document.querySelector('div[data-test="estimatedShipDimensions"]')) {
         addHiddenDiv('shipDimensionsInfo', document.querySelector('div[data-test="estimatedShipDimensions"]').innerText.replace('Estimated ship dimensions: ', ''));
       }
 
-      if(document && document.querySelector('div[data-test="estimatedShipWeight"]')) {
+      if (document && document.querySelector('div[data-test="estimatedShipWeight"]')) {
         addHiddenDiv('shipWeightInfo', document.querySelector('div[data-test="estimatedShipWeight"]').innerText.replace('Estimated ship weight: ', ''));
       }
-
     }
   });
 
@@ -275,7 +274,7 @@ async function implementation (
 
     document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
       if (e.innerText.indexOf('Allergens & Warnings:') > -1) {
-        addHiddenDiv('allergyAdviceInfo', e.innerText.replace('Allergens & Warnings:', '').replace('CONTAINS:',''));
+        addHiddenDiv('allergyAdviceInfo', e.innerText.replace('Allergens & Warnings:', '').replace('CONTAINS:', ''));
       }
     });
 
@@ -329,7 +328,7 @@ async function implementation (
       video.click();
     }
 
-    if(!document.querySelector('#packSize')) {
+    if (!document.querySelector('#packSize')) {
       addHiddenDiv('packSize', 1);
     }
 
