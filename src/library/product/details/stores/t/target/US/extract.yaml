@@ -20,9 +20,6 @@ fields:
     xpath: //div[@id="urlInfo"]
   - name: category
     singleValue: true
-    xpath: //div[@class="h-text-sm h-padding-v-tiny"]//span[position()=2]//span
-  - name: category
-    singleValue: true
     xpath: //div[@id="subCategories"]
   - name: price
     singleValue: true
@@ -35,7 +32,7 @@ fields:
     xpath: //div[@class="style__PriceFontSize-gob4i1-0 fwkyhU h-text-bold"]
   - name: availabilityText
     singleValue: true
-    xpath: //div[@data-test="oosDeliveryOption"]|//div[@data-test="shipMethodMessage"]
+    xpath: //div[@data-test="oosDeliveryOption"]|//div[@data-test="shipMethodMessage"]|//span[@data-test="getItMessage"]|//div[@data-test="soldOutBlock"]|//div[@id="availability"]
   - name: description
     singleValue: true
     xpath: //div[@class="h-margin-v-default"]
@@ -56,6 +53,9 @@ fields:
   - name: weightNet
     singleValue: true
     xpath: //div[@id="weightInfo"]
+  - name: weightGross
+    singleValue: true
+    xpath: //div[@data-test="estimatedShipWeight"]
   - name: gtin
     singleValue: true
     xpath: //div[@id="upcInfo"]
@@ -248,6 +248,9 @@ fields:
   - name: privacyPolicy
     singleValue: true
     xpath: //div[@id="privacy"]
+  - name: customerServiceAvailability
+    singleValue: true
+    xpath: //div[@id="customerServiceAvailability"]
   - name: materials
     singleValue: true
     xpath: //div[@id="materialInfo"]

@@ -20,11 +20,11 @@ async function implementation (
     });
   }
 
-  const url = 'https://target.com/s?searchTerm=' + inputs.keywords;
+  const url = 'https://target.com/s?searchTerm=' + inputs.keywords || inputs.Keywords;
   await dependencies.goto({ url });
   await context.waitForXPath('//ul//li');
   await stall(2000);
-  await context.setInputValue('input#search', inputs.keywords);
+  await context.setInputValue('input#search', inputs.keywords || inputs.Keywords);
   await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {

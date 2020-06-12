@@ -59,7 +59,9 @@ async function implementation (
       for (const itemContainer of itemContainers) {
         if (itemContainer.querySelector('a[data-test="product-title"]')) {
           addHiddenDiv(itemContainer, 'product-name', itemContainer.querySelector('a[data-test="product-title"]').innerText);
-          addHiddenDiv(itemContainer, 'itemId', itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('/')[4]);
+          let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
+          itemId = itemId.split('-')[1];
+          addHiddenDiv(itemContainer, 'itemId', itemId);
         }
         const pageNum = document.querySelector('button[data-test="select"]') ? document.querySelector('button[data-test="select"]').innerText.split(' ')[1] : 1;
         const totalRank = ((pageNum - 1) * 24) + rank;
