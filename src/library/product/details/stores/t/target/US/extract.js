@@ -43,6 +43,16 @@ async function implementation (
     });
     addHiddenDiv('alternateImages', alternateImages.join(' | '));
 
+    const desc = [];
+    document.querySelectorAll('h3').forEach(e => {
+      if(e.innerText === 'Highlights') {
+        e.parentElement.querySelectorAll('li').forEach(li => {
+          desc.push(li.innerText);
+        });
+      }
+    });
+    addHiddenDiv('description', desc.join(' | '));
+
     const subCategories = [];
     const categoryDiv = document.querySelector('.h-text-sm.h-padding-v-tiny');
     categoryDiv.querySelectorAll('a').forEach(e => {
@@ -86,6 +96,8 @@ async function implementation (
         }
         if (e.innerText.indexOf('Origin:') > -1) {
           addHiddenDiv('originInfo', e.innerText.split(':')[1]);
+        } else {
+          addHiddenDiv('originInfo', 'US');
         }
         if (e.innerText.indexOf('Alcohol content:') > -1) {
           addHiddenDiv('alcoholInfo', e.innerText.replace('Alcohol content: ', ''));
@@ -134,6 +146,15 @@ async function implementation (
       if (document.querySelector('div[data-test="shippingOptionsMessage"]')) {
         addHiddenDiv('shippingInfo', document.querySelector('div[data-test="shippingOptionsMessage"]').innerText);
       }
+
+      if(document && document.querySelector('div[data-test="estimatedShipDimensions"]')) {
+        addHiddenDiv('shipDimensionsInfo', document.querySelector('div[data-test="estimatedShipDimensions"]').innerText.replace('Estimated ship dimensions: ', ''));
+      }
+
+      if(document && document.querySelector('div[data-test="estimatedShipWeight"]')) {
+        addHiddenDiv('shipWeightInfo', document.querySelector('div[data-test="estimatedShipWeight"]').innerText.replace('Estimated ship weight: ', ''));
+      }
+
     }
   });
 
@@ -184,7 +205,7 @@ async function implementation (
           addHiddenDiv('servingSizeUomInfo', splitInfo[splitInfo.length - 1]);
         }
         if (e.innerText.indexOf('Serving Per Container:') > -1) {
-          addHiddenDiv('servingPerContainerInfo', e.innerText.replace('Serving Per Container: ', ''));
+          addHiddenDiv('servingPerContainerInfo', e.innerText.replace('Serving Per Container: ', '').replace(/[a-zA-Z]/g, ''));
         }
       });
       document.querySelectorAll('.h-padding-l-default').forEach(e => {
@@ -221,9 +242,9 @@ async function implementation (
           addHiddenDiv('dietaryFiberInfo', e.querySelector('span').innerText.replace('Dietary Fiber', ''));
           addHiddenDiv('dietaryFiberUomInfo', e.querySelector('span').innerText.replace('Dietary Fiber', '').replace('.', '').replace(/[0-9]/g, ''));
         }
-        if (e.innerText.indexOf('Total Sugars') > -1) {
-          addHiddenDiv('totalSugarInfo', e.querySelector('span').innerText.replace('Total Sugars', ''));
-          addHiddenDiv('totalSugarUomInfo', e.querySelector('span').innerText.replace('Total Sugars', '').replace('.', '').replace(/[0-9]/g, ''));
+        if (e.innerText.indexOf('Total Sugars') > -1 || e.innerText.indexOf('Sugars') === 0) {
+          addHiddenDiv('totalSugarInfo', e.querySelector('span').innerText.replace('Total Sugars', '').replace('Sugars', ''));
+          addHiddenDiv('totalSugarUomInfo', e.querySelector('span').innerText.replace('Total Sugars', '').replace('Sugars', '').replace('.', '').replace(/[0-9]/g, ''));
         }
         if (e.innerText.indexOf('Protein') > -1) {
           addHiddenDiv('proteinInfo', e.querySelector('span').innerText.replace('Protein', ''));
@@ -239,7 +260,7 @@ async function implementation (
         }
         if (e.innerText.indexOf('Calcium') > -1) {
           addHiddenDiv('calciumInfo', e.querySelector('span').innerText.replace('Calcium', ''));
-          addHiddenDiv('calciumUomInfo', e.querySelector('span').innerText.replace('Calcium', '').replace('.', '').replace(/[0-9]/g, ''));
+          addHiddenDiv('calciumUomInfo', e.querySelector('span').innerText.replace('Calcium', '').replace('.', '').replace(/[0-9]/g, '') || 0);
         }
         if (e.innerText.indexOf('Iron') > -1) {
           addHiddenDiv('ironInfo', e.querySelector('span').innerText.replace('Iron', ''));
@@ -254,7 +275,7 @@ async function implementation (
 
     document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
       if (e.innerText.indexOf('Allergens & Warnings:') > -1) {
-        addHiddenDiv('allergyAdviceInfo', e.innerText.replace('Allergens & Warnings:', ''));
+        addHiddenDiv('allergyAdviceInfo', e.innerText.replace('Allergens & Warnings:', '').replace('CONTAINS:',''));
       }
     });
 
@@ -297,13 +318,19 @@ async function implementation (
       addHiddenDiv('variants', variants.join(' | '));
     }
 
-    if (document && (document.querySelector('div[data-test="orderPickupMessage"]') || document.querySelector('div[data-test="deliverToZipCodeMessage"]'))) {
+    if (document && (document.querySelector('div[data-test="orderPickupMessage"]'))) {
       addHiddenDiv('availability', 'In stock');
+    } else {
+      addHiddenDiv('availability', '');
     }
 
     const video = document.querySelector('img[type="video"]');
     if (video) {
       video.click();
+    }
+
+    if(!document.querySelector('#packSize')) {
+      addHiddenDiv('packSize', 1);
     }
 
     const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.fWPETf.h-padding-t-tight');
