@@ -41,20 +41,20 @@ module.exports = {
       });
       return variants;
     };
-    async function addUrl() {
+    async function addUrl () {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
-      } 
+      }
       let url = window.location.href;
-      let splits = url ? url.split('/') : []
-      url = (splits.length > 0) ? splits[splits.length -1] :''
+      const splits = url ? url.split('/') : [];
+      url = (splits.length > 0) ? splits[splits.length - 1] : '';
       addHiddenDiv('added-sku', url);
     }
-    
+
     console.log('getting variants');
     const allVariants = await getVariants();
     await context.evaluate(addUrl);

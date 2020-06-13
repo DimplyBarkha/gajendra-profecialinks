@@ -8,7 +8,7 @@ fields:
   xpath: //meta[@property='og:image']/@content
 - name: imageAlt
   singleValue: true
-  xpath: //li[contains(@class,'slider-slide')]//div[@data-tl-id='ProductPage-alt-image0']/img/@alt
+  xpath: //*[contains(@class,'slider')]//div[@data-tl-id='ProductPage-alt-image0']/img/@alt
 - name: alternateImages
   singleValue: false
   xpath: //li[@class='slider-slide']//img/@src
@@ -30,9 +30,9 @@ fields:
 - name: availabilityText
   singleValue: true
   xpath: //link[@itemprop="availability"]/@href
-  defaultValue: In stock
+  defaultValue: In Stock
   regExp: OutOfStock
-  regExpReplace: Out of Stock
+  regExpReplace: Out of stock
 - name: manufacturer
   singleValue: true
   manualSelector: script[id='item'], script[id='product']
@@ -62,7 +62,7 @@ fields:
 - name: sku
   singleValue: true
   xpath: //script[@id='item'] | //script[id='product']
-  regExp: (","productId":\")(\w+)(","sell)
+  regExp: (","productId":\")(\w+)(","sell)?(","item)?
   regExpReplace: $2
 - name: asin
   singleValue: false
@@ -87,15 +87,12 @@ fields:
   xpath: //p[@class='Warnings']
 - name: warranty
   singleValue: true
-  manualSelector: script[id='item'], script[id='product']
-  regExp: (warranty":{(.*),"information":")([^"]+)("})
-  regExpReplace: $3
+  manualSelector: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  
   xpath: //p[@class='Warnings']
 - name: ratingCount
   singleValue: true
   xpath: //*[@itemprop='aggregateRating']//span[@class='stars-reviews-count-node']
-  regExp: (\d*)
-  regExpReplace: $1
+  regExp: (\d*)  
 - name: aggregateRatingText
   singleValue: true
 - name: aggregateRating
@@ -104,6 +101,10 @@ fields:
 - name: shippingInfo
   singleValue: true 
   xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
+- name: shippingInfo1
+  singleValue: false
+  xpath: //script[@id='item'] | //script[@id='product']
+  regExp: \"sellerDisplayName\"\:\"([^"]+)(\"\,\"showSold)  
 - name: shippingDimensions
   singleValue: true
   xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
@@ -165,6 +166,8 @@ fields:
   xpath: //div[@class='SellerInfo']//a[@class='seller-name']
   regExp: Walmart
   regExpReplace: No
+- name: lbbPrice
+  singleValue: true  
 - name: additionalDescBulletInfo
   singleValue: false  
   xpath: //div[contains(@class,'about-desc')]//ul/li

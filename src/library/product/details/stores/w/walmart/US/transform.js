@@ -19,11 +19,11 @@ const transform = (data, context) => {
       .replace(/[^\x00-\x7F]/g, '');
     return JSON.parse(dataStr);
   }
-  const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
+  const regexp = '(\\d+\\.?\\d*)\\s?([a-zA-Z]*)';
   function getSplitValue (inputStr, count) {
     if (inputStr) {
       const result = inputStr.match(regexp);
-      return result[count];
+      if (result && count <= result.length) { return result[count]; } else { return inputStr; }
     }
   }
   function getValue (name, obj) {
@@ -35,12 +35,21 @@ const transform = (data, context) => {
       }
     }
   }
-  
+
   for (const { group } of data) {
     for (let row of group) {
       try {
         if (row.asin) {
           row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
+        }
+        if (row.lbb && row.lbb.includes('Yes')) {
+          row.lbbPrice = [{ text: row.price[0].text.trim() }];
+        }
+        if (row.shippingInfo && row.shippingInfo[0].text !== '') {
+          row.shippingInfo = [{ text: row.shippingInfo[0].text.trim() }];
+        } else
+        if (row.shippingInfo1) {
+          row.shippingInfo = [{ text: row.shippingInfo1[0].text.replace('"sellerDisplayName":"', '').replace('","showSold', '') }];
         }
         if (row.alternateImages) {
           row.alternateImages.forEach(item => {
@@ -70,11 +79,11 @@ const transform = (data, context) => {
               row.totalFatPerServing = [{ text: getSplitValue(totalFatPerServing, 1) }];
               row.totalFatPerServingUom = [{ text: getSplitValue(totalFatPerServing, 2) }];
 
-              const saturatedFatPerServing = (valueNode && valueNode.childNutrients[0]) ? valueNode.childNutrients[0].amount : '';
+              const saturatedFatPerServing = (valueNode && valueNode.childNutrients) ? valueNode.childNutrients[0].amount : '';
               row.saturatedFatPerServing = [{ text: getSplitValue(saturatedFatPerServing, 1) }];
               row.saturatedFatPerServingUom = [{ text: getSplitValue(saturatedFatPerServing, 2) }];
 
-              const transFatPerServing = (valueNode && valueNode.childNutrients[1]) ? valueNode.childNutrients[1].amount : '';
+              const transFatPerServing = (valueNode && valueNode.childNutrients && valueNode.childNutrients.length > 1) ? valueNode.childNutrients[1].amount : '';
               row.transFatPerServing = [{ text: getSplitValue(transFatPerServing, 1) }];
               row.transFatPerServingUom = [{ text: getSplitValue(transFatPerServing, 2) }];
 
