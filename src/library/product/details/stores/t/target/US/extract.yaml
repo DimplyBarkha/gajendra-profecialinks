@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="AspectRatio__AspectRatioContainer-sc-1h9ishl-0 ljIhnG"]//div[position()=1]//img/@src
   - name: alternateImages
     singleValue: true
-    xpath: //div[@id="alternateImages"]
+    xpath: //div[@id="secondaryImages"]
   - name: imageAlt
     singleValue: true
     xpath: //h1[@data-test="product-title"]
@@ -22,8 +22,8 @@ fields:
     singleValue: true
     xpath: //div[@id="urlInfo"]
   - name: category
-    singleValue: true
-    xpath: //div[@id="subCategories"]
+    singleValue: false
+    xpath: //div[@data-test="breadcrumb"]//span[position()>1]
   - name: price
     singleValue: true
     xpath: //div[@class="style__PriceFontSize-gob4i1-0 fwkyhU h-text-bold"]
@@ -59,7 +59,7 @@ fields:
     xpath: //div[@id="weightInfo"]
   - name: weightGross
     singleValue: true
-    xpath: //div[@data-test="estimatedShipWeight"]
+    xpath: //div[@id="shipWeightInfo"]
   - name: gtin
     singleValue: true
     xpath: //div[@id="upcInfo"]
@@ -86,7 +86,7 @@ fields:
     xpath: //span[@data-test="ratingCount"]
   - name: aggregateRatingText
     singleValue: true
-    xpath: //div[@class="Col-favj32-0 styles__StyledCol-sc-1n8m629-12 gciueZ h-padding-h-default h-padding-t-tight"]//span[@class="utils__ScreenReaderOnly-sc-1kni3r7-0 cZmbcQ"]
+    xpath: //div[@class="RatingSummary__StyledRating-bxhycp-0 fcPxtT h-text-bold"]
   - name: aggregateRating
     singleValue: true
     xpath: //div[@class="RatingSummary__StyledRating-bxhycp-0 fcPxtT h-text-bold"]
@@ -229,8 +229,12 @@ fields:
     singleValue: true
     xpath: //div[@id="storageInfo"]
   - name: countryOfOrigin
-    singleValue: true
-    xpath: //div[@id="originInfo"]
+    singleValue: false
+    xpath: //script[contains(.,"__PRELOADED_STATE__")]
+    regExp: >-
+      "country_of_origin":"([^"]+)"
+    regExpReplace: >-
+      $1
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id="allergyAdviceInfo"]
