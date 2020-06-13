@@ -9,6 +9,7 @@ const transform = (data, context) => {
     dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
       .replace(/&amp;#160/g, ' ')
+      .replace(/&amp;/g, '&')
       .replace(/\\u00A0/g, ' ')
       .replace(/\s{2,}/g, ' ')
       .replace(/"\s{1,}/g, '"')
@@ -29,7 +30,6 @@ const transform = (data, context) => {
     if (obj.values && obj.values.length > 0) {
       for (let i = 0; i < obj.values.length; i++) {
         if (obj.values[i].mainNutrient && obj.values[i].mainNutrient.name && obj.values[i].mainNutrient.name.includes(name)) {
-          console.log(obj.values[i]);
           return obj.values[i];
         }
       }

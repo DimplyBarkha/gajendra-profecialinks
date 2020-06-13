@@ -17,12 +17,10 @@ fields:
   xpath: //meta[@name="keywords"]/@content
 - name: category
   singleValue: false
-  xpath: //li[contains(@class,"breadcrumb")]//span[not(contains(@class,'separator'))] | //div[contains(@class,'ProductCollection')]//li[contains(@class,"breadcrumb")]//a
+  xpath: //li[contains(@class,"breadcrumb")]//span[not(contains(@class,'separator'))] | (//div[contains(@class,'breadcrumb-container')])[1]//li[contains(@class,"breadcrumb")]//a
 - name: nameExtended
   singleValue: true
-  xpath: //meta[@name='description']/@content
-  regExp: (. Buy )(.*)(at Walmart.com)
-  regExpReplace: $2
+  xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1]  
 - name: listPrice
   singleValue: true
   xpath: //section[contains(@class,'prod-PriceSection')]//span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')]
