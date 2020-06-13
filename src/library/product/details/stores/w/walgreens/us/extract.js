@@ -34,6 +34,10 @@ module.exports = {
         return raw ? text : text.replace(/\s{2,}, ' '/g).replace(/^\s*\n|^.\n/gm, '').trim();
       };
 
+      // wait for full loading
+      await new Promise(resolve => setTimeout(resolve, 5e3));
+      
+
       const jsonObj = window.__ATC_APP_INITIAL_STATE__.product.results;
 
       const infos = jsonObj.productInfo;
@@ -97,9 +101,7 @@ module.exports = {
           return [...acc, ...[...frame.contentWindow.document.querySelectorAll('video')].map(v => v[prop || 'src'])];
         }, []),
         ...[...document.querySelectorAll('video')].map(v => v[prop || 'src']),
-      ];
-
-      await new Promise(resolve => setTimeout(resolve, 2e3));
+      ];   
 
       const obj = {
         _input,
@@ -132,7 +134,7 @@ module.exports = {
         ratingCount: reviews ? reviews.reviewCount : '',
         aggregateRatingText: reviews ? reviews.overallRating : '',
         aggregateRating: reviews ? reviews.overallRating : '',
-        shippingInfo: jsonObj.inventory.shippingChargeMsg,
+        shippingInfo: jsonObj.inventory.shippingChargeMsg || jsonObj.inventory.restrictedStates.length === 0 ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates.join(', '),
         shippingDimensions: shipping ? shipping.productInInches : '',
         shippingWeight: shipping ? shipping.shippingWeight : '',
         variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc + arr.length), 0),
@@ -170,18 +172,18 @@ module.exports = {
         otherSellersName: '',
         otherSellersPrice: '',
         otherSellersShipping: '',
-        secondaryImageTotal: '',
+        secondaryImageTotal: infos.filmStripUrl.length,
         news: '',
         addonItem: '',
         fastTrack: '',
         ingredientsList: ingrList ? ingrList.join(' ') : '',
-        servingSize: nutrition && nutrition.servingSize ? nutrition.servingSize.split(/(\d+)/)[0] : '',
-        servingSizeUom: nutrition && nutrition.servingSize ? nutrition.servingSize.split(/(\d+)/)[1] : '',
-        numberOfServingsInPackage: nutrition ? nutrition.servingPerContainer : '',
+        servingSize: nutrition && nutrition[0].servingSize ? nutrition[0].servingSize.split(/(\d+)/)[0] : '',
+        servingSizeUom: nutrition && nutrition[0].servingSize ? nutrition[0].servingSize.split(/(\d+)/)[1] : '',
+        numberOfServingsInPackage: nutrition ? nutrition[0].servingPerContainer : '',
         caloriesPerServing: getNutri(['calories', 'calorie'], false),
         caloriesFromFatPerServing: '',
-        totalFatPerServing: getNutri('fat', false),
-        totalFatPerServingUom: getNutri('fat', true),
+        totalFatPerServing: getNutri(['fat', 'total_fat'], false),
+        totalFatPerServingUom: getNutri(['fat', 'total_fat'], true),
         saturatedFatPerServing: getNutri('saturated_fat', false),
         saturatedFatPerServingUom: getNutri('saturated_fat', true),
         transFatPerServing: getNutri('trans_fat', false),
@@ -231,7 +233,7 @@ module.exports = {
         variantInformation: Object.keys(jsonObj.inventory.relatedProducts),
         firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
         variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
-        additionalDescBulletInfo: '',
+        additionalDescBulletInfo: [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent),
         prop65Warning: '',
         ageSuitability: '',
         energyEfficiency: '',
@@ -244,10 +246,6 @@ module.exports = {
         imageZoomFeaturePresent: document.querySelector('#zoomLensContainer') ? 'Yes' : 'No',
       };
       addObjectToDocument(obj);
-      console.log('""""""""""""""""""""""""');
-      console.log(obj.manufacturerImages);
-      console.log('""""""""""""""""""""""""');
-
     }, [id, url]);
     await context.extract(productDetails);
   },
