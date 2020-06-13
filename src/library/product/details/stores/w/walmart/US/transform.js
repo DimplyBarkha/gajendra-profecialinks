@@ -35,6 +35,7 @@ const transform = (data, context) => {
       }
     }
   }
+  
   for (const { group } of data) {
     for (let row of group) {
       try {
