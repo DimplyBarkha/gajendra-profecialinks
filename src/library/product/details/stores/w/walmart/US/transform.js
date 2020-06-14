@@ -42,7 +42,7 @@ const transform = (data, context) => {
         if (row.asin) {
           row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
         }
-        if (row.lbb && row.lbb.includes('Yes')) {
+        if (row.lbb && row.lbb.includes('Yes') && row.price) {
           row.lbbPrice = [{ text: row.price[0].text.trim() }];
         }
         if (row.shippingInfo && row.shippingInfo[0].text !== '') {
@@ -51,6 +51,21 @@ const transform = (data, context) => {
         if (row.shippingInfo1) {
           row.shippingInfo = [{ text: row.shippingInfo1[0].text.replace('"sellerDisplayName":"', '').replace('","showSold', '') }];
         }
+        if (row.shippingInfo && (!row.otherSellersName || (row.otherSellersName && !row.otherSellersName[0].text.includes(row.shippingInfo[0].text)))) {
+          if (row.otherSellersName && row.otherSellersName.length > 0) {
+            row.otherSellersName.unshift({ text: row.shippingInfo[0].text.trim() });
+          } else {
+            row.otherSellersName = [{ text: row.shippingInfo[0].text.trim() }];
+          }
+          if (row.price) {
+            if (row.otherSellersPrice && row.otherSellersPrice.length > 0) {
+              row.otherSellersPrice.unshift({ text: row.price[0].text.trim() });
+            } else {
+              row.otherSellersPrice = [{ text: row.price[0].text.trim() }];
+            }
+          }
+        }
+
         if (row.alternateImages) {
           row.alternateImages.forEach(item => {
             if (!item.text.match('https://') && item.text.startsWith('//')) {

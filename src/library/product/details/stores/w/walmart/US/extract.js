@@ -55,8 +55,28 @@ module.exports = {
       addHiddenDiv('added-sku', url);
     }
 
+    async function scrollForIframe () {
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, 1000);
+        });
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      }
+    }
+    
+  
     console.log('getting variants');
+
     const allVariants = await getVariants();
+    //await context.evaluate(scrollForIframe);
+    //await context.evaluate(collectEnhancedContent,[],'iframe[id="iframe-AboutThisItem-marketingContent"]');
     await context.evaluate(addUrl);
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
     console.log(allVariants);
@@ -66,6 +86,7 @@ module.exports = {
         const id = allVariants[i];
         const url = await dependencies.createUrl({ id });
         await dependencies.goto({ url });
+        await context.evaluate(scrollForIframe);
         await context.evaluate(addUrl);
         await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
         const pageVariants = await getVariants();
