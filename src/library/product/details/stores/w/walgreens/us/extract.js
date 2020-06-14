@@ -71,7 +71,7 @@ module.exports = {
 
       const images = infos.filmStripUrl.reduce((acc, obj) => {
         const filtered = Object.entries(obj).filter(([key]) => key.includes('largeImageUrl'));
-        const array = filtered.length === 0 ? ['https:' + Object.entries(obj)[0]] : filtered.map(([key, link]) => 'https:' + link);
+        const array = filtered && filtered.length === 0 ? ['https:' + Object.entries(obj)[0]] : filtered.map(([key, link]) => 'https:' + link);
         return [...acc, ...array];
       }, []);
 
@@ -102,7 +102,7 @@ module.exports = {
         }, []),
         ...[...document.querySelectorAll('video')].map(v => v[prop || 'src']),
       ];   
-
+      
       const obj = {
         _input,
         image: infos.productImageUrl,
@@ -117,7 +117,7 @@ module.exports = {
         price: priceValue(['regularPrice', 'salePrice']),
         availabilityText: jsonObj.inventory.shipAvailableMessage ? jsonObj.inventory.shipAvailableMessage : 'In stock',
         description: [fullDescription],
-        descriptionBullets: document.querySelectorAll('#prodDesc ul > li').length,
+        descriptionBullets: document.querySelectorAll('#prodDesc ul > li') ? document.querySelectorAll('#prodDesc ul > li').length :0,
         brandText: infos.brandName,
         manufacturer: fullDescription.split('©')[fullDescription.split('©').length - 1],
         quantity: infos.sizeCount,
@@ -134,7 +134,7 @@ module.exports = {
         ratingCount: reviews ? reviews.reviewCount : '',
         aggregateRatingText: reviews ? reviews.overallRating : '',
         aggregateRating: reviews ? reviews.overallRating : '',
-        shippingInfo: jsonObj.inventory.shippingChargeMsg || jsonObj.inventory.restrictedStates.length === 0 ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates.join(', '),
+        shippingInfo: jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0) ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates ? jsonObj.inventory.restrictedStates.join(', ') :'',
         shippingDimensions: shipping ? shipping.productInInches : '',
         shippingWeight: shipping ? shipping.shippingWeight : '',
         variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc + arr.length), 0),
@@ -142,7 +142,7 @@ module.exports = {
         colorCode: '',
         manufacturerDescription: getSelector('#wc-aplus', { property: 'innerText' }),
         manufacturerImages: [...document.querySelectorAll('#wc-aplus img')].map(u => u.src),
-        videos: videos().length > 0 ? videos() : '',
+        videos: videos() && videos().length > 0 ? videos() : '',
         name: infos.displayName,
         inStorePrice: '',
         asin: '',
@@ -172,14 +172,14 @@ module.exports = {
         otherSellersName: '',
         otherSellersPrice: '',
         otherSellersShipping: '',
-        secondaryImageTotal: infos.filmStripUrl.length,
+        secondaryImageTotal: infos.filmStripUrl ? infos.filmStripUrl.length : 0,
         news: '',
         addonItem: '',
         fastTrack: '',
         ingredientsList: ingrList ? ingrList.join(' ') : '',
-        servingSize: nutrition && nutrition[0].servingSize ? nutrition[0].servingSize.split(/(\d+)/)[0] : '',
-        servingSizeUom: nutrition && nutrition[0].servingSize ? nutrition[0].servingSize.split(/(\d+)/)[1] : '',
-        numberOfServingsInPackage: nutrition ? nutrition[0].servingPerContainer : '',
+        servingSize: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.split(/(\d+)/)[0] : '',
+        servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.split(/(\d+)/)[1] : '',
+        numberOfServingsInPackage: nutrition && nutrition[0] ? nutrition[0].servingPerContainer : '',
         caloriesPerServing: getNutri(['calories', 'calorie'], false),
         caloriesFromFatPerServing: '',
         totalFatPerServing: getNutri(['fat', 'total_fat'], false),
