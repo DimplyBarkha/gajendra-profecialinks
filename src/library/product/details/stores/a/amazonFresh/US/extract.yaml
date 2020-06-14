@@ -185,14 +185,14 @@ fields:
     singleValue: false
     xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
   - name: heroQuickPromoHeadline
-    singleValue: true
-    xpath: 
+    singleValue: false
+    xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@alt
   - name: heroQuickPromoImageUrl
-    singleValue: true
-    xpath:
+    singleValue: false
+    xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//img/@src
   - name: heroQuickPromoUrl
-    singleValue: true
-    xpath:
+    singleValue: false
+    xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@href
   - name: ingredientImagePresent
     singleValue: true
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
@@ -226,36 +226,33 @@ fields:
     singleValue: true
     xpath: 
   - name: featureBullets
-    singleValue: true
-    xpath: 
+    singleValue: false
+    xpath: //div[@id="feature-bullets"]//ul/li
   - name: otherSellersName
     singleValue: false
-    xpath: //div[@id='mbc']//span[contains(@class, 'mbcMerchantName')]
+    xpath: //div[@id="all-offers-display-scroller"]//div[contains(@id, "offer-list")]/div[contains(@id, "offer")]//div[contains(@id, "soldBy")]//a
   - name: otherSellersPrime
     singleValue: false
-    xpath: //div[@id="mbc"]//i[contains(@id, "prime")]
+    xpath: //div[@id="all-offers-display-scroller"]//div[contains(@id, "offer-list")]/div[contains(@id, "offer")]
     type: BOOLEAN
   - name: otherSellersPrice
     singleValue: false
-    xpath: //div[@id='mbc']//span[contains(@id, 'mbc-price')]
+    xpath: //div[@id="all-offers-display-scroller"]//div[contains(@id, "offer-list")]/div[contains(@id, "offer")]
   - name: otherSellersShipping
     singleValue: false
-    xpath: //div[@id='mbc']//span[contains(@id, 'mbc-shipping')]
+    xpath: //div[@id="all-offers-display-scroller"]//div[contains(@id, "offer-list")]/div[contains(@id, "offer")]
   - name: secondaryImageTotal
     singleValue: true
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
   - name: news
-    singleValue: true
-    xpath: 
+    singleValue: false
+    xpath: //table[contains(@id,"productDetails_detailBullets")]//tr/th[contains(text(),"Best Sellers Rank")]/../td//span[contains(text(), "#1 ")]
   - name: addonItem
     singleValue: true
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
-    singleValue: true
-    xpath: 
-  - name: product/food
-    singleValue: true
-    xpath: 
+    singleValue: false
+    xpath: //div[@id="fast-track-message"]
   - name: ingredientsList
     singleValue: true
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
@@ -266,8 +263,8 @@ fields:
     singleValue: true
     xpath: 
   - name: numberOfServingsInPackage
-    singleValue: true
-    xpath: 
+    singleValue: false
+    xpath: //div[contains(@id, "package_quantity")]//span[contains(@class, "selection")]
   - name: caloriesPerServing
     singleValue: true
     xpath: 
@@ -454,3 +451,6 @@ fields:
   - name: newVersion
     singleValue: true
     xpath: //div[@id='centerCol']//div[contains(@id, 'newer')]/h4
+  - name: largeImageCount
+    singleValue: false
+    xpath: 
