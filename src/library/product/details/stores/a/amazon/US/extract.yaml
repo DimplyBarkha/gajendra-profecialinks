@@ -133,7 +133,7 @@ fields:
     xpath:
   - name: asin
     singleValue: true
-    xpath: //link[@rel="canonical"]/@href
+    xpath: //div[@id='added-asin']
   - name: sku
     singleValue: false
     xpath: 
@@ -442,7 +442,7 @@ fields:
   - name: materials
     singleValue: true
     xpath: //div[contains(@id, "prodDetails")]//tr[contains(., "Material") or (contains(., "material"))]/td[contains(@class,'value')]
-  - name: 360ImagePresent
+  - name: Image360Present
     singleValue: true
     xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
   - name: imageZoomFeaturePresent

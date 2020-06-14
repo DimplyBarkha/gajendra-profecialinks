@@ -36,11 +36,26 @@ async function implementation (
     return variants;
   };
 
+  async function addUrl () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    let url = window.location.href;
+    const splits = url ? url.split('/') : [];
+    url = (splits.length > 0) ? splits[splits.length - 1] : '';
+    addHiddenDiv('added-asin', url);
+  }
+
   console.log('getting variants');
   const allVariants = await getVariants();
   // if( allVariants.length > 1 ) {
   //  allVariants.shift();
   // }
+  await context.evaluate(addUrl);
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log(allVariants);
   // start at 1 to skip the first variant which is this page
@@ -49,6 +64,7 @@ async function implementation (
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });
 
+    await context.evaluate(addUrl);
     await context.extract(productDetails, { transform, type: 'APPEND' });
     const pageVariants = await getVariants();
     for (let j = 0; j < pageVariants.length; j++) {
