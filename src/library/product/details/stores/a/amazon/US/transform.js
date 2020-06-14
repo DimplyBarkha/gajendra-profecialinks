@@ -35,7 +35,7 @@ const transform = (data, context) => {
           row.grossWeight = [{ text: row.grossgWeight[0].text.replace(/\s\(/g, '').trim() }];
         }
         if (row.manufacturerDescription) {
-          row.manufacturerDescription = [{ text: row.manufacturerDescription[0].text.replace(/Read more/g, '').replace(/View larger/g, '').trim() }];
+          row.manufacturerDescription = [{ text: row.manufacturerDescription[0].text.replace(/Read more/g, '').replace(/View larger/g, '').replace(/\n/g, '').trim() }];
         }
         if (row.specifications) {
           let text = '';
@@ -45,6 +45,17 @@ const transform = (data, context) => {
           row.specifications = [
             {
               text: text.slice(0, -4),
+            },
+          ];
+        }
+        if (row.featureBullets) {
+          let text = '';
+          row.featureBullets.forEach(item => {
+            text += `${item.text} | `;
+          });
+          row.featureBullets = [
+            {
+              text: text.slice(0, -2),
             },
           ];
         }
