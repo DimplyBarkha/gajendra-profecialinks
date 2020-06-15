@@ -70,13 +70,26 @@ module.exports = {
         }
       }
     }
-    
-  
+    async function collectEnhancedContent () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      const iframe = document.querySelector('#iframe-AboutThisItem-marketingContent');
+      if (iframe) {
+        const bodyText = document.querySelector('div.wc-aplus-body');
+        addHiddenDiv('added-aplus', bodyText);
+      }
+    }
+
     console.log('getting variants');
 
     const allVariants = await getVariants();
-    //await context.evaluate(scrollForIframe);
-    //await context.evaluate(collectEnhancedContent,[],'iframe[id="iframe-AboutThisItem-marketingContent"]');
+    await context.evaluate(scrollForIframe);
+    await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
     await context.evaluate(addUrl);
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
     console.log(allVariants);
