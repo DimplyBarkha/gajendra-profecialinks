@@ -25,10 +25,10 @@ async function implementation (
         if (ratingText) {
           newDiv.dataset.rating = ratingText.replace(reForRatings, '$1');
         } else {
-          newDiv.dataset.rating = 0.0;
+          newDiv.dataset.rating = '0';
         }
       } else {
-        newDiv.dataset.rating = 0.0;
+        newDiv.dataset.rating = '0';
       }
       const priceDiv = productCards[i].querySelector('div.wag-prod-price-info span.sr-only');
       const re = /\$(\d+) and (\d+) cents/;
@@ -94,7 +94,7 @@ async function implementation (
     let i = 0;
     while (i < productCards.length) {
       if (productCards.item(i).querySelectorAll('.extra-info').length > 0) {
-        document.getElementById(i).remove();
+        document.getElementById(i.toString()).remove();
       }
       addHiddenDiv(i, productCards, productInfo);
       i++;
