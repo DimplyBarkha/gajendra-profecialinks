@@ -4,7 +4,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  function cleanUp (data) {
+  const cleanUp = (data, context) => {
     let dataStr = JSON.stringify(data);
     console.log('INSIDE OF CLEANUP');
     if (dataStr) {
@@ -24,7 +24,6 @@ const transform = (data) => {
       return data;
     }
   };
-
   for (const { group } of data) {
     for (let row of group) {
       try {
@@ -62,10 +61,11 @@ const transform = (data) => {
           ];
         }
         row = cleanUp(row);
-      } catch (exception) { console.log('Error in transform', exception); }
+      } catch (exception) {
+        console.log(exception);
+      }
     }
   }
-
-  return cleanUp(data);
+  return data;
 };
 module.exports = { transform };
