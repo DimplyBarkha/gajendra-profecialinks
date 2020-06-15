@@ -4,43 +4,6 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  for (const { group } of data) {
-    for (const row of group) {
-      if (row.manufacturerDescription) {
-        let text = '';
-        row.manufacturerDescription.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ' ')}  `;
-        });
-        row.manufacturerDescription = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
-      }
-      if (row.additionalDescBulletInfo) {
-        let text = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ' ')}  `;
-        });
-        row.additionalDescBulletInfo = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
-      }
-      if (row.productOtherInformation) {
-        let text = '';
-        row.productOtherInformation.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ' ')}  `;
-        });
-        row.productOtherInformation = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
-      }
-    }
-  }
   const cleanUp = (data, context) => {
     let dataStr = JSON.stringify(data);
     console.log('INSIDE OF CLEANUP');
@@ -57,7 +20,48 @@ const transform = (data) => {
 
     return JSON.parse(dataStr);
   };
-
-  return cleanUp(data);
+  for (const { group } of data) {
+    for (let row of group) {
+      try {
+        if (row.manufacturerDescription) {
+          let text = '';
+          row.manufacturerDescription.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ' ')}  `;
+          });
+          row.manufacturerDescription = [
+            {
+              text: text.slice(0, -4),
+            },
+          ];
+        }
+        if (row.additionalDescBulletInfo) {
+          let text = '';
+          row.additionalDescBulletInfo.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ' ')}  `;
+          });
+          row.additionalDescBulletInfo = [
+            {
+              text: text.slice(0, -4),
+            },
+          ];
+        }
+        if (row.productOtherInformation) {
+          let text = '';
+          row.productOtherInformation.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ' ')}  `;
+          });
+          row.productOtherInformation = [
+            {
+              text: text.slice(0, -4),
+            },
+          ];
+        }
+        row = cleanUp(row);
+      } catch (exception) {
+        console.log(exception);
+      }
+    }
+  }
+  return data;
 };
 module.exports = { transform };
