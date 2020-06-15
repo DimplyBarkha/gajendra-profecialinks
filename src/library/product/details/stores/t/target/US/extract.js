@@ -74,7 +74,7 @@ async function implementation (
 
       window.scroll(0, 0);
       function addHiddenDiv (id, content) {
-        if(document && document.getElementById(id)) {
+        if (document && document.getElementById(id)) {
           document.getElementById(id).innerHTML = content;
           return;
         }
@@ -92,7 +92,7 @@ async function implementation (
       const desc = [];
       let descCount = 0;
       document.querySelectorAll('h3').forEach(e => {
-        if(e && e.innerText === 'Highlights') {
+        if (e && e.innerText === 'Highlights') {
           e.parentElement.querySelectorAll('li').forEach(li => {
             descCount++;
             desc.push(li.innerText);
@@ -101,7 +101,7 @@ async function implementation (
       });
       let descText = '';
       document.querySelectorAll('h3').forEach(e => {
-        if(e && e.innerText === 'Description') {
+        if (e && e.innerText === 'Description') {
           descText = e.parentElement.querySelector('.h-margin-v-default').innerText;
         }
       });
@@ -119,63 +119,63 @@ async function implementation (
       const materials = [];
       let quantity = 1;
       document.querySelector('a[href="#tabContent-tab-Details"]').click();
-      if(document && document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
+      if (document && document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
         document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
-          if(e && e.innerText.indexOf('UPC') > -1) {
+          if (e && (e.innerText.indexOf('UPC') > -1)) {
             addHiddenDiv('upcInfo', e.innerText.replace('UPC: ', ''));
           }
-          if(e && e.innerText.indexOf('TCIN') > -1) {
+          if (e && (e.innerText.indexOf('TCIN') > -1)) {
             addHiddenDiv('skuInfo', e.innerText.split(':')[1]);
           }
-          if(e && e.innerText.indexOf('Item Number (DPCI)') === 0) {
+          if (e && (e.innerText.indexOf('Item Number (DPCI)') === 0)) {
             addHiddenDiv('variantIdInfo', e.innerText.split(':')[1]);
           }
-          if(e && e.innerText.indexOf('Contains:') === 0) {
+          if (e && (e.innerText.indexOf('Contains:') === 0)) {
             addHiddenDiv('allergyAdviceInfo', e.innerText.split(':')[1]);
           }
-          if(e && e.innerText.indexOf('Weight:') > -1 || e.innerText.indexOf('Net weight:') > -1) {
+          if (e && (e.innerText.indexOf('Weight:') > -1 || e.innerText.indexOf('Net weight:') > -1)) {
             addHiddenDiv('weightInfo', e.innerText.split(':')[1]);
           }
-          if(e && e.innerText.indexOf('Warranty') > -1) {
+          if (e && e.innerText.indexOf('Warranty') > -1) {
             addHiddenDiv('warrantyInfo', e.innerText.split(':')[1]);
           }
-          if(e && e.innerText.indexOf('State of Readiness:') > -1) {
+          if (e && e.innerText.indexOf('State of Readiness:') > -1) {
             addHiddenDiv('storageInfo', e.innerText);
           }
-          if(e && e.innerText.indexOf('Dimensions') > -1) {
+          if (e && e.innerText.indexOf('Dimensions') > -1) {
             addHiddenDiv('dimensionsInfo', e.innerText.split(':')[1]);
           }
-          if(e && e.innerText.indexOf('p65warning') > -1) {
+          if (e && e.innerText.indexOf('p65warning') > -1) {
             addHiddenDiv('p65Info', e.innerText.split(':')[1]);
           }
-          if(e && e.innerText.indexOf('Quantity:') > -1) {
+          if (e && e.innerText.indexOf('Quantity:') > -1) {
             quantity = e.innerText.split(':')[1];
           }
-          if(e && e.innerText.indexOf('Number of') > -1) {
+          if (e && e.innerText.indexOf('Number of') > -1) {
             addHiddenDiv('packSize', e.innerText.split(':')[1]);
           }
-          if(e && e.innerText.indexOf('Suggested Age:') > -1) {
+          if (e && e.innerText.indexOf('Suggested Age:') > -1) {
             addHiddenDiv('ageInfo', e.innerText.replace('Suggested Age: ', '').trim());
           }
-          if(e && e.innerText.indexOf('Origin:') > -1) {
+          if (e && e.innerText.indexOf('Origin:') > -1) {
             addHiddenDiv('originInfo', e.innerText.split(':')[1]);
           } else {
             addHiddenDiv('originInfo', 'US');
           }
-          if(e && e.innerText.indexOf('Alcohol content:') > -1) {
+          if (e && e.innerText.indexOf('Alcohol content:') > -1) {
             addHiddenDiv('alcoholInfo', e.innerText.replace('Alcohol content: ', ''));
           }
-          if(e && e.innerText.indexOf('Material:') > -1 || e.innerText.indexOf('material:') > -1) {
+          if (e && (e.innerText.indexOf('Material:') > -1 || e.innerText.indexOf('material:') > -1)) {
             const split = e.innerText.split(':');
             materials.push(split[split.length - 1]);
           }
-          if(e && e.innerText.indexOf('Net weight:') > -1) {
+          if (e && e.innerText.indexOf('Net weight:') > -1) {
             addHiddenDiv('weightInfo', e.innerText.replace('Net weight: ', ''));
           }
-          if(e && e.innerText.indexOf('WARNING:') > -1 || e.innerText.indexOf('warning') > -1) {
+          if (e && (e.innerText.indexOf('WARNING:') > -1 || e.innerText.indexOf('warning') > -1)) {
             addHiddenDiv('warningInfo', e.innerText.split(':')[1]);
           }
-          if(e && e.innerText.indexOf('Disclaimer:') > -1) {
+          if (e && e.innerText.indexOf('Disclaimer:') > -1) {
             addHiddenDiv('disclaimerInfo', e.innerText.split(':')[1]);
           }
         });
@@ -194,7 +194,7 @@ async function implementation (
       const button = document.querySelector('#tab-ShippingReturns');
       if (button != null) {
         button.click();
-        if(document && document.querySelector('div[data-test="shippingOptionsMessage"]')) {
+        if (document && document.querySelector('div[data-test="shippingOptionsMessage"]')) {
           addHiddenDiv('shippingInfo', document.querySelector('div[data-test="shippingOptionsMessage"]').innerText);
         }
 
@@ -218,7 +218,7 @@ async function implementation (
       }
 
       function addHiddenDiv (id, content) {
-        if(document && document.getElementById(id)) {
+        if (document && document.getElementById(id)) {
           document.getElementById(id).innerHTML = content;
           return;
         }
@@ -248,79 +248,79 @@ async function implementation (
         button.click();
         await stall(500);
         document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
-          if(e && e.innerText.indexOf('Ingredients:') > -1) {
+          if (e && e.innerText.indexOf('Ingredients:') > -1) {
             addHiddenDiv('ingredientsInfo', e.innerText.replace('Ingredients: ', ''));
           }
         });
         document.querySelectorAll('p').forEach(e => {
-          if(e && e.innerText.indexOf('Serving Size:') > -1) {
+          if (e && e.innerText.indexOf('Serving Size:') > -1) {
             addHiddenDiv('servingSizeInfo', e.innerText.replace('Serving Size: ', ''));
             const splitInfo = document.getElementById('servingSizeInfo').innerHTML.split(' ');
             addHiddenDiv('servingSizeUomInfo', splitInfo[splitInfo.length - 1]);
           }
-          if(e && e.innerText.indexOf('Serving Per Container:') > -1) {
+          if (e && e.innerText.indexOf('Serving Per Container:') > -1) {
             addHiddenDiv('servingPerContainerInfo', e.innerText.replace('Serving Per Container: ', '').replace(/[a-zA-Z]/g, ''));
           }
         });
         document.querySelectorAll('.h-padding-l-default').forEach(e => {
-          if(e && e.innerText.indexOf('Calories:') > -1) {
+          if (e && e.innerText.indexOf('Calories:') > -1) {
             addHiddenDiv('caloriesInfo', e.innerText.replace('Calories: ', ''));
           }
         });
         document.querySelectorAll('.h-margin-t-tight').forEach(e => {
-          if(e && e.innerText.indexOf('Total Fat') > -1) {
+          if (e && e.innerText.indexOf('Total Fat') > -1) {
             addHiddenDiv('totalFatInfo', e.querySelector('span').innerText.replace('Total Fat', ''));
             addHiddenDiv('totalFatUomInfo', document.getElementById('totalFatInfo').innerHTML.replace('Total Fat', '').replace(/\*/g, '').replace('.', '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Saturated Fat') > -1) {
+          if (e && e.innerText.indexOf('Saturated Fat') > -1) {
             addHiddenDiv('saturatedFatInfo', e.querySelector('span').innerText.replace('Saturated Fat', ''));
             addHiddenDiv('saturatedFatUomInfo', e.querySelector('span').innerText.replace('Saturated Fat', '').replace('.', '').replace(/\*/g, '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Trans Fat') > -1) {
+          if (e && e.innerText.indexOf('Trans Fat') > -1) {
             addHiddenDiv('transFatInfo', e.querySelector('span').innerText.replace('Trans Fat', ''));
             addHiddenDiv('transFatUomInfo', e.querySelector('span').innerText.replace('Trans Fat', '').replace('.', '').replace(/\*/g, '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Cholesterol') > -1) {
+          if (e && e.innerText.indexOf('Cholesterol') > -1) {
             addHiddenDiv('cholesterolInfo', e.querySelector('span').innerText.replace('Cholesterol', ''));
             addHiddenDiv('cholesterolUomInfo', e.querySelector('span').innerText.replace('Cholesterol', '').replace('.', '').replace(/\*/g, '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Sodium') > -1) {
+          if (e && e.innerText.indexOf('Sodium') > -1) {
             addHiddenDiv('sodiumInfo', e.querySelector('span').innerText.replace('Sodium ', ''));
             addHiddenDiv('sodiumUomInfo', e.querySelector('span').innerText.replace('Sodium', '').replace('.', '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Total Carbohydrate') > -1) {
+          if (e && e.innerText.indexOf('Total Carbohydrate') > -1) {
             addHiddenDiv('totalCarbInfo', e.querySelector('span').innerText.replace('Total Carbohydrate', ''));
             addHiddenDiv('totalCarbUomInfo', e.querySelector('span').innerText.replace('Total Carbohydrate', '').replace('.', '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Dietary Fiber') > -1) {
+          if (e && e.innerText.indexOf('Dietary Fiber') > -1) {
             addHiddenDiv('dietaryFiberInfo', e.querySelector('span').innerText.replace('Dietary Fiber', ''));
             addHiddenDiv('dietaryFiberUomInfo', e.querySelector('span').innerText.replace('Dietary Fiber', '').replace('.', '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Total Sugars') > -1 || e.innerText.indexOf('Sugars') === 0) {
+          if (e && (e.innerText.indexOf('Total Sugars') > -1 || e.innerText.indexOf('Sugars') === 0)) {
             addHiddenDiv('totalSugarInfo', e.querySelector('span').innerText.replace('Total Sugars', '').replace('Sugars', ''));
             addHiddenDiv('totalSugarUomInfo', e.querySelector('span').innerText.replace('Total Sugars', '').replace('Sugars', '').replace('.', '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Protein') > -1) {
+          if (e && e.innerText.indexOf('Protein') > -1) {
             addHiddenDiv('proteinInfo', e.querySelector('span').innerText.replace('Protein', ''));
             addHiddenDiv('proteinUomInfo', e.querySelector('span').innerText.replace('Protein', '').replace('.', '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Vitamin A') > -1) {
+          if (e && e.innerText.indexOf('Vitamin A') > -1) {
             addHiddenDiv('vitaminAInfo', e.querySelector('span').innerText.replace('Vitamin A', ''));
             addHiddenDiv('vitaminAUomInfo', e.querySelector('span').innerText.replace('Vitamin A', '').replace('.', '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Vitamin C') > -1) {
+          if (e && e.innerText.indexOf('Vitamin C') > -1) {
             addHiddenDiv('vitaminCInfo', e.querySelector('span').innerText.replace('Vitamin C', ''));
             addHiddenDiv('vitaminCUomInfo', e.querySelector('span').innerText.replace('Vitamin C', '').replace('.', '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Calcium') > -1) {
+          if (e && e.innerText.indexOf('Calcium') > -1) {
             addHiddenDiv('calciumInfo', e.querySelector('span').innerText.replace('Calcium', '').trim() || 0);
             addHiddenDiv('calciumUomInfo', e.querySelector('span').innerText.replace('Calcium', '').replace('.', '').replace(/[0-9]/g, '') || '%');
           }
-          if(e && e.innerText.indexOf('Iron') > -1) {
+          if (e && e.innerText.indexOf('Iron') > -1) {
             addHiddenDiv('ironInfo', e.querySelector('span').innerText.replace('Iron', ''));
             addHiddenDiv('ironUomInfo', e.querySelector('span').innerText.replace('Iron', '').replace('.', '').replace(/[0-9]/g, ''));
           }
-          if(e && e.innerText.indexOf('Magnesium') > -1) {
+          if (e && e.innerText.indexOf('Magnesium') > -1) {
             addHiddenDiv('magInfo', e.querySelector('span').innerText.replace('Magnesium', ''));
             addHiddenDiv('magUomInfo', e.querySelector('span').innerText.replace('Magnesium', '').replace('.', '').replace(/[0-9]/g, ''));
           }
@@ -334,13 +334,13 @@ async function implementation (
         const warning = [];
         document.querySelectorAll('h4').forEach(e => {
           console.log('drugs', e.innerText.trim());
-          if(e && e.innerText.trim() === 'Directions') {
+          if (e && e.innerText.trim() === 'Directions') {
             addHiddenDiv('directionsInfo', e.parentElement.innerText.replace('Directions', '').trim());
           }
-          if(e && e.innerText.trim() === 'Inactive ingredients') {
+          if (e && e.innerText.trim() === 'Inactive ingredients') {
             addHiddenDiv('ingredientsInfo', e.parentElement.innerText.replace('Inactive ingredients', '').trim().toUpperCase());
           }
-          if(e && e.innerText.trim() === 'For use' || e.innerText.trim() === 'Keep out of reach' || e.innerText.trim() === 'Do not use' || e.innerText.trim() === 'When using') {
+          if (e && (e.innerText.trim() === 'For use' || e.innerText.trim() === 'Keep out of reach' || e.innerText.trim() === 'Do not use' || e.innerText.trim() === 'When using')) {
             warning.push(e.innerText.trim());
             warning.push(e.parentElement.innerText.replace(e.innerText.trim(), '').trim());
           }
@@ -351,13 +351,13 @@ async function implementation (
       }
 
       let terms = 'No';
-      if(document && document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
+      if (document && document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
         terms = 'Yes';
       }
       addHiddenDiv('terms', terms);
 
       let privacy = 'No';
-      if(document && document.querySelector('a[href="/c/target-privacy-policy/-/N-4sr7p"]')) {
+      if (document && document.querySelector('a[href="/c/target-privacy-policy/-/N-4sr7p"]')) {
         privacy = 'Yes';
       }
       addHiddenDiv('privacy', privacy);
@@ -379,7 +379,7 @@ async function implementation (
       }
       if (variants.length) {
         variants.forEach(e => {
-          if(e && e.getAttribute('aria-label').indexOf('checked') > -1) {
+          if (e && e.getAttribute('aria-label').indexOf('checked') > -1) {
             addHiddenDiv('variantInfo', e.innerText);
           }
         });
@@ -388,10 +388,10 @@ async function implementation (
       let deliver = false;
       let inStore = false;
       document.querySelectorAll('.h-text-bold.h-text-greenDark').forEach(e => {
-        if(e && e.innerText.trim() === 'Deliver') {
+        if (e && e.innerText.trim() === 'Deliver') {
           deliver = true;
         }
-        if(e && e.innerText.trim().indexOf('Pick up') > -1) {
+        if (e && e.innerText.trim().indexOf('Pick up') > -1) {
           inStore = true;
         }
       });
@@ -414,9 +414,9 @@ async function implementation (
         if (slideDeck) {
           console.log('has slide deck');
           slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
-            if(e && e.getAttribute('alt').indexOf('- video') === -1 && ind > 0) {
+            if (e && e.getAttribute('alt').indexOf('- video') === -1 && ind > 0) {
               secondaryImages.push(e.getAttribute('src').split('?')[0]);
-            } else if(e && e.getAttribute('alt').indexOf('- video') > -1) {
+            } else if (e && e.getAttribute('alt').indexOf('- video') > -1) {
               videos.push(e.getAttribute('src').split('?')[0] + '_Flash9_Autox720p_2600k');
             }
           });
@@ -425,9 +425,9 @@ async function implementation (
         const sideImages = document.querySelectorAll('.styles__ThumbnailImage-beej2j-11');
         if (sideImages) {
           sideImages.forEach((e, ind) => {
-            if(e && e.getAttribute('type').indexOf('video') === -1 && ind > 0) {
+            if (e && e.getAttribute('type').indexOf('video') === -1 && ind > 0) {
               secondaryImages.push(e.getAttribute('src').split('?')[0]);
-            } else if(e && e.getAttribute('alt').indexOf('- video') > -1) {
+            } else if (e && e.getAttribute('alt').indexOf('- video') > -1) {
               videos.push(e.getAttribute('src').split('?')[0] + '_Flash9_Autox720p_2600k');
             }
           });
@@ -475,9 +475,9 @@ async function implementation (
         addHiddenDiv('variantCount', variations.length);
         variations[0].click();
         await stall(500);
-        if(document && document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
+        if (document && document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
           document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
-            if(e && e.innerText.indexOf('TCIN') > -1) {
+            if (e && e.innerText.indexOf('TCIN') > -1) {
               addHiddenDiv('firstVariant', e.innerText.split(':')[1]);
             }
           });
@@ -485,9 +485,9 @@ async function implementation (
         const variants = [];
         for (const variation of variations) {
           variation.click();
-          if(document && document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
+          if (document && document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
             document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
-              if(e && e.innerText.indexOf('TCIN') > -1 && e.innerText.split(':')[1] !== document.getElementById('skuInfo').innerHTML) {
+              if (e && e.innerText.indexOf('TCIN') > -1 && e.innerText.split(':')[1] !== document.getElementById('skuInfo').innerHTML) {
                 variants.push(e.innerText.split(':')[1]);
               }
             });
@@ -497,7 +497,7 @@ async function implementation (
           addHiddenDiv('variants', variants.join(' | '));
         }
       }
-      if(document && document.getElementById('btnIndex')) {
+      if (document && document.getElementById('btnIndex')) {
         document.getElementById('btnIndex').innerHTML = parseInt(document.getElementById('btnIndex').innerHTML) + 1;
       }
     });
