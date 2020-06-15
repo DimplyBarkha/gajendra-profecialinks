@@ -1,16 +1,16 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'us',
     store: 'walgreens',
-    transform: null,
+    transform: cleanUp,
     domain: 'walgreens.com',
   },
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
-  implementation: async ({ url, id }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ url, id }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async ([{ id: _input }, _url]) => {
       const addElementToDocument = (key, value, { parentID = '', type = 'span' } = {}) => {
         const htmlString = `<${type} style="display:none" id="added_${key}" ></${type}>`;
@@ -247,6 +247,6 @@ module.exports = {
       };
       addObjectToDocument(obj);
     }, [id, url]);
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
