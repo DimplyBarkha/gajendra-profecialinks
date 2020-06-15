@@ -23,7 +23,7 @@ fields:
     xpath: //div[@id="urlInfo"]
   - name: category
     singleValue: false
-    xpath: //div[@data-test="breadcrumb"]//span[position()>1]
+    xpath: //div[@data-test="breadcrumb"]//span[position()>1]//span[@itemprop="name"]
   - name: price
     singleValue: true
     xpath: //div[@class="style__PriceFontSize-gob4i1-0 fwkyhU h-text-bold"]
@@ -113,7 +113,7 @@ fields:
     xpath: //div[@id="manufacturerImgs"]
   - name: videos
     singleValue: true
-    xpath: //video//source/@src
+    xpath: //div[@id="videos"]
   - name: name
     singleValue: true
     xpath: //h1[@data-test="product-title"]

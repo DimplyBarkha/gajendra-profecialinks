@@ -26,7 +26,7 @@ async function implementation (
 
   await context.waitForXPath("//div[@data-test='product-price']");
 
-  await context.evaluate(function() {
+  await context.evaluate(function () {
     location.reload();
   });
 
@@ -42,10 +42,13 @@ async function implementation (
     }
     window.scroll(0, 500);
     await stall(2000);
-    const variantProductBtns = document.querySelectorAll('.Button__ButtonWithStyles-y45r97-0.StyledButton__VariationButton-qhksha-0');
-    if(variantProductBtns.length) {
+    let variantProductBtns = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+    if (!variantProductBtns.length) {
+      variantProductBtns = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
+    }
+    if (variantProductBtns.length) {
       const newDiv = document.createElement('div');
-      newDiv.id = "btnIndex";
+      newDiv.id = 'btnIndex';
       newDiv.textContent = -1;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
@@ -54,21 +57,24 @@ async function implementation (
     return variantProductBtns.length;
   });
 
-  if(variantProductCount === 0) {
+  if (variantProductCount === 0) {
     variantProductCount = 1;
   }
 
-  const extractedData = []
-  for(let i = 0; i < variantProductCount; i++) {
+  const extractedData = [];
+  for (let i = 0; i < variantProductCount; i++) {
     await context.evaluate(async function () {
-      const variants = document.querySelectorAll('.Button__ButtonWithStyles-y45r97-0.StyledButton__VariationButton-qhksha-0');
+      let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+      if (!variants.length) {
+        variants = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
+      }
       if (variants.length) {
         variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
       }
 
       window.scroll(0, 0);
       function addHiddenDiv (id, content) {
-        if(document.getElementById(id)) {
+        if (document.getElementById(id)) {
           document.getElementById(id).innerHTML = content;
           return;
         }
@@ -83,27 +89,6 @@ async function implementation (
       addHiddenDiv('urlInfo', window.location.href);
       addHiddenDiv('productName', document.querySelector('h1[data-test="product-title"]').innerText.split('-')[0]);
 
-      /*const alternateImages = [];
-      document.querySelectorAll('.styles__ThumbnailImage-beej2j-11').forEach(e => {
-        alternateImages.push(e.src);
-      });
-      addHiddenDiv('alternateImages', alternateImages.join(' | '));*/
-
-      function findJsonObj (scriptSelector, startString, endString) {
-          const xpath = `//script[contains(.,'${scriptSelector}')]`;
-          const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          const scriptContent = element.innerText;
-          const startIdx = scriptContent.indexOf(startString);
-          const endIdx = scriptContent.indexOf(endString);
-          let jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
-          jsonStr = jsonStr.trim();
-          console.log(jsonStr);
-          return JSON.parse(jsonStr);
-      }
-
-    //  const countryOfOrigin = findJsonObj('__PRELOADED_STATE__', 'window.__PRELOADED_STATE__=', "");
-      //console.log(countryOfOrigin);
-
       const desc = [];
       let descCount = 0;
       document.querySelectorAll('h3').forEach(e => {
@@ -114,8 +99,15 @@ async function implementation (
           });
         }
       });
+      let descText = '';
+      document.querySelectorAll('h3').forEach(e => {
+        if (e.innerText === 'Description') {
+          descText = e.parentElement.querySelector('.h-margin-v-default').innerText;
+        }
+      });
+
       addHiddenDiv('bulletCount', descCount);
-      addHiddenDiv('description', '|| ' + desc.join(' || '));
+      addHiddenDiv('description', '|| ' + desc.join(' || ') + descText);
 
       const subCategories = [];
       const categoryDiv = document.querySelector('.h-text-sm.h-padding-v-tiny');
@@ -130,7 +122,7 @@ async function implementation (
       if (document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
         document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
           if (e.innerText.indexOf('UPC') > -1) {
-            //addHiddenDiv('upcInfo', e.innerText.replace('UPC: ', ''));
+            // addHiddenDiv('upcInfo', e.innerText.replace('UPC: ', ''));
           }
           if (e.innerText.indexOf('TCIN') > -1) {
             addHiddenDiv('skuInfo', e.innerText.split(':')[1]);
@@ -163,7 +155,7 @@ async function implementation (
             addHiddenDiv('packSize', e.innerText.split(':')[1]);
           }
           if (e.innerText.indexOf('Suggested Age:') > -1) {
-            addHiddenDiv('ageInfo', e.innerText.replace('Suggested Age: ', ''));
+            addHiddenDiv('ageInfo', e.innerText.replace('Suggested Age: ', '').trim());
           }
           if (e.innerText.indexOf('Origin:') > -1) {
             addHiddenDiv('originInfo', e.innerText.split(':')[1]);
@@ -226,7 +218,7 @@ async function implementation (
       }
 
       function addHiddenDiv (id, content) {
-        if(document.getElementById(id)) {
+        if (document.getElementById(id)) {
           document.getElementById(id).innerHTML = content;
           return;
         }
@@ -358,12 +350,6 @@ async function implementation (
         }
       }
 
-      /* document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
-        if (e.innerText.indexOf('Allergens & Warnings:') > -1) {
-          addHiddenDiv('allergyAdviceInfo', e.innerText.replace('Allergens & Warnings:', '').replace('CONTAINS:', ''));
-        }
-      }); */
-
       let terms = 'No';
       if (document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
         terms = 'Yes';
@@ -387,7 +373,10 @@ async function implementation (
         }
       }
 
-      const variants = document.querySelectorAll('.Button__ButtonWithStyles-y45r97-0.StyledButton__VariationButton-qhksha-0');
+      let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+      if (!variants.length) {
+        variants = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
+      }
       if (variants.length) {
         variants.forEach(e => {
           if (e.getAttribute('aria-label').indexOf('checked') > -1) {
@@ -412,31 +401,43 @@ async function implementation (
       } else if (inStore) {
         addHiddenDiv('availability', 'In Store Only');
       }
-      if(!deliver && ! inStore) {
+      if (!deliver && !inStore) {
         addHiddenDiv('availability', 'Out of Stock');
       }
 
-      const video = document.querySelector('img[type="video"]');
-      if (video) {
-        video.click();
-      }
-
+      const secondaryImages = [];
+      const videos = [];
       const moreImageBtn = document.querySelector('.styles__LegendGridButtonOverlay-beej2j-13');
       if (moreImageBtn) {
         moreImageBtn.click();
-        const secondaryImages = [];
         const slideDeck = document.querySelector('.ZoomedSlideDeck__SlideList-sc-1nqe9sx-0');
         if (slideDeck) {
           console.log('has slide deck');
-          slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach((e, ind) => {
-            if(e.getAttribute('alt').indexOf('- video') === -1 && ind > 0) {
+          slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
+            if (e.getAttribute('alt').indexOf('- video') === -1 && ind > 0) {
               secondaryImages.push(e.getAttribute('src').split('?')[0]);
+            } else if (e.getAttribute('alt').indexOf('- video') > -1) {
+              videos.push(e.getAttribute('src').split('?')[0] + '_Flash9_Autox720p_2600k');
             }
           });
         }
-        if(secondaryImages.length) {
-          addHiddenDiv('secondaryImages', secondaryImages.join(' | '));
+      } else {
+        const sideImages = document.querySelectorAll('.styles__ThumbnailImage-beej2j-11');
+        if (sideImages) {
+          sideImages.forEach((e, ind) => {
+            if (e.getAttribute('type').indexOf('video') === -1 && ind > 0) {
+              secondaryImages.push(e.getAttribute('src').split('?')[0]);
+            } else if (e.getAttribute('alt').indexOf('- video') > -1) {
+              videos.push(e.getAttribute('src').split('?')[0] + '_Flash9_Autox720p_2600k');
+            }
+          });
         }
+      }
+      if (videos.length) {
+        addHiddenDiv('videos', videos.join(' | '));
+      }
+      if (secondaryImages.length) {
+        addHiddenDiv('secondaryImages', secondaryImages.join(' | '));
       }
 
       if (!document.querySelector('#packSize')) {
@@ -464,7 +465,10 @@ async function implementation (
       }
 
       const details = document.querySelector('a[href="#tabContent-tab-Details"]');
-      const variations = document.querySelectorAll('.Button__ButtonWithStyles-y45r97-0.StyledButton__VariationButton-qhksha-0');
+      let variations = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+      if (!variations.length) {
+        variations = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
+      }
       if (variations.length) {
         details.click();
         await stall(500);
@@ -478,12 +482,12 @@ async function implementation (
             }
           });
         }
-        let variants = [];
-        for (let variation of variations) {
+        const variants = [];
+        for (const variation of variations) {
           variation.click();
           if (document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
             document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
-              if (e.innerText.indexOf('TCIN') > -1 && e.innerText.split(':')[1] != document.getElementById('skuInfo').innerHTML) {
+              if (e.innerText.indexOf('TCIN') > -1 && e.innerText.split(':')[1] !== document.getElementById('skuInfo').innerHTML) {
                 variants.push(e.innerText.split(':')[1]);
               }
             });
@@ -496,14 +500,12 @@ async function implementation (
       if (document.getElementById('btnIndex')) {
         document.getElementById('btnIndex').innerHTML = parseInt(document.getElementById('btnIndex').innerHTML) + 1;
       }
-
     });
     const extraction = await context.extract(productDetails, { transform });
     console.log('extraction', extraction);
     extractedData.push(extraction[0]);
   }
   return extractedData;
-
 }
 
 module.exports = {
