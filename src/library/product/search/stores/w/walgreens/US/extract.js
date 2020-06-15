@@ -1,7 +1,6 @@
 const { transform } = require('../../../../shared');
 
 async function implementation (
-  // @ts-ignore
   inputs,
   parameters,
   context,
@@ -26,11 +25,9 @@ async function implementation (
         if (ratingText) {
           newDiv.dataset.rating = ratingText.replace(reForRatings, '$1');
         } else {
-          // @ts-ignore
           newDiv.dataset.rating = 0.0;
         }
       } else {
-        // @ts-ignore
         newDiv.dataset.rating = 0.0;
       }
       const priceDiv = productCards[i].querySelector('div.wag-prod-price-info span.sr-only');
@@ -74,7 +71,6 @@ async function implementation (
         },
         referrer: refURL,
         referrerPolicy: 'no-referrer-when-downgrade',
-        // @ts-ignore
         body: '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","q":"' + window.__APP_INITIAL_STATE__.search.searchString + '","requestType":"search","sort":"relevance","couponStoreId":"4372"}',
         method: 'POST',
         mode: 'cors',
@@ -91,7 +87,6 @@ async function implementation (
         productInfo = data.products;
       }
     } else {
-      // @ts-ignore
       productInfo = window.__APP_INITIAL_STATE__.searchResult.productList;
     }
 
@@ -99,7 +94,6 @@ async function implementation (
     let i = 0;
     while (i < productCards.length) {
       if (productCards.item(i).querySelectorAll('.extra-info').length > 0) {
-        // @ts-ignore
         document.getElementById(i).remove();
       }
       addHiddenDiv(i, productCards, productInfo);
