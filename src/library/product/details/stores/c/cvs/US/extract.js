@@ -194,6 +194,22 @@ module.exports = {
         }
       }
 
+      const videoLinks = document.evaluate("//a[contains(@href,'VideoDialog')]/@href", document.cloneNode(true), null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+      let videoLink = videoLinks.iterateNext();
+      while (videoLink) {
+        const resp = await fetch('https://www.parfumdreams.de' + videoLink.value, { method: 'GET' });
+        const respText = await resp.text();
+        if (respText) {
+          const startString = '<source type="video/mp4" src="';
+          const startIdx = respText.indexOf(startString);
+          let link = respText.substring(`${startIdx}${startString.length}`);
+          const endIdx = link.indexOf('">');
+          link = link.substring(0, endIdx);
+          addElementToDocument('pd_video', link);
+        }
+        videoLink = videoLinks.iterateNext();
+      }
+
       addHiddenDiv('ii_url', window.location.href);
       addHiddenDiv('ii_sku', skuFromUrl);
 
