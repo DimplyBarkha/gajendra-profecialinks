@@ -27,7 +27,7 @@ fields:
     xpath: //*[@id="oldPriceAmount"]
     singleValue: true
   - name: price
-    xpath: //*[@id='reducedPriceAmount']/@content
+    xpath: //*[@id='reducedPriceAmount']/@content | //span[@id="normalPriceAmount"]/@content 
     singleValue: true
   - name: availabilityText
     singleValue: true
