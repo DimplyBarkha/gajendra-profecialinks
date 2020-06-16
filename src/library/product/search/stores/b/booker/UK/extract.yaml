@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    xpath: //td[@class='packm']/div
+    singleValue: true
+  - name: name
+    xpath: //td[@class="info"]//a
+    singleValue: false
+  - name: productUrl
+    xpath: //td[@class="info"]//a/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.booker.co.uk$1
+    singleValue: false
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    xpath: //td[@class="pack"]/a/img/@src
+    regExp: ^(.+)$
+    regExpReplace: https://www.booker.co.uk$1
+    singleValue: false
+  - name: aggregateRating
+    singleValue: true
+  - name: reviewCount
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+  - name: price
+    singleValue: true
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: true
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
