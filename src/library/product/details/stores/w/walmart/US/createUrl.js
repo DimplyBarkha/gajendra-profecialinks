@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'walmart.com',
     prefix: 'ip',
-    suffix:'?selected=true',
+    suffix: '?selected=true',
     country: 'US',
     store: 'walmart',
   },
