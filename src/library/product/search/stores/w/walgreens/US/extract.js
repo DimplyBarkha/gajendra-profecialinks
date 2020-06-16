@@ -47,7 +47,7 @@ async function implementation (
         }
       }
 
-      if (productInfo !== null && productInfo[i]) {
+      if (productInfo !== null && productInfo[i] !== null) {
         newDiv.dataset.id = (productInfo[i].productInfo) ? productInfo[i].productInfo.wic : '';
         newDiv.dataset.upc = (productInfo[i].productInfo) ? productInfo[i].productInfo.upc : '';
         newDiv.dataset.rating = (productInfo[i].productInfo) ? productInfo[i].productInfo.averageRating : '';
