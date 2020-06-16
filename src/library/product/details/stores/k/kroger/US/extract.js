@@ -42,12 +42,12 @@ async function implementation (
 
     if (productDetailsButton && productDetailsButton.textContent === 'Product Details') {
       productDetailsButton.click();
+    }
 
-      const descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden');
-      if (descriptionItem && descriptionItem.length > 0) {
-        const descriptionText = descriptionItem[0].textContent;
-        addHiddenDiv('description', descriptionText);
-      }
+    const descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden');
+    if (descriptionItem && descriptionItem.length > 0) {
+      const descriptionText = descriptionItem[0].textContent;
+      addHiddenDiv('description', descriptionText);
     }
 
     await new Promise((resolve, reject) => setTimeout(resolve, 8e3));
@@ -55,7 +55,6 @@ async function implementation (
 
     if (button !== undefined && button.textContent === 'Nutrition Info') {
       button.click();
-      // click read more button to expand text
       const readMore = document.querySelectorAll('.NutritionIngredients-Disclaimer')[0].children[1].children;
 
       const aElement = readMore[0];

@@ -1,0 +1,132 @@
+input:
+  id: 707645
+  _url: https://superdrug.com
+extractions:
+  - html: https://workbench.import.io/html/run=8ae83b70-c137-436c-80cb-8a9a97a074d5/task=8371779e-a2a3-4f6e-8e40-b2932cf34d61/5445a665-d289-4d6a-9b60-2e7a977b667d.html
+    extractionConfigId: product/details/stores/s/superdrug/UK/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/div[1]/a[1]/span[1]
+            allergyAdvice:
+              - text: Milk
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[5]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[25]/div[1]/div[1]/div[1]/div[1]/span[3]
+            brandLink:
+              - text: https://www.superdrug.com/b/Cow & Gate
+                xpath: /html/body/div[25]/section[1]/header[1]/span[1]/a[1]/@href
+            brandText:
+              - text: Cow & Gate
+                xpath: /html/body/div[25]/section[1]/header[1]/span[1]/a[1]
+            caloriesPerServing:
+              - text: 263 kJ / 63 kcal
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[1]/td[2]
+            category:
+              - text: Baby
+                xpath: /html/body/div[23]/a[2]
+              - text: Baby Food
+                xpath: /html/body/div[23]/a[3]
+              - text: Baby Food Jars Stage 2
+                xpath: /html/body/div[23]/a[4]
+            description:
+              - text: At Cow & Gate, we're passionate about helping little ones learn to love
+                  good food. In our delicious new range of jars, we use over 27
+                  different fruits and vegetables, plus a variety of tastes &
+                  textures, so there's plenty for your baby to explore.
+                xpath: /html/body/div[25]/section[1]/div[3]/p[1]
+            dietaryFibrePerServing:
+              - text: "1"
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[6]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[6]/td[2]
+            image:
+              - text: https://www.superdrug.com/medias/sys_master/front-zoom/front-zoom/hb6/h2d/10228217806878/Cow-Gate-Cauliflower-Cheese-Jar-from-7m-200g-707645.jpg
+                xpath: /html/body/div[25]/section[1]/div[1]/div[2]/a[1]/div[1]/@data-image
+            imageAlt:
+              - text: Cow & Gate Cauliflower Cheese Jar from 7m+ 200g
+                xpath: /html/body/div[25]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@alt
+            ingredientsList:
+              - text: Cauliflower (36%)
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[3]
+              - text: Water
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[4]
+              - text: Skimmed Milk
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[5]
+              - text: Cheddar Cheese (contains Milk) (8%)
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[6]
+              - text: Rice
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[7]
+              - text: Cornflour
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[8]
+              - text: Parsley
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[9]
+            nameExtended:
+              - text: Cow & Gate Cauliflower Cheese Jar from 7m+ 200g
+                xpath: /html/body/div[25]/section[1]/header[1]/h1[1]
+            packSize:
+              - text: "Size (200) Unit (G) "
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[13]
+            price:
+              - text: £0.79
+            pricePerUnit:
+              - text: 39.50p per 100g
+                xpath: /html/body/div[25]/div[1]/div[1]/div[1]/div[1]/p[1]
+            proteinPerServing:
+              - text: "3.3"
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[7]/td[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]/span[1]/span[1]/span[1]
+            saltPerServing:
+              - text: "0.2"
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[8]/td[2]
+            saturatedFatPerServing:
+              - text: "1.6"
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[3]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[3]/td[2]
+            shippingDimensions:
+              - text: Height (10.3) Width (6) Depth (6)
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[13]
+            supplementaryImage:
+              - text: https://www.superdrug.com/medias/sys_master/front-prd/front-prd/h87/h67/10228217511966/Cow-Gate-Cauliflower-Cheese-Jar-from-7m-200g-707645.jpg
+                xpath: /html/body/div[25]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
+            supplementaryImageTotal:
+              - text: "1"
+            totalCarbPerServing:
+              - text: "5.8"
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[4]/td[2]
+            totalFatPerServing:
+              - text: "2.7"
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[2]/td[2]
+            totalSugarsPerServing:
+              - text: "1.5"
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[5]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/table[1]/tbody[1]/tr[5]/td[2]
+            url:
+              - text: https://www.superdrug.com/Baby/Baby-Food/Baby-Food-Jars-Stage-2/Cow-&-Gate-Cauliflower-Cheese-Jar-from-7m-200g/p/707645
+                xpath: /html/head[1]/link[2]/@href
+            variantId:
+              - text: "707645"
+                xpath: /html/body/div[27]/div[1]/section[1]/article[2]/p[14]
+        xpath: /
+    timestamp: 1591446834661
