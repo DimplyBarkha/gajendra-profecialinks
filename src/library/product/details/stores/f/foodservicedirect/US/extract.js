@@ -20,11 +20,12 @@ module.exports = {
       function addAllergensList () {
         const allergensList = [];
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Allergens')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item-value');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               if (element.textContent.includes('CONTAINS')) {
                 allergensList.push(element.parentElement.querySelector('.c-expandable-list-block__item-label').innerHTML);
               }
@@ -45,11 +46,12 @@ module.exports = {
         }
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
         let shipText = '';
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Properties')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               if (element.textContent.includes('Shipping')) {
                 shipText = element.textContent;
               }
@@ -66,11 +68,12 @@ module.exports = {
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
         let soldAsText = '';
         let unitQuantityText = '';
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Product Specifications')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               if (element.textContent.includes('Sold As')) {
                 soldAsText = element.children[1].textContent;
               }
@@ -89,6 +92,7 @@ module.exports = {
       function nurtitionInfo () {
         const nutriObj = {
           serving: 'servingSize',
+          'serving size uom': 'servingSizeUom',
           calories: 'caloriesPerServing',
           'calories from fat': 'caloriesFromFatPerServing',
           'total fat': 'totalFatPerServing',
@@ -125,11 +129,12 @@ module.exports = {
           'sodium uom': 'sodiumPerServingUom',
         };
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Nutrition Facts')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               const nurtiItem = (element.children[0].textContent).toLowerCase();
               if (nutriObj[nurtiItem]) {
                 addHiddenDiv(nutriObj[nurtiItem], element.children[1].textContent);
@@ -149,9 +154,9 @@ module.exports = {
 
       addAllergensList();
       nurtitionInfo();
-      addShippingInfo();
       hasZoomFeature();
       quantity();
+      addShippingInfo();
     });
 
     return await context.extract(productDetails, { transform: transformParam });
