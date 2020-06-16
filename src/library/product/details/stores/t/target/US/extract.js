@@ -525,6 +525,7 @@ async function implementation (
   }
   return extractedData;
 }
+
 const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
