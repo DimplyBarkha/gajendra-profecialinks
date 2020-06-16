@@ -13,7 +13,8 @@ const transform = (data, context) => {
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
-    .replace(/[^\x00-\x7F]/g, '');
+    .replace(/[^\x00-\x7F]/g, '')
+    .replace(/(<([^>]+)>)/ig,'');
 
   const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
   function getSplitValue (inputStr, count) {
@@ -38,7 +39,10 @@ const transform = (data, context) => {
         if (row.asin) {
           row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
         }
-        if (row.lbb && row.lbb.includes('Yes') && row.price) {
+        if (row.variantId) {
+          row.productUrl = [{ text: `https://www.walmart.com/ip/${row.variantId[0].text}` }];
+        }
+        if (row.lbb && row.lbb[0].text.includes('Yes') && row.price) {
           row.lbbPrice = [{ text: row.price[0].text.trim() }];
         }
         if (row.shippingInfo && row.shippingInfo[0].text !== '') {

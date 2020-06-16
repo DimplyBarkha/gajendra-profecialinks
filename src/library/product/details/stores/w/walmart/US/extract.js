@@ -50,8 +50,8 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       let url = window.location.href;
-      const splits = url ? url.split('/') : [];
-      url = (splits.length > 0) ? splits[splits.length - 1] : '';
+      const splits = url ? url.split('?')[0].split('/') : [];
+      url = (splits.length > 1) ? splits[splits.length - 2] : '';
       addHiddenDiv('added-sku', url);
     }
 

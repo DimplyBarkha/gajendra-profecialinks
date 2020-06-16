@@ -40,10 +40,10 @@ fields:
   regExpReplace: $2
 - name: description
   singleValue: false
-  xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')]
+  xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div
 - name: descriptionBullets
   singleValue: true
-  xpath: count(//div[contains(@class,'about-desc')]//ul/li)
+  xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//ul/li)
 - name: ingredientsList
   singleValue: true
   manualSelector: p.Ingredients
@@ -170,7 +170,7 @@ fields:
   singleValue: true  
 - name: additionalDescBulletInfo
   singleValue: false  
-  xpath: //div[contains(@class,'about-desc')]//ul/li
+  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//ul/li
 - name: promotion
   singleValue: false
   xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
@@ -299,3 +299,6 @@ fields:
 
 - name: ironPerServingUom
   singleValue: false
+
+- name: productUrl
+  singleValue: true
