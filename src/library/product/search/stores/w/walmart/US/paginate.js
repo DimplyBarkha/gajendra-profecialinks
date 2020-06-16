@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[data-type="items"]',
+    loadedSelector: 'div[data-type="items"],span[data-automation-id="zero-results-message"]',
     openSearchDefinition: {
       template: 'https://www.walmart.com/search/search-ng.do?grid=true&page={page}&ps=48&search_query={searchTerms}',
     },
