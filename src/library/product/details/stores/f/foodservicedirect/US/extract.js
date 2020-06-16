@@ -20,12 +20,12 @@ module.exports = {
       function addAllergensList () {
         const allergensList = [];
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Allergens')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item-value');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               if (element.textContent.includes('CONTAINS')) {
                 allergensList.push(element.parentElement.querySelector('.c-expandable-list-block__item-label').innerHTML);
               }
@@ -37,14 +37,21 @@ module.exports = {
       }
 
       function addShippingInfo () {
-        const shippingDivText = document.querySelector('span.c-product-shop-box__ship-info-description-shipping').textContent;
+        const shippingDiv = document.querySelector('span.c-product-shop-box__ship-info-description-shipping');
+        let shippingDivText = '';
+        if (shippingDiv) {
+          shippingDivText = shippingDiv.textContent;
+        } else {
+          return;
+        }
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
         let shipText = '';
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Properties')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               if (element.textContent.includes('Shipping')) {
                 shipText = element.textContent;
               }
@@ -61,11 +68,12 @@ module.exports = {
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
         let soldAsText = '';
         let unitQuantityText = '';
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Product Specifications')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               if (element.textContent.includes('Sold As')) {
                 soldAsText = element.children[1].textContent;
               }
@@ -84,6 +92,7 @@ module.exports = {
       function nurtitionInfo () {
         const nutriObj = {
           serving: 'servingSize',
+          'serving size uom': 'servingSizeUom',
           calories: 'caloriesPerServing',
           'calories from fat': 'caloriesFromFatPerServing',
           'total fat': 'totalFatPerServing',
@@ -92,6 +101,8 @@ module.exports = {
           'saturated fat uom': 'saturatedFatPerServingUom',
           'trans fat': 'transFatPerServing',
           'trans fat uom': 'transFatPerServingUom',
+          'transfatty acids': 'transFatPerServing',
+          'transfatty acids uom': 'transFatPerServingUom',
           cholesterol: 'cholestrolPerServing',
           'cholesterol uom': 'cholestrolPerServingUom',
           'total carbohydrates': 'totalCarbPerServing',
@@ -112,15 +123,18 @@ module.exports = {
           'iron uom': 'ironPerServingUom',
           magnesium: 'magnesiumPerServing',
           'magnesium uom': 'magnesiumPerServingUom',
-          sodium: 'saltPerServing',
-          'sodium uom': 'saltPerServingUom',
+          salt: 'saltPerServing',
+          'salt uom': 'saltPerServingUom',
+          sodium: 'sodiumPerServing',
+          'sodium uom': 'sodiumPerServingUom',
         };
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Nutrition Facts')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               const nurtiItem = (element.children[0].textContent).toLowerCase();
               if (nutriObj[nurtiItem]) {
                 addHiddenDiv(nutriObj[nurtiItem], element.children[1].textContent);
@@ -133,16 +147,16 @@ module.exports = {
       function hasZoomFeature () {
         const content = document.querySelector('.c-product-viewer__image-wrapper');
 
-        if (content.querySelector('div').hasAttribute('data-zoom')) {
+        if (content !== null && content.querySelector('div').hasAttribute('data-zoom')) {
           addHiddenDiv('imageZoomFeaturePresent', 'Yes');
         }
       }
 
       addAllergensList();
       nurtitionInfo();
-      addShippingInfo();
       hasZoomFeature();
       quantity();
+      addShippingInfo();
     });
 
     return await context.extract(productDetails, { transform: transformParam });

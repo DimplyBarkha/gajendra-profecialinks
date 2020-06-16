@@ -4,7 +4,6 @@ async function implementation (
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
 
   await dependencies.goto({ url });
@@ -13,7 +12,7 @@ async function implementation (
     const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
 
     // change overlay to nodelist and double check before click
-    if (overlay != null) {
+    if (overlay !== undefined) {
       overlay.click();
     }
   });
@@ -42,8 +41,7 @@ module.exports = {
     domain: 'kroger.com',
     url: 'https://www.kroger.com/search?query={searchTerms}&searchType=natural&fulfillment=all',
     loadedSelector: '.PaginateItems',
-    // loadedSelector: "kds-Text--m text-default-800 mt-12 mb-4 font-500",
-    noResultsXPath: null,
+    noResultsXPath: "//p[@class='no-query-results heading-l font-medium mt-0']",
   },
   implementation,
 };
