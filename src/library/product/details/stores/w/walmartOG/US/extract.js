@@ -100,6 +100,16 @@ module.exports = {
             addHiddenDiv('iio_brandText', brandText);
             addHiddenDiv('iio_description', description);
 
+            if (document.querySelector('div[data-automation-id="productPageTile"')) {
+              const alternateImagesNodes = document.querySelector('div[data-automation-id="productPageTile"') ? Array.from(document.querySelector('div[data-automation-id="productPageTile"').querySelectorAll('li.slider-slide img')).slice(1) : [];
+              const alternateImages = [];
+              for (let i = 0; i < alternateImagesNodes.length; i++) {
+                alternateImages.push(alternateImagesNodes[i].getAttribute('src').split('?')[0]);
+              }
+
+              if (alternateImages) addHiddenDiv('iio_alternateImages', alternateImages.join('|'));
+            }
+
             iioObjects.forEach((item) => {
               addHiddenDiv(item.name, item.value);
             });
