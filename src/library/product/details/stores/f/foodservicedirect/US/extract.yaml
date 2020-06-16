@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //meta[@property='og:image']/@content
+    xpath: (//div[contains(@class,'c-product-viewer')]//img/@src)[1]
   - name: imageAlt
     singleValue: true
     xpath: (//div[contains(@class,'c-product-viewer__content')]//img/@alt)[1]
@@ -55,7 +55,7 @@ fields:
     singleValue: true
   - name: gtin
     singleValue: true
-    xpath: //div[contains(text(),'UPC')]/following-sibling::span
+    xpath: //div[contains(text(),'GTIN')]/following-sibling::span
     regExp: (\d+){12}
   - name: sku 
     singleValue: true
@@ -90,22 +90,45 @@ fields:
     regExpReplace: $1    
   - name: shippingInfo
     singleValue: true
-    xpath: //div[@id="shippingInfo"]
-  - name: shippingDimension
+  - name: shippingDimensions
     singleValue: true
   - name: shippingWeight
     singleValue: true
   - name: variantCount
     singleValue: true
-    xpath: count(//div[contains(@class,"c-multi-product-slider")]//img)
   - name: name
     singleValue: true
     xpath: (//div[contains(@class,"c-product-shop-box__title")])[1]
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+  - name: inStorePrice
+    singleValue: true
+    description: Price in the selected store
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count((//div[contains(@class,"c-product-viewer__content")]//div[contains(@class,"c-product-viewer__thumb-wrapper swiper-wrapper")]//img/@src)[position()>1])
+  - name: ingredientsList
+    singleValue: true
+    description: List of Ingredients from site - can be string of data if no discernible start/end point
   - name: servingSize
     singleValue: true
     xpath: //div[@id="servingSize"]
   - name: servingSizeUom
     singleValue: true
+    xpath: //div[@id="servingSizeUom"]
   - name: numberOfServingsInPackage
     singleValue: true
   - name: caloriesPerServing
@@ -132,10 +155,10 @@ fields:
   - name: transFatPerServingUom
     singleValue: true
     xpath: //div[@id="transFatPerServingUom"]
-  - name: cholestrolPerServing
+  - name: cholesterolPerServing
     singleValue: true
     xpath: //div[@id="cholestrolPerServing"]
-  - name: cholestrolPerServingUom
+  - name: cholesterolPerServingUom
     singleValue: true
     xpath: //div[@id="cholestrolPerServingUom"]
   - name: sodiumPerServing
@@ -171,13 +194,13 @@ fields:
   - name: vitaminAPerServing
     singleValue: true
     xpath: //div[@id="vitaminAPerServing"]
-  - name: vitaminAPerServingPerServingUom
+  - name: vitaminAPerServingUom
     singleValue: true
     xpath: //div[@id="vitaminAPerServingPerServingUom"]
   - name: vitaminCPerServing
     singleValue: true
     xpath: //div[@id="vitaminCPerServing"]
-  - name: vitaminCPerServingPerServingUom
+  - name: vitaminCPerServingUom
     singleValue: true
     xpath: //div[@id="vitaminCPerServingPerServingUom"]
   - name: calciumPerServing
@@ -208,6 +231,18 @@ fields:
     xpath: //div[@id="saltPerServingUom"]
   - name: dietaryInformation
     singleValue: true
+  - name: specifications
+    singleValue: true
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    singleValue: true
+    description: Guarantee associated with the product
+  - name: storage
+    singleValue: true
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    singleValue: true
+    description: The country from which the product originates
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id='allergens']
@@ -216,18 +251,57 @@ fields:
   - name: promotion
     singleValue: true
     xpath: //span[contains(@class,"c-product-shop-box__price-you-save")]
+  - name: alcoholContent
+    singleValue: true
+    description: Alcohol content information
+  - name: newVersion
+    singleValue: true
+    description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+  - name: newAsin
+    singleValue: true
+    description: In product page, information about a new version of the product - new asin info
+  - name: newDescription
+    singleValue: true
+    description: In product page, information about a new version of the product - new desription info
+  - name: variantInformation
+    singleValue: true
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    singleValue: true
+    description: Unique identifier for a collection of variants. For a subset of core feeds (43) we have a column "first_variant" that is populated with a common code to link all variants for a product. method 1 (Preferred) = use common tag (Could be parent sku) that is same value for all variants of a product. method 2 = first_variant method technique, Identify the first varient in the sequence and use this rpc to populate "first_variant" for all variants of a product, this rpc becomes the common link between other variants. method 3 = apply some logic to determine link between variants, this will need analysis
+  - name: variants
+    singleValue: false
+    description: 
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: 
+  - name: prop65Warning
+    singleValue: true
+    description: 
+  - name: ageSuitability
+    singleValue: true
+    description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+    example: 4 - 99 years
+  - name: energyEfficiency
+    singleValue: true
+    description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: true
     defaultValue: "No"
   - name: termsAndConditions
     singleValue: true
     defaultValue: "No"
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
   - name: customerServiceAvailability
     singleValue: true
     defaultValue: "No"
   - name: materials
     singleValue: true
-  - name: 360ImagePresent
+  - name: Image360Present
     singleValue: true
     defaultValue: "No"
   - name: imageZoomFeaturePresent
