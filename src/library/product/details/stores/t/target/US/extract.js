@@ -26,11 +26,24 @@ async function implementation (
 
   await context.waitForXPath("//div[@data-test='product-price']");
 
-  await context.evaluate(function () {
+  await context.evaluate(async function () {
     location.reload();
   });
 
   await context.waitForXPath("//div[@data-test='product-price']");
+
+  /* await context.evaluate(async function() {
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+    document.getElementById('storeId-utilityNavBtn').click();
+    await stall(1000);
+    document.querySelector('button[data-test="storeLocationSearch-button"]').click();
+  }); */
 
   let variantProductCount = await context.evaluate(async function () {
     function stall (ms) {
@@ -116,67 +129,68 @@ async function implementation (
       });
       addHiddenDiv('subCategories', subCategories.join(' > '));
 
+      if (document.querySelector('span[data-test="product-savings"]')) {
+        addHiddenDiv('regPriceInfo', document.querySelector('span[data-test="product-savings"]').innerText.split(' ')[1]);
+      } else {
+        addHiddenDiv('regPriceInfo', document.querySelector('div[data-test="product-price"]').innerText);
+      }
+
       const materials = [];
       let quantity = 1;
       document.querySelector('a[href="#tabContent-tab-Details"]').click();
-      if (document && document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
-        document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
+      if (document && document.querySelectorAll('b').length) {
+        document.querySelectorAll('b').forEach(e => {
           if (e && (e.innerText.indexOf('UPC') > -1)) {
-            addHiddenDiv('upcInfo', e.innerText.replace('UPC: ', ''));
+            addHiddenDiv('upcInfo', e.parentElement.innerText.replace('UPC: ', ''));
           }
           if (e && (e.innerText.indexOf('TCIN') > -1)) {
-            addHiddenDiv('skuInfo', e.innerText.split(':')[1]);
+            addHiddenDiv('skuInfo', e.parentElement.innerText.split(':')[1]);
           }
           if (e && (e.innerText.indexOf('Item Number (DPCI)') === 0)) {
-            addHiddenDiv('variantIdInfo', e.innerText.split(':')[1]);
+            addHiddenDiv('variantIdInfo', e.parentElement.innerText.split(':')[1]);
           }
           if (e && (e.innerText.indexOf('Contains:') === 0)) {
-            addHiddenDiv('allergyAdviceInfo', e.innerText.split(':')[1]);
+            addHiddenDiv('allergyAdviceInfo', e.parentElement.innerText.split(':')[1]);
           }
           if (e && (e.innerText.indexOf('Weight:') > -1 || e.innerText.indexOf('Net weight:') > -1)) {
-            addHiddenDiv('weightInfo', e.innerText.split(':')[1]);
+            addHiddenDiv('weightInfo', e.parentElement.innerText.split(':')[1]);
           }
           if (e && e.innerText.indexOf('Warranty') > -1) {
-            addHiddenDiv('warrantyInfo', e.innerText.split(':')[1]);
+            addHiddenDiv('warrantyInfo', e.parentElement.innerText.split(':')[1]);
           }
           if (e && e.innerText.indexOf('State of Readiness:') > -1) {
-            addHiddenDiv('storageInfo', e.innerText);
+            addHiddenDiv('storageInfo', e.parentElement.innerText);
           }
           if (e && e.innerText.indexOf('Dimensions') > -1) {
-            addHiddenDiv('dimensionsInfo', e.innerText.split(':')[1]);
+            addHiddenDiv('dimensionsInfo', e.parentElement.innerText.split(':')[1]);
           }
           if (e && e.innerText.indexOf('p65warning') > -1) {
-            addHiddenDiv('p65Info', e.innerText.split(':')[1]);
+            addHiddenDiv('p65Info', e.parentElement.innerText.split(':')[1]);
           }
           if (e && e.innerText.indexOf('Quantity:') > -1) {
             quantity = e.innerText.split(':')[1];
           }
           if (e && e.innerText.indexOf('Number of') > -1) {
-            addHiddenDiv('packSize', e.innerText.split(':')[1]);
+            addHiddenDiv('packSize', e.parentElement.innerText.split(':')[1]);
           }
           if (e && e.innerText.indexOf('Suggested Age:') > -1) {
-            addHiddenDiv('ageInfo', e.innerText.replace('Suggested Age: ', '').trim());
-          }
-          if (e && e.innerText.indexOf('Origin:') > -1) {
-            addHiddenDiv('originInfo', e.innerText.split(':')[1]);
-          } else {
-            addHiddenDiv('originInfo', 'US');
+            addHiddenDiv('ageInfo', e.parentElement.innerText.replace('Suggested Age: ', '').trim());
           }
           if (e && e.innerText.indexOf('Alcohol content:') > -1) {
-            addHiddenDiv('alcoholInfo', e.innerText.replace('Alcohol content: ', ''));
+            addHiddenDiv('alcoholInfo', e.parentElement.innerText.replace('Alcohol content: ', ''));
           }
           if (e && (e.innerText.indexOf('Material:') > -1 || e.innerText.indexOf('material:') > -1)) {
-            const split = e.innerText.split(':');
+            const split = e.parentElement.innerText.split(':');
             materials.push(split[split.length - 1]);
           }
           if (e && e.innerText.indexOf('Net weight:') > -1) {
-            addHiddenDiv('weightInfo', e.innerText.replace('Net weight: ', ''));
+            addHiddenDiv('weightInfo', e.parentElement.innerText.replace('Net weight: ', ''));
           }
           if (e && (e.innerText.indexOf('WARNING:') > -1 || e.innerText.indexOf('warning') > -1)) {
-            addHiddenDiv('warningInfo', e.innerText.split(':')[1]);
+            addHiddenDiv('warningInfo', e.parentElement.innerText.split(':')[1]);
           }
           if (e && e.innerText.indexOf('Disclaimer:') > -1) {
-            addHiddenDiv('disclaimerInfo', e.innerText.split(':')[1]);
+            addHiddenDiv('disclaimerInfo', e.parentElement.innerText.split(':')[1]);
           }
         });
       }
@@ -262,9 +276,12 @@ async function implementation (
             addHiddenDiv('servingPerContainerInfo', e.innerText.replace('Serving Per Container: ', '').replace(/[a-zA-Z]/g, ''));
           }
         });
-        document.querySelectorAll('.h-padding-l-default').forEach(e => {
+        document.querySelectorAll('.h-text-bold').forEach(e => {
           if (e && e.innerText.indexOf('Calories:') > -1) {
-            addHiddenDiv('caloriesInfo', e.innerText.replace('Calories: ', ''));
+            addHiddenDiv('caloriesInfo', e.parentElement.innerText.replace('Calories: ', ''));
+          }
+          if (e && e.innerText.indexOf('Calories from Fat:') > -1) {
+            addHiddenDiv('caloriesFromFatInfo', e.parentElement.innerText.replace('Calories from Fat: ', ''));
           }
         });
         document.querySelectorAll('.h-margin-t-tight').forEach(e => {
@@ -392,6 +409,7 @@ async function implementation (
           deliver = true;
         }
         if (e && e.innerText.trim().indexOf('Pick up') > -1) {
+          addHiddenDiv('inStorePrice', document.querySelector('div[data-test="product-price"]').innerText);
           inStore = true;
         }
       });
@@ -507,13 +525,13 @@ async function implementation (
   }
   return extractedData;
 }
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'target',
-    transform: null,
+    transform: transform,
     domain: 'target.com',
   },
   implementation,

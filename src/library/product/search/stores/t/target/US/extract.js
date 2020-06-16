@@ -54,7 +54,7 @@ async function implementation (
       }
 
       await stall(1000);
-      const itemContainers = document.querySelectorAll('li.Col-favj32-0.bZxgbc.h-padding-a-none');
+      const itemContainers = document.querySelectorAll('li.Col-favj32-0');
       let rank = 1;
       for (const itemContainer of itemContainers) {
         if (itemContainer.querySelector('a[data-test="product-title"]')) {
@@ -101,12 +101,13 @@ async function implementation (
   }
 }
 
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'target',
-    transform: null,
+    transform: transform,
     domain: 'target.com',
   },
   implementation,

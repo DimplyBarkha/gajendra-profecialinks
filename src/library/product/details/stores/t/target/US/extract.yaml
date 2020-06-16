@@ -26,13 +26,13 @@ fields:
     xpath: //div[@data-test="breadcrumb"]//span[position()>1]//span[@itemprop="name"]
   - name: price
     singleValue: true
-    xpath: //div[@class="style__PriceFontSize-gob4i1-0 fwkyhU h-text-bold"]
+    xpath: //div[@data-test="product-price"]
   - name: nameExtended
     singleValue: true
     xpath: //h1[@data-test="product-title"]
   - name: listPrice
     singleValue: true
-    xpath: //div[@class="style__PriceFontSize-gob4i1-0 fwkyhU h-text-bold"]
+    xpath: //div[@id="regPriceInfo"]
   - name: availabilityText
     singleValue: true
     #xpath: //div[@data-test="oosDeliveryOption"]|//div[@data-test="shipMethodsMessages"]|//span[@data-test="getItMessage"]|//div[@data-test="soldOutBlock"]|//div[@id="availability"]
@@ -69,6 +69,9 @@ fields:
   - name: variantId
     singleValue: true
     xpath: //div[@id="variantIdInfo"]
+  - name: mpc
+    singleValue: true
+    xpath: //div[@id="skuInfo"]
   - name: packSize
     singleValue: true
     xpath: //div[@id="packSize"]|//div[@id="quantityInfo"]
@@ -119,7 +122,7 @@ fields:
     xpath: //h1[@data-test="product-title"]
   - name: inStorePrice
     singleValue: true
-    xpath: //div[@class="style__PriceFontSize-gob4i1-0 fwkyhU h-text-bold"]
+    xpath: //div[@id="inStorePrice"]
   - name: ingredientsList
     singleValue: true
     xpath: //div[@id="ingredientsInfo"]
@@ -135,6 +138,9 @@ fields:
   - name: caloriesPerServing
     singleValue: true
     xpath: //div[@id="caloriesInfo"]
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    xpath: //div[@id="caloriesFromFatInfo"]
   - name: totalFatPerServing
     singleValue: true
     xpath: //div[@id="totalFatInfo"]
