@@ -43,7 +43,8 @@ fields:
   defaultValue: In Stock
 - name: description
   singleValue: false
-  xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeShortDescription"]
+  # xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeShortDescription"]
+  xpath: //*[@id="iio_description"]
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//ul//li)

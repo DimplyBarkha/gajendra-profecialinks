@@ -60,6 +60,11 @@ module.exports = {
             const gtin = (data.upc) ? data.upc : '';
             const variantId = (data.detailed && data.detailed.productCode) ? data.detailed.productCode : '';
             const brandText = (data.detailed && data.detailed.brand) ? data.detailed.brand : '';
+            let description = (data.detailed && data.detailed.shortDescription) ? data.detailed.shortDescription : '';
+
+            if (description === '') {
+              description = document.querySelectorAll('div[data-automation-id="productAttributeValue"')[1] ? document.querySelectorAll('div[data-automation-id="productAttributeValue"')[1].textContent : '';
+            }
 
             // nutritionFacts
             if (data.nutritionFacts) {
@@ -93,6 +98,7 @@ module.exports = {
             addHiddenDiv('iio_gtin', gtin);
             addHiddenDiv('iio_variantId', variantId);
             addHiddenDiv('iio_brandText', brandText);
+            addHiddenDiv('iio_description', description);
 
             iioObjects.forEach((item) => {
               addHiddenDiv(item.name, item.value);
