@@ -17,8 +17,7 @@ fields:
   xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]|//div[@data-automation-id="productPageTile"]//div[contains(@class,"imageContainer")]//img[@data-automation-id="image"])[1]/@src
 - name: alternateImages
   singleValue: false
-  # xpath: //div[@data-automation-id="productPageTile"]//li[@class='slider-slide']//div[not(contains(@class,'active'))]//img/@src
-  xpath: //*[@id="iio_alternateImages"]
+  xpath: //div[@data-automation-id="productPageTile"]//li[@class='slider-slide']//div[not(contains(@class,'active'))]//img/@src
 - name: secondaryImageTotal
   singleValue: false
   description: 
@@ -274,6 +273,9 @@ fields:
   regExp: (.+)
   regExpReplace: Yes
   defaultValue: No
+- name: productUrl
+  singleValue: false
+  xpath: //*[@id="iio_product_url"]
 
 
 

@@ -92,6 +92,10 @@ module.exports = {
               }
             }
 
+            if (data.USItemId) {
+              addHiddenDiv('iio_product_url', 'https://grocery.walmart.com/product/' + data.USItemId);
+            }
+
             // Write objects to HTML
             addHiddenDiv('iio_asin', asin);
             addHiddenDiv('iio_sku', sku);
@@ -101,13 +105,14 @@ module.exports = {
             addHiddenDiv('iio_description', description);
 
             if (document.querySelector('div[data-automation-id="productPageTile"')) {
-              const alternateImagesNodes = document.querySelector('div[data-automation-id="productPageTile"') ? Array.from(document.querySelector('div[data-automation-id="productPageTile"').querySelectorAll('li.slider-slide img')).slice(1) : [];
-              const alternateImages = [];
-              for (let i = 0; i < alternateImagesNodes.length; i++) {
-                alternateImages.push(alternateImagesNodes[i].getAttribute('src').split('?')[0]);
+              const nodes = document.querySelector('div[data-automation-id="productPageTile"').querySelectorAll('li.slider-slide img');
+              for (const i in nodes) {
+                // @ts-ignore
+                if (nodes[i].src) {
+                  // @ts-ignore
+                  nodes[i].src = nodes[i].src.replace(/^(.+?\.(png|jpe?g)).*$/i, '$1');
+                }
               }
-
-              if (alternateImages) addHiddenDiv('iio_alternateImages', alternateImages.join('|'));
             }
 
             iioObjects.forEach((item) => {
