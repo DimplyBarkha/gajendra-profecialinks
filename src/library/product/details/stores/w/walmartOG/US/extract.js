@@ -1,14 +1,16 @@
+const { cleanUp } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/details/extract',
 
   parameterValues: {
     country: 'US',
     store: 'walmartOG',
-    transform: null,
+    transform: cleanUp,
     domain: 'grocery.walmart.com',
   },
 
-  implementation: async (inputs, parameterValues, context, dependencies) => {
+  implementation: async (inputs, { country, domain, transform: transformParam }, context, dependencies) => {
     if (inputs.id) {
       // CODE TO SEARCH FOR API in response
       // const req = await context.searchForRequest(`grocery.walmart.com/v3/api/products/${inputs.id}`, 'GET', 0, 60);
@@ -100,9 +102,8 @@ module.exports = {
       }, inputs.id);
     }
 
-    const { transform } = parameterValues;
     const { productDetails } = dependencies;
-    return await context.extract(productDetails, { transform });
+    return await context.extract(productDetails, { transform: transformParam });
   },
 
 };
