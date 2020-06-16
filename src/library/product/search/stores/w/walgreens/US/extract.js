@@ -15,12 +15,12 @@ async function implementation (
       newDiv.id = i;
       newDiv.className = 'extra-info';
       newDiv.style.display = 'none';
-      const skuId = productCards[i].querySelector('a').getAttribute('id').split('_sku')[1];
-      newDiv.dataset.id = skuId !== undefined ? skuId : productCards[i].querySelector('a').getAttribute('id').split('compare_')[1];
+      const skuId = (productCards && productCards[i]) ? productCards[i].querySelector('a').getAttribute('id').split('_sku')[1] : '';
+      newDiv.dataset.id = skuId !== '' ? skuId : productCards[i].querySelector('a').getAttribute('id').split('compare_')[1];
       newDiv.dataset.url = 'https://www.walgreens.com' + productCards[i].querySelector('a').getAttribute('href');
       newDiv.dataset.thumbnail = 'https://' + productCards[i].querySelector('img').getAttribute('src').slice(2);
       const reForRatings = /(\d*\.?\d+) out of 5/;
-      if (productCards[i].querySelector('.wag-prod-review-info').querySelector('img')) {
+      if (productCards && productCards[i] && productCards[i].querySelector('.wag-prod-review-info').querySelector('img')) {
         const ratingText = productCards[i].querySelector('.wag-prod-review-info').querySelector('img').getAttribute('title');
         if (ratingText) {
           newDiv.dataset.rating = ratingText.replace(reForRatings, '$1');
@@ -30,14 +30,16 @@ async function implementation (
       } else {
         newDiv.dataset.rating = '0';
       }
-      const priceDiv = productCards[i].querySelector('div.wag-prod-price-info span.sr-only');
+      const priceDiv = (productCards && productCards[i]) ? productCards[i].querySelector('div.wag-prod-price-info span.sr-only') : undefined;
       const re = /\$(\d+) and (\d+) cents/;
+      let hasPriceDeal = false;
       if (priceDiv) {
         const priceText = priceDiv.textContent;
         if (priceText.includes('Sale price')) {
           const price = priceText.split('And')[0];
           newDiv.dataset.price = price.replace(re, '$1.$2');
         } else if (priceText.includes('1 for')) {
+          hasPriceDeal = true;
           newDiv.dataset.price = (priceText.split('1 for')[1]).replace(/\$*(\d+) dollars and (\d+) cents/, '$1.$2');
         } else {
           const price = priceText;
@@ -46,11 +48,17 @@ async function implementation (
       }
 
       if (productInfo !== null) {
-        newDiv.dataset.id = productInfo[i].productInfo.wic;
-        newDiv.dataset.upc = productInfo[i].productInfo.upc;
-        newDiv.dataset.rating = productInfo[i].productInfo.averageRating;
+        newDiv.dataset.id = (productInfo[i].productInfo) ? productInfo[i].productInfo.wic : '';
+        newDiv.dataset.upc = (productInfo[i].productInfo) ? productInfo[i].productInfo.upc : '';
+        newDiv.dataset.rating = (productInfo[i].productInfo) ? productInfo[i].productInfo.averageRating : '';
+        if (productInfo[i].productInfo.priceInfo && hasPriceDeal === false) {
+          newDiv.dataset.price = (productInfo[i].productInfo.priceInfo.salePrice) ? (productInfo[i].productInfo.priceInfo.salePrice) : (productInfo[i].productInfo.priceInfo.regularPrice);
+        }
       }
-      productCards.item(i).appendChild(newDiv);
+
+      if (productCards && productCards.item(i)) {
+        productCards.item(i).appendChild(newDiv);
+      }
     }
 
     const refURL = window.location.href;
