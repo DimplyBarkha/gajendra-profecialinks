@@ -18,6 +18,8 @@ fields:
 - name: alternateImages
   singleValue: false
   xpath: //div[@data-automation-id="productPageTile"]//li[@class='slider-slide']//div[not(contains(@class,'active'))]//img/@src
+  regExp: ^(.+?\.(png|jpe?g)).*$
+  regExpReplace: $1
 - name: secondaryImageTotal
   singleValue: false
   description: 
@@ -43,8 +45,7 @@ fields:
   defaultValue: In Stock
 - name: description
   singleValue: false
-  # xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeShortDescription"]
-  xpath: //*[@id="iio_description"]
+  xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeShortDescription"]|(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"])[2]
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//ul//li)
