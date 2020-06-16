@@ -7,7 +7,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  console.log('starting...');
   await context.waitForXPath("//a[@class='Link-sc-1khjl8b-0 kTulu h-display-block']");
   await context.evaluate(async function () {
     function stall (ms) {
@@ -23,7 +22,7 @@ async function implementation (
       link.click();
     }
   });
-  console.log('clicked...');
+
   await context.waitForXPath("//h1[@class='Heading__StyledHeading-sc-1m9kw5a-0 kWcXUA h-margin-b-none h-margin-b-tiny h-text-bold']");
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
@@ -55,12 +54,11 @@ async function implementation (
     let quantity = 1;
     if (document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
       document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
-        console.log('element', e);
         if (e.innerText.indexOf('UPC') > -1) {
           addHiddenDiv('upcInfo', e.innerText.replace('UPC: ', ''));
         }
-        if (e.innerText.indexOf('Item Number (DPCI)') > -1) {
-          addHiddenDiv('skuInfo', e.innerText.replace('Item Number (DPCI): ', ''));
+        if (e.innerText.indexOf('TCIN') > -1) {
+          addHiddenDiv('skuInfo', e.innerText.replace('TCIN: ', ''));
         }
         if (e.innerText.indexOf('Weight:') > -1 || e.innerText.indexOf('Net weight:') > -1) {
           addHiddenDiv('weightInfo', e.innerText.split(':')[1]);
@@ -112,9 +110,6 @@ async function implementation (
     }
     addHiddenDiv('quantityInfo', quantity);
 
-    const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0').length;
-    addHiddenDiv('variationCount', variationNum);
-
     const bulletCount = document.querySelectorAll('div[data-test="wellnessBadgeAndDescription"]').length;
     addHiddenDiv('bulletCount', bulletCount);
 
@@ -124,7 +119,7 @@ async function implementation (
     });
     addHiddenDiv('additionalInfo', additionalInfo.join(', '));
   });
-  console.log('done...');
+
   await context.evaluate(function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -139,11 +134,9 @@ async function implementation (
       if (document.querySelector('div[data-test="shippingOptionsMessage"]')) {
         addHiddenDiv('shippingInfo', document.querySelector('div[data-test="shippingOptionsMessage"]').innerText);
       }
-    } else {
-      console.log('not clicking');
     }
   });
-  console.log('done2...');
+
   await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -163,16 +156,16 @@ async function implementation (
 
     const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC');
     if (zoom) {
-      addHiddenDiv('zoomInfo', 'YES');
+      addHiddenDiv('zoomInfo', 'Yes');
     } else {
-      addHiddenDiv('zoomInfo', 'NO');
+      addHiddenDiv('zoomInfo', 'No');
     }
 
     const rotate = document.querySelector('button[data-test="button-model-viewer"]');
     if (rotate) {
-      addHiddenDiv('rotateInfo', 'YES');
+      addHiddenDiv('rotateInfo', 'Yes');
     } else {
-      addHiddenDiv('rotateInfo', 'NO');
+      addHiddenDiv('rotateInfo', 'No');
     }
 
     const button = document.querySelector("a[href='#tabContent-tab-Labelinfo']");
@@ -265,17 +258,18 @@ async function implementation (
       }
     });
 
-    let terms = 'NO';
+    let terms = 'No';
     if (document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
-      terms = 'YES';
+      terms = 'Yes';
     }
     addHiddenDiv('terms', terms);
 
-    let privacy = 'NO';
+    let privacy = 'No';
     if (document.querySelector('a[href="/c/target-privacy-policy/-/N-4sr7p"]')) {
-      privacy = 'YES';
+      privacy = 'Yes';
     }
     addHiddenDiv('privacy', privacy);
+    addHiddenDiv('customerServiceAvailability', 'Yes');
 
     let scrollTop = 500;
     while (true) {
@@ -286,8 +280,32 @@ async function implementation (
         break;
       }
     }
+
+    const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0.gcwqAn').length;
+    addHiddenDiv('variantCount', variationNum);
+
+    const similarItems = document.querySelector('a[href="#tabContent-Similaritems1"]');
+    if (similarItems) {
+      similarItems.click();
+      await stall(1000);
+      const variants = [];
+      document.getElementById('tabContent-Similaritems1').querySelectorAll('a').forEach(e => {
+        const split = e.getAttribute('href').split('/');
+        variants.push(split[split.length - 1]);
+      });
+      addHiddenDiv('variants', variants.join(' | '));
+    }
+
+    if (document.querySelector('div[data-test="orderPickupMessage"]')) {
+      addHiddenDiv('availability', 'In stock');
+    }
+
+    const video = document.querySelector('img[type="video"]');
+    if (video) {
+      video.click();
+    }
+
     const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.fWPETf.h-padding-t-tight');
-    console.log('manufacturer', manufacturerCTA);
     if (manufacturerCTA) {
       manufacturerCTA.click();
       const manufacturerImgs = [];
@@ -298,8 +316,6 @@ async function implementation (
       await stall(1000);
     }
   });
-  console.log('done3...');
-
   return await context.extract(productDetails, { transform });
 }
 
