@@ -1,9 +1,11 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
+    store: 'amazonPharma',
+    transform: null,
     domain: 'amazon.com',
-    store: 'amazon',
   },
 };
+
