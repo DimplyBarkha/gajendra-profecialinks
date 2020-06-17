@@ -26,7 +26,7 @@ fields:
     description: The URL for the product details page
     xpath: //a[contains(@class,'product-title-link')]/@href
     #regExp: (.*)$
-    regExp: (.+)
+    regExp: (/ip/.+)
     regExpReplace: https://www.walmart.com$1
   - name: thumbnail
     singleValue: false
@@ -83,7 +83,7 @@ fields:
     singleValue: false
     description: Unique id (within this extractor)
     xpath: //a[contains(@class,'product-title-link')]/@href
-    regExp: \/(\d+)\??[^\/]*
+    regExp: \/(\d+)\??[^\/]*$
     regExpReplace: $1    
   - name: nameExtended
     singleValue: true
