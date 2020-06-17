@@ -51,7 +51,7 @@ async function implementation (
         newDiv.dataset.id = (productInfo[i].productInfo) ? productInfo[i].productInfo.wic : '';
         newDiv.dataset.upc = (productInfo[i].productInfo) ? productInfo[i].productInfo.upc : '';
         newDiv.dataset.rating = (productInfo[i].productInfo) ? productInfo[i].productInfo.averageRating : '';
-        if (productInfo[i].productInfo && productInfo[i].productInfo.priceInfo2 && hasPriceDeal === false) {
+        if (productInfo[i].productInfo && productInfo[i].productInfo.priceInfo && hasPriceDeal === false) {
           newDiv.dataset.price = (productInfo[i].productInfo.priceInfo.salePrice) ? (productInfo[i].productInfo.priceInfo.salePrice) : (productInfo[i].productInfo.priceInfo.regularPrice);
         }
       }
