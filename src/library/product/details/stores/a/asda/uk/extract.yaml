@@ -1,30 +1,27 @@
 fields:
-  - name: product_image
+  - name: productImage
     singleValue: false
     xpath: (//div[@data-auto-id="image"]//img)[1]/@src
   - name: keywords
     singleValue: true
-  - name: download_time
+  - name: downloadTime
     singleValue: true
   - name: url
     singleValue: false
     xpath: //html/head/link[@rel='canonical']/@href
-  - name: url_id
+  - name: urlId
     singleValue: false
     xpath: //html/head/link[@rel='canonical']/@href
     regExp: (?:https:\/\/.+/(\d+))
     regExpReplace: $1
   - name: category
     singleValue: true
-  - name: sub_category
+  - name: subCategory
     singleValue: true
-  - name: product_description
+  - name: productDescription
     singleValue: false
     xpath: //h1[contains(@class,'pdp-main-details__title')]
-  - name: online_priceexit
-    singleValue: false
-    manualSelector: div.pdp-main-details__price-container strong.pdp-main-details__price
-  - name: online_price_currency
+  - name: onlinePriceCurrency
     singleValue: true
   - name: availability
     singleValue: false
@@ -32,27 +29,27 @@ fields:
     regExp: Add
     regExpReplace: In stock
     defaultValue: Out of Stock
-  - name: in_store_price
+  - name: inStorePrice
     singleValue: true
-  - name: in_store_price_currency
+  - name: inStorePriceCurrency
     singleValue: true
-  - name: additional_description
+  - name: additionalDescription
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Features') or contains(text(),'Product Information') or contains(text(),'Further Description')]]//div[contains(@class,'content')]
-  - name: ingredients_list
+  - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Ingredients')]]//div[contains(@class,'content')]
   - name: brand
     singleValue: true
-  - name: manufacturer_name
+  - name: manufacturerName
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Manufacturer Address')]]//div[contains(@class,'content')]//text()
   - name: size
     singleValue: false
     manualSelector: .pdp-main-details__weight
-  - name: net_weight
+  - name: netWeight
     singleValue: true
-  - name: gross_weight
+  - name: grossWeight
     singleValue: true
   - name: upc
     singleValue: false
@@ -61,163 +58,167 @@ fields:
     regExpReplace: $1
   - name: asin
     singleValue: true
-  - name: hidden_upc
+  - name: hiddenUpc
     singleValue: true
-  - name: sku_number
+  - name: skuNumber
     singleValue: false
     xpath: //html/head/link[@rel='canonical']/@href
     regExp: (?:https:\/\/.+/(\d+))
     regExpReplace: $1
-  - name: retailer_product_code
+  - name: retailerProductCode
     singleValue: false
     manualSelector: .pdp-main-details__product-code
     regExp: (?:Product\s+code\s?:\s?(\d+))
     regExpReplace: $1
-  - name: directions_information
+  - name: directionsInformation
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Preparation and Usage')]]//div[contains(@class,'content')]
   - name: warnings
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Safety Warning')]]//div[contains(@class,'content')]
-  - name: serving_size
+  - name: servingSize
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')]/div[contains(text(),'Typical values') and contains(@class,'title')]/following-sibling::div[contains(text(),'Per Pack') and contains(@class,'title')]
-  - name: serving_size_uom
+  - name: servingSizeUom
     singleValue: true
-  - name: number_of_servings_in_package
+  - name: numberOfServingsInPackage
     singleValue: true
-  - name: calories_per_serving
+  - name: caloriesPerServing
     singleValue: false
     xpath: concat((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/following-sibling::div)[1],'/',((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/parent::div/following-sibling::div)[1]/div[contains(@class,'nutrition-cell--grouped')])[2])
-  - name: calories_from_fat_per_serving
+  - name: caloriesFromFatPerServing
     singleValue: true
-  - name: total_fat_per_serving
+  - name: totalFatPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fat')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $1
-  - name: total_fat_per_serving_uom
+  - name: totalFatPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fat')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $2
-  - name: saturated_fat_per_serving
+  - name: saturatedFatPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which saturates') or contains(text(),'of which Saturates')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
     #regExp: (.+)
     regExpReplace: $1
-  - name: saturated_fat_per_serving_uom
+  - name: saturatedFatPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which saturates') or contains(text(),'of which Saturates')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
     #regExp: (.+)
     regExpReplace: $2$3
-  - name: trans_fat_per_serving
+  - name: transFatPerServing
     singleValue: true
-  - name: trans_fat_per_serving_uom
+  - name: transFatPerServingUom
     singleValue: true
-  - name: cholesterol_per_serving
+  - name: cholesterolPerServing
     singleValue: true
-  - name: cholesterol_per_serving_uom
+  - name: cholesterolPerServingUom
     singleValue: true
-  - name: sodium_per_serving
+  - name: sodiumPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'= Sodium')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $1
-  - name: sodium_per_serving_uom
+  - name: sodiumPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'= Sodium')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $2
-  - name: total_carb_per_serving
+  - name: totalCarbPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Carbohydrate')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $1
-  - name: total_carb_per_serving_uom
+  - name: totalCarbPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Carbohydrate')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $2
-  - name: dietary_fibre_per_serving
+  - name: dietaryFibrePerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fibre')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $1
-  - name: dietary_fibre_per_serving_uom
+  - name: dietaryFibrePerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fibre')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $2
-  - name: total_sugars_per_serving
+  - name: totalSugarsPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which sugars')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $1
-  - name: total_sugars_per_serving_uom
+  - name: totalSugarsPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which sugars')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $2
-  - name: protein_per_serving
+  - name: proteinPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Protein')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $1
-  - name: protein_per_serving_uom
+  - name: proteinPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Protein')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $2
-  - name: vitamin_a_per_serving
+  - name: vitaminAPerServing
     singleValue: true
-  - name: vitamin_a_per_serving_uom
+  - name: vitaminAPerServingUom
     singleValue: true
-  - name: vitamin_c_per_serving
+  - name: vitaminCPerServing
     singleValue: true
-  - name: vitamin_c_per_serving_uom
+  - name: vitaminCPerServingUom
     singleValue: true
-  - name: calcium_per_serving
+  - name: calciumPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Calcium')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $1
-  - name: calcium_per_serving_uom
+  - name: calciumPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Calcium')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $2
-  - name: iron_per_serving
+  - name: ironPerServing
     singleValue: true
-  - name: iron_per_serving_uom
+  - name: ironPerServingUom
     singleValue: true
-  - name: dietary_symbols
+  - name: dietarySymbols
     singleValue: true
-  - name: secondary_image
+  - name: secondaryImage
     singleValue: false
     xpath: //*[@id='s7viewer_swatches']//div[contains(@class,'s7thumbcell')][@aria-selected='false']/div[contains(@class,'s7thumb')]/@style
-  - name: number_of_customer_reviews
+    regExp: (")(.*)(")
+    regExpReplace: $2
+  - name: numberOfCustomerReviews
     singleValue: false
     manualSelector: div.asda-tab-list button[aria-label*='Reviews']
-  - name: customer_review_rating
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: customerReviewRating
     singleValue: true
-  - name: aplus_images
+  - name: aplusImages
     singleValue: true
-  - name: category_ranking
+  - name: categoryRanking
     singleValue: true
-  - name: shipping_details
+  - name: shippingDetails
     singleValue: true
-  - name: shipping_dimensions
+  - name: shippingDimensions
     singleValue: true
   - name: specifications
     singleValue: true
-  - name: shipping_weight
+  - name: shippingWeight
     singleValue: true
   - name: warranty
     singleValue: true
-  - name: ean_gtin
+  - name: eanGtin
     singleValue: false
     xpath: //*[@id='s7viewer_container_inner']//div[contains(@class,'s7staticimage')]//img[1]/@src
     regExp: (?:asdagroceries\/(\d+))
@@ -225,29 +226,29 @@ fields:
   - name: storage
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Storage Type')]]//div[contains(@class,'content')]
-  - name: country_of_origin
+  - name: countryOfOrigin
     singleValue: true
-  - name: allergy_advice
+  - name: allergyAdvice
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Allergy Advice')]]//div[contains(@class,'content')]
-  - name: recycling_information
+  - name: recyclingInformation
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Recycling Info')]]//div[contains(@class,'content')]
-  - name: salt_per_serving
+  - name: saltPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Salt')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
     regExpReplace: $1
-  - name: salt_per_serving_uom
+  - name: saltPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Salt')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
     regExpReplace: $2$3
-  - name: serving_size_2
+  - name: servingSize2
     singleValue: true
-  - name: serving_size_2_uom
+  - name: servingSize2Uom
     singleValue: true
-  - name: dietary_information
+  - name: dietaryInformation
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Life Style')]]//div[contains(@class,'content')]
   - name: product_other_information
@@ -257,203 +258,201 @@ fields:
   - name: additives
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Additives')]]//div[contains(@class,'content')]
-  - name: footer_product_info
+  - name: footerProductInfo
     singleValue: true
-  - name: award_symbol
+  - name: awardSymbol
     singleValue: true
   - name: drive
     singleValue: true
-  - name: enhanced_content
+  - name: enhancedContent
     singleValue: true
-  - name: retailer_category
+  - name: retailerCategory
     singleValue: true
-  - name: retailer_subcategory
+  - name: retailerSubcategory
     singleValue: true
-  - name: additional_desc_bullet_count
+  - name: additionalDescBulletCount
     singleValue: true
   - name: video
     singleValue: true
   - name: coupons
     singleValue: true
-  - name: products_per_page
+  - name: productsPerPage
     singleValue: true
-  - name: retailer_id
+  - name: retailerId
     singleValue: true
-  - name: addon_item
+  - name: addonItem
     singleValue: true
-  - name: syndicated_data
+  - name: syndicatedData
     singleValue: true
-  - name: harvested_price
+  - name: harvestedPrice
     singleValue: true
-  - name: price_per_unit
+  - name: pricePerUnit
     singleValue: true
-  - name: price_per_unit_uom
+  - name: pricePerUnitUom
     singleValue: true
-  - name: scrape_code
+  - name: scrapeCode
     singleValue: true
-  - name: image_alt_text
+  - name: imageAltText
     singleValue: true
   - name: promotion
     singleValue: false
     manualSelector: a[data-auto-id='linkPromo']
-  - name: harvested_review_rating
+  - name: harvestedReviewRating
     singleValue: true
-  - name: extended_product_description
+  - name: extendedProductDescription
     singleValue: true
-  - name: rpc_sku_hybrid
+  - name: rpcSkuHybrid
     singleValue: true
   - name: lbb
     singleValue: true
-  - name: lbb_price
+  - name: lbbPrice
     singleValue: true
-  - name: feature_bullets
+  - name: featureBullets
     singleValue: true
-  - name: pack_size
+  - name: packSize
     singleValue: true
-  - name: secondary_image_total
+  - name: secondaryImageTotal
     singleValue: true
   - name: news
     singleValue: true
-  - name: other_sellers_name
+  - name: otherSellersName
     singleValue: true
-  - name: other_sellers_price
+  - name: otherSellersPrice
     singleValue: true
-  - name: other_sellers_shipping
+  - name: otherSellerShipping
     singleValue: true
-  - name: coupon_discount_percentage
+  - name: couponDiscountPercentage
     singleValue: true
-  - name: coupon_on_full_page_text
+  - name: couponOnFullPageText
     singleValue: true
-  - name: brand_url
+  - name: brandUrl
     singleValue: true
-  - name: international_shipping
+  - name: internationalShipping
     singleValue: true
-  - name: sales_rank
+  - name: salesRank
     singleValue: true
-  - name: sales_rank_category
+  - name: salesRankCategory
     singleValue: true
-  - name: subscription_price
+  - name: subscriptionPrice
     singleValue: true
-  - name: subscribe_and_save
+  - name: subscribeAndSave
     singleValue: true
-  - name: hero_quick_promo_headline
+  - name: heroQuickPromoHeadline
     singleValue: true
-  - name: hero_quick_promo_image_url
+  - name: heroQuickPromoImageUrl
     singleValue: true
-  - name: hero_quick_promo_url
+  - name: heroQuickPromoUrl
     singleValue: true
   - name: pasin
     singleValue: true
-  - name: video_length
+  - name: videoLength
     singleValue: true
-  - name: other_sellers_prime
+  - name: otherSellersPrime
     singleValue: true
-  - name: prime_note
+  - name: primeNote
     singleValue: true
-  - name: deal_price
+  - name: dealPrice
     singleValue: true
-  - name: ingredient_image_present
+  - name: ingredientImagePresent
     singleValue: true
-  - name: fact_image_present
+  - name: factImagePresent
     singleValue: true
-  - name: large_image_count
+  - name: largeImageCount
     singleValue: true
-  - name: variant_asins
+  - name: variantAsins
     singleValue: true
-  - name: andon_cord
+  - name: andonCord
     singleValue: true
-  - name: prime_flag
+  - name: primeFlag
     singleValue: true
-  - name: list_price
+  - name: listPrice
     singleValue: false
     manualSelector: div.pdp-main-details__price-container span.pdp-main-details__was-price
-  - name: alcohol_content
+  - name: alcoholContent
     singleValue: false
     xpath: //table[@data-auto-id='alcoholTable']//td[contains(@class,'alcohol-cell')][contains(text(),'Alcohol By Volume')]/following-sibling::td
-  - name: stock_number
+  - name: stockNumber
     singleValue: true
-  - name: sales_volume_per_month
+  - name: salesVolumePerMonth
     singleValue: true
-  - name: legal_disclaimer
+  - name: legalDisclaimer
     singleValue: true
   - name: mpc
     singleValue: true
-  - name: drive_id
+  - name: driveId
     singleValue: true
-  - name: harvested_list_price
+  - name: harvestedListPrice
     singleValue: true
-  - name: in_store_availability
+  - name: inStoreAvailability
     singleValue: true
-  - name: harvested_product_description
+  - name: harvestedProductDescription
     singleValue: true
     xpath: /html/head/title
-  - name: new_version
+  - name: newVersion
     singleValue: true
-  - name: new_asin
+  - name: newAsin
     singleValue: true
-  - name: new_description
+  - name: newDescription
     singleValue: true
-  - name: variant_information
+  - name: variantInformation
     singleValue: true
-  - name: first_variant
+  - name: firstVariant
     singleValue: true
   - name: variants
     singleValue: true
   - name: platform
     singleValue: true
-  - name: additional_desc_bullet_info
+  - name: additionalDescBulletInfo
     singleValue: true
-  - name: magnesium_per_serving
+  - name: magnesiumPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Magnesium')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $1
-  - name: magnesium_per_serving_uom
+  - name: magnesiumPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Magnesium')]/following-sibling::div)[1]
     regExp: (?:([\d\.]+)\s?(\w+))
     regExpReplace: $2
-  - name: amazon_choice
+  - name: amazonChoice
     singleValue: true
-  - name: amazon_choice_text
+  - name: amazonChoiceText
     singleValue: true
-  - name: deal_type
+  - name: dealType
     singleValue: true
-  - name: Prop_65_warning
+  - name: Prop65Warning
     singleValue: true
-  - name: allergy_information
+  - name: allergyInformation
     singleValue: true
-  - name: product_id
+  - name: productId
     singleValue: true
-  - name: Shipping_Information
+  - name: ShippingInformation
     singleValue: true
   - name: colour
     singleValue: true
-  - name: colour_ref
+  - name: colourRef
     singleValue: true
-  - name: fast_track
+  - name: fastTrack
     singleValue: true
-  - name: supplementary_image
+  - name: supplementaryImage
     singleValue: true
-  - name: supplementary_image_total
+  - name: supplementaryImageTotal
     singleValue: true
-  - name: age_suitability   
+  - name: ageSuitability
     singleValue: true
-  - name: energy_efficiency
+  - name: energyEfficiency
     singleValue: true
-  - name: technical_information_pdf_present
+  - name: technicalInformationPdfPresent
     singleValue: true
-  - name: t_&_cs
+  - name: privacyPolicy
     singleValue: true
-  - name: privacy_policy
-    singleValue: true
-  - name: customer_service_availability
+  - name: customerServiceAvailability
     singleValue: true
   - name: materials
     singleValue: true
-  - name: 360_image_present
+  - name: 360ImagePresent
     singleValue: true
-  - name: image_zoom_feature_present
+  - name: imageZoomFeaturePresent
     singleValue: true
 schema: product/details
 singleRecord: true
