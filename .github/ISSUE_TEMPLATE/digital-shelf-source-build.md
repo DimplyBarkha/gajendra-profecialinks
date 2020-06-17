@@ -36,6 +36,7 @@ example commit message command:
 #### GitHub
 - [ ] Ensure the CLI and repository are download correctly
 - [ ] Assign yourself to this issue
+- [ ] Add your team's label to this issue
 - [ ] Confirm `Source` Label is added
 - [ ] Link issue to the correct project
 - [ ] Link issue to the correct milestone
