@@ -4,8 +4,10 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //img[@name="mainImage"]/@src
+    regExp: (.*)
+    regExpReplace: https://www.medikamente-per-klick.de$1
   - name: metaKeywords
     singleValue: true
     xpath: //meta[contains(@name,"keyword")]/@content
@@ -15,8 +17,8 @@ fields:
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
   - name: category
-    singleValue: true
-    xpath: //a[@id='mainBreadcrumb']/following-sibling::a[1]
+    singleValue: false
+    xpath: //a[@id='mainBreadcrumb']/following-sibling::a
   - name: nameExtended
     singleValue: true
     xpath: //div[@id="ii_description"]
@@ -46,6 +48,8 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='photo with-multiple-photo']//img[not(@name = 'mainImage')]/@src
+    regExp: (.*)
+    regExpReplace: https://www.medikamente-per-klick.de$1
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@id="ii_manufacturerImages"]
@@ -102,5 +106,6 @@ fields:
     xpath: //div[contains(@class,"productInformations")]//dd[@itemprop="productID"]
   - name: descriptionBullets
     singleValue: true
+    xpath: //div[@id="ii_BulletDesc_count"]
   - name: packSize
     singleValue: true
