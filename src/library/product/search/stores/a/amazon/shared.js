@@ -5,6 +5,8 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
+
+
   const state = context.getState();
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
