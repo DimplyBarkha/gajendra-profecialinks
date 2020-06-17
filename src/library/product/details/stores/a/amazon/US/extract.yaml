@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -221,10 +221,11 @@ fields:
     regExpReplace: 'Yes'
   - name: lbb
     singleValue: true
-    xpath: 
+    xpath: //div[@id='ii_lbb']
+    defaultValue: NO
   - name: lbbPrice
     singleValue: true
-    xpath: 
+    xpath: //div[@id='ii_lbbPrice']
   - name: featureBullets
     singleValue: false
     xpath: //div[@id="feature-bullets"]//ul/li

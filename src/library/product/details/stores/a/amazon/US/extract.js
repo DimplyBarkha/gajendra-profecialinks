@@ -36,6 +36,66 @@ async function implementation (
     return variants;
   };
 
+  async function buttonCheck() {
+    return await context.evaluate(function() {
+       let button = document.querySelector('span[data-action="show-all-offers-display"] div.a-box-inner')
+       if(button != null) {
+           return true;
+       } else {
+           return false
+       }
+   });
+}
+
+    async function getLbb () {
+      const sellersShowButton = 'span[data-action="show-all-offers-display"] div.a-box-inner'
+      if(await buttonCheck()) {
+        context.click(sellersShowButton) 
+      }
+      const otherSellersDiv = 'div#all-offers-display div#aod-offer-list'
+      await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
+
+      
+      
+      return await context.evaluate(function () {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+
+        const firstCheck = document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div');
+        const otherSellers = document.querySelectorAll('div#aod-offer');
+        const price = document.querySelector('span#price_inside_buybox');
+        if(firstCheck && price) {
+
+          const priceText = parseFloat((price.innerText).slice(1));
+          if(firstCheck.innerText != 'Ships from and sold by Amazon.com.' && otherSellers){
+            // debugger
+            otherSellers.forEach((seller) => {
+              const sellerPrice = seller.querySelector('span.a-offscreen').innerText
+              const priceNum = parseFloat(sellerPrice.slice(1));
+              const shipsFrom = seller.querySelector('div#aod-offer-shipsFrom div.a-column.a-span9.a-span-last');
+              const soldBy = seller.querySelector('div#aod-offer-soldBy div.a-column.a-span9.a-span-last');
+              // debugger
+              if(shipsFrom.innerText === 'Amazon.com' && soldBy.innerText === 'Amazon.com' && priceNum > priceText) {
+                debugger
+                addHiddenDiv('ii_lbb', 'YES');
+                addHiddenDiv('ii_lbbPrice', `${priceNum}`);
+              } 
+              
+            })
+          }
+        }
+
+      });
+    }
+    await getLbb()
+  
+
+
   async function addUrl () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
