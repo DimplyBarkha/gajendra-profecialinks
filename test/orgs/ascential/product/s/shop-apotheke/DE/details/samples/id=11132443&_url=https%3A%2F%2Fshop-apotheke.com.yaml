@@ -2,45 +2,61 @@ input:
   id: 11132443
   _url: https://shop-apotheke.com
 extractions:
-  - html: https://workbench.import.io/html/run=59091ca0-18ee-4d97-a884-caa6e599dfbf/task=59796ff9-2f03-4e95-8e1d-30eab22f358a/a224f1ac-9e63-487e-b2cc-b9741376a43c.html
+  - html: https://workbench.import.io/html/run=de2be133-8aef-479f-b5f9-996b853aa779/task=5635de36-955e-4a9b-807f-edd0100d03c7/61219556-3461-4e3f-afc7-f29d6f5f709e.html
     extractionConfigId: product/details/stores/s/shop-apotheke/DE/extract
     data:
       - group:
-          - alternateImages:
+          - url:
+              - text: https://www.shop-apotheke.com/arzneimittel/11132443/billy-boy-kondome-special-mix.htm
+                xpath: /html/head[1]/meta[19]/@content
+            image:
+              - text: https://cdn.shop-apotheke.com/images/billy-boy-kondome-special-mix-kondome-D11132443-p1.jpg
+                xpath: /html/body/div[12]
+            imageAlt:
+              - text: BILLY BOY Kondome Special Mix
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/picture[1]/img[1]/@alt
+            alternateImages:
               - text: https://cdn.shop-apotheke.com/images/billy-boy-kondome-special-mix-kondome-D11132443-p1.jpg
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
-            availabilityText:
-              - text: sofort lieferbar
-                xpath: /html/body/div[8]
-            brandText:
-              - text: Billy Boy
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
+            metaKeywords:
+              - text: BILLY BOY Kondome Special Mix 3 St für nur € 2,46 bei Ihrer Online
+                  Apotheke für Deutschland kaufen.
+                xpath: /html/head[1]/meta[16]/@content
             category:
               - text: Arzneimittel & weitere Produkte /Liebe &
                   Lifestyle/Verhütungsmittel/Kondome
                 xpath: /html/body/div[4]
+            nameExtended:
+              - text: BILLY BOY Kondome Special Mix 3 St - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
+            price:
+              - text: "2.46"
+                xpath: /html/body/div[6]
+            availabilityText:
+              - text: sofort lieferbar
+                xpath: /html/body/div[8]
             description:
-              - text: "Der Mix macht´s! 3 transparente Kondome hergestellt aus
-                  Naturkautschuklatex mit Gleitfilm und Reservoir 1 x
-                  Gefühlsintensiv, glatte, konturierte Form 1 x Länger lieben,
-                  glatte, konturierte Form mit eingearbeiteten Ring, ca. 0,1 mm
-                  Wandstärke 1 x Sicheres Gefühl, glatte, zylindrische Form, ca.
-                  0,1 mm Wandstärke jedes Kondom einzeln elektronisch geprüft
-                  entspricht EN ISO 4074 Wichtige Hinweise Beachten Sie bitte
-                  das auf der Verpackung und den Siegelbriefchen angegebene
-                  Haltbarkeitsdatum – nach Ablauf sollte das Kondom nicht mehr
-                  verwendet werden! Kondome kühl, trocken und vor Hitze und
-                  direkter Sonneneinstrahlung geschützt lagern. Kondome greifen
-                  nicht in den Organismus ein und erzeugen keine Nebenwirkungen.
-                  Dennoch können Unverträglichkeiten in Form allergischer
-                  Reaktionen (z. B Latex-Allergie) bis hin zu einem
-                  anaphylaktischen Schock auftreten. Bei Beschwerden oder
-                  Reizungen verwenden Sie das Kondom nicht weiter und fragen Sie
-                  bitte Ihren Arzt um Rat. Jedes Kondom wird einzeln
-                  elektronisch geprüft. Bei richtiger Anwendung schützen BILLY
-                  BOY-Kondome vor Schwangerschaft und Übertragung von
-                  Krankheitserregern. Kein Verhütungsmittel kann allerdings zu
-                  100 % den Schutz vor Schwangerschaft oder
+              - text: "Weitere Produktinformationen Der Mix macht´s! 3 transparente Kondome
+                  hergestellt aus Naturkautschuklatex mit Gleitfilm und
+                  Reservoir 1 x Gefühlsintensiv, glatte, konturierte Form 1 x
+                  Länger lieben, glatte, konturierte Form mit eingearbeiteten
+                  Ring, ca. 0,1 mm Wandstärke 1 x Sicheres Gefühl, glatte,
+                  zylindrische Form, ca. 0,1 mm Wandstärke jedes Kondom einzeln
+                  elektronisch geprüft entspricht EN ISO 4074 Wichtige Hinweise
+                  Beachten Sie bitte das auf der Verpackung und den
+                  Siegelbriefchen angegebene Haltbarkeitsdatum – nach Ablauf
+                  sollte das Kondom nicht mehr verwendet werden! Kondome kühl,
+                  trocken und vor Hitze und direkter Sonneneinstrahlung
+                  geschützt lagern. Kondome greifen nicht in den Organismus ein
+                  und erzeugen keine Nebenwirkungen. Dennoch können
+                  Unverträglichkeiten in Form allergischer Reaktionen (z. B
+                  Latex-Allergie) bis hin zu einem anaphylaktischen Schock
+                  auftreten. Bei Beschwerden oder Reizungen verwenden Sie das
+                  Kondom nicht weiter und fragen Sie bitte Ihren Arzt um Rat.
+                  Jedes Kondom wird einzeln elektronisch geprüft. Bei richtiger
+                  Anwendung schützen BILLY BOY-Kondome vor Schwangerschaft und
+                  Übertragung von Krankheitserregern. Kein Verhütungsmittel kann
+                  allerdings zu 100 % den Schutz vor Schwangerschaft oder
                   Infektionskrankheiten garantieren. Falls das Kondom während
                   des Gebrauchs reißen oder platzen sollte, suchen Sie
                   schnellstmöglich, jedoch innerhalb von 72 Stunden, einen Arzt
@@ -95,31 +111,41 @@ extractions:
                   und/oder einer Infizierung mit HIV oder ansteckenden
                   Geschlechtskrankheiten führen. Vor jedem Wechsel der
                   Sexualpraktiken (vaginal, anal, oral) ein neues Kondom
-                  verwenden."
-                xpath: /html/body/div[12]
-            image:
-              - text: https://cdn.shop-apotheke.com/images/billy-boy-kondome-special-mix-kondome-D11132443-p1.jpg
-                xpath: /html/body/div[11]
-            imageAlt:
-              - text: BILLY BOY Kondome Special Mix
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/picture[1]/img[1]/@alt
+                  verwenden. Mehr anzeigen;"
+                xpath: /html/body/div[13]
+            brandText:
+              - text: Billy Boy
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
             manufacturer:
               - text: MAPA GmbH
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[4]/dl[1]/dd[1]
-            price:
-              - text: "2.46"
-                xpath: /html/body/div[6]
             quantity:
               - text: 3 St
                 xpath: /html/body/div[5]
-            ratingCount:
-              - text: "0"
-                xpath: /html/body/div[10]
             sku:
               - text: "11132443"
                 xpath: /html/body/div[9]
             variantId:
               - text: "11132443"
                 xpath: /html/body/div[7]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[10]
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[11]
+            manufacturerDescription:
+              - text: Mix 3er-Gefühlsintensiv, Länger lieben & Sicheres Gefühl
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/div[2]/p[1]
+            name:
+              - text: BILLY BOY Kondome Special Mix 3 St - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
+            promotion:
+              - text: --
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[5]
+            descriptionBullets:
+              - text: "5"
+            secondaryImageTotal:
+              - text: "0"
         xpath: /
-    timestamp: 1591603603988
+    timestamp: 1592386259950

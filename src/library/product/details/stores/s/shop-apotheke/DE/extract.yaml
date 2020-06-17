@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: url
     singleValue: true
-    xpath: //meta[@property='og:url']
+    xpath: //meta[@property='og:url']/@content
   - name: image
     singleValue: true
     xpath: //div[@id='pd_image']
@@ -17,15 +17,15 @@ fields:
     xpath: //div[@class='o-ProductImageGallery__minor']/a/@href
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[@name='description']
+    xpath: //meta[@name='description']/@content
   - name: category
     singleValue: false
     xpath: //div[@id='pd_category']
   - name: nameExtended
-    singleValue: true
-    xpath: //meta[@property='og:title']
+    singleValue: false
+    xpath: //meta[@property='og:title']/@content
   - name: listPrice
-    xpath: //*[contains(@class,'m-ProductVariant__label--last')]/div[2]
+    xpath: //div[@id='pd_listPrice']
     singleValue: true
   - name: price
     xpath: //div[@id='pd_price']
@@ -38,7 +38,7 @@ fields:
     xpath: //div[@id='pd_description'] 
   - name: descriptionBullets
     singleValue: true
-    xpath: //*[@id="productActiveIngredients.headline"]
+    xpath: count(//div[contains(@class,"o-ProductDescriptions__general")]/section//li ) 
   - name: brandText
     xpath: //ul[contains(@class,'m-ProductData')]//li[3]//dd
     singleValue: true
@@ -67,11 +67,11 @@ fields:
   - name: legalDisclaimer
     singleValue: true
   - name: directions
-    singleValue: true
-    xpath: //p//*[contains(text(), "use:")]/ancestor::strong/following-sibling::font | //p//strong//*[contains(text(), "use")]/ancestor::p
+    singleValue: false
+    xpath: //p//strong[contains(text(), "Anwendung") or contains(text(), "Anwendungsgebiete")]/following-sibling::text() 
   - name: warnings
-    xpath: //p//*[contains(text(), "Warning:")]/ancestor::p/child::font
-    singleValue: true
+    xpath: //p//strong[contains(text(), "Warnhinweise:") or contains(text(),"Nebenwirkungen:")]/following-sibling::text() | (//h3[contains(text(),"Nebenwirkungen")]/following-sibling::ul)[1]
+    singleValue: false
   - name: ratingCount
     singleValue: true
     xpath: //div[@id='pd_ratingCount'] 
@@ -94,12 +94,22 @@ fields:
     singleValue: true
   - name: manufacturerDescription
     singleValue: true
-    xpath: .//*[contains(text(), "Product details & mandatory information")]/ancestor::h2/following-sibling::div
+    xpath: //h2[contains(text(), "Produktdetails & Pflichtangaben")]/following-sibling::*/child::*[contains(@class,"o-ProductAdditionalInformation")]
   - name: manufacturerImages
-    singleValue: false
+    singleValue: 
+    xpath: //div[@id='pd_manufacturerImages']     
   - name: videos
     singleValue: false
-    xpath: //video[@class='a-Video a-fullwidth-image']/source/@src
+    xpath: (//video[@class='a-Video a-fullwidth-image']/source)[1]/@src
   - name: name
     singleValue: true
-    xpath: //meta[@property='og:title']
+    xpath: //meta[@property='og:title']/@content
+  - name: ingredientsList
+    singleValue: false
+    xpath: //strong[contains(text(), "Wirkstoffe:") or contains(text(),"Inhaltsstoffe:")]/following-sibling::text()|(//h3[contains(text(),"Wirkstoffe")]/following-sibling::div)[1] 
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@class,'m-ProductVariant__label--last')]/div[5] 
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[@class='o-ProductImageGallery__minor']/ancestor::li/preceding-sibling::li)

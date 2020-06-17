@@ -2,35 +2,52 @@ input:
   id: 11128192
   _url: https://shop-apotheke.com
 extractions:
-  - html: https://workbench.import.io/html/run=59091ca0-18ee-4d97-a884-caa6e599dfbf/task=64309a0b-5d84-4fb6-932b-bbb08f3141b8/025de89a-5217-451a-844a-3a3522fdfade.html
+  - html: https://workbench.import.io/html/run=de2be133-8aef-479f-b5f9-996b853aa779/task=5cd6e627-f54f-422d-8b85-d4918d74e796/523fea5f-30fb-4296-98fc-92ed83715eb9.html
     extractionConfigId: product/details/stores/s/shop-apotheke/DE/extract
     data:
       - group:
-          - alternateImages:
+          - url:
+              - text: https://www.shop-apotheke.com/arzneimittel/11128192/ritex-aquaresse.htm
+                xpath: /html/head[1]/meta[19]/@content
+            image:
+              - text: https://static.shop-apotheke.com/media/content/placeholder.png
+                xpath: /html/body/div[12]
+            alternateImages:
               - text: https://static.shop-apotheke.com/media/content/placeholder.png
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
-            availabilityText:
-              - text: außer Handel
-                xpath: /html/body/div[8]
-            brandText:
-              - text: Ritex Kondome
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
+            metaKeywords:
+              - text: Ritex Aquaresse 8 St für nur € 5,93 bei Ihrer Online Apotheke für
+                  Deutschland kaufen und bis zu 10% sparen.
+                xpath: /html/head[1]/meta[16]/@content
             category:
               - text: Arzneimittel & weitere Produkte /Liebe &
                   Lifestyle/Verhütungsmittel/Kondome
                 xpath: /html/body/div[4]
+            nameExtended:
+              - text: Ritex Aquaresse 8 St - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
+            listPrice:
+              - text: Leider führen wir diesen Artikel nicht
+                xpath: /html/body/div[15]
+            price:
+              - text: "5.93"
+                xpath: /html/body/div[6]
+            availabilityText:
+              - text: außer Handel
+                xpath: /html/body/div[8]
             description:
-              - text: "Ritex Aquaresse Mit wasserbasiertem Gleitfilm Entdecke die neuen Ritex
-                  Aquaresse Kondome & erlebe ein unvergleichlich natürliches
-                  Gefühl! Die meisten Kondome sind mit einem Gleit¬ lm auf
-                  Silikonölbasis beschichtet. Ritex Aquaresse Kondome sind die
-                  ersten Ritex Kondome mit dem wasserbasierten Gleitmittel Ritex
-                  Aqua Gel®. Dieser neu entwickelte Gleitfilm ergänzt optimal
-                  die vaginale Feuchtigkeit und ermöglicht so ein besonders
-                  natürliches Gefühl. Unser besonderes Waschverfahren verleiht
-                  allen Ritex Kondomen einen angenehmen Geruch. Ritex Kondome
-                  sind dermatologisch getestet und zeichnen sich durch eine sehr
-                  gute Hautverträglichkeit aus. Besonderes Waschverfahren -
+              - text: "Weitere Produktinformationen Ritex Aquaresse Mit wasserbasiertem
+                  Gleitfilm Entdecke die neuen Ritex Aquaresse Kondome & erlebe
+                  ein unvergleichlich natürliches Gefühl! Die meisten Kondome
+                  sind mit einem Gleit¬ lm auf Silikonölbasis beschichtet. Ritex
+                  Aquaresse Kondome sind die ersten Ritex Kondome mit dem
+                  wasserbasierten Gleitmittel Ritex Aqua Gel®. Dieser neu
+                  entwickelte Gleitfilm ergänzt optimal die vaginale
+                  Feuchtigkeit und ermöglicht so ein besonders natürliches
+                  Gefühl. Unser besonderes Waschverfahren verleiht allen Ritex
+                  Kondomen einen angenehmen Geruch. Ritex Kondome sind
+                  dermatologisch getestet und zeichnen sich durch eine sehr gute
+                  Hautverträglichkeit aus. Besonderes Waschverfahren -
                   Angenehmer Geruch Dermatologisch getestet* - Sehr gute
                   Hautverträglichkeit Premium Qualität - Made in Germany
                   Transparente Kondome aus Naturkautschuklatex, glatte
@@ -46,31 +63,38 @@ extractions:
                   Infektionskrankheiten garantieren. Jedes Kondom nur einmal
                   verwenden. Nie gemeinsam mit öl- oder fetthaltigen
                   Gleitmitteln verwenden. Bitte beachten Sie die ausführlichen
-                  Hinweise auf dem Beipackzettel."
-                xpath: /html/body/div[12]
-            image:
-              - text: https://static.shop-apotheke.com/media/content/placeholder.png
-                xpath: /html/body/div[11]
-            listPrice:
-              - text: Leider führen wir diesen Artikel nicht
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[2]
+                  Hinweise auf dem Beipackzettel. Mehr anzeigen;"
+                xpath: /html/body/div[13]
+            brandText:
+              - text: Ritex Kondome
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
             manufacturer:
               - text: RITEX GmbH
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[4]/dl[1]/dd[1]
-            price:
-              - text: "5.93"
-                xpath: /html/body/div[6]
             quantity:
               - text: 8 St
                 xpath: /html/body/div[5]
-            ratingCount:
-              - text: "0"
-                xpath: /html/body/div[10]
             sku:
               - text: "11128192"
                 xpath: /html/body/div[9]
             variantId:
               - text: "11128192"
                 xpath: /html/body/div[7]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[10]
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[11]
+            manufacturerDescription:
+              - text: Mit wasserbasiertem Gleitfilm
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/div[2]/p[1]
+            name:
+              - text: Ritex Aquaresse 8 St - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
+            descriptionBullets:
+              - text: "3"
+            secondaryImageTotal:
+              - text: "0"
         xpath: /
-    timestamp: 1591603602097
+    timestamp: 1592386262550

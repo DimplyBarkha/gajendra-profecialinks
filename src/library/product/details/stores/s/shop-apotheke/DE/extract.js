@@ -32,16 +32,28 @@ module.exports = {
         addElementToDocument('pd_availabilityText', mainDataObj.product.stockStatus.statusReason.trim());
         addElementToDocument('pd_sku', mainDataObj.currentVariantId);
         addElementToDocument('pd_ratingCount', mainDataObj.product.numberOfRatings);
-        if (mainDataObj.product.rating) {
-          addElementToDocument('pd_aggregateRating', mainDataObj.product.rating);
-        }
+        addElementToDocument('pd_aggregateRating', mainDataObj.product.rating);
         addElementToDocument('pd_image', mainDataObj.product.thumbnailURL);
       }
-      const descXpath = '//*[@id="o-ProductAdditionalInformation__teaser"]';
-      let temp = document.evaluate(descXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      // @ts-ignore
-      temp = temp ? temp.innerText : '';
-      addElementToDocument('pd_description', temp);
+      const descriptionIterator = document.evaluate('//div[@class="o-ProductDescriptions"]//div[contains(@class,"o-ProductDescriptions__general")]/section', document, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+      let description = descriptionIterator.iterateNext();
+      let descriptionString = '';
+      while (description) {
+        descriptionString += `${description.innerText};`;
+        description = descriptionIterator.iterateNext();
+      }
+      if (descriptionString) {
+        addElementToDocument('pd_description', descriptionString.trim());
+      }
+      let manufacturerDescription = document.evaluate('//h2[contains(text(), "Produktdetails & Pflichtangaben")]/following-sibling::*/child::*[contains(@class,"o-ProductAdditionalInformation")]/img', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      manufacturerDescription = manufacturerDescription ? manufacturerDescription.src : '';
+      addElementToDocument('pd_manufacturerImages', manufacturerDescription);
+      const listPrice = document.evaluate('//*[contains(@class,"m-ProductVariant__label--last")]/div[2]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (listPrice) {
+        const replaceChars = { '.': ',', ',': '.' };
+        const priceData = (listPrice.innerText).replace(/[./,]/g, function (match) { return replaceChars[match]; });
+        addElementToDocument('pd_listPrice', priceData);
+      }
     });
     await context.extract(productDetails);
   },

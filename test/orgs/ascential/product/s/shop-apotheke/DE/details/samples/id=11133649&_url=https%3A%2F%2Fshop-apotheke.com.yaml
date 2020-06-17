@@ -2,13 +2,19 @@ input:
   id: 11133649
   _url: https://shop-apotheke.com
 extractions:
-  - html: https://workbench.import.io/html/run=59091ca0-18ee-4d97-a884-caa6e599dfbf/task=57eb321b-10ef-402a-93db-672f00eb88ed/834325d5-61e1-4ad4-b850-5ee46c5adbdc.html
+  - html: https://workbench.import.io/html/run=de2be133-8aef-479f-b5f9-996b853aa779/task=f15464bf-1e43-4cee-a11b-eb4dec6cb556/eaccb419-ac9d-4c29-8f55-8b4f6b7d6880.html
     extractionConfigId: product/details/stores/s/shop-apotheke/DE/extract
     data:
       - group:
-          - aggregateRating:
-              - text: "4.818"
-                xpath: /html/body/div[11]
+          - url:
+              - text: https://www.shop-apotheke.com/beauty/11133649/medipharma-cosmetics-hyaluron-tagespflege.htm
+                xpath: /html/head[1]/meta[19]/@content
+            image:
+              - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-tagespflege-creme-D11133649-p1.jpg
+                xpath: /html/body/div[12]
+            imageAlt:
+              - text: medipharma cosmetics Hyaluron Tagespflege
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/picture[1]/img[1]/@alt
             alternateImages:
               - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-tagespflege-creme-D11133649-p1.jpg
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
@@ -30,71 +36,85 @@ extractions:
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[9]/div[1]/a[1]/@href
               - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-tagespflege-creme-D11133649-p17.jpg
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[10]/div[1]/a[1]/@href
-            availabilityText:
-              - text: sofort lieferbar
-                xpath: /html/body/div[8]
-            brandText:
-              - text: Medipharma Hyaluron
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
+            metaKeywords:
+              - text: medipharma cosmetics Hyaluron Tagespflege 50 ml für nur € 19,58 bei Ihrer
+                  Online Apotheke für Deutschland kaufen und bis zu 11% sparen.
+                xpath: /html/head[1]/meta[16]/@content
             category:
               - text: Beauty & Pflege/Naturkosmetik/Medipharma Cosmetics/Anti Age Hyaluron
                 xpath: /html/body/div[4]
-            descriptionBullets:
-              - text: |-
-                  Wirkstoffe
-                  Capryl glycol
-                  Hyaluronsäure, Natriumsalz
-                  Meersalz
-                  Hilfsstoffe
-                  Linalool
-                  Xanthan gummi
-                  Glycerol stearat citrat
-                  Siliciumdioxid, hochdisperses
-                  Saccharose stearat
-                  Parfüm
-                  2-Phenylethanol
-                  Cetylstearylalkohol
-                  Citronellol
-                  2-Methylpropan-1,3-diol
-                  Polymethylsilsesquioxan
-                  Glyceroltrioleat
-                  2-(4-tert-Butylbenzyl)propanal
-                  Caprylyl meticon
-                  Trimethylpentandiol/Adipinsäure-Copolymer
-                  Triglyceride, mittelkettige
-                  Wasser, gereinigtes
-                  Butan-1,3-diol
-                  3-Phenylpropan-1-ol
-                  Citronensäure
-                  Carrageenan, Natriumsalz
-                  Glycerol
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/section[1]/div[1]
-            image:
-              - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-tagespflege-creme-D11133649-p1.jpg
-                xpath: /html/body/div[12]
-            imageAlt:
-              - text: medipharma cosmetics Hyaluron Tagespflege
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/picture[1]/img[1]/@alt
+            nameExtended:
+              - text: medipharma cosmetics Hyaluron Tagespflege 50 ml - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
             listPrice:
-              - text: € 21,90
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Theiss Naturwaren GmbH
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[4]/dl[1]/dd[1]
+              - text: € 21.90
+                xpath: /html/body/div[15]
             price:
               - text: "19.58"
                 xpath: /html/body/div[6]
+            availabilityText:
+              - text: sofort lieferbar
+                xpath: /html/body/div[8]
+            description:
+              - text: Wirkstoffe & Hilfsstoffe Wirkstoffe Capryl glycol Hyaluronsäure,
+                  Natriumsalz Meersalz Hilfsstoffe Linalool Xanthan gummi
+                  Glycerol stearat citrat Siliciumdioxid, hochdisperses
+                  Saccharose stearat Parfüm 2-Phenylethanol Cetylstearylalkohol
+                  Citronellol 2-Methylpropan-1,3-diol Polymethylsilsesquioxan
+                  Glyceroltrioleat 2-(4-tert-Butylbenzyl)propanal Caprylyl
+                  meticon Trimethylpentandiol/Adipinsäure-Copolymer
+                  Triglyceride, mittelkettige Wasser, gereinigtes Butan-1,3-diol
+                  3-Phenylpropan-1-ol Citronensäure Carrageenan, Natriumsalz
+                  Glycerol;Weitere Produktinformationen Die Hyaluron Tagespflege
+                  von medipharma cosmetics spendet Feuchtigkeit und reduziert
+                  die Faltentiefe. Der enthaltene Duo-Hyaluron-Komplex mit
+                  Hyaluronsäure in pharmazeutischer Qualität und dem
+                  Hyaluron-Aktiv-Konzentrat gleicht den Verlust der
+                  körpereigenen Hyaluronsäure aus und regt die Eigenproduktion
+                  an. Die Haut wird intensiv mit Feuchtigkeit versorgt und von
+                  innen aufgepolstert. Pflege für die normale bis trockene Haut.
+                  Zieht schnell ein und fettet nicht. Ohne Konservierungsstoffe
+                  ;
+                xpath: /html/body/div[13]
+            brandText:
+              - text: Medipharma Hyaluron
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
+            manufacturer:
+              - text: Dr. Theiss Naturwaren GmbH
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[4]/dl[1]/dd[1]
             quantity:
               - text: 50 ml
                 xpath: /html/body/div[5]
-            ratingCount:
-              - text: "11"
-                xpath: /html/body/div[10]
             sku:
               - text: "11133649"
                 xpath: /html/body/div[9]
             variantId:
               - text: "11133649"
                 xpath: /html/body/div[7]
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[10]
+            aggregateRating:
+              - text: "4.818"
+                xpath: /html/body/div[11]
+            manufacturerDescription:
+              - text: Reduziert Falten und spendet intensive Feuchtigkeit
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/div[2]/p[1]
+            name:
+              - text: medipharma cosmetics Hyaluron Tagespflege 50 ml - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
+            ingredientsList:
+              - text: |-
+                  Capryl glycol
+                  Hyaluronsäure, Natriumsalz
+                  Meersalz
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]
+            promotion:
+              - text: -11%
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[5]
+            descriptionBullets:
+              - text: "27"
+            secondaryImageTotal:
+              - text: "9"
         xpath: /
-    timestamp: 1591603608762
+    timestamp: 1592386263428

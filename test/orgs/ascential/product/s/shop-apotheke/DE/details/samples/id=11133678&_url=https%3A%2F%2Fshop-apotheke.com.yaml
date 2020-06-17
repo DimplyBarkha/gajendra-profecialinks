@@ -2,13 +2,19 @@ input:
   id: 11133678
   _url: https://shop-apotheke.com
 extractions:
-  - html: https://workbench.import.io/html/run=59091ca0-18ee-4d97-a884-caa6e599dfbf/task=d080968a-60ef-4b31-ad4f-134ca43a8a8d/3c5e5d0e-fe8c-4e3c-8aa5-95d444970248.html
+  - html: https://workbench.import.io/html/run=de2be133-8aef-479f-b5f9-996b853aa779/task=08b7c558-4735-4a5e-bdf9-ac6576db5a2c/5b8d5757-e2a3-42a1-ad0b-2e1110bb8068.html
     extractionConfigId: product/details/stores/s/shop-apotheke/DE/extract
     data:
       - group:
-          - aggregateRating:
-              - text: "4.118"
-                xpath: /html/body/div[11]
+          - url:
+              - text: https://www.shop-apotheke.com/beauty/11133678/medipharma-cosmetics-hyaluron-wirkkonzentrat-anti-falten-aufpolsterung.htm
+                xpath: /html/head[1]/meta[19]/@content
+            image:
+              - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-wirkkonzentrat-anti-falten-aufpolsterung-konzentrat-D11133678-p1.jpg
+                xpath: /html/body/div[12]
+            imageAlt:
+              - text: medipharma cosmetics Hyaluron Wirkkonzentrat Anti-Falten + Aufpolsterung
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/picture[1]/img[1]/@alt
             alternateImages:
               - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-wirkkonzentrat-anti-falten-aufpolsterung-konzentrat-D11133678-p1.jpg
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
@@ -26,65 +32,102 @@ extractions:
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[7]/div[1]/a[1]/@href
               - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-wirkkonzentrat-anti-falten-aufpolsterung-konzentrat-D11133678-p15.jpg
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[8]/div[1]/a[1]/@href
-            availabilityText:
-              - text: sofort lieferbar
-                xpath: /html/body/div[8]
-            brandText:
-              - text: Medipharma Hyaluron
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
+            metaKeywords:
+              - text: medipharma cosmetics Hyaluron Wirkkonzentrat Anti-Falten + Aufpolsterung
+                  13 ml für nur € 14,79 bei Ihrer Online Apotheke für
+                  Deutschland kaufen und bis zu 15% sparen.
+                xpath: /html/head[1]/meta[16]/@content
             category:
               - text: Beauty & Pflege/Naturkosmetik/Medipharma Cosmetics/Anti Age Hyaluron
                 xpath: /html/body/div[4]
-            descriptionBullets:
-              - text: |-
-                  Wirkstoffe
-                  (RS)-Octadecansäure-2-ethylhexylester
-                  Capryl glycol
-                  Hyaluronsäure, Natriumsalz, quervernetzt
-                  Hyaluronsäure, Natriumsalz
-                  Hilfsstoffe
-                  Linalool
-                  Xanthan gummi
-                  Parfüm
-                  Citronellol
-                  2-Methylpropan-1,3-diol
-                  2-(4-tert-Butylbenzyl)propanal
-                  Caprylyl meticon
-                  Isostearinsäure natrium
-                  Polyglycerol-4 Diisostearat/Polyhydroxystearat/Sebacat
-                  Geraniol
-                  Wasser, gereinigtes
-                  Carbomer
-                  3-Phenylpropan-1-ol
-                  Citronensäure
-                  Glycerol
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/section[1]/div[1]
-            image:
-              - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-wirkkonzentrat-anti-falten-aufpolsterung-konzentrat-D11133678-p1.jpg
-                xpath: /html/body/div[12]
-            imageAlt:
+            nameExtended:
               - text: medipharma cosmetics Hyaluron Wirkkonzentrat Anti-Falten + Aufpolsterung
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/picture[1]/img[1]/@alt
+                  13 ml - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
             listPrice:
-              - text: € 17,50
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Theiss Naturwaren GmbH
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[4]/dl[1]/dd[1]
+              - text: € 17.50
+                xpath: /html/body/div[15]
             price:
               - text: "14.79"
                 xpath: /html/body/div[6]
+            availabilityText:
+              - text: sofort lieferbar
+                xpath: /html/body/div[8]
+            description:
+              - text: "Wirkstoffe & Hilfsstoffe Wirkstoffe (RS)-Octadecansäure-2-ethylhexylester
+                  Capryl glycol Hyaluronsäure, Natriumsalz, quervernetzt
+                  Hyaluronsäure, Natriumsalz Hilfsstoffe Linalool Xanthan gummi
+                  Parfüm Citronellol 2-Methylpropan-1,3-diol
+                  2-(4-tert-Butylbenzyl)propanal Caprylyl meticon
+                  Isostearinsäure natrium Polyglycerol-4
+                  Diisostearat/Polyhydroxystearat/Sebacat Geraniol Wasser,
+                  gereinigtes Carbomer 3-Phenylpropan-1-ol Citronensäure
+                  Glycerol;Weitere Produktinformationen Mit zunehmendem Alter
+                  bilden sich durch verschiedene Umwelteinflüsse und dem Abbau
+                  der körpereigenen Hyaluronsäure immer mehr Falten und die Haut
+                  verliert zunehmend an Feuchtigkeit. Das Hyaluron Wirkonzentrat
+                  Anti-Falten + Aufpolsterung reduziert Falten schon ab der
+                  ersten Anwendung, quervernetzte Hyaluronsäure wirkt glättend
+                  und polstert die Haut von innen auf. Hautverträglichkeit
+                  dermatologisch nachgewiesen. Inhaltsstoffe: Aqua, Caprylyl
+                  Methicone, Methylpropanediol, Glycerin, Ethyihexyl Stearate,
+                  Caprylyl Glycol, Polyglyceryl-4
+                  Diisostearate/Polyhydroxystearate/Sebacate, Sodium
+                  Isostearate, Sod/um Hyaluronate Crosspolymer, Sodium
+                  Hyaluronate, Phenylpropanol, Xanthan Gum, Carbomer, Parfum,
+                  Citric Acid, Linalool, Citrone/lol, Butylphenyl
+                  Methy/propional, Geraniol.;"
+                xpath: /html/body/div[13]
+            brandText:
+              - text: Medipharma Hyaluron
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
+            manufacturer:
+              - text: Dr. Theiss Naturwaren GmbH
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[4]/dl[1]/dd[1]
             quantity:
               - text: 13 ml
                 xpath: /html/body/div[5]
-            ratingCount:
-              - text: "34"
-                xpath: /html/body/div[10]
             sku:
               - text: "11133678"
                 xpath: /html/body/div[9]
             variantId:
               - text: "11133678"
                 xpath: /html/body/div[7]
+            ratingCount:
+              - text: "34"
+                xpath: /html/body/div[10]
+            aggregateRating:
+              - text: "4.118"
+                xpath: /html/body/div[11]
+            manufacturerDescription:
+              - text: Polstert die Haut von innen auf, reduziert Falten mit Soforteffekt, mit
+                  quervernetzter Hyaluronsäure
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/div[2]/p[1]
+            name:
+              - text: medipharma cosmetics Hyaluron Wirkkonzentrat Anti-Falten + Aufpolsterung
+                  13 ml - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
+            ingredientsList:
+              - text: |-
+                  (RS)-Octadecansäure-2-ethylhexylester
+                  Capryl glycol
+                  Hyaluronsäure, Natriumsalz, quervernetzt
+                  Hyaluronsäure, Natriumsalz
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]
+              - text: Aqua, Caprylyl Methicone, Methylpropanediol, Glycerin, Ethyihexyl
+                  Stearate, Caprylyl Glycol, Polyglyceryl-4
+                  Diisostearate/Polyhydroxystearate/Sebacate, Sodium
+                  Isostearate, Sod/um Hyaluronate Crosspolymer, Sodium
+                  Hyaluronate, Phenylpropanol, Xanthan Gum, Carbomer, Parfum,
+                  Citric Acid, Linalool, Citrone/lol, Butylphenyl
+                  Methy/propional, Geraniol.
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/section[2]/div[1]/div[1]/section[1]/p[4]/text()[1]
+            promotion:
+              - text: -15%
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[5]
+            descriptionBullets:
+              - text: "19"
+            secondaryImageTotal:
+              - text: "7"
         xpath: /
-    timestamp: 1591603613051
+    timestamp: 1592386349994

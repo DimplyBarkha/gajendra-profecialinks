@@ -2,13 +2,19 @@ input:
   id: 11133655
   _url: https://shop-apotheke.com
 extractions:
-  - html: https://workbench.import.io/html/run=59091ca0-18ee-4d97-a884-caa6e599dfbf/task=b5429b40-67f7-45e6-8570-24c68858f8cb/a26f4d17-fde3-4a4c-a1a9-b78a00ea6e1c.html
+  - html: https://workbench.import.io/html/run=de2be133-8aef-479f-b5f9-996b853aa779/task=cd3f0813-0d91-4e57-be7a-8e2659c882aa/ad812b9a-1a8d-4b0a-8605-d112798d893f.html
     extractionConfigId: product/details/stores/s/shop-apotheke/DE/extract
     data:
       - group:
-          - aggregateRating:
-              - text: "3.5"
-                xpath: /html/body/div[11]
+          - url:
+              - text: https://www.shop-apotheke.com/beauty/11133655/medipharma-cosmetics-hyaluron-nachtpflege-legere.htm
+                xpath: /html/head[1]/meta[19]/@content
+            image:
+              - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-nachtpflege-legere-creme-D11133655-p1.jpg
+                xpath: /html/body/div[12]
+            imageAlt:
+              - text: medipharma cosmetics Hyaluron Nachtpflege legere
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/picture[1]/img[1]/@alt
             alternateImages:
               - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-nachtpflege-legere-creme-D11133655-p1.jpg
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
@@ -28,74 +34,90 @@ extractions:
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[8]/div[1]/a[1]/@href
               - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-nachtpflege-legere-creme-D11133655-p17.jpg
                 xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[9]/div[1]/a[1]/@href
-            availabilityText:
-              - text: sofort lieferbar
-                xpath: /html/body/div[8]
-            brandText:
-              - text: Medipharma Hyaluron
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
+            metaKeywords:
+              - text: medipharma cosmetics Hyaluron Nachtpflege legere 50 ml für nur € 17,81 bei
+                  Ihrer Online Apotheke für Deutschland kaufen und bis zu 19%
+                  sparen.
+                xpath: /html/head[1]/meta[16]/@content
             category:
               - text: Beauty & Pflege/Naturkosmetik/Medipharma Cosmetics/Anti Age Hyaluron
                 xpath: /html/body/div[4]
-            descriptionBullets:
-              - text: |-
-                  Wirkstoffe
-                  Dimethiconol
-                  Capryl glycol
-                  Hyaluronsäure, Natriumsalz
-                  Meersalz
-                  DL-α-Tocopherol acetat
-                  Hilfsstoffe
-                  Linalool
-                  Xanthan gummi
-                  Polyisobuten, hydriert
-                  Glycerol stearat citrat
-                  Stearyl dimeticon
-                  Saccharose stearat
-                  Parfüm
-                  2-Phenylethanol
-                  Cetylstearylalkohol
-                  Citronellol
-                  Oliven-Öl, hydriert
-                  2-Methylpropan-1,3-diol
-                  2-(4-tert-Butylbenzyl)propanal
-                  Di-n-octylcarbonat
-                  (R,S)-Bis(2-ethylhexyl)carbonat
-                  Octadec-1-en
-                  Geraniol
-                  Wasser, gereinigtes
-                  3-Phenylpropan-1-ol
-                  Citronensäure
-                  Dimeticon
-                  Carrageenan, Natriumsalz
-                  Glycerol
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/section[1]/div[1]
-            image:
-              - text: https://cdn.shop-apotheke.com/images/medipharma-cosmetics-hyaluron-nachtpflege-legere-creme-D11133655-p1.jpg
-                xpath: /html/body/div[12]
-            imageAlt:
-              - text: medipharma cosmetics Hyaluron Nachtpflege legere
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/picture[1]/img[1]/@alt
+            nameExtended:
+              - text: medipharma cosmetics Hyaluron Nachtpflege legere 50 ml - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
             listPrice:
-              - text: € 21,90
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Theiss Naturwaren GmbH
-                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[4]/dl[1]/dd[1]
+              - text: € 21.90
+                xpath: /html/body/div[15]
             price:
               - text: "17.81"
                 xpath: /html/body/div[6]
+            availabilityText:
+              - text: sofort lieferbar
+                xpath: /html/body/div[8]
+            description:
+              - text: Wirkstoffe & Hilfsstoffe Wirkstoffe Dimethiconol Capryl glycol
+                  Hyaluronsäure, Natriumsalz Meersalz DL-α-Tocopherol acetat
+                  Hilfsstoffe Linalool Xanthan gummi Polyisobuten, hydriert
+                  Glycerol stearat citrat Stearyl dimeticon Saccharose stearat
+                  Parfüm 2-Phenylethanol Cetylstearylalkohol Citronellol
+                  Oliven-Öl, hydriert 2-Methylpropan-1,3-diol
+                  2-(4-tert-Butylbenzyl)propanal Di-n-octylcarbonat
+                  (R,S)-Bis(2-ethylhexyl)carbonat Octadec-1-en Geraniol Wasser,
+                  gereinigtes 3-Phenylpropan-1-ol Citronensäure Dimeticon
+                  Carrageenan, Natriumsalz Glycerol;Weitere Produktinformationen
+                  Die Hyaluron Nachtpflege von medipharma cosmetics regeneriert
+                  die Haut während der nächtlichen Aufbauphase, reduziert die
+                  Falten und spendet intensive Feuchtigkeit. Der enthaltene
+                  Duo-Hyaluron-Komplex mit Hyaluronsäure in pharmazeutischer
+                  Qualität und dem Hyaluron-Aktiv-Konzentrat gleicht den Verlust
+                  der körpereigenen Hyaluronsäure aus und regt die
+                  Eigenproduktion an. Die Haut wird intensiv mt Feuchtigkeit
+                  versorgt und von innen aufgepolstert. Intensive Pflege für die
+                  normale bis trockene Haut. Zieht schnell ein und fettet nicht.
+                  Ohne Konservierungsstoffe;
+                xpath: /html/body/div[13]
+            brandText:
+              - text: Medipharma Hyaluron
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[3]/dl[1]/dd[1]
+            manufacturer:
+              - text: Dr. Theiss Naturwaren GmbH
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/section[1]/ul[1]/li[4]/dl[1]/dd[1]
             quantity:
               - text: 50 ml
                 xpath: /html/body/div[5]
-            ratingCount:
-              - text: "2"
-                xpath: /html/body/div[10]
             sku:
               - text: "11133655"
                 xpath: /html/body/div[9]
             variantId:
               - text: "11133655"
                 xpath: /html/body/div[7]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[10]
+            aggregateRating:
+              - text: "3.5"
+                xpath: /html/body/div[11]
+            manufacturerDescription:
+              - text: Regeneriert die Haut über Nacht, reduziert Falten und spendet intensive
+                  Feuchtigkeit
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/div[2]/p[1]
+            name:
+              - text: medipharma cosmetics Hyaluron Nachtpflege legere 50 ml - shop-apotheke.com
+                xpath: /html/head[1]/meta[11]/@content
+            ingredientsList:
+              - text: |-
+                  Dimethiconol
+                  Capryl glycol
+                  Hyaluronsäure, Natriumsalz
+                  Meersalz
+                  DL-α-Tocopherol acetat
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]
+            promotion:
+              - text: -19%
+                xpath: /html/body/div[1]/div[4]/main[1]/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[5]
+            descriptionBullets:
+              - text: "30"
+            secondaryImageTotal:
+              - text: "8"
         xpath: /
-    timestamp: 1591603610154
+    timestamp: 1592386264382
