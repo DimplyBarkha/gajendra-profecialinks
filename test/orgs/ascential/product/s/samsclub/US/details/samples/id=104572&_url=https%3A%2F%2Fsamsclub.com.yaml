@@ -2,19 +2,25 @@ input:
   id: 104572
   _url: https://samsclub.com
 extractions:
-  - html: https://workbench.import.io/html/run=3485bb92-692c-4d31-a2d6-73ca45243883/task=aea9ebde-0dc3-4397-9830-867ac07c9d00/ace48690-d3b9-4066-8d47-6152003cdc41.html
+  - html: https://workbench.import.io/html/run=77794174-6e98-490c-a372-178e1a4487e7/task=6ca6f21e-d027-4d71-9030-b615ecf41d99/0fc755f7-69b8-4ea6-9aaa-413408cb0fe0.html
     extractionConfigId: product/details/stores/s/samsclub/US/extract
     data:
       - group:
-          - aggregateRating:
-              - text: "4.4"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[2]
+          - image:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0004369507676_A?$DT_PDP_Image$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/button[1]/img[1]/@src
+            imageAlt:
+              - text: Hot Pockets Ham & Cheddar Stuffed Sandwiches, Frozen (17 ct.)
+                xpath: /html/body/@imagealt
             alternateImages:
               - text: https://scene7.samsclub.com/is/image/samsclub/0004369507676_A?$DT_Thumbnail$
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
-            brandText:
-              - text: by Hot Pockets
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            metaKeywords:
+              - text: hot,sandwiches,freezer,lunch,portable,microwaveable,dinner,snack,stuffed,hot,pocket,hot,pockets,stuffed,sandwich,stuffed,sandwiches,sandwich,sandwiches,frozen,resale,resell,wrapped,c-store,convenient,store,convenient,stores,convenience,store,convenience,stores,individually,wrapped,business,members,nestle,nestle,usa,vending,meal,snack,value,pack,hot,ham,&,cheese,ham,&,cheese,ham,and,cheese,premium,ham,ham,real,cheese,cheese
+                xpath: /html/head[1]/meta[13]/@content
+            url:
+              - text: https://www.samsclub.com/p/hot-pockets-ham-cheese-stuffed-sandwiches-4-5-oz-17-pk/104572
+                xpath: /html/head[1]/link[38]/@href
             category:
               - text: |-
                   All Departments
@@ -22,7 +28,64 @@ extractions:
                   Freezer
                   Entrees
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]
+            nameExtended:
+              - text: Hot Pockets Ham & Cheddar Stuffed Sandwiches, Frozen (17 ct.)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
             description:
+              - text: >-
+                  With Hot Pockets® Ham and Cheese Stuffed Sandwiches, you can
+                  enjoy a flavorful meal in little to no time at all. A sizable
+                  pack like this can be enough to feed the whole family.
+                   
+                  What's in Hot Pockets Ham and Cheese Stuffed Sandwiches?
+                   
+                  This pack consists of frozen hot pockets that are stuffed with appetizing food. This particular version contains tasty hickory ham and cheddar, which combine to offer satisfying flavors. The crispy buttery crust adds additional deliciousness to the entire treat.
+                   
+                  Helps Make Mealtime Easier
+                   
+                  Although they must be kept frozen, these ham and cheese Hot Pockets can help you prepare meals when you're short on time. All you have to do is cook the sandwiches thoroughly. Once they're cooked, they'll be hot, steamy and filled with flavor. If you're looking for a fast and easy way to prepare an afterschool snack for your kids, these Hot Pockets can provide instant convenience.
+                   
+                  More Than Enough in One Box
+                   
+                  With over 17 ham and cheese Hot Pocket sandwiches in one box, you can use this to feed many. If you're hosting a party, a sleepover or a friendly get-together and want to hand out a delicious snack, this is a favorite among kids and adults. Not only does this box contain a sizable quantity, but each sandwich is rich with flavor for a delicious, filling bite to eat.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            brandText:
+              - text: by Hot Pockets
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            sku:
+              - text: "104572"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/@data-bv-product-id
+            ratingCount:
+              - text: "98"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[3]/meta[1]/@content
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[2]
+            shippingInfo:
+              - text: |-
+                  Shipping Info
+                  Standard - 2 to 6 business days
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]
+            name:
+              - text: Hot Pockets Ham & Cheddar Stuffed Sandwiches, Frozen (17 ct.)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            specifications:
+              - text: |-
+                  Hot Pocket value pack
+                   
+                  0 g trans fat per serving
+                   
+                  USDA approved 
+                   
+                  Ideal for vending, convenient stores and concessions
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]
+            warranty:
+              - text: This product is covered by the Sam's Club Member Satisfaction Guarantee.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]
+            countryOfOrigin:
+              - text: USA
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]
+            extended_product_description:
               - text: >-
                   With Hot Pockets® Ham and Cheese Stuffed Sandwiches, you can
                   enjoy a flavorful meal in little to no time at all. A sizable
@@ -42,39 +105,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
             descriptionBullets:
               - text: "4"
-            image:
-              - text: https://scene7.samsclub.com/is/image/samsclub/0004369507676_A?$DT_PDP_Image$
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/button[1]/img[1]/@src
-            imageAlt:
-              - text: Hot Pockets Ham & Cheddar Stuffed Sandwiches, Frozen (17 ct.)
-                xpath: /html/body/@imagealt
-            metaKeywords:
-              - text: hot,sandwiches,freezer,lunch,portable,microwaveable,dinner,snack,stuffed,hot,pocket,hot,pockets,stuffed,sandwich,stuffed,sandwiches,sandwich,sandwiches,frozen,resale,resell,wrapped,c-store,convenient,store,convenient,stores,convenience,store,convenience,stores,individually,wrapped,business,members,nestle,nestle,usa,vending,meal,snack,value,pack,hot,ham,&,cheese,ham,&,cheese,ham,and,cheese,premium,ham,ham,real,cheese,cheese
-                xpath: /html/head[1]/meta[13]/@content
-            name:
-              - text: Hot Pockets Ham & Cheddar Stuffed Sandwiches, Frozen (17 ct.)
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
-            nameExtended:
-              - text: Hot Pockets Ham & Cheddar Stuffed Sandwiches, Frozen (17 ct.)
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
-            price:
-              - text: "current price: $12.68$12.68"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
-            ratingCount:
-              - text: "94"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[3]/meta[1]/@content
-            shippingInfo:
-              - text: |-
-                  Shipping Info
-                  Standard - 2 to 6 business days
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]
-            sku:
-              - text: "104572"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/@data-bv-product-id
-            url:
-              - text: https://www.samsclub.com/p/hot-pockets-ham-cheese-stuffed-sandwiches-4-5-oz-17-pk/104572
-                xpath: /html/head[1]/link[38]/@href
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1591522428976
+    timestamp: 1592376140684

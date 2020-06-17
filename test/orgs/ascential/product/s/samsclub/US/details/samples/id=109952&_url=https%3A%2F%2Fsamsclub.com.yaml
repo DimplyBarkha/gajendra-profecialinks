@@ -2,13 +2,27 @@ input:
   id: 109952
   _url: https://samsclub.com
 extractions:
-  - html: https://workbench.import.io/html/run=3485bb92-692c-4d31-a2d6-73ca45243883/task=1207d1b1-f981-4f40-aad0-67c2e87eb883/6ab353fe-3817-482a-af54-3bfdcfe69bfe.html
+  - html: https://workbench.import.io/html/run=77794174-6e98-490c-a372-178e1a4487e7/task=1f2e6b40-b4bd-4692-854d-786acaa93947/9ab17661-5808-4787-b386-0a3afa7586b0.html
     extractionConfigId: product/details/stores/s/samsclub/US/extract
     data:
       - group:
-          - availabilityText:
-              - text: Out of stock
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]
+          - image:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0001114110753_A?$DT_PDP_Image$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/button[1]/img[1]/@src
+            imageAlt:
+              - text: Eight O'Clock Original Whole Bean Coffee - 42 oz.
+                xpath: /html/body/@imagealt
+            alternateImages:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0001114110753_A?$DT_Thumbnail$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/button[1]/img[1]/@src
+            metaKeywords:
+              - text: java, drink, beverage, brew, roasted, breakfast coffee, coffee bean roast,
+                  roasted , 8 o’clock coffee, whole bean, wholebean, coffee
+                  beans, gourmet premium coffee, office grind
+                xpath: /html/head[1]/meta[13]/@content
+            url:
+              - text: https://www.samsclub.com/p/eight-o-clock-coffee-original-whole-bean-42-oz/109952
+                xpath: /html/head[1]/link[38]/@href
             category:
               - text: |-
                   All Departments
@@ -16,7 +30,48 @@ extractions:
                   Coffee, Tea & Cocoa
                   Whole Bean Coffee
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]
+            nameExtended:
+              - text: Eight O'Clock Original Whole Bean Coffee - 42 oz.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            price:
+              - text: "current price: $12.58$12.58"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/a[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
             description:
+              - text: Eight O’Clock coffee is the original premium bagged coffee brand. We
+                  select only high quality 100% Arabica beans and then expertly
+                  roast them to bring out our full-bodied flavor, smooth taste
+                  and rich aroma.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            brandText:
+              - text: by Eight O'Clock Coffee
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            sku:
+              - text: "109952"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/@data-bv-product-id
+            shippingInfo:
+              - text: |-
+                  Shipping Info
+                  Standard - 2 to 6 business days
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]
+            name:
+              - text: Eight O'Clock Original Whole Bean Coffee - 42 oz.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            specifications:
+              - text: |-
+                  America's #1 whole bean coffee brand 
+                  Medium roast 
+                  Smooth flavor 
+                  Rich aroma 
+                  Choice of coffee lovers since 1869 
+                  Roasted in Landover, Maryland
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]
+            warranty:
+              - text: This product is covered by the Sam's Club Member Satisfaction Guarantee.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]
+            countryOfOrigin:
+              - text: USA
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]
+            extended_product_description:
               - text: Eight O’Clock coffee is the original premium bagged coffee brand. We
                   select only high quality 100% Arabica beans and then expertly
                   roast them to bring out our full-bodied flavor, smooth taste
@@ -24,26 +79,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
             descriptionBullets:
               - text: "0"
-            imageAlt:
-              - text: "null"
-                xpath: /html/body/@imagealt
-            metaKeywords:
-              - text: java, drink, beverage, brew, roasted, breakfast coffee, coffee bean roast,
-                  roasted , 8 o’clock coffee, whole bean, wholebean, coffee
-                  beans, gourmet premium coffee, office grind
-                xpath: /html/head[1]/meta[13]/@content
-            price:
-              - text: "current price: $12.58$12.58"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/a[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
-            shippingInfo:
-              - text: |-
-                  Shipping Info
-                  Standard - 2 to 6 business days
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]
-            url:
-              - text: https://www.samsclub.com/p/eight-o-clock-coffee-original-whole-bean-42-oz/109952
-                xpath: /html/head[1]/link[38]/@href
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1591522423969
+    timestamp: 1592376109799

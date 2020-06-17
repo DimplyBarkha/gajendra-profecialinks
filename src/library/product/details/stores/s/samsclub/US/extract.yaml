@@ -100,3 +100,18 @@ fields:
   - name: name
     singleValue: true
     xpath: //div[@class="sc-product-header-title-container"]
+  - name: specifications
+    singleValue: true
+    xpath: //div[@class="sc-full-description-spec-specifications"]/div
+  - name: warranty
+    singleValue: true
+    xpath: //div[@class="sc-full-description-spec-warranty"]/div
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //div[@class="sc-full-description-spec-assembled sc-full-description-country"]/div
+  - name: extended_product_description
+    singleValue: true
+    xpath: //div[@class="sc-full-description-long"]
+  - name: variants
+    singleValue: true
+    xpath: //div[@class='sc-product-variants-container']
