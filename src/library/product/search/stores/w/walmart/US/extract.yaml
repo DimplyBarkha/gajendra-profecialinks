@@ -83,7 +83,7 @@ fields:
     singleValue: false
     description: Unique id (within this extractor)
     xpath: //a[contains(@class,'product-title-link')]/@href
-    regExp: \/(\d+)\??
+    regExp: \/(\d+)\??[^\/]*
     regExpReplace: $1    
   - name: nameExtended
     singleValue: true
