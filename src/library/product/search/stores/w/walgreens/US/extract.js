@@ -10,8 +10,8 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.evaluate(async function () {
-    let filteredUrl = window.location.href.replace('%20', ' ');
-    let urlDiv = document.createElement('div');
+    const filteredUrl = window.location.href.replace('%20', ' ');
+    const urlDiv = document.createElement('div');
     urlDiv.id = 'filtered-url';
     urlDiv.style.display = 'none';
     urlDiv.textContent = filteredUrl;
