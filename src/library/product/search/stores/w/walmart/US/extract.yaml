@@ -24,7 +24,7 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: (//a[contains(@class,'product-title-link')])[1]/@href
+    xpath: //a[contains(@class,'product-title-link')]/@href
     #regExp: (.*)$
     regExp: (.+)
     regExpReplace: https://www.walmart.com$1
@@ -83,8 +83,8 @@ fields:
     singleValue: false
     description: Unique id (within this extractor)
     xpath: //a[contains(@class,'product-title-link')]/@href
-    regExp: \/(\d+)$
-    regExpReplace: $1
+    regExp: \/(\d+)\??
+    regExpReplace: $1    
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -94,6 +94,9 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     selector: span.seo-avg-rating
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']
   - name: rank
     singleValue: false
     description: search/listing rank
