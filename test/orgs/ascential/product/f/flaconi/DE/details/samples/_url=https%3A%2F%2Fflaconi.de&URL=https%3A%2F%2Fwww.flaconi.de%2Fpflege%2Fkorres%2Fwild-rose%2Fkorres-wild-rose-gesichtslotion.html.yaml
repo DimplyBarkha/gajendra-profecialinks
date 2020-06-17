@@ -2,56 +2,72 @@ input:
   _url: https://flaconi.de
   URL: https://www.flaconi.de/pflege/korres/wild-rose/korres-wild-rose-gesichtslotion.html
 extractions:
-  - html: https://workbench.import.io/html/run=928c4b98-9b19-46e8-91fb-9368257998da/task=9b970d16-f30e-4590-b83b-3a641d8e2f71/9c6d2c0f-3ea9-4d59-a5dd-14d3262362df.html
+  - html: https://workbench.import.io/html/run=76b642c8-e863-4ec6-b785-fcc8c102dc7b/task=41215bcc-c546-4305-b2aa-56c821f24b32/4b0e4cd7-e10f-4db2-9efe-6f6beb5c09b6.html
     extractionConfigId: product/details/stores/f/flaconi/DE/extract
     data:
       - group:
-          - brandText:
-              - text: Korres
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/a[1]
+          - image:
+              - text: https://cdn.flaconi.de/media/catalog/product/k/o/korres-wild-rose-gesichtslotion-150-ml-5203069076589.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Korres Wild Rose Gesichtslotion für Damen und Herren
+                xpath: /html/body/div[5]
             category:
               - text: Pflege
                 xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
-            description:
-              - text: Eine feuchtigkeitsspendende Lotion mit Wasser-Gel-Textur, die ausgleichend
-                  wirkt und die Haut optimal auf die weitere Pflege vorbereitet.
-                  Die enthaltenen Phospholipide sowie Wildrosen- und
-                  Gurken-Extrakte erfrischen und hydratisieren die Haut,
-                  schenken ihr neue Geschmeidigkeit und stellen ihren
-                  natürlichen pH-Gehalt wieder her. Der Teint erhält neue
-                  Strahlkraft. Alkoholfrei.
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]
-            descriptionBullets:
-              - text: "3"
-            directions:
-              - text: Auf die gereinigte Haut auftragen.
-                xpath: /html/body/div[4]
-            gtin:
-              - text: "5203069076589"
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[2]/@content
-            imageAlt:
-              - text: Korres Wild Rose Gesichtslotion
-                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
-            name:
-              - text: Wild Rose
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/span[1]
             nameExtended:
-              - text: Korres Wild Rose Gesichtslotion
-                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
+              - text: Korres Start Gesichtslotion für Damen und Herren
+                xpath: /html/body/div[6]
             price:
-              - text: "18.95"
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/meta[1]/@content
+              - text: 18,95 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/span[1]
+            availabilityText:
+              - text: Nur noch 2 auf Lager
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[2]
+            description:
+              - text: "Auf die gereinigte Haut auftragen. Wirkung: Feuchtigkeitsspendend,
+                  Anti-Aging, Pflegend Hauttyp: Alle Hauttypen Besonderheit:
+                  Parabenfrei, dermatologisch getestet"
+                xpath: /html/body/div[4]
+            brandText:
+              - text: Korres
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/a[1]
             quantity:
               - text: "150"
                 xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/span[1]
-            shippingInfo:
-              - text: zzgl. Versandkosten
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/span[1]
+            gtin:
+              - text: "5203069076589"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[2]/@content
             sku:
               - text: 80040162-150
                 xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[1]/@content
+            shippingInfo:
+              - text: zzgl. Versandkosten
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/span[1]
+            directions:
+              - text: "Auf die gereinigte Haut auftragen. Wirkung: Feuchtigkeitsspendend,
+                  Anti-Aging, Pflegend Hauttyp: Alle Hauttypen Besonderheit:
+                  Parabenfrei, dermatologisch getestet"
+                xpath: /html/body/div[4]
+            name:
+              - text: Wild Rose Gesichtslotion für Damen und Herren
+                xpath: /html/body/div[7]
             url:
               - text: https://www.flaconi.de/pflege/korres/wild-rose/korres-wild-rose-gesichtslotion.html
                 xpath: /html/head[1]/meta[16]/@content
+            ingredientsList:
+              - text: Aqua/Water/Eau, Methyl Gluceth-20, Acrylates/C10-30 Alkyl Acrylate
+                  Crosspolymer, Ammonium Acryloyldimethyltaurate/ Beheneth-25
+                  Methacrylate Crosspolymer, Caprylyl Glycol, Carbomer, Citric
+                  Acid, Cucumis Sativus (Cucumber) Fruit Extract, Glycerin,
+                  Imperata Cylindrica Root Extract, Lactic Acid, Lonicera
+                  Caprifolium (Honeysuckle) Flower Extract, Lonicera Japonica
+                  (Honeysuckle) Flower Extract, Lysolecithin, Panthenol,
+                  Parfum/Fragrance, Pullulan, Rosa Canina Fruit Extract,
+                  Sclerotium Gum, Silica, Sodium Phytate, Xanthan Gum, Sodium
+                  Benzoate.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]
+            descriptionBullets:
+              - text: "3"
         xpath: /
-    timestamp: 1591610256311
+    timestamp: 1592393610017

@@ -2,61 +2,84 @@ input:
   _url: https://flaconi.de
   URL: https://www.flaconi.de/pflege/origins/ginger/origins-ginger-hand-lotion-handcreme.html
 extractions:
-  - html: https://workbench.import.io/html/run=928c4b98-9b19-46e8-91fb-9368257998da/task=8af9c355-49d4-49cd-b4fb-cefe44dc7398/bbfde4b3-b73b-44e3-a963-c79f38eb0cbe.html
+  - html: https://workbench.import.io/html/run=76b642c8-e863-4ec6-b785-fcc8c102dc7b/task=3fcb3899-f098-4452-8e79-567dced57b7d/8c3bdb74-300e-4561-9be2-7e2a78e9d544.html
     extractionConfigId: product/details/stores/f/flaconi/DE/extract
     data:
       - group:
-          - availabilityText:
-              - text: Min. 5 auf Lager
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[2]
-            brandText:
-              - text: Origins
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/a[1]
+          - image:
+              - text: https://cdn.flaconi.de/media/catalog/product/o/r/origins-ginger-hand-lotion-handcreme-200-ml-0717334208841.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Origins Ginger Hand Lotion Handcreme für Damen und Herren
+                xpath: /html/body/div[5]
             category:
               - text: Pflege
                 xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
-            description:
-              - text: Diese ultraleichte Lotion verwöhnt Ihre Haut mit der sinnlichen Wärme von
-                  Ingwer, während Saflordistel- und Sonnenblumenkernöl ihre Haut
-                  mit Nährstoffen versorgen und sie weich und geschmeidig
-                  machen. Aloe Vera lindert zudem trockene Haut, während Vitamin
-                  E die Hände vor aggressiven Umwelteinwirkungen schützt. Zieht
-                  sofort ein.
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]
-            descriptionBullets:
-              - text: "2"
-            directions:
-              - text: Massieren Sie das Produkt sanft in die Hände ein. Oder verwöhnen Sie einen
-                  geliebten Menschen mit einer vitalisierenden Handmassage. Für
-                  eine optimale Pflege verwenden Sie zuvor den Ginger Hand
-                  Cleanser
-                xpath: /html/body/div[4]
-            gtin:
-              - text: "717334208841"
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[2]/@content
-            imageAlt:
-              - text: Origins Ginger Hand Lotion Handcreme
-                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
-            name:
-              - text: Ginger Hand Lotion
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/span[1]
             nameExtended:
-              - text: Origins Ginger Hand Lotion Handcreme
-                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
+              - text: Origins Start Handcreme für Damen und Herren
+                xpath: /html/body/div[6]
             price:
-              - text: "19.95"
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/meta[1]/@content
+              - text: 19,95 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/span[1]
+            availabilityText:
+              - text: nicht auf Lager
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[2]/div[2]
+            description:
+              - text: "Massieren Sie das Produkt sanft in die Hände ein. Oder verwöhnen Sie
+                  einen geliebten Menschen mit einer vitalisierenden
+                  Handmassage. Für eine optimale Pflege verwenden Sie zuvor den
+                  Ginger Hand Cleanser Wirkung: Erfrischend Hauttyp: Alle
+                  Hauttypen, Trockene Haut"
+                xpath: /html/body/div[4]
+            brandText:
+              - text: Origins
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/a[1]
             quantity:
               - text: "200"
                 xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/span[1]
-            shippingInfo:
-              - text: kostenloser Versand
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/span[1]
+            gtin:
+              - text: "717334208841"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[2]/@content
             sku:
               - text: 80032887-200
                 xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[1]/@content
+            shippingInfo:
+              - text: kostenloser Versand
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/span[1]
+            directions:
+              - text: "Massieren Sie das Produkt sanft in die Hände ein. Oder verwöhnen Sie
+                  einen geliebten Menschen mit einer vitalisierenden
+                  Handmassage. Für eine optimale Pflege verwenden Sie zuvor den
+                  Ginger Hand Cleanser Wirkung: Erfrischend Hauttyp: Alle
+                  Hauttypen, Trockene Haut"
+                xpath: /html/body/div[4]
+            name:
+              - text: Ginger Hand Lotion Handcreme für Damen und Herren
+                xpath: /html/body/div[7]
             url:
               - text: https://www.flaconi.de/pflege/origins/ginger/origins-ginger-hand-lotion-handcreme.html
                 xpath: /html/head[1]/meta[16]/@content
+            ingredientsList:
+              - text: WaterAquaEau, Dimethicone, Carthamus Tinctorius (Safflower) Seed Oil**,
+                  Glyceryl Polymethacrylate, Zingiber Officinale (Ginger) Root
+                  Oil*, Elettaria Cardamomum Seed Oil*, Coriandrum Sativum
+                  (Coriander) Fruit Oil*, Eucalyptus Globulus Leaf Oil*, Eugenia
+                  Caryophyllus (Clove) Bud Oil*, Citrus Aurantifolia (Lime)
+                  Oil*, Citrus Aurantium Dulcis (Orange) Peel Oil*, Citrus
+                  Aurantium Bergamia (Bergamot) Fruit Oil*, Citrus Grandis
+                  (Grapefruit) Peel Oil*, Citrus Limon (Lemon) Peel Oil*, Litsea
+                  Cubeba Fruit Oil*, Eugenol, Linalool, Citral, Limonene,
+                  Geraniol, Cetyl Ethylhexanoate, Glyceryl Stearate, Cetyl
+                  Alcohol, Peg-100 Stearate, Octyldodecanol, Butylene Glycol,
+                  Ethylhexyl Hydroxystearate, Helianthus Annuus (Sunflower) Seed
+                  Oil, Aloe Barbadensis Leaf Juice, Phenyl Trimethicone,
+                  Sorbitan Palmitate, Ethylhexylglycerin, Chondrus Crispus
+                  (Carrageenan), Stearic Acid, Caprylyl Glycol, Tocopheryl
+                  Acetate, Potassium Hydroxide, Bisabolol, Xanthan Gum, Hexylene
+                  Glycol, Carbomer, Disodium Edta, Sodium Dehydroacetate,
+                  Phenoxyethanol * Essential Oil**Organic Safflower Oil
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]
+            descriptionBullets:
+              - text: "2"
         xpath: /
-    timestamp: 1591610255457
+    timestamp: 1592393603747

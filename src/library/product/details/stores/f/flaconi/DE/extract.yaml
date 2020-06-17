@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //ul[contains(@class,'product-list') and contains(@class,'multiple-variants')]/li[1]/@data-small-image
+    xpath: //div[contains(@class,'slick-current')][1]/img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
+    xpath: //div[@id='fl_imageAlt']
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='image-container']//div[contains(@class,'product-image-slider__slide') and contains(@class,'slick-slide') and not(contains(@class,'slick-active')) and not(contains(@class,'product-video'))]/img/@data-lazy
+    xpath: //div[@class='image-slider']//div[@class='slick-track']/li[not(contains(@class,'slick-current')) and not(contains(@class,'video'))]//img/@src
   - name: metaKeywords
     singleValue: true
   - name: category
@@ -19,19 +19,19 @@ fields:
     xpath: //div[contains(@class, 'breadcrumbs')]/a[1]/span
   - name: nameExtended
     singleValue: true
-    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
-  - name: list_price
+    xpath: //div[@id='fl_extended']
+  - name: listPrice
     singleValue: true
-    xpath: //span[@class='old-price']
+    xpath: //div[@id='fl_listPrice']
   - name: price
     singleValue: true
-    xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
+    xpath: //ul[contains(@class,'product-list')]/li[contains(@class,'selected') or contains(@class,'visible')]//div[@class='price-box']/span[contains(@class,'price') or contains(@class,'price-sale')]
   - name: availabilityText
     singleValue: true
-    xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock ']
+    xpath: //div[contains(@class,'add-to-cart')][1]//div[contains(@class,'stock ')]
   - name: description
     singleValue: true
-    xpath: //div[@class='description-content']
+    xpath: //div[@id='fl_directioninfo']
   - name: descriptionBullets
     singleValue: true
     xpath: count(//ul[@class='product-properties-list']/li)
@@ -42,17 +42,17 @@ fields:
     singleValue: true
   - name: quantity
     singleValue: true
-    xpath: //div[@class='size-box']/span[@class='amount']
+    xpath: //ul[contains(@class,'product-list')]/li[contains(@class,'selected' ) or contains(@class,'visible')]//div[@class='size-box']/span[@class='amount']
   - name: weightNet
     singleValue: true
   - name: weightGross
     singleValue: true
   - name: gtin
     singleValue: true
-    xpath: //meta[@itemprop='gtin13']/@content
+    xpath: //ul[contains(@class,'product-list')]/li[contains(@class,'selected' ) or contains(@class,'visible')]/meta[@itemprop='gtin13']/@content
   - name: sku
     singleValue: true
-    xpath: //meta[@itemprop='sku']/@content
+    xpath: //ul[contains(@class,'product-list')]/li[contains(@class,'selected' ) or contains(@class,'visible')]/meta[@itemprop='sku']/@content
   - name: variantId
     singleValue: true
   - name: warnings
@@ -91,15 +91,22 @@ fields:
     xpath: //div[@id='fl_directioninfo']
   - name: manufacturerDescription
     singleValue: true
+    xpath: //div[@id='product-content-block']
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id='product-content-block']/img/@src
-  - name: video
+  - name: videos
     singleValue: false
     xpath: //div[@id='pd_video']/a/@href
   - name: name
     singleValue: true
-    xpath: //div[@class='product-name']//span[@itemprop='name']
+    xpath: //div[@id='fl_name']
   - name: url
     singleValue: true
     xpath: //meta[@property='og:url']/@content
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[@class='ingredients-content']
+  - name: promotion
+    singleValue: true
+    xpath: //ul[contains(@class,'product-list')]/li[contains(@class,'selected') or contains(@class,'visible')]//div[@class='price-box']/span[@class='save']

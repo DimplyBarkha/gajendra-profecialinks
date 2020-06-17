@@ -2,54 +2,70 @@ input:
   _url: https://flaconi.de
   URL: http://www.flaconi.de/pflege/korres/coconut-water/korres-coconut-water-duschgel.html
 extractions:
-  - html: https://workbench.import.io/html/run=928c4b98-9b19-46e8-91fb-9368257998da/task=ac88faa7-1ac6-4f2e-9956-a42f9f01dfaf/0f7e774e-9335-4985-9fc5-83a55f2bc2f8.html
+  - html: https://workbench.import.io/html/run=76b642c8-e863-4ec6-b785-fcc8c102dc7b/task=f555c725-7759-4cfc-8121-56150115b8ef/ba395bc4-08f4-447a-8b64-fd2f06579173.html
     extractionConfigId: product/details/stores/f/flaconi/DE/extract
     data:
       - group:
-          - brandText:
-              - text: Korres
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/a[1]
+          - image:
+              - text: https://cdn.flaconi.de/media/catalog/product/k/o/korres-coconut-water-duschgel-40-ml-5203069089756.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Korres Coconut Water Duschgel für Damen und Herren
+                xpath: /html/body/div[5]
             category:
               - text: Naturkosmetik
                 xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
-            description:
-              - text: Ein üppiges Kokosnuss-Aroma, das den leckeren Duft der
-                  Lieblings-Sonnencreme mit einer frischen Note kombiniert.
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]
-            descriptionBullets:
-              - text: "1"
-            directions:
-              - text: Ideal für den täglichen Bedarf geeignet.
-                xpath: /html/body/div[4]
-            gtin:
-              - text: "5203069089909"
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[2]/@content
-            imageAlt:
-              - text: Korres Coconut Water Duschgel
-                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
-            list_price:
-              - text: 9,90 €
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/span[4]
-            name:
-              - text: Coconut Water
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/span[1]
             nameExtended:
-              - text: Korres Coconut Water Duschgel
-                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/div[1]/span[1]
+              - text: Korres Start Duschgel für Damen und Herren
+                xpath: /html/body/div[6]
             price:
-              - text: "7.95"
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/meta[1]/@content
+              - text: 1,90 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/span[1]
+            availabilityText:
+              - text: Auf Lager
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[2]
+            description:
+              - text: "Ideal für den täglichen Bedarf geeignet. Wirkung: Mattierend,
+                  Langanhaltend"
+                xpath: /html/body/div[4]
+            brandText:
+              - text: Korres
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/h1[1]/a[1]
             quantity:
-              - text: "250"
+              - text: "40"
                 xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[2]/span[1]
+            gtin:
+              - text: "5203069089756"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[2]/@content
+            sku:
+              - text: 80049332-40
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[1]/@content
             shippingInfo:
               - text: zzgl. Versandkosten
                 xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/span[1]
-            sku:
-              - text: 80049332-250
-                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/ul[1]/li[1]/meta[1]/@content
+            directions:
+              - text: "Ideal für den täglichen Bedarf geeignet. Wirkung: Mattierend,
+                  Langanhaltend"
+                xpath: /html/body/div[4]
+            name:
+              - text: Coconut Water Duschgel für Damen und Herren
+                xpath: /html/body/div[7]
             url:
               - text: https://www.flaconi.de/pflege/korres/coconut-water/korres-coconut-water-duschgel.html
                 xpath: /html/head[1]/meta[16]/@content
+            ingredientsList:
+              - text: "Aqua/Water/Eau, Sodium LaurethSulfate, Cocamidopropyl Betaine,
+                  SodiumCocoyl Isethionate, Parfum/Fragrance,Coco\x1fGlucoside,
+                  Glyceryl Oleate, Aloe Barbadensis Leaf Juice Powder,
+                  AlthaeaOfficinalis Root Extract, Arginine,Castoryl Maleate,
+                  Citric Acid, GuarHydroxypropyltrimonium Chloride,Hydrolyzed
+                  Wheat Gluten, Lactic Acid,Polyquaternium\x1f7, Sodium
+                  Chloride, Sodium Gluconate, Tocopherol, Benzyl Alcohol,
+                  Imidazolidinyl Urea, Phenoxyethanol, Potassium Sorbate, Sodium
+                  Benzoate, Sodium Dehydroacetate, Benzyl Salicylate,
+                  Coumarin,Limonene, Linalool."
+                xpath: /html/body/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]
+            descriptionBullets:
+              - text: "1"
         xpath: /
-    timestamp: 1591610254014
+    timestamp: 1592393598629
