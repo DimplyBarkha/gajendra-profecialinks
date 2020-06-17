@@ -9,11 +9,7 @@ fields:
     type: BOOLEAN
   - name: searchUrl
     singleValue: false
-    # xpath: ancestor::html//link[@rel='canonical']/@href
-    # xpath: (//span[@class='kds-Text--l'])[position()=1]
-    # regExp: >-
-    #   [^: ]*$
-    # regExpReplace: https://www.kroger.com/search?query=$1&searchType=natural
+    xpath: ancestor::html//div[@class='my-search-url']
   - name: brand
     singleValue: true
     description: The brand name
@@ -36,7 +32,6 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    # xpath: //a[@class='Color Link']/@href
     xpath: //a[@componentname='internal search']/@href
     regExp: >-
        ^(.*)$
@@ -72,6 +67,7 @@ fields:
   - name: reviewCount
     singleValue: true
     description: The number of reviews
+    defaultValue: ''
   - name: price
     singleValue: false
     description: The offered price for the product
