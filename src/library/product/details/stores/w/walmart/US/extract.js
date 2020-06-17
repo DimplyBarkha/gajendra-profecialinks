@@ -70,6 +70,7 @@ module.exports = {
         }
       }
     }
+
     async function collectEnhancedContent () {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -78,14 +79,29 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      const iframe = document.querySelector('#iframe-AboutThisItem-marketingContent');
-      if (iframe) {
-        const bodyText = document.querySelector('div.wc-aplus-body');
-        addHiddenDiv('added-aplus', bodyText);
+      const elemsInIframes = (selector, prop) => [
+        // @ts-ignore
+        ...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
+          return [...acc, ...[...frame.contentWindow.document.querySelectorAll(selector)].map(v => v[prop || 'src'])];
+        }, []),
+        // @ts-ignore
+        ...[...document.querySelectorAll(selector)].map(v => v[prop || 'src']),
+      ];
+      const elemInIframes = (selector, prop) => [
+        // @ts-ignore
+        ...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
+          return [...acc, ...[...frame.contentWindow.document.querySelectorAll(selector)].map(v => v.innerText)];
+        }, []),
+        // @ts-ignore
+        ...[...document.querySelectorAll(selector)].map(v => v.innerText),
+      ];
+      const wcBody = elemInIframes("div[class*='wc-aplus']");
+      addHiddenDiv('added-aplus-body', wcBody);
+      const images = elemsInIframes("img[class*='wc-image']");
+      if (images) {
+        images.forEach(img => addHiddenDiv('added-aplus', img));
       }
     }
-
-    console.log('getting variants');
 
     const allVariants = await getVariants();
     await context.evaluate(scrollForIframe);
@@ -100,6 +116,7 @@ module.exports = {
         const url = await dependencies.createUrl({ id });
         await dependencies.goto({ url });
         await context.evaluate(scrollForIframe);
+        await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
         await context.evaluate(addUrl);
         await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
         const pageVariants = await getVariants();

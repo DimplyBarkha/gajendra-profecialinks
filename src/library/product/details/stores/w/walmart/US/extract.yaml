@@ -137,10 +137,10 @@ fields:
   singleValue: true
 - name: manufacturerDescription
   singleValue: false
-  xpath: //div[@id='added-aplus']
+  xpath: //div[@id='added-aplus-body']
 - name: manufacturerImages
   singleValue: false
-  xpath: //iframe[@id='iframe-AboutThisItem-marketingContent']//div[contains(@class,'wc-aplus-body')]//img/@src
+  xpath: //div[@id='added-aplus']
 - name: videos
   singleValue: false
   manualSelector: script[id='item'], script[id='product']
