@@ -10,6 +10,10 @@ fields:
   - name: searchUrl
     singleValue: false
     # xpath: ancestor::html//link[@rel='canonical']/@href
+    # xpath: (//span[@class='kds-Text--l'])[position()=1]
+    # regExp: >-
+    #   [^: ]*$
+    # regExpReplace: https://www.kroger.com/search?query=$1&searchType=natural
   - name: brand
     singleValue: true
     description: The brand name
