@@ -1,0 +1,197 @@
+input:
+  RPC: B00PA3ZSM2
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=bf7ddebb-d20c-4486-ab18-e30e338ae774/task=e3600cac-392b-4cf7-9203-f69ff4cce24a/306da994-058d-4621-b01f-9d2c771f2e19.html
+    extractionConfigId: product/details/stores/a/amazonRuna/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/51S840qec5L._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/511eVoTW-WL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51O87X1oenL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/61tjeccSA1L._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51TSssrYnbL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51NRlw%2B5uJL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Organic Clean Energy Iced Tea Drink by RUNA ZERO, Blood Orange | Natural
+                  High Caffeine Coffee Alternative | Healthy Energy Boost with
+                  No Jitters | Calorie Free & Sugar Free, 8.4 oz (Pack of
+                  24),Runa LLC,GRO314
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Grocery & Gourmet Food
+                xpath: /html/body/div[2]/div[2]/div[6]/div[1]/ul[1]/li[1]
+              - text: Beverages
+                xpath: /html/body/div[2]/div[2]/div[6]/div[1]/ul[1]/li[3]
+              - text: Bottled Beverages, Water & Drink Mixes
+                xpath: /html/body/div[2]/div[2]/div[6]/div[1]/ul[1]/li[5]
+              - text: Energy Drinks
+                xpath: /html/body/div[2]/div[2]/div[6]/div[1]/ul[1]/li[7]
+            nameExtended:
+              - text: "Amazon.com : Organic Clean Energy Iced Tea Drink by RUNA ZERO, Blood
+                  Orange | Natural High Caffeine Coffee Alternative | Healthy
+                  Energy Boost with No Jitters | Calorie Free & Sugar Free, 8.4
+                  oz (Pack of 24) : Grocery & Gourmet Food"
+                xpath: /html/head[1]/meta[5]/@content
+            price:
+              - text: $37.99
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            availabilityText:
+              - text: In Stock.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[16]/div[1]
+            description:
+              - text: CLEAN ENERGY FROM A LEAF, NOT A LAB | Our products are made with clean,
+                  organic ingredients - not packed with synthetic ingredients
+                  and sugar like traditional energy drinks formulated to jolt
+                  and jitter. RUNA's organic, single-source of natural caffeine
+                  tea drinks come from Guayusa, an Amazonian jungle super leaf.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[1]
+              - text: HEALTHY SUSTAINED ENERGY AND FOCUS - NO CRASH | Thanks to the guayusa
+                  leaf’s unique balance of caffeine, polyphenols, and
+                  L-Theanine, RUNA healthy energy drinks provide sustained
+                  energy, mental clarity, and focus - all without feeling the
+                  crash typically associated with other energy drinks.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[2]
+              - text: ORGANIC. NO JUNK. GOOD THINGS | We’re dedicated to bringing you clean
+                  energy in every way possible, from using real ingredients, to
+                  how we source and produce our great-tasting energy tea drinks.
+                  That’s why our drinks are certified USDA Organic, Fair Trade,
+                  Non-GMO, and Kosher. RUNA energy drinks are also gluten-free,
+                  paleo, and vegan.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[3]
+              - text: FEEL FULLY ALIVE | For thousands of years, the indigenous Kichwa people
+                  have woken up before dawn to gather around a communal fire and
+                  drink guayusa. During this early-morning ritual, community
+                  members share dreams, myths, and legends. They describe the
+                  effects of guayusa as making them feel "RUNA", which
+                  translates to "fully alive".
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[4]
+              - text: BETTER FOR THE WORLD | Being Fair Trade Certified means that a fair price
+                  is paid to our farmers and a safe work environment ensured for
+                  all workers. It’s all part of what makes us a Certified
+                  B-Corporation. This means that we have defined goals to have a
+                  positive impact on society, workers, the community and the
+                  environment.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[5]
+            brandText:
+              - text: RUNA
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[2]/div[1]/a[1]
+            weightGross:
+              - text: "13.9 pounds "
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[2]/text()[1]
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[3]/div[1]/span[1]/span[1]/@title
+            manufacturerImages:
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/93221f83-4abf-400e-bcb1-2e0db95240db._CR0,0,500,1000_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/a400a663-c5f9-4ee6-837b-ee32f2bb13f3._CR0,0,500,1000_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/438b5a7e-079a-4e89-8ca0-97dfeacecdf8._CR0,0,500,1000_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/7fc24a9b-9a8d-44b8-b46e-1e49081eed1d._CR0,0,1352,2704_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[5]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/7522a8fc-cf6e-43ce-a3d9-df86e858ca7a._CR0,0,750,1500_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[6]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/6e735ba5-1001-4815-99e7-6fb0a6725033._CR0,0,500,1000_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/1f77462f-24e1-41a1-b1ae-2caa604ac524._CR0,0,500,1000_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/0b7d588b-f84f-420e-88fe-fd5a0a0cfd85._CR0,0,500,1000_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/411b0da7-42a9-4a3f-ae84-cc03a8ed34e0._CR0,0,500,1000_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[5]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/a4a067be-bf1a-4dd9-b773-83bf70ec5eb7._CR0,0,500,1000_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[6]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/97edbee5-ec1b-4f8b-ac29-66b6614135ae._CR0,0,500,1000_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[7]/a[1]/img[1]/@src
+            name:
+              - text: "Amazon.com : Organic Clean Energy Iced Tea Drink by RUNA ZERO, Blood
+                  Orange | Natural High Caffeine Coffee Alternative | Healthy
+                  Energy Boost with No Jitters | Calorie Free & Sugar Free, 8.4
+                  oz (Pack of 24) : Grocery & Gourmet Food"
+                xpath: /html/head[1]/title[1]
+            salesRank:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[8]/text()[2]
+              - text: "72"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[8]/ul[1]/li[1]/span[1]
+            salesRankCategory:
+              - text: "Grocery & Gourmet Food "
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[8]/text()[2]
+              - text: Energy Drinks
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[8]/ul[1]/li[1]/span[2]/a[1]
+            subscriptionPrice:
+              - text: $36.09
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+            subscribeAndSave:
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+            variantAsins:
+              - text: B00C685F1S
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[26]/div[1]/form[1]/div[1]/ul[1]/li[3]/@data-dp-url
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/61nXlebOoCL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Organic Clean Energy Iced Tea Drink by RUNA ZERO, Blood Orange | Natural
+                  High Caffeine Coffee Alternative | Healthy Energy Boost with
+                  No Jitters | Calorie Free &amp; Sugar Free, 8.4 oz (Pack of
+                  24)
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "5"
+            shippingDimensions:
+              - text: 5.3 x 8.6 x 13.1 inches ; 8.5 ounces
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[1]/text()[1]
+            shippingWeight:
+              - text: "13.9 pounds "
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[2]/text()[1]
+            variantCount:
+              - text: "0"
+            sku:
+              - text: B00PA3ZSM2
+                xpath: /html/body/div[2]/div[2]/div[7]/div[3]/div[1]/@data-asin
+            amazonChoice:
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[5]/div[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[5]/div[1]
+            pasin:
+              - text: B00C685EUK
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[26]/div[1]/form[1]/div[1]/ul[1]/li[1]/@data-defaultasin
+            videoLength:
+              - text: 15:54
+                xpath: /html/body/div[2]/div[2]/div[7]/div[25]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[4]/span[2]
+            primeFlag:
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+            secondaryImageTotal:
+              - text: "0"
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+        xpath: /html
+    timestamp: 1592398930345
