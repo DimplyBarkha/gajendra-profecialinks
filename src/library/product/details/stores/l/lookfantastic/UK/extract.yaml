@@ -107,3 +107,12 @@ fields:
     xpath: //div[@id='ii_descriptionBullets']
   - name: packSize
     singleValue: true
+  - name: ingredientsList
+    singleValue: true
+    xpath: (//div[contains(@data-information-component,'ingredient')])[1]
+  - name: promotion
+    singleValue: true
+    xpath: //p[@class='productPrice_savingAmount']
+  - name: variantInformation
+    singleValue: false
+    xpath: //select[contains(@id,'roduct-variation-dropdown')]//option[not(contains(text(),'Please'))]
