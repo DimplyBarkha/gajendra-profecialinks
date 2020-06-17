@@ -1,5 +1,5 @@
 fields:
-  - name: productImage
+  - name: image
     singleValue: false
     xpath: (//div[@data-auto-id="image"]//img)[1]/@src
   - name: keywords
@@ -18,7 +18,7 @@ fields:
     singleValue: true
   - name: subCategory
     singleValue: true
-  - name: productDescription
+  - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class,'pdp-main-details__title')]
   - name: onlinePriceCurrency
@@ -33,23 +33,28 @@ fields:
     singleValue: true
   - name: inStorePriceCurrency
     singleValue: true
-  - name: additionalDescription
+  - name: description
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Features') or contains(text(),'Product Information') or contains(text(),'Further Description')]]//div[contains(@class,'content')]
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Ingredients')]]//div[contains(@class,'content')]
-  - name: brand
+  - name: brandText
     singleValue: true
-  - name: manufacturerName
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Manufacturer Address')]]//div[contains(@class,'content')]//text()[1]
+  - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Manufacturer Address')]]//div[contains(@class,'content')]//text()
-  - name: size
+  - name: quantity
     singleValue: false
     manualSelector: .pdp-main-details__weight
-  - name: netWeight
+  - name: weightNet
     singleValue: true
-  - name: grossWeight
+  - name: weightGross
+    singleValue: true
+  - name: manufacturerImages
     singleValue: true
   - name: upc
     singleValue: false
@@ -60,7 +65,7 @@ fields:
     singleValue: true
   - name: hiddenUpc
     singleValue: true
-  - name: skuNumber
+  - name: sku
     singleValue: false
     xpath: //html/head/link[@rel='canonical']/@href
     regExp: (?:https:\/\/.+/(\d+))
@@ -70,7 +75,7 @@ fields:
     manualSelector: .pdp-main-details__product-code
     regExp: (?:Product\s+code\s?:\s?(\d+))
     regExpReplace: $1
-  - name: directionsInformation
+  - name: directions
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Preparation and Usage')]]//div[contains(@class,'content')]
   - name: warnings
@@ -83,21 +88,25 @@ fields:
     singleValue: true
   - name: numberOfServingsInPackage
     singleValue: true
+  - name: aggregateRating
+    singleValue: true
+  - name: aggregateRatingText
+    singleValue: true
   - name: caloriesPerServing
     singleValue: false
-    xpath: concat((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/following-sibling::div)[1],'/',((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/parent::div/following-sibling::div)[1]/div[contains(@class,'nutrition-cell--grouped')])[2])
+    xpath: concat((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/following-sibling::div)[1],'',((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/parent::div/following-sibling::div)[1]/div[contains(@class,'nutrition-cell--grouped')])[2])
   - name: caloriesFromFatPerServing
     singleValue: true
   - name: totalFatPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fat')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
+    regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
     regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fat')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2
+    regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
+    regExpReplace: $2$3
   - name: saturatedFatPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which saturates') or contains(text(),'of which Saturates')]/following-sibling::div)[1]
@@ -202,7 +211,7 @@ fields:
     manualSelector: div.asda-tab-list button[aria-label*='Reviews']
     regExp: (\d+)
     regExpReplace: $1
-  - name: customerReviewRating
+  - name: ratingCount
     singleValue: true
   - name: aplusImages
     singleValue: true
@@ -218,7 +227,7 @@ fields:
     singleValue: true
   - name: warranty
     singleValue: true
-  - name: eanGtin
+  - name: gtin
     singleValue: false
     xpath: //*[@id='s7viewer_container_inner']//div[contains(@class,'s7staticimage')]//img[1]/@src
     regExp: (?:asdagroceries\/(\d+))
@@ -251,7 +260,7 @@ fields:
   - name: dietaryInformation
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Life Style')]]//div[contains(@class,'content')]
-  - name: product_other_information
+  - name: productOtherInformation
     singleValue: true
   - name: packaging
     singleValue: true
@@ -270,7 +279,7 @@ fields:
     singleValue: true
   - name: retailerSubcategory
     singleValue: true
-  - name: additionalDescBulletCount
+  - name: descriptionBullets
     singleValue: true
   - name: video
     singleValue: true
@@ -287,16 +296,22 @@ fields:
   - name: harvestedPrice
     singleValue: true
   - name: pricePerUnit
-    singleValue: true
+    singleValue: false
+    xpath : //span[@class="co-product__price-per-uom"]
+    regExp: (\()(.*)(/)
+    regExpReplace: $2
   - name: pricePerUnitUom
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class="co-product__price-per-uom"]
+    regExp: (\w)(\))
+    regExpReplace: $1
   - name: scrapeCode
     singleValue: true
   - name: imageAltText
     singleValue: true
   - name: promotion
     singleValue: false
-    manualSelector: a[data-auto-id='linkPromo']
+    manualSelector: div.pdp-main-details__promo-cntr a[data-auto-id='linkPromo']
   - name: harvestedReviewRating
     singleValue: true
   - name: extendedProductDescription
@@ -325,7 +340,7 @@ fields:
     singleValue: true
   - name: couponOnFullPageText
     singleValue: true
-  - name: brandUrl
+  - name: brandLink
     singleValue: true
   - name: internationalShipping
     singleValue: true
@@ -398,7 +413,7 @@ fields:
     singleValue: true
   - name: firstVariant
     singleValue: true
-  - name: variants
+  - name: variantCount
     singleValue: true
   - name: platform
     singleValue: true
@@ -426,7 +441,7 @@ fields:
     singleValue: true
   - name: productId
     singleValue: true
-  - name: ShippingInformation
+  - name: ShippingInfo
     singleValue: true
   - name: colour
     singleValue: true
