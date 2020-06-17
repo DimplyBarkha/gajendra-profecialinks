@@ -20,9 +20,6 @@ fields:
     xpath: //div[@id="urlInfo"]
   - name: category
     singleValue: true
-    xpath: //div[@class="h-text-sm h-padding-v-tiny"]//span[position()=2]//span
-  - name: sub_category
-    singleValue: true
     xpath: //div[@id="subCategories"]
   - name: price
     singleValue: true
@@ -35,7 +32,7 @@ fields:
     xpath: //div[@class="style__PriceFontSize-gob4i1-0 fwkyhU h-text-bold"]
   - name: availabilityText
     singleValue: true
-    xpath: //div[@data-test="oosDeliveryOption"]|//div[@data-test="shipMethodMessage"]
+    xpath: //div[@data-test="oosDeliveryOption"]|//div[@data-test="shipMethodMessage"]|//span[@data-test="getItMessage"]|//div[@data-test="soldOutBlock"]|//div[@id="availability"]
   - name: description
     singleValue: true
     xpath: //div[@class="h-margin-v-default"]
@@ -56,6 +53,9 @@ fields:
   - name: weightNet
     singleValue: true
     xpath: //div[@id="weightInfo"]
+  - name: weightGross
+    singleValue: true
+    xpath: //div[@data-test="estimatedShipWeight"]
   - name: gtin
     singleValue: true
     xpath: //div[@id="upcInfo"]
@@ -89,9 +89,9 @@ fields:
   - name: shippingWeight
     singleValue: true
     xpath: //div[@data-test="estimatedShipWeight"]
-  - name: variationCount
+  - name: variantCount
     singleValue: true
-    xpath: //div[@id="variationCount"]
+    xpath: //div[@id="variantCount"]
   - name: color
     singleValue: true
     xpath: //div[@data-test="variationTheme-color"]//span/text()
@@ -101,6 +101,9 @@ fields:
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@id="manufacturerImgs"]
+  - name: videos
+    singleValue: true
+    xpath: //video//source/@src
   - name: name
     singleValue: true
     xpath: //div[@id="productName"]
@@ -227,6 +230,9 @@ fields:
   - name: alcoholContent
     singleValue: true
     xpath: //div[@id="alcoholInfo"]
+  - name: variants
+    singleValue: true
+    xpath: //div[@id="variants"]
   - name: additionDescBulletInfo
     singleValue: true
     xpath: //div[@id="additionalInfo"]
@@ -242,6 +248,9 @@ fields:
   - name: privacyPolicy
     singleValue: true
     xpath: //div[@id="privacy"]
+  - name: customerServiceAvailability
+    singleValue: true
+    xpath: //div[@id="customerServiceAvailability"]
   - name: materials
     singleValue: true
     xpath: //div[@id="materialInfo"]

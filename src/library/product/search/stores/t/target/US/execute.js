@@ -6,38 +6,52 @@
  * @param { { goto: ImportIO.Action} } dependencies
  */
 
- async function implementation (
-   inputs,
-   parameters,
-   context,
-   dependencies,
- ) {
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  function stall (ms) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  }
 
-   function stall(ms) {
-      return new Promise((res, rej) => {
+  const url = 'https://target.com/s?searchTerm=' + inputs.keywords || inputs.Keywords;
+  await dependencies.goto({ url });
+  await context.waitForXPath('//ul//li');
+  await stall(2000);
+  await context.setInputValue('input#search', inputs.keywords || inputs.Keywords);
+  await context.evaluate(async function () {
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
-          res();
-        }, ms)
-      })
+          resolve();
+        }, ms);
+      });
     }
-
-   const url = "https://target.com";
-   await dependencies.goto({ url });
-   await context.setInputValue("input#search", inputs.keywords);
-   await stall(2000);
-   await context.evaluate(function() {
-      let link = document.querySelector(".TypeaheadItemLink-sc-125kxr2-0");
-      if (link != null ) {
-          link.click();
+    let isCategoryPage = false;
+    document.querySelectorAll('h2').forEach(e => {
+      if (e.innerHTML === 'Shop by category') {
+        isCategoryPage = true;
       }
     });
-   await context.waitForXPath("//ul//li");
-   return context.evaluate(function () {
-     return document.querySelectorAll('li').length > 0;
-   });
-   console.log('extracting..');
-
- }
+    if (isCategoryPage) {
+      document.getElementById('search').focus();
+      await stall(2000);
+      const link = document.querySelector('.TypeaheadItemLink-sc-125kxr2-0');
+      if (link != null) {
+        link.click();
+      }
+    }
+  });
+  return context.evaluate(function () {
+    return document.querySelectorAll('li').length > 0;
+  });
+}
 
 module.exports = {
   implements: 'product/search/execute',

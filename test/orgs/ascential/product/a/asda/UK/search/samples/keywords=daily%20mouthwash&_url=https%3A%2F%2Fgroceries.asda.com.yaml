@@ -1,0 +1,163 @@
+input:
+  keywords: daily mouthwash
+  _url: https://groceries.asda.com
+extractions:
+  - html: https://workbench.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=92dd7db8-73b0-4671-941e-511f2d289b56/7d55f625-d098-4f5d-8bb5-e878b22987a6.html
+    extractionConfigId: product/search/stores/a/asda/UK/extract
+    data:
+      - group:
+          - input:
+              - text: daily mouthwash
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[1]/div[1]/div[1]
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]
+      - group:
+          - name:
+              - text: Corsodyl Daily Fresh Mint Mouthwash
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "3.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000838852
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3.29"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5000347054235?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Corsodyl Daily Cool Mint Mouthwash
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "3.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/910000838971
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5000347054242?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Corsodyl Daily Fresh Mint Mouthwash
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "1.50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000016028175
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/96161388?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Corsodyl Daily Arctic Mint Complete Protection Mouthwash
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "5.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000157579421
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054563051721?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: UltraDEX Original Daily Oral Rinse
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "4.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000155194923
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5060050350628?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[1]/div[3]/div[1]/div[2]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=92dd7db8-73b0-4671-941e-511f2d289b56/7d55f625-d098-4f5d-8bb5-e878b22987a6.html
+      - group:
+          - name:
+              - text: Corsodyl Ultra Clean Daily Fluoride Toothpaste
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "2.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/div[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000063150229
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "4.14"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054563039521?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Corsodyl Mint Mouthwash
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "4.50"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/35820
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5000347078859?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Paracetamol 500mg Caplets 16 Pack
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.35"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/23342
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/21109164?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: Corsodyl Complete Protection Toothpaste Extra Fresh
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "4.00"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/1000108538648
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/div[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[2]/div[2]/button[1]/span[1]
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/5054563055750?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/button[1]/img[1]/@src
+          - name:
+              - text: ASDA Ibuprofen 200mg Caplets 16 Pack
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]
+            price:
+              - text: "0.40"
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[3]/div[1]/span[1]/strong[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/425732
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://ui.assets-asda.com:443/dm/asdagroceries/21122361?$ProdList$
+                xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]/li[5]/div[1]/div[1]/button[1]/img[1]/@src
+        xpath: /html/body/div[2]/div[2]/section[1]/main[1]/div[2]/ul[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=32c33fee-74bd-47d3-b0a1-19bc6f46e748/task=92dd7db8-73b0-4671-941e-511f2d289b56/7d55f625-d098-4f5d-8bb5-e878b22987a6.html
+    timestamp: 1591688333804
