@@ -6,6 +6,9 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class='extra-info']/@data-id
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='filtered-url']
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 'wag-prod-title')]//a/text()
