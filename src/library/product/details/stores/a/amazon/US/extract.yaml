@@ -231,17 +231,17 @@ fields:
     xpath: //div[@id="feature-bullets"]//ul/li
   - name: otherSellersName
     singleValue: false
-    xpath: //div[@id="all-offers-display-scroller"]//div[contains(@id, "offer-list")]/div[contains(@id, "offer")]//div[contains(@id, "soldBy")]//a
+    xpath: //div[contains(@id,"mbc-sold-by")]//span[contains(@class,'Name')]
   - name: otherSellersPrime
     singleValue: false
     xpath: //div[@id="all-offers-display-scroller"]//div[contains(@id, "offer-list")]/div[contains(@id, "offer")]
     type: BOOLEAN
   - name: otherSellersPrice
     singleValue: false
-    xpath: //div[@id="all-offers-display-scroller"]//div[contains(@id, "offer-list")]/div[contains(@id, "offer")]
+    xpath: //div[contains(@id,"mbc")]//span[contains(@id,'mbc-price')]
   - name: otherSellersShipping
     singleValue: false
-    xpath: //div[@id="all-offers-display-scroller"]//div[contains(@id, "offer-list")]/div[contains(@id, "offer")]
+    xpath: //div[contains(@id,"mbc")]//span[contains(@id,'mbc-shipping')]
   - name: secondaryImageTotal
     singleValue: true
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
@@ -454,4 +454,4 @@ fields:
     xpath: //div[@id='centerCol']//div[contains(@id, 'newer')]/h4
   - name: largeImageCount
     singleValue: false
-    xpath: 
+    xpath: count(//img[contains(@data-old-hires, 'SL1500')])
