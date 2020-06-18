@@ -216,13 +216,13 @@ fields:
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
     singleValue: false
-    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
-    regExp: (.+)
+    xpath: //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text()
+    regExp: Prime
     regExpReplace: 'Yes'
   - name: lbb
     singleValue: true
     xpath: //div[@id='ii_lbb']
-    defaultValue: NO
+    defaultValue: 'NO'
   - name: lbbPrice
     singleValue: true
     xpath: //div[@id='ii_lbbPrice']
@@ -231,17 +231,16 @@ fields:
     xpath: //div[@id="feature-bullets"]//ul/li
   - name: otherSellersName
     singleValue: false
-    xpath: //div[contains(@id,"mbc-sold-by")]//span[contains(@class,'Name')]
+    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1]
   - name: otherSellersPrime
     singleValue: false
-    xpath: //div[@id="all-offers-display-scroller"]//div[contains(@id, "offer-list")]/div[contains(@id, "offer")]
-    type: BOOLEAN
+    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]
   - name: otherSellersPrice
     singleValue: false
-    xpath: //div[contains(@id,"mbc")]//span[contains(@id,'mbc-price')]
+    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//span[contains(@class, "a-price")]/span[contains(@class, "a-offscreen")]
   - name: otherSellersShipping
     singleValue: false
-    xpath: //div[contains(@id,"mbc")]//span[contains(@id,'mbc-shipping')]
+    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//div[contains(@class, "aod-ship-charge")]
   - name: secondaryImageTotal
     singleValue: true
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
@@ -453,5 +452,5 @@ fields:
     singleValue: true
     xpath: //div[@id='centerCol']//div[contains(@id, 'newer')]/h4
   - name: largeImageCount
-    singleValue: false
-    xpath: count(//img[contains(@data-old-hires, 'SL1500')])
+    singleValue: true
+    xpath: //script[contains(text(), "ImageBlockATF")]/text()

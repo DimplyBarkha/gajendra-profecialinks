@@ -4,12 +4,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-  // const cleanUp = (data, context) => {
-  //   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-  //     el.text = clean(el.text);
-  //   }))));
-  //   return data;
-  // };
+
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
@@ -23,7 +18,7 @@ const transform = (data, context) => {
     .replace(/[^\x00-\x7F]/g, '');
 
   for (const { group } of data) {
-    for (let row of group) {
+    for (const row of group) {
       try {
         if (row.asin) {
           row.asin = [{ text: row.asin[0].text.replace(/.+\/dp\//g, '').trim() }];
@@ -51,6 +46,35 @@ const transform = (data, context) => {
             },
           ];
         }
+        //nedds  work
+        if (row.otherSellersPrime) {
+          row.otherSellersPrime.forEach(item => {
+            if(item.text.includes("rime")){
+              item.text = 'YES';
+            }else{
+              item.text = 'NO';
+            }
+          });
+        }
+        //needs work
+        if (row.otherSellersShipping) {
+          row.otherSellersShipping.forEach(item => {
+            if(item.text.includes('ree') || item.text.includes('REE')){
+              item.text = '$0.00';
+            }else{
+              item.text = '$1.00';
+            }
+          });
+        }
+        //needs work
+        if (row.largeImageCount) {
+          let regex = /SL1500\_\.jpg/g;
+          row.largeImageCount = [
+            {
+              text: (row.largeImageCount[0].text.match(regex) || []).length
+            }
+          ]
+        }
         if (row.featureBullets) {
           let text = '';
           row.featureBullets.forEach(item => {
@@ -62,7 +86,17 @@ const transform = (data, context) => {
             },
           ];
         }
-        // row = cleanUp(row);
+        if (row.primeFlag) {
+          let text = false;
+          row.featureBullets.forEach(item => {
+            if(item === "Yes"){
+              text = true
+            }
+          });
+          if(!!text){
+            row.primeFlag =[{text: 'Yes'}]
+          }
+        }
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));
