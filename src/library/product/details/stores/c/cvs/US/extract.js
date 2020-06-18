@@ -230,11 +230,14 @@ module.exports = {
         while(i < btns[0].length && i < 30) {
           console.log('inside-first!!!!!!!!!!!!!!!!!!!!!!!')
           context.click(btns[0][i]);
+          await new Promise(resolve => setTimeout(resolve, 10000));
           await context.waitForSelector(waitSelector, { timeout: 30000 });
 
           if(btns[1].length && i < 30){
             while(j < btns[1].length) {
+              console.log(btns[0][i])
               context.click(btns[1][i]);
+
               await context.waitForSelector(waitSelector, { timeout: 30000 });
               getVariantIdNum()
               j++
@@ -262,10 +265,10 @@ module.exports = {
 
         if(varPath){
           let varText = regex1.exec(varPath.innerText);
+          console.log(varText)
           addHiddenDiv('ii_variantId', varText)
         }
       })
-
     }
 
 
@@ -299,8 +302,31 @@ module.exports = {
      });
   }
 
+  async function variantCleanUp() {
+    const varStore = await context.evaluate(function() {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      let varArray = []
+      const vars = document.querySelectorAll('div#ii_variantId');
+      vars.forEach(variant => {
+        if(!varArray.includes(variant.innerText)) {
+          varArray.push(variant.innerText)
+        }
+      });
+      varArray.forEach(varId => {
+        addHiddenDiv('ii_variantNum', varId)
+
+      })
+    });
+  }
   
   await variantClick()
+  await variantCleanUp()
 
     
 
