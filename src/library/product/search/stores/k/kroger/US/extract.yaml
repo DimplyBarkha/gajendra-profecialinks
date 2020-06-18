@@ -26,13 +26,15 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //a[@class='Color Link']/@href
+    # xpath: //a[@class='Color Link']/@href
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
     regExp: >-
       [0-9]{13}
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //a[@componentname='internal search']/@href
+    # xpath: //a[@componentname='internal search']/@href
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
     regExp: >-
        ^(.*)$
     regExpReplace:
@@ -40,7 +42,7 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //img[@class='ImageLoader-image']/@src
+    xpath: //img[@class='kds-Image-img']/@src
   - name: name
     singleValue: true
     description: The product name
