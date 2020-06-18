@@ -71,8 +71,16 @@ const transform = (data, context) => {
           row.availabilityText = [{ text: row.availabilityMessage[0].text }];
         }
         if (row.variantInformation) {
-          let splits = row.variantInformation[0].text.replace(/\"/g,'').replace('}','').split('-');
-          row.variantInformation = [{ text: splits[splits.length - 1] }];
+          let text = '';
+          row.variantInformation.forEach(item => {
+            let splits = item.text.replace(/\"/g,'').replace('}','').split(':');
+            text += `${splits[splits.length - 1].replace('actual_color-','')} | `;
+          });
+          row.variantInformation = [
+            {
+              text: text.slice(0, -3),
+            },
+          ];
         }
         if (row.firstVariant) {
           row.firstVariant = [{ text: row.firstVariant[0].text.replace('"primaryProductId":"', '').replace('","primary', '') }];

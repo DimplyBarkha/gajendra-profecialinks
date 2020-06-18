@@ -118,9 +118,11 @@ fields:
 - name: variantCount
   singleValue: true
 - name: variantInformation
-  singleValue: true 
+  singleValue: false 
   manualSelector: script[id='item'], script[id='product']
-  regExp: \{\"name\"\:\"\w*_?\w*\",\"value\"\:\"(\w*_?\w*-[^\"]*)\"\}
+  regExp: >-
+    {"name":"\w*_\w*","value":"(\w*_\w*-[^\"]*)"}
+
 - name: variants
   singleValue: false
   manualSelector: script[id='item'], script[id='product']
@@ -157,7 +159,7 @@ fields:
   singleValue: false
   xpath: //div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
   regExp: (\d+\.?\d*) delivery
-  regExpReplace: $ 1
+  regExpReplace: $1
 - name: lbb
   singleValue: true
   defaultValue: Yes
