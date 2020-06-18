@@ -1,0 +1,316 @@
+input:
+  keywords: door buddy
+  _url: https://amazon.de
+  results: 200
+extractions:
+  - html: https://workbench.import.io/html/run=c19726d7-1954-422d-a038-cd0daa843b1e/task=bb4ed9a0-7a80-4323-aa32-0dd33bda8631/b12bc2f7-e92f-4684-bdb5-6510d53b378a.html
+    extractionConfigId: product/search/stores/a/amazonApparelApp/DE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.amazon.de/Ausstiegshilfe-Mobilit%C3%A4tshilfe-Autos-tragbar-Taschenlampe/dp/B016UZUON6/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-4
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/41fyvZ7fU3L._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: Drake Off Road Mobilitätshilfe fürs Auto, mit integrierter
+                  LED-Taschenlampe, Gurtschneider und Fensterbrecher
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 15,49 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B016UZUON6
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/@data-asin
+            aggregateRating:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "2.346"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "2.346"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/Modetro-Sports-Haltungskorrektur-haltungsbedingte-Schulterschmerzen/dp/B071J3XWB4/ref=sr_1_5?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-5
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/81vbOugANKL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: Modetro Sports Geradehalter zur Haltungskorrektur inkl. eBook für eine
+                  Gesunde Haltung, ideal zur Therapie für haltungsbedingte
+                  Nacken, Rücken und Schulterschmerzen Damen Herren
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 11,89 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/div[1]/span[1]/div[1]/div[1]/div[4]/div[2]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B071J3XWB4
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/@data-asin
+            aggregateRating:
+              - text: 3,8
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "4.723"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "4.723"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            endorsementText:
+              - text: Bestseller
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/div[1]/span[1]/div[1]/div[1]/div[1]/a[1]/span[1]/div[1]/span[1]/span[1]
+              - text: Befristetes Angebot
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[6]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/a[1]/span[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/JOCHUAN-Afghanischer-K%C3%BCchenvorh%C3%A4nge-Vorhangebenen-Schlafzimmer/dp/B07N1FV4DG/ref=sr_1_6?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-6-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/610JDPBEgGL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: JOCHUAN Afghanischer Hund Buddy Dog Küchenvorhänge Fenster Vorhangebenen
+                  für Café, Bad, Wäscherei, Wohnzimmer Schlafzimmer 26 X 39 Zoll
+                  2 Stück
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 35,00 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B07N1FV4DG
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[2]/@data-asin
+          - productUrl:
+              - text: https://www.amazon.de/Door-Buddy-Verstellbarer-hundesicher-Haustiertore/dp/B016QT678M/ref=sr_1_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-2-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/815lSoC54pL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: Door Buddy Türriegel für Hundetoilette Praktischer Einstieg für Katzen und
+                  Erwachsene. Verstellbarer Riemen. Einfacher als die
+                  Installation von Katzentüren oder das Verwenden von
+                  Haustieren. Hund, Katzenkotze zu fressen
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 20,69 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B016QT678M
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[3]/@data-asin
+            aggregateRating:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "1.780"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "1.780"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/Frostfire-5014-Doppelfunktions-Sicherheitsstab/dp/B00404EIQ4/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-1-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[4]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/218KVvCR7bL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[4]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: Frostfire Doppelfunktions-Sicherheitsstab
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[4]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 23,99 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[4]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B00404EIQ4
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[4]/@data-asin
+            aggregateRating:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[4]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "611"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[4]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "611"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[4]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/Door-Buddy-Katzentoilette-Haustier-Tor-Katzen-T%C3%BCr-Alternative/dp/B01N258SAG/ref=sr_1_3?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-3-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[5]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/812FsX9sjSL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[5]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: Door Buddy Türschloss Plus Türstopper. Halten Sie den Hund von der
+                  Katzentoilette fern und verhindern Sie das Schließen der Tür.
+                  Perfektes Haustier-Tor und Katzen-Tür-Alternative! (Grau)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[5]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 25,25 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[5]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B01N258SAG
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[5]/@data-asin
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[5]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "1.564"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[5]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "1.564"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[5]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            endorsementText:
+              - text: Amazon's Choice
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[5]/div[1]/span[1]/div[1]/div[1]/div[1]/span[1]/a[1]/span[1]/div[1]/span[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/Umbra-1004045-660-Estique-Multifunktionale-T%C3%BCrgarderobe/dp/B01I58T4ZK/ref=sr_1_5?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-5-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[6]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/51flkyvuG6L._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[6]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: Umbra organiser Estique multifunktionale Türgarderobe weiß Metall (60,3 x
+                  36,2 x 10,8 cm)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[6]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 21,04 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[6]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B01I58T4ZK
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[6]/@data-asin
+            aggregateRating:
+              - text: 4,2
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[6]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "396"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[6]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "396"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[6]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/LouMaxx-T%C3%BCrklinkenpuffer-Transparente-T%C3%BCrstopper-T%C3%BCrgriff/dp/B07G74CXQT/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-4-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[7]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/61je8kNqJ-L._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[7]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: LouMaxx Türklinkenpuffer - 6er Set transparente Doppel Türstopper Klinke –
+                  Türgriff Puffer - Türgriff Stopper - Türgriff Schutz – leicht
+                  und schnell montiert zum Schutz von Wand und Möbeln
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[7]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 5,95 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[7]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B07G74CXQT
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[7]/@data-asin
+            aggregateRating:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[7]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "183"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[7]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "183"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[7]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/Defender-Door-Brace-Sicherheitsstange-T%C3%BCren/dp/B01J5TWHUW/ref=sr_1_7?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-7-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[8]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/61QvkCofQaL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[8]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: Security Tür Sicherungsstange Teleskopstange - Rutschfestem Gummi-Fuß -
+                  Sicherungsstange 70cm - 130cm Einbruchsicherung für Fenster
+                  und Türen Einbruchschutz Fenstersicherung Türsicherung
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[8]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 26,16 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[8]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B01J5TWHUW
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[8]/@data-asin
+            aggregateRating:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[8]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "79"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[8]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "79"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[8]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/LouMaxx-T%C3%BCrklinkenpuffer-transparente-T%C3%BCrstopper-Klinke/dp/B079VN5WVP/ref=sr_1_8?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-8-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[9]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/71eEbztzvSL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[9]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: LouMaxx Türklinkenpuffer - 6er Set transparente Türstopper für Türklinke
+                  und Fensterklinke Anschlagdämpfer zum Schutz vor Macken
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[9]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 5,95 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[9]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B079VN5WVP
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[9]/@data-asin
+            aggregateRating:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[9]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "398"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[9]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "398"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[9]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/Rarurko-Leckmatte-Leckerli-Matte-Hundetraining-Haustieren/dp/B086PGJMWZ/ref=sr_1_9?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-9-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[10]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/71gwpcfusgL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[10]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: Rarurko Leckmatte für Hunde, Buddy Leckerli-Matte,Lick Mat 2pcs Lick Pad
+                  Slow Feeder Saugt an der Wand zum Baden, Pflegen und
+                  Hundetraining von Haustieren…
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[10]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 12,59 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[10]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B086PGJMWZ
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[10]/@data-asin
+            aggregateRating:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[10]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[10]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[10]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+          - productUrl:
+              - text: https://www.amazon.de/ABUS-T%C3%BCr-Panzerriegel-PR1400-silber-10254/dp/B000YHN5X8/ref=sr_1_10?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=door+buddy&qid=1592481719&s=drugstore&sr=1-10-catcorr
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[11]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/51aqoiVaigL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[11]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: ABUS Tür-Panzerriegel PR1400, silber, 10254
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[11]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/span[1]
+            price:
+              - text: 134,43 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[11]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]/text()[1]
+            id:
+              - text: B000YHN5X8
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[11]/@data-asin
+            aggregateRating:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[11]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            ratingCount:
+              - text: "69"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[11]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+            reviewCount:
+              - text: "69"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[13]/span[1]/div[1]/div[11]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]/a[1]/span[1]
+        xpath: /html
+    timestamp: 1592481726465
