@@ -7,6 +7,9 @@ fields:
     singleValue: true
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@class='my-search-url']
   - name: brand
     singleValue: true
     description: The brand name
@@ -29,7 +32,7 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //a[@class='Color Link']/@href
+    xpath: //a[@componentname='internal search']/@href
     regExp: >-
        ^(.*)$
     regExpReplace:
@@ -60,9 +63,11 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    defaultValue: ''
   - name: reviewCount
     singleValue: true
     description: The number of reviews
+    defaultValue: ''
   - name: price
     singleValue: false
     description: The offered price for the product
