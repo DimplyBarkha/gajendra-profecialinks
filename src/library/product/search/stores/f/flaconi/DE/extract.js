@@ -5,7 +5,6 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-  await context.waitForSelector('div.category-products > ul > li:not([class="no-hover"])');
   await context.evaluate(async function () {
     function addElementToDocument (doc, key, value) {
       const catElement = document.createElement('div');
@@ -18,6 +17,9 @@ async function implementation (
     const arr = document.querySelectorAll('div.category-products > ul > li:not([class="no-hover"])');
     for (let i = 0; i < arr.length; i++) {
       addElementToDocument(arr[i], 'pd_rank', lastProductPosition + i);
+      const priceElement = arr[i].querySelector('span.price') ? (arr[i].querySelector('span.price').innerText).trim() : '';
+      const priceValue = priceElement ? (priceElement.match(/\d+.*€/)[0]).replace(/\./g, '').replace(',', '.') : '';
+      addElementToDocument(arr[i], 'pd_price', priceValue);
     }
     localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
   });
