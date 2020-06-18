@@ -64,6 +64,13 @@ const transform = (data, context) => {
               row.otherSellersPrice = [{ text: row.price[0].text.trim() }];
             }
           }
+          if (row.shippingPrice) {
+            if (row.otherSellersShipping && row.otherSellersShipping.length > 0) {
+              row.otherSellersShipping.unshift({ text: row.shippingPrice[0].text.trim() });
+            } else {
+              row.otherSellersShipping = [{ text: row.shippingPrice[0].text.trim() }];
+            }
+          }
         }
         if (row.availabilityText) {
           row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];
@@ -158,7 +165,7 @@ const transform = (data, context) => {
           }
         }
         Object.keys(row).forEach(header => row[header].forEach(el => {
-          el.text = clean(el.text);
+          el.text = el.text ? clean(el.text) : el.text;
         }));
       } catch (exception) { console.log('Error in transform', exception); }
     }

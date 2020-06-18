@@ -26,7 +26,7 @@ module.exports = {
         const variantList = [];
         const node = document.querySelector("script[id='item']");
         if (node) {
-          const elements = node.textContent.match(/(,"usItemId":")(\w+)/g);
+          const elements = node.textContent.match(/({"productId":")(\w+)/g);
           if (elements && elements.length > 0) {
             for (let i = 0; i < elements.length; i++) {
               console.log(i);
@@ -110,7 +110,8 @@ module.exports = {
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
     console.log(allVariants);
     // start at 1 to skip the first variant which is this page
-    for (let i = 1; i < allVariants.length; i++) {
+    let cnt = (allVariants && allVariants.length < 21) ? allVariants.length : 21;
+    for (let i = 1; i < cnt; i++) {
       try {
         const id = allVariants[i];
         const url = await dependencies.createUrl({ id });
@@ -118,7 +119,7 @@ module.exports = {
         await context.evaluate(scrollForIframe);
         await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
         await context.evaluate(addUrl);
-        await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
+        await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });        
       } catch (exception) {
         console.log(exception);
       }

@@ -27,6 +27,11 @@ fields:
 - name: price
   singleValue: true
   xpath: //span[@itemprop="highPrice"]/@content|//*[@class="prod-PriceHero"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
+- name: shippingPrice
+  singleValue: true
+  manualSelector: script[id='item']
+  regExp: shippingPrice":([\d\.]+)
+  regExpReplace: $1
 - name: availabilityText
   singleValue: true
   xpath: //link[@itemprop="availability"]/@href
@@ -151,15 +156,20 @@ fields:
   xpath: //h1[@class='prod-ProductTitle font-normal']
 - name: otherSellersName
   singleValue: false
-  xpath: //div[@class='marketplace-body']//*[@data-tl-id="ProductSellerInfo-SellerName"]
+  manualSelector: script[id='item']
+  regExp: ("sellerName":")([^\"]+)(","sell)
+  regExpReplace: $2  
 - name: otherSellersPrice
   singleValue: false
-  xpath: //div[contains(@class,'seller-offer')]//div[contains(@class,'prod-PriceHero')]//span[contains(@class,'price--stylized')]//span[@class='visuallyhidden']
+  manualSelector: script[id='item']
+  regExp: (,"price":)(\d+\.?\d*)(,"sell)
+  regExpReplace: $2
 - name: otherSellersShipping
   singleValue: false
-  xpath: //div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
-  regExp: (\d+\.?\d*) delivery
-  regExpReplace: $1
+  manualSelector: script[id='item']
+  regExp: (,"shipPrice":)(\d+\.?\d*)(})
+  regExpReplace: $2
+  
 - name: lbb
   singleValue: true
   defaultValue: Yes
