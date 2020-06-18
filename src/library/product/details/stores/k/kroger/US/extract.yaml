@@ -62,7 +62,7 @@ fields:
     singleValue: false
     xpath: //img[@class='ProductImages-image']/@alt 
     regExp: >-
-      .+?(?=:)
+      .+?(?= Perspective)
   - name: name
     singleValue: true
     description: The product name
@@ -278,9 +278,9 @@ fields:
       [0-9]+
   - name: vitaminCPerServingUom
     singleValue: true
-    xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Vitamin C')]/parent::*/following-sibling::span,'0123456789','%')
+    xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Vitamin C')]/parent::*/following-sibling::span
     regExp: >-
-      [%]{0,1}
+      [%]
   - name: calciumPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Calcium')]/parent::*/following-sibling::span
