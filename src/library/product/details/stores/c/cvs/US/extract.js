@@ -179,70 +179,129 @@ module.exports = {
         }
       }
 
-      function collectVariantNums () {
-        const variant1 = document.querySelector('div#ii_url');
-        const regex1 = /[0-9]+$/g;
-        const variant2 = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
-        const regex2 = /[0-9]+$/g;
-        if (variant1) {
-          const trans1 = regex1.exec(variant1.innerText);
-          addHiddenDiv('ii_variantId', `${trans1[0]}`);
-        }
-        if (variant2) {
-          const trans2 = regex2.exec(variant2.innerText);
-          addHiddenDiv('ii_variantId', `${trans2[0]}`);
+      // function collectVariantNums () {
+      //   const variant1 = document.querySelector('div#ii_url');
+      //   const regex1 = /[0-9]+$/g;
+      //   const variant2 = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
+      //   const regex2 = /[0-9]+$/g;
+      //   if (variant1) {
+      //     const trans1 = regex1.exec(variant1.innerText);
+      //     addHiddenDiv('ii_variantId', `${trans1[0]}`);
+      //   }
+      //   if (variant2) {
+      //     const trans2 = regex2.exec(variant2.innerText);
+      //     addHiddenDiv('ii_variantId', `${trans2[0]}`);
+      //   }
+      // }
+
+      function collectIframe() {
+        const iframeList = document.querySelectorAll('iframe');
+        if(iframeList) {
+          iframeList.forEach((frame) => {
+            const videoSrc = frame.contentDocument.querySelector('video')
+            if(videoSrc){
+              console.log(videoSrc)
+              addHiddenDiv('ii_videoSrc', `${videoSrc.src}`);
+            }
+          })
         }
       }
-
+      
       addHiddenDiv('ii_url', window.location.href);
       addHiddenDiv('ii_sku', skuFromUrl);
-
+      
       identifySections();
       collectNutritionInfo();
       collectBools();
       collectManufImages();
       collectVariantInfo();
       collectBrand();
-      collectVariantNums();
+      // collectVariantNums();
       collectManufDesc();
+      collectIframe()
     }, skuFromUrl);
 
-  //   async function buttonCheck() {
-  //     return await context.evaluate(function() {
-  //        const buttons = document.querySelectorAll('div.swatch-scroll > div.css-1dbjc4n')
-  //        if(buttons != null) {
-  //          const variants = [];
-  //          buttons.forEach((variantBtn) => {
-  //           variants.push(variantBtn)
-  //          })
-  //            return variants;
-  //        } else {
-  //            return false
-  //        }
-  //    });
-  // }
+    async function variantClick() {
+      let btns = await buttonCheck().catch()
+      const waitSelector = 'div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)'
+      let i = 0;
+      let j = 0;
+      if(btns[0].length){
+        while(i < btns[0].length && i < 30) {
+          console.log('inside-first!!!!!!!!!!!!!!!!!!!!!!!')
+          context.click(btns[0][i]);
+          await context.waitForSelector(waitSelector, { timeout: 30000 });
+
+          if(btns[1].length && i < 30){
+            while(j < btns[1].length) {
+              context.click(btns[1][i]);
+              await context.waitForSelector(waitSelector, { timeout: 30000 });
+              getVariantIdNum()
+              j++
+            }
+          } else {
+            getVariantIdNum()
+          }
+          i++
+        }
+      }
+    }
+
+    async function getVariantIdNum() {
+      let varArray = []
+      const varStore = await context.evaluate(function() {
+          function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+        let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)')
+        const regex1 = /[0-9]+$/g;
+
+        if(varPath){
+          let varText = regex1.exec(varPath.innerText);
+          addHiddenDiv('ii_variantId', varText)
+        }
+      })
+
+    }
+
+
+    async function buttonCheck() {
+      return await context.evaluate(function() {
+        const buttonSelector = 'div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(10)';
+        let flag = false;
+        const selectors = [[],[]];
+        let i = 1;
+        while(!flag && i < 50) {
+          const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`
+          const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`
+          if(document.querySelector(firstVar)){
+            selectors[0].push(firstVar)
+          }
+          if(document.querySelector(secondVar)){
+            selectors[1].push(secondVar)
+          }
+          if(!document.querySelector(firstVar) && !document.querySelector(secondVar)){
+            flag = true
+            break;
+          }
+          i++
+        }
+
+         if(selectors.length) {
+             return selectors;
+         } else {
+             return false
+         }
+     });
+  }
+
   
-      
-  
-  //   async function variantClick() {
-  //     const variantNums = [];
-  //     // const button = document.querySelector('div.css-1dbjc4n.r-1yd45rl.r-rs99b7.r-1loqt21.r-1bq2mok.r-1inuy60.r-1m04atk.r-1pyaxff.r-glunga.r-1otgn73.r-eafdt9.r-1i6wzkk.r-lrvibr')
-  //     // debugger
-  //     // context.click('div.css-1dbjc4n.r-1yd45rl.r-rs99b7.r-1loqt21.r-1bq2mok.r-1inuy60.r-1m04atk.r-1pyaxff.r-glunga.r-1otgn73.r-eafdt9.r-1i6wzkk.r-lrvibr')
-  //     if(buttonCheck()){
-  //       const btns = await buttonCheck()
-  //       debugger
-  //       btns.forEach((btn) => {
-  //         context.click(btn);
-  //         new Promise(resolve => setTimeout(resolve, 5000));
-  //       })
-  //     }
-  //   }
-  //   // const variantCollections = document.querySelectorAll('div.swatch-scroll > div.css-1dbjc4n');
-  //   // if(variantCollections) {
-  //   //   variantClick('div.swatch-scroll > div.css-1dbjc4n')
-  //   // }
-  //     await variantClick()
+  await variantClick()
+
     
 
 

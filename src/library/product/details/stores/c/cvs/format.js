@@ -4,23 +4,23 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const cleanUp = (data, context) => {
-    const clean = text => text.toString()
-      .replace(/\r\n|\r|\n/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[^\x00-\x7F]/g, '');
-    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-      el.text = clean(el.text);
-    }))));
-    return data;
-  };
+  // const cleanUp = (data, context) => {
+  //   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+  //     el.text = clean(el.text);
+  //   }))));
+  //   return data;
+  // };
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[^\x00-\x7F]/g, '');
   
   for (const { group } of data) {
     for (let row of group) {
@@ -58,7 +58,10 @@ const transform = (data) => {
             },
           ];
         }
-        row = cleanUp(row);
+        // row = cleanUp(row);
+        Object.keys(row).forEach(header => row[header].forEach(el => {
+          el.text = clean(el.text);
+        }));
       } catch (exception) {
         console.log(exception);
       }

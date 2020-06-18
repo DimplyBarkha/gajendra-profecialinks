@@ -278,7 +278,8 @@ fields:
   - name: descriptionBullets
     xpath: count(//div[@class='htmlView']/ul/li)
   - name: videos 
-    xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
+    # xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
+    xpath: //div[@id='ii_videoSrc']
   - name: coupon
     singleValue: true
   - name: variantCount
