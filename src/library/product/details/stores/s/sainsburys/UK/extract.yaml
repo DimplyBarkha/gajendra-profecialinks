@@ -13,10 +13,10 @@ fields:
     singleValue: true
     xpath: //div[@class="pd__wrapper skipto-content__focus"]/div/img/@alt
   - name: url
-    singleValue: true
-    xpath: /html/head//script[@type = "application/ld+json"]/text()
-    regExp: (.*)(\"url\":\s\")(.*)(\")(.*)
-    regExpReplace: $3
+    xpath: //script[@type = "application/ld+json"][contains(text(),"url")]
+    regExp: >-
+      url":\s*"([^"]+)
+    regExpReplace: $1
   - name: category
     singleValue: true
     xpath: //nav//ol//li
@@ -26,18 +26,18 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[@class="pd__cost"]/div
-  - name: onlinePrice
+  - name: price
     singleValue: true
     xpath: //div[@class="pd__cost"]/div
     defaultValue: £
   - name: availability
-    singleValue: true
-    xpath: /html/head//script[@type = "application/ld+json"]/text()
-    regExp: (.*)(\"availability\":\s\"https:\/\/schema.org\/)(.*)(\")(.*)
-    regExpReplace: $3
+    xpath: //script[@type = "application/ld+json"][contains(text(),"https://schema.org/InStock")]
+    regExp: .+
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: additionalDescription
     singleValue: true
-    xpath: normalizeSpace(//div[@id="mainPart"][1]/div[1])
+    xpath: //div[@id="mainPart"][1]/div[1]
   - name: brand
     singleValue: true
     xpath: //div[@class="pd__label"]
@@ -47,7 +47,7 @@ fields:
   - name: size
     singleValue: true
     xpath: //h1[@data-test-id="pd-product-title"]
-    regExp: (\d+)(\w\w?)
+    regExp: \d+\w\w?$ 
   - name: retailerProductCode
     singleValue: true
     xpath: //span[@id="productSKU"]
@@ -61,7 +61,8 @@ fields:
   - name: customerReviewRating
     singleValue: true
     xpath: //a[@class="star-rating-link"][2]/span/@aria-label
-    regExp: \d+(\.\d+)?
+    regExp: >-
+      [^\s]+(?= stars)
   - name: ingredientsList
     singleValue: false
     xpath: normalize-space(//ul[contains(@class,"productIngredients")])
@@ -85,60 +86,69 @@ fields:
     xpath:
   - name: dietaryFibrePerServing
     singleValue: false
-    xpath: normalize-space(//th[normalize-space(text())="Fibre"]/following-sibling::td[1])
+    xpath: //th[normalize-space(text())="Fibre"]/following-sibling::td[1]
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //th[normalize-space(text())="Fibre"]/following-sibling::td[1]
+    regExp: >-
+      [^\d]+$
   - name: saltPerServing
     singleValue: false
-    xpath: normalize-space(//th[normalize-space(text())="Salt"]/following-sibling::td[1])
+    xpath: //th[normalize-space(text())="Salt"]/following-sibling::td[1]
   - name: saltPerServingUom
     singleValue: false
-    xpath: normalize-space(//th[normalize-space(text())="Salt"]/following-sibling::td[1])
-    regExp: '[^\d]+$'
+    xpath: //th[normalize-space(text())="Salt"]/following-sibling::td[1]
+    regExp: >-
+      [^\d]+$
   - name: totalFatPerServingUom
     singleValue: false
-    xpath: normalize-space(//th[normalize-space(text())="Fat"]/following-sibling::td[1])
-    regExp: '[a-zA-Z]{1,2}$'
+    xpath: //th[contains(text(),"Fat")]/following-sibling::td[1]
+    regExp: >-
+      [a-zA-Z]{1,2}$
   - name: totalSugarsPerServing
     singleValue: true
     xpath: normalize-space(//th[normalize-space(text())="Sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which Sugars"]/following-sibling::td[1])
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: normalize-space(//th[normalize-space(text())="Sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which Sugars"]/following-sibling::td[1])
-    regExp: '[^\d]+$'
+    xpath: //th[contains(text(),"Sugars")]/following-sibling::td[1] | //th[contains(text(),"of which Sugars")]/following-sibling::td[1]
+    regExp: >-
+      [^\d]+$
   - name: proteinPerServing
     singleValue: true
     xpath: normalize-space(//th[normalize-space(text())="Protein"]/following-sibling::td[1])
   - name: proteinPerServingUom
-    singleValue: true
-    xpath: normalize-space(//th[normalize-space(text())="Protein"]/following-sibling::td[1])
-    regExp: '[^\d]+$'
+    singleValue: false
+    xpath: //th[contains(text(),"Protein")]/following-sibling::td[1]
+    regExp: >-
+      [a-zA-Z]{1,2}$
   - name: calciumPerServing
     singleValue: true
     xpath: normalize-space(//th[normalize-space(text())="Calcium"]/following-sibling::td[1])
   - name: calciumPerServingUom
     singleValue: true
-    xpath: normalize-space(//th[normalize-space(text())="Calcium"]/following-sibling::td[1])
-    regExp: '[^\d]+$'
+    xpath: //th[contains(text(),"Calcium")]/following-sibling::td[1]
+    regExp: >-
+      [^\d]+$
   - name: dietaryInformation
-    singleValue: false
+    singleValue: true
     xpath: normalize-space(//h3[normalize-space(text())="Dietary Information"]/following-sibling::div[1])
   - name: storage
-    singleValue: false
+    singleValue: true
     xpath: normalize-space(//h3[normalize-space(text())="Storage"]/following-sibling::div[1])
   - name: packaging
-    singleValue: false
+    singleValue: true
     xpath: normalize-space(//h3[normalize-space(text())="Packaging"]/following-sibling::div[1])
   - name: countryOfOrigin
-    singleValue: false
+    singleValue: true
     xpath: normalize-space(//h3[normalize-space(text())="Country of Origin"]/following-sibling::div[1])
   - name: alcoholContent
-    singleValue: false
-    xpath: normalize-space(//h3[normalize-space(text())="Alcohol"]/following-sibling::div[1]/p)
+    xpath: //h3[contains(text(),"Alcohol")]/following-sibling::div[1]/p
     regExp: Alcohol\sby\svolume:\s(\d+\.?\d+?%)
     regExpReplace: $1
   - name: totalCarbPerServing
-    singleValue: false
-    xpath: normalize-space(//th[normalize-space(text())="Carbohydrates"]/following-sibling::td[1])
+    singleValue: true
+    xpath: //th[normalize-space(text()="Carbohydrates")]/following-sibling::td[1]
   - name: totalCarbPerServingUom
     regExp: \d+
     singleValue: true
-    xpath: normalize-space(//th[normalize-space(text())="Carbohydrates"]/following-sibling::td[1])
+    xpath: //th[contains(text(),"Carbohydrates")]/following-sibling::td[1]
