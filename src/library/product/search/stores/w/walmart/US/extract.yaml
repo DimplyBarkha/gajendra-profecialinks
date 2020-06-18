@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div[data-type="items"]
-recordXPath: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'search-result-gridview-items')]/li
 fields:
   - name: paid
     singleValue: true
@@ -22,11 +22,16 @@ fields:
       - Electric Toothbrushes
       - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
+    xpath: (//a[contains(@class,'product-title-link')])[1]/@href
+    #regExp: (.*)$
+    regExp: (.+)
+    regExpReplace: https://www.walmart.com$1
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
+    xpath: //a[contains(@class,'search-result-productimage')]//img/@data-image-src  
   - name: name
     singleValue: true
     description: The product name
@@ -46,21 +51,28 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    selector: span.stars-reviews-count > span
   - name: reviewCount
     singleValue: true
     description: The number of reviews
+    selector: span.seo-review-count
   - name: price
     singleValue: true
     description: The offered price for the product
+    selector: span.price-main span
+    defaultValue: 0
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    defaultValue: 0
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: soldBy
     singleValue: true
     description: The name of the seller of the item (if available)
+    selector: span.marketplace-sold-by-company-name
+    defaultValue: Walmart.com
   - name: endorsementText
     singleValue: true
     description: The text that signifies that a product is endorsed
@@ -68,8 +80,11 @@ fields:
     singleValue: true
     description: Shipping information for the product
   - name: id
-    singleValue: true
+    singleValue: false
     description: Unique id (within this extractor)
+    xpath: //a[contains(@class,'product-title-link')]/@href
+    regExp: \/(\d+)$
+    regExpReplace: $1
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -78,3 +93,18 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    selector: span.seo-avg-rating
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER   
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+    selector: span.sponsored-product-search
+    
