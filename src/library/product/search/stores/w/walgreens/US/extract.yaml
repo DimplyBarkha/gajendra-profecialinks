@@ -6,6 +6,9 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class='extra-info']/@data-id
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='filtered-url']
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 'wag-prod-title')]//a/text()
@@ -13,15 +16,15 @@ fields:
     singleValue: false
     xpath: //div[@class='extra-info']/@data-url
   - name: gtin
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-upc
   - name: thumbnail
     singleValue: false
     xpath: //div[@class='extra-info']/@data-thumbnail 
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class, 'wag-prod-review-info')]//img/@title
-    regExp: (\d*\.?\d+) out of 5
-    regExpReplace: $1
+    xpath: //div[@class='extra-info']/@data-rating
+    type: NUMBER
   - name: reviewCount
     singleValue: false
     xpath: //div[contains(@class, 'wag-prod-review-info')]//span
