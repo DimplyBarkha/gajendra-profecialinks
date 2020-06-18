@@ -26,7 +26,7 @@ module.exports = {
         const variantList = [];
         const node = document.querySelector("script[id='item']");
         if (node) {
-          const elements = node.textContent.match(/({"productId":")(\w+)/g);
+          const elements = node.textContent.match(/(,"usItemId":")(\w+)/g);
           if (elements && elements.length > 0) {
             for (let i = 0; i < elements.length; i++) {
               console.log(i);
@@ -119,13 +119,6 @@ module.exports = {
         await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
         await context.evaluate(addUrl);
         await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
-        const pageVariants = await getVariants();
-        for (let j = 0; j < pageVariants.length; j++) {
-          const pageVariant = pageVariants[j];
-          if (allVariants.indexOf(pageVariant) === -1) {
-            allVariants.push(pageVariant);
-          }
-        }
       } catch (exception) {
         console.log(exception);
       }

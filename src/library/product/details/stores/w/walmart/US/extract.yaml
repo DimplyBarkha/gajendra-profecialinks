@@ -30,9 +30,9 @@ fields:
 - name: availabilityText
   singleValue: true
   xpath: //link[@itemprop="availability"]/@href
-  defaultValue: In Stock
-  regExp: OutOfStock
-  regExpReplace: Out of stock
+- name: availabilityMessage
+  singleValue: true
+  xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')]
 - name: manufacturer
   singleValue: true
   manualSelector: script[id='item'], script[id='product']
@@ -69,7 +69,11 @@ fields:
   xpath: //div[contains(@class,'wm-item-number')]
 - name: variantId
   singleValue: true
-  xpath: //div[@id='added-sku']  
+  xpath: //div[@id='added-sku'] 
+- name: firstVariant
+  singleValue: true
+  manualSelector: script[id='item'], script[id='product']
+  regExp: ("primaryProductId":")([^"]+)(","primary)
 - name: mpc
   singleValue: true
   manualSelector: script[id='item'], script[id='product']
@@ -113,16 +117,10 @@ fields:
   xpath: //td[contains(text(),'Product Weight')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
 - name: variantCount
   singleValue: true
-- name: firstVariant
-  singleValue: true
-  manualSelector: script[id='item'], script[id='product']
-  regExp: (\"primaryProductId\"\:\")(\S+)(\",\"primaryUsItemId\")
-  regExpReplace: $2
 - name: variantInformation
-  singleValue: true
+  singleValue: true 
   manualSelector: script[id='item'], script[id='product']
-  regExp: \{\"name\"\:\"(\w*_\w*)\",\"value\"\:\"(\w*_\w*)-([^\"]*)\"\}
-  regExpReplace: $3  
+  regExp: \{\"name\"\:\"\w*_?\w*\",\"value\"\:\"(\w*_?\w*-[^\"]*)\"\}
 - name: variants
   singleValue: false
   manualSelector: script[id='item'], script[id='product']

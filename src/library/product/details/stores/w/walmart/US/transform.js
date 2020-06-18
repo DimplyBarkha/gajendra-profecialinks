@@ -65,7 +65,18 @@ const transform = (data, context) => {
             }
           }
         }
-
+        if (row.availabilityText) {
+          row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];
+        } else if (row.availabilityMessage) {
+          row.availabilityText = [{ text: row.availabilityMessage[0].text }];
+        }
+        if (row.variantInformation) {
+          let splits = row.variantInformation[0].text.replace(/\"/g,'').replace('}','').split('-');
+          row.variantInformation = [{ text: splits[splits.length - 1] }];
+        }
+        if (row.firstVariant) {
+          row.firstVariant = [{ text: row.firstVariant[0].text.replace('"primaryProductId":"', '').replace('","primary', '') }];
+        }
         if (row.alternateImages) {
           row.alternateImages.forEach(item => {
             if (!item.text.match('https://') && item.text.startsWith('//')) {
