@@ -17,7 +17,7 @@ fields:
   xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]|//div[@data-automation-id="productPageTile"]//div[contains(@class,"imageContainer")]//img[@data-automation-id="image"])[1]/@src
 - name: alternateImages
   singleValue: false
-  xpath: //div[@data-automation-id="productPageTile"]//li[@class='slider-slide']//div[not(contains(@class,'active'))]//img/@src
+  xpath: (//div[contains(@class, 'productImageCarouselContainer')]//li[@class='slider-slide']//img/@src)[position()>1]
   regExp: ^(.+?\.(png|jpe?g)).*$
   regExpReplace: $1
 - name: secondaryImageTotal
