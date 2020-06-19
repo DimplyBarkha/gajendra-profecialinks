@@ -11,7 +11,6 @@ async function implementation (
   await context.evaluate(async function () {
     const nodes = document.querySelectorAll('script');
     const nodesArr = Array.prototype.slice.call(nodes);
-    console.log(nodesArr);
 
     for (let i = 0; i < nodesArr.length; i++) {
       if ((nodesArr[i].hasAttribute('src') && nodesArr[i].getAttribute('src').indexOf('foresee') !== -1)) {
