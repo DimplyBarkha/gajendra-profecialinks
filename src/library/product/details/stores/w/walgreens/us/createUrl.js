@@ -17,10 +17,20 @@ module.exports = {
     const path = await context.evaluate(() => {
       const xpathFirstResult = '//div[@id="product-row-0"]//a[@name="product-title"]/@href';
       const node = document.evaluate(xpathFirstResult, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      if (node && node.singleNodeValue) return node.singleNodeValue.nodeValue;
-      throw new Error('404: Item not found');
+      if (node && node.singleNodeValue) {
+        return node.singleNodeValue.nodeValue;
+      } else {
+        return false;
+      }
     });
-    console.log(`https://${domain}${path}`);
-    return `https://${domain}${path}`;
+    if (!path) {
+      context.extract('product/details/stores/w/walgreens/us/extract')
+        .then(() => {
+          throw new Error('404: Item not found');
+        });
+    } else {
+      console.log(`https://${domain}${path}`);
+      return `https://${domain}${path}`;
+    }
   },
 };
