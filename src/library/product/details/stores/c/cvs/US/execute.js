@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'cvs',
     domain: 'cvs.com',
-    loadedSelector: 'div.css-1dbjc4n.r-18u37iz.r-1oy2gb8 > div.css-901oao.r-vw2c0b',
-    noResultsXPath: './/*[contains(.,"Sorry")]',
+    loadedSelector: ['div.css-1dbjc4n.r-18u37iz.r-1oy2gb8 > div.css-901oao.r-vw2c0b', 'div.css-1dbjc4n.r-18u37iz.r-tzz3ar a', 'div.css-1dbjc4n.r-6koalj.r-156q2ks.r-y46g1k'],
+    noResultsXPath: ['//div[@class="css-1dbjc4n r-13awgt0"]//div[contains(.,"Check your spelling")]','.//*[contains(.,"Sorry, we")]', '//div[contains(@class,"css-1dbjc4n r-ymttw5")]/h4[contains(.,"Sorry")]'],
   },
   parameters: [
     {
@@ -64,7 +64,7 @@ module.exports = {
 
     if (parameters.loadedSelector) {
       await context.waitForFunction(function (sel, xp) {
-        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+        return Boolean(document.querySelector(sel[0]) || document.querySelector(sel[1]) || document.querySelector(sel[2]) || document.evaluate(xp[0], document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() || document.evaluate(xp[1], document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() || document.evaluate(xp[2], document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
       }, { timeout: 40000 }, parameters.loadedSelector, parameters.noResultsXPath);
     }
   },

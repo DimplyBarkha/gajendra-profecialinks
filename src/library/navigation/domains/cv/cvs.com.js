@@ -17,7 +17,7 @@ module.exports = {
 
     // let pageId;
     let captchas = 0;
-    let hasCaptcha = false;
+    // let hasCaptcha = false;
     let lastResponseData;
     // eslint-disable-next-line
     // const js_enabled = true; // Math.random() > 0.7;
@@ -27,13 +27,32 @@ module.exports = {
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
-        timeout: 20000,
+        timeout: 25000,
         waitUntil: 'load',
-        checkBlocked: false,
+        checkBlocked: true,
         js_enabled: true,
         css_enabled: false,
         random_move_mouse: true,
       });
+
+      let hasCaptcha = await context.evaluate(function() {
+        let element = document.querySelector("div.container-fluid h1");
+        if( element != null && element.textContent == "Oops! Something went wrong") {
+          return true; 
+        }
+        return false;
+      });
+  
+      if( hasCaptcha ) {
+        console.log('resolveCaptcha!!!!!!!!!!!!!!!!!!!!!!!!!!!!!????????????????????????????????');
+  
+        await context.solveCaptcha({
+            type: 'RECAPTCHA',
+            inputElement: '.g-recaptcha',
+        }).catch();
+        context.waitForNavigation();
+      }
+
     };
 
     

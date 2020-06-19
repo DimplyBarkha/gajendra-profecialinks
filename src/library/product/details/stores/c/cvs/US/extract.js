@@ -31,28 +31,16 @@ module.exports = {
         return null;
       }
     });
-    console.log(linkURL);
+
+    if(linkURL === null) {
+      throw new Error("notFound")
+    }
+
     await context.goto(linkURL);
     // await context.goto(linkURL + `?skuid=${skuFromUrl}`);
 
 
-    // let hasCaptcha = await context.evaluate(function() {
-    //   let element = document.querySelector("h1");
-    //   if( element != null && element.textContent == "Oops! Something went wrong") {
-    //     return true; 
-    //   }
-    //   return false;
-    // });
 
-    // if( hasCaptcha ) {
-    //   console.log('resolveCaptcha');
-    //   await context.solveCaptcha({
-    //       type: 'RECAPTCHA',
-    //       inputElement: '.g-recaptcha',
-    //   }).catch();
-    //   context.waitForNavigation().catch();
-
-    // }
 
 
 
