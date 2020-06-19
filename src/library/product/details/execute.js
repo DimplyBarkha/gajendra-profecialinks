@@ -18,6 +18,8 @@ async function implementation (
     }
     url = await dependencies.createUrl({ id });
   }
+  
+  await context.setBypassCSP(true);
   await dependencies.goto({ url });
 
   if (parameters.loadedSelector) {
@@ -62,6 +64,12 @@ module.exports = {
     },
     {
       name: 'id',
+      description: 'unique identifier for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'zipcode',
       description: 'unique identifier for product',
       type: 'string',
       optional: true,
