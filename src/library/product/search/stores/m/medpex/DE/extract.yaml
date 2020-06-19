@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product-list"]/div[contains(@class,"data-tracking-product")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="description"]/text()[4]
+    regExp: \:(.*)
+    regExpReplace: $1
+  - name: rankOrganic
+    singleValue: false
+    xpath: //form/input[@name="fp"]/@value
+  - name: name
+    singleValue: false
+    xpath: //span[@class="product-name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="pd_productUrl"]
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="image"]/a/img[@class="product"]/@src
+  - name: url
+    singleValue: false
+    xpath: //div[@id="pd_url"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="pd_aggregateRating"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="rating"]/span/a
+  - name: price
+    singleValue: false
+    xpath: //div[@class="prices"]/span[@class="normal-price"]
+    regExp: (\d+)\.(\d+)\,(\d+)(.*)
+    regExpReplace: $1$2.$3$4
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="description"]/text()[3] | //div[@class="description"]/font[2]/font
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="rating"]/span/a
