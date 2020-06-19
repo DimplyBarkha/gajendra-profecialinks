@@ -1,0 +1,93 @@
+input:
+  id: 10002939
+  _url: https://medpex.de
+extractions:
+  - html: https://workbench.import.io/html/run=5b2c0127-7fb7-45c9-8788-784ed64b2833/task=315316bf-76a0-4115-a09f-61e20827da6b/59d1ff78-ba73-4f71-ae80-d73b43648797.html
+    extractionConfigId: product/details/stores/m/medpex/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[9]
+            alternateImages:
+              - text: https://images.medpex.de/medias/87100/JtDE9cGVFa0I2cDxEFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://images.medpex.de/medias/87108/avioC5z5Ga0I2cDxEFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://images.medpex.de/medias/87116/iXg69nLeGa0I2cDxEFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://images.medpex.de/medias/87128/FD9uJRZtGa0I2cDxEFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+            availabilityText:
+              - text: Verfügbar
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[1]/div[2]
+            brandText:
+              - text: Cosmetique Active Deutschland GmbH Geschäftsbereich SkinCeuticals
+                xpath: /html/body/div[4]
+            category:
+              - text: |-
+                  Online Apotheke Startseite 
+                   
+                   Kosmetik & Wellness 
+                   
+                   Gesicht 
+                   
+                   Antirötung & Couperose 
+                   
+                   
+                  SKINCEUTICALS Redness Neutralizer, 50 Milliliter
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/ol[1]
+            description:
+              - text: SKINCEUTICALS Redness Neutralizer
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]
+            descriptionBullets:
+              - text: "0"
+            directions:
+              - text: "2x täglich nach der Reinigung eine dünne Schicht auf Gesicht, Hals und
+                  Dekolleté auftragen. , ,Hinweis: Frei von Parabenen, Duft- und
+                  Farbstoffen, Silikonen und Alkohol. Nicht komedogen."
+                xpath: /html/body/div[10]
+            gtin:
+              - text: "3606000495395"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/span[2]
+            image:
+              - text: https://images.medpex.de/medias/87101/hUQRRD0XFa0I2cDxEFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: SKINCEUTICALS Redness Neutralizer 50 Milliliter
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
+            listPrice:
+              - text: 82,00 €*
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[1]/div[1]/span[2]
+            manufacturer:
+              - text: Cosmetique Active Deutschland GmbH Geschäftsbereich SkinCeuticals
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/span[1]
+            metaKeywords:
+              - text: SKINCEUTICALS Redness Neutralizer, SKINCEUTICALS Redness Neutralizer
+                  bestellen, SKINCEUTICALS Redness Neutralizer online,
+                  SKINCEUTICALS Redness Neutralizer kaufen
+                xpath: /html/head[1]/meta[5]/@content
+            name:
+              - text: SKINCEUTICALS Redness Neutralizer
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]
+            nameExtended:
+              - text: Cosmetique Active Deutschland GmbH Geschäftsbereich SkinCeuticals _
+                  SKINCEUTICALS Redness Neutralizer
+                xpath: /html/body/div[7]
+            packSize:
+              - text: 50 Milliliter
+                xpath: /html/body/div[5]
+            price:
+              - text: 65,99 €
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[1]/div[1]/span[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.medpex.de/antiroetung-couperose-gesicht/skinceuticals-redness-neutralizer-p10002939
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/ol[1]/li[5]/meta[2]/@content
+        xpath: /
+    timestamp: 1591605604962
