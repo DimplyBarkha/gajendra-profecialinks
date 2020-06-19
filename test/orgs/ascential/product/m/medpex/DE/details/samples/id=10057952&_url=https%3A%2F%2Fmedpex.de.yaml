@@ -1,0 +1,93 @@
+input:
+  id: 10057952
+  _url: https://medpex.de
+extractions:
+  - html: https://workbench.import.io/html/run=5b2c0127-7fb7-45c9-8788-784ed64b2833/task=24fbed03-0a62-4e03-bfc4-846480ddbe09/7bdff220-f8e5-4942-8196-8fdb98aca6b4.html
+    extractionConfigId: product/details/stores/m/medpex/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[9]
+            alternateImages:
+              - text: https://images.medpex.de/medias/22689/CjdyNBPALak57DeVnFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://images.medpex.de/medias/22689/abAke9mwOak57DeVnFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+            availabilityText:
+              - text: Nur noch 92 zu diesem Preis verfügbar.
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[1]/div[2]
+            brandText:
+              - text: PIERRE FABRE DERMO KOSMETIK GmbH Geschäftsbereich - Avene und Beautycare
+                xpath: /html/body/div[4]
+            category:
+              - text: |-
+                  Online Apotheke Startseite 
+                   
+                   Kosmetik & Wellness 
+                   
+                   Gesicht 
+                   
+                   Fettige & unreine Haut 
+                   
+                   Reinigung 
+                   
+                   
+                  Avène Cleanance MAT Gesichts-Tonic mattierend, 200 Milliliter
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/ol[1]
+            description:
+              - text: Avène Cleanance MAT Gesichts-Tonic mattierend
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]
+            descriptionBullets:
+              - text: "0"
+            directions:
+              - text: "- Morgens und abends auf das mit Cleanance Reinigungsgel oder Cleanance
+                  Express- Reinigungslotion gereinigte Gesicht auftragen - Bei
+                  Mischhaut bevorzugt auf die T-Zone auftragen - Vor Gebrauch
+                  gut schütteln - Kontakt mit den Augen vermeiden"
+                xpath: /html/body/div[10]
+            gtin:
+              - text: "3282770037067"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/span[2]
+            image:
+              - text: https://images.medpex.de/medias/22689/Xb3H4OXYLak57DeVnFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Avène Cleanance MAT Gesichts-Tonic mattierend 200 Milliliter
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
+            listPrice:
+              - text: 14,50 €*
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[1]/div[1]/span[2]
+            manufacturer:
+              - text: PIERRE FABRE DERMO KOSMETIK GmbH Geschäftsbereich - Avene und Beautycare
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/span[1]
+            metaKeywords:
+              - text: Avène Cleanance MAT Gesichts-Tonic mattierend, Avène Cleanance MAT
+                  Gesichts-Tonic mattierend bestellen, Avène Cleanance MAT
+                  Gesichts-Tonic mattierend online, Avène Cleanance MAT
+                  Gesichts-Tonic mattierend kaufen
+                xpath: /html/head[1]/meta[5]/@content
+            name:
+              - text: Avène Cleanance MAT Gesichts-Tonic mattierend
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]
+            nameExtended:
+              - text: PIERRE FABRE DERMO KOSMETIK GmbH Geschäftsbereich - Avene und Beautycare _
+                  Avène Cleanance MAT Gesichts-Tonic mattierend
+                xpath: /html/body/div[7]
+            packSize:
+              - text: 200 Milliliter
+                xpath: /html/body/div[5]
+            price:
+              - text: 11,99 €
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[1]/div[1]/span[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[2]
+            ratingCount:
+              - text: "17"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.medpex.de/reinigung-fettige-unreine-haut-gesicht/avene-cleanance-mat-gesichts-tonic-mattierend-p10057952
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/ol[1]/li[6]/meta[2]/@content
+        xpath: /
+    timestamp: 1591605600677
