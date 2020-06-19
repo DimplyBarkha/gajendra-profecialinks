@@ -13,7 +13,7 @@ const transform = (data, context) => {
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
-    .replace(/[^\x00-\x7F]/g, '')
+    .replace(/[^\x00-\x1F]/g, '')
     .replace(/(<([^>]+)>)/ig, '');
 
   const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
@@ -80,8 +80,8 @@ const transform = (data, context) => {
         if (row.variantInformation) {
           let text = '';
           row.variantInformation.forEach(item => {
-            let splits = item.text.replace(/\"/g,'').replace('}','').split(':');
-            text += `${splits[splits.length - 1].replace('actual_color-','')} | `;
+            const splits = item.text.replace(/\\"/g, '').replace('}', '').split(':');
+            text += `${splits[splits.length - 1].replace('actual_color-', '')} | `;
           });
           row.variantInformation = [
             {

@@ -110,7 +110,7 @@ module.exports = {
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
     console.log(allVariants);
     // start at 1 to skip the first variant which is this page
-    let cnt = (allVariants && allVariants.length < 21) ? allVariants.length : 21;
+    const cnt = (allVariants && allVariants.length < 21) ? allVariants.length : 21;
     for (let i = 1; i < cnt; i++) {
       try {
         const id = allVariants[i];
@@ -119,7 +119,7 @@ module.exports = {
         await context.evaluate(scrollForIframe);
         await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
         await context.evaluate(addUrl);
-        await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });        
+        await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
       } catch (exception) {
         console.log(exception);
       }
