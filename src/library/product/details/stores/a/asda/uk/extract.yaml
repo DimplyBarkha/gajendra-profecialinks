@@ -21,8 +21,9 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class,'pdp-main-details__title')]
-  - name: onlinePriceCurrency
+  - name: onlinePrice
     singleValue: true
+    manualSelector: div.pdp-main-details__price-container strong.pdp-main-details__price
   - name: availability
     singleValue: false
     xpath: //div[contains(@class,'pdp-main-details__actions-cntr')]//button[@data-auto-id='btnAdd']
@@ -40,10 +41,12 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Ingredients')]]//div[contains(@class,'content')]
   - name: brandText
-    singleValue: true
+    singleValue: false
+    manualSelector: h1.pdp-main-details__title
+    regExp: ^[^\s]+
   - name: manufacturer
     singleValue: false
-    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Manufacturer Address')]]//div[contains(@class,'content')]//text()[1]
+    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Manufacturer Address')]]//div[contains(@class,'content')]//text()
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Manufacturer Address')]]//div[contains(@class,'content')]//text()
@@ -89,7 +92,10 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class="co-product__rating"]/div/@aria-label
+    regExp: (.+)?( stars.*|No rating.*)
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
   - name: caloriesPerServing
@@ -212,7 +218,10 @@ fields:
     regExp: (\d+)
     regExpReplace: $1
   - name: ratingCount
-    singleValue: true
+    singleValue: false
+    manualSelector: div.asda-tab-list button[aria-label*='Reviews']
+    regExp: (\d+)
+    regExpReplace: $1
   - name: aplusImages
     singleValue: true
   - name: categoryRanking
@@ -297,14 +306,14 @@ fields:
     singleValue: true
   - name: pricePerUnit
     singleValue: false
-    xpath : //span[@class="co-product__price-per-uom"]
-    regExp: (\()(.*)(/)
+    manualSelector: span.co-product__price-per-uom
+    regExp: (\()(.+)(/)(\d+)(.+)(\))
     regExpReplace: $2
   - name: pricePerUnitUom
     singleValue: false
-    xpath: //span[@class="co-product__price-per-uom"]
-    regExp: (\w)(\))
-    regExpReplace: $1
+    manualSelector: span.co-product__price-per-uom
+    regExp: (\()(.+)(/)(\d+)(.+)(\))
+    regExpReplace: $5
   - name: scrapeCode
     singleValue: true
   - name: imageAltText
@@ -382,7 +391,7 @@ fields:
     singleValue: true
   - name: listPrice
     singleValue: false
-    manualSelector: div.pdp-main-details__price-container span.pdp-main-details__was-price
+    manualSelector: div.pdp-main-details__price-container strong.pdp-main-details__price
   - name: alcoholContent
     singleValue: false
     xpath: //table[@data-auto-id='alcoholTable']//td[contains(@class,'alcohol-cell')][contains(text(),'Alcohol By Volume')]/following-sibling::td
@@ -407,6 +416,11 @@ fields:
     singleValue: true
   - name: newAsin
     singleValue: true
+  - name: variantId
+    singleValue: true
+    manualSelector: .pdp-main-details__product-code
+    regExp: (?:Product\s+code\s?:\s?(\d+))
+    regExpReplace: $1
   - name: newDescription
     singleValue: true
   - name: variantInformation
