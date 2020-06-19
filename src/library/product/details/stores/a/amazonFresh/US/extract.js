@@ -21,16 +21,15 @@ async function implementation (
       const elements = document.querySelectorAll('li[data-defaultasin]');
       const dropdown =  document.querySelectorAll('#variation_size_name option')
       const bookElements = document.querySelectorAll('#tmmSwatches>ul>li a[id][href*="dp"]');
+
       if(!!bookElements){
         for (let i = 0; i < bookElements.length; i++) {
-          console.log('booooooooks', i);
           const element = bookElements[i];
           if (element == null) {
             continue;
           }
           const vasinRaw = element.getAttribute('href');
           if (vasinRaw !== '') {
-            console.log(vasinRaw)
             let regex =  /\/dp\/([A-Z0-9]{5,})/s
             let vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
             variantList.push(vasin);
@@ -45,16 +44,14 @@ async function implementation (
           }
           const vasinRaw = element.getAttribute('value');
           if (vasinRaw !== '') {
-            console.log(vasinRaw)
             let regex =  /[0-9]{1,},([0-9A-Z]{5,})/s
             let vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
             variantList.push(vasin);
           }
         }
       }
-      if(elements){
+      if(!!elements){
         for (let i = 0; i < elements.length; i++) {
-          console.log(i);
           const element = elements[i];
           if (element == null) {
             continue;
@@ -88,10 +85,15 @@ async function implementation (
         context.waitForNavigation({ timeout: 20000 }),
         context.click(sellersShowButton),
       ]);
+<<<<<<< HEAD
       
       const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
       await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
 
+=======
+      const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
+      await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
+>>>>>>> 64fd9eab00b764c89538323a8c64f6c634686329
       return await context.evaluate(function () {
         function addHiddenDiv (id, content) {
           const newDiv = document.createElement('div');
@@ -100,7 +102,10 @@ async function implementation (
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64fd9eab00b764c89538323a8c64f6c634686329
         const firstCheck = document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div');
         const otherSellers = document.querySelectorAll('div#aod-offer');
         const price = document.querySelector('span#price_inside_buybox');
