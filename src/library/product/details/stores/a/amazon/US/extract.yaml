@@ -22,7 +22,7 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
-    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]|//div[contains(@id, 'breadcrumbs')]//ul/li/span/a
   - name: nameExtended
     singleValue: true
     xpath: //meta[@name='title']/@content
@@ -61,20 +61,20 @@ fields:
     regExp: ([^()]+)
     regExpReplace: $1
   - name: gtin
-    singleValue:  true
-    xpath:   //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
+    singleValue: true
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
   - name: sku
     singleValue: true
-    xpath: 
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
     singleValue: true
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
   - name: mpc
-    singleValue:  true
+    singleValue: true
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
   - name: packSize
     singleValue: false
-    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1] | //title[contains(text(), 'Pack')])[1]
     regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
     regExpReplace: $1$3
   - name: legalDisclaimer
@@ -93,7 +93,7 @@ fields:
     regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
-    xpath: 
+    xpath:
   - name: aggregateRating
     singleValue: true
     xpath: //*[@id="acrPopover"]/@title
@@ -118,7 +118,7 @@ fields:
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: colorCode
     singleValue: true
-    xpath: 
+    xpath:
   - name: manufacturerDescription
     singleValue: true
     xpath: //div[@id="productDescription"]/p[text()]/text()
@@ -144,8 +144,8 @@ fields:
     singleValue: false
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
     regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue:  'No'
+    regExpReplace: "Yes"
+    defaultValue: "No"
   - name: amazonChoiceCategory
     singleValue: true
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
@@ -176,9 +176,9 @@ fields:
     singleValue: true
     xpath: //*[@id="sns-base-price"]
     regExp: ([^ ]+)
-    regExpReplace: 'YES'
-    defaultValue: 'NO'
-  - name: pasin
+    regExpReplace: "YES"
+    defaultValue: "NO"
+  - name: asin
     singleValue: false
     xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
   - name: videoLength
@@ -186,7 +186,7 @@ fields:
     xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
   - name: heroQuickPromoHeadline
     singleValue: true
-    xpath: 
+    xpath:
   - name: heroQuickPromoImageUrl
     singleValue: true
     xpath:
@@ -197,17 +197,17 @@ fields:
     singleValue: true
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
     regExp: (.+)
-    regExpReplace: 'YES'
-    defaultValue: 'NO'
+    regExpReplace: "YES"
+    defaultValue: "NO"
   - name: factImagePresent
     singleValue: true
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "FACT")]
     regExp: (.+)
-    regExpReplace: 'YES'
-    defaultValue: 'NO'
+    regExpReplace: "YES"
+    defaultValue: "NO"
   - name: variantAsins
     singleValue: false
-    xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
+    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
     regExp: p\/([A-Z0-9]{9,})\/
     regExpReplace: $1
   - name: specifications
@@ -217,151 +217,151 @@ fields:
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
     regExp: (.+)
-    regExpReplace: 'Yes'
+    regExpReplace: "Yes"
   - name: lbb
     singleValue: true
-    xpath: 
+    xpath:
   - name: lbbPrice
     singleValue: true
-    xpath: 
+    xpath:
   - name: featureBullets
     singleValue: true
-    xpath: 
+    xpath:
   - name: otherSellersName
     singleValue: true
-    xpath: 
+    xpath:
   - name: otherSellersPrime
     singleValue: true
-    xpath: 
+    xpath:
   - name: otherSellersShipping
     singleValue: true
-    xpath: 
+    xpath:
   - name: secondaryImageTotal
     singleValue: true
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
   - name: news
     singleValue: true
-    xpath: 
+    xpath:
   - name: addonItem
     singleValue: true
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
     singleValue: true
-    xpath: 
+    xpath:
   - name: product/food
     singleValue: true
-    xpath: 
+    xpath:
   - name: ingredientsList
     singleValue: true
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
   - name: servingSize
     singleValue: true
-    xpath: 
+    xpath:
   - name: servingSizeUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: numberOfServingsInPackage
     singleValue: true
-    xpath: 
+    xpath:
   - name: caloriesPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: caloriesFromFatPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: totalFatPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: totalFatPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: saturatedFatPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: saturatedFatPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: transFatPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: transFatPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: cholesterolPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: cholesterolPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: sodiumPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: sodiumPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: totalCarbPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: totalCarbPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: dietaryFibrePerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: dietaryFibrePerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: totalSugarsPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: totalSugarsPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: proteinPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: proteinPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: vitaminAPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: vitaminAPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: vitaminCPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: vitaminCPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: calciumPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: calciumPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: ironPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: ironPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: dietarySymbols
     singleValue: true
-    xpath: 
+    xpath:
   - name: magnesiumPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: magnesiumPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: saltPerServing
     singleValue: true
-    xpath: 
+    xpath:
   - name: saltPerServingUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: dietaryInformation
     singleValue: true
     xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
@@ -370,73 +370,73 @@ fields:
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
   - name: storage
     singleValue: true
-    xpath: 
+    xpath:
   - name: countryOfOrigin
     singleValue: true
-    xpath: 
+    xpath:
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
   - name: recyclingInformation
     singleValue: true
-    xpath: 
+    xpath:
   - name: productOtherInformation
     singleValue: true
     xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: packaging
     singleValue: true
-    xpath: 
+    xpath:
   - name: additives
     singleValue: true
-    xpath: 
+    xpath:
   - name: pricePerUnit
     singleValue: true
-    xpath: 
+    xpath:
   - name: pricePerUnitUom
     singleValue: true
-    xpath: 
+    xpath:
   - name: promotion
     singleValue: true
     xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
   - name: alcoholContent
     singleValue: true
-    xpath: 
+    xpath:
   - name: newVersion
     singleValue: true
-    xpath: 
+    xpath:
   - name: newAsin
     singleValue: true
-    xpath: 
+    xpath:
   - name: newDescription
     singleValue: true
-    xpath: 
+    xpath:
   - name: variants
     singleValue: true
-    xpath: 
+    xpath:
   - name: additionalDescBulletInfo
     singleValue: true
-    xpath: 
+    xpath:
   - name: prop65Warning
     singleValue: true
-    xpath: 
+    xpath:
   - name: ageSuitability
     singleValue: true
-    xpath: 
+    xpath:
   - name: energyEfficiency
     singleValue: true
-    xpath: 
+    xpath:
   - name: technicalInformationPdfPresent
     singleValue: true
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
   - name: termsAndConditions
     singleValue: true
-    xpath: 
+    xpath:
   - name: privacyPolicy
     singleValue: true
-    xpath: 
+    xpath:
   - name: customerServiceAvailability
     singleValue: true
-    xpath: 
+    xpath:
   - name: materials
     singleValue: true
     xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
