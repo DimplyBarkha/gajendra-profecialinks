@@ -32,8 +32,9 @@ fields:
   - name: additionalDescBulletInfo
     xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
   - name: dietaryInformation
-    singleValue: true
-    xpath: //div[@id='ii_Ingredients']
+    # singleValue: true
+    xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
+    # xpath: //div[@id='ii_Ingredients']
   - name: dietarySymbols
     singleValue: true
     selector:
@@ -168,8 +169,9 @@ fields:
     xpath: //div[@id='wc-aplus']//img/@src
     # xpath: //div[@id='ii_manufImages']
   - name: allergyAdvice
-    singleValue: true
-    xpath: //div[@id='ii_Warnings']
+    # singleValue: true
+    xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
+    # xpath: //div[@id='ii_Warnings']
   - name: dietaryFiberPerServing
     singleValue: true
     xpath: //div[@id='ii_Dietary Fiber']

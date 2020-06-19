@@ -5,6 +5,8 @@ module.exports = {
     country: 'US',
     store: 'cvs',
     domain: 'cvs.com',
+    loadedSelector: 'div.css-1dbjc4n.r-18u37iz.r-1oy2gb8 > div.css-901oao.r-vw2c0b',
+    noResultsXPath: './/*[contains(.,"Sorry")]',
   },
   parameters: [
     {
@@ -18,6 +20,15 @@ module.exports = {
     {
       name: 'domain',
       description: 'top private domain (e.g. amazon.com)',
+    },
+    {
+      name: 'loadedSelector',
+      description: 'XPath to tell us the page has loaded',
+      optional: true,
+    },
+    {
+      name: 'noResultsXPath',
+      description: 'XPath to tell us the page has loaded',
     },
   ],
   inputs: [
@@ -50,6 +61,12 @@ module.exports = {
 
     // TODO: Check for not found?
     await dependencies.goto({ url, timeout: 50000 });
+
+    if (parameters.loadedSelector) {
+      await context.waitForFunction(function (sel, xp) {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, { timeout: 40000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }
   },
 
 };

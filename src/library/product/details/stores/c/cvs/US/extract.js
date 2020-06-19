@@ -32,7 +32,8 @@ module.exports = {
       }
     });
     console.log(linkURL);
-    await context.goto(linkURL + `?skuid=${skuFromUrl}`);
+    await context.goto(linkURL);
+    // await context.goto(linkURL + `?skuid=${skuFromUrl}`);
 
 
     // let hasCaptcha = await context.evaluate(function() {
