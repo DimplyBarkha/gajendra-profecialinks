@@ -13,7 +13,7 @@ const transform = (data, context) => {
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
-    .replace(/[^\x00-\x1F]/g, '')
+    .replace(/[\x00-\x1F]/g, '')
     .replace(/(<([^>]+)>)/ig, '');
 
   const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
@@ -157,10 +157,10 @@ const transform = (data, context) => {
               row.proteinPerServingUom = [{ text: getSplitValue(proteinPerServing, 2) }];
             }
             if (info && info.nutritionFacts && info.nutritionFacts.vitaminMinerals && info.nutritionFacts.vitaminMinerals.childNutrients) {
-              row.vitaminAPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[0].dvp }];
-              row.vitaminCPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[1].dvp }];
-              row.calciumPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp }];
-              row.ironPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[3].dvp }];
+              row.vitaminAPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[0] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
+              row.vitaminCPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[1] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
+              row.calciumPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[2] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
+              row.ironPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[3] ? info.nutritionFacts.vitaminMinerals.childNutrients[3].dvp : '' }];
             }
           }
         }
@@ -168,6 +168,11 @@ const transform = (data, context) => {
           el.text = el.text ? clean(el.text) : el.text;
         }));
       } catch (exception) { console.log('Error in transform', exception); }
+      try {
+        Object.keys(row).forEach(header => row[header].forEach(el => {
+          el.text = el.text ? clean(el.text) : el.text;
+        }));
+      } catch (exception) { console.log('Error in cleanup transform', exception); }
     }
   }
   return data;
