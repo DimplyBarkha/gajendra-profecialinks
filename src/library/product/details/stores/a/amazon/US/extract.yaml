@@ -413,7 +413,7 @@ fields:
     xpath:
   - name: additionalDescBulletInfo
     singleValue: true
-    xpath:
+    xpath: count(//div[@data-feature-name="featurebullets"]//ul/li)
   - name: prop65Warning
     singleValue: true
     xpath:
@@ -444,3 +444,19 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+  - name: firstVariant
+    singleValue: false
+    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
+    regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
+    regExpReplace: $2
+  - name: variantInformation
+    singleValue: false
+    xpath: (//span[@class="selection"])[1]
+  - name: largeImageCount
+    singleValue: false
+    xpath: count((//img[@id="landingImage"])[1]/@src)
+  - name: pasin
+    singleValue: false
+    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
+    regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
+    regExpReplace: $2

@@ -2,7 +2,7 @@ extends: ../../amazon/US/extract
 fields:
   - name: nameExtended
     singleValue: true
-    xpath: //h1
+    x th: //h1
   - name: gtin
     xpath: //li/b[contains(text(), 'UPC:')]/../text()
   - name: directions
@@ -28,3 +28,11 @@ fields:
   - name: variantId
     singleValue: true
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+  - name: primeFlag
+    singleValue: false
+    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
+    regExp: (.+)
+    regExpReplace: "Yes"
+  - name: variantAsins
+    singleValue: false
+    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
