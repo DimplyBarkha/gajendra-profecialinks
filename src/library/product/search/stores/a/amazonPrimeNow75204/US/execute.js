@@ -1,17 +1,28 @@
-const { implementation } = require('../../../../execute');
-
-async function localImplementation(
+async function implementation(
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  console.log('\n\n DOING SOMETHING.. \n\n');
   const primeZipCode = parameters.store.match(/\d{5}/g)[0];
 
   context.primeZipCode = () => primeZipCode;
 
-  return await implementation(inputs, parameters, context, dependencies);
+  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  await dependencies.goto({ url });
+  if (parameters.loadedSelector) {
+    await context.waitForFunction(function (sel, xp) {
+      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  }
+  console.log('Checking no results', parameters.noResultsXPath);
+  return await context.evaluate(function (xp) {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, parameters.noResultsXPath);
 }
 
 module.exports = {
@@ -24,5 +35,8 @@ module.exports = {
     loadedSelector: 'li.product_grid__item__1eRlB',
     noResultsXPath: 'div.index__shopAmazon__12-0r',
   },
-  implementation: localImplementation
+  dependencies: {
+    goto: 'action:navigation/goto',
+  },
+  implementation
 };
