@@ -1,11 +1,11 @@
+const { transform } = require('../../amazon/shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
-    store: 'amazonPharma',
-    transform: null,
+    store: 'amazonPharmapacks',
+    transform,
     domain: 'amazon.com',
   },
 };
-

@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'US',
-    store: 'amazonPharma',
+    store: 'amazonPharmapacks',
     domain: 'amazon.com',
     url: 'https://www.amazon.com/s?k={searchTerms}&me=ASEVS99O6FS73&ref=nb_sb_noss',
     loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
