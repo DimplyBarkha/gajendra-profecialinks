@@ -22,7 +22,8 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: "//*[@id='added_alternateImages']//text()"
+  xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
+  # xpath: "//*[@id='added_alternateImages']//text()"
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
@@ -35,6 +36,7 @@ fields:
 - name: nameExtended
   singleValue: true
   xpath: "//*[@id='added_nameExtended']//text()"
+  # xpath: concat(//a[contains(@class,'brand-title')],' ', //*[@id='added_name']//text()'])
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
@@ -57,8 +59,8 @@ fields:
   defaultValue: Out of Stock
 - name: description
   singleValue: false
-  xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[not(child::strong[contains(text(),'WARNING')])]
-  # xpath: "//*[@id='added_description']//text()"
+  # xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[not(child::strong[contains(text(),'WARNING')])]
+  xpath: "//*[@id='added_description']//text()"
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
@@ -77,7 +79,8 @@ fields:
   description: Product manufacturer
 - name: quantity
   singleValue: true
-  xpath: "//*[@id='added_quantity']//text()"
+  xpath: concat(//span[@id='productSizeCount'],//span[@id='prodPacksAvailable'])
+  # xpath: "//*[@id='added_quantity']//text()"
   description: Quantity as described on the page
   regExp: "(?:\\s?([\\d\\.]+\\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\\.]?\\s?[oO][zZ][\\.]?|FO|[mM][lL]|[oO][zZ][\\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\\s?([\\d\\.]+\\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\\.]?\\s?[oO][zZ][\\.]?|FO|[mM][lL]|[oO][zZ][\\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\\s?[\\&\\-\\w\\s]+)$"
   regExpReplace: "$1$2$3$4"
@@ -108,7 +111,8 @@ fields:
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
-  xpath: "//*[@id='added_packSize']//text()"
+  xpath: //span[@id='prodPacksAvailable']
+  # xpath: "//*[@id='added_packSize']//text ()"
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
 - name: legalDisclaimer
@@ -121,8 +125,8 @@ fields:
   description: Content under "directions" header
 - name: warnings
   singleValue: true
-  xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[(child::strong[contains(text(),'WARNING')])]
-  # xpath: "//*[@id='added_warnings']//text()"
+  # xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[(child::strong[contains(text(),'WARNING')])]
+  xpath: "//*[@id='added_warnings']//text()"
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
@@ -297,7 +301,8 @@ fields:
   description: 
 - name: secondaryImageTotal
   singleValue: true
-  xpath: "//*[@id='added_secondaryImageTotal']//text()"
+  xpath: "count((//*[@id='added_alternateImages']//text())[position()>1])"
+  # xpath: "//*[@id='added_secondaryImageTotal']//text()"
   description: 
   type: NUMBER
 - name: news

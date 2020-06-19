@@ -36,7 +36,6 @@ module.exports = {
 
       // wait for full loading
       await new Promise(resolve => setTimeout(resolve, 5e3));
-      
 
       const jsonObj = window.__ATC_APP_INITIAL_STATE__.product.results;
 
@@ -101,8 +100,8 @@ module.exports = {
           return [...acc, ...[...frame.contentWindow.document.querySelectorAll('video')].map(v => v[prop || 'src'])];
         }, []),
         ...[...document.querySelectorAll('video')].map(v => v[prop || 'src']),
-      ];   
-      
+      ];
+
       const obj = {
         _input,
         image: infos.productImageUrl,
@@ -117,7 +116,7 @@ module.exports = {
         price: priceValue(['regularPrice', 'salePrice']),
         availabilityText: jsonObj.inventory.shipAvailableMessage ? jsonObj.inventory.shipAvailableMessage : 'In stock',
         description: [fullDescription],
-        descriptionBullets: document.querySelectorAll('#prodDesc ul > li') ? document.querySelectorAll('#prodDesc ul > li').length :0,
+        descriptionBullets: document.querySelectorAll('#prodDesc ul > li') ? document.querySelectorAll('#prodDesc ul > li').length : 0,
         brandText: infos.brandName,
         manufacturer: fullDescription.split('©')[fullDescription.split('©').length - 1],
         quantity: infos.sizeCount,
@@ -134,7 +133,7 @@ module.exports = {
         ratingCount: reviews ? reviews.reviewCount : '',
         aggregateRatingText: reviews ? reviews.overallRating : '',
         aggregateRating: reviews ? reviews.overallRating : '',
-        shippingInfo: jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0) ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates ? jsonObj.inventory.restrictedStates.join(', ') :'',
+        shippingInfo: jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0) ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates ? jsonObj.inventory.restrictedStates.join(', ') : '',
         shippingDimensions: shipping ? shipping.productInInches : '',
         shippingWeight: shipping ? shipping.shippingWeight : '',
         variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc + (arr ? arr.length : 0)), 0),
