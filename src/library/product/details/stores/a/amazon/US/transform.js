@@ -4,7 +4,6 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
@@ -15,35 +14,32 @@ const transform = (data, context) => {
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
-    .replace(/[^\x00-\x7F]/g, '');
+    .replace(/[\x00-\x1F]/g, '');
 
   for (const { group } of data) {
     for (const row of group) {
       try {
         if (row.asin) {
-          row.asin = [{ text: row.asin[0].text.match(/([A-Z0-9]{6,})/g)[0] }];
-        }
-        if (row.brandLink) {
-          row.brandLink = [{ text: `https://www.amazon.com${row.brandLink[0].text}` }];
+          row.asin = [{ text: row.asin[0].text.match(/([A-Z0-9]{6,})/s)[0] }];
         }
         if (row.amazonChoice) {
-          if (row.amazonChoice[0].text.includes('Amazon')){
+          if (row.amazonChoice[0].text.includes('Amazon')) {
             row.amazonChoice = [
               {
-                text: 'Yes'
-              }
-            ]
-          }else{
+                text: 'Yes',
+              },
+            ];
+          } else {
             row.amazonChoice = [
               {
-                text: 'No'
-              }
-            ]
+                text: 'No',
+              },
+            ];
           }
         }
-        if (row.largeImageCount) { 
-          let regex = /SL1500/g;
-          let count = (row.largeImageCount[0].text.match(regex) || []).length
+        if (row.largeImageCount) {
+          const regex = /SL1500/g;
+          const count = (row.largeImageCount[0].text.match(regex) || []).length;
           row.largeImageCount = [{ text: count }];
         }
         if (row.warnings) {
@@ -71,19 +67,22 @@ const transform = (data, context) => {
         }
         if (row.otherSellersPrime) {
           row.otherSellersPrime.forEach(item => {
-            if(item.text.includes("rime")){
+            if (item.text.includes('rime')) {
               item.text = 'YES';
-            }else{
+            } else {
               item.text = 'NO';
             }
           });
         }
-        if (row.otherSellersShipping) {
-          row.otherSellersShipping.forEach(item => {
-            if(item.text.includes('ree') || item.text.includes('REE')){
-              item.text = '$0.00';
-            }else{
-              item.text = '$0.00';
+        if (row.otherSellersShipping2) {
+          row.otherSellersShipping2.forEach(item => {
+            if (item.text.includes('ree') || item.text.includes('REE')) {
+              item.text = '0.00';
+            } else if (item.text.includes('+ $')) {
+              const regex = /\$([0-9\.]{3,})/s;
+              item.text = item.text.match(regex)[0];
+            } else {
+              item.text = '0.00';
             }
           });
         }
@@ -99,15 +98,7 @@ const transform = (data, context) => {
           ];
         }
         if (row.primeFlag) {
-          let text = false;
-          row.featureBullets.forEach(item => {
-            if(item === "Yes"){
-              text = true
-            }
-          });
-          if(text){
-            row.primeFlag =[{text: 'Yes'}]
-          }
+          row.primeFlag = [{ text: 'Yes' }];
         }
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);

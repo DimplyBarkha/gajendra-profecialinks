@@ -19,25 +19,23 @@ async function implementation (
     const variants = await context.evaluate(function () {
       const variantList = [];
       const elements = document.querySelectorAll('li[data-defaultasin]');
-      const dropdown =  document.querySelectorAll('#variation_size_name option')
+      const dropdown = document.querySelectorAll('#variation_size_name option');
       const bookElements = document.querySelectorAll('#tmmSwatches>ul>li a[id][href*="dp"]');
-      if(!!bookElements){
+      if (bookElements) {
         for (let i = 0; i < bookElements.length; i++) {
-          console.log('booooooooks', i);
           const element = bookElements[i];
           if (element == null) {
             continue;
           }
           const vasinRaw = element.getAttribute('href');
           if (vasinRaw !== '') {
-            console.log(vasinRaw)
-            let regex =  /\/dp\/([A-Z0-9]{5,})/s
-            let vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
+            const regex = /\/dp\/([A-Z0-9]{5,})/s;
+            const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
             variantList.push(vasin);
           }
         }
       }
-      if(!!dropdown){
+      if (dropdown) {
         for (let i = 0; i < dropdown.length; i++) {
           const element = dropdown[i];
           if (element == null) {
@@ -45,16 +43,14 @@ async function implementation (
           }
           const vasinRaw = element.getAttribute('value');
           if (vasinRaw !== '') {
-            console.log(vasinRaw)
-            let regex =  /[0-9]{1,},([0-9A-Z]{5,})/s
-            let vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
+            const regex = /[0-9]{1,},([0-9A-Z]{5,})/s;
+            const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
             variantList.push(vasin);
           }
         }
       }
-      if(elements){
+      if (elements) {
         for (let i = 0; i < elements.length; i++) {
-          console.log(i);
           const element = elements[i];
           if (element == null) {
             continue;
@@ -88,7 +84,7 @@ async function implementation (
         context.waitForNavigation({ timeout: 20000 }),
         context.click(sellersShowButton),
       ]);
-      
+
       const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
       await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
 
@@ -137,7 +133,7 @@ async function implementation (
     addHiddenDiv('added-asin', url);
   }
 
-
+  // @ts-ignore
   const allVariants = [...new Set(await getVariants())];
   await getLbb();
   await context.evaluate(addUrl);

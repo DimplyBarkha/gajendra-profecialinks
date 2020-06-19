@@ -49,7 +49,7 @@ fields:
     xpath: //*[contains(@id,'bylineInfo')]
   - name: manufacturer
     singleValue: false
-    xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]
+    xpath: //th[contains(text(), 'Manufacturer') and not(contains(text(), "Discontinue")) and not(contains(text(),  "Part"))]/following-sibling::*[1]
   - name: quantity
     singleValue: false
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
@@ -152,6 +152,8 @@ fields:
   - name: brandLink
     singleValue: false
     xpath: //a[@id="bylineInfo"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com$1
   - name: internationalShipping
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1] | //table[contains(@id, 'detail')]//th[contains(text(), 'International Shipping')]/following-sibling::td/text() | //div[contains(@id, 'Detail')]//td[contains(text(), 'International Shipping')]/following-sibling::td/text()
@@ -212,9 +214,7 @@ fields:
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
     singleValue: false
-    xpath: //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text()
-    regExp: Prime
-    regExpReplace: 'Yes'
+    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//div[contains(@id,"shipping")]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//span[contains(@id, "shipping-message")]//a[contains(@href, "prime") and contains(text(), "Amazon")] | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text())[1]
   - name: lbb
     singleValue: true
     xpath: //div[@id='ii_lbb']
@@ -234,7 +234,7 @@ fields:
   - name: otherSellersPrice
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//span[contains(@class, "a-price")]/span[contains(@class, "a-offscreen")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-price")]
-  - name: otherSellersShipping
+  - name: otherSellersShipping2
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//div[contains(@class, "aod-ship-charge")]
   - name: secondaryImageTotal
@@ -248,7 +248,7 @@ fields:
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
     singleValue: false
-    xpath: //div[@id="fast-track-message"]
+    xpath: //div[@id="buybox"]//div[@id="fast-track-message"]
   - name: ingredientsList
     singleValue: true
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
