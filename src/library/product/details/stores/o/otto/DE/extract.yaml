@@ -20,6 +20,7 @@ fields:
     xpath: //meta[@name='description']
   - name: category
     singleValue: false
+    xpath: //ul[@class='nav_breadcrumb']/li[2]/a
   - name: nameExtended
     singleValue: true
     xpath: //div[@id='ot_nameExtended'] 
@@ -27,7 +28,7 @@ fields:
     xpath: //*[@id="oldPriceAmount"]
     singleValue: true
   - name: price
-    xpath: //*[@id='reducedPriceAmount']/@content | //span[@id="normalPriceAmount"]/@content 
+    xpath: //*[@id='reducedPriceAmount']/@content | //span[@id="normalPriceAmount"]/@content | //span[@id='normalPriceAmount']/@content
     singleValue: true
   - name: availabilityText
     singleValue: true
@@ -45,6 +46,7 @@ fields:
     singleValue: true
   - name: quantity
     singleValue: true
+    xpath: //div[@id="dimensions"]//div[contains(@class,'js_prd_size')]//span[@class='prd_selectedValue']
   - name: weightNet
     singleValue: true
   - name: weightGross
@@ -54,7 +56,7 @@ fields:
     xpath: //meta[contains(@itemprop,'gtin')]/@content
   - name: sku
     singleValue: true
-    xpath: //meta[@itemprop='sku']
+    xpath:  //div[@id='ot_sku']
   - name: variantId
     singleValue: true
     xpath: //div[@id='ot_variantID']
@@ -89,12 +91,23 @@ fields:
     singleValue: true
     xpath: //div[@id="ot_colorcode"]
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
+    xpath: //div[@id="ot_manufacturerDescription"]
   - name: manufacturerImages
     singleValue: false
+    xpath: //div[@id="ot_manfacturerImages"]/img/@src
   - name: videos
     singleValue: false
     xpath: //div[@id='ot_video'] 
   - name: name
     singleValue: true
-    xpath:  //div[@id='ot_name']  
+    xpath: //div[@class="prd_shortInfo__text"]/h1
+  - name: promotion
+    singleValue: true
+    xpath: //span[@id='priceAdvantageAmount'] 
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//ul[@id='js_prd_verticalImageControlThumbnailList']/li/img/@src)
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'prd_color ')]//li[contains(@class,'p_selected')]/@title | //div[@id="dimensions"]//div[contains(@class,'js_prd_size')]//span[@class='prd_selectedValue']
