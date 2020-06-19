@@ -132,12 +132,14 @@ async function implementation (
   return await context.extract(productDetails, { transform });
 }
 
+const { transform } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'kroger',
-    transform: null,
+    transform: transform,
     domain: 'kroger.com',
   },
   inputs: [
