@@ -128,7 +128,7 @@ async function implementation (
     }
     let url = window.location.href;
     const splits = url ? url.split('/') : [];
-    url = (splits.length > 0) ? splits[splits.length - 1] : '';
+    url = (splits.length > 0) ? splits[splits.length - 2] : '';
     addHiddenDiv('added-asin', url);
   }
 
