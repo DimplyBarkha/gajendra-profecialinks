@@ -3,24 +3,24 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: productImage
+  - name: image
     singleValue: true
     xpath: //div[@class="pd__wrapper skipto-content__focus"]//img/@src
-  - name: secondaryImage
+  - name: alternateImages
     singleValue: true
     xpath: //div[@class="pd__wrapper skipto-content__focus"]/div/img/@src
-  - name: imageAltText
+  - name: imageAlt
     singleValue: true
     xpath: //div[@class="pd__wrapper skipto-content__focus"]/div/img/@alt
-  - name: url
+  - name: _url
     xpath: //script[@type = "application/ld+json"][contains(text(),"url")]
     regExp: >-
       url":\s*"([^"]+)
     regExpReplace: $1
   - name: category
-    singleValue: true
+    singleValue: false
     xpath: //nav//ol//li
-  - name: productDescription
+  - name: nameExtended
     singleValue: true
     xpath: //h1[@data-test-id="pd-product-title"]
   - name: listPrice
@@ -30,35 +30,41 @@ fields:
     singleValue: true
     xpath: //div[@class="pd__cost"]/div
     defaultValue: £
-  - name: availability
+  - name: availabilityText
     xpath: //script[@type = "application/ld+json"][contains(text(),"https://schema.org/InStock")]
     regExp: .+
     regExpReplace: In Stock
     defaultValue: Out Of Stock
-  - name: additionalDescription
+  - name: description
     singleValue: true
-    xpath: //div[@id="mainPart"][1]/div[1]
-  - name: brand
+    xpath: //div[@id="mainPart"][1]/div[1] | //div[@class="productText"][1]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@id="mainPart"][1]/div[1]//div | //div[@class="productText"][1]//p[contains(text()," ")])
+  - name: brandText
     singleValue: true
     xpath: //div[@class="pd__label"]
-  - name: manufacturerName
+  - name: manufacturer
     singleValue: true
     xpath: normalize-space(//h3[normalize-space(text())="Manufacturer"]/following-sibling::div[1])
-  - name: size
+  - name: quantity
     singleValue: true
     xpath: //h1[@data-test-id="pd-product-title"]
     regExp: \d+\w\w?$ 
-  - name: retailerProductCode
+  - name: variantId
+    singleValue: true
+    xpath: //span[@id="productSKU"]
+  - name: sku
     singleValue: true
     xpath: //span[@id="productSKU"]
   - name: legalDisclaimer
     singleValue: true
     xpath: normalize-space(//div[contains(@class,"pd__disclaimer")]//p[position()>1])
-  - name: numberOfCustomerReviews
+  - name: ratingCount
     singleValue: true
     xpath: //span[@data-test-id="review-count"]
     regExp: \d+
-  - name: customerReviewRating
+  - name: aggregateRating
     singleValue: true
     xpath: //a[@class="star-rating-link"][2]/span/@aria-label
     regExp: >-
@@ -81,6 +87,11 @@ fields:
   - name: saturatedFatPerServing
     singleValue: true
     xpath: //th[normalize-space(text())="Saturates"]/following-sibling::td[1] | //th[normalize-space(text())="of which Saturates"]/following-sibling::td[1]
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //th[normalize-space(text())="Saturates"]/following-sibling::td[1] | //th[normalize-space(text())="of which Saturates"]/following-sibling::td[1]
+    regExp: >-
+      [^\d]+$
   - name: transFatPerServing
     singleValue: true
     xpath:
@@ -125,7 +136,7 @@ fields:
     singleValue: true
     xpath: normalize-space(//th[normalize-space(text())="Calcium"]/following-sibling::td[1])
   - name: calciumPerServingUom
-    singleValue: true
+    singleValue: false
     xpath: //th[contains(text(),"Calcium")]/following-sibling::td[1]
     regExp: >-
       [^\d]+$
@@ -149,6 +160,7 @@ fields:
     singleValue: true
     xpath: //th[normalize-space(text()="Carbohydrates")]/following-sibling::td[1]
   - name: totalCarbPerServingUom
-    regExp: \d+
     singleValue: true
-    xpath: //th[contains(text(),"Carbohydrates")]/following-sibling::td[1]
+    xpath: //th[normalize-space(text()="Carbohydrates")]/following-sibling::td[1]
+    regExp: >-
+      [a-zA-Z]{1,2}$
