@@ -125,8 +125,8 @@ fields:
     selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
     regExp: ^[$]
   - name: ingredientsList
-    singleValue: true
-    xpath: //div[@id='ii_Ingredients']
+    xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
+  # xpath: //div[@id='ii_Ingredients']
   - name: brandText
     xpath: //div[@id='ii_Brand']
   - name: manufacturer 
@@ -151,11 +151,11 @@ fields:
     xpath: //div[@id='ii_url']
     regExp: ([0-9])+$ 
   - name: directions
-    singleValue: true
-    xpath: //div[@id='ii_Directions']
+    xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Directions')]//div[@class='htmlView']
+    # xpath: //div[@id='ii_Directions']
   - name: warnings 
-    singleValue: true
-    xpath: //div[@id='ii_Warnings']
+    xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
+    # xpath: //div[@id='ii_Warnings']
   - name: alternateImages
     singleValue: false
     xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src
