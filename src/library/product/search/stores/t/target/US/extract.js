@@ -54,7 +54,7 @@ async function implementation (
       }
 
       await stall(1000);
-      const itemContainers = document.querySelectorAll('li.Col-favj32-0');
+      const itemContainers = document.querySelectorAll('li.Col-favj32-0.h-padding-a-none.h-display-flex');
       let rank = 1;
       for (const itemContainer of itemContainers) {
         if (itemContainer.querySelector('a[data-test="product-title"]')) {

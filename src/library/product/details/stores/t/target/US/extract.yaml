@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@class="AspectRatio__AspectRatioContainer-sc-1h9ishl-0 ljIhnG"]//div[position()=1]//img/@src
+    xpath: //div[@id="productImage"]
   - name: alternateImages
     singleValue: true
     xpath: //div[@id="secondaryImages"]
@@ -89,10 +89,10 @@ fields:
     xpath: //span[@data-test="ratingCount"]
   - name: aggregateRatingText
     singleValue: true
-    xpath: //div[@class="RatingSummary__StyledRating-bxhycp-0 fcPxtT h-text-bold"]
+    xpath: //div[@id="ratingText"]
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@class="RatingSummary__StyledRating-bxhycp-0 fcPxtT h-text-bold"]
+    xpath: //div[@id="rating"]
   - name: shippingInfo
     singleValue: true
     xpath: //div[@id="shippingInfo"]
@@ -107,7 +107,7 @@ fields:
     xpath: //div[@id="variantCount"]
   - name: color
     singleValue: true
-    xpath: //div[@data-test="variationTheme-color"]//span/text()
+    xpath: //div[@id="colorInfo"]
   - name: manufacturerDescription
     singleValue: true
     xpath: //div[@id="manufacturerDesc"]
