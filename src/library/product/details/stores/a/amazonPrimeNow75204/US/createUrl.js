@@ -5,6 +5,6 @@ module.exports = {
     prefix: null,
     url: 'https://primenow.amazon.com/dp/{id}',
     country: 'US',
-    store: 'amazonPrimeNow_75204',
+    store: 'amazonPrimeNow75204',
   },
 };

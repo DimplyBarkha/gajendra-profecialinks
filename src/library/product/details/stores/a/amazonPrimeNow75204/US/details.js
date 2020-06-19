@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details',
   parameterValues: {
     country: 'US',
-    store: 'amazonPrimeNow_75204',
+    store: 'amazonPrimeNow75204',
     domain: 'primenow.amazon.com',
   },
 };
