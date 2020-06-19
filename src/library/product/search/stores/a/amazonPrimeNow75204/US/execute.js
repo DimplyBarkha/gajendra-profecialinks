@@ -1,3 +1,18 @@
+const { implementation } = require('../../../../execute');
+
+async function localImplementation(
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  console.log('\n\n DOING SOMETHING.. \n\n');
+  const primeZipCode = parameters.store.match(/\d{5}/g)[0];
+
+  context.primeZipCode = () => primeZipCode;
+
+  return await implementation(inputs, parameters, context, dependencies);
+}
 
 module.exports = {
   implements: 'product/search/execute',
@@ -9,4 +24,5 @@ module.exports = {
     loadedSelector: 'li.product_grid__item__1eRlB',
     noResultsXPath: 'div.index__shopAmazon__12-0r',
   },
+  implementation: localImplementation
 };

@@ -5,7 +5,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'amazonPrimeNow75204',
-    transform: transform,
+    transform,
     domain: 'primenow.amazon.com',
   },
 };
