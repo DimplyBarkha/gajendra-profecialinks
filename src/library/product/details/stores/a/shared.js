@@ -4,7 +4,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const amazonTransform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
@@ -23,4 +23,4 @@ const transform = (data) => {
   return data;
 };
 
-module.exports = { transform };
+module.exports = { amazonTransform };
