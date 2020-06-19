@@ -559,8 +559,8 @@ async function implementation (
         variations = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
       }
 
-      /*let contents = document.querySelector('#salsify-ec-iframe').contentWindow.document.getElementById('salsify-content').innerHTML;
-      console.log('contents', contents);*/
+      let contents = document.querySelector('#salsify-ec-iframe').contentWindow.document.getElementById('salsify-content').innerHTML;
+      console.log('contents', contents);
 
       let isColorDropDown = false;
       if (document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
