@@ -21,13 +21,13 @@ fields:
   - name: ingredientsList
     singleValue: true
     xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::p
-  - name: brand
+  - name: brandText
     singleValue: true
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Brand:')]/following-sibling::td
   - name: manufacturer
     singleValue: true
     xpath: //h2[contains(text(), 'Manufacturer’s Address')]/following-sibling::p/text()[1]
-  - name: size
+  - name: quantity
     singleValue: true
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Pack Size')]/following-sibling::td
   - name: sku
