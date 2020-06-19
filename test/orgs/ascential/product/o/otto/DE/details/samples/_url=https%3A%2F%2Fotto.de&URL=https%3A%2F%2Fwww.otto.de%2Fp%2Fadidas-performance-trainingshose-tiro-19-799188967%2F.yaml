@@ -2,13 +2,16 @@ input:
   _url: https://otto.de
   URL: https://www.otto.de/p/adidas-performance-trainingshose-tiro-19-799188967/
 extractions:
-  - html: https://workbench.import.io/html/run=8ee118f8-29bc-4c0a-aae1-f2b293da1f99/task=8446eabd-6d53-49e0-ad22-265848ace741/4bfce5ae-18db-4e07-85e4-4a822abf205e.html
+  - html: https://workbench.import.io/html/run=1818df2c-9ade-4542-826c-b491755de492/task=1f178119-a9dc-4570-ba37-724ec4401f6b/5cb1abcd-970c-4f7a-b740-af8dd312b2ee.html
     extractionConfigId: product/details/stores/o/otto/DE/extract
     data:
       - group:
-          - aggregateRating:
-              - text: "4.0"
-                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+          - image:
+              - text: https://i.otto.de/i/otto/30844554/adidas-performance-trainingshose-tiro-19.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: adidas Performance Trainingshose »Tiro 19«, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
             alternateImages:
               - text: https://i.otto.de/i/otto/30844554?$001PICT36$
                 xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
@@ -18,9 +21,18 @@ extractions:
                 xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
               - text: https://i.otto.de/i/otto/30844555?$001PICT36$
                 xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
-            brandText:
-              - text: adidas Performance
-                xpath: /html/body/div[8]
+            category:
+              - text: Sport
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: adidas Performance Trainingshose »Tiro 19« (799188967)
+                xpath: /html/body/div[12]
+            price:
+              - text: "49.95"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]/@content
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[7]
             description:
               - text: "Article no. undefined Hohe Strapazierfähigkeit Effektives
                   Feuchtigkeitsmanagement Praktische Reißverschlusstaschen
@@ -34,23 +46,37 @@ extractions:
                   Wertsachen sicher verstauen. Dank der praktischen
                   Reißverschlüsse am Beinende kannst du die Hose auch über
                   Schuhen an- und ausziehen."
+                xpath: /html/body/div[10]
+            brandText:
+              - text: adidas Performance
                 xpath: /html/body/div[9]
-            descriptionBullets:
-              - text: "5"
+            quantity:
+              - text: XS (40-42 EU)
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
             gtin:
-              - text: "4060515429815"
+              - text: "4060515434024"
                 xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
-            image:
-              - text: https://i.otto.de/i/otto/30844554/adidas-performance-trainingshose-tiro-19.jpg?$formatz$
-                xpath: /html/head[1]/meta[13]/@content
-            imageAlt:
-              - text: adidas Performance Trainingshose »Tiro 19«, Bild 1
-                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            sku:
+              - text: "799188967"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "7"
+                xpath: /html/body/div[11]
             ratingCount:
               - text: "8"
                 xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
-            variantId:
-              - text: "7"
-                xpath: /html/body/div[10]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+            name:
+              - text: adidas Performance Trainingshose »Tiro 19«
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[1]/div[1]/div[2]/h1[1]
+            variantInformation:
+              - text: XS (40-42 EU)
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            descriptionBullets:
+              - text: "5"
+            secondaryImageTotal:
+              - text: "4"
         xpath: /
-    timestamp: 1591884123364
+    timestamp: 1592564810061

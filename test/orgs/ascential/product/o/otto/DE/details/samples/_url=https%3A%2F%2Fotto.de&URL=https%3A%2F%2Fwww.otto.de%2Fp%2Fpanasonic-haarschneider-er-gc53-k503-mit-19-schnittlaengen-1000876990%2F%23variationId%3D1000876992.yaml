@@ -2,13 +2,16 @@ input:
   _url: https://otto.de
   URL: https://www.otto.de/p/panasonic-haarschneider-er-gc53-k503-mit-19-schnittlaengen-1000876990/#variationId=1000876992
 extractions:
-  - html: https://workbench.import.io/html/run=8ee118f8-29bc-4c0a-aae1-f2b293da1f99/task=404aece4-9aa9-48ad-b8ee-64b9d8d6f71f/327458fd-05e3-4205-8140-2b549d1865fe.html
+  - html: https://workbench.import.io/html/run=1818df2c-9ade-4542-826c-b491755de492/task=f0adec25-822a-4e11-851c-d73b2060564f/5fdc8f67-31dc-4666-a92c-02626f905d3c.html
     extractionConfigId: product/details/stores/o/otto/DE/extract
     data:
       - group:
-          - aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[8]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+          - image:
+              - text: https://i.otto.de/i/otto/35648820/panasonic-haarschneider-er-gc53-k503-mit-19-schnittlaengen.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: Panasonic Haarschneider ER-GC53-K503, mit 19 Schnittlängen, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
             alternateImages:
               - text: https://i.otto.de/i/otto/35648820?$001PICT36$
                 xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
@@ -18,9 +21,21 @@ extractions:
                 xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
               - text: https://i.otto.de/i/otto/35648311?$001PICT36$
                 xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
-            brandText:
-              - text: Panasonic
-                xpath: /html/body/div[8]
+            category:
+              - text: Herren
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Panasonic Haarschneider ER-GC53-K503, mit 19 Schnittlängen (1000876990)
+                xpath: /html/body/div[12]
+            listPrice:
+              - text: 39,00
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[6]/div[1]/div[1]/span[2]/span[1]
+            price:
+              - text: "34.99"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[6]/div[1]/div[2]/span[1]/span[1]/@content
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[7]
             description:
               - text: "Article no. undefined 19 Längeneinstellungen: Schnittlänge von 0,5 bis 10
                   mm mit praktischem Einstellrad in 0,5 mm-Schritten einstellbar
@@ -33,32 +48,37 @@ extractions:
                   schnellen und einfachen Haarschnitt. Für eine hygienische
                   Reinigung wird der Trimmer einfach unter fließendem Wasser
                   abgewaschen."
+                xpath: /html/body/div[10]
+            brandText:
+              - text: Panasonic
                 xpath: /html/body/div[9]
-            descriptionBullets:
-              - text: "4"
             gtin:
               - text: "5025232896417"
                 xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
-            image:
-              - text: https://i.otto.de/i/otto/35648820/panasonic-haarschneider-er-gc53-k503-mit-19-schnittlaengen.jpg?$formatz$
-                xpath: /html/head[1]/meta[13]/@content
-            imageAlt:
-              - text: Panasonic Haarschneider ER-GC53-K503, mit 19 Schnittlängen, Bild 1
-                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
-            listPrice:
-              - text: 39,00
-                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[6]/div[1]/div[1]/span[2]/span[1]
-            price:
-              - text: "34.99"
-                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[6]/div[1]/div[2]/span[1]/span[1]/@content
+            sku:
+              - text: "1000876990"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "1"
+                xpath: /html/body/div[11]
             ratingCount:
               - text: "6"
                 xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[8]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
-            variantId:
-              - text: "1"
-                xpath: /html/body/div[10]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[8]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
             videos:
-              - text: https://mycliplister.com/vx/86605/19c2e13914b67e562515abafdfbe449945d0a2cb0fbd2dbf0e2882f570c8ed781ac7e25c076539a228b0c2c3e755daaaf78a445c99f998c1a3ee0b40492cd0c4a_x4c002731b13c1f45b3e232a7d57a46cb969a76fdec369f9f7a6e542bb4b37860582e4d76d1759e10d458f4b4b8c953ac611e6aa24e6a3616f4d5ade5861a0d0791556648af43c6297ea9ffd536df0d7a9b70dcc8f1468e4c000e5a19fc582d49cc08d233e2a7822b8702acc85d0a62aa2acd0c4914c9cce777658e58f00bde1245c0a175862db17fcdad39ab3f3062fa931f76a517a718bdaa2eddea5b7a756342f5d50be84bcdc1c0f58901f419d8d816f86349581e1152fca6bbe77278a595
-                xpath: /html/body/div[13]
+              - text: https://mycliplister.com/vx/86605/19c2e13914b67e562515abafdfbe449941369783cbb25f8b2adfdb7f35f1ff79ebad7600dd7ca763934fbb94823aca5a961159a6874965ffa813b8b953992c136_x4c002731b13c1f45b3e232a7d57a46cb969a76fdec369f9f7a6e542bb4b37860582e4d76d1759e10d458f4b4b8c953ac611e6aa24e6a3616f4d5ade5861a0d0791556648af43c6297ea9ffd536df0d7a9b70dcc8f1468e4c000e5a19fc582d49cc08d233e2a7822b8702acc85d0a62aa2acd0c4914c9cce777658e58f00bde1245c0a175862db17fcdad39ab3f3062fa931f76a517a718bdaa2eddea5b7a756342f5d50be84bcdc1c0f58901f419d8d816f86349581e1152fca6bbe77278a595
+                xpath: /html/body/div[15]
+            name:
+              - text: Panasonic Haarschneider ER-GC53-K503, mit 19 Schnittlängen
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[1]/div[1]/div[2]/h1[1]
+            promotion:
+              - text: -10%
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[6]/div[1]/div[1]/span[3]
+            descriptionBullets:
+              - text: "4"
+            secondaryImageTotal:
+              - text: "4"
         xpath: /
-    timestamp: 1591884130284
+    timestamp: 1592564821351
