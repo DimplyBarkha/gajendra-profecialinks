@@ -1,0 +1,202 @@
+input:
+  id: B0009Y6G7I
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=424ac5eb-32b5-4ce2-ae4f-45cadfd7d7f4/task=80c7fa34-762c-41c6-9090-dcb2ba6d61f9/658fe427-0112-427f-aead-dce561529651.html
+    extractionConfigId: product/details/stores/a/amazonRuna/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/510rx6-XfzL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51B3yOXCsBL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/61c4xgyXYEL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51s1rl78%2BjL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/61MOWsPNfIL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51FxyBHDDgL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Old English Light Wood Scratch Cover, 8 oz, 1-PACK, Multicolor, 8
+                  Ounce,Old English,6233875462
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Health & Household
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[1]
+              - text: Household Supplies
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[3]
+              - text: Household Cleaning
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[5]
+              - text: Wood Polish & Care
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[7]
+              - text: Scratch Covers & Removers
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[9]
+            nameExtended:
+              - text: "Amazon.com: Old English Light Wood Scratch Cover, 8 oz, 1-PACK,
+                  Multicolor, 8 Ounce: Health & Personal Care"
+                xpath: /html/head[1]/meta[5]/@content
+            price:
+              - text: $9.11
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            availabilityText:
+              - text: Only 7 left in stock - order soon.
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/div[1]
+            description:
+              - text: Old English Scratch Cover for Light Wood
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[35]/div[1]/ul[1]/li[1]
+              - text: Made in USA
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[35]/div[1]/ul[1]/li[2]
+              - text: Old English Scratch Cover restores damaged wood
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[35]/div[1]/ul[1]/li[3]
+              - text: Helps restore wood surfaces
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[35]/div[1]/ul[1]/li[4]
+              - text: Hides unsightly scratches & nicks
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[35]/div[1]/ul[1]/li[5]
+              - text: Available in formulas for light woods or for dark woods
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[35]/div[1]/ul[1]/li[6]
+              - text: "For use on: kitchen cabinets, wood furniture and wood paneling"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[35]/div[1]/ul[1]/li[7]
+            brandText:
+              - text: Old English
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[2]/div[1]/a[1]
+            weightGross:
+              - text: "8.3 ounces "
+                xpath: /html/body/div[2]/div[2]/div[8]/div[24]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/ul[1]/li[2]/text()[1]
+            gtin:
+              - text: 885614133623 885556493779 885386052832 062338080505 062338754628
+                xpath: /html/body/div[2]/div[2]/div[8]/div[24]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/ul[1]/li[4]/text()[1]
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[3]/div[1]/span[1]/span[1]/@title
+            shippingInfo:
+              - text: Sold by Dime Savings and Fulfilled by Amazon.
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]
+            manufacturerImages:
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/e4e22f3a-2c18-454f-bd0a-a071e8121e52._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/89a1165c-3b00-4bf4-8caa-fffca7b20653._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/230219fb-dec4-4efb-a384-8cbe2a3e372e._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/77e1431c-b28b-4c91-bb5b-1c8296bcda0a._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[5]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/b56dc27e-6717-4d88-80e9-f984756a2cdd._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[6]/a[1]/img[1]/@src
+            videos:
+              - text: https://d2y5sgsy8bbmb8.cloudfront.net/v2/a56849a0-f395-5c66-a371-5770193281bd/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-video-url
+            name:
+              - text: "Amazon.com: Old English Light Wood Scratch Cover, 8 oz, 1-PACK,
+                  Multicolor, 8 Ounce: Health & Personal Care"
+                xpath: /html/head[1]/title[1]
+            salesRank:
+              - text: "16"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[24]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/ul[1]/li[7]/text()[2]
+              - text: "11"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[24]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/ul[1]/li[7]/ul[1]/li[1]/span[1]
+            salesRankCategory:
+              - text: "Health & Household "
+                xpath: /html/body/div[2]/div[2]/div[8]/div[24]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/ul[1]/li[7]/text()[2]
+              - text: Wood Scratch Covers & Removers
+                xpath: /html/body/div[2]/div[2]/div[8]/div[24]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/ul[1]/li[7]/ul[1]/li[1]/span[2]/a[1]
+            productOtherInformation:
+              - text: Old English wood furniture solutions ensure your old wood looks new, and
+                  your new wood gets old. In other words, Old English cleaner,
+                  polish and Scratch Cover have been specially formulated to
+                  shine and protect wood surfaces, as well as preserve them.
+                  With over a century of trusted use in both modern and historic
+                  homes, Old English is the smart choice when it comes to the
+                  beauty of your wood. Plus, its soothing lemon and almond
+                  scents add to the warmth that wood brings to your home.
+                xpath: /html/body/div[2]/div[2]/div[8]/div[20]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/p[1]
+            featureBullets:
+              - text: "Old English Scratch Cover for Light Wood || Made in USA || Old English
+                  Scratch Cover restores damaged wood || Helps restore wood
+                  surfaces || Hides unsightly scratches & nicks || Available in
+                  formulas for light woods or for dark woods || For use on:
+                  kitchen cabinets, wood furniture and wood paneling"
+                xpath: /html/body/@feature_bullets
+            otherSellersName:
+              - text: Dime Savings
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[1]/div[1]/a[1]
+            otherSellersPrice:
+              - text: $9.11
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/510waz%2BvbmL._AC_SX679_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Old English Light Wood Scratch Cover, 8 oz, 1-PACK, Multicolor, 8 Ounce
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "7"
+            shippingDimensions:
+              - text: 2.5 x 4.9 x 2.6 inches ; 8 ounces
+                xpath: /html/body/div[2]/div[2]/div[8]/div[24]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/ul[1]/li[1]/text()[1]
+            shippingWeight:
+              - text: "8.3 ounces "
+                xpath: /html/body/div[2]/div[2]/div[8]/div[24]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/ul[1]/li[2]/text()[1]
+            variantCount:
+              - text: "0"
+            sku:
+              - text: B0009Y6G7I
+                xpath: /html/body/div[2]/div[2]/div[8]/div[3]/div[1]/@data-asin
+            videoLength:
+              - text: 0:47
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[4]/span[2]
+            primeFlag:
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+            secondaryImageTotal:
+              - text: "0"
+            amazonChoice:
+              - text: No
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+            lbb:
+              - text: NO
+        xpath: /html
+    timestamp: 1592563712278

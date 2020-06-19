@@ -1,0 +1,294 @@
+input:
+  id: B000YJ2SLG
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=424ac5eb-32b5-4ce2-ae4f-45cadfd7d7f4/task=c999c6c3-4468-4f27-b005-39e7ca2367c0/7aad8baa-818b-44e7-9a2e-e3b2fd204ff9.html
+    extractionConfigId: product/details/stores/a/amazonRuna/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/41OLYC9aD6L._SS40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51pflp9d9%2BL._SS40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41wWABbhIiL._SS40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51RqUQcyiKL._SS40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/61J9ypX84GL._SS40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: CeraVe Daily Moisturizing Lotion | 12 Ounce | Face & Body Lotion for Dry
+                  Skin with Hyaluronic Acid | Fragrance Free,Atlas Supply Chain
+                  Consulting Services,U-SC-2702,44510111912
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Beauty & Personal Care
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[1]
+              - text: Skin Care
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[3]
+              - text: Body
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[5]
+              - text: Moisturizers
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[7]
+              - text: Lotions
+                xpath: /html/body/div[2]/div[2]/div[7]/div[1]/ul[1]/li[9]
+            nameExtended:
+              - text: "Amazon.com : CeraVe Daily Moisturizing Lotion | 12 Ounce | Face & Body
+                  Lotion for Dry Skin with Hyaluronic Acid | Fragrance Free :
+                  Body Lotions : Beauty"
+                xpath: /html/head[1]/meta[5]/@content
+            price:
+              - text: $11.62
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            availabilityText:
+              - text: In Stock.
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/div[1]
+            description:
+              - text: "[ LIGHTWEIGHT LOTION ] Suitable for use on the entire body, face, and
+                  even as hand cream for dry hands"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[1]
+              - text: "[ PATENTED TECHNOLOGY ] Utilizes patented MVE controlled release
+                  technology to help replenish ceramides and deliver long
+                  lasting moisturization"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[2]
+              - text: "[ ALL DAY HYDRATION ] Lightweight formula that provides 24 hour hydration
+                  and helps restore the protective skin barrier with three
+                  essential ceramides (1, 3, 6 II)"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[3]
+              - text: "[ GENTLE ON SKIN ] Free of fragrance and oil, hypoallergenic,
+                  non-comedogenic and non-irritating"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[4]
+              - text: "[ MOISTURE RETAINING INGREDIENTS ] Formulated with hyaluronic acid to
+                  help retain skin's natural moisture"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[5]
+            brandText:
+              - text: CeraVe
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[2]/div[1]/a[1]
+            weightGross:
+              - text: "14.4 ounces "
+                xpath: /html/body/div[2]/div[2]/div[8]/div[29]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[2]/text()[1]
+            gtin:
+              - text: "301871371122"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[29]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[6]/text()[1]
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[3]/div[1]/span[1]/span[1]/@title
+            shippingInfo:
+              - text: Ships from and sold by Amazon.com.
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]
+            manufacturerImages:
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/div[1]/p[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/406069ce-d784-4852-b84a-0d6aa4f3131d.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/0431a24c-9367-4fcc-8eac-b593b3d673d2.__CR250,0,500,1000_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/25597bab-c6db-4135-814e-09753126ef08.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/1a074811-0a8a-46a8-8c58-0f880a077628.__CR250,0,500,1000_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[5]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/9daa1b39-76fa-4982-8b03-e533c928a862.__CR250,0,500,1000_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[6]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/67f3d0f1-c412-4d5c-83dc-8695cc2eebc7.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[7]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/c7f7b915-5650-4c92-8eb0-80f621e73757._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/e7cf2cf5-4f4e-4507-8c19-e5321f69c6ae._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/f7f74e42-6828-4456-973a-22777198488c._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/3a907754-2e16-4f38-a599-83dc94fcf32b._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[5]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/b4e0e192-e42f-431e-a900-774f5ff51154._CR0,0,150,300_PT0_SX150__.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[6]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/6082f54f-ff4c-4580-b669-a4e5281bd718._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[7]/a[1]/img[1]/@src
+            name:
+              - text: "Amazon.com : CeraVe Daily Moisturizing Lotion | 12 Ounce | Face & Body
+                  Lotion for Dry Skin with Hyaluronic Acid | Fragrance Free :
+                  Body Lotions : Beauty"
+                xpath: /html/head[1]/title[1]
+            salesRank:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[29]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[9]/text()[2]
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[8]/div[29]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[9]/ul[1]/li[1]/span[1]
+            salesRankCategory:
+              - text: "Beauty & Personal Care "
+                xpath: /html/body/div[2]/div[2]/div[8]/div[29]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[9]/text()[2]
+              - text: Body Lotions
+                xpath: /html/body/div[2]/div[2]/div[8]/div[29]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[9]/ul[1]/li[1]/span[2]/a[1]
+            variantAsins:
+              - text: B07RK4HST7
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[26]/div[1]/form[1]/div[1]/ul[1]/li[2]/@data-dp-url
+            dietaryInformation:
+              - text: AQUA / WATER / EAU,GLYCERIN,CAPRYLIC/CAPRIC TRIGLYCERIDE,CETEARYL
+                  ALCOHOL,CETYL ALCOHOL,POTASSIUM PHOSPHATECERAMIDE NPCERAMIDE
+                  AP,CERAMIDE
+                  EOP,CARBOMER,DIMETHICONE,CETEARETH-20,BEHENTRIMONIUM
+                  METHOSULFATE,METHYLPARABEN,SODIUM LAUROYLACTYLATE,CHOLESTEROL,
+                  DISODIUM EDTA,DIPOTASSIUM PHOSPHATE,PROPYLPARABEN,HYDROLYZED
+                  HYALURONIC ACID,PHYTOSPHINGOSINE,XANTHAN GUM,POLYSORBATE 20,
+                  POLYGLYCERYL-3 DIISOSTEARATE
+                xpath: /html/body/div[2]/div[2]/div[8]/div[31]/div[1]/div[1]/div[1]/p[2]
+            allergyAdvice:
+              - text: AQUA / WATER / EAU,GLYCERIN,CAPRYLIC/CAPRIC TRIGLYCERIDE,CETEARYL
+                  ALCOHOL,CETYL ALCOHOL,POTASSIUM PHOSPHATECERAMIDE NPCERAMIDE
+                  AP,CERAMIDE
+                  EOP,CARBOMER,DIMETHICONE,CETEARETH-20,BEHENTRIMONIUM
+                  METHOSULFATE,METHYLPARABEN,SODIUM LAUROYLACTYLATE,CHOLESTEROL,
+                  DISODIUM EDTA,DIPOTASSIUM PHOSPHATE,PROPYLPARABEN,HYDROLYZED
+                  HYALURONIC ACID,PHYTOSPHINGOSINE,XANTHAN GUM,POLYSORBATE 20,
+                  POLYGLYCERYL-3 DIISOSTEARATE
+                xpath: /html/body/div[2]/div[2]/div[8]/div[31]/div[1]/div[1]/div[1]/p[2]
+            productOtherInformation:
+              - text: Developed with dermatologists, CeraVe has a complete line of skincare to
+                  cleanse and moisturize skin. CeraVe contains the three
+                  essential ceramides (called 1, 3, and 6-II) skin needs.
+                  Delivered through a patented, controlled-release technology,
+                  this formula with ceramides helps rebuild the skin's
+                  protective barrier and locks in moisture all day.
+                xpath: /html/body/div[2]/div[2]/div[8]/div[25]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/p[1]
+            featureBullets:
+              - text: "[ LIGHTWEIGHT LOTION ] Suitable for use on the entire body, face, and
+                  even as hand cream for dry hands || [ PATENTED TECHNOLOGY ]
+                  Utilizes patented MVE controlled release technology to help
+                  replenish ceramides and deliver long lasting moisturization ||
+                  [ ALL DAY HYDRATION ] Lightweight formula that provides 24
+                  hour hydration and helps restore the protective skin barrier
+                  with three essential ceramides (1, 3, 6 II) || [ GENTLE ON
+                  SKIN ] Free of fragrance and oil, hypoallergenic,
+                  non-comedogenic and non-irritating || [ MOISTURE RETAINING
+                  INGREDIENTS ] Formulated with hyaluronic acid to help retain
+                  skin's natural moisture"
+                xpath: /html/body/@feature_bullets
+            otherSellersPrice:
+              - text: $11.62
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/51nFUxdgIZL._SX679_.jpg
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: CeraVe Daily Moisturizing Lotion | 12 Ounce | Face &amp; Body Lotion for
+                  Dry Skin with Hyaluronic Acid | Fragrance Free
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "5"
+            shippingDimensions:
+              - text: 2 x 8 x 4 inches ; 0.16 ounces
+                xpath: /html/body/div[2]/div[2]/div[8]/div[29]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[1]/text()[1]
+            shippingWeight:
+              - text: "14.4 ounces "
+                xpath: /html/body/div[2]/div[2]/div[8]/div[29]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[2]/text()[1]
+            variantCount:
+              - text: "0"
+            sku:
+              - text: B000YJ2SLG
+                xpath: /html/body/div[2]/div[2]/div[8]/div[3]/div[1]/@data-asin
+            amazonChoice:
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[5]/div[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[5]/div[1]
+            pasin:
+              - text: B000YJ2SLG
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[26]/div[1]/form[1]/div[1]/ul[1]/li[1]/@data-defaultasin
+            videoLength:
+              - text: 0:32
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[4]/span[2]
+            primeFlag:
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+            secondaryImageTotal:
+              - text: "0"
+            ingredientsList:
+              - text: AQUA / WATER / EAU,GLYCERIN,CAPRYLIC/CAPRIC TRIGLYCERIDE,CETEARYL
+                  ALCOHOL,CETYL ALCOHOL,POTASSIUM PHOSPHATECERAMIDE NPCERAMIDE
+                  AP,CERAMIDE
+                  EOP,CARBOMER,DIMETHICONE,CETEARETH-20,BEHENTRIMONIUM
+                  METHOSULFATE,METHYLPARABEN,SODIUM LAUROYLACTYLATE,CHOLESTEROL,
+                  DISODIUM EDTA,DIPOTASSIUM PHOSPHATE,PROPYLPARABEN,HYDROLYZED
+                  HYALURONIC ACID,PHYTOSPHINGOSINE,XANTHAN GUM,POLYSORBATE 20,
+                  POLYGLYCERYL-3 DIISOSTEARATE
+                xpath: /html/body/div[2]/div[2]/div[8]/div[31]/div[1]/div[1]/div[1]/p[2]
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+            lbb:
+              - text: NO
+        xpath: /html
+    timestamp: 1592563707401
