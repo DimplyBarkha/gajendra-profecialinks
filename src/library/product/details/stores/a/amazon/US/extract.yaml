@@ -27,10 +27,8 @@ fields:
     singleValue: true
     xpath: //meta[@name='title']/@content
   - name: listPrice
-    singleValue: true
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
   - name: price
-    singleValue: true
     xpath: //*[@id="priceblock_ourprice"]
   - name: availabilityText
     singleValue: true
@@ -48,7 +46,6 @@ fields:
     singleValue: true
     xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]
   - name: quantity
-    singleValue: true
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
   - name: weightNet
     singleValue: true
@@ -67,7 +64,6 @@ fields:
     singleValue: true
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
-    singleValue: true
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
   - name: mpc
     singleValue: true
@@ -81,10 +77,8 @@ fields:
     singleValue: true
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
-    singleValue: true
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
   - name: warnings
-    singleValue: true
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]
   - name: ratingCount
     xpath: //*[@id="acrCustomerReviewText"]/text()
@@ -99,8 +93,7 @@ fields:
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: shippingInfo
-    singleValue: true
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//*[@id="shipsFromSoldBy_feature_div"]
   - name: shippingDimensions
     singleValue: false
     xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
@@ -244,13 +237,11 @@ fields:
     singleValue: true
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
-    singleValue: true
-    xpath:
+    xpath: //span[@id="upsell-message"]
   - name: product/food
     singleValue: true
     xpath:
   - name: ingredientsList
-    singleValue: true
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
   - name: servingSize
     singleValue: true
@@ -259,8 +250,7 @@ fields:
     singleValue: true
     xpath:
   - name: numberOfServingsInPackage
-    singleValue: true
-    xpath:
+    xpath: //label[contains(text(), "Package Quantity:")]/../span
   - name: caloriesPerServing
     singleValue: true
     xpath:
