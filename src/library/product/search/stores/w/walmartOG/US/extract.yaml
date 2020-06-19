@@ -16,11 +16,19 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
   - name: productUrl
-    singleValue: false
+    #singleValue: false
+    singleValue: true
     description: The URL for the product details page
     xpath: ./@id
     regExp: (?:item-(\d+))$
     regExpReplace: https://grocery.walmart.com/product/$1
+  - name: id
+    #singleValue: false
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: ./@id
+    regExp: (?:item-(\d+))$
+    regExpReplace: $1
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
@@ -67,12 +75,6 @@ fields:
     singleValue: true
     description: Shipping information for the product
 #  SHould these be source specific formulas or in the extractor?
-  - name: id
-    singleValue: false
-    description: Unique id (within this extractor)
-    xpath: ./@id
-    regExp: (?:item-(\d+))$
-    regExpReplace: $1
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
