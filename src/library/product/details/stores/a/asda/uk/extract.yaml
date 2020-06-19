@@ -46,7 +46,7 @@ fields:
     regExp: ^[^\s]+
   - name: manufacturer
     singleValue: false
-    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Manufacturer Address')]]//div[contains(@class,'content')]//text()
+    xpath: //div[contains(.,"Manufacturer Address")][@class="pdp-description-reviews__product-details-title"]/following-sibling::div[1]
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Manufacturer Address')]]//div[contains(@class,'content')]//text()
@@ -218,10 +218,7 @@ fields:
     regExp: (\d+)
     regExpReplace: $1
   - name: ratingCount
-    singleValue: false
-    manualSelector: div.asda-tab-list button[aria-label*='Reviews']
-    regExp: (\d+)
-    regExpReplace: $1
+    singleValue: true
   - name: aplusImages
     singleValue: true
   - name: categoryRanking
