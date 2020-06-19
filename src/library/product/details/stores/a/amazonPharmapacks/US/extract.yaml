@@ -5,8 +5,6 @@ fields:
     xpath: //h1
   - name: gtin
     xpath: //li/b[contains(text(), 'UPC:')]/../text()
-  - name: directions
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text()
   - name: lbb
     xpath: //span[@id="price_inside_buybox"]
     regExp: (.+)
