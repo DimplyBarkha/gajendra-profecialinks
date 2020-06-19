@@ -84,16 +84,10 @@ async function implementation (
       const [response] = await Promise.all([
         context.waitForNavigation({ timeout: 20000 }),
         context.click(sellersShowButton),
-      ]);
-<<<<<<< HEAD
+      ]);     
+      const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
+      await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
       
-      const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
-      await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
-
-=======
-      const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
-      await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
->>>>>>> 64fd9eab00b764c89538323a8c64f6c634686329
       return await context.evaluate(function () {
         function addHiddenDiv (id, content) {
           const newDiv = document.createElement('div');
@@ -102,10 +96,6 @@ async function implementation (
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> 64fd9eab00b764c89538323a8c64f6c634686329
         const firstCheck = document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div');
         const otherSellers = document.querySelectorAll('div#aod-offer');
         const price = document.querySelector('span#price_inside_buybox');
