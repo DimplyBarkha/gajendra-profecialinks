@@ -22,7 +22,7 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
-    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]|//div[contains(@id, 'breadcrumbs')]//ul/li/span/a
   - name: nameExtended
     singleValue: true
     xpath: //meta[@name='title']/@content

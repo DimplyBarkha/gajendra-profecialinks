@@ -1,11 +1,19 @@
 extends: ../../amazon/US/extract
 fields:
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1
   - name: gtin
     xpath: //li/b[contains(text(), 'UPC:')]/../text()
   - name: directions
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text()
   - name: lbb
-    defaultValue: NO
+    xpath: //span[@id="price_inside_buybox"]
+    regExp: (.+)
+    regExpReplace: "YES"
+    defaultValue: "NO"
+  - name: lbbPrice
+    xpath: //span[@id="price_inside_buybox"]
   - name: featureBullets
     xpath: //body/@feature_bullets
   - name: otherSellersName
@@ -16,4 +24,4 @@ fields:
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: weightNet
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
-    regExp: '[^()]+''
+    regExp: '[^()]+'
