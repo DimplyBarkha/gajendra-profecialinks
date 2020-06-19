@@ -1,12 +1,14 @@
+const { transform } = require('../format');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'medikamente-per-klick',
-    transform: null,
+    transform,
     domain: 'medikamente-per-klick.de',
   },
-  implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -62,6 +64,6 @@ module.exports = {
       });
       addHiddenDiv('ii_desc', additionalDescription);
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };

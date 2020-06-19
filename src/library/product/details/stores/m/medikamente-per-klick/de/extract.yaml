@@ -4,10 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: false
+    singleValue: true
     xpath: //img[@name="mainImage"]/@src
-    regExp: (.*)
-    regExpReplace: https://www.medikamente-per-klick.de$1
   - name: metaKeywords
     singleValue: true
     xpath: //meta[contains(@name,"keyword")]/@content
@@ -48,8 +46,6 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='photo with-multiple-photo']//img[not(@name = 'mainImage')]/@src
-    regExp: (.*)
-    regExpReplace: https://www.medikamente-per-klick.de$1
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@id="ii_manufacturerImages"]
@@ -76,7 +72,6 @@ fields:
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
-    singleValue: true
     xpath: //div[contains(@class,'fr')]//span[@class="rank"]
     regExp: .*?(\d.?\d?).*
     regExpReplace: $1
@@ -109,3 +104,18 @@ fields:
     xpath: //div[@id="ii_BulletDesc_count"]
   - name: packSize
     singleValue: true
+  - name: ingredientsList
+    xpath: //dd[@class="productActiveSubstance"]|//*[contains(text(),"Zutaten")]/following-sibling::text()
+  - name: manufacturer
+    xpath: //dd[@itemprop="brand" and @class="producer brand"]
+  - name: pricePerUnit
+    xpath: //dl[@class="productPrice"]/dd[@class="groundPrice"]
+    regExp: (.*)\/.*
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //dl[@class="productPrice"]/dd[@class="groundPrice"]
+    regExp: .*\/(.*)
+    regExpReplace: $1
+  - name: promotion
+    xpath: //dl[@class="productPrice"]/dd[@class="youSave"]
+  - name: secondaryImageTotal
