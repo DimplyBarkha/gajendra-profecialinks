@@ -21,7 +21,30 @@ const transform = (data, context) => {
     for (const row of group) {
       try {
         if (row.asin) {
-          row.asin = [{ text: row.asin[0].text.replace(/.+\/dp\//g, '').trim() }];
+          row.asin = [{ text: row.asin[0].text.match(/([A-Z0-9]{6,})/g)[0] }];
+        }
+        if (row.brandLink) {
+          row.brandLink = [{ text: `https://www.amazon.com${row.brandLink[0].text}` }];
+        }
+        if (row.amazonChoice) {
+          if (row.amazonChoice[0].text.includes('Amazon')){
+            row.amazonChoice = [
+              {
+                text: 'Yes'
+              }
+            ]
+          }else{
+            row.amazonChoice = [
+              {
+                text: 'No'
+              }
+            ]
+          }
+        }
+        if (row.largeImageCount) { 
+          let regex = /SL1500/g;
+          let count = (row.largeImageCount[0].text.match(regex) || []).length
+          row.largeImageCount = [{ text: count }];
         }
         if (row.warnings) {
           row.warnings = [{ text: row.warnings[0].text.replace(/Safety Information/g, '').trim() }];
@@ -46,7 +69,6 @@ const transform = (data, context) => {
             },
           ];
         }
-        //nedds  work
         if (row.otherSellersPrime) {
           row.otherSellersPrime.forEach(item => {
             if(item.text.includes("rime")){
@@ -56,24 +78,14 @@ const transform = (data, context) => {
             }
           });
         }
-        //needs work
         if (row.otherSellersShipping) {
           row.otherSellersShipping.forEach(item => {
             if(item.text.includes('ree') || item.text.includes('REE')){
               item.text = '$0.00';
             }else{
-              item.text = '$1.00';
+              item.text = '$0.00';
             }
           });
-        }
-        //needs work
-        if (row.largeImageCount) {
-          let regex = /SL1500\_\.jpg/g;
-          row.largeImageCount = [
-            {
-              text: (row.largeImageCount[0].text.match(regex) || []).length
-            }
-          ]
         }
         if (row.featureBullets) {
           let text = '';
@@ -93,7 +105,7 @@ const transform = (data, context) => {
               text = true
             }
           });
-          if(!!text){
+          if(text){
             row.primeFlag =[{text: 'Yes'}]
           }
         }
