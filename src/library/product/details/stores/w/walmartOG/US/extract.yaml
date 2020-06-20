@@ -10,10 +10,12 @@ fields:
 - name: quantity
   singleValue: false
   xpath: //section[@data-automation-id="productPage"]//h1[@data-automation-id="name"]
-  regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+  # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+  regExp: (?:([\d\.]+\s{1})([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
   # regExpReplace: $1$2$3$4
 - name: image
   singleValue: false
+  # xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]|//div[@data-automation-id="productPageTile"]//div[contains(@class,"imageContainer")]//img[@data-automation-id="image"])[1]/@src
   xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]/@src|//*[@id="iio_image"])[1]
 - name: alternateImages
   singleValue: false
@@ -144,7 +146,8 @@ fields:
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Cholesterol')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_cholesterol"])[1]
   # regExp: (?:([\d\.]+)\s?(\w+))
   # regExpReplace: $1
-  regExp: ([^a-zA-Z]+)
+  # regExp: ([^a-zA-Z]+)
+  regExp: (?:([\d\.]+)\s?(\w+))|(?:(>|<)[\d\.]+)\s?
 - name: cholesterolPerServingUom
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Cholesterol')]]/span[@data-automation-id="value"]
@@ -176,8 +179,9 @@ fields:
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Total Carbohydrates')]]/span[@data-automation-id="value"]
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Total Carbohydrates')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_totalCarbs"])[1]
   # regExp: (?:([\d\.]+)\s?(\w+))
-  regExp: (?:([\d\.]+)\s?)
-  regExpReplace: $1
+  # regExp: (?:([\d\.]+)\s?)
+  regExp: (?:([\d\.]+)\s?)|(?:(>|<)[\d\.]+)\s?
+  # regExpReplace: $1
 - name: totalCarbPerServingUom
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Total Carbohydrates')]]/span[@data-automation-id="value"]

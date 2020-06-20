@@ -89,10 +89,12 @@ module.exports = {
               }
             }
 
+            /* should we grab image from api if image is not avail on webpage
             if (document.querySelector('div[data-automation-id="productPageTile"]').querySelector('div[class*="imageContainer"]').querySelector('img[data-automation-id="image"]')) {
               const notGIFimg = (data.basic && data.basic.image && data.basic.image.large) ? data.basic.image.large : document.querySelector('div[data-automation-id="productPageTile"]').querySelector('div[class*="imageContainer"]').querySelector('img[data-automation-id="image"]').getAttribute('src');
               addHiddenDiv('iio_image', notGIFimg);
             }
+            */
 
             // Write objects to HTML
             addHiddenDiv('iio_asin', asin);
