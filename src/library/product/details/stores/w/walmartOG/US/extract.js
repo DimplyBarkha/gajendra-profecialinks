@@ -102,7 +102,7 @@ module.exports = {
             addHiddenDiv('iio_gtin', gtin);
             addHiddenDiv('iio_variantId', variantId);
             addHiddenDiv('iio_brandText', brandText);
-            addHiddenDiv('iio_product_url', `https://grocery.walmart.com/product/${id}`)
+            addHiddenDiv('iio_product_url', `https://grocery.walmart.com/product/${id}`);
 
             iioObjects.forEach((item) => {
               addHiddenDiv(item.name, item.value);
