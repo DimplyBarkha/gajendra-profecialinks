@@ -87,16 +87,13 @@ module.exports = {
               }
             }
 
-            if (data.USItemId) {
-              addHiddenDiv('iio_product_url', 'https://grocery.walmart.com/product/' + data.USItemId);
-            }
-
             // Write objects to HTML
             addHiddenDiv('iio_asin', asin);
             addHiddenDiv('iio_sku', sku);
             addHiddenDiv('iio_gtin', gtin);
             addHiddenDiv('iio_variantId', variantId);
             addHiddenDiv('iio_brandText', brandText);
+            addHiddenDiv('iio_product_url', `https://grocery.walmart.com/product/${id}`)
 
             iioObjects.forEach((item) => {
               addHiddenDiv(item.name, item.value);
