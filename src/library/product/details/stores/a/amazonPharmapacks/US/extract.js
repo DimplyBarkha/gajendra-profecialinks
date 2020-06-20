@@ -9,6 +9,9 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
+        if(document.querySelector('[data-action="main-image-click"]')) {
+            document.querySelector('[data-action="main-image-click"]').click();
+        }
       let productInfo = Array.from(document.querySelectorAll('#feature-bullets > ul > li > span')).map(elm => {
         if (!elm.querySelector('#replacementPartsFitmentBulletInner')) {
           const value = elm.textContent.trim();

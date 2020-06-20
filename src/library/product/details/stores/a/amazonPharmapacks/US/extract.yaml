@@ -1,13 +1,12 @@
 extends: ../../amazon/US/extract
 fields:
   - name: description
-    singleValue: false
-    xpath: //body/@additional_product_info
-  - name: nameExtended
     singleValue: true
+    xpath: //body/@additional_product_info
+  - name: name
     xpath: //h1
-  - name: gtin
-    xpath: //li/b[contains(text(), 'UPC:')]/../text()
+  - name: nameExtended
+    xpath: //h1
   - name: lbb
     xpath: //span[@id="price_inside_buybox"]
     regExp: (.+)
@@ -26,14 +25,11 @@ fields:
   - name: weightNet
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
     regExp: '[^()]+'
-  - name: variantId
-    singleValue: true
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+  - name: largeImageCount
+    xpath: count(//div[starts-with(@id,"ivImage_")])
   - name: variantAsins
     singleValue: false
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
-  - name: category
-    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li/span/a
+    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@data-src
