@@ -14,7 +14,7 @@ fields:
   # regExpReplace: $1$2$3$4
 - name: image
   singleValue: false
-  xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]|//div[@data-automation-id="productPageTile"]//div[contains(@class,"imageContainer")]//img[@data-automation-id="image"])[1]/@src
+  xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]/@src|//*[@id="iio_image"])[1]
 - name: alternateImages
   singleValue: false
   xpath: (//div[contains(@class, 'productImageCarouselContainer')]//li[@class='slider-slide']//img/@src)[position()>1]
@@ -69,6 +69,7 @@ fields:
   singleValue: true
   xpath: //*[@id="iio_variantId"]
 - name: variants
+  xpath: //*[@id="iio_variants"]
   singleValue: false
 - name: ingredientsList
   singleValue: false

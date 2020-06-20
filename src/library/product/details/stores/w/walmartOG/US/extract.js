@@ -60,7 +60,9 @@ module.exports = {
             const gtin = (data.upc) ? data.upc : '';
             const variantId = (data.detailed && data.detailed.productCode) ? data.detailed.productCode : '';
             const brandText = (data.detailed && data.detailed.brand) ? data.detailed.brand : '';
+            const varianceList = (data.variantOffers) ? Object.values(data.variantOffers).map(value => value.productId) : [];
 
+            addHiddenDiv('iio_variants', varianceList.join(' | '));
             // nutritionFacts
             if (data.nutritionFacts) {
               if (data.nutritionFacts.keyNutrients) {
@@ -85,6 +87,11 @@ module.exports = {
                   iioObjects.push({ name: `iio_nutrient_${key}`, value: data.nutritionFacts.servingInformation[key] });
                 }
               }
+            }
+
+            if (document.querySelector('div[data-automation-id="productPageTile"]').querySelector('div[class*="imageContainer"]').querySelector('img[data-automation-id="image"]')) {
+              const notGIFimg = (data.basic && data.basic.image && data.basic.image.large) ? data.basic.image.large : document.querySelector('div[data-automation-id="productPageTile"]').querySelector('div[class*="imageContainer"]').querySelector('img[data-automation-id="image"]').getAttribute('src');
+              addHiddenDiv('iio_image', notGIFimg);
             }
 
             // Write objects to HTML
