@@ -51,7 +51,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//ul//li)
-- name: additional_desc_bullet_info
+- name: additionalDescBulletInfo
   singleValue: false
   xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//ul//li
 # brandText , asin , gtin , sku , variantId and a few nutrient schema  - from API
@@ -146,8 +146,9 @@ fields:
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Cholesterol')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_cholesterol"])[1]
   # regExp: (?:([\d\.]+)\s?(\w+))
   # regExpReplace: $1
-  # regExp: ([^a-zA-Z]+)
-  regExp: (?:([\d\.]+)\s?(\w+))|(?:(>|<)[\d\.]+)\s?
+  regExp: ([^a-zA-Z]+)|(?:(>|<)[^a-zA-Z]+]+)\s?
+  # regExp: (?:([\d\.]+)\s?|(?:(>|<)[\d\.]+)\s?
+  # regExpReplace: $2
 - name: cholesterolPerServingUom
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Cholesterol')]]/span[@data-automation-id="value"]
@@ -257,7 +258,7 @@ fields:
   regExp: ^(?:([\d\.]+)\s?(%))$
   regExpReplace: $1
   singleValue: false
-- name: ironPerServingUo
+- name: ironPerServingUom
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]//tr[@data-automation-id="vitaminsAndMinerals"]/td[span[contains(text(),'iron')]]/span[@data-automation-id="value"])[1] 
   regExp: ^(?:([\d\.]+)\s?(%))$
   regExpReplace: $2
