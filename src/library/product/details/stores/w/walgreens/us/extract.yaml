@@ -67,7 +67,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_descriptionBullets']//text()"
   description: Number of ul > li tags in the description
-  type: NUMBER
 - name: brandText
   singleValue: true
   xpath: "//*[@id='added_brandText']//text()"
@@ -132,7 +131,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_ratingCount']//text()"
   description: The number of ratings
-  type: NUMBER
 - name: aggregateRatingText
   singleValue: true
   xpath: "//*[@id='added_aggregateRatingText']//text()"
@@ -141,7 +139,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_aggregateRating']//text()"
   description: The stated aggregate rating normalized to be out of 5
-  type: NUMBER
 - name: shippingInfo
   singleValue: true
   xpath: "//*[@id='added_shippingInfo']//text()"
@@ -158,7 +155,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_variantCount']//text()"
   description: Number of variants listed
-  type: NUMBER
 - name: color
   singleValue: true
   xpath: "//*[@id='added_color']//text()"
@@ -261,7 +257,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_largeImageCount']//text()"
   description: 
-  type: NUMBER
 - name: variantAsins
   singleValue: true
   xpath: "//*[@id='added_variantAsins']//text()"
@@ -304,7 +299,6 @@ fields:
   xpath: "count((//*[@id='added_alternateImages']//text())[position()>1])"
   # xpath: "//*[@id='added_secondaryImageTotal']//text()"
   description: 
-  type: NUMBER
 - name: news
   singleValue: true
   xpath: "//*[@id='added_news']//text()"
@@ -334,7 +328,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_numberOfServingsInPackage']//text()"
   description: Suggested number of servings of the product.
-  type: NUMBER
 - name: caloriesPerServing
   singleValue: true
   xpath: "//*[@id='added_caloriesPerServing']//text()"
@@ -345,13 +338,11 @@ fields:
   xpath: "//*[@id='added_caloriesFromFatPerServing']//text()"
   description: Nutritional Information for Calories From Fat content - Usually based
     on per 100g serving
-  type: NUMBER
 - name: totalFatPerServing
   singleValue: true
   xpath: "//*[@id='added_totalFatPerServing']//text()"
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  type: NUMBER
 - name: totalFatPerServingUom
   singleValue: true
   xpath: "//*[@id='added_totalFatPerServingUom']//text()"
@@ -361,7 +352,6 @@ fields:
   xpath: "//*[@id='added_saturatedFatPerServing']//text()"
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
-  type: NUMBER
 - name: saturatedFatPerServingUom
   singleValue: true
   xpath: "//*[@id='added_saturatedFatPerServingUom']//text()"
@@ -371,7 +361,6 @@ fields:
   xpath: "//*[@id='added_transFatPerServing']//text()"
   description: Nutritional Information for Trans Fat content - Usually based on per
     100g serving
-  type: NUMBER
 - name: transFatPerServingUom
   singleValue: true
   xpath: "//*[@id='added_transFatPerServingUom']//text()"
@@ -381,7 +370,6 @@ fields:
   xpath: "//*[@id='added_cholesterolPerServing']//text()"
   description: Nutritional Information for Cholesterol content - Usually based on
     per 100g serving
-  type: NUMBER
 - name: cholesterolPerServingUom
   singleValue: true
   xpath: "//*[@id='added_cholesterolPerServingUom']//text()"
@@ -391,7 +379,6 @@ fields:
   xpath: "//*[@id='added_sodiumPerServing']//text()"
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
-  type: NUMBER
 - name: sodiumPerServingUom
   singleValue: true
   xpath: "//*[@id='added_sodiumPerServingUom']//text()"
@@ -401,7 +388,6 @@ fields:
   xpath: "//*[@id='added_totalCarbPerServing']//text()"
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
-  type: NUMBER
 - name: totalCarbPerServingUom
   singleValue: true
   xpath: "//*[@id='added_totalCarbPerServingUom']//text()"
@@ -411,7 +397,6 @@ fields:
   xpath: "//*[@id='added_dietaryFibrePerServing']//text()"
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
-  type: NUMBER
 - name: dietaryFibrePerServingUom
   singleValue: true
   xpath: "//*[@id='added_dietaryFibrePerServingUom']//text()"
@@ -421,7 +406,6 @@ fields:
   xpath: "//*[@id='added_totalSugarsPerServing']//text()"
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
-  type: NUMBER
 - name: totalSugarsPerServingUom
   singleValue: true
   xpath: "//*[@id='added_totalSugarsPerServingUom']//text()"
@@ -431,7 +415,6 @@ fields:
   xpath: "//*[@id='added_proteinPerServing']//text()"
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  type: NUMBER
 - name: proteinPerServingUom
   singleValue: true
   xpath: "//*[@id='added_proteinPerServingUom']//text()"
@@ -441,7 +424,6 @@ fields:
   xpath: "//*[@id='added_vitaminAPerServing']//text()"
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
-  type: NUMBER
 - name: vitaminAPerServingUom
   singleValue: true
   xpath: "//*[@id='added_vitaminAPerServingUom']//text()"
@@ -451,7 +433,6 @@ fields:
   xpath: "//*[@id='added_vitaminCPerServing']//text()"
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
-  type: NUMBER
 - name: vitaminCPerServingUom
   singleValue: true
   xpath: "//*[@id='added_vitaminCPerServingUom']//text()"
@@ -461,7 +442,6 @@ fields:
   xpath: "//*[@id='added_calciumPerServing']//text()"
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
-  type: NUMBER
 - name: calciumPerServingUom
   singleValue: true
   xpath: "//*[@id='added_calciumPerServingUom']//text()"
@@ -471,7 +451,6 @@ fields:
   xpath: "//*[@id='added_ironPerServing']//text()"
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
-  type: NUMBER
 - name: ironPerServingUom
   singleValue: true
   xpath: "//*[@id='added_ironPerServingUom']//text()"
@@ -485,7 +464,6 @@ fields:
   xpath: "//*[@id='added_magnesiumPerServing']//text()"
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
-  type: NUMBER
 - name: magnesiumPerServingUom
   singleValue: true
   xpath: "//*[@id='added_magnesiumPerServingUom']//text()"
@@ -495,7 +473,6 @@ fields:
   xpath: "//*[@id='added_saltPerServing']//text()"
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
-  type: NUMBER
 - name: saltPerServingUom
   singleValue: true
   xpath: "//*[@id='added_saltPerServingUom']//text()"
