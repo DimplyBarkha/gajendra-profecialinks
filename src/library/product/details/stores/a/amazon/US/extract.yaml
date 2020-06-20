@@ -23,11 +23,11 @@ fields:
   - name: listPrice
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
   - name: price
-    xpath: //*[@id="priceblock_ourprice"]
+    xpath: //*[@id="priceblock_ourprice"]|//*[@id="priceblock_saleprice"]
   - name: availabilityText
     xpath: //*[@id='availability']
   - name: description
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//div[@id="productDescription"]/p[text()]/text()
   - name: descriptionBullets
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
   - name: brandText
@@ -152,21 +152,21 @@ fields:
     regExpReplace: "YES"
     defaultValue: "NO"
   - name: variantAsins
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
-    regExp: p\/([A-Z0-9]{9,})\/
-    regExpReplace: $1
+    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin
   - name: specifications
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
+    sinlgeValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
     regExp: (.+)
-    regExpReplace: "Yes"
+    regExpReplace: "Yes - Shipped and Sold"
+    defaultValue: "NO"
   - name: lbb
     xpath:
   - name: lbbPrice
     xpath:
   - name: featureBullets
-    xpath:
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
     xpath:
   - name: otherSellersPrime
