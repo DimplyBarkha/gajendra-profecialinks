@@ -136,11 +136,11 @@ fields:
   - name: videoLength
     xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
   - name: heroQuickPromoHeadline
-    xpath:
+    xpath: //div[@class="a-section a-spacing-none uilm-section"]/a/@aria-label
   - name: heroQuickPromoImageUrl
-    xpath:
+    xpath: //div[@class="a-section a-spacing-none uilm-section"]//img/@src
   - name: heroQuickPromoUrl
-    xpath:
+    xpath: //div[@class="a-section a-spacing-none uilm-section"]/a/@href
   - name: ingredientImagePresent
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
     regExp: (.+)
@@ -157,7 +157,7 @@ fields:
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
     sinlgeValue: false
-    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
+    xpath: //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]
     regExp: (.+)
     regExpReplace: "Yes - Shipped and Sold"
     defaultValue: "NO"

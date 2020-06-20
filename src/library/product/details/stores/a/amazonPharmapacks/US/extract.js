@@ -9,9 +9,9 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-        if(document.querySelector('[data-action="main-image-click"]')) {
-            document.querySelector('[data-action="main-image-click"]').click();
-        }
+      if (document.querySelector('[data-action="main-image-click"]')) {
+        document.querySelector('[data-action="main-image-click"]').click();
+      }
     });
     await context.extract(productDetails);
   },
