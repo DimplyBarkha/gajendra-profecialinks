@@ -20,7 +20,7 @@ const transform = (data, context) => {
     for (const row of group) {
       try {
         if (row.asin) {
-          row.asin = [{ text: row.asin[0].text.match(/([A-Z0-9]{6,})/s)[0] }];
+          row.asin = [{ text: row.asin[0].text.match(/([A-Za-z0-9]{6,})/g)[0] }];
         }
         if (row.amazonChoice) {
           if (row.amazonChoice[0].text.includes('Amazon')) {
@@ -38,8 +38,7 @@ const transform = (data, context) => {
           }
         }
         if (row.largeImageCount) {
-          const regex = /SL1500/g;
-          const count = (row.largeImageCount[0].text.match(regex) || []).length;
+          const count = (row.largeImageCount[0].text.split("SL1500").length - 1)
           row.largeImageCount = [{ text: count }];
         }
         if (row.warnings) {
