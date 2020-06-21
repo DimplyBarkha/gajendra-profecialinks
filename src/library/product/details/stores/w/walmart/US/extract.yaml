@@ -8,9 +8,7 @@ fields:
   singleValue: true
 - name: imageAlt
   singleValue: true
-  xpath: //script[@id='variant']
-  regExp: \"productName\":\"([^"]+)\",
-  regExpReplace: $1
+  xpath: //div[@id='added-name']
 - name: alternateImages
   singleValue: false
   xpath: //script[@id='variant']
@@ -31,9 +29,7 @@ fields:
   regExp: ({\"name\":\"[^"]+\",\"url\":\"[^"]+\"})
 - name: nameExtended
   singleValue: true
-  xpath: //script[@id='variant']
-  regExp: \"productName\":\"([^"]+)\",
-  regExpReplace: $1
+  xpath: //div[@id='added-name']
 #Attributes
 - name: promotion
   singleValue: false
@@ -50,31 +46,14 @@ fields:
 #Pricing and Availability
 - name: listPrice
   singleValue: true
-  xpath: //script[@id='variant']
-  regExp: (\"LIST\":{\"priceType\":\"LIST PRICE\",\"price\":)([\d\.]+)
-  regExpReplace: $2
-- name: listPrice1
-  singleValue: true
-  xpath: //script[@id='variant']
-  regExp: (\"WAS\":{\"priceType\":\"BASE\",\"price\":)([\d\.]+)
-  regExpReplace: $2
+  xpath: //div[@id='added-lprice']
 - name: price
   singleValue: true
-  xpath: //script[@id='variant']
-  regExp: (\"CURRENT\":{\"priceType\":\"BASE\",\"price\":)([\d\.]+)
-  regExpReplace: $2  
+  xpath: //div[@id='added-price']
 - name: shippingPrice
   singleValue: true
   defaultValue: 0.00
-  xpath: //script[@id='variant']
-  regExp: (\[{"fulfillmentPrice":{"price":)(\d+\.?\d*)
-  regExpReplace: $2
-- name: isFreeShipping
-  singleValue: true
-  defaultValue: Yes
-  xpath: //script[@id='variant']
-  regExp: ("freeShippingThresholdPrice":{})
-  regExpReplace: No
+  xpath: //div[@id='added-sprice']
 - name: availabilityText
   singleValue: true
   xpath: //div[@id='added-avail']  
@@ -133,16 +112,12 @@ fields:
   #Description
 - name: description
   singleValue: false
-  xpath: //script[@id='variant']
-  regExp: ("idmlLongDescription":"([^"]*)","idmlShortDescription":"([^"]*)")
-  regExpReplace: $3 $2
+  xpath: //div[@id='added-desc']
 - name: descriptionBullets
   singleValue: true
 - name: additionalDescBulletInfo
   singleValue: false  
-  xpath: //script[@id='variant']
-  regExp: ("idmlLongDescription":"([^"]*)")
-  regExpReplace: $2
+  xpath: //div[@id='added-descBullets']
 - name: ingredientsList
   singleValue: true
   xpath: //script[@id='variant']
@@ -224,19 +199,34 @@ fields:
   regExpReplace: $2  
 - name: otherSellersName
   singleValue: false
-  xpath: //script[@id='variant']
-  regExp: ("sellerDisplayName":")([^"]+)(","price)
-  regExpReplace: $2  
+  xpath: //div[@id='added-sellers']//*[@data-tl-id="ProductSellerCardSellerInfo-SellerName"]
+  
 - name: otherSellersPrice
   singleValue: false
-  xpath: //script[@id='variant']
-  regExp: ("price":{"priceType":"BASE","price":)(\d+\.?\d*)
-  regExpReplace: $2
+  xpath: //div[@id='added-sellers']//div[contains(@class,'seller-offer')]//div[contains(@class,'prod-PriceHero')]//span[contains(@class,'price--stylized')]//span[@class='visuallyhidden']
+ 
 - name: otherSellersShipping2
   singleValue: false
-  xpath: //script[@id='variant']
+  xpath: //div[@id='added-sellers']//div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
   regExp: (,"fulfillmentPrice":{"price":)(\d+\.?\d*)
-  regExpReplace: $2  
+  regExpReplace: $2
+
+
+# - name: otherSellersName
+#   singleValue: false
+#   xpath: //div[@id='added-sellers']//script[@id='item']
+#   regExp: ("sellerDisplayName":")([^"]+)(","sell)
+#   regExpReplace: $2
+# - name: otherSellersPrice
+#   singleValue: false
+#   xpath: //div[@id='added-sellers']//script[@id='item']
+#   regExp: (,"price":)(\d+\.?\d*)(,"sell)
+#   regExpReplace: $2
+# - name: otherSellersShipping
+#   singleValue: false
+#   xpath: //div[@id='added-sellers']//script[@id='item']
+#   regExp: (,"shipPrice":)(\d+\.?\d*)(})
+#   regExpReplace: $2
 - name: lbb
   singleValue: true
   defaultValue: Yes 

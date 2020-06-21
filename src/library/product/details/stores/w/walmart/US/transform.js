@@ -39,19 +39,17 @@ const transform = (data, context) => {
         if (row.variantId) {
           row.productUrl = [{ text: `https://www.walmart.com/ip/${row.variantId[0].text}` }];
         }
-        if (row.listPrice1) {
-          row.listPrice = [{ text: row.listPrice1[0].text }];
+
+        if (row.lbb && row.lbb[0].text.includes('Yes') && row.price) {
+          row.lbbPrice = [{ text: row.price[0].text.trim() }];
         }
+
         if (row.shippingInfo) {
           if (row.shippingInfo[0].text.includes('Walmart')) {
             row.lbb = [{ text: 'No' }];
           }
         }
-        if (row.lbb && row.lbb[0].text.includes('Yes') && row.price) {
-          row.lbbPrice = [{ text: row.price[0].text.trim() }];
-        }
-
-        if (row.shippingInfo && (!row.otherSellersName || (row.otherSellersName && !row.otherSellersName[0].text.includes(row.shippingInfo[0].text)))) {
+        if (row.shippingInfo && (!row.otherSellersName || (row.otherSellersName && row.otherSellersName[0].text != 'Walmart' && !row.otherSellersName[0].text.includes(row.shippingInfo[0].text)))) {
           if (row.otherSellersName && row.otherSellersName.length > 0) {
             row.otherSellersName.unshift({ text: row.shippingInfo[0].text.trim() });
           } else {
@@ -65,9 +63,6 @@ const transform = (data, context) => {
             }
           }
           if (row.shippingPrice) {
-            if (row.isFreeShipping && row.isFreeShipping[0].text === 'Yes') {
-              row.shippingPrice = [{ text: '0.00' }];
-            }
             if (row.otherSellersShipping2 && row.otherSellersShipping2.length > 0) {
               row.otherSellersShipping2.unshift({ text: row.shippingPrice[0].text.trim() });
             } else {
@@ -76,7 +71,7 @@ const transform = (data, context) => {
           }
           if (row.otherSellersShipping2) {
             row.otherSellersShipping2.forEach(item => {
-              item.text = item.text.replace('0', '0.00');
+              item.text = item.text.replace('0.00', '0').replace('0', '0.00');
             });
           }
         }
