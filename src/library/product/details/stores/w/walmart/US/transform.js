@@ -36,21 +36,21 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-        if (row.asin) {
-          row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
-        }
         if (row.variantId) {
           row.productUrl = [{ text: `https://www.walmart.com/ip/${row.variantId[0].text}` }];
+        }
+        if (row.listPrice1) {
+          row.listPrice = [{ text: row.listPrice1[0].text }];
+        }
+        if (row.shippingInfo) {
+          if (row.shippingInfo[0].text.includes('Walmart')) {
+            row.lbb = [{ text: 'No' }];
+          }
         }
         if (row.lbb && row.lbb[0].text.includes('Yes') && row.price) {
           row.lbbPrice = [{ text: row.price[0].text.trim() }];
         }
-        if (row.shippingInfo && row.shippingInfo[0].text !== '') {
-          row.shippingInfo = [{ text: row.shippingInfo[0].text.trim() }];
-        } else
-        if (row.shippingInfo1) {
-          row.shippingInfo = [{ text: row.shippingInfo1[0].text.replace('"sellerDisplayName":"', '').replace('","showSold', '') }];
-        }
+
         if (row.shippingInfo && (!row.otherSellersName || (row.otherSellersName && !row.otherSellersName[0].text.includes(row.shippingInfo[0].text)))) {
           if (row.otherSellersName && row.otherSellersName.length > 0) {
             row.otherSellersName.unshift({ text: row.shippingInfo[0].text.trim() });
@@ -65,22 +65,30 @@ const transform = (data, context) => {
             }
           }
           if (row.shippingPrice) {
-            if (row.otherSellersShipping && row.otherSellersShipping.length > 0) {
-              row.otherSellersShipping.unshift({ text: row.shippingPrice[0].text.trim() });
-            } else {
-              row.otherSellersShipping = [{ text: row.shippingPrice[0].text.trim() }];
+            if (row.isFreeShipping && row.isFreeShipping[0].text === 'Yes') {
+              row.shippingPrice = [{ text: '0.00' }];
             }
+            if (row.otherSellersShipping2 && row.otherSellersShipping2.length > 0) {
+              row.otherSellersShipping2.unshift({ text: row.shippingPrice[0].text.trim() });
+            } else {
+              row.otherSellersShipping2 = [{ text: row.shippingPrice[0].text.trim() }];
+            }
+          }
+          if (row.otherSellersShipping2) {
+            row.otherSellersShipping2.forEach(item => {
+              item.text = item.text.replace('0', '0.00');
+            });
           }
         }
         if (row.availabilityText) {
-          row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];
+          row.availabilityText = [{ text: row.availabilityText[0].text.replace('IN_STOCK', 'In Stock').replace('OUT_OF_STOCK', 'Out of stock') }];
         } else if (row.availabilityMessage) {
           row.availabilityText = [{ text: row.availabilityMessage[0].text }];
         }
         if (row.variantInformation) {
           let text = '';
           row.variantInformation.forEach(item => {
-            const splits = item.text.replace(/\\"/g, '').replace('}', '').split(':');
+            const splits = item.text.replace(/\"/g, '').replace('}', '').split(':');
             text += `${splits[splits.length - 1].replace('actual_color-', '')} | `;
           });
           row.variantInformation = [
@@ -92,13 +100,31 @@ const transform = (data, context) => {
         if (row.firstVariant) {
           row.firstVariant = [{ text: row.firstVariant[0].text.replace('"primaryProductId":"', '').replace('","primary', '') }];
         }
+        if (row.directions) {
+          row.directions = [{ text: row.directions[0].text.replace(/\"/g, '') }];
+        }
         if (row.alternateImages) {
           row.alternateImages.forEach(item => {
-            if (!item.text.match('https://') && item.text.startsWith('//')) {
-              item.text = `https:${item.text}`;
-            }
+            const obj = JSON.parse(item.text);
+            item.text = obj.url;
+          });
+          row.image = [{ text: row.alternateImages[0].text }];
+          row.alternateImages.shift();
+        }
+        if (row.category) {
+          row.category.forEach(item => {
+            const obj = JSON.parse(item.text);
+            item.text = obj.name;
           });
         }
+        if (row.description) {
+          row.description = [{ text: row.description[0].text.replace(/<li>/g, '||') }];
+        }
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo = [{ text: row.additionalDescBulletInfo[0].text.replace(/<li>/g, '|') }];
+          row.descriptionBullets = [{ text: row.additionalDescBulletInfo[0].text.split('|').length }];
+        }
+
         if (row.nutritionInfo) {
           const jsonStr = `{${row.nutritionInfo[0].text}}`;
           if (jsonStr) {

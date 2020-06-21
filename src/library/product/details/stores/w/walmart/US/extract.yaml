@@ -1,197 +1,262 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id='added-variant']
 fields:
+#extracted in transform
 - name: image
   singleValue: true
-  xpath: //meta[@property='og:image']/@content
 - name: imageAlt
   singleValue: true
-  xpath: //*[contains(@class,'slider')]//div[@data-tl-id='ProductPage-alt-image0']/img/@alt
+  xpath: //script[@id='variant']
+  regExp: \"productName\":\"([^"]+)\",
+  regExpReplace: $1
 - name: alternateImages
   singleValue: false
-  xpath: //li[@class='slider-slide']//img/@src
+  xpath: //script[@id='variant']
+  regExp: >-
+    ({\"id\":\"\w+\",\"url\":\"([^"]+)\"})
+  #regExpReplace: $2
+- name: videos
+  singleValue: false
+  xpath: //script[@id='variant']
+  regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
+  regExpReplace: $2
 - name: metaKeywords
   singleValue: true
-  xpath: //meta[@name="keywords"]/@content
+  xpath: ancestor::html//meta[@name="keywords"]/@content
 - name: category
   singleValue: false
-  xpath: //li[contains(@class,"breadcrumb")]//span[not(contains(@class,'separator'))] | (//div[contains(@class,'breadcrumb-container')])[1]//li[contains(@class,"breadcrumb")]//a
+  xpath: //script[@id='variant']
+  regExp: ({\"name\":\"[^"]+\",\"url\":\"[^"]+\"})
 - name: nameExtended
   singleValue: true
-  xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1]  
-- name: listPrice
-  singleValue: true
-  xpath: //section[contains(@class,'prod-PriceSection')]//span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')]
-- name: price
-  singleValue: true
-  xpath: //span[@itemprop="highPrice"]/@content|//*[@class="prod-PriceHero"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
-- name: shippingPrice
-  singleValue: true
-  manualSelector: script[id='item']
-  regExp: shippingPrice":([\d\.]+)
+  xpath: //script[@id='variant']
+  regExp: \"productName\":\"([^"]+)\",
   regExpReplace: $1
-- name: availabilityText
-  singleValue: true
-  xpath: //link[@itemprop="availability"]/@href
-- name: availabilityMessage
-  singleValue: true
-  xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')]
-- name: manufacturer
-  singleValue: true
-  manualSelector: script[id='item'], script[id='product']
-  regExp: (\"manufacturer\"\:\")([^"]+)(",")
-  regExpReplace: $2
-- name: description
+#Attributes
+- name: promotion
   singleValue: false
-  xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div
-- name: descriptionBullets
+  xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
+- name: packSize
   singleValue: true
-  xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//ul/li)
-- name: ingredientsList
-  singleValue: true
-  manualSelector: p.Ingredients
-- name: brandText
-  singleValue: true
-  xpath: //span[@itemprop='brand']
 - name: quantity
   singleValue: true
 - name: weightNet
   singleValue: true
 - name: weightGross
   singleValue: true
+
+#Pricing and Availability
+- name: listPrice
+  singleValue: true
+  xpath: //script[@id='variant']
+  regExp: (\"LIST\":{\"priceType\":\"LIST PRICE\",\"price\":)([\d\.]+)
+  regExpReplace: $2
+- name: listPrice1
+  singleValue: true
+  xpath: //script[@id='variant']
+  regExp: (\"WAS\":{\"priceType\":\"BASE\",\"price\":)([\d\.]+)
+  regExpReplace: $2
+- name: price
+  singleValue: true
+  xpath: //script[@id='variant']
+  regExp: (\"CURRENT\":{\"priceType\":\"BASE\",\"price\":)([\d\.]+)
+  regExpReplace: $2  
+- name: shippingPrice
+  singleValue: true
+  defaultValue: 0.00
+  xpath: //script[@id='variant']
+  regExp: (\[{"fulfillmentPrice":{"price":)(\d+\.?\d*)
+  regExpReplace: $2
+- name: isFreeShipping
+  singleValue: true
+  defaultValue: Yes
+  xpath: //script[@id='variant']
+  regExp: ("freeShippingThresholdPrice":{})
+  regExpReplace: No
+- name: availabilityText
+  singleValue: true
+  xpath: //div[@id='added-avail']  
+- name: availabilityMessage
+  singleValue: true
+  xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')]
+- name: brandText
+  singleValue: true
+  xpath: //div[@id='added-brand']  
+  #regExp: (\"brand\":\")([^"]+)\",
+  #regExpReplace: $2
+- name: productUrl
+  singleValue: true
+#IDs
 - name: gtin
   singleValue: true
-  xpath: //*[contains(@itemprop,'gtin')]/@content
+  xpath: //div[@id='added-gtin']
+  #regExp: (,"upc":")(\w+)
+  #regExpReplace: $2
+- name: asin
+  singleValue: true
+  xpath: //div[@id='added-asin']
+  #regExp: (,"walmartItemNumber":")(\w+)
+  #regExpReplace: $2
 - name: sku
   singleValue: true
-  xpath: //script[@id='item'] | //script[id='product']
-  regExp: (","productId":\")(\w+)(","sell)?(","item)?
-  regExpReplace: $2
-- name: asin
-  singleValue: false
-  xpath: //div[contains(@class,'wm-item-number')]
-- name: variantId
-  singleValue: true
-  xpath: //div[@id='added-sku'] 
-- name: firstVariant
-  singleValue: true
-  manualSelector: script[id='item'], script[id='product']
-  regExp: ("primaryProductId":")([^"]+)(","primary)
+  xpath: //div[@id='added-sku']
+  #regExp: (,"productId":")(\w+)
+  #regExpReplace: $2
 - name: mpc
   singleValue: true
-  manualSelector: script[id='item'], script[id='product']
-  regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
-  regExpReplace: $2
-- name: packSize
+  xpath: //div[@id='added-mpc']
+  #regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
+  #regExpReplace: $2
+- name: variantId
   singleValue: true
+  xpath: //div[@id='added-variantId']
+  #regExp: (,"usItemId":")(\w+)
+  #regExpReplace: $2
+
+
+#manufacturer
+
+- name: manufacturer
+  singleValue: true
+  xpath: //div[@id='added-mName']
+  #regExp: (\"manufacturerName\"\:\")([^"]+)(",")
+  #regExpReplace: $2
+- name: manufacturerDescription
+  singleValue: false
+  xpath: //div[contains(@class,'wc-aplus')]
+- name: manufacturerImages
+  singleValue: false
+  xpath: //div[contains(@class,'wc-aplus')]//img/@src
+
+  #Description
+- name: description
+  singleValue: false
+  xpath: //script[@id='variant']
+  regExp: ("idmlLongDescription":"([^"]*)","idmlShortDescription":"([^"]*)")
+  regExpReplace: $3 $2
+- name: descriptionBullets
+  singleValue: true
+- name: additionalDescBulletInfo
+  singleValue: false  
+  xpath: //script[@id='variant']
+  regExp: ("idmlLongDescription":"([^"]*)")
+  regExpReplace: $2
+- name: ingredientsList
+  singleValue: true
+  xpath: //script[@id='variant']
+  regExp: ("ingredientsList":")(\[{[^\[\]]*"}\])
+  regExpReplace: $2
 - name: legalDisclaimer
   singleValue: true
 - name: directions
   singleValue: true
-  xpath: //p[@class='Directions']
+  xpath: //script[@id='variant']
+  regExp: (\"instructions\"\:\")([^"]+)(",")
 - name: warnings
   singleValue: true
-  xpath: //p[@class='Warnings']
+  #xpath: //p[@class='Warnings'] | //div[@class='LegalBadge-description'][contains(.,'arning')]
+  xpath: //script[@id='variant']
+  regExp: ("idmlWarnings:[{"name":"[^"]+","value":"([^"]+)"])
+  regExpReplace: $2
 - name: warranty
   singleValue: true
-  manualSelector: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  
-  xpath: //p[@class='Warnings']
-- name: ratingCount
+  xpath: //script[@id='variant']
+  regExp: (\"warranty":{"information":")([^"]+)"}
+  regExpReplace: $2
+
+#Variant Info
+
+- name: firstVariant
   singleValue: true
-  xpath: //*[@itemprop='aggregateRating']//span[@class='stars-reviews-count-node']
-  regExp: (\d*)  
-- name: aggregateRatingText
-  singleValue: true
-- name: aggregateRating
-  singleValue: true
-  xpath: //*[@itemprop='aggregateRating']//*[@itemprop='ratingValue']
-- name: shippingInfo
-  singleValue: true 
-  xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
-- name: shippingInfo1
-  singleValue: false
-  xpath: //script[@id='item'] | //script[@id='product']
-  regExp: \"sellerDisplayName\"\:\"([^"]+)(\"\,\"showSold)  
-- name: shippingDimensions
-  singleValue: true
-  xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
-- name: shippingWeight
-  singleValue: true
-  xpath: //td[contains(text(),'Product Weight')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
+  xpath: ancestor::html//script[@id='item']
+  regExp: ("primaryProductId":")([^"]+)(","primary)
 - name: variantCount
   singleValue: true
 - name: variantInformation
   singleValue: false 
-  manualSelector: script[id='item'], script[id='product']
+  xpath: //script[@id='variant']
   regExp: >-
     {"name":"\w*_\w*","value":"(\w*_\w*-[^\"]*)"}
-
 - name: variants
   singleValue: false
-  manualSelector: script[id='item'], script[id='product']
+  xpath: ancestor::html//script[@id='item'] |ancestor::html//script[@id='product']
   regExp: ({"productId":")(\w+)
   regExpReplace: $2
 - name: color
   singleValue: true 
-  manualSelector: script[id='item'], script[id='product']
+  xpath: //script[@id='variant']
   regExp: \{\"name\"\:\"actual_color\",\"value\"\:\"actual_color-([^\"]*)\"\}
   regExpReplace: $1
 - name: colorCode
   singleValue: true
-- name: manufacturerDescription
-  singleValue: false
-  xpath: //div[@id='added-aplus-body']
-- name: manufacturerImages
-  singleValue: false
-  xpath: //div[@id='added-aplus']
-- name: videos
-  singleValue: false
-  manualSelector: script[id='item'], script[id='product']
-  regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
-  regExpReplace: $2
-- name: name
+
+  #Reviews
+- name: ratingCount
   singleValue: true
-  xpath: //h1[@class='prod-ProductTitle font-normal']
+  xpath: //div[@id='added-ratingCount']
+  #regExp: ("numberOfReviews":)(\d+)
+  #regExpReplace: $2  
+- name: aggregateRatingText
+  singleValue: true
+- name: aggregateRating
+  singleValue: true
+  xpath: //div[@id='added-rating']
+  #regExp: ("averageRating":)([^,]+)
+
+  #ShippingInfo
+- name: shippingInfo
+  singleValue: true 
+  xpath: //script[@id='variant']
+  regExp: \"sellerDisplayName\"\:\"([^"]+)","sell
+  regExpReplace: $1
+  defaultValue: 0.00
+- name: shippingDimensions
+  singleValue: true
+  xpath: //script[@id='variant']
+  regExp: (\"name\":\"[^"]*Product Dimensions[^"]*","value":")([^"]+)"
+  regExpReplace: $2
+- name: shippingWeight
+  singleValue: true
+  xpath: //script[@id='variant']
+  regExp: (\"name\":\"[^"]*Product Weight[^"]*","value":")([^"]+)"
+  regExpReplace: $2  
 - name: otherSellersName
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: ("sellerName":")([^\"]+)(","sell)
+  xpath: //script[@id='variant']
+  regExp: ("sellerDisplayName":")([^"]+)(","price)
   regExpReplace: $2  
 - name: otherSellersPrice
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: (,"price":)(\d+\.?\d*)(,"sell)
+  xpath: //script[@id='variant']
+  regExp: ("price":{"priceType":"BASE","price":)(\d+\.?\d*)
   regExpReplace: $2
-- name: otherSellersShipping
+- name: otherSellersShipping2
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: (,"shipPrice":)(\d+\.?\d*)(})
-  regExpReplace: $2
-  
+  xpath: //script[@id='variant']
+  regExp: (,"fulfillmentPrice":{"price":)(\d+\.?\d*)
+  regExpReplace: $2  
 - name: lbb
   singleValue: true
-  defaultValue: Yes
-  xpath: //div[@class='SellerInfo']//a[@class='seller-name']
-  regExp: Walmart
-  regExpReplace: No
+  defaultValue: Yes 
 - name: lbbPrice
   singleValue: true  
-- name: additionalDescBulletInfo
-  singleValue: false  
-  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//ul/li
-- name: promotion
-  singleValue: false
-  xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
+
+#Additional Fields
 - name: ageSuitability
   singleValue: false
-  xpath: //td[contains(text(),'Age Range')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
+  xpath: //script[@id='variant']
+  regExp: (\"name\":\"[^"]*Age Range[^"]*","value":")([^"]+)"
+  regExpReplace: $2
 - name: energyEfficiency
   singleValue: false  
 - name: technicalInformationPdfPresent
-  singleValue: false  
+  singleValue: true  
   defaultValue: No
+  xpath: (ancestor::html//div[@class='ManualsAndGuides'])[1]
+  regExp: (.*)
+  regExpReplace: Yes
 - name: termsAndConditions
   singleValue: false  
   defaultValue: No
@@ -203,7 +268,10 @@ fields:
   defaultValue: No
 - name: materials
   singleValue: false
-  xpath: //td[contains(text(),'Material')]/following-sibling::td[@class='s-padding-ends s-padding-sides']|//td[contains(text(),'Fabric Content')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
+  #xpath: //td[contains(text(),'Material')]/following-sibling::td[@class='s-padding-ends s-padding-sides']|//td[contains(text(),'Fabric Content')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
+  xpath: //script[@id='variant']
+  regExp: (\"name\":\"[^"]*Material[^"]*","value":")([^"]+)"
+  regExpReplace: $2
 - name: Image360Present
   singleValue: false
   defaultValue: No
@@ -213,11 +281,14 @@ fields:
   regExp: (.*)
   regExpReplace: Yes
   defaultValue: No
+
+#Nutrition Info
 - name: nutritionInfo
   singleValue: true
-  manualSelector: script[id='item'], script[id='product']
+  xpath: //script[id='variant']
   regExp: ("nutritionFacts":{"calorieInfo(.*)}})(,"legalBadges")
   regExpReplace: $1
+
 - name: servingSize
   singleValue: false
     
@@ -309,6 +380,3 @@ fields:
 
 - name: ironPerServingUom
   singleValue: false
-
-- name: productUrl
-  singleValue: true

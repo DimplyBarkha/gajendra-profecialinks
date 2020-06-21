@@ -21,108 +21,102 @@ module.exports = {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, dependencies) => {
-    async function getVariants () {
-      const variants = await context.evaluate(function () {
-        const variantList = [];
+    async function collectVariantInformation (variantRequests) {
+      function generateRequest (baseUrl, itemID) {
+        var myHeaders = new Headers();
+        myHeaders.append('authority', 'www.walmart.com');
+        myHeaders.append('pragma', 'no-cache');
+        myHeaders.append('cache-control', 'no-cache');
+        myHeaders.append('user-agent', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36');
+        myHeaders.append('content-type', 'application/json');
+        myHeaders.append('accept', '*/*');
+        myHeaders.append('Accept-Encoding', 'gzip, deflate, br');
+        myHeaders.append('origin', 'https://www.walmart.com');
+        myHeaders.append('TE', 'Trailers');
+        myHeaders.append('Host', 'https://www.walmart.com');
+        myHeaders.append('Content-Length', '22');
+        myHeaders.append('Connection', 'keep-alive');
+        myHeaders.append('accept-language', 'en-US,en;q=0.9');
+        var raw = JSON.stringify({ itemId: itemID });
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow',
+        };
+        var request = {};
+        request.url = baseUrl;
+        request.options = requestOptions;
+        return request;
+      }
+      function getVariantRequests (baseUrl) {
+        const variantRequests = [];
         const node = document.querySelector("script[id='item']");
         if (node) {
-          const elements = node.textContent.match(/({"productId":")(\w+)/g);
-          if (elements && elements.length > 0) {
-            for (let i = 0; i < elements.length; i++) {
-              console.log(i);
-              const id = elements[i].split(':')[1].replace(/"/g, '');
-              if (id) {
-                variantList.push(id);
-              }
-            }
+          const jsonObj = JSON.parse(node.textContent);
+          if (jsonObj && jsonObj.item && jsonObj.item.product && jsonObj.item.product.buyBox && jsonObj.item.product.buyBox.products) {
+            const products = jsonObj.item.product.buyBox.products;
+            products.forEach(product => {
+              variantRequests.push(generateRequest(baseUrl, product.usItemId));
+            });
           }
         }
-        return variantList;
-      });
-      return variants;
-    };
-    async function addUrl () {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
+        return variantRequests;
       }
-      let url = window.location.href;
-      const splits = url ? url.split('?')[0].split('/') : [];
-      url = (splits.length > 1) ? splits[splits.length - 2] : '';
-      addHiddenDiv('added-sku', url);
-    }
-
-    async function scrollForIframe () {
-      let scrollTop = 500;
-      while (true) {
-        window.scroll(0, scrollTop);
-        await new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, 1000);
-        });
-        scrollTop += 500;
-        if (scrollTop === 10000) {
-          break;
+      function addVariantInformation (id, content) {
+        function addHiddenDivTag (parentNode, id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.style.display = 'none';
+          newDiv.textContent = content;
+          parentNode.appendChild(newDiv);
+          return newDiv;
+        }
+        function addScriptTag (parentNode, id, content) {
+          const newDiv = document.createElement('script');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          parentNode.appendChild(newDiv);
+          return newDiv;
+        }
+        const newDiv = addHiddenDivTag(document.body, id, '');
+        addHiddenDivTag(newDiv, 'added-gtin', content.upc);
+        addHiddenDivTag(newDiv, 'added-sku', content.productId);
+        addHiddenDivTag(newDiv, 'added-asin', content.walmartItemNumber);
+        addHiddenDivTag(newDiv, 'added-variantId', content.usItemId);
+        addHiddenDivTag(newDiv, 'added-mpc', content.manufacturerProductId);
+        addHiddenDivTag(newDiv, 'added-mName', content.manufacturerName);
+        addHiddenDivTag(newDiv, 'added-brand', content.brand);
+        addHiddenDivTag(newDiv, 'added-ratingCount', content.numberOfReviews);
+        addHiddenDivTag(newDiv, 'added-rating', content.averageRating);
+        addHiddenDivTag(newDiv, 'added-avail', content.availabilityStatus);
+        const tempDiv = addHiddenDivTag(newDiv, 'added-wc', '');
+        tempDiv.innerHTML = content.marketingContent;
+        addScriptTag(newDiv, 'variant', JSON.stringify(content));
+      }
+      async function getAllUrls (urls) {
+        try {
+          var data = await Promise.all(
+            urls.map(
+              url =>
+                fetch(url.url, url.options)
+                  .then(response => response.json())
+                  .catch()));
+          return (data);
+        } catch (error) {
+          console.log(error);
+          throw (error);
         }
       }
+      var requests = getVariantRequests('https://www.walmart.com/terra-firma/fetch?rgs=REVIEWS_FIELD,BUY_BOX_PRODUCT_IDML');
+      var responses = await getAllUrls(requests);
+      responses.reduce((acc, response, i) => {
+        return (i === 0 ? acc : (acc + ',')) + (response && response.payload && response.payload.buyBox && response.payload.buyBox.products ? addVariantInformation('added-variant', response.payload.buyBox.products[0]) : response);
+      }, '');
     }
 
-    async function collectEnhancedContent () {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-      const elemsInIframes = (selector, prop) => [
-        // @ts-ignore
-        ...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
-          return [...acc, ...[...frame.contentWindow.document.querySelectorAll(selector)].map(v => v[prop || 'src'])];
-        }, []),
-        // @ts-ignore
-        ...[...document.querySelectorAll(selector)].map(v => v[prop || 'src']),
-      ];
-      const elemInIframes = (selector, prop) => [
-        // @ts-ignore
-        ...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
-          return [...acc, ...[...frame.contentWindow.document.querySelectorAll(selector)].map(v => v.innerText)];
-        }, []),
-        // @ts-ignore
-        ...[...document.querySelectorAll(selector)].map(v => v.innerText),
-      ];
-      const wcBody = elemInIframes("div[class*='wc-aplus']");
-      addHiddenDiv('added-aplus-body', wcBody);
-      const images = elemsInIframes("img[class*='wc-image']");
-      if (images) {
-        images.forEach(img => addHiddenDiv('added-aplus', img));
-      }
-    }
-
-    const allVariants = await getVariants();
-    await context.evaluate(scrollForIframe);
-    await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
-    await context.evaluate(addUrl);
-    await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
-    console.log(allVariants);
-    // start at 1 to skip the first variant which is this page
-    const cnt = (allVariants && allVariants.length < 21) ? allVariants.length : 21;
-    for (let i = 1; i < cnt; i++) {
-      try {
-        const id = allVariants[i];
-        const url = await dependencies.createUrl({ id });
-        await dependencies.goto({ url });
-        await context.evaluate(scrollForIframe);
-        await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
-        await context.evaluate(addUrl);
-        await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
-      } catch (exception) {
-        console.log(exception);
-      }
-    }
+    // await context.collectSellerInformation();
+    await context.evaluate(collectVariantInformation);
+    await context.extract(dependencies.productDetails, { transform: transformParam });
   },
 };
