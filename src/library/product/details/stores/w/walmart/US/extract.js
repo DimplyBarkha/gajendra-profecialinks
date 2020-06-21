@@ -55,12 +55,15 @@ module.exports = {
       function getVariantRequests (baseUrl) {
         const variantRequests = [];
         const node = document.querySelector("script[id='item']");
-        if (node) {
-          const jsonObj = JSON.parse(node.textContent);
+        if (node && node.textContent) {
+          console.log("Getting Variants")
+          const jsonObj = node.textContent.startsWith('{"item":') ? JSON.parse(node.textContent) : null;
           if (jsonObj && jsonObj.item && jsonObj.item.product && jsonObj.item.product.buyBox && jsonObj.item.product.buyBox.products) {
+
             const products = jsonObj.item.product.buyBox.products;
             products.forEach(product => {
               variantRequests.push(generateRequest(baseUrl, product.usItemId));
+              console.log("Items found" + product.usItemId)
             });
           }
         }
@@ -133,7 +136,7 @@ module.exports = {
           tempDiv.innerHTML = content.marketingContent;
           content.marketingContent = 'Added as html';
         }
-        if (content.offerCount && content.offerCount > 2 && content.usItemId) {
+        if (content.offerCount && content.offerCount > 1 && content.usItemId) {
           let sUrl = sellerUrl.replace('id', content.usItemId);
           console.log(sUrl);
           getSellerInformation(sUrl).then(function (result) {
@@ -164,8 +167,9 @@ module.exports = {
         return (i === 0 ? acc : (acc + ',')) + (response && response.payload && response.payload.buyBox && response.payload.buyBox.products ? addVariantInformation('added-variant', response.payload.buyBox.products[0]) : response);
       }, '');
     }
-    await context.evaluate(collectVariantInformation);
     await new Promise(resolve => setTimeout(resolve, 5000));
+    await context.evaluate(collectVariantInformation);
+    await new Promise(resolve => setTimeout(resolve, 10000));
     await context.extract(dependencies.productDetails, { transform: transformParam });
   },
 };
