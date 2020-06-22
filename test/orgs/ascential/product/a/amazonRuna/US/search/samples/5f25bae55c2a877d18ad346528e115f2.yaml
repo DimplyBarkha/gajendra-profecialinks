@@ -1,0 +1,62 @@
+input:
+  keywords: Monster Energy Drink
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=def2066d-96ad-4102-ae66-4aad1ad36b2e/task=efd10343-33bd-4373-9f27-1203d94178da/88afc2f5-898e-4024-a9bd-a7857a924185.html
+    extractionConfigId: product/search/stores/a/amazonRuna/US/extract
+    data:
+      - group:
+          - price:
+              - text: $37.99
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]
+            name:
+              - text: Organic Clean Energy Iced Tea Drink by RUNA, Berry | Natural High Caffeine
+                  Coffee Alternative | Healthy Energy Boost with No Jitters |
+                  Naturally Sweetened, 8.4 oz (Pack of 24)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.com/RUNA-Clean-Energy-Naturally-Sweetened/dp/B00C685EUK/ref=sr_1_fkmr0_1?dchild=1&keywords=Monster+Energy+Drink&qid=1592550111&refinements=p_89%3ARUNA&sr=8-1-fkmr0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/61iZYVv02nL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            id:
+              - text: B00C685EUK
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/@data-asin
+            reviewCount:
+              - text: "566"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+            ratingCount:
+              - text: "566"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+          - price:
+              - text: $29.88
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]
+            name:
+              - text: Organic Clean Energy Drink by RUNA, Mango Tango | Refreshing Tea Taste |
+                  10 Calories | Powerful Natural Caffeine | Healthy Energy &
+                  Focus | No Crash or Jitters | 12 Oz (Pack of 12)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.com/RUNA-Clean-Energy-Alternative-Sustained/dp/B078NCN36H/ref=sr_1_fkmr0_2?dchild=1&keywords=Monster+Energy+Drink&qid=1592550111&refinements=p_89%3ARUNA&sr=8-2-fkmr0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/81cOjBmUZ1L._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            id:
+              - text: B078NCN36H
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/@data-asin
+            reviewCount:
+              - text: "41"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+            ratingCount:
+              - text: "41"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+        xpath: /html
+    timestamp: 1592550118233
