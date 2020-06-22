@@ -1,13 +1,9 @@
 extends: ../../amazon/US/extract
 fields:
-  - name: description
-    singleValue: false
-    xpath: //body/@additional_product_info
+  - name: name
+    xpath: //h1
   - name: nameExtended
-    singleValue: true
-    x th: //h1
-  - name: gtin
-    xpath: //li/b[contains(text(), 'UPC:')]/../text()
+    xpath: //h1
   - name: lbb
     xpath: //span[@id="price_inside_buybox"]
     regExp: (.+)
@@ -15,8 +11,6 @@ fields:
     defaultValue: "NO"
   - name: lbbPrice
     xpath: //span[@id="price_inside_buybox"]
-  - name: featureBullets
-    xpath: //body/@feature_bullets
   - name: otherSellersName
     xpath: //a[@id="sellerProfileTriggerId"]
   - name: otherSellersPrice
@@ -26,14 +20,8 @@ fields:
   - name: weightNet
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
     regExp: '[^()]+'
-  - name: variantId
-    singleValue: true
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
-  - name: primeFlag
+  - name: largeImageCount
+    xpath: count(//div[starts-with(@id,"ivImage_")])
+  - name: manufacturerImages
     singleValue: false
-    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
-    regExp: (.+)
-    regExpReplace: "Yes"
-  - name: variantAsins
-    singleValue: false
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
+    xpath: //div[@cel_widget_id="aplus"]//img/@data-src
