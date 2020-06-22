@@ -24,10 +24,10 @@ module.exports = {
 
       const multiNutriObj = {
         totalFatPerServing: 'Fat',
-        saturatedFatPerServing: 'saturates',
+        saturatedFatPerServing: 'Saturates',
         totalCarbPerServing: 'Carbohydrate',
         dietaryFibrePerServing: 'Fibre',
-        totalSugarsPerServing: 'sugars',
+        totalSugarsPerServing: 'Sugars',
         proteinPerServing: 'Protein',
         calciumPerServing: 'Calcium',
         vitaminCPerServing: 'Vitamin C',
@@ -55,20 +55,22 @@ module.exports = {
       function addNutritionalEle (property, xpath, propertyUom) {
         const servingProp = getEleByXpath(xpath);
         if (servingProp) {
-          addEleToDoc(property, servingProp.replace('mg', '').replace('g', '').replace('ml', '').replace('Per', '').replace(':', '').split('(')[0].trim());
+          addEleToDoc(property, servingProp.replace('mg', '').replace('g', '').replace('ml', '').replace('%','').replace('Per', '').replace(':', '').split('(')[0].trim());
           if (servingProp.includes('mg')) {
             addEleToDoc(propertyUom, 'mg');
           } else if (servingProp.includes('g')) {
             addEleToDoc(propertyUom, 'g');
           } else if (servingProp.includes('ml')) {
             addEleToDoc(propertyUom, 'ml');
+          } else if (servingProp.includes('%')) {
+            addEleToDoc(propertyUom, '%');
           }
         }
       }
 
       function addMultipleNutritionalEle (propertiesObj) {
         for (const prop in propertiesObj) {
-          const xpath = `//th[contains(.,'${propertiesObj[prop]}')]/following-sibling::td[1]`;
+          const xpath = `//th[contains(.,'${propertiesObj[prop]}') or contains(.,'${propertiesObj[prop].toLowerCase()}')]/following-sibling::td[1]`;
           addNutritionalEle(`${prop}`, xpath, `${prop}Uom`);
         }
       }

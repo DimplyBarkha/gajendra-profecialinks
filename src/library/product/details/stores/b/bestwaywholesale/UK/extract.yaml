@@ -19,8 +19,8 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"prodtabcontents current")]/ul/li
   - name: ingredientsList
-    singleValue: true
-    xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::p
+    singleValue: false
+    xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::*[(following-sibling::p and preceding-sibling::h5) or following-sibling::h2]
   - name: brandText
     singleValue: true
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Brand:')]/following-sibling::td
@@ -35,7 +35,7 @@ fields:
     xpath: //*[@id="productId"]
   - name: directions
     singleValue: true
-    xpath: //h2[contains(.,"Preparation and Usage")]/following-sibling::p[1]
+    xpath: concat(//h2[contains(.,"Preparation and Usage")], ' ', //h2[contains(.,"Preparation and Usage")]/following-sibling::p[1])
   - name: warnings
     singleValue: true
     xpath: //*[contains(text(), 'WARNING')]
