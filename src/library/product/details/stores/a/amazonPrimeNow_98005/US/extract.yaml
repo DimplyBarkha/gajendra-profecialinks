@@ -52,7 +52,7 @@ fields:
     regExp: '(by )(.*)'
     regExpReplace: $2
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //th[contains(text(), 'Manufacturer')][not(contains(text(),"Is Discontinued By Manufacturer"))]/following-sibling::*[1]
   - name: quantity
     singleValue: true
@@ -93,7 +93,7 @@ fields:
     singleValue: true
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
   - name: warnings
-    singleValue: true
+    singleValue: false
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]
   - name: ratingCount
     singleValue: false
@@ -104,7 +104,7 @@ fields:
     singleValue: true
   - name: aggregateRating
     singleValue: false
-    xpath: //table[contains(@class,"prodDetTable")]//*[@id="acrPopover"]/@title
+    xpath: //div[@id="centerCol"]//*[@id="acrPopover"]/@title
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: shippingInfo
