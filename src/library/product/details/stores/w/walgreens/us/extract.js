@@ -58,11 +58,11 @@ module.exports = {
           // wait for full loading
           await new Promise(resolve => setTimeout(resolve, 5e3));
 
-          if (!getXpath(variantXpath)) return;
+          if (variantXpath && !getXpath(variantXpath)) return;
 
           // monkey patch ajax calls
           const originalRequestOpen = XMLHttpRequest.prototype.open;
-          let response;
+          let response = {};
           XMLHttpRequest.prototype.open = function () {
             if (arguments[0] === 'POST' && arguments[1].includes('(PriceInfo+Inventory+ProductInfo+ProductDetails)')) {
               this.addEventListener('load', function () {
@@ -75,7 +75,7 @@ module.exports = {
             }
             originalRequestOpen.apply(this, arguments);
           };
-          getXpath(variantXpath).click();
+          variantXpath && getXpath(variantXpath).click();
 
           await new Promise(resolve => setTimeout(resolve, 5e3));
           XMLHttpRequest.prototype.open = originalRequestOpen;
@@ -287,11 +287,13 @@ module.exports = {
             imageZoomFeaturePresent: document.querySelector('#zoomLensContainer') ? 'Yes' : 'No',
           };
           removeObjectToDocument(obj);
+          await new Promise(resolve => setTimeout(resolve, 3e3));
           addObjectToDocument(obj);
         }, [id, url, variantXpath]);
 
         await context.extract(productDetails, { transform: transformParam, type: 'APPEND' });
       };
+      if (variants.length === 0) return await extract();
       for (let index = 0; index < variants.length; index++) {
         await extract(variants[index]);
       };
