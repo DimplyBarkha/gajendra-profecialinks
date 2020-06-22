@@ -21,10 +21,17 @@ fields:
     xpath: ./@id
     regExp: (?:item-(\d+))$
     regExpReplace: https://grocery.walmart.com/product/$1
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='search-url']
+    regExp: (^[^#]*)
+    regExpReplace: $1
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
     xpath: //a//div[@data-automation-id="imageLinkChildren"]//img/@src
+    regExp: (^[^?]*)
+    regExpReplace: $1
   - name: name
     singleValue: true
     description: The product name
