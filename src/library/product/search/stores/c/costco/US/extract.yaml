@@ -1,0 +1,46 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@class="caption"]//p[@class="description"]/a/@href
+  - name: thumbnail
+    singleValue: true
+    xpath: //div[contains(@class,"product-tile-set")]//div[@class="thumbnail"]//div//div//img/@src
+  - name: name
+    singleValue: true
+    xpath: //div[@class="caption"]//p[@class="description"]/a
+  - name: id
+    singleValue: true
+    xpath: //div[contains(@class,"product-tile-set")]//div[@class="thumbnail"]/@itemId
+  - name: search_url
+    singleValue: false
+    xpath: //div[@id="filter-header"]/a/@data-url
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="caption"]//div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="caption"]//div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
+  - name: price
+    singleValue: false
+    xpath: //div[@class="caption"]//div[contains(@id,"price")]
+  - name: manufacturer
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class="caption"]//div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: true
+  - name: rankOrganic
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: sponsored
+    singleValue: true
+    xpath: 
+    defaultValue: false
