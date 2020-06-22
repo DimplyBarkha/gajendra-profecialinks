@@ -74,6 +74,7 @@ const transform = (data, context) => {
         }
         if (row.otherSellersShipping2) {
           row.otherSellersShipping2.forEach(item => {
+            item.text = item.text.split("$").length > 1 ? item.text.split("$")[1]: item.text;
             item.text = item.text.replace('Free','0').replace(' delivery','').replace('0.00', '0').replace('0', '0.00');
           });
         }
@@ -81,7 +82,7 @@ const transform = (data, context) => {
           row.description = [{ text: row.description[0].text.replace(/\n \n/g, ' || ') }];
         }
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
-          row.additionalDescBulletInfo[0].text = ' | ' + row.additionalDescBulletInfo[0].text;
+          row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' | ') ? row.additionalDescBulletInfo[0].text : ' | ' + row.additionalDescBulletInfo[0].text;
         }
         if (row.availabilityText) {
           row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];

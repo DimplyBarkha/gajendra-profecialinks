@@ -55,7 +55,7 @@ module.exports = {
             if(content.idmlSections && content.idmlSections.marketingContent) {
             const newDiv = document.createElement('div');
             newDiv.id = 'added-marketing';
-            newDiv.innerHTML = jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent;
+            newDiv.innerHTML = unescape(jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent);
             newDiv.style.display = 'none';
             document.body.appendChild(newDiv);
             }

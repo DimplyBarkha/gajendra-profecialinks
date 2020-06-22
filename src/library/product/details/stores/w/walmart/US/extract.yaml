@@ -140,10 +140,10 @@ fields:
   singleValue: true
 - name: manufacturerDescription
   singleValue: false
-  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')]
+  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')] |//div[@id='added-marketing']//div[contains(@class,'content')]
 - name: manufacturerImages
   singleValue: false
-  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')]//img/@src
+  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')]//img/@src |//div[@id='added-marketing']//div[contains(@class,'content')]//img/@src
 - name: videos
   singleValue: false
   manualSelector: script[id='item'], script[id='product']
@@ -163,6 +163,7 @@ fields:
 - name: otherSellersShipping2
   singleValue: false
   xpath: //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'price price')] | //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'font-semibold')]
+  regExp: ([Free]?\d*\.?\d*))
   defaultValue: 0
 - name: lbb
   singleValue: true
