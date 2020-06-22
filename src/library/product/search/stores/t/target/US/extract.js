@@ -78,7 +78,7 @@ async function implementation (
           return pictureDiv.querySelector('img').getAttribute('src').replace(/700/g, '325');
         }
       });
-      fetchedImages.push(itemId + ':' + image);
+      fetchedImages.push(itemId + ':' + image.replace('https://target.com', ''));
     }
 
     console.log(fetchedImages);
@@ -126,7 +126,7 @@ async function implementation (
                 image = imageStr.split(':')[1];
               }
             });
-            addHiddenDiv(itemContainer, 'thumbnail', image);
+            addHiddenDiv(itemContainer, 'thumbnail', 'https://target.com' + image);
           }
           if (itemContainer.querySelector('div[data-test="ratings"]')) {
             const rating = itemContainer.querySelector('div[data-test="ratings"]').innerText.split(' ')[0];
