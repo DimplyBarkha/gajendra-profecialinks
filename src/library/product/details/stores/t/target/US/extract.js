@@ -188,10 +188,10 @@ async function implementation (
         const options = document.getElementById('options');
         if (document.getElementById('btnIndex') && options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].getAttribute('aria-label')) {
           addHiddenDiv('colorInfo', options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].getAttribute('aria-label').split('-')[0].replace('color', '').trim());
-        } else if(document.getElementById('btnIndex')) {
+        } else if (document.getElementById('btnIndex')) {
           addHiddenDiv('colorInfo', options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText.trim());
         }
-        if(document.getElementById('btnIndex')) {
+        if (document.getElementById('btnIndex')) {
           options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
         }
       } else {
@@ -386,7 +386,7 @@ async function implementation (
         document.querySelectorAll('p').forEach(e => {
           if (validTextField(e) && e.innerText.indexOf('Serving Size:') > -1) {
             addHiddenDiv('servingSizeInfo', e.innerText.replace('Serving Size: ', ''));
-            if(document.getElementById('servingSizeInfo')) {
+            if (document.getElementById('servingSizeInfo')) {
               const splitInfo = document.getElementById('servingSizeInfo').innerHTML.split(' ');
               addHiddenDiv('servingSizeUomInfo', splitInfo[splitInfo.length - 1]);
             }
