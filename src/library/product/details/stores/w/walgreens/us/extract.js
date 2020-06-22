@@ -61,7 +61,7 @@ module.exports = {
           if (!getXpath(variantXpath)) return;
 
           // monkey patch ajax calls
-          let originalRequestOpen = XMLHttpRequest.prototype.open;
+          const originalRequestOpen = XMLHttpRequest.prototype.open;
           let response;
           XMLHttpRequest.prototype.open = function () {
             if (arguments[0] === 'POST' && arguments[1].includes('(PriceInfo+Inventory+ProductInfo+ProductDetails)')) {
