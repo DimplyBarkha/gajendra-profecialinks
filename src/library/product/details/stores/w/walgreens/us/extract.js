@@ -18,9 +18,9 @@ module.exports = {
             for (var p in obj2) {
               try {
                 // Property in destination object set; update its value.
-                if ( obj2[p].constructor==Object ) obj1[p] = MergeRecursive(obj1[p], obj2[p]);
+                if (typeof obj2[p] === 'object' && obj2[p] !== null) obj1[p] = MergeRecursive(obj1[p], obj2[p]);
                 else obj1[p] = obj2[p];
-              } catch(e) {
+              } catch (e) {
                 // Property in destination object not set; create it and set its value.
                 obj1[p] = obj2[p];
               }
@@ -54,18 +54,18 @@ module.exports = {
             const text = doc.querySelector(selector) ? doc.querySelector(selector)[property] : ifError;
             return raw ? text : text.replace(/\s{2,}, ' '/g).replace(/^\s*\n|^.\n/gm, '').trim();
           };
-    
+
           // wait for full loading
           await new Promise(resolve => setTimeout(resolve, 5e3));
 
-          if(!getXpath(variantXpath)) return;
+          if (!getXpath(variantXpath)) return;
 
           // monkey patch ajax calls
           originalRequestOpen = XMLHttpRequest.prototype.open;
           let response;
-          XMLHttpRequest.prototype.open = function() {
-            if(arguments[0] === 'POST' && arguments[1].includes('(PriceInfo+Inventory+ProductInfo+ProductDetails)')) {
-              this.addEventListener('load', function() {
+          XMLHttpRequest.prototype.open = function () {
+            if (arguments[0] === 'POST' && arguments[1].includes('(PriceInfo+Inventory+ProductInfo+ProductDetails)')) {
+              this.addEventListener('load', function () {
                 try {
                   response = JSON.parse(this.response);
                 } catch (error) {
@@ -81,13 +81,13 @@ module.exports = {
           XMLHttpRequest.prototype.open = originalRequestOpen;
 
           const jsonObj = MergeRecursive(window.__ATC_APP_INITIAL_STATE__.product.results, response);
-    
+
           const infos = jsonObj.productInfo;
           const details = jsonObj.prodDetails;
           const price = jsonObj.priceInfo;
-    
+
           const priceOther = JSON.parse(getSelector('script[type="application/ld+json"]', { raw: true, ifError: JSON.stringify({}) }));
-    
+
           const priceValue = (props) => {
             if (!Array.isArray(props)) return priceValue([props]);
             const result = props.reduce((acc, prop) => {
@@ -99,29 +99,29 @@ module.exports = {
             if (!result) return '';
             return result.includes('$') ? result : `$${result}`;
           };
-    
+
           const findInSection = key => (details.section.find(u => u[key]) ? details.section.find(u => u[key])[key] : '');
-    
+
           const desc = findInSection('description');
           const ingredients = findInSection('ingredients');
           const warnings = findInSection('warnings');
           const shipping = findInSection('shipping');
           const reviews = findInSection('reviews');
-    
+
           const fullDescription = desc ? decodeURIComponent(desc.productDesc) : '';
           const directions = fullDescription.toLowerCase().indexOf('how to') > -1 ? fullDescription.toLowerCase().indexOf('how to') : '';
-    
+
           const images = infos.filmStripUrl.reduce((acc, obj) => {
             const filtered = Object.entries(obj).filter(([key]) => key.includes('largeImageUrl'));
             const array = filtered && filtered.length === 0 ? ['https:' + Object.entries(obj)[0]] : filtered.map(([key, link]) => 'https:' + link);
             return [...acc, ...array];
           }, []);
-    
+
           const hasIngrList = ingredients && ingredients.ingredientGroups &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes) &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
           const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, ...obj.ingredients], []) : '';
-    
+
           const nutrition = ingredients && ingredients.nutritionFactsGroups ? ingredients.nutritionFactsGroups : '';
           const hasNutrition = nutrition && nutrition.find(u => u.nutritionFact);
           const nutritionTable = hasNutrition ? nutrition.find(u => u.nutritionFact).nutritionFact.reduce((acc, obj) => {
