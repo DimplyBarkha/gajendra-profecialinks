@@ -55,7 +55,11 @@ module.exports = {
       function addNutritionalEle (property, xpath, propertyUom) {
         const servingProp = getEleByXpath(xpath);
         if (servingProp) {
-          addEleToDoc(property, servingProp.replace('mg', '').replace('g', '').replace('ml', '').replace('%','').replace('Per', '').replace(':', '').split('(')[0].trim());
+          const normlizedServingProp = servingProp.replace('mg', '').replace('g', '').replace('ml', '').replace('%', '').replace('Per', '').replace(':', '').split('(')[0].trim();
+          if (!normlizedServingProp.match(/(^[.0-9]+)/g)) {
+            return;
+          }
+          addEleToDoc(property, normlizedServingProp);
           if (servingProp.includes('mg')) {
             addEleToDoc(propertyUom, 'mg');
           } else if (servingProp.includes('g')) {

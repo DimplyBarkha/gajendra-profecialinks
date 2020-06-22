@@ -42,6 +42,7 @@ fields:
   - name: servingSize
     singleValue: true
     xpath: //*[@id='servingSize']
+    regExp: (^[.0-9]+)
   - name: servingSizeUom
     singleValue: true
     xpath: //*[@id='servingSizeUom']
