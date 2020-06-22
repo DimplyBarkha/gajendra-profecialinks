@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'amazonPrimePantry',
     domain: 'amazon.com',
-    loadedSelector: '#title',
+    loadedSelector: '#altImages li[class*="imageThumbnail"] img',
     noResultsXPath: null,
   },
 };

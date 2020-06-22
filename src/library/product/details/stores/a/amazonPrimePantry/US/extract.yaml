@@ -12,7 +12,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
+    xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -48,3 +48,50 @@ fields:
   - name: directions
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
+  - name: ratingCount
+    singleValue: false
+    xpath: //*[@id="acrCustomerReviewText"]/text()
+    regExp: ([0-9,]{1,}) ratings
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //*[@id="acrPopover"]/@title
+    regExp: ([0-9\.]{1,}) out of
+    regExpReplace: $1
+  - name: shippingInfo
+    singleValue: false
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
+  - name: imageAlt
+    singleValue: true
+    xpath: (//img[@id="landingImage"])[1]/@alt
+  - name: fastTrack
+    singleValue: false
+    xpath: //*[@id="deliveryMessageMirId"]
+  - name: variantInformation
+    singleValue: false
+    xpath: //*[@id="twister"]//span[@class="selection"]
+  - name: category
+    singleValue: true
+    xpath: //*[@id="SalesRank"]/ul/li//a[1]
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
+  - name: videos
+    singleValue: false
+    xpath: //*[@id="imageBlockVariations_feature_div"]/script/text()
+    regExp: url":"(.{30,300})"\,"videoHeight
+    regExpReplace: $1
+  - name: quantity
+    singleValue: false
+    xpath: //*[@id="productTitle"]
+    regExp: ([0-9\.\,]{0,5}[-\s]?([Cc]ount|[fF][lL]\s[Oo][Zz]|[Oo]unce|[Oo]z))
+    regExpReplace: $1
+  - name: promotion
+    singleValue: false
+    xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
