@@ -42,7 +42,7 @@ fields:
     regExpReplace: $1
   - name: weightGross
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
-    regExp: ([^()]+)
+    regExp: ([^()]+)\s
     regExpReplace: $1
   - name: gtin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
@@ -87,11 +87,11 @@ fields:
   - name: colorCode
     xpath:
   - name: manufacturerDescription
-    xpath: //div[@id="productDescription"]/p[text()]/text()
+    xpath: //div[@id="productDescription"]/p[text()]/text()|//div[@class="apm-hovermodule-slides-inner"]/h3|//div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: manufacturerImages
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
-    xpath: //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
+    xpath: //li[contains(@class,"vse-video-card")]//div/@data-video-url
   - name: name
     xpath: //title
   - name: inStorePrice
@@ -134,13 +134,15 @@ fields:
   - name: pasin
     xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
   - name: videoLength
-    xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
+    xpath: //li[contains(@class,"vse-video-card")]//div/p[@data-element-id="video-duration"]
   - name: heroQuickPromoHeadline
     xpath: //div[@class="a-section a-spacing-none uilm-section"]/a/@aria-label
   - name: heroQuickPromoImageUrl
     xpath: //div[@class="a-section a-spacing-none uilm-section"]//img/@src
   - name: heroQuickPromoUrl
     xpath: //div[@class="a-section a-spacing-none uilm-section"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com$1
   - name: ingredientImagePresent
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
     regExp: (.+)
@@ -156,8 +158,8 @@ fields:
   - name: specifications
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
-    sinlgeValue: false
-    xpath: //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]
+    sinlgeValue: true
+    xpath: (//span[@id="price-shipping-message"]//a[contains(text(), "Prime")])[1]
     regExp: (.+)
     regExpReplace: "Yes - Shipped and Sold"
     defaultValue: "NO"
@@ -168,13 +170,13 @@ fields:
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
-    xpath:
-  - name: otherSellersPrime
-    xpath:
+    xpath: //span[contains(@class,'mbcMerchantName')]
+  - name: otherSellersPrice
+    xpath: //span[contains(@id, "mbc-price")]
   - name: otherSellersShipping
-    xpath:
+    xpath: //span[contains(@id, "mbc-shipping")]
   - name: secondaryImageTotal
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
+    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')][position()>1])
   - name: news
     xpath:
   - name: addonItem

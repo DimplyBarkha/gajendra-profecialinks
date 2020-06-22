@@ -1,19 +1,17 @@
 extends: ../../amazon/US/extract
 fields:
   - name: name
-    xpath: //h1
+    singleValue: true
+    xpath: //h1//span[@id="productTitle"]
   - name: nameExtended
-    xpath: //h1
+    singleValue: true
+    xpath: //h1//span[@id="productTitle"]
   - name: lbb
     xpath: //span[@id="price_inside_buybox"]
     regExp: (.+)
     regExpReplace: "YES"
     defaultValue: "NO"
   - name: lbbPrice
-    xpath: //span[@id="price_inside_buybox"]
-  - name: otherSellersName
-    xpath: //a[@id="sellerProfileTriggerId"]
-  - name: otherSellersPrice
     xpath: //span[@id="price_inside_buybox"]
   - name: legalDisclaimer
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
@@ -25,3 +23,5 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@data-src
+  - name: productOtherInformation
+    xpath:
