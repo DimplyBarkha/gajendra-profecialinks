@@ -23,11 +23,17 @@ fields:
     xpath: //div[@class='extra-info']/@data-thumbnail 
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-rating
+    # xpath: //div[@class='extra-info']/@data-rating
+    xpath: //div[@class='flex-align-center wag-prod-ratings']/span/img/@title
+    regExp: >-
+      ^.{0,3}
     type: NUMBER
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-rating
+    # xpath: //div[@class='extra-info']/@data-rating
+    xpath: //div[@class='flex-align-center wag-prod-ratings']/span/img/@title
+    regExp: >-
+      ^.{0,3}
     type: NUMBER
   - name: reviewCount
     singleValue: false
@@ -37,7 +43,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath:  //div[@class='extra-info']/@data-price
+    xpath: //div[@class='extra-info']/@data-price
   - name: manufacturer
     singleValue: true
   - name: soldBy

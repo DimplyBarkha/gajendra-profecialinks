@@ -32,10 +32,10 @@ async function implementation (
         if (ratingText) {
           newDiv.dataset.rating = ratingText.replace(reForRatings, '$1');
         } else {
-          newDiv.dataset.rating = '0';
+          newDiv.dataset.rating = '';
         }
       } else {
-        newDiv.dataset.rating = '0';
+        newDiv.dataset.rating = '';
       }
       const priceDiv = (productCards && productCards[i]) ? productCards[i].querySelector('div.wag-prod-price-info span.sr-only') : undefined;
       const re = /\$(\d+) and (\d+) cents/;
