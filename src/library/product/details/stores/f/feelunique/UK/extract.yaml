@@ -1,0 +1,19 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class, "productpage-image")]//@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class, "productpage-image")]//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class, "galleryimages")]//a//img//@src
+  - name: metaKeywords
+    singleValue: true
+  - name: category
+    singleValue: true
+    xpath: (//div[@id="breadcrumb"]//a)[2]
