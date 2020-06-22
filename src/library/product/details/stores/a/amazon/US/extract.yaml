@@ -136,11 +136,11 @@ fields:
   - name: videoLength
     xpath: //li[contains(@class,"vse-video-card")]//div/p[@data-element-id="video-duration"]
   - name: heroQuickPromoHeadline
-    xpath: //div[@class="a-section a-spacing-none uilm-section"]/a/@aria-label
+    xpath: //div[@id="hero-quick-promo"]//span
   - name: heroQuickPromoImageUrl
-    xpath: //div[@class="a-section a-spacing-none uilm-section"]//img/@src
+    xpath: //div[@id="hero-quick-promo"]//img[@class="a-dynamic-image"]/@src
   - name: heroQuickPromoUrl
-    xpath: //div[@class="a-section a-spacing-none uilm-section"]/a/@href
+    xpath: (//div[@id="hero-quick-promo"]//a[@class="a-link-normal"]/@href)[1]
     regExp: (.+)
     regExpReplace: https://www.amazon.com$1
   - name: ingredientImagePresent
@@ -262,7 +262,7 @@ fields:
   - name: saltPerServingUom
     xpath:
   - name: dietaryInformation
-    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
+    xpath:
   - name: warranty
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
   - name: storage
@@ -270,7 +270,7 @@ fields:
   - name: countryOfOrigin
     xpath:
   - name: allergyAdvice
-    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
+    xpath:
   - name: recyclingInformation
     xpath:
   - name: productOtherInformation
