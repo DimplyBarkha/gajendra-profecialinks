@@ -50,11 +50,11 @@ async function implementation (
       const itemContainers = document.querySelectorAll('li.Col-favj32-0.h-padding-a-none.h-display-flex');
       const products = [];
       for (const itemContainer of itemContainers) {
-        if(!itemContainer.querySelector('source') || !itemContainer.querySelector('source').getAttribute('srcset')) {
+        //if(!itemContainer.querySelector('source') || !itemContainer.querySelector('source').getAttribute('srcset')) {
           let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
           itemId = itemId.split('-')[1];
           products.push('https://target.com' + itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href'));
-        }
+        //}
       }
       return products;
     });
@@ -133,19 +133,19 @@ async function implementation (
           let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
           itemId = itemId.split('-')[1];
           addHiddenDiv(itemContainer, 'itemId', itemId);
-          if(itemContainer.querySelector('source') || itemContainer.querySelector('source').getAttribute('srcset')) {
+          /*if(itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
             const image = itemContainer.querySelector('source').getAttribute('srcset');
             addHiddenDiv(itemContainer, 'thumbnail', image);
           } else {
-          let image = '';
+            let image = '';*/
             for (const imageStr of document.getElementById('missingImages').value.split(' ')) {
               if (imageStr && imageStr.split(',')[0] === itemId) {
-                image = imageStr.split(',')[1];
+                const image = imageStr.split(',')[1];
                 addHiddenDiv(itemContainer, 'thumbnail', image);
                 break;
               }
             }
-          }
+          //}
           if (itemContainer.querySelector('div[data-test="ratings"]')) {
             const rating = itemContainer.querySelector('div[data-test="ratings"]').innerText.split(' ')[0];
             addHiddenDiv(itemContainer, 'rating', rating);
