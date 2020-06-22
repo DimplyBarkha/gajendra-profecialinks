@@ -1,0 +1,83 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="sc-kAzzGY gmlXvg"]
+fields:
+  - name: name
+    singleValue: true
+    xpath: //h1/@aria-label
+  - name: brandText
+    singleValue: false
+    xpath: //h1//span[@class="brand"]
+  - name: image
+    singleValue: false
+    xpath: (//div[@class="galleryWrapper"]//ul//li[3]//img/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@class="galleryWrapper"]//ul//li[3]//img/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[@class="styles__ListItem-d6s9rt-4 fkFSpV"]//img/@src
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //nav[@class="breadcrumb-container"]//ul//li//a
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class="was"]
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: false
+    xpath: //span[@class="aPrice large"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="buttonWrapper"]
+    regExp: Add to Cart
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //div[@class="content"]//div[@class="romance"] | //div[@class="content"]//div[@class="specs"]//ul
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class="content"]//div[@class="specs"]//ul//li)
+  - name: sku 
+    singleValue: false
+    xpath: //div[@class="buttonWrapper"]//input//@value
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="modelNo"]//span[1]
+  - name: mpc
+    singleValue: false
+    xpath: //div[@class="modelNo"]//span[2]
+  - name: ratingCount
+    singleValue: false
+    xpath: (//span[@class="sc-dymIpo krADzm total"])[1]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"rating")]//a/@aria-label
+    regExp: (.+) out of(.)
+    regExpReplace: $1
+  - name: specifications
+    singleValue: false
+    xpath: (//div[@id="specifications-id"]//div[contains(@class,'content')])[1]
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(.,"Warranty")]/following-sibling::div[@class="value"]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class, 'pvsLabel')]//h3
+    description: colour / scent / flavour / other
+  - name: promotion
+    singleValue: true
+    xpath: //span[@class="offer"]//div[contains(@class, 'sc-hSdWYo QXRJk')]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="tile"]//img)
+  - name: warnings 
+    singleValue: false
+    xpath: //div[contains(@class, 'props65')]//span[contains(@class, 'title')]
+  - name: url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
