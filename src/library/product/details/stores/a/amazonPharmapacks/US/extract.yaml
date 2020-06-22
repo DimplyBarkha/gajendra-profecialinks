@@ -1,12 +1,9 @@
 extends: ../../amazon/US/extract
 fields:
-  - name: nameExtended
-    singleValue: true
+  - name: name
     xpath: //h1
-  - name: gtin
-    xpath: //li/b[contains(text(), 'UPC:')]/../text()
-  - name: directions
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text()
+  - name: nameExtended
+    xpath: //h1
   - name: lbb
     xpath: //span[@id="price_inside_buybox"]
     regExp: (.+)
@@ -14,8 +11,6 @@ fields:
     defaultValue: "NO"
   - name: lbbPrice
     xpath: //span[@id="price_inside_buybox"]
-  - name: featureBullets
-    xpath: //body/@feature_bullets
   - name: otherSellersName
     xpath: //a[@id="sellerProfileTriggerId"]
   - name: otherSellersPrice
@@ -25,6 +20,8 @@ fields:
   - name: weightNet
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
     regExp: '[^()]+'
-  - name: variantId
-    singleValue: true
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+  - name: largeImageCount
+    xpath: count(//div[starts-with(@id,"ivImage_")])
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@cel_widget_id="aplus"]//img/@data-src
