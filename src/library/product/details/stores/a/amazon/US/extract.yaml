@@ -42,7 +42,7 @@ fields:
     regExpReplace: $1
   - name: weightGross
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
-    regExp: ([^()]+)
+    regExp: ([^()]+)\s
     regExpReplace: $1
   - name: gtin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
@@ -87,7 +87,7 @@ fields:
   - name: colorCode
     xpath:
   - name: manufacturerDescription
-    xpath: //div[@id="productDescription"]/p[text()]/text()
+    xpath: //div[@id="productDescription"]/p[text()]/text()|//div[@class="apm-hovermodule-slides-inner"]/h3|//div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: manufacturerImages
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
@@ -157,7 +157,7 @@ fields:
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
     sinlgeValue: false
-    xpath: //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]
+    xpath: (//span[@id="price-shipping-message"]//a[contains(text(), "Prime")])[1]
     regExp: (.+)
     regExpReplace: "Yes - Shipped and Sold"
     defaultValue: "NO"
@@ -168,9 +168,9 @@ fields:
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
-    xpath:
-  - name: otherSellersPrime
-    xpath:
+    xpath: //span[contains(@class,'mbcMerchantName')]
+  - name: otherSellersPrice
+    xpath: //span[@id="mbc-price-1"]
   - name: otherSellersShipping
     xpath:
   - name: secondaryImageTotal

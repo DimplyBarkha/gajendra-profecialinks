@@ -9,14 +9,9 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      // Get additional feature bullets
-      let featureBullets = Array.from(document.querySelectorAll('#feature-bullets > ul > li > span')).map(elm => {
-        if (!elm.querySelector('#replacementPartsFitmentBulletInner')) {
-          const value = elm.textContent.trim();
-          return `${value}`;
-        }
-      }).filter(elm => elm).join(' || ');
-      document.body.setAttribute('feature_bullets', featureBullets);
+      if (document.querySelector('[data-action="main-image-click"]')) {
+        document.querySelector('[data-action="main-image-click"]').click();
+      }
     });
     await context.extract(productDetails);
   },
