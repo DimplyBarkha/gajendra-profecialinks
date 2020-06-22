@@ -78,7 +78,7 @@ async function implementation (
           return pictureDiv.querySelector('img').getAttribute('src').replace(/700/g, '325');
         }
       });
-      fetchedImages.push(itemId + ':' + image.replace('https://target.com', ''));
+      fetchedImages.push(itemId + ',' + image);
     }
 
     console.log(fetchedImages);
@@ -122,11 +122,11 @@ async function implementation (
           } else {
             let image = '-';
             document.getElementById('missingImages').value.split(' ').forEach(imageStr => {
-              if(imageStr && imageStr.split(':')[0] === itemId) {
-                image = imageStr.split(':')[1];
+              if(imageStr && imageStr.split(',')[0] === itemId) {
+                image = imageStr.split(',')[1];
               }
             });
-            addHiddenDiv(itemContainer, 'thumbnail', 'https://target.com' + image);
+            addHiddenDiv(itemContainer, 'thumbnail', image);
           }
           if (itemContainer.querySelector('div[data-test="ratings"]')) {
             const rating = itemContainer.querySelector('div[data-test="ratings"]').innerText.split(' ')[0];
