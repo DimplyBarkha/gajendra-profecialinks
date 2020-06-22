@@ -131,12 +131,16 @@ async function implementation (
           let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
           itemId = itemId.split('-')[1];
           addHiddenDiv(itemContainer, 'itemId', itemId);
+          let image = '';
           for (const imageStr of document.getElementById('missingImages').value.split(' ')) {
             if (imageStr && imageStr.split(',')[0] === itemId) {
-              const image = imageStr.split(',')[1];
+              image = imageStr.split(',')[1];
               addHiddenDiv(itemContainer, 'thumbnail', image);
               break;
             }
+          }
+          if (!image && itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
+            addHiddenDiv(itemContainer, 'thumbnail', itemContainer.querySelector('source').getAttribute('srcset'));
           }
           if (itemContainer.querySelector('div[data-test="ratings"]')) {
             const rating = itemContainer.querySelector('div[data-test="ratings"]').innerText.split(' ')[0];
