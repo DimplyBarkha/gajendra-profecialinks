@@ -82,12 +82,12 @@ async function implementation (
     }
 
     console.log(fetchedImages);
-    console.log(ids)
+    console.log(ids);
 
     await context.goto(currentUrl);
     await context.waitForXPath('//ul//li');
     await context.evaluate(async function () {
-      if(!document.getElementById('missingImages')) {
+      if (!document.getElementById('missingImages')) {
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.id = 'missingImages';
@@ -132,8 +132,8 @@ async function implementation (
           itemId = itemId.split('-')[1];
           addHiddenDiv(itemContainer, 'itemId', itemId);
           let image = '';
-          for(let imageStr of document.getElementById('missingImages').value.split(' ')) {
-            if(imageStr && imageStr.split(',')[0] === itemId) {
+          for (const imageStr of document.getElementById('missingImages').value.split(' ')) {
+            if (imageStr && imageStr.split(',')[0] === itemId) {
               image = imageStr.split(',')[1];
               addHiddenDiv(itemContainer, 'thumbnail', image);
               break;
