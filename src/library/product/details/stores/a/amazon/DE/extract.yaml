@@ -1,10 +1,10 @@
-extends: ../../amazon/US/extract
+extends: ../../amazonPharmapacks/US/extract
 fields:
   - name: price
     singleValue: true
     xpath: //*[@id="priceblock_ourprice"]
     regExp: >-
-      [^€]*
+      [^€].*
   - name: availabilityText
     singleValue: true
     xpath: //*[@id='availability']
