@@ -569,6 +569,11 @@ async function implementation (
       }
       if (document.querySelectorAll('.styles__ThumbnailImage-beej2j-11').length && document.querySelectorAll('.styles__ThumbnailImage-beej2j-11')[0].getAttribute('src')) {
         addHiddenDiv('productImage', document.querySelectorAll('.styles__ThumbnailImage-beej2j-11')[0].getAttribute('src').split('?')[0]);
+      } else if (document.querySelector('.slideDeckPicture')) {
+        const pictureDiv = document.querySelector('.slideDeckPicture');
+        if (pictureDiv.querySelector('img') && pictureDiv.querySelector('img').getAttribute('src')) {
+          addHiddenDiv('productImage', pictureDiv.querySelector('img').getAttribute('src').split('?')[0]);
+        }
       }
 
       const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight');

@@ -35,6 +35,71 @@ async function implementation (
         });
       }
 
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(300);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          break;
+        }
+      }
+    });
+
+    const noImages = await context.evaluate(async function () {
+      const itemContainers = document.querySelectorAll('li.Col-favj32-0.h-padding-a-none.h-display-flex');
+      const products = [];
+      for (const itemContainer of itemContainers) {
+        let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
+        itemId = itemId.split('-')[1];
+        if (!itemContainer.querySelector('source') || !itemContainer.querySelector('source').getAttribute('srcset')) {
+          products.push('https://target.com' + itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href'));
+        }
+      }
+      return products;
+    });
+
+    const currentUrl = await context.evaluate(function () {
+      return window.location.href;
+    });
+
+    const fetchedImages = [];
+    for (const productLink of noImages) {
+      await context.goto(productLink);
+      await context.waitForXPath("//div[@data-test='product-price']");
+      let itemId = productLink.replace('https://target.com', '').split('?')[0].split('/')[4];
+      itemId = itemId.split('-')[1];
+      const image = await context.evaluate(function () {
+        if (document.querySelectorAll('.styles__ThumbnailImage-beej2j-11').length && document.querySelectorAll('.styles__ThumbnailImage-beej2j-11')[0].getAttribute('src')) {
+          return document.querySelectorAll('.styles__ThumbnailImage-beej2j-11')[0].getAttribute('src');
+        }
+        const pictureDiv = document.querySelector('.slideDeckPicture');
+        if (pictureDiv.querySelector('img') && pictureDiv.querySelector('img').getAttribute('src')) {
+          return pictureDiv.querySelector('img').getAttribute('src').replace(/700/g, '325');
+        }
+      });
+      fetchedImages.push(itemId + ':' + image);
+    }
+
+    console.log(fetchedImages);
+
+    await context.goto(currentUrl);
+    await context.waitForXPath('//ul//li');
+    await context.evaluate(async function () {
+      const input = document.createElement('input');
+      input.setAttribute('type', 'text');
+      input.id = 'missingImages';
+      document.getElementById('header').appendChild(input);
+    });
+    await context.setInputValue('#missingImages', fetchedImages.join(' '));
+    await context.evaluate(async function () {
+      function stall (ms) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
       function addHiddenDiv (el, myClass, content) {
         const newDiv = document.createElement('div');
         newDiv.setAttribute('class', myClass);
@@ -42,17 +107,6 @@ async function implementation (
         newDiv.style.display = 'none';
         el.appendChild(newDiv);
       }
-
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          break;
-        }
-      }
-
       await stall(1000);
       const itemContainers = document.querySelectorAll('li.Col-favj32-0.h-padding-a-none.h-display-flex');
       let rank = 1;
@@ -65,6 +119,13 @@ async function implementation (
           addHiddenDiv(itemContainer, 'itemId', itemId);
           if (itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
             addHiddenDiv(itemContainer, 'thumbnail', itemContainer.querySelector('source').getAttribute('srcset'));
+          } else {
+            const image = document.getElementById('missingImages').value.split(' ').filter(image => image.split(':')[0] === itemId)[0].split(':')[1];
+            addHiddenDiv(itemContainer, 'thumbnail', image);
+          }
+          if (itemContainer.querySelector('div[data-test="ratings"]')) {
+            const rating = itemContainer.querySelector('div[data-test="ratings"]').innerText.split(' ')[0];
+            addHiddenDiv(itemContainer, 'rating', rating);
           }
         }
         const pageNum = document.querySelector('button[data-test="select"]') ? document.querySelector('button[data-test="select"]').innerText.split(' ')[1] : 1;
