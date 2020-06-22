@@ -74,8 +74,14 @@ const transform = (data, context) => {
         }
         if (row.otherSellersShipping2) {
           row.otherSellersShipping2.forEach(item => {
-            item.text = item.text.replace('0.00', '0').replace('0', '0.00');
+            item.text = item.text.replace('Free','0').replace(' delivery','').replace('0.00', '0').replace('0', '0.00');
           });
+        }
+        if (row.description) {
+          row.description = [{ text: row.description[0].text.replace(/\n \n/g, ' || ') }];
+        }
+        if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
+          row.additionalDescBulletInfo[0].text = ' | ' + row.additionalDescBulletInfo[0].text;
         }
         if (row.availabilityText) {
           row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];

@@ -29,9 +29,7 @@ fields:
   xpath: //span[@itemprop="highPrice"]/@content|//*[@class="prod-PriceHero"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
 - name: shippingPrice
   singleValue: true
-  manualSelector: script[id='item']
-  regExp: shippingPrice":([\d\.]+)
-  regExpReplace: $1
+  xpath: //div[@id='added-sprice']  
 - name: availabilityText
   singleValue: true
   xpath: //link[@itemprop="availability"]/@href
@@ -164,10 +162,8 @@ fields:
  
 - name: otherSellersShipping2
   singleValue: false
-  xpath: //div[@id='added-sellers']//div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
-  regExp: (,"fulfillmentPrice":{"price":)(\d+\.?\d*)
-  regExpReplace: $2
-  
+  xpath: //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'price price')] | //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'font-semibold')]
+  defaultValue: 0
 - name: lbb
   singleValue: true
   defaultValue: Yes
