@@ -70,14 +70,26 @@ fields:
     regExp: >-
       [^\s]+(?= stars)
   - name: ingredientsList
+    singleValue: true
+    xpath:  //h3[normalize-space(text())="Ingredients"]/following-sibling::div[1] | //ul[contains(@class,"productIngredients")]
+  - name: allergyAdvice
     singleValue: false
-    xpath: normalize-space(//ul[contains(@class,"productIngredients")])
+    xpath:  //h3[normalize-space(text())="Ingredients"]/following-sibling::div[1]//strong/following-sibling::strong | //ul[contains(@class,"productIngredients")]//span
   - name: numberOfServingsInPackage
     singleValue: true
     xpath:
   - name: caloriesPerServing
     singleValue: false
     xpath: //table[contains(@class,"nutritionTable")]/tbody/tr[1]/td[1]
+  - name: servingSize
+    singleValue: true
+    xpath: //table[contains(@class,"nutritionTable")]/thead/tr[1]//th[2]
+    regExp: \d+
+  - name: servingSizeUom
+    singleValue: true
+    xpath: //table[contains(@class,"nutritionTable")]/thead/tr[1]//th[2]
+    regExp: >-
+      [^\d]+$
   - name: caloriesFromFatPerServing
     singleValue: true
     xpath:
@@ -158,9 +170,9 @@ fields:
     regExpReplace: $1
   - name: totalCarbPerServing
     singleValue: true
-    xpath: //th[normalize-space(text()="Carbohydrates")]/following-sibling::td[1]
+    xpath: //th[contains(text(),"Carbohydrate")]/following-sibling::td[1]
   - name: totalCarbPerServingUom
     singleValue: true
-    xpath: //th[normalize-space(text()="Carbohydrates")]/following-sibling::td[1]
+    xpath: //th[contains(text(),"Carbohydrate")]/following-sibling::td[1]
     regExp: >-
       [a-zA-Z]{1,2}$
