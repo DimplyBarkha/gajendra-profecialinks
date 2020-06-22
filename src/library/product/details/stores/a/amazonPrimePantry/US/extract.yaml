@@ -6,15 +6,13 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: (//img[@id="landingImage"])[1]/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -23,3 +21,15 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //meta[@name='title']/@content
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: price
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //*[@id='availability']
+  - name: description
+    singleValue: false
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]/p
