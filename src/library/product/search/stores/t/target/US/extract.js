@@ -120,7 +120,12 @@ async function implementation (
           if (itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
             addHiddenDiv(itemContainer, 'thumbnail', itemContainer.querySelector('source').getAttribute('srcset'));
           } else {
-            const image = document.getElementById('missingImages').value.split(' ').filter(image => image.split(':')[0] === itemId)[0].split(':')[1];
+            let image = '-';
+            document.getElementById('missingImages').value.split(' ').forEach(imageStr => {
+              if(imageStr && imageStr.split(':')[0] === itemId) {
+                image = imageStr.split(':')[1];
+              }
+            });
             addHiddenDiv(itemContainer, 'thumbnail', image);
           }
           if (itemContainer.querySelector('div[data-test="ratings"]')) {
