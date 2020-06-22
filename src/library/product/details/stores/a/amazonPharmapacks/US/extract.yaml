@@ -1,6 +1,7 @@
 extends: ../../amazon/US/extract
 fields:
   - name: name
+    singleValue: true
     xpath: //h1//span[@id="productTitle"]
   - name: nameExtended
     singleValue: true

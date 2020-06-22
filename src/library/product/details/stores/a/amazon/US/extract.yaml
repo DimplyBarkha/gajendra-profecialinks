@@ -176,7 +176,7 @@ fields:
   - name: otherSellersShipping
     xpath: //span[contains(@id, "mbc-shipping")]
   - name: secondaryImageTotal
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])-1
+    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')][position()>1])
   - name: news
     xpath:
   - name: addonItem
