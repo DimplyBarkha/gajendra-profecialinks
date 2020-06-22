@@ -65,7 +65,7 @@ async function implementation (
           addHiddenDiv(itemContainer, 'itemId', itemId);
           if (itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
             addHiddenDiv(itemContainer, 'thumbnail', itemContainer.querySelector('source').getAttribute('srcset'));
-          } 
+          }
         }
         const pageNum = document.querySelector('button[data-test="select"]') ? document.querySelector('button[data-test="select"]').innerText.split(' ')[1] : 1;
         const totalRank = ((pageNum - 1) * 24) + rank;

@@ -146,7 +146,7 @@ async function implementation (
         }
         const options = document.getElementById('options');
         console.log('options', options.querySelectorAll('a'));
-        if (options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
+        if (document.getElementById('btnIndex') && options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
           return true;
         }
       }
@@ -154,7 +154,7 @@ async function implementation (
       if (!variants.length) {
         variants = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
       }
-      if (variants.length && !variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
+      if (variants.length && document.getElementById('btnIndex') && !variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
         return false;
       }
       return true;
@@ -186,22 +186,23 @@ async function implementation (
           document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
         }
         const options = document.getElementById('options');
-        if (options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].getAttribute('aria-label')) {
+        if (document.getElementById('btnIndex') && options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].getAttribute('aria-label')) {
           addHiddenDiv('colorInfo', options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].getAttribute('aria-label').split('-')[0].replace('color', '').trim());
-        } else {
+        } else if(document.getElementById('btnIndex')) {
           addHiddenDiv('colorInfo', options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText.trim());
         }
-
-        options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
+        if(document.getElementById('btnIndex')) {
+          options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
+        }
       } else {
         let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
         if (!variants.length) {
           variants = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
         }
-        if (variants.length) {
+        if (variants.length && document.getElementById('btnIndex')) {
           variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
         }
-        if (document.querySelector('div[data-test="variationTheme-color"]')) {
+        if (document.querySelector('div[data-test="variationTheme-color"]') && document.querySelector('div[data-test="variationTheme-color"]').innerText) {
           addHiddenDiv('colorInfo', document.querySelector('div[data-test="variationTheme-color"]').innerText.replace('color', '').trim());
         }
       }
@@ -385,8 +386,10 @@ async function implementation (
         document.querySelectorAll('p').forEach(e => {
           if (validTextField(e) && e.innerText.indexOf('Serving Size:') > -1) {
             addHiddenDiv('servingSizeInfo', e.innerText.replace('Serving Size: ', ''));
-            const splitInfo = document.getElementById('servingSizeInfo').innerHTML.split(' ');
-            addHiddenDiv('servingSizeUomInfo', splitInfo[splitInfo.length - 1]);
+            if(document.getElementById('servingSizeInfo')) {
+              const splitInfo = document.getElementById('servingSizeInfo').innerHTML.split(' ');
+              addHiddenDiv('servingSizeUomInfo', splitInfo[splitInfo.length - 1]);
+            }
           }
           if (validTextField(e) && e.innerText.indexOf('Serving Per Container:') > -1) {
             addHiddenDiv('servingPerContainerInfo', e.innerText.replace('Serving Per Container: ', '').replace(/[a-zA-Z]/g, ''));
@@ -465,7 +468,6 @@ async function implementation (
         await stall(500);
         const warning = [];
         document.querySelectorAll('h4').forEach(e => {
-          console.log('drugs', e.innerText.trim());
           if (validTextField(e) && e.innerText.trim() === 'Directions') {
             addHiddenDiv('directionsInfo', e.parentElement.innerText.replace('Directions', '').trim());
           }
@@ -501,7 +503,7 @@ async function implementation (
       }
       if (variants.length) {
         variants.forEach(e => {
-          if (e && e.getAttribute('aria-label').indexOf('checked') > -1) {
+          if (e && e.getAttribute('aria-label').indexOf('checked') > -1 && e.innerText) {
             addHiddenDiv('variantInfo', e.innerText);
           }
         });
@@ -537,9 +539,9 @@ async function implementation (
         if (slideDeck) {
           console.log('has slide deck');
           slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
-            if (e && e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') === -1 && ind > 0) {
+            if (e && e.getAttribute('alt') && e.getAttribute('src') && e.getAttribute('alt').indexOf('- video') === -1 && ind > 0) {
               secondaryImages.push(e.getAttribute('src').split('?')[0]);
-            } else if (e && e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) {
+            } else if (e && e.getAttribute('src') && e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) {
               videos.push(e.getAttribute('src').split('?')[0] + '_Flash9_Autox720p_2600k');
             }
           });
@@ -550,7 +552,7 @@ async function implementation (
           sideImages.forEach((e, ind) => {
             if (e && e.getAttribute('type') && e.getAttribute('type').indexOf('video') === -1 && ind > 0) {
               secondaryImages.push(e.getAttribute('src').split('?')[0]);
-            } else if (e && e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) {
+            } else if (e && e.getAttribute('alt') && e.getAttribute('src') && e.getAttribute('alt').indexOf('- video') > -1) {
               videos.push(e.getAttribute('src').split('?')[0] + '_Flash9_Autox720p_2600k');
             }
           });
@@ -580,7 +582,7 @@ async function implementation (
         addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
       } else if (manufacturerCTA) {
         manufacturerCTA.click();
-        if (document.getElementById('wc-power-page')) {
+        if (document.getElementById('wc-power-page') && document.getElementById('wc-power-page').innerText) {
           addHiddenDiv('manufacturerDesc', document.getElementById('wc-power-page').innerText);
           const manufacturerImgs = [];
           document.querySelectorAll('img.wc-media.wc-image').forEach(e => {
@@ -599,7 +601,7 @@ async function implementation (
       if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
         addHiddenDiv('rating', document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText);
       }
-      if (document.querySelectorAll('.utils__ScreenReaderOnly-sc-1kni3r7-0').length > 0) {
+      if (document.querySelectorAll('.utils__ScreenReaderOnly-sc-1kni3r7-0').length > 0 && document.querySelectorAll('.utils__ScreenReaderOnly-sc-1kni3r7-0')[1]) {
         addHiddenDiv('ratingText', document.querySelectorAll('.utils__ScreenReaderOnly-sc-1kni3r7-0')[1].innerText);
       }
 
