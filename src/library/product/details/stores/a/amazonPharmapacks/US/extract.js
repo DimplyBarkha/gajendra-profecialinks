@@ -1,17 +1,19 @@
-const { amazonTransform } = require('../../shared');
+const { amazonTransform } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'amazonPharmapacks',
     transform: amazonTransform,
+    store: 'amazonPharmapacks',
     domain: 'amazon.com',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await context.evaluate(async function () {
-      return true;
+  implementation: async ({ inputString }, { country, domain, transform: amazonTransform }, context, { productDetails }) => {
+    const clickAction = await context.evaluate(async function () {
+      return document.querySelector('*[data-action="main-image-click"]');
     });
-    await context.click('[data-action="main-image-click"]');
-    await context.extract(productDetails);
+    if (clickAction) {
+      await context.click('[data-action="main-image-click"]');
+    }
+    await context.extract(productDetails, { transform: amazonTransform });
   },
 };

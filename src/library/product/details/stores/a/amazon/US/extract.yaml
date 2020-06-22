@@ -175,6 +175,8 @@ fields:
     xpath: //span[contains(@id, "mbc-price")]
   - name: otherSellersShipping
     xpath: //span[contains(@id, "mbc-shipping")]
+  - name: otherSellersShipping2
+    xpath: //span[contains(@id, "mbc-shipping") and contains(@id, "free")]
   - name: secondaryImageTotal
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')][position()>1])
   - name: news
