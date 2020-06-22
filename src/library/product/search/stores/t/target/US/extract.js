@@ -52,9 +52,7 @@ async function implementation (
       for (const itemContainer of itemContainers) {
         let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
         itemId = itemId.split('-')[1];
-        if (!itemContainer.querySelector('source') || !itemContainer.querySelector('source').getAttribute('srcset')) {
-          products.push('https://target.com' + itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href'));
-        }
+        products.push('https://target.com' + itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href'));
       }
       return products;
     });
@@ -64,6 +62,7 @@ async function implementation (
     });
 
     const fetchedImages = [];
+    const ids = [];
     for (const productLink of noImages) {
       await context.goto(productLink);
       await context.waitForXPath("//div[@data-test='product-price']");
@@ -79,20 +78,35 @@ async function implementation (
         }
       });
       fetchedImages.push(itemId + ',' + image);
+      ids.push(itemId);
     }
 
     console.log(fetchedImages);
+    console.log(ids)
 
     await context.goto(currentUrl);
     await context.waitForXPath('//ul//li');
     await context.evaluate(async function () {
-      const input = document.createElement('input');
-      input.setAttribute('type', 'text');
-      input.id = 'missingImages';
-      document.getElementById('header').appendChild(input);
+      if(!document.getElementById('missingImages')) {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.id = 'missingImages';
+        document.getElementById('header').appendChild(input);
+      } else {
+        document.getElementById('missingImages').value = '';
+      }
     });
     await context.setInputValue('#missingImages', fetchedImages.join(' '));
     await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(300);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          break;
+        }
+      }
       function stall (ms) {
         return new Promise(resolve => {
           setTimeout(() => {
@@ -117,16 +131,13 @@ async function implementation (
           let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
           itemId = itemId.split('-')[1];
           addHiddenDiv(itemContainer, 'itemId', itemId);
-          if (itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
-            addHiddenDiv(itemContainer, 'thumbnail', itemContainer.querySelector('source').getAttribute('srcset'));
-          } else {
-            let image = '-';
-            document.getElementById('missingImages').value.split(' ').forEach(imageStr => {
-              if(imageStr && imageStr.split(',')[0] === itemId) {
-                image = imageStr.split(',')[1];
-              }
-            });
-            addHiddenDiv(itemContainer, 'thumbnail', image);
+          let image = '';
+          for(let imageStr of document.getElementById('missingImages').value.split(' ')) {
+            if(imageStr && imageStr.split(',')[0] === itemId) {
+              image = imageStr.split(',')[1];
+              addHiddenDiv(itemContainer, 'thumbnail', image);
+              break;
+            }
           }
           if (itemContainer.querySelector('div[data-test="ratings"]')) {
             const rating = itemContainer.querySelector('div[data-test="ratings"]').innerText.split(' ')[0];
