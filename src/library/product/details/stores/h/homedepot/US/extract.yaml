@@ -5,22 +5,28 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
+    xpath: //img[@id="mainImage"]/@src
   - name: metaKeywords
     singleValue: true
+    xpath: //meta[contains(@name,"keyword")]/@content
   - name: _pageTimestamp
     singleValue: true
   - name: _url
     singleValue: true
   - name: category
-    singleValue: true
+    singleValue: false
+    xpath: //li[@itemprop="itemListElement"][1]/following-sibling::li/a
   - name: nameExtended
     singleValue: true
+    xpath: //meta[@itemprop="name"]/@content
   - name: price
     singleValue: true
+    xpath: concat(//span[@id="ajaxPrice"]/span[@class="price__currency"],//span[@id="ajaxPrice"]/@content)
   - name: availabilityText
     singleValue: true
   - name: brandText
     singleValue: true
+    xpath: //h2[@itemprop="brand"]//span
   - name: manufacturerDescription
     singleValue: true
   - name: weightNet
@@ -37,20 +43,29 @@ fields:
     singleValue: true
   - name: alternateImages
     singleValue: false
+    xpath: //div[@id="thumbnails"]//img/@src
   - name: manufacturerImages
-    singleValue: true
+    singleValue: false
+    xpath:  //div[@id="product_description"]//img[@class="stretchy"]|//div[@data-component="description"]//img
   - name: ratingCount
     singleValue: true
+    xpath: //span[@class="product-details__review-count"]
+    type: NUMBER
   - name: shippingDimensions
     singleValue: true
+    xpath: //div[@id="specsContainer"]//div[h4[contains(text(),"Dimensions")]]/following-sibling::div[@class="specs__table"][1]
   - name: specifications
     singleValue: true
+    xpath: //div[@id="specsContainer"]
   - name: shippingWeight
     singleValue: true
+    xpath: //div[@itemprop="weight"]
   - name: warranty
     singleValue: true
+    xpath: //div[text()="Manufacturer Warranty"]/following-sibling::div
   - name: gtin
     singleValue: true
+    xpath: substring(//upc, 3, string-length(//upc))
   - name: videos
     singleValue: false
   - name: imageAlt
@@ -59,6 +74,8 @@ fields:
     singleValue: true
   - name: aggregateRating
     singleValue: true
+    xpath: //div[@id="itemRating"]//div[contains(@class,"ratings")]/@title
+    type: NUMBER
   - name: name
     singleValue: true
   - name: listPrice
@@ -79,6 +96,7 @@ fields:
     singleValue: true
   - name: variantId
     singleValue: true
+    xpath: //span[@itemprop="productID"]
   - name: descriptionBullets
     singleValue: true
   - name: packSize

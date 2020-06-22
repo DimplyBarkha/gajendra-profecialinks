@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'homedepot',
     domain: 'homedepot.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#productinfo_ctn',
+    noResultsXPath: '//p[contains(text(),"The product you are trying to view is not currently available")]',
   },
 };
