@@ -142,10 +142,10 @@ fields:
   singleValue: true
 - name: manufacturerDescription
   singleValue: false
-  xpath: //div[@id='added-aplus-body']
+  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')]
 - name: manufacturerImages
   singleValue: false
-  xpath: //div[@id='added-aplus']
+  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')]//img/@src
 - name: videos
   singleValue: false
   manualSelector: script[id='item'], script[id='product']
@@ -156,18 +156,16 @@ fields:
   xpath: //h1[@class='prod-ProductTitle font-normal']
 - name: otherSellersName
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: ("sellerName":")([^\"]+)(","sell)
-  regExpReplace: $2  
+  xpath: //div[@id='added-sellers']//*[@data-tl-id="ProductSellerCardSellerInfo-SellerName"]
+  
 - name: otherSellersPrice
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: (,"price":)(\d+\.?\d*)(,"sell)
-  regExpReplace: $2
-- name: otherSellersShipping
+  xpath: //div[@id='added-sellers']//div[contains(@class,'seller-offer')]//div[contains(@class,'prod-PriceHero')]//span[contains(@class,'price--stylized')]//span[@class='visuallyhidden']
+ 
+- name: otherSellersShipping2
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: (,"shipPrice":)(\d+\.?\d*)(})
+  xpath: //div[@id='added-sellers']//div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
+  regExp: (,"fulfillmentPrice":{"price":)(\d+\.?\d*)
   regExpReplace: $2
   
 - name: lbb
@@ -190,8 +188,11 @@ fields:
 - name: energyEfficiency
   singleValue: false  
 - name: technicalInformationPdfPresent
-  singleValue: false  
+  singleValue: true  
   defaultValue: No
+  xpath: (//div[@class='ManualsAndGuides'])[1]
+  regExp: (.*)
+  regExpReplace: Yes
 - name: termsAndConditions
   singleValue: false  
   defaultValue: No

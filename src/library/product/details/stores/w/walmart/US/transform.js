@@ -51,7 +51,7 @@ const transform = (data, context) => {
         if (row.shippingInfo1) {
           row.shippingInfo = [{ text: row.shippingInfo1[0].text.replace('"sellerDisplayName":"', '').replace('","showSold', '') }];
         }
-        if (row.shippingInfo && (!row.otherSellersName || (row.otherSellersName && !row.otherSellersName[0].text.includes(row.shippingInfo[0].text)))) {
+        if (row.shippingInfo && (!row.otherSellersName || (row.otherSellersName && row.otherSellersName[0].text !== 'Walmart' && !row.otherSellersName[0].text.includes(row.shippingInfo[0].text)))) {
           if (row.otherSellersName && row.otherSellersName.length > 0) {
             row.otherSellersName.unshift({ text: row.shippingInfo[0].text.trim() });
           } else {
@@ -65,12 +65,17 @@ const transform = (data, context) => {
             }
           }
           if (row.shippingPrice) {
-            if (row.otherSellersShipping && row.otherSellersShipping.length > 0) {
-              row.otherSellersShipping.unshift({ text: row.shippingPrice[0].text.trim() });
+            if (row.otherSellersShipping2 && row.otherSellersShipping2.length > 0) {
+              row.otherSellersShipping2.unshift({ text: row.shippingPrice[0].text.trim() });
             } else {
-              row.otherSellersShipping = [{ text: row.shippingPrice[0].text.trim() }];
+              row.otherSellersShipping2 = [{ text: row.shippingPrice[0].text.trim() }];
             }
           }
+        }
+        if (row.otherSellersShipping2) {
+          row.otherSellersShipping2.forEach(item => {
+            item.text = item.text.replace('0.00', '0').replace('0', '0.00');
+          });
         }
         if (row.availabilityText) {
           row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];
@@ -80,7 +85,7 @@ const transform = (data, context) => {
         if (row.variantInformation) {
           let text = '';
           row.variantInformation.forEach(item => {
-            const splits = item.text.replace(/\\"/g, '').replace('}', '').split(':');
+            const splits = item.text.replace(/\"/g, '').replace('}', '').split(':');
             text += `${splits[splits.length - 1].replace('actual_color-', '')} | `;
           });
           row.variantInformation = [

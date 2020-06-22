@@ -25,14 +25,17 @@ module.exports = {
       const variants = await context.evaluate(function () {
         const variantList = [];
         const node = document.querySelector("script[id='item']");
-        if (node) {
-          const elements = node.textContent.match(/({"productId":")(\w+)/g);
-          if (elements && elements.length > 0) {
-            for (let i = 0; i < elements.length; i++) {
-              console.log(i);
-              const id = elements[i].split(':')[1].replace(/"/g, '');
-              if (id) {
-                variantList.push(id);
+        if (node && node.textContent) {
+          const jsonObj = node.textContent.startsWith('{"item":') ? JSON.parse(node.textContent) : null;
+          if (jsonObj && jsonObj.item && jsonObj.item.product && jsonObj.item.product.buyBox) {
+            const elements = jsonObj.item.product.buyBox.products;
+            if (elements && elements.length > 0) {
+              console.log(elements.length);
+              for (let i = 0; i < elements.length; i++) {
+                const id = elements[i].usItemId;
+                if (id) {
+                  variantList.push(id);
+                }
               }
             }
           }
@@ -41,83 +44,73 @@ module.exports = {
       });
       return variants;
     };
+    async function addMarketingContent () {
+      await context.evaluate(function () {
+        const node = document.querySelector("script[id='item']");
+        if (node && node.textContent) {
+          const jsonObj = node.textContent.startsWith('{"item":') ? JSON.parse(node.textContent) : null;
+          if (jsonObj && jsonObj.item && jsonObj.item.product && jsonObj.item.product.buyBox && jsonObj.item.product.buyBox.products &&
+              jsonObj.item.product.buyBox.products[0] && jsonObj.item.product.buyBox.products[0].idmlSections && jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent) {
+            const newDiv = document.createElement('div');
+            newDiv.id = 'added-marketing';
+            newDiv.innerHTML = jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+        }
+      });
+    };
+
     async function addUrl () {
+      async function getSellerInformation (url) {
+        try {
+          var data = await
+          fetch(url)
+            .then(response => response.text())
+            .catch();
+          return (data);
+        } catch (error) {
+          console.log(error);
+          throw (error);
+        }
+      }
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
+        return newDiv;
       }
       let url = window.location.href;
       const splits = url ? url.split('?')[0].split('/') : [];
       url = (splits.length > 1) ? splits[splits.length - 2] : '';
       addHiddenDiv('added-sku', url);
-    }
-
-    async function scrollForIframe () {
-      let scrollTop = 500;
-      while (true) {
-        window.scroll(0, scrollTop);
-        await new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, 1000);
-        });
-        scrollTop += 500;
-        if (scrollTop === 10000) {
-          break;
-        }
-      }
-    }
-
-    async function collectEnhancedContent () {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-      const elemsInIframes = (selector, prop) => [
-        // @ts-ignore
-        ...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
-          return [...acc, ...[...frame.contentWindow.document.querySelectorAll(selector)].map(v => v[prop || 'src'])];
-        }, []),
-        // @ts-ignore
-        ...[...document.querySelectorAll(selector)].map(v => v[prop || 'src']),
-      ];
-      const elemInIframes = (selector, prop) => [
-        // @ts-ignore
-        ...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
-          return [...acc, ...[...frame.contentWindow.document.querySelectorAll(selector)].map(v => v.innerText)];
-        }, []),
-        // @ts-ignore
-        ...[...document.querySelectorAll(selector)].map(v => v.innerText),
-      ];
-      const wcBody = elemInIframes("div[class*='wc-aplus']");
-      addHiddenDiv('added-aplus-body', wcBody);
-      const images = elemsInIframes("img[class*='wc-image']");
-      if (images) {
-        images.forEach(img => addHiddenDiv('added-aplus', img));
-      }
-    }
+      const sellerUrl = 'https://www.walmart.com/product/id/sellers';
+      const sUrl = sellerUrl.replace('id', url);
+      console.log(sUrl);
+      const result = ''//await getSellerInformation(sUrl);
+      const sellerDiv = addHiddenDiv('added-sellers', '');
+      sellerDiv.innerHTML = result;
+    };
 
     const allVariants = await getVariants();
-    await context.evaluate(scrollForIframe);
-    await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
+    //await addMarketingContent();
+    // await context.evaluate(scrollForIframe);
+    // await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
     await context.evaluate(addUrl);
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
     console.log(allVariants);
     // start at 1 to skip the first variant which is this page
-    const cnt = (allVariants && allVariants.length < 21) ? allVariants.length : 21;
+    const cnt = (allVariants && allVariants.length < 5) ? allVariants.length : 5;
     for (let i = 1; i < cnt; i++) {
       try {
         const id = allVariants[i];
         const url = await dependencies.createUrl({ id });
         await dependencies.goto({ url });
-        await context.evaluate(scrollForIframe);
-        await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
+        // await context.evaluate(scrollForIframe);
+        // await context.evaluate(collectEnhancedContent, [], 'iframe[id="iframe-AboutThisItem-marketingContent"]');
+        //await addMarketingContent();
         await context.evaluate(addUrl);
         await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
       } catch (exception) {
