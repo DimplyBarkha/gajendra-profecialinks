@@ -8,7 +8,7 @@ fields:
   xpath: "//*[@id='added__input']//text()"
 - name: _url
   singleValue: false
-  xpath: "//*[@id='added__url']//text()"
+  # xpath: "//*[@id='added__url']//text()"
 - name: _pageTimeStamp
   singleValue: false
   xpath: "//*[@id='added__pageTimeStamp']//text()"
@@ -22,7 +22,8 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: "//*[@id='added_alternateImages']//text()"
+  xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
+  # xpath: "//*[@id='added_alternateImages']//text()"
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
@@ -35,6 +36,7 @@ fields:
 - name: nameExtended
   singleValue: true
   xpath: "//*[@id='added_nameExtended']//text()"
+  # xpath: concat(//a[contains(@class,'brand-title')],' ', //*[@id='added_name']//text()'])
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
@@ -57,6 +59,7 @@ fields:
   defaultValue: Out of Stock
 - name: description
   singleValue: false
+  # xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[not(child::strong[contains(text(),'WARNING')])]
   xpath: "//*[@id='added_description']//text()"
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -64,7 +67,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_descriptionBullets']//text()"
   description: Number of ul > li tags in the description
-  
 - name: brandText
   singleValue: true
   xpath: "//*[@id='added_brandText']//text()"
@@ -76,7 +78,8 @@ fields:
   description: Product manufacturer
 - name: quantity
   singleValue: true
-  xpath: "//*[@id='added_quantity']//text()"
+  xpath: concat(//span[@id='productSizeCount'],//span[@id='prodPacksAvailable'])
+  # xpath: "//*[@id='added_quantity']//text()"
   description: Quantity as described on the page
   regExp: "(?:\\s?([\\d\\.]+\\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\\.]?\\s?[oO][zZ][\\.]?|FO|[mM][lL]|[oO][zZ][\\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\\s?([\\d\\.]+\\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\\.]?\\s?[oO][zZ][\\.]?|FO|[mM][lL]|[oO][zZ][\\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\\s?[\\&\\-\\w\\s]+)$"
   regExpReplace: "$1$2$3$4"
@@ -107,7 +110,8 @@ fields:
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
-  xpath: "//*[@id='added_packSize']//text()"
+  xpath: //span[@id='prodPacksAvailable']
+  # xpath: "//*[@id='added_packSize']//text ()"
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
 - name: legalDisclaimer
@@ -120,13 +124,13 @@ fields:
   description: Content under "directions" header
 - name: warnings
   singleValue: true
+  # xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[(child::strong[contains(text(),'WARNING')])]
   xpath: "//*[@id='added_warnings']//text()"
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
   xpath: "//*[@id='added_ratingCount']//text()"
   description: The number of ratings
-  
 - name: aggregateRatingText
   singleValue: true
   xpath: "//*[@id='added_aggregateRatingText']//text()"
@@ -135,7 +139,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_aggregateRating']//text()"
   description: The stated aggregate rating normalized to be out of 5
-  
 - name: shippingInfo
   singleValue: true
   xpath: "//*[@id='added_shippingInfo']//text()"
@@ -152,7 +155,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_variantCount']//text()"
   description: Number of variants listed
-  
 - name: color
   singleValue: true
   xpath: "//*[@id='added_color']//text()"
@@ -255,7 +257,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_largeImageCount']//text()"
   description: 
-  
 - name: variantAsins
   singleValue: true
   xpath: "//*[@id='added_variantAsins']//text()"
@@ -295,9 +296,9 @@ fields:
   description: 
 - name: secondaryImageTotal
   singleValue: true
-  xpath: "//*[@id='added_secondaryImageTotal']//text()"
+  xpath: "count((//*[@id='added_alternateImages']//text())[position()>1])"
+  # xpath: "//*[@id='added_secondaryImageTotal']//text()"
   description: 
-  
 - name: news
   singleValue: true
   xpath: "//*[@id='added_news']//text()"
@@ -327,7 +328,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_numberOfServingsInPackage']//text()"
   description: Suggested number of servings of the product.
-  
 - name: caloriesPerServing
   singleValue: true
   xpath: "//*[@id='added_caloriesPerServing']//text()"
@@ -338,13 +338,11 @@ fields:
   xpath: "//*[@id='added_caloriesFromFatPerServing']//text()"
   description: Nutritional Information for Calories From Fat content - Usually based
     on per 100g serving
-  
 - name: totalFatPerServing
   singleValue: true
   xpath: "//*[@id='added_totalFatPerServing']//text()"
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  
 - name: totalFatPerServingUom
   singleValue: true
   xpath: "//*[@id='added_totalFatPerServingUom']//text()"
@@ -354,7 +352,6 @@ fields:
   xpath: "//*[@id='added_saturatedFatPerServing']//text()"
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
-  
 - name: saturatedFatPerServingUom
   singleValue: true
   xpath: "//*[@id='added_saturatedFatPerServingUom']//text()"
@@ -364,7 +361,6 @@ fields:
   xpath: "//*[@id='added_transFatPerServing']//text()"
   description: Nutritional Information for Trans Fat content - Usually based on per
     100g serving
-  
 - name: transFatPerServingUom
   singleValue: true
   xpath: "//*[@id='added_transFatPerServingUom']//text()"
@@ -374,7 +370,6 @@ fields:
   xpath: "//*[@id='added_cholesterolPerServing']//text()"
   description: Nutritional Information for Cholesterol content - Usually based on
     per 100g serving
-  
 - name: cholesterolPerServingUom
   singleValue: true
   xpath: "//*[@id='added_cholesterolPerServingUom']//text()"
@@ -384,7 +379,6 @@ fields:
   xpath: "//*[@id='added_sodiumPerServing']//text()"
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
-  
 - name: sodiumPerServingUom
   singleValue: true
   xpath: "//*[@id='added_sodiumPerServingUom']//text()"
@@ -394,7 +388,6 @@ fields:
   xpath: "//*[@id='added_totalCarbPerServing']//text()"
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
-  
 - name: totalCarbPerServingUom
   singleValue: true
   xpath: "//*[@id='added_totalCarbPerServingUom']//text()"
@@ -404,7 +397,6 @@ fields:
   xpath: "//*[@id='added_dietaryFibrePerServing']//text()"
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
-  
 - name: dietaryFibrePerServingUom
   singleValue: true
   xpath: "//*[@id='added_dietaryFibrePerServingUom']//text()"
@@ -414,7 +406,6 @@ fields:
   xpath: "//*[@id='added_totalSugarsPerServing']//text()"
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
-  
 - name: totalSugarsPerServingUom
   singleValue: true
   xpath: "//*[@id='added_totalSugarsPerServingUom']//text()"
@@ -424,7 +415,6 @@ fields:
   xpath: "//*[@id='added_proteinPerServing']//text()"
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  
 - name: proteinPerServingUom
   singleValue: true
   xpath: "//*[@id='added_proteinPerServingUom']//text()"
@@ -434,7 +424,6 @@ fields:
   xpath: "//*[@id='added_vitaminAPerServing']//text()"
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
-  
 - name: vitaminAPerServingUom
   singleValue: true
   xpath: "//*[@id='added_vitaminAPerServingUom']//text()"
@@ -444,7 +433,6 @@ fields:
   xpath: "//*[@id='added_vitaminCPerServing']//text()"
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
-  
 - name: vitaminCPerServingUom
   singleValue: true
   xpath: "//*[@id='added_vitaminCPerServingUom']//text()"
@@ -454,7 +442,6 @@ fields:
   xpath: "//*[@id='added_calciumPerServing']//text()"
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
-  
 - name: calciumPerServingUom
   singleValue: true
   xpath: "//*[@id='added_calciumPerServingUom']//text()"
@@ -464,7 +451,6 @@ fields:
   xpath: "//*[@id='added_ironPerServing']//text()"
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
-  
 - name: ironPerServingUom
   singleValue: true
   xpath: "//*[@id='added_ironPerServingUom']//text()"
@@ -478,7 +464,6 @@ fields:
   xpath: "//*[@id='added_magnesiumPerServing']//text()"
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
-  
 - name: magnesiumPerServingUom
   singleValue: true
   xpath: "//*[@id='added_magnesiumPerServingUom']//text()"
@@ -488,7 +473,6 @@ fields:
   xpath: "//*[@id='added_saltPerServing']//text()"
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
-  
 - name: saltPerServingUom
   singleValue: true
   xpath: "//*[@id='added_saltPerServingUom']//text()"
