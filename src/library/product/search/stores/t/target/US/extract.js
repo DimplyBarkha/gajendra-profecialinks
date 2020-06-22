@@ -65,6 +65,22 @@ async function implementation (
           addHiddenDiv(itemContainer, 'itemId', itemId);
           if (itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
             addHiddenDiv(itemContainer, 'thumbnail', itemContainer.querySelector('source').getAttribute('srcset'));
+          } else {
+            console.log('https://target.com/s?searchTerm=' + itemId);
+            await fetch('https://target.com/s?searchTerm=' + itemId)
+              .then(async function (response) {
+                const sometext = await response.text();
+                const startText = '<body>';
+                const endText = '</body>';
+                const startIx = sometext.indexOf(startText);
+                const endIx = sometext.indexOf(endText, startIx);
+                const bodyContent = sometext.substring(startIx + startText.length, endIx);
+                const wrapper = document.createElement('div');
+                wrapper.id = 'productContents' + itemId;
+                wrapper.innerHTML = bodyContent;
+                document.body.appendChild(wrapper);
+                console.log(wrapper.innerHTML);
+              });
           }
         }
         const pageNum = document.querySelector('button[data-test="select"]') ? document.querySelector('button[data-test="select"]').innerText.split(' ')[1] : 1;

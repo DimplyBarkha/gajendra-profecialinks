@@ -19,7 +19,6 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
 
-  await context.setBypassCSP(true);
   await dependencies.goto({ url });
 
   if (parameters.loadedSelector) {
