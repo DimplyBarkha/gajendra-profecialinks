@@ -33,3 +33,18 @@ fields:
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]/p
+  - name: ingredientsList
+    singleValue: false
+    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
+  - name: brandText
+    singleValue: false
+    xpath: //*[@id='bylineInfo']
+  - name: sku
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
