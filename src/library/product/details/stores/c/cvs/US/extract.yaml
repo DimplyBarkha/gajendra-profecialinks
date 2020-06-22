@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -48,7 +48,8 @@ fields:
     xpath: //div[@id='ii_url']
     regExp: ([0-9])+$ 
   - name: variants
-    xpath: //div[@id="ii_variantNum"]
+    xpath: //div[@id="ii_variantId"]
+    regExp: ^[0-9]+
   #   xpath: //script[contains(@src,'scontent.webcollage.net')]
   #   regExp: cpi=([0-9]+)
   #   regExpReplace: $1
@@ -289,6 +290,7 @@ fields:
     xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
     regExp: ^[0-9]+
   - name: variantInformation
+    # xpath: //div[contains(@aria-label, 'Selected')]
     xpath: //div[@id='ii_variantInfo']
   - name: _input 
     singleValue: true

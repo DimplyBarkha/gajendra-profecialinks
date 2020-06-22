@@ -66,28 +66,31 @@ module.exports = {
         while(i < btns[0].length && i < 30) {
           context.click(btns[0][i]);
           await new Promise(resolve => setTimeout(resolve, 2000));
-          context.click(btns[0][i]);
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          context.click(btns[0][i]);
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          await context.waitForSelector(waitSelector, { timeout: 20000 });
+          // context.click(btns[0][i]);
+          // await new Promise(resolve => setTimeout(resolve, 2000));
+          // context.click(btns[0][i]);
+          // await new Promise(resolve => setTimeout(resolve, 2000));
+          // await context.waitForSelector(waitSelector, { timeout: 20000 });
 
           if(btns[1].length && i < 30){
             while(j < btns[1].length) {
-              context.click(btns[1][i]);
+              context.click(btns[1][j]);
               await new Promise(resolve => setTimeout(resolve, 2000));
-              context.click(btns[1][i]);
-              await new Promise(resolve => setTimeout(resolve, 2000));
-              context.click(btns[1][i]);
-
-              await new Promise(resolve => setTimeout(resolve, 2000));
-              await context.waitForSelector(waitSelector, { timeout: 20000 });
+              // context.click(btns[1][i]);
+              // await new Promise(resolve => setTimeout(resolve, 2000));
+              // context.click(btns[1][i]);
+              // await new Promise(resolve => setTimeout(resolve, 2000));
+              // await context.waitForSelector(waitSelector, { timeout: 20000 });
               await getVariantIdNum()
+              await collectVariantInfo()
+
               j++
             }
           } else {
             await getVariantIdNum()
-          }
+            await collectVariantInfo()
+            // await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
+            }
           i++
         }
       }
@@ -145,34 +148,62 @@ module.exports = {
      });
   }
 
-  async function variantCleanUp() {
-    const varStore = await context.evaluate(function() {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-      let varArray = []
-      const vars = document.querySelectorAll('div#ii_variantId');
-      if(vars) {
-        vars.forEach(variant => {
-          if(!varArray.includes(variant.innerText)) {
-            varArray.push(variant.innerText)
-          }
-        });
-        varArray.forEach(varId => {
-          addHiddenDiv('ii_variantNum', varId)
 
-        })
+
+  async function collectVariantInfo () {
+    const varStore = await context.evaluate(function() {
+        function addHiddenDiv (id, content) {
+          const variantId = document.querySelectorAll('div#ii_variantId')
+          const variantDiv = variantId[variantId.length - 1]
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          variantDiv.appendChild(newDiv);
+        }
+
+      const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
+      const variantArray = [];
+      const packSize = ['Pack: ', 'Group Size: '];
+      const packSizeResult = [];
+
+      if (variantInfo[1]) {
+        if (packSize.includes(variantInfo[0].innerText)) {
+          packSizeResult.push(variantInfo[1].innerText);
+        }
+        variantArray.push(variantInfo[1].innerText);
+      }
+      if (variantInfo[3]) {
+        if (packSize.includes(variantInfo[2].innerText)) {
+          packSizeResult.push(variantInfo[3].innerText);
+        }
+        variantArray.push(variantInfo[3].innerText);
+      }
+      if (variantInfo[5]) {
+        if (packSize.includes(variantInfo[4].innerText)) {
+          packSizeResult.push(variantInfo[5].innerText);
+        }
+        variantArray.push(variantInfo[5].innerText);
+      }
+      if (variantInfo[7]) {
+        if (packSize.includes(variantInfo[6].innerText)) {
+          packSizeResult.push(variantInfo[7].innerText);
+        }
+        variantArray.push(variantInfo[7].innerText);
+      }
+
+      if (variantArray.length) {
+        const variantString = variantArray.join(' || ');
+        addHiddenDiv('ii_variantInfo', `${variantString}`);
+      }
+      if (packSizeResult.length) {
+        const packString = packSizeResult.join(' ');
+        addHiddenDiv('ii_packSize', `${packString}`);
       }
     });
-
   }
   
   await variantClick()
-  await variantCleanUp()
 
 
     // await new Promise(resolve => setTimeout(resolve, 20000));
@@ -182,7 +213,7 @@ module.exports = {
 
     // await context.waitForSelector(sectionsDiv, { timeout: 90000 }).catch();
     // await context.waitForSelector(variantInfoDiv, { timeout: 90000 }).catch();
-    await new Promise(resolve => setTimeout(resolve, 25000));
+    await new Promise(resolve => setTimeout(resolve, 10000));
 
     await context.evaluate(function (skuFromUrl) {
 
@@ -267,46 +298,7 @@ module.exports = {
         }
       }
 
-      function collectVariantInfo () {
-        const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-        const variantArray = [];
-        const packSize = ['Pack: ', 'Group Size: '];
-        const packSizeResult = [];
 
-        if (variantInfo[1]) {
-          if (packSize.includes(variantInfo[0].innerText)) {
-            packSizeResult.push(variantInfo[1].innerText);
-          }
-          variantArray.push(variantInfo[1].innerText);
-        }
-        if (variantInfo[3]) {
-          if (packSize.includes(variantInfo[2].innerText)) {
-            packSizeResult.push(variantInfo[3].innerText);
-          }
-          variantArray.push(variantInfo[3].innerText);
-        }
-        if (variantInfo[5]) {
-          if (packSize.includes(variantInfo[4].innerText)) {
-            packSizeResult.push(variantInfo[5].innerText);
-          }
-          variantArray.push(variantInfo[5].innerText);
-        }
-        if (variantInfo[7]) {
-          if (packSize.includes(variantInfo[6].innerText)) {
-            packSizeResult.push(variantInfo[7].innerText);
-          }
-          variantArray.push(variantInfo[7].innerText);
-        }
-
-        if (variantArray.length) {
-          const variantString = variantArray.join(' || ');
-          addHiddenDiv('ii_variantInfo', `${variantString}`);
-        }
-        if (packSizeResult.length) {
-          const packString = packSizeResult.join(' ');
-          addHiddenDiv('ii_packSize', `${packString}`);
-        }
-      }
 
       function collectBrand () {
         const brandBlock = document.querySelector('script#schema-json-ld');
@@ -353,7 +345,7 @@ module.exports = {
       collectNutritionInfo();
       collectBools();
       collectManufImages();
-      collectVariantInfo();
+      // collectVariantInfo();
       collectBrand();
       collectManufDesc();
       collectIframe()
@@ -363,8 +355,33 @@ module.exports = {
     // identifySections();
 
 
-    
+    async function variantCleanUp() {
+      const varStore = await context.evaluate(function() {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        let varArray = []
+        const vars = document.querySelectorAll('div#ii_variantId');
+        if(vars) {
+          vars.forEach(variant => {
+            if(!varArray.includes(variant.innerText)) {
+              varArray.push(variant.innerText)
+            }
+          });
+          varArray.forEach(varId => {
+            addHiddenDiv('ii_variantNum', varId)
+  
+          })
+        }
+      });
+  
+    }
 
+    await variantCleanUp()
 
 
     return await context.extract(productDetails, { transform: transformParam });
