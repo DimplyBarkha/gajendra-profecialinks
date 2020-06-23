@@ -18,6 +18,17 @@ const amazonTransform = (data) => {
           },
         ];
       }
+      if (row.otherSellersShipping) {
+        let text = '';
+        for (const item of row.otherSellersShipping) {
+          if (item.text.toLowerCase().includes('free')) {
+            text = '0.00';
+            item.text = text;
+          } else if (item.text.match(/\$([^\s]+)/)) {
+            item.text = item.text.match(/\$([^\s]+)/)[1];
+          }
+        }
+      }
     }
   }
   return data;
