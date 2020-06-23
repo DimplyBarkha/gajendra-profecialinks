@@ -16,4 +16,68 @@ fields:
     singleValue: true
   - name: category
     singleValue: true
-    xpath: (//div[@id="breadcrumb"]//a)[2]
+    xpath: //div[@id="breadcrumb"]
+  - name: nameExtended
+    singleValue: true
+    xpath: //form[@id="buy-this-product"]//h1
+  - name: price
+    singleValue: true
+    xpath: //span[@class="Price"]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class, "stock-level")] | //span[contains(@class, "product-options-stock")]
+  - name: description
+    singleValue: true
+    xpath: //section[@id="information"]//div[@class="Layout-golden-main"]//text()
+  - name: ingredientsList
+    singleValue: true
+    xpath: //p[@class="productpage-ingredients-content"]
+  - name: brandText
+    singleValue: true
+    xpath: //a[contains(@class, "features-brand")]//img//@alt
+  - name: quantity
+    singleValue: true
+    xpath: //form[@id="buy-this-product"]//h1
+    regExp: .*?(\d*(ml|g))$
+    regExpReplace: $1
+  - name: sku
+    singleValue: true
+    xpath: (//div[@class="bv-shared bv-core-container-358"])[1]//@data-product-id
+  - name: variantId
+    singleValue: true
+    xpath: (//div[@class="bv-shared bv-core-container-358"])[1]//@data-product-id
+  - name: directions
+    singleValue: true
+    xpath: //p[@class="productpage-directions-content"]
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@class="product-detail-selection"]//span[@class="Rating-count"]//@data-review-count
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class="product-detail-selection"]//span[@class="Rating-average"]//@data-aggregate-rating
+  - name: videos
+    singleValue: true
+    xpath: //a[@data-service="youtube"]//@href
+  - name: promotion
+    singleValue: true
+    xpath: //span[contains(@class, "Badge Badge--discount")]
+  - name: list_price
+    singleValue: true
+    xpath: //span[@class="rrp"]
+    regExp: .*?([0-9\.]+)
+    regExpReplace: $1
+  - name: name
+    singleValue: true
+    xpath: //form[@id="buy-this-product"]//h1
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[contains(@class, "galleryimages")]//a//img//@src)
+  - name: descriptionBullets
+    singleValue: true
+    xpath: //div[@id="ii_descBulletCnt"]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class, "sub-products")]//label
+  - name: brandLink
+    singleValue: true
+    xpath: //div[@id="ii_brandURL"]

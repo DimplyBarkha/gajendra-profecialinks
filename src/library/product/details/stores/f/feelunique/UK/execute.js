@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'feelunique',
     domain: 'feelunique.com',
-    loadedSelector: null,
+    loadedSelector: 'div[class="productpage-details"]',
     noResultsXPath: null,
   },
 };
