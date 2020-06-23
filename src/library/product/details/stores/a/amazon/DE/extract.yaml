@@ -4,31 +4,31 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: (//img[@id="landingImage"])[1]/@src or //div[@id='img-canvas']/img/@src
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
   - name: category
     singleValue: false
     xpath: //div[@id='wayfinding-breadcrumbs_feature_div']/ul
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //meta[@name='title']/@content
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="priceblock_ourprice"]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //*[@id='availability']
     regExp: (.+)
     regExpReplace: In Stock
@@ -38,30 +38,30 @@ fields:
     xpath: /html/body/@prod_desc
     # xpath: //*[@id='feature-bullets']/ul/li[not(@id)] or //div[@id='productDescription']/p or //div[@id='productDescription']/h3[contains(text(), 'Produktbeschreibung')]//following-sibling::*[1]
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: //*[@id='bylineInfo']
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //td[contains(text(), 'Hersteller')]/following-sibling::*[1]
   - name: quantity
-    singleValue: true
+    singleValue: false
     xpath: //td[contains(text(), 'Paketgewicht')]/following-sibling::*[1]
     # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     # regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     xpath: //td[contains(text(), 'Nettogewicht')]/following-sibling::*[1]
   - name: weightGross
-    singleValue: true
+    singleValue: false
     xpath: //td[contains(text(), 'Paketgewicht')]/following-sibling::*[1]
   - name: sku
-    singleValue: true
+    singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
   - name: asin
-    singleValue: true
+    singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
   
   # - name: variantId
@@ -84,32 +84,32 @@ fields:
   #   singleValue: true
   #   description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="acrCustomerReviewText"]/text()
     regExp: ([0-9]{1,}) ratings
     regExpReplace: $1
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="acrPopover"]/@title
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="acrPopover"]/@title
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     xpath: //td[contains(text(), 'Dimensionen')]/following-sibling::*[1]/text()[1]
   - name: shippingWeight
-    singleValue: true
+    singleValue: false
     xpath: //td[contains(text(), 'Produktgewicht inkl. Verpackung')]/following-sibling::*[1]/text()[1]
   - name: variantCount
-    singleValue: true
+    singleValue: false
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: color
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   # - name: colorCode
   #   singleValue: true
@@ -133,13 +133,13 @@ fields:
   #   singleValue: true
   #   description: Text of any coupon offer
   - name: amazonChoice
-    singleValue: true
+    singleValue: false
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue:  'No'
   - name: amazonChoiceCategory
-    singleValue: true
+    singleValue: false
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
   - name: brandLink
     singleValue: false
@@ -163,7 +163,7 @@ fields:
   #   singleValue: true
   #   description: Subscribe and save price
   - name: subscribeAndSave
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="sns-base-price"]
     regExp: ([^ ]+)
     regExpReplace: 'YES'
@@ -225,7 +225,7 @@ fields:
   #   singleValue: false
   #   description: null
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
   # - name: news
   #   singleValue: true
@@ -234,10 +234,10 @@ fields:
   #   singleValue: true
   #   description: null
   - name: fastTrack
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="deliveryMessageMirId"]
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
     xpath: //td[contains(text(), 'Inhaltsstoffe')]/following-sibling::*[1] or //td[contains(text(), 'Zutaten')]/following-sibling::*[1]
   # - name: servingSize
   #   singleValue: true
@@ -418,7 +418,7 @@ fields:
   #   singleValue: true
   #   description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
     xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
   # - name: alcoholContent
   #   singleValue: true
@@ -436,7 +436,7 @@ fields:
   #   description: In product page, information about a new version of the product -
   #     new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="twister"]//span[@class="selection"]
   # - name: firstVariant
   #   singleValue: true

@@ -1,10 +1,11 @@
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'amazon',
-    transform: null,
+    transform,
     domain: 'amazon.de',
   },
   implementation: async ({ url }, { country, domain }, context, dependencies) => {
