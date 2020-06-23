@@ -1,0 +1,114 @@
+input:
+  keywords: calories
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=d78ac43f-c602-4d55-b865-58c8df53ac38/task=14daad06-abb5-4174-b211-23e39ea9f14b/6dee96e3-b5cb-4049-9a16-71b90c397416.html
+    extractionConfigId: product/search/stores/a/amazonRuna/US/extract
+    data:
+      - group:
+          - price:
+              - text: $37.99
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]
+            name:
+              - text: Organic Clean Energy Iced Tea Drink by RUNA ZERO, Lime | Natural High
+                  Caffeine Coffee Alternative | Healthy Energy Boost with No
+                  Jitters | Calorie Free & Sugar Free, 8.4 oz (Pack of 24)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.com/RUNA-Organic-Clean-Energy-Guayusa/dp/B00C685F1S/ref=sr_1_1?dchild=1&keywords=calories&qid=1592467017&refinements=p_89%3ARUNA&sr=8-1
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/61F5fi39kBL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            id:
+              - text: B00C685F1S
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/@data-asin
+            reviewCount:
+              - text: "566"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+            ratingCount:
+              - text: "566"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+          - price:
+              - text: $29.88
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]
+            name:
+              - text: Organic Clean Energy Drink by RUNA, Blood Orange | Refreshing Tea Taste |
+                  10 Calories | Powerful Natural Caffeine | Healthy Energy &
+                  Focus | No Crash or Jitters | 12 Oz (Pack of 12)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.com/RUNA-Clean-Energy-Alternative-Sustained/dp/B012ADZIRE/ref=sr_1_2?dchild=1&keywords=calories&qid=1592467017&refinements=p_89%3ARUNA&sr=8-2
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/81rhj5AocZL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating:
+              - text: "3.6"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            id:
+              - text: B012ADZIRE
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/@data-asin
+            reviewCount:
+              - text: "250"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+            ratingCount:
+              - text: "250"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+          - price:
+              - text: $29.88
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]
+            name:
+              - text: Organic Clean Energy Drink by RUNA, Watermelon Focus | Refreshing Tea
+                  Taste | 10 Calories | Powerful Natural Caffeine | Healthy
+                  Energy & Focus | No Crash or Jitters | 12 Oz (Pack of 12)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.com/RUNA-Clean-Energy-Watermelon-Alternative/dp/B078NBYM7L/ref=sr_1_3?dchild=1&keywords=calories&qid=1592467017&refinements=p_89%3ARUNA&sr=8-3
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/81e1Ok6MPsL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating:
+              - text: "3.9"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            id:
+              - text: B078NBYM7L
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/@data-asin
+            reviewCount:
+              - text: "57"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+            ratingCount:
+              - text: "57"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+          - price:
+              - text: $20.00
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]
+            name:
+              - text: Organic Clean Energy Drink by RUNA, Sampler Pack | Refreshing Tea Taste |
+                  10 Calories | Powerful Natural Caffeine | Healthy Energy &
+                  Focus | No Crash or Jitters | 12 Oz (Pack of 6)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.com/Clean-Energy-RUNA-Refreshing-Calories/dp/B089MVRC9X/ref=sr_1_4?dchild=1&keywords=calories&qid=1592467017&refinements=p_89%3ARUNA&sr=8-4
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/81QSwf1484L._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            id:
+              - text: B089MVRC9X
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/@data-asin
+            reviewCount:
+              - text: "41"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+            ratingCount:
+              - text: "41"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+        xpath: /html
+    timestamp: 1592467022497
