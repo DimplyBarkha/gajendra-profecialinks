@@ -98,6 +98,15 @@ const transform = (data, context) => {
         if (row.directions) {
           row.directions = [{ text: row.directions[0].text.replace(/\"/g, '') }];
         }
+        if (row.ingredientsList) {
+          if(row.ingredientsList[0].includes("[{")) {
+            let list = JSON.parse(row.ingredientsList[0].text);
+            if(list && list.length > 0) {
+              row.ingredientsList =[]
+            list.foreach(item => row.ingredientsList.push(`${item.name}: ${item.value}`));
+            }
+          }
+        }
         if (row.alternateImages) {
           row.alternateImages.forEach(item => {
             const obj = JSON.parse(item.text);

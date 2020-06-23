@@ -121,7 +121,7 @@ fields:
 - name: ingredientsList
   singleValue: true
   xpath: //script[@id='variant']
-  regExp: ("ingredientsList":")(\[{[^\[\]]*"}\])
+  regExp: ("ingredientsList":)(\[{[^\[\]]*"}\])
   regExpReplace: $2
 - name: legalDisclaimer
   singleValue: true
