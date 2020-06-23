@@ -154,26 +154,27 @@ async function implementation (
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log('#### of Variants:', allVariants.length);
   console.log('#### Variants:', allVariants);
-  for (let i = 0; i < allVariants.length; i++) {
-    const id = allVariants[i];
-    const url = await dependencies.createUrl({ id });
-    await dependencies.goto({ url });
-    await context.evaluate(addUrl);
-    await getLbb();
-    await context.extract(productDetails, { transform, type: 'APPEND' });
-    const pageVariants = await getVariants();
-    console.log('#### of Variants:', allVariants.length);
-    console.log('#### Variants:', allVariants);
-    for (let j = 0; j < pageVariants.length; j++) {
-      const pageVariant = pageVariants[j];
-      if (allVariants.indexOf(pageVariant) === -1) {
-        allVariants.push(pageVariant);
-        console.log('new variant: ' + pageVariant);
-        console.log(allVariants);
+  if(allVariants.length>1){
+    for (let i = 0; i < allVariants.length; i++) {
+      const id = allVariants[i];
+      const url = await dependencies.createUrl({ id });
+      await dependencies.goto({ url });
+      await context.evaluate(addUrl);
+      await getLbb();
+      await context.extract(productDetails, { transform, type: 'APPEND' });
+      const pageVariants = await getVariants();
+      console.log('#### of Variants:', allVariants.length);
+      console.log('#### Variants:', allVariants);
+      for (let j = 0; j < pageVariants.length; j++) {
+        const pageVariant = pageVariants[j];
+        if (allVariants.indexOf(pageVariant) === -1) {
+          allVariants.push(pageVariant);
+          console.log('new variant: ' + pageVariant);
+          console.log(allVariants);
+        }
       }
     }
   }
-
   // return await context.extract(productDetails, { transform });
 }
 

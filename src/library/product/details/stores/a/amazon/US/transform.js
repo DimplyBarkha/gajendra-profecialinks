@@ -88,6 +88,13 @@ const transform = (data, context) => {
             row.brandLink = [{ text: row.brandLink[0].text }];
           }
         }
+        if (row.heroQuickPromoUrl) {
+          if(!row.heroQuickPromoUrl[0].text.includes('www.amazon.com')){
+            row.heroQuickPromoUrl = [{ text: `https://www.amazon.com${row.heroQuickPromoUrl[0].text}` }];
+          }else{
+            row.heroQuickPromoUrl = [{ text: row.heroQuickPromoUrl[0].text }];
+          }
+        }
         if (row.variantAsins) {
           let asins = [];
           row.variantAsins.forEach(item => {

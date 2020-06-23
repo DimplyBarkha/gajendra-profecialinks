@@ -111,8 +111,8 @@ fields:
     singleValue: false
     xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: variantInformation
-    singleValue: false
-    xpath: //div[contains(@id, "variation_") and not(contains(@id, "size"))]//span
+    singleValue: true
+    xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: true
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
