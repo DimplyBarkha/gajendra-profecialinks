@@ -18,9 +18,9 @@ const amazonTransform = (data) => {
           },
         ];
       }
-      if (row.otherSellersShipping) {
+      if (row.otherSellersShipping2) {
         let text = '';
-        for (const item of row.otherSellersShipping) {
+        for (const item of row.otherSellersShipping2) {
           if (item.text.toLowerCase().includes('free')) {
             text = '0.00';
             item.text = text;
