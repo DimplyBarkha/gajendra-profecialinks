@@ -94,4 +94,10 @@ fields:
     regExpReplace: $1
   - name: promotion
     singleValue: false
-    xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
+    xpath: //*[contains(@id,"price_savings") and not(contains(@class,"a-hidden"))]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@cel_widget_id="aplus"]//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: '#importantInformation_feature_div,#productDescription_feature_div.feature,#aplus'

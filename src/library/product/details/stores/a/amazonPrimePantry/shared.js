@@ -6,7 +6,6 @@
 const transform = (data) => {
   const cleanUp = (data, context) => {
     let dataStr = JSON.stringify(data);
-    console.log('INSIDE OF CLEANUP');
     dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
       .replace(/&amp;#160/g, ' ')
@@ -52,6 +51,21 @@ const transform = (data) => {
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           item.text = `${item.text.replace(',', '')}`;
+        });
+      }
+      if (row.variantCount) {
+        row.variantCount.forEach(item => {
+          item.text = item.text == "0" ? "1" : item.text;
+        });
+      }
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription.forEach(item => {
+          item.text = cleanUp(item.text);
+        });
+      }
+      if (row.promotion) {
+        row.promotion.forEach(item => {
+          item.text = cleanUp(item.text);
         });
       }
     }
