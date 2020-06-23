@@ -30,7 +30,7 @@ async function implementation (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        await stall(300);
+        await stall(200);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
@@ -61,8 +61,9 @@ async function implementation (
           let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
           itemId = itemId.split('-')[1];
           addHiddenDiv(itemContainer, 'itemId', itemId);
-          if (itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
-            addHiddenDiv(itemContainer, 'thumbnail', itemContainer.querySelector('source').getAttribute('srcset'));
+          let picture = itemContainer.querySelector('picture');
+          if (picture.querySelector('source') && picture.querySelector('source').getAttribute('srcset')) {
+            addHiddenDiv(itemContainer, 'thumbnail', picture.querySelector('source').getAttribute('srcset'));
           }
           if (itemContainer.querySelector('div[data-test="ratings"]')) {
             const rating = itemContainer.querySelector('div[data-test="ratings"]').innerText.split(' ')[0];
@@ -80,9 +81,9 @@ async function implementation (
       }
     });
 
-    await stall(1000);
-    const extract = await context.extract(productDetails, { transform });
     await stall(500);
+    const extract = await context.extract(productDetails, { transform });
+    await stall(250);
     const hasNextBtn = await context.evaluate(function () {
       const nextBtn = document.querySelector('a[data-test="next"]');
       if (nextBtn && !nextBtn.hasAttribute('disabled')) {
@@ -93,9 +94,9 @@ async function implementation (
     if (!hasNextBtn) {
       break;
     }
-    await stall(500);
+    await stall(250);
     await context.evaluate(clickNextBtn);
-    if (counter === 10) {
+    if (counter === 30) {
       break;
     }
     counter++;
