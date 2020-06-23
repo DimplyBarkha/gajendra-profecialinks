@@ -11,10 +11,10 @@ fields:
     xpath: //h1//span[@class="brand"]
   - name: image
     singleValue: false
-    xpath: (//div[@class="galleryWrapper"]//ul//li[3]//img/@src)[1]
+    xpath: (//div[@class="galleryWrapper"]//ul//li//img/@src)[1]
   - name: imageAlt
     singleValue: false
-    xpath: (//div[@class="galleryWrapper"]//ul//li[3]//img/@alt)[1]
+    xpath: (//div[@class="galleryWrapper"]//ul//li//img/@alt)[1]
   - name: alternateImages
     singleValue: false
     xpath: //li[@class="styles__ListItem-d6s9rt-4 fkFSpV"]//img/@src
@@ -48,9 +48,12 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@class="modelNo"]//span[1]
+    regExp: \d+
   - name: mpc
     singleValue: false
     xpath: //div[@class="modelNo"]//span[2]
+    regExp: (Model\s\#)(.+)
+    regExpReplace: $2
   - name: ratingCount
     singleValue: false
     xpath: (//span[@class="sc-dymIpo krADzm total"])[1]
@@ -70,7 +73,7 @@ fields:
     xpath: //div[contains(@class, 'pvsLabel')]//h3
     description: colour / scent / flavour / other
   - name: promotion
-    singleValue: true
+    singleValue: false
     xpath: //span[@class="offer"]//div[contains(@class, 'sc-hSdWYo QXRJk')]
   - name: secondaryImageTotal
     singleValue: false
@@ -81,3 +84,15 @@ fields:
   - name: url
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="galleryWrapper"]//li//img[@data-met-type="video"]/@src
+    description: URLs of videos on page
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class="wc-fragment"]/@data-gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1/@aria-label
+
