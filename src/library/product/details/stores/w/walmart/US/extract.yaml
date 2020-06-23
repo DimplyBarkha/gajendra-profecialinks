@@ -32,10 +32,10 @@ fields:
   xpath: //div[@id='added-sprice']  
 - name: availabilityText
   singleValue: true
-  xpath: //link[@itemprop="availability"]/@href
+  xpath: //link[@itemprop="availability"]/@href | //div[contains(@class,'Price-OOS')]
 - name: availabilityMessage
   singleValue: true
-  xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')]
+  xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')] |//h2[contains(@class,'prod-InvalidPromptMsg')]
 - name: manufacturer
   singleValue: true
   manualSelector: script[id='item'], script[id='product']
@@ -91,11 +91,11 @@ fields:
   xpath: //p[@class='Directions']
 - name: warnings
   singleValue: true
-  xpath: //p[@class='Warnings']
+  xpath: //p[@class='Warnings'] | //div[@class='LegalBadge-description'][contains(.,'arning')]
 - name: warranty
   singleValue: true
-  manualSelector: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  
-  xpath: //p[@class='Warnings']
+  xpath: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  
+ 
 - name: ratingCount
   singleValue: true
   xpath: //*[@itemprop='aggregateRating']//span[@class='stars-reviews-count-node']
@@ -166,11 +166,9 @@ fields:
   regExp: ([Free]?\d*\.?\d*))
   defaultValue: 0
 - name: lbb
-  singleValue: true
-  defaultValue: Yes
+  singleValue: true  
   xpath: //div[@class='SellerInfo']//a[@class='seller-name']
-  regExp: Walmart
-  regExpReplace: No
+ 
 - name: lbbPrice
   singleValue: true  
 - name: additionalDescBulletInfo
