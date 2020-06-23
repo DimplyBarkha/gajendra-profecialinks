@@ -104,3 +104,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     manualSelector: '#importantInformation_feature_div,#productDescription_feature_div.feature,#aplus'
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
