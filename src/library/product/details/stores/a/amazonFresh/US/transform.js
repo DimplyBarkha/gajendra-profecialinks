@@ -20,29 +20,13 @@ const transform = (data, context) => {
     for (const row of group) {
       try {
         if (row.asin) {
-          row.asin = [{ text: row.asin[0].text.match(/([A-Za-z0-9]{6,})/g)[0] }];          
-        }
-        if (row.amazonChoice) {
-          if (row.amazonChoice[0].text.includes('Amazon')) {
-            row.amazonChoice = [
-              {
-                text: 'Yes',
-              },
-            ];
-          } else {
-            row.amazonChoice = [
-              {
-                text: 'No',
-              },
-            ];
-          }
-        }
-        if (row.largeImageCount) {
-          const count = (row.largeImageCount[0].text.split("SL1500").length - 1)
-          row.largeImageCount = [{ text: count }];
+          row.asin = [{ text: row.asin[0].text.match(/([A-Za-z0-9]{10,})/g)[0] }];
         }
         if (row.warnings) {
           row.warnings = [{ text: row.warnings[0].text.replace(/Safety Information/g, '').trim() }];
+        }
+        if (row.weightGross) {
+          row.weightGross = [{ text: row.weightGross[0].text.trim() }];
         }
         if (row.shippingWeight) {
           row.shippingWeight = [{ text: row.shippingWeight[0].text.replace(/\s\(/g, '').trim() }];
@@ -50,17 +34,154 @@ const transform = (data, context) => {
         if (row.grossWeight) {
           row.grossWeight = [{ text: row.grossgWeight[0].text.replace(/\s\(/g, '').trim() }];
         }
+        if (row.largeImageCount) {
+          const count = (row.largeImageCount[0].text.toString().split("SL1500").length-1)
+          row.largeImageCount = [{ text: count }];
+        }
+        if (row.alternateImages) {
+          let regex = /\"large\":\"([^"]+)/g
+          const rawArray = row.alternateImages[0].text.toString().match(regex)
+          const images = [];
+          rawArray.forEach(item => {
+            let regex2 = /(https.+jpg)/s
+            images.push(item.match(regex2)[0])
+          })
+          row.alternateImages = [{ text: images.join(' | ') }];
+          row.secondaryImageTotal = [{ text: images.length }];
+        }
+        if (row.videos) {
+          let regex = /\"url\":\"([^"]+)/g
+          const rawArray = row.videos[0].text.toString().match(regex)
+          const videos = [];
+          rawArray.forEach(item => {
+            let regex2 = /(https.+mp4)/s
+            videos.push(item.match(regex2)[0])
+          })
+          row.videos = [{ text: videos.join(' | ') }];
+        }
+        if (row.videoLength) {
+          let regex1 = /\"durationTimestamp\":\"([^"]+)/g
+          const rawArray = row.videoLength[0].text.toString().match(regex1)
+          const videos = [];
+          rawArray.forEach(item => {
+            let regex2 = /([0-9\:]{3,})/s
+            videos.push(item.match(regex2)[0])
+          })
+          row.videoLength = [{ text: videos.join(' | ') }];
+        }
+        if (row.brandLink) {
+          if(!row.brandLink[0].text.includes('www.amazon.com')){
+            row.brandLink = [{ text: `https://www.amazon.com/${row.brandLink[0].text}` }];
+          }else{
+            row.brandLink = [{ text: row.brandLink[0].text }];
+          }
+        }
+        if (row.variantAsins) {
+          let asins = [];
+          row.variantAsins.forEach(item => {
+            if(item.text.match(/([A-Za-z0-9]{8,})/g)){
+              asins.push(item.text.match(/([A-Za-z0-9]{8,})/g)[0]);
+            }
+          });
+          // @ts-ignore
+          const dedupeAsins = [...new Set(asins)];
+          row.variantAsins = [
+            {
+              text: dedupeAsins.join(' | ')
+            }
+          ];
+        }
+        if (row.variantCount) {
+          let asins = [];
+          row.variantCount.forEach(item => {
+            if(item.text){
+              asins.push(item.text);
+            }
+          });
+          // @ts-ignore
+          const dedupeAsins = [...new Set(asins)];
+          row.variantCount = [
+            {
+              text: dedupeAsins.length
+            }
+          ];
+        }
+        if (row.salesRankCategory) {
+          let rankCat = []
+          row.salesRankCategory.forEach(item => {
+            if(item.text.includes('#')){
+              let regex = /\#[0-9,]{1,} in (.+) \(/s
+              let rawCat = item.text.match(regex)
+              rankCat.push(
+                {
+                  text: rawCat[1]
+                }
+              );
+            }else{
+              rankCat.push(
+                {
+                  text: item.text
+                }
+              );
+            }
+          });
+          row.salesRankCategory = rankCat
+        }
+        if (row.salesRank) {
+          let rank = []
+          row.salesRank.forEach(item => {
+            if(item.text.includes('#')){
+              let regex = /([0-9,]{1,})/s
+              let rawCat = item.text.match(regex)
+              rank.push(
+                {
+                  text: rawCat[0]
+                }
+              );
+            }else{
+              rank.push(
+                {
+                  text: ''
+                }
+              );
+            }
+          });
+          row.salesRank = rank
+        }
         if (row.manufacturerDescription) {
-          row.manufacturerDescription = [{ text: row.manufacturerDescription[0].text.replace(/Read more/g, '').replace(/View larger/g, '').replace(/\n/g, '').trim() }];
+          let description = [];
+          row.manufacturerDescription.forEach(item => {
+            description.push(item.text);
+          });
+          row.manufacturerDescription = [
+            {
+              text: description.join(' ')
+            }
+          ];
+        }
+        if (row.amazonChoice) {
+          if (row.amazonChoice[0].text.includes('Amazon')) {
+            row.amazonChoice = [
+              {
+                text: 'Yes',
+              }
+            ];
+          } else {
+            row.amazonChoice = [
+              {
+                text: 'No',
+              }
+            ];
+          }
         }
         if (row.specifications) {
-          let text = '';
+          let text = [];
           row.specifications.forEach(item => {
-            text += `${item.text.replace(/\n \n/g, ':')} || `;
+            text.push(`${item.text.replace(/\n \n/g, ':')}`);
           });
           row.specifications = [
             {
-              text: text.slice(0, -4),
+              text: text.join(' || '),
             },
           ];
         }
@@ -79,20 +200,20 @@ const transform = (data, context) => {
               item.text = '0.00';
             } else if (item.text.includes('+ $')) {
               const regex = /\$([0-9\.]{3,})/s;
-              item.text = item.text.match(regex)[0];
+              item.text = item.text.match(regex)[1];
             } else {
               item.text = '0.00';
             }
           });
         }
         if (row.featureBullets) {
-          let text = '';
+          let text = [];
           row.featureBullets.forEach(item => {
-            text += `${item.text} | `;
+            text.push(`${item.text}`);
           });
           row.featureBullets = [
             {
-              text: text.slice(0, -2),
+              text: text.join(' | '),
             },
           ];
         }
