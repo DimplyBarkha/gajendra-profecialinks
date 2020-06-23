@@ -67,11 +67,11 @@ fields:
     description: Shipping information for the product
   - name: rank
     singleValue: false
-    description: search/listing rank
+    xpath: //div[@id='pd_rank']
     type: NUMBER
   - name: rankOrganic
     singleValue: false
-    description: The position (rank) within the list excluding sponsored/paid results
+    xpath: //div[@id='pd_rank']
     type: NUMBER
   - name: sponsored
     singleValue: false
