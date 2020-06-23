@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[@id="mainImage"]/@src
+    xpath: //img[@id="mainImage"]/@src|//div[@class="mediagallery__mainimage"]//img/@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[contains(@name,"keyword")]/@content
@@ -15,18 +15,19 @@ fields:
     singleValue: true
   - name: category
     singleValue: false
-    xpath: //li[@itemprop="itemListElement"][1]/following-sibling::li/a
+    xpath: //li[@class="breadcrumb__item"][1]/following-sibling::li/a
   - name: nameExtended
     singleValue: true
     xpath: //meta[@itemprop="name"]/@content
   - name: price
     singleValue: true
-    xpath: concat(//span[@id="ajaxPrice"]/span[@class="price__currency"],//span[@id="ajaxPrice"]/@content)
+    xpath: concat(//span[@id="ajaxPrice"]/span[@class="price__currency"],//span[@id="ajaxPrice"]/@content,//script[@type="application/ld+json" and contains(text(),'Product')])
   - name: availabilityText
     singleValue: true
+    xpath: //div[@id="custom_availability_text"]
   - name: brandText
     singleValue: true
-    xpath: //h2[@itemprop="brand"]//span
+    xpath: //h2[@itemprop="brand"]//span|//span[@class="product-details__brand-name"]
   - name: manufacturerDescription
     singleValue: true
   - name: weightNet
@@ -43,17 +44,17 @@ fields:
     singleValue: true
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="thumbnails"]//img/@src
+    xpath: //div[@id="thumbnails"]//img/@src|//div[@class="overlay__side-content__product-images"]//img/@src
   - name: manufacturerImages
     singleValue: false
-    xpath:  //div[@id="product_description"]//img[@class="stretchy"]|//div[@data-component="description"]//img
+    xpath: //div[@id="product_description"]//img[@class="stretchy"]|//div[@data-component="description"]//img
   - name: ratingCount
     singleValue: true
     xpath: //span[@class="product-details__review-count"]
     type: NUMBER
   - name: shippingDimensions
     singleValue: true
-    xpath: //div[@id="specsContainer"]//div[h4[contains(text(),"Dimensions")]]/following-sibling::div[@class="specs__table"][1]
+    xpath: //div[@id="specsContainer"]//div[h4[contains(text(),"Dimensions")]]/following-sibling::div[@class="specs__table"][1]|//h4[contains(text(),"Dimensions")]/following-sibling::div
   - name: specifications
     singleValue: true
     xpath: //div[@id="specsContainer"]
@@ -68,8 +69,10 @@ fields:
     xpath: substring(//upc, 3, string-length(//upc))
   - name: videos
     singleValue: false
+    xpath: //div[@itemprop="video"]/meta[@itemprop="contentURL"]/@content|//script[contains(text(),'"video"')]
   - name: imageAlt
     singleValue: true
+    xpath: //img[@id="mainImage"]/@alt|//div[@class="mediagallery__mainimage"]//img/@alt
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
@@ -78,12 +81,14 @@ fields:
     type: NUMBER
   - name: name
     singleValue: true
+    xpath: //h1[@class='product-title__title']|//h1[@class='product-details__title']
   - name: listPrice
     singleValue: true
   - name: legalDisclaimer
     singleValue: true
   - name: mpc
     singleValue: true
+    xpath: normalize-space(//h2[contains(@class,'modelNo')])
   - name: variantCount
     singleValue: true
   - name: shippingInfo
@@ -94,10 +99,14 @@ fields:
     singleValue: true
   - name: description
     singleValue: true
+    xpath: //div[contains(@class,'main_description')]|//div[contains(@class,'product-description__main-description')]
   - name: variantId
     singleValue: true
-    xpath: //span[@itemprop="productID"]
+    xpath: //span[@itemprop="productID"]|//h2[@class="product-infobar__detail" and contains(text(),"Internet")]/text()[2]
   - name: descriptionBullets
     singleValue: true
+    xpath: count(//div[contains(@class,'main_description')]//li|//div[contains(@class,'product-description__main-description')]//li[not(span//img)])
   - name: packSize
     singleValue: true
+  - name: promotion
+    xpath: normalize-space(//div[@id="savingsText"]/p)
