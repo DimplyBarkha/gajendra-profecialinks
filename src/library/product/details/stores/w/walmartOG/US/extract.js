@@ -16,6 +16,26 @@ module.exports = {
       // const req = await context.searchForRequest(`grocery.walmart.com/v3/api/products/${inputs.id}`, 'GET', 0, 60);
       // const data = (req && req.status === 200 && req.responseBody && req.responseBody.body) ? JSON.parse(req.responseBody.body) : null;
 
+      /*
+      await context.click('button[label="Change store"]');
+      await context.waitForSelector('input[data-automation-id="zipSearchField"]');
+      await context.setInputValue('input[data-automation-id="zipSearchField"]', '72758');
+      await context.click('button[data-automation-id="zipSearchBtn"]');
+
+      await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]');
+      await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]:first-child input');
+      await context.evaluate(async function () {
+        const searchZipCode = document.querySelector('input[data-automation-id="selectFlyoutItemBtn"]:first-child');
+        if (searchZipCode !== undefined) {
+          searchZipCode.click();
+        }
+      });
+
+      await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
+      await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
+      await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
+      */
+
       await context.evaluate(async function getDataFromAPI (id) {
         console.log('getDataFromAPI');
         let data = {};
@@ -88,13 +108,6 @@ module.exports = {
                 }
               }
             }
-
-            /* should we grab image from api if image is not avail on webpage
-            if (document.querySelector('div[data-automation-id="productPageTile"]').querySelector('div[class*="imageContainer"]').querySelector('img[data-automation-id="image"]')) {
-              const notGIFimg = (data.basic && data.basic.image && data.basic.image.large) ? data.basic.image.large : document.querySelector('div[data-automation-id="productPageTile"]').querySelector('div[class*="imageContainer"]').querySelector('img[data-automation-id="image"]').getAttribute('src');
-              addHiddenDiv('iio_image', notGIFimg);
-            }
-            */
 
             // Write objects to HTML
             addHiddenDiv('iio_asin', asin);
