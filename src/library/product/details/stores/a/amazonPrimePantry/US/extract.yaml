@@ -42,6 +42,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
+  - name: asin
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin
   - name: variantId
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
