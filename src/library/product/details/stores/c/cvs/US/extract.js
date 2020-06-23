@@ -44,166 +44,7 @@ module.exports = {
 
 
 
-    async function variantClick() {
-      let btns = await buttonCheck().catch()
-      const waitSelector = 'div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)'
-      const moreSelector = 'div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48'
-      let i = 0;
-      let j = 0;
-      const moreCheck = await context.evaluate(function() {
-        let selectorCheck = document.querySelector('div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48');
-        if(selectorCheck) {
-          return true;
-        } else {
-          return false
-        }
-      })
 
-      if(moreCheck){
-        context.click(moreSelector)
-      }
-      if(btns[0].length){
-        while(i < btns[0].length && i < 30) {
-          context.click(btns[0][i]);
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          // context.click(btns[0][i]);
-          // await new Promise(resolve => setTimeout(resolve, 2000));
-          // context.click(btns[0][i]);
-          // await new Promise(resolve => setTimeout(resolve, 2000));
-          // await context.waitForSelector(waitSelector, { timeout: 20000 });
-
-          if(btns[1].length && i < 30){
-            while(j < btns[1].length) {
-              context.click(btns[1][j]);
-              await new Promise(resolve => setTimeout(resolve, 2000));
-              // context.click(btns[1][i]);
-              // await new Promise(resolve => setTimeout(resolve, 2000));
-              // context.click(btns[1][i]);
-              // await new Promise(resolve => setTimeout(resolve, 2000));
-              // await context.waitForSelector(waitSelector, { timeout: 20000 });
-              await getVariantIdNum()
-              await collectVariantInfo()
-
-              j++
-            }
-          } else {
-            await getVariantIdNum()
-            await collectVariantInfo()
-            // await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
-            }
-          i++
-        }
-      }
-    }
-
-    async function getVariantIdNum() {
-      let varArray = []
-      const varStore = await context.evaluate(function() {
-          function addHiddenDiv (id, content) {
-            const newDiv = document.createElement('div');
-            newDiv.id = id;
-            newDiv.textContent = content;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
-          }
-        let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)')
-        const regex1 = /[0-9]+$/g;
-
-        if(varPath){
-          let varText = regex1.exec(varPath.innerText);
-          console.log(varText)
-          addHiddenDiv('ii_variantId', varText)
-        }
-      })
-    }
-
-
-    async function buttonCheck() {
-      return await context.evaluate(function() {
-        const buttonSelector = 'div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(10)';
-        let flag = false;
-        const selectors = [[],[]];
-        let i = 1;
-        while(!flag && i < 50) {
-          const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`
-          const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`
-          if(document.querySelector(firstVar)){
-            selectors[0].push(firstVar)
-          }
-          if(document.querySelector(secondVar)){
-            selectors[1].push(secondVar)
-          }
-          if(!document.querySelector(firstVar) && !document.querySelector(secondVar)){
-            flag = true
-            break;
-          }
-          i++
-        }
-
-         if(selectors.length) {
-             return selectors;
-         } else {
-             return false
-         }
-     });
-  }
-
-
-
-  async function collectVariantInfo () {
-    const varStore = await context.evaluate(function() {
-        function addHiddenDiv (id, content) {
-          const variantId = document.querySelectorAll('div#ii_variantId')
-          const variantDiv = variantId[variantId.length - 1]
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          variantDiv.appendChild(newDiv);
-        }
-
-      const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-      const variantArray = [];
-      const packSize = ['Pack: ', 'Group Size: '];
-      const packSizeResult = [];
-
-      if (variantInfo[1]) {
-        if (packSize.includes(variantInfo[0].innerText)) {
-          packSizeResult.push(variantInfo[1].innerText);
-        }
-        variantArray.push(variantInfo[1].innerText);
-      }
-      if (variantInfo[3]) {
-        if (packSize.includes(variantInfo[2].innerText)) {
-          packSizeResult.push(variantInfo[3].innerText);
-        }
-        variantArray.push(variantInfo[3].innerText);
-      }
-      if (variantInfo[5]) {
-        if (packSize.includes(variantInfo[4].innerText)) {
-          packSizeResult.push(variantInfo[5].innerText);
-        }
-        variantArray.push(variantInfo[5].innerText);
-      }
-      if (variantInfo[7]) {
-        if (packSize.includes(variantInfo[6].innerText)) {
-          packSizeResult.push(variantInfo[7].innerText);
-        }
-        variantArray.push(variantInfo[7].innerText);
-      }
-
-      if (variantArray.length) {
-        const variantString = variantArray.join(' || ');
-        addHiddenDiv('ii_variantInfo', `${variantString}`);
-      }
-      if (packSizeResult.length) {
-        const packString = packSizeResult.join(' ');
-        addHiddenDiv('ii_packSize', `${packString}`);
-      }
-    });
-  }
-  
-  await variantClick()
 
 
     // await new Promise(resolve => setTimeout(resolve, 20000));
@@ -354,36 +195,253 @@ module.exports = {
     // collectVariantNums();
     // identifySections();
 
+    async function variantClick() {
+      let btns = await buttonCheck().catch()
+      const waitSelector = 'div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)'
+      let i = 0;
+      let j = 0;
 
-    async function variantCleanUp() {
+      if(btns[0].length){
+        while(i < btns[0].length && i < 100) {
+          context.click(btns[0][i]);
+          await context.waitForSelector(waitSelector, { timeout: 20000 });
+          await new Promise(resolve => setTimeout(resolve, 5000));
+
+
+          if(btns[1].length && i < 30){
+            while(j < btns[1].length) {
+              context.click(btns[1][j]);
+              await getVariantIdNum()
+              await collectVariantInfo()
+              await context.waitForSelector(waitSelector, { timeout: 20000 });
+              await new Promise(resolve => setTimeout(resolve, 5000));
+              await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
+
+              j++
+            }
+          } else {
+            await getVariantIdNum()
+            await collectVariantInfo()
+
+            await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
+            }
+          i++
+        }
+      } else {
+        await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
+      }
+    }
+
+    async function getVariantIdNum() {
+      let varArray = []
       const varStore = await context.evaluate(function() {
+          function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+        
+        const variantOnDom = document.querySelector('div#ii_variantId');
+
+        let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)')
+        const regex1 = /[0-9]+$/g;
+
+        if(varPath){
+          let varText = regex1.exec(varPath.innerText);
+
+          console.log(varText)
+          // if(variantOnDom) {
+          //   variantOnDom.innerText = varText;
+          // } else {
+          addHiddenDiv('ii_variantId', varText)
+          // }
+        }
+      });
+    }
+
+
+    async function buttonCheck() {
+      const moreCheck = await context.evaluate(function() {
+        let selectorCheck = document.querySelector('div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48');
+        if(selectorCheck) {
+          return true;
+        } else {
+          return false
+        }
+      })
+      const moreSelector = 'div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48'
+      if(moreCheck){
+        context.click(moreSelector)
+      }
+      return await context.evaluate(function() {
+        const buttonSelector = 'div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(10)';
+        let flag = false;
+        const selectors = [[],[]];
+        let i = 1;
+        while(!flag && i < 100) {
+          const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`
+          const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`
+          if(document.querySelector(firstVar)){
+            selectors[0].push(firstVar)
+          }
+          if(document.querySelector(secondVar)){
+            selectors[1].push(secondVar)
+          }
+          if(!document.querySelector(firstVar) && !document.querySelector(secondVar)){
+            flag = true
+            break;
+          }
+          i++
+        }
+
+         if(selectors.length) {
+             return selectors;
+         } else {
+             return false
+         }
+     });
+  }
+
+
+
+  async function collectVariantInfo () {
+    const varStore = await context.evaluate(function() {
         function addHiddenDiv (id, content) {
+          const variantId = document.querySelectorAll('div#ii_variantId')
+          const variantDiv = variantId[variantId.length - 1]
           const newDiv = document.createElement('div');
           newDiv.id = id;
           newDiv.textContent = content;
           newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
+          variantDiv.appendChild(newDiv);
         }
-        let varArray = []
-        const vars = document.querySelectorAll('div#ii_variantId');
-        if(vars) {
-          vars.forEach(variant => {
-            if(!varArray.includes(variant.innerText)) {
-              varArray.push(variant.innerText)
-            }
-          });
-          varArray.forEach(varId => {
-            addHiddenDiv('ii_variantNum', varId)
-  
-          })
+
+      const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
+      const variantPrice = document.querySelector('div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q');
+      // const variantImage = $x("(.//div[contains(@id, 'zoom-carousel')]//img)[1]/@src");
+      const variantArray = [];
+      const packSize = ['Pack: ', 'Group Size: '];
+      const packSizeResult = [];
+      for(let i = 0; i < 10; i = i + 2) {
+        if (variantInfo[i + 1]) {
+          if (packSize.includes(variantInfo[i].innerText)) {
+            packSizeResult.push(variantInfo[i + 1].innerText);
+          }
+          variantArray.push(variantInfo[i + 1].innerText);
         }
-      });
+        // if (variantInfo[3]) {
+        //   if (packSize.includes(variantInfo[2].innerText)) {
+        //     packSizeResult.push(variantInfo[3].innerText);
+        //   }
+        //   variantArray.push(variantInfo[3].innerText);
+        // }
+        // if (variantInfo[5]) {
+        //   if (packSize.includes(variantInfo[4].innerText)) {
+        //     packSizeResult.push(variantInfo[5].innerText);
+        //   }
+        //   variantArray.push(variantInfo[5].innerText);
+        // }
+        // if (variantInfo[7]) {
+        //   if (packSize.includes(variantInfo[6].innerText)) {
+        //     packSizeResult.push(variantInfo[7].innerText);
+        //   }
+        //   variantArray.push(variantInfo[7].innerText);
+        // }
+      }
+
+      if (variantArray.length) {
+        const variantString = variantArray.join(' || ');
+        addHiddenDiv('ii_variantInfo', `${variantString}`);
+      }
+      if (packSizeResult.length) {
+        const packString = packSizeResult.join(' ');
+        addHiddenDiv('ii_packSize', `${packString}`);
+      }
+      if(variantPrice) {
+        addHiddenDiv('ii_variantPrice', `${variantPrice.innerText}`);
+      }
+      // if(variantImage) {
+      //   debugger
+      //   addHiddenDiv('ii_variantImage', `${variantImage.innerText}`);
+      // }
+
+
+    });
+  }
   
-    }
-
-    await variantCleanUp()
+  await variantClick()
 
 
-    return await context.extract(productDetails, { transform: transformParam });
+    // async function variantCleanUp() {
+    //   const varStore = await context.evaluate(function() {
+    //     function addHiddenDiv (id, content) {
+    //       const newDiv = document.createElement('div');
+    //       newDiv.id = id;
+    //       newDiv.textContent = content;
+    //       newDiv.style.display = 'none';
+    //       document.body.appendChild(newDiv);
+    //     }
+    //     let varArray = []
+    //     const vars = document.querySelectorAll('div#ii_variantId');
+    //     if(vars) {
+    //       vars.forEach(variant => {
+    //         if(!varArray.includes(variant.innerText)) {
+    //           varArray.push(variant.innerText)
+    //         }
+    //       });
+    //       varArray.forEach(varId => {
+    //         addHiddenDiv('ii_variantNum', varId)
+  
+    //       })
+    //     }
+    //   });
+  
+    // }
+
+    // await variantCleanUp()
+
+
+    
+    // async function variantAppend() {
+    //   const numVariants = await context.evaluate(function() {
+    //     let variantInfo = ["buffer"]
+    //     document.querySelectorAll('div#ii_variantInfo').forEach(ele => {variantInfo.push(ele.innerText)})
+    //     return variantInfo;
+    //   });
+    //   const numPrice = await context.evaluate(function() {
+    //     let variantPrice = ["buffer"]
+    //     document.querySelectorAll('div#ii_variantPrice').forEach(ele => {variantPrice.push(ele.innerText)})
+    //     return variantPrice;
+    //   });
+    //   // const numImage = await context.evaluate(function() {
+    //   //   let variantImage = ["buffer"]
+    //   //   document.querySelectorAll('div#ii_variantImage').forEach(ele => {variantImage.push(ele.innerText)})
+    //   //   return variantImage;
+    //   // });
+    //   const data =  await context.extract(productDetails, { transform: transformParam });
+    //   const copyData = data.slice();
+    //   let i = 1;
+
+    //   while(i < numVariants.length) {
+    //     data[0].group.push(copyData[0].group[0])
+    //     data[0].group[i].variantInformation[0].text = numVariants[i]
+    //     data[0].group[i].price[0].text = numPrice[i]
+    //     // data[0].group[i].image[0].text = numImage[i]
+    //     console.log(data[0].group[i].price[0])
+    //     console.log(numVariants[1])
+    //     console.log(data[0].group[i].variantInformation)
+    //     i++
+    //   }
+    //   console.log(data[0].group[0].variants[0])
+    //   // return await context.extract(data, { transform: transformParam });
+    //   // console.log(data[0].group[2]);
+    //   return data;
+    // }
+    // // await variantAppend()
+    // return await variantAppend();
+    // return await context.extract(productDetails, { transform: transformParam });
+
   },
 };

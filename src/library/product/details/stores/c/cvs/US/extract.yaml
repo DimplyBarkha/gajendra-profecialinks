@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -48,8 +48,8 @@ fields:
     xpath: //div[@id='ii_url']
     regExp: ([0-9])+$ 
   - name: variants
-    xpath: //div[@id="ii_variantId"]
-    regExp: ^[0-9]+
+    # xpath: //div[@id="ii_variantId"]
+    selector: div#ii_variantId
   #   xpath: //script[contains(@src,'scontent.webcollage.net')]
   #   regExp: cpi=([0-9]+)
   #   regExpReplace: $1

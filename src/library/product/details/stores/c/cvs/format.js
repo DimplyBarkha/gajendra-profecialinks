@@ -21,10 +21,21 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '');
-  
+  let variantArray = [];
+  for (const { group } of data) {
+    for (let row of group) {
+      if(row.variants && !variantArray.includes(row.variants[0].text)) {
+        variantArray.push(row.variants[0].text);
+      }
+    }
+  }
   for (const { group } of data) {
     for (let row of group) {
       try {
+        row.variants = [];
+        variantArray.forEach(variant => {
+          row.variants.push({ text: variant})
+        })
         if (row.manufacturerDescription) {
           let text = '';
           row.manufacturerDescription.forEach(item => {
