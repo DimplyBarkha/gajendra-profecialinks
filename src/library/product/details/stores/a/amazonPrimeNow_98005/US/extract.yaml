@@ -70,6 +70,8 @@ fields:
   - name: gtin
     singleValue: true
     xpath: //th[contains(text(), 'UPC')]/following-sibling::*[1]
+  - name: eangtin
+    singleValue: true
   - name: asin
     singleValue: false
     xpath: //link[@rel='canonical']/@href
@@ -210,6 +212,8 @@ fields:
     regExp: (.+)
     regExpReplace: 'YES'
     defaultValue: 'NO'
+  - name: largeImageCount
+    singleValue: true
   - name: variantAsins
     singleValue: false
     xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
@@ -350,7 +354,7 @@ fields:
     singleValue: true
   - name: promotion
     singleValue: true
-    xpath: //tr[contains(@id, 'primeNowDetailPagePrice_savings_price')]
+    xpath: normalize-space(//tr[contains(@id, 'primeNowDetailPagePrice_savings_price')])
   - name: alcoholContent
     singleValue: true
   - name: newVersion
@@ -361,15 +365,19 @@ fields:
     singleValue: true
   - name: variants
     singleValue: true
+  - name: firstVariant
+    singleValue: true
+  - name: variantInformation
+    singleValue: true
   - name: additionalDescBulletInfo
     singleValue: true
   - name: prop65Warning
     singleValue: true
   - name: ageSuitability
     singleValue: true
-  - name: energy_efficiency
+  - name: energyEfficiency
     singleValue: true
-  - name: technical_information_pdf_present
+  - name: technicalInformationPdfPresent
     singleValue: true
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
   - name: t_&_cs
@@ -380,10 +388,12 @@ fields:
     singleValue: true
   - name: customerServiceAvailability
     singleValue: true
+  - name: productUrl
+    singleValue: true
   - name: materials
     singleValue: true
     xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
-  - name: 360ImagePresent
+  - name: Image360Present
     singleValue: true
     xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
   - name: imageZoomFeaturePresent
