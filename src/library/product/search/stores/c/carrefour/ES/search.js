@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'carrefour.es',
     country: 'ES',
     store: 'carrefour',
-    timeout: 50000,
+    domain: 'carrefour.es',
   },
 };
