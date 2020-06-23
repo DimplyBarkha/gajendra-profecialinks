@@ -18,45 +18,58 @@ async function implementation (
   async function getVariants () {
     const variants = await context.evaluate(function () {
       const variantList = [];
-      const elements = document.querySelectorAll('li[data-defaultasin]');
-      const dropdown = document.querySelectorAll('#variation_size_name option');
-      const bookElements = document.querySelectorAll('#tmmSwatches>ul>li a[id][href*="dp"]');
-      if (bookElements) {
-        for (let i = 0; i < bookElements.length; i++) {
-          const element = bookElements[i];
+      const variantCards = document.querySelectorAll('li[data-defaultasin]');
+      const variantDropdown = document.querySelectorAll('[id*="variation"] option');
+      const variantBooks = document.querySelectorAll('[id*="Swatches"]>ul>li a[id][href*="dp"]');
+      const parentVariant = document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null) ? document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null).iterateNext() : null;
+      if(parentVariant){
+        const regex = /parentAsin\"\:\"([A-Za-z0-9]{10,})/s;
+        let vasinRaw = parentVariant.innerText;
+        const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
+        if(vasin !== ''){
+          variantList.push(vasin);
+          }
+      }
+      if (variantBooks) {
+        for (let i = 0; i < variantBooks.length; i++) {
+          const element = variantBooks[i];
           if (element == null) {
             continue;
           }
           const vasinRaw = element.getAttribute('href');
           if (vasinRaw !== '') {
-            const regex = /\/dp\/([A-Z0-9]{5,})/s;
+            const regex = /\/dp\/([A-Za-z0-9]{10,})/s;
             const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
-            variantList.push(vasin);
+            if(vasin !== ''){
+              variantList.push(vasin);
+            }
           }
         }
       }
-      if (dropdown) {
-        for (let i = 0; i < dropdown.length; i++) {
-          const element = dropdown[i];
+      if (variantDropdown) {
+        for (let i = 0; i < variantDropdown.length; i++) {
+          const element = variantDropdown[i];
           if (element == null) {
             continue;
           }
           const vasinRaw = element.getAttribute('value');
           if (vasinRaw !== '') {
-            const regex = /[0-9]{1,},([0-9A-Z]{5,})/s;
+            const regex = /[0-9]{1,},([0-9a-zA-Z]{10,})/s;
             const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
-            variantList.push(vasin);
+            if(vasin !== ''){
+              variantList.push(vasin);
+            }
           }
         }
       }
-      if (elements) {
-        for (let i = 0; i < elements.length; i++) {
-          const element = elements[i];
+      if (variantCards) {
+        for (let i = 0; i < variantCards.length; i++) {
+          const element = variantCards[i];
           if (element == null) {
             continue;
           }
           const vasin = element.getAttribute('data-defaultasin');
-          if (vasin !== '') {
+          if (vasin !== ''){
             variantList.push(vasin);
           }
         }
@@ -168,7 +181,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'amazon',
+    store: 'amazonFresh',
     transform: transform,
     domain: 'amazon.com',
   },
