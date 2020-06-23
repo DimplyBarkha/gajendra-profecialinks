@@ -58,7 +58,7 @@ module.exports = {
           // wait for full loading
           await new Promise(resolve => setTimeout(resolve, 5e3));
 
-          if (variantXpath && !getXpath(variantXpath)) return;
+          const foundVariant = !!(variantXpath && getXpath(variantXpath));
 
           // monkey patch ajax calls
           const originalRequestOpen = XMLHttpRequest.prototype.open;
@@ -75,7 +75,7 @@ module.exports = {
             }
             originalRequestOpen.apply(this, arguments);
           };
-          variantXpath && getXpath(variantXpath).click();
+          foundVariant && getXpath(variantXpath).click();
 
           await new Promise(resolve => setTimeout(resolve, 5e3));
           XMLHttpRequest.prototype.open = originalRequestOpen;
@@ -287,7 +287,6 @@ module.exports = {
             imageZoomFeaturePresent: document.querySelector('#zoomLensContainer') ? 'Yes' : 'No',
           };
           removeObjectToDocument(obj);
-          await new Promise(resolve => setTimeout(resolve, 3e3));
           addObjectToDocument(obj);
         }, [id, url, variantXpath]);
 
