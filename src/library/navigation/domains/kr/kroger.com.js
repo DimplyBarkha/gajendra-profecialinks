@@ -48,7 +48,7 @@ async function implementation (
       console.log('Closest store: ' + smallestDistance);
       return smallestIx;
     });
-    await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${ixToClick}) div.StoreSearchResults-StartButton`);
+      await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${ixToClick}) div.StoreSearchResults-StartButton`);
   }
 
   async function changeZip (wantedZip) {
@@ -59,11 +59,11 @@ async function implementation (
     await context.waitForSelector('button.kds-SolitarySearch-button', { timeout: 15000 });
 
     await context.click('button.kds-SolitarySearch-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
     await findButtonWithStoreSelect();
-    await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
     await findClosestStore();
-    await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
   }
 
   const wantedZip = '45209';
