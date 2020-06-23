@@ -26,77 +26,7 @@ async function implementation (
   let counter = 1;
   while (true) {
     await stall(1000);
-    await context.evaluate(async function () {
-      function stall (ms) {
-        return new Promise(resolve => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(300);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          break;
-        }
-      }
-    });
-
-    const noImages = await context.evaluate(async function () {
-      const itemContainers = document.querySelectorAll('li.Col-favj32-0.h-padding-a-none.h-display-flex');
-      const products = [];
-      for (const itemContainer of itemContainers) {
-        let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
-        itemId = itemId.split('-')[1];
-        products.push('https://target.com' + itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href'));
-      }
-      return products;
-    });
-
-    const currentUrl = await context.evaluate(function () {
-      return window.location.href;
-    });
-
-    const fetchedImages = [];
-    const ids = [];
-    for (const productLink of noImages) {
-      await context.goto(productLink);
-      await context.waitForXPath("//div[@data-test='product-price']");
-      let itemId = productLink.replace('https://target.com', '').split('?')[0].split('/')[4];
-      itemId = itemId.split('-')[1];
-      const image = await context.evaluate(function () {
-        if (document.querySelectorAll('.styles__ThumbnailImage-beej2j-11').length && document.querySelectorAll('.styles__ThumbnailImage-beej2j-11')[0].getAttribute('src')) {
-          return document.querySelectorAll('.styles__ThumbnailImage-beej2j-11')[0].getAttribute('src');
-        }
-        const pictureDiv = document.querySelector('.slideDeckPicture');
-        if (pictureDiv.querySelector('img') && pictureDiv.querySelector('img').getAttribute('src')) {
-          return pictureDiv.querySelector('img').getAttribute('src').replace(/700/g, '325');
-        }
-      });
-      fetchedImages.push(itemId + ',' + image);
-      ids.push(itemId);
-    }
-
-    console.log(fetchedImages);
-    console.log(ids);
-
-    await context.goto(currentUrl);
     await context.waitForXPath('//ul//li');
-    await context.evaluate(async function () {
-      if (!document.getElementById('missingImages')) {
-        const input = document.createElement('input');
-        input.setAttribute('type', 'text');
-        input.id = 'missingImages';
-        document.getElementById('header').appendChild(input);
-      } else {
-        document.getElementById('missingImages').value = '';
-      }
-    });
-    await context.setInputValue('#missingImages', fetchedImages.join(' '));
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
@@ -131,15 +61,7 @@ async function implementation (
           let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
           itemId = itemId.split('-')[1];
           addHiddenDiv(itemContainer, 'itemId', itemId);
-          let image = '';
-          for (const imageStr of document.getElementById('missingImages').value.split(' ')) {
-            if (imageStr && imageStr.split(',')[0] === itemId) {
-              image = imageStr.split(',')[1];
-              addHiddenDiv(itemContainer, 'thumbnail', image);
-              break;
-            }
-          }
-          if (!image && itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
+          if (itemContainer.querySelector('source') && itemContainer.querySelector('source').getAttribute('srcset')) {
             addHiddenDiv(itemContainer, 'thumbnail', itemContainer.querySelector('source').getAttribute('srcset'));
           }
           if (itemContainer.querySelector('div[data-test="ratings"]')) {
@@ -173,7 +95,7 @@ async function implementation (
     }
     await stall(500);
     await context.evaluate(clickNextBtn);
-    if (counter === 7) {
+    if (counter === 10) {
       break;
     }
     counter++;
