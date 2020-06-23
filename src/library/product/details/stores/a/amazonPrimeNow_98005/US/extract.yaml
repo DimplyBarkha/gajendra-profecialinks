@@ -98,13 +98,13 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //div[@id="centerCol"]//div[@id="averageCustomerReviews"]//span[@id="acrCustomerReviewText"]/text()
-    regExp: ([0-9]{1,}) ratings
+    regExp: (.*[0-9]{1,}) ratings
     regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
     singleValue: false
-    xpath: //table[contains(@class,"prodDetTable")]//*[@id="acrPopover"]/@title
+    xpath: //*[@id="acrPopover"]/@title
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: shippingInfo
