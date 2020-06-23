@@ -42,36 +42,48 @@ const transform = (data, context) => {
           let regex = /\"large\":\"([^"]+)/g
           const rawArray = row.alternateImages[0].text.toString().match(regex)
           const images = [];
-          rawArray.forEach(item => {
-            let regex2 = /(https.+jpg)/s
-            images.push(item.match(regex2)[0])
-          })
-          row.alternateImages = [{ text: images.join(' | ') }];
-          row.secondaryImageTotal = [{ text: images.length }];
+          if(rawArray){
+            rawArray.forEach(item => {
+              let regex2 = /(https.+jpg)/s
+              images.push(item.match(regex2)[0])
+            })
+            row.alternateImages = [{ text: images.join(' | ') }];
+            row.secondaryImageTotal = [{ text: images.length }];
+          }else{
+            row.alternateImages = [{ text: '' }];
+          }
         }
         if (row.videos) {
           let regex = /\"url\":\"([^"]+)/g
           const rawArray = row.videos[0].text.toString().match(regex)
           const videos = [];
-          rawArray.forEach(item => {
-            let regex2 = /(https.+mp4)/s
-            videos.push(item.match(regex2)[0])
-          })
-          row.videos = [{ text: videos.join(' | ') }];
+          if(rawArray){
+            rawArray.forEach(item => {
+              let regex2 = /(https.+mp4)/s
+              videos.push(item.match(regex2)[0])
+            })
+            row.videos = [{ text: videos.join(' | ') }];
+          }else{
+            row.videos = [{ text: '' }];
+          }
         }
         if (row.videoLength) {
           let regex1 = /\"durationTimestamp\":\"([^"]+)/g
           const rawArray = row.videoLength[0].text.toString().match(regex1)
           const videos = [];
-          rawArray.forEach(item => {
-            let regex2 = /([0-9\:]{3,})/s
-            videos.push(item.match(regex2)[0])
-          })
-          row.videoLength = [{ text: videos.join(' | ') }];
+          if(rawArray){
+            rawArray.forEach(item => {
+              let regex2 = /([0-9\:]{3,})/s
+              videos.push(item.match(regex2)[0])
+            })
+            row.videoLength = [{ text: videos.join(' | ') }];
+          }else{
+            row.videoLength = [{ text: '' }];
+          }
         }
         if (row.brandLink) {
           if(!row.brandLink[0].text.includes('www.amazon.com')){
-            row.brandLink = [{ text: `https://www.amazon.com/${row.brandLink[0].text}` }];
+            row.brandLink = [{ text: `https://www.amazon.com${row.brandLink[0].text}` }];
           }else{
             row.brandLink = [{ text: row.brandLink[0].text }];
           }
@@ -187,7 +199,7 @@ const transform = (data, context) => {
         }
         if (row.otherSellersPrime) {
           row.otherSellersPrime.forEach(item => {
-            if (item.text.includes('rime')) {
+            if (item.text.includes('amazon') || item.text.includes('Amazon') || item.text.includes('Prime') || item.text.includes('prime')) {
               item.text = 'YES';
             } else {
               item.text = 'NO';
