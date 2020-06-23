@@ -18,6 +18,26 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.otherSellersShipping2) {
+        for (const item of row.otherSellersShipping2) {
+          if (item.text.toLowerCase().includes('free')) {
+            item.text = '0.00';
+          } else if (item.text.match(/\$([^\s]+)/)) {
+            item.text = item.text.match(/\$([^\s]+)/)[1];
+          }
+        }
+      }
+
+      if (row.otherSellersPrime) {
+        for (const item of row.otherSellersPrime) {
+          if (item.text.includes('Details')) {
+            item.text = 'YES';
+          } else {
+            item.text = 'NO';
+          }
+        }
+      }
     }
   }
   return data;
