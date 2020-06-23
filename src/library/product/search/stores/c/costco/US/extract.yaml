@@ -15,9 +15,6 @@ fields:
   - name: id
     singleValue: true
     xpath: //div[contains(@class,"product-tile-set")]//div[@class="thumbnail"]/@itemId
-  - name: search_url
-    singleValue: false
-    xpath: //div[@id="filter-header"]/a/@data-url
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="caption"]//div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
@@ -29,7 +26,7 @@ fields:
     xpath: //div[@class="caption"]//div[contains(@id,"price")]
   - name: manufacturer
     singleValue: true
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     xpath: //div[@class="caption"]//div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
   - name: soldBy
