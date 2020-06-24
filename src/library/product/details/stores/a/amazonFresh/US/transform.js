@@ -45,7 +45,9 @@ const transform = (data, context) => {
           if(rawArray){
             rawArray.forEach(item => {
               let regex2 = /(https.+jpg)/s
-              images.push(item.match(regex2)[0])
+              if(!!item.match(regex2)){
+                images.push(item.match(regex2)[0])
+              }
             })
             row.alternateImages = [{ text: images.join(' | ') }];
           }else{
@@ -224,7 +226,7 @@ const transform = (data, context) => {
           });
           row.featureBullets = [
             {
-              text: text.join(' | '),
+              text: text.join(' || '),
             },
           ];
         }
