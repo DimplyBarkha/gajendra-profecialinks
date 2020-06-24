@@ -28,7 +28,7 @@ fields:
     xpath: //div[contains(@class, "stock-level")] | //span[contains(@class, "product-options-stock")]
   - name: description
     singleValue: true
-    xpath: //section[@id="information"]//div[@class="Layout-golden-main"]//text()
+    xpath: (//section[@id="information"]//div[@class="Layout-golden-main"]/text())[1]
   - name: ingredientsList
     singleValue: true
     xpath: //p[@class="productpage-ingredients-content"]
