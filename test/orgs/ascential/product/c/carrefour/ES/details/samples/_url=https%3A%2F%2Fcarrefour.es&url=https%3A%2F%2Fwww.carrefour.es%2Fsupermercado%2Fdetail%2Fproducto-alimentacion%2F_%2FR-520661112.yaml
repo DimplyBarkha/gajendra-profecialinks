@@ -1,0 +1,246 @@
+input:
+  _url: https://carrefour.es
+  url: https://www.carrefour.es/supermercado/detail/producto-alimentacion/_/R-520661112
+extractions:
+  - html: https://workbench.import.io/html/run=d6b15e45-fd17-4661-bcf5-1e1d783c5b11/task=59f885b2-74cc-479d-84ee-11cba400fb52/1f78622c-5ee1-4865-9dd8-014d89aacb0f.html
+    extractionConfigId: product/details/stores/c/carrefour/es/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "0"
+                xpath: /html/body/@aggregate_rating
+            availability:
+              - text: In stock
+                xpath: /html/body/@availability
+            brand:
+              - text: vichy-catalan
+                xpath: /html/body/@brand
+            category:
+              - text: Inicio
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Supermercado
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Bebidas
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Aguas y Zumos
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Agua con gas
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[5]
+            image:
+              - text: https://static.carrefour.es/hd_510x_/img_pim_food/000133_00_1.jpg
+                xpath: /html/body/a[1]/@href
+            imageAlt:
+              - text: Agua mineral con gas Vichy Catalán natural 1 l.
+                xpath: /html/body/a[1]/@alt
+            ingredientsList:
+              - text: bicarbonatos(2081,0 mg/l), sulfatos(49,6 mg/l), cloruros(584,0 mg/l),
+                  sodio (1097,0 mg/l), potasio (50,7 mg/l), litio (1,3 mg/l)
+                xpath: /html/body/div[2]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/p[2]
+            nameExtended:
+              - text: Agua mineral con gas Vichy Catalán natural 1 l.
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/div[1]/h1[1]
+            packaging:
+              - text: Agua sometida a una técnica de adsorción autorizada..
+                xpath: /html/body/div[2]/div[1]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]
+            price:
+              - text: 1,18 €
+                xpath: /html/body/div[2]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            pricePerUnit:
+              - text: 1,18 €
+                xpath: /html/body/@price_per_unit
+            pricePerUnitUom:
+              - text: l
+                xpath: /html/body/@price_per_unit_uom
+            proteinPerServing:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_protein_per_serving
+            proteinPerServingUom:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_protein_per_serving_uom
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/@rating_count
+            retailerProductCode:
+              - text: "520661112"
+                xpath: /html/head[1]/link[3]/@href
+            saltPerServing:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_sal_per_serving
+            saltPerServingUom:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_sal_per_serving_uom
+            saturatedFatPerServing:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@saturated_per_serving
+            saturatedFatPerServingUom:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@saturated_per_serving_uom
+            scrapeCode:
+              - text: https://www.carrefour.es
+                  /supermercado/producto-alimentacionvichy-catalan/R-520661112/p
+                xpath: /html/head[1]/link[3]/@href
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/@secondary_image_total
+            sku:
+              - text: "520661112"
+                xpath: /html/head[1]/link[3]/@href
+            sodiumPerServing:
+              - text: bicarbonatos(2081,0 mg/l), sulfatos(49,6 mg/l), cloruros(584,0 mg/l),
+                  sodio (1097,0 mg/l), potasio (50,7 mg/l), litio (1,3 mg/l)
+                xpath: /html/body/@sodium_per_serving
+            sodiumPerServingUom:
+              - text: bicarbonatos(2081,0 mg/l), sulfatos(49,6 mg/l), cloruros(584,0 mg/l),
+                  sodio (1097,0 mg/l), potasio (50,7 mg/l), litio (1,3 mg/l)
+                xpath: /html/body/@sodium_per_serving_uom
+            storage:
+              - text: Conservar en lugar fresco y seco, protegido de la luz solar y exento de
+                  olores intensos.
+                xpath: /html/body/div[2]/div[1]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[2]
+            totalCarbPerServing:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_carb_per_serving
+            totalCarbPerServingUom:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_carb_per_serving_uom
+            totalFatPerServing:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_fat_per_serving
+            totalFatPerServingUom:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_fat_per_serving_uom
+            totalSugarsPerServing:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_sugars_per_serving
+            totalSugarsPerServingUom:
+              - text: Medidas:Cantidad neta del alimento:1000 MililitrosCantidad neta del
+                  alimento:1000 GramosPeso neto escurrido:1Datos del
+                  producto:Denominación del alimento:Agua Mineral Natural con
+                  gas carbónico añadidoNombre del importador:S.A. VICHY
+                  CATALANDirección del operador/importador:Avda. Doctor Furest,
+                  32 17455 Caldes de MalavellaLugar de procedencia del
+                  alimento:Manantial Vichy Catalan, Cataluña,
+                  EspañaDeclaraciones:Agua sometida a una técnica de adsorción
+                  autorizada.Instrucciones:Conservar en lugar fresco y seco,
+                  protegido de la luz solar y exento de olores
+                  intensos.Marcas:Vichy Catalan
+                xpath: /html/body/@total_sugars_per_serving_uom
+            url:
+              - text: https://www.carrefour.es
+                  /supermercado/producto-alimentacionvichy-catalan/R-520661112/p
+                xpath: /html/head[1]/link[3]/@href
+            variantId:
+              - text: "520661112"
+                xpath: /html/body/@variant_id
+        xpath: /
+    timestamp: 1591786926051
