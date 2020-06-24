@@ -315,7 +315,7 @@ fields:
     xpath:
   - name: materials
     xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
-  - name: 360ImagePresent
+  - name: Image360Present
     xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
     regExp: (.+)
     regExpReplace: "YES"
