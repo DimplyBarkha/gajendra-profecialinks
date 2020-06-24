@@ -48,7 +48,6 @@ const transform = (data, context) => {
               images.push(item.match(regex2)[0])
             })
             row.alternateImages = [{ text: images.join(' | ') }];
-            row.secondaryImageTotal = [{ text: images.length }];
           }else{
             row.alternateImages = [{ text: '' }];
           }
@@ -86,13 +85,6 @@ const transform = (data, context) => {
             row.brandLink = [{ text: `https://www.amazon.com${row.brandLink[0].text}` }];
           }else{
             row.brandLink = [{ text: row.brandLink[0].text }];
-          }
-        }
-        if (row.heroQuickPromoUrl) {
-          if(!row.heroQuickPromoUrl[0].text.includes('www.amazon.com')){
-            row.heroQuickPromoUrl = [{ text: `https://www.amazon.com${row.heroQuickPromoUrl[0].text}` }];
-          }else{
-            row.heroQuickPromoUrl = [{ text: row.heroQuickPromoUrl[0].text }];
           }
         }
         if (row.variantAsins) {
