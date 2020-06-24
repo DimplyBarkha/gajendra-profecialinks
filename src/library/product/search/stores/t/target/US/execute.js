@@ -25,7 +25,7 @@ async function implementation (
   await context.waitForXPath('//ul//li');
   await stall(1000);
   return context.evaluate(function () {
-    return true;
+    return document.querySelectorAll('li').length > 0;
   });
 }
 

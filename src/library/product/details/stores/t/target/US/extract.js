@@ -73,7 +73,7 @@ async function implementation (
     }
     window.scroll(0, 300);
 
-    await stall(200);
+    await stall(100);
     const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight');
     if (manufacturerCTA) {
       manufacturerCTA.click();
@@ -480,7 +480,7 @@ async function implementation (
       const drugFacts = document.querySelector('a[href="#tabContent-tab-Drugfacts"]');
       if (drugFacts) {
         drugFacts.click();
-        await stall(200);
+        await stall(100);
         const warning = [];
         document.querySelectorAll('h4').forEach(e => {
           if (validTextField(e) && e.innerText.trim() === 'Directions') {
@@ -579,9 +579,6 @@ async function implementation (
       if (secondaryImages.length) {
         addHiddenDiv('secondaryImages', secondaryImages.join(' | '));
       }
-      if (!document.querySelector('#packSize')) {
-        addHiddenDiv('packSize', 1);
-      }
       if (document.querySelectorAll('.styles__ThumbnailImage-beej2j-11').length && document.querySelectorAll('.styles__ThumbnailImage-beej2j-11')[0].getAttribute('src')) {
         addHiddenDiv('productImage', document.querySelectorAll('.styles__ThumbnailImage-beej2j-11')[0].getAttribute('src').split('?')[0]);
       } else if (document.querySelector('.slideDeckPicture')) {
@@ -640,9 +637,9 @@ async function implementation (
         variations = options.querySelectorAll('a');
         isColorDropDown = true;
       }
-      if (variations.length && details) {
+      if (variations.length && details && !document.getElementById('variantCount')) {
         details.click();
-        await stall(200);
+        await stall(100);
         addHiddenDiv('variantCount', variations.length);
         if (isColorDropDown) {
           if (!document.getElementById('options') && document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
@@ -655,7 +652,7 @@ async function implementation (
         } else {
           variations[0].click();
         }
-        await stall(200);
+        await stall(100);
         if (document && document.querySelectorAll('b').length) {
           document.querySelectorAll('b').forEach(e => {
             if (validTextField(e) && e.innerText.indexOf('TCIN') > -1) {

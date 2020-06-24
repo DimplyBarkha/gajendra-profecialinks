@@ -31,7 +31,7 @@ async function implementation (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 9000) {
-        await stall(3000);
+        await stall(2500);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 9000) {
@@ -86,16 +86,20 @@ async function implementation (
     const extract = await context.extract(productDetails, { transform });
     results = [...results, ...extract];
     await stall(250);
-    const hasNextBtn = await context.evaluate(function () {
-      const nextBtn = document.querySelector('a[data-test="next"]');
-      if (nextBtn && !nextBtn.hasAttribute('disabled')) {
-        return true;
-      }
-      return false;
+    const maxPage = await context.evaluate(function () {
+      let maxPage = 0;
+      document.querySelectorAll('.h-text-lg').forEach(e => {
+        if (e.innerText.indexOf('page') === 0) {
+          maxPage = e.innerText.split('of')[1].trim();
+        }
+      });
+      return maxPage;
     });
-    if (!hasNextBtn) {
+    console.log('maxPage', maxPage);
+    if (parseInt(maxPage) === counter) {
       break;
     }
+
     await stall(250);
     await context.evaluate(clickNextBtn);
     if (counter === 15) {
@@ -103,7 +107,7 @@ async function implementation (
     }
     counter++;
   }
-  return results;
+  return [];
 }
 
 const { transform } = require('../../../../shared');
