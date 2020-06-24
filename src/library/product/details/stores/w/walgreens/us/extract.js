@@ -304,9 +304,13 @@ module.exports = {
         const classCheat = `[contains(concat(' ',normalize-space(@${attribute}),' '),'${text}')]`;
         return (xpath + classCheat);
       };
-      const result = Object.entries(jsonObj.inventory.relatedProducts)
+      let result = Object.entries(jsonObj.inventory.relatedProducts)
         .reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.url)], [])
         .map(url => (getXpathByText('//li//a', 'style', url)));
+      if (result.length > 41) {
+        result.splice(41, result.length);
+      }
+      console.log(result);
       return result;
     });
 
