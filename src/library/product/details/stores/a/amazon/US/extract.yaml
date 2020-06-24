@@ -33,17 +33,18 @@ fields:
     singleValue: false
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
-    singleValue: true
-    xpath: //*[@id="priceblock_ourprice"]
+    singleValue: false
+    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
   - name: availabilityText
-    singleValue: true
-    xpath: //*[contains(@id,'availability')]
+    singleValue: false
+    xpath: (//*[contains(@id,'availability')] |  //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
+    defaultValue: 'InStock'
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+    xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
+    xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     singleValue: false
     xpath: //a[@id="bylineInfo"]
@@ -51,7 +52,7 @@ fields:
     regExpReplace: $1
   - name: manufacturer
     singleValue: false
-    xpath: //th[text()='Manufacturer']/following-sibling::*[1]
+    xpath: //th[contains(text(), 'Manufacturer') and not(contains(text(), "Discontinue")) and not(contains(text(),  "Part"))]/following-sibling::*[1]
   - name: quantity
     singleValue: false
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
@@ -111,8 +112,8 @@ fields:
     singleValue: false
     xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: variantInformation
-    singleValue: true
-    xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
+    singleValue: false
+    xpath: //div[contains(@id, "variation_") and not(contains(@id, "size"))]//span
   - name: color
     singleValue: true
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
@@ -121,10 +122,10 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //td[@class="apm-top"]
+    xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@cel_widget_id="aplus"]//img/@src
+    xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
@@ -132,8 +133,11 @@ fields:
     singleValue: true
     xpath: //title
   - name: inStorePrice
-    sinlgeValue: true
-    xpath:
+    singleValue: true
+    xpath: 
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@id='added-url']
   - name: asin
     singleValue: true
     xpath: //div[@id='added-asin']
@@ -188,7 +192,9 @@ fields:
     xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//img/@src
   - name: heroQuickPromoUrl
     singleValue: false
-    xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@href
+    xpath: (//div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@href)[1]
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com$1
   - name: ingredientImagePresent
     singleValue: true
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
@@ -238,8 +244,8 @@ fields:
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//div[contains(@class, "aod-ship-charge")]
   - name: secondaryImageTotal
-    singleValue: true
-    xpath:
+    singleValue: false
+    xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])
   - name: news
     singleValue: false
     xpath: //table[contains(@id,"productDetails_detailBullets")]//tr/th[contains(text(),"Best Sellers Rank")]/../td//span[contains(text(), "#1 ")]
@@ -379,8 +385,8 @@ fields:
     singleValue: true
     xpath: 
   - name: productOtherInformation
-    singleValue: true
-    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
+    singleValue: false
+    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))]
   - name: packaging
     singleValue: true
     xpath: 
