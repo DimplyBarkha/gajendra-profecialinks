@@ -48,7 +48,7 @@ async function implementation (
       console.log('Closest store: ' + smallestDistance);
       return smallestIx;
     });
-      await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${ixToClick}) div.StoreSearchResults-StartButton`);
+    await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${ixToClick}) div.StoreSearchResults-StartButton`);
   }
 
   async function changeZip (wantedZip) {

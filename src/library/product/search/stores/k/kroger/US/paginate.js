@@ -1,14 +1,12 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'US',
     store: 'kroger',
-    nextLinkSelector: 'li.Pagination-item.Pagination-next > a',
-    mutationSelector: null,
-    spinnerSelector: 'label.kds-Text--s.kds-LoadingSpinner.kds-LoadingSpinner--s',
-    loadedSelector: '.PaginateItems',
-    openSearchDefinition: null,
+    loadedSelector: '.PaginateItems, p[class*="no-query-results"]',
+    openSearchDefinition: {
+      template: 'https://www.kroger.com/pl/all/00?fulfillment=all&query={searchTerms}&page={page}&searchType=natural',
+    },
     domain: 'kroger.com',
   },
 };
