@@ -53,9 +53,11 @@ async function implementation (
 
   async function changeZip (wantedZip) {
     await context.click('button.CurrentModality-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 10e3));
+    await context.waitForSelector("input[autocomplete='postal-code']", { timeout: 15000 });
+
     await context.setInputValue("input[autocomplete='postal-code']", wantedZip);
-    await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
+    await context.waitForSelector('button.kds-SolitarySearch-button', { timeout: 15000 });
+
     await context.click('button.kds-SolitarySearch-button');
     await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
     await findButtonWithStoreSelect();

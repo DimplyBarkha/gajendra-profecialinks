@@ -1,0 +1,242 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='product-image-container']/img/@src
+  - name: url
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: nameExtended
+    singleValue: true
+    xpath: normalize-space(//div[@data-dmid="detail-page-headline"])
+  - name: name
+    singleValue: true
+    xpath: //h1[@data-dmid='detail-page-headline-product-title']
+  - name: price
+    singleValue: true
+    xpath: //span[@data-dmid='sas-product-price']
+  - name: availabilityText
+    xpath: //link[@itemprop="availability"]/@href
+    singleValue: true
+    regExp: InStock
+    regExpReplace: Lieferbar
+    defaultValue: Derzeit online nicht lieferbar
+  - name: description
+    singleValue: false,
+    xpath: concat(//ul[@data-dmid='description-relevant-selling-points'] , //div[@data-dmid="detail-first-section"]//div[@data-dmid="expandable-text-container"]/@content)
+  - name: ingredientsList
+    singleValue: true
+    xpath: normalize-space(//button[@aria-label="Zutaten" or @aria-label="Inhaltsstoffe"]/following-sibling::div)
+  - name: brandText
+    singleValue: true
+    xpath: //div[@data-dmid='detail-page-headline-brand-name']
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@data-dmid="detail-page-headline"]//a | //div[@data-dmid="detail-page-headline"]//h1
+  - name: quantity
+    singleValue: true
+    xpath: //h1[@data-dmid="detail-page-headline-product-title"]
+    regExp: (.*)\,\s(.*)([a-z]{1,2})
+    regExpReplace: $2$3
+  - name: sku
+    singleValue: true
+    xpath: //meta[@itemprop='sku']/@content
+  - name: variantId
+    singleValue: true
+    xpath: //meta[@itemprop='sku']/@content
+  - name: directions
+    singleValue: true,
+    xpath: //button[@aria-label="Verwendungshinweise"]//following-sibling::div//div[@data-dmid='product-detail-item-accordion-content-text']
+  - name: warnings
+    singleValue: true
+    xpath: //button[@aria-label='Wichtiger Hinweis']/following-sibling::div
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@data-dmid='dm-slick-slider-container']/div/div/div/div//button/img/@src
+    regExp: (.*)60x60(.*)
+    regExpReplace: $1280x430$2
+  - name: ratingCount
+    singleValue: true
+    defaultValue: 0
+    xpath: //div[@class='bv_numReviews_text']
+    regExp: >-
+      (?:([\d\.\,]+)\s?)
+  - name: aggregateRating
+    singleValue: true
+    defaultValue: 0
+    xpath: //div[@itemprop="ratingValue"]
+    regExp: >-
+      (?:([\d\.\,]+)\s?)
+  - name: shippingInfo
+    singleValue: true
+    xpath: //button[@aria-label="Anschrift des Unternehmens"]/..//div[@data-dmid="product-detail-accordion-inner-content"]
+  - name: gtin
+    singleValue: true
+    xpath: //meta[@itemprop='gtin13']/@content
+  - name: storage
+    singleValue: true
+    xpath: //div[contains(.,'Aufbewahrungshinweise')]/div[@id="content-product-detail-accordion"]
+  - name: allergyAdvice
+    singleValue: true
+    xpath: normalize-space(//button[@aria-label='Allergene']/following-sibling::div)
+  - name: saltPerServing
+    singleValue: true
+    xpath: //td[text()='Salz Äquivalent']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: saltPerServingUom
+    singleValue: true
+    xpath: //td[text()='Salz Äquivalent']/following-sibling::td
+    regExp: >-
+      (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: servingSize
+    singleValue: true
+    xpath: //button[@aria-label='Nährwerte']/..//div[@data-dmid="product-detail-accordion-inner-content"]//table/thead/tr/th[2]
+    regExp: \d+
+  - name: servingSizeUom
+    singleValue: true
+    xpath: //button[@aria-label='Nährwerte']/..//div[@data-dmid="product-detail-accordion-inner-content"]//table/thead/tr/th[2]
+    regExp: (?:([\d\.\,]+)\s?)(.*)(\s[a-z]{2}\s)(.*)
+    regExpReplace: $3
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //td[contains(., 'Brennwert')]/following-sibling::td
+  - name: caloriesPerServingUom
+    singleValue: true
+    xpath: //td[contains(., 'Brennwert')]/following-sibling::td
+    regExp: >-
+      \d+(.*).*\/
+    regExpReplace: $1
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //td[text()='Fett']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: totalFatPerServingUom
+    singleValue: true
+    xpath: //td[text()="Fett"]/following-sibling::td
+    regExp: >-
+      (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: //td[contains(.,'Fett, davon gesättigte Fettsäuren')]/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    xpath: //td[contains(.,'Fett, davon gesättigte Fettsäuren')]/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: sodiumPerServing
+    singleValue: true
+    xpath: //td[contains(., 'Natrium')]/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: sodiumPerServingUom
+    singleValue: true
+    xpath: //td[contains(., 'Natrium')]/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //td[contains(., 'Kohlenhydrate')]/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: totalCarbPerServingUom
+    singleValue: true
+    xpath: //td[contains(., 'Kohlenhydrate')]/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: dietaryFibrePerServing
+    singleValue: true
+    xpath: //td[text()='Ballaststoffe']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: dietaryFibrePerServingUom
+    singleValue: true
+    xpath: //td[text()="Ballaststoffe"]/following-sibling::td
+    regExp: >-
+      (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //td[text()='Zucker']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    xpath: //td[text()='Zucker']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: totalProtienPerServing
+    singleValue: true
+    xpath: //td[text()='Eiweiß']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?) 
+  - name: totalProtienPerServingUom
+    singleValue: true
+    xpath: //td[text()='Eiweiß']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: vitaminAPerServing
+    singleValue: true
+    xpath: //td[text()='Vitamin A']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: vitaminAPerServingUom
+    singleValue: true
+    xpath: //td[text()='Vitamin A']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: vitaminCPerServing
+    singleValue: true
+    xpath: //td[text()='Vitamin C']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: vitaminCPerServingUom
+    singleValue: true
+    xpath: //td[text()='Vitamin C']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: calciumPerServing
+    singleValue: true
+    xpath: //td[text()='Calcium']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: calciumPerServingUom
+    singleValue: true
+    xpath: //td[text()='Calcium']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: ironPerServing
+    singleValue: true
+    xpath: //td[text()='Eisen']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: ironPerServingUom
+    singleValue: true
+    xpath: //td[text()='Eisen']/following-sibling::td
+    regExp: >- 
+      (?:([\d\.\,]+)\s?)(.*)
+    regExpReplace: $2
+  - name: dietarySymbols
+    singleValue: false
+    xpath: //div[@data-dmid='detail-first-section']/div[@data-dmid="label-slider-container"]//div[@data-dmid="label-container"]//img/@src
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//ul[@data-dmid='description-relevant-selling-points']/li)
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //div[@data-dmid='detail-page-base-price-container']/div[@data-dmid='product-base-price']
+    regExp: (.*)\((?:([\d\.\,]+)\s?)€(.*)
+    regExpReplace: $2
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: //div[@data-dmid='detail-page-base-price-container']/div[@data-dmid='product-base-price']
+    regExp: >-
+      .*\s(.*)\)
+    regExpReplace: $1
+  - name: imageAlt
+    singleValue: true
+    xpath: //button/img/@alt
+  - name: brandLink
+    xpath: //div[@data-dmid="detail-page-headline-brand-name"]/a/@href
+    regExp: >-
+      (.+)
+    regExpReplace: https://dm.de$1
+  - name: termsAndConditions
+    singleValue: true
+    regExpReplace: https://www.dm.de$1
