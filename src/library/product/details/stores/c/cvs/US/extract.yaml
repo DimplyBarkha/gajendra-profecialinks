@@ -3,8 +3,8 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@id='ii_variantId']
 fields:
-  - name: ageSuitability
-    xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(., 'Warnings')]//div[contains(., 'Age')]
+  # - name: ageSuitability
+  #   xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(., 'Warnings')]//div[contains(., 'Age')]
   - name: technicalInformationPdfPresent
     singleValue: true
     defaultValue: false
@@ -22,7 +22,7 @@ fields:
     xpath: ancestor::html//div[@id='ii_imageZoom']
   - name: additionalDescBulletInfo
     xpath: ancestor::html//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
-  - name: dietaryInformation
+  # - name: dietaryInformation
     # singleValue: true
     # xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
     # xpath: //div[@id='ii_Ingredients']
@@ -35,12 +35,6 @@ fields:
     singleValue: true
     xpath: ancestor::html//div[@id='ii_url']
     regExp: ([0-9])+$
-  - name: variants
-    xpath: ancestor::html//div[@id="ii_variantId"]
-    regExp: ^([0-9])+
-  #   xpath: //script[contains(@src,'scontent.webcollage.net')]
-  #   regExp: cpi=([0-9]+)
-  #   regExpReplace: $1
   - name: ingredientImagePresent
     singleValue: true
     defaultValue: false
@@ -77,8 +71,9 @@ fields:
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     regExp: ([0-9])+$
   - name: image
-    singleValue: true
-    xpath: (ancestor::html//div[contains(@id, 'zoom-carousel')]//img)[1]/@src
+    # singleValue: true
+    # xpath: (ancestor::html//div[contains(@id, 'zoom-carousel')]//img)[1]/@src
+    xpath: //div[@id='ii_variantImage']
   - name: nameExtended
     xpath: ancestor::html//div[@class="css-1dbjc4n r-6koalj r-13awgt0"]//h1
     # singleValue: true
@@ -99,9 +94,11 @@ fields:
     xpath: ancestor::html//div[@id='ii_metaKeywords']
     # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: price
-    xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+    # xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+    xpath: //div[@id='ii_variantPrice']
   - name: listPrice
-    xpath: ancestor::html//div[@class='css-1dbjc4n r-k8qxaj']//div[@class='css-901oao r-1khnkhu r-1jn44m2 r-1b43r93 r-5fcqz0 r-m611by']
+    xpath: //div[@id='ii_variantListPrice']
+    # xpath: ancestor::html//div[@class='css-1dbjc4n r-k8qxaj']//div[@class='css-901oao r-1khnkhu r-1jn44m2 r-1b43r93 r-5fcqz0 r-m611by']
     # singleValue: true
     # selector: div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by
     regExp: ([$.0-9]+$)
@@ -110,7 +107,8 @@ fields:
     selector: div.css-901oao.r-v857uc.r-1jn44m2.r-1i10wst.r-vw2c0b.r-9qu9m4
     defaultValue: In Stock
   - name: inStorePrice
-    xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+    xpath: //div[@id='ii_variantPrice']
+    # xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
     # singleValue: true
     # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
   - name: inStorePriceSymbol
@@ -146,6 +144,11 @@ fields:
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     xpath: ancestor::html//div[@id='ii_url']
     regExp: ([0-9])+$
+  - name: variants
+    xpath: ancestor::html//div[@id="ii_variantId"]
+    regExp: ^([0-9])+
+  - name: variantInformation
+    xpath: //div[@id='ii_variantInfo']
   - name: directions
     xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Directions')]//div[@class='htmlView']
     # xpath: //div[@id='ii_Directions']
@@ -154,14 +157,16 @@ fields:
     # xpath: //div[@id='ii_Warnings']
   - name: alternateImages
     singleValue: false
-    xpath: (ancestor::html//div[contains(@id, 'zoom-carousel')]//img)/@src
+    xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src[contains(., "https")]
   - name: ratingCount
-    xpath: ancestor::html//div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//a
+    xpath: //div[@id='ii_variantReview']
+    # xpath: ancestor::html//div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//a
     regExp: ([0-9])+
   - name: aggregateRating
-    xpath: ancestor::html//div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
+    xpath: //div[@id='ii_variantRating']
+    # xpath: ancestor::html//div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
   - name: manufacturerImages
-    xpath: ancestor::html//div[@id='wc-aplus']//img/@src
+    xpath: //div[@id='wc-aplus']//img/@src[not (contains(., "syndigo.svg"))]
     # xpath: //div[@id='ii_manufImages']
   - name: allergyAdvice
     # singleValue: true
@@ -285,17 +290,19 @@ fields:
     singleValue: true
     xpath: ancestor::html//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
     regExp: ^[0-9]+
-  - name: variantInformation
-    xpath: ancestor::html//div[@id='ii_variantInfo']
   - name: _input
     singleValue: true
   - name: imageAlt
-    singleValue: true
-    xpath: (ancestor::html//div[contains(@id,'zoom-carousel')]//img)[2]/@src
+    xpath: //div[@id='ii_variantImageAlt']
+    # singleValue: true
+    # xpath: (ancestor::html//div[contains(@id,'zoom-carousel')]//img)[2]/@src
   - name: promotion
     # selector: div.css-1dbjc4n div.css-901oao.r-cme181.r-1jn44m2.r-ubezar.r-b88u0q
-    xpath: (ancestor::html//div[@class='css-1dbjc4n r-utggzx']//div[@class='css-1dbjc4n']/div[contains(., 'Sale') or (contains(., 'Buy'))])[1]
+    xpath: (ancestor::html//div[@class="css-901oao r-cme181 r-1jn44m2 r-ubezar r-b88u0q"])
+    # xpath: (ancestor::html//div[@class='css-1dbjc4n r-k8qxaj']//div[@class='css-1dbjc4n']/div[contains(., 'Sale') or (contains(., 'Buy')) or (contains(., 'Off')) or (contains(., 'for'))])[1]
+    # xpath: (ancestor::html//div[@class='css-1dbjc4n r-utggzx']//div[@class='css-1dbjc4n']/div[contains(., 'Sale') or (contains(., 'Buy'))])[1]
   - name: aggregateRatingText
+    # xpath: //div[@id='ii_variantRatingText']
     xpath: ancestor::html//div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//section/@aria-label
   - name: vitaminAPerServing
     singleValue: true

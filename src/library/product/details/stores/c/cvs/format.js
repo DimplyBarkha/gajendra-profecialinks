@@ -19,28 +19,14 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '');
-  // const state = context.getState();
-  // // let variantArray = state.variantArray || [];
-  // let variantArray = []
-  // for (const { group } of data) {
-  //   for (let row of group) {
-  //     // console.log(row.variants[0].text)
-  //     if(!variantArray.includes(row.variants[0].text)) {
-        
-  //       variantArray.push(row.variants[0].text);
-  //     }
-  //   }
-  // }
-  // console.log(variantArray)
+
+
   for (const { group } of data) {
     for (let row of group) {
       try {
-        // row.variants = [];
-        // variantArray.forEach(variant => {
-        //   row.variants.push({ text: variant})
-        // })
         if (row.manufacturerDescription) {
           let text = '';
           row.manufacturerDescription.forEach(item => {
