@@ -45,17 +45,17 @@ fields:
     regExp: (.+)
     regExpReplace: "YES"
     defaultValue: "NO"
+    singleValue: true
   - name: lbbPrice
     xpath: //span[@id="price_inside_buybox"]
+    singleValue: true
   - name: featureBullets
     singleValue: false
     xpath: //*[@id='feature-bullets']//ul/li
   - name: otherSellersName
     xpath: //a[@id="sellerProfileTriggerId"]
-    singleValue: true
   - name: otherSellersPrice
     xpath: //span[@id="price_inside_buybox"]
-    singleValue: true
   - name: listPrice
     xpath: //span[contains(@class, 'priceBlockStrikePriceString')]
     singleValue: false
@@ -71,3 +71,12 @@ fields:
     xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")][1]//@data-dp-url
     regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
     regExpReplace: $2
+  - name: brandLink
+    xpath: //a[@id="bylineInfo"]/@href
+    regExp: >-
+      (.+)
+    regExpReplace: amazon.de$1
+    singleValue: true
+  - name: videos
+    xpath: //video/@src
+    singleValue: true
