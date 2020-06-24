@@ -78,8 +78,12 @@ const transform = (data) => {
       }
       if (row.news) {
         let text = '';
-        row.news.forEach(item => {
-          text += ` ${item.text}`;
+        row.news.forEach((item, index) => {
+          if (index === 0) {
+            text += ` ${item.text} : `;
+          } else {
+            text += ` ${item.text}`;
+          }
         });
         row.news = [
           {
