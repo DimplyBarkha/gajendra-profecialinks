@@ -5,24 +5,15 @@ recordXPath: //div[@id='ii_variantId']
 fields:
   - name: ageSuitability
     xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(., 'Warnings')]//div[contains(., 'Age')]
-  - name: energyEfficiency
-    singleValue: true
-    selector:
   - name: technicalInformationPdfPresent
     singleValue: true
     defaultValue: false
-  - name: termsAndConditions
-    singleValue: true
-    selector:
   - name: pricavyPolicy
     singleValue: true
     defaultValue: false
   - name: customerServiceAvailability
     singleValue: true
     defaultValue: false
-  - name: materials
-    singleValue: true
-    selector:
   - name: Image360Present
     singleValue: true
     xpath: ancestor::html//div[@id='ii_image360']
@@ -33,11 +24,8 @@ fields:
     xpath: ancestor::html//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
   - name: dietaryInformation
     # singleValue: true
-    xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
+    # xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
     # xpath: //div[@id='ii_Ingredients']
-  - name: dietarySymbols
-    singleValue: true
-    selector:
   - name: factImagePresent
     singleValue: true
     defaultValue: false
@@ -49,7 +37,7 @@ fields:
     regExp: ([0-9])+$
   - name: variants
     xpath: ancestor::html//div[@id="ii_variantId"]
-    regExp: (^[0-9])+$
+    regExp: ^([0-9])+
   #   xpath: //script[contains(@src,'scontent.webcollage.net')]
   #   regExp: cpi=([0-9]+)
   #   regExpReplace: $1
@@ -59,23 +47,22 @@ fields:
   - name: legalDisclaimer
     singleValue: true
   - name: name
-    singleValue: true
-    selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
+    xpath: ancestor::html//div[@class="css-1dbjc4n r-6koalj r-13awgt0"]//h1
+    # singleValue: true
+    # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: news
     singleValue: true
   - name: secondaryImageTotal
-    singleValue: true
+    # singleValue: true
     xpath: count((ancestor::html//div[contains(@id, 'zoom-carousel')]//img)/@src)
   - name: productOtherInformation
-    singleValue: false
-    selector: div.wc-rich-content-description
-  - name: recyclingInformation
-    singleValue: true
-  - name: specifications
-    singleValue: true
+    xpath: ancestor::html//div[@id='ii_manufDesc']
+    # singleValue: false
+    # selector: div.wc-rich-content-description
   - name: shippingInfo
-    singleValue: true
-    selector: h1[aria-label="Ships free with CarePass"]
+    xpath: ancestor::html//h1[@aria-label="Ships free with CarePass"]
+    # singleValue: true
+    # selector: h1[aria-label="Ships free with CarePass"]
   - name: packSize
     xpath: ancestor::html//div[@id='ii_packSize']
   - name: gtin
@@ -85,16 +72,17 @@ fields:
     xpath: (ancestor::html//div[contains(@id, 'zoom-carousel')]//img/@src)[1]
     regExp: ([0-9]+)
   - name: id
-    singleValue: true
-    selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
+    xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    # singleValue: true
+    # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     regExp: ([0-9])+$
   - name: image
     singleValue: true
     xpath: (ancestor::html//div[contains(@id, 'zoom-carousel')]//img)[1]/@src
-
   - name: nameExtended
-    singleValue: true
-    selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
+    xpath: ancestor::html//div[@class="css-1dbjc4n r-6koalj r-13awgt0"]//h1
+    # singleValue: true
+    # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: _pageTimestamp
     singleValue: true
   - name: _url
@@ -113,22 +101,25 @@ fields:
   - name: price
     xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
   - name: listPrice
-    singleValue: true
-    selector: div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by
+    xpath: ancestor::html//div[@class='css-1dbjc4n r-k8qxaj']//div[@class='css-901oao r-1khnkhu r-1jn44m2 r-1b43r93 r-5fcqz0 r-m611by']
+    # singleValue: true
+    # selector: div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by
     regExp: ([$.0-9]+$)
   - name: availabilityText
     singleValue: true
     selector: div.css-901oao.r-v857uc.r-1jn44m2.r-1i10wst.r-vw2c0b.r-9qu9m4
     defaultValue: In Stock
   - name: inStorePrice
-    singleValue: true
-    selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
+    xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+    # singleValue: true
+    # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
   - name: inStorePriceSymbol
-    singleValue: true
-    selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
+    xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+    # singleValue: true
+    # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
     regExp: ^[$]
   - name: ingredientsList
-    xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
+    xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients') and not(contains(., "Details"))]//div[@class='htmlView']
   # xpath: //div[@id='ii_Ingredients']
   - name: brandText
     xpath: ancestor::html//div[@id='ii_Brand']
@@ -136,12 +127,14 @@ fields:
     singleValue: true
     xpath: ancestor::html//div[@id='ii_Brand']
   - name: quantity
-    singleValue: true
-    selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
+    xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
     regExp: ([.0-9]+ ((CT)|(ct)|(OZ)|(oz)|(EA)|(ea)))
+    # singleValue: true
+    # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
   - name: weightGross
-    singleValue: true
-    selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
+    xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    # singleValue: true
+    # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     regExp: ([.0-9]+ (lbs))
   - name: sku
     singleValue: true
@@ -265,8 +258,10 @@ fields:
     xpath: ancestor::html//div[@id='ii_Cholesterol']
     regExp: ([g|mg|]+$)
   - name: numberOfServingsInPackage
-    singleValue: true
-    selector: div[style].css-1dbjc4n.r-18u37iz.r-15d164r > div.css-901oao:nth-of-type(2)
+    xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    regExp: ([.0-9]+ ((CT)))
+    # singleValue: true
+    # selector: div[style].css-1dbjc4n.r-18u37iz.r-15d164r > div.css-901oao:nth-of-type(2)
   - name: servingSize
     singleValue: true
     selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)

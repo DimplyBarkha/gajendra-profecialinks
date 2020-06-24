@@ -269,7 +269,7 @@ module.exports = {
             document.body.appendChild(newDiv);
           }
         
-        const variantOnDom = document.querySelector('div#ii_variantId');
+        // const variantOnDom = document.querySelector('div#ii_variantId');
 
         let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
         const regex1 = /[0-9]+$/g;
@@ -328,8 +328,6 @@ module.exports = {
      });
   }
 
-
-
   async function collectVariantInfo () {
     const varStore = await context.evaluate(function() {
         function addHiddenDiv (id, content) {
@@ -343,8 +341,6 @@ module.exports = {
         }
 
       const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-      const variantPrice = document.querySelector('div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q');
-      // const variantImage = $x("(.//div[contains(@id, 'zoom-carousel')]//img)[1]/@src");
       const variantArray = [];
       const packSize = ['Pack: ', 'Group Size: '];
       const packSizeResult = [];
@@ -365,83 +361,13 @@ module.exports = {
         const packString = packSizeResult.join(' ');
         addHiddenDiv('ii_packSize', `${packString}`);
       }
-      // if(variantPrice) {
-      //   addHiddenDiv('ii_variantPrice', `${variantPrice.innerText}`);
-      // }
+ 
 
     });
   }
   
   await variantClick()
 
-
-    // async function variantCleanUp() {
-    //   const varStore = await context.evaluate(function() {
-    //     function addHiddenDiv (id, content) {
-    //       const newDiv = document.createElement('div');
-    //       newDiv.id = id;
-    //       newDiv.textContent = content;
-    //       newDiv.style.display = 'none';
-    //       document.body.appendChild(newDiv);
-    //     }
-    //     let varArray = []
-    //     const vars = document.querySelectorAll('div#ii_variantId');
-    //     if(vars) {
-    //       vars.forEach(variant => {
-    //         if(!varArray.includes(variant.innerText)) {
-    //           varArray.push(variant.innerText)
-    //         }
-    //       });
-    //       varArray.forEach(varId => {
-    //         addHiddenDiv('ii_variantNum', varId)
-  
-    //       })
-    //     }
-    //   });
-  
-    // }
-
-    // await variantCleanUp()
-
-
-    
-    // async function variantAppend() {
-    //   const numVariants = await context.evaluate(function() {
-    //     let variantInfo = ["buffer"]
-    //     document.querySelectorAll('div#ii_variantInfo').forEach(ele => {variantInfo.push(ele.innerText)})
-    //     return variantInfo;
-    //   });
-    //   const numPrice = await context.evaluate(function() {
-    //     let variantPrice = ["buffer"]
-    //     document.querySelectorAll('div#ii_variantPrice').forEach(ele => {variantPrice.push(ele.innerText)})
-    //     return variantPrice;
-    //   });
-    //   // const numImage = await context.evaluate(function() {
-    //   //   let variantImage = ["buffer"]
-    //   //   document.querySelectorAll('div#ii_variantImage').forEach(ele => {variantImage.push(ele.innerText)})
-    //   //   return variantImage;
-    //   // });
-    //   const data =  await context.extract(productDetails, { transform: transformParam });
-    //   const copyData = data.slice();
-    //   let i = 1;
-
-    //   while(i < numVariants.length) {
-    //     data[0].group.push(copyData[0].group[0])
-    //     data[0].group[i].variantInformation[0].text = numVariants[i]
-    //     data[0].group[i].price[0].text = numPrice[i]
-    //     // data[0].group[i].image[0].text = numImage[i]
-    //     console.log(data[0].group[i].price[0])
-    //     console.log(numVariants[1])
-    //     console.log(data[0].group[i].variantInformation)
-    //     i++
-    //   }
-    //   console.log(data[0].group[0].variants[0])
-    //   // return await context.extract(data, { transform: transformParam });
-    //   // console.log(data[0].group[2]);
-    //   return data;
-    // }
-    // // await variantAppend()
-    // return await variantAppend();
     return await context.extract(productDetails, { transform: transformParam });
 
   },
