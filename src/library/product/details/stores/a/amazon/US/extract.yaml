@@ -92,7 +92,7 @@ fields:
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url
-    regExp: (.+)m3u8
+    regExp: (.+)hls.m3u8
     regExpReplace: $1mp4.480.mp4
   - name: name
     xpath: //title
