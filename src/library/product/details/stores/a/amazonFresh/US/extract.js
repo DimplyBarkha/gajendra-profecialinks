@@ -21,15 +21,15 @@ async function implementation (
       const variantCards = document.querySelectorAll('li[data-defaultasin]');
       const variantDropdown = document.querySelectorAll('[id*="variation"] option');
       const variantBooks = document.querySelectorAll('[id*="Swatches"]>ul>li a[id][href*="dp"]');
-      const parentVariant = document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null) ? document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null).iterateNext() : null;
-      if(parentVariant){
-        const regex = /parentAsin\"\:\"([A-Za-z0-9]{10,})/s;
-        let vasinRaw = parentVariant.innerText;
-        const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
-        if(vasin !== ''){
-          variantList.push(vasin);
-          }
-      }
+      // const parentVariant = document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null) ? document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null).iterateNext() : null;
+      // if(parentVariant){
+      //   const regex = /parentAsin\"\:\"([A-Za-z0-9]{10,})/s;
+      //   let vasinRaw = parentVariant.innerText;
+      //   const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
+      //   if(vasin !== ''){
+      //     variantList.push(vasin);
+      //     }
+      // }
       if (variantBooks) {
         for (let i = 0; i < variantBooks.length; i++) {
           const element = variantBooks[i];
@@ -81,22 +81,46 @@ async function implementation (
 
   async function buttonCheck () {
     return await context.evaluate(function () {
-      const button = document.querySelector('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a');
-      if (button != null) {
-        return 'true';
-      } else {
+      const button = '#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a';
+      // const button2 = '#mbc-olp-link>a';
+      // const button3 = '[data-show-all-offers-display] a';
+      if (!!document.querySelector(button)){
+        return button
+      }
+      // else if(!!document.querySelector(button2)){
+      //   return button2
+      // }else if(!!document.querySelector(button3)){
+      //   return button3
+      // }
+      else{
         return 'false';
       }
     });
   }
 
+  async function checkNavigation() {
+    return await context.evaluate(function () {
+      function checkNav (id, content) {
+        const url = window.location.href;
+        if(url.includes('offer')){
+          console.log("@@@@@@@@@@@@@@@@@ we navigated")
+        }else{
+          console.log("@@@@@@@@@@@@@@@@@ we didnt navigated")
+        }
+      }
+    });
+  }
+
   async function getLbb () {
-    const sellersShowButton = '#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a';
-    if (await buttonCheck() === 'true') {
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(sellersShowButton),
-      ]);
+    const button = await buttonCheck();
+    console.log('##############################' ,  button)
+    if ( button !== 'false' ) {
+        console.log('trying button', button)
+        const [response] = await Promise.all([
+          context.waitForNavigation({ timeout: 20000 }),
+          context.click(button),
+        ]);
+      await checkNavigation();
 
       const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
       await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
@@ -142,8 +166,9 @@ async function implementation (
     }
     let url = window.location.href;
     const splits = url ? url.split('/') : [];
-    url = (splits.length > 0) ? splits[splits.length - 2] : '';
-    addHiddenDiv('added-asin', url);
+    let asinRaw = (splits.length > 0) ? splits[splits.length - 2] : '';
+    addHiddenDiv('added-url', url);
+    addHiddenDiv('added-asin', asinRaw);
   }
 
   // @ts-ignore

@@ -48,7 +48,6 @@ const transform = (data, context) => {
               images.push(item.match(regex2)[0])
             })
             row.alternateImages = [{ text: images.join(' | ') }];
-            row.secondaryImageTotal = [{ text: images.length }];
           }else{
             row.alternateImages = [{ text: '' }];
           }
