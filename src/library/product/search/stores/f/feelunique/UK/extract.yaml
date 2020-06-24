@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="Product"]
+fields:
+  - name: url
+    singleValue: false
+  - name: id
+    singleValue: false
+    xpath: //div[@class="Product"]//@data-sku
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, "Product-summary")]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, "Product-image")]//img//@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="Rating-average"]//@data-aggregate-rating
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="Rating-count"]//@data-review-count
+  - name: price
+    singleValue: false
+    xpath: //span[@class="Price-integer"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"Product-link")]//@href
