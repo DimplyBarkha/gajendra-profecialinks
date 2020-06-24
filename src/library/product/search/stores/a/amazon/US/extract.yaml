@@ -50,8 +50,8 @@ fields:
     singleValue: true
     xpath:
   - name: endorsementText
-    singleValue: true
-    xpath: //span[contains(@class, "a-badge-label") and @id]
+    singleValue: false
+    xpath: //span[contains(@class, "a-badge-label") and @id][contains(.,'Amazon')]
   - name: id
     singleValue: true
     xpath: //@data-asin
