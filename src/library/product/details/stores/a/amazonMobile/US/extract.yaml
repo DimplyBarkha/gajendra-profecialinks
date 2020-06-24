@@ -117,6 +117,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
+  - name: asin
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin  
   - name: brandLink
     singleValue: true
     xpath: //a[@id="bylineInfo"]/@href
