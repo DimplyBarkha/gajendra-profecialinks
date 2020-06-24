@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, context) => {
   // const cleanUp = (data, context) => {
   //   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
   //     el.text = clean(el.text);
@@ -21,21 +21,26 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '');
-  let variantArray = [];
-  for (const { group } of data) {
-    for (let row of group) {
-      if(row.variants && !variantArray.includes(row.variants[0].text)) {
-        variantArray.push(row.variants[0].text);
-      }
-    }
-  }
+  // const state = context.getState();
+  // // let variantArray = state.variantArray || [];
+  // let variantArray = []
+  // for (const { group } of data) {
+  //   for (let row of group) {
+  //     // console.log(row.variants[0].text)
+  //     if(!variantArray.includes(row.variants[0].text)) {
+        
+  //       variantArray.push(row.variants[0].text);
+  //     }
+  //   }
+  // }
+  // console.log(variantArray)
   for (const { group } of data) {
     for (let row of group) {
       try {
-        row.variants = [];
-        variantArray.forEach(variant => {
-          row.variants.push({ text: variant})
-        })
+        // row.variants = [];
+        // variantArray.forEach(variant => {
+        //   row.variants.push({ text: variant})
+        // })
         if (row.manufacturerDescription) {
           let text = '';
           row.manufacturerDescription.forEach(item => {
@@ -78,6 +83,7 @@ const transform = (data) => {
       }
     }
   }
+  // context.setState({ variantArray });
   return data;
 };
 module.exports = { transform };

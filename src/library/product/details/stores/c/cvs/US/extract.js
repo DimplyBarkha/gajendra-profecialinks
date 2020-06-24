@@ -33,19 +33,11 @@ module.exports = {
     });
 
     if(linkURL === null) {
-      throw new Error("notFound")
+      throw new Error("notFound");
     }
 
-    await context.goto(linkURL);
-    // await context.goto(linkURL + `?skuid=${skuFromUrl}`);
-
-
-
-
-
-
-
-
+    // await context.goto(linkURL);
+    await context.goto(linkURL + `?skuid=${skuFromUrl}`);
 
     // await new Promise(resolve => setTimeout(resolve, 20000));
 
@@ -169,15 +161,25 @@ module.exports = {
         const iframeList = document.querySelectorAll('iframe');
         if(iframeList) {
           iframeList.forEach((frame) => {
-            const video = frame.contentDocument
+            const video = frame.contentDocument;
             if(!!video){
-              let videoSrc = video.querySelector('video')
+              let videoSrc = video.querySelector('video');
               if(videoSrc) {
               addHiddenDiv('ii_videoSrc', `${videoSrc.src}`);
               }
             }
           });
         }
+      }
+
+      function collectKeywords() {
+        const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
+        const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
+          if (variantInfo[1] && prodName) {
+
+            let varName = variantInfo[1].innerText;
+            addHiddenDiv('ii_metaKeywords', `${prodName.innerText + " " + varName}`);
+          }
       }
       
       addHiddenDiv('ii_url', window.location.href);
@@ -186,54 +188,78 @@ module.exports = {
       collectNutritionInfo();
       collectBools();
       collectManufImages();
-      // collectVariantInfo();
       collectBrand();
       collectManufDesc();
-      collectIframe()
+      collectIframe();
+      collectKeywords();
     }, skuFromUrl);
     
     // collectVariantNums();
     // identifySections();
 
     async function variantClick() {
-      let btns = await buttonCheck().catch()
-      const waitSelector = 'div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)'
+      let btns = await collectButtons();
+      const waitSelector = 'div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)';
       let i = 0;
       let j = 0;
 
       if(btns[0].length){
         while(i < btns[0].length && i < 100) {
           context.click(btns[0][i]);
+          await new Promise(resolve => setTimeout(resolve, 10000));
           await context.waitForSelector(waitSelector, { timeout: 20000 });
-          await new Promise(resolve => setTimeout(resolve, 5000));
 
 
-          if(btns[1].length && i < 30){
-            while(j < btns[1].length) {
-              context.click(btns[1][j]);
-              await getVariantIdNum()
-              await collectVariantInfo()
-              await context.waitForSelector(waitSelector, { timeout: 20000 });
-              await new Promise(resolve => setTimeout(resolve, 5000));
-              await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
-
+          if(btns[1].length && j < 100){
+            console.log('INSIDE IF')
+            while(j < btns[1].length && j < 100) {
+              console.log("INSIDE LOOP")
+              let check = await buttonCheck(btns[1][j] + " div")
+              // console.log(await check + "CHECK IS HERE")
+              if(check) {
+                console.log("INSIDE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                context.click(btns[1][j])
+                await getVariantIdNum();
+                await collectVariantInfo();
+                await new Promise(resolve => setTimeout(resolve, 10000));
+                await context.waitForSelector(waitSelector, { timeout: 20000 });
+                // await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
+              }
               j++
             }
+            j = 0;
           } else {
-            await getVariantIdNum()
-            await collectVariantInfo()
-
-            await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
+            await getVariantIdNum();
+            await collectVariantInfo();
+            
+            // await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
             }
           i++
         }
       } else {
-        await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
+        // await context.extract(productDetails, { transform: transformParam, type: 'APPEND' }); 
       }
     }
 
+
+    async function buttonCheck(selector) {
+      let input = selector
+      return await context.evaluate(function(input) {
+        let sel = document.querySelector(input)
+        if(sel) {
+        // debugger
+          // if(!sel.ariaLabel.includes("Out-of-stock")) {
+            return true;
+          } else {
+              return false
+          }
+        // }
+        
+      }, input);
+    }
+
     async function getVariantIdNum() {
-      let varArray = []
+      let varArray = [];
       const varStore = await context.evaluate(function() {
           function addHiddenDiv (id, content) {
             const newDiv = document.createElement('div');
@@ -245,52 +271,50 @@ module.exports = {
         
         const variantOnDom = document.querySelector('div#ii_variantId');
 
-        let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)')
+        let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
         const regex1 = /[0-9]+$/g;
 
         if(varPath){
           let varText = regex1.exec(varPath.innerText);
+          console.log(varText);
 
-          console.log(varText)
-          // if(variantOnDom) {
-          //   variantOnDom.innerText = varText;
-          // } else {
-          addHiddenDiv('ii_variantId', varText)
-          // }
+          addHiddenDiv('ii_variantId', varText);
         }
       });
     }
 
 
-    async function buttonCheck() {
+
+    async function collectButtons() {
       const moreCheck = await context.evaluate(function() {
         let selectorCheck = document.querySelector('div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48');
         if(selectorCheck) {
           return true;
         } else {
-          return false
+          return false;
         }
-      })
-      const moreSelector = 'div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48'
+      });
+      const moreSelector = 'div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48';
       if(moreCheck){
-        context.click(moreSelector)
+        context.click(moreSelector);
+        await new Promise(resolve => setTimeout(resolve, 10000));
       }
+
       return await context.evaluate(function() {
-        const buttonSelector = 'div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(10)';
         let flag = false;
         const selectors = [[],[]];
         let i = 1;
         while(!flag && i < 100) {
-          const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`
-          const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`
+          const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`;
+          const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`;
           if(document.querySelector(firstVar)){
-            selectors[0].push(firstVar)
+            selectors[0].push(firstVar);
           }
           if(document.querySelector(secondVar)){
-            selectors[1].push(secondVar)
+            selectors[1].push(secondVar);
           }
           if(!document.querySelector(firstVar) && !document.querySelector(secondVar)){
-            flag = true
+            flag = true;
             break;
           }
           i++
@@ -299,7 +323,7 @@ module.exports = {
          if(selectors.length) {
              return selectors;
          } else {
-             return false
+             return false;
          }
      });
   }
@@ -309,8 +333,8 @@ module.exports = {
   async function collectVariantInfo () {
     const varStore = await context.evaluate(function() {
         function addHiddenDiv (id, content) {
-          const variantId = document.querySelectorAll('div#ii_variantId')
-          const variantDiv = variantId[variantId.length - 1]
+          const variantId = document.querySelectorAll('div#ii_variantId');
+          const variantDiv = variantId[variantId.length - 1];
           const newDiv = document.createElement('div');
           newDiv.id = id;
           newDiv.textContent = content;
@@ -331,24 +355,6 @@ module.exports = {
           }
           variantArray.push(variantInfo[i + 1].innerText);
         }
-        // if (variantInfo[3]) {
-        //   if (packSize.includes(variantInfo[2].innerText)) {
-        //     packSizeResult.push(variantInfo[3].innerText);
-        //   }
-        //   variantArray.push(variantInfo[3].innerText);
-        // }
-        // if (variantInfo[5]) {
-        //   if (packSize.includes(variantInfo[4].innerText)) {
-        //     packSizeResult.push(variantInfo[5].innerText);
-        //   }
-        //   variantArray.push(variantInfo[5].innerText);
-        // }
-        // if (variantInfo[7]) {
-        //   if (packSize.includes(variantInfo[6].innerText)) {
-        //     packSizeResult.push(variantInfo[7].innerText);
-        //   }
-        //   variantArray.push(variantInfo[7].innerText);
-        // }
       }
 
       if (variantArray.length) {
@@ -359,14 +365,9 @@ module.exports = {
         const packString = packSizeResult.join(' ');
         addHiddenDiv('ii_packSize', `${packString}`);
       }
-      if(variantPrice) {
-        addHiddenDiv('ii_variantPrice', `${variantPrice.innerText}`);
-      }
-      // if(variantImage) {
-      //   debugger
-      //   addHiddenDiv('ii_variantImage', `${variantImage.innerText}`);
+      // if(variantPrice) {
+      //   addHiddenDiv('ii_variantPrice', `${variantPrice.innerText}`);
       // }
-
 
     });
   }
@@ -441,7 +442,7 @@ module.exports = {
     // }
     // // await variantAppend()
     // return await variantAppend();
-    // return await context.extract(productDetails, { transform: transformParam });
+    return await context.extract(productDetails, { transform: transformParam });
 
   },
 };
