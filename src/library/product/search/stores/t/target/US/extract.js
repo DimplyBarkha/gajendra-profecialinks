@@ -30,7 +30,7 @@ async function implementation (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        await stall(200);
+        await stall(3000);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
@@ -51,7 +51,7 @@ async function implementation (
         newDiv.style.display = 'none';
         el.appendChild(newDiv);
       }
-      await stall(1000);
+      await stall(2000);
       const itemContainers = document.querySelectorAll('li.Col-favj32-0.h-padding-a-none.h-display-flex');
       let rank = 1;
       for (const itemContainer of itemContainers) {
@@ -61,8 +61,8 @@ async function implementation (
           let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
           itemId = itemId.split('-')[1];
           addHiddenDiv(itemContainer, 'itemId', itemId);
-          let picture = itemContainer.querySelector('picture');
-          if (picture.querySelector('source') && picture.querySelector('source').getAttribute('srcset')) {
+          const picture = itemContainer.querySelector('picture');
+          if (picture && picture.querySelector('source') && picture.querySelector('source').getAttribute('srcset')) {
             addHiddenDiv(itemContainer, 'thumbnail', picture.querySelector('source').getAttribute('srcset'));
           }
           if (itemContainer.querySelector('div[data-test="ratings"]')) {

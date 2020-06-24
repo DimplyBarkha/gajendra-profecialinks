@@ -114,7 +114,9 @@ async function implementation (
       newDiv.textContent = -1;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
-      options.querySelectorAll('a')[0].click();
+      if (options.querySelectorAll('a').length) {
+        options.querySelectorAll('a')[0].click();
+      }
       return options.querySelectorAll('a').length;
     }
     let variantProductBtns = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
@@ -629,16 +631,18 @@ async function implementation (
         variations = options.querySelectorAll('a');
         isColorDropDown = true;
       }
-      if (variations.length) {
+      if (variations.length && details) {
         details.click();
         await stall(200);
         addHiddenDiv('variantCount', variations.length);
         if (isColorDropDown) {
-          if (!document.getElementById('options')) {
+          if (!document.getElementById('options') && document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
             document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
           }
           const options = document.getElementById('options');
-          options.querySelectorAll('a')[0].click();
+          if (options.querySelectorAll('a').length) {
+            options.querySelectorAll('a')[0].click();
+          }
         } else {
           variations[0].click();
         }
@@ -654,11 +658,13 @@ async function implementation (
         let i = 0;
         for (const variation of variations) {
           if (isColorDropDown) {
-            if (!document.getElementById('options')) {
+            if (!document.getElementById('options') && document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
               document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
             }
             const options = document.getElementById('options');
-            options.querySelectorAll('a')[i].click();
+            if (options.querySelectorAll('a').length) {
+              options.querySelectorAll('a')[i].click();
+            }
           } else {
             variation.click();
           }
