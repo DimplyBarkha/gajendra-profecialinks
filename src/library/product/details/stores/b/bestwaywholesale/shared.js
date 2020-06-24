@@ -19,6 +19,22 @@ const transform = (data) => {
           },
         ];
       }
+      // Escaping comma if present as last character
+      if (row.manufacturer) {
+        let text = '';
+        row.manufacturer.forEach(item => {
+          if (item.text.substring(item.text.length - 1, item.text.length) === ',') {
+            text += item.text.substring(0, item.text.length - 1)
+          } else {
+            text += item.text;
+          }
+        });
+        row.manufacturer = [
+          {
+            text: text,
+          },
+        ];
+      }
     }
   }
   return data;

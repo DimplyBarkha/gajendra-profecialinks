@@ -17,6 +17,7 @@ module.exports = {
       const productData = findProductDetails();
       addEleToDoc('productId', productData.id);
       addEleToDoc('productName', productData.name);
+      addEleToDoc('productPrice', productData.price);
 
       // Normalizing & Adding nutritional info to DOM as there are lot of escape formats involved
       addNutritionalEle('saltPerServing', '/html/body//table//th[contains(text(), \'Salt\')]/following-sibling::td[1]', 'saltPerServingUom');

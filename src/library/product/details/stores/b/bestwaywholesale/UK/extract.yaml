@@ -14,7 +14,7 @@ fields:
     xpath: //*[@id="productName"]
   - name: price
     singleValue: true
-    xpath: /html/body//table[@class='prodtable']/tbody//th[contains(.,'RSP')]/following-sibling::td
+    xpath: //*[@id="productPrice"]
   - name: description
     singleValue: false
     xpath: //div[contains(@class,"prodtabcontents current")]/ul/li
