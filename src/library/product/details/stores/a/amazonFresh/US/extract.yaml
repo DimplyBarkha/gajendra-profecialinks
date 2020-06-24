@@ -11,7 +11,9 @@ fields:
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //script[contains(text(), "ImageBlockATF")]/text()
+    xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    regExp: (https.+\.com[^\.]+)
+    regExpReplace: $1.jpg
   - name: largeImageCount
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockATF")]/text()

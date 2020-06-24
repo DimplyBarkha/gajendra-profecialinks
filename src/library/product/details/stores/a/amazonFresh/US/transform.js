@@ -13,6 +13,7 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '');
 
@@ -39,15 +40,10 @@ const transform = (data, context) => {
           row.largeImageCount = [{ text: count }];
         }
         if (row.alternateImages) {
-          let regex = /\"large\":\"([^"]+)/g
-          const rawArray = row.alternateImages[0].text.toString().match(regex)
-          const images = [];
-          if(rawArray){
-            rawArray.forEach(item => {
-              let regex2 = /(https.+jpg)/s
-              if(!!item.match(regex2)){
-                images.push(item.match(regex2)[0])
-              }
+          if(row.alternateImages.length > 0){
+            let images = []
+            row.alternateImages.forEach(image => {
+              images.push(image.text)
             })
             row.alternateImages = [{ text: images.join(' | ') }];
           }else{
