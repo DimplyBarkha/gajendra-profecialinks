@@ -29,28 +29,35 @@ module.exports = {
       }
 
       // availability Check
-      let availabilityText = '';
+      let availabilityText = 'In Stock';
       const discontinuedMsg = document.evaluate('//span[contains(text(),"Discontinued")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (discontinuedMsg) {
         availabilityText = 'Discontinued';
       }
-      const buyingBoxCheck = document.querySelector('#buybelt-wrapper-new');
-      if (buyingBoxCheck) {
-        if (document.querySelector('#unavailable-text.ship-to-home__text')) {
+      const addToCartCheck = document.evaluate('//div[@class="buybox"]//*[normalize-space(text())="Add to Cart"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (addToCartCheck) {
+        // @ts-ignore
+        if (addToCartCheck.parentElement && addToCartCheck.parentElement.disabled) {
           availabilityText = 'Out Of Stock';
-        } else {
-          availabilityText = 'In Stock';
         }
       } else {
         availabilityText = 'Out Of Stock';
       }
+
       addHiddenDiv('custom_availability_text', availabilityText);
 
       const regularSite = document.querySelector('div#thumbnails');
       if (!regularSite) {
         const imgExpander = document.querySelector('span.mediagallery__thumbnailicons--count');
-        // @ts-ignore
-        imgExpander && imgExpander.click();
+        if (imgExpander) {
+          // @ts-ignore
+          imgExpander.click();
+        } else {
+          document.querySelectorAll('div[class="mediagallery__thumbnails"] img').forEach((img, index) => {
+            // @ts-ignore
+            !img.src.includes('videoId') && addHiddenDiv(`altImage${index}`, img.src);
+          });
+        }
         return !!imgExpander;
       }
     });

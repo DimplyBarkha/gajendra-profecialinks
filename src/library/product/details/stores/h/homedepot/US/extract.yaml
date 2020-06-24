@@ -44,7 +44,7 @@ fields:
     singleValue: true
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="thumbnails"]//img/@src|//div[@class="overlay__side-content__product-images"]//img/@src
+    xpath: //div[@id="thumbnails"]//img/@src|//div[@class="overlay__side-content__product-images"]//img/@src|//div[starts-with(@id,"altImage")]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="product_description"]//img[@class="stretchy"]|//div[@data-component="description"]//img
