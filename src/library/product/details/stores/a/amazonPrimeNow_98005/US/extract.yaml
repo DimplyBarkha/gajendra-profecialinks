@@ -241,7 +241,7 @@ fields:
     singleValue: true
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
+    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')][position()>1])
   - name: news
     singleValue: true
   - name: addonItem
