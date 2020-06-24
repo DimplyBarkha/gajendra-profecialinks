@@ -3,8 +3,8 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'booker.co.uk',
-    country: 'UK',
     store: 'booker',
+    country: 'UK',
   },
   // For navigating from home page to search page because search page is redirecting to home page.
   implementation: async (inputs, parameterValues, context, dependencies) => {
