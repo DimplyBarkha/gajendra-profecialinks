@@ -49,6 +49,11 @@ const transform = (data) => {
           }
         });
       }
+      if (row.mpc) {
+        row.mpc.forEach(item => {
+          item.text = item.text.replace(/.*?#/, '').trim();
+        });
+      }
       if (row.videos) {
         row.videos.forEach(item => {
           if (item.text.includes('"video"')) {

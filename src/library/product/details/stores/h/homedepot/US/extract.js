@@ -34,7 +34,7 @@ module.exports = {
       if (discontinuedMsg) {
         availabilityText = 'Discontinued';
       }
-      const addToCartCheck = document.evaluate('//div[@class="buybox"]//*[normalize-space(text())="Add to Cart"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const addToCartCheck = document.evaluate('//div[@class="buybelt-wrapper"]//*[normalize-space(text())="Add to Cart"] | //div[@class="buybox"]//*[normalize-space(text())="Add to Cart"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (addToCartCheck) {
         // @ts-ignore
         if (addToCartCheck.parentElement && addToCartCheck.parentElement.disabled) {
