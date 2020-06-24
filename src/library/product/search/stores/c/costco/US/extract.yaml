@@ -7,28 +7,29 @@ fields:
     singleValue: true
     xpath: //div[@class="caption"]//p[@class="description"]/a/@href
   - name: thumbnail
-    singleValue: true
-    xpath: //div[contains(@class,"product-tile-set")]//div[@class="thumbnail"]//div//div//img/@src
+    xpath: //div[contains(@class, 'product-img-holder')]/div/img[@class='img-responsive']/@data-src | //div[contains(@class, 'product-img-holder')]/div/img[@class='img-responsive']/@src
   - name: name
     singleValue: true
     xpath: //div[@class="caption"]//p[@class="description"]/a
   - name: id
-    singleValue: true
-    xpath: //div[contains(@class,"product-tile-set")]//div[@class="thumbnail"]/@itemId
+    xpath: //div[@class='scProdId']/@sc.prodid
   - name: reviewCount
-    singleValue: false
-    xpath: //div[@class="caption"]//div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
+    xpath: //div[@class='stars']//div[@class='ratings-number']
+    regExp: \d+
   - name: ratingCount
-    singleValue: false
-    xpath: //div[@class="caption"]//div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
+    xpath: //div[@class='stars']//div[@class='ratings-number']
+    regExp: \d+
   - name: price
     singleValue: false
-    xpath: //div[@class="caption"]//div[contains(@id,"price")]
+    xpath: //div[@class="caption"]//div[contains(@id,"price")] | //div[@class="caption"]//div[contains(@class,"price")] | //div[@class='price']
   - name: manufacturer
     singleValue: true
-  - name: aggregateRating2
-    singleValue: true
-    xpath: //div[@class="caption"]//div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
+  - name: aggregateRating
+    xpath: //div[@class='ratings row']/div/@aria-label
+    type: number
+    regExp: >-
+      Rated (\d(\.?\d+)?) out
+    regExpReplace: $1
   - name: soldBy
     singleValue: true
   - name: endorsementText

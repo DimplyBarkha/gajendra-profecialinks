@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'div.paging ul li.forward>a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.thumbnail p.description',
+    loadedXPath: '//div[contains(@class,"product-tile-set")]//div[@class="price"]/@id',
     openSearchDefinition: null,
     domain: 'costco.com',
   },
