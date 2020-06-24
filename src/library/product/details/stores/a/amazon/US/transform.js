@@ -226,7 +226,7 @@ const transform = (data, context) => {
           });
           row.featureBullets = [
             {
-              text: text.join(' | '),
+              text: text.join(' || '),
             },
           ];
         }
