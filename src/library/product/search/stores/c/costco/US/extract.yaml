@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+    xpath: //p[@class='description']/a/@href
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //div[contains(@class, 'product-img-holder')]/div/img[@class='img-responsive']/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //p[@class='description']
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //div[@class='stars']//div[@class='ratings-number']
+    regExp: \((\d+)\)
+    regExpReplace: $1
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    xpath: //div[@class='price']
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: //div[@class='scProdId']/@sc.prodid
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class='ratings row']/div/@aria-label
+    type: NUMBER
