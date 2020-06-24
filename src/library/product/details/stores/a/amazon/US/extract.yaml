@@ -131,7 +131,7 @@ fields:
   - name: pasin
     xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
   - name: videoLength
-    xpath: ///li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration
+    xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration
   - name: heroQuickPromoHeadline
     xpath: //div[@id="hero-quick-promo"]//span
   - name: heroQuickPromoImageUrl
