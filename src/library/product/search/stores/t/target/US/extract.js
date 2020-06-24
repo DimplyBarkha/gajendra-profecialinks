@@ -24,16 +24,17 @@ async function implementation (
   }
 
   let counter = 1;
+  let results = [];
   while (true) {
-    await stall(1000);
+    await stall(500);
     await context.waitForXPath('//ul//li');
     await context.evaluate(async function () {
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
+      while (scrollTop !== 9000) {
         await stall(3000);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
+        if (scrollTop === 9000) {
           break;
         }
       }
@@ -51,7 +52,7 @@ async function implementation (
         newDiv.style.display = 'none';
         el.appendChild(newDiv);
       }
-      await stall(2000);
+      await stall(1000);
       const itemContainers = document.querySelectorAll('li.Col-favj32-0.h-padding-a-none.h-display-flex');
       let rank = 1;
       for (const itemContainer of itemContainers) {
@@ -81,8 +82,9 @@ async function implementation (
       }
     });
 
-    await stall(500);
+    await stall(250);
     const extract = await context.extract(productDetails, { transform });
+    results = [...results, ...extract];
     await stall(250);
     const hasNextBtn = await context.evaluate(function () {
       const nextBtn = document.querySelector('a[data-test="next"]');
@@ -96,12 +98,12 @@ async function implementation (
     }
     await stall(250);
     await context.evaluate(clickNextBtn);
-    if (counter === 30) {
+    if (counter === 15) {
       break;
     }
     counter++;
-    return extract;
   }
+  return results;
 }
 
 const { transform } = require('../../../../shared');

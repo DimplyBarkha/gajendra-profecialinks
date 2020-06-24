@@ -11,10 +11,10 @@ fields:
     xpath: //div[@id="secondaryImages"]
   - name: imageAlt
     singleValue: true
-    xpath: //h1[@data-test="product-title"]
+    xpath: //div[@id="productNameExtended"]
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[@name="keywords"]/@content
+    xpath: //div[@id="productNameExtended"]
   - name: pageTimeStamp
     singleValue: true
     xpath: //div[@id="dateStamp"]
@@ -29,7 +29,7 @@ fields:
     xpath: //div[@data-test="product-price"]
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@data-test="product-title"]
+    xpath: //div[@id="productNameExtended"]
   - name: listPrice
     singleValue: true
     xpath: //div[@id="regPriceInfo"]
@@ -119,7 +119,7 @@ fields:
     xpath: //div[@id="videos"]
   - name: name
     singleValue: true
-    xpath: //h1[@data-test="product-title"]
+    xpath: //div[@id="productName"]
   - name: inStorePrice
     singleValue: true
     xpath: //div[@id="inStorePrice"]

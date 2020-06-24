@@ -20,7 +20,7 @@ async function implementation (
       document.getElementById('storeId-utilityNavBtn').click();
       await stall(1000);
     });
-    await context.setInputValue('#zipOrCityState', '32955');
+    await context.setInputValue('#zipOrCityState', '48374');
     await context.evaluate(async function () {
       document.querySelector('button[data-test="storeLocationSearch-button"]').click();
     });
@@ -183,6 +183,7 @@ async function implementation (
         return e && e.innerText && e.parentElement && e.parentElement.innerText;
       }
 
+      let extendedText = '';
       if (document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
         if (!document.getElementById('options')) {
           document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
@@ -198,6 +199,11 @@ async function implementation (
         }
       } else {
         let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+        if (variants.length) {
+          if (variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText) {
+            extendedText = variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText.replace(/\r?\n|\r/g, '').trim();
+          }
+        }
         if (!variants.length) {
           variants = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
         }
@@ -214,7 +220,10 @@ async function implementation (
       addHiddenDiv('dateStamp', new Date());
       addHiddenDiv('urlInfo', window.location.href);
       if (document.querySelector('h1[data-test="product-title"]') && document.querySelector('h1[data-test="product-title"]').innerText) {
-        addHiddenDiv('productName', document.querySelector('h1[data-test="product-title"]').innerText.split('-')[0]);
+        addHiddenDiv('productName', document.querySelector('h1[data-test="product-title"]').innerText.replace(/\r?\n|\r/g, '').trim());
+      }
+      if (document.querySelector('h1[data-test="product-title"]') && document.querySelector('h1[data-test="product-title"]').innerText) {
+        addHiddenDiv('productNameExtended', document.querySelector('h1[data-test="product-title"]').innerText.replace(/\r?\n|\r/g, '') + ' ' + extendedText);
       }
 
       const desc = [];
