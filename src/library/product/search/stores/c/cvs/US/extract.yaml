@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='css-1dbjc4n']//div[contains(@class,'r-1pi2tsx')]//a
+recordXPath: null
 fields:
   - name: id
     singleValue: false
@@ -20,7 +20,11 @@ fields:
     selector: div.css-1dbjc4n.r-1d2f490.r-u8s1d.r-s5r7i3.r-uejdgs div[dir="auto"]
   - name: name
     singleValue: false
-    xpath: (.//div[@class='css-901oao css-cens5h r-1khnkhu r-1jn44m2 r-ubezar r-29m4ib r-rjixqe r-kc8jnq r-fdjqy7 r-13qz1uu'])[1]
+    xpath: //pre
+    regExp: ("p_Sku_ShortName":"[^"]+")
+    regExpReplace: >- 
+      $2
+    # xpath: (.//div[@class='css-901oao css-cens5h r-1khnkhu r-1jn44m2 r-ubezar r-29m4ib r-rjixqe r-kc8jnq r-fdjqy7 r-13qz1uu'])[1]
   - name: productUrl
     singleValue: false
     xpath: (//div[@class="css-1dbjc4n r-6koalj r-13awgt0 r-1mlwlqe r-eqz5dr r-1pi2tsx r-1wtj0ep r-dnmrzs r-q81ovl"]/a/@href)[1]

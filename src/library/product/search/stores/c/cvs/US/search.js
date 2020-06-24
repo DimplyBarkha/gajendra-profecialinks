@@ -4,6 +4,6 @@ module.exports = {
     country: 'US',
     store: 'cvs',
     domain: 'cvs.com',
-    defaultResults: 720
+    // defaultResults: 720 
   },  
 };

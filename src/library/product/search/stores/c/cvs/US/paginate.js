@@ -4,8 +4,9 @@ module.exports = {
     country: 'US',
     domain: 'cvs.com',
     store: 'cvs',
-    nextLinkSelector: 'div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7',
-    // mutationSelector: 'div.css-1dbjc4n.r-13awgt0.r-1wtj0ep',
-    spinnerSelector: 'div[role="progressbar"]',
+    loadedSelector: '',
+    openSearchDefinition: {
+      template: 'https://www.cvs.com/shop-assets/proxy/search?query={searchTerms}&skip={page}&pageSize=100&fields=%5B%22*%22%2C%22id%22%5D&orFields=%5B%22variants.subVariant.availability%22%5D&refinements=%5B%5D',
+    },
   },
 };
