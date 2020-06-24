@@ -108,7 +108,7 @@ module.exports = {
         if (content.manufacturerProductId) addHiddenDivTag(newDiv, 'added-mpc', content.manufacturerProductId);
         if (content.manufactuerName) addHiddenDivTag(newDiv, 'added-mName', content.manufacturerName);
         if (content.brand) addHiddenDivTag(newDiv, 'added-brand', content.brand);
-        if (content.numOfReviews) addHiddenDivTag(newDiv, 'added-ratingCount', content.numberOfReviews);
+        if (content.numberOfReviews) addHiddenDivTag(newDiv, 'added-ratingCount', content.numberOfReviews);
         if (content.averageRating) addHiddenDivTag(newDiv, 'added-rating', content.averageRating);
         if (content.productName) addHiddenDivTag(newDiv, 'added-name', content.productName);
         if (content.priceMap && content.priceMap.WAS) {

@@ -98,12 +98,12 @@ const transform = (data, context) => {
         if (row.directions) {
           row.directions = [{ text: row.directions[0].text.replace(/\"/g, '') }];
         }
-        if (row.ingredientsList) {
-          if(row.ingredientsList[0].includes("[{")) {
+        if (row.ingredientsList && row.ingredientsList[0]) {
+          if(row.ingredientsList[0].text.includes("[{")) {
             let list = JSON.parse(row.ingredientsList[0].text);
             if(list && list.length > 0) {
-              row.ingredientsList =[]
-            list.foreach(item => row.ingredientsList.push(`${item.name}: ${item.value}`));
+              row.ingredientsList = []
+              list.forEach(item => row.ingredientsList.push(`${item.name}: ${item.value}`));
             }
           }
         }

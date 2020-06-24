@@ -138,7 +138,7 @@ fields:
 - name: warranty
   singleValue: true
   xpath: //script[@id='variant']
-  regExp: (\"warranty":{"information":")([^"]+)"}
+  regExp: (\"warranty":{.*"information":")([^"]+)"}
   regExpReplace: $2
 
 #Variant Info
@@ -209,7 +209,7 @@ fields:
   singleValue: false
   xpath: //div[@id='added-sellers']//div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
   regExp: (,"fulfillmentPrice":{"price":)(\d+\.?\d*)
-  regExpReplace: $2
+  #regExpReplace: $2
 
 
 # - name: otherSellersName
