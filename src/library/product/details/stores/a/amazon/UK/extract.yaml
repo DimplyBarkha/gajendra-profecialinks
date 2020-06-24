@@ -43,9 +43,9 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //*[@id='availability']
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]//p | //*[@id="productDescription"]//ul
@@ -187,7 +187,7 @@ fields:
     description: YES or Blank
   - name: amazonChoiceCategory
     singleValue: true
-    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
+    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-keyword")]//text()
   - name: brandLink
     singleValue: false
     xpath: //a[@id="bylineInfo"]/@href
@@ -227,13 +227,17 @@ fields:
     description: YES/NO
   - name: heroQuickPromoHeadline
     singleValue: true
-    xpath: 
+    xpath: //div[contains(@id,'universal-hero-quick-promo')]//span[contains(@class,'a-text-bold')]
     description: See image - top section hero area
   - name: heroQuickPromoImageUrl
     singleValue: true
+    xpath: //div[contains(@id,'universal-hero-quick-promo')]//img/@src
     description: null
   - name: heroQuickPromoUrl
     singleValue: true
+    xpath: //div[contains(@id,'universal-hero-quick-promo')]//a/@href | //*[@id='bylineInfo']/@href
+    regExp: (.*)
+    regExpReplace: https://www.amazon.co.uk/dp$1
     description: null
   - name: pasin
     singleValue: true
@@ -270,17 +274,22 @@ fields:
   - name: primeFlag
     singleValue: true
     description: null
-    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
+    xpath: //div[contains(@id,'centerCol')]//i[contains(@class, "a-icon-prime")]
     regExp: (.+)
     regExpReplace: 'Yes'
   - name: lbb
     singleValue: true
+    xpath: //span[@data-action='show-all-offers-display' and contains(text(),'Available from ')] | //div[contains(@id,'olp-upd-new-used-freeshipping-threshold')]
     description: Check Lost by Box Requirements (just for Amazon and a couple of
       other stores) - LBB occurs when a product is bought from someone other
       than Amazon (on Amazon Website) - even though Amazon has the product "in
       Stock"
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'NO'
   - name: lbbPrice
     singleValue: true
+    xpath: //*[@id="priceblock_ourprice" or contains(@class,"offer-price")  or contains(@class,"a-color-price")]
     description: null
   - name: featureBullets
     singleValue: false
@@ -288,12 +297,15 @@ fields:
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
     singleValue: false
+    xpath: //div[contains(@id,'mbc')]//span[contains(@class,'mbcMerchantName')]
     description: null
   - name: otherSellersPrice
     singleValue: false
+    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-price')]
     description: null
   - name: otherSellersShipping
     singleValue: false
+    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-shipping')]
     description: null
   - name: secondaryImageTotal
     singleValue: true
@@ -302,6 +314,7 @@ fields:
     type: NUMBER
   - name: news
     singleValue: true
+    xpath: //*[@id="SalesRank"]//td[@class='value']/text()
     description: null
   - name: addonItem
     singleValue: true
@@ -309,6 +322,7 @@ fields:
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
     singleValue: true
+    xpath: //div[contains(@id,'ddmDeliveryMessage')]
     description: null
   - name: ingredientsList
     singleValue: true
@@ -322,7 +336,8 @@ fields:
   - name: servingSizeUom
     singleValue: false
     xpath: //*[contains(text(),'Serving')]/following-sibling::*[1]
-    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    # regExp: >-
+    #    (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
     # regExpReplace: $1
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
@@ -348,8 +363,8 @@ fields:
   - name: totalFatPerServingUom
     singleValue: true
     xpath: //td[contains(text(),'Fat')]/following-sibling::*[1]
-    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
-    regExpReplace: $1
+    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    # regExpReplace: $1
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     singleValue: true
@@ -360,7 +375,8 @@ fields:
   - name: saturatedFatPerServingUom
     singleValue: false
     xpath: //td[contains(text(),'Saturate')]/following-sibling::*[1]
-    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    # regExp: >-
+    #    (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
     # regExpReplace: $1
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
@@ -388,8 +404,8 @@ fields:
   - name: sodiumPerServingUom
     singleValue: true
     xpath: //td[contains(text(),'Sodium')]/following-sibling::*[1]
-    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
-    regExpReplace: $1
+    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    # regExpReplace: $1
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: true
@@ -400,7 +416,8 @@ fields:
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: //td[contains(text(),'Carb')]/following-sibling::*[1]
-    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    # regExp: >-
+    #    (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
     # regExpReplace: $1
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
@@ -424,7 +441,8 @@ fields:
   - name: totalSugarsPerServingUom
     singleValue: false
     xpath: //td[contains(text(),'Sugar')]/following-sibling::*[1]
-    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    # regExp: >-
+    #  (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
     # regExpReplace: $1
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
@@ -436,8 +454,8 @@ fields:
   - name: proteinPerServingUom
     singleValue: true
     xpath: //td[contains(text(),'Protein')]/following-sibling::*[1]
-    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
-    regExpReplace: $1
+    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    # regExpReplace: $1
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     singleValue: true
@@ -465,11 +483,13 @@ fields:
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
     singleValue: true
+    xpath: //td[contains(text(),'Iron')]/following-sibling::*[1]
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
     type: NUMBER
   - name: ironPerServingUom
     singleValue: true
+    xpath: //td[contains(text(),'Iron')]/following-sibling::*[1]
     description: Unit of Measure Data for Iron
   - name: dietarySymbols
     singleValue: true
@@ -491,16 +511,16 @@ fields:
   - name: saltPerServingUom
     singleValue: false
     xpath: //td[contains(text(),'Salt')]/following-sibling::*[1]
-    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
-    regExpReplace: $1
+    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    # regExpReplace: $1
     description: Unit of Measure Data for Salt
   - name: dietaryInformation
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//td/text()
+    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//td[contains(@class,'value') or contains(@class,'label')]/text()
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -529,6 +549,7 @@ fields:
     description: Packaging information
   - name: additives
     singleValue: true
+    xpath: //td[contains(text(),'Speciality')]/following-sibling::*[1]
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: true
@@ -537,8 +558,8 @@ fields:
   - name: pricePerUnitUom
     singleValue: false
     xpath: //span[contains(@id,'priceblock_ourprice')]/following-sibling::*/text()
-    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
-    regExpReplace: $1
+    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    # regExpReplace: $1
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
@@ -546,6 +567,7 @@ fields:
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
+    xpath: //td[contains(text(),'Alcohol Content')]/following-sibling::*[1]
     description: Alcohol content information
   - name: newVersion
     singleValue: true
