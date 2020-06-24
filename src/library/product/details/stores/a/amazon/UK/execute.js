@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'amazon',
-    domain: 'amazon.co',
-    loadedSelector: null,
+    domain: 'amazon.co.uk',
+    loadedSelector: '#altImages li[class*="imageThumbnail"] img',
     noResultsXPath: null,
   },
 };
