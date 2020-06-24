@@ -39,7 +39,7 @@ module.exports = {
       // Add availability to the DOM as we need to show only Out of Stock & In Stock values for this
       const available = getEleByXpath('//div/p[contains(@class,"prodstock") or contains(.,\'available\')]');
       if (available) {
-        if (available.includes('In stock')) {
+        if (available.includes('stock')) {
           addEleToDoc('availabilityText', 'In Stock');
         } else {
           addEleToDoc('availabilityText', 'Out of Stock');
