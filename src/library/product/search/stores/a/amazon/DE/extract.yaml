@@ -1,25 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='a-section a-spacing-medium']
 fields:
-  - name: paid
+  - name: searchUrl
     singleValue: false
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: false
-    description: The brand name
-    example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
+    xpath: //div[@id='searchUrl']
   - name: productUrl
     singleValue: false
     xpath: //h2/a/@href
@@ -29,12 +15,6 @@ fields:
   - name: name
     singleValue: false
     xpath: //h2
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: false
-    description: The model code of the product
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -50,9 +30,6 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
-  - name: listPrice
-    singleValue: false
-    description: The stated undiscounted price for the product
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -62,9 +39,6 @@ fields:
   - name: endorsementText
     singleValue: false
     xpath: //span[contains(@class, "a-badge-label") and @id]
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
   - name: rank
     singleValue: false
     xpath: //div[@id='pd_rank']
@@ -73,18 +47,6 @@ fields:
     singleValue: false
     xpath: //div[@id='pd_rank']
     type: NUMBER
-  - name: sponsored
-    singleValue: false
-    description: Is sponsored/paid
-    type: BOOLEAN
   - name: id
     singleValue: false
     xpath: //div/../@data-asin
-  - name: nameExtended
-    singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER

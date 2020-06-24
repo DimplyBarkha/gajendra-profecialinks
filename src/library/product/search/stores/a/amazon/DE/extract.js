@@ -1,4 +1,4 @@
-const { transform } = require('../shared');
+const { transform } = require('./transform');
 
 async function implementation (
   inputs,
@@ -16,6 +16,8 @@ async function implementation (
       catElement.style.display = 'none';
       doc.appendChild(catElement);
     }
+
+    const searchUrl = window.location.href;
     const productList = document.querySelectorAll('.a-section.a-spacing-medium');
     const paginationDiv = document.querySelector('.s-desktop-toolbar');
     let pageStartIndex = paginationDiv ? paginationDiv.innerText.match(/\d+/) : 0;
@@ -24,10 +26,11 @@ async function implementation (
     productList && productList.forEach((item1, index) => {
       const doc = item1;
       addElementToDocument(doc, 'pd_rank', pageStartIndex);
+      addElementToDocument(doc, 'searchUrl', searchUrl);
       pageStartIndex++;
     });
   });
-  return await context.extract(productDetails);
+  return await context.extract(productDetails, { transform: parameters.transform });
 }
 
 module.exports = {
