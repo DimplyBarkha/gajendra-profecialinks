@@ -4,11 +4,11 @@ recordSelector: null
 recordXPath: //div[@data-automation-id="productsList"]//div[contains(@class,"productListTileComplementary")]
 fields:
   - name: paid
-    singleValue: true
+    singleValue: false
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
   - name: brand
-    singleValue: true
+    singleValue: false
     description: The brand name
     example: Panasonic
   - name: category
@@ -21,50 +21,59 @@ fields:
     xpath: ./@id
     regExp: (?:item-(\d+))$
     regExpReplace: https://grocery.walmart.com/product/$1
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
+    regExp: (^[^#]*)
+    regExpReplace: $1
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
     xpath: //a//div[@data-automation-id="imageLinkChildren"]//img/@src
+    regExp: (^[^?]*)
+    regExpReplace: $1
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
     xpath: //div[@data-automation-id="productTileDetails"]//*[@data-automation-id="name"]
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The model code of the product
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
+  - name: aggregateRating2
+    singleValue: false
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     description: The number of reviews
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the product
     xpath: //div[@data-automation-id="productTileDetails"]//*[@data-automation-id="salePrice"]
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: soldBy
-    singleValue: true
+    singleValue: false
     description: The name of the seller of the item (if available)
   - name: endorsementText
-    singleValue: true
+    singleValue: false
     description: The text that signifies that a product is endorsed
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
 #  SHould these be source specific formulas or in the extractor?
   - name: id
@@ -74,10 +83,10 @@ fields:
     regExp: (?:item-(\d+))$
     regExpReplace: $1
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: rank
@@ -85,11 +94,11 @@ fields:
     description: search/listing rank
     type: NUMBER    
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
     selector: div[data-automation-id="sponsoredProductTile"]
