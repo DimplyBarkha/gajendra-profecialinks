@@ -52,17 +52,17 @@ module.exports = {
           if (jsonObj && jsonObj.item && jsonObj.item.product && jsonObj.item.product.buyBox && jsonObj.item.product.buyBox.products &&
               jsonObj.item.product.buyBox.products[0]) {
             const content = jsonObj.item.product.buyBox.products[0];
-            if(content.idmlSections && content.idmlSections.marketingContent) {
-            const newDiv = document.createElement('div');
-            newDiv.id = 'added-marketing';
-            newDiv.innerHTML = unescape(jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent);
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
+            if (content.idmlSections && content.idmlSections.marketingContent) {
+              const newDiv = document.createElement('div');
+              newDiv.id = 'added-marketing';
+              newDiv.innerHTML = unescape(jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent);
+              newDiv.style.display = 'none';
+              document.body.appendChild(newDiv);
             }
             if (content.shippingOptions && content.shippingOptions[0] && content.shippingOptions[0].fulfillmentPrice) {
-              let price = '0'
+              let price = '0';
               if (content.freeShippingThresholdPrice && content.freeShippingThresholdPrice.price) {
-                price ='0';
+                price = '0';
               } else {
                 price = content.shippingOptions[0].fulfillmentPrice.price;
               }
@@ -107,7 +107,7 @@ module.exports = {
       console.log(sUrl);
       const result = await getSellerInformation(sUrl);
       const sellerDiv = addHiddenDiv('added-sellers', '');
-      sellerDiv.innerHTML = result;     
+      sellerDiv.innerHTML = result;
     };
 
     const allVariants = await getVariants();
