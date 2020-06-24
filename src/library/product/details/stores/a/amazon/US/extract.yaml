@@ -46,8 +46,6 @@ fields:
     regExpReplace: $1
   - name: gtin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
-  - name: sku
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: asin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
@@ -93,14 +91,11 @@ fields:
   - name: manufacturerImages
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
-    xpath: //li[contains(@class,"vse-video-card")]//div/@data-video-url
+    xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url
+    regExp: (.+)m3u8
+    regExpReplace: $1mp4.480.mp4
   - name: name
     xpath: //title
-  - name: inStorePrice
-    sinlgeValue: true
-    xpath:
-  - name: sku
-    xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
   - name: coupon
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
   - name: amazonChoice
@@ -136,7 +131,7 @@ fields:
   - name: pasin
     xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
   - name: videoLength
-    xpath: //li[contains(@class,"vse-video-card")]//div/p[@data-element-id="video-duration"]
+    xpath: ///li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration
   - name: heroQuickPromoHeadline
     xpath: //div[@id="hero-quick-promo"]//span
   - name: heroQuickPromoImageUrl
