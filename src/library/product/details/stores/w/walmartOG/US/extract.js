@@ -16,7 +16,6 @@ module.exports = {
       // const req = await context.searchForRequest(`grocery.walmart.com/v3/api/products/${inputs.id}`, 'GET', 0, 60);
       // const data = (req && req.status === 200 && req.responseBody && req.responseBody.body) ? JSON.parse(req.responseBody.body) : null;
 
-      /*
       await context.click('button[label="Change store"]');
       await context.waitForSelector('input[data-automation-id="zipSearchField"]');
       await context.setInputValue('input[data-automation-id="zipSearchField"]', '72758');
@@ -34,7 +33,6 @@ module.exports = {
       await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
       await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
       await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-      */
 
       await context.evaluate(async function getDataFromAPI (id) {
         console.log('getDataFromAPI');
