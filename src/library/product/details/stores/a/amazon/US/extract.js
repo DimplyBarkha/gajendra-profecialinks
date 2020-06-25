@@ -232,7 +232,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'amazonFresh',
+    store: 'amazon',
     transform: transform,
     domain: 'amazon.com',
   },
