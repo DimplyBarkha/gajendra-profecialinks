@@ -43,11 +43,6 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.alternateImages) {
-        row.alternateImages.forEach(item => {
-          item.text = `${item.text.replace('._SS40_', '')}`;
-        });
-      }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           item.text = `${item.text.replace(',', '')}`;
