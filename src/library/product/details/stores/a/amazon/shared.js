@@ -38,6 +38,14 @@ const transform = (data) => {
           }
         }
       }
+
+      if (row.videos) {
+        for (const item of row.videos) {
+          if (item.text.includes('.hls.m3u8')) {
+            item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
+          }
+        }
+      }
     }
   }
   return data;
