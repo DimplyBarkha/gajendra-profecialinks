@@ -1,47 +1,47 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //img[@id="mainImage"]/@src|//div[@class="mediagallery__mainimage"]//img/@src
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
   - name: _pageTimestamp
-    singleValue: true
+    singleValue: false
   - name: _url
-    singleValue: true
+    singleValue: false
   - name: category
     singleValue: false
     xpath: //li[@class="breadcrumb__item"][1]/following-sibling::li/a
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //meta[@itemprop="name"]/@content
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: concat(//span[@id="ajaxPrice"]/span[@class="price__currency"],//span[@id="ajaxPrice"]/@content,//script[@type="application/ld+json" and contains(text(),'Product')])
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="custom_availability_text"]
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: //h2[@itemprop="brand"]//span|//span[@class="product-details__brand-name"]
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
   - name: weightNet
-    singleValue: true
+    singleValue: false
   - name: weightGross
-    singleValue: true
+    singleValue: false
   - name: sku
-    singleValue: true
+    singleValue: false
   - name: quantity
-    singleValue: true
+    singleValue: false
   - name: directions
-    singleValue: true
+    singleValue: false
   - name: warnings
-    singleValue: true
+    singleValue: false
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="thumbnails"]//img/@src|//div[@class="overlay__side-content__product-images"]//img/@src|//div[starts-with(@id,"altImage")]
@@ -49,64 +49,64 @@ fields:
     singleValue: false
     xpath: //div[@id="product_description"]//img[@class="stretchy"]|//div[@data-component="description"]//img
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     xpath: //span[@class="product-details__review-count"]
     type: NUMBER
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="specsContainer"]//div[h4[contains(text(),"Dimensions")]]/following-sibling::div[@class="specs__table"][1]|//h4[contains(text(),"Dimensions")]/following-sibling::div
   - name: specifications
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="specsContainer"]
   - name: shippingWeight
-    singleValue: true
+    singleValue: false
     xpath: //div[@itemprop="weight"]
   - name: warranty
-    singleValue: true
+    singleValue: false
     xpath: //div[text()="Manufacturer Warranty"]/following-sibling::div
   - name: gtin
-    singleValue: true
+    singleValue: false
     xpath: substring(//upc, 3, string-length(//upc))
   - name: videos
     singleValue: false
     xpath: //div[@itemprop="video"]/meta[@itemprop="contentURL"]/@content|//script[contains(text(),'"video"')]
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: //img[@id="mainImage"]/@alt|//div[@class="mediagallery__mainimage"]//img/@alt
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="itemRating"]//div[contains(@class,"ratings")]/@title
     type: NUMBER
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //h1[@class='product-title__title']|//h1[@class='product-details__title']
   - name: listPrice
-    singleValue: true
+    singleValue: false
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
   - name: mpc
-    singleValue: true
+    singleValue: false
     xpath: normalize-space(//h2[contains(@class,'modelNo')])
   - name: variantCount
-    singleValue: true
+    singleValue: false
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
   - name: color
-    singleValue: true
+    singleValue: false
   - name: colorCode
-    singleValue: true
+    singleValue: false
   - name: description
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'main_description')]|//div[contains(@class,'product-description__main-description')]
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //span[@itemprop="productID"]|//h2[@class="product-infobar__detail" and contains(text(),"Internet")]/text()[2]
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: count(//div[contains(@class,'main_description')]//li|//div[contains(@class,'product-description__main-description')]//li[not(span//img)])
   - name: packSize
-    singleValue: true
+    singleValue: false
   - name: promotion
     xpath: normalize-space(//div[@id="savingsText"]/p)
