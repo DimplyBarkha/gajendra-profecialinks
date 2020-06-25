@@ -24,7 +24,7 @@ const transform = (data) => {
         let text = '';
         row.manufacturer.forEach(item => {
           if (item.text.substring(item.text.length - 1, item.text.length) === ',') {
-            text += item.text.substring(0, item.text.length - 1)
+            text += item.text.substring(0, item.text.length - 1);
           } else {
             text += item.text;
           }
