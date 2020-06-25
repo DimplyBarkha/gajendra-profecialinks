@@ -19,8 +19,8 @@ const transform = (data) => {
           }
         });
       }
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(item => {
           if (item.text.includes('width')) {
             const starWidth = item.text.replace(/.*?(\d+\.?\d*).*/, '$1');
             if (starWidth) {
