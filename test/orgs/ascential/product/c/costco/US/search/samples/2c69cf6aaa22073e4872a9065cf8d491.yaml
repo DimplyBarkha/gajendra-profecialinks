@@ -1,0 +1,214 @@
+input:
+  Keywords: keurig
+  _url: https://costco.com
+extractions:
+  - html: https://workbench.import.io/html/run=74a05226-f76e-429c-9a85-cdeaaf51e39d/task=e2ad5857-25c0-4bfe-86d8-4c2e63de725f/7d8eb98f-b5b5-4e51-ae31-3b2719c777fe.html
+    extractionConfigId: product/search/stores/c/costco/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.costco.com/keurig-k-elite-c-single-serve-coffee-maker%2c-15-k-cup-pods-and-my-k-cup-reusable-coffee-filter.product.100392970.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2881975-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Keurig K-Elite C Single Serve Coffee Maker, 15 K-Cup Pods and My K-Cup
+                  Reusable Coffee Filter
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100392970"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "8306"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "8306"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $124.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/keurig-k-duo-plus-c-coffee-maker%2c-with-single-serve-k-cup-pod-and-12-cup-thermal-carafe-brewer.product.100508741.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=9999975-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Keurig K-Duo Plus C Coffee Maker, with Single Serve K-Cup Pod and 12 Cup
+                  Thermal Carafe Brewer
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100508741"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "1188"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "1188"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $199.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/san-francisco-bay-coffee-french-roast-onecup%2c-100-count.product.100381432.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1025112-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: San Francisco Bay Coffee French Roast OneCup, 100-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100381432"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[1]/div[1]/@sc.prodid
+            price:
+              - text: $26.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+          - productUrl:
+              - text: https://www.costco.com/caf%c3%a9-4-piece-gas-27.8-cu.-ft.-french-door-refrigerator-with-keurig-k-cup-brewing-system-%2526-kitchen-package.product.100566157.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1416853-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Café 4-piece GAS 27.8 cu. ft. French-Door Refrigerator with Keurig K-Cup
+                  Brewing System & Kitchen Package
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100566157"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $11,199.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/tully's-coffee-decaf-french-roast-k-cup-pod%2c-96-count.product.100455464.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100455464-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Tully's Coffee Decaf French Roast K-Cup Pod, 96-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100455464"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "2320"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "2320"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $46.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/starbucks-coffee-dark-roast-variety-pack-k-cup-pods%2c-64ct.product.100461644.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289928-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Starbucks Coffee Dark Roast Variety Pack K-Cup Pods, 64ct
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100461644"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "576"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "576"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $37.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/starbucks-coffee-medium-roast-variety-pack-k-cup-pod%2c-64ct.product.100461640.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289929-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Starbucks Coffee Medium Roast Variety Pack K-Cup Pod, 64ct
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100461640"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "311"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "311"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $37.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/starbucks-coffee-flavored-variety-pack-k-cup-pod%2c-64ct.product.100461637.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289937-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289937-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Starbucks Coffee Flavored Variety Pack K-Cup Pod, 64ct
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100461637"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "295"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "295"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $37.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/starbucks-coffee-house-blend-k-cup-pod%2c-64ct.product.100461646.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289926-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289926-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Starbucks Coffee House Blend K-Cup Pod, 64ct
+                xpath: /html/body/div[4]/div[2]/

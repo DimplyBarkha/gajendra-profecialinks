@@ -1,0 +1,35 @@
+input:
+  Keywords: keurig my k-cup
+  _url: https://costco.com
+extractions:
+  - html: https://workbench.import.io/html/run=db723f75-061a-471f-8d4e-e48c76704418/task=7ce83cfe-2ff9-481a-b386-5b06c3cddc38/9ce1f300-2e42-4a2f-a5ce-c7c2cc479570.html
+    extractionConfigId: product/search/stores/c/costco/US/extract
+    data:
+      - group:
+          - thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2881975-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            id:
+              - text: "100392970"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/@id
+            price:
+              - text: $124.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.costco.com/keurig-k-elite-c-single-serve-coffee-maker%2c-15-k-cup-pods-and-my-k-cup-reusable-coffee-filter.product.100392970.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            name:
+              - text: Keurig K-Elite C Single Serve Coffee Maker, 15 K-Cup Pods and My K-Cup
+                  Reusable Coffee Filter
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            reviewCount:
+              - text: "8306"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/meta[2]/@content
+            ratingCount:
+              - text: "8306"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/meta[2]/@content
+            aggregateRating2:
+              - text: "4.657400131225586"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/meta[1]/@content
+        xpath: /html
+    timestamp: 1592980309199

@@ -1,0 +1,35 @@
+input:
+  Keywords: Keurig K-Duo
+  _url: https://costco.com
+extractions:
+  - html: https://workbench.import.io/html/run=db723f75-061a-471f-8d4e-e48c76704418/task=ce60f7a3-e9e6-4169-9086-96a58afb07c8/5f95413e-e9b5-4d0a-8766-3fc90a14f506.html
+    extractionConfigId: product/search/stores/c/costco/US/extract
+    data:
+      - group:
+          - thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=9999975-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            id:
+              - text: "100508741"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/@id
+            price:
+              - text: $199.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.costco.com/keurig-k-duo-plus-c-coffee-maker%2c-with-single-serve-k-cup-pod-and-12-cup-thermal-carafe-brewer.product.100508741.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            name:
+              - text: Keurig K-Duo Plus C Coffee Maker, with Single Serve K-Cup Pod and 12 Cup
+                  Thermal Carafe Brewer
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            reviewCount:
+              - text: "1188"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/meta[2]/@content
+            ratingCount:
+              - text: "1188"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/meta[2]/@content
+            aggregateRating2:
+              - text: "4.546299934387207"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/meta[1]/@content
+        xpath: /html
+    timestamp: 1592980098723

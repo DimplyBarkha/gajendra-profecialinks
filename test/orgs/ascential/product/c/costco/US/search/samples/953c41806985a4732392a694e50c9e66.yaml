@@ -1,0 +1,95 @@
+input:
+  Keywords: apple juice
+  _url: https://costco.com
+extractions:
+  - html: https://workbench.import.io/html/run=74a05226-f76e-429c-9a85-cdeaaf51e39d/task=4b89a75c-137d-4f26-824f-2bdcc4dc03ed/942b4331-9020-4a7e-bb65-af8acd5effc1.html
+    extractionConfigId: product/search/stores/c/costco/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.costco.com/mott's-100%25-apple-juice%2c-8-fl-oz%2c-24-count.product.100381481.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=760485-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Mott's 100% Apple Juice, 8 fl oz, 24-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100381481"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[1]/div[1]/@sc.prodid
+            price:
+              - text: $11.49
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+          - productUrl:
+              - text: https://www.costco.com/martinelli's-gold-medal-100%25-pure-apple-juice%2c-10-fl-oz%2c-24-count.product.100381590.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=90102-inc__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Martinelli's Gold Medal 100% Pure Apple Juice, 10 fl oz, 24-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100381590"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[1]/div[1]/@sc.prodid
+            price:
+              - text: $20.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+          - productUrl:
+              - text: https://www.costco.com/apple-%2526-eve-100%25-juice%2c-variety-pack%2c-6.75-fl-oz%2c-36-count.product.100381498.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=473505-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Apple & Eve 100% Juice, Variety Pack, 6.75 fl oz, 36-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100381498"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[1]/div[1]/@sc.prodid
+            price:
+              - text: $10.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+          - productUrl:
+              - text: https://www.costco.com/kirkland-signature-apple-juice%2c-128-fl-oz%2c-2-pack.product.100334901.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=158996-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Kirkland Signature Apple Juice, 128 fl oz, 2-pack
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100334901"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[1]/div[1]/@sc.prodid
+            price:
+              - text: $9.49
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+          - productUrl:
+              - text: https://www.costco.com/nature's-truth-apple-cider-vinegar-1200-mg.%2c-180-capsules.product.100468580.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1241036-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Nature's Truth Apple Cider Vinegar 1200 mg., 180 Capsules
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100468580"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "189"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "189"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $18.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+        xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]
+    timestamp: 1592998031029

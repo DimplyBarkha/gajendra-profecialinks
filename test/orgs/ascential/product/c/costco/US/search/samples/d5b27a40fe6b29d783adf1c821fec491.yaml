@@ -1,0 +1,55 @@
+input:
+  Keywords: bai
+  _url: https://costco.com
+extractions:
+  - html: https://workbench.import.io/html/run=74a05226-f76e-429c-9a85-cdeaaf51e39d/task=3ec906e9-c9ee-4098-b324-9914150c292a/6eae93fb-039f-4e21-8046-a09cc8ac9d9f.html
+    extractionConfigId: product/search/stores/c/costco/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.costco.com/bai-bubbles-sparkling-antioxidant-infusion-variety-pack%2c-11.5-oz%2c-15-count.product.100383980.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1170984-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Bai Bubbles Sparkling Antioxidant Infusion Variety Pack, 11.5 oz, 15-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100383980"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[1]/div[1]/@sc.prodid
+            price:
+              - text: $23.49
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+          - productUrl:
+              - text: https://www.costco.com/bai-antioxidant-cocofusion-variety-pack%2c-18-fl-oz-15-count.product.100434194.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1052848-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Bai Antioxidant Cocofusion Variety Pack, 18 fl oz 15-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100434194"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[1]/div[1]/@sc.prodid
+            price:
+              - text: $23.49
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+          - productUrl:
+              - text: https://www.costco.com/bai-antioxidant-infusion%2c-coastal-variety-pack%2c-18-fl-oz%2c-15-count.product.100572269.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1405458-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Bai Antioxidant Infusion, Coastal Variety Pack, 18 fl oz, 15-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100572269"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[1]/div[1]/@sc.prodid
+            price:
+              - text: $20.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+        xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]
+    timestamp: 1592998510380
