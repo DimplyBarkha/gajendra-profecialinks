@@ -10,7 +10,7 @@ async function implementation (
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
     document.querySelectorAll('[data-dmid="product-tile-rating"]').forEach(elm => {
-      const ratingStars = [...elm.querySelectorAll('img[data-dmid="filled-star"]')].map(rate => Number(rate.getAttribute('alt').match(/\d+/)[0]));
+      const ratingStars = [...elm.querySelectorAll('img[data-dmid="filled-star"]')].map(rate => Number(rate.getAttribute('alt') ? rate.getAttribute('alt').match(/\d+/)[0] : '0'));
       const rating = ratingStars.reduce((a, b) => a + b, 0) / 100;
       elm.setAttribute('rating', rating);
     });
