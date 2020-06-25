@@ -325,7 +325,8 @@ fields:
   - name: variantInformation
     xpath: (//span[@class="selection"])[1]
   - name: largeImageCount
-    xpath: count((//img[@id="landingImage"])[1]/@src)
+    xpath: //script[contains(., "ImageBlockATF")]/text()
+    defaultValue: 0
   - name: pasin
     xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
     regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
