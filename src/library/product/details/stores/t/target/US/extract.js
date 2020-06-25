@@ -598,9 +598,15 @@ async function implementation (
         addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
       } else if (manufacturerCTA) {
         manufacturerCTA.click();
+        const manufacturerImgs = [];
+        if(document.getElementById('wcframable1-0') && document.getElementById('wcframable1-0').contentWindow) {
+          let frameContents = document.getElementById('wcframable1-0').contentWindow.document.body;
+          frameContents.querySelectorAll('img').forEach(e => {
+            manufacturerImgs.push(e.src);
+          });
+        }
         if (document.getElementById('wc-power-page') && document.getElementById('wc-power-page').innerText) {
           addHiddenDiv('manufacturerDesc', document.getElementById('wc-power-page').innerText);
-          const manufacturerImgs = [];
           document.querySelectorAll('img.wc-media.wc-image').forEach(e => {
             manufacturerImgs.push(e.src);
           });
