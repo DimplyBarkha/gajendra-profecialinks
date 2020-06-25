@@ -11,6 +11,18 @@ module.exports = {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ url, id }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    // await context.waitForSelector('li#prodCollage');
+    const manufacturerInfo = await context.evaluate(function () {
+      return document.querySelector('li#prodCollage') ? document.querySelector('li#prodCollage').getAttribute('class') : '';
+    });
+    console.log('HERE')
+    console.log(manufacturerInfo);
+
+    if (manufacturerInfo.length !== 0) {
+      await new Promise(resolve => setTimeout(resolve, 100000));
+      await context.waitForSelector('div.wc-rich-content-description');
+    }
+
     const extractAll = async (id, url, variants) => {
       const extract = async (variantXpath) => {
         await context.evaluate(async ([{ id: _input }, _url, variantXpath]) => {
@@ -82,6 +94,10 @@ module.exports = {
 
           const jsonObj = MergeRecursive(window.__ATC_APP_INITIAL_STATE__.product.results, response);
 
+          console.log('ovah here');
+          console.log(window.__ATC_APP_INITIAL_STATE__.product.results);
+          console.log(response);
+
           const infos = jsonObj.productInfo;
           const details = jsonObj.prodDetails;
           const price = jsonObj.priceInfo;
@@ -117,10 +133,20 @@ module.exports = {
             return [...acc, ...array];
           }, []);
 
+          console.log('ingredients');
+          console.log(ingredients);
+
           const hasIngrList = ingredients && ingredients.ingredientGroups &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes) &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
           const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, ...obj.ingredients], []) : '';
+
+          // if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
+          //   console.log('LIKE WHOA');
+          //   const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
+          //   const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
+          //   ingrList.unshift(typeOfIngredient);
+          // }
 
           const nutrition = ingredients && ingredients.nutritionFactsGroups ? ingredients.nutritionFactsGroups : '';
           const hasNutrition = nutrition && nutrition.find(u => u.nutritionFact);
@@ -152,8 +178,9 @@ module.exports = {
             metaKeywords: getSelector('meta[name="keywords"]', { property: 'content' }),
             _pageTimeStamp: (new Date()).toISOString(),
             _url,
+            productUrl: window.location.href,
             category: [infos.tier1Category, infos.tier2Category, infos.tier3Category],
-            nameExtended: getSelector('#productTitle'),
+            nameExtended: getSelector('a.brand-title') + ' ' + getSelector('#productTitle'),
             listPrice: priceValue('regularPrice'),
             price: priceValue(['regularPrice', 'salePrice']),
             availabilityText: jsonObj.inventory.shipAvailableMessage ? jsonObj.inventory.shipAvailableMessage : 'In stock',
