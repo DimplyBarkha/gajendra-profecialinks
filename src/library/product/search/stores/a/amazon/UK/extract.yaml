@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@data-component-type="s-search-result"]
 fields:
   - name: paid
     singleValue: true
@@ -23,11 +23,16 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.co.uk$1
   - name: thumbnail
     singleValue: true
+    xpath:  //span[@data-component-type="s-product-image"]/a/div/img/@src
     description: The URL for the product thumbnail image
   - name: name
     singleValue: true
+    xpath: //h2
     description: The product name
   - name: sku
     singleValue: true
@@ -43,12 +48,15 @@ fields:
     description: The stated aggregate rating
   - name: ratingCount
     singleValue: true
+    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
     description: The number of ratings
   - name: reviewCount
+    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
     singleValue: true
     description: The number of reviews
   - name: price
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
     description: The offered price for the product
   - name: listPrice
     singleValue: true
@@ -67,10 +75,12 @@ fields:
     description: Shipping information for the product
   - name: rank
     singleValue: true
+    xpath:  //div[starts-with(@id,'ii_rank')]
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
+    xpath:  //div[starts-with(@id,'ii_rank')]
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
@@ -79,6 +89,7 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: true
+    xpath: //@data-asin
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: true
@@ -86,5 +97,9 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating
     singleValue: true
+    xpath: //span[contains(@aria-label,"stars")]/@aria-label
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+  - name: _url
+    singleValue: true
+    xpath: 
