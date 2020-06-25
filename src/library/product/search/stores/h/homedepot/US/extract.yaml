@@ -1,27 +1,30 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-section="gridview"]/div[@data-component="productpod"]
+recordXPath: //div[@data-section="gridview"]/div[@data-component="productpod"]|//div[@class="product-result__wrapped-results"]//div[contains(@class,'product-pod desktop')]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@data-component="productpod"]/@data-productid
+    xpath: //div[@data-component="productpod"]/@data-productid|//a[@class="header product-pod--ie-fix"]/@href
   - name: name
     singleValue: false
-    xpath: //input[@name="product"]/@data-title
+    xpath: //input[@name="product"]/@data-title|//span[@class="product-pod__title__product"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@data-podaction="product name"]/a/@href|//a[@class="product-pod--ie-fix"]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //a[@data-podaction="product image"]/img/@src
+    xpath: //a[@data-podaction="product image"]/img/@src|//div[@class="product-pod__image__wrapper"]/img[1]/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@class="stars"]/@rel
+    xpath: //span[@class="stars"]/@rel|//span[@class="stars"]/@style
   - name: reviewCount
     singleValue: false
-    xpath: //a[contains(@href,"customer_reviews")][2]
+    xpath: //a[contains(@href,"customer_reviews")][2]|//span[@class="product-pod__rating-count"]
     type: NUMBER
   - name: price
     singleValue: false
-    xpath: //input[@name="product"]/@data-price
+    xpath: //input[@name="product"]/@data-price|//span[@class="price_main"]
   - name: rankOrganic
     singleValue: false
     xpath: //span[@class="rank_org"]
