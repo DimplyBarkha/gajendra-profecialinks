@@ -46,6 +46,12 @@ const transform = (data) => {
           }
         }
       }
+
+      if (row.largeImageCount) {
+        for (const item of row.largeImageCount) {
+          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+        }
+      }
     }
   }
   return data;
