@@ -1,0 +1,893 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/emergen-c-immune-plus%2c-70-packets.product.100364543.html
+extractions:
+  - html: https://workbench.import.io/html/run=80d66909-9290-4ddd-881c-70afb5525142/task=ac136d80-ea45-450f-9498-8ce060e866ba/6105f1a4-f690-40de-b953-eb76831a6cc1.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=100364543-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1080058&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1080059&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+            nameExtended:
+              - text: Emergen-C Immune Plus, 70 Packets
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Health & Personal Care
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Vitamins, Herbals & Dietary Supplements
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Adult Multi & Letter Vitamins
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 21.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[6]/div[1]/form[1]/div[3]/ul[1]/li[1]/input[1]/@value
+            description:
+              - text: Vitamin C 1,000 mg., Vitamin D 1,000 IU
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[1]
+              - text: 7 B Vitamins, Antioxidants & Electrolytes
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[2]
+              - text: Proprietary Complex with Wellmune WGP Beta-glucans
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[3]
+              - text: 40 Super Orange Flavor & 30 Raspberry Flavor
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[4]
+            variantId:
+              - text: "1167546"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            ratingCount:
+              - text: "191"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            manufacturerDescription:
+              - text: >-
+                  Product details have been supplied by the Manufacturer, and
+                  are hosted by a third party.
+
+                  Overview
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Emergen-C Immune+® has an enhanced immune support formula† with the key nutrients and antioxidants>> your body needs, like Vitamin D, Zinc, and more Vitamin C than 10 oranges^. Made with natural flavors and contains no artificial sweeteners. Vitamin drink mix dissolves quickly in water; it's fizzy, refreshing and caffeine-free.
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Proprietary Complex
+                  Unique blend includes naturally sourced Wellmune WGP beta-glucans and arabinogalactans.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Immune Support
+
+                  Vitamin C, zinc, and manganese are essential nutrients for maintaining a healthy antioxidant response.†D plays an important role in regulating immune system function.†
+                   
+                  Add to your Vitamin D stores with more Vitamin D than 8 glasses of milk.(1)
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Energy
+                  Replenish 7 B vitamins including B1, B2, B3, B5, B6, B9, and B12 enhance energy naturally without caffeine†.
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Antioxidants 
+
+                   
+                  Vitamin C is essential in maintaining a healthy immune system, and is critical to the formation of collagen, a structural protein that supports the skin and internal organs.†
+                   
+                  Zinc is crucial to the immune system. It helps maintain white blood cell activity, and helps support antioxidant protection.†
+                   
+
+                   
+                  B Vitamins
+                   
+
+                   
+                  Thiamin (B1) plays a key role in the body's metabolic cycle for generating energy; helps in the metabolism of carbohydrates; and helps maintain a healthy nervous system.†
+                   
+                  Riboflavin (B2) is critical in breaking down carbohydrates, proteins, and fats so your body can use them for energy and repair.†
+                   
+                  Niacin (B3) is a component of coenzymes that are involved in producing energy and building larger molecules such as fatty acids and some hormones.†
+                   
+                  Vitamin B6 plays a role in forming energy-rich compounds and niacin, red blood cell and fat metabolism, nervous system functions, and modulation of hormones. Vitamin B6 is a dietarily important nutrient because the body cannot make it.†
+                   
+                  Folic Acid (B9) produces healthy effects in the body and cells by functioning with enzymes. Folic acid works with two other B vitamins, B12 & B6, to help maintain healthy levels of homocysteine, an amino acid, in the blood.†
+                   
+                  Vitamin B12 is used in helping metabolize food for energy and making healthy red blood cells. Healthy red blood cells help carry oxygen to cells.†
+                   
+                  Pantothenic Acid (B5) is an essential nutrient. A form of pantothenic acid is used in the body to help generate energy from fat, carbohydrates, and proteins.†
+                   
+
+                   
+                  Electrolytes and Energy Metabolism Minerals
+                   
+
+                   
+                  Calcium supports healthy fluid and electrolyte balance, muscle function, and also plays a critical role in the electrical conduction system of the heart.†
+                   
+                  Magnesium supports healthy fluid and electrolyte balance and muscle function. Over three hundred enzymes require magnesium as a cofactor.†
+                   
+                  Sodium supports healthy fluid and electrolyte balance, nerve and muscle function, and blood pH.†
+                   
+                  Potassium supports healthy fluid and electrolyte balance and is especially important for normal muscle contraction.†
+                   
+                  Phosphorus is an essential element used in the body as a structural component and participates in energy production and storage.†
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Referrals
+                   
+                   
+                   (1) Based on using the USDA.gov nutrient database value for an 8 ounce glass of milk.
+                  ^Based on using the USDA.gov nutrient database value for a large, raw orange
+
+                  >>Vitamin C, Zinc and Manganese
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+              - text: >-
+                  Overview
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Emergen-C Immune+® has an enhanced immune support formula† with the key nutrients and antioxidants>> your body needs, like Vitamin D, Zinc, and more Vitamin C than 10 oranges^. Made with natural flavors and contains no artificial sweeteners. Vitamin drink mix dissolves quickly in water; it's fizzy, refreshing and caffeine-free.
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Proprietary Complex
+                  Unique blend includes naturally sourced Wellmune WGP beta-glucans and arabinogalactans.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Immune Support
+
+                  Vitamin C, zinc, and manganese are essential nutrients for maintaining a healthy antioxidant response.†D plays an important role in regulating immune system function.†
+                   
+                  Add to your Vitamin D stores with more Vitamin D than 8 glasses of milk.(1)
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Energy
+                  Replenish 7 B vitamins including B1, B2, B3, B5, B6, B9, and B12 enhance energy naturally without caffeine†.
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Antioxidants 
+
+                   
+                  Vitamin C is essential in maintaining a healthy immune system, and is critical to the formation of collagen, a structural protein that supports the skin and internal organs.†
+                   
+                  Zinc is crucial to the immune system. It helps maintain white blood cell activity, and helps support antioxidant protection.†
+                   
+
+                   
+                  B Vitamins
+                   
+
+                   
+                  Thiamin (B1) plays a key role in the body's metabolic cycle for generating energy; helps in the metabolism of carbohydrates; and helps maintain a healthy nervous system.†
+                   
+                  Riboflavin (B2) is critical in breaking down carbohydrates, proteins, and fats so your body can use them for energy and repair.†
+                   
+                  Niacin (B3) is a component of coenzymes that are involved in producing energy and building larger molecules such as fatty acids and some hormones.†
+                   
+                  Vitamin B6 plays a role in forming energy-rich compounds and niacin, red blood cell and fat metabolism, nervous system functions, and modulation of hormones. Vitamin B6 is a dietarily important nutrient because the body cannot make it.†
+                   
+                  Folic Acid (B9) produces healthy effects in the body and cells by functioning with enzymes. Folic acid works with two other B vitamins, B12 & B6, to help maintain healthy levels of homocysteine, an amino acid, in the blood.†
+                   
+                  Vitamin B12 is used in helping metabolize food for energy and making healthy red blood cells. Healthy red blood cells help carry oxygen to cells.†
+                   
+                  Pantothenic Acid (B5) is an essential nutrient. A form of pantothenic acid is used in the body to help generate energy from fat, carbohydrates, and proteins.†
+                   
+
+                   
+                  Electrolytes and Energy Metabolism Minerals
+                   
+
+                   
+                  Calcium supports healthy fluid and electrolyte balance, muscle function, and also plays a critical role in the electrical conduction system of the heart.†
+                   
+                  Magnesium supports healthy fluid and electrolyte balance and muscle function. Over three hundred enzymes require magnesium as a cofactor.†
+                   
+                  Sodium supports healthy fluid and electrolyte balance, nerve and muscle function, and blood pH.†
+                   
+                  Potassium supports healthy fluid and electrolyte balance and is especially important for normal muscle contraction.†
+                   
+                  Phosphorus is an essential element used in the body as a structural component and participates in energy production and storage.†
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Referrals
+                   
+                   
+                   (1) Based on using the USDA.gov nutrient database value for an 8 ounce glass of milk.
+                  ^Based on using the USDA.gov nutrient database value for a large, raw orange
+
+                  >>Vitamin C, Zinc and Manganese
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: Overview
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]
+              - text: >-
+                  Emergen-C Immune+® has an enhanced immune support formula†
+                  with the key nutrients and antioxidants>> your body needs,
+                  like Vitamin D, Zinc, and more Vitamin C than 10 oranges^.
+                  Made with natural flavors and contains no artificial
+                  sweeteners. Vitamin drink mix dissolves quickly in water; it's
+                  fizzy, refreshing and caffeine-free.
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Proprietary Complex
+                  Unique blend includes naturally sourced Wellmune WGP beta-glucans and arabinogalactans.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Immune Support
+
+                  Vitamin C, zinc, and manganese are essential nutrients for maintaining a healthy antioxidant response.†D plays an important role in regulating immune system function.†
+                   
+                  Add to your Vitamin D stores with more Vitamin D than 8 glasses of milk.(1)
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Energy
+                  Replenish 7 B vitamins including B1, B2, B3, B5, B6, B9, and B12 enhance energy naturally without caffeine†.
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Antioxidants 
+
+                   
+                  Vitamin C is essential in maintaining a healthy immune system, and is critical to the formation of collagen, a structural protein that supports the skin and internal organs.†
+                   
+                  Zinc is crucial to the immune system. It helps maintain white blood cell activity, and helps support antioxidant protection.†
+                   
+
+                   
+                  B Vitamins
+                   
+
+                   
+                  Thiamin (B1) plays a key role in the body's metabolic cycle for generating energy; helps in the metabolism of carbohydrates; and helps maintain a healthy nervous system.†
+                   
+                  Riboflavin (B2) is critical in breaking down carbohydrates, proteins, and fats so your body can use them for energy and repair.†
+                   
+                  Niacin (B3) is a component of coenzymes that are involved in producing energy and building larger molecules such as fatty acids and some hormones.†
+                   
+                  Vitamin B6 plays a role in forming energy-rich compounds and niacin, red blood cell and fat metabolism, nervous system functions, and modulation of hormones. Vitamin B6 is a dietarily important nutrient because the body cannot make it.†
+                   
+                  Folic Acid (B9) produces healthy effects in the body and cells by functioning with enzymes. Folic acid works with two other B vitamins, B12 & B6, to help maintain healthy levels of homocysteine, an amino acid, in the blood.†
+                   
+                  Vitamin B12 is used in helping metabolize food for energy and making healthy red blood cells. Healthy red blood cells help carry oxygen to cells.†
+                   
+                  Pantothenic Acid (B5) is an essential nutrient. A form of pantothenic acid is used in the body to help generate energy from fat, carbohydrates, and proteins.†
+                   
+
+                   
+                  Electrolytes and Energy Metabolism Minerals
+                   
+
+                   
+                  Calcium supports healthy fluid and electrolyte balance, muscle function, and also plays a critical role in the electrical conduction system of the heart.†
+                   
+                  Magnesium supports healthy fluid and electrolyte balance and muscle function. Over three hundred enzymes require magnesium as a cofactor.†
+                   
+                  Sodium supports healthy fluid and electrolyte balance, nerve and muscle function, and blood pH.†
+                   
+                  Potassium supports healthy fluid and electrolyte balance and is especially important for normal muscle contraction.†
+                   
+                  Phosphorus is an essential element used in the body as a structural component and participates in energy production and storage.†
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Referrals
+                   
+                   
+                   (1) Based on using the USDA.gov nutrient database value for an 8 ounce glass of milk.
+                  ^Based on using the USDA.gov nutrient database value for a large, raw orange
+
+                  >>Vitamin C, Zinc and Manganese
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+              - text: Emergen-C Immune+® has an enhanced immune support formula† with the key
+                  nutrients and antioxidants>> your body needs, like Vitamin D,
+                  Zinc, and more Vitamin C than 10 oranges^. Made with natural
+                  flavors and contains no artificial sweeteners. Vitamin drink
+                  mix dissolves quickly in water; it's fizzy, refreshing and
+                  caffeine-free.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Emergen-C Immune+® has an enhanced immune support formula† with the key
+                  nutrients and antioxidants>> your body needs, like Vitamin D,
+                  Zinc, and more Vitamin C than 10 oranges^. Made with natural
+                  flavors and contains no artificial sweeteners. Vitamin drink
+                  mix dissolves quickly in water; it's fizzy, refreshing and
+                  caffeine-free.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]
+              - text: Emergen-C Immune+® has an enhanced immune support formula† with the key
+                  nutrients and antioxidants>> your body needs, like Vitamin D,
+                  Zinc, and more Vitamin C than 10 oranges^. Made with natural
+                  flavors and contains no artificial sweeteners. Vitamin drink
+                  mix dissolves quickly in water; it's fizzy, refreshing and
+                  caffeine-free.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]
+              - text: >-
+                  Proprietary Complex
+
+                  Unique blend includes naturally sourced Wellmune WGP beta-glucans and arabinogalactans.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Immune Support
+
+                  Vitamin C, zinc, and manganese are essential nutrients for maintaining a healthy antioxidant response.†D plays an important role in regulating immune system function.†
+                   
+                  Add to your Vitamin D stores with more Vitamin D than 8 glasses of milk.(1)
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Energy
+                  Replenish 7 B vitamins including B1, B2, B3, B5, B6, B9, and B12 enhance energy naturally without caffeine†.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: >-
+                  Proprietary Complex
+
+                  Unique blend includes naturally sourced Wellmune WGP beta-glucans and arabinogalactans.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[2]
+              - text: >-
+                  Immune Support
+
+                  Vitamin C, zinc, and manganese are essential nutrients for maintaining a healthy antioxidant response.†D plays an important role in regulating immune system function.†
+                   
+                  Add to your Vitamin D stores with more Vitamin D than 8 glasses of milk.(1)
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/div[2]
+              - text: >-
+                  Energy
+
+                  Replenish 7 B vitamins including B1, B2, B3, B5, B6, B9, and B12 enhance energy naturally without caffeine†.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/div[2]
+              - text: >-
+                  Antioxidants 
+                   
+                  Vitamin C is essential in maintaining a healthy immune system, and is critical to the formation of collagen, a structural protein that supports the skin and internal organs.†
+                   
+                  Zinc is crucial to the immune system. It helps maintain white blood cell activity, and helps support antioxidant protection.†
+                   
+
+                   
+                  B Vitamins
+                   
+
+                   
+                  Thiamin (B1) plays a key role in the body's metabolic cycle for generating energy; helps in the metabolism of carbohydrates; and helps maintain a healthy nervous system.†
+                   
+                  Riboflavin (B2) is critical in breaking down carbohydrates, proteins, and fats so your body can use them for energy and repair.†
+                   
+                  Niacin (B3) is a component of coenzymes that are involved in producing energy and building larger molecules such as fatty acids and some hormones.†
+                   
+                  Vitamin B6 plays a role in forming energy-rich compounds and niacin, red blood cell and fat metabolism, nervous system functions, and modulation of hormones. Vitamin B6 is a dietarily important nutrient because the body cannot make it.†
+                   
+                  Folic Acid (B9) produces healthy effects in the body and cells by functioning with enzymes. Folic acid works with two other B vitamins, B12 & B6, to help maintain healthy levels of homocysteine, an amino acid, in the blood.†
+                   
+                  Vitamin B12 is used in helping metabolize food for energy and making healthy red blood cells. Healthy red blood cells help carry oxygen to cells.†
+                   
+                  Pantothenic Acid (B5) is an essential nutrient. A form of pantothenic acid is used in the body to help generate energy from fat, carbohydrates, and proteins.†
+                   
+
+                   
+                  Electrolytes and Energy Metabolism Minerals
+                   
+
+                   
+                  Calcium supports healthy fluid and electrolyte balance, muscle function, and also plays a critical role in the electrical conduction system of the heart.†
+                   
+                  Magnesium supports healthy fluid and electrolyte balance and muscle function. Over three hundred enzymes require magnesium as a cofactor.†
+                   
+                  Sodium supports healthy fluid and electrolyte balance, nerve and muscle function, and blood pH.†
+                   
+                  Potassium supports healthy fluid and electrolyte balance and is especially important for normal muscle contraction.†
+                   
+                  Phosphorus is an essential element used in the body as a structural component and participates in energy production and storage.†
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[5]
+              - text: >-
+                  Antioxidants 
+                   
+                  Vitamin C is essential in maintaining a healthy immune system, and is critical to the formation of collagen, a structural protein that supports the skin and internal organs.†
+                   
+                  Zinc is crucial to the immune system. It helps maintain white blood cell activity, and helps support antioxidant protection.†
+                   
+
+                   
+                  B Vitamins
+                   
+
+                   
+                  Thiamin (B1) plays a key role in the body's metabolic cycle for generating energy; helps in the metabolism of carbohydrates; and helps maintain a healthy nervous system.†
+                   
+                  Riboflavin (B2) is critical in breaking down carbohydrates, proteins, and fats so your body can use them for energy and repair.†
+                   
+                  Niacin (B3) is a component of coenzymes that are involved in producing energy and building larger molecules such as fatty acids and some hormones.†
+                   
+                  Vitamin B6 plays a role in forming energy-rich compounds and niacin, red blood cell and fat metabolism, nervous system functions, and modulation of hormones. Vitamin B6 is a dietarily important nutrient because the body cannot make it.†
+                   
+                  Folic Acid (B9) produces healthy effects in the body and cells by functioning with enzymes. Folic acid works with two other B vitamins, B12 & B6, to help maintain healthy levels of homocysteine, an amino acid, in the blood.†
+                   
+                  Vitamin B12 is used in helping metabolize food for energy and making healthy red blood cells. Healthy red blood cells help carry oxygen to cells.†
+                   
+                  Pantothenic Acid (B5) is an essential nutrient. A form of pantothenic acid is used in the body to help generate energy from fat, carbohydrates, and proteins.†
+                   
+
+                   
+                  Electrolytes and Energy Metabolism Minerals
+                   
+
+                   
+                  Calcium supports healthy fluid and electrolyte balance, muscle function, and also plays a critical role in the electrical conduction system of the heart.†
+                   
+                  Magnesium supports healthy fluid and electrolyte balance and muscle function. Over three hundred enzymes require magnesium as a cofactor.†
+                   
+                  Sodium supports healthy fluid and electrolyte balance, nerve and muscle function, and blood pH.†
+                   
+                  Potassium supports healthy fluid and electrolyte balance and is especially important for normal muscle contraction.†
+                   
+                  Phosphorus is an essential element used in the body as a structural component and participates in energy production and storage.†
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[5]/ul[1]/li[1]/div[1]
+              - text: >-
+                  Antioxidants 
+                   
+                  Vitamin C is essential in maintaining a healthy immune system, and is critical to the formation of collagen, a structural protein that supports the skin and internal organs.†
+                   
+                  Zinc is crucial to the immune system. It helps maintain white blood cell activity, and helps support antioxidant protection.†
+                   
+
+                   
+                  B Vitamins
+                   
+
+                   
+                  Thiamin (B1) plays a key role in the body's metabolic cycle for generating energy; helps in the metabolism of carbohydrates; and helps maintain a healthy nervous system.†
+                   
+                  Riboflavin (B2) is critical in breaking down carbohydrates, proteins, and fats so your body can use them for energy and repair.†
+                   
+                  Niacin (B3) is a component of coenzymes that are involved in producing energy and building larger molecules such as fatty acids and some hormones.†
+                   
+                  Vitamin B6 plays a role in forming energy-rich compounds and niacin, red blood cell and fat metabolism, nervous system functions, and modulation of hormones. Vitamin B6 is a dietarily important nutrient because the body cannot make it.†
+                   
+                  Folic Acid (B9) produces healthy effects in the body and cells by functioning with enzymes. Folic acid works with two other B vitamins, B12 & B6, to help maintain healthy levels of homocysteine, an amino acid, in the blood.†
+                   
+                  Vitamin B12 is used in helping metabolize food for energy and making healthy red blood cells. Healthy red blood cells help carry oxygen to cells.†
+                   
+                  Pantothenic Acid (B5) is an essential nutrient. A form of pantothenic acid is used in the body to help generate energy from fat, carbohydrates, and proteins.†
+                   
+
+                   
+                  Electrolytes and Energy Metabolism Minerals
+                   
+
+                   
+                  Calcium supports healthy fluid and electrolyte balance, muscle function, and also plays a critical role in the electrical conduction system of the heart.†
+                   
+                  Magnesium supports healthy fluid and electrolyte balance and muscle function. Over three hundred enzymes require magnesium as a cofactor.†
+                   
+                  Sodium supports healthy fluid and electrolyte balance, nerve and muscle function, and blood pH.†
+                   
+                  Potassium supports healthy fluid and electrolyte balance and is especially important for normal muscle contraction.†
+                   
+                  Phosphorus is an essential element used in the body as a structural component and participates in energy production and storage.†
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[5]/ul[1]/li[1]/div[1]/div[1]
+              - text: >-
+                  Referrals
+                   
+                   
+                   (1) Based on using the USDA.gov nutrient database value for an 8 ounce glass of milk.
+                  ^Based on using the USDA.gov nutrient database value for a large, raw orange
+
+                  >>Vitamin C, Zinc and Manganese
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[9]
+              - text: >-
+                  (1) Based on using the USDA.gov nutrient database value for an
+                  8 ounce glass of milk.
+
+                  ^Based on using the USDA.gov nutrient database value for a large, raw orange
+
+                  >>Vitamin C, Zinc and Manganese
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[9]/ul[1]/li[1]/div[1]
+              - text: >-
+                  (1) Based on using the USDA.gov nutrient database value for an
+                  8 ounce glass of milk.
+
+                  ^Based on using the USDA.gov nutrient database value for a large, raw orange
+
+                  >>Vitamin C, Zinc and Manganese
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[9]/ul[1]/li[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1571943287760_67114c70-df01-46fa-b663-b3ef14fc4624/module/emergenc/_cp/products/1501019471608/tab-7194de9f-2ed4-4619-8d6c-96c7b2050b12/aa90843a-61b9-4a8f-b987-b31fc5423b57.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1571943287760_67114c70-df01-46fa-b663-b3ef14fc4624/module/emergenc/_cp/products/1501019471608/tab-7194de9f-2ed4-4619-8d6c-96c7b2050b12/dfb5a177-192a-40cb-b56c-c8248f266e16.png.w480.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1571943287760_67114c70-df01-46fa-b663-b3ef14fc4624/module/emergenc/_cp/products/1501019471608/tab-7194de9f-2ed4-4619-8d6c-96c7b2050b12/6b8bd195-74c3-413f-bb8d-ddcaa8fec9ec.jpg.w480.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1571943287760_67114c70-df01-46fa-b663-b3ef14fc4624/module/emergenc/_cp/products/1501019471608/tab-7194de9f-2ed4-4619-8d6c-96c7b2050b12/4154abf8-477e-4cd7-8aec-125b1e55a1d6.png.w480.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1571943287760_67114c70-df01-46fa-b663-b3ef14fc4624/module/emergenc/_cp/products/1501019471608/tab-7194de9f-2ed4-4619-8d6c-96c7b2050b12/41bc6dd7-18cb-476e-bbe7-946200c18529.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1571943287760_67114c70-df01-46fa-b663-b3ef14fc4624/module/emergenc/_cp/products/1501019471608/tab-7194de9f-2ed4-4619-8d6c-96c7b2050b12/2e9ff173-1541-4d44-8443-178f4eb79568.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[6]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1571943287760_67114c70-df01-46fa-b663-b3ef14fc4624/module/emergenc/_cp/products/1501019471608/tab-7194de9f-2ed4-4619-8d6c-96c7b2050b12/afdd26f3-c944-4ab9-9c96-219bfdc2948b.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1571943287760_67114c70-df01-46fa-b663-b3ef14fc4624/module/emergenc/_cp/products/1501019471608/tab-7194de9f-2ed4-4619-8d6c-96c7b2050b12/86fc873f-9617-4837-ada5-b466b2b4a4da.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[8]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            promotion:
+              - text: Limit 2 per member
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/p[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "4"
+        xpath: /
+    timestamp: 1592984323386

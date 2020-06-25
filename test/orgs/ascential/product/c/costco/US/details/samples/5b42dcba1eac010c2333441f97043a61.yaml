@@ -1,0 +1,652 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/Whirlpool-4.3CuFt-High-Efficiency-Top-Load-Washer-with-a-Low-Profile-Impeller.product.100153161.html
+extractions:
+  - html: https://workbench.import.io/html/run=80d66909-9290-4ddd-881c-70afb5525142/task=8a52e4bf-0774-4db7-9474-0c9d81f774a4/1a8cc562-811e-40a6-82a3-11b72bfd20b0.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=968394-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[2]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=896708&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793236&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793238&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793245&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[5]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793240&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[6]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793256&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[7]/img[1]/@src
+            nameExtended:
+              - text: Whirlpool 4.3CuFt High-Efficiency Top Load Washer with a Low-Profile
+                  Impeller
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Appliances
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Washers & Dryers
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Washing Machines
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 669.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[6]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: 2-year Manufacturer's Warranty
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[1]
+              - text: 4.3CuFt Top Load Washer
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[2]
+              - text: 11 Adaptive Wash Actions
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[3]
+              - text: Low-Profile Impeller
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[4]
+              - text: Deep Water Wash Cycle
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[5]
+              - text: 2-Year Manufacture's Warranty Included
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
+              - text: Be Prepared for your Delivery. Read
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[2]
+              - text: Laundry Installation Requirements
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[3]
+              - text: PDF above
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[4]
+              - text: DELIVERY, INSTALLATION & HAUL AWAY ARE INCLUDED IN THE PURCHASE PRICE OF
+                  THE WASHER.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[5]
+              - text: "WARNING:"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[6]
+              - text: "Learn More:"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]
+              - text: Dimension Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Dimension Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/span[1]
+              - text: Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: Installation Instruction PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/span[1]
+              - text: Installation Instruction PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 16 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: Use and Care PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/span[1]
+              - text: Use and Care PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 36 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[2]/small[1]/span[1]
+            brandText:
+              - text: Whirlpool
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: WTW5000DW
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[1]/div[4]/div[1]/span[2]/span[1]
+            variantId:
+              - text: "968394"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            mpc:
+              - text: WTW5000DW
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[1]/div[4]/div[1]/span[2]/span[1]
+            ratingCount:
+              - text: "556"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            manufacturerDescription:
+              - text: >-
+                  Product details have been supplied by the Manufacturer, and
+                  are hosted by a third party.
+
+                  Overview
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Give clothes a deep clean and gentle care with the Whirlpool® 4.3 cu. ft. top load washer. Now you can wash more than two baskets of clothing in a single load, so you can enjoy the space you need for bulky items like comforters. This top load washer uses up to 11 adaptive wash actions to sense and adapt to the needs of each load, while the new low-profile impeller helps give clothes a thorough yet gentle clean. Its seamless surface and unique vanes drive clothes from the outer rim to the center of this large capacity washer's basket, where the deepest cleaning happens. 
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Learn More: 
+                   
+                   Specifications 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  The Smooth Wave stainless steel wash basket gently guides clothes and helps protect fabrics from fraying and snags.
+                   
+                  Take on dirt with the Deep Water Wash cycle that helps break down loose soils using more water and thorough cleaning so stains don't stick around.
+                   
+                  4.3 cu. ft. of capacity washes up to three baskets of clothing in a single load.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Documents
+                   
+
+                   
+                  Dimension Guide
+                   
+
+                   
+                  Dimension Guide
+                   
+                   View Dimension Guide PDF | Download Dimension Guide PDF 
+                   
+                   PDF, 588K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Energy Guide
+                   
+
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 254K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Installation Instruction
+                   
+
+                   
+                  Installation Instruction
+                   
+                   View Installation Instruction PDF | Download Installation Instruction PDF 
+                   
+                   PDF, 3.99MB, 16 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Use and Care
+                   
+
+                   
+                  Use and Care
+                   
+                   View Use and Care PDF | Download Use and Care PDF 
+                   
+                   PDF, 4.27MB, 36 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+              - text: >-
+                  Overview
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Give clothes a deep clean and gentle care with the Whirlpool® 4.3 cu. ft. top load washer. Now you can wash more than two baskets of clothing in a single load, so you can enjoy the space you need for bulky items like comforters. This top load washer uses up to 11 adaptive wash actions to sense and adapt to the needs of each load, while the new low-profile impeller helps give clothes a thorough yet gentle clean. Its seamless surface and unique vanes drive clothes from the outer rim to the center of this large capacity washer's basket, where the deepest cleaning happens.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: Overview
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]
+              - text: Give clothes a deep clean and gentle care with the Whirlpool® 4.3 cu. ft.
+                  top load washer. Now you can wash more than two baskets of
+                  clothing in a single load, so you can enjoy the space you need
+                  for bulky items like comforters. This top load washer uses up
+                  to 11 adaptive wash actions to sense and adapt to the needs of
+                  each load, while the new low-profile impeller helps give
+                  clothes a thorough yet gentle clean. Its seamless surface and
+                  unique vanes drive clothes from the outer rim to the center of
+                  this large capacity washer's basket, where the deepest
+                  cleaning happens.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+              - text: Give clothes a deep clean and gentle care with the Whirlpool® 4.3 cu. ft.
+                  top load washer. Now you can wash more than two baskets of
+                  clothing in a single load, so you can enjoy the space you need
+                  for bulky items like comforters. This top load washer uses up
+                  to 11 adaptive wash actions to sense and adapt to the needs of
+                  each load, while the new low-profile impeller helps give
+                  clothes a thorough yet gentle clean. Its seamless surface and
+                  unique vanes drive clothes from the outer rim to the center of
+                  this large capacity washer's basket, where the deepest
+                  cleaning happens.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: Give clothes a deep clean and gentle care with the Whirlpool® 4.3 cu. ft.
+                  top load washer. Now you can wash more than two baskets of
+                  clothing in a single load, so you can enjoy the space you need
+                  for bulky items like comforters. This top load washer uses up
+                  to 11 adaptive wash actions to sense and adapt to the needs of
+                  each load, while the new low-profile impeller helps give
+                  clothes a thorough yet gentle clean. Its seamless surface and
+                  unique vanes drive clothes from the outer rim to the center of
+                  this large capacity washer's basket, where the deepest
+                  cleaning happens.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: Give clothes a deep clean and gentle care with the Whirlpool® 4.3 cu. ft.
+                  top load washer. Now you can wash more than two baskets of
+                  clothing in a single load, so you can enjoy the space you need
+                  for bulky items like comforters. This top load washer uses up
+                  to 11 adaptive wash actions to sense and adapt to the needs of
+                  each load, while the new low-profile impeller helps give
+                  clothes a thorough yet gentle clean. Its seamless surface and
+                  unique vanes drive clothes from the outer rim to the center of
+                  this large capacity washer's basket, where the deepest
+                  cleaning happens.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]
+              - text: |-
+                  Learn More: 
+                   
+                   Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: >-
+                  Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  The Smooth Wave stainless steel wash basket gently guides clothes and helps protect fabrics from fraying and snags.
+                   
+                  Take on dirt with the Deep Water Wash cycle that helps break down loose soils using more water and thorough cleaning so stains don't stick around.
+                   
+                  4.3 cu. ft. of capacity washes up to three baskets of clothing in a single load.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]
+              - text: Features
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/h2[1]
+              - text: >-
+                  The Smooth Wave stainless steel wash basket gently guides
+                  clothes and helps protect fabrics from fraying and snags.
+                   
+                  Take on dirt with the Deep Water Wash cycle that helps break down loose soils using more water and thorough cleaning so stains don't stick around.
+                   
+                  4.3 cu. ft. of capacity washes up to three baskets of clothing in a single load.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]
+              - text: >-
+                  The Smooth Wave stainless steel wash basket gently guides
+                  clothes and helps protect fabrics from fraying and snags.
+                   
+                  Take on dirt with the Deep Water Wash cycle that helps break down loose soils using more water and thorough cleaning so stains don't stick around.
+                   
+                  4.3 cu. ft. of capacity washes up to three baskets of clothing in a single load.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]
+              - text: >-
+                  The Smooth Wave stainless steel wash basket gently guides
+                  clothes and helps protect fabrics from fraying and snags.
+                   
+                  Take on dirt with the Deep Water Wash cycle that helps break down loose soils using more water and thorough cleaning so stains don't stick around.
+                   
+                  4.3 cu. ft. of capacity washes up to three baskets of clothing in a single load.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: >-
+                  The Smooth Wave stainless steel wash basket gently guides
+                  clothes and helps protect fabrics from fraying and snags.
+                   
+                  Take on dirt with the Deep Water Wash cycle that helps break down loose soils using more water and thorough cleaning so stains don't stick around.
+                   
+                  4.3 cu. ft. of capacity washes up to three baskets of clothing in a single load.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Documents
+                   
+
+                   
+                  Dimension Guide
+                   
+
+                   
+                  Dimension Guide
+                   
+                   View Dimension Guide PDF | Download Dimension Guide PDF 
+                   
+                   PDF, 588K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Energy Guide
+                   
+
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 254K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Installation Instruction
+                   
+
+                   
+                  Installation Instruction
+                   
+                   View Installation Instruction PDF | Download Installation Instruction PDF 
+                   
+                   PDF, 3.99MB, 16 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Use and Care
+                   
+
+                   
+                  Use and Care
+                   
+                   View Use and Care PDF | Download Use and Care PDF 
+                   
+                   PDF, 4.27MB, 36 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]
+              - text: Documents
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/h2[1]
+              - text: >-
+                  Dimension Guide
+                   
+
+                   
+                  Dimension Guide
+                   
+                   View Dimension Guide PDF | Download Dimension Guide PDF 
+                   
+                   PDF, 588K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Energy Guide
+                   
+
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 254K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Installation Instruction
+                   
+
+                   
+                  Installation Instruction
+                   
+                   View Installation Instruction PDF | Download Installation Instruction PDF 
+                   
+                   PDF, 3.99MB, 16 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Use and Care
+                   
+
+                   
+                  Use and Care
+                   
+                   View Use and Care PDF | Download Use and Care PDF 
+                   
+                   PDF, 4.27MB, 36 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]
+              - text: |-
+                  Dimension Guide
+                   
+                   View Dimension Guide PDF | Download Dimension Guide PDF 
+                   
+                   PDF, 588K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Dimension Guide
+                   
+                   View Dimension Guide PDF | Download Dimension Guide PDF 
+                   
+                   PDF, 588K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Dimension Guide PDF | Download Dimension Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 588K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: |-
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 254K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/div[1]
+              - text: |-
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 254K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/div[1]/div[1]
+              - text: View Energy Guide PDF | Download Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]
+              - text: PDF, 254K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]
+              - text: >-
+                  Installation Instruction
+                   
+                   View Installation Instruction PDF | Download Installation Instruction PDF 
+                   
+                   PDF, 3.99MB, 16 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/div[1]
+              - text: >-
+                  Installation Instruction
+                   
+                   View Installation Instruction PDF | Download Installation Instruction PDF 
+                   
+                   PDF, 3.99MB, 16 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/div[1]/div[1]
+              - text: View Installation Instruction PDF | Download Installation Instruction PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]
+              - text: PDF, 3.99MB, 16 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[2]
+              - text: |-
+                  Use and Care
+                   
+                   View Use and Care PDF | Download Use and Care PDF 
+                   
+                   PDF, 4.27MB, 36 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/div[1]
+              - text: |-
+                  Use and Care
+                   
+                   View Use and Care PDF | Download Use and Care PDF 
+                   
+                   PDF, 4.27MB, 36 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/div[1]/div[1]
+              - text: View Use and Care PDF | Download Use and Care PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]
+              - text: PDF, 4.27MB, 36 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/21758490_legacycode/module/whirlpool/_cp/products/1472667824732/tab-f49074b2-5ac8-454f-831c-1928990b4979/resource-a8f39940-69d7-4356-8fb2-65aaf099817b.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/21758490_legacycode/module/whirlpool/_cp/products/1472667824732/tab-1465c8a0-558a-43e8-a655-46618f63af1b/resource-efa19bc5-3f21-48bf-9a5a-c7c109d1f482.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/21758490_legacycode/module/whirlpool/_cp/products/1472667824732/tab-2c613df7-d941-470b-b5d7-eb1797b0b129/resource-98c7ecde-53f9-40a6-b87f-d17504d31024.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/21758490_legacycode/module/whirlpool/_cp/products/1472667824732/tab-2c613df7-d941-470b-b5d7-eb1797b0b129/resource-9d0dbfee-0bbb-4a0b-a022-fdb669b91578.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/21758490_legacycode/module/whirlpool/_cp/products/1472667824732/tab-2c613df7-d941-470b-b5d7-eb1797b0b129/resource-69bdf873-ccbe-48bf-88f1-ad15c20e0849.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/21758490_legacycode/module/whirlpool/_cp/products/1472667824732/tab-2c613df7-d941-470b-b5d7-eb1797b0b129/resource-22b5ca9c-7b9e-4f8c-b3f9-70d82650c118.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[2]/img[1]/@src
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "5"
+        xpath: /
+    timestamp: 1592984266632

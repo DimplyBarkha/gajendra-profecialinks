@@ -1,0 +1,241 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/aerobed-comfort-lock-twin-air-mattress.product.100469775.html
+extractions:
+  - html: https://workbench.import.io/html/run=80d66909-9290-4ddd-881c-70afb5525142/task=d4fb4a42-cbcd-4a9a-8339-54e283bad4e6/24f488b6-a072-4b90-a1e5-e0374fcd4d0c.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1304242-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[2]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1329043&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1329044&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1329045&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1329046&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[5]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1329047&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[6]/img[1]/@src
+            nameExtended:
+              - text: AeroBed Comfort Lock Twin Air Mattress
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Sports & Fitness
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Camping
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Air Beds & Cots
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 129.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: Primary Pump Features Soft, Medium, and Firm Settings
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[1]
+              - text: Secondary Pump Silently Maintains Desired Firmness Throughout the Night
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[2]
+              - text: Antimicrobial-treated Sleep Surface
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[3]
+              - text: Integrated USB Port Charges Electronic Devices
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[4]
+              - text: Included Carrying Bag
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[5]
+            brandText:
+              - text: AeroBed
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]
+            variantId:
+              - text: "1304242"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            ratingCount:
+              - text: "217"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            manufacturerDescription:
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+              - text: Aerobed
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: Aerobed
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]
+              - text: Control Panel Features
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/h2[1]
+              - text: >-
+                  Other Product Highlights
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Laminated Surface
+                   
+                   The air bed is made of a durable laminated material that is lighter in weight and more puncture-resistant so that your resting place will last for years. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Whoosh Technology
+                   
+                   When you’re ready to pack up, open the Whoosh valve to completely deflate the bed in no time. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Carry Bag
+                   
+                   The included carry bag offers convenient storage until the next blissful night.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]
+              - text: Other Product Highlights
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/h2[1]
+              - text: >-
+                  Laminated Surface
+                   
+                   The air bed is made of a durable laminated material that is lighter in weight and more puncture-resistant so that your resting place will last for years. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Whoosh Technology
+                   
+                   When you’re ready to pack up, open the Whoosh valve to completely deflate the bed in no time. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Carry Bag
+                   
+                   The included carry bag offers convenient storage until the next blissful night.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]
+              - text: >-
+                  Laminated Surface
+                   
+                   The air bed is made of a durable laminated material that is lighter in weight and more puncture-resistant so that your resting place will last for years. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Whoosh Technology
+                   
+                   When you’re ready to pack up, open the Whoosh valve to completely deflate the bed in no time. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Carry Bag
+                   
+                   The included carry bag offers convenient storage until the next blissful night.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]
+              - text: The air bed is made of a durable laminated material that is lighter in
+                  weight and more puncture-resistant so that your resting place
+                  will last for years.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: When you’re ready to pack up, open the Whoosh valve to completely deflate
+                  the bed in no time.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: The included carry bag offers convenient storage until the next blissful
+                  night.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1542751786521_6c7e6731-82e9-4425-b1bb-ee9bf7603dee/module/coleman/_cp/products/1537821443198/tab-9fa84c61-eaed-4aed-9e38-33dac4dab6f0/3dd9a3c5-b671-4ed8-bbe8-a4444e2d8223.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1542751786521_6c7e6731-82e9-4425-b1bb-ee9bf7603dee/module/coleman/_cp/products/1537821443198/tab-9637e4cc-e3cd-48a9-ba76-f4e6647c2347/1293a593-cdc5-45b7-a178-dd55e2ff0e6c.jpg.w480.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1542751786521_6c7e6731-82e9-4425-b1bb-ee9bf7603dee/module/coleman/_cp/products/1537821443198/tab-9637e4cc-e3cd-48a9-ba76-f4e6647c2347/f06840f9-7c3b-4b30-a5b9-6279c4b71141.jpg.w480.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1542751786521_6c7e6731-82e9-4425-b1bb-ee9bf7603dee/module/coleman/_cp/products/1537821443198/tab-9637e4cc-e3cd-48a9-ba76-f4e6647c2347/92c17d99-f4b4-4136-8ce8-6e0c6eb799dc.jpg.w480.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1542751786521_6c7e6731-82e9-4425-b1bb-ee9bf7603dee/module/coleman/_cp/products/1537821443198/tab-9637e4cc-e3cd-48a9-ba76-f4e6647c2347/a074c01e-763f-4631-86aa-35f927a007b3.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/img[1]/@src
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "5"
+        xpath: /
+    timestamp: 1592984245034

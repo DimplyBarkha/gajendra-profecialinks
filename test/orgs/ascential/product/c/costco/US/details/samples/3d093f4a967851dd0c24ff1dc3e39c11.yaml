@@ -1,0 +1,85 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/Whirlpool-High-Efficiency-4.3CuFt-Top-Load-Washer-7.0CuFt-GAS-Dryer-in-White-.product.100151537.html
+extractions:
+  - html: https://workbench.import.io/html/run=9c5daa81-e285-4bf0-b060-9c64bcdf1abd/task=9b8aae1a-9e56-4b47-8fb9-cff350265001/9aed6d06-c369-4b81-b8f8-bc5296804ad8.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=969340-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[2]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=896709&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793381&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793382&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793383&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[5]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793385&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[6]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793389&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[7]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793386&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[8]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=793390&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[9]/img[1]/@src
+            nameExtended:
+              - text: Whirlpool High-Efficiency 4.3CuFt Top Load Washer 7.0CuFt GAS Dryer in
+                  White
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Appliances
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Washers & Dryers
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Gas Washers & Dryers
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 1,429.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[6]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: 2 Year Warranty
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[1]
+              - text: 11 Adaptive Wash Actions
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[2]
+              - text: Low-Profile Impeller
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[3]
+              - text: "Gas Dryer: AccuDry™ Sensor Drying System and Wrinkle Shield™ Plus Option"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[4]
+            brandText:
+              - text: Whirlpool
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: "969340"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            mpc:
+              - text: WTW5000DW | WGD5000DW
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[1]/div[4]/div[1]/span[2]/span[1]
+            ratingCount:
+              - text: "119"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "3.9"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "4"
+        xpath: /
+    timestamp: 1592920186830

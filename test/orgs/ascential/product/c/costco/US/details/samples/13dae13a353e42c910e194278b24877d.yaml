@@ -1,0 +1,84 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/quartet-infinity-glass-marker-board-frosted-72-x-48.product.100102337.html
+extractions:
+  - html: https://workbench.import.io/html/run=9c5daa81-e285-4bf0-b060-9c64bcdf1abd/task=6369c6c8-d29d-4716-973c-1bf93a7ade3c/c5adbda8-df9a-4ac6-ba04-c94000ac76b1.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=861070-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=781508&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=781509&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=781510&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+            nameExtended:
+              - text: Quartet Infinity Glass Marker Board Frosted 72 x 48
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Office Products
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Basic Office Supplies
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Boards, Easels & Presentation
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 297.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[6]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: Infinity Glass Marker Board
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]
+              - text: Tempered glass board will not stain or ghost
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[2]
+              - text: Ideal for moderate to heavy use in spaces with regular traffic
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[3]
+              - text: Frameless board design blends seamlessly into any environment
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]
+              - text: Clearly displays any color dry-erase ink
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[5]
+              - text: 72"W x 48"H Board size
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[6]
+              - text: Each
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[7]
+              - text: 1 - Dry-erase marker
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[2]/li[1]
+              - text: 1 - Mounting Kit
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[2]/li[2]
+            brandText:
+              - text: Quartet
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]
+            sku:
+              - text: "861070"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            mpc:
+              - text: QRT G7248F
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[1]/div[4]/div[1]/span[2]/span[1]
+            ratingCount:
+              - text: "18"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "3.5"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1592920084537

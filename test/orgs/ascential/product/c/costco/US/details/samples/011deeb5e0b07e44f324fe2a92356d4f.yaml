@@ -1,0 +1,575 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/kitchenaid-20cuft-30%22-french-door-refrigerator-with-interior-water-dispenser.product.1356568.html
+extractions:
+  - html: https://workbench.import.io/html/run=80d66909-9290-4ddd-881c-70afb5525142/task=927f56d0-a96c-4eb0-80c0-29a576d16e8b/87c8a6c2-3262-4aef-86ff-914ca6f58155.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=100500463-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[2]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1441813&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1441814&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1441815&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+            nameExtended:
+              - text: KitchenAid 20CuFt 30" French-door Refrigerator with Interior Water
+                  Dispenser
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Appliances
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Refrigerators
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: French Door Refrigerators
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 1,879.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[6]/div[1]/form[1]/div[2]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: 2-year Manufacturer's Warranty
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[1]
+              - text: ExtendFresh Temperature Management System
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[2]
+              - text: Produce Preserver
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[3]
+              - text: Humidity-Controlled Crispers
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[4]
+              - text: Automatic Ice Maker
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[5]
+              - text: 2-Year Manufacturer's Warranty Included
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
+              - text: Be Prepared for your Delivery. Verify your plumbing and electrical
+                  connections AND read Kitchen Install Requirements PDF in
+                  Manuals, Information & Guides section.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[2]
+              - text: Our delivery and installation teams are not authorized to perform any
+                  modifications to the home; no carpentry, plumbing or
+                  electrical work. Any work that would exceed the included basic
+                  installation will require additional payment by you to the
+                  installer. For your convenience and while at your home, the
+                  installer will be able to determine if any additional work and
+                  or permits are needed that would exceed the included basic
+                  installation. You will always be given a quote before work
+                  starts. You will be responsible for direct payment to the
+                  installer for any work exceeding basic installation.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[3]
+              - text: "WARNING:"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[4]
+              - text: "Learn More:"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]
+              - text: Dimension Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Dimension Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/span[1]
+              - text: Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: Instruction Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/span[1]
+              - text: Instruction Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: Use and Care PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/span[1]
+              - text: Use and Care PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: Warranty PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/span[1]
+              - text: Warranty PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 3 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[2]/small[1]/span[1]
+            brandText:
+              - text: KitchenAid
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            variantId:
+              - text: "1356567"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            manufacturerDescription:
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+              - text: Product Tour
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]
+              - text: |-
+                  Learn More: 
+                   
+                   Specs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]
+              - text: |-
+                  Learn More: 
+                   
+                   Specs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   Specs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   Specs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: >-
+                  Overview
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   This 30-inch refrigerator is an ideal solution in small kitchens that can typically only accept a top-freezer refrigerator. French doors open with a narrow door swing similar to a side-by-side refrigerator. And inside you’ll find appealing features including an interior water dispenser and a full-width pantry drawer that helps keep your fresh food organized and easy to reach.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]
+              - text: Overview
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/h2[1]
+              - text: This 30-inch refrigerator is an ideal solution in small kitchens that can
+                  typically only accept a top-freezer refrigerator. French doors
+                  open with a narrow door swing similar to a side-by-side
+                  refrigerator. And inside you’ll find appealing features
+                  including an interior water dispenser and a full-width pantry
+                  drawer that helps keep your fresh food organized and easy to
+                  reach.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]
+              - text: This 30-inch refrigerator is an ideal solution in small kitchens that can
+                  typically only accept a top-freezer refrigerator. French doors
+                  open with a narrow door swing similar to a side-by-side
+                  refrigerator. And inside you’ll find appealing features
+                  including an interior water dispenser and a full-width pantry
+                  drawer that helps keep your fresh food organized and easy to
+                  reach.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]
+              - text: This 30-inch refrigerator is an ideal solution in small kitchens that can
+                  typically only accept a top-freezer refrigerator. French doors
+                  open with a narrow door swing similar to a side-by-side
+                  refrigerator. And inside you’ll find appealing features
+                  including an interior water dispenser and a full-width pantry
+                  drawer that helps keep your fresh food organized and easy to
+                  reach.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: This 30-inch refrigerator is an ideal solution in small kitchens that can
+                  typically only accept a top-freezer refrigerator. French doors
+                  open with a narrow door swing similar to a side-by-side
+                  refrigerator. And inside you’ll find appealing features
+                  including an interior water dispenser and a full-width pantry
+                  drawer that helps keep your fresh food organized and easy to
+                  reach.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Features
+                   
+                   
+                   
+                   
+                   
+                   
+                   ExtendFresh™ Temperature Management System - Separately monitors the temperatures in the refrigerator and freezer through a sensor located in each, to help ensure fresh fruit juices don't become frozen and prawns avoid freezer burn.
+                   
+                   Interior Water Dispenser - Provides easy access to filtered water inside the refrigerator
+                   
+                   Professionally-Inspired Design - A bold blend of professionally-inspired styling and sleek touches for the home. This refrigerator features Satin Textured Handles with iconic KitchenAid Brand Medallions and a beautiful chrome frame.
+                   
+                   Produce Preserver - Absorbs ethylene gas emitted by many fruits and vegetables, causing them to over ripen. By removing ethylene, the produce preserver helps extend freshness.
+                   
+                   FreshChill™ Temperature-Controlled Full-Width Pantry - Provides a manual temperature setting that lets you maintain the freshness of ingredients as varied as a whole salmon or large eggplants.It gives you total control over of the amount of cool air that enters the drawer.
+                   
+                   Humidity-Controlled Crispers - Provide a dedicated storage option with adjustable humidity levels. They let you select the high humidity that keeps romaine crisp, or the arid environment that helps figs and apricots stay fresh.
+                   
+                   Automatic Ice Maker - Ensures a constant supply of ice on hand at all times for entertaining and everyday use.
+                   
+                   LED Lighting - Uses less energy than incandescent bulbs. Multiple lights are purposefully placed throughout the refrigerator and freezer, making it easy to find items at a glance.
+                   
+                   Max Cool - When selected, automatically adjusts the temperature in the refrigerator and freezer to the lowest setting as needed. This helps keep the refrigerator at the ideal temperature even when you have the doors open for an extended period in order to load all your freshly purchased produce.
+                   
+                   Metallic Accents on Shelf Trim - Are applied to the leading edges of the refrigerator shelves. These rich accents complement the gloss finish of the interior, to make finding your ingredients as much of a pleasure as using them.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]
+              - text: Features
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/h2[1]
+              - text: >-
+                  ExtendFresh™ Temperature Management System - Separately
+                  monitors the temperatures in the refrigerator and freezer
+                  through a sensor located in each, to help ensure fresh fruit
+                  juices don't become frozen and prawns avoid freezer burn.
+                   
+                   Interior Water Dispenser - Provides easy access to filtered water inside the refrigerator
+                   
+                   Professionally-Inspired Design - A bold blend of professionally-inspired styling and sleek touches for the home. This refrigerator features Satin Textured Handles with iconic KitchenAid Brand Medallions and a beautiful chrome frame.
+                   
+                   Produce Preserver - Absorbs ethylene gas emitted by many fruits and vegetables, causing them to over ripen. By removing ethylene, the produce preserver helps extend freshness.
+                   
+                   FreshChill™ Temperature-Controlled Full-Width Pantry - Provides a manual temperature setting that lets you maintain the freshness of ingredients as varied as a whole salmon or large eggplants.It gives you total control over of the amount of cool air that enters the drawer.
+                   
+                   Humidity-Controlled Crispers - Provide a dedicated storage option with adjustable humidity levels. They let you select the high humidity that keeps romaine crisp, or the arid environment that helps figs and apricots stay fresh.
+                   
+                   Automatic Ice Maker - Ensures a constant supply of ice on hand at all times for entertaining and everyday use.
+                   
+                   LED Lighting - Uses less energy than incandescent bulbs. Multiple lights are purposefully placed throughout the refrigerator and freezer, making it easy to find items at a glance.
+                   
+                   Max Cool - When selected, automatically adjusts the temperature in the refrigerator and freezer to the lowest setting as needed. This helps keep the refrigerator at the ideal temperature even when you have the doors open for an extended period in order to load all your freshly purchased produce.
+                   
+                   Metallic Accents on Shelf Trim - Are applied to the leading edges of the refrigerator shelves. These rich accents complement the gloss finish of the interior, to make finding your ingredients as much of a pleasure as using them.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]
+              - text: >-
+                  ExtendFresh™ Temperature Management System - Separately
+                  monitors the temperatures in the refrigerator and freezer
+                  through a sensor located in each, to help ensure fresh fruit
+                  juices don't become frozen and prawns avoid freezer burn.
+                   
+                   Interior Water Dispenser - Provides easy access to filtered water inside the refrigerator
+                   
+                   Professionally-Inspired Design - A bold blend of professionally-inspired styling and sleek touches for the home. This refrigerator features Satin Textured Handles with iconic KitchenAid Brand Medallions and a beautiful chrome frame.
+                   
+                   Produce Preserver - Absorbs ethylene gas emitted by many fruits and vegetables, causing them to over ripen. By removing ethylene, the produce preserver helps extend freshness.
+                   
+                   FreshChill™ Temperature-Controlled Full-Width Pantry - Provides a manual temperature setting that lets you maintain the freshness of ingredients as varied as a whole salmon or large eggplants.It gives you total control over of the amount of cool air that enters the drawer.
+                   
+                   Humidity-Controlled Crispers - Provide a dedicated storage option with adjustable humidity levels. They let you select the high humidity that keeps romaine crisp, or the arid environment that helps figs and apricots stay fresh.
+                   
+                   Automatic Ice Maker - Ensures a constant supply of ice on hand at all times for entertaining and everyday use.
+                   
+                   LED Lighting - Uses less energy than incandescent bulbs. Multiple lights are purposefully placed throughout the refrigerator and freezer, making it easy to find items at a glance.
+                   
+                   Max Cool - When selected, automatically adjusts the temperature in the refrigerator and freezer to the lowest setting as needed. This helps keep the refrigerator at the ideal temperature even when you have the doors open for an extended period in order to load all your freshly purchased produce.
+                   
+                   Metallic Accents on Shelf Trim - Are applied to the leading edges of the refrigerator shelves. These rich accents complement the gloss finish of the interior, to make finding your ingredients as much of a pleasure as using them.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]
+              - text: >-
+                  ExtendFresh™ Temperature Management System - Separately
+                  monitors the temperatures in the refrigerator and freezer
+                  through a sensor located in each, to help ensure fresh fruit
+                  juices don't become frozen and prawns avoid freezer burn.
+                   
+                   Interior Water Dispenser - Provides easy access to filtered water inside the refrigerator
+                   
+                   Professionally-Inspired Design - A bold blend of professionally-inspired styling and sleek touches for the home. This refrigerator features Satin Textured Handles with iconic KitchenAid Brand Medallions and a beautiful chrome frame.
+                   
+                   Produce Preserver - Absorbs ethylene gas emitted by many fruits and vegetables, causing them to over ripen. By removing ethylene, the produce preserver helps extend freshness.
+                   
+                   FreshChill™ Temperature-Controlled Full-Width Pantry - Provides a manual temperature setting that lets you maintain the freshness of ingredients as varied as a whole salmon or large eggplants.It gives you total control over of the amount of cool air that enters the drawer.
+                   
+                   Humidity-Controlled Crispers - Provide a dedicated storage option with adjustable humidity levels. They let you select the high humidity that keeps romaine crisp, or the arid environment that helps figs and apricots stay fresh.
+                   
+                   Automatic Ice Maker - Ensures a constant supply of ice on hand at all times for entertaining and everyday use.
+                   
+                   LED Lighting - Uses less energy than incandescent bulbs. Multiple lights are purposefully placed throughout the refrigerator and freezer, making it easy to find items at a glance.
+                   
+                   Max Cool - When selected, automatically adjusts the temperature in the refrigerator and freezer to the lowest setting as needed. This helps keep the refrigerator at the ideal temperature even when you have the doors open for an extended period in order to load all your freshly purchased produce.
+                   
+                   Metallic Accents on Shelf Trim - Are applied to the leading edges of the refrigerator shelves. These rich accents complement the gloss finish of the interior, to make finding your ingredients as much of a pleasure as using them.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[1]/div[1]
+              - text: >-
+                  ExtendFresh™ Temperature Management System - Separately
+                  monitors the temperatures in the refrigerator and freezer
+                  through a sensor located in each, to help ensure fresh fruit
+                  juices don't become frozen and prawns avoid freezer burn.
+                   
+                   Interior Water Dispenser - Provides easy access to filtered water inside the refrigerator
+                   
+                   Professionally-Inspired Design - A bold blend of professionally-inspired styling and sleek touches for the home. This refrigerator features Satin Textured Handles with iconic KitchenAid Brand Medallions and a beautiful chrome frame.
+                   
+                   Produce Preserver - Absorbs ethylene gas emitted by many fruits and vegetables, causing them to over ripen. By removing ethylene, the produce preserver helps extend freshness.
+                   
+                   FreshChill™ Temperature-Controlled Full-Width Pantry - Provides a manual temperature setting that lets you maintain the freshness of ingredients as varied as a whole salmon or large eggplants.It gives you total control over of the amount of cool air that enters the drawer.
+                   
+                   Humidity-Controlled Crispers - Provide a dedicated storage option with adjustable humidity levels. They let you select the high humidity that keeps romaine crisp, or the arid environment that helps figs and apricots stay fresh.
+                   
+                   Automatic Ice Maker - Ensures a constant supply of ice on hand at all times for entertaining and everyday use.
+                   
+                   LED Lighting - Uses less energy than incandescent bulbs. Multiple lights are purposefully placed throughout the refrigerator and freezer, making it easy to find items at a glance.
+                   
+                   Max Cool - When selected, automatically adjusts the temperature in the refrigerator and freezer to the lowest setting as needed. This helps keep the refrigerator at the ideal temperature even when you have the doors open for an extended period in order to load all your freshly purchased produce.
+                   
+                   Metallic Accents on Shelf Trim - Are applied to the leading edges of the refrigerator shelves. These rich accents complement the gloss finish of the interior, to make finding your ingredients as much of a pleasure as using them.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: |-
+                  Documents
+                   
+                   
+                  Dimension Guide
+                   
+                   
+                  Dimension Guide
+                   
+                   View Dimension Guide PDF | Download Dimension Guide PDF 
+                   
+                   PDF, 83K, 1 page 
+                   
+                   
+                   
+                   
+                   
+                  Energy Guide
+                   
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 109K, 1 page 
+                   
+                   
+                   
+                   
+                   
+                  Instruction Sheet
+                   
+                   
+                  Instruction Sheet
+                   
+                   View Instruction Sheet PDF | Download Instruction Sheet PDF 
+                   
+                   PDF, 54K, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  Use and Care
+                   
+                   
+                  Use and Care
+                   
+                   View Use and Care PDF | Download Use and Care PDF 
+                   
+                   PDF, 23.68MB, 52 pages 
+                   
+                   
+                   
+                   
+                   
+                  Warranty
+                   
+                   
+                  Warranty
+                   
+                   View Warranty PDF | Download Warranty PDF 
+                   
+                   PDF, 2.74MB, 3 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]
+              - text: Documents
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/h2[1]
+              - text: |-
+                  Dimension Guide
+                   
+                   
+                  Dimension Guide
+                   
+                   View Dimension Guide PDF | Download Dimension Guide PDF 
+                   
+                   PDF, 83K, 1 page 
+                   
+                   
+                   
+                   
+                   
+                  Energy Guide
+                   
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 109K, 1 page 
+                   
+                   
+                   
+                   
+                   
+                  Instruction Sheet
+                   
+                   
+                  Instruction Sheet
+                   
+                   View Instruction Sheet PDF | Download Instruction Sheet PDF 
+                   
+                   PDF, 54K, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  Use and Care
+                   
+                   
+                  Use and Care
+                   
+                   View Use and Care PDF | Download Use and Care PDF 
+                   
+                   PDF, 23.68MB, 52 pages 
+                   
+                   
+                   
+                   
+                   
+                  Warranty
+                   
+                   
+                  Warranty
+                   
+                   View Warranty PDF | Download Warranty PDF 
+                   
+                   PDF, 2.74MB, 3 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]
+              - text: |-
+                  Dimension Guide
+                   
+                   View Dimension Guide PDF | Download Dimension Guide PDF 
+                   
+                   PDF, 83K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Dimension Guide
+                   
+                   View Dimension Guide PDF | Download Dimension Guide PDF 
+                   
+                   PDF, 83K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Dimension Guide PDF | Download Dimension Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 83K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: |-
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 109K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]
+              - text: |-
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 109K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/div[1]
+              - text: View Energy Guide PDF | Download Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]
+              - text: PDF, 109K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]
+              - text: |-
+                  Instruction Sheet
+                   
+                   View Instruction Sheet PDF | Download Instruction Sheet PDF 
+                   
+                   PDF, 54K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]
+              - text: |-
+                  Instruction Sheet
+                   
+                   View Instruction Sheet PDF | Download Instruction Sheet PDF 
+                   
+                   PDF, 54K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/div[1]
+              - text: View Instruction Sheet PDF | Download Instruction Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]
+              - text: PDF, 54K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[2]
+              - text: |-
+                  Use and Care
+                   
+                   View Use and Care PDF | Download Use and Care PDF 
+                   
+                   PDF, 23.68MB, 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]
+              - text: |-
+                  Use and Care
+                   
+                   View Use and Care PDF | Download Use and Care PDF 
+                   
+                   PDF, 23.68MB, 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/div[1]
+              - text: View Use and Care PDF | Download Use and Care PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]
+              - text: PDF, 23.68MB, 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[2]
+              - text: |-
+                  Warranty
+                   
+                   View Warranty PDF | Download Warranty PDF 
+                   
+                   PDF, 2.74MB, 3 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]
+              - text: |-
+                  Warranty
+                   
+                   View Warranty PDF | Download Warranty PDF 
+                   
+                   PDF, 2.74MB, 3 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/div[1]
+              - text: View Warranty PDF | Download Warranty PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]
+              - text: PDF, 2.74MB, 3 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/kitchenaidus-20200611125610/module/kitchenaidus/access.whirlpool.com/mr/KRFF300ESS/AB-DefaultZoom_550X550_HO.jpg.w480.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/kitchenaidus-20200611125610/module/kitchenaidus/access.whirlpool.com/mr/KRFF300ESS/DimensionGuide_EN.pdf.poster.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/kitchenaidus-20200611125610/module/kitchenaidus/access.whirlpool.com/mr/KRFF300ESS/EnergyGuide_EN.pdf.poster.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/kitchenaidus-20200611125610/module/kitchenaidus/access.whirlpool.com/mr/KRFF300ESS/InstructionSheet_EN.pdf.poster.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/kitchenaidus-20200611125610/module/kitchenaidus/access.whirlpool.com/mr/KRFF300ESS/UseandCare_EN.pdf.poster.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/kitchenaidus-20200611125610/module/kitchenaidus/access.whirlpool.com/mr/KRFF300ESS/Warranty_EN.pdf.poster.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[2]/img[1]/@src
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "5"
+        xpath: /
+    timestamp: 1592984299519
