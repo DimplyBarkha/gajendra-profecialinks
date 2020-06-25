@@ -100,7 +100,7 @@ async function implementation (
       break;
     }
 
-    const hasNextBtn = await context.evaluate(function() {
+    const hasNextBtn = await context.evaluate(function () {
       const nextBtn = document.querySelector('a[data-test="next"]');
       if (nextBtn != null && !nextBtn.hasAttribute('disabled')) {
         return true;
@@ -108,7 +108,7 @@ async function implementation (
       return false;
     });
 
-    if(!hasNextBtn) {
+    if (!hasNextBtn) {
       break;
     }
 
