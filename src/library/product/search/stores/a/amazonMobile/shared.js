@@ -8,7 +8,7 @@ const transform = (data) => {
     for (const row of group) {
       if (row.productUrl) {
         row.productUrl.forEach(productUrl => {
-          productUrl.text = `https://amazon.de${productUrl.text}`;
+          productUrl.text = `https://amazon.com${productUrl.text}`;
         });
       }
     }
