@@ -11,7 +11,9 @@ fields:
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //script[contains(text(), "ImageBlockATF")]/text()
+    xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    regExp: (https.+\.com[^\.]+)
+    regExpReplace: $1.jpg
   - name: largeImageCount
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockATF")]/text()
@@ -43,7 +45,7 @@ fields:
     singleValue: false
     xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     singleValue: false
@@ -113,7 +115,7 @@ fields:
     xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@id, "variation_") and not(contains(@id, "size"))]//span
+    xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: true
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
@@ -221,7 +223,7 @@ fields:
   - name: primeFlag
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//div[contains(@id,"shipping")]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//span[contains(@id, "shipping-message")]//a[contains(@href, "prime") and contains(text(), "Amazon")] | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text())[1]
-  - name: lbb
+    - name: lbb
     singleValue: true
     xpath: //div[@id='ii_lbb']
     defaultValue: 'NO'
