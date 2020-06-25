@@ -50,8 +50,9 @@ module.exports = {
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     keywords = (Keywords) || (keywords);
-
-    // do the search
+    // await execute({ keywords })
+    // await extract({})
+    // // do the search
     const resultsReturned = await execute({ keywords });
 
     if (!resultsReturned) {

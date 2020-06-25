@@ -15,7 +15,7 @@ async function implementation (
 
   async function getNumberResultsOnPage() {
       return await context.evaluate(function() {
-          let resultXPath = "//div[@class='css-1dbjc4n']//div[contains(@class,'r-1pi2tsx')]//a"; // list of items on the page from Shaun
+          let resultXPath = "(//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-iyfy8q'])[1]//div[@class='css-1dbjc4n']//div[contains(@class,'r-1pi2tsx')]//a"; // list of items on the page from Shaun
           let query = document.evaluate(resultXPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           let numberPageResults = query.snapshotLength;
           console.log(numberPageResults + "results on page")
@@ -41,13 +41,14 @@ async function implementation (
           let moreButton = 'div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7'
           let numberPageResults = 0;
           let count = 0
-          while (numberPageResults <= 40 && count < 200) {
+          while (numberPageResults <= 150 && count < 200) {
            
               if(await buttonCheck()) {
-                  context.click(moreButton)
+                  await context.click(moreButton)
+                  await new Promise(r => setTimeout(r, 10000));
                   numberPageResults = await getNumberResultsOnPage();
                   console.log(numberPageResults + " items on page")
-                  await new Promise(r => setTimeout(r, 10000));
+                  // return await context.extract(productDetails, { transform });
                   count++
               } else {
                   break;
