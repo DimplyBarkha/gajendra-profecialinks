@@ -102,7 +102,7 @@ fields:
       the site to quantity)
   - name: legalDisclaimer
     singleValue: true
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/*[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
@@ -253,6 +253,7 @@ fields:
     description: null
     regExp: (.+)
     regExpReplace: 'YES'
+    defaultValue: 'NO'
   - name: factImagePresent
     singleValue: true
     description: null
@@ -277,6 +278,7 @@ fields:
     xpath: //div[contains(@id,'centerCol')]//i[contains(@class, "a-icon-prime")]
     regExp: (.+)
     regExpReplace: 'Yes'
+    defaultValue: No
   - name: lbb
     singleValue: true
     xpath: //span[@data-action='show-all-offers-display' and contains(text(),'Available from ')] | //div[contains(@id,'olp-upd-new-used-freeshipping-threshold')]
@@ -313,8 +315,8 @@ fields:
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
     type: NUMBER
   - name: news
-    singleValue: true
-    xpath: //*[@id="SalesRank"]//td[@class='value']/text()
+    singleValue: false
+    xpath: //*[@id="SalesRank"]//td[@class='value' or @class='label']/text()
     description: null
   - name: addonItem
     singleValue: true
