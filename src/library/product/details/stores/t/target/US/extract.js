@@ -28,7 +28,6 @@ async function implementation (
     document.querySelectorAll('button[data-test="storeId-listItem-setStore"]')[0].click();
   });
 
-
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
 
   await context.evaluate(async function () {
@@ -78,7 +77,7 @@ async function implementation (
       manufacturerCTA.click();
     }
     await stall(200);
-    let element = document.querySelector('#salsify-ec-iframe');
+    const element = document.querySelector('#salsify-ec-iframe');
     if (element) {
       console.log('found iframe');
       console.log(element.getAttribute('src'));
@@ -393,7 +392,7 @@ async function implementation (
         button.click();
         await stall(1000);
         const headerEls = document.querySelectorAll('.h-margin-t-default.h-padding-h-default');
-        for(let e of headerEls) {
+        for (const e of headerEls) {
           if (validTextField(e) && e.innerText.indexOf('Ingredients:') > -1) {
             addHiddenDiv('ingredientsInfo', e.innerText.replace('Ingredients:', '').trim().toUpperCase());
             break;
