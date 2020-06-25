@@ -50,7 +50,7 @@ module.exports = {
     const loginLoaded = await context.evaluate((selector) => !!document.querySelector(selector), '#account_number');
 
     if (!loginLoaded) {
-      await redirectToProductPage();
+      await redirectToProductPage(context);
       return;
     }
 
@@ -69,6 +69,6 @@ module.exports = {
     await context.waitForNavigation();
 
     await clickPopup(context);
-    await redirectToProductPage();
+    await redirectToProductPage(context);
   },
 };
