@@ -13,7 +13,7 @@ fields:
     xpath: //div[contains(@class, "Product-summary")]
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class, "Product-image")]//img//@src
+    xpath: //div[contains(@class, "Product-image")]//img//@data-src
   - name: aggregateRating
     singleValue: false
     xpath: //span[@class="Rating-average"]//@data-aggregate-rating
@@ -26,3 +26,6 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a[contains(@class,"Product-link")]//@href
+  - name: rankOrganic
+    singleValue: false
+    defaultValue: 'to be filled'
