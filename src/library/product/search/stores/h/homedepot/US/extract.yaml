@@ -1,5 +1,27 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@data-section="gridview"]/div[@data-component="productpod"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@data-component="productpod"]/@data-productid
+  - name: name
+    singleValue: false
+    xpath: //input[@name="product"]/@data-title
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@data-podaction="product image"]/img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="stars"]/@rel
+  - name: reviewCount
+    singleValue: false
+    xpath: //a[contains(@href,"customer_reviews")][2]
+    type: NUMBER
+  - name: price
+    singleValue: false
+    xpath: //input[@name="product"]/@data-price
+  - name: rankOrganic
+    singleValue: false
+    xpath: //span[@class="rank_org"]
