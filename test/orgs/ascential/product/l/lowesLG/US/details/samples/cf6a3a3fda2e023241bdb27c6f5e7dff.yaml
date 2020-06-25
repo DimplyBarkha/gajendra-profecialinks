@@ -1,0 +1,151 @@
+input:
+  _url: https://lowes.com
+  URL: https://www.lowes.com/pd/Dyson-Cyclone-V10-Motorhead-Cordless-Stick-Vacuum/1000441589
+extractions:
+  - html: https://workbench.import.io/html/run=ab0e6976-9a62-4d0d-8950-cb964682b6de/task=c88c249a-2053-4c99-8832-236846cbb718/5d490fc5-7ed6-4799-a7c1-f77b341f3bbf.html
+    extractionConfigId: product/details/stores/l/lowesLG/US/extract
+    data:
+      - group:
+          - name:
+              - text: Dyson Cyclone V10 Motorhead Cordless Stick Vacuum
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            alternateImages:
+              - text: http://mobileimages.lowes.com/product/converted/885609/885609013886_09096406.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/885609/885609013886_09096404.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/885609/885609013886_09096403.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/885609/885609013886_09096400.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+            category:
+              - text: Appliances
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
+              - text: Vacuum Cleaners & Floor Care
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
+              - text: Vacuum Cleaners
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+              - text: Stick Vacuums
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            description:
+              - text: >-
+                  Big machine suction power - most powerful suction of any
+                  cord-free stick vacuum
+
+                  Deep cleans carpets - sucks up pet hair - powerful suction and a direct drive cleaner head digs deep into carpet removing ground-in dirt
+
+                  Transforms to a handheld - quickly and easily transforms to a handheld for cleaning on the stairs, in the car and on the sofa
+
+                  Perfectly balanced to clean up high - lightweight and balanced for floor to ceiling cleaning - cleans up top, down low and in-between
+
+                  Reaches under low furniture - low profile cleaner head and slim design make it easy to clean low and awkward spaces
+
+                  Whole machine filtration captures 99.97% of particles as small as 0.3 microns - captures dust and allergens to expel air cleaner than you breathe
+
+                  Up to 60 minutes fade-free power - three power modes to choose from, to suit any task on any floor type
+
+                  Point and shoot hygienic dirt ejector - convenient docking station stores and charges the machine
+
+                  Suction tested to ASTM F558 at the flexible inlet - tested to ASTM F558, against cord-free stick market
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+            variantId:
+              - text: "1061370"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
+            mpc:
+              - text: 244393-01
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
+            warranty:
+              - text: 2-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/div[1]/span[1]/span[1]
+            nameExtended:
+              - text: Dyson Cyclone V10 Motorhead Cordless Stick Vacuum
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/885609/885609013886.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Dyson Stick Vacuums #244393-01"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "9"
+            ratingCount:
+              - text: "151"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            specifications:
+              - text: |-
+                  Series Name
+                  Cyclone V10 Motorhead
+                  Bagless
+                  Receptacle Capacity (oz.)
+                  17.92
+                  Receptacle Full Indicator
+                  Weight (lbs.)
+                  5.05
+                  Assembly Required
+                  Head to Handle Length (Inches)
+                  48.86
+                  Cleaning Path Width (Inches)
+                  10.2
+                  Battery Type
+                  Lithium ion (Li-ion)
+                  Battery Level Indicator
+                  Battery Charger Included
+                  Voltage
+                  21.6
+                  Battery Recharge Time (Hours)
+                  3.5
+                  Color/Finish Family
+                  Red
+                  Cyclonic Action
+                  Multi
+                  Brush Roll On/Off
+                  Variable Suction
+                  Pivoting Head
+                  Carpet Height Adjustment
+                  Convertible to Handheld
+                  Folding Handle
+                  Pet Brush
+                  Dust Brush
+                  Self-Propelled
+                  Built-In Attachment Storage
+                  Warranty
+                  2-year limited
+                  Bare Floor Nozzle Included
+                  Crevice Tool Included
+                  Dust Pad Included
+                  Edge Cleaner Included
+                  Extension Wand Included
+                  Motorized Brush Included
+                  Squeegee Included
+                  Battery Run Time (Minutes)
+                  60
+                  HEPA Filter
+                  Cordless
+                  For Use on Carpet and Rugs
+                  For Use on Hardwood Floors
+                  For Use on Laminate
+                  For Use on Tile
+                  For Use on Vinyl
+                  Made for Pet Hair
+                  Headlight(s)
+                  CA Residents: Prop 65 Warning(s)
+                   Prop 65 WARNING(S)
+                  UNSPSC
+                  47121600
+                  Wet/Dry
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+            secondaryImageTotal:
+              - text: "7"
+            availabilityText:
+              - text: Out of Stock
+        xpath: /html
+    timestamp: 1592910981207

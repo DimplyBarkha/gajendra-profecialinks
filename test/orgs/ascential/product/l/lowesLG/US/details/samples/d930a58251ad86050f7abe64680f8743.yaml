@@ -1,0 +1,204 @@
+input:
+  _url: https://lowes.com
+  URL: https://www.lowes.com/pd/Samsung-28-cu-ft-3-Door-Standard-Depth-French-Door-Refrigerator-with-Single-Ice-Maker-Fingerprint-Resistant-Black-Stainless-Steel-ENERGY-STAR/1000969456
+extractions:
+  - html: https://workbench.import.io/html/run=ab0e6976-9a62-4d0d-8950-cb964682b6de/task=79ad6e9d-027c-414f-adb0-915e53c233b1/3f600ef5-e503-4ccf-97f8-ddfdf2ef66ef.html
+    extractionConfigId: product/details/stores/l/lowesLG/US/extract
+    data:
+      - group:
+          - name:
+              - text: Samsung RF28R6201S 28.6-cu ft French Door Refrigerator with Ice Maker
+                  (Fingerprint-Resistant Black Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            brandText:
+              - text: Samsung
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            alternateImages:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276341323.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276341323_15109860.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276341323_15109861.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276341323_15109862.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+            category:
+              - text: Appliances
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
+              - text: Refrigerators
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
+              - text: French Door Refrigerators
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            description:
+              - text: Samsung 36 In., 28 Cu. Ft., 3 DR French door, external ice and water
+                  refrigerator, fingerprint resistant finish, Black Stainless
+                  Steel.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: |-
+                  Fingerprint resistant finish
+                  Twin Cooling Plus
+                  WiFi embedded
+                  Energy Star
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            variantId:
+              - text: "1357331"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
+            mpc:
+              - text: RF28R6201SG
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
+            warranty:
+              - text: 1-year
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]
+            variantInformation:
+              - text: Black Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            nameExtended:
+              - text: Samsung RF28R6201S 28.6-cu ft French Door Refrigerator with Ice Maker
+                  (Fingerprint-Resistant Black Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276341323.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung French Door Refrigerators #RF28R6201SG"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "4"
+            ratingCount:
+              - text: "134"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            specifications:
+              - text: |-
+                  Series Name
+                  RF28R6201S
+                  Sub-Brand
+                  N/A
+                  Appliance Color/Finish
+                  Black stainless steel
+                  Manufacturer Color/Finish
+                  Black Stainless Steel
+                  Cabinet Color
+                  White
+                  Fingerprint-Resistant
+                  Toe Grille Color
+                  Black
+                  Common Width (Inches)
+                  36
+                  Depth Type
+                  Standard-Depth
+                  Actual Width (Inches)
+                  35.8
+                  Depth (Including Handles) (Inches)
+                  36
+                  Depth (Excluding Handles) (Inches)
+                  33.5
+                  Depth (Less Door) (Inches)
+                  28.9
+                  Depth with Door Open (Inches)
+                  47.8
+                  Height to Top of Case (Inches)
+                  68.9
+                  Height to Top of Door (Inches)
+                  70
+                  Height to Top of Door Hinge (Inches)
+                  70
+                  Refrigerator Interior Lighting
+                  LED
+                  Overall Capacity (Cu. Feet)
+                  28.6
+                  Refrigerator Capacity (Cu. Feet)
+                  19.7
+                  Freezer Capacity (Cu. Feet)
+                  8.9
+                  Number of Doors
+                  3
+                  Door within Door
+                  Door Alarm
+                  Door Shelves
+                  0
+                  Door Style
+                  Flat
+                  Door Texture
+                  Smooth
+                  Air Filtration
+                  Built-In
+                  Child Safety Locks
+                  Dispenser Light
+                  Dispenser Options
+                  Filtered water and cubed/crushed ice
+                  Ice Maker
+                  Single
+                  Space-Saving In-Door Ice
+                  Dual Evaporator Cooling System
+                  Freezer Light
+                  Freezer Baskets
+                  0
+                  Freezer Door Bins
+                  4
+                  Freezer Door Style
+                  Pull-out drawer
+                  Freezer Drawers
+                  2
+                  Freezer Shelves
+                  0
+                  Frost-Free
+                  Gallon Door Storage
+                  Handle Type
+                  Standard
+                  Hidden Hinge
+                  Humidity-Controlled Crispers
+                  2
+                  Electronic Temperature Control
+                  Shelf Options
+                  Adjustable spillproof sliding glass shelves
+                  Water Filter Indicator
+                  Water Filtration
+                  Pantry Drawer
+                  Temperature-controlled
+                  Snack/Deli Drawer
+                  Temperature Controlled Drawer
+                  App Compatibility
+                  Bluetooth Compatibility
+                  Wi-Fi Compatibility
+                  Hub Required
+                  Voice Controlled
+                  Works with Amazon Alexa
+                  Works with Android
+                  Works with Apple HomeKit
+                  Works with SmartThings
+                  Works with iOS
+                  Works with the Google Assistant
+                  Matching Air Filter (Model #)
+                  N/A
+                  Matching Replacement Water Filter Model
+                  HAF-QIN
+                  Custom Door Kit Compatible
+                  ADA Compliant
+                  CEE Tier Qualified
+                  CEE Tier I
+                  ENERGY STAR Certified
+                  Lowe's Exclusive
+                  Handle Color
+                  Black stainless steel
+                  UNSPSC
+                  52141500
+                  Approved for Outdoor Use
+                  See-Thru Door
+                  Warranty
+                  1-year
+                  Model
+                  RF28R6201SG/AA
+                  Safety Listing
+                  CSA safety listing
+                  Refrigerator Size
+                  Large (>36-in)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+            secondaryImageTotal:
+              - text: "10"
+            availabilityText:
+              - text: Out of Stock
+        xpath: /html
+    timestamp: 1592910984167

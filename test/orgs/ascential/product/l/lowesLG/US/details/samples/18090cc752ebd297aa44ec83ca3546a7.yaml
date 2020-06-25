@@ -1,0 +1,234 @@
+input:
+  _url: https://lowes.com
+  URL: https://www.lowes.com/pd/Whirlpool-21-3-cu-ft-Top-Freezer-Refrigerator-Black/50304475
+extractions:
+  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=81da15f3-a5cc-41ee-b455-849db88e5aee/693aa625-436b-484a-85c6-bcf8777dc91d.html
+    extractionConfigId: product/details/stores/l/lowesLG/US/extract
+    data:
+      - group:
+          - name:
+              - text: Whirlpool 21.3-cu ft Top-Freezer Refrigerator (Black)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            brandText:
+              - text: Whirlpool
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            alternateImages:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049339351.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049339351_04228552.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049339351_04358353.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049339351_04862860.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+            category:
+              - text: Appliances
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
+              - text: Refrigerators
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
+              - text: Top-Freezer Refrigerators
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $999.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $899.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            description:
+              - text: Get the flexibility your family needs with purposeful spaces that store
+                  more of your favorites. This refrigerator with LED lights
+                  keeps food looking as good as it tastes and a Flexi-Slide™ bin
+                  easily moves side-to-side so you can fit more tall items.
+                  Plus, our improved design with quiet cooling keeps this quiet
+                  refrigerator from interrupting family time in the kitchen.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: >-
+                  Make space for tall items with the Flexi-Slide™ Bin
+
+                  Keep food looking like it should with LED interior lighting
+
+                  Keep noise down in the kitchen with quiet cooling
+
+                  Adjustable door bins - move these bins anywhere in the door for increased loading flexibility when and where you need it
+
+                  Optional EZ Connect icemaker adds convenient, easily accessible ice without having to worry about refilling trays (kit model # ECKMFEZ2)
+
+                  Electronic temperature controls - choose the ideal temperature for whatever foods you're storing with convenient, up-front controls
+
+                  Freezer temperature controls - keep frozen items ice cold with controls that allow you to adjust the temperature level in the freezer compartment
+
+                  Clear door bins - easily see items in your refrigerator
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "50304475"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
+            variantId:
+              - text: "660332"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
+            mpc:
+              - text: WRT511SZDB
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[33]/div[2]
+            variantInformation:
+              - text: Black
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            promotion:
+              - text: Save 10%
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]/div[1]
+              - text: Offer ends on Jul 8
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]/div[2]
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            videos:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049339351.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
+            nameExtended:
+              - text: Whirlpool 21.3-cu ft Top-Freezer Refrigerator (Black)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049339351.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Whirlpool Top-Freezer Refrigerators #WRT511SZDB"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "8"
+            ratingCount:
+              - text: "315"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            specifications:
+              - text: |-
+                  Series Name
+                  N/A
+                  Sub-Brand
+                  N/A
+                  Appliance Color/Finish
+                  Black
+                  Manufacturer Color/Finish
+                  Black
+                  Cabinet Color
+                  Black
+                  Fingerprint-Resistant
+                  Toe Grille Color
+                  Black
+                  Actual Width (Inches)
+                  32.75
+                  Common Width (Inches)
+                  33
+                  Depth Type
+                  Standard-Depth
+                  Depth (Including Handles) (Inches)
+                  34
+                  Depth (Excluding Handles) (Inches)
+                  32.5
+                  Depth (Less Door) (Inches)
+                  28.5
+                  Depth with Door Open (Inches)
+                  62.25
+                  Height to Top of Case (Inches)
+                  65.5
+                  Height to Top of Door (Inches)
+                  66.25
+                  Height to Top of Door Hinge (Inches)
+                  66.25
+                  Overall Capacity (Cu. Feet)
+                  21.3
+                  Refrigerator Capacity (Cu. Feet)
+                  15.2
+                  Freezer Capacity (Cu. Feet)
+                  6.1
+                  Air Filtration
+                  Built-In
+                  Child Safety Locks
+                  Dispenser Light
+                  Dispenser Options
+                  N/A
+                  Door Alarm
+                  Door Shelves
+                  6
+                  Door Style
+                  Contoured
+                  Door Texture
+                  Smooth
+                  Reversible Door
+                  Ice Maker
+                  Optional (sold separately)
+                  Dual Evaporator Cooling System
+                  Electronic Temperature Control
+                  Freezer Baskets
+                  0
+                  Freezer Door Bins
+                  2
+                  Freezer Door Shelves
+                  0
+                  Freezer Door Style
+                  Side swing
+                  Freezer Shelves
+                  1
+                  Frost-Free
+                  Gallon Door Storage
+                  Handle Type
+                  Standard
+                  Hidden Hinge
+                  Humidity-Controlled Crispers
+                  2
+                  Refrigerator Interior Lighting
+                  LED
+                  Shelf Options
+                  Glass shelves
+                  Water Filter Indicator
+                  Water Filtration
+                  Pantry Drawer
+                  Snack/Deli Drawer
+                  Temperature Controlled Drawer
+                  App Compatibility
+                  Bluetooth Compatibility
+                  Wi-Fi Compatibility
+                  Hub Required
+                  Voice Controlled
+                  Works with Amazon Alexa
+                  Works with Android
+                  Works with Apple HomeKit
+                  Works with SmartThings
+                  Works with iOS
+                  Works with the Google Assistant
+                  Compatible Ice Maker Model Number(s)
+                  ECKMFEZ2
+                  Matching Air Filter (Model #)
+                  N/A
+                  Matching Replacement Water Filter Model
+                  N/A
+                  Custom Door Kit Compatible
+                  ADA Compliant
+                  CEE Tier Qualified
+                  N/A
+                  ENERGY STAR Certified
+                  Lowe's Exclusive
+                  CA Residents: Prop 65 Warning(s)
+                   Prop 65 WARNING(S)
+                  Handle Color
+                  Black
+                  Warranty
+                  1-year limited
+                  UNSPSC
+                  52141500
+                  Approved for Outdoor Use
+                  Refrigerator Size
+                  Small (<33-in)
+                  Safety Listing
+                  Not third party lab tested
+                  See-Thru Door
+                  Smart Compatible
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+            secondaryImageTotal:
+              - text: "9"
+            availabilityText:
+              - text: Out of Stock
+        xpath: /html
+    timestamp: 1592913132199

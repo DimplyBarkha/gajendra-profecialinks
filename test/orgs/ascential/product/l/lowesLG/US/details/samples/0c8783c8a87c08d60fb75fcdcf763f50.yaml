@@ -1,0 +1,222 @@
+input:
+  _url: https://lowes.com
+  URL: https://www.lowes.com/pd/GE-11-55-cu-ft-Top-Freezer-Refrigerator-Black-ENERGY-STAR/1000060777
+extractions:
+  - html: https://workbench.import.io/html/run=ab0e6976-9a62-4d0d-8950-cb964682b6de/task=df203812-d7b6-4dc3-b448-4b73dd46d42b/767808b9-4c97-47ed-b4e8-3083f397fe31.html
+    extractionConfigId: product/details/stores/l/lowesLG/US/extract
+    data:
+      - group:
+          - name:
+              - text: GE 11.55-cu ft Top-Freezer Refrigerator (Black) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            brandText:
+              - text: GE
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            alternateImages:
+              - text: http://mobileimages.lowes.com/product/converted/084691/084691818083_07903942.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/084691/084691818083_05369311.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/084691/084691818083_05369312.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/084691/084691818083_05369313.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+            category:
+              - text: Appliances
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
+              - text: Refrigerators
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
+              - text: Top-Freezer Refrigerators
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            description:
+              - text: At GE Appliances, we bring good things to life, by designing and building
+                  the world's best appliances. Our goal is to help people
+                  improve their lives at home by providing quality appliances
+                  that were made for real life. Whether it's enjoying the
+                  tradition of making meals from scratch or tackling a mountain
+                  of muddy jeans and soccer jerseys, GE Appliances are crafted
+                  to support any and every task in the home.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: >-
+                  GE top-freezer refrigerator keeps your favorite foods and
+                  drinks organized and easily accessible
+
+                  Equipped for optional icemaker (sold separately)
+
+                  Upfront electronic temperature controls in an easy-to-reach position help you regulate both fresh food and freezer sections
+
+                  2 clear crisper drawers keep produce fresh and easily accessible
+
+                  3 glass fresh food shelves include 2 adjustable spill-proof shelves to accommodate different-sized cookware and simplify cleanup
+
+                  2 clear freezer door bins make it easy to find your favorite frozen items
+
+                  LED interior lighting allows for greater visibility, so you can find what you need when you need it
+
+                  ENERGY STAR® certified products help you save money on utility bills without sacrificing performance, style or comfort
+
+                  ADA-compliant refrigerator is easier, safer and more comfortable for those with disabilities or limited mobility to use
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            variantId:
+              - text: "688309"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
+            mpc:
+              - text: GPE12FGKBB
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[32]/div[2]
+            variantInformation:
+              - text: Black
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            nameExtended:
+              - text: GE 11.55-cu ft Top-Freezer Refrigerator (Black) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/084691/084691818083.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "GE Top-Freezer Refrigerators #GPE12FGKBB"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "9"
+            ratingCount:
+              - text: "62"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            specifications:
+              - text: |-
+                  Series Name
+                  N/A
+                  Sub-Brand
+                  N/A
+                  Appliance Color/Finish
+                  Black
+                  Manufacturer Color/Finish
+                  Black
+                  Cabinet Color
+                  Black
+                  Fingerprint-Resistant
+                  Toe Grille Color
+                  Black
+                  Actual Width (Inches)
+                  24
+                  Common Width (Inches)
+                  24
+                  Depth Type
+                  Standard-Depth
+                  Depth (Including Handles) (Inches)
+                  28.625
+                  Depth (Excluding Handles) (Inches)
+                  28.625
+                  Depth (Less Door) (Inches)
+                  25.625
+                  Depth with Door Open (Inches)
+                  50.625
+                  Height to Top of Case (Inches)
+                  59.375
+                  Height to Top of Door (Inches)
+                  59.375
+                  Height to Top of Door Hinge (Inches)
+                  59.875
+                  Overall Capacity (Cu. Feet)
+                  11.55
+                  Refrigerator Capacity (Cu. Feet)
+                  8.44
+                  Freezer Capacity (Cu. Feet)
+                  3.11
+                  Air Filtration
+                  Built-In
+                  Child Safety Locks
+                  Dispenser Light
+                  Dispenser Options
+                  N/A
+                  Door Alarm
+                  Door Shelves
+                  3
+                  Door Style
+                  Flat
+                  Door Texture
+                  Smooth
+                  Reversible Door
+                  Ice Maker
+                  Optional (sold separately)
+                  Dual Evaporator Cooling System
+                  Electronic Temperature Control
+                  Freezer Baskets
+                  0
+                  Freezer Light
+                  Freezer Door Bins
+                  0
+                  Freezer Door Shelves
+                  2
+                  Freezer Door Style
+                  Side swing
+                  Freezer Shelves
+                  1
+                  Frost-Free
+                  Gallon Door Storage
+                  Handle Type
+                  Integrated
+                  Hidden Hinge
+                  Humidity-Controlled Crispers
+                  0
+                  Refrigerator Interior Lighting
+                  LED
+                  Shelf Options
+                  Adjustable spillproof glass shelves
+                  Water Filter Indicator
+                  Water Filtration
+                  Pantry Drawer
+                  Snack/Deli Drawer
+                  Temperature Controlled Drawer
+                  App Compatibility
+                  Bluetooth Compatibility
+                  Wi-Fi Compatibility
+                  Hub Required
+                  Voice Controlled
+                  Works with Amazon Alexa
+                  Works with Android
+                  Works with Apple HomeKit
+                  Works with SmartThings
+                  Works with iOS
+                  Works with the Google Assistant
+                  Compatible Ice Maker Model Number(s)
+                  IM4D
+                  Matching Air Filter (Model #)
+                  N/A
+                  Matching Replacement Water Filter Model
+                  N/A
+                  Custom Door Kit Compatible
+                  ADA Compliant
+                  CEE Tier Qualified
+                  N/A
+                  ENERGY STAR Certified
+                  Lowe's Exclusive
+                  Handle Color
+                  Black
+                  Warranty
+                  1-year limited
+                  CA Residents: Prop 65 Warning(s)
+                   Prop 65 WARNING(S)
+                  UNSPSC
+                  52141500
+                  Refrigerator Size
+                  Small (<33-in)
+                  Safety Listing
+                  CSA safety listing
+                  Approved for Outdoor Use
+                  See-Thru Door
+                  Smart Compatible
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+            secondaryImageTotal:
+              - text: "5"
+            availabilityText:
+              - text: Out of Stock
+        xpath: /html
+    timestamp: 1592910907227

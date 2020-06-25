@@ -1,0 +1,200 @@
+input:
+  _url: https://lowes.com
+  URL: https://www.lowes.com/pd/Samsung-1-8-cu-ft-Over-the-Range-Microwave-with-Sensor-Cooking-Black/50170425
+extractions:
+  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=f2ac3519-8c1c-4aac-aded-83b6d9f36163/dafc807a-86f2-440b-a429-f0d3f46fad75.html
+    extractionConfigId: product/details/stores/l/lowesLG/US/extract
+    data:
+      - group:
+          - name:
+              - text: Samsung 1.8-cu ft Over-the-Range Microwave with Sensor Cooking (Black)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            brandText:
+              - text: Samsung
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            alternateImages:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179_03741607.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179_03741608.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179_03741609.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179_04099207.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+            category:
+              - text: Appliances
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
+              - text: Microwaves
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
+              - text: Over-the-Range Microwaves
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            price:
+              - text: $299.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            description:
+              - text: >-
+                  Samsung 1.8-cu ft over-the-range microwave with 1,000-watts
+                  provides plenty of space to cook all your favorite meals
+                  evenly
+
+                  4 vent speeds and 400-CFM quietly eliminates steam, fumes and odor from the kitchen, and filters help take the grease and impurities out of the air
+
+                  Eco Mode button conserves power by turning off the display when not in use
+
+                  Ceramic enamel interior provides a polished surface that makes it easy to remove grease or oil, and a black exterior complements a variety of kitchen styles
+
+                  Large, bright blue LED display adds a stylish accent and makes it easy to view settings
+
+                  12 convenience cooking controls and make meal prep less stressful for you and your family
+
+                  6 sensor control options automatically adjust cooking time, so leftover pasta or a frozen dinner comes out perfectly every time
+
+                  Removable rack allows you to cook more at a time, and the 14.18-in turntable provides room to heat large dishes evenly
+
+                  Child safety lock keeps the microwave from being accidentally started
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+            sku:
+              - text: "50170425"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
+            variantId:
+              - text: "589358"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
+            mpc:
+              - text: ME18H704SFB
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[23]/div[2]
+            variantInformation:
+              - text: Black
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            nameExtended:
+              - text: Samsung 1.8-cu ft Over-the-Range Microwave with Sensor Cooking (Black)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung Over-the-Range Microwaves #ME18H704SFB"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "9"
+            ratingCount:
+              - text: "1209"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            specifications:
+              - text: |-
+                  Sub-Brand
+                  N/A
+                  Appliance Color/Finish
+                  Black
+                  Manufacturer Color/Finish
+                  Black
+                  Stainless Steel Interior
+                  Fingerprint-Resistant
+                  Handle Color
+                  Black
+                  Microwave Size
+                  Large (>1.5-cu ft)
+                  Height (Inches)
+                  17
+                  Width (Inches)
+                  29.875
+                  Depth (Inches)
+                  17.3125
+                  Depth with Door Open (Inches)
+                  43.1875
+                  Door Swing
+                  Left swing
+                  Weight (lbs.)
+                  54.9
+                  Capacity (Cu. Feet)
+                  1.8
+                  Exhaust Fan Maximum Capacity (CFM)
+                  400
+                  Vent Fan Location
+                  Front
+                  Control Type
+                  Electronic
+                  Turntable
+                  Standard
+                  Turntable Diameter (Inches)
+                  14.1875
+                  Timer
+                  Power Level(s)
+                  10
+                  Number of Racks
+                  1
+                  Number of Vent Speeds
+                  4
+                  Recirculating Filter
+                  Charcoal Filter
+                  Cooktop Lights
+                  Halogen
+                  Interior Light(s) Type
+                  Standard (incandescent)
+                  Sensor Cooking Controls
+                  Number of Sensor Control Pads
+                  6
+                  Convenience Cooking Controls
+                  Number of Convenience Control Pads
+                  12
+                  Low Profile
+                  Child Safety Locks
+                  Convection Oven
+                  Speed Cook
+                  Kids' Menu Option
+                  Grilling Option
+                  Reheat
+                  Melting/Softening Option
+                  Delay Start
+                  Steam Cook
+                  Defrost
+                  Works with Amazon Alexa
+                  Works with Apple HomeKit
+                  Works with the Google Assistant
+                  Works with SmartThings
+                  App Compatibility
+                  Bluetooth Compatibility
+                  Wi-Fi Compatibility
+                  Works with iOS
+                  Works with Android
+                  Voice Controlled
+                  Hub Required
+                  Lowe's Exclusive
+                  Compatible Filler Kit Model(s)
+                  N/A
+                  Warranty
+                  1-year limited
+                  CA Residents: Prop 65 Warning(s)
+                   Prop 65 WARNING(S)
+                  Control Location
+                  Right
+                  UNSPSC
+                  52141500
+                  Cut-Out Depth (Inches)
+                  18
+                  Cut-Out Height (Inches)
+                  17
+                  Cut-Out Width (Inches)
+                  30
+                  Non-Stick
+                  Safety Listing
+                  UL safety listing
+                  Series Name
+                  N/A
+                  Wattage
+                  1000
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            secondaryImageTotal:
+              - text: "11"
+            availabilityText:
+              - text: Out of Stock
+        xpath: /html
+    timestamp: 1592913073922
