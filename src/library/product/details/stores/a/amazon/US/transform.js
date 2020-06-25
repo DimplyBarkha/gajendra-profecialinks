@@ -13,6 +13,7 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '');
 
@@ -35,19 +36,18 @@ const transform = (data, context) => {
           row.grossWeight = [{ text: row.grossgWeight[0].text.replace(/\s\(/g, '').trim() }];
         }
         if (row.largeImageCount) {
-          const count = (row.largeImageCount[0].text.toString().split("SL1500").length-1)
-          row.largeImageCount = [{ text: count }];
+          const count = row.largeImageCount[0].text.toString().split("SL1500") ? (row.largeImageCount[0].text.toString().split("SL1500").length-1) : null;
+          if(!!count){
+            row.largeImageCount = [{ text: count }];
+          }else{
+            row.largeImageCount = [{ text: '0' }];
+          }
         }
         if (row.alternateImages) {
-          let regex = /\"large\":\"([^"]+)/g
-          const rawArray = row.alternateImages[0].text.toString().match(regex)
-          const images = [];
-          if(rawArray){
-            rawArray.forEach(item => {
-              let regex2 = /(https.+jpg)/s
-              if(!!item.match(regex2)){
-                images.push(item.match(regex2)[0])
-              }
+          if(row.alternateImages.length > 0){
+            let images = []
+            row.alternateImages.forEach(image => {
+              images.push(image.text)
             })
             row.alternateImages = [{ text: images.join(' | ') }];
           }else{
@@ -79,7 +79,7 @@ const transform = (data, context) => {
             })
             row.videoLength = [{ text: videos.join(' | ') }];
           }else{
-            row.videoLength = [{ text: '' }];
+            row.videoLength = [{ text: '0' }];
           }
         }
         if (row.brandLink) {
@@ -146,11 +146,13 @@ const transform = (data, context) => {
             if(item.text.includes('#')){
               let regex = /([0-9,]{1,})/s
               let rawCat = item.text.match(regex)
-              rank.push(
-                {
-                  text: rawCat[0]
-                }
-              );
+              if(!!rawCat){
+                rank.push(
+                  {
+                    text: rawCat[0]
+                  }
+                );
+              }
             }else{
               rank.push(
                 {
