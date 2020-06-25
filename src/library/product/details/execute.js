@@ -67,12 +67,6 @@ module.exports = {
       type: 'string',
       optional: true,
     },
-    {
-      name: 'zipcode',
-      description: 'unique identifier for product',
-      type: 'string',
-      optional: true,
-    },
   ],
   dependencies: {
     goto: 'action:navigation/goto',
