@@ -7,9 +7,11 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="itemId"]
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@class="rank"]
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+    selector: div.detail-messaging-sponsored-wrapper
   - name: name
     singleValue: false
     xpath: //div[@class="product-name"]
@@ -35,9 +37,9 @@ fields:
     xpath: //a[@data-test="itemDetail-brand"]
   - name: soldBy
     singleValue: true
-  - name: rank
-    singleValue: false
-    xpath: //div[@class="rank"]
   - name: endorsementText
     singleValue: false
     xpath: //div[@class="endorsement"]
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@class="searchUrl"]

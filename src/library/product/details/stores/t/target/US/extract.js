@@ -8,27 +8,26 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  if (inputs.zipcode) {
-    await context.evaluate(async function () {
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-      document.getElementById('storeId-utilityNavBtn').click();
-      await stall(1000);
-    });
-    await context.setInputValue('#zipOrCityState', '48374');
-    await context.evaluate(async function () {
-      document.querySelector('button[data-test="storeLocationSearch-button"]').click();
-    });
-    await context.waitForXPath("//button[@data-test='storeId-listItem-setStore']");
-    await context.evaluate(function () {
-      document.querySelectorAll('button[data-test="storeId-listItem-setStore"]')[0].click();
-    });
-  }
+  await context.evaluate(async function () {
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+    document.getElementById('storeId-utilityNavBtn').click();
+    await stall(1000);
+  });
+  await context.setInputValue('#zipOrCityState', '48374');
+  await context.evaluate(async function () {
+    document.querySelector('button[data-test="storeLocationSearch-button"]').click();
+  });
+  await context.waitForXPath("//button[@data-test='storeId-listItem-setStore']");
+  await context.evaluate(function () {
+    document.querySelectorAll('button[data-test="storeId-listItem-setStore"]')[0].click();
+  });
+
 
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
 
@@ -79,7 +78,7 @@ async function implementation (
       manufacturerCTA.click();
     }
     await stall(200);
-    var element = document.querySelector('#salsify-ec-iframe');
+    let element = document.querySelector('#salsify-ec-iframe');
     if (element) {
       console.log('found iframe');
       console.log(element.getAttribute('src'));
@@ -392,12 +391,14 @@ async function implementation (
       const button = document.querySelector("a[href='#tabContent-tab-Labelinfo']");
       if (button != null) {
         button.click();
-        await stall(200);
-        document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
+        await stall(1000);
+        const headerEls = document.querySelectorAll('.h-margin-t-default.h-padding-h-default');
+        for(let e of headerEls) {
           if (validTextField(e) && e.innerText.indexOf('Ingredients:') > -1) {
-            addHiddenDiv('ingredientsInfo', e.innerText.replace('Ingredients: ', ''));
+            addHiddenDiv('ingredientsInfo', e.innerText.replace('Ingredients:', '').trim().toUpperCase());
+            break;
           }
-        });
+        }
         document.querySelectorAll('p').forEach(e => {
           if (validTextField(e) && e.innerText.indexOf('Serving Size:') > -1) {
             addHiddenDiv('servingSizeInfo', e.innerText.replace('Serving Size: ', ''));
@@ -526,11 +527,11 @@ async function implementation (
 
       let deliver = false;
       let inStore = false;
-      document.querySelectorAll('.h-text-bold.h-text-greenDark').forEach(e => {
+      document.querySelectorAll('.h-text-bold').forEach(e => {
         if (validTextField(e) && e.innerText.trim() === 'Deliver') {
           deliver = true;
         }
-        if (validTextField(e) && e.innerText.trim().indexOf('Pick up') > -1) {
+        if (validTextField(e) && e.innerText.trim().indexOf('Pick up') > -1 && e.innerText.trim().indexOf('Limited stock') > -1) {
           addHiddenDiv('inStorePrice', document.querySelector('div[data-test="product-price"]').innerText);
           inStore = true;
         }
