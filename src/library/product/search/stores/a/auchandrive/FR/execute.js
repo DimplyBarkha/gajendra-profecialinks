@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'auchandrive',
     domain: 'auchandrive.fr',
-    url: 'https://www.auchandrive.fr/update-catalog/{searchTerms}?fhLocation=//52/fr_FR/drive_id=54751/$s={searchTerms}&fhSort=-_match_rate,-margin_last_30_days_national&startIndex=0',
+    url: 'https://www.auchan.fr/recherche?text={searchTerms}#[!opt!]{"cookie_jar":[{"name":"connect.sid","value":"s%3AZXKHRVjDk2txSj8MzXQky8VZuhmTubgs.M6oBh6HGNeRWLesfG%2Bcu6No9ij6ejEqB6mVRhSQGHJs"}]}[/!opt!]',
     loadedSelector: null,
-    noResultsXPath: '//p[@class="products-empty__title"]',
+    noResultsXPath: null,
   },
 };

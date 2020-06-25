@@ -5,9 +5,8 @@ recordXPath: //article[@class="product-item"]
 fields:
   - name: productUrl
     xpath: //a[@class="product-item__main"]/@href
-    regExp: (.+)
+    regExp: (.*)
     regExpReplace: https://www.auchandrive.fr$1
-    description: The URL for the product details page
   - name: thumbnail
     singleValue: true
     xpath: //picture[@class="product-item__image"]/img/@src
