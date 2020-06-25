@@ -129,7 +129,7 @@ fields:
 - name: variants
   singleValue: false
   manualSelector: script[id='item'], script[id='product']
-  regExp: ({"productId":")(\w+)
+  regExp: ("productId":")(\w+)(","usItem)
   regExpReplace: $2
 - name: color
   singleValue: true 
