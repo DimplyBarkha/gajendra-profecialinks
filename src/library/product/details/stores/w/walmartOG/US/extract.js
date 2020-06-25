@@ -79,6 +79,17 @@ module.exports = {
             const variantId = (data.detailed && data.detailed.productCode) ? data.detailed.productCode : '';
             const brandText = (data.detailed && data.detailed.brand) ? data.detailed.brand : '';
             const varianceList = (data.variantOffers) ? Object.values(data.variantOffers).map(value => value.productId) : [];
+            const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : ((document.querySelector('img[class^="ProductPage__productImage"]')) ? document.querySelector('img[class^="ProductPage__productImage"]').getAttribute('src') : '');
+            const title = document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]') ? document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]').textContent : '';
+            let quantityRe = /(?:([\d\.]+\s{1})([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
+
+            let quantity = quantityRe.exec(title);
+            if (quantity[0].length > 30) {
+              quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s)/;
+              quantity = quantityRe.exec(title);
+            }
+            addHiddenDiv('iio_quantity', quantity[0]);
+            addHiddenDiv('iio_image', image);
 
             addHiddenDiv('iio_variants', varianceList.join(' | '));
             // nutritionFacts
