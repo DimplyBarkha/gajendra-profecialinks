@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
-    country: 'uk',
+    country: 'UK',
     store: 'waitrose',
     domain: 'waitrose.com',
     url: 'https://www.waitrose.com/ecom/shop/search?&searchTerm={searchTerms}',
