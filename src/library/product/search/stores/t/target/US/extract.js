@@ -100,6 +100,18 @@ async function implementation (
       break;
     }
 
+    const hasNextBtn = await context.evaluate(function() {
+      const nextBtn = document.querySelector('a[data-test="next"]');
+      if (nextBtn != null && !nextBtn.hasAttribute('disabled')) {
+        return true;
+      }
+      return false;
+    });
+
+    if(!hasNextBtn) {
+      break;
+    }
+
     await stall(250);
     await context.evaluate(clickNextBtn);
     if (counter === 15) {
