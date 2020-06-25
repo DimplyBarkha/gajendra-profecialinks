@@ -15,7 +15,7 @@
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -58,7 +58,7 @@ async function implementation(
   }
 
   console.log('Going to url', url);
-  await context.goto( url.toString() );
+  await context.goto(url.toString());
   if (parameters.loadedSelector) {
     await context.waitForSelector(parameters.loadedSelector);
   }
