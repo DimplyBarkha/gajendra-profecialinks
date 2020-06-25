@@ -1,0 +1,36 @@
+input:
+  keywords: Green tea Loose Leaf
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=b636930e-cdfe-4ce8-8b23-9e0f3ef8f245/task=e1cbb4af-cd65-4ea8-b39b-b054d7ee5e6b/1d87da64-b9d0-4d4a-b25f-01439e63e082.html
+    extractionConfigId: product/search/stores/a/amazonRuna/US/extract
+    data:
+      - group:
+          - price:
+              - text: $19.98
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]
+            name:
+              - text: Organic Guayusa Loose Leaf Tea by RUNA, 1 Pound (16oz) | Packed with
+                  Natural Caffeine for Clean Energy | Alternative to Yerba Mate,
+                  Coffee, and Green Tea
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.com/RUNA-Organic-Guayusa-Tea-Antioxidant/dp/B004FSASKU/ref=sr_1_2?dchild=1&keywords=Green+tea+Loose+Leaf&qid=1592500989&refinements=p_89%3ARUNA&sr=8-2
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/41csPDp2oFL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/div[3]/div[1]/span[1]/@aria-label
+            id:
+              - text: B004FSASKU
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/@data-asin
+            reviewCount:
+              - text: "725"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+            ratingCount:
+              - text: "725"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/div[3]/div[1]/span[2]
+        xpath: /html
+    timestamp: 1592500996268

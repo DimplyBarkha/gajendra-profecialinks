@@ -29,7 +29,7 @@ fields:
     singleValue: true
     regExp: "(INGREDIENTS: )?(.+)"
     regExpReplace: $2
-  - name: brand
+  - name: brandText
     singleValue: true
     xpath: //span[contains(@class,"rd__product-header__title__brandname")]
   - name: ratingCount
@@ -38,7 +38,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //*[contains(@id, "ratingValue")]
-  - name: size
+  - name: quantity
     singleValue: true
     xpath: //div[contains(@class,"rd__product-details__options__price__item rd__product-details__options__price__item--selected")]//div[contains(@class,"rd__product-details__options__price__item__quantity")]//span[1]
   - name: upc
