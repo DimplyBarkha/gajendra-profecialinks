@@ -54,11 +54,10 @@ async function implementation (
       }
       await stall(1000);
       const itemContainers = document.querySelectorAll('li.Col-favj32-0.h-padding-a-none.h-display-flex');
-      let rank = 1;
       for (const itemContainer of itemContainers) {
         if (itemContainer.querySelector('a[data-test="product-title"]')) {
           addHiddenDiv(itemContainer, 'productUrl', 'https://target.com' + itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href'));
-          addHiddenDiv(itemContainer, 'product-name', itemContainer.querySelector('a[data-test="product-title"]').innerText);
+          addHiddenDiv(itemContainer, 'product-name', itemContainer.querySelector('a[data-test="product-title"]').getAttribute('aria-label'));
           let itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('?')[0].split('/')[4];
           itemId = itemId.split('-')[1];
           addHiddenDiv(itemContainer, 'itemId', itemId);
@@ -71,14 +70,11 @@ async function implementation (
             addHiddenDiv(itemContainer, 'rating', rating);
           }
         }
-        const pageNum = document.querySelector('button[data-test="select"]') ? document.querySelector('button[data-test="select"]').innerText.split(' ')[1] : 1;
-        const totalRank = ((pageNum - 1) * 24) + rank;
-        addHiddenDiv(itemContainer, 'rank', totalRank);
+
         const endorsement = itemContainer.querySelector('.AtTargetMessage__AtTargetMessageWrapper-sc-1gv6org-0.liCFqa.h-text-grayDark');
         if (endorsement) {
           addHiddenDiv(itemContainer, 'endorsement', endorsement.innerText.trim());
         }
-        rank++;
       }
     });
 
@@ -114,7 +110,7 @@ async function implementation (
 
     await stall(250);
     await context.evaluate(clickNextBtn);
-    if (counter === 15) {
+    if (counter === 4) {
       break;
     }
     counter++;
