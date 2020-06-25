@@ -49,9 +49,9 @@ async function implementation (
 
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
-      .replace('{searchTerms}', encodeURIComponent(keywords))
-      .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
-      .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
+      .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+      .replace(/{page}/g, (page + (openSearchDefinition.pageOffset || 0)).toString())
+      .replace(/{offset}/g, (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
 
   if (!url) {

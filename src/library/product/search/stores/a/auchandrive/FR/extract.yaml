@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[@class="product-item"]
+fields:
+  - name: productUrl
+    xpath: //a[@class="product-item__main"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.auchandrive.fr$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: true
+    xpath: //picture[@class="product-item__image"]/img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: true
+    xpath: "@data-name"
+    description: The product name
+  - name: id
+    singleValue: true
+    xpath: "@data-product-id"
+    description: The store-specific product identifier
+  - name: aggregateRatingText
+    xpath: //div[@class="rating-average"]
+    regExp: (^[^,]+),([^,]+$)
+    regExpReplace: $1.$2
+    description: The stated aggregate rating
+  - name: ratingCount
+    xpath: //div[@class="rating-average"]
+    description: The number of ratings
+    regExp: \d+
+  - name: reviewCount
+    xpath: //div[@class="rating-average"]
+    regExp: \d+
+    description: The number of reviews
+  - name: price
+    singleValue: true
+    xpath: "@data-price"
+    description: The offered price for the product
