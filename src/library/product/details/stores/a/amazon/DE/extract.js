@@ -17,14 +17,14 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
+
     const element = document.querySelector('li.videoThumbnail');
-    // let videoLink = '';
     if (element) {
       await element.click();
-      // videoLink = document.querySelector('div#main-video-container video');
-      // videoLink = videoLink.getAttribute('src');
     }
   });
   await context.waitForSelector('div#main-video-container video');
+  // await context.select('select[name="dropdown_selected_size_name"]', ['1,B07P9722MJ']);
+
   return await context.extract(productDetails, { transform });
 }
