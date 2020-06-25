@@ -92,8 +92,6 @@ fields:
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url
-    regExp: (.+)hls.m3u8
-    regExpReplace: $1mp4.480.mp4
   - name: name
     xpath: //title
   - name: coupon
@@ -332,3 +330,7 @@ fields:
     xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
     regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
     regExpReplace: $2
+  - name: productUrl
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com/dp/$1
