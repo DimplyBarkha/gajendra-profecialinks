@@ -45,7 +45,7 @@ fields:
     singleValue: false
     xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     singleValue: false
@@ -115,7 +115,7 @@ fields:
     xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@id, "variation_") and not(contains(@id, "size"))]//span
+    xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: true
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
@@ -223,28 +223,9 @@ fields:
   - name: primeFlag
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//div[contains(@id,"shipping")]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//span[contains(@id, "shipping-message")]//a[contains(@href, "prime") and contains(text(), "Amazon")] | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text())[1]
-  - name: lbb
-    singleValue: true
-    xpath: //div[@id='ii_lbb']
-    defaultValue: 'NO'
-  - name: lbbPrice
-    singleValue: true
-    xpath: //div[@id='ii_lbbPrice']
   - name: featureBullets
     singleValue: false
     xpath: //div[@id="feature-bullets"]//ul/li
-  - name: otherSellersName
-    singleValue: false
-    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//div[contains(@id,"mbc-sold")]//span[contains(@class, "Merchant")]
-  - name: otherSellersPrime
-    singleValue: false
-    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-shipping")]/a[contains(@target,"Amazon")]/@href
-  - name: otherSellersPrice
-    singleValue: false
-    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//span[contains(@class, "a-price")]/span[contains(@class, "a-offscreen")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-price")]
-  - name: otherSellersShipping2
-    singleValue: false
-    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//div[contains(@class, "aod-ship-charge")]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])

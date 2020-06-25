@@ -183,83 +183,6 @@ async function implementation (
     return variants;
   };
 
-  async function buttonCheck () {
-    return await context.evaluate(function () {
-      const button = '#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a';
-      // const button2 = '#mbc-olp-link>a';
-      // const button3 = '[data-show-all-offers-display] a';
-      if (!!document.querySelector(button)){
-        return button
-      }
-      // else if(!!document.querySelector(button2)){
-      //   return button2
-      // }else if(!!document.querySelector(button3)){
-      //   return button3
-      // }
-      else{
-        return 'false';
-      }
-    });
-  }
-
-  async function checkNavigation() {
-    return await context.evaluate(function () {
-      function checkNav (id, content) {
-        const url = window.location.href;
-        if(url.includes('offer')){
-          console.log("@@@@@@@@@@@@@@@@@ we navigated")
-        }else{
-          console.log("@@@@@@@@@@@@@@@@@ we didnt navigated")
-        }
-      }
-    });
-  }
-
-  async function getLbb () {
-    const button = await buttonCheck();
-    console.log('##############################' ,  button)
-    if ( button !== 'false' ) {
-        console.log('trying button', button)
-        const [response] = await Promise.all([
-          context.waitForNavigation({ timeout: 20000 }),
-          context.click(button),
-        ]);
-      await checkNavigation();
-
-      const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
-      await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
-
-      return await context.evaluate(function () {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
-
-        const firstCheck = document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div');
-        const otherSellers = document.querySelectorAll('div#aod-offer');
-        const price = document.querySelector('span#price_inside_buybox');
-        if (firstCheck && price) {
-          const priceText = parseFloat((price.innerText).slice(1));
-          if (firstCheck.innerText !== 'Ships from and sold by Amazon.com.' && otherSellers) {
-            otherSellers.forEach((seller) => {
-              const sellerPrice = seller.querySelector('span.a-offscreen').innerText;
-              const priceNum = parseFloat(sellerPrice.slice(1));
-              const shipsFrom = seller.querySelector('div#aod-offer-shipsFrom div.a-column.a-span9.a-span-last');
-              const soldBy = seller.querySelector('div#aod-offer-soldBy div.a-column.a-span9.a-span-last');
-              if (shipsFrom.innerText === 'Amazon.com' && soldBy.innerText === 'Amazon.com' && priceNum > priceText) {
-                addHiddenDiv('ii_lbb', 'YES');
-                addHiddenDiv('ii_lbbPrice', `${priceNum}`);
-              }
-            });
-          }
-        }
-      });
-    }
-  }
-
   async function addUrl () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -278,7 +201,6 @@ async function implementation (
   await setLocale();
   // @ts-ignore
   const allVariants = [...new Set(await getVariants())];
-  await getLbb();
   await context.evaluate(addUrl);
   console.log('getting variants');
   await context.extract(productDetails, { transform, type: 'APPEND' });
@@ -289,7 +211,6 @@ async function implementation (
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });
     await context.evaluate(addUrl);
-    await getLbb();
     await context.extract(productDetails, { transform, type: 'APPEND' });
     const pageVariants = await getVariants();
     console.log('#### of Variants:', allVariants.length);

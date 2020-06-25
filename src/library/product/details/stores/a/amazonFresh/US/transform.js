@@ -36,8 +36,12 @@ const transform = (data, context) => {
           row.grossWeight = [{ text: row.grossgWeight[0].text.replace(/\s\(/g, '').trim() }];
         }
         if (row.largeImageCount) {
-          const count = (row.largeImageCount[0].text.toString().split("SL1500").length-1)
-          row.largeImageCount = [{ text: count }];
+          const count = row.largeImageCount[0].text.toString().split("SL1500") ? (row.largeImageCount[0].text.toString().split("SL1500").length-1) : null;
+          if(!!count){
+            row.largeImageCount = [{ text: count }];
+          }else{
+            row.largeImageCount = [{ text: '0' }];
+          }
         }
         if (row.alternateImages) {
           if(row.alternateImages.length > 0){
@@ -75,7 +79,7 @@ const transform = (data, context) => {
             })
             row.videoLength = [{ text: videos.join(' | ') }];
           }else{
-            row.videoLength = [{ text: '' }];
+            row.videoLength = [{ text: '0' }];
           }
         }
         if (row.brandLink) {
@@ -142,11 +146,13 @@ const transform = (data, context) => {
             if(item.text.includes('#')){
               let regex = /([0-9,]{1,})/s
               let rawCat = item.text.match(regex)
-              rank.push(
-                {
-                  text: rawCat[0]
-                }
-              );
+              if(!!rawCat){
+                rank.push(
+                  {
+                    text: rawCat[0]
+                  }
+                );
+              }
             }else{
               rank.push(
                 {
