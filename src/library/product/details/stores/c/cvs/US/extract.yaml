@@ -125,12 +125,14 @@ fields:
     singleValue: true
     xpath: ancestor::html//div[@id='ii_Brand']
   - name: quantity
-    xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    # xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    xpath: //div[@id='ii_quantity']
     regExp: ([.0-9]+ ((CT)|(ct)|(OZ)|(oz)|(EA)|(ea)))
     # singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
   - name: weightGross
-    xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    xpath: //div[@id='ii_grossWeight']
+    # xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
     # singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     regExp: ([.0-9]+ (lbs))
@@ -298,7 +300,7 @@ fields:
     # xpath: (ancestor::html//div[contains(@id,'zoom-carousel')]//img)[2]/@src
   - name: promotion
     # selector: div.css-1dbjc4n div.css-901oao.r-cme181.r-1jn44m2.r-ubezar.r-b88u0q
-    xpath: (ancestor::html//div[@class="css-901oao r-cme181 r-1jn44m2 r-ubezar r-b88u0q"])
+    xpath: (ancestor::html//div[@class="css-901oao r-cme181 r-1jn44m2 r-ubezar r-b88u0q"])|//div[@class="css-1dbjc4n r-16lk18l r-11c0sde r-1xi2sqm"]//div[@class='css-901oao r-1jn44m2 r-1b43r93 r-1j4k9du' and contains(., 'ExtraBucks')]
     # xpath: (ancestor::html//div[@class='css-1dbjc4n r-k8qxaj']//div[@class='css-1dbjc4n']/div[contains(., 'Sale') or (contains(., 'Buy')) or (contains(., 'Off')) or (contains(., 'for'))])[1]
     # xpath: (ancestor::html//div[@class='css-1dbjc4n r-utggzx']//div[@class='css-1dbjc4n']/div[contains(., 'Sale') or (contains(., 'Buy'))])[1]
   - name: aggregateRatingText

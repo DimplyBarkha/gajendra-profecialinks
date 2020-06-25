@@ -1,12 +1,69 @@
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  // console.log("Do pagination");
+  // let resultCounter = 0;
+  // await new Promise(r => setTimeout(r, 8000));
+
+  // async function getNumberResultsOnPage() {
+  //     return await context.evaluate(function() {
+  //         let resultXPath = "//div[@class='css-1dbjc4n']//div[contains(@class,'r-1pi2tsx')]//a"; // list of items on the page from Shaun
+  //         let query = document.evaluate(resultXPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+  //         let numberPageResults = query.snapshotLength;
+  //         console.log(numberPageResults + "results on page")
+  //         return numberPageResults;
+  //     });
+  // }
+
+  
+  // async function buttonCheck() {
+  //      return await context.evaluate(function() {
+  //         let button = document.querySelector('div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7')
+  //         if(button != null) {
+  //             return true;
+  //         } else {
+  //             return false;
+  //         }
+  //     });
+  // }
+
+
+  // async function continuedClickToShowResults() {
+
+  //         let moreButton = 'div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7'
+  //         let numberPageResults = 0;
+  //         let count = 0
+  //         while (numberPageResults <= 1000 && count < 200) {
+           
+  //             if(await buttonCheck()) {
+  //                 context.click(moreButton)
+  //                 numberPageResults = await getNumberResultsOnPage();
+  //                 console.log(numberPageResults + " items on page")
+  //                 await new Promise(r => setTimeout(r, 10000));
+  //                 count++
+  //             } else {
+  //                 break;
+  //             }
+  //         }
+  
+  // }
+
+
+  // await continuedClickToShowResults()
+}
+
+
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     domain: 'cvs.com',
     store: 'cvs',
-    loadedSelector: '',
-    openSearchDefinition: {
-      template: 'https://www.cvs.com/shop-assets/proxy/search?query={searchTerms}&skip={page}&pageSize=100&fields=%5B%22*%22%2C%22id%22%5D&orFields=%5B%22variants.subVariant.availability%22%5D&refinements=%5B%5D',
-    },
+    nextLinkSelector: 'div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7',
+    // mutationSelector: 'div.css-1dbjc4n.r-13awgt0.r-1wtj0ep',
+    spinnerSelector: 'div[role="progressbar"]',
   },
 };

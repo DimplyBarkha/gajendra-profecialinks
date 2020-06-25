@@ -176,7 +176,6 @@ module.exports = {
         const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
         const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
           if (variantInfo[1] && prodName) {
-
             let varName = variantInfo[1].innerText;
             addHiddenDiv('ii_metaKeywords', `${prodName.innerText + " " + varName}`);
           }
@@ -191,7 +190,7 @@ module.exports = {
       collectBrand();
       collectManufDesc();
       collectIframe();
-      collectKeywords();
+      // collectKeywords();
     }, skuFromUrl);
     
     // collectVariantNums();
@@ -242,8 +241,8 @@ module.exports = {
             document.body.appendChild(newDiv);
           }
           addHiddenDiv('ii_variantId');
-
-      });
+        });
+        await collectVariantInfo();
       }
     }
 
@@ -264,7 +263,7 @@ module.exports = {
       }, input);
     }
 
-    async function getVariantIdNum() {
+    async function getVariantIdNum(value) {
       let varArray = [];
       const varStore = await context.evaluate(function() {
           function addHiddenDiv (id, content) {
@@ -334,7 +333,8 @@ module.exports = {
      });
   }
 
-  async function collectVariantInfo () {
+
+  async function collectVariantInfo (value) {
     const varStore = await context.evaluate(function() {
         function addHiddenDiv (id, content) {
           const variantId = document.querySelectorAll('div#ii_variantId');
@@ -351,8 +351,12 @@ module.exports = {
       const variantRating = document.querySelector('div.css-1dbjc4n div.css-901oao.r-1enofrn.r-b88u0q.r-m2pi6t');
       const variantReview = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz a');
       const variantRatingText = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz section');
-      const variantListPrice = document.querySelector('div.css-1dbjc4n.r-k8qxaj div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
-
+      // const variantListPrice = document.querySelector('div.css-1dbjc4n.r-k8qxaj div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
+      const variantListPrice = document.querySelector('div.css-1dbjc4n.r-1awozwy.r-18u37iz.r-1wtj0ep.r-13qz1uu div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
+      const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
+      const keyWordAdd = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
+      const prodInfoLine = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
+// debugger
       const variantArray = [];
       const packSize = ['Pack: ', 'Group Size: '];
       const packSizeResult = [];
@@ -393,9 +397,18 @@ module.exports = {
       if(variantListPrice){
         addHiddenDiv('ii_variantListPrice', `${variantListPrice.innerText}`);
       }
-      // if(variantRatingText){
-      //   addHiddenDiv('ii_variantRatingText', `${variantRatingText.ariaLabel}`);
-      // }
+      if (keyWordAdd[1] && prodName) {
+        let varName = keyWordAdd[1].innerText;
+        addHiddenDiv('ii_metaKeywords', `${prodName.innerText + " " + varName}`);
+      } else if(prodName) {
+        addHiddenDiv('ii_metaKeywords', `${prodName.innerText}`);
+      }
+      if(prodInfoLine){
+        addHiddenDiv('ii_grossWeight', `${prodInfoLine.innerText}`);
+      }
+      if(prodInfoLine){
+        addHiddenDiv('ii_quantity', `${prodInfoLine.innerText}`);
+      }
 
     });
   }
