@@ -1,9 +1,9 @@
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
+// async function implementation (
+//   inputs,
+//   parameters,
+//   context,
+//   dependencies,
+// ) {
   // console.log("Do pagination");
   // let resultCounter = 0;
   // await new Promise(r => setTimeout(r, 8000));
@@ -53,7 +53,7 @@ async function implementation (
 
 
   // await continuedClickToShowResults()
-}
+// }
 
 
 module.exports = {
