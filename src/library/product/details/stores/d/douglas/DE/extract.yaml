@@ -1,0 +1,81 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,"rd__breadcrumbs__item rd__breadcrumbs__item--back")]//following-sibling::a
+  - name: nameExtended
+    singleValue: true
+    xpath: concat(//*[contains(@class,"rd__copytext rd__copytext--90")], ' ',//*[contains(@class,"rd__product-header__title__main")], //*[contains(@class,"rd__copytext rd__copytext--110")])
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__new-price")]/span[1]
+  - name: availabilityText
+    singleValue: true
+    xpath: //*[contains(@id,"availability")]
+  - name: description
+    singleValue: false
+    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//ul[contains(@class,'rd__list rd__list--disc')]/li)
+  - name: ingredientsList
+    xpath: //span[contains(.,"Inhaltsstoffe")]/parent::div//following-sibling::div[1]
+    singleValue: true
+    regExp: "(INGREDIENTS: )?(.+)"
+    regExpReplace: $2
+  - name: brandText
+    singleValue: true
+    xpath: //span[contains(@class,"rd__product-header__title__brandname")]
+  - name: ratingCount
+    singleValue: true
+    xpath: //*[contains(@id, "ratingCount")]
+  - name: aggregateRating
+    singleValue: true
+    xpath: //*[contains(@id, "ratingValue")]
+  - name: quantity
+    singleValue: true
+    xpath: //div[contains(@class,"rd__product-details__options__price__item rd__product-details__options__price__item--selected")]//div[contains(@class,"rd__product-details__options__price__item__quantity")]//span[1]
+  - name: upc
+    singleValue: true
+    xpath: //*[contains(@id,"gtin13")]
+  - name: sku
+    singleValue: true
+    xpath: //div[contains(@data-bv-show,"reviews")]/@data-bv-product-id
+  - name: variantId
+    singleValue: true
+    xpath: //*[contains(@id,"productId")]
+  - name: directions
+    singleValue: true
+    xpath: //div[contains(.,"Anwendung")]/following-sibling::div[1]/span
+  - name: alternateImages
+    singleValue: false
+    xpath: //html//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]/parent::div/parent::div/following-sibling::div//img/@src
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]/parent::div/parent::div/following-sibling::div//img/@src)
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]//img/@alt
+  - name: promotion
+    singleValue: true
+    xpath: //span[contains(@class,"rd__eye-catcher rd__eye-catcher--sale")]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__old-price")]
+  - name: name
+    singleValue: true
+    xpath: //div[contains(@class,"rd__product-header__title__main")]
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[contains(@class,"rd__product-details__options__price__item rd__product-details__options__price__item--selected")]//div[contains(@class,"rd__product-details__options__price__item__quantity")]//span[1]
+  - name: brandLink
+    singleValue: true
+    xpath: //div[contains(@class,"rd__product-heade")]/a/@href
+    regExp: (.*)
+    regExpReplace: https://www.douglas.de$1

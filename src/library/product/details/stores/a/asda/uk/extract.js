@@ -8,10 +8,7 @@ module.exports = {
     domain: 'groceries.asda.com',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    // SAMPLE INPUTS - 4409412,1814333,1003226,3912234,1679670
-    // CONFIGS
-    // const cssProducts = 'section.products-tab';
-    const cssProduct = "section.products-tab ul > li[class*='co-item'] a[data-auto-id='linkProductTitle']";
+    const cssProduct = "div.search-page-content__products-tab-content ul.co-product-list__main-cntr li.co-item a[data-auto-id='linkProductTitle']";
     const cssProductDetails = 'div.pdp-main-details';
 
     const isProductAvailable = async () => {
@@ -30,7 +27,6 @@ module.exports = {
 
     console.log('.....waiting......');
     await new Promise(resolve => setTimeout(resolve, 5000));
-    // await context.waitForSelector(cssProducts);
 
     const productAvailable = await isProductAvailable();
     console.log(`productAvailable: ${productAvailable}`);
@@ -38,7 +34,6 @@ module.exports = {
       console.log('clicking product link');
       await context.click(cssProduct);
       console.log('waiting for page load after click......');
-      // await context.waitForNavigation({timeout: 10000, waitUntil: 'load'});
       await new Promise(resolve => setTimeout(resolve, 10000));
       await context.waitForSelector(cssProductDetails);
       const productDetailsAvailable = await isProductDetailsAvailable();
