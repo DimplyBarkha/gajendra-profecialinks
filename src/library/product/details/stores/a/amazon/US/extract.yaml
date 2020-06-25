@@ -81,7 +81,7 @@ fields:
     regExp: ([^()]+)
     regExpReplace: $1
   - name: variantCount
-    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
+    xpath: count(//select[@name="dropdown_selected_size_name"]/option[position()>1]|//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: color
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: colorCode
@@ -149,7 +149,7 @@ fields:
     regExpReplace: "YES"
     defaultValue: "NO"
   - name: variantAsins
-    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin
+    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin|//select[@name="dropdown_selected_size_name"]/option[position()>1]/@value
   - name: specifications
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag

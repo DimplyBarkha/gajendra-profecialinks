@@ -5,7 +5,7 @@ fields:
     xpath: //h1//span[@id="productTitle"]
   - name: nameExtended
     singleValue: true
-    xpath: //h1//span[@id="productTitle"]
+    xpath: //title
   - name: legalDisclaimer
     xpath: (//div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text())[1]
   - name: weightNet
@@ -13,6 +13,11 @@ fields:
     regExp: '[^()]+'
   - name: largeImageCount
     xpath: count(//div[starts-with(@id,"ivImage_")])
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@cel_widget_id="aplus"]//img/@data-src
+  - name: asin
+    xpath: (//span[@class="a-dropdown-container"])[1]//option[@data-a-css-class="dropdownSelect"]/@value
+    regExp: \,(.+)
+    regExpReplace: $1
+  - name: price
+    xpath: //*[@id="priceblock_ourprice"]|//*[@id="priceblock_saleprice"]|//span[contains(@id,"priceblock_dealprice")]
+  - name: quantity
+    xpath: (//span[@class="a-dropdown-prompt"])[1]

@@ -19,9 +19,6 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
     regExp: '[^()]+'
   - name: largeImageCount
-    xpath: count(//div[starts-with(@id,"ivImage_")])
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@cel_widget_id="aplus"]//img/@data-src
+    xpath: count(//div[@class="imgTagWrapper"]//img[contains(@data-old-hires,"1500_.jpg")])
   - name: productOtherInformation
     xpath:
