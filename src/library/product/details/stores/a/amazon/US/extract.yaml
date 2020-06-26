@@ -46,7 +46,7 @@ fields:
     regExpReplace: $1
   - name: gtin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
-  - name: sku
+  - name: asin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
@@ -91,14 +91,9 @@ fields:
   - name: manufacturerImages
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
-    xpath: //li[contains(@class,"vse-video-card")]//div/@data-video-url
+    xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url
   - name: name
     xpath: //title
-  - name: inStorePrice
-    sinlgeValue: true
-    xpath:
-  - name: sku
-    xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
   - name: coupon
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
   - name: amazonChoice
@@ -134,7 +129,7 @@ fields:
   - name: pasin
     xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
   - name: videoLength
-    xpath: //li[contains(@class,"vse-video-card")]//div/p[@data-element-id="video-duration"]
+    xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration
   - name: heroQuickPromoHeadline
     xpath: //div[@id="hero-quick-promo"]//span
   - name: heroQuickPromoImageUrl
@@ -173,10 +168,10 @@ fields:
     xpath: //span[contains(@class,'mbcMerchantName')]
   - name: otherSellersPrice
     xpath: //span[contains(@id, "mbc-price")]
-  - name: otherSellersShipping
-    xpath: //span[contains(@id, "mbc-shipping")]
   - name: otherSellersShipping2
-    xpath: //span[contains(@id, "mbc-shipping") and contains(@id, "free")]
+    xpath: //span[contains(@id, "mbc-shipping")]
+  - name: otherSellersPrime
+    xpath: //span[contains(@id, "mbc-shipping")]
   - name: secondaryImageTotal
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')][position()>1])
   - name: news
@@ -313,7 +308,7 @@ fields:
     xpath:
   - name: materials
     xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
-  - name: 360ImagePresent
+  - name: Image360Present
     xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
     regExp: (.+)
     regExpReplace: "YES"
@@ -330,8 +325,13 @@ fields:
   - name: variantInformation
     xpath: (//span[@class="selection"])[1]
   - name: largeImageCount
-    xpath: count((//img[@id="landingImage"])[1]/@src)
+    xpath: //script[contains(., "ImageBlockATF")]/text()
+    defaultValue: 0
   - name: pasin
     xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
     regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
     regExpReplace: $2
+  - name: productUrl
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com/dp/$1
