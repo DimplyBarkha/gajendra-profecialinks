@@ -14,10 +14,10 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //a[contains(@class,'RICHFXColorChangeLink')][position()>1]/img//@src[contains(.,'735')]
-    regExp: (.+)\recipeId=735
-    regExpReplace: $1\recipeId=729
+    regExp: (.+)recipeId=735
+    regExpReplace: $1recipeId=729
   - name: nameExtended
-    xpath: //title
+    xpath: //h1[@itemprop="name"]
     singleValue: true
   - name: metaKeywords
     singleValue: true
@@ -82,7 +82,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //span[contains(@class,"model-number")]//span
+    xpath: //span[contains(@class,"model-number")]//span | //p[contains(@id,"product-body-model-number")]//span | //p[contains(@id,"product-body-model-number")]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -121,10 +121,11 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
+    xpath: count(//div[@id="theSwatches" and not(contains(@class,"hide"))]/a)
     description: Number of variants listed
     type: NUMBER
   - name: color
-    singleValue: true
+    xpath: //div[@id="theSwatches"]/a/span[@id="selectedOffScreenSwatch"]/../@data-content
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
@@ -136,11 +137,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="product-info-description"]//img//@src[contains(.,'media') or (contains(.,'http'))]
+    xpath: //div[@class="product-info-description"]//img//@data-flixsrcset
   - name: videos
-    singleValue: true
-    description: URLs of videos on page
-    xpath: //meta[@itemprop="contentUrl"]/@content | //head/@*[contains(.,'http')]
+    xpath: //meta[@itemprop="contentUrl"]/@content | //head/@*[contains(.,'http')]|//head/@video
   - name: name
     singleValue: true
     description: The product name
@@ -399,7 +398,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //h2[contains(.,'Specifications')]/../div//table//tbody
+    xpath: //h2[contains(.,'Specifications')]/../div//table//tbody | //div[@class="product-info-specs body-copy"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -514,3 +513,8 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
+  - name: name
+    singleValue: true
+    xpath: //h1[@itemprop="name"]
