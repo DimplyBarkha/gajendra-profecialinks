@@ -1,0 +1,88 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//img[@id="landingImage"])[1]/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: pageTimestamp
+    singleValue: false
+    xpath: //div[@id="a_pageTimestamp"]
+  - name: searchUrl
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@id, 'wayfinding-breadcrumbs_container')]//ul/li[1]
+  - name: subCategory
+    singleValue: false
+    xpath: //div[contains(@id, 'wayfinding-breadcrumbs_container')]//ul/li[position() > 2]
+  - name: nameExtended
+    singleValue: false
+    xpath: //span[contains(@id, 'productTitle')]
+  - name: price
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice"] 
+  - name: onlinePriceCurrency
+    singleValue: false
+    defaultValue:  '€'
+  - name: availabilityText
+    singleValue: false
+    xpath: //*[@id='availability'] | //*[@id='availability']//span[@data-action="show-all-offers-display"]
+  - name: description
+    singleValue: false
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //*[@id='productDescription']
+  - name: brandText
+    singleValue: false
+    xpath: //*[@id='bylineInfo'] 
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@id, 'variation_size_name')]//../span
+  - name: sku
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin
+  - name: numberOfServingsInPackage
+    singleValue: false
+    xpath: //div[contains(@id,"variation_item_package_quantity")]/div/span
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+  - name: ratingCount
+    singleValue: false
+    xpath: //*[@id="acrCustomerReviewText"]/text()
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: true
+    regExp: (\d+(?:,\d+)?)
+    regExpReplace: $1
+    xpath: //*[@id="acrPopover"]/@title
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@id,'aplus_feature_div')]//img/@src | //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+  - name: shippingInfo
+    singleValue: false
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //*[@id="aplus"]
+  - name: descriptionBullets 
+    singleValue: false
+    xpath: count(//div[@id="feature-bullets-btf"]/*//ul/li | //div[@id="featurebullets_feature_div"]/*//ul/li)
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@id,"video-outer-container")]//../video/@src | //video/@src
+  - name: productsPerPage
+    singleValue: false
+    xpath: count(//div[contains(@id,"variation_style_name")]/ul/li)
+    defaultValue:  '1'
+  - name: scrapeCode
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin
+  - name: imageAlt
+    singleValue: false
+    xpath: (//img[@id="landingImage"])[1]/@alt
