@@ -1,9 +1,9 @@
 
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'product/search',
   parameterValues: {
     country: 'US',
-    store: 'amazon',
+    store: 'amazonApparel',
     domain: 'amazon.com',
   },
 };
