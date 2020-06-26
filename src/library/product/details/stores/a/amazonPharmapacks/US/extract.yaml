@@ -69,7 +69,7 @@ fields:
   - name: shippingInfo
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//*[@id="shipsFromSoldBy_feature_div"]
   - name: shippingDimensions
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]|//li//span[contains(text(), 'Product Dimensions:')]/../span[last()]
   - name: shippingWeight
     xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
     regExp: ([^()]+)
@@ -265,7 +265,7 @@ fields:
   - name: pricePerUnitUom
     xpath:
   - name: promotion
-    xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
+    xpath: //tr[@id="regularprice_savings"]
   - name: alcoholContent
     xpath:
   - name: newVersion
