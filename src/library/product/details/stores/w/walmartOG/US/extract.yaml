@@ -48,7 +48,7 @@ fields:
   defaultValue: In Stock
 - name: description
   singleValue: false
-  xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeShortDescription"]|(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"])[2]
+  xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeShortDescription"]|(//div[@data-automation-id="details"]/div[contains(@class, 'ProductAttribute__value')])
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//ul//li)
@@ -78,14 +78,15 @@ fields:
   singleValue: false
   manualSelector: div[data-automation-id="ingredients"] div[data-automation-id="productAttributeValue"]
 - name: servingSize
-  singleValue: false
+  singleValue: true
   #xpath: //section[@data-automation-id="nutritionFacts"]//div//h3[contains(text(),"Serving size") or contains(text(),"serving size")]/following-sibling::h3
   xpath: //section[@data-automation-id="nutritionFacts"]//div//h3[contains(text(),"Serving size") or contains(text(),"serving size")]/following-sibling::h3|//*[@id="iio_nutrient_servingSize"]
   # regExp: ^(?:([\d\.\/]+)\s(\w+))$|^(?:([\d\.\/]+)\s(\w+\s\w+)$)
-  regExp: ^.*?(?=[a-zA-Z])
+  # regExp: (^.*?(?=[a-zA-Z]))
+  regExp: ([^a-zA-Z]+)
   # regExpReplace: $1$3
 - name: servingSizeUom
-  singleValue: false
+  singleValue: true
   #xpath:  //section[@data-automation-id="nutritionFacts"]//div//h3[contains(text(),'Serving size') or contains(text(),'serving size')]/following-sibling::h3
   xpath: (//section[@data-automation-id="nutritionFacts"]//div//h3[contains(text(),"Serving size") or contains(text(),"serving size")]/following-sibling::h3|//*[@id="iio_nutrient_servingSize"])[1]
   # regExp: ^(?:([\d\.\/]+)\s(\w+))$|^(?:([\d\.\/]+)\s(\w+\s\w+)$)
@@ -115,20 +116,20 @@ fields:
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Total Fat')]]/span[@data-automation-id="value"]
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Total Fat')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_totalFat"])[1]
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2  
+  regExp: ([a-zA-Z\s*]+)
+  # regExpReplace: $2  
 - name: saturatedFatPerServing
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Saturated Fat')]]/span[@data-automation-id="value"]
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Saturated Fat')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_saturatedFat"])[1]
-  regExp: (?:([\d\.]+)\s?(\w+))
+  regExp: (?:([\d*\.?\d+]+)\s?(\w+))
   regExpReplace: $1
 - name: saturatedFatPerServingUom
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Saturated Fat')]]/span[@data-automation-id="value"]
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Saturated Fat')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_saturatedFat"])[1]
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $2
+  regExp: ([a-zA-Z\s]+)
+  # regExpReplace: $2
 - name: transFatPerServing
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Trans Fat')]]/span[@data-automation-id="value"]
@@ -194,8 +195,8 @@ fields:
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Dietary Fiber')]]/span[@data-automation-id="value"]
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Dietary Fiber')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_fiber"])[1]
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1
+  regExp: ([^a-zA-Z]+)|(?:(>|<)[^a-zA-Z]+]+)\s?
+  # regExpReplace: $1
 - name: dietaryFibrePerServingUom
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Dietary Fiber')]]/span[@data-automation-id="value"]
@@ -216,8 +217,8 @@ fields:
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Protein')]]/span[@data-automation-id="value"]
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Protein')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_protein"])[1]
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1
+  regExp: ([^a-zA-Z]+)|(?:(>|<)[^a-zA-Z]+]+)\s?
+  # regExpReplace: $1
 - name: proteinPerServingUom
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Protein')]]/span[@data-automation-id="value"]
