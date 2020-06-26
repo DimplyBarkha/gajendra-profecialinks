@@ -55,12 +55,11 @@ const transform = (data) => {
 
       if (row.variantAsins) {
         for (const item of row.variantAsins) {
-          if (item.text.match(/(.+)\,(.+)/)) {
-            item.text = item.text.match(/(.+)\,(.+)/)[2];
+          if (item.text.match(/(.+),(.+)/)) {
+            item.text = item.text.match(/(.+),(.+)/)[2];
           }
         }
       }
-
     }
   }
   return data;
