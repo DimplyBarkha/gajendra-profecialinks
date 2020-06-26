@@ -25,15 +25,18 @@ fields:
     # regExpReplace: >- 
     #   $2
     xpath: (.//div[@class='css-901oao css-cens5h r-1khnkhu r-1jn44m2 r-ubezar r-29m4ib r-rjixqe r-kc8jnq r-fdjqy7 r-13qz1uu'])[1]
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='ii_url']
   - name: productUrl
     singleValue: false
-    xpath: (.//div[@class="css-1dbjc4n r-6koalj r-13awgt0 r-1mlwlqe r-eqz5dr r-1pi2tsx r-1wtj0ep r-dnmrzs r-q81ovl"]/a/@href)[1]
+    xpath: //div[@class="css-1dbjc4n r-6koalj r-13awgt0 r-1mlwlqe r-eqz5dr r-1pi2tsx r-1wtj0ep r-dnmrzs r-q81ovl"]/a/@href
     regExp: >- 
       ^(.*)$
     regExpReplace: >-
       https://www.cvs.com$1
-  # - name: gtin
-  #   singleValue: false
+  - name: gtin
+    singleValue: false
   - name: thumbnail
     singleValue: false
     xpath: (.//div[@class="css-1dbjc4n r-1mlwlqe r-1ldr0hp r-dnmrzs r-1udh08x r-417010"]//img/@src)[1]

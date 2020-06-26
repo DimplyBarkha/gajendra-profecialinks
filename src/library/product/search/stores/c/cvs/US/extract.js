@@ -10,6 +10,20 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  await context.evaluate(function () {
+
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    addHiddenDiv(`ii_url`, window.location.href);
+
+
+  });
+
   console.log("Do pagination");
   let resultCounter = 0;
   await new Promise(r => setTimeout(r, 8000));
