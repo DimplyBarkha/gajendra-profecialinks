@@ -40,7 +40,8 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: (//*[contains(@id,'availability')] |  //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
-    defaultValue: 'InStock'
+    regExp: (.+)\.?
+    regExpReplace: $1
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
@@ -49,7 +50,7 @@ fields:
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     singleValue: false
-    xpath: //a[@id="bylineInfo"]
+    xpath: //a[@id="bylineInfo"] | //div[contains(@id, "bylineInfo")]//*[contains(text(), "by")]
     regExp: (?:by)? ?(.+)
     regExpReplace: $1
   - name: manufacturer
@@ -148,7 +149,7 @@ fields:
     xpath: 
   - name: coupon
     singleValue: false
-    xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text()
+    xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")]
   - name: amazonChoice
     singleValue: false
     xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]

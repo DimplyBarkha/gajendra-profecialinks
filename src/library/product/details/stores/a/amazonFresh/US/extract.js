@@ -16,6 +16,31 @@ async function implementation (
   const { productDetails } = dependencies;
 
   async function setLocale () {
+  //-- Functions to check if buttons exist --//
+    async function localeWarningCheck () {
+      return await context.evaluate(function () {
+        const localeEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const button = 'div.glow-toaster-footer input[data-action-type=DISMISS]';
+        if (!!document.querySelector(button) && localeEl.snapshotLength > 0){
+          return button
+        }
+        else{
+          return 'false';
+        }
+      });
+    }
+    
+    async function additionalConfirmCheck () {
+      return await context.evaluate(function () {
+        const button = '.a-popover-footer input#GLUXConfirmClose';
+        if (!!document.querySelector(button)){
+          return button
+        }
+        else{
+          return 'false';
+        }
+      });
+    }
     async function openNewLocaleModalBtnCheck () {
       console.log('openNewLocaleModalBtnCheck() in  progress')
       return await context.evaluate(function () {
@@ -76,13 +101,26 @@ async function implementation (
         }
       });
     }
+
+  //-- Actions to click existing buttons needed to set  locale --//
+    let openNewLocaleWarnBtn = await localeWarningCheck()
+    let additionalChecks = 0
+    if(openNewLocaleWarnBtn !== 'false'){
+      const [response] = await Promise.all([
+        context.waitForNavigation({ timeout: 20000 }),
+        context.click(openNewLocaleWarnBtn)
+      ]);
+      additionalChecks += 1;
+    }
+    await new Promise(r => setTimeout(r, 5000));
     const openNewLocaleModalBtn = await openNewLocaleModalBtnCheck()
-    if(openNewLocaleModalBtn !== 'false'){
+    openNewLocaleWarnBtn = await localeWarningCheck()
+    if(openNewLocaleModalBtn !== 'false' && await localeWarningCheck() === 'false'){
       const [response] = await Promise.all([
         context.waitForNavigation({ timeout: 20000 }),
         context.click(openNewLocaleModalBtn)
       ]);
-    };
+    }
     const changeLocaleBtn = await changeLocaleBtnCheck()
     if(changeLocaleBtn !== 'false'){
       const [response] = await Promise.all([
@@ -95,7 +133,7 @@ async function implementation (
     if(localeInput !== 'false'){
       const [response] = await Promise.all([
         context.waitForNavigation({ timeout: 20000 }),
-        context.setInputValue(localeInput, "10001")
+        context.setInputValue(localeInput, "90210")
       ]);
     }
     await new Promise(r => setTimeout(r, 2000));
@@ -116,6 +154,24 @@ async function implementation (
       ]);
     }
     await new Promise(r => setTimeout(r, 2000));
+    if(additionalChecks>0){
+      if(openNewLocaleModalBtn !== 'false' && await localeWarningCheck() === 'false'){
+        const [response] = await Promise.all([
+          context.waitForNavigation({ timeout: 20000 }),
+          context.click(openNewLocaleModalBtn)
+        ]);
+      }
+      await new Promise(r => setTimeout(r, 2000));
+      const finalConfirmBtn = await additionalConfirmCheck()
+      if(finalConfirmBtn  !== 'false'){
+        console.log('here')
+        const [response] = await Promise.all([
+          context.waitForNavigation({ timeout: 20000 }),
+          context.click(finalConfirmBtn)
+        ]);
+      }
+    }
+    await new Promise(r => setTimeout(r, 5000));
     return
   }
 

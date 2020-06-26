@@ -79,7 +79,7 @@ const transform = (data, context) => {
             })
             row.videoLength = [{ text: videos.join(' | ') }];
           }else{
-            row.videoLength = [{ text: '0' }];
+            row.videoLength = [{ text: '' }];
           }
         }
         if (row.brandLink) {
@@ -199,6 +199,19 @@ const transform = (data, context) => {
               text: text.join(' || '),
             },
           ];
+        }
+        if (row.productOtherInformation) {
+          let text = []
+          row.productOtherInformation.forEach(item => {
+            text.push(item.text)
+          })
+          if(text.length>0){
+            row.productOtherInformation = [
+              {
+                text: text.join(' ')
+              }
+            ]
+          }
         }
         if (row.otherSellersPrime) {
           row.otherSellersPrime.forEach(item => {
