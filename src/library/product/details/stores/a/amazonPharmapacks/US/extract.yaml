@@ -18,8 +18,6 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
-  - name: nameExtended
-    xpath: //meta[@name='title']/@content
   - name: listPrice
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
   - name: price
@@ -36,10 +34,6 @@ fields:
     xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]
   - name: quantity
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
-  - name: weightNet
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
-    regExp: ([^()]+)
-    regExpReplace: $1
   - name: weightGross
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
     regExp: ([^()]+)\s
@@ -49,27 +43,27 @@ fields:
   - name: asin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]|//*[contains(text(), 'Item model number')]/../span[last()]
   - name: mpc
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]|//*[contains(text(), 'Item model number')]/../span[last()]
   - name: packSize
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1] | //title[contains(text(), 'Pack')])[1]
     regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
     regExpReplace: $1$3
   - name: legalDisclaimer
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
+    xpath: (//div[contains(@id, 'important-information')]/div[contains(@class,'content')]/*[contains(text(), "Legal Disclaimer")]/../p[text()]/text())[1]
   - name: directions
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
   - name: warnings
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]
   - name: ratingCount
-    xpath: //*[@id="acrCustomerReviewText"]/text()
-    regExp: ([0-9]{1,}) ratings
+    xpath: (//*[@id="acrCustomerReviewText"]/text())[1]
+    regExp: (.+) ratings
     regExpReplace: $1
   - name: aggregateRatingText
     xpath:
   - name: aggregateRating
-    xpath: //*[@id="acrPopover"]/@title
+    xpath: (//*[@id="acrPopover"]/@title)[1]
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: shippingInfo
@@ -81,7 +75,7 @@ fields:
     regExp: ([^()]+)
     regExpReplace: $1
   - name: variantCount
-    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
+    xpath: count(//select[@name="dropdown_selected_size_name"]/option[position()>1]|//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: color
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: colorCode
@@ -92,8 +86,6 @@ fields:
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url
-  - name: name
-    xpath: //title
   - name: coupon
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
   - name: amazonChoice
@@ -149,7 +141,7 @@ fields:
     regExpReplace: "YES"
     defaultValue: "NO"
   - name: variantAsins
-    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin
+    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin|//select[@name="dropdown_selected_size_name"]/option[position()>1]/@value
   - name: specifications
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
@@ -158,10 +150,6 @@ fields:
     regExp: (.+)
     regExpReplace: "Yes - Shipped and Sold"
     defaultValue: "NO"
-  - name: lbb
-    xpath:
-  - name: lbbPrice
-    xpath:
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
@@ -268,8 +256,6 @@ fields:
     xpath:
   - name: recyclingInformation
     xpath:
-  - name: productOtherInformation
-    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: packaging
     xpath:
   - name: additives
@@ -348,8 +334,6 @@ fields:
     defaultValue: "NO"
   - name: lbbPrice
     xpath: //span[@id="price_inside_buybox"]
-  - name: legalDisclaimer
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: weightNet
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
     regExp: '[^()]+'

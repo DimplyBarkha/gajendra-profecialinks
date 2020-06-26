@@ -150,16 +150,15 @@ module.exports = {
         return;
       }
 
-    //   const wrongLocale = await context.evaluate(async function () {
-    //     const detailsLocaleEl = document.evaluate("//*[contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/span", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    //     const searchLocaleEl = document.evaluate("//span[@id='glow-ingress-line1']//*[contains(text(),':')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    //     if (!!detailsLocaleEl.snapshotLength || !!searchLocaleEl.snapshotLength) {
-    //       return 'true';
-    //     } else {
-    //       return 'false';
-    //     }
-    //   });
-    let wrongLocale = 'false';
+      const wrongLocale = await context.evaluate(async function () {
+        const detailsLocaleEl = document.evaluate("//*[contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/span", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const searchLocaleEl = document.evaluate("//span[@id='glow-ingress-line1']//*[contains(text(),':')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if (!!detailsLocaleEl.snapshotLength || !!searchLocaleEl.snapshotLength) {
+          return 'true';
+        } else {
+          return 'false';
+        }
+      });
 
       if (wrongLocale === 'true' && !benchmark) {
         console.log('wrongLocale', !benchmark, wrongLocale);

@@ -6,11 +6,6 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //title
-  - name: legalDisclaimer
-    xpath: (//div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text())[1]
-  - name: weightNet
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
-    regExp: '[^()]+'
   - name: asin
     xpath: (//span[@class="a-dropdown-container"])[1]//option[@data-a-css-class="dropdownSelect"]/@value
     regExp: \,(.+)
