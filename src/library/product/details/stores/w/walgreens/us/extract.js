@@ -15,7 +15,7 @@ module.exports = {
     const manufacturerInfo = await context.evaluate(function () {
       return document.querySelector('li#prodCollage') ? document.querySelector('li#prodCollage').getAttribute('class') : '';
     });
-    console.log('HERE')
+
     console.log(manufacturerInfo);
 
     // document.body.scrollHeight;
@@ -118,7 +118,6 @@ module.exports = {
 
           const jsonObj = MergeRecursive(window.__ATC_APP_INITIAL_STATE__.product.results, response);
 
-          console.log('ovah here');
           console.log(window.__ATC_APP_INITIAL_STATE__.product.results);
           console.log(response);
 
@@ -176,7 +175,6 @@ module.exports = {
           const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, ...obj.ingredients], []) : '';
 
           // if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
-          //   console.log('LIKE WHOA');
           //   const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
           //   const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
           //   ingrList.unshift(typeOfIngredient);
