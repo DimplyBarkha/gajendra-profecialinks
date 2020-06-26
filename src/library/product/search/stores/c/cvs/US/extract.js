@@ -1,68 +1,69 @@
+// const { transform } = require('../../../../shared');
 const { transform } = require('../../../../shared');
 
-// async function implementation (
-//   inputs,
-//   parameters,
-//   context,
-//   dependencies,
-// ) {
-//   const { transform } = parameters;
-//   const { productDetails } = dependencies;
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
 
-//   console.log("Do pagination");
-//   let resultCounter = 0;
-//   await new Promise(r => setTimeout(r, 8000));
+  console.log("Do pagination");
+  let resultCounter = 0;
+  await new Promise(r => setTimeout(r, 8000));
 
-//   async function getNumberResultsOnPage() {
-//       return await context.evaluate(function() {
-//           let resultXPath = "(//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-iyfy8q'])[1]//div[@class='css-1dbjc4n']//div[contains(@class,'r-1pi2tsx')]//a"; // list of items on the page from Shaun
-//           let query = document.evaluate(resultXPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-//           let numberPageResults = query.snapshotLength;
-//           console.log(numberPageResults + "results on page")
-//           return numberPageResults;
-//       });
-//   }
+  async function getNumberResultsOnPage() {
+      return await context.evaluate(function() {
+          let resultXPath = "(//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-iyfy8q'])[1]//div[@class='css-1dbjc4n']//div[contains(@class,'r-1pi2tsx')]//a"; // list of items on the page from Shaun
+          let query = document.evaluate(resultXPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          let numberPageResults = query.snapshotLength;
+          console.log(numberPageResults + "results on page")
+          return numberPageResults;
+      });
+  }
 
   
-//   async function buttonCheck() {
-//        return await context.evaluate(function() {
-//           let button = document.querySelector('div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7')
-//           if(button != null) {
-//               return true;
-//           } else {
-//               return false;
-//           }
-//       });
-//   }
+  async function buttonCheck() {
+       return await context.evaluate(function() {
+          let button = document.querySelector('div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7')
+          if(button != null) {
+              return true;
+          } else {
+              return false;
+          }
+      });
+  }
 
 
-//   async function continuedClickToShowResults() {
+  async function continuedClickToShowResults() {
 
-//           let moreButton = 'div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7'
-//           let numberPageResults = 0;
-//           let count = 0
-//           while (numberPageResults <= 150 && count < 200) {
+          let moreButton = 'div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7'
+          let numberPageResults = 0;
+          let count = 0
+          while (numberPageResults <= 60 && count < 200) {
            
-//               if(await buttonCheck()) {
-//                   await context.click(moreButton)
-//                   await new Promise(r => setTimeout(r, 10000));
-//                   numberPageResults = await getNumberResultsOnPage();
-//                   console.log(numberPageResults + " items on page")
-//                   // return await context.extract(productDetails, { transform });
-//                   count++
-//               } else {
-//                   break;
-//               }
-//           }
+              if(await buttonCheck()) {
+                  await context.click(moreButton)
+                  await new Promise(r => setTimeout(r, 10000));
+                  numberPageResults = await getNumberResultsOnPage();
+                  console.log(numberPageResults + " items on page")
+                  // return await context.extract(productDetails, { transform });
+                  count++
+              } else {
+                  break;
+              }
+          }
   
-//   }
+  }
 
 
-//   await continuedClickToShowResults()
+  await continuedClickToShowResults()
 
 
-//   return await context.extract(productDetails, { transform });
-// }
+  return await context.extract(productDetails, { transform });
+}
 
 
 
@@ -74,5 +75,5 @@ module.exports = {
     transform: transform,
     domain: 'cvs.com',
   },
-  // implementation
+  implementation
 };
