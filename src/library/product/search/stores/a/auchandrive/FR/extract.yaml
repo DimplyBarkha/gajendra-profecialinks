@@ -1,38 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //article[@class="product-item"]
+recordXPath: //article[contains(@class, 'product-item--container')]
 fields:
-  - name: productUrl
-    xpath: //a[@class="product-item__main"]/@href
-    regExp: (.*)
-    regExpReplace: https://www.auchandrive.fr$1
-  - name: thumbnail
-    singleValue: true
-    xpath: //picture[@class="product-item__image"]/img/@src
-    description: The URL for the product thumbnail image
   - name: name
-    singleValue: true
-    xpath: "@data-name"
+    xpath: //span[@class='product-item--description']
     description: The product name
   - name: id
-    singleValue: true
-    xpath: "@data-product-id"
-    description: The store-specific product identifier
-  - name: aggregateRatingText
-    xpath: //div[@class="rating-average"]
-    regExp: (^[^,]+),([^,]+$)
-    regExpReplace: $1.$2
-    description: The stated aggregate rating
-  - name: ratingCount
-    xpath: //div[@class="rating-average"]
-    description: The number of ratings
-    regExp: \d+
-  - name: reviewCount
-    xpath: //div[@class="rating-average"]
-    regExp: \d+
-    description: The number of reviews
+    xpath: //article[contains(@class, 'product-item--container')]/@data-code
+    description: product code
+  - name: productUrl
+    xpath: //article[contains(@class, 'product-item--container')]//a/@href
+    regExp: >-
+      (.+)
+    regExpReplace: auchan.fr$1
+  - name: image
+    xpath: //span[contains(@class, 'product-item--imgFlapContainer')]/img/@src
+    description: product image
   - name: price
-    singleValue: true
-    xpath: "@data-price"
-    description: The offered price for the product
+    xpath: //span[@class='product-item--price']
+    description: price disclosed for the product
+  - name:  aggregateRating
+    xpath: //meta[@itemprop='ratingValue']/@content
+    description: Rating given to the product
+  - name: ratingCount
+    xpath: //meta[@itemprop='reviewCount']/@content
+    description: Number of reviews given
+ 

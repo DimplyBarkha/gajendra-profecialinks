@@ -6,7 +6,7 @@ module.exports = {
     store: 'auchandrive',
     domain: 'auchandrive.fr',
     url: 'https://www.auchan.fr/recherche?text={searchTerms}#[!opt!]{"cookie_jar":[{"name":"connect.sid","value":"s%3AZXKHRVjDk2txSj8MzXQky8VZuhmTubgs.M6oBh6HGNeRWLesfG%2Bcu6No9ij6ejEqB6mVRhSQGHJs"}]}[/!opt!]',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-list--container',
+    noResultsXPath: 'p.products-empty__title',
   },
 };
