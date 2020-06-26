@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'Amazonprimepantry_45202',
     domain: 'amazon.com',
-    url: 'https://www.amazon.com/s/?srs=7301146011&rh=i:pantry&keywords={searchTerms}&page=1',
+    url: 'https://www.amazon.com/s?k={searchTerms}&i=pantry&ref=nb_sb_noss_2',
     loadedSelector: 'div[data-asin]',
     noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "No results")]',
   },
