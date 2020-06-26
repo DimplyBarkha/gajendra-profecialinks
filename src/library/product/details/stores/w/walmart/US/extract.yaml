@@ -94,7 +94,7 @@ fields:
   xpath: //p[@class='Warnings'] | //div[@class='LegalBadge-description'][contains(.,'arning')]
 - name: warranty
   singleValue: true
-  xpath: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  
+  xpath: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  | //div[contains(@title,'Warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span 
  
 - name: ratingCount
   singleValue: true
