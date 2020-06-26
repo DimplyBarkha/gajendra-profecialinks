@@ -56,7 +56,7 @@ async function implementation (
           let moreButton = 'div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7'
           let numberPageResults = 0;
           let count = 0
-          while (numberPageResults <= 60 && count < 200) {
+          while (numberPageResults <= 150 && count < 200) {
            
               if(await buttonCheck()) {
                   await context.click(moreButton)
