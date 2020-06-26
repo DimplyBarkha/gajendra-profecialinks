@@ -205,22 +205,19 @@ module.exports = {
       if(btns[0].length){
         while(i < btns[0].length && i < 100) {
           context.click(btns[0][i]);
-          await new Promise(resolve => setTimeout(resolve, 5000));
+          await new Promise(resolve => setTimeout(resolve, 8000));
           await context.waitForSelector(waitSelector, { timeout: 20000 });
 
 
           if(btns[1].length && j < 100){
-            console.log('INSIDE IF')
             while(j < btns[1].length && j < 100) {
-              console.log("INSIDE LOOP")
               let check = await buttonCheck(btns[1][j] + " div")
               if(check) {
-                console.log("INSIDE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 context.click(btns[1][j])
+                await new Promise(resolve => setTimeout(resolve, 8000));
+                await context.waitForSelector(waitSelector, { timeout: 20000 });
                 await getVariantIdNum();
                 await collectVariantInfo();
-                await new Promise(resolve => setTimeout(resolve, 5000));
-                await context.waitForSelector(waitSelector, { timeout: 20000 });
               }
               j++
             }
@@ -403,13 +400,16 @@ module.exports = {
       } else if(prodName) {
         addHiddenDiv('ii_metaKeywords', `${prodName.innerText}`);
       }
+    
       if(prodInfoLine){
         addHiddenDiv('ii_grossWeight', `${prodInfoLine.innerText}`);
-      }
-      if(prodInfoLine){
         addHiddenDiv('ii_quantity', `${prodInfoLine.innerText}`);
+        const regex1 = /[0-9]+$/g;
+        let skuText = regex1.exec(prodInfoLine.innerText);
+        // debugger
+        addHiddenDiv('ii_sku', `${skuText[0]}`);
       }
-
+    
     });
   }
   

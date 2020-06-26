@@ -58,7 +58,7 @@ fields:
     # singleValue: true
     # selector: h1[aria-label="Ships free with CarePass"]
   - name: packSize
-    xpath: ancestor::html//div[@id='ii_packSize']
+    xpath: //div[@id='ii_packSize']
   - name: gtin
     xpath: (ancestor::html//div[contains(@id, 'zoom-carousel')]//img/@src)[1]
     regExp: ([0-9]+)
@@ -91,7 +91,7 @@ fields:
     # selector: div[style].htmlView:nth-of-type(4)
   - name: metaKeywords
     singleValue: true
-    xpath: ancestor::html//div[@id='ii_metaKeywords']
+    xpath: //div[@id='ii_metaKeywords']
     # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: price
     # xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
@@ -138,9 +138,9 @@ fields:
     regExp: ([.0-9]+ (lbs))
   - name: sku
     singleValue: true
-    xpath: ancestor::html//div[@id='ii_sku']
+    xpath: //div[@id='ii_sku']
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    # regExp: ([0-9])+$
+    # regExp: ^([0-9])+
   - name: variantId
     singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
