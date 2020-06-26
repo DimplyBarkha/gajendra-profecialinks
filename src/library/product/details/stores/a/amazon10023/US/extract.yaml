@@ -1,0 +1,446 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//img[@id="landingImage"])[1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: (//img[@id="landingImage"])[1]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    regExp: (^((?!\_).)+)
+    regExpReplace: $1jpg
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _pageTimestamp
+    singleValue: false
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+  - name: nameExtended
+    singleValue: false
+    xpath: //meta[@name='title']/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
+  - name: price
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //*[@id='availability']
+  - name: description
+    singleValue: false
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
+  - name: brandText
+    singleValue: false
+    xpath: //*[@id='bylineInfo']
+  - name: manufacturer
+    singleValue: false
+    xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]
+  - name: quantity
+    singleValue: false
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
+    regExp: ([^()]+)
+    regExpReplace: $1
+  - name: weightGross
+    singleValue: false
+    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
+    regExp: ([^()]+)
+    regExpReplace: $1
+  - name: gtin
+    singleValue:  false
+    xpath:   //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
+  - name: asin
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin   
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+  - name: mpc
+    singleValue:  false
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+  - name: packSize
+    singleValue: false
+    xpath: //*[@id="productTitle"]
+    regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
+    regExpReplace: $1$3
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
+  - name: warnings
+    singleValue: false
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text()
+  - name: ratingCount
+    singleValue: false
+    xpath: //*[@id="acrCustomerReviewText"]/text()
+    regExp: ([0-9]{1,}) ratings
+    regExpReplace: $1
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: 
+  - name: aggregateRating
+    singleValue: false
+    xpath: //*[@id="acrPopover"]/@title
+    regExp: ([0-9\.]{1,}) out of
+    regExpReplace: $1
+  - name: shippingInfo
+    singleValue: false
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+  - name: shippingWeight
+    singleValue: false
+    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
+    regExp: ([^()]+)
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
+  - name: colorCode
+    singleValue: false
+    xpath: 
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="productDescription"]/p[text()]/text()
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@cel_widget_id="aplus"]//img/@src
+  - name: videos
+    singleValue: false
+    xpath: //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
+  - name: name
+    singleValue: false
+    xpath: //title
+  - name: inStorePrice
+    sinlgeValue: false
+    xpath:
+  - name: sku
+    singleValue: false
+    xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
+  - name: coupon
+    singleValue: false
+    xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
+  - name: amazonChoice
+    singleValue: false
+    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue:  'No'
+  - name: amazonChoiceCategory
+    singleValue: false
+    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@id="bylineInfo"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com$1
+  - name: internationalShipping
+    singleValue: false
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
+  - name: salesRank
+    singleValue: false
+    xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]
+    regExp: \#([0-9]{1,})
+    regExpReplace: $1
+  - name: salesRankCategory
+    singleValue: false
+    xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a
+    regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*$+-]{1,})
+    regExpReplace: $1
+  - name: subscriptionPrice
+    singleValue: false
+    xpath: //*[@id="sns-base-price"]
+    regExp: ([^ ]+)
+    regExpReplace: $1
+  - name: subscribeAndSave
+    singleValue: false
+    xpath: //*[@id="sns-base-price"]
+    regExp: ([^ ]+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: pasin
+    singleValue: false
+    xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
+  - name: videoLength
+    singleValue: false
+    xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
+  - name: heroQuickPromoHeadline
+    singleValue: false
+    xpath: 
+  - name: heroQuickPromoImageUrl
+    singleValue: false
+    xpath:
+  - name: heroQuickPromoUrl
+    singleValue: false
+    xpath:
+  - name: ingredientImagePresent
+    singleValue: false
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: factImagePresent
+    singleValue: false
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "FACT")]
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: variantAsins
+    singleValue: false
+    xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-defaultasin
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
+  - name: primeFlag
+    singleValue: false
+    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+  - name: lbb
+    singleValue: false
+    xpath: 
+  - name: lbbPrice
+    singleValue: false
+    xpath: 
+  - name: featureBullets
+    singleValue: false
+    xpath: 
+  - name: otherSellersName
+    singleValue: false
+    xpath: 
+  - name: otherSellersPrime
+    singleValue: false
+    xpath: 
+  - name: otherSellersShipping
+    singleValue: false
+    xpath: 
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
+  - name: news
+    singleValue: false
+    xpath: 
+  - name: addonItem
+    singleValue: false
+    xpath: 
+  - name: fastTrack
+    singleValue: false
+    xpath: 
+  - name: product/food
+    singleValue: false
+    xpath: 
+  - name: ingredientsList
+    singleValue: false
+    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
+  - name: servingSize
+    singleValue: false
+    xpath: 
+  - name: servingSizeUom
+    singleValue: false
+    xpath: 
+  - name: numberOfServingsInPackage
+    singleValue: false
+    xpath: 
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: 
+  - name: caloriesFromFatPerServing
+    singleValue: false
+    xpath: 
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: 
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: 
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: 
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: 
+  - name: transFatPerServing
+    singleValue: false
+    xpath: 
+  - name: transFatPerServingUom
+    singleValue: false
+    xpath: 
+  - name: cholesterolPerServing
+    singleValue: false
+    xpath: 
+  - name: cholesterolPerServingUom
+    singleValue: false
+    xpath: 
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: 
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: 
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: 
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: 
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: 
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: 
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: 
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: 
+  - name: proteinPerServing
+    singleValue: false
+    xpath: 
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: 
+  - name: vitaminAPerServing
+    singleValue: false
+    xpath: 
+  - name: vitaminAPerServingUom
+    singleValue: false
+    xpath: 
+  - name: vitaminCPerServing
+    singleValue: false
+    xpath: 
+  - name: vitaminCPerServingUom
+    singleValue: false
+    xpath: 
+  - name: calciumPerServing
+    singleValue: false
+    xpath: 
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: 
+  - name: ironPerServing
+    singleValue: false
+    xpath: 
+  - name: ironPerServingUom
+    singleValue: false
+    xpath: 
+  - name: dietarySymbols
+    singleValue: false
+    xpath: 
+  - name: magnesiumPerServing
+    singleValue: false
+    xpath: 
+  - name: magnesiumPerServingUom
+    singleValue: false
+    xpath: 
+  - name: saltPerServing
+    singleValue: false
+    xpath: 
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: 
+  - name: dietaryInformation
+    singleValue: false
+    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
+  - name: storage
+    singleValue: false
+    xpath: //*[@id="glow-ingress-line2"]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: 
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[@id='important-information']//div[contains(.,'Safety Information')]/p
+  - name: recyclingInformation
+    singleValue: false
+    xpath: 
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@id="productDescription"]/h3[contains(text(), 'From the Manufacturer')]/following-sibling::p
+  - name: packaging
+    singleValue: false
+    xpath: 
+  - name: additives
+    singleValue: false
+    xpath: 
+  - name: pricePerUnit
+    singleValue: false
+    xpath: 
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: 
+  - name: promotion
+    singleValue: false
+    xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
+  - name: alcoholContent
+    singleValue: false
+    xpath: 
+  - name: newVersion
+    singleValue: false
+    xpath: 
+  - name: newAsin
+    singleValue: false
+    xpath: 
+  - name: newDescription
+    singleValue: false
+    xpath: 
+  - name: variants
+    singleValue: false
+    xpath: 
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: 
+  - name: prop65Warning
+    singleValue: false
+    xpath: 
+  - name: ageSuitability
+    singleValue: false
+    xpath: 
+  - name: energyEfficiency
+    singleValue: false
+    xpath: 
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: 
+  - name: termsAndConditions
+    singleValue: false
+    xpath: 
+  - name: privacyPolicy
+    singleValue: false
+    xpath: 
+  - name: customerServiceAvailability
+    singleValue: false
+    xpath: 
+  - name: materials
+    singleValue: false
+    xpath: 
+  - name: largeImageCount
+    singleValue: false
+    xpath: //div[@id='pd_largeImageCount']    
+    
