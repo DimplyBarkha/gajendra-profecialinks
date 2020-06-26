@@ -1,4 +1,4 @@
-extends: ../../amazonPharmapacks/US/extract
+extends: ../../amazonApparel/US/extract
 fields:
 - name: nameExtended
   singleValue: true
@@ -13,11 +13,6 @@ fields:
   xpath: //span[contains(@id, "mbc-shipping-fixed")]
   regExp: \$(.+)\s
   regExpReplace: $1
-- name: shippingInfo
-  xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//*[@id="shipsFromSoldBy_feature_div"]|//div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Domestic Shipping')]/following-sibling::text()[1]
-- name: price
-  singleValue: false
-  xpath: //*[@id="priceblock_ourprice"]|//*[@id="priceblock_saleprice"]|//span[@id="style_name_1_price"]/span/text()[2]
 - name: manufacturerDescription
   sinlgeValue: false
   xpath: normalize-space(concat(//div[@class="aplus-module-wrapper"]//h3,//div[@class='apm-sidemodule-textright'],//div[@data-a-expander-name="aplus-module-expander"]//div[contains(@class,"apm-spacing")]//table//tr[2],(//div[contains(@class,"apm-spacing")]//table//tr[2])[2]))
