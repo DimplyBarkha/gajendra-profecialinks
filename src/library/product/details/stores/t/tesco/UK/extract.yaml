@@ -15,7 +15,7 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //h1[@class="product-details-tile__title"]
-  - name: url
+  - name: productUrl
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
   - name: category
@@ -66,7 +66,7 @@ fields:
     xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
     regExp: reviewCount":"([^"]+)
     regExpReplace: $1
-  - name: aggregateRating
+  - name: aggregateRatingText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
     regExp: ratingValue":"([^"]+)
