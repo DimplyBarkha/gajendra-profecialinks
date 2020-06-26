@@ -39,13 +39,6 @@ module.exports = {
     // await context.goto(linkURL);
     await context.goto(linkURL + `?skuid=${skuFromUrl}`);
 
-    // await new Promise(resolve => setTimeout(resolve, 20000));
-
-    // const sectionsDiv = 'div.css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs';
-    // const variantInfoDiv = 'div.css-1dbjc4n.r-16lk18l.r-11c0sde.r-1xi2sqm';
-
-    // await context.waitForSelector(sectionsDiv, { timeout: 90000 }).catch();
-    // await context.waitForSelector(variantInfoDiv, { timeout: 90000 }).catch();
     await new Promise(resolve => setTimeout(resolve, 10000));
 
     await context.evaluate(function (skuFromUrl) {
@@ -57,26 +50,6 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-
-      // function identifySections () {
-      //   const sectionList = ['Warnings', 'Directions', 'Ingredients'];
-      //   const nodeList = document.querySelectorAll('div.css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs');
-      //   let i = 0;
-
-      //   while (i < nodeList.length && i < 10) {
-      //     const section = (nodeList[i].childNodes[0].innerText).split(' ');
-      //     const sectionLast = section.length - 1;
-      //     if (sectionList.includes(section[sectionLast])) {
-      //       console.log(section[sectionLast] + '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', nodeList[i].childNodes[1].innerText);
-      //       addHiddenDiv(`ii_${section[sectionLast]}`, `${nodeList[i].childNodes[1].innerText}`);
-      //     }
-      //     if (sectionList.includes(section[0])) {
-      //       console.log(section[sectionLast] + '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', nodeList[i].childNodes[1].innerText);
-      //       addHiddenDiv(`ii_${section[0]}`, `${nodeList[i].childNodes[1].innerText}`);
-      //     }
-      //     i++;
-      //   }
-      // }
 
       function collectNutritionInfo () {
         let i = 1;
@@ -131,8 +104,6 @@ module.exports = {
         }
       }
 
-
-
       function collectBrand () {
         const brandBlock = document.querySelector('script#schema-json-ld');
 
@@ -141,21 +112,6 @@ module.exports = {
           addHiddenDiv('ii_Brand', `${brandObject[0].brand}`);
         }
       }
-
-      // function collectVariantNums () {
-      //   const variant1 = document.querySelector('div#ii_url');
-      //   const regex1 = /[0-9]+$/g;
-      //   const variant2 = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
-      //   const regex2 = /[0-9]+$/g;
-      //   // if (variant1) {
-      //   //   const trans1 = regex1.exec(variant1.innerText);
-      //   //   addHiddenDiv('ii_variantId', `${trans1[0]}`);
-      //   // }
-      //   if (variant2) {
-      //     const trans2 = regex2.exec(variant2.innerText);
-      //     addHiddenDiv('ii_variantId', `${trans2[0]}`);
-      //   }
-      // }
 
       function collectIframe() {
         const iframeList = document.querySelectorAll('iframe');
@@ -171,18 +127,9 @@ module.exports = {
           });
         }
       }
-
-      function collectKeywords() {
-        const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
-        const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-          if (variantInfo[1] && prodName) {
-            let varName = variantInfo[1].innerText;
-            addHiddenDiv('ii_metaKeywords', `${prodName.innerText + " " + varName}`);
-          }
-      }
       
       addHiddenDiv('ii_url', window.location.href);
-      addHiddenDiv('ii_sku', skuFromUrl);
+      // addHiddenDiv('ii_sku', skuFromUrl);
       
       collectNutritionInfo();
       collectBools();
@@ -190,11 +137,8 @@ module.exports = {
       collectBrand();
       collectManufDesc();
       collectIframe();
-      // collectKeywords();
     }, skuFromUrl);
     
-    // collectVariantNums();
-    // identifySections();
 
     async function variantClick() {
       let btns = await collectButtons();
@@ -253,7 +197,6 @@ module.exports = {
       return await context.evaluate(function(input) {
         let sel = document.querySelector(input)
         if(sel) {
-        // debugger
           // if(!sel.ariaLabel.includes("Out-of-stock")) {
             return true;
           } else {
@@ -275,8 +218,6 @@ module.exports = {
             document.body.appendChild(newDiv);
           }
         
-        // const variantOnDom = document.querySelector('div#ii_variantId');
-
         let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
         const regex1 = /[0-9]+$/g;
 
@@ -352,12 +293,10 @@ module.exports = {
       const variantRating = document.querySelector('div.css-1dbjc4n div.css-901oao.r-1enofrn.r-b88u0q.r-m2pi6t');
       const variantReview = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz a');
       const variantRatingText = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz section');
-      // const variantListPrice = document.querySelector('div.css-1dbjc4n.r-k8qxaj div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
       const variantListPrice = document.querySelector('div.css-1dbjc4n.r-1awozwy.r-18u37iz.r-1wtj0ep.r-13qz1uu div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
       const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
       const keyWordAdd = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
       const prodInfoLine = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
-// debugger
       const variantArray = [];
       const packSize = ['Pack: ', 'Group Size: '];
       const packSizeResult = [];
@@ -410,8 +349,9 @@ module.exports = {
         addHiddenDiv('ii_quantity', `${prodInfoLine.innerText}`);
         const regex1 = /[0-9]+$/g;
         let skuText = regex1.exec(prodInfoLine.innerText);
-        // debugger
-        addHiddenDiv('ii_sku', `${skuText[0]}`);
+        if(skuText) {
+          addHiddenDiv('ii_sku', `${skuText[0]}`);
+        }
       }
     
     });
