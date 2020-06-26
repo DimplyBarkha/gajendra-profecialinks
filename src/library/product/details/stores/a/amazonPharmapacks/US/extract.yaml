@@ -83,7 +83,7 @@ fields:
   - name: manufacturerDescription
     xpath: //div[@id="productDescription"]/p[text()]/text()|//div[@class="apm-hovermodule-slides-inner"]/h3|//div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: manufacturerImages
-    xpath: //div[@cel_widget_id="aplus"]//img/@src
+    xpath: //div[@cel_widget_id="aplus"]//img/@data-src
   - name: videos
     xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url
   - name: coupon
@@ -107,7 +107,7 @@ fields:
     regExpReplace: $1
   - name: salesRankCategory
     xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a
-    regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*$+-]{1,})
+    regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*,'$+-]{1,})
     regExpReplace: $1
   - name: subscriptionPrice
     xpath: //*[@id="sns-base-price"]
