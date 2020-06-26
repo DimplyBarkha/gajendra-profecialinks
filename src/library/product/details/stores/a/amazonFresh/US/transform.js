@@ -174,6 +174,13 @@ const transform = (data, context) => {
             }
           ];
         }
+        if (row.description) {
+          let text = ['']
+          row.description.forEach(item => {
+            text.push(item.text);
+          })
+          row.description = [{text: text.join(' || ').trim()}]
+        }
         if (row.amazonChoice) {
           if (row.amazonChoice[0].text.includes('Amazon')) {
             row.amazonChoice = [
@@ -208,7 +215,20 @@ const transform = (data, context) => {
           if(text.length>0){
             row.productOtherInformation = [
               {
-                text: text.join(' ')
+                text: text.join(' | ')
+              }
+            ]
+          }
+        }
+        if (row.additionalDescBulletInfo) {
+          let text = ['']
+          row.additionalDescBulletInfo.forEach(item => {
+            text.push(item.text)
+          })
+          if(text.length>0){
+            row.additionalDescBulletInfo = [
+              {
+                text: text.join(' || ').trim()
               }
             ]
           }

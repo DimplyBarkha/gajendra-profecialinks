@@ -29,7 +29,6 @@ async function implementation (
         }
       });
     }
-    
     async function additionalConfirmCheck () {
       return await context.evaluate(function () {
         const button = '.a-popover-footer input#GLUXConfirmClose';
@@ -262,7 +261,8 @@ async function implementation (
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log('#### of Variants:', allVariants.length);
   console.log('#### Variants:', allVariants);
-  for (let i = 0; i < allVariants.length; i++) {
+  // allVariants.length
+  for (let i = 0; i < 0; i++) {
     const id = allVariants[i];
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });

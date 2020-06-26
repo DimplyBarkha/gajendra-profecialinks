@@ -50,7 +50,7 @@ fields:
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     singleValue: false
-    xpath: //a[@id="bylineInfo"] | //div[contains(@id, "bylineInfo")]//*[contains(text(), "by")]
+    xpath: (//a[@id="bylineInfo"] | //div[contains(@id, "bylineInfo")]//*[contains(text(), "by")])[1]
     regExp: (?:by)? ?(.+)
     regExpReplace: $1
   - name: manufacturer
@@ -88,7 +88,7 @@ fields:
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text() | //*[contains(text(), "Directions")]/following-sibling::*[text()]/text()
   - name: warnings
     singleValue: false
-    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")])[1]
+    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")] | //*[contains(text(), "Warning")]/following-sibling::p)[1] 
   - name: ratingCount
     singleValue: false
     xpath: //div[@id="averageCustomerReviews_feature_div"]//*[@id="acrCustomerReviewText"]/text()
@@ -125,7 +125,7 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
+    xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text()
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src
@@ -370,7 +370,7 @@ fields:
     xpath: 
   - name: productOtherInformation
     singleValue: false
-    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))]
+    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))] | //div[@id="productDescription"]/p/text() 
   - name: packaging
     singleValue: true
     xpath: 
@@ -404,8 +404,8 @@ fields:
     singleValue: true
     xpath: 
   - name: additionalDescBulletInfo
-    singleValue: true
-    xpath: 
+    singleValue: false
+    xpath: //div[@id="productDescription"]/p/text() 
   - name: prop65Warning
     singleValue: true
     xpath: 
