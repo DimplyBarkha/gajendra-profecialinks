@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'amazon.com',
     prefix: null,
-    url: 'https://amazon.com/dp/{id}',
+    url: 'https://amazon.com/dp/{id}?th=1&psc=1',
     country: 'US',
     store: 'amazonApparel',
   },

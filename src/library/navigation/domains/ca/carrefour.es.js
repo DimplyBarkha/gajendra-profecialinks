@@ -5,6 +5,5 @@ module.exports = {
     domain: 'carrefour.es',
     country: 'ES',
     store: 'carrefour',
-    timeout: 50000,
   },
 };
