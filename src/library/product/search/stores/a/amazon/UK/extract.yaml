@@ -80,7 +80,7 @@ fields:
     type: NUMBER
   - name: rankOrganic
     singleValue: true
-    xpath:  //div[starts-with(@id,'ii_rank')]
+    xpath: //div[starts-with(@id,'ii_rank')]
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
@@ -95,11 +95,10 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     xpath: //span[contains(@aria-label,"stars")]/@aria-label
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
   - name: _url
     singleValue: true
-    xpath: 
+    xpath: //div[starts-with(@id,'ii_url')]
