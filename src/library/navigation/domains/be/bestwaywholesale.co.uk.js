@@ -58,7 +58,7 @@ module.exports = {
     await context.setInputValue('#account_number', ACCOUNT_ID);
 
     await context.click('input[name="submit"]');
-    await context.waitForNavigation();
+    await context.waitForNavigation({timeout: 50000, waitUntil: 'load'});
     await context.waitForFunction(function () {
       // @ts-ignore
       return document.querySelector('#username').value === 'supplierlogin@bestway.co.uk';
@@ -66,7 +66,7 @@ module.exports = {
     const ACCOUNT_PWD = 'bestway804';
     await context.setInputValue('#password', ACCOUNT_PWD);
     await context.click('#btn-login');
-    await context.waitForNavigation();
+    await context.waitForNavigation({timeout: 50000, waitUntil: 'load'});
 
     await clickPopup(context);
     await redirectToProductPage(context);
