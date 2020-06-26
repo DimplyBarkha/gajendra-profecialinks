@@ -21,6 +21,17 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (let row of group) {
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += `${item.text.replace(/\n[\n\s]{0,4}/g, ' : ')} || `;
+        });
+        row.specifications = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {
@@ -55,7 +66,7 @@ const transform = (data) => {
       }
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
-          item.text = cleanUp(item.text);
+          item.text = cleanUp(item.text.replace(/<img.{1,300}">/g, ''));
         });
       }
       if (row.promotion) {
