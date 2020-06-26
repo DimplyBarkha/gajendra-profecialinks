@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Samsung-Steam-Cook-with-Flex-Duo-Self-cleaning-True-Convection-Single-Electric-Wall-Oven-Fingerprint-Resistant-Fingerprint-Resistant-Black-Stainless-Steel-Common-30-Inch-Actual-28-in/1000133871
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=3a6528df-c933-4c5e-bbf5-d773613e0792/33417c77-d644-473a-8a98-7d95716cfc24.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=df4027ca-b006-4f0e-88f3-40042b909230/abffbb51-9a1e-41d7-92fe-07e004a8e7fe.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -15,15 +15,31 @@ extractions:
             brandText:
               - text: Samsung
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276181752.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung Single Electric Wall Ovens #NV51K7770SG"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276181752.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276181752_07731857.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276181752_07731855.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276181752_07731854.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/887276/887276181752_07731855lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276181752_07731854lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276181752_07731850lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276181752_07731856lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276181752_07731852lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276181752_07763419lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276181752_07763420lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276181752_07763418lg.jpg
+                xpath: /html/body/a[9]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276181752_15280468lg.jpg
+                xpath: /html/body/a[10]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -33,6 +49,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
               - text: Single Electric Wall Ovens
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $3,099.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $2,199.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: >-
                   Steam Cook - Delivers moisture at precise times for crisp,
@@ -53,45 +78,22 @@ extractions:
                   Wi-Fi enabled temperature probe let's you check the temperature of the roast from your phone
 
                   Signature LED Lights combine halogen and LED for a brighter interior, eliminating the need to open the door to check progress so that you can maintain a consistent temperature
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+            sku:
+              - text: "1000133871"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "732190"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: NV51K7770SG
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "4.0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[29]/div[2]
-            variantInformation:
-              - text: Fingerprint Resistant Black Stainless Steel
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276181752.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-            nameExtended:
-              - text: "Samsung Steam Cook with Flex Duo Self-cleaning True Convection Single
-                  Electric Wall Oven (Fingerprint-Resistant Fingerprint
-                  Resistant Black Stainless Steel) (Common: 30 Inch; Actual
-                  28-in)"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276181752.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Samsung Single Electric Wall Ovens #NV51K7770SG"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
             ratingCount:
               - text: "33"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Appliance Color/Finish
@@ -191,10 +193,106 @@ extractions:
                   Series Name
                   Steam Cook with Flex Duo
                   Smart Compatible
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[29]/div[2]
+            variantInformation:
+              - text: Fingerprint Resistant Black Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "11"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913071938
+              - text: "10"
+                xpath: /html/body/a[11]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Samsung-Steam-Cook-with-Flex-Duo-Self-cleaning-True-Convection-Single-Electric-Wall-Oven-Fingerprint-Resistant-Fingerprint-Resistant-Black-Stainless-Steel-Common-30-Inch-Actual-28-in/1000133871
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/887276181752_video_02
+                xpath: /html/body/a[12]/@href
+            nameExtended:
+              - text: "Samsung Steam Cook with Flex Duo Self-cleaning True Convection Single
+                  Electric Wall Oven (Fingerprint-Resistant Fingerprint
+                  Resistant Black Stainless Steel) (Common: 30 Inch; Actual
+                  28-in)"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: If your new Samsung 30" built-in wall oven or 30" or 36" cooktop doesn't
+                  fit the cabinet cut-out or countertop that houses your
+                  existing wall oven or cooktop of the same width and
+                  configuration, you'll receive up to $300 as a Visa® Reward
+                  Card toward a professional cabinet retrofit.ß
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: Bake, broil and roast with a cooking system that delivers moisture at the
+                  right times to ensure tenderness.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: A removable divider that converts one oven to two to cook multiple dishes
+                  at once.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[2]
+              - text: Helps reduce smudges for an everyday great appearance
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[2]
+              - text: Two powerful convection fans that circulate heat cooks food evenly and
+                  saves time.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[2]
+              - text: Distinctive blue LED lights illuminate when the oven is in use.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[2]
+              - text: Monitor and control the oven from anywhere.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[2]
+              - text: Provides the simplest access to food in the oven.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[2]
+              - text: Gourmet Cook is a pre-programmed recipe guide that helps you cook with
+                  consistently great results.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[2]
+              - text: >-
+                  NV51K7770S LIMITED WARRANTY TO ORIGINAL PURCHASER 
+                   This SAMSUNG brand product, as supplied and distributed by SAMSUNG ELECTRONICS AMERICA, INC. (SAMSUNG) and delivered new, in the original carton to the original consumer purchaser, is warranted by SAMSUNG against manufacturing defects in materials and workmanship for a limited warranty period of: 
+                   
+                   One Year Parts and Labor 
+                   
+                   This limited warranty begins on the original date of purchase, and is valid only on products purchased and used in the United States. To receive warranty service, the purchaser must contact SAMSUNG for problem determination and service procedures. Warranty service can only be performed by a SAMSUNG authorized service center. The original dated bill of sale must be presented upon request as proof of purchase to SAMSUNG or SAMSUNG?s authorized service center. Samsung will provide in-home service during the warranty period at no charge subject to availability within the contiguous United States. In home service is not available in all areas. To receive in home service, the product must be unobstructed and accessible to the service agent. If service is not available Samsung may elect to provide transportation of the product to and from an authorized service center. SAMSUNG will repair or replace this product, at our option and at no charge as stipulated herein, with new or reconditioned parts or products if found to be defective during the limited warranty period specified above. All replaced parts and products become the property of SAMSUNG and must be returned to SAMSUNG. Replacement parts and products assume the remaining original warranty, or ninety days, whichever is longer. 
+                   
+                   This limited warranty covers manufacturing defects in materials and workmanship encountered in normal, noncommercial use of this product and shall not apply to the following: damage which occurs in shipment; delivery and installation; applications and uses for which this product was not intended; altered product or serial numbers; cosmetic damage or exterior finish; accidents, abuse, neglect, fire, water, lightning or other acts of nature; use of products, equipment, systems, utilities, services, parts, supplies, accessories, applications, installations, repairs, external wiring or connectors not supplied or authorized by SAMSUNG which damage this product or result in service problems; incorrect electrical line voltage, fluctuations and surges; customer adjustments and failure to follow operating instructions, maintenance and environmental instructions that are covered and prescribed in the instruction book; product removal and reinstallation; problems caused by pest infestations, and overheating or overcooking by user. This limited warranty shall not cover cases of incorrect electric current, voltage or supply, light bulbs, house fuses, house wiring, cost of a service call for instructions, or fixing installation errors. SAMSUNG does not warrant uninterrupted or error-free operation of the product. 
+                   
+                   EXCEPT AS SET FORTH HEREIN THERE ARE NO WARRANTIES ON THIS PRODUCT EITHER EXPRESS OR IMPLIED AND SAMSUNG DISCLAIMS ALL WARRANTIES INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OF MERCHANTABILITY, INFRINGEMENT OR FITNESS FOR A PARTICULAR PURPOSE. NO WARRANTY OR GUARANTY GIVEN BY ANY PERSON, FIRM OR CORPORATION WITH RESPECT TO THIS PRODUCT SHALL BE BINDING ON SAMSUNG. SAMSUNG SHALL NOT BE LIABLE FOR LOSS OF REVENUE OR PROFITS, FAILURE TO REALIZE SAVINGS OR OTHER BENEFITS, OR ANY OTHER SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES CAUSED BY THE USE, MISUSE OR INABILITY TO USE THIS PRODUCT, REGARDLESS OF THE LEGAL THEORY ON WHICH THE CLAIM IS BASED, AND EVEN IF SAMSUNG HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. NOR SHALL RECOVERY OF ANY KIND AGAINST SAMSUNG BE GREATER IN AMOUNT THAN THE PURCHASE PRICE OF THE PRODUCT SOLD BY SAMSUNG AND CAUSING THE ALLEGED DAMAGE. WITHOUT LIMITING THE FOREGOING, PURCHASER ASSUMES ALL RISK AND LIABILITY FOR LOSS, DAMAGE OR INJURY TO PURCHASER AND PURCHASER?S PROPERTY AND TO OTHERS AND THEIR PROPERTY ARISING OUT OF THE USE, MISUSE OR INABILITY TO USE THIS PRODUCT. THIS LIMITED WARRANTY SHALL NOT EXTEND TO ANYONE OTHER THAN THE ORIGINAL PURCHASER OF THIS PRODUCT, IS NONTRANSFERABLE AND STATES YOUR EXCLUSIVE REMEDY. 
+                   
+                   Some provinces or territories may or may not allow limitations on how long an implied warranty lasts, or the exclusion or limitation of incidental or consequential damages, so the above limitations or exclusions may not apply to you. This warranty gives you specific legal rights, and you may also have other rights which vary from state to state. User Replaceable Parts may be sent to the customer for unit repair. If necessary, a Service Engineer can be dispatched to perform service. 
+                   
+                   NV51K7770S_AA_DG68-00857A-01_EN+MES+CFR.indb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564505504497_a491ff54-3bdb-4a66-b24f-d491606655b6/module/samsungus/_cp/products/nv51k7770sg-aa/tab-6b24312c-5dd0-41b3-b69e-2b71acc8daa2/resource-9fdde508-8b2a-47b1-b87e-7b7a75f50d73.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564505504497_a491ff54-3bdb-4a66-b24f-d491606655b6/module/samsungus/_cp/products/nv51k7770sg-aa/tab-6b24312c-5dd0-41b3-b69e-2b71acc8daa2/resource-e078cfb1-c4af-40d5-bc6e-44807d83f907.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564505504497_a491ff54-3bdb-4a66-b24f-d491606655b6/module/samsungus/_cp/products/nv51k7770sg-aa/tab-6b24312c-5dd0-41b3-b69e-2b71acc8daa2/resource-a91b351b-3d31-41d0-b8d3-46669955f893.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564505504497_a491ff54-3bdb-4a66-b24f-d491606655b6/module/samsungus/_cp/products/nv51k7770sg-aa/tab-6b24312c-5dd0-41b3-b69e-2b71acc8daa2/resource-372f3d2c-0797-46a9-98e7-43f3ed93e0b6.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564505504497_a491ff54-3bdb-4a66-b24f-d491606655b6/module/samsungus/_cp/products/nv51k7770sg-aa/tab-6b24312c-5dd0-41b3-b69e-2b71acc8daa2/resource-5212c29e-e237-4e3f-8b03-c9c89a1e56f0.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564505504497_a491ff54-3bdb-4a66-b24f-d491606655b6/module/samsungus/_cp/products/nv51k7770sg-aa/tab-6b24312c-5dd0-41b3-b69e-2b71acc8daa2/resource-eb371deb-1275-4450-b481-1f4e19e7bd22.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564505504497_a491ff54-3bdb-4a66-b24f-d491606655b6/module/samsungus/_cp/products/nv51k7770sg-aa/tab-6b24312c-5dd0-41b3-b69e-2b71acc8daa2/resource-7f3d2310-0cee-403c-885e-e3fb32a41d47.png
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564505504497_a491ff54-3bdb-4a66-b24f-d491606655b6/module/samsungus/_cp/products/nv51k7770sg-aa/tab-6b24312c-5dd0-41b3-b69e-2b71acc8daa2/resource-7cdb7beb-e1dd-47f5-bd45-7c159d386836.png
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564505504497_a491ff54-3bdb-4a66-b24f-d491606655b6/module/samsungus/_cp/products/nv51k7770sg-aa/tab-6b24312c-5dd0-41b3-b69e-2b71acc8daa2/resource-f3e32163-755d-440d-9605-fcd4e8eb84aa.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "887276181752"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Fingerprint Resistant Black Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 29% Offer ends on Jul 8
+            variantCount:
+              - text: "2"
+        xpath: /
+    timestamp: 1593188683171

@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/GE-24-in-Self-cleaning-Single-Gas-Wall-Oven-Black/3236252
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=41873f56-2bad-41f3-9a10-65770c6268cd/b35d2877-0a5e-4bf6-88b2-b3a0aff85556.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=0c31a42b-156c-484b-9230-ca52952034e8/0312c798-90a8-4d6e-9624-9b9d58b070e0.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -12,15 +12,19 @@ extractions:
             brandText:
               - text: GE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/084691/084691098768.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "GE Gas Wall Ovens #JGRP20BEJBB"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691098768.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691098768_03545096.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691098768_03545097.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691098768_03545098.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/084691/084691098768_03545097lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691098768_03545098lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691098768_03545099lg.jpg
+                xpath: /html/body/a[4]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -28,6 +32,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
               - text: Gas Wall Ovens
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $1,649.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $1,484.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: >-
                   Self-clean oven - self-clean allows you to spare yourself from
@@ -44,42 +57,22 @@ extractions:
                   Multiple oven rack positions - several positions allow you to adjust the oven racks to accommodate any size cookware
 
                   Frameless glass oven door - simple and stylish frameless glass door creates an elegant look that blends into cabinetry, and is easy to wipe clean
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+            sku:
+              - text: "3236252"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "259333"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: JGRP20BEJBB
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "4.0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[29]/div[2]
-            variantInformation:
-              - text: Black
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691098768.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-            nameExtended:
-              - text: GE 24-in Self-cleaning Single Gas Wall Oven (Black)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691098768.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "GE Gas Wall Ovens #JGRP20BEJBB"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "7"
             ratingCount:
               - text: "248"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Appliance Color/Finish
@@ -177,10 +170,39 @@ extractions:
                   CSA safety listing
                   Sub-Brand
                   N/A
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[29]/div[2]
+            variantInformation:
+              - text: Black
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "5"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913059706
+              - text: "4"
+                xpath: /html/body/a[5]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/GE-24-in-Self-cleaning-Single-Gas-Wall-Oven-Black/3236252
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/084691098768_video_01
+                xpath: /html/body/a[6]/@href
+            nameExtended:
+              - text: GE 24-in Self-cleaning Single Gas Wall Oven (Black)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            gtin:
+              - text: "084691098768"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Black
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "7"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "3"
+        xpath: /
+    timestamp: 1593187832071

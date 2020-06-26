@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Samsung-Food-Showcase-27-8-cu-ft-French-Door-Refrigerator-with-Ice-Maker-and-Door-within-Door-Fingerprint-Resistant-Stainless-Steel-ENERGY-STAR/1001055056
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=fef20427-0435-4cb6-9775-3ac48909bab6/bc545319-95a0-4d02-8dad-e0bd18b43b6f.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=3e7ca72c-708e-4dfc-ba40-1399f4174306/05da8d44-c3f7-4232-a2e5-3f8060bddd6c.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -14,15 +14,29 @@ extractions:
             brandText:
               - text: Samsung
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276341415.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung French Door Refrigerators #RF28R6301SR"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276341415.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276341415.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276341415_11104218.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276341415_11104219.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/887276/887276341415_11104219lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276341415_11104220lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276341415_11104221lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276341415_11104222lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276341415_11104223lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276341415_11104224lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276341415_11104225lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276341415_11104217lg.jpg
+                xpath: /html/body/a[9]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -30,12 +44,21 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
               - text: French Door Refrigerators
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $2,999.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $1,999.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: A full depth refrigerator that is beautifully designed, with a minimal
                   dispenser, sleek-edge doors, and modern handles. The food
                   Showcase Door provides quick access to on-the-go items. Now
                   available in beautiful new Tuscan Stainless.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   Food Showcase: Provides quick access to everyday items while
                   minimizing the loss of cool air
@@ -55,44 +78,22 @@ extractions:
                   Adjustable Shelves: Adjustable shelves go from standard to slide-in or flip-up, to fit taller items
 
                   #1 Preferred Refrigeration Brand according to the US Market Research Company TraQline
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1001055056"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "887926"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: RF28R6301SR
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[37]/div[2]
-            variantInformation:
-              - text: Fingerprint Resistant Stainless Steel
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276341415.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-            nameExtended:
-              - text: Samsung Food Showcase 27.8-cu ft French Door Refrigerator with Ice Maker
-                  and Door within Door (Fingerprint-Resistant Stainless Steel)
-                  ENERGY STAR
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276341415.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Samsung French Door Refrigerators #RF28R6301SR"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
             ratingCount:
               - text: "80"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Series Name
@@ -221,10 +222,105 @@ extractions:
                   52141500
                   Approved for Outdoor Use
                   See-Thru Door
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[37]/div[2]
+            variantInformation:
+              - text: Fingerprint Resistant Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "10"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913066081
+              - text: "9"
+                xpath: /html/body/a[10]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Samsung-Food-Showcase-27-8-cu-ft-French-Door-Refrigerator-with-Ice-Maker-and-Door-within-Door-Fingerprint-Resistant-Stainless-Steel-ENERGY-STAR/1001055056
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/887276341415_video_06
+                xpath: /html/body/a[11]/@href
+            nameExtended:
+              - text: Samsung Food Showcase 27.8-cu ft French Door Refrigerator with Ice Maker
+                  and Door within Door (Fingerprint-Resistant Stainless Steel)
+                  ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: Provides quick access to everyday items while minimizing the loss of cool
+                  air.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: A built-in pitcher that automatically refills with filtered water and the
+                  option to infuse with a flavor of your choice.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: The stainless steel paneling helps maintain consistent temperature
+                  throughout the refrigerator.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[2]
+              - text: Independent fridge and freezer controls keep food fresher longer.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[2]
+              - text: Full-width drawer with three temperature control settings to chill or
+                  defrost food to ideal temperatures.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[2]
+              - text: Large capacity, stores up to 4.2 lbs. of ice.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[2]
+              - text: A special finish to reduce smudges and minimize cleaning.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[2]
+              - text: Use your smartphone to control the temperature and monitor your
+                  refrigerator remotely.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[2]
+              - text: Adjustable shelves go from standard to slide-in or flip-up, to fit taller
+                  items.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[2]
+              - text: LED lighting designed to beautifully light up the interior of your fridge
+                  so you're able to quickly spot what you want.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[2]
+              - text: Easy to reach controls for everyone.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[2]
+              - text: Eco-friendly and energy-efficient.1
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[2]
+              - text: Check to make sure your appliance will fit and that your home is
+                  accessible for delivery.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf23r6301sr-aa/features/food_showcase_6301sr.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf28r6301/07192019/auto-fill-water-ped31a614.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf23r6301sr-aa/features/metal_cooling_6301sr.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf23r6301sr-aa/features/twin_cooling54349278.gif.w480.gif
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf23r6301sr-aa/features/cool_select_2582070d.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf23r6301sr-aa/features/ice_max_6301sr.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/4-door-french-door/pdp/rf28r7351sr-aa/featurebenefits/aw3_re1ba2140.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf23r6301sr-aa/features/wi-fi_bixby_fd0dcd51.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/4-door-french-door/pdp/rf28r7351sg-aa/gallery/rf28r7351sg-ab2987fd8.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf23r6301sr-aa/features/high-led-efficiency.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf23r6301sr-aa/features/easy_to_reac8a14e69c.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/refrigerators/3-door-french-door/pdp/rf23r6301sr-aa/features/energystar.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/category-reference/delivery-fb-full-bleed/dt-revised-delivery.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "887276341415"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Fingerprint Resistant Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 33% Offer ends on Jul 8
+            variantCount:
+              - text: "5"
+        xpath: /
+    timestamp: 1593188955750

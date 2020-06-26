@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/GE-1-9-cu-ft-Over-the-Range-Microwave-with-Sensor-Cooking-Black/1000106585
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=57625d56-f098-4b96-8e0e-7dbd5521d34d/2b4c17c4-a606-44a8-8998-3bfd2b89b2c1.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=401c0f87-d817-4fcc-9b81-b826ad59a105/bb00265d-4606-466f-b0d5-393e95c129ed.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -12,15 +12,25 @@ extractions:
             brandText:
               - text: GE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/084691/084691818557.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "GE Over-the-Range Microwaves #JVM7195DKBB"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691818557_05499159.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691818557_05499160.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691818557_05499162.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691818557_05499163.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/084691/084691818557_05499160lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691818557_05499162lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691818557_05499163lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691818557_05499155lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691818557_05499156lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691818557_05499157lg.jpg
+                xpath: /html/body/a[7]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -28,6 +38,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
               - text: Over-the-Range Microwaves
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $419.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $377.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: >-
                   1.9 cu ft capacity - 1000 watts (IEC-705 test procedure)
@@ -47,39 +66,22 @@ extractions:
                   Recessed turntable with on/off - controls turntable operation
 
                   Sensor cooking controls - automatically adjusts time and power for delicious cooking results
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+            sku:
+              - text: "1000106585"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "731554"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: JVM7195DKBB
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            ratingCount:
+              - text: "3271"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
             aggregateRating:
               - text: "4.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[24]/div[2]
-            variantInformation:
-              - text: Black
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
-            nameExtended:
-              - text: GE 1.9-cu ft Over-the-Range Microwave with Sensor Cooking (Black)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691818557.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "GE Over-the-Range Microwaves #JVM7195DKBB"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
-            ratingCount:
-              - text: "3263"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Sub-Brand
@@ -183,10 +185,52 @@ extractions:
                   UL safety listing
                   Wattage
                   1000
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[24]/div[2]
+            variantInformation:
+              - text: Black
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "8"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913071623
+              - text: "7"
+                xpath: /html/body/a[8]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/GE-1-9-cu-ft-Over-the-Range-Microwave-with-Sensor-Cooking-Black/1000106585
+                xpath: /html/head[1]/link[5]/@href
+            nameExtended:
+              - text: GE 1.9-cu ft Over-the-Range Microwave with Sensor Cooking (Black)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: Makes cleaning spills and splatters a snap
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: Worry-free melting of butter, caramel, chocolate and cheese
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: Automatically adjusts time and power for delicious cooking results
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1581431236308_46fb1b5d-3ac2-4712-8b98-6b7650be43f2/module/geappliance/_cp/products/1473954702809/tab-d00efd9e-f528-404a-8b59-a683907c8eed/70b98d1d-4250-4f7e-83ff-3020a37fc9c2.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1581431236308_46fb1b5d-3ac2-4712-8b98-6b7650be43f2/module/geappliance/_cp/products/1473954702809/tab-d00efd9e-f528-404a-8b59-a683907c8eed/e2d3d806-fdf2-4dbd-9887-5472c735d0fb.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1581431236308_46fb1b5d-3ac2-4712-8b98-6b7650be43f2/module/geappliance/_cp/products/1473954702809/tab-d00efd9e-f528-404a-8b59-a683907c8eed/dbef88c9-3508-439f-99b3-77f1360dd762.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "084691818557"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Black
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "6"
+        xpath: /
+    timestamp: 1593188761642

@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Samsung-1-8-cu-ft-Over-the-Range-Microwave-with-Sensor-Cooking-Black/50170425
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=f2ac3519-8c1c-4aac-aded-83b6d9f36163/dafc807a-86f2-440b-a429-f0d3f46fad75.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=7dfbae32-5e68-4599-8d43-8bbece239c90/acf60f4d-9cc4-44e0-b4b2-a43fdd676bb2.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -12,15 +12,31 @@ extractions:
             brandText:
               - text: Samsung
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung Over-the-Range Microwaves #ME18H704SFB"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179_03741607.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179_03741608.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179_03741609.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179_04099207.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/887276/887276690179_03741608lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276690179_03741609lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276690179_04099207lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276690179_04099203lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276690179_04099204lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276690179_04099205lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276690179_04099206lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276690179_08506560lg.jpg
+                xpath: /html/body/a[9]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276690179_11878474lg.jpg
+                xpath: /html/body/a[10]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -62,32 +78,12 @@ extractions:
             mpc:
               - text: ME18H704SFB
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            ratingCount:
+              - text: "1210"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
             aggregateRating:
               - text: "4.0"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[23]/div[2]
-            variantInformation:
-              - text: Black
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
-            nameExtended:
-              - text: Samsung 1.8-cu ft Over-the-Range Microwave with Sensor Cooking (Black)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276690179.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Samsung Over-the-Range Microwaves #ME18H704SFB"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
-            ratingCount:
-              - text: "1209"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
             specifications:
               - text: |-
                   Sub-Brand
@@ -192,9 +188,140 @@ extractions:
                   Wattage
                   1000
                 xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[23]/div[2]
+            variantInformation:
+              - text: Black
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "11"
+              - text: "10"
+                xpath: /html/body/a[11]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Samsung-1-8-cu-ft-Over-the-Range-Microwave-with-Sensor-Cooking-Black/50170425
+                xpath: /html/head[1]/link[5]/@href
+            nameExtended:
+              - text: Samsung 1.8-cu ft Over-the-Range Microwave with Sensor Cooking (Black)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/h1[1]
+              - text: The durable Ceramic Enamel Interior provides a polished surface that's
+                  easy to maintain. You can effortlessly remove grease or oil
+                  from surfaces. Plus, this interior is more scratch and stain
+                  resistant than plastic or stainless steel.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: Whether it’s the soup you just bought, last night’s leftover pasta, or a
+                  frozen dinner, Sensor Cook does the thinking for you so that
+                  you get optimally heated results every time.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: Convenient, easy-to-access location is simple to eject with one touch.
+                  Plus, the reusable filter is easily washable with mild soap
+                  and water. Regular cleaning is necessary to maintain optimal
+                  microwave performance.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[2]
+              - text: The 1.8 cu. ft. capacity of this microwave accommodates a variety of large
+                  platters and dishes which typically do not fit in the average,
+                  mid-size 1.5 cu. ft. microwave.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[2]
+              - text: The underside of the H704 over-the-range microwave features a powerful
+                  ventilation system that quickly and quietly eliminates steam,
+                  fumes and odors from the kitchen. The nearly silent system
+                  clears the air with 400 cubic feet per minute of turbo
+                  ventilation.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[2]
+              - text: See things more clearly on the new Samsung over-the-range. With a large
+                  LED display, settings and timing are clearly visible for
+                  greater cooking convenience. The digital display's striking
+                  ice blue color provides a stylish accent to enhance any
+                  kitchen interior.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[2]
+              - text: A variety of preset cooking options puts convenient meals with fresh
+                  ingredients at your fingertips. Choose from 9 pre-set cook
+                  modes on this Samsung over-the-range microwave for optimally
+                  cooked homemade dishes - from green beans to brown rice,
+                  boneless chicken to salmon fillets - that are healthly and
+                  full of flavor.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[2]
+              - text: Even at rest, conventional over-the-range microwaves use power to maintain
+                  essential functions. Our Eco Mode button conserves power by
+                  turning off the display when not in use and is more convenient
+                  than unplugging the microwave when not in use.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[2]
+              - text: The new Samsung H704 over-the-range microwave offers the option to disable
+                  the turntable, for the ability to utilize the entire interior
+                  space to accommodate larger square-shaped dishes.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[2]
+              - text: Check to make sure your appliance will fit and that your home is
+                  accessible for delivery.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[2]
+              - text: >-
+                  ME18H704SF LIMITED WARRANTY TO ORIGINAL PURCHASER 
+                   This SAMSUNG brand product, as supplied and distributed by Samsung Electronics America, Inc. (SAMSUNG) and delivered new, in the original carton to the original consumer purchaser, is warranted by SAMSUNG against manufacturing defects in materials and workmanship for a limited warranty period of: 
+                   
+                   ONE YEAR PARTS AND LABOR, 
+                   
+                   TEN YEARS PARTS WARRANTY FOR MAGNETRON 
+                   
+                   Samsung will charge a repair fee for replacing an accessory or repairing a cosmetic defect if the damage to the unit and/or damage to or loss of the accessory was caused by the customer. Items this stipulation covers include: 
+                   
+                   - A Dented, Scratched, or Broken Door, Handle, Out-Panel, or Control Panel 
+                   
+                   - A Broken or missing Tray, Guide Roller, Coupler, Filter, or Wire Rack 
+                   
+                   User Replaceable Parts may be sent to the customer for unit repair. If necessary, a Service Engineer can be dispatched to perform service. 
+                   
+                   This limited warranty begins on the original date of purchase, and is valid only on products purchased and used in the United States. To receive warranty service, the purchaser must contact SAMSUNG for problem determination and service procedures. Warranty service can only be performed by a SAMSUNG authorized service center. The original dated bill of sale must be presented upon request as proof of purchase to SAMSUNG or SAMSUNG?s authorized service center. 
+                   
+                   SAMSUNG will repair or replace this product, at our option and at no charge as stipulated herein, with new or reconditioned parts or products if found to be defective during the limited warranty period specified above. All replaced parts and products become the property of SAMSUNG and must be returned to SAMSUNG. Replacement parts and products assume the remaining original warranty, or ninety days, whichever is longer. 
+                   
+                   In-home service will be provided during the warranty labor period subject to availability within the contiguous United States. In-home service is not available in all areas. To receive in-home service, the product must be unobstructed and accessible to service personnel. If during in-home service repair can not be completed, it may be necessary to remove, repair and return the product. If in-home service is unavailable, SAMSUNG may elect, at our option, to provide for transportation of our choice to and from a SAMSUNG authorized service center. Otherwise, transportation to and from the SAMSUNG authorized service center is the responsibility of the purchaser. 
+                   
+                   This limited warranty covers manufacturing defects in materials and workmanship encountered in normal, noncommercial use of this product and shall not apply to the following, including, but not limited to: damage which occurs in shipment; delivery and installation; applications and uses for which this product was not intended; altered product or serial numbers; cosmetic damage or exterior finish; accidents, abuse, neglect, fire, water, lightning or other acts of nature; use of products, equipment, systems, utilities, services, parts, supplies, accessories, applications, installations, repairs, external wiring or connectors not supplied or authorized by SAMSUNG which damage this product or result in service problems; incorrect electrical line voltage, fluctuations and surges; customer adjustments and failure to follow operating instructions, cleaning, maintenance and environmental instructions that are covered and prescribed in the instruction book; problems caused by pest infestations, and overheating or overcooking by user; glass tray or turntable; reduced magnetron power output related to normal aging. SAMSUNG does not warrant uninterrupted or error-free operation of the product. 
+                   
+                   THERE ARE NO EXPRESS WARRANTIES OTHER THAN THOSE LISTED AND DESCRIBED ABOVE, AND NO WARRANTIES WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, SHALL APPLY AFTER THE EXPRESS WARRANTY PERIODS STATED ABOVE, AND NO OTHER EXPRESS WARRANTY OR GUARANTY GIVEN BY ANY PERSON, FIRM OR CORPORATION WITH RESPECT TO THIS PRODUCT SHALL BE BINDING ON SAMSUNG. SAMSUNG SHALL NOT BE LIABLE FOR LOSS OF REVENUE OR PROFITS, FAILURE TO REALIZE SAVINGS OR OTHER BENEFITS, OR ANY OTHER SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES CAUSED BY THE USE, MISUSE OR INABILITY TO USE THIS PRODUCT, REGARDLESS OF THE LEGAL THEORY ON WHICH THE CLAIM IS BASED, AND EVEN IF SAMSUNG HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. NOR SHALL RECOVERY OF ANY KIND AGAINST SAMSUNG BE GREATER IN AMOUNT THAN THE PURCHASE PRICE OF THE PRODUCT SOLD BY SAMSUNG AND CAUSING THE ALLEGED DAMAGE. WITHOUT LIMITING THE FOREGOING, PURCHASER ASSUMES ALL RISK AND LIABILITY FOR LOSS, DAMAGE OR INJURY TO PURCHASER AND PURCHASER?S PROPERTY AND TO OTHERS AND THEIR PROPERTY ARISING OUT OF THE USE, MISUSE OR INABILITY TO USE THIS PRODUCT SOLD BY SAMSUNG NOT CAUSED DIRECTLY BY THE NEGLIGENCE OF SAMSUNG. THIS LIMITED WARRANTY SHALL NOT EXTEND TO ANYONE OTHER THAN THE ORIGINAL PURCHASER OF THIS PRODUCT, IS NONTRANSFERABLE AND STATES YOUR EXCLUSIVE REMEDY. 
+                   
+                   Some provinces or territories may or may not allow limitations on how long an implied warranty lasts, or the exclusion or limitation of incidental or consequential damages, so the above limitations or exclusions may not apply to you. This warranty gives you specific legal rights, and you may also have other rights which vary from state to state. 
+                   
+                   ME18H704SF_AA_AC_EN.indd
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-d6eac033-11f6-4043-864e-1bec02652fd1.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-d5979339-a21b-423d-8d5a-4b92a6dc07fe.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-aa064144-9ff7-4460-a7d9-bddfda9397fc.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-97106eb1-dd98-4eb5-812e-7a56bf756e12.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-869755fe-c926-4b4f-9b02-efd9d1565c15.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-2d52e812-cb0a-4f82-82f5-8a8fc494ab07.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-62673d6c-20f8-43e1-91e3-fac5dc09ca84.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-89026133-e6af-4dd8-b918-e64366987b3c.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-99864089-7808-4a46-9d95-79892e383dfe.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564503087983_f5136014-b9b1-405d-9fb4-2d3252536bb3/module/samsungus/_cp/products/me18h704sfb-aa/tab-befa3d2c-65c5-49a1-917a-13b9efe82fb4/resource-a4134447-7798-4cae-94a8-238da88a7d5d.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "887276690179"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Black
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             availabilityText:
               - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913073922
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: ""
+            variantCount:
+              - text: "3"
+        xpath: /
+    timestamp: 1593187776661

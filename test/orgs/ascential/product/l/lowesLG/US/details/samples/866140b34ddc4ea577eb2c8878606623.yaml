@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Samsung-30-in-5-Burners-Stainless-Steel-Gas-Cooktop-Common-30-in-Actual-30-in/1000522399
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=bc383cbf-9003-4c17-922f-e64d0d7d83e4/34c8479b-1b03-46ce-9942-7eb1f2e96155.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=5783f346-97cb-4ff1-a56b-5a55ced8a8bb/40db9b8d-8d70-47cd-9df7-419dcef06686.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,19 @@ extractions:
             brandText:
               - text: Samsung
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276281681.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung Gas Cooktops #NA30N6555TS"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276281681_09476826.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276281681_09476823.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276281681_09476822.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276281681_15280469.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/887276/887276281681_09476823lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276281681_09476822lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276281681_15280469lg.jpg
+                xpath: /html/body/a[4]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -29,6 +33,12 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
               - text: Gas Cooktops
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $1,399.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $999.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
             description:
               - text: The Samsung gas cooktop offers a full range of burners for all of your
                   cooking needs. The Samsung gas cooktop offers powerful cooking
@@ -36,7 +46,7 @@ extractions:
                   favorite breakfast foods or hot sandwiches prepared on the
                   griddle. Distinctive blue LED illuminated knobs let you know
                   if your cooktop is on, even from a distance.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   19K Power burner - powerful burner boils water fast
 
@@ -55,40 +65,22 @@ extractions:
                   Continuous cast iron grates have a sleek smooth design
 
                   Front linear controls are front and center and easy to reach
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000522399"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "819738"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: NA30N6555TS
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[30]/div[2]
-            variantInformation:
-              - text: Stainless Steel
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            nameExtended:
-              - text: "Samsung 30-in 5 Burners Stainless Steel Gas Cooktop (Common: 30-in;
-                  Actual: 30-in)"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276281681.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Samsung Gas Cooktops #NA30N6555TS"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
             ratingCount:
               - text: "35"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Common Cooktop Size
@@ -198,10 +190,68 @@ extractions:
                   CSA safety listing
                   Series Name
                   N/A
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[30]/div[2]
+            variantInformation:
+              - text: Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "5"
+              - text: "4"
+                xpath: /html/body/a[5]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Samsung-30-in-5-Burners-Stainless-Steel-Gas-Cooktop-Common-30-in-Actual-30-in/1000522399
+                xpath: /html/head[1]/link[5]/@href
+            nameExtended:
+              - text: "Samsung 30-in 5 Burners Stainless Steel Gas Cooktop (Common: 30-in;
+                  Actual: 30-in)"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/h1[1]
+              - text: With two heat options, quickly boil water or maintain a simmer.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: Distinctive blue LED lights illuminate when the cooktop is in use.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: Monitor your cooktop from anywhere.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[2]
+              - text: Use the griddle to cook breakfast foods, grill sandwiches or sauté
+                  vegetables.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[2]
+              - text: Three cast iron grates allow for quick and easy clean up.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[2]
+              - text: Sealed burners offer powerful heat for cooking, and make cleaning easy.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/cooktops-and-hoods/gas/pd/na30k6550tg-aa/features/na9300k-na36k7750tg-19kb4b3a20b.png.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/cooktops-and-hoods/gas/pd/na30n6555tg/cooktop_6550_blue_illuminatedknob_sd76c275f.png.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/cooktops-and-hoods/gas/pd/na30k6550ts-aa/features/6550_wifi_110716.png.w480.png
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/cooktops-and-hoods/gas/pd/na30k6550ts-aa/features/6550_griddle_110716.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/cooktops-and-hoods/gas/pd/na30n6555tg/na36k6550ts_na30k6550ts_castiron3p8297c3e2.jpeg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/cooktops-and-hoods/gas/pd/na30n6555tg/reference_sealed-burners_08-14-2017.jpeg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "887276281681"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             availabilityText:
               - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913150809
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 28% Offer ends on Jul 8
+            variantCount:
+              - text: "4"
+        xpath: /
+    timestamp: 1593188684786

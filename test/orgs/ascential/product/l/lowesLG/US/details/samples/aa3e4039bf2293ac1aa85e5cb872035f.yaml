@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Samsung-StormWash-48-Decibel-Filtration-Built-In-Dishwasher-Fingerprint-Resistant-Black-Stainless-Steel-Common-24-in-Actual-23-875-in-ENERGY-STAR/1000978796
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=fd5c1606-958d-4b81-ab32-c025cc4a8e33/083f026d-dbb9-4fae-8381-54dddd8d8ba5.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=3fecf09b-17a6-47be-9ba3-4ead94973b22/76184431-cc2d-4454-aef3-52664cd03efb.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,29 @@ extractions:
             brandText:
               - text: Samsung
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276338712.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung Built-In Dishwashers #DW80R5061UG"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276338712_11181003.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276338712_11181004.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276338712_11181005.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276338712_11181006.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/887276/887276338712_11181004lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276338712_11181005lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276338712_11181006lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276338712_11181007lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276338712_11181008lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276338712_11181009lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276338712_11181010lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276338712_11181002lg.jpg
+                xpath: /html/body/a[9]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -29,6 +43,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
               - text: Built-In Dishwashers
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $899.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $649.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: Heavy duty StormWash is beautifully designed with a flat handle and has
                   powerful rotating spray jets that clean at every angle for
@@ -37,7 +60,7 @@ extractions:
                   automatically open to circulate air and improve drying
                   performance, while the third rack provides additional loading
                   capacity.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   StormWash: Powerful rotating spray jets that clean at every
                   angle for tough to reach spots
@@ -57,40 +80,22 @@ extractions:
                   6 Wash Cycles and 6 Options let you adjust the pressure and temperature
 
                   Hidden heating element helps protect plastic, while the Auto Release door improves drying performance
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000978796"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "1410556"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: DW80R5061UG
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            ratingCount:
+              - text: "138"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
             aggregateRating:
               - text: "3.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[38]/div[2]
-            variantInformation:
-              - text: Fingerprint Resistant Black Stainless Steel
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            nameExtended:
-              - text: Samsung StormWash 48-Decibel Top Control 24-in Built-In Dishwasher
-                  (Fingerprint-Resistant Black Stainless Steel) ENERGY STAR
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276338712.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Samsung Built-In Dishwashers #DW80R5061UG"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
-            ratingCount:
-              - text: "137"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Common Dishwasher Size
@@ -221,10 +226,69 @@ extractions:
                   Fan Assisted Dry
                   Mineral Assisted Dry
                   Smart Compatible
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[38]/div[2]
+            variantInformation:
+              - text: Fingerprint Resistant Black Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "10"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913064347
+              - text: "9"
+                xpath: /html/body/a[10]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Samsung-StormWash-48-Decibel-Filtration-Built-In-Dishwasher-Fingerprint-Resistant-Black-Stainless-Steel-Common-24-in-Actual-23-875-in-ENERGY-STAR/1000978796
+                xpath: /html/head[1]/link[5]/@href
+            nameExtended:
+              - text: Samsung StormWash 48-Decibel Top Control 24-in Built-In Dishwasher
+                  (Fingerprint-Resistant Black Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: Powerful rotating spray jets that clean at every angle for tough to reach
+                  spots.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: Silent washes for a quieter kitchen at 48 dBA sound level.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: At the end of the cycle, the door automatically opens to circulate air and
+                  improve drying performance.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[2]
+              - text: 3rd rack provides extra space to load additional utensils and silverware.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[2]
+              - text: Fingerprint resistant exterior helps reduce smudges for an everyday great
+                  appearance.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[2]
+              - text: Easily adjustable upper rack maximizes space when you are washing tall
+                  items.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/dishwashers/rotary/pdp/dw80k5050ug-aa/dw80k5050us_main01.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/dishwashers/rotary/pdp/dw80r5061u_-aa/quiet-cleaning.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/dishwashers/rotary/pdp/dw80k5050ug-aa/112117/screenshot2017-11-21.png.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/dishwashers/rotary/pdp/dw80r5060ug/fb/dw80k7050us-feature3-3rd-rack-1104.png.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/dishwashers/rotary/pdp/dw80r5060ug/fb/aw3_rf28r7351sr_04_tuscan-stainless6d29a028.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/samsungus-20200423131823/module/samsungus/s2/home/home-appliances/dishwashers/rotary/pdp/dw80r5061u_-aa/adjustable_rack.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "887276338712"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Fingerprint Resistant Black Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 27% Offer ends on Jul 8
+            variantCount:
+              - text: "5"
+        xpath: /
+    timestamp: 1593187766189

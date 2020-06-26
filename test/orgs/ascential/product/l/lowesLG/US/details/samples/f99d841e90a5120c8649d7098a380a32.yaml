@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/GE-Smooth-Surface-4-Elements-5-3-cu-ft-Self-Cleaning-Freestanding-Electric-Range-White-Common-30-in-Actual-29-875-in/1000014250
 extractions:
-  - html: https://workbench.import.io/html/run=ab0e6976-9a62-4d0d-8950-cb964682b6de/task=1561d2df-1b0f-4137-a56f-6c6718099658/873d11de-90d6-4208-8d37-b36382c0adce.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=aed24dbb-78af-4362-9ca6-509cc7dd575b/28f8e16a-f335-49ab-8276-73e60f22960c.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,33 @@ extractions:
             brandText:
               - text: GE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/084691/084691819318.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "GE Single Oven Electric Ranges #JB645DKWW"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819318.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819318.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819318_05448667.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819318_05448668.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/084691/084691819318_05448668lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819318_05448669lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819318_05448670lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819318_05448659lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819318_05448660lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819318_05448662lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819318_05448663lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819318_05448664lg.jpg
+                xpath: /html/body/a[9]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819318_10662433lg.jpg
+                xpath: /html/body/a[10]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819318_10662434lg.jpg
+                xpath: /html/body/a[11]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -31,6 +49,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
               - text: Single Oven Electric Ranges
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $659.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $539.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: Add this freestanding electric range from GE to your kitchen for all of
                   your baking and boiling needs. Two PowerBoil elements provide
@@ -46,7 +73,7 @@ extractions:
                   it’s time to tidy things up, store your pots, pans and kitchen
                   accessories in the full-width removable storage door to keep
                   your work space organized and uncluttered.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   5.3-cu ft capacity oven accommodates several dishes at once
                   for ease and convenience
@@ -66,43 +93,22 @@ extractions:
                   Removable storage drawer is a handy place to keep pots, pans and kitchen accessories
 
                   White exterior adds a fresh, bright look to your kitchen
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000014250"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "784508"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: JB645DKWW
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            ratingCount:
+              - text: "4987"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
             aggregateRating:
               - text: "4.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]
-            variantInformation:
-              - text: White
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819318.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-            nameExtended:
-              - text: "GE Smooth Surface 4 Elements 5.3-cu ft Self-Cleaning Freestanding
-                  Electric Range (White) (Common: 30-in; Actual: 29.875-in)"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819318.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "GE Single Oven Electric Ranges #JB645DKWW"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
-            ratingCount:
-              - text: "4967"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Sub-Brand
@@ -239,10 +245,52 @@ extractions:
                   Safety Listing
                   UL safety listing
                   Smart Compatible
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]
+            variantInformation:
+              - text: White
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "12"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592910900043
+              - text: "11"
+                xpath: /html/body/a[12]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/GE-Smooth-Surface-4-Elements-5-3-cu-ft-Self-Cleaning-Freestanding-Electric-Range-White-Common-30-in-Actual-29-875-in/1000014250
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/084691819318_video_01
+                xpath: /html/body/a[13]/@href
+              - text: https://lda.lowes.com/is/content/Lowes/084691819318_video_02
+                xpath: /html/body/a[14]/@href
+            nameExtended:
+              - text: "GE Smooth Surface 4 Elements 5.3-cu ft Self-Cleaning Freestanding
+                  Electric Range (White) (Common: 30-in; Actual: 29.875-in)"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1592844220708_d88dbad4-d458-49de-9ce6-c376d7b4e871/module/bdpbyhnjaaiimiqzouquhvcoi/_cp/products/1592428204492/tab-2461b283-0147-f216-3865-c67ad34ab258/e863d0d5891841d497e4c086b93651a7.jpg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1592844220708_d88dbad4-d458-49de-9ce6-c376d7b4e871/module/bdpbyhnjaaiimiqzouquhvcoi/_cp/products/1592428204492/tab-2461b283-0147-f216-3865-c67ad34ab258/5251732d1e9b4896b119502f03113698.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1592844220708_d88dbad4-d458-49de-9ce6-c376d7b4e871/module/bdpbyhnjaaiimiqzouquhvcoi/_cp/products/1592428204492/tab-2461b283-0147-f216-3865-c67ad34ab258/bd174e42edc44470b202aea9582184ff.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "084691819318"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: White
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 18% Offer ends on Jul 8
+            variantCount:
+              - text: "4"
+        xpath: /
+    timestamp: 1593187825919

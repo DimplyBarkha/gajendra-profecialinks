@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Whirlpool-Smooth-Surface-5-Elements-5-3-cu-ft-Self-Cleaning-Convection-Freestanding-Electric-Range-Fingerprint-Resistant-Stainless-Steel-Common-30-in-Actual-29-875-in/1000318947
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=02e2486c-a0e1-4408-8e35-bed0f7225c69/106f2145-6953-43c0-9d9b-fd24ae12241d.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=5f6910e0-fda4-436a-8a53-7a36e47e6b73/6ad1c7c3-3058-4bb7-9540-d023b390dd51.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -14,15 +14,29 @@ extractions:
             brandText:
               - text: Whirlpool
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049453859.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Whirlpool Single Oven Electric Ranges #WFE550S0HZ"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049453859.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049453859.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049453859_08361334.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049453859_08361331.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/883049/883049453859_08361331lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049453859_08361330lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049453859_08854899lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049453859_08854897lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049453859_08854900lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049453859_08854896lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049453859_08854901lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049453859_08854898lg.jpg
+                xpath: /html/body/a[9]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -32,6 +46,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
               - text: Single Oven Electric Ranges
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $999.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $899.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: Cook for the family, even on a hectic schedule with this Whirlpool®
                   electric range. Skip preheating and cook frozen foods faster
@@ -40,7 +63,7 @@ extractions:
                   self-cleaning stove. The ceramic glass cooktop on this
                   Whirlpool® electric rangewith self-cleaning oven also makes
                   cleanup quick.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   Skip preheating with Frozen Bake™ technology
 
@@ -59,44 +82,22 @@ extractions:
                   Upswept SpillGuard™ cooktop - clean up faster with a cooktop that has raised edges to help contain spills
 
                   Sabbath mode - enable this mode to set the oven to remain on the "Bake" setting at a constant temperature until it's manually turned off
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000318947"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "878058"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: WFE550S0HZ
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            ratingCount:
+              - text: "1098"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
             aggregateRating:
               - text: "4.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]
-            variantInformation:
-              - text: Fingerprint Resistant Stainless Steel
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049453859.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-            nameExtended:
-              - text: "Whirlpool Smooth Surface 5 Elements 5.3-cu ft Self-Cleaning Convection
-                  Freestanding Electric Range (Fingerprint-Resistant Stainless
-                  Steel) (Common: 30-in; Actual: 29.875-in)"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049453859.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Whirlpool Single Oven Electric Ranges #WFE550S0HZ"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
-            ratingCount:
-              - text: "1089"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Sub-Brand
@@ -233,10 +234,88 @@ extractions:
                   Safety Listing
                   UL safety listing
                   Smart Compatible
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]
+            variantInformation:
+              - text: Fingerprint Resistant Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "10"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913091053
+              - text: "9"
+                xpath: /html/body/a[10]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Whirlpool-Smooth-Surface-5-Elements-5-3-cu-ft-Self-Cleaning-Convection-Freestanding-Electric-Range-Fingerprint-Resistant-Stainless-Steel-Common-30-in-Actual-29-875-in/1000318947
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/883049453859_video_01
+                xpath: /html/body/a[11]/@href
+            nameExtended:
+              - text: "Whirlpool Smooth Surface 5 Elements 5.3-cu ft Self-Cleaning Convection
+                  Freestanding Electric Range (Fingerprint-Resistant Stainless
+                  Steel) (Common: 30-in; Actual: 29.875-in)"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: This Whirlpool® electric convection oven with fan convection cooking helps
+                  you get dinner to the table. Skip preheating for favorites
+                  like pizza with Frozen Bake™ technology. This
+                  fingerprint-resistant, self-cleaning oven prevents cooked food
+                  from getting cold with the Keep Warm setting. Closed door
+                  broiling helps keep the kitchencomfortable.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Fan Convection Cooking - Cook meals consistently with a fan in
+                  the back of the oven that distributes hot air more
+                  efficiently. This helps eliminate cold spots so you can bake
+                  on any rack.
+                   
+                   FlexHeat™ Dual Radiant Element - Get two elements in one with a 6" inner ring that's great for smaller pots and pans and a 9" expandable outer ring that makes room for larger cookware.
+                   
+                   Frozen Bake™ technology - Skip preheating and cook frozen favorites like pizza in fewer steps with preprogrammed settings.
+                   
+                   Warm Zone Element - Keep food warm while you're finishing the rest of the meal using this low-powered center element.
+                   
+                   Keep Warm setting - Keep dishes from getting cold with this setting that delivers low heat to the oven.
+                   
+                   Large Oven Window - Keep an eye on your meal through the large oven window.
+                   
+                   Fingerprint Resistant - Available in black stainless steel and stainless steel finishes that are easy-to-clean and resist fingerprints and smudges.
+                   
+                   Closed Door Broiling - Maintain the optimal broiling temperature for food while still keeping the kitchen comfortable using this broiling temperature management system.
+                   
+                   Control Lock Mode - Disable the control panel to avoid unintended use.
+                   
+                   Adjustable Self-Cleaning Technology - Clean without harsh chemicals or special cleaners by running this high-temperature setting that automatically cleans the oven according to a preprogrammed cycle.
+                   
+                   5.3 cu. ft. Capacity - Easily cook large meals with 5.3 cu. ft. capacity
+                   
+                   Ceramic glass cooktop - Wiping up spills is simple with the ceramic glass cooktop
+                   
+                   Hidden Bake Element - Get easier oven cleaning with a hidden bake element.
+                   
+                   Upswept SpillGuard™ Cooktop - Clean up faster with a cooktop that has raised edges to help contain spills.
+                   
+                   An American company for over 100 years - Whirlpool Corporation started in 1911 as a small company in Benton Harbor, Michigan. Today we are a global home appliance business selling products around the world. We are proud of our American heritage and ingenuity that have driven innovation for over 100 years.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/whirlpool-20200330132035/module/whirlpool/access.whirlpool.com/mr/WFE550S0HZ/AB-DefaultZoom_550X550_HO.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "883049453859"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Fingerprint Resistant Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "4"
+        xpath: /
+    timestamp: 1593188674354

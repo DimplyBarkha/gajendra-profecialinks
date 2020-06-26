@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -8,9 +8,13 @@ module.exports = {
     transform: transform,
     domain: 'lowes.com',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
     await context.evaluate(async function () {
-      var images = JSON.parse(document.evaluate('//script[contains(text(),\'__PRELOADED_STATE__\')]', document).iterateNext().textContent.replace(new RegExp('(.+)("additionalImages":)(.+)(,"videoSets)(.+)', 'g'), '$3'));
+      var images = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent && document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/"additionalImages":([^\]]+])/)[1]);
       images.map(ele => {
         const newlink = document.createElement('a');
         newlink.setAttribute('class', 'alternateImages');
@@ -24,7 +28,7 @@ module.exports = {
         newlink.setAttribute('href', alternateImagesCount);
         document.body.appendChild(newlink);
       }
-      var videoApi = JSON.parse(document.evaluate('//script[contains(text(),\'__PRELOADED_STATE__\')]', document).iterateNext().textContent.match(/videos":([^\]]+])/)[1]);
+      var videoApi = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent && document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/)[1]);
       videoApi.map(ele => {
         const newlink = document.createElement('a');
         newlink.setAttribute('class', 'videoUrls');
@@ -32,6 +36,8 @@ module.exports = {
         document.body.appendChild(newlink);
       });
     });
-    await context.extract(productDetails);
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.extract(productDetails, { transform });
   },
 };

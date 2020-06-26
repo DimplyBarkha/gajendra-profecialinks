@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/GE-28-7-cu-ft-French-Door-Refrigerator-with-Ice-Maker-Fingerprint-Resistant-Slate-ENERGY-STAR/1000074169
 extractions:
-  - html: https://workbench.import.io/html/run=ab0e6976-9a62-4d0d-8950-cb964682b6de/task=ad01f247-8056-4615-b04d-6ce6d56674cc/7bc22ceb-0e05-42da-b116-fa4e47ffdc44.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=3d8aaeb8-fe25-47c7-a1fc-19f2e097102a/cecee924-9871-42c6-bfc3-823c89c1a160.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,39 @@ extractions:
             brandText:
               - text: GE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/084691/084691819073.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "GE French Door Refrigerators #GNE29GMKES"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819073_05424331.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819073_05424332.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819073_05424333.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819073_05424335.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/084691/084691819073_05424332lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_05424333lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_05424335lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_05424328lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_08895888lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_15461434lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_15461427lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_15461428lg.jpg
+                xpath: /html/body/a[9]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_15461429lg.jpg
+                xpath: /html/body/a[10]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_15461430lg.jpg
+                xpath: /html/body/a[11]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_15461431lg.jpg
+                xpath: /html/body/a[12]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_15461432lg.jpg
+                xpath: /html/body/a[13]/@href
+              - text: http://images.lowes.com/product/converted/084691/084691819073_15461433lg.jpg
+                xpath: /html/body/a[14]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -29,6 +53,12 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
               - text: French Door Refrigerators
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $2,229.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $2,006.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
             description:
               - text: >-
                   TwinChill™ evaporators - separate climates in the fresh food
@@ -43,37 +73,22 @@ extractions:
                   Advanced water filtration uses RPWFE replacement filter - reduces trace pharmaceuticals from water and ice (removes 98% of ibuprofen, atenolol, fluoxetine, progesterone and trimethoprim; these pharmaceuticals are not necessarily in all users’ water
 
                   Internal controls with actual-temperature display - eliminate the guesswork of temperature setting with actual degrees displayed digitally
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]
+            sku:
+              - text: "1000074169"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "656439"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: GNE29GMKES
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
-            nameExtended:
-              - text: GE 28.7-cu ft French Door Refrigerator with Ice Maker
-                  (Fingerprint-Resistant Slate) ENERGY STAR
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/084691/084691819073.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "GE French Door Refrigerators #GNE29GMKES"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "6"
             ratingCount:
               - text: "607"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Series Name
@@ -199,10 +214,33 @@ extractions:
                   UNSPSC
                   52141500
                   Smart Compatible
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]
             secondaryImageTotal:
-              - text: "15"
+              - text: "14"
+                xpath: /html/body/a[15]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/GE-28-7-cu-ft-French-Door-Refrigerator-with-Ice-Maker-Fingerprint-Resistant-Slate-ENERGY-STAR/1000074169
+                xpath: /html/head[1]/link[5]/@href
+            nameExtended:
+              - text: GE 28.7-cu ft French Door Refrigerator with Ice Maker
+                  (Fingerprint-Resistant Slate) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            gtin:
+              - text: "084691819073"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
             availabilityText:
               - text: Out of Stock
-        xpath: /html
-    timestamp: 1592910902397
+            descriptionBullets:
+              - text: "6"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1593187831793

@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Whirlpool-20-5-cu-ft-Top-Freezer-Refrigerator-Monochromatic-Stainless-Steel/50297741
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=16c73c01-bcf2-42bd-8562-04a3cf26e796/7586a6fd-e9a5-451f-a1f6-3efee8116e6e.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=b70ac768-70ef-44e6-adb3-ad0f9d9c3011/5968989f-1ab2-40d5-a1af-f73ab5f2e23e.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,29 @@ extractions:
             brandText:
               - text: Whirlpool
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049322711.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Whirlpool Top-Freezer Refrigerators #WRT311FZDM"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049322711.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049322711.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049322711_04205810.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049322711_04205811.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/883049/883049322711_04205811lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049322711_04205812lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049322711_04205814lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049322711_04205803lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049322711_04205804lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049322711_04205805lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049322711_05280295lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049322711_08613497lg.jpg
+                xpath: /html/body/a[9]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -36,7 +50,7 @@ extractions:
                   frameless glass shelves and keep fruits and vegetables in
                   their ideal environment with humidity-controlled crispers.
                   Plus, a 20 cubic feet capacity gives you room for it all.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   Store more items on each shelf with frameless glass shelves
 
@@ -53,43 +67,22 @@ extractions:
                   Quiet cooling - keep noise down in the kitchen with a design with design that provides quiet cooling
 
                   2 freezer door bins and a full-width wire shelf allow for optimal storage of frozen goods
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "50297741"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "623786"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: WRT311FZDM
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            ratingCount:
+              - text: "4936"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
             aggregateRating:
               - text: "4.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[32]/div[2]
-            variantInformation:
-              - text: Monochromatic Stainless Steel
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049322711.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-            nameExtended:
-              - text: Whirlpool 20.5-cu ft Top-Freezer Refrigerator (Monochromatic Stainless
-                  Steel)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049322711.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Whirlpool Top-Freezer Refrigerators #WRT311FZDM"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "8"
-            ratingCount:
-              - text: "4920"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Series Name
@@ -216,10 +209,80 @@ extractions:
                   Smart Compatible
                   Weight (lbs.)
                   212
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[32]/div[2]
+            variantInformation:
+              - text: Monochromatic Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "10"
+              - text: "9"
+                xpath: /html/body/a[10]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Whirlpool-20-5-cu-ft-Top-Freezer-Refrigerator-Monochromatic-Stainless-Steel/50297741
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/883049322711_video_01
+                xpath: /html/body/a[11]/@href
+              - text: https://lda.lowes.com/is/content/Lowes/883049322711_video_02
+                xpath: /html/body/a[12]/@href
+            nameExtended:
+              - text: Whirlpool 20.5-cu ft Top-Freezer Refrigerator (Monochromatic Stainless
+                  Steel)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/h1[1]
+              - text: Get purposeful spaces that store more of your favorites. Our refrigerator
+                  with an icemaker lets you forget about refilling ice trays.
+                  You can fit more items on each shelf in this refrigerator with
+                  frameless glass shelves and keep fruits and vegetables in
+                  their ideal environment with humidity-controlled crispers.
+                  Plus, a 20 cu. ft.capacity gives you room for it all.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Frameless Glass Shelves - Store more items on each shelf with
+                  wall-to-wall frameless glass shelves in the fridge and
+                  freezer, which offer greater storage flexibility.
+                   
+                  Flexi-Slide™ Bin - Make space for tall items with the bin that quickly and easily moves side-to-side for convenient storage options.
+                   
+                  Humidity-Controlled Crispers - Store fruits and vegetables in their ideal environment.
+                   
+                  EZ Connect Icemaker Kit - This optional icemaker adds convenient, easily accessible ice without having to worry about refilling ice trays.
+                   
+                  LED Interior Lighting - Keep food looking as good as it tastes. Light is cast inside the refrigerator so food looks like it's supposed to.
+                   
+                  Electronic Temperature Controls - Choose the ideal temperature for whatever foods you're storing with convenient, up-front controls.
+                   
+                  Freezer Temperature Controls - Keep frozen items ice cold with controls that allow you to adjust the temperature level in the freezer compartment.
+                   
+                  Quiet Cooling - Keep noise down in the kitchen with a design that provides quiet cooling.
+                   
+                  ADA compliant - This refrigerator meets the Standards for Accessible Design specified by the Americans with Disabilities Act to provide equal access to all.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1580928776957_800eb695-ee65-47d0-adbe-93e27caf762e/module/whirlpool/_cp/products/wrt311fzdm/tab-5d10d1da-3472-4df4-90a3-176c12b3fd52/resource-4ba22789-33b4-4786-9d17-605b39357cf2.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1580928776957_800eb695-ee65-47d0-adbe-93e27caf762e/module/whirlpool/_cp/products/wrt311fzdm/tab-4af00a5c-ed0c-407f-b289-a1cbf6e80840/resource-647cb017-3411-4ef0-bd5e-76ceb840e81d.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "883049322711"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Monochromatic Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             availabilityText:
               - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913083341
+            descriptionBullets:
+              - text: "8"
+            promotion:
+              - text: Offer ends on Jul 8
+            variantCount:
+              - text: "5"
+        xpath: /
+    timestamp: 1593187825878

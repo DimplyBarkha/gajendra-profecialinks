@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Maytag-9-2-cu-ft-Steam-Cycle-Electric-Dryer-Metallic-Slate-ENERGY-STAR/1000089517
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=1f59c1cf-e11d-4af2-bc73-6cde0907c21e/e2c7b7af-432d-4940-935c-b72553223725.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=7bad8335-1626-4b66-a8c0-11795882ee13/66538922-63e7-423a-8da3-e5d6fe7a1a4c.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -12,15 +12,12 @@ extractions:
             brandText:
               - text: Maytag
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
-            alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049362205.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049362205.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049362205_05469491.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049362205_05469492.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049362205.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Maytag Electric Dryers #MEDB955FC"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -30,6 +27,12 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
               - text: Electric Dryers
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $1,399.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $1,259.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
             description:
               - text: Dry your largest loads faster and evenly with this 9.2 cu. ft. capacity
                   top load dryer with the PowerDry system. As the PowerDry cycle
@@ -41,7 +44,7 @@ extractions:
                   limited parts warranty on the drive motor and dryer drum,
                   you'll have the power you need with this top load dryer to
                   take on tough laundry jobs.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   PowerDry cycle runs hotter and works harder with optimized
                   heat and airflow to power out moisture and dry tough loads
@@ -62,42 +65,22 @@ extractions:
                   10-year limited parts warranty on the Drive Motor and the Dryer Drum
 
                   American Pride - these dryers are designed, engineered and assembled in the USA
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000089517"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "808079"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: MEDB955FC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            ratingCount:
+              - text: "196"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
             aggregateRating:
               - text: "5.0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[29]/div[2]
-            variantInformation:
-              - text: Metallic Slate
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049362205.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-            nameExtended:
-              - text: Maytag 9.2-cu ft Steam Cycle Electric Dryer (Metallic Slate) ENERGY STAR
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049362205.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Maytag Electric Dryers #MEDB955FC"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
-            ratingCount:
-              - text: "195"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Sub-Brand
@@ -200,10 +183,76 @@ extractions:
                   Size
                   Extra Large (>8.0-cu ft)
                   Smart Compatible
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
-            secondaryImageTotal:
-              - text: "10"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[29]/div[2]
+            variantInformation:
+              - text: Metallic Slate
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Maytag-9-2-cu-ft-Steam-Cycle-Electric-Dryer-Metallic-Slate-ENERGY-STAR/1000089517
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/883049362205_video_01
+                xpath: /html/body/a[1]/@href
+            nameExtended:
+              - text: Maytag 9.2-cu ft Steam Cycle Electric Dryer (Metallic Slate) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/h1[1]
+              - text: Dry your largest loads faster and evenly with this 9.2 cu. ft. capacity
+                  top load dryer with the PowerDry system. As the PowerDry cycle
+                  works harder and hotter to dry faster, Advanced Moisture
+                  Sensing with an industry-exclusive extra moisture sensor helps
+                  to evenly and completely dry heavy loads. This high-efficiency
+                  dryer also includes an extra interior fin to keep clothes
+                  moving freely and help prevent tangling. And with a 10-year
+                  limited parts warranty on the drive motor and dryer drum,
+                  you'll have the power you need with this top load dryer to
+                  take on tough laundry jobs.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  PowerDry Cycle - The PowerDry cycle runs hotter and works
+                  harder with optimized heat and airflow to power out moisture
+                  and dry tough loads faster.
+                   
+                   Magnetic Door Latch - The durable magnetic door latch closes tightly and allows for a smooth, quiet close with a premium feel.
+                   
+                   Advanced Moisture Sensing With Industry-Exclusive Extra Moisture Sensor - With additional power from the industry-exclusive extra moisture sensor, Advanced Moisture Sensing monitors inside moisture and air temperatures to help evenly and completely dry heavy loads.
+                   
+                   Extra Interior Fin - An extra interior fin creates a random tumbling pattern and keeps clothes moving freely for less tangling and exceptional drying performance.
+                   
+                   Steam Refresh Cycle - The Steam Refresh cycle uses a fine mist in the heated dryer drum to relax wrinkles and revive clothes without washing.
+                   
+                   Extra-Large 9.2 Cu. Ft. Capacity - Our extra-large capacity is designed to tackle your heaviest loads with a massive 9.2 cu. ft. of space.
+                   
+                   Sanitize Cycle - The Sanitize cycle removes up to 99.9% of three common household bacteria in the dryer.
+                   
+                   10-Year Limited Parts Warranty on the Drive Motor and Dryer Drum - We don't just tell you a Maytag® dryer will provide excellent drying for years: we confidently back our dryers with a 10-year limited parts warranty on the drive motor and drum.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/maytagus-20200330132216/module/maytagus/access.whirlpool.com/mr/MEDB955FC/AB-DefaultZoom_550X550_HO.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/maytagus-20200330132216/module/maytagus/access.whirlpool.com/mr/MEDB955FC/SanitizeCycle-P140666-4z-8x7.jpg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "883049362205"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Metallic Slate
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             availabilityText:
               - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913076792
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "2"
+        xpath: /
+    timestamp: 1593188058696

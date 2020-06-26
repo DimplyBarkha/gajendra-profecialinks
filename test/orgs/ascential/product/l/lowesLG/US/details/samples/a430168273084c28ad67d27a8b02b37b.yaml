@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Whirlpool-Smart-capable-7-4-cu-ft-Electric-Dryer-Chrome-Shadow/1001854836
 extractions:
-  - html: https://workbench.import.io/html/run=ab0e6976-9a62-4d0d-8950-cb964682b6de/task=ffee8276-3fff-4b91-a7a1-fdcca45042fc/ce164d16-be68-4dbc-aa13-d97e8bfb15d8.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=82f87825-b710-48cb-aa71-04e44681cb37/7c395852-77e8-4e7d-87b9-87fda5bdf9ce.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -12,15 +12,27 @@ extractions:
             brandText:
               - text: Whirlpool
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049462776.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Whirlpool Electric Dryers #WED6120HC"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049462776.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049462776_14180102.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049462776_14180103.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049462776_14180104.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/883049/883049462776_14180103lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049462776_14180104lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049462776_14180105lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049462776_14180106lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049462776_14180107lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049462776_14180108lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049462776_15305164lg.jpg
+                xpath: /html/body/a[8]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -30,6 +42,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
               - text: Electric Dryers
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $999.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $899.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: Create customized cycles for your large capacity electric dryer in a few
                   touches for the right fabric care. You can control this smart
@@ -37,7 +58,7 @@ extractions:
                   smartphone. Plus, a wrinkle prevent dryer option helps keep
                   wrinkles from setting, while the EcoBoost™ option saves energy
                   by using less heat for the same great drying performance.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   Smart features available with connected subscription
 
@@ -54,42 +75,22 @@ extractions:
                   Small loads spend less time in the dryer with the Quick Dry cycle
 
                   Easily transfer loads to the dryer with a hamper door
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1001854836"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "1971077"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: WED6120HC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "5.0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[33]/div[2]
-            variantInformation:
-              - text: Chrome Shadow
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049462776.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-            nameExtended:
-              - text: Whirlpool Smart capable 7.4-cu ft Electric Dryer (Chrome Shadow)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049462776.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Whirlpool Electric Dryers #WED6120HC"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "8"
             ratingCount:
               - text: "5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Sub-Brand
@@ -190,10 +191,89 @@ extractions:
                   Smart capable
                   Size
                   Large (7.1 - 8.0-cu ft)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[33]/div[2]
+            variantInformation:
+              - text: Chrome Shadow
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "9"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592910917760
+              - text: "8"
+                xpath: /html/body/a[9]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Whirlpool-Smart-capable-7-4-cu-ft-Electric-Dryer-Chrome-Shadow/1001854836
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/883049462776_video_01
+                xpath: /html/body/a[10]/@href
+            nameExtended:
+              - text: Whirlpool Smart capable 7.4-cu ft Electric Dryer (Chrome Shadow)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: Create customized cycles for your large capacity electric dryer in a few
+                  touches for the right fabric care. You can control this smart
+                  capable dryer remotely to manage laundry day from your
+                  smartphone. Plus, a wrinkle prevent dryer option helps keep
+                  wrinkles from setting, while the EcoBoost™ option saves energy
+                  by using less heat for the same great drying performance.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Smart features available with connected subscription - Connect
+                  to more. Optional smart features help you streamline your
+                  laundry routine, so you can keep your day moving.
+                   
+                   AccuDry™ sensor drying technology - Two built-in sensors measure moisture and temperature levels to help prevent overdrying and automatically stop the cycle when the load is dry.
+                   
+                   Intuitive Controls - Let the dryer guide you to the right cycle combinations or customize up to 35 of your own to get the right type of fabric care for whatever you’re drying.
+                   
+                   Wrinkle Shield™ option - Help keep wrinkles from setting into clean, dry fabrics with the Wrinkle Shield™ option. It keeps clothes tumbling for up to 150 minutes after the cycle ends or until you open the door.
+                   
+                   EcoBoost™ option - Use less energy while still getting great drying performance with the EcoBoost™ option that uses less heat and extended cycle times for greater energy efficiency.
+                   
+                   Sanitize cycle - The Sanitize cycle provides care for your clothes in the dryer while eliminating 99.9% of common household bacteria.
+                   
+                   Quick Dry cycle - Dry a small load quickly or customize settings to add more time. Plus, you can choose to remember your settings for your next load of laundry.
+                   
+                   7.4 cu. ft. capacity - With a 7.4 cu. ft. capacity dryer drum, there’s plenty of room to easily handle the large loads you washed in the matching top load washer.
+                   
+                   Hamper Door - Easily transfer loads from the washer to the dryer and from the dryer to the laundry basket without worrying about clean clothes falling on the floor with this wide-opening door.
+                   
+                   An American Company for Over 100 Years - Whirlpool Corporation started in 1911 as a small company in Benton Harbor, Michigan. Today we are a global home appliance business selling products around the world. We are proud of our American heritage and ingenuity that have driven innovation for over 100 years.
+                   
+                   Assign a task available - Manage laundry day from anywhere by assigning family members the next laundry step from the optional Whirlpool® app. Activate the app to send customized text messages for transferring a load to the dryer or folding clean clothes.
+                   
+                   Match Washer cycle with Dryer cycle available - Get the right kind of dry for your load. Activate the optional Whirlpool® app for a suggested dry cycle that matches the wash cycle you used, then send the cycle to your dryer from the app.
+                   
+                   Coming soon: Optional voice control with a compatible voice-enabled device - Coming soon: Opt in to keep up with laundry no matter what you’ve got on your hands with simple voice commands using a compatible voice-enabled device.
+                   
+                   Favorite Cycles available - Create and save your favorite cycles under any name and edit at any time on the optional Whirlpool® app. Save one cycle at a time on the dryer, or activate Favorite Cycles in the app to send cycles to your dryer and start the load remotely.
+                   
+                   Quick Connect - You don’t need to be a tech expert to connect your new appliance. Simply open the optional Whirlpool® app, add your appliance and follow the guided experience to get up and running quickly.
+                   
+                   Coming soon: Optional compatibility with Apple Watch® - Coming soon: Opt in to remotely control your dryer, receive status updates, modify a cycle and track time remaining, all from your Apple Watch®.
+                   
+                   Personalized quick tips available - When activated, the optional Whirlpool® app delivers quick tips to make sure your family’s laundry gets the care it deserves while helping laundry day go more smoothly.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/whirlpool-20200330132035/module/whirlpool/www.whirlpool.com/is/image/content/dam/global/shot-lists/2018/p180184wl/hero-p180184wl-068.tif@qm@dlmdm-thumb-550@dl@amimg/name@eqWED6120HC_AB-DefaultZoom_550X550_HO.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "883049462776"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Chrome Shadow
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "8"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "2"
+        xpath: /
+    timestamp: 1593187856725

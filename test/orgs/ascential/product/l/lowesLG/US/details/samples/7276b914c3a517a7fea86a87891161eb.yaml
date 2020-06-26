@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Maytag-5-2-cu-ft-High-Efficiency-Top-Load-Washer-White/1000329087
 extractions:
-  - html: https://workbench.import.io/html/run=ab0e6976-9a62-4d0d-8950-cb964682b6de/task=2eeda285-9f0b-4da0-82a8-62e72ddfc8bd/18d0be4a-3304-4252-b187-d3e7235b3233.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=082c32c3-8f6b-4a8d-976b-27992ff09f7f/93c208bc-1a4a-4c9b-b0bf-2f4cf11dafe6.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -12,15 +12,27 @@ extractions:
             brandText:
               - text: Maytag
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049463001.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Maytag #MVWB865GW"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049463001.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049463001_08450488.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049463001_08543808.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049463001_08543807.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/883049/883049463001_08543808lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049463001_08543807lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049463001_08543803lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049463001_08543809lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049463001_08543806lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049463001_08543804lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049463001_09050058lg.jpg
+                xpath: /html/body/a[8]/@href
             description:
               - text: With the best cleaning in its class driven by the PowerWash® cycle, this
                   top load washer has capacity at 5.2 cu-ft. For more water when
@@ -32,7 +44,7 @@ extractions:
                   parts warranty on the direct drive motor and stainless steel
                   wash basket, and you've got the power to clean tough loads for
                   the long haul.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   PowerWash® cycle boosts cleaning action and adds heated water
 
@@ -49,36 +61,19 @@ extractions:
                   Sanitize cycle with Oxi removes 99.9% of household bacteria
 
                   American Pride - from Clyde, Ohio to you, this washer is designed, engineered and assembled in the USA
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
             variantId:
               - text: "916485"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: MVWB865GW
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[31]/div[2]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            nameExtended:
-              - text: Maytag 5.2-cu ft High Efficiency Top-Load Washer (White)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049463001.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Maytag #MVWB865GW"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "8"
             ratingCount:
               - text: "3156"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Sub-Brand
@@ -194,10 +189,73 @@ extractions:
                   Large (4.6 - 5.2-cu ft)
                   Hand Crank
                   Smart Compatible
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[31]/div[2]
             secondaryImageTotal:
-              - text: "9"
+              - text: "8"
+                xpath: /html/body/a[9]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Maytag-5-2-cu-ft-High-Efficiency-Top-Load-Washer-White/1000329087
+                xpath: /html/head[1]/link[5]/@href
+            nameExtended:
+              - text: Maytag 5.2-cu ft High Efficiency Top-Load Washer (White)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: With the Best Cleaning in its class driven by the PowerWash® cycle, this
+                  top load washer tackles your largest loads with 5.2 cu. ft.
+                  capacity. For more water when you want it, the Deep Fill
+                  option offers a maximum fill to help rinse away soils, while
+                  the PowerWash® agitator provides concentrated cleaning and
+                  robust wash action to remove tough stains. Plus, the Rapid
+                  Wash cycle helps clean loads faster by shortening cycle time.
+                  Add in the included 10-year limited parts warranty on the
+                  direct drive motor and stainless steel wash basket, and you've
+                  got the power to clean tough loads for the long haul.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Best Cleaning in its Class Driven by the PowerWash® Cycle -
+                  The PowerWash® cycle of this washer adds extra cleaning action
+                  and heated water to drive the Best Cleaning in its class.
+                  (Based on 18-lb load, among leading top load brands, 5.0–5.4
+                  cu. ft. capacity agitator washers, PowerWash® cycle vs.
+                  comparable cycles and default settings.)
+                   
+                   Deep Fill Option - The Deep Fill option provides more water when it's needed. Additional water and the PowerWash® agitator help break down and rinse away everyday tough messes.
+                   
+                   10-Year Limited Parts Warranty on the Direct Drive Motor and Wash Basket - We back this Maytag® washer to get your clothes clean for years with a 10-year limited parts warranty on the direct drive motor and stainless steel wash basket.
+                   
+                   PowerWash® Agitator - The PowerWash® agitator tackles any load size with both efficient, concentrated cleaning to fight stubborn stains and robust wash action to help break up messes.
+                   
+                   Auto Sensing Option - Fight everyday stubborn stains with the Auto Sensing option, which adjusts the water level for each load to provide efficient, concentrated cleaning.
+                   
+                   Rapid Wash Cycle - Wash loads fast with the Rapid Wash cycle that cuts down on wash and spin time while boosting temperature to shorten the cycle.
+                   
+                   Stainless Steel Wash Basket - The stainless steel wash basket wicks moisture away from clothes and is tough enough to resist wear and tear for years to come.
+                   
+                   Maytag® Commercial Technology - Maytag® Commercial Technology features high-performance parts, including a 2X Life tested direct drive system and commercial springs.
+                   
+                   Sanitize Cycle with Oxi - The Sanitize cycle with Oxi removes 99.9% of household bacteria. Increased wash temperatures and oxygenated additives work together to clean tough messes.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/maytagus-20200330132216/module/maytagus/access.whirlpool.com/mr/MVWB865GW/AB-DefaultZoom_550X550_HO.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "883049463001"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
             availabilityText:
               - text: Out of Stock
-        xpath: /html
-    timestamp: 1592910919519
+            descriptionBullets:
+              - text: "8"
+            promotion:
+              - text: ""
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1593187872967

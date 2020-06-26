@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Whirlpool-Smart-7-4-cu-ft-Stackable-Steam-Cycle-Gas-Dryer-Chrome-Shadow-ENERGY-STAR/1000756310
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=4bb73eaa-08f3-4ae5-8ca7-c7b15d5e9ca8/66258e8e-23c5-4854-8565-9c9fa27db51e.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=1baf92c5-3506-4b15-8b59-fdf2f6292a12/e719e036-d198-401a-9072-4bf5f7d1f882.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,29 @@ extractions:
             brandText:
               - text: Whirlpool
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049458182.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Whirlpool Gas Dryers #WGD9620HC"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049458182.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049458182.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049458182_10372584.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049458182_10372585.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/883049/883049458182_10372585lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049458182_10372586lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049458182_10372587lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049458182_10372588lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049458182_10372589lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049458182_10372590lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049458182_10372591lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049458182_10372583lg.jpg
+                xpath: /html/body/a[9]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -31,6 +45,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
               - text: Gas Dryers
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $1,599.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $1,439.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: Stay in control and connected from anywhere with a smart front load dryer
                   and the Whirlpool® app. It includes a dryer rack that attaches
@@ -38,7 +61,7 @@ extractions:
                   bulky or delicate items. When drying ends, the ENERGY STAR®
                   certified gas dryer's Wrinkle Shield™ Plus option with Steam
                   helps release and prevent wrinkles.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   Help keep wrinkles from setting by tumbling with Wrinkle
                   Shield™ Plus Option with Steam
@@ -58,43 +81,22 @@ extractions:
                   Dryer rack - place bulky or delicate items like sweaters, pillows, hats and tennis shoes on the dryer rack for tumble-free drying
 
                   Quad baffles - four baffles tumble clothes in a randomized pattern, allowing items to open up freely - this helps increase the effectiveness of the dryer for small loads
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000756310"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "1216383"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: WGD9620HC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "1.0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[34]/div[2]
-            variantInformation:
-              - text: Chrome Shadow
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049458182.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-            nameExtended:
-              - text: Whirlpool Smart 7.4-cu ft Reversible Side Swing Door Stackable Steam Cycle
-                  Gas Dryer (Chrome Shadow) ENERGY STAR
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049458182.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Whirlpool Gas Dryers #WGD9620HC"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "1.0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Sub-Brand
@@ -196,10 +198,118 @@ extractions:
                   Size
                   Large (7.1 - 8.0-cu ft)
                   Smart Compatible
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[34]/div[2]
+            variantInformation:
+              - text: Chrome Shadow
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "10"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913080035
+              - text: "9"
+                xpath: /html/body/a[10]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Whirlpool-Smart-7-4-cu-ft-Stackable-Steam-Cycle-Gas-Dryer-Chrome-Shadow-ENERGY-STAR/1000756310
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/883049458182_video_01
+                xpath: /html/body/a[11]/@href
+            nameExtended:
+              - text: Whirlpool Smart 7.4-cu ft Reversible Side Swing Door Stackable Steam Cycle
+                  Gas Dryer (Chrome Shadow) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: Stay in control and connected from anywhere with a smart front load dryer
+                  and the Whirlpool® app. It includes a dryer rack that attaches
+                  inside the stainless steel drum for tumble-free drying of
+                  bulky or delicate items. When drying ends, the ENERGY STAR®
+                  certified gas dryer's Wrinkle Shield™ Plus option with Steam
+                  helps release and prevent wrinkles.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Wrinkle Shield™ Plus Option with Steam - Help keep wrinkles
+                  from setting into clean, dry fabrics. The Wrinkle Shield™ Plus
+                  option with Steam uses tumbling and steam for up to 150
+                  minutes after the cycle ends or until you open the dryer door
+                  for improved wrinkle-fighting performance.
+                   
+                   Smart Appliance - Care for your family from your smartphone or tablet.
+                   
+                   Remote control with the Whirlpool® app - Stay in control and connected from anywhere. The Whirlpool® app lets you set, start or pause the dry cycle and track progress when you're away. Plus, you can let it suggest a dry cycle to match your wash cycle or use it to assign laundry tasks with customized text messages to your family members.
+                   
+                   7.4 cu. ft. Capacity - Get plenty of room to dry the large loads you washed in the matching front load washer. This 7.4 cu. ft. dryer easily handles bulky items like comforters and sleeping bags.
+                   
+                   Match Washer cycle with Dryer cycle - Get the right kind of dry for your load. The Whirlpool® app will suggest the dry cycle that matches the wash cycle you used.
+                   
+                   ENERGY STAR® Certified - ENERGY STAR® certified models exceed government standards to help conserve natural resources and save money on your utility bills.
+                   
+                   Intuitive Controls - Let the dryer guide you to the right cycle combinations or customize up to 36 of your own to get the right type of fabric care for whatever you're drying.
+                   
+                   Touchscreen - Get instant access to the settings you use most with an intuitive touchscreen that learns, adapts and suggests customized presets based on your family's routines. Create and save up to 30 of your own favorite cycles for even more customized care.
+                   
+                   Steam Refresh Cycle - Release wrinkles and reduce odors with the Steam Refresh cycle. It uses water and heat to get clothes ready to wear without rewashing.
+                   
+                   Sanitize Cycle - The Sanitize cycle provides care for your clothes in the dryer while eliminating 99.9% of common household bacteria.
+                   
+                   Advanced Moisture Sensing 
+                   
+                   Static Reduce Option - Help decrease static with the Static Reduce option, which combines a spray of mist with tumbling after the load is dry.
+                   
+                   EcoBoost™ Option - Use less energy while getting great drying performance with the EcoBoost™ option. This option saves energy by using less heat and an extended cycle time.
+                   
+                   Quad Baffles - Four baffles tumble clothes in a randomized pattern, allowing items to open up freely. This helps increase the effectiveness of the dryer for small loads.
+                   
+                   Stainless Steel Dryer Drum - Clothes are gently cradled as they tumble around the smooth surface of this drum’s stainless steel construction.
+                   
+                   Dryer Rack - Place bulky or delicate items like sweaters, pillows, hats and tennis shoes on the dryer rack for tumble-free drying. It attaches inside the drum and stays in one place throughout the cycle.
+                   
+                   Closet-Depth Fit - Get a space-saving design with closet-depth fit that allows for more flexible installation in your laundry space.
+                   
+                   Compatible with Apple Watch® - Remotely control your dryer, receive status updates, modify a cycle and track time remaining, all from your Apple Watch®.
+                   
+                   Assign a task - Manage laundry day from anywhere by assigning family members the next laundry step from the Whirlpool® app. Send customized text messages for transferring a load to the dryer or folding clean clothes.
+                   
+                   Scan-to-Connect Technology - You don't need to be a tech expert to connect your new appliance. Simply open the Whirlpool® app, add your appliance and follow the guided experience to get up and running quickly.
+                   
+                   Coming soon: Voice control with a compatible voice-enabled device (U.S. only.) - Coming soon: Keep up with laundry no matter what you've got on your hands with simple voice commands using a compatible voice-enabled device.
+                   
+                   Personalized quick tips - The Whirlpool® app delivers quick tips to make sure your family’s laundry gets the care it deserves while helping laundry day go more smoothly.
+                   
+                   Favorite Cycles - Save your favorite cycles under any name and edit at any time. Access Favorite Cycles from the Whirlpool® app to send laundry cycles to your dryer and start the load remotely.
+                   
+                   Enhanced troubleshooting - Get immediate support for quick solutions by using your smartphone or tablet to access troubleshooting videos within the Whirlpool® app.
+                   
+                   Control Lock Mode - Use your smartphone or tablet to remotely disable the control panel to avoid unintended use.
+                   
+                   Smart grid compatible - This smart dryer is smart grid compatible to help you reduce household energy costs. Select Smart Delay in the Whirlpool® app to avoid running a cycle during peak hours.
+                   
+                   Laundry Pedestals - Raise your dryer for easier loading and unloading. Optional laundry pedestals also provide space-saving storage for detergent, dryer sheets and other supplies.
+                   
+                   An American Company for Over 100 Years - Whirlpool Corporation started in 1911 as a small company in Benton Harbor, Michigan. Today we are a global home appliance business selling products around the world. We are proud of our American heritage and ingenuity that have driven innovation for over 100 years.
+                   
+                   Expanded Finishes - Choose from traditional finishes like White and Chrome Shadow or elevate your laundry space with the rich, matte look of Black Shadow.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/whirlpool-20200330132035/module/whirlpool/access.whirlpool.com/mr/WGD9620HC/AB-DefaultZoom_550X550_HO.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/whirlpool-20200330132035/module/whirlpool/access.whirlpool.com/mr/WGD9620HC/feature-p180188-39z-640x560.jpg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "883049458182"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Chrome Shadow
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "3"
+        xpath: /
+    timestamp: 1593187813997

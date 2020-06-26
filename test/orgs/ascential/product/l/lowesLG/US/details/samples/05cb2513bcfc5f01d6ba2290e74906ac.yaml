@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/LG-20-2-cu-ft-Top-Freezer-Refrigerator-Stainless-Steel-ENERGY-STAR/1001840510
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=3bd04ac0-3a55-4030-8dff-9ea174e87713/322fc1cc-b563-4a29-bc72-dbb94ab79e31.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=95ea8d13-43c9-4199-b22b-83e71c17c556/e993ccd6-fcaf-48cf-82ab-7d00be01c38c.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -12,15 +12,45 @@ extractions:
             brandText:
               - text: LG
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/048231/048231805179.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "LG Top-Freezer Refrigerators #LTCS20020S"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/048231/048231805179_11863736.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/048231/048231805179_11863737.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/048231/048231805179_11863738.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/048231/048231805179_11863739.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863737lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863738lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863739lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863740lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863741lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863742lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863743lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863729lg.jpg
+                xpath: /html/body/a[9]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863730lg.jpg
+                xpath: /html/body/a[10]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863731lg.jpg
+                xpath: /html/body/a[11]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863732lg.jpg
+                xpath: /html/body/a[12]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863733lg.jpg
+                xpath: /html/body/a[13]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863734lg.jpg
+                xpath: /html/body/a[14]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_11863735lg.jpg
+                xpath: /html/body/a[15]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_12114449lg.jpg
+                xpath: /html/body/a[16]/@href
+              - text: http://images.lowes.com/product/converted/048231/048231805179_12484960lg.jpg
+                xpath: /html/body/a[17]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -28,6 +58,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
               - text: Top-Freezer Refrigerators
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $777.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $599.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: Capacity means a lot to you, and our top-mount refrigerator features 30"
                   width 20.2 cu. Ft. Refrigerator and freezer storage space.
@@ -36,7 +75,7 @@ extractions:
                   gallon door bins. They’re on a mission to extend the life of
                   your fruits and vegetables. Freshness that shines clear
                   through with LG’s advanced LED interior lighting.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   Great size in a feature-packed refrigerator
 
@@ -51,39 +90,22 @@ extractions:
                   Troubleshoot quickly and efficiently with SmartDiagnosis
 
                   Save money and energy with a refrigerator that meets new Department of Energy standards
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1001840510"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "1631946"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: LTCS20020S
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[37]/div[2]
-            variantInformation:
-              - text: Stainless Steel
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            nameExtended:
-              - text: LG 20.2-cu ft Top-Freezer Refrigerator (Stainless Steel) ENERGY STAR
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/048231/048231805179.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "LG Top-Freezer Refrigerators #LTCS20020S"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "7"
             ratingCount:
               - text: "4"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Series Name
@@ -205,10 +227,71 @@ extractions:
                   1-year limited
                   Handle Color
                   N/A
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[37]/div[2]
+            variantInformation:
+              - text: Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "18"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913086481
+              - text: "17"
+                xpath: /html/body/a[18]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/LG-20-2-cu-ft-Top-Freezer-Refrigerator-Stainless-Steel-ENERGY-STAR/1001840510
+                xpath: /html/head[1]/link[5]/@href
+            nameExtended:
+              - text: LG 20.2-cu ft Top-Freezer Refrigerator (Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/h1[1]
+              - text: 20 cu. ft. Top Freezer Refrigerator
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: Get more space for groceries in a great feature-packed refrigerator.
+                  Nothing beats the convenience of having more food when you
+                  need it, and with a generous 20 cu. ft. of space, you'll have
+                  room and room to grow.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[2]/div[1]
+              - text: Contoured doors, hidden hinges, and a host of great interior features give
+                  your refrigerator a look that's as sophisticated as it is
+                  functional. And it's beauty isn't just the outside. With every
+                  feature thoughtfully designed, this appliance helps you create
+                  the sophisticated, distinctive kitchen you want—and deserve.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[2]/div[1]
+              - text: Humidity-controlled crispers help maintain humidity levels to help extend
+                  the life of your fruits and vegetables.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[2]/div[1]
+              - text: Smart Diagnosis™ helps the service center diagnose problems over the
+                  phone, helping you troubleshoot quickly.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[2]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/lgeusha-20200414125908/module/lgeusha/www.lg.com/us/images/refrigerators/md07000092/gallery/desktop-01.jpg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/lgeusha-20200414125908/module/lgeusha/www.lg.com/us/images/refrigerators/md07000092/features/01-feature-space-when-you-desktop.jpg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/lgeusha-20200414125908/module/lgeusha/www.lg.com/us/images/refrigerators/md07000092/features/02-feature-sophisticationateveryturn_desktop.jpg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/lgeusha-20200414125908/module/lgeusha/www.lg.com/us/images/refrigerators/md07000092/features/03-feature-crisper_desktop.jpg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/lgeusha-20200414125908/module/lgeusha/www.lg.com/us/images/refrigerators/md07000092/features/05-feature-smart-diagnosis_desktop.jpg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/lgeusha-20200414125908/module/lgeusha/www.lg.com/us/images/refrigerators/md07000092/features/06-feature-qualification_desktop.jpg.w1920.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "048231805179"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "7"
+            promotion:
+              - text: Save 22% Offer ends on Jul 8
+            variantCount:
+              - text: "2"
+        xpath: /
+    timestamp: 1593187829999

@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Samsung-2-2-cu-ft-High-Efficiency-Stackable-Front-Load-Washer-White-ENERGY-STAR/1001036286
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=a66083a0-f00e-41f3-8df6-d4b133e18ec8/7ad6eee1-912c-4b77-9f1e-46e9e1f6d5f2.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=035512ff-dbfb-49a2-8828-8edb9f36251c/15c92b88-1392-4184-9478-b5646b2daf91.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,27 @@ extractions:
             brandText:
               - text: Samsung
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276126876.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung Front-Load Washers #WW22K6800AW"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276126876_05380944.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276126876_05380945.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276126876_05380946.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276126876_05380948.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/887276/887276126876_05380945lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276126876_05380946lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276126876_05380948lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276126876_10375565lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276126876_05380938lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276126876_05380939lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276126876_05380942lg.jpg
+                xpath: /html/body/a[8]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -31,13 +43,22 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
               - text: Front-Load Washers
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $999.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $798.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: Samsung 2.2 Cu. Ft. 24-in front load washer featuring steam wash
                   eliminates stains without the need for pretreating. With super
                   speed, wash a full load in only 40 minutes without sacrificing
                   quality. Vibration Reduction Technology keeps the peace and
                   quiet by minimizing noise and vibration.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   Steam wash - uses the power of steam to eliminate stains
                   without pre-treatment
@@ -57,37 +78,22 @@ extractions:
                   1400 RPM maximum spin speed - get more laundry done faster
 
                   12 Preset wash cycles - covers almost any cleaning need for your active family
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1001036286"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "719505"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: WW22K6800AW
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "4.0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[34]/div[2]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            nameExtended:
-              - text: Samsung 2-cu ft High Efficiency Stackable Steam Cycle Front-Load Washer
-                  (White) ENERGY STAR
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276126876.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Samsung Front-Load Washers #WW22K6800AW"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
             ratingCount:
               - text: "20"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Sub-Brand
@@ -208,10 +214,76 @@ extractions:
                   2
                   Size
                   Small (<3.5 cu ft)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[34]/div[2]
             secondaryImageTotal:
+              - text: "8"
+                xpath: /html/body/a[9]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Samsung-2-cu-ft-High-Efficiency-Stackable-Steam-Cycle-Front-Load-Washer-White-ENERGY-STAR/1001036286
+                xpath: /html/head[1]/link[5]/@href
+            nameExtended:
+              - text: Samsung 2-cu ft High Efficiency Stackable Steam Cycle Front-Load Washer
+                  (White) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/h1[1]
+              - text: Samsung’s patented VRT™ technology reduces noise to an incredibly low
+                  level. Its innovative tub design balances heavy loads quietly
+                  and with ease. Upstairs laundry has never been less obtrusive
+                  – run your washer upstairs while your children sleep.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: Samsung’s Steam Wash cycle has been engineered to improve the cleaning
+                  quality of your wash. Unlike other washers which release steam
+                  from above, Samsung releases steam from the bottom of the
+                  laundry tub, saturating every item in the load and leading to
+                  an even deeper clean with no pre-treatment necessary.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[2]/div[1]
+              - text: Get up to a 30% faster wash cycle* – without sacrificing cleaning
+                  performance. With Super Speed, you can quickly wash a full
+                  load in as little as 40 minutes.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[2]/div[1]
+              - text: Skip customer service and troubleshoot issues straight from select
+                  smartphones**. Smart Care interacts with your washer and dryer
+                  to perform an immediate diagnosis and offer quick solutions.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[2]/div[1]
+              - text: For the ultimate in convenience, Self Clean technology keeps your top load
+                  washer tub fresh by removing dirt and bacteria – without the
+                  use of harsh chemicals – through a combination of soaking,
+                  pulsating and high speed spinning. Self Clean also sends
+                  reminders to clean the tub every forty wash cycles.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[2]/div[1]
+              - text: The diamond drum interior features a unique design with smooth,
+                  diamond-shaped ridges that helps extend clothing life by
+                  treating fabrics gently.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[2]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/22120490_legacycode/module/samsungus/_cp/products/ww22k6800aw-a2/tab-bb9da926-90cc-4a77-9cd8-86212f798959/resource-45b47463-714f-4724-b66c-4817d963ac49.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/22120490_legacycode/module/samsungus/_cp/products/ww22k6800aw-a2/tab-bb9da926-90cc-4a77-9cd8-86212f798959/resource-092601bb-96e8-4331-bfde-419dfdfa1857.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/22120490_legacycode/module/samsungus/_cp/products/ww22k6800aw-a2/tab-bb9da926-90cc-4a77-9cd8-86212f798959/resource-a80e976c-3c61-4eaa-a027-bd8f432b6515.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/22120490_legacycode/module/samsungus/_cp/products/ww22k6800aw-a2/tab-bb9da926-90cc-4a77-9cd8-86212f798959/resource-31edfdca-9e05-40de-ad9a-5c82d70ef1bf.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/22120490_legacycode/module/samsungus/_cp/products/ww22k6800aw-a2/tab-bb9da926-90cc-4a77-9cd8-86212f798959/resource-f67c6320-da4a-41cf-a98d-f408ddf0d2ff.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/22120490_legacycode/module/samsungus/_cp/products/ww22k6800aw-a2/tab-bb9da926-90cc-4a77-9cd8-86212f798959/resource-118566be-ebd4-45dd-aae5-0c5f1d73d1ee.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "887276126876"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            descriptionBullets:
               - text: "9"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913065419
+            promotion:
+              - text: Save 20% Offer ends on Jul 8
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1593187823008

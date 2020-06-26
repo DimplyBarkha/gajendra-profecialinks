@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Whirlpool-Self-Cleaning-Convection-Microwave-Wall-Oven-Combo-Black-Stainless-Steel-27-in-Actual-27-in/1000596005
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=4b67cb4e-86f5-4ef7-bbf5-1796cd822abf/8d745378-5d05-456a-be11-598d71458efe.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=c9b90961-9345-42e4-a5c3-63c26071d95f/606b8345-75fa-4090-b677-c8f2526ce2c5.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,25 @@ extractions:
             brandText:
               - text: Whirlpool
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049446899.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Whirlpool Microwave Wall Oven Combinations #WOC75EC7HV"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049446899.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049446899.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049446899_10359541.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049446899_10359542.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/883049/883049446899_10359542lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049446899_10359543lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049446899_10359544lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049446899_10359545lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049446899_10359546lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049446899_10359547lg.jpg
+                xpath: /html/body/a[7]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -31,6 +41,15 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
               - text: Microwave Wall Oven Combinations
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $3,499.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $3,149.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
             description:
               - text: Get the right settings every time with this smart self-cleaning
                   combination wall oven. Send Yummly® Guided Cooking
@@ -39,7 +58,7 @@ extractions:
                   built-in wall oven or microwave using your smartphone or
                   tablet. A touchscreen provides instant access to settings your
                   family uses most, too.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   Smart features with WiFi and mobile app when set to remote
                   enable
@@ -59,43 +78,22 @@ extractions:
                   Heat the oven quickly with Rapid Preheat
 
                   Remote start - enable your smartphone or tablet to remotely turn your oven on so it's heated up and ready to cook meals when you are
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000596005"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "970213"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: WOC75EC7HV
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "4.0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[30]/div[2]
-            variantInformation:
-              - text: Fingerprint Resistant Black Stainless
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]/div[1]/span[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049446899.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-            nameExtended:
-              - text: "Whirlpool Self-Cleaning Convection Microwave Wall Oven Combo (Black
-                  Stainless Steel 27-in; Actual: 27-in)"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/883049/883049446899.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Whirlpool Microwave Wall Oven Combinations #WOC75EC7HV"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
             ratingCount:
               - text: "18"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Appliance Color/Finish
@@ -204,10 +202,103 @@ extractions:
                   Lowe's Exclusive
                   Sub-Brand
                   N/A
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[30]/div[2]
+            variantInformation:
+              - text: Fingerprint Resistant Black Stainless
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "8"
-            availabilityText:
-              - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913074823
+              - text: "7"
+                xpath: /html/body/a[8]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]/div[1]/span[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Whirlpool-Self-Cleaning-Convection-Microwave-Wall-Oven-Combo-Black-Stainless-Steel-27-in-Actual-27-in/1000596005
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/883049446899_video_01
+                xpath: /html/body/a[9]/@href
+              - text: https://lda.lowes.com/is/content/Lowes/883049446899_video_02
+                xpath: /html/body/a[10]/@href
+            nameExtended:
+              - text: "Whirlpool Self-Cleaning Convection Microwave Wall Oven Combo (Black
+                  Stainless Steel 27-in; Actual: 27-in)"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/h1[1]
+              - text: This smart self-cleaning combination wall oven helps you get the right
+                  settings every time. Send Yummly® Guided Cooking instructions
+                  directly to the connected oven or use Scan-to-Cook technology
+                  to start cooking frozen foods in the built-in wall oven or
+                  microwave using your smartphone or tablet. A touchscreen
+                  provides instant access to settings your family uses most,
+                  too.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Smart appliance - Care smarter with connected features that
+                  let you send cooking instructions to the oven from your
+                  smartphone, control your kitchen with voice commands using a
+                  compatible voice-enabled device or skip preheating.
+                   
+                   Scan-to-Cook Technology (US Only) - Get the right settings every time. Scan a frozen food barcode with your smartphone or tablet and send recommended or customized cooking instructions straight to your oven or microwave for dinner done the way your family wants it.
+                   
+                   Yummly® Guided Cooking (U.S. Only) - Yummly® Guided Cooking makes meal prep easier by helping you answer the question “what’s for dinner?” before it’s even asked. Recipes with the Connected Fork icon in the Yummly® app include step-by-step video tutorials that provide the extra assistance you need on busy days. Prompts in the app even send cooking instructions straight to your Whirlpool® smart wall oven at the right times, so dinner’s ready when your family’s hungry.
+                   
+                   Touchscreen - Get instant access to the settings you use most with an all-new touchscreen that learns, adapts and suggests customized presets based on your family's routines.
+                   
+                   Voice control with a compatible voice-enabled device (U.S. only.) - Control your kitchen no matter what you’ve got on your hands with simple voice commands using the Google Assistant or an Alexa-enabled device.
+                   
+                   Fingerprint Resistant - Available in a black stainless steel finish, easy-to-clean steel resists fingerprints and smudges.
+                   
+                   Frozen Bake™ technology - Skip preheating and cook frozen favorites like pizza in fewer steps with preprogrammed settings that automatically adjust cooking times for you.
+                   
+                   Multi-Step Cooking - Make multi-step meals more simple. Use your smartphone or tablet to send multiple cooking instructions to the oven or microwave all at once. The temperature automatically adjusts based on the recipe you enter for great results without having to monitor your meal.
+                   
+                   True Convection Cooking - Cook foods faster with the addition of a third element plus a fan that distributes hot air evenly over, under and around food so dinner is ready when they are.
+                   
+                   Convection Conversion - Easily get the right convection cooking temperature. Your oven automatically converts traditional recipes for convection cooking, adjusting cooking times and temperatures for you.
+                   
+                   Steam Clean option - Clean up after everyday light spills using only heat and 1-1/4 cups of water—no harsh chemicals or cleaners needed. Used periodically to clean light spills on the bottom of the oven, it keeps the oven clean and reduces the need for frequent self-clean cycles.
+                   
+                   Scan-to-Connect Technology - You don't need to be a tech expert to connect your new appliance. Simply open the Whirlpool® app, add your appliance and follow the guided experience to get up and running quickly.
+                   
+                   Remote Start - With remote start enabled, use your smartphone or tablet to remotely turn your oven on so it's heated up and ready to cook meals when you are.
+                   
+                   Keep Warm Setting - Keep dishes from getting cold with this setting that delivers low heat to the oven. Control it remotely through your Whirlpool® app or manually on the oven so food stays warm and ready to serve whether you're home or away.
+                   
+                   Party Mode - Start preparing for guests from your smartphone or tablet with Party mode that automatically turns on the Keep Warm setting so dishes stay ready to serve.
+                   
+                   Enhanced Troubleshooting - Get immediate support for quick solutions by using your smartphone or tablet to access troubleshooting videos.
+                   
+                   Guided Service - Keep track of scheduled appointments and make sure issues are known using the Whirlpool® app to send data from the appliance directly to Whirlpool brand customer service.
+                   
+                   Self-Close Door - Keep doors from shutting too quickly with the smooth, quiet mechanism of self-close doors.
+                   
+                   Temperature Sensor - Get evenly baked food with a sensor that monitors oven temperature and adjusts the cooking elements.
+                   
+                   Rapid Preheat - Save time with 20% faster preheating. A rear fan combined with the use of all of the elements helps to heat the oven quickly.
+                   
+                   Control Lock Mode - Use your smartphone or tablet to remotely disable the control panel to avoid unintended use.
+                   
+                   Extra-Large Window - Keep an eye on your meal through the extra-large oven window.
+                   
+                   Sabbath mode - Use Sabbath mode to keep the oven on the "Bake" setting at a constant temperature until it's turned off. When this mode is enabled, displays, tones and all other cooking and cleaning cycles are disabled.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/whirlpool-20200330132035/module/whirlpool/access.whirlpool.com/mr/WOC75EC7HV/AB-DefaultZoom_550X550_HO.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            color:
+              - text: Fingerprint Resistant Black Stainless
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "4"
+        xpath: /
+    timestamp: 1593187759224

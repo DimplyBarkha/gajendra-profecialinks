@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Bosch-800-Series-CrystalDry-42-Decibel-Filtration-Built-In-Dishwasher-Stainless-Steel-Common-24-in-Actual-23-56-in-ENERGY-STAR/1001039154
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=14ece000-7d8c-42e3-838d-2ebde5e8c346/379dc29a-bdf7-4459-9b6c-79e1542bf3f6.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=5e26b855-a69a-4028-87a7-21606bf48fff/04a91025-8644-4ebc-a1a0-89b93b47880f.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,49 @@ extractions:
             brandText:
               - text: Bosch
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/825225/825225959434.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Bosch Built-In Dishwashers #SHEM78ZH5N"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/825225/825225959434.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/825225/825225959434.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/825225/825225959434_11504289.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/825225/825225959434_11504290.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504290lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504291lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504292lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504293lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504294lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504295lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504296lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504279lg.jpg
+                xpath: /html/body/a[9]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504280lg.jpg
+                xpath: /html/body/a[10]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504281lg.jpg
+                xpath: /html/body/a[11]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504282lg.jpg
+                xpath: /html/body/a[12]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504283lg.jpg
+                xpath: /html/body/a[13]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504284lg.jpg
+                xpath: /html/body/a[14]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504285lg.jpg
+                xpath: /html/body/a[15]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504286lg.jpg
+                xpath: /html/body/a[16]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504287lg.jpg
+                xpath: /html/body/a[17]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_11504288lg.jpg
+                xpath: /html/body/a[18]/@href
+              - text: http://images.lowes.com/product/converted/825225/825225959434_16055312lg.jpg
+                xpath: /html/body/a[19]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -29,6 +63,12 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
               - text: Built-In Dishwashers
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $1,499.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $1,349.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
             description:
               - text: The ultimate clean. The ultimate dry, even on plastics. The Bosch 800
                   Series dishwasher delivers a sparkling clean and dry with
@@ -39,7 +79,7 @@ extractions:
                   load, for the ultimate clean. Patented CrystalDry technology
                   transforms moisture into heat up to 176F for the ultimate dry,
                   even for plastics.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   Patented CrystalDry technology for the ultimate dry, even on
                   plastics
@@ -59,40 +99,22 @@ extractions:
                   Hidden integrated electronic controls maintain a clean exterior and InfoLight® shines a red beam on the floor to indicate when the dishwasher is running
 
                   3 Prong power cord is included A junction box for hardwire application is sold separately (model #SMZPCJB1UC)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1001039154"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
             variantId:
               - text: "1447237"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
             mpc:
               - text: SHEM78ZH5N
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            ratingCount:
+              - text: "25"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
             aggregateRating:
               - text: "5.0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[38]/div[2]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/825225/825225959434.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-            nameExtended:
-              - text: Bosch 800 Series CrystalDry 42-Decibel Front Control 24-in Built-In
-                  Dishwasher (Stainless Steel) ENERGY STAR
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/825225/825225959434.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Bosch Built-In Dishwashers #SHEM78ZH5N"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
-            ratingCount:
-              - text: "24"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/ol[1]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Common Dishwasher Size
@@ -221,10 +243,66 @@ extractions:
                   Handle Type
                   Pocket/recessed handle
                   Smart Compatible
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[38]/div[2]
             secondaryImageTotal:
-              - text: "20"
+              - text: "19"
+                xpath: /html/body/a[20]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Bosch-800-Series-CrystalDry-42-Decibel-Filtration-Built-In-Dishwasher-Stainless-Steel-Common-24-in-Actual-23-56-in-ENERGY-STAR/1001039154
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/825225959434_video_05
+                xpath: /html/body/a[21]/@href
+              - text: https://lda.lowes.com/is/content/Lowes/825225959434_video_08
+                xpath: /html/body/a[22]/@href
+            nameExtended:
+              - text: Bosch 800 Series CrystalDry 42-Decibel Front Control 24-in Built-In
+                  Dishwasher (Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: >-
+                  Patented CrystalDry™ technology transforms moisture into heat
+                  to get dishes, including plastics, 60% drier*.
+                   
+
+                   
+                  42 dBA: Quietest Dishwasher Brand in the U.S.**
+                   
+                  A flexible 3rd rack with fold down sides adds 30% more loading capacity.
+                   
+                  Home Connect allows access to your dishwasher via a smart phone or tablet.
+                   
+                  The full-color TFT display is easy to read and easy to navigate.
+                   
+                  RackMatic® offers 3 height levels, for 9 possible rack positions.
+                   
+
+                   
+                  *Based on aggregate average drying performance of Bosch Dishwashers with CrystalDry on combined household load including plastics, glass, steel, and porcelain as compared to Bosch Dishwashers with PureDry. Drying performance may vary by dish type. 
+
+                  **Based on an average of sound ratings of 24" Full Size Stainless Steel Tub dishwashers contained in major brands websites. Major brands defined as TraQline Top 5 Market Share December 2018.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1578338581264_13a166df-3e58-4450-99d9-5af5fd250316/module/boschhomeappliances/_cp/products/1565916491659/tab-d8f1b005-d1c2-4cc3-8248-69b1be649f39/07a920c2-01ce-40c3-a5c8-3df945302d7a.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "825225959434"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
             availabilityText:
               - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913081718
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1593189304974

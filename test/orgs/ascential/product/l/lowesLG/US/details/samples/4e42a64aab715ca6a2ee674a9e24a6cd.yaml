@@ -2,7 +2,7 @@ input:
   _url: https://lowes.com
   URL: https://www.lowes.com/pd/Samsung-StormWash-44-Decibel-Filtration-Built-In-Dishwasher-Fingerprint-ResistantBlack-Stainless-Steel-Common-24-in-Actual-23-875-in-ENERGY-STAR/1000079807
 extractions:
-  - html: https://workbench.import.io/html/run=3ce97f55-f925-4fc3-bfbc-358a67979188/task=c966e916-5738-4539-ae03-f2850bdcb9f5/675de981-cc71-4fee-a889-be7932db8292.html
+  - html: https://workbench.import.io/html/run=4352827e-cb73-4fa6-90dd-9d9375541b97/task=f4601632-c0ff-4f2d-95e4-114f224ef30f/0ad99660-40e0-4796-9bc7-2f1f9b612bf1.html
     extractionConfigId: product/details/stores/l/lowesLG/US/extract
     data:
       - group:
@@ -13,15 +13,29 @@ extractions:
             brandText:
               - text: Samsung
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276166438.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung Built-In Dishwashers #DW80K7050UG"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
             alternateImages:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276166438.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276166438.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276166438_05438417.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276166438_05438418.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+              - text: http://images.lowes.com/product/converted/887276/887276166438_05438418lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276166438_05438419lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276166438_05518499lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276166438_05518495lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276166438_05518496lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276166438_05518497lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276166438_05518498lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/887276/887276166438_08677419lg.jpg
+                xpath: /html/body/a[9]/@href
             category:
               - text: Appliances
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
@@ -42,7 +56,7 @@ extractions:
                   reach spots. The AutoRelease door pops open, to circulate air
                   and accelerate drying time, while the third rack provides an
                   additional 30% more capacity.
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
               - text: >-
                   StormWash: A heavy-duty wash gets the messiest pots and pans
                   thoroughly clean without pre-washing
@@ -62,7 +76,7 @@ extractions:
                   Touch Control: An integrated panel makes it easy to select functions with a gentle touch; located on top of the door for easy access, it offers simple control and is clear and easy to read
 
                   Sani Rinse option sanitizes dishes, eliminating 99.9% of food bacteria, as certified by NSF International
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
             sku:
               - text: "1000079807"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
@@ -72,41 +86,12 @@ extractions:
             mpc:
               - text: DW80K7050UG
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
-            aggregateRating:
-              - text: "3.5"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
-            warranty:
-              - text: 1-year limited
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[38]/div[2]
-            variantInformation:
-              - text: Fingerprint-Resistant Black Stainless Steel
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
-            promotion:
-              - text: Save 10%
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]/div[1]
-              - text: Offer ends on Jul 8
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]/div[2]
-            warnings:
-              - text: Prop 65 Warning(s)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
-            videos:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276166438.jpg?size=mthb
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/button[1]/img[1]/@src
-            nameExtended:
-              - text: Samsung StormWash 44-Decibel Top Control 24-in Built-In Dishwasher
-                  (Fingerprint-Resistant Black Stainless Steel) ENERGY STAR
-                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
-            image:
-              - text: http://mobileimages.lowes.com/product/converted/887276/887276166438.jpg?size=pdhi
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
-            imageAlt:
-              - text: "Samsung Built-In Dishwashers #DW80K7050UG"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
-            descriptionBullets:
-              - text: "9"
             ratingCount:
               - text: "661"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "3.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
             specifications:
               - text: |-
                   Common Dishwasher Size
@@ -231,10 +216,118 @@ extractions:
                   Condensation Dry
                   Fan Assisted Dry
                   Mineral Assisted Dry
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[38]/div[2]
+            variantInformation:
+              - text: Fingerprint-Resistant Black Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             secondaryImageTotal:
-              - text: "10"
+              - text: "9"
+                xpath: /html/body/a[10]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Samsung-StormWash-44-Decibel-Filtration-Built-In-Dishwasher-Fingerprint-ResistantBlack-Stainless-Steel-Common-24-in-Actual-23-875-in-ENERGY-STAR/1000079807
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/887276166438_video_02
+                xpath: /html/body/a[11]/@href
+              - text: https://lda.lowes.com/is/content/Lowes/887276166438_video_01
+                xpath: /html/body/a[12]/@href
+            nameExtended:
+              - text: Samsung StormWash 44-Decibel Top Control 24-in Built-In Dishwasher
+                  (Fingerprint-Resistant Black Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/h1[1]
+              - text: Greasy or baked-on pots and pans are cleaned without pre-washing.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: The door automatically opens to circulate air so dishes can dry faster.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: Cleaning dishes is virtually silent with this 44 dBa dishwasher. One of
+                  the quietest it it's class.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[2]
+              - text: Wash cutlery and large utensils with a third rack that saves plenty of
+                  space for other items.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[2]
+              - text: Helps reduce smudges for an everyday great appearance.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[2]
+              - text: An integrated panel makes it easy to select functions with a gentle touch.
+                  Located on the top of the door for easy access, it offers
+                  simple control and is clear and easy to read.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[2]
+              - text: ENERGY STAR® rated products meet strict energy efficiency specifications
+                  set by the government. This Samsung dishwasher not only meets
+                  ENERGY STAR® requirements, it exceeds them.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[2]
+              - text: Check to make sure your appliance will fit and that your home is
+                  accessible for delivery.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[2]
+              - text: >-
+                  DW80K7050 Series - DW80K5050 Series LIMITED WARRANTY TO
+                  ORIGINAL PURCHASER 
+                   This SAMSUNG brand product, as supplied and distributed by USA: SAMSUNG ELECTRONICS AMERICA, INC./CANADA: SAMSUNG ELECTRONICS CANADA, INC. (SAMSUNG) and delivered new, in the original carton to the original consumer purchaser, is warranted by SAMSUNG against manufacturing defects in materials and workmanship for a limited warranty period of: 
+                   
+                   One Year All Parts and Labor, 
+                   
+                   Five Years Printed Circuit Board, Racking (Labor Charges for in-home service starting from the 2nd year is customer's responsibility), and 
+                   
+                   Lifetime Stainless Door Liner & Tub for leakage. 
+                   
+                   If the unit cannot be repaired, Samsung will replace your unit with same or current model (that is better or equivalent in functionality) (Labor related to replacement is customer's responsibility). 
+                   
+                   This limited warranty begins on the original date of purchase, and is valid only on products purchased and used in the United States/Canada. To receive warranty service, the purchaser must contact SAMSUNG for problem determination and service procedures. Warranty service can only be performed by a SAMSUNG authorized service center. The original dated bill of sale must be presented upon request as proof of purchase to SAMSUNG or SAMSUNG's authorized service center. SAMSUNG will provide in-home service during the warranty period at no charge, subject to availability within the contiguous United States/Canada. In home service is not available in all areas. 
+                   
+                   To receive in-home service, product must be unobstructed and accessible to the service agent. If service is not available, SAMSUNG may elect to provide transportation of the product to and from an authorized service center. 
+                   
+                   SAMSUNG will repair, replace, or refund this product at our option and at no charge as stipulated herein, with new or reconditioned parts or products if found to be defective during the limited warranty period specified above. All replaced parts and products become the property of SAMSUNG and must be returned to SAMSUNG. Replacement parts and products assume the remaining original warranty, or ninety days, whichever is longer. 
+                   
+                   This limited warranty covers manufacturing defects in materials and workmanship encountered in normal, noncommercial use of this product and shall not apply to the following: damage that occurs in shipment; delivery and installation; applications and uses for which this product was not intended; altered product or serial numbers; cosmetic damage or exterior finish; accidents, abuse, neglect, fire, water, lightning, or other acts of nature or God; use of products, equipment, systems, utilities, services, parts, supplies, accessories, applications, installations, repairs, external wiring or connectors not supplied or authorized by SAMSUNG that damage this product or result in service problems; incorrect electrical line voltage, fluctuations and surges; customer adjustments and failure to follow operating instructions, maintenance and environmental instructions that are covered and prescribed in the instruction book; product removal and reinstallation; problems caused by pest infestations. This limited warranty does not cover problems resulting from incorrect electric current, voltage or supply, light bulbs, house fuses, house wiring, cost of a service call for instructions, or fixing installation errors. SAMSUNG does not warrant uninterrupted or error-free operation of the product. 
+                   
+                   EXCEPT AS SET FORTH HEREIN, THERE ARE NO WARRANTIES ON THIS PRODUCT EITHER EXPRESS OR IMPLIED, AND SAMSUNG DISCLAIMS ALL WARRANTIES INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OF MERCHANTABILITY, INFRINGEMENT OR FITNESS FOR A PARTICULAR PURPOSE. NO WARRANTY OR GUARANTEE GIVEN BY ANY PERSON, FIRM, OR CORPORATION WITH RESPECT TO THIS PRODUCT SHALL BE BINDING ON SAMSUNG. SAMSUNG SHALL NOT BE LIABLE FOR LOSS OF REVENUE OR PROFITS, FAILURE TO REALIZE SAVINGS OR OTHER BENEFITS, OR ANY OTHER SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES CAUSED BY THE USE, MISUSE, OR INABILITY TO USE THIS PRODUCT, REGARDLESS OF THE LEGAL THEORY ON WHICH THE CLAIM IS BASED, AND EVEN IF SAMSUNG HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. 
+                   
+                   NOR SHALL RECOVERY OF ANY KIND AGAINST SAMSUNG BE GREATER IN AMOUNT THAN THE PURCHASE PRICE OF THE PRODUCT SOLD BY SAMSUNG AND CAUSING THE ALLEGED DAMAGE. 
+                   
+                   WITHOUT LIMITING THE FOREGOING, PURCHASER ASSUMES ALL RISK AND LIABILITY FOR LOSS, DAMAGE, OR INJURY TO PURCHASER AND PURCHASER'S PROPERTY AND TO OTHERS AND THEIR PROPERTY ARISING OUT OF THE USE, MISUSE, OR INABILITY TO USE THIS PRODUCT. THIS LIMITED WARRANTY SHALL NOT EXTEND TO ANYONE OTHER THAN THE ORIGINAL PURCHASER OF THIS PRODUCT, IS NONTRANSFERABLE AND STATES YOUR EXCLUSIVE REMEDY. 
+                   
+                   Some states do not allow limitations on how long an implied warranty lasts, or the exclusion or limitation of incidental or consequential damages, so the above limitations or exclusions may not apply to you. This warranty gives you specific rights, and you may also have other rights, which vary from state to state. 
+                   
+                   DW7000KM-02025A-01_EN_MES.pdf
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564502460261_fffd5c52-c655-4c14-b16e-69d35090ebd3/module/samsungus/_cp/products/dw80k7050ug-aa/tab-26a66846-142d-4ed7-a380-e14abdbafe45/resource-e32b1abf-ef3b-4fd7-a21e-e5e14fbae721.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564502460261_fffd5c52-c655-4c14-b16e-69d35090ebd3/module/samsungus/_cp/products/dw80k7050ug-aa/tab-26a66846-142d-4ed7-a380-e14abdbafe45/resource-45bf0804-ea55-46b9-8a07-e080487caef0.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564502460261_fffd5c52-c655-4c14-b16e-69d35090ebd3/module/samsungus/_cp/products/dw80k7050ug-aa/tab-26a66846-142d-4ed7-a380-e14abdbafe45/resource-f1735b9f-71f6-4bdf-9ae2-e651f537ddfe.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564502460261_fffd5c52-c655-4c14-b16e-69d35090ebd3/module/samsungus/_cp/products/dw80k7050ug-aa/tab-26a66846-142d-4ed7-a380-e14abdbafe45/resource-0ddf8118-5a1c-4fd5-a325-1ecfb826ce77.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564502460261_fffd5c52-c655-4c14-b16e-69d35090ebd3/module/samsungus/_cp/products/dw80k7050ug-aa/tab-26a66846-142d-4ed7-a380-e14abdbafe45/resource-599d4d7d-4095-43a5-ba19-3853e85bdebf.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564502460261_fffd5c52-c655-4c14-b16e-69d35090ebd3/module/samsungus/_cp/products/dw80k7050ug-aa/tab-26a66846-142d-4ed7-a380-e14abdbafe45/resource-bdbd958f-2305-4aba-89d8-a3404c4f5552.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564502460261_fffd5c52-c655-4c14-b16e-69d35090ebd3/module/samsungus/_cp/products/dw80k7050ug-aa/tab-26a66846-142d-4ed7-a380-e14abdbafe45/resource-33c1e0c3-2464-499b-845e-31abf198c0cb.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1564502460261_fffd5c52-c655-4c14-b16e-69d35090ebd3/module/samsungus/_cp/products/dw80k7050ug-aa/tab-26a66846-142d-4ed7-a380-e14abdbafe45/resource-7ca7c190-5e72-4ba6-9b50-5628eef6534c.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "887276166438"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Fingerprint-Resistant Black Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
             availabilityText:
               - text: Out of Stock
-        xpath: /html
-    timestamp: 1592913055230
+            descriptionBullets:
+              - text: "9"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "2"
+        xpath: /
+    timestamp: 1593187821909
