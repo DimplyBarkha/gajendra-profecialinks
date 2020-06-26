@@ -18,9 +18,33 @@ module.exports = {
     console.log('HERE')
     console.log(manufacturerInfo);
 
+    // document.body.scrollHeight;
+
+    async function autoScroll () {
+      await context.evaluate(async function () {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+
+    // autoScroll();
+
     if (manufacturerInfo.length !== 0) {
-      await new Promise(resolve => setTimeout(resolve, 100000));
-      await context.waitForSelector('div.wc-rich-content-description');
+      await new Promise(resolve => setTimeout(resolve, 30000));
+      autoScroll();
+      await context.waitForSelector('li#prodCollage > div.inner');
     }
 
     const extractAll = async (id, url, variants) => {
@@ -124,7 +148,17 @@ module.exports = {
           const shipping = findInSection('shipping');
           const reviews = findInSection('reviews');
 
-          const fullDescription = desc ? decodeURIComponent(desc.productDesc) : '';
+          let fullDescription = desc ? decodeURIComponent(desc.productDesc) : '';
+          // console.log('fullDescription')
+          // console.log(fullDescription)
+          fullDescription = fullDescription.replace(/<table.*?>/g, '');
+          fullDescription = fullDescription.replace(/<tbody.*?>/g, '');
+          fullDescription = fullDescription.replace(/<tr.*?>/g, '');
+          fullDescription = fullDescription.replace(/<td.*?>/g, '');
+          fullDescription = fullDescription.replace(/<\/table>/g, '');
+          fullDescription = fullDescription.replace(/<\/tbody>/g, '');
+          fullDescription = fullDescription.replace(/<\/tr>/g, '');
+          fullDescription = fullDescription.replace(/<\/td>/g, '');
           const directions = fullDescription.toLowerCase().indexOf('how to') > -1 ? fullDescription.toLowerCase().indexOf('how to') : '';
 
           const images = infos.filmStripUrl.reduce((acc, obj) => {
@@ -321,6 +355,7 @@ module.exports = {
       };
       if (variants.length === 0) return await extract();
       for (let index = 0; index < variants.length; index++) {
+        await new Promise(resolve => setTimeout(resolve, 5000));
         await extract(variants[index]);
       };
     };
@@ -334,8 +369,8 @@ module.exports = {
       const result = Object.entries(jsonObj.inventory.relatedProducts)
         .reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.url)], [])
         .map(url => (getXpathByText('//li//a', 'style', url)));
-      if (result.length > 41) {
-        result.splice(41, result.length);
+      if (result.length > 21) {
+        result.splice(21, result.length);
       }
       console.log(result);
       return result;

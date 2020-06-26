@@ -5,7 +5,7 @@ module.exports = {
     country: 'us',
     store: 'walgreens',
     domain: 'walgreens.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#product',
+    noResultsXPath: '//h1[contains(@id, "zero-result-alert")]',
   },
 };
