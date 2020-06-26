@@ -21,7 +21,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[contains(@id,'nav-subnav')]/@data-category | //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
@@ -235,7 +235,7 @@ fields:
     description: null
   - name: heroQuickPromoUrl
     singleValue: true
-    xpath: //div[contains(@id,'universal-hero-quick-promo')]//a/@href | //*[@id='bylineInfo']/@href
+    xpath: //div[contains(@id,'universal-hero-quick-promo')]//a/@href
     regExp: (.*)
     regExpReplace: https://www.amazon.co.uk/dp$1
     description: null
@@ -522,7 +522,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//td[contains(@class,'value') or contains(@class,'label')]/text()
+    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
