@@ -8,7 +8,8 @@ module.exports = {
     store: 'costco',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
-    url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true }[/!opt!]`;
+    const zip = '98188';
+    url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true, "cookie_jar":[{"name":"invCheckPostalCode","value":${zip}}]}[/!opt!]`;
     await context.goto(url, {
       block_ads: false,
       load_all_resources: true,
