@@ -1,0 +1,240 @@
+input:
+  _url: https://lowes.com
+  URL: https://www.lowes.com/pd/Bosch-800-Series-PureDry-ADA-44-Decibel-Filtration-Built-In-Dishwasher-Stainless-Steel-Common-24-in-Actual-23-56-in-ENERGY-STAR/1000683117
+extractions:
+  - html: https://workbench.import.io/html/run=ab0e6976-9a62-4d0d-8950-cb964682b6de/task=a2173892-e421-4e2e-8fdb-7a1b145964fb/25f60d9c-9a99-476c-8d84-318d6c6a47db.html
+    extractionConfigId: product/details/stores/l/lowesLG/US/extract
+    data:
+      - group:
+          - name:
+              - text: Bosch 800 Series PureDry 44-Decibel Front Control 24-in Built-In
+                  Dishwasher (Stainless Steel) ENERGY STAR (ADA Compliant)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            brandText:
+              - text: Bosch
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            alternateImages:
+              - text: http://mobileimages.lowes.com/product/converted/825225/825225951964.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/825225/825225951964_10085435.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/825225/825225951964_10085436.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/825225/825225951964_10085437.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+            category:
+              - text: Appliances
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
+              - text: Dishwashers
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
+              - text: Built-In Dishwashers
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $949.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $854.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
+            description:
+              - text: Bosch 24 in. ADA-compliant dishwashers are uniquely designed for customers
+                  with special height requirements and feature sophisticated
+                  technologies for quiet operation, outstanding performance and
+                  remarkable flexibility.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: >-
+                  A 3rd rack adds more loading area for silverware and cooking
+                  utensils
+
+                  Specialized cycles and options like half load, delicate and express for all of life's dish loads
+
+                  Remarkably quiet operation (44 dBA) with 18 unique sound-reducing technologies
+
+                  Built-in water softener plus Bosch's advanced PrecisionWash system for the ultimate clean on every item of every load
+
+                  PureDry™ efficiently dries dishes without a heating element, so plastics can be safely placed anywhere
+
+                  Durable stainless steel interior includes the Rackmatic® adjustable upper rack and FlexSpace Tines™ for maximum loading flexibility
+
+                  Holds 14 place settings to accommodate your loading needs for different occasions
+
+                  AquaStop® plus 4-part leak protection prevents water damage 24/7
+
+                  Every Bosch dishwasher is ENERGY STAR qualified and meets or exceeds federal guidelines, for year-round energy savings
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000683117"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
+            variantId:
+              - text: "1139154"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
+            mpc:
+              - text: SGE68X55UC
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]
+            promotion:
+              - text: Save 10%
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]/div[1]
+              - text: Offer ends on Jul 8
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]/div[2]
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            videos:
+              - text: http://mobileimages.lowes.com/product/converted/825225/825225951964.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
+            nameExtended:
+              - text: Bosch 800 Series PureDry 44-Decibel Front Control 24-in Built-In
+                  Dishwasher (Stainless Steel) ENERGY STAR (ADA Compliant)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/825225/825225951964.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Bosch Built-In Dishwashers #SGE68X55UC"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "9"
+            ratingCount:
+              - text: "72"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            specifications:
+              - text: |-
+                  Common Dishwasher Size
+                  24 inch
+                  Actual Width (Inches)
+                  23.56
+                  Actual Depth with Door Open (Inches)
+                  45.47
+                  Actual Depth Excluding Handle (Inches)
+                  21.63
+                  Actual Depth Including Handle (Inches)
+                  21.63
+                  Maximum Assembled Height (Inches)
+                  34.44
+                  Minimum Assembled Height (Inches)
+                  32.06
+                  Tub Height
+                  Tall
+                  Removable Top Rack
+                  Hard Food Disposer or Filtration
+                  Filtration
+                  Delay Wash
+                  Wash System
+                  PrecisionWash System
+                  Adjustable Height
+                  Air Dry
+                  Automatic Temperature Control
+                  Self-Cleaning Filter
+                  Quick Wash Cycle
+                  Number of Cycles
+                  6
+                  Direct Feed
+                  Water Filtration
+                  Delay Wash Time (Hours)
+                  24
+                  Hi-Temp Wash Option
+                  Quick Rinse Cycle
+                  Heated/Hi-Temp Dry
+                  Rinse and Hold Cycle
+                  Heavy/Pots and Pans Cycle
+                  Number of Wash Levels
+                  5
+                  Normal Cycle
+                  Adjustable Upper Rack
+                  Rinse Aid Dispenser Indicator
+                  Gentle Wash Cycle
+                  Pre-Soak Cycle
+                  Bottle Wash Feature
+                  Steam Option
+                  Rack Options
+                  Culinary rack
+                  Sensor Wash Cycle
+                  Unique/Exclusive Cycle(s)
+                  N/A
+                  Number of Place Settings
+                  14
+                  Advanced Sensor Wash Cycle
+                  Stemware Holder
+                  Targeted Silverware Wash Module
+                  1/2-Rack Wash Option
+                  Targeted Scouring Module
+                  Cycle Status Lights
+                  Third Rack
+                  Fold-Down Tines
+                  Upper and lower racks
+                  Removable Silverware Basket
+                  Silverware Basket Covers
+                  Appliance Color/Finish
+                  Stainless steel
+                  Manufacturer Color/Finish
+                  Stainless Steel
+                  Control Panel Color
+                  Stainless
+                  Fingerprint-Resistant
+                  Tub Material
+                  Stainless steel
+                  Rack Material
+                  Nylon
+                  Sound Rating (Decibels)
+                  44
+                  ADA Compliant
+                  ENERGY STAR Certified
+                  CEE Tier Qualified
+                  CEE Tier I
+                  Noise Rating
+                  Whisper Quiet (45 and under)
+                  NSF Certified Sanitization Option
+                  Lowe's Exclusive
+                  Control Panel Style
+                  Fully Visible (Front)
+                  Wash System Type
+                  Direct feed
+                  Control Type
+                  Electronic
+                  Sub-Brand
+                  N/A
+                  Series
+                  800 Series PureDry (ADA)
+                  Fill and Drain Hose Included
+                  Power Cord Included
+                  Hard-wire junction box included
+                  Custom Door Panel Included
+                  Works with Amazon Alexa
+                  Works with Apple HomeKit
+                  Works with the Google Assistant
+                  Works with SmartThings
+                  Wi-Fi Compatibility
+                  Bluetooth Compatibility
+                  App Compatibility
+                  Works with iOS
+                  Works with Android
+                  Voice Controlled
+                  Hub Required
+                  Warranty
+                  1-year limited
+                  Child Safety Locks
+                  CA Residents: Prop 65 Warning(s)
+                   Prop 65 WARNING(S)
+                  UNSPSC
+                  52141500
+                  Safety Listing
+                  UL safety listing
+                  Condensation Dry
+                  Fan Assisted Dry
+                  Mineral Assisted Dry
+                  Handle Type
+                  Pocket/recessed handle
+                  Smart Compatible
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+            secondaryImageTotal:
+              - text: "9"
+        xpath: /html
+    timestamp: 1592910928867

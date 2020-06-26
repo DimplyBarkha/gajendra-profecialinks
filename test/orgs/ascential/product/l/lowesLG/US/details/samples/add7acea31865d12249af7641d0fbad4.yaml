@@ -1,0 +1,335 @@
+input:
+  _url: https://lowes.com
+  URL: https://www.lowes.com/pd/Samsung-Activewash-5-2-cu-ft-High-Efficiency-Top-Load-Washer-Black-Stainless-Steel-ENERGY-STAR/1000210591
+extractions:
+  - html: https://workbench.import.io/html/run=ab0e6976-9a62-4d0d-8950-cb964682b6de/task=bb50b524-c034-4a15-9c79-367a1ea2b9c1/87451720-620b-4372-9327-191e2c711503.html
+    extractionConfigId: product/details/stores/l/lowesLG/US/extract
+    data:
+      - group:
+          - name:
+              - text: Samsung Activewash 5-cu ft High Efficiency Steam Cycle Top-Load Washer
+                  (Black Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            brandText:
+              - text: Samsung
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            alternateImages:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276196428.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276196428_07992627.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276196428_07992631.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/button[1]/img[1]/@src
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276196428_07992623.jpg?size=mthb
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/button[1]/img[1]/@src
+            category:
+              - text: Appliances
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
+              - text: Washers & Dryers
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
+              - text: Washing Machines
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+              - text: Top-Load Washers
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $1,099.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $648.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
+            description:
+              - text: Samsung’s activewash Top Load Washer with 5.2 cubic foot capacity allows
+                  for larger loads so you can spend less time doing laundry. The
+                  built-in sink lets you pre-treat and pre-soak your clothes
+                  with ease, while Steam Wash uses the power of steam to help
+                  remove stains. With Vibration Reduction Technology, wash loads
+                  stays balanced and quiet even at high speeds.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: >-
+                  Activewash: Built-In sink for pre treatment
+
+                  Steam Wash: Uses the power steam to remove stains without pre-treatment
+
+                  VRT Plus Technology: Reduces vibration 40% more than standard VRT for quiet washing
+
+                  5.2 Cubic Feet Capacity: Fewer washes, less time in the laundry room, and more time for you
+
+                  Self Clean: Keeps your laundry drum fresh and odor-free
+
+                  Smart Care: Troubleshoot Straight from your Smartphone
+
+                  Diamond Drum Design: Extends Clothing Life by Treating Fabrics Gently
+
+                  EZ Drawer Dispenser: Conveniently placed detergent drawer with ball bearing glides
+
+                  800 RPM Maximum Spin Speeds: Extract more water to reduce drying time
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000210591"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]/input[1]/@value
+            variantId:
+              - text: "844404"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
+            mpc:
+              - text: WA52M7750AV
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            aggregateRating:
+              - text: "3.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[35]/div[2]
+            promotion:
+              - text: Save 41%
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]/div[1]
+              - text: Offer ends on Jul 8
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]/div[2]
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            nameExtended:
+              - text: Samsung Activewash 5-cu ft High Efficiency Steam Cycle Top-Load Washer
+                  (Black Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/887276/887276196428.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Samsung Top-Load Washers #WA52M7750AV"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "9"
+            ratingCount:
+              - text: "323"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            specifications:
+              - text: >-
+                  Sub-Brand
+
+                  N/A
+
+                  Manufacturer Color/Finish
+
+                  Black Stainless Steel
+
+                  Appliance Color/Finish
+
+                  Black stainless steel
+
+                  Tub Material
+
+                  Stainless
+
+                  Porcelain Lid
+
+                  Product Capacity
+
+                  5.2 cu ft
+
+                  Item Weight (lbs.)
+
+                  143.3
+
+                  Width (Inches)
+
+                  27
+
+                  Depth (Inches)
+
+                  29.3125
+
+                  Height (Inches)
+
+                  46
+
+                  Height with Lid Open (Inches)
+
+                  59.875
+
+                  Volts
+
+                  120
+
+                  Maximum Spin Speed (RPM)
+
+                  800
+
+                  Dispensers
+
+                  Detergent; bleach; fabric softener
+
+                  Power Cord Included
+
+                  Fill and Drain Hoses Included
+
+                  Built-In Water Heater
+
+                  Add a Garment
+
+                  Automatic Load Balancing
+
+                  Automatic Temperature Control
+
+                  Control Lockout
+
+                  Control Panel Language
+
+                  English
+
+                  Cycle Status Lights
+
+                  Delay Start
+
+                  End-of-Cycle Signal
+
+                  Estimated Time Remaining Display
+
+                  High Efficiency
+
+                  Portable
+
+                  Sound Reduction
+
+                  Stain Treatment
+
+                  Two-Piece Agitator or Impeller
+
+                  Impeller
+
+                  Wash Now, Dry Later Option
+
+                  Water Levels
+
+                  Preset
+
+                  Number of Rinse Temperatures
+
+                  6
+
+                  Number of Rinse Cycles
+
+                  2
+
+                  Number of Wash Cycles
+
+                  13
+
+                  Allergen/Sanitary Cycle
+
+                  Bulky/Large Items Cycle
+
+                  Delicate Cycle
+
+                  Extra Rinse Cycle
+
+                  Handwashable Cycle
+
+                  Prewash Cycle
+
+                  Quick/Express Cycle
+
+                  Silk Cycle
+
+                  Soak Cycle
+
+                  Steam Cycle
+
+                  Whites Cycle
+
+                  Wool Cycle
+
+                  Unique/Exclusive Cycle(s)
+
+                  Bedding/WaterProof, Steam Sanitize, Whites, Active Wear, Delicates/Hand Wash, Deep Wash
+
+                  Programmable Wash Cycles
+
+                  Wi-Fi Compatibility
+
+                  Bluetooth Compatibility
+
+                  App Compatibility
+
+                  Hub Required
+
+                  Voice Controlled
+
+                  Works with Amazon Alexa
+
+                  Works with Android
+
+                  Works with Apple HomeKit
+
+                  Works with the Google Assistant
+
+                  Works with iOS
+
+                  Works with SmartThings
+
+                  Matching Pedestal (Model #)
+
+                  N/A
+
+                  Matching Electric Dryer (Model #)
+
+                  DVE52M7750V
+
+                  Matching Gas Dryer (Model #)
+
+                  DVG52M7750V
+
+                  ENERGY STAR Certified
+
+                  CEE Tier Qualified
+
+                  N/A
+
+                  ADA Compliant
+
+                  Lowe's Exclusive
+
+                  CA Residents: Prop 65 Warning(s)
+                   Prop 65 WARNING(S)
+                  Maximum Speed (RPM)
+
+                  800
+
+                  Detergent Tank Capacity
+
+                  Single load
+
+                  UNSPSC
+
+                  52141600
+
+                  Hand Crank
+
+                  Safety Listing
+
+                  UL safety listing
+
+                  Warranty
+
+                  1-year limited
+
+                  Series Name
+
+                  Activewash
+
+                  Smart Compatible
+
+                  Washer Capacity (Cu. Feet)
+
+                  5
+
+                  Size
+
+                  Large (4.6 - 5.2-cu ft)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[2]/div[2]
+            secondaryImageTotal:
+              - text: "11"
+        xpath: /html
+    timestamp: 1592910974597
