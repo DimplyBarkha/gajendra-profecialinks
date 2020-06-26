@@ -46,7 +46,7 @@ fields:
     regExpReplace: $1
   - name: gtin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
-  - name: sku
+  - name: asin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
@@ -98,7 +98,9 @@ fields:
     sinlgeValue: true
     xpath:
   - name: sku
-    xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
+    xpath: //li[contains(.,'Modellnummer:')]
+    regExp: (.+)\:(.+)
+    regExpReplace: $2
   - name: coupon
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
   - name: amazonChoice

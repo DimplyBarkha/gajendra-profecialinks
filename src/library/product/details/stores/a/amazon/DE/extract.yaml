@@ -1,17 +1,11 @@
 extends: ../../amazonPharmapacks/US/extract
 fields:
-  - name: price
-    xpath: //*[@id="priceblock_ourprice"]
-    regExp: >-
-      (\d+,?\d+)
-    regExpReplace: $1 € 
-    singleValue: true
   - name: size
     singleValue: true
     xpath: //option[@id='native_size_name_0']
   - name: ratingCount
     singleValue: true
-    xpath:  //*[@id="acrCustomerReviewText"]
+    xpath: //*[@id="acrCustomerReviewText"]
     regExp: (^[.0-9]+)
   - name: aggregateRating
     singleValue: true
@@ -25,10 +19,9 @@ fields:
     singleValue: true
     xpath: //li[contains(., 'Produktgewicht inkl. Verpackung:')]
     regExp: >-
-      (.+)\:(.+) TODO
+      (.+)\:(.+)
     regExpReplace: $2
   - name: variantCount
-    singleValue: true
     xpath: count(//ul[contains(@class, 'imageSwatches')]/li)
   - name: availabilityText
     singleValue: true
@@ -79,4 +72,10 @@ fields:
     singleValue: true
   - name: videos
     xpath: //video/@src
+    singleValue: true
+  - name: price
+    xpath: //*[@id="priceblock_ourprice"]
+    regExp: >-
+      (\d+,?\d+)
+    regExpReplace: $1 € 
     singleValue: true
