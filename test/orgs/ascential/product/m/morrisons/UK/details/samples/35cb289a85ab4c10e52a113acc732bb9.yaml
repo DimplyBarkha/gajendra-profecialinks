@@ -1,0 +1,153 @@
+input:
+  id: 111860011
+  _url: https://groceries.morrisons.com
+extractions:
+  - html: https://workbench.import.io/html/run=14722f6d-df83-4fef-b1a1-1b8c9551d82e/task=89d3642b-f4c2-4f43-b9d9-7de34345d769/3e333e7f-0406-403c-accb-cee78f8d9398.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://groceries.morrisons.com//productImages/111/111860011_0_640x640.jpg?identifier=210955cf4a3b3919b0db256b899a3b18
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, Batchelors, Packet Soup, Food Cupboard, Tins,
+                  Cans & Packets, Soup
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: Batchelors Cup a Soup Chicken & Leek 4 Sachets 86g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            category:
+              - text: Food Cupboard
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Tins, Cans & Packets
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Soup
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Packet Soup
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Batchelors Cup a Soup Chicken & Leek 4 Sachets
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[5]
+            price:
+              - text: £1.20
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/button[1]
+            description:
+              - text: Love your mug With a Cup a Soup to hand it'll only take a moment to stir
+                  up a snack that's tasty, warm and satisfying - but you'll
+                  probably want to give yourself a bit longer to relax and enjoy
+                  it... Low in sugar, No added preservatives, No artificial
+                  colours
+                xpath: /html/body/@description
+            ingredientsList:
+              - text: Water, Leek (5%), Onion (3%), Glucose Syrup, Maize Starch, Vegetable Oils
+                  (Palm, Sunflower), Chicken (1%), Salt, Milk Proteins, Yeast
+                  Extract (contains Barley), Flavour Enhancers (Monosodium
+                  Glutamate, Disodium 5'-Ribonucleotides), Emulsifier (Mono- and
+                  Diglycerides of Fatty Acids), Flavourings, Turmeric
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Batchelors
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/ul[1]/li[1]/div[1]
+            sku:
+              - text: "111860011"
+                xpath: /html/head[1]/meta[17]/@content
+            recyclingInformation:
+              - text: Carton - Card - Widely Recycled; Sachet - Mixed Material - Not Currently
+                  Recycled
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            totalCarbPerServing:
+              - text: "5.1"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServing:
+              - text: "1.1"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            caloriesPerServing:
+              - text: 156kJ/37kcal
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServing:
+              - text: "1.6"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            dietaryFibrePerServing:
+              - text: "0.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalSugarsPerServing:
+              - text: "0.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            proteinPerServing:
+              - text: "0.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServing:
+              - text: "0.58"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            dietaryInformation:
+              - text: Contains Barley, May Contain Celery, Contains Milk, May Contain Wheat
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]
+            legalDisclaimer:
+              - text: This page serves as a summary for information purposes only, and are
+                  designed to enhance your shopping experience on the website.
+                  While we have taken care in preparing this summary and believe
+                  it is accurate, it is not a substitute for your reading the
+                  product packaging and label prior to use. You should note that
+                  products and their ingredients are subject to change. If you
+                  do require precise ingredient information you should consult
+                  the manufacturer, whose contact details will appear on the
+                  packaging or label. Shop is therefore unable to accept
+                  liability for any incorrect information. Where this
+                  description contains a link to another party's website for
+                  further information on the product, please note that Shop has
+                  no control over and no liability for the contents of that
+                  website. You should also note that the picture images show
+                  only our serving suggestions of how to prepare your food - all
+                  table accessories and additional items and/or ingredients
+                  pictured with the product you are purchasing are not included.
+                  This data is supplied for personal use only. It may not be
+                  reproduced in any way whatsoever without Shop Limited's prior
+                  consent, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            ratingCount:
+              - text: "0"
+            manufacturer:
+              - text: The Premier Foods Group,PO Box 66093,London,W4 9EX,UK.
+            shippingInfo:
+              - text: Consumer Quality GuaranteeWe want you to enjoy this product. If you have
+                  any questions or comments, please contact our Consumer
+                  Relations Department on 0800 222 722 Mon-Fri 9am-5pm (UK only)
+                  quoting the codes printed on the pack. (Calls may be
+                  recorded).www.batchelorsrange.co.ukThe Premier Foods Group,PO
+                  Box 66093,London,W4 9EX,UK.
+            storage:
+              - text: "Store in a cool, dry place.Best Before End: See Top of Pack"
+            productOtherInformation:
+              - text: "Additives Information:No added preservativesFull Product Name:Chicken &
+                  Leek SoupStorage:Store in a cool, dry place.Best Before End:
+                  See Top of PackSafety Warning:DO NOT USE IF INNER SACHETS ARE
+                  OPEN OR TORN.Usage:4 Servings"
+        xpath: /
+    timestamp: 1593091048368

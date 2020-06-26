@@ -1,11 +1,9 @@
 
 module.exports = {
-  implementation: async ({ id }, { country, domain }, context, dependencies) => {
-    return `https://groceries.morrisons.com/products/${id}`;
-  },
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'groceries.morrisons.com',
-    prefix: null,
+    prefix: 'products',
     country: 'UK',
     store: 'morrisons',
   },

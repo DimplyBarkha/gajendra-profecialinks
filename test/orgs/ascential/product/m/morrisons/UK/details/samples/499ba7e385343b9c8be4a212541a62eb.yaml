@@ -1,0 +1,156 @@
+input:
+  id: 110015011
+  _url: https://groceries.morrisons.com
+extractions:
+  - html: https://workbench.import.io/html/run=14722f6d-df83-4fef-b1a1-1b8c9551d82e/task=69aba70f-7aaf-4c54-b540-e48198a6ea69/518a7317-7b97-4af1-96bc-5a77cc94a592.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://groceries.morrisons.com//productImages/110/110015011_0_640x640.jpg?identifier=c7e86e2471cb75d37ac1ce8bfc5654d1
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, On Offer, Vegetarian, Schwartz, Recipe Mixes,
+                  Food Cupboard, Cooking Ingredients, Packet Mixes
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: Schwartz Hot Chilli con Carne Recipe Mix 41g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            category:
+              - text: Food Cupboard
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Cooking Ingredients
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Packet Mixes
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Recipe Mixes
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Schwartz Hot Chilli con Carne Recipe Mix
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[5]
+            price:
+              - text: 90p
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/button[1]
+            description:
+              - text: Hot chilli con carne A fiery sauce mix with chillies, cumin and cocoa
+                  powder for a hot chilli con carne. Bursting with herbs &
+                  spices, Chilli rating - extra hot - 4, Ready in 25 minutes, 2
+                  of your 5 a day is provided by 1 serving of our recipe, No
+                  hydrogenated fat, No artificial colours or flavourings, No
+                  added preservatives or MSG, Suitable for vegetarians Suitable
+                  for vegetarians
+                xpath: /html/body/@description
+            ingredientsList:
+              - text: Wheat Flour (with Calcium, Iron, Niacin (Vitamin B3), Thiamin (Vitamin
+                  B1)), Chilli Powder (15%) (Chilli Pepper, Cumin, Salt,
+                  Oregano, Garlic), Potato Starch, Salt, Onion Powder, Dried
+                  Crushed Chillies (5%), Cumin (5%), Paprika, Flavouring, Cocoa
+                  Powder (2%), Cayenne Pepper, Ground Coriander Seed (2%), White
+                  Pepper, Garlic Powder, Total content of herbs and spices =
+                  45.7%
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Schwartz
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[3]/div[1]
+            sku:
+              - text: "110015011"
+                xpath: /html/head[1]/meta[17]/@content
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[2]/div[1]/h4[1]
+            aggregateRating:
+              - text: "4.2"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            totalCarbPerServing:
+              - text: "44.4"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            saturatedFatPerServing:
+              - text: "1.4"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            caloriesPerServing:
+              - text: 1279kJ
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServing:
+              - text: "5.8"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            dietaryFibrePerServing:
+              - text: "15.9"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            totalSugarsPerServing:
+              - text: "2.7"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServing:
+              - text: "10.7"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServing:
+              - text: "12.00"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            promotion:
+              - text: Buy 4 for £2
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[2]/div[1]/a[1]/p[1]
+            dietaryInformation:
+              - text: Contains Wheat
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]
+            legalDisclaimer:
+              - text: This page serves as a summary for information purposes only, and are
+                  designed to enhance your shopping experience on the website.
+                  While we have taken care in preparing this summary and believe
+                  it is accurate, it is not a substitute for your reading the
+                  product packaging and label prior to use. You should note that
+                  products and their ingredients are subject to change. If you
+                  do require precise ingredient information you should consult
+                  the manufacturer, whose contact details will appear on the
+                  packaging or label. Shop is therefore unable to accept
+                  liability for any incorrect information. Where this
+                  description contains a link to another party's website for
+                  further information on the product, please note that Shop has
+                  no control over and no liability for the contents of that
+                  website. You should also note that the picture images show
+                  only our serving suggestions of how to prepare your food - all
+                  table accessories and additional items and/or ingredients
+                  pictured with the product you are purchasing are not included.
+                  This data is supplied for personal use only. It may not be
+                  reproduced in any way whatsoever without Shop Limited's prior
+                  consent, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            manufacturer:
+              - text: Schwartz, Pegasus Way, Haddenham, Aylesbury, Bucks, HP17 8LB.
+            shippingInfo:
+              - text: Schwartz,Pegasus Way,Haddenham,Aylesbury,Bucks,HP17 8LB.
+            storage:
+              - text: ""
+            productOtherInformation:
+              - text: Additives Information:No added preservativesFull Product Name:A fiery
+                  recipe mix with vibrant chillies, earthy cumin and rich cocoa
+                  powder for a hot and spicy Mexican favourite full of
+                  flavour.Storage:Store in a cool, dry place out of direct
+                  sunlight.Usage:4 ServingsOrigin:Produced in the UK
+        xpath: /
+    timestamp: 1593090597232

@@ -1,0 +1,57 @@
+input:
+  id: 110737011
+  _url: https://groceries.morrisons.com
+extractions:
+  - html: https://workbench.import.io/html/run=14722f6d-df83-4fef-b1a1-1b8c9551d82e/task=99886d91-913e-4d33-b6c2-509d6db5bb50/c9b8377c-1db2-47df-881e-c2f6a133eb2e.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://groceries.morrisons.com//productImages/110/110737011_0_640x640.jpg?identifier=50439b9461cac1ecc3663f1462ada87f
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, Food.com, Others,
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: Morrisons Spaghetti Loops with Sausages in Tomato Sauce
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            sku:
+              - text: "110737011"
+                xpath: /html/head[1]/meta[17]/@content
+            legalDisclaimer:
+              - text: This page serves as a summary for information purposes only, and are
+                  designed to enhance your shopping experience on the website.
+                  While we have taken care in preparing this summary and believe
+                  it is accurate, it is not a substitute for your reading the
+                  product packaging and label prior to use. You should note that
+                  products and their ingredients are subject to change. If you
+                  do require precise ingredient information you should consult
+                  the manufacturer, whose contact details will appear on the
+                  packaging or label. Shop is therefore unable to accept
+                  liability for any incorrect information. Where this
+                  description contains a link to another party's website for
+                  further information on the product, please note that Shop has
+                  no control over and no liability for the contents of that
+                  website. You should also note that the picture images show
+                  only our serving suggestions of how to prepare your food - all
+                  table accessories and additional items and/or ingredients
+                  pictured with the product you are purchasing are not included.
+                  This data is supplied for personal use only. It may not be
+                  reproduced in any way whatsoever without Shop Limited's prior
+                  consent, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            availabilityText:
+              - text: Out of Stock
+            ratingCount:
+              - text: "0"
+            manufacturer:
+              - text: ""
+            shippingInfo:
+              - text: ""
+            storage:
+              - text: ""
+            productOtherInformation:
+              - text: ""
+        xpath: /
+    timestamp: 1593090705554

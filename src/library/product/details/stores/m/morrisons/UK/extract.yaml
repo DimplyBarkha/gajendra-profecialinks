@@ -7,184 +7,158 @@ fields:
     xpath: //img[@class="bop-gallery__image"]//@src
     regExp: (.+)
     regExpReplace: https://groceries.morrisons.com/$1
-    singleValue: true
+  - name: productUrl
+    xpath: //meta[@property="og:url"]//@content
+    regExp: >-
+      (.+)
+    regExpReplace: >-
+      https://groceries.morrisons.com$1
   - name: metaKeywords
     xpath: //meta[contains(@name,"keywords")]//@content
-    singleValue: true
   - name: nameExtended
     xpath: //header[contains(@class,"bop-title")]/h2
-    singleValue: true
   - name: category
     xpath: //ul[@class="u-inline gn-breadcrumbs__list"]//li
-    singleValue: false
   - name: price
     xpath: //h2[contains(@class,"bop-price__current")]
-    singleValue: true
   - name: availabilityText
     xpath: //li//div[contains(@class,"basketControls")]//button[contains(@class,"gn-button gn-button--buy")]
     regExp: Add to trolley
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    singleValue: true
   - name: description
-    xpath: //body//@description
-    singleValue: true
+    xpath: //span[contains(.,'Description')]/../../../../div/div/div
   - name: ingredientsList
     xpath: //h6[contains(.,'Ingredients')]/../div
-    singleValue: false
   - name: brandText
     xpath: //span[contains(.,'Brands')]/../div
-    singleValue: true
   - name: manufacturer
     xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,"Manufacturer")]//../div[contains(@class,"bop-info__content")])
-    singleValue: true
   - name: quantity
     xpath: //select[@name="Size"]//option[position()>1]
-    singleValue: false
   - name: storage
     xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Storage')]/../div)
-    singleValue: true
   - name: countryOfOrigin
     xpath: //div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Origin')]/../div
-    singleValue: true
   - name: recyclingInformation
     xpath: //h6[contains(.,'Recycling')]/../div
-    singleValue: true
   - name: servingSize
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//th[contains(.,'Typical Values')]/../th[2]
     regExp: ([0-9.]+)
-    singleValue: true
   - name: servingSizeUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//th[contains(.,'Typical Values')]/../th[2]
-    regExp: (.+|^|\W)(Per|per)(\s)([0-9 .]+)(\w{1,2})
-    regExpReplace: $5
-    singleValue: true
+    regExp: g|ml
   - name: totalCarbPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Carbohydrate')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: totalCarbPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Carbohydrate')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: sodiumPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Sodium')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: sodiumPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Sodium')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: saturatedFatPerServing
-    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates')]/../td[2]
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates') or (contains(.,'Saturates') or (contains(.,'which saturated')))]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: saturatedFatPerServingUom
-    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates')]/../td[2]
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates') or (contains(.,'Saturates') or (contains(.,'which saturated')))]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: caloriesPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Energy')]/../td[2]
-    singleValue: true
   - name: totalFatPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fat')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: totalFatPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fat')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: dietaryFibrePerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fibre')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: dietaryFibrePerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fibre')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: totalSugarsPerServing
-    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'sugar')]/../td[2]
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'sugar')]/../td[2] | //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Sugars')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: totalSugarsPerServingUom
-    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'sugar')]/../td[2]
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'sugar')]/../td[2] | //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Sugars')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: proteinPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Protein')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: proteinPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Protein')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: saltPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Salt')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: saltPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Salt')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: calciumPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Calcium')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: calciumPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Calcium')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: ironPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Iron')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: ironPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Iron')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: magnesiumPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Magnesium')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: magnesiumPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Magnesium')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: vitaminAPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin A')]/../td[2]
     regExp: (^[^µg]+)
-    singleValue: true
   - name: vitaminAPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin A')]/../td[2]
     regExp: (µg)
-    singleValue: true
   - name: vitaminCPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin C')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
-    singleValue: true
   - name: vitaminCPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin C')]/../td[2]
     regExp: ([a-z]+)
-    singleValue: true
   - name: promotion
     xpath: //p[contains(@class,'bop-promotion__title')]  
-    singleValue: true
   - name: alcoholContent
     xpath: //h6[contains(.,'Units')]/../div  
-    singleValue: true
   - name: dietaryInformation
     xpath: //div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Dietary Information')]/../div
-    singleValue: true
   - name: productOtherInformation
     xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Other Information')]/../div)
-    singleValue: true
   - name: packaging
     xpath: //div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Package Type')]/../div
-    singleValue: true
   - name: listPrice
     xpath: //span[contains(@class,"bop-price__old")]
     regExp: ([^£]+)
-    singleValue: true
   - name: legalDisclaimer
     xpath: //footer/p
-    singleValue: true
+  - name: sku
+    xpath: //meta[@property="og:url"]//@content
+    regExp: (\d+){3}
+  - name: directions
+    xpath: //div[contains(@class,"gn-content bop-info__field")]//h6[contains(.,'Cooking Guidelines')]/../div | //h6[contains(.,'Preparation and Usage')]/../div
+  - name: warnings
+    xpath: //h6[contains(.,'Other Information')]/..//div[@class='bop-info__content'][contains(.,'Warning:')]
+  - name: alternateImages
+    xpath: //div/div[contains(@class,"bop-gallery__itemImage")][position()>1]//img//@src
+  - name: ratingCount
+    defaultValue: "0"
+    xpath: //div[@id="customerReviews"]/h4
+    regExp: (\d+)
+  - name: aggregateRating
+    defaultValue: "0"
+    xpath: //span[@itemprop="ratingValue"]
+  - name: shippingInfo
+    xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]//h6[contains(.,'Return')]/../div)
+  

@@ -1,0 +1,152 @@
+input:
+  id: 111600011
+  _url: https://groceries.morrisons.com
+extractions:
+  - html: https://workbench.import.io/html/run=14722f6d-df83-4fef-b1a1-1b8c9551d82e/task=9774f953-a545-457e-a852-ebc09604335c/b07d6e35-70a2-4fd4-b963-ffbd8130495c.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://groceries.morrisons.com//productImages/111/111600011_0_640x640.jpg?identifier=c08047909ffd2b6470522e4bb9f4110f
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, Vegetarian, Milk Free, Halal, Vegan, HP,
+                  Brown Sauce, Food Cupboard, Table Sauces, Condiments &
+                  Dressings
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: HP Fruity Brown Sauce 470g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            category:
+              - text: Food Cupboard
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Table Sauces, Condiments & Dressings
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Brown Sauce
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: HP Fruity Brown Sauce
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]
+            price:
+              - text: £2.20
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]
+            description:
+              - text: Country of Origin Netherlands Suitable for vegetarians
+                xpath: /html/body/@description
+            ingredientsList:
+              - text: Fruit (Tomatoes, Dates, Oranges, Tamarind), Glucose-Fructose Syrup, Malt
+                  Vinegar (from Barley), Sugar, Spirit Vinegar, Modified
+                  Cornflour, Mango Chutney (Sugar, Mango, Salt, Vinegar, Chilli,
+                  Spices), Molasses, Rye Flour, Salt, Spices, Flavourings,
+                  Pectin
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            brandText:
+              - text: HP
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]
+            sku:
+              - text: "111600011"
+                xpath: /html/head[1]/meta[17]/@content
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[2]/div[1]/h4[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
+            countryOfOrigin:
+              - text: Netherlands
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+            recyclingInformation:
+              - text: Bottle - Plastic - Widely Recycled; Cap - Mixed Material - Not Currently
+                  Recycled
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[4]/div[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            totalCarbPerServing:
+              - text: "31.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            sodiumPerServing:
+              - text: "0.6"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            sodiumPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            saturatedFatPerServingUom:
+              - text: race
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            caloriesPerServing:
+              - text: 575kJ
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServingUom:
+              - text: race
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            dietaryFibrePerServing:
+              - text: "0.3"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            totalSugarsPerServing:
+              - text: "25.6"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            proteinPerServing:
+              - text: "0.9"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            saltPerServing:
+              - text: "1.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            dietaryInformation:
+              - text: Contains Barley, Contains Cereals Containing Gluten, Contains Rye
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]
+            legalDisclaimer:
+              - text: This page serves as a summary for information purposes only, and are
+                  designed to enhance your shopping experience on the website.
+                  While we have taken care in preparing this summary and believe
+                  it is accurate, it is not a substitute for your reading the
+                  product packaging and label prior to use. You should note that
+                  products and their ingredients are subject to change. If you
+                  do require precise ingredient information you should consult
+                  the manufacturer, whose contact details will appear on the
+                  packaging or label. Shop is therefore unable to accept
+                  liability for any incorrect information. Where this
+                  description contains a link to another party's website for
+                  further information on the product, please note that Shop has
+                  no control over and no liability for the contents of that
+                  website. You should also note that the picture images show
+                  only our serving suggestions of how to prepare your food - all
+                  table accessories and additional items and/or ingredients
+                  pictured with the product you are purchasing are not included.
+                  This data is supplied for personal use only. It may not be
+                  reproduced in any way whatsoever without Shop Limited's prior
+                  consent, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            availabilityText:
+              - text: Out of Stock
+            manufacturer:
+              - text: HP Foods Ltd., Hayes, Middx., UB4 8AL.
+            shippingInfo:
+              - text: HP Foods Ltd., Hayes, Middx., UB4 8AL. UK Careline 0800 072 4090 (ROI 1800
+                  995311) www.hpsauce.co.uk
+            storage:
+              - text: "To open unscrew cap and remove foil seal. Store cap down.Best Before End:
+                  See Above Cap"
+            productOtherInformation:
+              - text: "Full Product Name:Fruity Brown SauceStorage:To open unscrew cap and
+                  remove foil seal. Store cap down.Best Before End: See Above
+                  CapOrigin:Made in the NetherlandsAdditional Information:NO
+                  ARTIFICIAL COLOURS.NO ARTIFICIAL FLAVOURS.NO ARTIFICIAL
+                  PRESERVATIVES.SUITABLE FOR VEGETARIANS."
+        xpath: /
+    timestamp: 1593090921574

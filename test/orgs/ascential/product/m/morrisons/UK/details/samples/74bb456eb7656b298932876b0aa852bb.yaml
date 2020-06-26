@@ -1,0 +1,143 @@
+input:
+  id: 112329011
+  _url: https://groceries.morrisons.com
+extractions:
+  - html: https://workbench.import.io/html/run=14722f6d-df83-4fef-b1a1-1b8c9551d82e/task=05a09b99-c8ba-4b34-9549-b2153594c38f/578a7091-6410-49c1-b613-15ebd7bc084d.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://groceries.morrisons.com//productImages/112/112329011_0_640x640.jpg?identifier=be5ed3d0061ecd08a15e181d83992a4d
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, On Offer, Vegetarian, Lurpak, Seasonal, Build
+                  Your Own Fry Up, Regular, Fresh, Milk, Eggs & Butter, Butters,
+                  Fats & Spreads
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: Lurpak Slightly Salted Spreadable 500g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            category:
+              - text: Fresh
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Milk, Eggs & Butter
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Butters, Fats & Spreads
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Spreadable Butter
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Regular
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: Lurpak Slightly Salted Spreadable
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[6]
+            price:
+              - text: £2.75
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/button[1]
+            description:
+              - text: To create Lurpak® Spreadable, we blend pure Lurpak® butter with rapeseed
+                  oil making it spreadable straight from the fridge. Try it on
+                  your favourite fresh bread and top with whatever you fancy. Be
+                  inventive, see where the flavours take you. Made from natural
+                  ingredients, Lurpak® butter blended with rapeseed oil, Free
+                  from palm oil, From pressed rapeseed oil only, Packaging not
+                  suitable for microwave, Contains no colourings, preservatives
+                  or other additives, Suitable for vegetarians, Kosher - D
+                  Country of Origin Denmark Suitable for freezingSuitable for
+                  vegetarians LIFE 3w+ Product life guaranteed for more than 3
+                  weeks.
+                xpath: /html/body/@description
+            ingredientsList:
+              - text: Butter (64%) (Milk), Rapeseed Oil, Water, Lactic Culture (Milk), Salt
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Lurpak
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[3]/div[1]
+            sku:
+              - text: "112329011"
+                xpath: /html/head[1]/meta[17]/@content
+            warnings:
+              - text: Product life guaranteed for more than 3 weeks.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[4]/p[1]
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[2]/div[1]/h4[1]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
+            countryOfOrigin:
+              - text: Denmark
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            totalCarbPerServing:
+              - text: "0.6 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServing:
+              - text: "35 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            caloriesPerServing:
+              - text: 2904 kJ / 706 kcal
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServing:
+              - text: "78 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalSugarsPerServing:
+              - text: "0.6 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            proteinPerServing:
+              - text: "0.5 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            saltPerServing:
+              - text: "0.90 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            promotion:
+              - text: Offer price £2.75, was £3.85
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[2]/div[1]/a[1]/p[1]
+            packaging:
+              - text: Tub
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[4]/div[1]
+            listPrice:
+              - text: "3.85"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]
+            legalDisclaimer:
+              - text: Minimum life based on 'use-by' date of product. Average life based on last
+                  week's deliveries. Life guarantee shown based on delivery
+                  tomorrow with the Life guarantee starting the following day.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            manufacturer:
+              - text: Arla Foods Ltd,4 Savannah Way,Leeds Valley Park,Leeds,LS10 1AB.
+            shippingInfo:
+              - text: UK contact details:Arla Consumer Careline 0845 600
+                  6688www.lurpak.co.ukArla Foods Ltd,4 Savannah Way,Leeds Valley
+                  Park,Leeds,LS10 1AB.
+            storage:
+              - text: "Keep refrigeratedBest before: See lidSuitable for freezing."
+            productOtherInformation:
+              - text: "Full Product Name:Blended Spread 78% (52% milk fat & 26% rapeseed
+                  oil).Storage:Keep refrigeratedBest before: See lidSuitable for
+                  freezing.Origin:Produced in Denmark"
+        xpath: /
+    timestamp: 1593091244720

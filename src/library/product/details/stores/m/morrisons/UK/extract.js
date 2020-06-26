@@ -1,22 +1,20 @@
-
+const { transform } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'morrisons',
-    transform: null,
+    transform: transform,
     domain: 'groceries.morrisons.com',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
     await new Promise(resolve => setTimeout(resolve, 100000));
-    await context.evaluate(async function () {
-      const desc = document.querySelector('.bop-productDetails > .gn-accordionElement > div.gn-accordionElement__content.gn-accordionElement__content--expanded > .gn-accordionElement__wrapper');
-      let text = '';
-      if (desc) {
-        text = desc.innerText.replace(/[\r\n]+/gm, ' ');
-      }
-      document.querySelector('body').setAttribute('description', text);
-    });
-    await context.extract(productDetails);
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    return await context.extract(productDetails, { transform });
   },
 };

@@ -1,0 +1,184 @@
+input:
+  id: 111615011
+  _url: https://groceries.morrisons.com
+extractions:
+  - html: https://workbench.import.io/html/run=14722f6d-df83-4fef-b1a1-1b8c9551d82e/task=9bb172b9-669e-4068-9a81-6f157f996adb/920ba251-4a90-4deb-a419-057a2e5691e2.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://groceries.morrisons.com//productImages/111/111615011_0_640x640.jpg?identifier=3d4b0d3034ce381357c64910d920bc06
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, Vegetarian, Hellmann's, Light Mayonaise, Food
+                  Cupboard, Table Sauces, Condiments & Dressings, Mayonnaise
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: Hellmann's Lighter than Light Mayonnaise 400g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            category:
+              - text: Food Cupboard
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Table Sauces, Condiments & Dressings
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Light Mayonaise
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Hellmann's Lighter than Light Mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[5]
+            price:
+              - text: £1.50
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/button[1]
+            description:
+              - text: Over 100 years ago Richard Hellmann created Hellmann's mayonnaise in a
+                  deli in New York, and he marked his best products by tying a
+                  blue ribbon around them. This blue ribbon can still be found
+                  on the label today and highlights our ongoing commitment to
+                  great quality products. Today Hellmann's Lighter than Light
+                  Mayonnaise continues to be made using quality and sustainably
+                  sourced ingredients. That is why we only use 100% free-range
+                  eggs and source all of our oils responsibly. Hellmann's
+                  Lighter than Light Mayonnaise has the same rich and creamy
+                  taste of our Real mayonnaise but contains only 3% fat. It is
+                  also an excellent source of Omega 3 and contains no artificial
+                  colours, flavours or preservatives. Our mayo is suitable for
+                  vegetarians and is perfect for healthy salads and tasty veggie
+                  burgers, or can be used as a dip or a jacket potato topping.
+                  We help people to enjoy good, honest food for the simple
+                  pleasure it is, without worry or waste. Hellmann's mayonnaise
+                  with its unmistakeable amazing taste is available in multiple
+                  sized jars and convenient squeezy bottles. Treat yourself to
+                  the nation's favourite mayonnaise. Use the unmistakeable
+                  amazing taste of Hellmann's to bring your sandwiches, burgers
+                  or salads to life. For food lovers everywhere, enjoy delicious
+                  food with Hellmann's. Hellmann’s Lighter than Light Squeezy
+                  Mayonnaise, made with 100% free-range eggs, the perfect
+                  accompaniment for all your meals, burgers and sandwiches, Our
+                  Lighter than Light Mayonnaise has the rich creamy taste of
+                  Hellmann's Real Mayonnaise but with only 3% fat, Hellmann's
+                  Mayonnaise is made with no artificial colours, flavours or
+                  preservatives, Our mayo is suitable for vegetarians, perfect
+                  for healthy salads and tasty veggie burgers, You can use
+                  Hellmann’s Lighter than Light Mayo for sandwiches, salads and
+                  burgers - enjoy the simple pleasure of good simple food, The
+                  unmistakable amazing taste of Hellmann's mayonnaise for food
+                  lovers everywhere Country of Origin Spain Suitable for
+                  vegetarians
+                xpath: /html/body/@description
+            ingredientsList:
+              - text: water, spirit vinegar, modified corn starch, sugar, pasteurised free range
+                  EGG & EGG yolk (4%), rapeseed oil, salt, cream powder (MILK),
+                  citrus fibre, colours (titanium dioxide, carotenes), thickener
+                  (xanthan gum), flavourings (contain MILK), preservative
+                  (potassium sorbate), lemon juice concentrate, antioxidant
+                  (calcium disodium EDTA)
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Hellmann's
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]
+            sku:
+              - text: "111615011"
+                xpath: /html/head[1]/meta[17]/@content
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[2]/div[1]/h4[1]
+            aggregateRating:
+              - text: "3.3"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
+            countryOfOrigin:
+              - text: Spain
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            recyclingInformation:
+              - text: Jar - Recyclable
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            totalCarbPerServing:
+              - text: "9.3 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            saturatedFatPerServing:
+              - text: "0.7 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            caloriesPerServing:
+              - text: 302 kJ
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServing:
+              - text: "2.9 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalSugarsPerServing:
+              - text: "4.2 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServing:
+              - text: "0.7 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServing:
+              - text: "1.7 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            dietaryInformation:
+              - text: Contains Eggs, Contains Milk
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]
+            packaging:
+              - text: Jar
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[4]/div[1]
+            legalDisclaimer:
+              - text: This page serves as a summary for information purposes only, and are
+                  designed to enhance your shopping experience on the website.
+                  While we have taken care in preparing this summary and believe
+                  it is accurate, it is not a substitute for your reading the
+                  product packaging and label prior to use. You should note that
+                  products and their ingredients are subject to change. If you
+                  do require precise ingredient information you should consult
+                  the manufacturer, whose contact details will appear on the
+                  packaging or label. Shop is therefore unable to accept
+                  liability for any incorrect information. Where this
+                  description contains a link to another party's website for
+                  further information on the product, please note that Shop has
+                  no control over and no liability for the contents of that
+                  website. You should also note that the picture images show
+                  only our serving suggestions of how to prepare your food - all
+                  table accessories and additional items and/or ingredients
+                  pictured with the product you are purchasing are not included.
+                  This data is supplied for personal use only. It may not be
+                  reproduced in any way whatsoever without Shop Limited's prior
+                  consent, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            manufacturer:
+              - text: Unilever UK,Hellmann's,Freepost ADM 3940,London,SW1A 1YR.Unilever
+                  Ireland,20 Riverwalk,Citywest,Dublin 24.Hellmann's and
+                  Unilever are registered trademarks. Your comments count!
+                  FREEPHONE (UK) 0800435562 or CALLSAVE (IE) 1850 540550
+            shippingInfo:
+              - text: Unilever UK,Hellmann's,Freepost ADM 3940,London,SW1A 1YR.Unilever
+                  Ireland,20 Riverwalk,Citywest,Dublin 24.
+            storage:
+              - text: AFTER OPENING, KEEP REFRIGERATED AND USE WITHIN 1 MONTH.DO NOT FREEZE.
+            productOtherInformation:
+              - text: Full Product Name:Hellmann's Reduced Calorie Mayonnaise with 3%
+                  FatStorage:AFTER OPENING, KEEP REFRIGERATED AND USE WITHIN 1
+                  MONTH.DO NOT FREEZE.Origin:Spain
+        xpath: /
+    timestamp: 1593091017864
