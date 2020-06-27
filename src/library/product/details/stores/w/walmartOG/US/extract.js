@@ -7,11 +7,12 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmartOG',
+    zipcode: '72758',
     transform: transform,
     domain: 'grocery.walmart.com',
   },
 
-  implementation: async (inputs, { country, domain, transform: transformParam }, context, dependencies) => {
+  implementation: async (inputs, { country, domain, zipcode, transform: transformParam }, context, dependencies) => {
     if (inputs.id) {
       // CODE TO SEARCH FOR API in response
       // const req = await context.searchForRequest(`grocery.walmart.com/v3/api/products/${inputs.id}`, 'GET', 0, 60);
@@ -19,7 +20,7 @@ module.exports = {
 
       await context.click('button[label="Change store"]');
       await context.waitForSelector('input[data-automation-id="zipSearchField"]');
-      await context.setInputValue('input[data-automation-id="zipSearchField"]', '72758');
+      await context.setInputValue('input[data-automation-id="zipSearchField"]', zipcode);
       await context.click('button[data-automation-id="zipSearchBtn"]');
 
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]');

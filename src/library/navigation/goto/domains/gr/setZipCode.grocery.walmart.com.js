@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'product/details/createUrl',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'grocery.walmart.com',
-    prefix: 'product',
     country: 'US',
+    domain: 'grocery.walmart.com',
     store: 'walmartOG',
     zipcode: '72758',
   },
