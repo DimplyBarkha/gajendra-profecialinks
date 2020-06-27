@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'amazon',
     nextLinkSelector: 'ul.a-pagination > li.a-last a',
-    mutationSelector: null,
+    // mutationSelector: 'span[cel_widget_id="UPPER-RESULT_INFO_BAR"] div>span[dir="auto"]:first-of-type',
     spinnerSelector: null,
     loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
     noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "No results")]',
