@@ -33,6 +33,33 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.aggregateRating2) {
+        let text = '';
+        row.aggregateRating2.forEach(item => {
+          text += `${item.text.replace(',', '.')}`;
+        });
+        row.aggregateRating2 = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.description) {
+        const text = '';
+        row.description = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.manufacturerDescription) {
+        const text = '';
+        row.manufacturerDescription = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
     }
   }
   return data;
