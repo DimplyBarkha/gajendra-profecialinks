@@ -23,7 +23,9 @@ module.exports = {
     await context.waitForSelector('button[label="Change store"]');
     await context.evaluate(async function () {
       const button = document.querySelector('button[label="Change store"]');
-      button.click();
+      if (button) {
+        button.click();
+      }
     });
     await context.waitForSelector('input[data-automation-id="zipSearchField"]');
     await context.setInputValue('input[data-automation-id="zipSearchField"]', '72758');
