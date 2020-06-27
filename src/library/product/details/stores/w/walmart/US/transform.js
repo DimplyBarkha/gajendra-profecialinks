@@ -187,8 +187,8 @@ const transform = (data, context) => {
               row.proteinPerServingUom = [{ text: getSplitValue(proteinPerServing, 2) }];
             }
             if (info && info.nutritionFacts && info.nutritionFacts.vitaminMinerals && info.nutritionFacts.vitaminMinerals.childNutrients) {
-              row.vitaminAPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[0] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
-              row.vitaminCPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[1] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
+              row.vitaminAPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[0] ? info.nutritionFacts.vitaminMinerals.childNutrients[0].dvp : '' }];
+              row.vitaminCPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[1] ? info.nutritionFacts.vitaminMinerals.childNutrients[1].dvp : '' }];
               row.calciumPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[2] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
               row.ironPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[3] ? info.nutritionFacts.vitaminMinerals.childNutrients[3].dvp : '' }];
             }
