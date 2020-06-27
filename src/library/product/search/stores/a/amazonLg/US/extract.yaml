@@ -9,9 +9,6 @@ fields:
   - name: pageTimestamp
     singleValue: false
     xpath: //div[@id='ii_pageTimestamp']
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[starts-with(@id,'ii_rank')]
   - name: name
     singleValue: false
     xpath: //h2
@@ -42,5 +39,15 @@ fields:
     xpath: //span[@data-a-badge-color="ac-orange" and text()="Choice"] | //*[contains(@id,"amazons-choice-label")]
   - name: rank
     singleValue: false
-    xpath: //div[starts-with(@id,'ii_rank')]
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN 
+    xpath: //div[@class="a-row a-spacing-micro"]/span[text() = "Sponsorisé"]
  
