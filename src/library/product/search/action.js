@@ -13,16 +13,9 @@ module.exports = {
       description: 'The top private domain of the website (e.g. amazon.com)',
     },
     {
-<<<<<<< HEAD
-      name: 'defaultResults',
-      description: 'the minimum number of results required',
-      required: false,
-      type: 'number',
-=======
       name: 'zipcode',
       description: 'to set location',
       optional: true,
->>>>>>> master
     },
   ],
   inputs: [
