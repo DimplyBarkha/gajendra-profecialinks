@@ -13,10 +13,16 @@ module.exports = {
       description: 'The top private domain of the website (e.g. amazon.com)',
     },
     {
+<<<<<<< HEAD
       name: 'defaultResults',
       description: 'the minimum number of results required',
       required: false,
       type: 'number',
+=======
+      name: 'zipcode',
+      description: 'to set location',
+      optional: true,
+>>>>>>> master
     },
   ],
   inputs: [
@@ -42,7 +48,7 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async ({ keywords, Keywords, results }, { country, store, domain, defaultResults = 150 }, context, { execute, extract, paginate }) => {
+  implementation: async ({ keywords, Keywords, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
 
     results = (results) ? results : defaultResults;
@@ -52,7 +58,7 @@ module.exports = {
     keywords = (Keywords) || (keywords);
 
     // do the search
-    const resultsReturned = await execute({ keywords });
+    const resultsReturned = await execute({ keywords, zipcode });
 
     if (!resultsReturned) {
       console.log('No results were returned');
