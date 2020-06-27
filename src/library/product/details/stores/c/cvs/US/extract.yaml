@@ -16,10 +16,12 @@ fields:
     defaultValue: false
   - name: Image360Present
     singleValue: true
-    xpath: ancestor::html//div[@id='ii_image360']
+    # xpath: ancestor::html//div[@id='ii_image360']
+    xpath: boolean(ancestor::html//div[contains(@id, 'wc-360-view-2e50e148')])
   - name: imageZoomFeaturePresent
     singleValue: true
-    xpath: ancestor::html//div[@id='ii_imageZoom']
+    # xpath: ancestor::html//div[@id='ii_imageZoom']
+    xpath: boolean(ancestor::html//div[contains(@data-class, "zoom-btn")])
   - name: additionalDescBulletInfo
     # xpath: ancestor::html//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
     xpath: (ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//li|ancestor::html//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li

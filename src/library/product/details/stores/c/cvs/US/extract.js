@@ -11,17 +11,17 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 10000));
 
-    const skuFromUrl = await context.evaluate(function () {
-      const skuNumber = window.location.href;
-      if (skuNumber) {
-        const skuNum = skuNumber.split('=');
-        if (skuNum.length > 2) {
-          return skuNum[2];
-        } else {
-          return null;
-        }
-      }
-    });
+    // const skuFromUrl = await context.evaluate(function () {
+    //   const skuNumber = window.location.href;
+    //   if (skuNumber) {
+    //     const skuNum = skuNumber.split('=');
+    //     if (skuNum.length > 2) {
+    //       return skuNum[2];
+    //     } else {
+    //       return null;
+    //     }
+    //   }
+    // });
 
     const linkURL = await context.evaluate(function () {
       const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
@@ -36,12 +36,12 @@ module.exports = {
       throw new Error("notFound");
     }
 
-    // await context.goto(linkURL);
-    await context.goto(linkURL + `?skuid=${skuFromUrl}`);
+    await context.goto(linkURL);
+    // await context.goto(linkURL + `?skuid=${skuFromUrl}`);
 
     await new Promise(resolve => setTimeout(resolve, 10000));
 
-    await context.evaluate(function (skuFromUrl) {
+    await context.evaluate(function () {
 
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -71,30 +71,30 @@ module.exports = {
         });
       }
 
-      function collectBools () {
-        const imageZoom = document.querySelector('div[data-class="zoom-btn"]');
-        const Image360 = document.querySelector('div#wc-360-view-2e50e148');
-        if (imageZoom) {
-          addHiddenDiv('ii_imageZoom', 'Yes');
-        } else {
-          addHiddenDiv('ii_imageZoom', 'No');
-        }
-        if (Image360) {
-          addHiddenDiv('ii_image360', 'Yes');
-        } else {
-          addHiddenDiv('ii_image360', 'No');
-        }
-      }
+      // function collectBools () {
+      //   const imageZoom = document.querySelector('div[data-class="zoom-btn"]');
+      //   const Image360 = document.querySelector('div#wc-360-view-2e50e148');
+      //   if (imageZoom) {
+      //     addHiddenDiv('ii_imageZoom', 'Yes');
+      //   } else {
+      //     addHiddenDiv('ii_imageZoom', 'No');
+      //   }
+      //   if (Image360) {
+      //     addHiddenDiv('ii_image360', 'Yes');
+      //   } else {
+      //     addHiddenDiv('ii_image360', 'No');
+      //   }
+      // }
 
-      function collectManufImages () {
-        const manufImages = document.querySelectorAll('div.wc-aplus-body div.wc-reset img[src]');
+      // function collectManufImages () {
+      //   const manufImages = document.querySelectorAll('div.wc-aplus-body div.wc-reset img[src]');
 
-        if (manufImages) {
-          manufImages.forEach(img => {
-            addHiddenDiv('ii_manufImages', `${img.src}`);
-          });
-        }
-      }
+      //   if (manufImages) {
+      //     manufImages.forEach(img => {
+      //       addHiddenDiv('ii_manufImages', `${img.src}`);
+      //     });
+      //   }
+      // }
 
       function collectManufDesc () {
         const manufDesc = document.querySelector('div#wc-power-page > div');
@@ -132,12 +132,12 @@ module.exports = {
       // addHiddenDiv('ii_sku', skuFromUrl);
       
       collectNutritionInfo();
-      collectBools();
-      collectManufImages();
+      // collectBools();
+      // collectManufImages();
       collectBrand();
       collectManufDesc();
       collectIframe();
-    }, skuFromUrl);
+    });
     
 
     async function variantClick() {
