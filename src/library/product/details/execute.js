@@ -1,6 +1,6 @@
 /**
  *
- * @param { { url?: string,  id?: string} } inputs
+ * @param { { url?: string,  id?: string, zipcode?: any} } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action, createUrl: ImportIO.Action} } dependencies
@@ -11,14 +11,14 @@ async function implementation (
   context,
   dependencies,
 ) {
-  let { url, id } = inputs;
+  let { url, id, zipcode } = inputs;
   if (!url) {
     if (!id) {
       throw new Error('no id provided');
     }
     url = await dependencies.createUrl({ id });
   }
-  await dependencies.goto({ url });
+  await dependencies.goto({ url, zipcode });
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -63,6 +63,12 @@ module.exports = {
     {
       name: 'id',
       description: 'unique identifier for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'zipcode',
+      description: 'set location',
       type: 'string',
       optional: true,
     },
