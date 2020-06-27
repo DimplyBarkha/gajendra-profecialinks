@@ -174,6 +174,13 @@ const transform = (data, context) => {
             }
           ];
         }
+        if (row.heroQuickPromoUrl) {
+          if(row.heroQuickPromoUrl[0].text.includes('http')){
+            row.heroQuickPromoUrl = [{ text: row.heroQuickPromoUrl[0].text}]
+          }else{
+            row.heroQuickPromoUrl = [{ text: 'https://www.amazon.com/' + row.heroQuickPromoUrl[0].text}]
+          }
+        }
         if (row.description) {
           let text = ['']
           row.description.forEach(item => {
@@ -235,7 +242,7 @@ const transform = (data, context) => {
         }
         if (row.otherSellersPrime) {
           row.otherSellersPrime.forEach(item => {
-            if (item.text.includes('amazon') || item.text.includes('Amazon') || item.text.includes('Prime') || item.text.includes('prime')) {
+            if (item.text.includes('mazon') || item.text.includes('rime')) {
               item.text = 'YES';
             } else {
               item.text = 'NO';

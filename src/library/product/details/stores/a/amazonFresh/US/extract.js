@@ -261,8 +261,7 @@ async function implementation (
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log('#### of Variants:', allVariants.length);
   console.log('#### Variants:', allVariants);
-  // allVariants.length
-  for (let i = 0; i < 0; i++) {
+  for (let i = 0; i < allVariants.length; i++) {
     const id = allVariants[i];
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });

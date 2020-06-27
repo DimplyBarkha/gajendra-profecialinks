@@ -50,8 +50,8 @@ fields:
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     singleValue: false
-    xpath: (//a[@id="bylineInfo"] | //div[contains(@id, "bylineInfo")]//*[contains(text(), "by")])[1]
-    regExp: (?:by)? ?(.+)
+    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())]
+    regExp: (?:by )?(.+)
     regExpReplace: $1
   - name: manufacturer
     singleValue: false
@@ -189,15 +189,13 @@ fields:
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
   - name: heroQuickPromoHeadline
     singleValue: false
-    xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@alt
+    xpath: (//div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@alt | //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//span[contains(@class, "a-text-bold")])[1]
   - name: heroQuickPromoImageUrl
     singleValue: false
     xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//img/@src
   - name: heroQuickPromoUrl
     singleValue: false
-    xpath: (//div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@href)[1]
-    regExp: (.+)
-    regExpReplace: https://www.amazon.com$1
+    xpath: (//div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@href | //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//a[contains(@title,  "Learn")]/@href)[1]
   - name: ingredientImagePresent
     singleValue: true
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]

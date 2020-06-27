@@ -169,7 +169,6 @@ module.exports = {
         // return extractorContext.raiseError('WRONG_GEO', 'Incorrect locale detected');
       }
     };
-
     try {
       await run();
     } finally {
