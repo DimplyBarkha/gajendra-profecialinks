@@ -167,11 +167,12 @@ fields:
     xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src[contains(., "https")]
   - name: ratingCount
     xpath: //div[@id='ii_variantReview']
-    defaultValue: 0
+    defaultValue: '0'
     # xpath: ancestor::html//div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//a
     regExp: ([0-9])+
   - name: aggregateRating
     xpath: //div[@id='ii_variantRating']
+    defaultValue: '0'
     # xpath: ancestor::html//div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
   - name: manufacturerImages
     xpath: ancestor::html//div[@id='wc-aplus']//img/@src[not (contains(., "syndigo.svg"))]
@@ -292,7 +293,7 @@ fields:
     xpath: count(ancestor::html//div[@class='htmlView']/ul/li)
   - name: videos
     # xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
-    xpath: ancestor::html//div[@id='ii_videoSrc']|ancestor::html//img[contains(@class,'wc-iframe')]/@data-asset-url
+    xpath: ancestor::html//div[@id='ii_videoSrc']|ancestor::html//img[contains(@class,'wc-iframe')]/@data-asset-url|ancestor::html//img[contains(@class, 'wc-video')]/@wcobj
   - name: coupon
     singleValue: true
   - name: variantCount

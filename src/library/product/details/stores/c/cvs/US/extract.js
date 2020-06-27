@@ -39,7 +39,7 @@ module.exports = {
     await context.goto(linkURL);
     // await context.goto(linkURL + `?skuid=${skuFromUrl}`);
 
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 20000));
 
     await context.evaluate(function () {
 
@@ -130,7 +130,8 @@ module.exports = {
       
       addHiddenDiv('ii_url', window.location.href);
       // addHiddenDiv('ii_sku', skuFromUrl);
-      
+      // addHiddenDiv('ii_variantId', " ");
+
       collectNutritionInfo();
       // collectBools();
       // collectManufImages();
@@ -188,6 +189,12 @@ module.exports = {
           addHiddenDiv('ii_variantId');
         });
         await collectVariantInfo();
+      }
+      if(btns[0].length){
+        context.click(btns[0][0]);
+        context.click(btns[0][0]);
+        await new Promise(resolve => setTimeout(resolve, 10000));
+
       }
     }
 
