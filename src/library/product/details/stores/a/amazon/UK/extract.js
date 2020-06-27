@@ -1,5 +1,5 @@
 const { transform } = require('./format');
-async function implementation(
+async function implementation (
   // @ts-ignore
   inputs,
   parameters,
