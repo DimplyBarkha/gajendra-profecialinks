@@ -161,7 +161,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
+    xpath: //div[@aria-label="Video Player"]//@src | //div[@data-vendor-name="Manufacturer Video"]/video/@data-video-url
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -651,3 +651,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
