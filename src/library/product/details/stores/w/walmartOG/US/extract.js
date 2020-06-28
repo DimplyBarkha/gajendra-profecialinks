@@ -1,4 +1,5 @@
-const { cleanUp } = require('../../../../shared');
+/* eslint-disable no-useless-escape */
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -6,11 +7,12 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmartOG',
-    transform: cleanUp,
+    zipcode: '72758',
+    transform: transform,
     domain: 'grocery.walmart.com',
   },
 
-  implementation: async (inputs, { country, domain, transform: transformParam }, context, dependencies) => {
+  implementation: async (inputs, { country, domain, zipcode, transform: transformParam }, context, dependencies) => {
     if (inputs.id) {
       // CODE TO SEARCH FOR API in response
       // const req = await context.searchForRequest(`grocery.walmart.com/v3/api/products/${inputs.id}`, 'GET', 0, 60);
@@ -60,7 +62,15 @@ module.exports = {
             const gtin = (data.upc) ? data.upc : '';
             const variantId = (data.detailed && data.detailed.productCode) ? data.detailed.productCode : '';
             const brandText = (data.detailed && data.detailed.brand) ? data.detailed.brand : '';
+            const varianceList = (data.variantOffers) ? Object.values(data.variantOffers).map(value => value.productId) : [];
+            const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : ((document.querySelector('img[class^="ProductPage__productImage"]')) ? document.querySelector('img[class^="ProductPage__productImage"]').getAttribute('src') : '');
+            const title = document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]') ? document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]').textContent : '';
 
+            addHiddenDiv('iio_quantity', title);
+
+            addHiddenDiv('iio_image', image);
+
+            addHiddenDiv('iio_variants', varianceList.join(' | '));
             // nutritionFacts
             if (data.nutritionFacts) {
               if (data.nutritionFacts.keyNutrients) {
@@ -93,6 +103,7 @@ module.exports = {
             addHiddenDiv('iio_gtin', gtin);
             addHiddenDiv('iio_variantId', variantId);
             addHiddenDiv('iio_brandText', brandText);
+            addHiddenDiv('iio_product_url', `https://grocery.walmart.com/product/${id}`);
 
             iioObjects.forEach((item) => {
               addHiddenDiv(item.name, item.value);
