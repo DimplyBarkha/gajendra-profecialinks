@@ -18,24 +18,6 @@ module.exports = {
       // const req = await context.searchForRequest(`grocery.walmart.com/v3/api/products/${inputs.id}`, 'GET', 0, 60);
       // const data = (req && req.status === 200 && req.responseBody && req.responseBody.body) ? JSON.parse(req.responseBody.body) : null;
 
-      await context.click('button[label="Change store"]');
-      await context.waitForSelector('input[data-automation-id="zipSearchField"]');
-      await context.setInputValue('input[data-automation-id="zipSearchField"]', zipcode);
-      await context.click('button[data-automation-id="zipSearchBtn"]');
-
-      await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]');
-      await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]:first-child input');
-      await context.evaluate(async function () {
-        const searchZipCode = document.querySelector('input[data-automation-id="selectFlyoutItemBtn"]:first-child');
-        if (searchZipCode !== undefined) {
-          searchZipCode.click();
-        }
-      });
-
-      await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
-      await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
-      await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-
       await context.evaluate(async function getDataFromAPI (id) {
         console.log('getDataFromAPI');
         let data = {};
@@ -83,23 +65,9 @@ module.exports = {
             const varianceList = (data.variantOffers) ? Object.values(data.variantOffers).map(value => value.productId) : [];
             const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : ((document.querySelector('img[class^="ProductPage__productImage"]')) ? document.querySelector('img[class^="ProductPage__productImage"]').getAttribute('src') : '');
             const title = document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]') ? document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]').textContent : '';
-            let quantityRe = /(?:([\d\.]+\s{1})([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
 
-            let quantity = quantityRe.exec(title);
+            addHiddenDiv('iio_quantity', title);
 
-            if (quantity == null) {
-              const quantityReWithNoSpace = /(?:([\d\.]+\s*)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
-              quantity = quantityReWithNoSpace.exec(title);
-            }
-
-            if (quantity && quantity[0] && quantity[0].length >= 22) {
-              quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s)/;
-              quantity = quantityRe.exec(title);
-            }
-            console.log(quantity);
-            if (quantity && quantity[0]) {
-              addHiddenDiv('iio_quantity', quantity[0]);
-            }
             addHiddenDiv('iio_image', image);
 
             addHiddenDiv('iio_variants', varianceList.join(' | '));
