@@ -65,7 +65,7 @@ async function implementation(
         await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
     }
 
-    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+   
 
     // const wantedZip = '45209';
     let wantedZip;
@@ -80,6 +80,17 @@ async function implementation(
         console.log('Trying to change zip');
         await changeZip(wantedZip);
     }
+
+    await context.evaluate(() => {
+        const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
+    
+        // change overlay to nodelist and double check before click
+        if (overlay !== undefined) {
+          overlay.click();
+        }
+      });
+      await new Promise((resolve, reject) => setTimeout(resolve, 2e3));
+      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
 }
 
 module.exports = {
