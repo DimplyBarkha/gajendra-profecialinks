@@ -14,7 +14,7 @@ const transform = (data, context) => {
     .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/(<([^>]+)>)/ig, '')    
+    .replace(/(<([^>]+)>)/ig, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
   function getSplitValue (inputStr, count) {
@@ -43,13 +43,11 @@ const transform = (data, context) => {
           row.productUrl = [{ text: `https://www.walmart.com/ip/${row.variantId[0].text}` }];
         }
         if (row.lbb) {
-          if(row.lbb[0] && row.lbb[0].text.includes('Walmart')) {
-          row.lbb = [{ text: 'No' }];
-          }
-          else {
+          if (row.lbb[0] && row.lbb[0].text.includes('Walmart')) {
+            row.lbb = [{ text: 'No' }];
+          } else {
             row.lbb = [{ text: 'Yes' }];
-            }
-
+          }
         }
         if (row.lbb && row.lbb[0].text.includes('Yes') && row.price) {
           row.lbbPrice = [{ text: row.price[0].text.trim() }];
@@ -83,8 +81,8 @@ const transform = (data, context) => {
         }
         if (row.otherSellersShipping2) {
           row.otherSellersShipping2.forEach(item => {
-            item.text = item.text.split("$").length > 1 ? item.text.split("$")[1]: item.text;
-            item.text = item.text.replace('Free','0').replace(' delivery','').replace('0.00', '0').replace('0', '0.00');
+            item.text = item.text.split('$').length > 1 ? item.text.split('$')[1] : item.text;
+            item.text = item.text.replace('Free', '0').replace(' delivery', '').replace('0.00', '0').replace('0', '0.00');
           });
         }
         if (row.description) {
@@ -94,17 +92,15 @@ const transform = (data, context) => {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
         if (row.availabilityText) {
-         row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];
-         if (row.availabilityMessage && row.availabilityMessage[0].text.includes('in-store purchase only')) {
-          row.availabilityText = [{ text: 'In stores only' }];
-         }
-        }
-        else if (row.availabilityMessage) {
-          if (row.availabilityMessage && row.availabilityMessage.includes('Price for in-store purchase only')) {
+          row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];
+          if (row.availabilityMessage && row.availabilityMessage[0].text.includes('in-store purchase only')) {
             row.availabilityText = [{ text: 'In stores only' }];
           }
-          else {
-          row.availabilityText = [{ text: row.availabilityText[0].text }];
+        } else if (row.availabilityMessage) {
+          if (row.availabilityMessage && row.availabilityMessage.includes('Price for in-store purchase only')) {
+            row.availabilityText = [{ text: 'In stores only' }];
+          } else {
+            row.availabilityText = [{ text: row.availabilityText[0].text }];
           }
         }
         if (row.variantInformation) {
