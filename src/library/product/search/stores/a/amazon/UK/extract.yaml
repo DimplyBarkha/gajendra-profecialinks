@@ -103,4 +103,4 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
   - name: searchUrl
     singleValue: true
-    xpath: ancestor::html//div[@id='added-searchurl']
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
