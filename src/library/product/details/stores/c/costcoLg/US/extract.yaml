@@ -137,7 +137,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="product-info-description"]//img//@data-flixsrcset
+    xpath: //div[@class="product-info-description"]//img//@src[not(contains(.,'gif')) and (not(contains(.,'svg')))]
   - name: videos
     xpath: //meta[@itemprop="contentUrl"]/@content | //head/@*[contains(.,'http')]|//head/@video
   - name: name
