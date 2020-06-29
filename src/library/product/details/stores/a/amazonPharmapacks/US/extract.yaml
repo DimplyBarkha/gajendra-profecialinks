@@ -60,8 +60,6 @@ fields:
     xpath: (//*[@id="acrCustomerReviewText"]/text())[1]
     regExp: (.+) ratings
     regExpReplace: $1
-  - name: aggregateRatingText
-    xpath:
   - name: aggregateRating
     xpath: (//*[@id="acrPopover"]/@title)[1]
     regExp: ([0-9\.]{1,}) out of
@@ -69,7 +67,7 @@ fields:
   - name: shippingInfo
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//*[@id="shipsFromSoldBy_feature_div"]
   - name: shippingDimensions
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]|//li//span[contains(text(), 'Product Dimensions:')]/../span[last()]
   - name: shippingWeight
     xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
     regExp: ([^()]+)
@@ -78,12 +76,10 @@ fields:
     xpath: count(//select[@name="dropdown_selected_size_name"]/option[position()>1]|//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: color
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
-  - name: colorCode
-    xpath:
   - name: manufacturerDescription
     xpath: //div[@id="productDescription"]/p[text()]/text()|//div[@class="apm-hovermodule-slides-inner"]/h3|//div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: manufacturerImages
-    xpath: //div[@cel_widget_id="aplus"]//img/@src
+    xpath: //div[@cel_widget_id="aplus"]//img/@data-src
   - name: videos
     xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url
   - name: coupon
@@ -107,7 +103,7 @@ fields:
     regExpReplace: $1
   - name: salesRankCategory
     xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a
-    regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*$+-]{1,})
+    regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*,'$+-]{1,})
     regExpReplace: $1
   - name: subscriptionPrice
     xpath: //*[@id="sns-base-price"]
@@ -162,8 +158,6 @@ fields:
     xpath: //span[contains(@id, "mbc-shipping")]
   - name: secondaryImageTotal
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')][position()>1])
-  - name: news
-    xpath:
   - name: addonItem
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
@@ -172,126 +166,16 @@ fields:
     xpath:
   - name: ingredientsList
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
-  - name: servingSize
-    xpath:
-  - name: servingSizeUom
-    xpath:
   - name: numberOfServingsInPackage
     xpath: //label[contains(text(), "Package Quantity:")]/../span
-  - name: caloriesPerServing
-    xpath:
-  - name: caloriesFromFatPerServing
-    xpath:
-  - name: totalFatPerServing
-    xpath:
-  - name: totalFatPerServingUom
-    xpath:
-  - name: saturatedFatPerServing
-    xpath:
-  - name: saturatedFatPerServingUom
-    xpath:
-  - name: transFatPerServing
-    xpath:
-  - name: transFatPerServingUom
-    xpath:
-  - name: cholesterolPerServing
-    xpath:
-  - name: cholesterolPerServingUom
-    xpath:
-  - name: sodiumPerServing
-    xpath:
-  - name: sodiumPerServingUom
-    xpath:
-  - name: totalCarbPerServing
-    xpath:
-  - name: totalCarbPerServingUom
-    xpath:
-  - name: dietaryFibrePerServing
-    xpath:
-  - name: dietaryFibrePerServingUom
-    xpath:
-  - name: totalSugarsPerServing
-    xpath:
-  - name: totalSugarsPerServingUom
-    xpath:
-  - name: proteinPerServing
-    xpath:
-  - name: proteinPerServingUom
-    xpath:
-  - name: vitaminAPerServing
-    xpath:
-  - name: vitaminAPerServingUom
-    xpath:
-  - name: vitaminCPerServing
-    xpath:
-  - name: vitaminCPerServingUom
-    xpath:
-  - name: calciumPerServing
-    xpath:
-  - name: calciumPerServingUom
-    xpath:
-  - name: ironPerServing
-    xpath:
-  - name: ironPerServingUom
-    xpath:
-  - name: dietarySymbols
-    xpath:
-  - name: magnesiumPerServing
-    xpath:
-  - name: magnesiumPerServingUom
-    xpath:
-  - name: saltPerServing
-    xpath:
-  - name: saltPerServingUom
-    xpath:
-  - name: dietaryInformation
-    xpath:
   - name: warranty
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
-  - name: storage
-    xpath:
-  - name: countryOfOrigin
-    xpath:
-  - name: allergyAdvice
-    xpath:
-  - name: recyclingInformation
-    xpath:
-  - name: packaging
-    xpath:
-  - name: additives
-    xpath:
-  - name: pricePerUnit
-    xpath:
-  - name: pricePerUnitUom
-    xpath:
   - name: promotion
-    xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
-  - name: alcoholContent
-    xpath:
-  - name: newVersion
-    xpath:
-  - name: newAsin
-    xpath:
-  - name: newDescription
-    xpath:
-  - name: variants
-    xpath:
+    xpath: //tr[@id="regularprice_savings"]
   - name: additionalDescBulletInfo
     xpath: count(//div[@data-feature-name="featurebullets"]//ul/li)
-  - name: prop65Warning
-    xpath:
-  - name: ageSuitability
-    xpath:
-  - name: energyEfficiency
-    xpath:
   - name: technicalInformationPdfPresent
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
-  - name: termsAndConditions
-    xpath:
-  - name: privacyPolicy
-    xpath:
-  - name: customerServiceAvailability
-    xpath:
   - name: materials
     xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
   - name: Image360Present
@@ -337,5 +221,3 @@ fields:
   - name: weightNet
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
     regExp: '[^()]+'
-  - name: productOtherInformation
-    xpath:
