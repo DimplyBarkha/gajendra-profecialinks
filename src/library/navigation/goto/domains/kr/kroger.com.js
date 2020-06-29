@@ -52,10 +52,13 @@ async function implementation (
 
   async function changeZip (wantedZip) {
     await context.click('button.CurrentModality-button');
-    await context.waitForSelector("input[autocomplete='postal-code']", { timeout: 15000 });
+    // await context.waitForSelector("input[autocomplete='postal-code']", { timeout: 15000 });
+    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
 
-    await context.setInputValue("input[autocomplete='postal-code']", wantedZip);
-    await context.waitForSelector('button.kds-SolitarySearch-button', { timeout: 15000 });
+    await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
+    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
+
+    // await context.waitForSelector('button.kds-SolitarySearch-button', { timeout: 15000 });
 
     await context.click('button.kds-SolitarySearch-button');
     await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
@@ -65,7 +68,7 @@ async function implementation (
     await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
   }
 
-  if (!url.match(/search/g)) {
+  // if (!url.match(/search/g)) {
     await context.goto('https://www.kroger.com');
 
     const wantedZip = '45209';
@@ -76,7 +79,7 @@ async function implementation (
       console.log('Trying to change zip');
       await changeZip(wantedZip);
     }
-  }
+  // }
   await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
 }
 
