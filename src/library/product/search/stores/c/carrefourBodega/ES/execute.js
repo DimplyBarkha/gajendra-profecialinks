@@ -5,9 +5,9 @@ module.exports = {
     country: 'ES',
     store: 'carrefourBodega',
     domain: 'carrefour.es',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.carrefour.es/bodega/c?Ntt={searchTerms}',
+    loadedSelector: "div[class*='item-page'] article.item",
+    noResultsXPath: "//h1[@id='search_results' and contains(.,'(0)')]",
     zipcode: '',
   },
 };

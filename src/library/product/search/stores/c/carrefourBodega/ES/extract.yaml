@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: div[class*='item-page'] article.item
 recordXPath: null
 fields:
   - name: paid
@@ -21,13 +21,18 @@ fields:
       - Electric Toothbrushes
       - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='image']/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.carrefour.es/bodega$1
     description: The URL for the product details page
   - name: thumbnail
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='image']//img/@src
     description: The URL for the product thumbnail image
   - name: name
-    singleValue: true
+    singleValue: false
+    xpath: //h2[@class='name-product apercu']
     description: The product name
   - name: sku
     singleValue: true
@@ -48,7 +53,8 @@ fields:
     singleValue: true
     description: The number of reviews
   - name: price
-    singleValue: true
+    singleValue: false
+    xpath: //p[@class='lora bold price' or @class='price price-oferta']
     description: The offered price for the product
   - name: listPrice
     singleValue: true
@@ -76,9 +82,11 @@ fields:
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid
+    defaultValue: false
     type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='image']/a/@data-productid
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: true
@@ -88,3 +96,6 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+  - name: searchUrl
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
+    
