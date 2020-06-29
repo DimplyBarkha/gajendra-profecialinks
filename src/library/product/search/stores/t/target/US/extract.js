@@ -8,27 +8,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  /*await context.waitForXPath("//button[id='storeId-utilityNavBtn']");
-  await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    document.getElementById('storeId-utilityNavBtn').click();
-    await stall(1000);
-  });
-  await context.setInputValue('#zipOrCityState', '48374');
-  await context.evaluate(async function () {
-    document.querySelector('button[data-test="storeLocationSearch-button"]').click();
-  });
-  await context.waitForXPath("//button[@data-test='storeId-listItem-setStore']");
-  await context.evaluate(function () {
-    document.querySelectorAll('button[data-test="storeId-listItem-setStore"]')[0].click();
-  });*/
-
   function stall (ms) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -37,8 +16,7 @@ async function implementation (
     });
   }
 
-  await stall(500);
-  await context.waitForXPath('//ul//li');
+  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   await context.evaluate(async function () {
     let scrollTop = 0;
     while (scrollTop !== 9000) {
