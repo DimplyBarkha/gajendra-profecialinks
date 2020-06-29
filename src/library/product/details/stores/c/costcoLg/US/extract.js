@@ -14,8 +14,6 @@ module.exports = {
   ) => {
     await new Promise(resolve => setTimeout(resolve, 50000));
     await context.evaluate(async function () {
-      const videos = document.querySelector('.flix-jw')?document.querySelector('.flix-jw').value.match(/file":"([^"]+)/)[1].replace(/^\\\/\\\//, '').replace(/\\\//g, '/');
-      document.querySelector('head').setAttribute('video', videos);
       const iframe = document.querySelector('[title="Product Videos"]');
       if (iframe) {
         const video = iframe.contentWindow.document.getElementsByTagName('video');
