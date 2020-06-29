@@ -57,5 +57,5 @@ module.exports = {
     store: 'target',
     domain: 'target.com',
   },
-  implementation
+  implementation,
 };

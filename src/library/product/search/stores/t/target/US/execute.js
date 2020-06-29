@@ -34,7 +34,6 @@ async function implementation (
     document.querySelectorAll('button[data-test="storeId-listItem-setStore"]')[0].click();
   });
 
-
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
@@ -60,5 +59,5 @@ module.exports = {
     loadedSelector: 'ul li',
     noResultsXPath: '//h1[contains(.,"no results found")]',
   },
-  implementation
+  implementation,
 };

@@ -48,7 +48,7 @@ async function implementation (
         addHiddenDiv(itemContainer, 'productUrl', 'https://target.com' + itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href'));
         addHiddenDiv(itemContainer, 'product-name', itemContainer.querySelector('a[data-test="product-title"]').getAttribute('aria-label'));
         let itemId = '';
-        if(itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').indexOf('preselect=') > -1) {
+        if (itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').indexOf('preselect=') > -1) {
           itemId = itemContainer.querySelector('a[data-test="product-title"]').getAttribute('href').split('preselect=')[1];
           itemId = itemId.split('#')[0];
         } else {
@@ -76,7 +76,6 @@ async function implementation (
   await stall(250);
   const extract = await context.extract(productDetails, { transform });
   return extract;
-
 }
 
 const { transform } = require('../../../../shared');

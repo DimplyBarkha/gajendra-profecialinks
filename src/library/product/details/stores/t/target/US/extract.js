@@ -26,11 +26,11 @@ async function implementation (
 
   await context.waitForXPath("//div[@data-test='product-price']");
 
-  const currentUrl = await context.evaluate(function() {
+  const currentUrl = await context.evaluate(function () {
     return window.location.href;
   });
 
-  if(currentUrl.indexOf('preselect=') > -1) {
+  if (currentUrl.indexOf('preselect=') > -1) {
     let productId = currentUrl.split('preselect=')[1];
     productId = productId.split('#')[0];
     const splitUrl = currentUrl.split('-');
@@ -225,7 +225,7 @@ async function implementation (
 
       const desc = [];
       let descCount = 0;
-      if(document.querySelector('a[href="#tabContent-tab-Details"]')) {
+      if (document.querySelector('a[href="#tabContent-tab-Details"]')) {
         document.querySelector('a[href="#tabContent-tab-Details"]').click();
         await stall(200);
       }
@@ -437,7 +437,7 @@ async function implementation (
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
             addHiddenDiv('transFatInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('transFatUomInfo',val.replace(/[0-9]/g, ''));
+            addHiddenDiv('transFatUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Cholesterol') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
@@ -557,13 +557,13 @@ async function implementation (
       let deliver = false;
       let inStore = false;
       const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
-      if(inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+      if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
         addHiddenDiv('inStorePrice', document.querySelector('div[data-test="product-price"]').innerText);
         inStore = true;
       }
 
       const orderMessage = document.querySelector('div[data-test="deliverToZipCodeMessage"]');
-      if(orderMessage && (orderMessage.querySelector('.h-text-greenDark.h-text-bold') || orderMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+      if (orderMessage && (orderMessage.querySelector('.h-text-greenDark.h-text-bold') || orderMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
         deliver = true;
       }
 
@@ -627,8 +627,8 @@ async function implementation (
       } else if (manufacturerCTA) {
         manufacturerCTA.click();
         const manufacturerImgs = [];
-        if(document.getElementById('wcframable1-0') && document.getElementById('wcframable1-0').contentWindow) {
-          let frameContents = document.getElementById('wcframable1-0').contentWindow.document.body;
+        if (document.getElementById('wcframable1-0') && document.getElementById('wcframable1-0').contentWindow) {
+          const frameContents = document.getElementById('wcframable1-0').contentWindow.document.body;
           frameContents.querySelectorAll('img').forEach(e => {
             manufacturerImgs.push(e.src);
           });
@@ -639,9 +639,9 @@ async function implementation (
         if (document.getElementById('wc-power-page') && document.getElementById('wc-power-page').innerText) {
           const manufacturerDesc = [];
           document.querySelectorAll('.wc-fragment').forEach(e => {
-            if(e.querySelector('.wc-pct-data')) {
+            if (e.querySelector('.wc-pct-data')) {
               e.querySelectorAll('tr').forEach(tr => {
-                if(tr.innerText && !manufacturerDesc.includes(tr.innerText)) {
+                if (tr.innerText && !manufacturerDesc.includes(tr.innerText)) {
                   manufacturerDesc.push(tr.innerText);
                 }
               });
