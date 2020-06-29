@@ -57,9 +57,9 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  regExp: "(.+)"
-  regExpReplace: In Stock
-  defaultValue: Out of Stock
+  # regExp: "(.+)"
+  # regExpReplace: In Stock
+  # defaultValue: Out of Stock
 - name: description
   singleValue: false
   # xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[not(child::strong[contains(text(),'WARNING')])]

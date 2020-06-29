@@ -120,21 +120,32 @@ module.exports = {
 
           console.log(window.__ATC_APP_INITIAL_STATE__.product.results);
           console.log(response);
+          console.log('jsonObj')
+          console.log(jsonObj)
 
           const infos = jsonObj.productInfo;
           const details = jsonObj.prodDetails;
           const price = jsonObj.priceInfo;
 
-          const priceOther = JSON.parse(getSelector('script[type="application/ld+json"]', { raw: true, ifError: JSON.stringify({}) }));
+          // const priceOther = JSON.parse(getSelector('script[type="application/ld+json"]', { raw: true, ifError: JSON.stringify({}) }));
 
-          const priceValue = (props) => {
+          const priceValue = (prop) => {
+            /*
             if (!Array.isArray(props)) return priceValue([props]);
             const result = props.reduce((acc, prop) => {
               if (!price[prop]) return acc;
+              console.log('result')
+              console.log(prop)
+              if (document.querySelector('#saving-price-info') && prop === 'salePrice') {
+                console.log('here')
+                return (price.salePrice.split('$').length > 2) ? price.salePrice : '';
+              }
               return (price[prop].split('$').length > 2
                 ? (priceOther.offers ? priceOther.offers.price : '')
                 : price[prop]);
             }, '');
+            */
+            const result = (document.querySelector('#saving-price-info') && prop === 'salePrice' && price.salePrice) ? price.salePrice : (price.regularPrice ? price.regularPrice : null);
             if (!result) return '';
             return result.includes('$') ? result : `$${result}`;
           };
@@ -169,16 +180,27 @@ module.exports = {
           console.log('ingredients');
           console.log(ingredients);
 
+          console.log(infos);
+
+          const cleanupIngredient = (typename) => {
+            const ingredDivText = document.querySelector('li#Ingredients');
+            if (ingredDivText && ingredDivText.textContent && (ingredDivText.textContent.includes('Active') || ingredDivText.textContent.includes('Inactive'))) {
+              return typename.charAt(0).toUpperCase() + typename.slice(1) + ' Ingredients: ';
+            }
+            return '';
+          };
+
           const hasIngrList = ingredients && ingredients.ingredientGroups &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes) &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
-          const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, ...obj.ingredients], []) : '';
+          const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), ...obj.ingredients], []) : '';
 
-          // if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
-          //   const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
-          //   const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
-          //   ingrList.unshift(typeOfIngredient);
-          // }
+          if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
+            console.log('here')
+            const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
+            const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
+            ingrList.unshift(typeOfIngredient);
+          }
 
           const nutrition = ingredients && ingredients.nutritionFactsGroups ? ingredients.nutritionFactsGroups : '';
           const hasNutrition = nutrition && nutrition.find(u => u.nutritionFact);
@@ -202,6 +224,9 @@ module.exports = {
             }, []),
             ...[...document.querySelectorAll('video')].map(v => v[prop || 'src']),
           ];
+          console.log('AHHH')
+          console.log(jsonObj.inventory)
+          console.log(jsonObj.inventory.shipAvailableMessage)
           const obj = {
             _input,
             image: infos.productImageUrl,
@@ -212,10 +237,10 @@ module.exports = {
             _url,
             productUrl: window.location.href,
             category: [infos.tier1Category, infos.tier2Category, infos.tier3Category],
-            nameExtended: getSelector('a.brand-title') + ' ' + getSelector('#productTitle'),
+            nameExtended: infos.title,
             listPrice: priceValue('regularPrice'),
-            price: priceValue(['regularPrice', 'salePrice']),
-            availabilityText: jsonObj.inventory.shipAvailableMessage ? jsonObj.inventory.shipAvailableMessage : 'In stock',
+            price: priceValue('salePrice'),
+            availabilityText: jsonObj.inventory.shipAvailable ? 'In Stock' : 'Out of Stock',
             description: [fullDescription],
             descriptionBullets: document.querySelectorAll('#prodDesc ul > li') ? document.querySelectorAll('#prodDesc ul > li').length : 0,
             brandText: infos.brandName,
