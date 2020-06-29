@@ -47,9 +47,11 @@ fields:
     xpath: //div[@class="h-margin-t-default h-padding-h-default"]//div[@class="h-text-transform-caps"]
   - name: brandText
     singleValue: true
-    regExp: Shop all (.*)$
-    regExpReplace: $1
-    xpath: //a[@data-test="shopAllBrandLink"]//span/text()
+    xpath: //script[contains(.,"__PRELOADED_STATE__")]
+    regExp: >-
+      "manufacturing_brand":"([^"]+)"
+    regExpReplace: >-
+      $1
   - name: quantity
     singleValue: true
     xpath: //div[@id="quantityInfo"]

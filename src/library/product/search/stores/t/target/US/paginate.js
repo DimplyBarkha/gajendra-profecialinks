@@ -5,10 +5,11 @@ module.exports = {
     country: 'US',
     store: 'target',
     openSearchDefinition: {
-      indexOffset: 0,
+      indexOffset: 24,
       template: 'https://www.target.com/s?searchTerm={searchTerms}&Nao={startIndex}',
     },
-    loadedSelector: 'div[data-test="productGridContainer"] li',
+    loadedSelector: 'ul li',
+    noResultsXPath: '//h1[contains(.,"no results found")]',
     domain: 'target.com',
   },
 };

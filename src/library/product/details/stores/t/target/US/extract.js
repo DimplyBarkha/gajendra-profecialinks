@@ -47,6 +47,19 @@ async function implementation (
 
   await context.waitForXPath("//div[@data-test='product-price']");
 
+  const currentUrl = await context.evaluate(function() {
+    return window.location.href;
+  });
+
+  if(currentUrl.indexOf('preselect=') > -1) {
+    let productId = currentUrl.split('preselect=')[1];
+    productId = productId.split('#')[0];
+    const splitUrl = currentUrl.split('-');
+    splitUrl[splitUrl.length - 1] = productId;
+    await context.goto(splitUrl.join('-'));
+    await context.waitForXPath("//div[@data-test='product-price']");
+  }
+
   await context.evaluate(async function () {
     location.reload();
   });
@@ -165,6 +178,13 @@ async function implementation (
     }
 
     await context.evaluate(async function () {
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
       function addHiddenDiv (id, content) {
         if (document && document.getElementById(id)) {
           document.getElementById(id).innerHTML = content;
@@ -226,6 +246,10 @@ async function implementation (
 
       const desc = [];
       let descCount = 0;
+      if(document.querySelector('a[href="#tabContent-tab-Details"]')) {
+        document.querySelector('a[href="#tabContent-tab-Details"]').click();
+        await stall(200);
+      }
       document.querySelectorAll('h3').forEach(e => {
         if (e && e.innerText === 'Highlights') {
           e.parentElement.querySelectorAll('li').forEach(li => {
@@ -236,15 +260,14 @@ async function implementation (
           });
         }
       });
-      let descText = '';
       document.querySelectorAll('h3').forEach(e => {
         if (e && e.parentElement && e.parentElement.querySelector('.h-margin-v-default') && e.innerText === 'Description') {
-          descText = e.parentElement.querySelector('.h-margin-v-default').innerText;
+          desc.push(e.parentElement.querySelector('.h-margin-v-default').innerText);
         }
       });
 
       addHiddenDiv('bulletCount', descCount);
-      addHiddenDiv('description', '|| ' + desc.join(' || ') + descText);
+      addHiddenDiv('description', '|| ' + desc.join(' || '));
 
       const subCategories = [];
       const categoryDiv = document.querySelector('.h-text-sm.h-padding-v-tiny');
@@ -420,60 +443,88 @@ async function implementation (
         });
         document.querySelectorAll('.h-margin-t-tight').forEach(e => {
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Total Fat') > -1) {
-            addHiddenDiv('totalFatInfo', e.querySelector('span').innerText.replace('Total Fat', ''));
-            addHiddenDiv('totalFatUomInfo', document.getElementById('totalFatInfo').innerHTML.replace('Total Fat', '').replace(/\*/g, '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('totalFatInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('totalFatUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Saturated Fat') > -1) {
-            addHiddenDiv('saturatedFatInfo', e.querySelector('span').innerText.replace('Saturated Fat', ''));
-            addHiddenDiv('saturatedFatUomInfo', e.querySelector('span').innerText.replace('Saturated Fat', '').replace('.', '').replace(/\*/g, '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('saturatedFatInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('saturatedFatUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Trans Fat') > -1) {
-            addHiddenDiv('transFatInfo', e.querySelector('span').innerText.replace('Trans Fat', ''));
-            addHiddenDiv('transFatUomInfo', e.querySelector('span').innerText.replace('Trans Fat', '').replace('.', '').replace(/\*/g, '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('transFatInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('transFatUomInfo',val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Cholesterol') > -1) {
-            addHiddenDiv('cholesterolInfo', e.querySelector('span').innerText.replace('Cholesterol', ''));
-            addHiddenDiv('cholesterolUomInfo', e.querySelector('span').innerText.replace('Cholesterol', '').replace('.', '').replace(/\*/g, '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('cholesterolInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('cholesterolUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Sodium') > -1) {
-            addHiddenDiv('sodiumInfo', e.querySelector('span').innerText.replace('Sodium ', ''));
-            addHiddenDiv('sodiumUomInfo', e.querySelector('span').innerText.replace('Sodium', '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('sodiumInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('sodiumUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Total Carbohydrate') > -1) {
-            addHiddenDiv('totalCarbInfo', e.querySelector('span').innerText.replace('Total Carbohydrate', ''));
-            addHiddenDiv('totalCarbUomInfo', e.querySelector('span').innerText.replace('Total Carbohydrate', '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('totalCarbInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('totalCarbUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Dietary Fiber') > -1) {
-            addHiddenDiv('dietaryFiberInfo', e.querySelector('span').innerText.replace('Dietary Fiber', ''));
-            addHiddenDiv('dietaryFiberUomInfo', e.querySelector('span').innerText.replace('Dietary Fiber', '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('dietaryFiberInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('dietaryFiberUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && (e.innerText.indexOf('Total Sugars') > -1 || e.innerText.indexOf('Sugars') === 0)) {
-            addHiddenDiv('totalSugarInfo', e.querySelector('span').innerText.replace('Total Sugars', '').replace('Sugars', ''));
-            addHiddenDiv('totalSugarUomInfo', e.querySelector('span').innerText.replace('Total Sugars', '').replace('Sugars', '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('totalSugarInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('totalSugarUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Protein') > -1) {
-            addHiddenDiv('proteinInfo', e.querySelector('span').innerText.replace('Protein', ''));
-            addHiddenDiv('proteinUomInfo', e.querySelector('span').innerText.replace('Protein', '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('proteinInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('proteinUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin A') > -1) {
-            addHiddenDiv('vitaminAInfo', e.querySelector('span').innerText.replace('Vitamin A', ''));
-            addHiddenDiv('vitaminAUomInfo', e.querySelector('span').innerText.replace('Vitamin A', '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('vitaminAInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('vitaminAUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin C') > -1) {
-            addHiddenDiv('vitaminCInfo', e.querySelector('span').innerText.replace('Vitamin C', ''));
-            addHiddenDiv('vitaminCUomInfo', e.querySelector('span').innerText.replace('Vitamin C', '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('vitaminCInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('vitaminCUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Calcium') > -1) {
-            addHiddenDiv('calciumInfo', e.querySelector('span').innerText.replace('Calcium', '').trim() || 0);
-            addHiddenDiv('calciumUomInfo', e.querySelector('span').innerText.replace('Calcium', '').replace('.', '').replace(/[0-9]/g, '') || '%');
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('calciumInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('calciumUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Iron') > -1) {
-            addHiddenDiv('ironInfo', e.querySelector('span').innerText.replace('Iron', ''));
-            addHiddenDiv('ironUomInfo', e.querySelector('span').innerText.replace('Iron', '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('ironInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('ironUomInfo', val.replace(/[0-9]/g, ''));
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Magnesium') > -1) {
-            addHiddenDiv('magInfo', e.querySelector('span').innerText.replace('Magnesium', ''));
-            addHiddenDiv('magUomInfo', e.querySelector('span').innerText.replace('Magnesium', '').replace('.', '').replace(/[0-9]/g, ''));
+            const split = e.querySelector('span').innerText.split(' ');
+            const val = split[split.length - 1];
+            addHiddenDiv('magInfo', val.replace(/\D/g, ''));
+            addHiddenDiv('magUomInfo', val.replace(/[0-9]/g, ''));
           }
         });
       }
@@ -526,15 +577,16 @@ async function implementation (
 
       let deliver = false;
       let inStore = false;
-      document.querySelectorAll('.h-text-bold').forEach(e => {
-        if (validTextField(e) && e.innerText.trim() === 'Deliver') {
-          deliver = true;
-        }
-        if (validTextField(e) && e.innerText.trim().indexOf('Pick up') > -1 && e.innerText.trim().indexOf('Limited stock') > -1) {
-          addHiddenDiv('inStorePrice', document.querySelector('div[data-test="product-price"]').innerText);
-          inStore = true;
-        }
-      });
+      const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
+      if(inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+        addHiddenDiv('inStorePrice', document.querySelector('div[data-test="product-price"]').innerText);
+        inStore = true;
+      }
+
+      const orderMessage = document.querySelector('div[data-test="deliverToZipCodeMessage"]');
+      if(orderMessage && (orderMessage.querySelector('.h-text-greenDark.h-text-bold') || orderMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+        deliver = true;
+      }
 
       if (deliver) {
         addHiddenDiv('availability', 'In Stock');
@@ -542,7 +594,7 @@ async function implementation (
         addHiddenDiv('availability', 'In Store Only');
       }
       if (!deliver && !inStore) {
-        addHiddenDiv('availability', 'Out of Stock');
+        addHiddenDiv('availability', 'Out of stock');
       }
 
       const secondaryImages = [];
@@ -573,9 +625,6 @@ async function implementation (
           });
         }
       }
-      if (videos.length) {
-        addHiddenDiv('videos', videos.join(' | '));
-      }
       if (secondaryImages.length) {
         addHiddenDiv('secondaryImages', secondaryImages.join(' | '));
       }
@@ -604,9 +653,24 @@ async function implementation (
           frameContents.querySelectorAll('img').forEach(e => {
             manufacturerImgs.push(e.src);
           });
+          frameContents.querySelectorAll('video').forEach(e => {
+            videos.push(e.src);
+          });
         }
         if (document.getElementById('wc-power-page') && document.getElementById('wc-power-page').innerText) {
-          addHiddenDiv('manufacturerDesc', document.getElementById('wc-power-page').innerText);
+          const manufacturerDesc = [];
+          document.querySelectorAll('.wc-fragment').forEach(e => {
+            if(e.querySelector('.wc-pct-data')) {
+              e.querySelectorAll('tr').forEach(tr => {
+                if(tr.innerText && !manufacturerDesc.includes(tr.innerText)) {
+                  manufacturerDesc.push(tr.innerText);
+                }
+              });
+            } else {
+              manufacturerDesc.push(e.innerText);
+            }
+          });
+          addHiddenDiv('manufacturerDesc', manufacturerDesc.join(' '));
           document.querySelectorAll('img.wc-media.wc-image').forEach(e => {
             manufacturerImgs.push(e.src);
           });
@@ -617,7 +681,14 @@ async function implementation (
             });
           }
           addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
+          document.getElementById('wc-power-page').querySelectorAll('video').forEach(e => {
+            videos.push(e.src);
+          });
         }
+      }
+
+      if (videos.length) {
+        addHiddenDiv('videos', videos.join(' | '));
       }
 
       if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
