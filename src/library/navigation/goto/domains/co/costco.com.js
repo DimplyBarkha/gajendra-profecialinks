@@ -1,5 +1,4 @@
 module.exports = {
-  implements: 'navigation/goto',
   parameterValues: {
     domain: 'costco.com',
     timeout: null,
