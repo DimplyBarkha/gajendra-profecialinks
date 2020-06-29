@@ -16,28 +16,6 @@ async function implementation (
         }, ms);
       });
     }
-    document.getElementById('storeId-utilityNavBtn').click();
-    await stall(1000);
-  });
-  await context.setInputValue('#zipOrCityState', '48374');
-  await context.evaluate(async function () {
-    document.querySelector('button[data-test="storeLocationSearch-button"]').click();
-  });
-  await context.waitForXPath("//button[@data-test='storeId-listItem-setStore']");
-  await context.evaluate(function () {
-    document.querySelectorAll('button[data-test="storeId-listItem-setStore"]')[0].click();
-  });
-
-  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-
-  await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
     await stall(200);
     const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
     if (link != null) {
