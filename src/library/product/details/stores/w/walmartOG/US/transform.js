@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -24,33 +25,65 @@ const transform = (data, context) => {
         console.log(row.description);
         if (row.description) {
           row.description.forEach(item => {
-            if (item.text.match('\\n')) {
-              item.text = item.text.replace(/\s\n/g, '||').trim();
+            if (item.text.match(/\s\n/g)) {
+              item.text = item.text.replace(/\s\n/g, ' ||').trim();
+            }
+          });
+          row.description.forEach(item => {
+            if (item.text.match(/\n/g)) {
+              item.text = item.text.replace(/\n/g, '').trim();
+            }
+          });
+          row.description.forEach(item => {
+            if (item.text.match(/(\|\|{2,})/)) {
+              item.text = item.text.replace(/(\|\|{2,})/, ' ||').trim();
             }
           });
         }
         console.log(row.description);
-        if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
+        if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
 
-        if (row.quantity && row.quantity[0].text.length > 1) {
+        if (row.ingredientsList) {
+          row.ingredientsList.forEach(item => {
+            if (item.text.match('&nbsp;')) {
+              item.text = item.text.replace(/(&nbsp;)/g, ' ').trim();
+            }
+            if (item.text.match('<br>')) {
+              item.text = item.text.replace(/(<br>)/g, ' ').trim();
+            }
+          });
+        }
+
+        if (row.image && row.image[0] && row.image[0].text.length > 1) {
+          if (!row.image[0].text.includes('http')) {
+            row.image[0].text = 'https:' + row.image[0].text;
+          }
+        }
+
+        if (row.quantity && row.quantity[0] && row.quantity[0].text && row.quantity[0].text.length > 1) {
           const quantityText = row.quantity[0].text;
-          let quantityRe = /(?:([\d\.]+\s{1})([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
+          let quantityRe = /(?:([\d\.]+\s{1})([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
           let quantity = quantityRe.exec(quantityText);
 
           if (quantity == null) {
-            const quantityReWithNoSpace = /(?:([\d\.]+\s*)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
+            const quantityReWithNoSpace = /(?:([\d\.]+\s*)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
             quantity = quantityReWithNoSpace.exec(quantityText);
           }
 
           if (quantity && quantity[0] && quantity[0].length >= 22) {
-            quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s)/;
+            quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s)/;
             quantity = quantityRe.exec(quantityText);
           }
-          if (quantity[0]) {
+
+          if (quantity && quantity[0]) {
             quantity[0] = quantity[0].replace(/[{()}]/g, '');
             row.quantity[0].text = quantity[0].trim();
+          }
+
+          if (quantity == null) {
+            row.quantity[0].text = '';
           }
         }
 

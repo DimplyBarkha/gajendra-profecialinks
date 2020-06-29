@@ -122,8 +122,8 @@ fields:
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Saturated Fat')]]/span[@data-automation-id="value"]
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Saturated Fat')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_saturatedFat"])[1]
-  regExp: (?:([\d*\.?\d+]+)\s?(\w+))
-  regExpReplace: $1
+  regExp: (\d*\.?\d+)
+  # regExpReplace: $1
 - name: saturatedFatPerServingUom
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Saturated Fat')]]/span[@data-automation-id="value"]
