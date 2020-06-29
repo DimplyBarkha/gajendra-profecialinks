@@ -2,7 +2,7 @@
 /**
  *
  * @param { { URL: string, id: any, RPC: string, SKU: string } } inputs
- * @param { { store: any, country: any } } parameters
+ * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
@@ -16,7 +16,7 @@ async function implementation (
   const { execute, extract } = dependencies;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
-  await execute({ url, id });
+  await execute({ url, id, zipcode: parameters.zipcode });
 
   await extract({ url, id });
 }
@@ -34,6 +34,11 @@ module.exports = {
     {
       name: 'domain',
       description: 'The top private domain of the website (e.g. amazon.com)',
+    },
+    {
+      name: 'zipcode',
+      description: 'to set location',
+      optional: true,
     },
   ],
   inputs: [
