@@ -13,5 +13,6 @@ parameters:
   - store
   - country
   - domain
+  - zipcode
 entryPoint: product/search
 pathTemplate: product/${store[0:1]}/${store}/${country}/search
