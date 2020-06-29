@@ -55,7 +55,7 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
-    type: NUMBER
+    # type: NUMBER
   - name: brandText
     singleValue: true
     xpath: //*[@id='bylineInfo']
@@ -118,7 +118,7 @@ fields:
     regExp: ([0-9]{1,}) ratings
     regExpReplace: $1
     description: The number of ratings
-    type: NUMBER
+    # type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -126,7 +126,7 @@ fields:
     singleValue: true
     xpath: //*[@id="acrPopover"]/@title
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    # type: NUMBER
   - name: shippingInfo
     singleValue: true
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]
@@ -143,7 +143,7 @@ fields:
     singleValue: true
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUn")])
     description: Number of variants listed
-    type: NUMBER
+    # type: NUMBER
   - name: color
     singleValue: true
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
@@ -263,7 +263,7 @@ fields:
     singleValue: true
     description: null
     xpath: count(//img[contains(@data-old-hires,'SL1500_.jpg')])
-    type: NUMBER
+    # type: NUMBER
   - name: variantAsins
     singleValue: false
     description: null
@@ -311,7 +311,7 @@ fields:
     singleValue: true
     description: null
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
-    type: NUMBER
+    # type: NUMBER
   - name: news
     singleValue: false
     xpath: //*[@id="SalesRank"]//td[@class='value' or @class='label']/text()
@@ -343,7 +343,7 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
+    # type: NUMBER
   - name: caloriesPerServing
     singleValue: true
     xpath: //*[contains(text(),'Energy (kJ)')]/following-sibling::*[1]
@@ -353,13 +353,13 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: totalFatPerServing
     singleValue: true
     xpath: //td[contains(text(),'Fat')]/following-sibling::*[1]
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: totalFatPerServingUom
     singleValue: true
     xpath: //td[contains(text(),'Fat')]/following-sibling::*[1]
@@ -371,7 +371,7 @@ fields:
     xpath: //td[contains(text(),'Saturate')]/following-sibling::*[1]
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: false
     xpath: //td[contains(text(),'Saturate')]/following-sibling::*[1]
@@ -383,7 +383,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: transFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Trans Fat content
@@ -391,7 +391,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: true
     description: Unit of Measure Data for Cholesterol content
@@ -400,7 +400,7 @@ fields:
     xpath: //td[contains(text(),'Sodium')]/following-sibling::*[1]
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
     xpath: //td[contains(text(),'Sodium')]/following-sibling::*[1]
@@ -412,7 +412,7 @@ fields:
     xpath: //td[contains(text(),'Carb')]/following-sibling::*[1]
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: //td[contains(text(),'Carb')]/following-sibling::*[1]
@@ -425,7 +425,7 @@ fields:
     xpath: //td[contains(text(),'Fibre')]/following-sibling::*[1]
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: dietaryFibrePerServingUom
     singleValue: true
     xpath: //td[contains(text(),'Fibre')]/following-sibling::*[1]
@@ -437,7 +437,7 @@ fields:
     xpath: //td[contains(text(),'Sugar')]/following-sibling::*[1]
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: totalSugarsPerServingUom
     singleValue: false
     xpath: //td[contains(text(),'Sugar')]/following-sibling::*[1]
@@ -450,7 +450,7 @@ fields:
     xpath: //td[contains(text(),'Protein')]/following-sibling::*[1]
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
     xpath: //td[contains(text(),'Protein')]/following-sibling::*[1]
@@ -461,7 +461,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
@@ -469,7 +469,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
@@ -477,7 +477,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
@@ -486,7 +486,7 @@ fields:
     xpath: //td[contains(text(),'Iron')]/following-sibling::*[1]
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: ironPerServingUom
     singleValue: true
     xpath: //td[contains(text(),'Iron')]/following-sibling::*[1]
@@ -498,7 +498,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: magnesiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Magnesium
@@ -507,7 +507,7 @@ fields:
     xpath: //td[contains(text(),'Salt')]/following-sibling::*[1]
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: saltPerServingUom
     singleValue: false
     xpath: //td[contains(text(),'Salt')]/following-sibling::*[1]
