@@ -1,12 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,'ProductCard')][contains(@data-qa,'ProductCard')]
 fields:
   - name: paid
     singleValue: true
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@class='my-search-url']
   - name: brand
     singleValue: true
     description: The brand name
@@ -20,21 +23,36 @@ fields:
       - Electric Toothbrushes & Accessories
       - Electric Toothbrushes
       - Rotating
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    # xpath: //a[@class='Color Link']/@href
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    regExp: >-
+      [0-9]{13}
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
-    xpath: concat('https://www.kroger.com', //a[@class='Color Link']/@href)
+    # xpath: //a[@componentname='internal search']/@href
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    regExp: >-
+       ^(.*)$
+    regExpReplace:
+      https://www.kroger.com$1
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //img[@class='ImageLoader-image']/@src
+    xpath: //img[@class='kds-Image-img']/@src
   - name: name
     singleValue: true
     description: The product name
     xpath: //h3[@data-qa='cart-page-item-description']
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
+    xpath: //a[@class='Color Link']/@href
+    regExp: >-
+      [0-9]{13}
   - name: mpc
     singleValue: true
     description: The model code of the product
@@ -47,11 +65,13 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    defaultValue: ''
   - name: reviewCount
     singleValue: true
     description: The number of reviews
+    defaultValue: ''
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the product
     xpath: //span[@class='kds-Price-singular']
   - name: manufacturer
@@ -66,9 +86,6 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-  - name: id
-    singleValue: true
-    description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -77,12 +94,10 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-  # - name: rankOrganic
-  #   singleValue: true
-  #   xpath: //li[@class='current-rank']
-  # - name: rank
-  #   singleValue: true
-  #   xpath: //li[@class='current-rank']  
+  - name: aggregateRating2
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -92,7 +107,7 @@ fields:
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER   
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //span[@data-qa='featured-product-tag']
+    xpath: //div[@data-qa='featured-product-tag']

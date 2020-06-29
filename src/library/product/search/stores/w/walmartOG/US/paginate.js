@@ -4,11 +4,13 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmartOG',
-    nextLinkSelector: 'svg[data-automation-id="nextButton"]',
+    nextLinkSelector: null,
     mutationSelector: null,
-    spinnerSelector: 'div[data-automation-id="spinner"]',
-    loadedSelector: 'div[data-automation-id="productsList"] div[data-automation-id="productTile"]',
-    openSearchDefinition: null,
+    spinnerSelector: null,
+    loadedSelector: 'div[data-automation-id="productsList"] div[data-automation-id="productTile"],div[data-automation-id="productsListPage"] [data-automation-id="noResultsSearchTerm"]',
+    openSearchDefinition: {
+      template: 'https://grocery.walmart.com/search/?query={searchTerms}&page={page}',
+    },
     domain: 'grocery.walmart.com',
   },
 };

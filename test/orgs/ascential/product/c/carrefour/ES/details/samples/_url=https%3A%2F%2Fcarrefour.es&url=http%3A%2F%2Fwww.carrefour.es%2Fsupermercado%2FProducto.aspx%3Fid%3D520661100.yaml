@@ -1,0 +1,73 @@
+input:
+  _url: https://carrefour.es
+  url: http://www.carrefour.es/supermercado/Producto.aspx?id=520661100
+extractions:
+  - html: https://workbench.import.io/html/run=d6b15e45-fd17-4661-bcf5-1e1d783c5b11/task=a8bb0532-d472-4521-ad46-263db4847f8c/cffa0cfb-2f5b-4637-b3f2-dcc763fd7bd0.html
+    extractionConfigId: product/details/stores/c/carrefour/es/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "0"
+                xpath: /html/body/@aggregate_rating
+            availability:
+              - text: Out of stock
+                xpath: /html/body/@availability
+            brand:
+              - text: perrier
+                xpath: /html/body/@brand
+            category:
+              - text: Inicio
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Supermercado
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Bebidas
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Aguas y Zumos
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Agua con gas
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[5]
+            image:
+              - text: https://static.carrefour.es/hd_510x_/img_pim_food/026623_00_1.jpg
+                xpath: /html/body/a[1]/@href
+            imageAlt:
+              - text: Agua mineral con gas Perrier natural pack de 4 botellas de vidrio de 33
+                  cl.
+                xpath: /html/body/a[1]/@alt
+            nameExtended:
+              - text: Agua mineral con gas Perrier natural pack de 4 botellas de vidrio de 33
+                  cl.
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: 3,95 €
+                xpath: /html/body/div[2]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            pricePerUnit:
+              - text: 2,99 €
+                xpath: /html/body/@price_per_unit
+            pricePerUnitUom:
+              - text: l
+                xpath: /html/body/@price_per_unit_uom
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/@rating_count
+            retailerProductCode:
+              - text: "520661100"
+                xpath: /html/head[1]/link[3]/@href
+            scrapeCode:
+              - text: https://www.carrefour.es
+                  /supermercado/producto-alimentacionperrier/R-520661100/p
+                xpath: /html/head[1]/link[3]/@href
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/@secondary_image_total
+            sku:
+              - text: "520661100"
+                xpath: /html/head[1]/link[3]/@href
+            url:
+              - text: https://www.carrefour.es
+                  /supermercado/producto-alimentacionperrier/R-520661100/p
+                xpath: /html/head[1]/link[3]/@href
+            variantId:
+              - text: "520661100"
+                xpath: /html/body/@variant_id
+        xpath: /
+    timestamp: 1591786930227

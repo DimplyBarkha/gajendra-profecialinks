@@ -10,20 +10,18 @@ async function implementation (
 
   await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
 
-  // click nutrition info button to view nutr facts, ingred, disclaimer
   await context.evaluate(async function () {
     const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
 
-    // change overlay to nodelist and double check before click
     if (overlay !== undefined) {
       overlay.click();
     }
   });
 
-  await context.waitForSelector('div.ProductCard-imageBlock a');
+  await context.waitForSelector('div.ProductCard a');
 
   await context.evaluate(() => {
-    const firstItem = document.querySelector('div.ProductCard-imageBlock a');
+    const firstItem = document.querySelector('div.ProductCard a');
     firstItem.click();
   });
 
@@ -42,12 +40,12 @@ async function implementation (
 
     if (productDetailsButton && productDetailsButton.textContent === 'Product Details') {
       productDetailsButton.click();
+    }
 
-      const descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden');
-      if (descriptionItem && descriptionItem.length > 0) {
-        const descriptionText = descriptionItem[0].textContent;
-        addHiddenDiv('description', descriptionText);
-      }
+    const descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden');
+    if (descriptionItem && descriptionItem.length > 0) {
+      const descriptionText = descriptionItem[0].textContent;
+      addHiddenDiv('description', descriptionText);
     }
 
     await new Promise((resolve, reject) => setTimeout(resolve, 8e3));
@@ -55,7 +53,6 @@ async function implementation (
 
     if (button !== undefined && button.textContent === 'Nutrition Info') {
       button.click();
-      // click read more button to expand text
       const readMore = document.querySelectorAll('.NutritionIngredients-Disclaimer')[0].children[1].children;
 
       const aElement = readMore[0];
@@ -69,7 +66,6 @@ async function implementation (
     }
   });
 
-  // set url
   await context.evaluate(function () {
     const myURL = document.createElement('li');
     myURL.classList.add('ii_url');
@@ -78,7 +74,6 @@ async function implementation (
     document.body.append(myURL);
   });
 
-  // search price and check if discount or not
   await context.evaluate(() => {
     const listPrice = document.createElement('li');
     listPrice.classList.add('my-list-price');
@@ -111,7 +106,6 @@ async function implementation (
     document.body.append(listPrice);
   });
 
-  // check pickup && delivery availability
   await context.evaluate(() => {
     const available = document.createElement('li');
     available.classList.add('availability');
@@ -133,12 +127,14 @@ async function implementation (
   return await context.extract(productDetails, { transform });
 }
 
+const { cleanUp } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'kroger',
-    transform: null,
+    transform: cleanUp,
     domain: 'kroger.com',
   },
   inputs: [

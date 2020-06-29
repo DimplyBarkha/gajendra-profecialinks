@@ -4,20 +4,17 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-  function cleanUp (data) {
-    let dataStr = JSON.stringify(data);
-    dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[^\x00-\x7F]/g, '');
-    return JSON.parse(dataStr);
-  }
+  const clean = text => text.toString().replace(/\r\n|\r|\n/gm, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+  // eslint-disable-next-line no-control-regex
+    .replace(/[^\x00-\x7F]/g, '');
+
   const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
   function getSplitValue (inputStr, count) {
     if (inputStr) {
@@ -50,8 +47,8 @@ const transform = (data, context) => {
               row.numberOfServingsInPackage = [{ text: (info.nutritionFacts.servingInfo.values[1]) ? info.nutritionFacts.servingInfo.values[1].value : '' }];
             }
             if (info && info.nutritionFacts && info.nutritionFacts.calorieInfo) {
-              row.caloriesPerServing = [{ text: (info.nutritionFacts.calorieInfo.mainNutrient && info.nutritionFacts.calorieInfo.mainNutrient.amount) ? info.nutritionFacts.calorieInfo.mainNutrient.amount.split(' ')[0] : '' }];
-              row.caloriesFromFatPerServing = [{ text: (info.nutritionFacts.calorieInfo.childNutrients[0] && info.nutritionFacts.calorieInfo.childNutrients[0].amount) ? info.nutritionFacts.calorieInfo.childNutrients[0].amount.split(' ')[0] : '' }];
+              row.caloriesPerServing = [{ text: (info.nutritionFacts.calorieInfo.mainNutrient && info.nutritionFacts.calorieInfo.mainNutrient.amount) ? info.nutritionFacts.calorieInfo.mainNutrient.amount.split(' ')[0].replace('cal', '') : '' }];
+              row.caloriesFromFatPerServing = [{ text: (info.nutritionFacts.calorieInfo.childNutrients[0] && info.nutritionFacts.calorieInfo.childNutrients[0].amount) ? info.nutritionFacts.calorieInfo.childNutrients[0].amount.split(' ')[0].replace('cal', '') : '' }];
             }
             if (info && info.nutritionFacts && info.nutritionFacts.keyNutrients) {
               const totalFatPerServing = (info.nutritionFacts.keyNutrients.values[0] && info.nutritionFacts.keyNutrients.values[0].mainNutrient) ? info.nutritionFacts.keyNutrients.values[0].mainNutrient.amount : '';
@@ -98,10 +95,13 @@ const transform = (data, context) => {
             }
           }
         }
+        Object.keys(row).forEach(header => row[header].forEach(el => {
+          el.text = clean(el.text);
+        }));
       } catch (exception) { console.log('Error in transform', exception); }
     }
   }
-  return cleanUp(data);
+  return data;
 };
 
 module.exports = { transform };

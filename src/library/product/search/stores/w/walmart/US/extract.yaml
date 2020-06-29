@@ -22,11 +22,14 @@ fields:
       - Electric Toothbrushes
       - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
     xpath: //a[contains(@class,'product-title-link')]/@href
+    #regExp: (.*)$
+    regExp: (/ip/.+)
+    regExpReplace: https://www.walmart.com$1
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
     xpath: //a[contains(@class,'search-result-productimage')]//img/@data-image-src  
   - name: name
@@ -57,9 +60,11 @@ fields:
     singleValue: true
     description: The offered price for the product
     selector: span.price-main span
+    defaultValue: 0
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    defaultValue: 0
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -78,17 +83,20 @@ fields:
     singleValue: false
     description: Unique id (within this extractor)
     xpath: //a[contains(@class,'product-title-link')]/@href
-    regExp: \/(\d+)$
-    regExpReplace: $1
+    regExp: \/(\d+)\??[^\/]*$
+    regExpReplace: $1    
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     selector: span.seo-avg-rating
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']
   - name: rank
     singleValue: false
     description: search/listing rank
