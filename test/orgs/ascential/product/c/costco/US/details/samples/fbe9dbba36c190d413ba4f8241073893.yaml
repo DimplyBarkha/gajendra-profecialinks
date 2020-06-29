@@ -2,15 +2,479 @@ input:
   _url: https://costco.com
   URL: https://www.costco.com/ensure-original-nutrition-shake-8-fl.-oz.%2c-30-pack.product.1252369.html
 extractions:
-  - html: https://workbench.import.io/html/run=7354251d-3832-45ce-9584-a4a057eaf41d/task=8d72d1c4-eacc-4352-9adc-26cb11758fb7/13715a30-e1d2-4e6f-9856-a31506d0d285.html
+  - html: https://workbench.import.io/html/run=b8df2757-09f2-4827-bfdd-88189b293ed6/task=a2905a4f-fadc-41a4-a033-b4b5783555ad/2212dfe6-8255-4436-8481-54eb020536c2.html
     extractionConfigId: product/details/stores/c/costco/US/extract
     data:
       - group:
-          - nameExtended:
-              - text: Access Denied
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=100422894-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1276492&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1428874&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1428875&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+            nameExtended:
+              - text: Ensure Original Nutrition Shake 8 fl. oz., 30-pack
                 xpath: /html/head[1]/title[1]
+            category:
+              - text: Health & Personal Care
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Diet & Nutrition
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Protein
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 35.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
             availabilityText:
-              - text: Out of Stock
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[7]/div[1]/form[1]/div[2]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: 60% More Vitamin D for Bone Support
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[1]
+              - text: 9 Grams of Protein
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[2]
+              - text: 26 Vitamins & Minerals
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[3]
+              - text: 220 Calories
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[4]
+              - text: Available in Vanilla and Chocolate
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[5]
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+              - text: Overview
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]
+              - text: >-
+                  Drink 1-2 Daily
+                   
+                   Proper nutrition is an important first step toward staying healthy and active. Drink 1-2 Ensure shakes daily to feel improved strength and energy, to help keep you doing what you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Great Taste
+                   
+                   Ensure Original with bone support, from the #1 doctor-recommended brand1 , is a great tasting way to get enough protein, vitamins, minerals, and antioxidants every day. Now with 60% more vitamin D to support bone strength2 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Storage Tips
+                   
+                   What’s the best way to keep Ensure fresh? Just refrigerate within four hours after opening and use or discard the remaining product within 48 hours. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  How to Enjoy Ensure
+                   
+                   Ensure shakes taste great at room temperature or cooled first in the fridge. You can also get the nutritional benefits of Ensure when you use it in meals, smoothies, and desserts. Visit our website for delicious recipes.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Proper nutrition is an important first step toward staying healthy and
+                  active. Drink 1-2 Ensure shakes daily to feel improved
+                  strength and energy, to help keep you doing what you love.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[2]
+              - text: "Ensure Original with bone support, from the #1 doctor-recommended brand1
+                  , is a great tasting way to get enough protein, vitamins,
+                  minerals, and antioxidants every day. Now with 60% more
+                  vitamin D to support bone strength2"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[2]
+              - text: What’s the best way to keep Ensure fresh? Just refrigerate within four
+                  hours after opening and use or discard the remaining product
+                  within 48 hours.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[2]
+              - text: Ensure shakes taste great at room temperature or cooled first in the
+                  fridge. You can also get the nutritional benefits of Ensure
+                  when you use it in meals, smoothies, and desserts. Visit our
+                  website for delicious recipes.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[2]
+              - text: >-
+                  FAQ
+                   
+                   Q: Are Ensure products lactose-free?
+                  A: All Ensure products contain a small amount of lactose (<500 mg of lactose per serving). This amount does not represent a medical concern for individuals with lactose intolerance.
+
+                  Ensure products should not be consumed by people with galactosemia.
+
+                  Q: Once opened, how long can Ensure products be kept out at room temperature? In the refrigerator?
+
+                  A: Once a bottle of Ensure has been opened, it should be refrigerated within four hours. The remaining product should be discarded after 48 hours.
+
+                  Q: Are Ensure products for diabetics?
+
+                  A: Ensure products are designed for individuals without diabetes. Another Abbott Nutrition product line, Glucerna, is specifically designed for people with diabetes, and contains a blend of slowly digested carbohydrates to help minimize blood sugar response.
+
+                  Ensure products, on the other hand, can fit into the meal plan for a person with diabetes. It is important to account for the carbohydrates contributed by Ensure and measure blood sugar at least two hours after consuming to determine the effect on blood sugar levels so that necessary adjustments can be made. We recommend that an individual with diabetes consult with their healthcare provider regarding adult nutritional products or supplements.
+
+                  Q: Are Ensure products Kosher and Halal?
+
+                  A: Ensure Original, Ensure High Protein, Ensure Plus, Ensure Enlive (except Vanilla), Ensure Clear (except Mixed Fruit) and Ensure Original Powder are Kosher and Halal.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: >-
+                  FAQ
+                   
+                   Q: Are Ensure products lactose-free?
+                  A: All Ensure products contain a small amount of lactose (<500 mg of lactose per serving). This amount does not represent a medical concern for individuals with lactose intolerance.
+
+                  Ensure products should not be consumed by people with galactosemia.
+
+                  Q: Once opened, how long can Ensure products be kept out at room temperature? In the refrigerator?
+
+                  A: Once a bottle of Ensure has been opened, it should be refrigerated within four hours. The remaining product should be discarded after 48 hours.
+
+                  Q: Are Ensure products for diabetics?
+
+                  A: Ensure products are designed for individuals without diabetes. Another Abbott Nutrition product line, Glucerna, is specifically designed for people with diabetes, and contains a blend of slowly digested carbohydrates to help minimize blood sugar response.
+
+                  Ensure products, on the other hand, can fit into the meal plan for a person with diabetes. It is important to account for the carbohydrates contributed by Ensure and measure blood sugar at least two hours after consuming to determine the effect on blood sugar levels so that necessary adjustments can be made. We recommend that an individual with diabetes consult with their healthcare provider regarding adult nutritional products or supplements.
+
+                  Q: Are Ensure products Kosher and Halal?
+
+                  A: Ensure Original, Ensure High Protein, Ensure Plus, Ensure Enlive (except Vanilla), Ensure Clear (except Mixed Fruit) and Ensure Original Powder are Kosher and Halal.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[2]
+              - text: >-
+                  Q: Are Ensure products lactose-free?
+
+                  A: All Ensure products contain a small amount of lactose (<500 mg of lactose per serving). This amount does not represent a medical concern for individuals with lactose intolerance.
+
+                  Ensure products should not be consumed by people with galactosemia.
+
+                  Q: Once opened, how long can Ensure products be kept out at room temperature? In the refrigerator?
+
+                  A: Once a bottle of Ensure has been opened, it should be refrigerated within four hours. The remaining product should be discarded after 48 hours.
+
+                  Q: Are Ensure products for diabetics?
+
+                  A: Ensure products are designed for individuals without diabetes. Another Abbott Nutrition product line, Glucerna, is specifically designed for people with diabetes, and contains a blend of slowly digested carbohydrates to help minimize blood sugar response.
+
+                  Ensure products, on the other hand, can fit into the meal plan for a person with diabetes. It is important to account for the carbohydrates contributed by Ensure and measure blood sugar at least two hours after consuming to determine the effect on blood sugar levels so that necessary adjustments can be made. We recommend that an individual with diabetes consult with their healthcare provider regarding adult nutritional products or supplements.
+
+                  Q: Are Ensure products Kosher and Halal?
+
+                  A: Ensure Original, Ensure High Protein, Ensure Plus, Ensure Enlive (except Vanilla), Ensure Clear (except Mixed Fruit) and Ensure Original Powder are Kosher and Halal.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[2]/div[1]
+              - text: |-
+                  Nutrition Facts
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                  Vanilla
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                  Chocolate
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]
+              - text: Nutrition Facts
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/h2[1]
+              - text: |-
+                  Vanilla
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                  Chocolate
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+              - text: |-
+                  Vanilla
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                  Chocolate
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
+              - text: >-
+                  1 Among doctors that recommend liquid nutritional products to
+                  their patients.
+
+                  2 80%DV per 8 fl oz vs 50% DV in prior formula.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]
+            variantId:
+              - text: "1252369"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            ratingCount:
+              - text: "2432"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            manufacturerDescription:
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+              - text: Overview
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]
+              - text: >-
+                  Drink 1-2 Daily
+                   
+                   Proper nutrition is an important first step toward staying healthy and active. Drink 1-2 Ensure shakes daily to feel improved strength and energy, to help keep you doing what you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Great Taste
+                   
+                   Ensure Original with bone support, from the #1 doctor-recommended brand1 , is a great tasting way to get enough protein, vitamins, minerals, and antioxidants every day. Now with 60% more vitamin D to support bone strength2 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Storage Tips
+                   
+                   What’s the best way to keep Ensure fresh? Just refrigerate within four hours after opening and use or discard the remaining product within 48 hours. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  How to Enjoy Ensure
+                   
+                   Ensure shakes taste great at room temperature or cooled first in the fridge. You can also get the nutritional benefits of Ensure when you use it in meals, smoothies, and desserts. Visit our website for delicious recipes.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Proper nutrition is an important first step toward staying healthy and
+                  active. Drink 1-2 Ensure shakes daily to feel improved
+                  strength and energy, to help keep you doing what you love.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[2]
+              - text: "Ensure Original with bone support, from the #1 doctor-recommended brand1
+                  , is a great tasting way to get enough protein, vitamins,
+                  minerals, and antioxidants every day. Now with 60% more
+                  vitamin D to support bone strength2"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[2]
+              - text: What’s the best way to keep Ensure fresh? Just refrigerate within four
+                  hours after opening and use or discard the remaining product
+                  within 48 hours.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[2]
+              - text: Ensure shakes taste great at room temperature or cooled first in the
+                  fridge. You can also get the nutritional benefits of Ensure
+                  when you use it in meals, smoothies, and desserts. Visit our
+                  website for delicious recipes.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[2]
+              - text: >-
+                  FAQ
+                   
+                   Q: Are Ensure products lactose-free?
+                  A: All Ensure products contain a small amount of lactose (<500 mg of lactose per serving). This amount does not represent a medical concern for individuals with lactose intolerance.
+
+                  Ensure products should not be consumed by people with galactosemia.
+
+                  Q: Once opened, how long can Ensure products be kept out at room temperature? In the refrigerator?
+
+                  A: Once a bottle of Ensure has been opened, it should be refrigerated within four hours. The remaining product should be discarded after 48 hours.
+
+                  Q: Are Ensure products for diabetics?
+
+                  A: Ensure products are designed for individuals without diabetes. Another Abbott Nutrition product line, Glucerna, is specifically designed for people with diabetes, and contains a blend of slowly digested carbohydrates to help minimize blood sugar response.
+
+                  Ensure products, on the other hand, can fit into the meal plan for a person with diabetes. It is important to account for the carbohydrates contributed by Ensure and measure blood sugar at least two hours after consuming to determine the effect on blood sugar levels so that necessary adjustments can be made. We recommend that an individual with diabetes consult with their healthcare provider regarding adult nutritional products or supplements.
+
+                  Q: Are Ensure products Kosher and Halal?
+
+                  A: Ensure Original, Ensure High Protein, Ensure Plus, Ensure Enlive (except Vanilla), Ensure Clear (except Mixed Fruit) and Ensure Original Powder are Kosher and Halal.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: >-
+                  FAQ
+                   
+                   Q: Are Ensure products lactose-free?
+                  A: All Ensure products contain a small amount of lactose (<500 mg of lactose per serving). This amount does not represent a medical concern for individuals with lactose intolerance.
+
+                  Ensure products should not be consumed by people with galactosemia.
+
+                  Q: Once opened, how long can Ensure products be kept out at room temperature? In the refrigerator?
+
+                  A: Once a bottle of Ensure has been opened, it should be refrigerated within four hours. The remaining product should be discarded after 48 hours.
+
+                  Q: Are Ensure products for diabetics?
+
+                  A: Ensure products are designed for individuals without diabetes. Another Abbott Nutrition product line, Glucerna, is specifically designed for people with diabetes, and contains a blend of slowly digested carbohydrates to help minimize blood sugar response.
+
+                  Ensure products, on the other hand, can fit into the meal plan for a person with diabetes. It is important to account for the carbohydrates contributed by Ensure and measure blood sugar at least two hours after consuming to determine the effect on blood sugar levels so that necessary adjustments can be made. We recommend that an individual with diabetes consult with their healthcare provider regarding adult nutritional products or supplements.
+
+                  Q: Are Ensure products Kosher and Halal?
+
+                  A: Ensure Original, Ensure High Protein, Ensure Plus, Ensure Enlive (except Vanilla), Ensure Clear (except Mixed Fruit) and Ensure Original Powder are Kosher and Halal.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[2]
+              - text: >-
+                  Q: Are Ensure products lactose-free?
+
+                  A: All Ensure products contain a small amount of lactose (<500 mg of lactose per serving). This amount does not represent a medical concern for individuals with lactose intolerance.
+
+                  Ensure products should not be consumed by people with galactosemia.
+
+                  Q: Once opened, how long can Ensure products be kept out at room temperature? In the refrigerator?
+
+                  A: Once a bottle of Ensure has been opened, it should be refrigerated within four hours. The remaining product should be discarded after 48 hours.
+
+                  Q: Are Ensure products for diabetics?
+
+                  A: Ensure products are designed for individuals without diabetes. Another Abbott Nutrition product line, Glucerna, is specifically designed for people with diabetes, and contains a blend of slowly digested carbohydrates to help minimize blood sugar response.
+
+                  Ensure products, on the other hand, can fit into the meal plan for a person with diabetes. It is important to account for the carbohydrates contributed by Ensure and measure blood sugar at least two hours after consuming to determine the effect on blood sugar levels so that necessary adjustments can be made. We recommend that an individual with diabetes consult with their healthcare provider regarding adult nutritional products or supplements.
+
+                  Q: Are Ensure products Kosher and Halal?
+
+                  A: Ensure Original, Ensure High Protein, Ensure Plus, Ensure Enlive (except Vanilla), Ensure Clear (except Mixed Fruit) and Ensure Original Powder are Kosher and Halal.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[2]/div[1]
+              - text: |-
+                  Nutrition Facts
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                  Vanilla
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                  Chocolate
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]
+              - text: Nutrition Facts
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/h2[1]
+              - text: |-
+                  Vanilla
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                  Chocolate
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+              - text: |-
+                  Vanilla
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                  Chocolate
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
+              - text: >-
+                  1 Among doctors that recommend liquid nutritional products to
+                  their patients.
+
+                  2 80%DV per 8 fl oz vs 50% DV in prior formula.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1560528531178_f3c2560c-a905-488f-9ef4-74c91d624f8e/module/ensure/_cp/products/1473695532908/tab-24fde37e-1857-4cd7-bd3f-5ed3d61ad233/e6232c63-549b-41b6-badc-6a7b47d748e5.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1560528531178_f3c2560c-a905-488f-9ef4-74c91d624f8e/module/ensure/_cp/products/1473695532908/tab-24fde37e-1857-4cd7-bd3f-5ed3d61ad233/40b30159-df94-4db8-bc53-a63d7ff0e67c.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1560528531178_f3c2560c-a905-488f-9ef4-74c91d624f8e/module/ensure/_cp/products/1473695532908/tab-24fde37e-1857-4cd7-bd3f-5ed3d61ad233/42dafce4-a64d-4c72-9b8b-1f9bc524897d.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1560528531178_f3c2560c-a905-488f-9ef4-74c91d624f8e/module/ensure/_cp/products/1473695532908/tab-24fde37e-1857-4cd7-bd3f-5ed3d61ad233/d265dd05-79d6-407c-b193-b9c0f16a1159.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1560528531178_f3c2560c-a905-488f-9ef4-74c91d624f8e/module/ensure/_cp/products/1473695532908/tab-24fde37e-1857-4cd7-bd3f-5ed3d61ad233/2e5bbc43-6b59-41f3-ad16-ccaad3f7b310.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1560528531178_f3c2560c-a905-488f-9ef4-74c91d624f8e/module/ensure/_cp/products/1473695532908/tab-24fde37e-1857-4cd7-bd3f-5ed3d61ad233/3cb2c453-1807-424e-beab-30900f9571da.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1560528531178_f3c2560c-a905-488f-9ef4-74c91d624f8e/module/ensure/_cp/products/1473695532908/tab-6cef2c43-3fcf-4055-8582-3f4b2f5adcf7/fb048966-6d05-4c48-ae52-f3146bb9f644.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1560528531178_f3c2560c-a905-488f-9ef4-74c91d624f8e/module/ensure/_cp/products/1473695532908/tab-6cef2c43-3fcf-4055-8582-3f4b2f5adcf7/cf94c79a-7cc0-4828-8268-f2b7b7f1f1c4.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+            specifications:
+              - text: |-
+                  Specifications 
+                   
+                   
+                   
+                   
+                   
+                   
+                  Dietary Features
+                   
+                  Kosher
+                   
+                   
+                   
+                  Flavor
+                   
+                  Chocolate
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -24,6 +488,6 @@ extractions:
             imageZoomFeaturePresent:
               - text: No
             descriptionBullets:
-              - text: "0"
-        xpath: /html/head[1]
-    timestamp: 1593173236495
+              - text: "5"
+        xpath: /
+    timestamp: 1593412366186
