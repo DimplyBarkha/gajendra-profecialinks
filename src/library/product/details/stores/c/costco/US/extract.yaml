@@ -14,6 +14,8 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //a[contains(@class,'RICHFXColorChangeLink')][position()>1]/img//@src[contains(.,'735')]
+    regExp: (.+recipe)
+    regExpReplace: $1Name=680
   - name: nameExtended
     xpath: //title
     singleValue: true
@@ -40,7 +42,7 @@ fields:
     regExpReplace: In Stock
   - name: description
     singleValue: false
-    xpath: (//ul[@class="pdp-features"]/li | //div[@class="product-info-description"]/ul//li | //div[@id="wc-power-page"]//h1 | //div[@id="wc-power-page"]//h2 | //div[@id="wc-power-page"]//div[not (contains(.,'hide'))] |//div[@id="wc-power-page"]//h2)
+    xpath: (//ul[@class="pdp-features"]/li | //div[@id="wc-power-page"]//h1 | //div[@id="wc-power-page"]//h2 | //div[@id="wc-power-page"]//div[not(contains(.,'{'))])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -80,7 +82,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //span[contains(@class,"model-number")]//span
+    xpath: //span[contains(@class,"model-number")]//span | //p[contains(@id,"product-body-model-number")]//span | //p[contains(@id,"product-body-model-number")]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -130,7 +132,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="wc-power-page"]//h1 | //div[@id="wc-power-page"]//h2 | //div[@id="wc-power-page"]//div[not (contains(.,'hide'))] |//div[@id="wc-power-page"]//h2 | //div[@id="flix-inpage"]//ul
+    xpath: //div[@id="wc-power-page"]//h1 | //div[@id="wc-power-page"]//h2 | //div[@id="wc-power-page"]//div[not(contains(.,'{'))]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -393,9 +395,9 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //h2[contains(.,'Specifications')]/../div//table//tbody
+    xpath: //h2[contains(.,'Specifications')]/../div//table//tbody | //a[contains(.,'Specifications')]/../../..
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product

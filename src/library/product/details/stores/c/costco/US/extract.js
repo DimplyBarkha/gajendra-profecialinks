@@ -26,6 +26,10 @@ module.exports = {
         const url = `https://d2vxgxvhgubbj8.cloudfront.net/videos/69/${val}_1_liveclicker.mp4`;
         arr.push(url);
       });
+      const videoLink = document.querySelector('.flix-jw') ? document.querySelector('.flix-jw').value.match(/file":"([^"]+)/)[1].replace(/^\\\/\\\//, '').replace(/\\\//g, '/') : '';
+      if (videoLink !== '') {
+        arr.push(videoLink);
+      }
       let count = 0;
       arr.forEach(item => {
         document.querySelector('head').setAttribute(`vid${count}`, item);

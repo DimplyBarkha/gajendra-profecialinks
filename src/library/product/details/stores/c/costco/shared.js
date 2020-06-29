@@ -32,7 +32,7 @@ const transform = (data) => {
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
-          text += item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ');
+          text += item.text.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ');
         });
         row.specifications = [
           {

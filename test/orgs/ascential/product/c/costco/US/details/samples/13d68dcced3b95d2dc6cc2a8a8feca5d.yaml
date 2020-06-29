@@ -2,7 +2,7 @@ input:
   _url: https://costco.com
   URL: https://www.costco.com/starbucks-french-roast%2c-whole-bean-coffee%2c-2.5-lbs.product.100377146.html
 extractions:
-  - html: https://workbench.import.io/html/run=1e7b6f51-641b-492a-963c-2c97f7de63e3/task=49797cb1-0116-4842-a485-6af0510edf07/60be84ac-b086-4dce-aa83-510f99d518c8.html
+  - html: https://workbench.import.io/html/run=7354251d-3832-45ce-9584-a4a057eaf41d/task=436e50e8-e624-48fe-ab0e-fcbb1709aeaf/6e964593-09fa-4dc3-b0a9-5e8f8c73ce73.html
     extractionConfigId: product/details/stores/c/costco/US/extract
     data:
       - group:
@@ -10,9 +10,9 @@ extractions:
               - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=11357-847&recipeName=680
                 xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
             alternateImages:
-              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1353337&recipeId=735
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1353337&recipeName=680
                 xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
-              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1353338&recipeId=735
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1353338&recipeName=680
                 xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
             nameExtended:
               - text: Starbucks French Roast, Whole Bean Coffee, 2.5 lbs
@@ -27,37 +27,70 @@ extractions:
               - text: 404 - Product Not Found
                 xpath: /html/body/div[4]/div[4]/div[1]/div[1]/ol[1]/li[2]/span[1]
             price:
-              - text: "- -.- -$"
+              - text: 15.99$
                 xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[7]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[11]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
             description:
               - text: Arabica Coffee
-                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[1]
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[9]/ul[1]/li[1]
               - text: Dark Roast
-                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[2]
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[9]/ul[1]/li[2]
               - text: Whole Bean Coffee
-                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[3]
-              - text: 2.5 lb Bag
-                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]
-              - text: Whole Bean Coffee
-                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[2]
-              - text: Dark Roast
-                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[3]
-              - text: 100% Arabica
-                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]
-              - text: "Tasting Notes: Intense & Smoky, smoky and singular, the pure, explosive
-                  flavor of our darkest roast"
-                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[5]
-              - text: "Region: Multi-region"
-                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[6]
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[9]/ul[1]/li[3]
             brandText:
               - text: Starbucks
                 xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
             variantId:
               - text: "11357"
                 xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            specifications:
+              - text: |-
+                  Specifications 
+                   
+                   
+                   
+                   
+                   
+                   
+                  Brand
+                   
+                  Starbucks
+                   
+                   
+                   
+                  Caffeine Type
+                   
+                  Caffeinated
+                   
+                   
+                   
+                  Coffee Varieties
+                   
+                  Arabica
+                   
+                   
+                   
+                  Form
+                   
+                  Whole Bean
+                   
+                   
+                   
+                  Package Net Weight
+                   
+                  2.5 lb.
+                   
+                   
+                   
+                  Roast
+                   
+                  Dark
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]
+            promotion:
+              - text: $5 OFF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/p[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -73,4 +106,4 @@ extractions:
             descriptionBullets:
               - text: "9"
         xpath: /
-    timestamp: 1593008067549
+    timestamp: 1593173228993
