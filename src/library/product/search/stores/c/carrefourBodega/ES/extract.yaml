@@ -24,7 +24,7 @@ fields:
     singleValue: false
     xpath: //div[@class='image']/a/@href
     regExp: (.+)
-    regExpReplace: https://www.carrefour.es/$1
+    regExpReplace: https://www.carrefour.es$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
@@ -32,7 +32,7 @@ fields:
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //h2[@class='name-product apercu']
+    xpath: //h2[@class='name-product apercu'] | //p[@class='name-marca lora']
     description: The product name
   - name: sku
     singleValue: true

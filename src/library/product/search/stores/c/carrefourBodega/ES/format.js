@@ -41,6 +41,17 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.name) {
+        let text = '';
+        row.name.forEach(item => {
+          text += ` ${item.text}`;
+        });
+        row.name = [
+          {
+            text: (text.trim()),
+          },
+        ];
+      }
     }
   }
   return data;
