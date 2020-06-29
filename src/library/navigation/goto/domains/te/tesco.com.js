@@ -1,4 +1,3 @@
-
 module.exports = {
   parameterValues: {
     domain: 'tesco.com',
@@ -6,6 +5,7 @@ module.exports = {
     store: 'tesco',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
-    await context.goto(url, { timeout: 100000, waitUntil: 'load', checkBlocked: true });
+    //fix for getting first request timeout and blocked status when no results in search
+    await context.goto(`${url}#[!opt!]{"force200":true, "first_request_timeout": 50000}[/!opt!]`, { timeout: 100000, waitUntil: 'load' });
   },
 };
