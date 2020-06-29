@@ -81,7 +81,7 @@ async function implementation (
 }
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     domain: 'kroger.com',
     country: 'US',
