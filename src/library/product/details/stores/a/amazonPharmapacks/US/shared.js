@@ -52,14 +52,6 @@ const transform = (data) => {
           item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
         }
       }
-
-      if (row.variantAsins) {
-        for (const item of row.variantAsins) {
-          if (item.text.match(/(.+),(.+)/)) {
-            item.text = item.text.match(/(.+),(.+)/)[2];
-          }
-        }
-      }
     }
   }
   return data;
