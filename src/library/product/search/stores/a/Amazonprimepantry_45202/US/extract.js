@@ -7,5 +7,6 @@ module.exports = {
     store: 'Amazonprimepantry_45202',
     transform,
     domain: 'amazon.com',
+    zipcode: '45202',
   },
 };

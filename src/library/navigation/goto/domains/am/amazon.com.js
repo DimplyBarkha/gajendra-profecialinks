@@ -6,7 +6,7 @@ module.exports = {
     domain: 'amazon.com',
     store: 'amazon',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -174,7 +174,7 @@ module.exports = {
     try {
       await run();
     } finally {
-    // needs to be non-fat arrow
+      // needs to be non-fat arrow
       await context.evaluate((captchaCount, duration, js, hasCaptcha) => {
         const captchasElt = document.createElement('meta');
         captchasElt.name = 'captchas';
@@ -194,6 +194,9 @@ module.exports = {
         document.head.appendChild(javascriptElt);
         // js_enabled
       }, [captchas, Date.now() - start, hasCaptcha]);
+    }
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode });
     }
   },
 };

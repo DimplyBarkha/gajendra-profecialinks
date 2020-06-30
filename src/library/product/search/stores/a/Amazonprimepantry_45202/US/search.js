@@ -5,5 +5,6 @@ module.exports = {
     country: 'US',
     store: 'Amazonprimepantry_45202',
     domain: 'amazon.com',
+    zipcode: '45202',
   },
 };

@@ -10,5 +10,6 @@ module.exports = {
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'amazon.com',
+    zipcode: '45202',
   },
 };
