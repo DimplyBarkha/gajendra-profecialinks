@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'ul > li.next',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul#shop-products > li',
+    loadedSelector: 'ul#shop-products > li > div > p.prodprice',
     domain: 'bestwaywholesale.co.uk',
   },
 };

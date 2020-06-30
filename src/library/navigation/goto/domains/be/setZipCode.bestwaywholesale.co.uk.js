@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/search',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'UK',
-    store: 'bestwaywholesale',
     domain: 'bestwaywholesale.co.uk',
+    store: 'bestwaywholesale',
     zipcode: '',
   },
 };
