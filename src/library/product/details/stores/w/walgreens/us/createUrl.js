@@ -3,8 +3,6 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'walgreens.com',
-    prefix: null,
-    url: null,
     store: 'walgreens',
     country: 'us',
   },

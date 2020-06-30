@@ -121,8 +121,6 @@ module.exports = {
           XMLHttpRequest.prototype.open = originalRequestOpen;
 
           const jsonObj = MergeRecursive((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {}, response);
-          console.log(window.__ATC_APP_INITIAL_STATE__)
-          console.log((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : '');
           console.log(response);
           console.log('jsonObj');
           console.log(jsonObj);
@@ -200,8 +198,6 @@ module.exports = {
           console.log(ingredients);
 
           console.log(infos);
-          console.log([...document.querySelectorAll('#wc-aplus img')]);
-          // console.log([...document.querySelectorAll('#wc-aplus img')].map(u => u.src).filter(img => !img.match('syndigo')))
 
           const cleanupIngredient = (typename) => {
             const ingredDivText = document.querySelector('li#Ingredients');
