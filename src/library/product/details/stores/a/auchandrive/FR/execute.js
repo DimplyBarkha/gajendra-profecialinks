@@ -5,10 +5,6 @@ async function implementation (
   dependencies,
 ) {
   const { url, id } = inputs;
-  // const cookies = [
-  //   { name: "gtm_store_info", value: "ALLAR SERVICES EDF|98731" },
-  //   { name: "auchanCook", value: "98731|" }
-  // ];
 
   const gotoOptions = {
     timeout: 10000,
@@ -20,20 +16,25 @@ async function implementation (
     // cookies
   };
 
-  // // Need to load the webpage first to start a session
-  // await context.goto('https://www.auchandrive.fr/recherche/');
-  // await context.setCookie(...cookies);
-  let productUrl = '';
   if (id) {
-    const newUrl = 'https://www.auchandrive.fr/recherche/' + id + '#[!opt!]{"cookie_jar":[{"name":"connect.sid","value":"s%3AZXKHRVjDk2txSj8MzXQky8VZuhmTubgs.M6oBh6HGNeRWLesfG%2Bcu6No9ij6ejEqB6mVRhSQGHJs"}]}[/!opt!]';
+    const homeUrl = 'https://www.auchandrive.fr';
+    const newUrl = 'https://www.auchandrive.fr/recherche/' + id;
+    await setZipCodeAndStore(homeUrl);
     await context.goto(newUrl, gotoOptions);
-    return await context.clickAndWaitForNavigation('a.product-item__main', undefined, { waitUntil: 'networkidle0' });
   } else {
-    productUrl = url + '#[!opt!]{"cookie_jar":[{"name":"connect.sid","value":"s%3AZXKHRVjDk2txSj8MzXQky8VZuhmTubgs.M6oBh6HGNeRWLesfG%2Bcu6No9ij6ejEqB6mVRhSQGHJs"}]}[/!opt!]';
+    const homeUrl = 'https://www.auchandrive.fr';
+    await setZipCodeAndStore(homeUrl);
+    await context.goto(url, gotoOptions);
   }
 
-  await context.goto(productUrl, gotoOptions);
-
+  async function setZipCodeAndStore (homeUrl) {
+    await context.goto(homeUrl, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await context.waitForSelector('input[name="address"]');
+    await context.setInputValue('input[name="address"]', '13400');
+    await context.click('button#update');
+    await context.waitForSelector('div.storelocator__pos--container');
+    await context.click('a[data-store-id="874"]');
+  }
   // TODO: Check for not found?
 }
 

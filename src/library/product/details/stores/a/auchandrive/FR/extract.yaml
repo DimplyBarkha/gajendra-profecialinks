@@ -11,25 +11,123 @@ fields:
     regExpReplace: $1_530x530$3
   - name: description
     singleValue: false
-    xpath: normalize-space(//div[@class='product-description__content'])
+    xpath: normalize-space(//div[@id='descriptionTab']/following-sibling::div)
   - name: price
     singleValue: true
-    xpath: //section[@class='offer-selector__price-container']//meta[@itemprop='price']/@content
+    xpath: //p[@class='price-standard']
   - name: availability
     singleValue: false
-    xpath: normalize-space(//button[contains(@class,"addToCart")]/span[contains(@class,"addToCart")])
-    regExp: Ajouter|Add
+    xpath: normalize-space(//button[@class='addToCart pdp-addToCart product-control__more cart-update-button'])
+    regExp: >-
+      Ajouter\sau\spanier
     regExpReplace: In stock
     defaultValue: Out of stock
   - name: nameExtended
     singleValue: true
     xpath: //h1[@class='site-breadcrumb__title']
-  - name: availablity
-    xpath: //div[contains(@class, 'quantity-selector--large')]/@data-stock
-    regExp: 0
-    regExpReplace: Out of stock
-    defaultValue: In stock
   - name: ingredientsList
-    xpath: //div[@class='product-description__feature-values']
+    xpath: //div[contains(., 'Ingrédients') and @class='pdp-bottom-infos__content']
   - name: brandText
     xpath: //div[contains(@class, 'product-flap--large')]
+  - name: manufacturerName
+    xpath: //div[@class='fabricant-origine']/div[2]//ul/li/span[2]
+  - name: sku
+    xpath: //button[@class='product-control__less cart-update-button product-update__less']/@data-tracking-label
+  - name : variantId
+    xpath: //img[@class='pdp-gallery__thumb']/@src
+    regExp: >-
+      .*\-(.*?)\-
+    regExpReplace: $1
+  - name: directions
+    xpath: //div[contains(., 'Renseignements pratiques') and @class='pdp-bottom-infos__content']
+  - name: servingSize
+    xpath: //th[contains(.,'Pour')]
+    regExp: >-
+      (\d+)
+  - name: servingSizeUom
+    xpath: //th[contains(.,'Pour')]
+    regExp: (.+)(\d+)(.+)
+    regExpReplace: $3
+  - name: caloriesPerServing
+    xpath: concat(//th[contains(., 'Valeurs Energétiques en Kj')]/following-sibling::td, 'kj|' , //th[contains(., 'Valeurs Energétiques en Kcal')]/following-sibling::td, 'kcal')
+  - name: totalFatPerServing
+    xpath: //th[contains(., 'Matières grasses')]/following-sibling::td
+  - name: totalFatPerServingUom
+    xpath: //th[contains(., 'Matières grasses')]
+    regExp: >-
+      en\s(.+)\)
+    regExpReplace: $1
+  - name: saturatedFatPerServing
+    xpath: //th[contains(., 'dont acides gras saturés (en g)')]/following-sibling::td
+  - name: saturatedFatPerServingUom
+    xpath: //th[contains(., 'dont acides gras saturés (en g)')]
+    regExp: >-
+      en\s(.+)\)
+    regExpReplace: $1
+  - name: totalCarbPerServing
+    xpath: //th[contains(., 'Glucides')]/following-sibling::td
+  - name: totalCarbPerServingUom
+    xpath: //th[contains(., 'Glucides')]
+    regExp: >-
+      en\s(.+)\)
+    regExpReplace: $1
+  - name: dietaryFiberPerServing
+    xpath: //th[contains(., 'Fibres alimentaires')]/following-sibling::td
+  - name: dietaryFiberPerServingUom
+    xpath: //th[contains(., 'Fibres alimentaires')]
+    regExp: >-
+      en\s(.+)\)
+    regExpReplace: $1
+  - name: totalSugarsPerServing
+    xpath: //th[contains(., 'dont sucres')]/following-sibling::td
+  - name: totalSugarsPerServingUom
+    xpath: //th[contains(., 'dont sucres')]
+    regExp: >-
+      en\s(.+)\)
+    regExpReplace: $1
+  - name: proteinPerServing
+    xpath: //th[contains(., 'Protéines')]/following-sibling::td
+  - name: proteinPerServingUom
+    xpath: //th[contains(., 'Protéines')]
+    regExp: >-
+      en\s(.+)\)
+    regExpReplace: $1
+  - name: saltPerServing
+    xpath: //th[contains(., 'Sel')]/following-sibling::td
+  - name: saltPerServingUom
+    xpath: //th[contains(., 'Sel')]
+    regExp: >-
+      en\s(.+)\)
+    regExpReplace: $1
+  - name: alternateImages
+    xpath: //div[@class='pdp-gallery__thumbList']/label[position()>1]/img/@src
+  - name: secondaryImageTotal
+    xpath: count(//div[@class='pdp-gallery__thumbList']/label[position()>1])
+  - name: ratingCount
+    xpath: //div[@class='rating-quantity']
+    regExp: >-
+      (\d+)
+  - name:  aggregateRatingCount
+    xpath: //div[@class='rating-average']
+  - name: storage
+    xpath: //span[contains(., 'Conservation')]/following-sibling::span
+  - name: pricePerUnit
+    xpath: //p[@class='price--per']
+    regExp: >-
+      (.+)\s(.+)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //p[@class='price--per']
+    regExp: >-
+      (.+)\s(.+)
+    regExpReplace: $2
+  - name: imageAlt
+    xpath: //img[@class='pdp-gallery__main-image'][1]/@alt
+  - name: promotion
+    xpath: //span[@class='animcom WAAOH']
+
+
+
+    
+    
+    
