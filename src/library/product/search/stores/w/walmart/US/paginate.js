@@ -28,7 +28,7 @@ async function implementation (
     }
     return next.href;
   });
-  let hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), 'button.paginator-btn-next, div.recall-set-results-footer:nth-of-type(1) ');
+  const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), 'button.paginator-btn-next, div.recall-set-results-footer:nth-of-type(1) ');
   if (!hasNextLink) {
     return false;
   }
@@ -70,7 +70,7 @@ module.exports = {
     loadedSelector: 'div[data-type="items"]',
     noResultsXPath: '//span[@data-automation-id="zero-results-message"]',
     openSearchDefinition: {
-      template: 'https://www.walmart.com/search/search-ng.do?grid=true&page={page}&ps=40&search_query={searchTerms}',
+      template: 'https://www.walmart.com/search/search-ng.do?grid=true&page={page}&ps=48&search_query={searchTerms}',
     },
     domain: 'walmart.com',
   },
