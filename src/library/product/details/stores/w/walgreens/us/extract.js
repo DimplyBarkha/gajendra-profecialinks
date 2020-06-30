@@ -24,9 +24,6 @@ module.exports = {
 
     console.log(manufacturerInfo);
 
-
-    // document.body.scrollHeight;
-
     async function autoScroll () {
       await context.evaluate(async function () {
         await new Promise((resolve, reject) => {
@@ -52,9 +49,6 @@ module.exports = {
       await new Promise(resolve => setTimeout(resolve, 30000));
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner');
-      await context.click('li#prodCollage a.view-more-trigger');
-      // await context.waitForSelector('div.wc-viewer');
-      // document.querySelector('li#prodCollage a.view-more-trigger').click()
     }
 
     const extractAll = async (id, url, variants) => {
@@ -126,18 +120,21 @@ module.exports = {
           await new Promise(resolve => setTimeout(resolve, 5e3));
           XMLHttpRequest.prototype.open = originalRequestOpen;
 
-          const jsonObj = MergeRecursive(window.__ATC_APP_INITIAL_STATE__.product.results, response);
-
-          console.log(window.__ATC_APP_INITIAL_STATE__.product.results);
+          const jsonObj = MergeRecursive((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {}, response);
+          console.log(window.__ATC_APP_INITIAL_STATE__)
+          console.log((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : '');
           console.log(response);
-          console.log('jsonObj')
-          console.log(jsonObj)
+          console.log('jsonObj');
+          console.log(jsonObj);
 
           const infos = jsonObj.productInfo;
           const details = jsonObj.prodDetails;
           const price = jsonObj.priceInfo;
 
           // const priceOther = JSON.parse(getSelector('script[type="application/ld+json"]', { raw: true, ifError: JSON.stringify({}) }));
+          const grabSinglePrice = (price) => {
+            return price.split('or 1/')[1];
+          };
 
           const priceValue = (prop) => {
             /*
@@ -155,7 +152,7 @@ module.exports = {
                 : price[prop]);
             }, '');
             */
-            const result = (document.querySelector('#saving-price-info') && prop === 'salePrice' && price.salePrice) ? price.salePrice : (price.regularPrice ? price.regularPrice : null);
+            const result = (document.querySelector('#saving-price-info') && prop === 'salePrice' && price.salePrice) ? (price.salePrice.match('or 1') ? grabSinglePrice(price.salePrice) : price.salePrice) : (price.regularPrice ? (price.regularPrice.match('or 1') ? grabSinglePrice(price.regularPrice) : price.regularPrice) : null);
             if (!result) return '';
             return result.includes('$') ? result : `$${result}`;
           };
@@ -172,8 +169,8 @@ module.exports = {
           console.log(desc.productDesc);
 
           let fullDescription = (desc && desc.productDesc) ? (((desc.quickView && desc.quickView !== 'undefined') ? decodeURIComponent(desc.quickView.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25')) : '') + decodeURIComponent(desc.productDesc.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25'))) : '';
-          console.log('fullDescription')
-          console.log(fullDescription)
+          console.log('fullDescription');
+          console.log(fullDescription);
           fullDescription = fullDescription.replace(/<table.*?>/g, '');
           fullDescription = fullDescription.replace(/<tbody.*?>/g, '');
           fullDescription = fullDescription.replace(/<tr.*?>/g, '');
@@ -183,8 +180,14 @@ module.exports = {
           fullDescription = fullDescription.replace(/<\/tr>/g, '');
           fullDescription = fullDescription.replace(/<\/td>/g, '');
           fullDescription = fullDescription.replace(/&copy;/g, '©');
+          fullDescription = fullDescription.replace(/%C2%A9/g, '©');
           const directions = fullDescription.toLowerCase().indexOf('how to') > -1 ? fullDescription.toLowerCase().indexOf('how to') : '';
-          console.log(fullDescription)
+          console.log(fullDescription);
+          let fullDescriptionWithDoublePipes = fullDescription;
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/>/g, '> ');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<(li)[^>]+>/ig, '<$1>');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<li>/g, ' ||');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.trim();
           const manufacturerName = (fullDescription && fullDescription.match('©') !== null) ? fullDescription.split('©')[fullDescription.split('©').length - 1] : '';
           console.log(manufacturerName);
           const images = infos.filmStripUrl.reduce((acc, obj) => {
@@ -197,7 +200,7 @@ module.exports = {
           console.log(ingredients);
 
           console.log(infos);
-          console.log([...document.querySelectorAll('#wc-aplus img')])
+          console.log([...document.querySelectorAll('#wc-aplus img')]);
           // console.log([...document.querySelectorAll('#wc-aplus img')].map(u => u.src).filter(img => !img.match('syndigo')))
 
           const cleanupIngredient = (typename) => {
@@ -214,7 +217,7 @@ module.exports = {
           const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), ...obj.ingredients], []) : '';
 
           if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
-            console.log('here')
+            console.log('here');
             const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
             const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
             ingrList.unshift(typeOfIngredient);
@@ -236,27 +239,52 @@ module.exports = {
             }, '');
           };
 
-          const videos = prop => [
+          const videos = () => [
             ...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
-              return [...acc, ...[...frame.contentWindow.document.querySelectorAll('video')].map(v => v[prop || 'src'])];
+              if (!frame.allowFullscreen) return acc;
+              if (frame.contentWindow.settings && frame.contentWindow.settings.itemsList) {
+                const fullPath = frame.contentWindow.document.querySelector('video') ? frame.contentWindow.document.querySelector('video').src : '';
+                const root = fullPath ? fullPath.split('/_cp')[0] : '';
+                return [...acc, ...[...frame.contentWindow.settings.itemsList].map(v => root + v.src.src)];
+              }
+              return [...acc, ...[...frame.contentWindow.document.querySelectorAll('video')].map(v => v.src)];
             }, []),
-            ...[...document.querySelectorAll('video')].map(v => v[prop || 'src']),
+            ...[...document.querySelectorAll('video')].map(v => v.src),
           ];
-          let videosAll = [];
-          document.querySelectorAll('div.wc-slider button').forEach((vid) => {
-            vid.click();
-            setTimeout(() => { videosAll.push(document.querySelector('video').src); }, 3000);
-            document.querySelector('video').pause();
-           
-           })
-          console.log('videos!')
-          console.log(videos())
-          console.log(videosAll);
-          if (document.querySelectorAll('div.wc-video-gallery > div.wc-slider')) {
-            console.log(document.querySelectorAll('div.wc-video-gallery > div.wc-slider'))
-          }
-          console.log(jsonObj.inventory)
-          console.log(jsonObj.inventory.shipAvailableMessage)
+
+          const videosDurations = () => [...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
+            if (!frame.allowFullscreen) return acc;
+            if (frame.contentWindow.settings && frame.contentWindow.settings.itemsList) {
+              return [...acc, ...[...frame.contentWindow.settings.itemsList].map(v => v.duration)];
+            }
+            return [...acc, ...[...frame.contentWindow.document.querySelectorAll('video')]];
+          }, []),
+          ...[...document.querySelectorAll('video')].map(v => v.duration),
+          ];
+
+          const allVideos = videos().filter(v => !(/(png)/.test(v)) && !(/(jpg)/.test(v)) && !(/(jpeg)/.test(v)));
+          console.log('allVideos');
+          console.log(allVideos);
+
+          const restrictedStatesList = () => {
+            const states = [];
+            document.querySelectorAll('ul[class^="state-code-restricted"] > li').forEach((li) => states.push(li.textContent));
+            if (states.length === 1) {
+              return states.join('');
+            }
+            if (states.length > 1) {
+              return states.join(', ');
+            }
+            return '';
+          };
+
+          const notPromotionRe = /(donation)/ig;
+
+          console.log('videos!');
+          console.log(videos());
+
+          console.log(jsonObj.inventory);
+          console.log(jsonObj.inventory.shipAvailableMessage);
           const obj = {
             _input,
             image: infos.productImageUrl,
@@ -271,7 +299,7 @@ module.exports = {
             listPrice: priceValue('regularPrice'),
             price: priceValue('salePrice'),
             availabilityText: jsonObj.inventory.shipAvailable ? 'In Stock' : 'Out of Stock',
-            description: [fullDescription],
+            description: fullDescriptionWithDoublePipes,
             descriptionBullets: (document.querySelector('#prodDesc') && document.querySelectorAll('#prodDesc ul > li')) ? document.querySelectorAll('#prodDesc ul > li').length : (document.querySelectorAll('div.description p') ? document.querySelectorAll('div.description p').length : 0),
             brandText: infos.brandName,
             manufacturer: manufacturerName,
@@ -289,7 +317,7 @@ module.exports = {
             ratingCount: reviews ? reviews.reviewCount : '',
             aggregateRatingText: reviews ? reviews.overallRating : '',
             aggregateRating: reviews ? reviews.overallRating : '',
-            shippingInfo: jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0) ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates ? jsonObj.inventory.restrictedStates.join(', ') : ((document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').nextElementSibling && document.querySelector('p#shiptostoreenable').nextElementSibling.textContent) ? document.querySelector('p#shiptostoreenable').nextElementSibling.textContent : ''),
+            shippingInfo: jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0) ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates ? jsonObj.inventory.restrictedStates.join(', ') : ((document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').nextElementSibling && document.querySelector('p#shiptostoreenable').nextElementSibling.textContent) ? document.querySelector('p#shiptostoreenable').nextElementSibling.textContent + restrictedStatesList() : ''),
             shippingDimensions: shipping ? shipping.productInInches : '',
             shippingWeight: shipping ? shipping.shippingWeight : '',
             variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc + (arr ? arr.length : 0)), 0),
@@ -297,7 +325,7 @@ module.exports = {
             colorCode: '',
             manufacturerDescription: getSelector('#wc-aplus', { property: 'innerText' }),
             manufacturerImages: [...document.querySelectorAll('#wc-aplus img')].map(u => u.src).filter(img => !img.match('syndigo')),
-            videos: videos() && videos().length > 0 ? videos() : '',
+            videos: allVideos && allVideos.length > 0 ? allVideos : '',
             name: infos.displayName,
             inStorePrice: '',
             asin: '',
@@ -314,7 +342,7 @@ module.exports = {
             heroQuickPromoImageUrl: '',
             heroQuickPromoUrl: '',
             pasin: '',
-            videoLength: videos() && videos().length > 0 ? videos('duration') : '',
+            videoLength: videos() && videos().length > 0 ? videosDurations() : '',
             otherSellersPrime: '',
             ingredientImagePresent: '',
             factImagePresent: '',
@@ -380,13 +408,13 @@ module.exports = {
             additives: '',
             pricePerUnit: price.unitPrice ? price.unitPrice.split('$')[1] : '',
             pricePerUnitUom: price.unitPrice ? price.unitPrice.split(/(\d+)/)[jsonObj.priceInfo.unitPrice.split(/(\d+)/).length - 1] : '',
-            promotion: details.OfferList ? details.OfferList.map(u => u.title) : '',
+            promotion: details.OfferList ? details.OfferList.map(u => !notPromotionRe.test(u.title) ? (u.title) : '') : '',
             alcoholContent: '',
             newVersion: '',
             newAsin: '',
             newDescription: '',
             variantInformation: infos.primaryAttribute,
-            //Object.keys(jsonObj.inventory.relatedProducts),
+            // Object.keys(jsonObj.inventory.relatedProducts),
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
             additionalDescBulletInfo: [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent),
@@ -415,12 +443,12 @@ module.exports = {
     };
 
     const variantArray = await context.evaluate(() => {
-      const jsonObj = window.__ATC_APP_INITIAL_STATE__.product.results;
+      const jsonObj = (window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {};
       const getXpathByText = (xpath, attribute, text) => {
         const classCheat = `[contains(concat(' ',normalize-space(@${attribute}),' '),'${text}')]`;
         return (xpath + classCheat);
       };
-      const result = Object.entries(jsonObj.inventory.relatedProducts)
+      const result = Object.entries(Object.keys(jsonObj).length ? jsonObj.inventory.relatedProducts : {})
         .reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.url)], [])
         .map(url => (getXpathByText('//li//a', 'style', url)));
       if (result.length > 21) {

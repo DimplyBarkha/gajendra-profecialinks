@@ -27,9 +27,8 @@ const transform = (data, context) => {
             }
           });
         }
-        console.log(row.additionalDescBulletInfo)
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
-          row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith('|| ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+          row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
       } catch (exception) { console.log('Error in transform', exception); }
     }

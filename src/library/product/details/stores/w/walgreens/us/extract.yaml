@@ -63,7 +63,7 @@ fields:
 - name: description
   singleValue: false
   # xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[not(child::strong[contains(text(),'WARNING')])]
-  xpath: "//*[@id='added_description']//text()"
+  xpath: "//*[@id='added_description']"
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
