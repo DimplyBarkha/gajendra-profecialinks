@@ -338,7 +338,7 @@ module.exports = {
             heroQuickPromoImageUrl: '',
             heroQuickPromoUrl: '',
             pasin: '',
-            videoLength: videos() && videos().length > 0 ? videosDurations() : '',
+            videoLength: videos() && videos().length > 0 ? videosDurations().filter(duration => (duration !== undefined)) : '',
             otherSellersPrime: '',
             ingredientImagePresent: '',
             factImagePresent: '',
