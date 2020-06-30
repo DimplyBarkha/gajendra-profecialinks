@@ -51,10 +51,10 @@ fields:
   xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeShortDescription"]|(//div[@data-automation-id="details"]/div[contains(@class, 'ProductAttribute__value')])
 - name: descriptionBullets
   singleValue: true
-  xpath: count(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//ul//li)
+  xpath: count(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//li)
 - name: additionalDescBulletInfo
   singleValue: false
-  xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//ul//li
+  xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//li
 # brandText , asin , gtin , sku , variantId and a few nutrient schema  - from API
 - name: brandText
   singleValue: true

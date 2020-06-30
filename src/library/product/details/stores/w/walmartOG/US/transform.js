@@ -21,26 +21,19 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-        console.log('description!!!');
-        console.log(row.description);
+
         if (row.description) {
+          let desc = '';
           row.description.forEach(item => {
-            if (item.text.match(/\s\n/g)) {
-              item.text = item.text.replace(/\s\n/g, ' ||').trim();
-            }
+            desc += `${item.text} || `;
           });
-          row.description.forEach(item => {
-            if (item.text.match(/\n/g)) {
-              item.text = item.text.replace(/\n/g, '').trim();
-            }
-          });
-          row.description.forEach(item => {
-            if (item.text.match(/(\|\|{2,})/)) {
-              item.text = item.text.replace(/(\|\|{2,})/, ' ||').trim();
-            }
-          });
-        }
-        console.log(row.description);
+          row.description = [
+            {
+              text: desc.replace(/\s\n/g, ' || ').replace(/\n/g, ' ').replace(/([\|\s]{5,}\s*)/g, ' || ').slice(0, -4).trim(),
+            },
+          ];
+        }        
+        
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }

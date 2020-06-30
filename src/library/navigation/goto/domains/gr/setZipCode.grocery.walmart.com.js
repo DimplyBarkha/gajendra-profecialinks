@@ -4,14 +4,13 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'grocery.walmart.com',
-    store: 'walmartOG',
-    zipcode: '72758',
+    store: 'walmartOG',    
   },
-  implementation: async (inputs, { zipcode }, context, dependencies) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
     const { timeout = 20000, waitUntil = 'load', checkBlocked = true } = {};
     const mainUrl = 'https://grocery.walmart.com';
     await context.goto(mainUrl, { timeout, waitUntil, checkBlocked });
-
+    const { zipcode } = inputs;
     let locationStreetAddress = '';
 
     async function changeLocation (zipcode) {
@@ -51,9 +50,9 @@ module.exports = {
       return document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]') ? document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]').textContent : '';
     });
 
-    if (!(zipcode === '72758' && changedLocationStreetAddress === '4208 Pleasant Crossing Blvd')) {
+    //TODO: need to set this as input
+    if (!(changedLocationStreetAddress === '4208 Pleasant Crossing Blvd')) {
       await changeLocation(zipcode);
-
       if (locationStreetAddress !== changedLocationStreetAddress) {
         await changeLocation(zipcode);
       }
