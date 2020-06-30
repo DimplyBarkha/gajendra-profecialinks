@@ -1,0 +1,74 @@
+input:
+  _url: https://douglas.es
+  URL: https://douglas.es/p/nivea/crema_active_age_for_men_noche
+extractions:
+  - html: https://workbench.import.io/html/run=64bb2ae0-5954-486c-9458-eb0ae67a534d/task=e09dd25a-52e9-4a42-8b93-af651bc89dc0/6120e530-8615-4f9a-b745-fc10627f1731.html
+    extractionConfigId: product/details/stores/d/douglas/ES/extract
+    data:
+      - group:
+          - image:
+              - text: https://ima.douglas.es/_d400/01031416/crema_de_belleza_active_age_for_men_noche_50_ml_.jpg
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Nivea Crema Active Age For Men Noche
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            url:
+              - text: https://douglas.es/p/nivea/crema_active_age_for_men_noche
+                xpath: /html/head[1]/link[14]/@href
+            category:
+              - text: Nivea
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: Crema Active Age For Men Noche
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[3]/span[1]
+            nameExtended:
+              - text: Crema Active Age For Men Noche - Tratamiento
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            description:
+              - text: Para el cuidado completo de la piel del hombre maduro, NIVEA MEN ha creado
+                  la gama ACTIVE AGE, que gracias a su innovadora fórmula
+                  enriquecida con Creatina y Cafeína, proporciona a la piel 6
+                  beneficios en 1 aplicación. El nuevo fluido hidratante Active
+                  Age tiene una textura ligera no grasa y se absorbe
+                  rápidamente. Regenera la piel del rostro, consiguiendo un
+                  aspecto saludable y relajado por la mañana. Además, contiene
+                  Manteca de Karité para una mayor hidratación. 24 horas de
+                  hidratación. Regenera la piel durante la noche. Refuerza la
+                  elasticidad de la piel. Reafirma la piel. Mejora el contorno
+                  del rostro. Reduce visiblemente las arrugas. Formato, 50 ml.
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: 12,99 €
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Nivea
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
+            quantity:
+              - text: 50 ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            sku:
+              - text: "01031416"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/div[1]/div[1]/button[1]/div[2]/div[1]
+            variantInformation:
+              - text: 50 ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            variantId:
+              - text: "01031416"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            pricePerUnit:
+              - text: 100 ML/25,98€
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            name:
+              - text: Crema Active Age For Men Noche - Tratamiento
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            availabilityText:
+              - text: Out of Stock
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1593527400682

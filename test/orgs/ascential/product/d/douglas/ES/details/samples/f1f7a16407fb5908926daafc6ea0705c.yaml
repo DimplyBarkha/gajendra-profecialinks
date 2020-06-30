@@ -1,0 +1,70 @@
+input:
+  _url: https://douglas.es
+  URL: https://douglas.es/p/nivea/nivea_crema_antiedad_manos_q10
+extractions:
+  - html: https://workbench.import.io/html/run=64bb2ae0-5954-486c-9458-eb0ae67a534d/task=4767960e-190b-42ce-8f4a-4262650f0494/4b8fc152-72e5-49fc-a065-93f4a2d93690.html
+    extractionConfigId: product/details/stores/d/douglas/ES/extract
+    data:
+      - group:
+          - image:
+              - text: https://ima.douglas.es/_d400/1062/crema_antiedad_manos_q10-01077674-0-.png
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Nivea Crema Antiedad Manos Q10
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            url:
+              - text: https://douglas.es/p/nivea/nivea_crema_antiedad_manos_q10
+                xpath: /html/head[1]/link[14]/@href
+            category:
+              - text: Nivea
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: Crema Antiedad Manos Q10
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[3]/span[1]
+            nameExtended:
+              - text: Crema Antiedad Manos Q10 - Tratamiento
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            description:
+              - text: Crema de manos anti-edad q10 plus de Nicea. Cuida eficazmente de la
+                  belleza natural de tu piel y ayuda a prevenir los primeros
+                  signos del envejecimiento. Crema suavizante con Q10 ayuda a
+                  reducir visiblemente las arrugas con un uso regular.
+                  Dermatológicamente testada. Poderosa crema de manos
+                  enriquecida con coenzima Q10 que ayuda a que tu piel luzca más
+                  joven.
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: 2,99 €
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Nivea
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
+            quantity:
+              - text: 100 ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            sku:
+              - text: "01077674"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/div[1]/div[1]/button[1]/div[2]/div[1]
+            variantInformation:
+              - text: 100 ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            variantId:
+              - text: "01077674"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            pricePerUnit:
+              - text: 100 ML/2,99€
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            name:
+              - text: Crema Antiedad Manos Q10 - Tratamiento
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            availabilityText:
+              - text: Out of Stock
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1593527572288

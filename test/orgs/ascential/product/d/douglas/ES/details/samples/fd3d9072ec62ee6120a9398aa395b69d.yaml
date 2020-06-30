@@ -1,0 +1,68 @@
+input:
+  _url: https://douglas.es
+  URL: https://douglas.es/p/giorgi/gel_fijador_control_total_x_trema
+extractions:
+  - html: https://workbench.import.io/html/run=64bb2ae0-5954-486c-9458-eb0ae67a534d/task=23966efe-7a26-4879-b0cc-8a1afc8bb6fa/f7950b1a-293d-4113-8cda-ea6810503e06.html
+    extractionConfigId: product/details/stores/d/douglas/ES/extract
+    data:
+      - group:
+          - image:
+              - text: https://ima.douglas.es/_d400/0650/gel_fijador_control_total_x_trema-01064186-0-.png
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Giorgi Gel Fijador Control Total X Trema
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            url:
+              - text: https://douglas.es/p/giorgi/gel_fijador_control_total_x_trema
+                xpath: /html/head[1]/link[14]/@href
+            category:
+              - text: Giorgi
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: Gel Fijador Control Total X Trema
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[3]/span[1]
+            nameExtended:
+              - text: Gel Fijador Control Total X Trema - Higiene
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            description:
+              - text: El Gel fijador Giorgi Control Total proporciona máxima fijación incluso en
+                  situaciones más extremas y es resistente al sudor y al agua.
+                  Contiene Vitamin Complex y no deja residuos. ¡Cualquier
+                  peinado va a ser posible! Formato, 165 ML.
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: 2,69 €
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Giorgi
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
+            quantity:
+              - text: 150 ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            sku:
+              - text: "01064186"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/div[1]/div[1]/button[1]/div[2]/div[1]
+            variantInformation:
+              - text: 150 ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            variantId:
+              - text: "01064186"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            pricePerUnit:
+              - text: 100 ML/1,79€
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            name:
+              - text: Gel Fijador Control Total X Trema - Higiene
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1593527502250

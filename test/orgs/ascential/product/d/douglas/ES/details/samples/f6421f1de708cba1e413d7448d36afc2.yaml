@@ -1,0 +1,60 @@
+input:
+  _url: https://douglas.es
+  URL: https://douglas.es/p/nutrisse/nutrisse_tinte_9_90_pepite
+extractions:
+  - html: https://workbench.import.io/html/run=64bb2ae0-5954-486c-9458-eb0ae67a534d/task=23477445-2518-4b0e-817b-52dec90baa14/f9ac2bba-bed2-45d2-9cc3-c0fc39c22f91.html
+    extractionConfigId: product/details/stores/d/douglas/ES/extract
+    data:
+      - group:
+          - image:
+              - text: https://ima.douglas.es/_d400/01073690/nutrisse_tinte_9_90_pepite.jpg
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Nutrisse Tinte Capilar 9/90 Pepite
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            url:
+              - text: https://douglas.es/p/nutrisse/nutrisse_tinte_9_90_pepite
+                xpath: /html/head[1]/link[14]/@href
+            category:
+              - text: Nutrisse
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: Tinte Capilar 9/90 Pepite
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[3]/span[1]
+            nameExtended:
+              - text: Tinte Capilar 9/90 Pepite - Higiene
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            description:
+              - text: "Con Garnier Nutrisse, un cabello nutrido significa un mejor color.
+                  Nutrisse cuenta con una fórmula nutritiva intensa con 3
+                  aceites (aguacate, oliva y grosella negra). Tu cabello queda
+                  sedoso y brillante al tiempo que el color se ve intenso,
+                  profundo y es duradero. El resultado del color proporciona una
+                  cobertura de las canas total: ¡incluso las canas más rebeldes
+                  se tiñen! Nutrisse Crème asegura una aplicación agradable; su
+                  color intenso que no gotea se aplica fácilmente por el cabello
+                  y tiene una fragancia fresca y afrutada. Tono 9 / 90 pepite."
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: 4,65 €
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Nutrisse
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
+            sku:
+              - text: "01073690"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/div[1]/div[1]/button[1]/div[2]/div[1]
+            variantId:
+              - text: "01073690"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            name:
+              - text: Tinte Capilar 9/90 Pepite - Higiene
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            availabilityText:
+              - text: Out of Stock
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1593527549981

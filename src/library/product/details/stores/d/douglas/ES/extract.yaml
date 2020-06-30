@@ -1,0 +1,65 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@role="listbox"]//div[contains(@class,"rd__product-details__image")][1]//img[@itemprop="image"]/@src
+  - name: imageAlt
+    xpath: //div[@role="listbox"]//div[contains(@class,"rd__product-details__image")][1]//img[@itemprop="image"]/@alt
+  - name: url
+    xpath: //link[@rel="canonical"]/@href
+  - name: category
+    xpath: //div[@class="rd__breadcrumbs"]/div[position()>1]//span
+  - name: nameExtended
+    xpath: //h1[@itemprop="name"]/text()
+  - name: description
+    xpath: //div[contains(@class,'section__description rd__order-confirmation-page')]//div[@class="rd__checkout-details__section__description"]
+  - name: price
+    xpath: (//span[contains(@class,'rd__discount-conflict-layer')])[1]
+  - name: availabilityText
+    xpath: //div[contains(@class,'rd__slider-brand-nav__index__item--active')]
+    regExp: En stock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: brandText
+    xpath: //div[@class="rd__product-header"]//img[contains(@class,'rd__img sd__img')]/@alt
+  - name: quantity
+    xpath: //h2[@class="rd__headlline rd__headline--80"]
+    regExp: (\d+) (ML|UN|UD|ST)
+  - name: sku
+    xpath: //h2[@class="rd__headlline rd__headline--80"]/@title
+    regExp: ([0-9])\d+
+  - name: aggregateRatingText
+    xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
+  - name: ratingCount
+    xpath: //div[@class="bv_numReviews_text"]
+    regExp: (\d+)
+  - name: variantInformation
+    xpath: //h2[@class="rd__headlline rd__headline--80"][contains(text(),'ML') or contains(text(),'UD') or contains(text(),'UD') or contains(text(),'ST')] 
+  - name: variantId
+    xpath: //h2[@class="rd__headlline rd__headline--80"]/@title
+    regExp: ([0-9])\d+
+  - name: alternateImages
+    xpath: //ul[@role="tablist"]//li[not(contains(@id,'slick-slide00'))]//img/@src[not(contains(.,'ytimg.com'))]
+    regExp: (.*)_d75(.*)
+    regExpReplace: $1_d400$2
+  - name: pricePerUnit
+    xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
+    regExp: >- 
+      (.+los\s)(.+)\sa\s(.+)
+    regExpReplace: >-
+       $2/$3
+  - name: pricePerUnitUom
+    xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
+    regExp: ML|GR|UD|ST
+  - name: secondaryImageTotal
+    xpath: count(//ul[@role="tablist"]//li[not(contains(@id,'slick-slide00'))]//img/@src[not(contains(.,'ytimg.com'))])
+  - name: videos
+    xpath: //div[@class="sd__vidcontent"]/iframe/@src
+  - name: ingredientsList
+    xpath: (//div[contains(@class,'rd__order-confirmation-page__infotext')]//div[@class="rd__checkout-details__section__description"])[2]
+  - name: name
+    xpath: //h1[@itemprop="name"]/text()
+  - name: listPrice
+    xpath: (//img[@alt="Precio habitual"]/parent::div)[1]

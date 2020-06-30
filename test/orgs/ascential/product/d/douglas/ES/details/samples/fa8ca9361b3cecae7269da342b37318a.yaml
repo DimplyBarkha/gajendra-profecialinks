@@ -1,0 +1,61 @@
+input:
+  _url: https://douglas.es
+  URL: https://douglas.es/p/nutrisse/nutrisse_tinte_101_rubio_platino_ceniza
+extractions:
+  - html: https://workbench.import.io/html/run=64bb2ae0-5954-486c-9458-eb0ae67a534d/task=2d8aea39-c120-46af-a2fb-2b12abc55339/63ce55ae-885f-4d7c-92c2-15b12e54dbd7.html
+    extractionConfigId: product/details/stores/d/douglas/ES/extract
+    data:
+      - group:
+          - image:
+              - text: https://ima.douglas.es/_d400/1084/tinte_capilar_101_rubio_platino_ceniza-01073621-0-.png
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Nutrisse Tinte Capilar 101 Rubio Platino Ceniza
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            url:
+              - text: https://douglas.es/p/nutrisse/nutrisse_tinte_101_rubio_platino_ceniza
+                xpath: /html/head[1]/link[14]/@href
+            category:
+              - text: Nutrisse
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: Tinte Capilar 101 Rubio Platino Ceniza
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[3]/span[1]
+            nameExtended:
+              - text: Tinte Capilar 101 Rubio Platino Ceniza - Higiene
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            description:
+              - text: "Con Garnier Nutrisse, un cabello nutrido significa un mejor color.
+                  Nutrisse cuenta con una fórmula nutritiva intensa con 3
+                  aceites (aguacate, oliva y grosella negra). Tu cabello queda
+                  sedoso y brillante al tiempo que el color se ve intenso,
+                  profundo y es duradero. El resultado del color proporciona una
+                  cobertura de las canas total: ¡incluso las canas más rebeldes
+                  se tiñen! Nutrisse Crème asegura una aplicación agradable; su
+                  color intenso que no gotea se aplica fácilmente por el cabello
+                  y tiene una fragancia fresca y afrutada. Tono 101 rubio
+                  platino ceniza."
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: 4,65 €
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Nutrisse
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
+            sku:
+              - text: "01073621"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/div[1]/div[1]/button[1]/div[2]/div[1]
+            variantId:
+              - text: "01073621"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            name:
+              - text: Tinte Capilar 101 Rubio Platino Ceniza - Higiene
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            availabilityText:
+              - text: Out of Stock
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1593527543470
