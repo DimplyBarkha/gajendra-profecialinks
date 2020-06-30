@@ -1,15 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,"product-list")]/div[contains(@class,"product")]
 fields:
   - name: productUrl
-    singleValue: true
     xpath: //div[@class="caption"]//p[@class="description"]/a/@href
   - name: thumbnail
-    xpath: //div[contains(@class, 'product-img-holder')]/div/img[@class='img-responsive']/@data-src | //div[contains(@class, 'product-img-holder')]/div/img[@class='img-responsive']/@src
+    xpath: //div[@class="thumbnail"]//img[contains(@class,"img")]/@data-src | //div[@class="thumbnail"]//img[contains(@class,"img")][not(@data-src)]/@src
   - name: name
-    singleValue: true
     xpath: //div[@class="caption"]//p[@class="description"]/a
   - name: id
     xpath: //div[@class='scProdId']/@sc.prodid
@@ -23,8 +21,7 @@ fields:
     singleValue: false
     xpath: //div[@class="caption"]//div[contains(@id,"price")] | //div[@class="caption"]//div[contains(@class,"price")] | //div[@class='price']
   - name: manufacturer
-    singleValue: true
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //div[@class='ratings row']/div/@aria-label
     type: number
     regExp: >-
@@ -33,5 +30,4 @@ fields:
   - name: rankOrganic
   - name: rank
   - name: sponsored
-    singleValue: true
     defaultValue: false
