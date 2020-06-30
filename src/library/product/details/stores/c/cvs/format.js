@@ -27,6 +27,14 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (let row of group) {
       try {
+        if (row.weightGross) {
+          let text = row.weightGross[0].text;
+          let split = text.split(' ')
+          row.weightGross = [{ text: `${split[0]}` }];
+        }
+        if (row.sku) {
+          row.productUrl = [{ text: `${row.productUrl[0].text}?skuid=${row.sku[0].text}` }];
+        }
         if (row.manufacturerDescription) {
           let text = '';
           row.manufacturerDescription.forEach(item => {
@@ -38,17 +46,17 @@ const transform = (data, context) => {
             },
           ];
         }
-        if (row.additionalDescBulletInfo) {
-          let text = '';
-          row.additionalDescBulletInfo.forEach(item => {
-            text += `${item.text.replace(/\n \n/g, ' ')}  `;
-          });
-          row.additionalDescBulletInfo = [
-            {
-              text: text.slice(0, -4),
-            },
-          ];
-        }
+        // if (row.additionalDescBulletInfo) {
+        //   let text = '';
+        //   row.additionalDescBulletInfo.forEach(item => {
+        //     text += `${item.text.replace(/\n \n/g, ' ')}  `;
+        //   });
+        //   row.additionalDescBulletInfo = [
+        //     {
+        //       text: text.slice(0, -4),
+        //     },
+        //   ];
+        // }
         if (row.productOtherInformation) {
           let text = '';
           row.productOtherInformation.forEach(item => {

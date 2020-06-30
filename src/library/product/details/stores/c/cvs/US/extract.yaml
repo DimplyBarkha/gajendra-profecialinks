@@ -23,8 +23,9 @@ fields:
     # xpath: ancestor::html//div[@id='ii_imageZoom']
     xpath: boolean(ancestor::html//div[contains(@data-class, "zoom-btn")])
   - name: additionalDescBulletInfo
+    xpath: //div[@id='ii_variantADBI']
     # xpath: ancestor::html//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
-    xpath: (ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//li|ancestor::html//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
+    # xpath: (ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//li|ancestor::html//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
   # - name: dietaryInformation
     # singleValue: true
     # xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
@@ -36,8 +37,8 @@ fields:
     singleValue: true
   - name: firstVariant
     singleValue: true
-    xpath: ancestor::html//div[@id='ii_url']
-    regExp: ([0-9])+$
+    xpath: //div[@id='ii_sku']
+    # regExp: ([0-9])+$
   - name: ingredientImagePresent
     singleValue: true
     defaultValue: false
@@ -53,7 +54,7 @@ fields:
     # singleValue: true
     xpath: count((ancestor::html//div[contains(@id, 'zoom-carousel')]//img)/@src)
   - name: productOtherInformation
-    xpath: ancestor::html//div[@id='ii_manufDesc']
+    xpath: //div[@id='ii_manufDesc']
     # singleValue: false
     # selector: div.wc-rich-content-description
   - name: shippingInfo
@@ -83,14 +84,15 @@ fields:
     # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: _pageTimestamp
     singleValue: true
-  - name: _url
+  - name: productUrl
     singleValue: true
     xpath: ancestor::html//div[@id='ii_url']
   - name: category
     xpath: ancestor::html//nav[@aria-label="breadcrumbs"]/div/div[position()>2]/a
   - name: description
+    xpath: //div[@id='ii_variantDescription']
     # xpath: (ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()
-    xpath: (ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//text()|(ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()
+    # xpath: (ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//text()|(ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()
     # singleValue: true
     # selector: div[style].htmlView:nth-of-type(4)
   - name: metaKeywords
@@ -121,8 +123,8 @@ fields:
     # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
     regExp: ^[$]
   - name: ingredientsList
-    xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients') and not(contains(., "Details"))]//div[@class='htmlView']
-  # xpath: //div[@id='ii_Ingredients']
+    # xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients') and not(contains(., "Details"))]//div[@class='htmlView']
+    xpath: //div[@id='ii_variantIngredients']
   - name: brandText
     xpath: ancestor::html//div[@id='ii_Brand']
   - name: manufacturer
@@ -140,6 +142,7 @@ fields:
     # singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     regExp: ([.0-9]+ (lbs))
+    # regExpReplace: $2
   - name: sku
     singleValue: true
     xpath: //div[@id='ii_sku']
@@ -157,14 +160,15 @@ fields:
   - name: variantInformation
     xpath: //div[@id='ii_variantInfo']
   - name: directions
-    xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Directions')]//div[@class='htmlView']
-    # xpath: //div[@id='ii_Directions']
+    # xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Directions')]//div[@class='htmlView']
+    xpath: //div[@id='ii_variantDirections']
   - name: warnings
-    xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
-    # xpath: //div[@id='ii_Warnings']
+    # xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
+    xpath: //div[@id='ii_variantWarnings']
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src[contains(., "https")]
+    # xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src[contains(., "https")]
+    xpath: //div[@id='ii_variantAlternateImages']
   - name: ratingCount
     xpath: //div[@id='ii_variantReview']
     defaultValue: '0'
@@ -175,12 +179,12 @@ fields:
     defaultValue: '0'
     # xpath: ancestor::html//div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
   - name: manufacturerImages
-    xpath: ancestor::html//div[@id='wc-aplus']//img/@src[not (contains(., "syndigo.svg"))]
-    # xpath: //div[@id='ii_manufImages']
+    # xpath: ancestor::html//div[@id='wc-aplus']//img/@src[not (contains(., "syndigo.svg"))]
+    xpath: //div[@id='ii_variantManufImages']
   - name: allergyAdvice
     # singleValue: true
-    xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
-    # xpath: //div[@id='ii_Warnings']
+    # xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
+    xpath: //div[@id='ii_variantWarnings']
   - name: dietaryFiberPerServing
     singleValue: true
     xpath: ancestor::html//div[@id='ii_Dietary Fiber']
@@ -272,9 +276,9 @@ fields:
     xpath: ancestor::html//div[@id='ii_Cholesterol']
     regExp: ([g|mg|]+$)
   - name: numberOfServingsInPackage
-    xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    xpath: //div[@id='ii_quantity']
+    # xpath: ancestor::html//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
     regExp: ([.0-9]+ ((CT)))
-    # singleValue: true
     # selector: div[style].css-1dbjc4n.r-18u37iz.r-15d164r > div.css-901oao:nth-of-type(2)
   - name: servingSize
     singleValue: true
@@ -288,12 +292,15 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     # selector: div.wc-rich-content-description
-    xpath: ancestor::html//div[@id='ii_manufDesc']
+    xpath: //div[@id='ii_manufDesc']
   - name: descriptionBullets
-    xpath: count(ancestor::html//div[@class='htmlView']/ul/li)
+    defaultValue: '0'
+    # xpath: count(ancestor::html//div[@class='htmlView']/ul/li)
+    xpath: //div[@id='ii_variantDescriptionBullets']
   - name: videos
     # xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
-    xpath: ancestor::html//div[@id='ii_videoSrc']|ancestor::html//img[contains(@class,'wc-iframe')]/@data-asset-url|ancestor::html//img[contains(@class, 'wc-video')]/@wcobj
+    # xpath: //div[@id='ii_videoSrc']|ancestor::html//img[contains(@class,'wc-iframe')]/@data-asset-url|ancestor::html//img[contains(@class, 'wc-video')]/@wcobj
+    xpath: //div[@id='ii_videoSrc']
   - name: coupon
     singleValue: true
   - name: variantCount

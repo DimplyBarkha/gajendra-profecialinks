@@ -11,18 +11,6 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 10000));
 
-    // const skuFromUrl = await context.evaluate(function () {
-    //   const skuNumber = window.location.href;
-    //   if (skuNumber) {
-    //     const skuNum = skuNumber.split('=');
-    //     if (skuNum.length > 2) {
-    //       return skuNum[2];
-    //     } else {
-    //       return null;
-    //     }
-    //   }
-    // });
-
     const linkURL = await context.evaluate(function () {
       const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
       if (element) {
@@ -71,39 +59,6 @@ module.exports = {
         });
       }
 
-      // function collectBools () {
-      //   const imageZoom = document.querySelector('div[data-class="zoom-btn"]');
-      //   const Image360 = document.querySelector('div#wc-360-view-2e50e148');
-      //   if (imageZoom) {
-      //     addHiddenDiv('ii_imageZoom', 'Yes');
-      //   } else {
-      //     addHiddenDiv('ii_imageZoom', 'No');
-      //   }
-      //   if (Image360) {
-      //     addHiddenDiv('ii_image360', 'Yes');
-      //   } else {
-      //     addHiddenDiv('ii_image360', 'No');
-      //   }
-      // }
-
-      // function collectManufImages () {
-      //   const manufImages = document.querySelectorAll('div.wc-aplus-body div.wc-reset img[src]');
-
-      //   if (manufImages) {
-      //     manufImages.forEach(img => {
-      //       addHiddenDiv('ii_manufImages', `${img.src}`);
-      //     });
-      //   }
-      // }
-
-      function collectManufDesc () {
-        const manufDesc = document.querySelector('div#wc-power-page > div');
-
-        if (manufDesc) {
-          addHiddenDiv('ii_manufDesc', `${manufDesc.innerText}`);
-        }
-      }
-
       function collectBrand () {
         const brandBlock = document.querySelector('script#schema-json-ld');
 
@@ -112,32 +67,10 @@ module.exports = {
           addHiddenDiv('ii_Brand', `${brandObject[0].brand}`);
         }
       }
-
-      function collectIframe() {
-        const iframeList = document.querySelectorAll('iframe');
-        if(iframeList) {
-          iframeList.forEach((frame) => {
-            const video = frame.contentDocument;
-            if(!!video){
-              let videoSrc = video.querySelector('video');
-              if(videoSrc) {
-              addHiddenDiv('ii_videoSrc', `${videoSrc.src}`);
-              }
-            }
-          });
-        }
-      }
       
       addHiddenDiv('ii_url', window.location.href);
-      // addHiddenDiv('ii_sku', skuFromUrl);
-      // addHiddenDiv('ii_variantId', " ");
-
       collectNutritionInfo();
-      // collectBools();
-      // collectManufImages();
       collectBrand();
-      collectManufDesc();
-      collectIframe();
     });
     
 
@@ -285,6 +218,7 @@ module.exports = {
 
   async function collectVariantInfo (value) {
     const varStore = await context.evaluate(function() {
+
         function addHiddenDiv (id, content) {
           const variantId = document.querySelectorAll('div#ii_variantId');
           const variantDiv = variantId[variantId.length - 1];
@@ -293,6 +227,20 @@ module.exports = {
           newDiv.textContent = content;
           newDiv.style.display = 'none';
           variantDiv.appendChild(newDiv);
+        }
+        function collectIframe() {
+          const iframeList = document.querySelectorAll('iframe');
+          if(iframeList) {
+            iframeList.forEach((frame) => {
+              const video = frame.contentDocument;
+              if(!!video){
+                let videoSrc = video.querySelector('video');
+                if(videoSrc) {
+                addHiddenDiv('ii_videoSrc', `${videoSrc.src}`);
+                }
+              }
+            });
+          }
         }
       const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
       const variantImage = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz div.css-1dbjc4n.r-1pi2tsx img');
@@ -304,6 +252,19 @@ module.exports = {
       const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
       const keyWordAdd = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
       const prodInfoLine = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
+      const manufDesc = document.querySelector('div#wc-power-page > div');
+      const variantDescription = '(//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()'
+      const variantDescription2 = '(//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()'
+      const variantWarnings = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Warnings")]//div[@class="htmlView"]'
+      const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Directions")]//div[@class="htmlView"]'
+      const variantIngredients = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Ingredients") and not(contains(., "Details"))]//div[@class="htmlView"]'
+      const variantADBI1 = '(//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Details")]//div[@class="htmlView"])[1]//li'
+      const variantADBI2 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"]/ul/li'
+      const variantAlternateImages = '(//div[contains(@id, "zoom-carousel")]//img)/@src[contains(., "https")]'
+      const variantManufImages = '//div[@id="wc-aplus"]//img/@src[not (contains(., "syndigo.svg"))]'
+      const variantDescriptionBullets = '//div[@class="htmlView"]/ul/li'
+      const variantVideo = '//img[contains(@class,"wc-iframe")]/@data-asset-url'
+      const variantVideo2 = '//img[contains(@class, "wc-video")]/@wcobj'
       const variantArray = [];
       const packSize = ['Pack: ', 'Group Size: '];
       const packSizeResult = [];
@@ -313,6 +274,92 @@ module.exports = {
             packSizeResult.push(variantInfo[i + 1].innerText);
           }
           variantArray.push(variantInfo[i + 1].innerText);
+        }
+      }
+
+      if(variantIngredients) {
+        var element = document.evaluate( variantIngredients, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if( element.snapshotLength > 0 ) {
+          for(let i = 0; i < element.snapshotLength; i++) {
+            addHiddenDiv(`ii_variantIngredients`, `${element.snapshotItem(i).textContent}`);
+          }
+        }
+      }
+      if(variantDirections) {
+        var element = document.evaluate( variantDirections, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if( element.snapshotLength > 0 ) {
+          for(let i = 0; i < element.snapshotLength; i++) {
+            addHiddenDiv(`ii_variantDirections`, `${element.snapshotItem(i).textContent}`);
+          }
+        }
+      }
+      if(variantWarnings) {
+        var element = document.evaluate( variantWarnings, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if( element.snapshotLength > 0 ) {
+          for(let i = 0; i < element.snapshotLength; i++) {
+            addHiddenDiv(`ii_variantWarnings`, `${element.snapshotItem(i).textContent}`);
+          }
+        }
+      }
+      if(variantVideo) {
+        var element = document.evaluate( variantVideo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        var element2 = document.evaluate( variantVideo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+        if( element.snapshotLength > 0 ) {
+          for(let i = 0; i < element.snapshotLength; i++) {
+            addHiddenDiv(`ii_videoSrc`, `${element.snapshotItem(i).textContent}`);
+          }
+        } else if(variantVideo2){
+          for(let i = 0; i < element2.snapshotLength; i++) {
+            addHiddenDiv(`ii_videoSrc`, `${element2.snapshotItem(i).textContent}`);
+          }
+        }
+      }
+      if(variantDescription) {
+        var element = document.evaluate( variantDescription, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        var element2 = document.evaluate( variantDescription2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+        if( element.snapshotLength > 0 ) {
+          for(let i = 0; i < element.snapshotLength; i++) {
+            addHiddenDiv(`ii_variantDescription`, `${element.snapshotItem(i).textContent}`);
+          }
+        } else if (variantDescription2){
+          for(let i = 0; i < element2.snapshotLength; i++) {
+            addHiddenDiv(`ii_variantDescription`, `${element2.snapshotItem(i).textContent}`);
+          }
+        }
+      }
+      if(variantManufImages) {
+        var element = document.evaluate( variantManufImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if( element.snapshotLength > 0 ) {
+          for(let i = 0; i < element.snapshotLength; i++) {
+            addHiddenDiv(`ii_variantManufImages`, `${element.snapshotItem(i).textContent}`);
+          }
+        }
+      }
+      if(variantAlternateImages) {
+        var element = document.evaluate( variantAlternateImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if( element.snapshotLength > 0 ) {
+          for(let i = 0; i < element.snapshotLength; i++) {
+            addHiddenDiv(`ii_variantAlternateImages`, `${element.snapshotItem(i).textContent}`);
+          }
+        }
+      }
+      if(variantADBI1) {
+        var element1 = document.evaluate( variantADBI1, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        var element2 = document.evaluate( variantADBI2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if( element1.snapshotLength > 0 ) {
+          let count = element1.snapshotLength;
+          for(let i = 0; i < element1.snapshotLength; i++) {
+            addHiddenDiv(`ii_variantADBI`, `${element1.snapshotItem(i).textContent}`);
+          }
+          addHiddenDiv(`ii_variantDescriptionBullets`, `${count}`);
+        } else if(element2.snapshotLength > 0){
+          let count = element2.snapshotLength;
+          for(let i = 0; i < element2.snapshotLength; i++) {
+            addHiddenDiv(`ii_variantADBI`, `${element2.snapshotItem(i).textContent}`);
+          }
+          addHiddenDiv(`ii_variantDescriptionBullets`, `${count}`);
         }
       }
 
@@ -360,6 +407,12 @@ module.exports = {
           addHiddenDiv('ii_sku', `${skuText[0]}`);
         }
       }
+      if (manufDesc) {
+        addHiddenDiv('ii_manufDesc', `${manufDesc.innerText}`);
+      }
+    
+
+      collectIframe()
     
     });
   }
