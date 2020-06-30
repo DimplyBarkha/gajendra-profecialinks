@@ -390,6 +390,7 @@ fields:
     singleValue: true
   - name: productUrl
     singleValue: true
+    xpath: //link[@rel='canonical']/@href
   - name: materials
     singleValue: true
     xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
