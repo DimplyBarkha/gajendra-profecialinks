@@ -13,8 +13,10 @@ module.exports = {
 
     const linkURL = await context.evaluate(function () {
       const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
+      const elementSelector = 'div.css-1dbjc4n.r-18u37iz.r-tzz3ar a'
       if (element) {
-        return element.href;
+        // return element.href;
+        return elementSelector;
       } else {
         return null;
       }
@@ -26,9 +28,10 @@ module.exports = {
     if(linkURL === null) {
       throw new Error("notFound");
     }
-    await context.goto(linkURL);
+    await context.click(linkURL)
+    // await context.goto(linkURL);
 
-    await new Promise(resolve => setTimeout(resolve, 20000));
+    await new Promise(resolve => setTimeout(resolve, 60000));
 
     await context.evaluate(function () {
 
