@@ -5,7 +5,5 @@ module.exports = {
     country: 'US',
     store: 'amazonApparel',
     domain: 'amazon.com',
-    loadedSelector: null,
-    noResultsXPath: null,
   },
 };
