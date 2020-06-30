@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'amazonPrimeNow_75204',
+    store: 'amazonPrimeNow',
     domain: 'primenow.amazon.com',
   },
   implementation: async ({ inputString }, { country, domain }, context) => {
