@@ -7,11 +7,12 @@ module.exports = {
   },
   // @ts-ignore
   implementation: async ({ url }, parameterValues, context, dependencies) => {
+    console.log('URL' + url);
     const clickPopup = async function (context) {
       const allowCookies = await context.evaluate((selector) => !!document.querySelector(selector), 'a.cc-primary-btn');
 
       if (allowCookies) {
-        await context.click('a.cc-primary-btn');
+        // await context.click('a.cc-primary-btn');
       }
 
       const deliveryType = await context.evaluate((selector) => !!document.querySelector(selector), '#fulf-select-D');
@@ -21,8 +22,10 @@ module.exports = {
       }
       await context.waitForNavigation();
     };
+    const isSearch = url === 'https://www.bestwaywholesale.co.uk';
     const redirectToProductPage = async function (context) {
       const isProductPage = await context.evaluate((selector) => !!document.querySelector(selector), 'div.productpagedetail');
+      console.log('isSearch' + isSearch);
       if (!isProductPage) {
         await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
         await context.waitForNavigation();
@@ -32,11 +35,14 @@ module.exports = {
 
     await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
 
-    await context.waitForSelector('div.productpagedetail', { timeout: 50000 });
+    if (!isSearch) {
+      console.log('Not search');
+      await context.waitForSelector('div.productpagedetail', { timeout: 50000 });
+    }
 
-    const isLoggedIn = await context.evaluate((selector) => !!document.querySelector(selector), 'p.prodlogin');
+    const isNotLoggedIn = await context.evaluate((selector) => !!document.querySelector(selector), 'a.signin');
 
-    if (!isLoggedIn) {
+    if (!isNotLoggedIn) {
       console.log('Aleady logged in');
       await clickPopup(context);
       return;
@@ -58,7 +64,7 @@ module.exports = {
     await context.setInputValue('#account_number', ACCOUNT_ID);
 
     await context.click('input[name="submit"]');
-    await context.waitForNavigation({timeout: 50000, waitUntil: 'load'});
+    await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
     await context.waitForFunction(function () {
       // @ts-ignore
       return document.querySelector('#username').value === 'supplierlogin@bestway.co.uk';
@@ -66,9 +72,10 @@ module.exports = {
     const ACCOUNT_PWD = 'bestway804';
     await context.setInputValue('#password', ACCOUNT_PWD);
     await context.click('#btn-login');
-    await context.waitForNavigation({timeout: 50000, waitUntil: 'load'});
-
+    await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
     await clickPopup(context);
-    await redirectToProductPage(context);
+    if (!isSearch) {
+      await redirectToProductPage(context);
+    }
   },
 };
