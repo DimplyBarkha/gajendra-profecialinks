@@ -12,8 +12,6 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    await new Promise(resolve => setTimeout(resolve, 80000));
-    await context.waitForSelector('.flix-jw', { timeout: 90000 });
     await context.evaluate(async function () {
       const arr = [];
       const videoLink = document.querySelector('.flix-jw') ? document.querySelector('.flix-jw').value.match(/file":"([^"]+)/)[1].replace(/^\\\/\\\//, '').replace(/\\\//g, '/') : '';
@@ -31,11 +29,7 @@ module.exports = {
         const url = `https://d2vxgxvhgubbj8.cloudfront.net/videos/69/${val}_1_liveclicker.mp4`;
         arr.push(url);
       });
-      let count = 0;
-      arr.forEach(item => {
-        document.querySelector('head').setAttribute(`vid${count}`, item);
-        count++;
-      });
+      document.querySelector('body').setAttribute('videos', arr.join('|'));
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

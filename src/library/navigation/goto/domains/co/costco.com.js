@@ -1,12 +1,19 @@
+
 module.exports = {
+  implements: 'navigation/goto',
   parameterValues: {
     domain: 'costco.com',
     timeout: null,
+    zipcode: '98188',
     country: 'US',
     store: 'costco',
   },
-  implementation: async ({ url }, parameters, context, dependencies) => {
-    url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true }[/!opt!]`;
+  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+    if (zipcode) {
+      url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true, "cookie_jar":[{"name":"invCheckPostalCode","value":${zipcode}}]}[/!opt!]`;
+    } else {
+      url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
+    }
     await context.goto(url, {
       block_ads: false,
       load_all_resources: true,
