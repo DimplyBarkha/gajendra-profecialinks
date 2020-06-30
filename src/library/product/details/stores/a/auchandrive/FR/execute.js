@@ -14,6 +14,9 @@ async function implementation (
     timeout: 10000,
     waitUntil: 'load',
     checkBlocked: true,
+    block_ads: false,
+    load_all_resources: true,
+    images_enabled: true,
     // cookies
   };
 
