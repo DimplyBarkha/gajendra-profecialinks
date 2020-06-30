@@ -6,6 +6,7 @@ module.exports = {
     store: 'amazonMweb',
     transform,
     domain: 'amazon.de',
+    timeout: 8000,
     zipcode: '',
   },
 };
