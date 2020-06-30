@@ -13,8 +13,7 @@ fields:
     singleValue: false
     xpath: normalize-space(//div[@id='descriptionTab']/following-sibling::div)
   - name: price
-    singleValue: true
-    xpath: //p[@class='price-standard']
+    xpath: concat(//span[@class='price-standard__decimal'], //span[@class='price-standard__cents'])
   - name: availability
     singleValue: false
     xpath: normalize-space(//button[@class='addToCart pdp-addToCart product-control__more cart-update-button'])
@@ -52,50 +51,64 @@ fields:
     xpath: concat(//th[contains(., 'Valeurs Energétiques en Kj')]/following-sibling::td, 'kj|' , //th[contains(., 'Valeurs Energétiques en Kcal')]/following-sibling::td, 'kcal')
   - name: totalFatPerServing
     xpath: //th[contains(., 'Matières grasses')]/following-sibling::td
+    singleValue: true
   - name: totalFatPerServingUom
     xpath: //th[contains(., 'Matières grasses')]
+    singleValue: true
     regExp: >-
       en\s(.+)\)
     regExpReplace: $1
   - name: saturatedFatPerServing
     xpath: //th[contains(., 'dont acides gras saturés (en g)')]/following-sibling::td
+    singleValue: true
   - name: saturatedFatPerServingUom
     xpath: //th[contains(., 'dont acides gras saturés (en g)')]
+    singleValue: true
     regExp: >-
       en\s(.+)\)
     regExpReplace: $1
   - name: totalCarbPerServing
     xpath: //th[contains(., 'Glucides')]/following-sibling::td
+    singleValue: true
   - name: totalCarbPerServingUom
     xpath: //th[contains(., 'Glucides')]
+    singleValue: true
     regExp: >-
       en\s(.+)\)
     regExpReplace: $1
   - name: dietaryFiberPerServing
     xpath: //th[contains(., 'Fibres alimentaires')]/following-sibling::td
+    singleValue: true
   - name: dietaryFiberPerServingUom
     xpath: //th[contains(., 'Fibres alimentaires')]
+    singleValue: true
     regExp: >-
       en\s(.+)\)
     regExpReplace: $1
   - name: totalSugarsPerServing
     xpath: //th[contains(., 'dont sucres')]/following-sibling::td
+    singleValue: true
   - name: totalSugarsPerServingUom
     xpath: //th[contains(., 'dont sucres')]
+    singleValue: true
     regExp: >-
       en\s(.+)\)
     regExpReplace: $1
   - name: proteinPerServing
     xpath: //th[contains(., 'Protéines')]/following-sibling::td
+    singleValue: true
   - name: proteinPerServingUom
     xpath: //th[contains(., 'Protéines')]
+    singleValue: true
     regExp: >-
       en\s(.+)\)
     regExpReplace: $1
   - name: saltPerServing
     xpath: //th[contains(., 'Sel')]/following-sibling::td
+    singleValue: true
   - name: saltPerServingUom
     xpath: //th[contains(., 'Sel')]
+    singleValue: true
     regExp: >-
       en\s(.+)\)
     regExpReplace: $1
@@ -113,15 +126,13 @@ fields:
     xpath: //span[contains(., 'Conservation')]/following-sibling::span
   - name: pricePerUnit
     xpath: //p[@class='price--per']
-    regExp: >-
-      (.+)\s(.+)
-    regExpReplace: $1
+    regExp: (\d+,?\d+)
   - name: pricePerUnitUom
     xpath: //p[@class='price--per']
     regExp: >-
-      (.+)\s(.+)
-    regExpReplace: $2
+      [a-z]+
   - name: imageAlt
     xpath: //img[@class='pdp-gallery__main-image'][1]/@alt
   - name: promotion
     xpath: //span[@class='animcom WAAOH']
+    singleValue: true

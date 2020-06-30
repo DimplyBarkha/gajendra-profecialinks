@@ -7,7 +7,7 @@ async function implementation (
   const { url, id } = inputs;
 
   const gotoOptions = {
-    timeout: 10000,
+    timeout: 30000,
     waitUntil: 'load',
     checkBlocked: true,
     block_ads: false,
@@ -16,9 +16,9 @@ async function implementation (
     // cookies
   };
 
-  if (id) {
+  if (!url) {
     const homeUrl = 'https://www.auchandrive.fr';
-    const newUrl = 'https://www.auchandrive.fr/recherche/' + id;
+    const newUrl = 'https://www.auchandrive.fr/catalog/-' + inputs.id;
     await setZipCodeAndStore(homeUrl);
     await context.goto(newUrl, gotoOptions);
   } else {
@@ -28,7 +28,7 @@ async function implementation (
   }
 
   async function setZipCodeAndStore (homeUrl) {
-    await context.goto(homeUrl, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(homeUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     await context.waitForSelector('input[name="address"]');
     await context.setInputValue('input[name="address"]', '13400');
     await context.click('button#update');
