@@ -1,10 +1,11 @@
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'ES',
     store: 'amazon',
-    transform: null,
+    transform,
     domain: 'amazon.es',
   },
 };

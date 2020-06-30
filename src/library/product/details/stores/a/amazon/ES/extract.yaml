@@ -30,9 +30,6 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //*[@id='availability']
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[@id='productDescription'] | //div[@id='productDescription']/h3[contains(text(), 'Descripción del producto')]//following-sibling::*[1]
@@ -199,7 +196,7 @@ fields:
     defaultValue: No
   - name: fastTrack
     singleValue: false
-    xpath: //*[@id="deliveryMessageMirId"]
+    xpath: //*[@id="ddmDeliveryMessage"]
   - name: ingredientsList
     singleValue: false
     xpath: //h3[contains(text(), 'Ingredientes')]/following-sibling::*[1]

@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'amazon',
     domain: 'amazon.es',
-    loadedSelector: null,
+    loadedSelector: '#landingImage',
     noResultsXPath: null,
   },
 };
