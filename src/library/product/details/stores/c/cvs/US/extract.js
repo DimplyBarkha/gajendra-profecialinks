@@ -20,12 +20,13 @@ module.exports = {
       }
     });
 
+    // https://www.cvs.com/shop/american-crew-styling-gel-prodid-1013504
+    // https://www.cvs.com/shop/american-crew-styling-gel-prodid-1013504
+
     if(linkURL === null) {
       throw new Error("notFound");
     }
-
     await context.goto(linkURL);
-    // await context.goto(linkURL + `?skuid=${skuFromUrl}`);
 
     await new Promise(resolve => setTimeout(resolve, 20000));
 
@@ -85,7 +86,7 @@ module.exports = {
           context.click(btns[0][i]);
           context.click(btns[0][i]);
 
-          await new Promise(resolve => setTimeout(resolve, 10000));
+          await new Promise(resolve => setTimeout(resolve, 15000));
           await context.waitForSelector(waitSelector, { timeout: 20000 });
 
 
@@ -96,7 +97,7 @@ module.exports = {
                 context.click(btns[1][j]);
                 context.click(btns[1][j]);
 
-                await new Promise(resolve => setTimeout(resolve, 10000));
+                await new Promise(resolve => setTimeout(resolve, 15000));
                 await context.waitForSelector(waitSelector, { timeout: 20000 });
                 await getVariantIdNum();
                 await collectVariantInfo();
@@ -123,12 +124,12 @@ module.exports = {
         });
         await collectVariantInfo();
       }
-      if(btns[0].length){
-        context.click(btns[0][0]);
-        context.click(btns[0][0]);
-        await new Promise(resolve => setTimeout(resolve, 10000));
+      // if(btns[0].length){
+      //   context.click(btns[0][0]);
+      //   context.click(btns[0][0]);
+      //   await new Promise(resolve => setTimeout(resolve, 10000));
 
-      }
+      // }
     }
 
 
@@ -191,7 +192,7 @@ module.exports = {
         let flag = false;
         const selectors = [[],[]];
         let i = 1;
-        while(!flag && i < 100) {
+        while(!flag && i < 39) {
           const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`;
           const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`;
           if(document.querySelector(firstVar)){
@@ -276,6 +277,7 @@ module.exports = {
           variantArray.push(variantInfo[i + 1].innerText);
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
 
       if(variantIngredients) {
         var element = document.evaluate( variantIngredients, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -285,6 +287,8 @@ module.exports = {
           }
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantDirections) {
         var element = document.evaluate( variantDirections, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         if( element.snapshotLength > 0 ) {
@@ -293,6 +297,8 @@ module.exports = {
           }
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantWarnings) {
         var element = document.evaluate( variantWarnings, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         if( element.snapshotLength > 0 ) {
@@ -301,6 +307,8 @@ module.exports = {
           }
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantVideo) {
         var element = document.evaluate( variantVideo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         var element2 = document.evaluate( variantVideo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -315,6 +323,8 @@ module.exports = {
           }
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantDescription) {
         var element = document.evaluate( variantDescription, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         var element2 = document.evaluate( variantDescription2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -329,6 +339,8 @@ module.exports = {
           }
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantManufImages) {
         var element = document.evaluate( variantManufImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         if( element.snapshotLength > 0 ) {
@@ -337,6 +349,8 @@ module.exports = {
           }
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantAlternateImages) {
         var element = document.evaluate( variantAlternateImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         if( element.snapshotLength > 0 ) {
@@ -345,6 +359,8 @@ module.exports = {
           }
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantADBI1) {
         var element1 = document.evaluate( variantADBI1, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         var element2 = document.evaluate( variantADBI2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -362,18 +378,25 @@ module.exports = {
           addHiddenDiv(`ii_variantDescriptionBullets`, `${count}`);
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
 
       if (variantArray.length) {
         const variantString = variantArray.join(' || ');
         addHiddenDiv('ii_variantInfo', `${variantString}`);
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if (packSizeResult.length) {
         const packString = packSizeResult.join(' ');
         addHiddenDiv('ii_packSize', `${packString}`);
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
        if(variantPrice) {
         addHiddenDiv('ii_variantPrice', `${variantPrice.innerText}`);
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantImage){
         addHiddenDiv('ii_variantImage', `${variantImage[0].src}`);
       }
@@ -382,22 +405,31 @@ module.exports = {
           addHiddenDiv('ii_variantImageAlt', `${variantImage[1].src}`);
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantRating){
         addHiddenDiv('ii_variantRating', `${variantRating.innerText}`);
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantReview){
         addHiddenDiv('ii_variantReview', `${variantReview.innerText}`);
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(variantListPrice){
         addHiddenDiv('ii_variantListPrice', `${variantListPrice.innerText}`);
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if (keyWordAdd[1] && prodName) {
         let varName = keyWordAdd[1].innerText;
         addHiddenDiv('ii_metaKeywords', `${prodName.innerText + " " + varName}`);
       } else if(prodName) {
         addHiddenDiv('ii_metaKeywords', `${prodName.innerText}`);
       }
-    
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if(prodInfoLine){
         addHiddenDiv('ii_grossWeight', `${prodInfoLine.innerText}`);
         addHiddenDiv('ii_quantity', `${prodInfoLine.innerText}`);
@@ -407,6 +439,8 @@ module.exports = {
           addHiddenDiv('ii_sku', `${skuText[0]}`);
         }
       }
+      new Promise(resolve => setTimeout(resolve, 1000));
+
       if (manufDesc) {
         addHiddenDiv('ii_manufDesc', `${manufDesc.innerText}`);
       }
