@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"s-main-slot")]/div[@data-component-type="s-search-result"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //@data-asin
+  - name: name
+    singleValue: false
+    xpath: //h2
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.de$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //span[@data-component-type="s-product-image"]/a/div/img/@src
+  - name: price
+    singleValue: false
+    xpath: //span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+  - name: rank
+    singleValue: false  
+  - name: rankOrganic
+    singleValue: false
+  - name: sponsored
+    singleValue: false
+    xpath: //div[@class="a-row a-spacing-micro"]/span[text() = "Gesponsert"] 
