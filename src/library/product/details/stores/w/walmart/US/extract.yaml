@@ -46,7 +46,7 @@ fields:
   xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div
 - name: descriptionBullets
   singleValue: true
-  xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//ul/li)
+  xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li)
 - name: ingredientsList
   singleValue: true
   manualSelector: p.Ingredients
@@ -140,10 +140,10 @@ fields:
   singleValue: true
 - name: manufacturerDescription
   singleValue: false
-  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')] |//div[@id='added-marketing']//div[contains(@class,'content')]
+  xpath: //div[@id='added-marketing']
 - name: manufacturerImages
   singleValue: false
-  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')]//img/@src |//div[@id='added-marketing']//div[contains(@class,'content')]//img/@src
+  xpath: //div[@id='added-marketing']//img/@src
 - name: videos
   singleValue: false
   manualSelector: script[id='item'], script[id='product']
@@ -173,7 +173,7 @@ fields:
   singleValue: true  
 - name: additionalDescBulletInfo
   singleValue: false  
-  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//ul/li
+  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li
 - name: promotion
   singleValue: false
   xpath: //div[@class='container-flags']//span[@class='flag-angle__content']

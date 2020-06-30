@@ -16,7 +16,7 @@ const transform = (data, context) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/(<([^>]+)>)/ig, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
+  const regexp = '(?:(<?\\s?[\\d\\.]+)\\s?(\\w*))';
   function getSplitValue (inputStr, count) {
     if (inputStr) {
       const result = inputStr.match(regexp);
@@ -53,10 +53,10 @@ const transform = (data, context) => {
           row.lbbPrice = [{ text: row.price[0].text.trim() }];
         }
         if (row.shippingInfo && row.shippingInfo[0].text !== '') {
-          row.shippingInfo = [{ text: row.shippingInfo[0].text.trim() }];
+          row.shippingInfo = [{ text: row.shippingInfo[0].text.trim().replace('Walmart.com', 'Walmart') }];
         } else
         if (row.shippingInfo1) {
-          row.shippingInfo = [{ text: row.shippingInfo1[0].text.replace('"sellerDisplayName":"', '').replace('","showSold', '') }];
+          row.shippingInfo = [{ text: row.shippingInfo1[0].text.replace('"sellerDisplayName":"', '').replace('","showSold', '').replace('Walmart.com', 'Walmart') }];
         }
         if (row.shippingInfo && (!row.otherSellersName || (row.otherSellersName && row.otherSellersName[0].text !== 'Walmart' && !row.otherSellersName[0].text.includes(row.shippingInfo[0].text)))) {
           if (row.otherSellersName && row.otherSellersName.length > 0) {
@@ -87,7 +87,11 @@ const transform = (data, context) => {
         }
         if (row.description) {
           row.description = [{ text: row.description[0].text.replace(/\n \n/g, ' || ') }];
+          if(row.description[0].text.includes("Specifications")) {
+            row.Specifications = [{text:row.description[0].text.split('Specifications')[1].replace(' || ', '')}]
+          }
         }
+        
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
@@ -183,10 +187,26 @@ const transform = (data, context) => {
               row.proteinPerServingUom = [{ text: getSplitValue(proteinPerServing, 2) }];
             }
             if (info && info.nutritionFacts && info.nutritionFacts.vitaminMinerals && info.nutritionFacts.vitaminMinerals.childNutrients) {
-              row.vitaminAPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[0] ? info.nutritionFacts.vitaminMinerals.childNutrients[0].dvp : '' }];
-              row.vitaminCPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[1] ? info.nutritionFacts.vitaminMinerals.childNutrients[1].dvp : '' }];
-              row.calciumPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[2] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
-              row.ironPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[3] ? info.nutritionFacts.vitaminMinerals.childNutrients[3].dvp : '' }];
+              let valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[0];
+              if(valueNode) {
+                row.vitaminAPerServing = [{ text: getSplitValue(valueNode.dvp,1)}];
+                row.vitaminAPerServingUom = [{ text: getSplitValue(valueNode.dvp,2)}];
+              }
+              valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[1];
+              if(valueNode) {
+                row.vitaminCPerServing = [{ text: getSplitValue(valueNode.dvp,1)}];
+                row.vitaminCPerServingUom = [{ text: getSplitValue(valueNode.dvp,2)}];
+              }
+              valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[2];
+              if(valueNode) {
+                row.calciumPerServing = [{ text: getSplitValue(valueNode.dvp,1)}];
+                row.calciumPerServingUom = [{ text: getSplitValue(valueNode.dvp,2)}];
+              } 
+              valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[3];
+              if(valueNode) {
+                row.ironPerServing = [{ text: getSplitValue(valueNode.dvp,1)}];
+                row.ironPerServingUom = [{ text: getSplitValue(valueNode.dvp,2)}];
+              } 
             }
           }
         }

@@ -8,6 +8,12 @@ async function implementation (
   const { url, zipcode } = inputs;
   // const { country, domain, store } = parameters;
   const zipSelector = 'button[data-tl-id="nd-zip"]';
+  if (zipSelector) {
+    const hasZipLink = await context.evaluate((selector) => !!document.querySelector(selector), zipSelector);
+    if (!hasZipLink) {
+      return;
+    }
+  }
   const currentZip = await context.waitForFunction((selector) => {
     return document.querySelector(selector);
   }, { timeout: 10000 }, zipSelector);
