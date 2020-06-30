@@ -4,6 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'amazonMweb',
+    timeout: 9000,
     transform,
     domain: 'amazon.fr',
     zipcode: '',

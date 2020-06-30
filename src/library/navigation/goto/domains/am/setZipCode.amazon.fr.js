@@ -5,6 +5,7 @@ module.exports = {
     country: 'FR',
     domain: 'amazon.fr',
     store: 'amazonMweb',
+    timeout: 9000,
     zipcode: '',
   },
 };

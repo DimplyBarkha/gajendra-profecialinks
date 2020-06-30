@@ -4,6 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'amazonMweb',
+    timeout: 9000,
     nextLinkSelector: 'ul.a-pagination > li.a-last a',
     loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
     mutationSelector: null,
