@@ -140,7 +140,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //meta[@itemprop="contentUrl"]/@content | //head/@videos
+    xpath: //meta[@itemprop="contentUrl"]/@content | //body/@videos
     regExp: '[^|]+' 
   - name: name
     singleValue: true
