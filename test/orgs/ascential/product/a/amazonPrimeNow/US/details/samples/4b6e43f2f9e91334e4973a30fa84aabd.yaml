@@ -1,0 +1,108 @@
+input:
+  RPC: B0009TQAZ6
+  _url: https://primenow.amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=4cbc81a2-4d15-4d3d-99aa-d63787d36caa/task=426281bf-8728-4d97-8db1-785656b707a9/fc9ef402-a2db-40ff-a110-2819740b630e.html
+    extractionConfigId: product/details/stores/a/amazonPrimeNow/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/31NFBbjyrVL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/412hzNUoNiL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Absolut Vodka Original, 1.75L, 80 Proof,PERNOD RICARD USA
+                xpath: /html/head[1]/meta[5]/@content
+            nameExtended:
+              - text: "Absolut Vodka is a Swedish vodka made exclusively from natural
+                  ingredients, and unlike some other vodkas, it doesn’t contain
+                  any added sugar. In fact Absolut is as clean as vodka can be.
+                  Still, it has a certain taste: Rich, full-bodied and complex,
+                  yet smooth and mellow with a distinct character of grain,
+                  followed by a hint of dried fruit."
+                xpath: /html/body/div[2]/div[1]/div[2]/div[9]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]
+            availability:
+              - text: |-
+                  Currently Unavailable. 
+                  We don't know when or if this item will be back in stock.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[6]/div[1]
+            availabilityText:
+              - text: |-
+                  Currently Unavailable. 
+                  We don't know when or if this item will be back in stock.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[6]/div[1]
+            description:
+              - text: Taste is rich, full-bodied and complex, yet smooth and mellow with a
+                  distinct character of grain, followed by a hint of dried
+                  fruit.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[2]
+              - text: Made with winter wheat from Ahus, Sweden.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[3]
+              - text: Absolut vodka is a Swedish vodka made from natural ingredients, with no
+                  added sugar, a rich and full-bodied flavor, and is recognized
+                  throughout the world for its pure taste
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[4]
+              - text: This vodka has a clean taste with light grain tones, followed by a hint of
+                  fruit, making it an ideal vodka for vodka martinis,
+                  cosmopolitans, Moscow mules, and lemon drops
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[5]
+            brandText:
+              - text: Absolut Vodka
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[2]
+            manufacturer:
+              - text: PERNOD RICARD USA
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
+            weightNet:
+              - text: 5.49 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            weightGross:
+              - text: 5.49 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            asin:
+              - text: B0009TQAZ6
+                xpath: /html/head[1]/link[8]/@href
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[3]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[3]/div[1]/span[1]/span[1]/@title
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/div[1]/span[1]/span[1]/@title
+            name:
+              - text: Absolut Vodka Original, 1.75L, 80 Proof
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/h1[1]
+            sku:
+              - text: B0009TQAZ6
+                xpath: /html/head[1]/link[8]/@href
+            productUrl:
+              - text: https://primenow.amazon.com/dp/B0009TQAZ6
+                xpath: /html/head[1]/link[8]/@href
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/81-hAEQMheL._SY741_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Absolut Vodka Original, 1.75L, 80 Proof
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "4"
+            shippingDimensions:
+              - text: 3.63 x 3.63 x 12 inches; 5.5 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/text()[1]
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "2"
+            promotion:
+              - text: ""
+            amazonChoice:
+              - text: No
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+        xpath: /html
+    timestamp: 1593629548168
