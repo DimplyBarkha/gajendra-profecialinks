@@ -28,12 +28,12 @@ async function implementation (
   }
 
   async function findClosestStore () {
-    const ixToClick = await context.evaluate(async function () {
+    const indexToClick = await context.evaluate(async function () {
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
       let smallestDistance = 999;
       let smallestIx = null;
       for (let i = 0; i < sections.length; i++) {
-        const section = sections[i].children[1].children[0].children[0];
+        const section = sections[i].querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
 
         if (section !== null) {
           const distance = parseFloat(section.textContent);
@@ -47,34 +47,32 @@ async function implementation (
       console.log('Closest store: ' + smallestDistance);
       return smallestIx;
     });
-    await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${ixToClick}) div.StoreSearchResults-StartButton`);
+    await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
   }
 
   async function changeZip (wantedZip) {
     await context.click('button.CurrentModality-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
     await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
-    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
     await context.click('button.kds-SolitarySearch-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await findButtonWithStoreSelect();
-    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await findClosestStore();
-    await new Promise((resolve, reject) => setTimeout(resolve, 6e3));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   }
 
   await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
 
-  const wantedZip = zipcode;
-
   const currentZip = await getCurrentZip();
-  console.log('Want zip: ' + wantedZip + ' got zip: ' + currentZip);
+  console.log('Want zip: ' + zipcode + ' got zip: ' + currentZip);
 
-  if (currentZip !== wantedZip) {
+  if (currentZip !== zipcode) {
     console.log('Trying to change zip');
-    await changeZip(wantedZip);
+    await changeZip(zipcode);
   }
 
   await context.evaluate(() => {
@@ -84,7 +82,7 @@ async function implementation (
       overlay.click();
     }
   });
-  await new Promise((resolve, reject) => setTimeout(resolve, 2e3));
+  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 }
 
 module.exports = {

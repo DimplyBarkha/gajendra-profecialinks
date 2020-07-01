@@ -1,5 +1,3 @@
-// const { transform } = require('../../../../shared');
-
 const transform = (data, context) => {
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
