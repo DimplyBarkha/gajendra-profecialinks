@@ -310,7 +310,7 @@ module.exports = {
             quantity: infos.sizeCount,
             weightNet: '',
             weightGross: shipping ? shipping.shippingWeight : '',
-            gtin: details.gtin ? details.gtin.slice(0, details.gtin.length - 1) : '', // one digit shortening to match old output
+            gtin: (jsonObj && jsonObj.inventory && jsonObj.inventory.upc) ? jsonObj.inventory.upc : '', // one digit shortening to match old output
             sku: infos.skuId.split('sku')[infos.skuId.split('sku').length - 1],
             variantId: jsonObj.inventory.wicId,
             mpc: '',
