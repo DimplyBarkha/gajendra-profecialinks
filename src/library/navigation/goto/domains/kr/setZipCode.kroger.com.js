@@ -3,54 +3,47 @@ async function implementation (
 ) {
   const { url, zipcode } = inputs;
 
-  async function getCurrentZip () {
+  const getCurrentZip = async () => {
     return await context.evaluate(async function () {
       const element = document.querySelector('span[data-testid="CurrentModality-vanityName"]');
-      if (element != null) {
+      if (element) {
         return element.textContent;
       }
       return null;
     });
-  }
+  };
 
-  async function findButtonWithStoreSelect () {
+  const findButtonWithStoreSelect = async () => {
     await context.evaluate(function () {
-      const buttons = document.querySelectorAll('button');
-      for (let i = 0; i < buttons.length; i++) {
-        const button = buttons[i];
-        if (button.textContent === 'Select Store') {
-          console.log('Found Button');
-          button.click();
-          return;
-        }
-      }
+      const mystore = document.querySelector('button[aria-label*="Select Store"]');
+      if (mystore) mystore.click();
     });
-  }
+  };
 
-  async function findClosestStore () {
+  const findClosestStore = async () => {
     const indexToClick = await context.evaluate(async function () {
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
-      let smallestDistance = 999;
-      let smallestIx = null;
-      for (let i = 0; i < sections.length; i++) {
-        const section = sections[i].querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
+      let smallestDistance = null;
+      let indexToClosestStore = null;
+      sections.forEach((sectionItem, i) => {
+        const section = sectionItem.querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
 
-        if (section !== null) {
+        if (section && section.textContent) {
           const distance = parseFloat(section.textContent);
-          if (distance < smallestDistance) {
+          if (!smallestDistance || distance < smallestDistance) {
             smallestDistance = distance;
-            smallestIx = i + 1;
+            indexToClosestStore = i + 1;
           }
         }
         console.log(section.textContent);
-      }
+      });
       console.log('Closest store: ' + smallestDistance);
-      return smallestIx;
+      return indexToClosestStore;
     });
     await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
-  }
+  };
 
-  async function changeZip (wantedZip) {
+  const changeZip = async (wantedZip) => {
     await context.click('button.CurrentModality-button');
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
@@ -63,12 +56,12 @@ async function implementation (
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await findClosestStore();
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-  }
+  };
 
   await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
 
   const currentZip = await getCurrentZip();
-  console.log('Want zip: ' + zipcode + ' got zip: ' + currentZip);
+  console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
 
   if (currentZip !== zipcode) {
     console.log('Trying to change zip');
@@ -76,9 +69,9 @@ async function implementation (
   }
 
   await context.evaluate(() => {
-    const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
+    const overlay = document.querySelector('.ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers');
 
-    if (overlay !== undefined) {
+    if (overlay) {
       overlay.click();
     }
   });
