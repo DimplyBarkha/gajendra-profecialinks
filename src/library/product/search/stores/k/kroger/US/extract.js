@@ -1,3 +1,5 @@
+const { transform } = require('../../../../shared');
+
 async function implementation (
   inputs,
   parameters,
@@ -28,7 +30,6 @@ async function implementation (
 
   return await context.extract(productDetails, { transform });
 }
-const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
