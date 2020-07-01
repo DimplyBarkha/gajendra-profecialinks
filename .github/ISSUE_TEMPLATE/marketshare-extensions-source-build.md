@@ -1,6 +1,6 @@
 ---
 name: MarketShare Extensions Source Build
-about: Describe this issue template's purpose here.
+about: Create an issue with this template before starting a source build.
 title: MS-{:collection}-{:source}
 labels: Source
 assignees: ''
