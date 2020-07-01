@@ -19,20 +19,11 @@ const transform = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
   const state = context.getState();
-  let doupChecker = [];
-  let doups = [];
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
     for (const row of group) {
       rankCounter = rankCounter + 1;
-      if (row.id) {
-        if(doupChecker.includes(row.id[0].text)){
-          doups.push(row.id[0].text)
-        } else {
-          doupChecker.push(row.id[0].text)
-        }
-      }
       if (!row.sponsored) {
         orgRankCounter = orgRankCounter + 1;
         row.rankOrganic = [{ text: orgRankCounter }];
@@ -45,9 +36,6 @@ const transform = (data, context) => {
       }));
     }
   }
-  console.log("DOUPS STARTING")
-  console.log(doupChecker + " doupChecker")
-  console.log(doups + " doups")
   return data;
 };
 
