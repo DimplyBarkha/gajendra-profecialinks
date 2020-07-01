@@ -1,8 +1,8 @@
 ---
 name: MarketShare Extensions Source Build
 about: Describe this issue template's purpose here.
-title: ''
-labels: ''
+title: MS-{:collection}-{:source}
+labels: Source
 assignees: ''
 
 ---
