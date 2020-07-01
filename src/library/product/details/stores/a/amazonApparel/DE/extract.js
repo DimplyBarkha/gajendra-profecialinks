@@ -1,3 +1,4 @@
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -14,7 +15,6 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { transform } = parameters;
   const { productDetails } = dependencies;
   const isVideoPresent = await context.evaluate(async function () {
     return document.querySelector('li.videoThumbnail');
@@ -23,5 +23,5 @@ async function implementation (
     await context.click('li.videoThumbnail');
     await context.waitForSelector('div#main-video-container video');
   }
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails);
 }
