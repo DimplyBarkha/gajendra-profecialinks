@@ -9,7 +9,7 @@ module.exports = {
     domain: 'cvs.com',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 20000));
 
     const linkURL = await context.evaluate(function () {
       const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
