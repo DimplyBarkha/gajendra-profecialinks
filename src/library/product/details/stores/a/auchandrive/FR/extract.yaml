@@ -5,10 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //img[@class='product-gallery__picture']/@src
-    regExp: >-
-      (.+)(_\d+x\d+)(.+)
-    regExpReplace: $1_530x530$3
+    xpath: //img[@class='pdp-gallery__main-image']/@src
   - name: description
     singleValue: false
     xpath: normalize-space(//div[@id='descriptionTab']/following-sibling::div)
