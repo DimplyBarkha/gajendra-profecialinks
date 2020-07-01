@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./shared');
 
 async function implementation (
   inputs,
@@ -49,47 +49,59 @@ async function implementation (
       }
     }
 
-    const refURL = window.location.href;
+    let productNotFound = false;
     let productInfo = null;
-    const pageNum = (document.querySelector('.pagination') && document.querySelector('.pagination').querySelector('input')) ? parseInt(document.querySelector('.pagination').querySelector('input').value) : 1;
-    const searchQuery = window.__APP_INITIAL_STATE__.search.searchString ? window.__APP_INITIAL_STATE__.search.searchString : ((document.querySelector('.product-search-fullview') && document.querySelector('.product-search-fullview').querySelector('h1')) ? document.querySelector('.product-search-fullview').querySelector('h1').textContent.replace(/"/g, '') : '');
-    let bodyParser = '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","q":"' + searchQuery + '","requestType":"search","sort":"relevance","couponStoreId":"4372"}';
-    console.log(window.__APP_INITIAL_STATE__.search);
-    // For redirect link
-    if (Object.keys(window.__APP_INITIAL_STATE__.search).length === 0) {
-      console.log('OVER HERE');
-      const conID = (window.__APP_INITIAL_STATE__.searchResult.filterInfo.id);
-      console.log(conID);
-      bodyParser = '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","id":[' + conID + '],"requestType":"tier3","source":"rootTier3","sort":"Top Sellers","couponStoreId":"4372"}';
-      console.log(bodyParser);
-    }
-    const response = await fetch('https://www.walgreens.com/productsearch/v1/products/search', {
-      headers: {
-        accept: 'application/json, text/plain, */*',
-        'accept-language': 'en-US,en;q=0.9',
-        'cache-control': 'no-cache',
-        'content-type': 'application/json; charset=UTF-8',
-        pragma: 'no-cache',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin',
-      },
-      referrer: refURL,
-      referrerPolicy: 'no-referrer-when-downgrade',
-      body: bodyParser,
-      method: 'POST',
-      mode: 'cors',
-    });
 
-    if (response && response.status === 404) {
-      console.log('Product Not Found!!!!');
+    async function fetchItems () {
+      const refURL = window.location.href;
+      const pageNum = (document.querySelector('.pagination') && document.querySelector('.pagination').querySelector('input')) ? parseInt(document.querySelector('.pagination').querySelector('input').value) : 1;
+      const searchQuery = window.__APP_INITIAL_STATE__.search.searchString ? window.__APP_INITIAL_STATE__.search.searchString : ((document.querySelector('.product-search-fullview') && document.querySelector('.product-search-fullview').querySelector('h1')) ? document.querySelector('.product-search-fullview').querySelector('h1').textContent.replace(/"/g, '') : '');
+      let bodyParser = '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","q":"' + searchQuery + '","requestType":"search","sort":"relevance","couponStoreId":"4372"}';
+      console.log(window.__APP_INITIAL_STATE__.search);
+      // For redirect link
+      if (Object.keys(window.__APP_INITIAL_STATE__.search).length === 0) {
+        const conID = (window.__APP_INITIAL_STATE__.searchResult.filterInfo.id);
+        console.log(conID);
+        bodyParser = '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","id":[' + conID + '],"requestType":"tier3","source":"rootTier3","sort":"Top Sellers","couponStoreId":"4372"}';
+        console.log(bodyParser);
+      }
+      const response = await fetch('https://www.walgreens.com/productsearch/v1/products/search', {
+        headers: {
+          accept: 'application/json, text/plain, */*',
+          'accept-language': 'en-US,en;q=0.9',
+          'cache-control': 'no-cache',
+          'content-type': 'application/json; charset=UTF-8',
+          pragma: 'no-cache',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-origin',
+        },
+        referrer: refURL,
+        referrerPolicy: 'no-referrer-when-downgrade',
+        body: bodyParser,
+        method: 'POST',
+        mode: 'cors',
+      });
+
+      if (response && response.status === 404) {
+        console.log('Product Not Found!!!!');
+        productNotFound = true;
+      }
+
+      if (response && response.status === 200) {
+        console.log('Product Found!!!!');
+        const data = await response.json();
+        console.log(data);
+        productInfo = data.products;
+        return productInfo;
+      }
+      return {};
     }
 
-    if (response && response.status === 200) {
-      console.log('Product Found!!!!');
-      const data = await response.json();
-      console.log(data);
-      productInfo = data.products;
+    productInfo = await fetchItems();
+
+    if (Object.keys(productInfo).length === 0 && productNotFound === false) {
+      productInfo = await fetchItems();
     }
 
     const productCards = document.getElementsByClassName('wag-product-card-details');
