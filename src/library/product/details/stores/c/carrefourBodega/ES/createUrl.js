@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'carrefour.es',
     prefix: null,
-    url: null,
+    url: 'https://www.carrefour.es/bodega/R-{searchTerm}b/p',
     country: 'ES',
     store: 'carrefourBodega',
     zipcode: '',
