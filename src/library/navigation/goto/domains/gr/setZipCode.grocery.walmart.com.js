@@ -12,6 +12,14 @@ module.exports = {
     await context.goto(mainUrl, { timeout, waitUntil, checkBlocked });
     const { zipcode } = inputs;
     let locationStreetAddress = '';
+    let disabledContinueButton = false;
+
+    async function hasDisabledContinuedButton () {
+      const hasIt = await context.evaluate(async function () {
+        return document.querySelector('button[data-automation-id="locationFlyout-continueBtn"]').hasAttribute('disabled');
+      });
+      return hasIt;
+    }
 
     async function changeLocation (zipcode) {
       await context.evaluate(async function () {
@@ -40,10 +48,16 @@ module.exports = {
         locationStreetAddress = (document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]')) ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]').textContent : '';
       });
 
-      await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
-      await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
-      await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-      await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
+      await context.waitForSelector('button[data-automation-id="locationFlyout-continueBtn"]');
+
+      disabledContinueButton = await hasDisabledContinuedButton();
+
+      if (disabledContinueButton === false) {
+        await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
+        await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
+        await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
+        await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
+      }
     }
 
     const changedLocationStreetAddress = await context.evaluate(function () {
@@ -51,7 +65,7 @@ module.exports = {
     });
 
     //TODO: need to set this as input
-    if (!(changedLocationStreetAddress === '4208 Pleasant Crossing Blvd')) {
+    if (!(changedLocationStreetAddress === '4208 Pleasant Crossing Blvd') && disabledContinueButton === false) {
       await changeLocation(zipcode);
       if (locationStreetAddress !== changedLocationStreetAddress) {
         await changeLocation(zipcode);
