@@ -1,0 +1,92 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/pentel-twist-erase-express-mechanical-pencil-0.5mm-black%2c-12-count.product.100217885.html
+extractions:
+  - html: https://workbench.import.io/html/run=b8df2757-09f2-4827-bfdd-88189b293ed6/task=03a1a3e3-5a33-4912-a40e-30d8766f604b/3f939139-dc86-4235-bb5a-fbe0ff3f223e.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=684102-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+            nameExtended:
+              - text: Pentel Twist-Erase Express Mechanical Pencil 0.5mm Black, 12-count
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Office Products
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Writing Supplies
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Pencils & Sharpeners
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 17.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+            brandText:
+              - text: Pentel
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[2]
+            variantId:
+              - text: "684102"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "3.6"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            specifications:
+              - text: |-
+                  Specifications 
+                   
+                   
+                   
+                   
+                   
+                   
+                  Barrel Color
+                   
+                  Black
+                   
+                   
+                   
+                  Barrel Material
+                   
+                  Plastic
+                   
+                   
+                   
+                  Brand
+                   
+                  Pentel
+                   
+                   
+                   
+                  Lead Size
+                   
+                  0.5 mm
+                   
+                   
+                   
+                  Quantity
+                   
+                  12
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "6"
+        xpath: /
+    timestamp: 1593412363193

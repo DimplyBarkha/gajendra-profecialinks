@@ -1,0 +1,82 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/first-alert-onelink-safe-and-sound-bundle.product.100506467.html
+extractions:
+  - html: https://workbench.import.io/html/run=9c5daa81-e285-4bf0-b060-9c64bcdf1abd/task=8fde8d63-44c8-47df-8fc3-609b007dcbf4/70ca2ea0-5cdb-4638-83dd-3e4d2662eb79.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1364750-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[2]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1433958&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1433960&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1433961&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1433963&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[5]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1433967&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[6]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1433964&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[7]/img[1]/@src
+            nameExtended:
+              - text: First Alert Onelink Safe and Sound Bundle
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Home Improvement
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Smart Home & Safety
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Alarms & Detectors
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 199.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: 2-in-1 Protection - Smoke/Fire & Carbon Monoxide Alarm + 120V Combo Alarm
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[1]
+              - text: Premium Sounding Speaker Supporting Apple AirPlay 2 and with Built-in
+                  Alexa Enabled Skills
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[2]
+              - text: Play Music, Get News, Control Other Smart Home Devices
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[3]
+              - text: Emergency Notifications - Notifies you if something is not right in your
+                  home
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[4]
+              - text: Universal Adaptors Included for Quick and Easy Install with Existing First
+                  Alert®, BRK®, Kidde®, and Firex® Alarms
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[5]
+            brandText:
+              - text: First Alert
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: "1364750"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            ratingCount:
+              - text: "55"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "3.9"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "5"
+        xpath: /
+    timestamp: 1592920096399

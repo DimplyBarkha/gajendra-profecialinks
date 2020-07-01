@@ -1,0 +1,944 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/vicks-severe-dayquil-and-nyquil-cough%2c-cold-%2526-flu-relief%2c-72-liquicaps.product.100431806.html
+extractions:
+  - html: https://workbench.import.io/html/run=80d66909-9290-4ddd-881c-70afb5525142/task=e28f67a7-e232-43d3-8d6c-36b762675724/52e6f5ff-91f9-4869-aa1f-ba2cfc6245df.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1259303-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1335968&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1335969&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+            nameExtended:
+              - text: Vicks Severe DayQuil and NyQuil Cough, Cold & Flu Relief, 72 LiquiCaps
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Health & Personal Care
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Health & Medicines
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Cough, Cold & Flu
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 22.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[7]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: Acetaminophen 650 mg.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[1]
+              - text: DayQuil 48 Liquicaps, NyQuil 24 Liquicaps
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[2]
+              - text: Relieves Nasal Congestion and Sinus Pressure
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[3]
+              - text: FSA Eligible Item
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/ul[1]/li[4]
+              - text: Item may be available in your local warehouse, prices may vary.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
+              - text: See product page Vicks Vapo Rub
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/a[1]/span[1]
+              - text: See product page Vicks Liquid - NyQuil Severe
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/a[1]/span[1]
+              - text: Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/th[2]/a[1]/div[1]/span[1]
+              - text: Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/th[3]/a[1]/div[1]/span[1]
+              - text: See product page Vicks Vapo Rub
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[2]/td[1]/a[1]/span[1]
+              - text: See product page Vicks Liquid - NyQuil Severe
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/a[1]/span[1]
+              - text: Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[4]/th[2]/a[1]/div[1]/span[1]
+              - text: Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[4]/th[3]/a[1]/div[1]/span[1]
+              - text: "* There are multiple items available for the product."
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]
+              - text: "* There are multiple items available for the product."
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]/div[1]/div[1]/small[1]/span[1]
+              - text: "* There are multiple items available for the product."
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]/div[1]/div[1]/small[1]/span[1]/span[1]
+            variantId:
+              - text: "1259303"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            ratingCount:
+              - text: "50"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            manufacturerDescription:
+              - text: >-
+                  Product details have been supplied by the Manufacturer, and
+                  are hosted by a third party.
+
+                  Product Description
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Stock up before you need it.
+                   
+
+                   
+                  With NyQuil/DayQuil SEVERE Max strength Cold and Flu Symptom Relief for Day or Night. Power through your day with the non-drowsy, multi-symptom cold and flu relief of Vicks NyQuil/DayQuil SEVERE LiquiCaps.
+
+                  How does NyQuil/DayQuil SEVERE work?
+                   
+                  NyQuil & DayQuil SEVERE delivers maximum symptom-fighting ingredients*
+
+                  *Among OTC Cold and Flu medicines.
+
+                  Smallest branded maximum strength 4-active liquicap
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Uses
+                   
+
+                   
+
+                   
+                  Fever
+                   
+                  Headache
+                   
+                  Runny Nose & Sneezing
+                   
+                  Chest Congestion
+                   
+                  Nasal Congestion
+                   
+                  Sinus Congestion & Pressure
+                   
+                  Sore Throat
+                   
+                  Cough
+                   
+                  Minor Aches & Pains
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  With NyQuil & DayQuil SEVERE
+
+                  Product information
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  More Products from Vicks
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+
+                   
+
+                   
+                  Buy Now
+
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+
+                   
+
+                   
+                  Buy Now
+
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   * There are multiple items available for the product.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+              - text: >-
+                  Product Description
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Stock up before you need it.
+                   
+
+                   
+                  With NyQuil/DayQuil SEVERE Max strength Cold and Flu Symptom Relief for Day or Night. Power through your day with the non-drowsy, multi-symptom cold and flu relief of Vicks NyQuil/DayQuil SEVERE LiquiCaps.
+
+                  How does NyQuil/DayQuil SEVERE work?
+                   
+                  NyQuil & DayQuil SEVERE delivers maximum symptom-fighting ingredients*
+
+                  *Among OTC Cold and Flu medicines.
+
+                  Smallest branded maximum strength 4-active liquicap
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Uses
+                   
+
+                   
+
+                   
+                  Fever
+                   
+                  Headache
+                   
+                  Runny Nose & Sneezing
+                   
+                  Chest Congestion
+                   
+                  Nasal Congestion
+                   
+                  Sinus Congestion & Pressure
+                   
+                  Sore Throat
+                   
+                  Cough
+                   
+                  Minor Aches & Pains
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: Product Description
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]
+              - text: >-
+                  Stock up before you need it.
+                   
+
+                   
+                  With NyQuil/DayQuil SEVERE Max strength Cold and Flu Symptom Relief for Day or Night. Power through your day with the non-drowsy, multi-symptom cold and flu relief of Vicks NyQuil/DayQuil SEVERE LiquiCaps.
+
+                  How does NyQuil/DayQuil SEVERE work?
+                   
+                  NyQuil & DayQuil SEVERE delivers maximum symptom-fighting ingredients*
+
+                  *Among OTC Cold and Flu medicines.
+
+                  Smallest branded maximum strength 4-active liquicap
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Uses
+                   
+
+                   
+
+                   
+                  Fever
+                   
+                  Headache
+                   
+                  Runny Nose & Sneezing
+                   
+                  Chest Congestion
+                   
+                  Nasal Congestion
+                   
+                  Sinus Congestion & Pressure
+                   
+                  Sore Throat
+                   
+                  Cough
+                   
+                  Minor Aches & Pains
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+              - text: >-
+                  Stock up before you need it.
+                   
+
+                   
+                  With NyQuil/DayQuil SEVERE Max strength Cold and Flu Symptom Relief for Day or Night. Power through your day with the non-drowsy, multi-symptom cold and flu relief of Vicks NyQuil/DayQuil SEVERE LiquiCaps.
+
+                  How does NyQuil/DayQuil SEVERE work?
+                   
+                  NyQuil & DayQuil SEVERE delivers maximum symptom-fighting ingredients*
+
+                  *Among OTC Cold and Flu medicines.
+
+                  Smallest branded maximum strength 4-active liquicap
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Uses
+                   
+
+                   
+
+                   
+                  Fever
+                   
+                  Headache
+                   
+                  Runny Nose & Sneezing
+                   
+                  Chest Congestion
+                   
+                  Nasal Congestion
+                   
+                  Sinus Congestion & Pressure
+                   
+                  Sore Throat
+                   
+                  Cough
+                   
+                  Minor Aches & Pains
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: >-
+                  Stock up before you need it.
+                   
+
+                   
+                  With NyQuil/DayQuil SEVERE Max strength Cold and Flu Symptom Relief for Day or Night. Power through your day with the non-drowsy, multi-symptom cold and flu relief of Vicks NyQuil/DayQuil SEVERE LiquiCaps.
+
+                  How does NyQuil/DayQuil SEVERE work?
+                   
+                  NyQuil & DayQuil SEVERE delivers maximum symptom-fighting ingredients*
+
+                  *Among OTC Cold and Flu medicines.
+
+                  Smallest branded maximum strength 4-active liquicap
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[2]
+              - text: >-
+                  With NyQuil/DayQuil SEVERE Max strength Cold and Flu Symptom
+                  Relief for Day or Night. Power through your day with the
+                  non-drowsy, multi-symptom cold and flu relief of Vicks
+                  NyQuil/DayQuil SEVERE LiquiCaps.
+
+                  How does NyQuil/DayQuil SEVERE work?
+                   
+                  NyQuil & DayQuil SEVERE delivers maximum symptom-fighting ingredients*
+
+                  *Among OTC Cold and Flu medicines.
+
+                  Smallest branded maximum strength 4-active liquicap
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[2]/div[1]
+              - text: |-
+                  Uses
+                   
+                   
+                   
+                  Fever
+                   
+                  Headache
+                   
+                  Runny Nose & Sneezing
+                   
+                  Chest Congestion
+                   
+                  Nasal Congestion
+                   
+                  Sinus Congestion & Pressure
+                   
+                  Sore Throat
+                   
+                  Cough
+                   
+                  Minor Aches & Pains
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]
+              - text: |-
+                  Fever
+                   
+                  Headache
+                   
+                  Runny Nose & Sneezing
+                   
+                  Chest Congestion
+                   
+                  Nasal Congestion
+                   
+                  Sinus Congestion & Pressure
+                   
+                  Sore Throat
+                   
+                  Cough
+                   
+                  Minor Aches & Pains
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]
+              - text: With NyQuil & DayQuil SEVERE
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]
+              - text: With NyQuil & DayQuil SEVERE
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/h2[1]
+              - text: Product information
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]
+              - text: Product information
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/h2[1]
+              - text: |-
+                  More Products from Vicks
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   * There are multiple items available for the product.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]
+              - text: More Products from Vicks
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/h2[1]
+              - text: |-
+                  See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   * There are multiple items available for the product.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]
+              - text: |-
+                  See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   * There are multiple items available for the product.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]
+              - text: |-
+                  See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   * There are multiple items available for the product.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]
+              - text: |-
+                  See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   * There are multiple items available for the product.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]
+              - text: |-
+                  See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: |-
+                  See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
+              - text: Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/th[2]/a[1]/div[1]
+              - text: Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/th[3]/a[1]/div[1]
+              - text: |-
+                  See product page Vicks Vapo Rub 
+                   
+                   See product page Vicks Liquid - NyQuil Severe 
+                   
+                   
+                   
+                   
+                   Vicks Vapo Rub 
+                   
+                   Vicks Liquid - NyQuil Severe 
+                   
+                   
+                  Buy Now
+                  Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]
+              - text: Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[4]/th[2]/a[1]/div[1]
+              - text: Buy Now
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[4]/th[3]/a[1]/div[1]
+              - text: "* There are multiple items available for the product."
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: "* There are multiple items available for the product."
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]/div[1]
+              - text: "* There are multiple items available for the product."
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-04bdda1f-cdcb-411c-b109-2dae0eb50861/f33255d3-e899-4d27-bff7-d07e8a8c0b9b.png.w1920.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-04bdda1f-cdcb-411c-b109-2dae0eb50861/2aa850b7-00f6-4361-ba4c-c0cbaa86a5d6.jpg.w480.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-04bdda1f-cdcb-411c-b109-2dae0eb50861/c460c666-c5e2-4b9d-af5e-893be40839e9.png.w1920.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-c638349f-ba85-468e-96b3-8a0b91fbe3f5/b8063662-5a60-40e4-accd-47932c039c4f.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-c638349f-ba85-468e-96b3-8a0b91fbe3f5/16ebe476-9b19-492a-91cf-0709d9497d54.jpg.w1920.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/b93a5c9f-69f0-4d04-a35b-3a4cbd92bd4d.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/th[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/3be5ca4c-5cf5-44d9-99db-fc11781c0ef3.png.w1920.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/a[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/6f9ca641-8eca-43d9-8379-47c8210074ec.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/a[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/b93a5c9f-69f0-4d04-a35b-3a4cbd92bd4d.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[3]/th[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/b93a5c9f-69f0-4d04-a35b-3a4cbd92bd4d.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/th[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/b93a5c9f-69f0-4d04-a35b-3a4cbd92bd4d.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[2]/th[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/3be5ca4c-5cf5-44d9-99db-fc11781c0ef3.png.w1920.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[2]/td[1]/a[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/6f9ca641-8eca-43d9-8379-47c8210074ec.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/a[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/b93a5c9f-69f0-4d04-a35b-3a4cbd92bd4d.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[3]/th[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1558034730050_763081d6-247a-48cf-9971-b228243ae678/module/vicks/_cp/products/1539114198143/tab-9176c103-afee-496b-8eff-b4183b0f08cd/b93a5c9f-69f0-4d04-a35b-3a4cbd92bd4d.jpg.w240.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[4]/th[1]/img[1]/@src
+            promotion:
+              - text: Limit 1 Per Member
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/p[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "4"
+        xpath: /
+    timestamp: 1592984332049

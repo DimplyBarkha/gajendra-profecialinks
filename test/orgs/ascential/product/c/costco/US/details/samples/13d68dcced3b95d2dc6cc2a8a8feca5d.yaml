@@ -1,0 +1,109 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/starbucks-french-roast%2c-whole-bean-coffee%2c-2.5-lbs.product.100377146.html
+extractions:
+  - html: https://workbench.import.io/html/run=b8df2757-09f2-4827-bfdd-88189b293ed6/task=fa4711a9-55ac-4e04-9bb9-9cb166df6343/b2f61eec-be63-4ce8-8002-5e10fd50fd35.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=11357-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1353337&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1353338&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+            nameExtended:
+              - text: Starbucks French Roast, Whole Bean Coffee, 2.5 lbs
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Food, Household & Pet
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Coffee & Sweeteners
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Whole Bean Coffee
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+              - text: 404 - Product Not Found
+                xpath: /html/body/div[4]/div[4]/div[1]/div[1]/ol[1]/li[2]/span[1]
+            price:
+              - text: 15.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[11]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: Arabica Coffee
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[9]/ul[1]/li[1]
+              - text: Dark Roast
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[9]/ul[1]/li[2]
+              - text: Whole Bean Coffee
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[9]/ul[1]/li[3]
+            brandText:
+              - text: Starbucks
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            variantId:
+              - text: "11357"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            specifications:
+              - text: |-
+                  Specifications 
+                   
+                   
+                   
+                   
+                   
+                   
+                  Brand
+                   
+                  Starbucks
+                   
+                   
+                   
+                  Caffeine Type
+                   
+                  Caffeinated
+                   
+                   
+                   
+                  Coffee Varieties
+                   
+                  Arabica
+                   
+                   
+                   
+                  Form
+                   
+                  Whole Bean
+                   
+                   
+                   
+                  Package Net Weight
+                   
+                  2.5 lb.
+                   
+                   
+                   
+                  Roast
+                   
+                  Dark
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]
+            promotion:
+              - text: $5 OFF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[5]/p[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "9"
+        xpath: /
+    timestamp: 1593412356909

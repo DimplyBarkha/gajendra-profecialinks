@@ -1,0 +1,2288 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/Samsung-4.5CuFt-Front-Load-Steam-Washer-7.4CuFt-GAS-Dryer-with-Multi-Steam-Technology.product.1319232.html
+extractions:
+  - html: https://workbench.import.io/html/run=7354251d-3832-45ce-9584-a4a057eaf41d/task=4dd3821b-0156-4023-87e2-f48d8b4b2c56/82c789c5-fe00-4394-87ee-fdd6ae203baa.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=100478623-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[2]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1483992&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1387060&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1386389&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[5]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1386390&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[6]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1386391&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[7]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1386392&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[8]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1386393&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[9]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1386394&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[10]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1386395&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[11]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1386396&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/a[12]/img[1]/@src
+            nameExtended:
+              - text: Samsung 4.5CuFt Smart Front Load Washer with Super Speed and 7.5CuFt GAS
+                  Dryer with Steam Sanitize+ Laundry Package
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Appliances
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Washers & Dryers
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Gas Washers & Dryers
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 1,299.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[6]/div[1]/form[1]/div[2]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: 2-year Manufacturer's warranty
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[1]
+              - text: Washer - Super Speed - Fast, thorough washing in just 30 minutes
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[2]
+              - text: Washer - Wi-Fi connected - Remotely start, schedule, and receive end of
+                  cycle alerts and more from your smartphone
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[3]
+              - text: Dryer - Wi-Fi connected - Remotely start, schedule, and receive end of
+                  cycle alerts and more from your smartphone
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[4]
+              - text: Steam Sanitize+ - The Steam Sanitize+ cycle removes 99.9% of germs and
+                  bacteria,over 95% of pollen, and kills 100% of dust mites2.
+                  Multi-Steam Technology steams away wrinkles, odors, and static
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[5]
+              - text: >-
+                  Product details have been supplied by the Manufacturer, and
+                  are hosted by a third party.
+
+                  Disclaimer
+                   
+                   
+                   
+                   
+                   Images below may not reflect the Product color selected. 
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  WF45R6300AC Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Wash a Full Load in 30 Minutes - Super Speed
+                   
+                   Cut down on laundry time without sacrificing cleaning performance. By selecting Super Speed, you can wash a full load of laundry in just 30 minutes*. Powerful BoostSpray technology helps detergent penetrate deep into fabrics and speeds up rinsing, while our wider, redesigned Swirl+ Drum tumbles clothes better to clean faster and extracts more water more quickly. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Gently Remove Stains - Steam Wash
+                   
+                   The power of Steam Wash lets you gently remove stains without any time-consuming pretreatments. Steam is released from the bottom of the drum so every item in the load is thoroughly saturated, ensuring a deeper clean. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 4.5 cubic feet drum means you can wash more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Quiet Washing Anytime, Any Place - VRT Plus™ Technology
+                   
+                   Do your laundry without disturbing anyone at any time and in any place. Innovative VRT Plus™ technology reduces noise and vibration for quiet washing. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Swirl+ Drum Interior
+                   
+                   Improved drum pattern extracts more water more quickly during the rinsing cycle and prevents fabrics from snagging during washing. 
+
+                   
+
+                   
+
+                   
+                  WF45R6300AC More Photos
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  WF45R6300AC Docs
+                   
+
+                   
+                  Spec Sheet
+                   
+
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+                  DVG45R6300C Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Freshen Up Clothes - Steam Sanitize+
+                   
+                   Steam Sanitize+ helps remove 99.9% of germs and bacteria, over 95% of pollen, and 100% of dust mites*. The Multi-Steam function infuses your laundry with steam, removing odors, static, and wrinkles. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Worry Free Drying - Sensor Dry
+                   
+                   Ensure your clothes are properly dried without constantly checking. Sensor Dry automatically optimizes the time and temperature of your drying cycle to protect your clothes from heat damage, while avoiding excess energy use. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Cleaner, Safer Vents - Vent Sensor
+                   
+                   Vent Sensor continually monitors the condition of your dryer's air duct to ensure it is operating safely and efficiently. It automatically notifies you when it is time for a clean or prompts you to check for obstructions, so you can always maintain optimum drying performance. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  ENERGY STAR® Certified
+                   
+                   ENERGY STAR® certified, so you can save money by using less energy without sacrificing performance or functionality. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 7.5 cubic feet drum means you can dry more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+                  DVG45R6300C More Photos
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  DVG45R6300C Docs
+                   
+
+                   
+                  Spec Sheet
+                   
+
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 648K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+                  WE402NC Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  About this Product
+                   
+                   This 27” wide pedestal will allow you to lift your Samsung Front Load washer or dryer by more than a foot for a more convenient height. Tidy up your laundry space with an easily accessible built-in storage drawer. 
+
+                   
+
+                   
+
+                   
+                  WE402NC More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/h1[1]
+              - text: |-
+                  Disclaimer
+                   
+                   
+                   
+                   
+                   Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
+              - text: Disclaimer
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/h2[1]
+              - text: Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]
+              - text: Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+              - text: Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]
+              - text: Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
+              - text: |-
+                  Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: >-
+                  WF45R6300AC Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Wash a Full Load in 30 Minutes - Super Speed
+                   
+                   Cut down on laundry time without sacrificing cleaning performance. By selecting Super Speed, you can wash a full load of laundry in just 30 minutes*. Powerful BoostSpray technology helps detergent penetrate deep into fabrics and speeds up rinsing, while our wider, redesigned Swirl+ Drum tumbles clothes better to clean faster and extracts more water more quickly. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Gently Remove Stains - Steam Wash
+                   
+                   The power of Steam Wash lets you gently remove stains without any time-consuming pretreatments. Steam is released from the bottom of the drum so every item in the load is thoroughly saturated, ensuring a deeper clean. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 4.5 cubic feet drum means you can wash more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Quiet Washing Anytime, Any Place - VRT Plus™ Technology
+                   
+                   Do your laundry without disturbing anyone at any time and in any place. Innovative VRT Plus™ technology reduces noise and vibration for quiet washing. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Swirl+ Drum Interior
+                   
+                   Improved drum pattern extracts more water more quickly during the rinsing cycle and prevents fabrics from snagging during washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]
+              - text: WF45R6300AC Product Features
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/h2[1]
+              - text: >-
+                  Wash a Full Load in 30 Minutes - Super Speed
+                   
+                   Cut down on laundry time without sacrificing cleaning performance. By selecting Super Speed, you can wash a full load of laundry in just 30 minutes*. Powerful BoostSpray technology helps detergent penetrate deep into fabrics and speeds up rinsing, while our wider, redesigned Swirl+ Drum tumbles clothes better to clean faster and extracts more water more quickly. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Gently Remove Stains - Steam Wash
+                   
+                   The power of Steam Wash lets you gently remove stains without any time-consuming pretreatments. Steam is released from the bottom of the drum so every item in the load is thoroughly saturated, ensuring a deeper clean. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 4.5 cubic feet drum means you can wash more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Quiet Washing Anytime, Any Place - VRT Plus™ Technology
+                   
+                   Do your laundry without disturbing anyone at any time and in any place. Innovative VRT Plus™ technology reduces noise and vibration for quiet washing. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Swirl+ Drum Interior
+                   
+                   Improved drum pattern extracts more water more quickly during the rinsing cycle and prevents fabrics from snagging during washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]
+              - text: >-
+                  Wash a Full Load in 30 Minutes - Super Speed
+                   
+                   Cut down on laundry time without sacrificing cleaning performance. By selecting Super Speed, you can wash a full load of laundry in just 30 minutes*. Powerful BoostSpray technology helps detergent penetrate deep into fabrics and speeds up rinsing, while our wider, redesigned Swirl+ Drum tumbles clothes better to clean faster and extracts more water more quickly. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Gently Remove Stains - Steam Wash
+                   
+                   The power of Steam Wash lets you gently remove stains without any time-consuming pretreatments. Steam is released from the bottom of the drum so every item in the load is thoroughly saturated, ensuring a deeper clean. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 4.5 cubic feet drum means you can wash more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Quiet Washing Anytime, Any Place - VRT Plus™ Technology
+                   
+                   Do your laundry without disturbing anyone at any time and in any place. Innovative VRT Plus™ technology reduces noise and vibration for quiet washing. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Swirl+ Drum Interior
+                   
+                   Improved drum pattern extracts more water more quickly during the rinsing cycle and prevents fabrics from snagging during washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]
+              - text: Cut down on laundry time without sacrificing cleaning performance. By
+                  selecting Super Speed, you can wash a full load of laundry in
+                  just 30 minutes*. Powerful BoostSpray technology helps
+                  detergent penetrate deep into fabrics and speeds up rinsing,
+                  while our wider, redesigned Swirl+ Drum tumbles clothes better
+                  to clean faster and extracts more water more quickly.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: Now you can take care of laundry day away from home or from the comfort of
+                  your couch. Bixby Enabled technology helps you choose the best
+                  cycle option, schedules laundry cycles on your time, and
+                  notifies you on your smartphone* when the cycle is complete.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: The power of Steam Wash lets you gently remove stains without any
+                  time-consuming pretreatments. Steam is released from the
+                  bottom of the drum so every item in the load is thoroughly
+                  saturated, ensuring a deeper clean.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[2]
+              - text: Our large capacity, 4.5 cubic feet drum means you can wash more items in a
+                  single load and spend more time doing the things you love.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[4]/div[2]
+              - text: Do your laundry without disturbing anyone at any time and in any place.
+                  Innovative VRT Plus™ technology reduces noise and vibration
+                  for quiet washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[5]/div[2]
+              - text: Improved drum pattern extracts more water more quickly during the rinsing
+                  cycle and prevents fabrics from snagging during washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[6]/div[2]
+              - text: WF45R6300AC More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]
+              - text: WF45R6300AC More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/h2[1]
+              - text: |-
+                  WF45R6300AC Docs
+                   
+                   
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]
+              - text: WF45R6300AC Docs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/h2[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Spec Sheet PDF | Download Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: >-
+                  DVG45R6300C Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Freshen Up Clothes - Steam Sanitize+
+                   
+                   Steam Sanitize+ helps remove 99.9% of germs and bacteria, over 95% of pollen, and 100% of dust mites*. The Multi-Steam function infuses your laundry with steam, removing odors, static, and wrinkles. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Worry Free Drying - Sensor Dry
+                   
+                   Ensure your clothes are properly dried without constantly checking. Sensor Dry automatically optimizes the time and temperature of your drying cycle to protect your clothes from heat damage, while avoiding excess energy use. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Cleaner, Safer Vents - Vent Sensor
+                   
+                   Vent Sensor continually monitors the condition of your dryer's air duct to ensure it is operating safely and efficiently. It automatically notifies you when it is time for a clean or prompts you to check for obstructions, so you can always maintain optimum drying performance. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  ENERGY STAR® Certified
+                   
+                   ENERGY STAR® certified, so you can save money by using less energy without sacrificing performance or functionality. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 7.5 cubic feet drum means you can dry more items in a single load and spend more time doing the things you love.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]
+              - text: DVG45R6300C Product Features
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/h2[1]
+              - text: >-
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Freshen Up Clothes - Steam Sanitize+
+                   
+                   Steam Sanitize+ helps remove 99.9% of germs and bacteria, over 95% of pollen, and 100% of dust mites*. The Multi-Steam function infuses your laundry with steam, removing odors, static, and wrinkles. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Worry Free Drying - Sensor Dry
+                   
+                   Ensure your clothes are properly dried without constantly checking. Sensor Dry automatically optimizes the time and temperature of your drying cycle to protect your clothes from heat damage, while avoiding excess energy use. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Cleaner, Safer Vents - Vent Sensor
+                   
+                   Vent Sensor continually monitors the condition of your dryer's air duct to ensure it is operating safely and efficiently. It automatically notifies you when it is time for a clean or prompts you to check for obstructions, so you can always maintain optimum drying performance. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  ENERGY STAR® Certified
+                   
+                   ENERGY STAR® certified, so you can save money by using less energy without sacrificing performance or functionality. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 7.5 cubic feet drum means you can dry more items in a single load and spend more time doing the things you love.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]
+              - text: >-
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Freshen Up Clothes - Steam Sanitize+
+                   
+                   Steam Sanitize+ helps remove 99.9% of germs and bacteria, over 95% of pollen, and 100% of dust mites*. The Multi-Steam function infuses your laundry with steam, removing odors, static, and wrinkles. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Worry Free Drying - Sensor Dry
+                   
+                   Ensure your clothes are properly dried without constantly checking. Sensor Dry automatically optimizes the time and temperature of your drying cycle to protect your clothes from heat damage, while avoiding excess energy use. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Cleaner, Safer Vents - Vent Sensor
+                   
+                   Vent Sensor continually monitors the condition of your dryer's air duct to ensure it is operating safely and efficiently. It automatically notifies you when it is time for a clean or prompts you to check for obstructions, so you can always maintain optimum drying performance. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  ENERGY STAR® Certified
+                   
+                   ENERGY STAR® certified, so you can save money by using less energy without sacrificing performance or functionality. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 7.5 cubic feet drum means you can dry more items in a single load and spend more time doing the things you love.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/div[1]
+              - text: Now you can take care of laundry day away from home or from the comfort of
+                  your couch. Bixby Enabled technology helps you choose the best
+                  cycle option, schedules laundry cycles on your time, and
+                  notifies you on your smartphone* when the cycle is complete.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: Steam Sanitize+ helps remove 99.9% of germs and bacteria, over 95% of
+                  pollen, and 100% of dust mites*. The Multi-Steam function
+                  infuses your laundry with steam, removing odors, static, and
+                  wrinkles.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: Ensure your clothes are properly dried without constantly checking. Sensor
+                  Dry automatically optimizes the time and temperature of your
+                  drying cycle to protect your clothes from heat damage, while
+                  avoiding excess energy use.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/div[1]/ul[1]/li[3]/div[2]
+              - text: Vent Sensor continually monitors the condition of your dryer's air duct to
+                  ensure it is operating safely and efficiently. It
+                  automatically notifies you when it is time for a clean or
+                  prompts you to check for obstructions, so you can always
+                  maintain optimum drying performance.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/div[1]/ul[1]/li[4]/div[2]
+              - text: ENERGY STAR® certified, so you can save money by using less energy without
+                  sacrificing performance or functionality.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/div[1]/ul[1]/li[5]/div[2]
+              - text: Our large capacity, 7.5 cubic feet drum means you can dry more items in a
+                  single load and spend more time doing the things you love.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/div[1]/ul[1]/li[6]/div[2]
+              - text: DVG45R6300C More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]
+              - text: DVG45R6300C More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/h2[1]
+              - text: |-
+                  DVG45R6300C Docs
+                   
+                   
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 648K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]
+              - text: DVG45R6300C Docs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/h2[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 648K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 648K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 648K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Spec Sheet PDF | Download Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 648K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: >-
+                  WE402NC Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  About this Product
+                   
+                   This 27” wide pedestal will allow you to lift your Samsung Front Load washer or dryer by more than a foot for a more convenient height. Tidy up your laundry space with an easily accessible built-in storage drawer.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]
+              - text: WE402NC Product Features
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/h2[1]
+              - text: >-
+                  About this Product
+                   
+                   This 27” wide pedestal will allow you to lift your Samsung Front Load washer or dryer by more than a foot for a more convenient height. Tidy up your laundry space with an easily accessible built-in storage drawer.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]
+              - text: >-
+                  About this Product
+                   
+                   This 27” wide pedestal will allow you to lift your Samsung Front Load washer or dryer by more than a foot for a more convenient height. Tidy up your laundry space with an easily accessible built-in storage drawer.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/div[1]
+              - text: This 27” wide pedestal will allow you to lift your Samsung Front Load
+                  washer or dryer by more than a foot for a more convenient
+                  height. Tidy up your laundry space with an easily accessible
+                  built-in storage drawer.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: WE402NC More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]
+              - text: WE402NC More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/h2[1]
+            brandText:
+              - text: Samsung
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: WF45R6300AW | DVG45R6300W
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[2]
+            variantId:
+              - text: "1319222"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            mpc:
+              - text: WF45R6300AW | DVG45R6300W
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[2]
+            ratingCount:
+              - text: "106"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            manufacturerDescription:
+              - text: >-
+                  Product details have been supplied by the Manufacturer, and
+                  are hosted by a third party.
+
+                  Disclaimer
+                   
+                   
+                   
+                   
+                   Images below may not reflect the Product color selected. 
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  WF45R6300AC Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Wash a Full Load in 30 Minutes - Super Speed
+                   
+                   Cut down on laundry time without sacrificing cleaning performance. By selecting Super Speed, you can wash a full load of laundry in just 30 minutes*. Powerful BoostSpray technology helps detergent penetrate deep into fabrics and speeds up rinsing, while our wider, redesigned Swirl+ Drum tumbles clothes better to clean faster and extracts more water more quickly. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Gently Remove Stains - Steam Wash
+                   
+                   The power of Steam Wash lets you gently remove stains without any time-consuming pretreatments. Steam is released from the bottom of the drum so every item in the load is thoroughly saturated, ensuring a deeper clean. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 4.5 cubic feet drum means you can wash more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Quiet Washing Anytime, Any Place - VRT Plus™ Technology
+                   
+                   Do your laundry without disturbing anyone at any time and in any place. Innovative VRT Plus™ technology reduces noise and vibration for quiet washing. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Swirl+ Drum Interior
+                   
+                   Improved drum pattern extracts more water more quickly during the rinsing cycle and prevents fabrics from snagging during washing. 
+
+                   
+
+                   
+
+                   
+                  WF45R6300AC More Photos
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  WF45R6300AC Docs
+                   
+
+                   
+                  Spec Sheet
+                   
+
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+                  DVG45R6300C Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Freshen Up Clothes - Steam Sanitize+
+                   
+                   Steam Sanitize+ helps remove 99.9% of germs and bacteria, over 95% of pollen, and 100% of dust mites*. The Multi-Steam function infuses your laundry with steam, removing odors, static, and wrinkles. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Worry Free Drying - Sensor Dry
+                   
+                   Ensure your clothes are properly dried without constantly checking. Sensor Dry automatically optimizes the time and temperature of your drying cycle to protect your clothes from heat damage, while avoiding excess energy use. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Cleaner, Safer Vents - Vent Sensor
+                   
+                   Vent Sensor continually monitors the condition of your dryer's air duct to ensure it is operating safely and efficiently. It automatically notifies you when it is time for a clean or prompts you to check for obstructions, so you can always maintain optimum drying performance. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  ENERGY STAR® Certified
+                   
+                   ENERGY STAR® certified, so you can save money by using less energy without sacrificing performance or functionality. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 7.5 cubic feet drum means you can dry more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+                  DVG45R6300C More Photos
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  DVG45R6300C Docs
+                   
+
+                   
+                  Spec Sheet
+                   
+
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 648K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+                  WE402NC Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  About this Product
+                   
+                   This 27” wide pedestal will allow you to lift your Samsung Front Load washer or dryer by more than a foot for a more convenient height. Tidy up your laundry space with an easily accessible built-in storage drawer. 
+
+                   
+
+                   
+
+                   
+                  WE402NC More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/h1[1]
+              - text: |-
+                  Disclaimer
+                   
+                   
+                   
+                   
+                   Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
+              - text: Disclaimer
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/h2[1]
+              - text: Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]
+              - text: Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+              - text: Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]
+              - text: Images below may not reflect the Product color selected.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
+              - text: |-
+                  Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   WF45R6300AC Specifications 
+                   
+                   WE402NC Specifications 
+                   
+                   DVG45R6300C Specifications
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: >-
+                  WF45R6300AC Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Wash a Full Load in 30 Minutes - Super Speed
+                   
+                   Cut down on laundry time without sacrificing cleaning performance. By selecting Super Speed, you can wash a full load of laundry in just 30 minutes*. Powerful BoostSpray technology helps detergent penetrate deep into fabrics and speeds up rinsing, while our wider, redesigned Swirl+ Drum tumbles clothes better to clean faster and extracts more water more quickly. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Gently Remove Stains - Steam Wash
+                   
+                   The power of Steam Wash lets you gently remove stains without any time-consuming pretreatments. Steam is released from the bottom of the drum so every item in the load is thoroughly saturated, ensuring a deeper clean. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 4.5 cubic feet drum means you can wash more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Quiet Washing Anytime, Any Place - VRT Plus™ Technology
+                   
+                   Do your laundry without disturbing anyone at any time and in any place. Innovative VRT Plus™ technology reduces noise and vibration for quiet washing. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Swirl+ Drum Interior
+                   
+                   Improved drum pattern extracts more water more quickly during the rinsing cycle and prevents fabrics from snagging during washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]
+              - text: WF45R6300AC Product Features
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/h2[1]
+              - text: >-
+                  Wash a Full Load in 30 Minutes - Super Speed
+                   
+                   Cut down on laundry time without sacrificing cleaning performance. By selecting Super Speed, you can wash a full load of laundry in just 30 minutes*. Powerful BoostSpray technology helps detergent penetrate deep into fabrics and speeds up rinsing, while our wider, redesigned Swirl+ Drum tumbles clothes better to clean faster and extracts more water more quickly. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Gently Remove Stains - Steam Wash
+                   
+                   The power of Steam Wash lets you gently remove stains without any time-consuming pretreatments. Steam is released from the bottom of the drum so every item in the load is thoroughly saturated, ensuring a deeper clean. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 4.5 cubic feet drum means you can wash more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Quiet Washing Anytime, Any Place - VRT Plus™ Technology
+                   
+                   Do your laundry without disturbing anyone at any time and in any place. Innovative VRT Plus™ technology reduces noise and vibration for quiet washing. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Swirl+ Drum Interior
+                   
+                   Improved drum pattern extracts more water more quickly during the rinsing cycle and prevents fabrics from snagging during washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]
+              - text: >-
+                  Wash a Full Load in 30 Minutes - Super Speed
+                   
+                   Cut down on laundry time without sacrificing cleaning performance. By selecting Super Speed, you can wash a full load of laundry in just 30 minutes*. Powerful BoostSpray technology helps detergent penetrate deep into fabrics and speeds up rinsing, while our wider, redesigned Swirl+ Drum tumbles clothes better to clean faster and extracts more water more quickly. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Gently Remove Stains - Steam Wash
+                   
+                   The power of Steam Wash lets you gently remove stains without any time-consuming pretreatments. Steam is released from the bottom of the drum so every item in the load is thoroughly saturated, ensuring a deeper clean. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 4.5 cubic feet drum means you can wash more items in a single load and spend more time doing the things you love. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Quiet Washing Anytime, Any Place - VRT Plus™ Technology
+                   
+                   Do your laundry without disturbing anyone at any time and in any place. Innovative VRT Plus™ technology reduces noise and vibration for quiet washing. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Swirl+ Drum Interior
+                   
+                   Improved drum pattern extracts more water more quickly during the rinsing cycle and prevents fabrics from snagging during washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]
+              - text: Cut down on laundry time without sacrificing cleaning performance. By
+                  selecting Super Speed, you can wash a full load of laundry in
+                  just 30 minutes*. Powerful BoostSpray technology helps
+                  detergent penetrate deep into fabrics and speeds up rinsing,
+                  while our wider, redesigned Swirl+ Drum tumbles clothes better
+                  to clean faster and extracts more water more quickly.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[2]
+              - text: Now you can take care of laundry day away from home or from the comfort of
+                  your couch. Bixby Enabled technology helps you choose the best
+                  cycle option, schedules laundry cycles on your time, and
+                  notifies you on your smartphone* when the cycle is complete.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[2]
+              - text: The power of Steam Wash lets you gently remove stains without any
+                  time-consuming pretreatments. Steam is released from the
+                  bottom of the drum so every item in the load is thoroughly
+                  saturated, ensuring a deeper clean.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[2]
+              - text: Our large capacity, 4.5 cubic feet drum means you can wash more items in a
+                  single load and spend more time doing the things you love.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[4]/div[2]
+              - text: Do your laundry without disturbing anyone at any time and in any place.
+                  Innovative VRT Plus™ technology reduces noise and vibration
+                  for quiet washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[5]/div[2]
+              - text: Improved drum pattern extracts more water more quickly during the rinsing
+                  cycle and prevents fabrics from snagging during washing.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[6]/div[2]
+              - text: WF45R6300AC More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]
+              - text: WF45R6300AC More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/h2[1]
+              - text: |-
+                  WF45R6300AC Docs
+                   
+                   
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]
+              - text: WF45R6300AC Docs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/h2[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Spec Sheet PDF | Download Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 654K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: >-
+                  DVG45R6300C Product Features
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Freshen Up Clothes - Steam Sanitize+
+                   
+                   Steam Sanitize+ helps remove 99.9% of germs and bacteria, over 95% of pollen, and 100% of dust mites*. The Multi-Steam function infuses your laundry with steam, removing odors, static, and wrinkles. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Worry Free Drying - Sensor Dry
+                   
+                   Ensure your clothes are properly dried without constantly checking. Sensor Dry automatically optimizes the time and temperature of your drying cycle to protect your clothes from heat damage, while avoiding excess energy use. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Cleaner, Safer Vents - Vent Sensor
+                   
+                   Vent Sensor continually monitors the condition of your dryer's air duct to ensure it is operating safely and efficiently. It automatically notifies you when it is time for a clean or prompts you to check for obstructions, so you can always maintain optimum drying performance. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  ENERGY STAR® Certified
+                   
+                   ENERGY STAR® certified, so you can save money by using less energy without sacrificing performance or functionality. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fit More for Fewer Loads
+                   
+                   Our large capacity, 7.5 cubic feet drum means you can dry more items in a single load and spend more time doing the things you love.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]
+              - text: DVG45R6300C Product Features
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/h2[1]
+              - text: >-
+                  AI-Powered Laundry Care
+                   
+                   Now you can take care of laundry day away from home or from the comfort of your couch. Bixby Enabled technology helps you choose the best cycle option, schedules laundry cycles on your time, and notifies you on your smartphone* when the cycle is complete. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Freshen Up Clothes - Steam Sanitize+
+                   
+                   Steam Sanitize+ helps remove 99.9% of germs and bacteria, over 95% of pollen, and 100% of dust mites*. The Multi-Steam function infuses your laundry with steam, removing odors, static, and wrinkles. 
+
+              

@@ -1,0 +1,29 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/Samsung-24CuFt-4-Door-French-Door-Counter-Depth-Refrigerator-with-FlexZone-Drawer.product.100477804.html
+extractions:
+  - html: https://workbench.import.io/html/run=b8df2757-09f2-4827-bfdd-88189b293ed6/task=28a351c6-b3c5-45b5-9900-dff4efb1ae72/bf528be8-cf0e-4dcd-96ef-b8d5c4eef1f8.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - nameExtended:
+              - text: Access Denied
+                xpath: /html/head[1]/title[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+        xpath: /html/head[1]
+    timestamp: 1593412360966

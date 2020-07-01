@@ -1,0 +1,29 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/Whirlpool-4.3CuFt-High-Efficiency-Top-Load-Washer-with-a-Low-Profile-Impeller.product.100153161.html
+extractions:
+  - html: https://workbench.import.io/html/run=b8df2757-09f2-4827-bfdd-88189b293ed6/task=448cbd90-6bd8-48dc-b1d8-8dbc8f8a603c/ae9d0858-e217-4890-baf1-989193c7d952.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - nameExtended:
+              - text: Access Denied
+                xpath: /html/head[1]/title[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+        xpath: /html/head[1]
+    timestamp: 1593412413146

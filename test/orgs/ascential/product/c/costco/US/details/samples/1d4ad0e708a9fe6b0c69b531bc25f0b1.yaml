@@ -1,0 +1,1299 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/Samsung-4-piece-ELECTRIC-28CuFt-4-Door-French-Door-FlexZone-Kitchen-Suite-in-Tuscan-Stainless-Steel.product.100485074.html
+extractions:
+  - html: https://workbench.import.io/html/run=80d66909-9290-4ddd-881c-70afb5525142/task=95ad878a-94f5-418c-b037-6f37b6b1a1e1/06dca2d2-8642-4a13-8ad8-8502908c3510.html
+    extractionConfigId: product/details/stores/c/costco/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1331413-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1395125&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1394940&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1394941&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1394942&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[5]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1394943&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[6]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1394944&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[7]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1394945&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[8]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1394946&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[9]/img[1]/@src
+            nameExtended:
+              - text: Samsung 4-piece ELECTRIC 28CuFt 4-Door French Door FlexZone Kitchen Suite
+                  in Tuscan Stainless Steel
+                xpath: /html/head[1]/title[1]
+            category:
+              - text: Appliances
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Kitchen Appliance Packages
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Electric Kitchen Appliance Packages
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+            price:
+              - text: 3,999.99$
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[6]/div[1]/form[1]/div[3]/ul[1]/li[3]/input[1]/@value
+            description:
+              - text: 2-year Manufacturer's Warranty
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[1]
+              - text: Refrigerator - FlexZone™ Drawer has Multiple Temperature Settings for
+                  Flexible Storage
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[2]
+              - text: Range - Blue LED Illuminated Knobs - Know When Your Cooktop is on
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[3]
+              - text: Microwave - Precise Glass Touch Controls
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[4]
+              - text: Dishwasher - Linear Wash System - AquaBlast™ Jets Provide Corner to Corner
+                  Coverage for Superior Cleaning.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[4]/ul[1]/li[5]
+              - text: 2-Year Manufacturer's Warranty Included
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
+              - text: Be Prepared for your Delivery. Verify your zip code, plumbing and
+                  electrical connections AND read Kitchen Install Requirements
+                  PDF in Manuals, Information & Guides section.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[2]
+              - text: "Dishwasher: Includes DELIVERY & HAUL AWAY. Samsung dishwasher DELIVERY &
+                  INSTALLATION are two separate events and every effort will be
+                  made to have the events occur on the same day. Basic
+                  dishwasher INSTALLATION is provided but limitations do apply
+                  and can vary based upon your home."
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[3]
+              - text: Our delivery and installation teams are not authorized to perform any
+                  modifications to the home; no carpentry, plumbing or
+                  electrical work. Any work that would exceed the included basic
+                  installation will require additional payment by you to the
+                  installer. For your convenience and while at your home, the
+                  installer will be able to determine if any additional work and
+                  or permits are needed that would exceed the included basic
+                  installation. You will always be given a quote before work
+                  starts. You will be responsible for direct payment to the
+                  installer for any work exceeding basic installation.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[4]
+              - text: "WARNING:"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[5]
+              - text: "Learn More:"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]
+              - text: Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/span[1]
+              - text: User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: 284 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]/small[1]/span[1]
+              - text: Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/span[1]
+              - text: User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: 156 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]/small[1]/span[1]
+              - text: Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/span[1]
+              - text: User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]/small[1]/span[1]
+              - text: Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/small[1]/span[1]
+              - text: User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/span[1]
+              - text: User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: 120 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]/small[1]/span[1]
+              - text: Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/button[1]/span[1]
+              - text: "|"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/small[1]/span[1]
+            brandText:
+              - text: Samsung
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: RF28R7201DT | NE59R6631ST | ME21R706BAT | DW80R9950UT
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[1]/div[4]/div[1]/span[2]/span[1]
+            variantId:
+              - text: "1331413"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/p[1]
+            mpc:
+              - text: RF28R7201DT | NE59R6631ST | ME21R706BAT | DW80R9950UT
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[1]/div[4]/div[1]/span[2]/span[1]
+            ratingCount:
+              - text: "275"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/a[1]/dd[1]/a[1]
+            aggregateRating:
+              - text: "4.2"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            manufacturerDescription:
+              - text: >-
+                  Product details have been supplied by the Manufacturer, and
+                  are hosted by a third party.
+
+                  RF28R7201DT More Photos
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Learn More: 
+                   
+                   RF28R7201DT Specifications 
+                   
+                   NE59R6631ST Specifications 
+                   
+                   ME21R706BAT Specifications 
+                   
+                   DW80R9950UT Specifications 
+                   
+                   DW80R9950UT Warranty 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  RF28R7201DT Docs
+                   
+
+                   
+                  Spec Sheet
+                   
+
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 506K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  User Manual
+                   
+
+                   
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 34.49MB, 284 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+                  RF28R7201DT Energy Guide
+                   
+
+                   
+                  Energy Guide
+                   
+
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 70K, 1 page 
+
+                   
+
+                   
+
+                   
+
+                   
+                  NE59R6631ST More Photos
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  NE59R6631ST Docs
+                   
+
+                   
+                  Spec Sheet
+                   
+
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.66MB, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  User Manual
+                   
+
+                   
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 15.78MB, 156 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+                  ME21R706BAT More Photos
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  ME21R706BAT Docs
+                   
+
+                   
+                  Spec Sheet
+                   
+
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.2MB, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  User Manual
+                   
+
+                   
+                  User Manual
+                   
+                  ENGLISH, AFAR
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 7.08MB, 52 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+                  DW80R9950UT More Photos
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  DW80R9950UT Docs
+                   
+
+                   
+                  Spec Sheet
+                   
+
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 979K, 2 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  User Manual
+                   
+
+                   
+                  User Manual
+                   
+                  ENGLISH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 12.67MB, 120 pages 
+
+                   
+
+                   
+
+                   
+
+                   
+                  DW80R9950UT Energy Guide
+                   
+
+                   
+                  Energy Guide
+                   
+
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 761K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]
+              - text: Product details have been supplied by the Manufacturer, and are hosted by
+                  a third party.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/h1[1]
+              - text: RF28R7201DT More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
+              - text: RF28R7201DT More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/h2[1]
+              - text: |-
+                  Learn More: 
+                   
+                   RF28R7201DT Specifications 
+                   
+                   NE59R6631ST Specifications 
+                   
+                   ME21R706BAT Specifications 
+                   
+                   DW80R9950UT Specifications 
+                   
+                   DW80R9950UT Warranty
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
+              - text: |-
+                  Learn More: 
+                   
+                   RF28R7201DT Specifications 
+                   
+                   NE59R6631ST Specifications 
+                   
+                   ME21R706BAT Specifications 
+                   
+                   DW80R9950UT Specifications 
+                   
+                   DW80R9950UT Warranty
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   RF28R7201DT Specifications 
+                   
+                   NE59R6631ST Specifications 
+                   
+                   ME21R706BAT Specifications 
+                   
+                   DW80R9950UT Specifications 
+                   
+                   DW80R9950UT Warranty
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]
+              - text: |-
+                  Learn More: 
+                   
+                   RF28R7201DT Specifications 
+                   
+                   NE59R6631ST Specifications 
+                   
+                   ME21R706BAT Specifications 
+                   
+                   DW80R9950UT Specifications 
+                   
+                   DW80R9950UT Warranty
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: |-
+                  RF28R7201DT Docs
+                   
+                   
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 506K, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  User Manual
+                   
+                   
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 34.49MB, 284 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]
+              - text: RF28R7201DT Docs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/h2[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 506K, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  User Manual
+                   
+                   
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 34.49MB, 284 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 506K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 506K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Spec Sheet PDF | Download Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 506K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: |-
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 34.49MB, 284 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]
+              - text: |-
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 34.49MB, 284 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]
+              - text: ENGLISH, FRENCH, SPANISH
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]
+              - text: View User Manual PDF | Download User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]
+              - text: PDF, 34.49MB, 284 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]
+              - text: |-
+                  RF28R7201DT Energy Guide
+                   
+                   
+                  Energy Guide
+                   
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 70K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]
+              - text: RF28R7201DT Energy Guide
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/h2[1]
+              - text: |-
+                  Energy Guide
+                   
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 70K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]
+              - text: |-
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 70K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 70K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Energy Guide PDF | Download Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 70K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: NE59R6631ST More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]
+              - text: NE59R6631ST More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/h2[1]
+              - text: |-
+                  NE59R6631ST Docs
+                   
+                   
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.66MB, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  User Manual
+                   
+                   
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 15.78MB, 156 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]
+              - text: NE59R6631ST Docs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/h2[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.66MB, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  User Manual
+                   
+                   
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 15.78MB, 156 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.66MB, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.66MB, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Spec Sheet PDF | Download Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 1.66MB, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: |-
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 15.78MB, 156 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]
+              - text: |-
+                  User Manual
+                   
+                  ENGLISH, FRENCH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 15.78MB, 156 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/div[1]
+              - text: ENGLISH, FRENCH, SPANISH
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]
+              - text: View User Manual PDF | Download User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]
+              - text: PDF, 15.78MB, 156 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]
+              - text: ME21R706BAT More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]
+              - text: ME21R706BAT More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/h2[1]
+              - text: |-
+                  ME21R706BAT Docs
+                   
+                   
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.2MB, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  User Manual
+                   
+                   
+                  User Manual
+                   
+                  ENGLISH, AFAR
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 7.08MB, 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]
+              - text: ME21R706BAT Docs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/h2[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.2MB, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  User Manual
+                   
+                   
+                  User Manual
+                   
+                  ENGLISH, AFAR
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 7.08MB, 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.2MB, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 1.2MB, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Spec Sheet PDF | Download Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 1.2MB, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: |-
+                  User Manual
+                   
+                  ENGLISH, AFAR
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 7.08MB, 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]
+              - text: |-
+                  User Manual
+                   
+                  ENGLISH, AFAR
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 7.08MB, 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]/div[1]
+              - text: ENGLISH, AFAR
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]
+              - text: View User Manual PDF | Download User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]
+              - text: PDF, 7.08MB, 52 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]
+              - text: DW80R9950UT More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]
+              - text: DW80R9950UT More Photos
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/h2[1]
+              - text: |-
+                  DW80R9950UT Docs
+                   
+                   
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 979K, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  User Manual
+                   
+                   
+                  User Manual
+                   
+                  ENGLISH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 12.67MB, 120 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]
+              - text: DW80R9950UT Docs
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/h2[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 979K, 2 pages 
+                   
+                   
+                   
+                   
+                   
+                  User Manual
+                   
+                   
+                  User Manual
+                   
+                  ENGLISH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 12.67MB, 120 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 979K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Spec Sheet
+                   
+                   View Spec Sheet PDF | Download Spec Sheet PDF 
+                   
+                   PDF, 979K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Spec Sheet PDF | Download Spec Sheet PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 979K, 2 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+              - text: |-
+                  User Manual
+                   
+                  ENGLISH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 12.67MB, 120 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]
+              - text: |-
+                  User Manual
+                   
+                  ENGLISH, SPANISH
+                   
+                   View User Manual PDF | Download User Manual PDF 
+                   
+                   PDF, 12.67MB, 120 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]/div[1]
+              - text: ENGLISH, SPANISH
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]
+              - text: View User Manual PDF | Download User Manual PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]
+              - text: PDF, 12.67MB, 120 pages
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]
+              - text: |-
+                  DW80R9950UT Energy Guide
+                   
+                   
+                  Energy Guide
+                   
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 761K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]
+              - text: DW80R9950UT Energy Guide
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/h2[1]
+              - text: |-
+                  Energy Guide
+                   
+                   
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 761K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]
+              - text: |-
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 761K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/div[1]
+              - text: |-
+                  Energy Guide
+                   
+                   View Energy Guide PDF | Download Energy Guide PDF 
+                   
+                   PDF, 761K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/div[1]/div[1]
+              - text: View Energy Guide PDF | Download Energy Guide PDF
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]
+              - text: PDF, 761K, 1 page
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-87d7cf1b-31db-4f44-ab14-2b01edbc77d1/resource-6e72ddfc-f021-4838-b441-3139ab2d4ff8.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-87d7cf1b-31db-4f44-ab14-2b01edbc77d1/resource-a9fedffc-39fa-4fe8-a503-b367205faf59.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-87d7cf1b-31db-4f44-ab14-2b01edbc77d1/resource-8b1a909d-1abc-4b54-8c31-76165ae0dd79.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-87d7cf1b-31db-4f44-ab14-2b01edbc77d1/resource-53075064-14a2-4ee4-902a-45b20b080993.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-87d7cf1b-31db-4f44-ab14-2b01edbc77d1/resource-83c25dc7-b597-4019-bf78-15d9a447280d.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-87d7cf1b-31db-4f44-ab14-2b01edbc77d1/resource-1500a556-f255-4377-b1ad-da64f8cfd12c.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[6]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[6]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-3cc65d54-47aa-4e2e-99cb-a6a02cf834c0/resource-107bbda2-d10d-4b05-a759-ab1cd09437a5.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-3cc65d54-47aa-4e2e-99cb-a6a02cf834c0/resource-42661b18-93bf-45c1-a7b6-04014f008c2b.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-bcd30edb-0b5b-46ba-be0e-787cfda54bf4/resource-61aa09d0-3479-4bc3-89b8-8b20675b47f6.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-f8260149-47dd-442c-9bab-1015fe634453/resource-3563a284-8865-4ffe-9118-5c5cfa96651b.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-f8260149-47dd-442c-9bab-1015fe634453/resource-bd27c3fe-90c7-4842-87e3-56710d56a458.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-f8260149-47dd-442c-9bab-1015fe634453/resource-2ed0ea0a-6178-44e5-97d7-f5652b5eb3e0.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-f8260149-47dd-442c-9bab-1015fe634453/resource-1e050f9b-5f72-4307-8aff-9770b6767b31.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-f8260149-47dd-442c-9bab-1015fe634453/resource-a8416a30-f526-4a1a-a0d9-5049c410810b.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-f8260149-47dd-442c-9bab-1015fe634453/resource-f8986f13-03e9-4118-8ec5-31c5a0f8576a.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[6]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[6]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-2da90f7a-a555-4ca3-b3cc-90d15058fe59/resource-859b4fa8-f631-4141-962f-50550e203415.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-2da90f7a-a555-4ca3-b3cc-90d15058fe59/resource-a588c198-d4db-44c4-a0a8-7c0e40634af8.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-6307cb8f-7849-48bf-8d1c-316dcf2a91bf/resource-f1b4bd7a-d86c-429e-9c16-e9ced1d1a329.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-6307cb8f-7849-48bf-8d1c-316dcf2a91bf/resource-df379569-0d49-47c1-8102-378ab2b0a553.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-6307cb8f-7849-48bf-8d1c-316dcf2a91bf/resource-6d2f2df3-4349-488b-802b-9f0e4c7e360d.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-6307cb8f-7849-48bf-8d1c-316dcf2a91bf/resource-60d04e03-1501-466e-b29e-720db09eabab.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-6307cb8f-7849-48bf-8d1c-316dcf2a91bf/resource-ed57db2f-1c71-4979-98eb-2662968e74d1.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-6307cb8f-7849-48bf-8d1c-316dcf2a91bf/resource-de3299fa-d837-4ed9-9181-d31fb108443c.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[6]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[6]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-a83a3c05-0ecd-4c9b-8811-ca55d848d613/resource-666c9cc9-479d-4c34-91be-7757efd125cd.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-a83a3c05-0ecd-4c9b-8811-ca55d848d613/resource-e1c62285-62b9-44f5-8ea6-370a156af980.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-d0b1ec1d-5e43-4140-a2de-ea5fbda83e07/resource-53bc3c42-601e-47b5-b699-0bf876df33fb.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-d0b1ec1d-5e43-4140-a2de-ea5fbda83e07/resource-793877ab-8a41-48ac-8ec0-7929fdf7a8bf.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-d0b1ec1d-5e43-4140-a2de-ea5fbda83e07/resource-391d55f8-6011-4b11-93cd-ba83ac742576.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-d0b1ec1d-5e43-4140-a2de-ea5fbda83e07/resource-4da9b74e-aeb8-430e-b527-fe534205d94f.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-d0b1ec1d-5e43-4140-a2de-ea5fbda83e07/resource-83248b59-0d91-436e-a20c-b66e13d8fabf.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-d0b1ec1d-5e43-4140-a2de-ea5fbda83e07/resource-702c7816-0230-487d-ad0b-150c5dd99994.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[6]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/costco/images/image-gallery/enlarge.png
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[6]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-63703e9b-a620-41ca-b0ac-2fc7bdb83295/resource-c78bfc62-b643-4997-93b6-8b63c5c09711.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-63703e9b-a620-41ca-b0ac-2fc7bdb83295/resource-f3d7a510-2f12-4166-87c7-adc1c35d2c67.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[3]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557424474786_10db611b-2ea8-402a-80e5-36f912a57f19/module/samsungus/_cp/products/1557423207234/tab-4e623e00-d37c-42b0-a677-8e220863737f/resource-57f65286-6353-44e9-8c69-75401a4d68db.jpg
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/document-gallery/v3/pdf_icon_pp.png?v=2020.7.2.487
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/img[1]/@src
+            promotion:
+              - text: Save 10% at checkout. Price valid through 7/8/20.
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[3]/p[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "5"
+        xpath: /
+    timestamp: 1592984403800
