@@ -10,7 +10,6 @@ module.exports = {
     const productPage = await context.evaluate(function () {
       return Boolean(document.querySelector('body[data-page-id="productDetails"]'));
     });
-
     if (productPage) {
       await context.waitForSelector('span[itemprop="reviewCount"]');
     }

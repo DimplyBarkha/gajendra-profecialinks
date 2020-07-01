@@ -1,7 +1,3 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: null
 fields:
   - name: image
     xpath: //div[@class="pdp-gallery__zoom"]/@data-image
@@ -80,10 +76,15 @@ fields:
     singleValue: false
     xpath: //iframe[contains(@src,"youtube")]/@src
   - name: pricePerUnit
-    singleValue: true
+    singleValue: false
     xpath: //p[contains(@class,"pricing__per-item")]
+    regExp: (.+)(per.*)
+    regExpReplace: $1
   - name: pricePerUnitUom
-    singleValue: true
+    singleValue: false
+    xpath: //p[contains(@class,"pricing__per-item")]
+    regExp: (.+)(per.*\d)(\w+)
+    regExpReplace: $3
   - name: imageAlt
     singleValue: true
     xpath: //div[@class="pdp-gallery__zoom"]//img/@alt
@@ -147,3 +148,25 @@ fields:
   - name: saltPerServingUom
     xpath: //td[normalize-space(text())="Salt"]/following-sibling::td[1]
     regExp: "[^\\s]+$"
+  - name: promotion
+    xpath: //section[contains(@class,"main-product-section")]//a[@class="promotion__item"]
+  - name: variantInformation
+    xpath: //form[@id="addToCartForm"]//a[contains(@class,"color__item--active")]/@title
+  - name: firstVariant
+    xpath: //form[@id="addToCartForm"]//a[contains(@class,"color__item--active")]/@href
+    regExp: (.*/p/)(.*)
+    regExpReplace: $2
+  - name: variants
+    xpath: //form[@id="addToCartForm"]//a[contains(@class,"color__item")]/@href
+    regExp: (.*/p/)(.*)
+    regExpReplace: $2
+  - name: directions
+    xpath: //h3[contains(.,"Product Uses")]/following-sibling::p[1]|//h3[contains(.,"Product Uses")]/following-sibling::li
+  - name: descriptionBullets
+    xpath: count(//article//h3[contains(.,"Benefits")]/parent::article//li)
+  - name: quantity
+    xpath: //p[contains(text(),"Size")][contains(text(),"Height")][contains(text(),"Width")][contains(text(),"Depth")]
+    regExp: (.+)(?=Height)
+    regExpReplace: $1
+  - name: secondaryImageTotal
+    xpath: count(//ul[@id="thumbnails"]//li[position()>1])
