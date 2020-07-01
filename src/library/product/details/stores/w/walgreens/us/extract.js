@@ -274,7 +274,15 @@ module.exports = {
             return '';
           };
 
-          const notPromotionRe = /(donation)/ig;
+          const promotions = () => {
+            const notPromotionRe = /(donation)/ig;
+            const isPromotionRe = /(rebate)/ig;
+            const promotion = details.OfferList ? details.OfferList.map(u => !notPromotionRe.test(u.title) ? (u.title) : '') : '';
+            if (isPromotionRe.test(promotion)) {
+              return (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
+            }
+            return promotion;
+          };
 
           console.log('videos!');
           console.log(videos());
@@ -404,7 +412,7 @@ module.exports = {
             additives: '',
             pricePerUnit: price.unitPrice ? price.unitPrice.split('$')[1] : '',
             pricePerUnitUom: price.unitPrice ? price.unitPrice.split(/(\d+)/)[jsonObj.priceInfo.unitPrice.split(/(\d+)/).length - 1] : '',
-            promotion: details.OfferList ? details.OfferList.map(u => !notPromotionRe.test(u.title) ? (u.title) : '') : '',
+            promotion: promotions(),
             alcoholContent: '',
             newVersion: '',
             newAsin: '',
