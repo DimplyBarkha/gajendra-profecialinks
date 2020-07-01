@@ -6,6 +6,7 @@ module.exports = {
     prefix: 'dp',
     url: 'https://amazon.com/dp/{id}',
     country: 'US',
-    store: 'amazon10023',
+    store: 'amazon_10023',
+    zipcode: '10023',
   },
 };
