@@ -12,6 +12,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    await new Promise(resolve => setTimeout(resolve, 50000));
     await context.evaluate(async function () {
       const arr = [];
       const videoLink = document.querySelector('.flix-jw') ? document.querySelector('.flix-jw').value.match(/file":"([^"]+)/)[1].replace(/^\\\/\\\//, '').replace(/\\\//g, '/') : '';
