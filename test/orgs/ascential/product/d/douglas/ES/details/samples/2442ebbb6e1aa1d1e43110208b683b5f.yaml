@@ -1,0 +1,71 @@
+input:
+  _url: https://douglas.es
+  URL: https://douglas.es/p/nivea/desmaquillador_de_ojos_waterproof
+extractions:
+  - html: https://workbench.import.io/html/run=0ee43871-d8b4-4bef-8656-6e0764750b09/task=9a606b71-638a-4504-8623-57b596633d11/2527c1a4-7e38-4a36-9fa1-6c23de4ed379.html
+    extractionConfigId: product/details/stores/d/douglas/ES/extract
+    data:
+      - group:
+          - image:
+              - text: https://ima.douglas.es/_d400/01000610/desmaquillador_de_ojos_125_ml__doble_acci__n.jpg
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Nivea DESMAQUILLADOR DE OJOS WATERPROOF
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            url:
+              - text: https://douglas.es/p/nivea/desmaquillador_de_ojos_waterproof
+                xpath: /html/head[1]/link[14]/@href
+            category:
+              - text: Nivea
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
+              - text: DESMAQUILLADOR DE OJOS WATERPROOF
+                xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[3]/span[1]
+            nameExtended:
+              - text: DESMAQUILLADOR DE OJOS WATERPROOF - Tratamiento
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            description:
+              - text: El desmaquillador bifásico de ojos elimina eficazmente los restos de
+                  maquillaje, incluso el waterproof, sin necesidad de frotar. La
+                  fórmula elaborada con extractos de Aciano elimina el
+                  maquillaje de la zona de los ojos, de forma efectiva pero con
+                  una máxima suavidad. Respeta y protege las pestañas. La
+                  delicada zona de los ojos se limpia en profundidad, pero de
+                  forma muy suave.
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: 5,49 €
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Nivea
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
+            quantity:
+              - text: 125 ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            sku:
+              - text: "01000610"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/div[1]/div[1]/button[1]/div[2]/div[1]
+            variantInformation:
+              - text: 125 ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            variantId:
+              - text: "01000610"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            pricePerUnit:
+              - text: "4,39€/100 "
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: ML
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            name:
+              - text: DESMAQUILLADOR DE OJOS WATERPROOF - Tratamiento
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1593605504499

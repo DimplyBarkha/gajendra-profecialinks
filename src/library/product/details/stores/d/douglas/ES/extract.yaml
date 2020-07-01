@@ -47,9 +47,9 @@ fields:
   - name: pricePerUnit
     xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
     regExp: >- 
-      (.+los\s)(.+)\sa\s(.+)
+      (.+los\s)(.+)(\w{2})\sa\s(.+)
     regExpReplace: >-
-       $2/$3
+       $4/$2
   - name: pricePerUnitUom
     xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
     regExp: ML|GR|UD|ST
