@@ -49,6 +49,8 @@ async function implementation (
       }
     }
 
+    const numberOfProducts = (document.querySelector('p#resultcount')) ? parseInt(document.querySelector('p#resultcount').textContent) : 0;
+    const itemsPerPage = (document.querySelector('select[name="itemsperpage"]')) ? parseInt(document.querySelector('select[name="itemsperpage"]').value) : 0;
     let productNotFound = false;
     let productInfo = null;
 
@@ -97,11 +99,14 @@ async function implementation (
       }
       return {};
     }
-
-    productInfo = await fetchItems();
-
-    if (Object.keys(productInfo).length === 0 && productNotFound === false) {
+    if (numberOfProducts <= itemsPerPage) {
+      productInfo = (window.__APP_INITIAL_STATE__ && window.__APP_INITIAL_STATE__.searchResult && window.__APP_INITIAL_STATE__.searchResult.searchData) ? window.__APP_INITIAL_STATE__.searchResult.searchData.products : {};
+    } else {
       productInfo = await fetchItems();
+
+      if (Object.keys(productInfo).length === 0 && productNotFound === false) {
+        productInfo = await fetchItems();
+      }
     }
 
     const productCards = document.getElementsByClassName('wag-product-card-details');
