@@ -1,0 +1,101 @@
+input:
+  _url: https://otto.de
+  URL: https://www.otto.de/p/reebok-classic-daytona-dmx-sneaker-781144301/
+extractions:
+  - html: https://workbench.import.io/html/run=1818df2c-9ade-4542-826c-b491755de492/task=141cf380-a0cc-45e5-9efc-16fde732c799/4fd485b2-8ee4-4788-9f2f-2a7fd13d4145.html
+    extractionConfigId: product/details/stores/o/otto/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://i.otto.de/i/otto/34162290/reebok-classic-daytona-dmx-sneaker-palpnk-luxmar-smoros.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: Reebok Classic »DAYTONA DMX« Sneaker, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://i.otto.de/i/otto/34162290?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162463?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162299?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162233?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162624?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162158?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162471?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+              - text: https://i.otto.de/i/otto/34162337?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[8]/img[1]/@src
+              - text: https://i.otto.de/i/otto/32036549?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/img[1]/@src
+            category:
+              - text: Schuhe
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Reebok Classic »DAYTONA DMX« Sneaker (781144301)
+                xpath: /html/body/div[12]
+            listPrice:
+              - text: 119,99
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: "69.99"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]/@content
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[7]
+            description:
+              - text: Article no. undefined Sportlicher Dad Sneaker von Reebok Atmungsaktives
+                  Obermaterial aus Textil und Synthetik Chunky Sneaker
+                  Gummilaufsohle Dämpfendes DMX Element in der Ferse Weich
+                  gepolstert Der sportliche Sneaker »Daytona DMX« von Reebok
+                  Classic zieht die Blicke mit seiner klobigen Gummilaufsohle im
+                  angesagten Chunky Sneaker-Style auf sich. Ein weiteres
+                  Highlight des Freizeitschuhs, der im Design an einen Laufschuh
+                  der 90er-Jahre erinnert, sind die farbigen Streifen aus
+                  Synthetikmaterial an der Seite. Eine Fersenlasche sowie die
+                  weiche Polsterung des Turnschuhs sorgen für einen bequemen
+                  Einstieg, das dämpfende DMX-Element in der Ferse federt deine
+                  Schritte auf dem Asphalt ab. Modemutige kombinieren den
+                  stylischen Joggingschuh mit einer Radlerhose und einem Hoodie.
+                  Auffallen ist jedenfalls garantiert mit dem coolen Sneaker
+                  »Daytona DMX« von Reebok Classic.
+                xpath: /html/body/div[10]
+            brandText:
+              - text: Reebok Classic
+                xpath: /html/body/div[9]
+            quantity:
+              - text: "38"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[3]/div[1]/span[1]
+            gtin:
+              - text: "4061624534650"
+                xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
+            sku:
+              - text: "781144301"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "18"
+                xpath: /html/body/div[11]
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+            name:
+              - text: Reebok Classic »DAYTONA DMX« Sneaker
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[1]/div[1]/div[2]/h1[1]
+            promotion:
+              - text: -42%
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[2]
+            variantInformation:
+              - text: "38"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[3]/div[1]/span[1]
+            descriptionBullets:
+              - text: "5"
+            secondaryImageTotal:
+              - text: "9"
+        xpath: /
+    timestamp: 1592564813303

@@ -1,0 +1,99 @@
+input:
+  _url: https://otto.de
+  URL: https://www.otto.de/p/adidas-performance-alphabounce-rc-2-w-sneaker-702146348/
+extractions:
+  - html: https://workbench.import.io/html/run=1818df2c-9ade-4542-826c-b491755de492/task=4e133185-a009-436a-a91d-6970d3bcc5ea/77978c58-fa13-4ebe-918e-2201c04e6daf.html
+    extractionConfigId: product/details/stores/o/otto/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://i.otto.de/i/otto/29378667/adidas-performance-alphabounce-rc-2-w-sneaker-core-black.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: adidas Performance »Alphabounce RC 2 W« Sneaker, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://i.otto.de/i/otto/29378667?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29380501?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29380095?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29379350?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29378671?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29379458?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29380378?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+            category:
+              - text: Schuhe
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: adidas Performance »Alphabounce RC 2 W« Sneaker (702146348)
+                xpath: /html/body/div[12]
+            listPrice:
+              - text: 79,99
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: "41.49"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]/@content
+            availabilityText:
+              - text: leider ausverkauft
+                xpath: /html/body/div[7]
+            description:
+              - text: "Article no. undefined Modischer Sneaker von adidas Atmungsaktives
+                  Meshobermaterial Bounce-Zwischensohle für eine gute Dämpfung
+                  Rutschhemmende Gummilaufsohle Sportlich gut kombinierbar
+                  Stylisch, bequem, unkompliziert: Das ist der Sneaker
+                  »Alphabounce RC 2 W« von adidas Performance! Der Freizeitschuh
+                  ist schon auf den ersten Blick ein absoluter Eyecatcher, hat
+                  aber auch in Sachen Funktionalität so einiges auf dem Kasten.
+                  So bietet er dir mit seinem atmungsaktiven Mesh-Obermaterial
+                  und der dämpfenden Bounce-Zwischensohle einen tollen
+                  Tragekomfort. Die rutschhemmende Gummilaufsohle sorgt
+                  gleichzeitig dafür, dass du auch auf nassem Untergrund guten
+                  Halt findest. Obendrein ist die versetzte Schnürung ein cooles
+                  Detail, das den unverwechselbaren Look des Sportschuhs
+                  ausmacht. Wenn du auf der Suche nach einem komfortablen Schuh
+                  bist, der deine Styles aus Jeans und Hoodie noch ein bisschen
+                  lässiger macht, dann bist du bei dem Sneaker »Alphabounce RC 2
+                  W« von adidas Performance definitiv an der richtigen Adresse!"
+                xpath: /html/body/div[10]
+            brandText:
+              - text: adidas Performance
+                xpath: /html/body/div[9]
+            quantity:
+              - text: 44,5
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[3]/div[1]/span[1]
+            gtin:
+              - text: "4060509346265"
+                xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
+            sku:
+              - text: "702146348"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "22"
+                xpath: /html/body/div[11]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+            name:
+              - text: adidas Performance »Alphabounce RC 2 W« Sneaker
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[1]/div[1]/div[2]/h1[1]
+            promotion:
+              - text: -48%
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[2]
+            variantInformation:
+              - text: 44,5
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[3]/div[1]/span[1]
+            descriptionBullets:
+              - text: "5"
+            secondaryImageTotal:
+              - text: "7"
+        xpath: /
+    timestamp: 1592564808790

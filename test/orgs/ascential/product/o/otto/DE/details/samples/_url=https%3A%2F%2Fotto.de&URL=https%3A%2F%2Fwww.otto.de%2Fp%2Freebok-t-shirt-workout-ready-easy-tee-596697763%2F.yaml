@@ -1,0 +1,95 @@
+input:
+  _url: https://otto.de
+  URL: https://www.otto.de/p/reebok-t-shirt-workout-ready-easy-tee-596697763/
+extractions:
+  - html: https://workbench.import.io/html/run=1818df2c-9ade-4542-826c-b491755de492/task=62d75e34-fa70-4478-980b-22410edd5c2d/ea818566-1e66-42eb-8330-91f2d3656c04.html
+    extractionConfigId: product/details/stores/o/otto/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://i.otto.de/i/otto/19902739/reebok-t-shirt-workout-ready-easy-tee-pfirsich-meliert.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: Reebok T-Shirt »WORKOUT READY EASY TEE«, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://i.otto.de/i/otto/19902739?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://i.otto.de/i/otto/19902740?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://i.otto.de/i/otto/19902741?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://i.otto.de/i/otto/19902744?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://i.otto.de/i/otto/19902743?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+            category:
+              - text: Sport
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Reebok T-Shirt »WORKOUT READY EASY TEE« (596697763)
+                xpath: /html/body/div[12]
+            listPrice:
+              - text: 29,95
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: "13.49"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[2]/span[1]/span[2]/@content
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[7]
+            description:
+              - text: "Article no. undefined T-Shirt von Reebok Musterdruck Modisch kurz und
+                  weit geschnitten Sportlich gut kombinierbar So cool kann
+                  Sportmode aussehen! Das T-Shirt von Reebok liegt durch den
+                  kurzen, lockeren Schnitt und den großen Print voll im Trend.
+                  Neben der Optik überzeugt aber auch das Tragegefühl des
+                  Sportshirts: Die überschnittenen Schultern und der glatte
+                  Jersey sorgen für einen hohen Komfort. Das Printshirt kann
+                  sowohl zu kurzen als auch zu langen Sporthosen kombiniert
+                  werden. Fans eines entspannten Freizeit-Looks können es aber
+                  auch im Alltag mit Jeans und Sneakern tragen. Wie man es auch
+                  stylt, das T-Shirt von Reebok ist ein Hingucker mit
+                  Wohlfühlfaktor."
+                xpath: /html/body/div[10]
+            brandText:
+              - text: Reebok
+                xpath: /html/body/div[9]
+            quantity:
+              - text: XL (46/48)
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[3]/div[1]/span[1]
+            gtin:
+              - text: "4058024361993"
+                xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
+            sku:
+              - text: "596697763"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "10"
+                xpath: /html/body/div[11]
+            ratingCount:
+              - text: "40"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+            color:
+              - text: pfirsich-meliert
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/@title
+            name:
+              - text: Reebok T-Shirt »WORKOUT READY EASY TEE«
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[1]/div[1]/div[2]/h1[1]
+            promotion:
+              - text: -55%
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[2]
+            variantInformation:
+              - text: pfirsich-meliert
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/@title
+              - text: XL (46/48)
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[3]/div[1]/span[1]
+            descriptionBullets:
+              - text: "4"
+            secondaryImageTotal:
+              - text: "5"
+        xpath: /
+    timestamp: 1592564810148

@@ -1,0 +1,103 @@
+input:
+  _url: https://otto.de
+  URL: https://www.otto.de/p/reebok-classic-club-c-m-sneaker-645371272/
+extractions:
+  - html: https://workbench.import.io/html/run=1818df2c-9ade-4542-826c-b491755de492/task=f52505a7-be2a-44df-916f-1c72afc41d5b/66ce0c26-bb4d-41c2-82fc-5b6be148e90b.html
+    extractionConfigId: product/details/stores/o/otto/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://i.otto.de/i/otto/29574976/reebok-classic-club-c-85-w-sneaker-white-true-grey.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: Reebok Classic »Club C 85 W« Sneaker, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://i.otto.de/i/otto/29574976?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29573584?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29573587?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29574231?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29574490?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29575014?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
+              - text: https://i.otto.de/i/otto/29575809?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+            category:
+              - text: Schuhe
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Reebok Classic »Club C 85 W« Sneaker (747811210)
+                xpath: /html/body/div[12]
+            listPrice:
+              - text: 99,99
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: "48.49"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[2]/span[1]/span[2]/@content
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[7]
+            description:
+              - text: Article no. undefined Modischer Sneaker von Reebok Atmungsaktives und
+                  weiches Obermaterial aus Leder Gepolsterter Einstieg für mehr
+                  Tragekomfort Strapazierfähige Gummilaufsohle Sportlich gut
+                  kombinierbar Vielseitig kombinierbar ist der Sneaker »Club C
+                  85 W« von Reebok Classic mit schimmernden Details. Er zeichnet
+                  sich durch seinen modernen Look aus, der zu verschiedensten
+                  Styles passt. Für einen Hingucker sorgt die glänzende
+                  Applikation im Fersenbereich, die Lichtreflexe spiegelt. Mit
+                  seinem gepolsterten Einstieg ermöglicht der Schuh ein bequemes
+                  Tragen. Unterstützt wird der Komfort durch das weiche
+                  Obermaterial aus Leder. Für ein angenehmes Laufgefühl ist der
+                  Freizeitschuh mit einer dämpfenden EVA-Zwischensohle
+                  ausgestattet. Einen sicheren Halt bietet die rutschfeste
+                  Außensohle aus Gummi. Der Sneaker »Club C 85 W« von Reebok
+                  Classic mit schimmernden Details harmoniert mit lässigen
+                  Outfits, Casual-Styles und sportlichen Looks.
+                xpath: /html/body/div[10]
+            brandText:
+              - text: Reebok Classic
+                xpath: /html/body/div[9]
+            quantity:
+              - text: "36"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[3]/div[1]/span[1]
+            gtin:
+              - text: "4061617760332"
+                xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
+            sku:
+              - text: "747811210"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "18"
+                xpath: /html/body/div[11]
+            ratingCount:
+              - text: "15"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[2]/span[1]/@content
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/div[7]/section[1]/div[1]/div[1]/a[1]/span[1]/@content
+            color:
+              - text: WHITE/TRUE GREY
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/@title
+            name:
+              - text: Reebok Classic »Club C 85 W« Sneaker
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[1]/div[1]/div[2]/h1[1]
+            promotion:
+              - text: -52%
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[2]
+            variantInformation:
+              - text: WHITE/TRUE GREY
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/@title
+              - text: "36"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[3]/div[1]/span[1]
+            descriptionBullets:
+              - text: "5"
+            secondaryImageTotal:
+              - text: "7"
+        xpath: /
+    timestamp: 1592564811597

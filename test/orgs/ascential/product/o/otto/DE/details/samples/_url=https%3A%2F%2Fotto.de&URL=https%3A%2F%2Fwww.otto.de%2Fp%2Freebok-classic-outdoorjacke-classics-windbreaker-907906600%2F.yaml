@@ -1,0 +1,71 @@
+input:
+  _url: https://otto.de
+  URL: https://www.otto.de/p/reebok-classic-outdoorjacke-classics-windbreaker-907906600/
+extractions:
+  - html: https://workbench.import.io/html/run=1818df2c-9ade-4542-826c-b491755de492/task=8ab57f75-a34f-44c5-b9ef-3571a3dd5342/ef2f9148-c3ff-41f1-82c8-5cf84600472b.html
+    extractionConfigId: product/details/stores/o/otto/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://i.otto.de/i/otto/2cb2578a-73b5-5946-bf3a-0bfb4704cd9a/reebok-classic-outdoorjacke-classics-windbreaker.jpg?$formatz$
+                xpath: /html/head[1]/meta[13]/@content
+            imageAlt:
+              - text: Reebok Classic Outdoorjacke »Classics Windbreaker«, Bild 1
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://i.otto.de/i/otto/2cb2578a-73b5-5946-bf3a-0bfb4704cd9a?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://i.otto.de/i/otto/d0bc0b12-c912-5a63-9b16-8784183e8fca?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://i.otto.de/i/otto/717573ce-07b7-59ea-b24c-e42bd4a77e27?$001PICT36$
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+            category:
+              - text: Sport
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Reebok Classic Outdoorjacke »Classics Windbreaker« (907906600)
+                xpath: /html/body/div[12]
+            price:
+              - text: "74.95"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]/@content
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[7]
+            description:
+              - text: Article no. undefined Einfach gewebtes Material aus 100 % Polyester
+                  Lockere Passform Extragroße Kapuze, die dich gut bedeckt hält
+                  Stretchbündchen und -bund für einen eng anliegenden Sitz
+                  Seitliche Taschen Moderne Neuauflage eines schlichten
+                  Classics. Diese Frauen-Windjacke ziert ein farblich
+                  abgestimmter Monogramm-Print auf der unteren Hälfte für
+                  stylishes Understatement. Die lockere Passform erleichtert das
+                  Anziehen über voluminöse Kleidung, während das Nylon-Material
+                  mit Knitteroptik für einen texturierten Look sorgt.
+                xpath: /html/body/div[10]
+            brandText:
+              - text: Reebok Classic
+                xpath: /html/body/div[9]
+            quantity:
+              - text: XS
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            gtin:
+              - text: "4061626133349"
+                xpath: /html/body/div[3]/div[1]/div[1]/meta[1]/@content
+            sku:
+              - text: "907906600"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "6"
+                xpath: /html/body/div[11]
+            name:
+              - text: Reebok Classic Outdoorjacke »Classics Windbreaker«
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[1]/div[1]/div[2]/h1[1]
+            variantInformation:
+              - text: XS
+                xpath: /html/body/div[3]/div[1]/div[1]/div[5]/section[2]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            descriptionBullets:
+              - text: "5"
+            secondaryImageTotal:
+              - text: "3"
+        xpath: /
+    timestamp: 1592564807550

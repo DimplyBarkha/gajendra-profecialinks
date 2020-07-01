@@ -1,0 +1,113 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: url
+    singleValue: true
+    xpath: //meta[@property='og:url']
+  - name: image
+    singleValue: true
+    xpath: //meta[@property='og:image']/@content
+  - name: imageAlt
+    singleValue: true
+    xpath: //ul[@id='js_prd_verticalImageControlThumbnailList']/li[1]/img/@alt 
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@id='js_prd_verticalImageControlThumbnailList']/li/img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='description']
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='nav_breadcrumb']/li[2]/a
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@id='ot_nameExtended'] 
+  - name: listPrice
+    xpath: //*[@id="oldPriceAmount"]
+    singleValue: true
+  - name: price
+    xpath: //*[@id='reducedPriceAmount']/@content | //span[@id="normalPriceAmount"]/@content | //span[@id='normalPriceAmount']/@content
+    singleValue: true
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id='ot_availabilityText'] 
+  - name: description
+    singleValue: false
+    xpath: //div[@id='ot_description'] 
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//ul[@class='prd_unorderedList']/li)
+  - name: brandText
+    xpath: //div[@id='ot_brand']
+    singleValue: true
+  - name: manufacturer
+    singleValue: true
+  - name: quantity
+    singleValue: true
+    xpath: //div[@id="dimensions"]//div[contains(@class,'js_prd_size')]//span[@class='prd_selectedValue']
+  - name: weightNet
+    singleValue: true
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: true
+    xpath: //meta[contains(@itemprop,'gtin')]/@content
+  - name: sku
+    singleValue: true
+    xpath:  //div[@id='ot_sku']
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id='ot_variantID']
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+  - name: legalDisclaimer
+    singleValue: true
+  - name: directions
+    singleValue: true
+  - name: warnings
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[@itemprop="ratingValue"]/@content
+  - name: shippingInfo
+    singleValue: true
+  - name: shippingDimensions
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: variantCount
+    singleValue: true
+  - name: color
+    singleValue: true
+    xpath: //div[contains(@class,'prd_color ')]//li[contains(@class,'p_selected')]/@title
+  - name: colorCode
+    singleValue: true
+    xpath: //div[@id="ot_colorcode"]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="ot_manufacturerDescription"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="ot_manfacturerImages"]/img/@src
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='ot_video'] 
+  - name: name
+    singleValue: true
+    xpath: //div[@class="prd_shortInfo__text"]/h1
+  - name: promotion
+    singleValue: true
+    xpath: //span[@id='priceAdvantageAmount'] 
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//ul[@id='js_prd_verticalImageControlThumbnailList']/li/img/@src)
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'prd_color ')]//li[contains(@class,'p_selected')]/@title | //div[@id="dimensions"]//div[contains(@class,'js_prd_size')]//span[@class='prd_selectedValue']
