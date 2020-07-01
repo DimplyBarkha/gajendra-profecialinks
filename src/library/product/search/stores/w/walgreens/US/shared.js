@@ -13,7 +13,7 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   const state = context.getState();
@@ -22,7 +22,7 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (row.id && productCodes.indexOf(row.id[0].text) === -1) {
+      if (row.id && productCodes.indexOf(row.id[0].text) == -1) {
         productCodes.push(row.id[0].text);
         rankCounter = rankCounter + 1;
         if (!row.sponsored) {
@@ -32,7 +32,7 @@ const transform = (data, context) => {
         row.rank = [{ text: rankCounter }];
       } else {
         console.log(`${row.id[0].text} : ${row.name[0].text}`);
-        row.id = [];
+        row.id = [{ text: '' }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
