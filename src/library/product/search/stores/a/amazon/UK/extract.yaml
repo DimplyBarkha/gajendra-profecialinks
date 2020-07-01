@@ -86,8 +86,9 @@ fields:
     type: NUMBER
   - name: sponsored
     singleValue: true
-    xpath: //div[@class="a-row a-spacing-micro"]//span[text() = "Sponsored"]
+    xpath: //span[@class='s-label-popover-default']/span[text() = "Sponsored"]
     description: Is sponsored/paid
+    defaultValue: false
     type: BOOLEAN
   - name: id
     singleValue: true
