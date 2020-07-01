@@ -11,5 +11,6 @@ module.exports = {
     noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "No results")]',
     openSearchDefinition: null,
     domain: 'amazon.co.uk',
+    zipcode: 'SW1P 3EU',
   },
 };

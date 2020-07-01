@@ -6,5 +6,6 @@ module.exports = {
     timeout: null,
     country: 'UK',
     store: 'amazon',
+    zipcode: 'SW1P 3EU',
   },
 };
