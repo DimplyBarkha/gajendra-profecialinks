@@ -49,7 +49,7 @@ const transform = (data, context) => {
             row.alternateImages.forEach(image => {
               images.push(image.text)
             })
-            row.alternateImages = [{ text: images.join(' | ') }];
+            row.alternateImages = [{ text: images.join(' | ').trim().replace(/\| \|/g, '|') }];
           }else{
             row.alternateImages = [{ text: '' }];
           }
@@ -63,7 +63,7 @@ const transform = (data, context) => {
               let regex2 = /(https.+mp4)/s
               videos.push(item.match(regex2)[0])
             })
-            row.videos = [{ text: videos.join(' | ') }];
+            row.videos = [{ text: videos.join(' | ').trim().replace(/\| \|/g, '|') }];
           }else{
             row.videos = [{ text: '' }];
           }
@@ -77,7 +77,7 @@ const transform = (data, context) => {
               let regex2 = /([0-9\:]{3,})/s
               videos.push(item.match(regex2)[0])
             })
-            row.videoLength = [{ text: videos.join(' | ') }];
+            row.videoLength = [{ text: videos.join(' | ').trim().replace(/\| \|/g, '|') }];
           }else{
             row.videoLength = [{ text: '' }];
           }
@@ -100,7 +100,7 @@ const transform = (data, context) => {
           const dedupeAsins = [...new Set(asins)];
           row.variantAsins = [
             {
-              text: dedupeAsins.join(' | ')
+              text: dedupeAsins.join(' | ').trim().replace(/\| \|/g, '|')
             }
           ];
         }
@@ -170,7 +170,7 @@ const transform = (data, context) => {
           });
           row.manufacturerDescription = [
             {
-              text: description.join(' ')
+              text: description.join(' ').trim()
             }
           ];
         }
@@ -186,7 +186,7 @@ const transform = (data, context) => {
           row.description.forEach(item => {
             text.push(item.text);
           })
-          row.description = [{text: text.join(' || ').trim()}]
+          row.description = [{text: text.join(' || ').trim().replace(/\|\| \|/g, '|')}]
         }
         if (row.amazonChoice) {
           if (row.amazonChoice[0].text.includes('Amazon')) {
@@ -210,7 +210,7 @@ const transform = (data, context) => {
           });
           row.specifications = [
             {
-              text: text.join(' || '),
+              text: text.join(' || ').trim().replace(/\|\| \|/g, '|'),
             },
           ];
         }
@@ -222,7 +222,7 @@ const transform = (data, context) => {
           if(text.length>0){
             row.productOtherInformation = [
               {
-                text: text.join(' | ')
+                text: text.join(' | ').trim().replace(/\| \|/g, '|')
               }
             ]
           }
@@ -230,12 +230,12 @@ const transform = (data, context) => {
         if (row.additionalDescBulletInfo) {
           let text = ['']
           row.additionalDescBulletInfo.forEach(item => {
-            text.push(item.text)
+            if(item.text.length > 0){text.push(item.text)}
           })
           if(text.length>0){
             row.additionalDescBulletInfo = [
               {
-                text: text.join(' || ').trim()
+                text: text.join(' || ').trim().replace(/\|\| \|/g, '|')
               }
             ]
           }
@@ -248,6 +248,13 @@ const transform = (data, context) => {
               item.text = 'NO';
             }
           });
+        }
+        if (row.availabilityText) {
+          row.availabilityText = [
+            {
+              text: row.availabilityText[0].text.replace(/\./g,'').trim()
+            }
+          ]
         }
         if (row.otherSellersShipping2) {
           row.otherSellersShipping2.forEach(item => {
@@ -268,7 +275,7 @@ const transform = (data, context) => {
           });
           row.featureBullets = [
             {
-              text: text.join(' || '),
+              text: text.join(' || ').trim().replace(/\|\| \|/g, '|'),
             },
           ];
         }
