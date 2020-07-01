@@ -85,10 +85,10 @@ fields:
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     xpath: //span[@class='s-label-popover-default']/span[text() = "Sponsored"]
     description: Is sponsored/paid
-    defaultValue: false
+    # defaultValue: false
     type: BOOLEAN
   - name: id
     singleValue: true
