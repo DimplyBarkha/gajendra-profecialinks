@@ -31,7 +31,7 @@ module.exports = {
     await context.click(linkURL)
     // await context.goto(linkURL);
 
-    await new Promise(resolve => setTimeout(resolve, 60000));
+    await new Promise(resolve => setTimeout(resolve, 25000));
 
     await context.evaluate(function () {
 
@@ -81,16 +81,18 @@ module.exports = {
     async function variantClick() {
       let btns = await collectButtons();
       const waitSelector = 'div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)';
+      const waitFor = 'div.css-1dbjc4n.r-16lk18l.r-11c0sde.r-1xi2sqm'
       let i = 0;
       let j = 0;
 
       if(btns[0].length){
         while(i < btns[0].length && i < 100) {
+          await context.waitForSelector(waitFor, { timeout: 20000 });
           context.click(btns[0][i]);
           context.click(btns[0][i]);
 
           await new Promise(resolve => setTimeout(resolve, 15000));
-          await context.waitForSelector(waitSelector, { timeout: 20000 });
+          // await context.waitForMutation(waitSelector, { timeout: 20000 });
 
 
           if(btns[1].length && j < 100){
@@ -101,7 +103,7 @@ module.exports = {
                 context.click(btns[1][j]);
 
                 await new Promise(resolve => setTimeout(resolve, 15000));
-                await context.waitForSelector(waitSelector, { timeout: 20000 });
+                // await context.waitForMutation(waitSelector, { timeout: 20000 });
                 await getVariantIdNum();
                 await collectVariantInfo();
               }
@@ -179,11 +181,13 @@ module.exports = {
     async function collectButtons() {
       const moreCheck = await context.evaluate(function() {
         let selectorCheck = document.querySelector('div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48');
+        
         if(selectorCheck) {
           return true;
         } else {
           return false;
         }
+
       });
       const moreSelector = 'div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48';
       if(moreCheck){
@@ -191,13 +195,14 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 10000));
       }
 
+
       return await context.evaluate(function() {
         let flag = false;
         const selectors = [[],[]];
         let i = 1;
         while(!flag && i < 39) {
-          const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`;
-          const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`;
+          const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
+          const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           if(document.querySelector(firstVar)){
             selectors[0].push(firstVar);
           }
@@ -247,7 +252,7 @@ module.exports = {
           }
         }
       const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-      const variantImage = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz div.css-1dbjc4n.r-1pi2tsx img');
+      // const variantImage = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz div.css-1dbjc4n.r-1pi2tsx img');
       const variantPrice = document.querySelector('div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q');
       const variantRating = document.querySelector('div.css-1dbjc4n div.css-901oao.r-1enofrn.r-b88u0q.r-m2pi6t');
       const variantReview = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz a');
@@ -400,14 +405,25 @@ module.exports = {
       }
       new Promise(resolve => setTimeout(resolve, 1000));
 
-      if(variantImage){
-        addHiddenDiv('ii_variantImage', `${variantImage[0].src}`);
-      }
-      if(variantImage){
-        if(variantImage[1]){
-          addHiddenDiv('ii_variantImageAlt', `${variantImage[1].src}`);
+      if(variantAlternateImages) {
+        var element = document.evaluate( variantAlternateImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if( element.snapshotLength > 0 ) {
+          addHiddenDiv('ii_variantImage', `${element.snapshotItem(0).textContent}`);
+        } 
+        if(element.snapshotLength > 1) {
+          // debugger
+          addHiddenDiv('ii_variantImageAlt', `${element.snapshotItem(1).textContent}`);
         }
       }
+
+      // if(variantImage){
+      //   addHiddenDiv('ii_variantImage', `${variantImage[0].src}`);
+      // }
+      // if(variantImage){
+      //   if(variantImage[1]){
+      //     addHiddenDiv('ii_variantImageAlt', `${variantImage[1].src}`);
+      //   }
+      // }
       new Promise(resolve => setTimeout(resolve, 1000));
 
       if(variantRating){

@@ -52,7 +52,8 @@ fields:
     singleValue: true
   - name: secondaryImageTotal
     # singleValue: true
-    xpath: count((ancestor::html//div[contains(@id, 'zoom-carousel')]//img)/@src)
+    # xpath: count((ancestor::html//div[contains(@id, 'zoom-carousel')]//img)/@src)
+    xpath: count((ancestor::html//div[contains(@id, "zoom-carousel")]//img)/@src[contains(., "https")])
   - name: productOtherInformation
     xpath: //div[@id='ii_manufDesc']
     # singleValue: false
