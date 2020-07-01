@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //img[@class="bop-gallery__image"]//@src
+    xpath: //div[contains(@class,'gallery__item')][1]/img[@class="bop-gallery__image"][1]//@src
     regExp: (.+)
     regExpReplace: https://groceries.morrisons.com/$1
   - name: productUrl
@@ -35,7 +35,7 @@ fields:
   - name: manufacturer
     xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,"Manufacturer")]//../div[contains(@class,"bop-info__content")])
   - name: quantity
-    xpath: //select[@name="Size"]//option[position()>1]
+    xpath: //span[contains(@class,'catchWeight')]
   - name: storage
     xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Storage')]/../div)
   - name: countryOfOrigin
@@ -152,6 +152,8 @@ fields:
     xpath: //h6[contains(.,'Other Information')]/..//div[@class='bop-info__content'][contains(.,'Warning:')]
   - name: alternateImages
     xpath: //div/div[contains(@class,"bop-gallery__itemImage")][position()>1]//img//@src
+    regExp: (.+)
+    regExpReplace: https://groceries.morrisons.com/$1
   - name: ratingCount
     defaultValue: "0"
     xpath: //div[@id="customerReviews"]/h4
@@ -161,4 +163,11 @@ fields:
     xpath: //span[@itemprop="ratingValue"]
   - name: shippingInfo
     xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]//h6[contains(.,'Return')]/../div)
+  - name: pricePerUnit
+    xpath: //span[contains(@class,'price__per')]
+    regExp: (.+)(\sper.+)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //span[contains(@class,'price__per')]
+    regExp: kg|g|ml|litre
   
