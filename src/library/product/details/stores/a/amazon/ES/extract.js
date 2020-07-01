@@ -7,5 +7,6 @@ module.exports = {
     store: 'amazon',
     transform,
     domain: 'amazon.es',
+    zipcode: '28010',
   },
 };
