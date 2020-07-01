@@ -5,8 +5,9 @@ module.exports = {
     domain: 'amazon.fr',
     country: 'FR',
     store: 'amazon',
+    zipcode: '75019',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -192,6 +193,9 @@ module.exports = {
         document.head.appendChild(javascriptElt);
         // js_enabled
       }, [captchas, Date.now() - start, hasCaptcha]);
+      if (zipcode) {
+        await dependencies.setZipCode({ url: url, zipcode: zipcode });
+      }
     }
   },
 };

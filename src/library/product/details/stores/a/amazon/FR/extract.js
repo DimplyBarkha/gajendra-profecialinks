@@ -8,5 +8,6 @@ module.exports = {
     store: 'amazon',
     transform,
     domain: 'amazon.fr',
+    zipcode: '75019',
   },
 };

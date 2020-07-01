@@ -262,7 +262,7 @@ fields:
     xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
   - name: imageZoomFeaturePresent
     singleValue: false
-    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    xpath: //span[@id="canvasCaption" and contains(text(), "Roll over")]
   - name: asin
     singleValue: false
     xpath: (//input[contains(@id,"Asin") or contains(@id,"ASIN")][1]/@value|(//*[@data-asin])[1]/@data-asin)[1]

@@ -5,7 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'amazon',
     domain: 'amazon.fr',
-    loadedSelector: null,
+    loadedSelector: 'div[id="centerCol"]',
     noResultsXPath: null,
+    zipcode: '75019',
   },
 };
