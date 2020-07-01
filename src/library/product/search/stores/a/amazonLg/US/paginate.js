@@ -7,5 +7,6 @@ module.exports = {
     nextLinkSelector: 'ul.a-pagination > li.a-last a',
     loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
     domain: 'amazon.com',
+    zipcode: '',
   },
 };

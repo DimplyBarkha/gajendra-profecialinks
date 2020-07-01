@@ -6,9 +6,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //@data-asin
-  - name: pageTimestamp
-    singleValue: false
-    xpath: //div[@id='ii_pageTimestamp']
   - name: name
     singleValue: false
     xpath: //h2
@@ -17,9 +14,6 @@ fields:
     xpath: //h2/a/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.com$1
-  - name: url
-    singleValue: false
-    xpath: //div[@id="ii_url"]
   - name: thumbnail
     singleValue: false
     xpath: //span[@data-component-type="s-product-image"]/a/div/img/@src
