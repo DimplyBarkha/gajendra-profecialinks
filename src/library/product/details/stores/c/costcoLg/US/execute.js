@@ -5,7 +5,5 @@ module.exports = {
     country: 'US',
     store: 'costcoLg',
     domain: 'costco.com',
-    loadedSelector: null,
-    noResultsXPath: null,
   },
 };
