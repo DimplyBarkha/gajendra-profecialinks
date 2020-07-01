@@ -3,6 +3,12 @@ parameters:
   country: US
   domain: cvs.com
   store: cvs
+  zipcode: ""
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+  policy:
+  retryWithResidentialProxyAfter: 1
 meta:
   branches:
     test:

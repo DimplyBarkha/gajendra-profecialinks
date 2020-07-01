@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='css-1dbjc4n']//div[contains(@class,'r-1pi2tsx')]//a
+recordXPath: null
 fields:
   - name: id
     singleValue: false
@@ -20,6 +20,10 @@ fields:
     selector: div.css-1dbjc4n.r-1d2f490.r-u8s1d.r-s5r7i3.r-uejdgs div[dir="auto"]
   - name: name
     singleValue: false
+    # xpath: //pre
+    # regExp: ("p_Sku_ShortName":"[^"]+")
+    # regExpReplace: >- 
+    #   $2
     xpath: (.//div[@class='css-901oao css-cens5h r-1khnkhu r-1jn44m2 r-ubezar r-29m4ib r-rjixqe r-kc8jnq r-fdjqy7 r-13qz1uu'])[1]
   - name: productUrl
     singleValue: false
@@ -33,7 +37,7 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: (.//div[@class="css-1dbjc4n r-1mlwlqe r-1ldr0hp r-dnmrzs r-1udh08x r-417010"]//img/@src)[1]
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: (//div[@class='css-1dbjc4n r-18u37iz r-zl2h9q']//div/@aria-label)[1]
     regExp: >- 
@@ -51,7 +55,7 @@ fields:
     xpath: (.//div[@class='css-901oao r-zdkpiq r-1jn44m2 r-1enofrn r-1f529hi r-cnkkqs r-xd6kpl r-s1qlax r-glunga'])[1]
   - name: soldBy
     singleValue: false
-    defaultValue: CVS
+    defaultValue: cvs
   - name: endorsementText
     singleValue: false
     xpath: (.//span[@class='css-901oao css-16my406 r-1jn44m2 r-1b6yd1w r-1hfyk0a'])[1]
