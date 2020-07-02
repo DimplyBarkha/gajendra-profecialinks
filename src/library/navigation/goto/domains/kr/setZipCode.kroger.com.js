@@ -90,7 +90,7 @@ async function implementation(
         }
       });
       await new Promise((resolve, reject) => setTimeout(resolve, 2e3));
-      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+      await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
 }
 
 module.exports = {
