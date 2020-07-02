@@ -27,3 +27,7 @@ fields:
   - name: sponsored
     singleValue: false
     xpath: //div[@class="a-row a-spacing-micro"]/span[text() = "Sponsorisé"]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='searchUrl']
+    
