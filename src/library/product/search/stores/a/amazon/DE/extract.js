@@ -40,6 +40,7 @@ module.exports = {
     store: 'amazon',
     transform,
     domain: 'amazon.de',
+    zipcode: '10117',
   },
   implementation,
 };

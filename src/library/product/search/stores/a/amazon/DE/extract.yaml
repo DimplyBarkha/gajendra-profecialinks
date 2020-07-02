@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='a-section a-spacing-medium']
+recordXPath: //div[@data-component-type='s-search-result']
 fields:
   - name: searchUrl
     singleValue: false
@@ -9,6 +9,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.de$1
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class, 'image')]/img/@src
@@ -29,7 +31,7 @@ fields:
     xpath: //span[contains(@aria-label,"Sternen")]/following-sibling::span[1]
   - name: price
     singleValue: false
-    xpath: //span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -41,12 +43,15 @@ fields:
     xpath: //span[contains(@class, "a-badge-label") and @id]
   - name: rank
     singleValue: false
-    xpath: //div[@id='pd_rank']
-    type: NUMBER
+    # xpath: //div[@id='pd_rank']
   - name: rankOrganic
     singleValue: false
-    xpath: //div[@id='pd_rank']
-    type: NUMBER
+    # xpath: //div[@id='pd_rank']
   - name: id
     singleValue: false
     xpath: //div/../@data-asin
+  - name: sponsored
+    singleValue: false
+    xpath: //span[@class='s-label-popover-default']/span[text() = "Sponsored"]
+    description: Is sponsored/paid
+    # defaultValue: false

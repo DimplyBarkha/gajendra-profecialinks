@@ -10,5 +10,6 @@ module.exports = {
     loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
     openSearchDefinition: null,
     domain: 'amazon.de',
+    zipcode: '10117',
   },
 };
