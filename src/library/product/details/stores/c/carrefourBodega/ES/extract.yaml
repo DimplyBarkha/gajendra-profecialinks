@@ -20,7 +20,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[contains(@id,'breadcrumbs')]//li[position()=3]
+    xpath: //div[contains(@id,'breadcrumbs')]//li[position()>=3]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
@@ -53,7 +53,7 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    type: NUMBER
+    # type: NUMBER
   - name: brandText
     singleValue: true
     xpath: //header//p[contains(@class,'name-marca lora')]
@@ -74,14 +74,17 @@ fields:
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
-    xpath: //div[@class='pdp']/button/@data-datalayer
+    singleValue: false
+    xpath: //div[@id='ii_gtin']
+    # selector: #ii_gtin
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
     description: The store-specific product identifier
   - name: variantId
-    singleValue: true
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
@@ -103,14 +106,14 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    type: NUMBER
+    # type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    # type: NUMBER
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -123,7 +126,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    type: NUMBER
+    # type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -201,7 +204,7 @@ fields:
   - name: largeImageCount
     singleValue: true
     description: null
-    type: NUMBER
+    # type: NUMBER
   - name: variantAsins
     singleValue: true
     description: null
@@ -232,7 +235,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    type: NUMBER
+    # type: NUMBER
   - name: news
     singleValue: true
     description: null
@@ -255,7 +258,7 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
+    # type: NUMBER
   - name: caloriesPerServing
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
@@ -264,12 +267,12 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: totalFatPerServing
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
@@ -277,7 +280,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
@@ -285,7 +288,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: transFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Trans Fat content
@@ -293,7 +296,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: true
     description: Unit of Measure Data for Cholesterol content
@@ -301,7 +304,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
@@ -309,7 +312,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
@@ -317,7 +320,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
@@ -325,7 +328,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
@@ -333,7 +336,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
@@ -341,7 +344,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
@@ -349,7 +352,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
@@ -357,7 +360,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
@@ -365,7 +368,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
@@ -376,7 +379,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: magnesiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Magnesium
@@ -384,7 +387,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
