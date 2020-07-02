@@ -45,7 +45,7 @@ fields:
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
   - name: asin
-    singleValue: false
+    singleValue: true
     xpath: //input[contains(@id,"Asin") or contains(@id,"ASIN")][1]/@value|(//*[@data-asin])[1]/@data-asin
   - name: variantId
     singleValue: false
