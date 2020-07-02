@@ -1,90 +1,55 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@data-component-type='s-search-result']
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-  - name: category
+  - name: searchUrl
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
+    xpath: //div[@id='searchUrl']
   - name: productUrl
-    singleValue: true
-    description: The URL for the product details page
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.es$1
   - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
+    singleValue: false
+    xpath: //div[contains(@class, 'image')]/img/@src
   - name: name
-    singleValue: true
-    description: The product name
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
+    singleValue: false
+    xpath: //h2
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
+    singleValue: false
+    xpath: //span[contains(@aria-label,"estrellas")]/@aria-label
   - name: ratingCount
-    singleValue: true
-    description: The number of ratings
+    singleValue: false
+    xpath: //span[contains(@aria-label,"estrellas")]/following-sibling::span[1]
   - name: reviewCount
-    singleValue: true
-    description: The number of reviews
+    singleValue: false
+    xpath: //span[contains(@aria-label,"estrellas")]/following-sibling::span[1]
   - name: price
-    singleValue: true
-    description: The offered price for the product
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
+    singleValue: false
+    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: soldBy
-    singleValue: true
+    singleValue: false
     description: The name of the seller of the item (if available)
   - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
+    singleValue: false
+    xpath: //span[contains(@class, "a-badge-label") and @id]
   - name: rank
-    singleValue: true
-    description: search/listing rank
-    type: NUMBER
+    singleValue: false
   - name: rankOrganic
-    singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
+    singleValue: false
+  - name: id
+    singleValue: false
+    xpath: //div/../@data-asin
   - name: sponsored
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class='s-label-popover-default']/span[text() = "Patrocinado"]
     description: Is sponsored/paid
     type: BOOLEAN
-  - name: id
-    singleValue: true
-    description: Unique id (within this extractor)
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
