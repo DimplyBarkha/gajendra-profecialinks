@@ -17,7 +17,7 @@ async function implementation (
     }
 
     const searchUrl = window.location.href;
-    addHiddenDiv('search-url', searchUrl);
+    addHiddenDiv('searchUrl', searchUrl);
   });
   return await context.extract(productDetails, { transform });
 }
