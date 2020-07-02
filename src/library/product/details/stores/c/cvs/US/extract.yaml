@@ -19,7 +19,6 @@ fields:
     # xpath: ancestor::html//div[@id='ii_image360']
     xpath: boolean(ancestor::html//div[contains(@id, 'wc-360-view-2e50e148')])
   - name: imageZoomFeaturePresent
-    singleValue: true
     # xpath: ancestor::html//div[@id='ii_imageZoom']
     xpath: boolean(ancestor::html//div[contains(@data-class, "zoom-btn")])
   - name: additionalDescBulletInfo
@@ -37,8 +36,8 @@ fields:
     singleValue: true
   - name: firstVariant
     singleValue: true
-    xpath: //div[@id='ii_sku']
-    # regExp: ([0-9])+$
+    xpath: ancestor::html//div[@id='ii_url']
+    regExp: ([0-9])+$
   - name: ingredientImagePresent
     singleValue: true
     defaultValue: false
@@ -53,7 +52,7 @@ fields:
   - name: secondaryImageTotal
     # singleValue: true
     # xpath: count((ancestor::html//div[contains(@id, 'zoom-carousel')]//img)/@src)
-    xpath: count((ancestor::html//div[contains(@id, "zoom-carousel")]//img)/@src[contains(., "https")])
+    xpath: count((ancestor::html//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])[position()>1]/@src)
   - name: productOtherInformation
     xpath: //div[@id='ii_manufDesc']
     # singleValue: false
@@ -86,7 +85,6 @@ fields:
   - name: _pageTimestamp
     singleValue: true
   - name: productUrl
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_url']
   - name: category
     xpath: ancestor::html//nav[@aria-label="breadcrumbs"]/div/div[position()>2]/a
@@ -152,9 +150,9 @@ fields:
   - name: variantId
     singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    xpath: //div[@id='ii_sku']
-    # xpath: ancestor::html//div[@id='ii_url']
-    # regExp: ([0-9])+$
+    # xpath: //div[@id='ii_sku']
+    xpath: ancestor::html//div[@id='ii_url']
+    regExp: ([0-9])+$
   - name: variants
     xpath: ancestor::html//div[@id="ii_variantId"]
     regExp: ^([0-9])+
@@ -183,97 +181,73 @@ fields:
     # xpath: ancestor::html//div[@id='wc-aplus']//img/@src[not (contains(., "syndigo.svg"))]
     xpath: //div[@id='ii_variantManufImages']
   - name: allergyAdvice
-    # singleValue: true
+  
     # xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
     xpath: //div[@id='ii_variantWarnings']
   - name: dietaryFiberPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Dietary Fiber']
     regExp: (^[.0-9]+)
   - name: dietaryFiberPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Dietary Fiber']
     regExp: ([g|mg|]+$)
   - name: totalSugarsPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Sugars']
     regExp: (^[.0-9]+)
   - name: totalSugarsPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Sugars']
     regExp: ([g|mg|]+$)
   - name: proteinPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Protein']
     regExp: (^[.0-9]+)
   - name: proteinPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Protein']
     regExp: ([g|mg|]+$)
   - name: ironPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Iron']
     regExp: (^[.0-9]+)
   - name: ironPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Iron']
     regExp: ([g|mg|]+$)
   - name: saltPerServing
-    singleValue: true
   - name: saltPerServingUom
-    singleValue: true
   - name: totalCarbPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Total Carbohydrate']
     regExp: (^[.0-9]+)
   - name: totalCarbPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Total Carbohydrate']
     regExp: ([g|mg|]+$)
   - name: sodiumPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Sodium']
     regExp: (^[.0-9]+)
   - name: sodiumPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Sodium']
     regExp: ([g|mg|]+$)
   - name: totalFatPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Total Fat']
     regExp: (^[.0-9]+)
   - name: totalFatPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Total Fat']
     regExp: ([g|mg|]+$)
   - name: saturatedFatPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Saturated Fat']
     regExp: (^[.0-9]+)
   - name: saturatedFatPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Saturated Fat']
     regExp: ([g|mg|]+$)
   - name: transFatPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Trans Fat']
     regExp: (^[.0-9]+)
   - name: transFatPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Trans Fat']
     regExp: ([g|mg|]+$)
   - name: caloriesPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Calories']
   - name: caloriesFromFatPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Calories from Fat']
   - name: cholesterolPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Cholesterol']
     regExp: (^[.0-9]+)
   - name: cholesterolPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Cholesterol']
     regExp: ([g|mg|]+$)
   - name: numberOfServingsInPackage
@@ -282,14 +256,13 @@ fields:
     regExp: ([.0-9]+ ((CT)))
     # selector: div[style].css-1dbjc4n.r-18u37iz.r-15d164r > div.css-901oao:nth-of-type(2)
   - name: servingSize
-    singleValue: true
     # selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
     xpath: (ancestor::html//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
     regExp: (^[.0-9]+)
   - name: servingSizeUom
-    singleValue: true
-    selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
-    regExp: ([a-z]+$)
+    xpath: (ancestor::html//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
+    # selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
+    regExp: ([-a-z]+$)
   - name: manufacturerDescription
     singleValue: false
     # selector: div.wc-rich-content-description
@@ -305,7 +278,6 @@ fields:
   - name: coupon
     singleValue: true
   - name: variantCount
-    singleValue: true
     xpath: ancestor::html//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
     regExp: ^[0-9]+
   - name: _input
@@ -323,35 +295,27 @@ fields:
     # xpath: //div[@id='ii_variantRatingText']
     xpath: ancestor::html//div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//section/@aria-label
   - name: vitaminAPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Vitamin A']
     regExp: (^[.0-9]+)
   - name: vitaminAPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Vitamin A']
     regExp: ([g|mg|mcg|IU]+$)
   - name: vitaminCPerServing
-    singleValue: true
     xpath: ancestor::html//div[contains(@id,'ii_Vitamin C')]
     regExp: (^[.0-9]+)
   - name: vitaminCPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[contains(@id,'ii_Vitamin C')]
     regExp: ([g|mg|mcg|IU]+$)
   - name: calciumPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Calcium']
     regExp: (^[.0-9]+)
   - name: calciumPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Calcium']
     regExp: ([g|mg|mcg|IU]+$)
   - name: magnesiumPerServing
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Magnesium']
     regExp: (^[.0-9]+)
   - name: magnesiumPerServingUom
-    singleValue: true
     xpath: ancestor::html//div[@id='ii_Magnesium']
     regExp: ([g|mg|mcg|IU]+$)
   

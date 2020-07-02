@@ -31,7 +31,7 @@ module.exports = {
     await context.click(linkURL)
     // await context.goto(linkURL);
 
-    await new Promise(resolve => setTimeout(resolve, 25000));
+    await new Promise(resolve => setTimeout(resolve, 30000));
 
     await context.evaluate(function () {
 
@@ -87,22 +87,22 @@ module.exports = {
 
       if(btns[0].length){
         while(i < btns[0].length && i < 100) {
-          await context.waitForSelector(waitFor, { timeout: 20000 });
+          // await context.waitForSelector(waitFor, { timeout: 20000 });
           context.click(btns[0][i]);
           context.click(btns[0][i]);
 
-          await new Promise(resolve => setTimeout(resolve, 15000));
+          await new Promise(resolve => setTimeout(resolve, 20000));
           // await context.waitForMutation(waitSelector, { timeout: 20000 });
 
 
           if(btns[1].length && j < 100){
             while(j < btns[1].length && j < 100) {
-              let check = await buttonCheck(btns[1][j] + " div");
+              let check = await buttonCheck(btns[1][j]);
               if(check) {
                 context.click(btns[1][j]);
                 context.click(btns[1][j]);
 
-                await new Promise(resolve => setTimeout(resolve, 15000));
+                await new Promise(resolve => setTimeout(resolve, 20000));
                 // await context.waitForMutation(waitSelector, { timeout: 20000 });
                 await getVariantIdNum();
                 await collectVariantInfo();
@@ -200,7 +200,7 @@ module.exports = {
         let flag = false;
         const selectors = [[],[]];
         let i = 1;
-        while(!flag && i < 39) {
+        while(!flag && i < 35) {
           const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           if(document.querySelector(firstVar)){
@@ -261,19 +261,22 @@ module.exports = {
       const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
       const keyWordAdd = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
       const prodInfoLine = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
-      const manufDesc = document.querySelector('div#wc-power-page > div');
+      // const manufDesc = document.querySelector('div#wc-power-page > div');
+      const manufDesc = '//div[contains(@id, "wc-power-page")]//div[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()'
       const variantDescription = '(//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()'
       const variantDescription2 = '(//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()'
-      const variantWarnings = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Warnings")]//div[@class="htmlView"]'
-      const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Directions")]//div[@class="htmlView"]'
+      const variantWarnings = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Warnings")]//div[@class="htmlView"]//text()'
+      // const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Directions")]//div[@class="htmlView"]'
+      const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Directions")]//div[@class="htmlView"]//text()[not( contains(., "Questions?"))]'
       const variantIngredients = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Ingredients") and not(contains(., "Details"))]//div[@class="htmlView"]'
       const variantADBI1 = '(//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Details")]//div[@class="htmlView"])[1]//li'
       const variantADBI2 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"]/ul/li'
-      const variantAlternateImages = '(//div[contains(@id, "zoom-carousel")]//img)/@src[contains(., "https")]'
+      const variantAlternateImages = '(//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])[position()>1]/@src'
       const variantManufImages = '//div[@id="wc-aplus"]//img/@src[not (contains(., "syndigo.svg"))]'
-      const variantDescriptionBullets = '//div[@class="htmlView"]/ul/li'
+      // const variantDescriptionBullets = '//div[@class="htmlView"]/ul/li'
       const variantVideo = '//img[contains(@class,"wc-iframe")]/@data-asset-url'
       const variantVideo2 = '//img[contains(@class, "wc-video")]/@wcobj'
+      const variantVideo3 = '//div[contains(@class, "wc-iframe")]//@data-src'
       const variantArray = [];
       const packSize = ['Pack: ', 'Group Size: '];
       const packSizeResult = [];
@@ -292,6 +295,14 @@ module.exports = {
         if( element.snapshotLength > 0 ) {
           for(let i = 0; i < element.snapshotLength; i++) {
             addHiddenDiv(`ii_variantIngredients`, `${element.snapshotItem(i).textContent}`);
+          }
+        }
+      }
+      if(manufDesc) {
+        var element = document.evaluate( manufDesc, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if( element.snapshotLength > 0 ) {
+          for(let i = 0; i < element.snapshotLength; i++) {
+            addHiddenDiv(`ii_manufDesc`, `${element.snapshotItem(i).textContent}`);
           }
         }
       }
@@ -319,15 +330,23 @@ module.exports = {
 
       if(variantVideo) {
         var element = document.evaluate( variantVideo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        var element2 = document.evaluate( variantVideo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        var element2 = document.evaluate( variantVideo2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        var element3 = document.evaluate( variantVideo3, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
 
         if( element.snapshotLength > 0 ) {
           for(let i = 0; i < element.snapshotLength; i++) {
             addHiddenDiv(`ii_videoSrc`, `${element.snapshotItem(i).textContent}`);
           }
-        } else if(variantVideo2){
+        } 
+        if(element2.snapshotLength > 0){
           for(let i = 0; i < element2.snapshotLength; i++) {
             addHiddenDiv(`ii_videoSrc`, `${element2.snapshotItem(i).textContent}`);
+          }
+        }
+        if(element3.snapshotLength > 0){
+          for(let i = 0; i < element3.snapshotLength; i++) {
+            addHiddenDiv(`ii_videoSrc`, `${element3.snapshotItem(i).textContent}`);
           }
         }
       }
