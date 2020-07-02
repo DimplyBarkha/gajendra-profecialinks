@@ -33,3 +33,6 @@ fields:
   - name: endorsementText
     singleValue: true
     xpath: //span[contains(@class, "a-badge-label") and @id]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
