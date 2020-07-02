@@ -12,7 +12,7 @@ module.exports = {
   implementation: async (inputs, parameterValues, context, dependencies) => {
     // USING OPT TAGS > anti_fingerprint), to avoid blocking
     // #[!opt!]{"anti_fingerprint":false}[/!opt!]
-    await dependencies.setZipCode({zipcode: inputs.zipcode});
+    await dependencies.setZipCode({ zipcode: inputs.zipcode });
     const url = `${inputs.url}#[!opt!]{"anti_fingerprint":false}[/!opt!]`;
     await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
   },

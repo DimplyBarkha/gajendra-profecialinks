@@ -21,7 +21,6 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-
         if (row.description) {
           let desc = '';
           row.description.forEach(item => {
@@ -32,8 +31,8 @@ const transform = (data, context) => {
               text: desc.replace(/\s\n/g, ' || ').replace(/\n/g, ' ').replace(/([\|\s]{5,}\s*)/g, ' || ').slice(0, -4).trim(),
             },
           ];
-        }        
-        
+        }
+
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }

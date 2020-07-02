@@ -21,6 +21,8 @@ module.exports = {
         console.log('getDataFromAPI');
         let data = {};
         const iioObjects = [];
+        let productInfo = null;
+        let productNotFound = false;
 
         function addHiddenDiv (elementID, content) {
           const newDiv = document.createElement('div');
@@ -35,81 +37,96 @@ module.exports = {
         const url = `https://grocery.walmart.com/v3/api/products/${id}?itemFields=all&storeId=5260`;
         var refURL = window.location.href;
 
-        await new Promise((resolve, reject) => setTimeout(resolve, 20000));
+        async function fetchItems () {
+          const response = await fetch(url, {
+            accept: 'application/json, text/plain, */*',
+            referrer: refURL,
+            referrerPolicy: 'no-referrer-when-downgrade',
+            body: null,
+            method: 'GET',
+            mode: 'cors',
+          });
 
-        const response = await fetch(url, {
-          accept: 'application/json, text/plain, */*',
-          referrer: refURL,
-          referrerPolicy: 'no-referrer-when-downgrade',
-          body: null,
-          method: 'GET',
-          mode: 'cors',
-        });
+          console.log(response);
+          console.log(response.status);
 
-        if (response && response.status === 404) {
-          console.log('Product Not Found!!!!');
+          if (response && response.status === 404) {
+            console.log('Product Not Found!!!!');
+            productNotFound = true;
+          }
+
+          if (response && response.status === 200) {
+            console.log('Product Found!!!!');
+            data = await response.json();
+            productInfo = data;
+            return productInfo;
+          }
+
+          return {};
         }
 
-        if (response && response.status === 200) {
-          console.log('Product Found!!!!');
-          data = await response.json();
-          console.log(data);
+        productInfo = await fetchItems();
 
-          if (data) {
-            console.log('parsing data ...');
+        if (Object.keys(productInfo).length === 0 && productNotFound === false) {
+          productInfo = await fetchItems();
+        }
 
-            const asin = (data.USItemId) ? data.USItemId : '';
-            const sku = (data.sku) ? data.sku : '';
-            const gtin = (data.upc) ? data.upc : '';
-            const variantId = (data.detailed && data.detailed.productCode) ? data.detailed.productCode : '';
-            const brandText = (data.detailed && data.detailed.brand) ? data.detailed.brand : '';
-            const varianceList = (data.variantOffers) ? Object.values(data.variantOffers).map(value => value.productId) : [];
-            const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : ((document.querySelector('img[class^="ProductPage__productImage"]')) ? document.querySelector('img[class^="ProductPage__productImage"]').getAttribute('src') : '');
-            const title = document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]') ? document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]').textContent : '';
+        data = productInfo;
 
-            addHiddenDiv('iio_quantity', title);
+        if (data) {
+          console.log('parsing data ...');
 
-            addHiddenDiv('iio_image', image);
+          const asin = (data.USItemId) ? data.USItemId : '';
+          const sku = (data.sku) ? data.sku : '';
+          const gtin = (data.upc) ? data.upc : '';
+          const variantId = (data.detailed && data.detailed.productCode) ? data.detailed.productCode : '';
+          const brandText = (data.detailed && data.detailed.brand) ? data.detailed.brand : '';
+          const varianceList = (data.variantOffers) ? Object.values(data.variantOffers).map(value => value.productId) : [];
+          const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : ((document.querySelector('img[class^="ProductPage__productImage"]')) ? document.querySelector('img[class^="ProductPage__productImage"]').getAttribute('src') : '');
+          const title = document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]') ? document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]').textContent : '';
 
-            addHiddenDiv('iio_variants', varianceList.join(' | '));
-            // nutritionFacts
-            if (data.nutritionFacts) {
-              if (data.nutritionFacts.keyNutrients) {
-                data.nutritionFacts.keyNutrients.forEach((item) => {
-                  if (item.name && item.amountPerServing) {
-                    iioObjects.push({ name: `iio_nutrient_${item.name}`, value: item.amountPerServing });
-                  }
-                });
-              }
-              if (data.nutritionFacts.calorieInformation) {
-                // iioObjects.push({ name: 'iio_caloriesPerServing', value: data.nutritionFacts.calorieInformation.caloriesPerServing });
-                const keys = Object.keys(data.nutritionFacts.calorieInformation);
-                for (const key of keys) {
-                  iioObjects.push({ name: `iio_nutrient_${key}`, value: data.nutritionFacts.calorieInformation[key] });
+          addHiddenDiv('iio_quantity', title);
+
+          addHiddenDiv('iio_image', image);
+
+          addHiddenDiv('iio_variants', varianceList.join(' | '));
+          // nutritionFacts
+          if (data.nutritionFacts) {
+            if (data.nutritionFacts.keyNutrients) {
+              data.nutritionFacts.keyNutrients.forEach((item) => {
+                if (item.name && item.amountPerServing) {
+                  iioObjects.push({ name: `iio_nutrient_${item.name}`, value: item.amountPerServing });
                 }
-              }
-
-              if (data.nutritionFacts.servingInformation) {
-                // iioObjects.push({ name: 'iio_caloriesPerServing', value: data.nutritionFacts.calorieInformation.caloriesPerServing });
-                const keys = Object.keys(data.nutritionFacts.servingInformation);
-                for (const key of keys) {
-                  iioObjects.push({ name: `iio_nutrient_${key}`, value: data.nutritionFacts.servingInformation[key] });
-                }
+              });
+            }
+            if (data.nutritionFacts.calorieInformation) {
+            // iioObjects.push({ name: 'iio_caloriesPerServing', value: data.nutritionFacts.calorieInformation.caloriesPerServing });
+              const keys = Object.keys(data.nutritionFacts.calorieInformation);
+              for (const key of keys) {
+                iioObjects.push({ name: `iio_nutrient_${key}`, value: data.nutritionFacts.calorieInformation[key] });
               }
             }
 
-            // Write objects to HTML
-            addHiddenDiv('iio_asin', asin);
-            addHiddenDiv('iio_sku', sku);
-            addHiddenDiv('iio_gtin', gtin);
-            addHiddenDiv('iio_variantId', variantId);
-            addHiddenDiv('iio_brandText', brandText);
-            addHiddenDiv('iio_product_url', `https://grocery.walmart.com/product/${id}`);
-
-            iioObjects.forEach((item) => {
-              addHiddenDiv(item.name, item.value);
-            });
+            if (data.nutritionFacts.servingInformation) {
+            // iioObjects.push({ name: 'iio_caloriesPerServing', value: data.nutritionFacts.calorieInformation.caloriesPerServing });
+              const keys = Object.keys(data.nutritionFacts.servingInformation);
+              for (const key of keys) {
+                iioObjects.push({ name: `iio_nutrient_${key}`, value: data.nutritionFacts.servingInformation[key] });
+              }
+            }
           }
+
+          // Write objects to HTML
+          addHiddenDiv('iio_asin', asin);
+          addHiddenDiv('iio_sku', sku);
+          addHiddenDiv('iio_gtin', gtin);
+          addHiddenDiv('iio_variantId', variantId);
+          addHiddenDiv('iio_brandText', brandText);
+          addHiddenDiv('iio_product_url', `https://grocery.walmart.com/product/${id}`);
+
+          iioObjects.forEach((item) => {
+            addHiddenDiv(item.name, item.value);
+          });
         }
       }, inputs.id);
     }

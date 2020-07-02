@@ -56,8 +56,8 @@ module.exports = {
         await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
         await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-        // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-        context.waitForMutuation('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 20000 });
+        await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+        // context.waitForMutuation('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 20000 });
       }
     }
 
@@ -65,7 +65,7 @@ module.exports = {
       return document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]') ? document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]').textContent : '';
     });
 
-    //TODO: need to set this as input
+    // TODO: need to set this as input
     if (!(changedLocationStreetAddress === '4208 Pleasant Crossing Blvd') && disabledContinueButton === false) {
       await changeLocation(zipcode);
       if (locationStreetAddress !== changedLocationStreetAddress) {
