@@ -343,7 +343,9 @@ module.exports = {
           newDiv.id = id;
           newDiv.textContent = content;
           newDiv.style.display = 'none';
-          variantDiv.appendChild(newDiv);
+          if(variantDiv){
+            variantDiv.appendChild(newDiv);
+          }
         }
       const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
       const variantImage = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz div.css-1dbjc4n.r-1pi2tsx img');
