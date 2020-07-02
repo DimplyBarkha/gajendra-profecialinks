@@ -60,7 +60,7 @@ fields:
     xpath: (//*[@id="acrCustomerReviewText"]/text())[1]
     regExp: (.+) ratings
     regExpReplace: $1
-  - name: aggregateRatingText
+  - name: aggregateRating
     xpath: (//*[@id="acrPopover"]/@title)[1]
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
