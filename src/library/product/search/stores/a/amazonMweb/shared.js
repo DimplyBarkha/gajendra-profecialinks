@@ -34,11 +34,9 @@ const transform = (data, context) => {
         el.text = clean(el.text);
       }));
       if (row.price) {
-        row.price = [
-          {
-            text: row.price[0].text.replace(/,/, '.'),
-          },
-        ];
+        row.price.forEach(price => {
+          price.text = price.text.replace('.', '').replace(',', '.').trim();
+        });
       }
     }
   }
