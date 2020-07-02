@@ -30,7 +30,7 @@ const transform = (data, context) => {
           row.rankOrganic = [{ text: orgRankCounter }];
         }
         row.rank = [{ text: rankCounter }];
-      } else {        
+      } else {
         row.id = [{ text: '' }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
