@@ -20,7 +20,7 @@ async function implementation (
     await stall(100);
     const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
     if (link != null) {
-      let href = link.getAttribute('href');
+      const href = link.getAttribute('href');
       if (href.indexOf('preselect=') > -1) {
         let productId = href.split('preselect=')[1];
         productId = productId.split('#')[0];
@@ -161,7 +161,6 @@ async function implementation (
     }
 
     await context.evaluate(async function () {
-
       function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -228,14 +227,14 @@ async function implementation (
         addHiddenDiv('productNameExtended', document.querySelector('h1[data-test="product-title"]').innerText.replace(/\r?\n|\r/g, '') + ' ' + extendedText);
       }
       addHiddenDiv('ratingCount', document.querySelector('span[data-test="ratingCount"]') ? document.querySelector('span[data-test="ratingCount"]').innerText : 0);
-      if (window.__PRELOADED_STATE__
-        && window.__PRELOADED_STATE__.config
-        && window.__PRELOADED_STATE__.config.services
-        && window.__PRELOADED_STATE__.config.services.location
-        && window.__PRELOADED_STATE__.config.services.location.defaults
-        && window.__PRELOADED_STATE__.config.services.location.defaults.country) {
-          addHiddenDiv('countryInfo', '"country_of_origin":'+ '"' + window.__PRELOADED_STATE__.config.services.location.defaults.country + '"');
-        }
+      if (window.__PRELOADED_STATE__ &&
+        window.__PRELOADED_STATE__.config &&
+        window.__PRELOADED_STATE__.config.services &&
+        window.__PRELOADED_STATE__.config.services.location &&
+        window.__PRELOADED_STATE__.config.services.location.defaults &&
+        window.__PRELOADED_STATE__.config.services.location.defaults.country) {
+        addHiddenDiv('countryInfo', '"country_of_origin":' + '"' + window.__PRELOADED_STATE__.config.services.location.defaults.country + '"');
+      }
       const desc = [];
       let descText = '';
       if (document.querySelector('a[href="#tabContent-tab-Details"]')) {
@@ -492,7 +491,6 @@ async function implementation (
           }
         });
 
-
         document.querySelectorAll('p').forEach(e => {
           if (validTextField(e) && e.innerText.indexOf('Serving Size:') > -1) {
             const split = e.innerText.split(':');
@@ -650,7 +648,7 @@ async function implementation (
       if (warning.length) {
         addHiddenDiv('warningInfo', warning.join(' '));
       }
-      if(ingredients.length) {
+      if (ingredients.length) {
         addHiddenDiv('ingredientsInfo', ingredients.join(' '));
       }
 
@@ -801,7 +799,7 @@ async function implementation (
       if (!rotate) {
         document.querySelectorAll('.wc-demoted').forEach(e => {
           console.log('h3', e.innerText);
-          if(e && e.innerText && e.innerText === "360° View") {
+          if (e && e.innerText && e.innerText === '360° View') {
             rotate = true;
           }
         });
