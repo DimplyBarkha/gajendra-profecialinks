@@ -20,6 +20,7 @@ async function implementation (
     addHiddenDiv('added-searchurl', url);
   }
   await context.evaluate(addUrl);
+  await new Promise(resolve => setTimeout(resolve, 2000));
   return await context.extract(productDetails, { transform });
 }
 

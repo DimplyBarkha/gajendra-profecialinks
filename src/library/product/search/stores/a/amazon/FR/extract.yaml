@@ -91,7 +91,7 @@ fields:
     # defaultValue: false
     type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
     xpath: //@data-asin
     description: Unique id (within this extractor)
   - name: nameExtended
@@ -100,7 +100,7 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating2
     singleValue: true
-    xpath: //span[contains(@aria-label,"surs")]/@aria-label
+    xpath: //span[contains(@aria-label,"sur")]/@aria-label
     description: The stated aggregate rating normalized to be out of 5
   - name: searchUrl
     singleValue: true
