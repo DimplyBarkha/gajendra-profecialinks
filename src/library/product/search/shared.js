@@ -25,14 +25,13 @@ const transform = (data, context) => {
     for (const row of group) {
       if (row.id && row.id[0] && productCodes.indexOf(row.id[0].text) === -1) {
         productCodes.push(row.id[0].text);
-        rankCounter = rankCounter + 1;
+        rankCounter += 1;
         if (!row.sponsored) {
-          orgRankCounter = orgRankCounter + 1;
+          orgRankCounter += 1;
           row.rankOrganic = [{ text: orgRankCounter }];
         }
         row.rank = [{ text: rankCounter }];
-      } else {
-        console.log(`${row.id[0].text} : ${row.name[0].text}`);
+      } else {        
         row.id = [{ text: '' }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {

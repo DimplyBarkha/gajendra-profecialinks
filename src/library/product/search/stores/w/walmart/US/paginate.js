@@ -26,7 +26,7 @@ async function implementation (
     if (!next) {
       return false;
     }
-    return next.href;
+    return next.href ? next.href : '';
   });
   const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), 'button.paginator-btn-next, div.recall-set-results-footer:nth-of-type(1) ');
   if (!hasNextLink) {
