@@ -19,15 +19,10 @@ async function implementation (
 
     const searchUrl = window.location.href;
     const productList = document.querySelectorAll('.a-section.a-spacing-medium');
-    const paginationDiv = document.querySelector('.s-desktop-toolbar');
-    let pageStartIndex = paginationDiv ? paginationDiv.innerText.match(/\d+/) : 0;
-    pageStartIndex = pageStartIndex ? +pageStartIndex[0] : 1;
 
-    productList && productList.forEach((item1, index) => {
+    productList && productList.forEach((item1) => {
       const doc = item1;
-      addElementToDocument(doc, 'pd_rank', pageStartIndex);
       addElementToDocument(doc, 'searchUrl', searchUrl);
-      pageStartIndex++;
     });
   });
   return await context.extract(productDetails, { transform: parameters.transform });
