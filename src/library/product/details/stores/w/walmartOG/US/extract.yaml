@@ -134,8 +134,8 @@ fields:
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Trans Fat')]]/span[@data-automation-id="value"]
   xpath: (//section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Trans Fat')]]/span[@data-automation-id="value"]|//*[@id="iio_nutrient_transFat"])[1]
-  regExp: (?:([\d\.]+)\s?(\w+))
-  regExpReplace: $1  
+  regExp: (\d*\.?\d+)
+  # regExpReplace: $1
 - name: transFatPerServingUom
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]/tbody[contains(@class,'nutrientTable')]//div[contains(@class,'nutritionLabel')][span[contains(text(),'Trans Fat')]]/span[@data-automation-id="value"]
