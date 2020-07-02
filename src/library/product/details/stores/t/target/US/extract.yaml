@@ -14,11 +14,15 @@ fields:
     xpath: //div[@id="productNameExtended"]
   - name: metaKeywords
     singleValue: true
-    xpath: //div[@id="productNameExtended"]
+    xpath: //script[contains(.,"__PRELOADED_STATE__")]
+    regExp: >-
+      "seo_keywords":"([^"]+)"
+    regExpReplace: >-
+      $1
   - name: pageTimeStamp
     singleValue: true
     xpath: //div[@id="dateStamp"]
-  - name: url
+  - name: productUrl
     singleValue: true
     xpath: //div[@id="urlInfo"]
   - name: category
@@ -26,7 +30,7 @@ fields:
     xpath: //div[@data-test="breadcrumb"]//span[position()>1]//span[@itemprop="name"]
   - name: price
     singleValue: true
-    xpath: //div[@data-test="product-price"]
+    xpath: //div[@id="priceInfo"]
   - name: nameExtended
     singleValue: true
     xpath: //div[@id="productNameExtended"]
@@ -87,7 +91,7 @@ fields:
     xpath: //div[@data-test="chokingHazard"]|//div[@id='warningInfo']
   - name: ratingCount
     singleValue: true
-    xpath: //span[@data-test="ratingCount"]
+    xpath: //div[@id="ratingCount"]
   - name: aggregateRatingText
     singleValue: true
     xpath: //div[@id="ratingText"]
@@ -121,9 +125,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //div[@id="productName"]
-  - name: inStorePrice
-    singleValue: true
-    xpath: //div[@id="inStorePrice"]
   - name: ingredientsList
     singleValue: true
     xpath: //div[@id="ingredientsInfo"]
@@ -236,8 +237,8 @@ fields:
     singleValue: true
     xpath: //div[@id="storageInfo"]
   - name: countryOfOrigin
-    singleValue: false
-    xpath: //script[contains(.,"__PRELOADED_STATE__")]
+    singleValue: true
+    xpath: //script[contains(.,"__PRELOADED_STATE__")]|//div[@id="countryInfo"]
     regExp: >-
       "country_of_origin":"([^"]+)"
     regExpReplace: >-
@@ -247,7 +248,7 @@ fields:
     xpath: //div[@id="allergyAdviceInfo"]
   - name: promotion
     singleValue: true
-    xpath: //span[@data-test="product-savings"]
+    xpath: //div[@id="promotionInfo"]
   - name: alcoholContent
     singleValue: true
     xpath: //div[@id="alcoholInfo"]

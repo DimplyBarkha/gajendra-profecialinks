@@ -9,7 +9,7 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-  await context.evaluate(async function () {
+  const productUrl = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -17,27 +17,27 @@ async function implementation (
         }, ms);
       });
     }
-    await stall(200);
+    await stall(100);
     const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
     if (link != null) {
-      link.click();
+      let href = link.getAttribute('href');
+      if (href.indexOf('preselect=') > -1) {
+        let productId = href.split('preselect=')[1];
+        productId = productId.split('#')[0];
+        const splitUrl = href.split('-');
+        splitUrl[splitUrl.length - 1] = productId;
+        return splitUrl.join('-');
+      }
+      return href;
     }
   });
 
+  await context.goto('https://www.target.com' + productUrl);
   await context.waitForXPath("//div[@data-test='product-price']");
 
   const currentUrl = await context.evaluate(function () {
     return window.location.href;
   });
-
-  if (currentUrl.indexOf('preselect=') > -1) {
-    let productId = currentUrl.split('preselect=')[1];
-    productId = productId.split('#')[0];
-    const splitUrl = currentUrl.split('-');
-    splitUrl[splitUrl.length - 1] = productId;
-    await context.goto(splitUrl.join('-'));
-    await context.waitForXPath("//div[@data-test='product-price']");
-  }
 
   await context.evaluate(async function () {
     location.reload();
@@ -55,9 +55,9 @@ async function implementation (
     let scrollTop = 500;
     while (true) {
       window.scroll(0, scrollTop);
-      await stall(200);
+      await stall(500);
       scrollTop += 500;
-      if (scrollTop === 8000) {
+      if (scrollTop === 5000) {
         break;
       }
     }
@@ -68,7 +68,7 @@ async function implementation (
     if (manufacturerCTA) {
       manufacturerCTA.click();
     }
-    await stall(200);
+    await stall(100);
     const element = document.querySelector('#salsify-ec-iframe');
     if (element) {
       console.log('found iframe');
@@ -97,7 +97,7 @@ async function implementation (
       if (!document.getElementById('options')) {
         document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
       }
-      await stall(250);
+      await stall(100);
       const options = document.getElementById('options');
       const newDiv = document.createElement('div');
       newDiv.id = 'btnIndex';
@@ -124,6 +124,7 @@ async function implementation (
     }
     return 0;
   });
+
   console.log('variations', variantProductCount);
   if (variantProductCount === 0) {
     variantProductCount = 1;
@@ -131,6 +132,9 @@ async function implementation (
 
   const extractedData = [];
   for (let i = 0; i < variantProductCount; i++) {
+    if (i === 50) {
+      break;
+    }
     const canContinue = await context.evaluate(async function () {
       if (document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
         if (!document.getElementById('options')) {
@@ -157,6 +161,7 @@ async function implementation (
     }
 
     await context.evaluate(async function () {
+
       function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -164,6 +169,7 @@ async function implementation (
           }, ms);
         });
       }
+
       function addHiddenDiv (id, content) {
         if (document && document.getElementById(id)) {
           document.getElementById(id).innerHTML = content;
@@ -215,25 +221,31 @@ async function implementation (
       window.scroll(0, 0);
 
       addHiddenDiv('dateStamp', new Date());
-      addHiddenDiv('urlInfo', window.location.href);
       if (document.querySelector('h1[data-test="product-title"]') && document.querySelector('h1[data-test="product-title"]').innerText) {
         addHiddenDiv('productName', document.querySelector('h1[data-test="product-title"]').innerText.replace(/\r?\n|\r/g, '').trim());
       }
       if (document.querySelector('h1[data-test="product-title"]') && document.querySelector('h1[data-test="product-title"]').innerText) {
         addHiddenDiv('productNameExtended', document.querySelector('h1[data-test="product-title"]').innerText.replace(/\r?\n|\r/g, '') + ' ' + extendedText);
       }
-
+      addHiddenDiv('ratingCount', document.querySelector('span[data-test="ratingCount"]') ? document.querySelector('span[data-test="ratingCount"]').innerText : 0);
+      if (window.__PRELOADED_STATE__
+        && window.__PRELOADED_STATE__.config
+        && window.__PRELOADED_STATE__.config.services
+        && window.__PRELOADED_STATE__.config.services.location
+        && window.__PRELOADED_STATE__.config.services.location.defaults
+        && window.__PRELOADED_STATE__.config.services.location.defaults.country) {
+          addHiddenDiv('countryInfo', '"country_of_origin":'+ '"' + window.__PRELOADED_STATE__.config.services.location.defaults.country + '"');
+        }
       const desc = [];
-      let descCount = 0;
+      let descText = '';
       if (document.querySelector('a[href="#tabContent-tab-Details"]')) {
         document.querySelector('a[href="#tabContent-tab-Details"]').click();
-        await stall(200);
+        await stall(100);
       }
       document.querySelectorAll('h3').forEach(e => {
         if (e && e.innerText === 'Highlights') {
           e.parentElement.querySelectorAll('li').forEach(li => {
-            descCount++;
-            if (li) {
+            if (li && li.innerText) {
               desc.push(li.innerText);
             }
           });
@@ -241,12 +253,12 @@ async function implementation (
       });
       document.querySelectorAll('h3').forEach(e => {
         if (e && e.parentElement && e.parentElement.querySelector('.h-margin-v-default') && e.innerText === 'Description') {
-          desc.push(e.parentElement.querySelector('.h-margin-v-default').innerText);
+          descText = e.parentElement.querySelector('.h-margin-v-default').innerText;
         }
       });
 
-      addHiddenDiv('bulletCount', descCount);
-      addHiddenDiv('description', '|| ' + desc.join(' || '));
+      addHiddenDiv('bulletCount', document.querySelectorAll('.styles__Bullet-sc-10lpfph-12').length);
+      addHiddenDiv('description', '|| ' + desc.join(' || ') + descText);
 
       const subCategories = [];
       const categoryDiv = document.querySelector('.h-text-sm.h-padding-v-tiny');
@@ -261,16 +273,27 @@ async function implementation (
         addHiddenDiv('regPriceInfo', document.querySelector('div[data-test="product-price"]').innerText);
       }
 
+      addHiddenDiv('priceInfo', document.querySelector('div[data-test="product-price"]').innerText.split(' ')[0]);
+
+      if (document.querySelector('span[data-test="product-savings"]') && document.querySelector('span[data-test="product-savings"]').innerText) {
+        addHiddenDiv('promotionInfo', 'Save ' + document.querySelector('span[data-test="product-savings"]').innerText.split('Save')[1]);
+      }
+
       const materials = [];
       let quantity = 1;
       document.querySelector('a[href="#tabContent-tab-Details"]').click();
+      await stall(100);
       if (document && document.querySelectorAll('b').length) {
         document.querySelectorAll('b').forEach(e => {
           if (validTextField(e) && (e.innerText.indexOf('UPC') > -1)) {
             addHiddenDiv('upcInfo', e.parentElement.innerText.replace('UPC: ', ''));
           }
           if (validTextField(e) && (e.innerText.indexOf('TCIN') > -1)) {
-            addHiddenDiv('skuInfo', e.parentElement.innerText.split(':')[1]);
+            const sku = e.parentElement.innerText.split(':')[1].trim();
+            addHiddenDiv('skuInfo', sku);
+            const splitUrl = window.location.href.split('-');
+            splitUrl[splitUrl.length - 1] = sku;
+            addHiddenDiv('urlInfo', splitUrl.join('-'));
           }
           if (validTextField(e) && (e.innerText.indexOf('Item Number (DPCI)') === 0)) {
             addHiddenDiv('variantIdInfo', e.parentElement.innerText.split(':')[1]);
@@ -284,7 +307,7 @@ async function implementation (
           if (validTextField(e) && e.innerText.indexOf('Warranty') > -1) {
             addHiddenDiv('warrantyInfo', e.parentElement.innerText.split(':')[1]);
           }
-          if (validTextField(e) && e.innerText.indexOf('State of Readiness:') > -1) {
+          if (validTextField(e) && (e.innerText.indexOf('State of Readiness:') > -1 || e.innerText.indexOf('Storage Instructions:') > -1)) {
             addHiddenDiv('storageInfo', e.parentElement.innerText);
           }
           if (validTextField(e) && e.innerText.indexOf('Dimensions') > -1) {
@@ -382,30 +405,101 @@ async function implementation (
         addHiddenDiv('zoomInfo', 'No');
       }
 
-      const rotate = document.querySelector('button[data-test="button-model-viewer"]');
-      if (rotate) {
-        addHiddenDiv('rotateInfo', 'Yes');
-      } else {
-        addHiddenDiv('rotateInfo', 'No');
-      }
-
+      const warning = [];
       const button = document.querySelector("a[href='#tabContent-tab-Labelinfo']");
       if (button != null) {
         button.click();
-        await stall(1000);
+        await stall(200);
         const headerEls = document.querySelectorAll('.h-margin-t-default.h-padding-h-default');
         for (const e of headerEls) {
           if (validTextField(e) && e.innerText.indexOf('Ingredients:') > -1) {
-            addHiddenDiv('ingredientsInfo', e.innerText.replace('Ingredients:', '').trim().toUpperCase());
-            break;
+            addHiddenDiv('ingredientsInfo', e.innerText.split('Ingredients:')[1].trim());
+          }
+          if (validTextField(e) && e.innerText.indexOf('Warnings:') > -1) {
+            warning.push(e.innerText.split('Warnings:')[1].trim());
           }
         }
+
+        if (document.querySelector('span[itemprop="fiberContent"]') && document.querySelector('span[itemprop="fiberContent"]').innerText) {
+          addHiddenDiv('dietaryFiberInfo', document.querySelector('span[itemprop="fiberContent"]').innerText.replace(/[a-zA-Z]/g, ''));
+          addHiddenDiv('dietaryFiberUomInfo', document.querySelector('span[itemprop="fiberContent"]').innerText.replace(/[0-9]/g, ''));
+        }
+        if (document.querySelector('span[itemprop="servingSize"]') && document.querySelector('span[itemprop="servingSize"]').innerText) {
+          addHiddenDiv('servingSizeInfo', document.querySelector('span[itemprop="servingSize"]').innerText.replace(/[a-zA-Z]/g, ''));
+          addHiddenDiv('servingSizeUomInfo', document.querySelector('span[itemprop="servingSize"]').innerText.replace(/[0-9]/g, ''));
+        }
+        if (document.querySelector('span[itemprop="calories"]') && document.querySelector('span[itemprop="calories"]').innerText) {
+          addHiddenDiv('caloriesInfo', document.querySelector('span[itemprop="calories"]').innerText.replace(/[a-zA-Z]/g, ''));
+        }
+        if (document.querySelector('span[itemprop="fatContent"]') && document.querySelector('span[itemprop="fatContent"]').innerText) {
+          addHiddenDiv('totalFatInfo', document.querySelector('span[itemprop="fatContent"]').innerText.replace(/[a-zA-Z]/g, ''));
+          addHiddenDiv('totalFatUomInfo', document.querySelector('span[itemprop="fatContent"]').innerText.replace(/[0-9]/g, ''));
+        }
+        if (document.querySelector('span[itemprop="saturatedFatContent"]') && document.querySelector('span[itemprop="saturatedFatContent"]').innerText) {
+          addHiddenDiv('saturatedFatInfo', document.querySelector('span[itemprop="saturatedFatContent"]').innerText.replace(/[a-zA-Z]/g, ''));
+          addHiddenDiv('saturatedFatUomInfo', document.querySelector('span[itemprop="saturatedFatContent"]').innerText.replace(/[0-9]/g, ''));
+        }
+        if (document.querySelector('span[itemprop="transFatContent"]') && document.querySelector('span[itemprop="transFatContent"]').innerText) {
+          addHiddenDiv('transFatInfo', document.querySelector('span[itemprop="transFatContent"]').innerText.replace(/[a-zA-Z]/g, ''));
+          addHiddenDiv('transFatUomInfo', document.querySelector('span[itemprop="transFatContent"]').innerText.replace(/[0-9]/g, ''));
+        }
+        if (document.querySelector('span[itemprop="cholesterolContent"]') && document.querySelector('span[itemprop="cholesterolContent"]').innerText) {
+          addHiddenDiv('cholesterolInfo', document.querySelector('span[itemprop="cholesterolContent"]').innerText.replace(/[a-zA-Z]/g, ''));
+          addHiddenDiv('cholesterolUomInfo', document.querySelector('span[itemprop="cholesterolContent"]').innerText.replace(/[0-9]/g, ''));
+        }
+        if (document.querySelector('span[itemprop="carbohydrateContent"]') && document.querySelector('span[itemprop="carbohydrateContent"]').innerText) {
+          addHiddenDiv('totalCarbInfo', document.querySelector('span[itemprop="carbohydrateContent"]').innerText.replace(/[a-zA-Z]/g, ''));
+          addHiddenDiv('totalCarbUomInfo', document.querySelector('span[itemprop="carbohydrateContent"]').innerText.replace(/[0-9]/g, ''));
+        }
+        if (document.querySelector('span[itemprop="sugarContent"]') && document.querySelector('span[itemprop="sugarContent"]').innerText) {
+          addHiddenDiv('totalSugarInfo', document.querySelector('span[itemprop="sugarContent"]').innerText.replace(/[a-zA-Z]/g, ''));
+          addHiddenDiv('totalSugarUomInfo', document.querySelector('span[itemprop="sugarContent"]').innerText.replace(/[0-9]/g, ''));
+        }
+        if (document.querySelector('span[itemprop="proteinContent"]') && document.querySelector('span[itemprop="proteinContent"]').innerText) {
+          addHiddenDiv('proteinInfo', document.querySelector('span[itemprop="proteinContent"]').innerText.replace(/[a-zA-Z]/g, ''));
+          addHiddenDiv('proteinUomInfo', document.querySelector('span[itemprop="proteinContent"]').innerText.replace(/[0-9]/g, ''));
+        }
+        document.querySelectorAll('.nf-vitamin-column').forEach(e => {
+          if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin A') > -1) {
+            const split = e.innerText.split(' ');
+            const val = split[1];
+            addHiddenDiv('vitaminAInfo', val.replace(/[a-zA-Z]/g, ''));
+            addHiddenDiv('vitaminAUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+          }
+          if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin C') > -1) {
+            const split = e.innerText.split(' ');
+            const val = split[1];
+            addHiddenDiv('vitaminCInfo', val.replace(/[a-zA-Z]/g, ''));
+            addHiddenDiv('vitaminCUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+          }
+          if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Calcium') > -1) {
+            const split = e.innerText.split(' ');
+            const val = split[1];
+            addHiddenDiv('calciumInfo', val.replace(/[a-zA-Z]/g, ''));
+            addHiddenDiv('calciumUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+          }
+          if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Iron') > -1) {
+            const split = e.innerText.split(' ');
+            const val = split[1];
+            addHiddenDiv('ironInfo', val.replace(/[a-zA-Z]/g, ''));
+            addHiddenDiv('ironUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+          }
+          if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Magnesium') > -1) {
+            const split = e.innerText.split(' ');
+            const val = split[1];
+            addHiddenDiv('magInfo', val.replace(/[a-zA-Z]/g, ''));
+            addHiddenDiv('magUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+          }
+        });
+
+
         document.querySelectorAll('p').forEach(e => {
           if (validTextField(e) && e.innerText.indexOf('Serving Size:') > -1) {
-            addHiddenDiv('servingSizeInfo', e.innerText.replace('Serving Size: ', ''));
+            const split = e.innerText.split(':');
+            const val = split[split.length - 1];
+            addHiddenDiv('servingSizeInfo', val.replace(/[a-zA-Z]/g, ''));
             if (document.getElementById('servingSizeInfo')) {
-              const splitInfo = document.getElementById('servingSizeInfo').innerHTML.split(' ');
-              addHiddenDiv('servingSizeUomInfo', splitInfo[splitInfo.length - 1]);
+              addHiddenDiv('servingSizeUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
           }
           if (validTextField(e) && e.innerText.indexOf('Serving Per Container:') > -1) {
@@ -414,7 +508,7 @@ async function implementation (
         });
         document.querySelectorAll('.h-text-bold').forEach(e => {
           if (validTextField(e) && e.innerText.indexOf('Calories:') > -1) {
-            addHiddenDiv('caloriesInfo', e.parentElement.innerText.replace('Calories: ', ''));
+            addHiddenDiv('caloriesInfo', e.parentElement.innerText.split(' ')[1].replace('Calories', '').trim());
           }
           if (validTextField(e) && e.innerText.indexOf('Calories from Fat:') > -1) {
             addHiddenDiv('caloriesFromFatInfo', e.parentElement.innerText.replace('Calories from Fat: ', ''));
@@ -424,109 +518,140 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Total Fat') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('totalFatInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('totalFatUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Fat') {
+              addHiddenDiv('totalFatInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('totalFatUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Saturated Fat') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('saturatedFatInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('saturatedFatUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Fat') {
+              addHiddenDiv('saturatedFatInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('saturatedFatUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Trans Fat') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('transFatInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('transFatUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Fat') {
+              addHiddenDiv('transFatInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('transFatUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Cholesterol') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('cholesterolInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('cholesterolUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Cholesterol') {
+              addHiddenDiv('cholesterolInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('cholesterolUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Sodium') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('sodiumInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('sodiumUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Sodium') {
+              addHiddenDiv('sodiumInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('sodiumUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Total Carbohydrate') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('totalCarbInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('totalCarbUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Carbohydrate') {
+              addHiddenDiv('totalCarbInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('totalCarbUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Dietary Fiber') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('dietaryFiberInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('dietaryFiberUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Fiber') {
+              addHiddenDiv('dietaryFiberInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('dietaryFiberUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && (e.innerText.indexOf('Total Sugars') > -1 || e.innerText.indexOf('Sugars') === 0)) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('totalSugarInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('totalSugarUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Sugars') {
+              addHiddenDiv('totalSugarInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('totalSugarUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Protein') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('proteinInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('proteinUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Protein') {
+              addHiddenDiv('proteinInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('proteinUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin A') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('vitaminAInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('vitaminAUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'A') {
+              addHiddenDiv('vitaminAInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('vitaminAUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin C') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('vitaminCInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('vitaminCUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'C') {
+              addHiddenDiv('vitaminCInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('vitaminCUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Calcium') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('calciumInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('calciumUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Calcium') {
+              addHiddenDiv('calciumInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('calciumUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Iron') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('ironInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('ironUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Iron') {
+              addHiddenDiv('ironInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('ironUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Magnesium') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            addHiddenDiv('magInfo', val.replace(/\D/g, ''));
-            addHiddenDiv('magUomInfo', val.replace(/[0-9]/g, ''));
+            if (val.trim() != 'Magnesium') {
+              addHiddenDiv('magInfo', val.replace(/[a-zA-Z]/g, ''));
+              addHiddenDiv('magUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            }
           }
         });
       }
+      const ingredients = [];
       const drugFacts = document.querySelector('a[href="#tabContent-tab-Drugfacts"]');
       if (drugFacts) {
         drugFacts.click();
         await stall(100);
-        const warning = [];
         document.querySelectorAll('h4').forEach(e => {
           if (validTextField(e) && e.innerText.trim() === 'Directions') {
             addHiddenDiv('directionsInfo', e.parentElement.innerText.replace('Directions', '').trim());
           }
-          if (validTextField(e) && e.innerText.trim() === 'Inactive ingredients') {
-            addHiddenDiv('ingredientsInfo', e.parentElement.innerText.replace('Inactive ingredients', '').trim().toUpperCase());
+          if (validTextField(e) && e.innerText.indexOf('ingredients') > -1) {
+            ingredients.push(e.parentElement.innerText.split('ingredients')[1].trim());
           }
           if (validTextField(e) && (e.innerText.trim() === 'For use' || e.innerText.trim() === 'Keep out of reach' || e.innerText.trim() === 'Do not use' || e.innerText.trim() === 'When using')) {
             warning.push(e.innerText.trim());
             warning.push(e.parentElement.innerText.replace(e.innerText.trim(), '').trim());
           }
         });
-        if (warning.length) {
-          addHiddenDiv('warningInfo', warning.join(' '));
-        }
+      }
+      if (warning.length) {
+        addHiddenDiv('warningInfo', warning.join(' '));
+      }
+      if(ingredients.length) {
+        addHiddenDiv('ingredientsInfo', ingredients.join(' '));
       }
 
       let terms = 'No';
@@ -585,9 +710,9 @@ async function implementation (
         if (slideDeck) {
           console.log('has slide deck');
           slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
-            if (e && e.getAttribute('alt') && e.getAttribute('src') && e.getAttribute('alt').indexOf('- video') === -1 && ind > 0) {
+            if (e && e.getAttribute('alt') && e.getAttribute('src') && e.getAttribute('alt').indexOf('- video') === -1 && e.getAttribute('type') != 'video' && ind > 0) {
               secondaryImages.push(e.getAttribute('src').split('?')[0]);
-            } else if (e && e.getAttribute('src') && e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) {
+            } else if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
               videos.push(e.getAttribute('src').split('?')[0] + '_Flash9_Autox720p_2600k');
             }
           });
@@ -598,7 +723,7 @@ async function implementation (
           sideImages.forEach((e, ind) => {
             if (e && e.getAttribute('type') && e.getAttribute('src') && e.getAttribute('type').indexOf('video') === -1 && ind > 0) {
               secondaryImages.push(e.getAttribute('src').split('?')[0]);
-            } else if (e && e.getAttribute('alt') && e.getAttribute('src') && e.getAttribute('alt').indexOf('- video') > -1) {
+            } else if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
               videos.push(e.getAttribute('src').split('?')[0] + '_Flash9_Autox720p_2600k');
             }
           });
@@ -626,6 +751,7 @@ async function implementation (
         addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
       } else if (manufacturerCTA) {
         manufacturerCTA.click();
+        await stall(100);
         const manufacturerImgs = [];
         if (document.getElementById('wcframable1-0') && document.getElementById('wcframable1-0').contentWindow) {
           const frameContents = document.getElementById('wcframable1-0').contentWindow.document.body;
@@ -637,6 +763,7 @@ async function implementation (
           });
         }
         if (document.getElementById('wc-power-page') && document.getElementById('wc-power-page').innerText) {
+          console.log('wcframes', document.querySelectorAll('.wc-fragment').length);
           const manufacturerDesc = [];
           document.querySelectorAll('.wc-fragment').forEach(e => {
             if (e.querySelector('.wc-pct-data')) {
@@ -649,7 +776,7 @@ async function implementation (
               manufacturerDesc.push(e.innerText);
             }
           });
-          addHiddenDiv('manufacturerDesc', manufacturerDesc.join(' '));
+          addHiddenDiv('manufacturerDesc', manufacturerDesc.join(' ').replace(/See product page/g, '').replace(/\d options available/g, ''));
           document.querySelectorAll('img.wc-media.wc-image').forEach(e => {
             manufacturerImgs.push(e.src);
           });
@@ -668,6 +795,21 @@ async function implementation (
 
       if (videos.length) {
         addHiddenDiv('videos', videos.join(' | '));
+      }
+
+      let rotate = document.querySelector('button[data-test="button-model-viewer"]');
+      if (!rotate) {
+        document.querySelectorAll('.wc-demoted').forEach(e => {
+          console.log('h3', e.innerText);
+          if(e && e.innerText && e.innerText === "360° View") {
+            rotate = true;
+          }
+        });
+      }
+      if (rotate) {
+        addHiddenDiv('rotateInfo', 'Yes');
+      } else {
+        addHiddenDiv('rotateInfo', 'No');
       }
 
       if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {

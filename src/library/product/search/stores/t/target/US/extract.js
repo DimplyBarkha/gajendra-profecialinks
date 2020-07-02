@@ -19,11 +19,11 @@ async function implementation (
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   await context.evaluate(async function () {
     let scrollTop = 0;
-    while (scrollTop !== 9000) {
-      await stall(1000);
-      scrollTop += 1000;
+    while (scrollTop !== 5000) {
+      await stall(2500);
+      scrollTop += 500;
       window.scroll(0, scrollTop);
-      if (scrollTop === 9000) {
+      if (scrollTop === 5000) {
         break;
       }
     }
@@ -64,6 +64,7 @@ async function implementation (
           const rating = itemContainer.querySelector('div[data-test="ratings"]').innerText.split(' ')[0];
           addHiddenDiv(itemContainer, 'rating', rating);
         }
+        addHiddenDiv(itemContainer, 'ratingCount', itemContainer.querySelector('span[data-test="product-rating-count"]') ? itemContainer.querySelector('span[data-test="product-rating-count"]').innerText : 0);
       }
 
       const endorsement = itemContainer.querySelector('.AtTargetMessage__AtTargetMessageWrapper-sc-1gv6org-0.liCFqa.h-text-grayDark');
