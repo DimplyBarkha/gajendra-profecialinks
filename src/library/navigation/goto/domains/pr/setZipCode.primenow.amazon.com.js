@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'primenow.amazon.com',
-    store: 'amazonPrimeNow_98005',
+    store: 'amazonPrimeNow',
   },
   // For navigating from home page to search page because we have to enter the zip code in  home page.
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
