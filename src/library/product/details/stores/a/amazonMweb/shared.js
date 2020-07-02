@@ -44,22 +44,22 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.description) {
-        const text = '';
-        row.description = [
-          {
-            text: cleanUp(text),
-          },
-        ];
-      }
-      if (row.manufacturerDescription) {
-        const text = '';
-        row.manufacturerDescription = [
-          {
-            text: cleanUp(text),
-          },
-        ];
-      }
+      // if (row.description) {
+      //   const text = '';
+      //   row.description = [
+      //     {
+      //       text: cleanUp(text),
+      //     },
+      //   ];
+      // }
+      // if (row.manufacturerDescription) {
+      //   const text = '';
+      //   row.manufacturerDescription = [
+      //     {
+      //       text: cleanUp(text),
+      //     },
+      //   ];
+      // }
     }
   }
   return data;

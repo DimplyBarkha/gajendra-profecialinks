@@ -7,18 +7,25 @@ module.exports = {
     transform,
     domain: 'amazon.fr',
   },
-  // @ts-ignore
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
-      addElementToDocument('a_pageTimestamp', (new Date()).toISOString().replace(/[TZ]/g, ' '));
-    });
-    await context.extract(productDetails);
-  },
+  implementation,
 };
+
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { productDetails } = dependencies;
+  await context.evaluate(async function () {
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    addElementToDocument('a_pageTimestamp', (new Date()).toISOString().replace(/[TZ]/g, ' '));
+  });
+  return await context.extract(productDetails, { transform: parameters.transform });
+}
