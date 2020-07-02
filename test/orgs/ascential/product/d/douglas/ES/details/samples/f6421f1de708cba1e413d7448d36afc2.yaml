@@ -2,7 +2,7 @@ input:
   _url: https://douglas.es
   URL: https://douglas.es/p/nutrisse/nutrisse_tinte_9_90_pepite
 extractions:
-  - html: https://workbench.import.io/html/run=64bb2ae0-5954-486c-9458-eb0ae67a534d/task=23477445-2518-4b0e-817b-52dec90baa14/f9ac2bba-bed2-45d2-9cc3-c0fc39c22f91.html
+  - html: https://workbench.import.io/html/run=e1271e7e-aee5-438f-b1ab-06da615c88ad/task=d04cdb85-1ccc-4da1-a074-7f1861254f9e/cf58831c-2b17-47d8-b59a-524472352c92.html
     extractionConfigId: product/details/stores/d/douglas/ES/extract
     data:
       - group:
@@ -37,6 +37,9 @@ extractions:
             price:
               - text: 4,65 €
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandText:
               - text: Nutrisse
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
@@ -52,9 +55,7 @@ extractions:
             name:
               - text: Tinte Capilar 9/90 Pepite - Higiene
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
-            availabilityText:
-              - text: Out of Stock
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1593527549981
+    timestamp: 1593698010499

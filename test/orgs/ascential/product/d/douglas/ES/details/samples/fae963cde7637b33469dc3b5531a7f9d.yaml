@@ -1,70 +1,72 @@
 input:
   _url: https://douglas.es
-  URL: https://douglas.es/p/nivea/nivea_crema_antiedad_manos_q10
+  URL: https://douglas.es/p/pantene/pantene_champu_suave_y_liso
 extractions:
-  - html: https://workbench.import.io/html/run=64bb2ae0-5954-486c-9458-eb0ae67a534d/task=4767960e-190b-42ce-8f4a-4262650f0494/4b8fc152-72e5-49fc-a065-93f4a2d93690.html
+  - html: https://workbench.import.io/html/run=e1271e7e-aee5-438f-b1ab-06da615c88ad/task=b6c884ee-a31e-4d5a-b244-2ae5226e6218/7215d737-0491-4b11-b775-971a99a13e57.html
     extractionConfigId: product/details/stores/d/douglas/ES/extract
     data:
       - group:
           - image:
-              - text: https://ima.douglas.es/_d400/1062/crema_antiedad_manos_q10-01077674-0-.png
+              - text: https://ima.douglas.es/_d400/1123/champu_suave_y_liso-01055573-0-.png
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
             imageAlt:
-              - text: Nivea Crema Antiedad Manos Q10
+              - text: Pantene Pantene Champú Suave Y Liso
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
             url:
-              - text: https://douglas.es/p/nivea/nivea_crema_antiedad_manos_q10
+              - text: https://douglas.es/p/pantene/pantene_champu_suave_y_liso
                 xpath: /html/head[1]/link[14]/@href
             category:
-              - text: Nivea
+              - text: Pantene
                 xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
-              - text: Crema Antiedad Manos Q10
+              - text: Pantene Champú Suave Y Liso
                 xpath: /html/body/responsive-design[1]/div[1]/div[1]/div[1]/div[3]/span[1]
             nameExtended:
-              - text: Crema Antiedad Manos Q10 - Tratamiento
+              - text: Pantene Champú Suave Y Liso - Higiene
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
             description:
-              - text: Crema de manos anti-edad q10 plus de Nicea. Cuida eficazmente de la
-                  belleza natural de tu piel y ayuda a prevenir los primeros
-                  signos del envejecimiento. Crema suavizante con Q10 ayuda a
-                  reducir visiblemente las arrugas con un uso regular.
-                  Dermatológicamente testada. Poderosa crema de manos
-                  enriquecida con coenzima Q10 que ayuda a que tu piel luzca más
-                  joven.
+              - text: Increíble suavidad para cabello seco o encrespado. La colección Suave y
+                  Liso de Panten con micro-suavizantes actúa en el cabello para
+                  suavizar cada mechón y mantener la humedad para ayudar a
+                  evitar el encrespamiento, dejando el cabello suave y sedoso.
+                  Formato 270 ml.
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]
             price:
-              - text: 2,99 €
+              - text: 2,89 €
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
             brandText:
-              - text: Nivea
+              - text: Pantene
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
             quantity:
-              - text: 100 ML
+              - text: 270 ML
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
             sku:
-              - text: "01077674"
+              - text: "01055573"
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
+            aggregateRatingText:
+              - text: "4.9"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
             ratingCount:
-              - text: "0"
-                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/div[1]/div[1]/button[1]/div[2]/div[1]
+              - text: "8"
+                xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/div[1]/div[1]/button[1]/div[3]/div[1]
             variantInformation:
-              - text: 100 ML
+              - text: 270 ML
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
             variantId:
-              - text: "01077674"
+              - text: "01055573"
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]/@title
             pricePerUnit:
-              - text: 100 ML/2,99€
+              - text: "1,07€/100 "
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
             pricePerUnitUom:
               - text: ML
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
             name:
-              - text: Crema Antiedad Manos Q10 - Tratamiento
+              - text: Pantene Champú Suave Y Liso - Higiene
                 xpath: /html/body/responsive-design[1]/div[1]/div[2]/div[1]/div[1]/div[2]/h1[1]/text()[1]
-            availabilityText:
-              - text: Out of Stock
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1593527572288
+    timestamp: 1593697908505
