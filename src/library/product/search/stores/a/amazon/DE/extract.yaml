@@ -43,15 +43,13 @@ fields:
     xpath: //span[contains(@class, "a-badge-label") and @id]
   - name: rank
     singleValue: false
-    # xpath: //div[@id='pd_rank']
   - name: rankOrganic
     singleValue: false
-    # xpath: //div[@id='pd_rank']
   - name: id
     singleValue: false
     xpath: //div/../@data-asin
   - name: sponsored
     singleValue: false
-    xpath: //span[@class='s-label-popover-default']/span[text() = "Sponsored"]
+    xpath: //span[@class='s-label-popover-default']/span[text() = "Gesponsert"]
     description: Is sponsored/paid
-    # defaultValue: false
+    type: BOOLEAN
