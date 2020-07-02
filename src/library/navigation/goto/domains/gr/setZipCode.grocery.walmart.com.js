@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'grocery.walmart.com',
-    store: 'walmartOG',    
+    store: 'walmartOG',
   },
   implementation: async (inputs, parameters, context, dependencies) => {
-    const { timeout = 20000, waitUntil = 'load', checkBlocked = true } = {};
+    const { timeout = 60000, waitUntil = 'load', checkBlocked = true } = {};
     const mainUrl = 'https://grocery.walmart.com';
     await context.goto(mainUrl, { timeout, waitUntil, checkBlocked });
     const { zipcode } = inputs;

@@ -35,6 +35,8 @@ module.exports = {
         const url = `https://grocery.walmart.com/v3/api/products/${id}?itemFields=all&storeId=5260`;
         var refURL = window.location.href;
 
+        await new Promise((resolve, reject) => setTimeout(resolve, 60000));
+
         const response = await fetch(url, {
           accept: 'application/json, text/plain, */*',
           referrer: refURL,
