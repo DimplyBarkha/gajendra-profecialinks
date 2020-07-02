@@ -56,7 +56,8 @@ module.exports = {
         await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
         await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-        await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
+        // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+        context.waitForMutuation('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 20000 });
       }
     }
 
