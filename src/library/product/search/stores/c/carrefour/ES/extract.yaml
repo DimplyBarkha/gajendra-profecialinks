@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[@class='article-list']/article
+recordXPath: //section[contains(@class,'article-list')]/article
 fields:
   - name: productUrl
     xpath: //article[@class="product-card-item"]//div[@class="brand"]//a/@href
