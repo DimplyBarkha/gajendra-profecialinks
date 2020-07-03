@@ -1,0 +1,91 @@
+input:
+  id: 10004884
+  _url: https://medpex.de
+extractions:
+  - html: https://workbench.import.io/html/run=5b2c0127-7fb7-45c9-8788-784ed64b2833/task=d34e5033-132c-46fc-888e-6d7436f33517/de0a56f1-bc5c-441f-8fff-0320fc4776da.html
+    extractionConfigId: product/details/stores/m/medpex/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[9]
+            alternateImages:
+              - text: https://images.medpex.de/medias/33518/cZqnChnaPlm57DeVnFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://images.medpex.de/medias/33518/kKEXGVpwEcvH2cDxEFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://images.medpex.de/medias/33518/VHDERrhOEcvH2cDxEFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+              - text: https://images.medpex.de/medias/33518/fenmrnp2FcvH2cDxEFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[4]/img[1]/@src
+              - text: https://images.medpex.de/medias/33518/YkB6TQMnFcvH2cDxEFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[5]/img[1]/@src
+            availabilityText:
+              - text: Verfügbar
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[1]/div[2]
+            brandText:
+              - text: Essity Germany GmbH Health and Medical Solutions
+                xpath: /html/body/div[4]
+            category:
+              - text: |-
+                  Online Apotheke Startseite 
+                   
+                   Blase, Niere & Prostata 
+                   
+                   Inkontinenz 
+                   
+                   Mann 
+                   
+                   Einlagen 
+                   
+                   
+                  TENA MEN Level 2 Einlagen, 20 Stück
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/ol[1]
+            description:
+              - text: TENA MEN Level 2 Einlagen
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]
+            descriptionBullets:
+              - text: "0"
+            gtin:
+              - text: "7322540016383"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/span[2]
+            image:
+              - text: https://images.medpex.de/medias/33518/hG3OifUpPlm57DeVnFIVka-30.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: TENA MEN Level 2 Einlagen 20 Stück
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
+            listPrice:
+              - text: 11,99 €*
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[1]/div[1]/span[2]
+            manufacturer:
+              - text: Essity Germany GmbH Health and Medical Solutions
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/span[1]
+            metaKeywords:
+              - text: TENA MEN Level 2 Einlagen, TENA MEN Level 2 Einlagen bestellen, TENA MEN
+                  Level 2 Einlagen online, TENA MEN Level 2 Einlagen kaufen
+                xpath: /html/head[1]/meta[5]/@content
+            name:
+              - text: TENA MEN Level 2 Einlagen
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]
+            nameExtended:
+              - text: Essity Germany GmbH Health and Medical Solutions _ TENA MEN Level 2
+                  Einlagen
+                xpath: /html/body/div[7]
+            price:
+              - text: 9,69 €
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[1]/div[1]/span[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/form[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[2]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.medpex.de/einlagen-mann/tena-men-level-2-einlagen-p10004884
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/ol[1]/li[6]/meta[2]/@content
+            videos:
+              - text: https://www.youtube-nocookie.com/embed/_9wHoUde854?rel=0
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[4]/iframe[1]/@src
+        xpath: /
+    timestamp: 1591605605435
