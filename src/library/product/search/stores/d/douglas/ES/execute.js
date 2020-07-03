@@ -5,7 +5,7 @@ module.exports = {
     ccountry: 'ES',
     store: 'douglas',
     domain: 'douglas.es',
-    url: 'https://api.empathybroker.com/search/v1/query/douglas/search?lang=es&origin=linked&promoted.start=0&scope=desktop&tariff=V005&start=0&rows=24&q={searchTerms}#[!opt!]{"type":"json"}[/!opt!]',
+    url: 'https://api.empathybroker.com/search/v1/query/douglas/search?banner.start=0&direct.start=0&lang=es&origin=default&promoted.start=0&q={searchTerms}&rows=24&scope=desktop&start=0&tariff=V005#[!opt!]{"type":"json"}[/!opt!]',
     zipcode: '',
   },
 };
