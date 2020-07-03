@@ -7,6 +7,7 @@ module.exports = {
     store: 'amazonPrimePantry',
     transform,
     domain: 'amazon.com',
+    zipcode: "10001"
   },
   implementation: async (inputs,
     parameters,
@@ -14,9 +15,14 @@ module.exports = {
     dependencies, ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await new Promise(resolve => setTimeout(resolve, 5261));
     await context.evaluate(async function () {
-      const element = document.getElementById("detail-bullets");
-      element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      await new Promise(resolve => setTimeout(resolve, 2814));
+      const element = document.getElementById("aplus");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        await new Promise(resolve => setTimeout(resolve, 2197));
+      }
     })
     return await context.extract(productDetails, { transform });
   }

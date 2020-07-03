@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
@@ -6,7 +5,7 @@ module.exports = {
     domain: 'amazon.com',
     store: 'amazon',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -64,14 +63,14 @@ module.exports = {
           console.log('We failed to solve the CAPTCHA');
           return context.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
         }
-        return false;
+        return 'false';
       }
-      return true;
+      return 'true';
     };
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
-        timeout: 10000,
+        timeout: 60000,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
@@ -89,7 +88,7 @@ module.exports = {
 
         console.log('Waiting for page to reload on homepage');
         context.waitForNavigation();
-        if (!await solveCaptchaIfNecessary()) {
+        if (await solveCaptchaIfNecessary() === 'false') {
           hasCaptcha = true;
           return;
         }
@@ -116,7 +115,7 @@ module.exports = {
 
         console.log('Going back to desired page');
         lastResponseData = await context.goto(url, {
-          timeout: 10000,
+          timeout: 60000,
           waitUntil: 'load',
           checkBlocked: true,
           js_enabled: true,
@@ -141,7 +140,7 @@ module.exports = {
         return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       }
 
-      if (!await solveCaptchaIfNecessary) {
+      if (await solveCaptchaIfNecessary() === 'false') {
         hasCaptcha = true;
         return;
       }
@@ -151,9 +150,8 @@ module.exports = {
       }
 
       const wrongLocale = await context.evaluate(async function () {
-        const detailsLocaleEl = document.evaluate("//*[contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/span", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        const searchLocaleEl = document.evaluate("//span[@id='glow-ingress-line1']//*[contains(text(),':')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if (!!detailsLocaleEl.snapshotLength || !!searchLocaleEl.snapshotLength) {
+        const localeEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and not(//*[contains(text(), 'Amazon Fresh')])]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if (localeEl.snapshotLength > 0) {
           return 'true';
         } else {
           return 'false';
@@ -174,7 +172,7 @@ module.exports = {
     try {
       await run();
     } finally {
-    // needs to be non-fat arrow
+      // needs to be non-fat arrow
       await context.evaluate((captchaCount, duration, js, hasCaptcha) => {
         const captchasElt = document.createElement('meta');
         captchasElt.name = 'captchas';
@@ -194,6 +192,9 @@ module.exports = {
         document.head.appendChild(javascriptElt);
         // js_enabled
       }, [captchas, Date.now() - start, hasCaptcha]);
+    }
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode });
     }
   },
 };
