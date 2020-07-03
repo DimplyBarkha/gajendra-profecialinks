@@ -15,7 +15,8 @@ const transform = (data) => {
       .replace(/\s{1,}"/g, '"')
       .replace(/^ +| +$|( )+/g, ' ')
       // eslint-disable-next-line no-control-regex
-      .replace(/[^\x00-\x7F]/g, '');
+      .replace(/[^\x00-\x7F]/g, '')
+      .replace(/&nbsp;/g, ' ');
 
     return JSON.parse(dataStr);
   };
@@ -93,6 +94,16 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
           item.text = `${item.text.replace(/\n/g, '')}`;
+        });
+      }
+      if (row.allergyAdvice) {
+        row.allergyAdvice.forEach(item => {
+          item.text = `${item.text.replace(/Contains: /g, '')}`;
+        });
+      }
+      if (row.imageAlt) {
+        row.imageAlt.forEach(item => {
+          // item.text = cleanUp(`${item.text}`);
         });
       }
       if (row.news) {

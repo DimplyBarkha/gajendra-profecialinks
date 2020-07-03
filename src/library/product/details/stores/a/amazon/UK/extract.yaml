@@ -183,7 +183,7 @@ fields:
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
     regExp: (.+)
     regExpReplace: 'Yes'
-    defaultValue:  'No'
+    # defaultValue:  'No'
     description: YES or Blank
   - name: amazonChoiceCategory
     singleValue: true
@@ -267,16 +267,16 @@ fields:
   - name: variantAsins
     singleValue: false
     description: null
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
-    regExp: p\/([A-Z0-9]{9,})\/
-    regExpReplace: $1
+    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
+    # regExp: p\/([A-Z0-9]{9,})\/
+    # regExpReplace: $1
   - name: primeFlag
     singleValue: true
     description: null
     xpath: //div[contains(@id,'centerCol')]//i[contains(@class, "a-icon-prime")]
     regExp: (.+)
     regExpReplace: 'Yes'
-    defaultValue: No
+    defaultValue: NO
   - name: lbb
     singleValue: true
     xpath: //span[@data-action='show-all-offers-display' and contains(text(),'Available from ')] | //div[contains(@id,'olp-upd-new-used-freeshipping-threshold')]
