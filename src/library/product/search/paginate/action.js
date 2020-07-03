@@ -1,21 +1,21 @@
 /**
  *
  * @param {{
- *  keywords: string,
- *  page: number,
- *  offset: number,
- * }} inputs
- * @param {{
- *  nextLinkSelector: string,
- *  mutationSelector: string,
- *  loadedSelector: string,
- *  noResultsXPath: string,
- *  spinnerSelector: string,
- *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
- * }} parameters
- * @param { ImportIO.IContext } context
- * @param { Record<string, any> } dependencies
- */
+  *  keywords: string,
+  *  page: number,
+  *  offset: number,
+  * }} inputs
+  * @param {{
+  *  nextLinkSelector: string,
+  *  mutationSelector: string,
+  *  loadedSelector: string,
+  *  noResultsXPath: string,
+  *  spinnerSelector: string,
+  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
+  * }} parameters
+  * @param { ImportIO.IContext } context
+  * @param { Record<string, any> } dependencies
+  */
 async function implementation (
   inputs,
   parameters,
@@ -23,7 +23,7 @@ async function implementation (
   dependencies,
 ) {
   const { keywords, page, offset } = inputs;
-  const { nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
+  const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
 
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
@@ -60,13 +60,19 @@ async function implementation (
 
   console.log('Going to url', url);
   await dependencies.goto({ url });
-
-  if (parameters.loadedSelector) {
+  if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
-  return true;
+  console.log('Checking no results', noResultsXPath);
+  return await context.evaluate(function (xp) {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, noResultsXPath);
 }
 
 module.exports = {
@@ -93,11 +99,11 @@ module.exports = {
     },
     {
       name: 'loadedSelector',
-      description: 'XPath to tell us the page has loaded',
+      description: 'CSS to tell us the page has loaded',
     },
     {
       name: 'noResultsXPath',
-      description: 'XPath to tell us the page has no results and not wait for loadedSelector',
+      description: 'XPath selector for no results',
     },
     {
       name: 'openSearchDefinition',
