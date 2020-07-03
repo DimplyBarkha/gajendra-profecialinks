@@ -4,7 +4,10 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, context) => {
+  const state = context.getState();
+  let rankCounter = state.rankCounter || 0;
+  const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
       if (row.productUrl) {
@@ -29,6 +32,13 @@ const transform = (data) => {
             }
           }
         });
+      }
+      if (row.id && row.id[0] && productCodes.indexOf(row.id[0].text) === -1) {
+        productCodes.push(row.id[0].text);
+        rankCounter += 1;
+        row.rankOrganic = [{ text: rankCounter }];
+      } else {
+        row.id = [{ text: '' }];
       }
     }
   }

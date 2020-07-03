@@ -24,16 +24,6 @@ async function implementation (
         node.appendChild(newDiv);
       }
     });
-    const startIndex = window.location.href.match(/Nao=(\d+)/i);
-    let rank = startIndex ? (+startIndex[1]) + 1 : 1;
-    document.querySelectorAll('div[data-section="gridview"]>div[data-component="productpod"],div[class="product-result__wrapped-results"] div.product-pod').forEach(node => {
-      const newDiv = document.createElement('span');
-      newDiv.className = 'rank_org';
-      newDiv.textContent = rank.toString();
-      newDiv.style.display = 'none';
-      node.appendChild(newDiv);
-      ++rank;
-    });
   });
   return await context.extract(productDetails, { transform: parameters.transform });
 }
