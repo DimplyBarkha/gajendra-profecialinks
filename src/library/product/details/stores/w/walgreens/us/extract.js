@@ -155,7 +155,7 @@ module.exports = {
             return result.includes('$') ? result : `$${result}`;
           };
 
-          const findInSection = key => (details.section.find(u => u[key]) ? details.section.find(u => u[key])[key] : '');
+          const findInSection = key => ((details.section) ? (details.section.find(u => u[key]) ? details.section.find(u => u[key])[key] : '') : {});
 
           const desc = findInSection('description');
           const ingredients = findInSection('ingredients');
@@ -212,8 +212,7 @@ module.exports = {
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
           const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), ...obj.ingredients], []) : '';
 
-          if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
-            console.log('here');
+          if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0] && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
             const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
             const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
             ingrList.unshift(typeOfIngredient);
@@ -239,23 +238,23 @@ module.exports = {
             ...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
               if (!frame.allowFullscreen) return acc;
               if (frame.contentWindow.settings && frame.contentWindow.settings.itemsList) {
-                const fullPath = frame.contentWindow.document.querySelector('video') ? frame.contentWindow.document.querySelector('video').src : '';
+                const fullPath = (frame.contentWindow.document.querySelector('video') && frame.contentWindow.document.querySelector('video').src) ? frame.contentWindow.document.querySelector('video').src : null;
                 const root = fullPath ? fullPath.split('/_cp')[0] : '';
-                return [...acc, ...[...frame.contentWindow.settings.itemsList].map(v => root + v.src.src)];
+                return [...acc, ...[...frame.contentWindow.settings.itemsList].filter(v => (v.src && v.src.src)).map(v => root + v.src.src)];
               }
-              return [...acc, ...[...frame.contentWindow.document.querySelectorAll('video')].map(v => v.src)];
+              return [...acc, ...[...frame.contentWindow.document.querySelectorAll('video')].filter(v => (v.src)).map(v => v.src)];
             }, []),
-            ...[...document.querySelectorAll('video')].map(v => v.src),
+            ...[...document.querySelectorAll('video')].filter(v => (v.src)).map(v => v.src),
           ];
 
           const videosDurations = () => [...[...document.querySelectorAll('iframe')].reduce((acc, frame) => {
             if (!frame.allowFullscreen) return acc;
             if (frame.contentWindow.settings && frame.contentWindow.settings.itemsList) {
-              return [...acc, ...[...frame.contentWindow.settings.itemsList].map(v => v.duration)];
+              return [...acc, ...[...frame.contentWindow.settings.itemsList].filter(v => (v.duration)).map(v => v.duration)];
             }
             return [...acc, ...[...frame.contentWindow.document.querySelectorAll('video')]];
           }, []),
-          ...[...document.querySelectorAll('video')].map(v => v.duration),
+          ...[...document.querySelectorAll('video')].filter(v => (v.duration)).map(v => v.duration),
           ];
 
           const allVideos = videos().filter(v => !(/(png)/.test(v)) && !(/(jpg)/.test(v)) && !(/(jpeg)/.test(v)));
@@ -364,8 +363,8 @@ module.exports = {
             addonItem: '',
             fastTrack: '',
             ingredientsList: ingrList ? ingrList.join(' ') : '',
-            servingSize: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.split(/(\d+)/)[0] : '',
-            servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.split(/(\d+)/)[1] : '',
+            servingSize: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] : '',
+            servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
             numberOfServingsInPackage: nutrition && nutrition[0] ? nutrition[0].servingPerContainer : '',
             caloriesPerServing: getNutri(['calories', 'calorie'], false),
             caloriesFromFatPerServing: '',
@@ -446,8 +445,9 @@ module.exports = {
       };
     };
 
-    const variantArray = await context.evaluate(() => {
-      const jsonObj = (window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {};
+    const variantArray = await context.evaluate(async () => {
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      const jsonObj = (window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product && window.__ATC_APP_INITIAL_STATE__.product.results) ? window.__ATC_APP_INITIAL_STATE__.product.results : {};
       const getXpathByText = (xpath, attribute, text) => {
         const classCheat = `[contains(concat(' ',normalize-space(@${attribute}),' '),'${text}')]`;
         return (xpath + classCheat);

@@ -7,7 +7,7 @@ module.exports = {
     country: 'us',
   },
   implementation: async ({ id }, parameters, context, dependencies) => {
-    const { timeout = 20000, waitUntil = 'load', checkBlocked = true } = {};
+    const { timeout = 25000, waitUntil = 'load', checkBlocked = true } = {};
     const domain = 'walgreens.com';
     const searchUrl = `https://${domain}/search/results.jsp?Ntt=${id}`;
     // await gotoUrl({ url: searchUrl }, { domain }, context);
