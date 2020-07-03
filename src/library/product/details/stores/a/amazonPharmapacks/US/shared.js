@@ -60,6 +60,18 @@ const transform = (data) => {
           }
         }
       }
+
+      if (row.variantCount) {
+        row.variantCount.forEach(item => {
+          if (item.text === '0') {
+            row.variantCount = [
+              {
+                text: '1',
+              },
+            ];
+          }
+        });
+      }
     }
   }
   return data;
