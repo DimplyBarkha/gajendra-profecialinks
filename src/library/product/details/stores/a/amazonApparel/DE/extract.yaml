@@ -1,5 +1,7 @@
 extends: ../../amazonPharmapacks/US/extract
 fields:
+  - name: image
+    xpath: //img[@id="landingImage"]/@src
   - name: size
     singleValue: true
     xpath: //option[@id='native_size_name_0']
@@ -25,7 +27,7 @@ fields:
     xpath: count(//ul[contains(@class, 'imageSwatches')]/li)
   - name: availabilityText
     singleValue: true
-    xpath: //*[@id='availability']
+    xpath: //*[@id='availability']/span
   - name: nameExtended
     singleValue: true
     xpath: //h1
