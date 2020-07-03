@@ -28,6 +28,7 @@ module.exports = {
     store: 'amazon',
     transform,
     domain: 'amazon.co.uk',
+    zipcode: 'SW1P 3EU',
   },
   implementation,
 };

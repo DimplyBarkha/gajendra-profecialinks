@@ -7,5 +7,6 @@ module.exports = {
     domain: 'amazon.co.uk',
     loadedSelector: '#altImages li[class*="imageThumbnail"] img',
     noResultsXPath: null,
+    zipcode: 'SW1P 3EU',
   },
 };
