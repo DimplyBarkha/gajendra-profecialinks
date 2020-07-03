@@ -262,3 +262,6 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr
+  - name: coupon
+    singleValue: false
+    xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
