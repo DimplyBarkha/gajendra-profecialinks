@@ -1,22 +1,25 @@
-extends: ../../amazon/US/extract
+extends: ../../amazonApparel/US/extract
 fields:
-- name: gtin
-  xpath: //li/b[contains(text(), 'UPC:')]/../text()
-- name: directions
-  xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text()
-- name: lbb
-  defaultValue: NO
-- name: featureBullets
-  xpath: //body/@feature_bullets
-- name: packSize
-  xpath: //title[contains(text(), 'Pack')]
-  regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
-  regExpReplace: $1$3
+- name: nameExtended
+  singleValue: true
+  xpath: //h1[contains(@id,"title")]
 - name: otherSellersName
-  xpath: //a[@id="sellerProfileTriggerId"]
+  singleValue: true
+  xpath: //div[@id="merchant-info"]/a[@id="sellerProfileTriggerId"]
 - name: otherSellersPrice
-  xpath: //span[@id="price_inside_buybox"]
-- name: legalDisclaimer
-  xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
-- name: weightNet
-  xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
+  singleValue: true
+  xpath: //span[@id="newBuyBoxPrice"]
+- name: otherSellersShipping
+  xpath: //span[contains(@id, "mbc-shipping-fixed")]
+  regExp: \$(.+)\s
+  regExpReplace: $1
+- name: quantity
+  singleValue: true
+  xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
+- name: manufacturerDescription
+  sinlgeValue: false
+  xpath: normalize-space(concat(//div[@class="aplus-module-wrapper"]//h3,//div[@class='apm-sidemodule-textright'],//div[@data-a-expander-name="aplus-module-expander"]//div[contains(@class,"apm-spacing")]//table//tr[2],(//div[contains(@class,"apm-spacing")]//table//tr[2])[2]))
+- name: productUrl
+  xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
+  regExp: (.+)
+  regExpReplace: https://www.amazon.com/dp/$1
