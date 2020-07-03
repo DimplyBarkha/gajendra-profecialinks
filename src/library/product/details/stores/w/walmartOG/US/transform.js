@@ -68,7 +68,7 @@ const transform = (data, context) => {
             quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s)/;
             quantity = quantityRe.exec(quantityText);
           }
-          const unecessaryStrings = /[Cc]anister/;
+          const unecessaryStrings = /[Cc]anister|[\d\.]+\s[Cc]harcoal/;
 
           if (quantity && quantity[0] && unecessaryStrings.test(quantity[0])) {
             quantity[0] = quantity[0].replace(unecessaryStrings, '');
