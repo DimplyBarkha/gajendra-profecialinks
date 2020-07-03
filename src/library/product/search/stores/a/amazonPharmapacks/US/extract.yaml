@@ -16,7 +16,7 @@ fields:
     regExpReplace: https://www.amazon.com$1
   - name: thumbnail
     xpath: //div[contains(@class, 'image')]/img/@src
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //span[contains(@aria-label,"stars")]/@aria-label
     regExp: (.+) out of
     regExpReplace: $1
