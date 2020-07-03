@@ -1,12 +1,12 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: '//div[@class="search-page-content__products-tab-content"]//li[contains(@class,"co-item")]/div[@class="co-product"]'
 fields:
   - name: id
     singleValue: true
   - name: rankOrganic
-    defaultValue: false
+    singleValue: true
   - name: name
     xpath: //h3//a[@data-auto-id="linkProductTitle"]
     singleValue: false
@@ -20,17 +20,20 @@ fields:
     regExp: (\d+)
     regExpReplace: $1
     singleValue: false
+  - name: ratingCount
+    xpath: //span[@class="co-product__review-count"]
+    regExp: (\d+)
+    regExpReplace: $1
+    singleValue: false
   - name: input
     xpath: //div[@class="search-content-header__keyword"]
     singleValue: true
   - name: gtin
     singleValue: true
   - name: thumbnail
-    xpath: //button[@data-auto-id="linkProductImage"]//img/@src
+    xpath: //button[@data-auto-id="linkProductImage"]//img/@src|//button[@data-auto-id="linkProductImage"]//img/@data-src
     singleValue: true
   - name: aggregateRating
-    singleValue: true
-  - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,"rating-stars__stars")]/parent::div/@aria-label
     regExp: (.+)( stars.*|No rating.*)
@@ -45,8 +48,8 @@ fields:
   - name: soldBy
     singleValue: true
   - name: rank
-    defaultValue: false
+    singleValue: true
   - name: sponsored
-    defaultValue: false
+    singleValue: true
   - name: endorsementText
     singleValue: true
