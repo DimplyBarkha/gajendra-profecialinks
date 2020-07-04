@@ -1,7 +1,7 @@
 async function implementation (
   inputs, parameters, context, dependencies,
 ) {
-  const { url, zipcode } = inputs;
+  const { zipcode } = inputs;
 
   const getCurrentZip = async () => {
     return await context.evaluate(async function () {
@@ -57,8 +57,6 @@ async function implementation (
     await findClosestStore();
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   };
-
-  await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
 
   const currentZip = await getCurrentZip();
   console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
