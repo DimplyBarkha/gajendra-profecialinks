@@ -18,6 +18,7 @@ async function implementation(
   await context.click('#GLUXZipUpdate input');
   await context.waitForSelector('button[name="glowDoneButton"]');
   await context.click('button[name="glowDoneButton"]');
+  await new Promise(resolve => setTimeout(resolve, 5261));
   await context.waitForNavigation();
 }
 
