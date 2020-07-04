@@ -4,20 +4,17 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
     xpath: (//img[@id="landingImage"])[1]/@src
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     xpath: //*[@id="imageBlock_feature_div"]/script
     regExp: large\":\"(.{40,200})\"\,\"main
     regExpReplace: $1
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -45,11 +42,11 @@ fields:
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
   - name: asin
-    singleValue: false
-    xpath: //input[contains(@id,"Asin") or contains(@id,"ASIN")][1]/@value
+    singleValue: true
+    xpath: //input[contains(@id,"Asin") or contains(@id,"ASIN")][1]/@value|(//*[@data-asin])[1]/@data-asin
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]| //td[contains(text(), 'Item model number')]/following-sibling::*
   - name: directions
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
@@ -82,7 +79,7 @@ fields:
     singleValue: false
     xpath: //*[@id="twister"]//span[@class="selection"]
   - name: category
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="SalesRank"]/ul/li//a[1]
   - name: variantCount
     singleValue: false
@@ -102,7 +99,7 @@ fields:
     xpath: //*[contains(@id,"price_savings") and not(contains(@class,"a-hidden"))]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@cel_widget_id="aplus"]//img/@src
+    xpath: //div[@cel_widget_id="aplus"]//*[not(self::noscript)]/img/@src
   - name: manufacturerDescription
     singleValue: false
     manualSelector: '#importantInformation_feature_div,#productDescription_feature_div.feature,#aplus'
