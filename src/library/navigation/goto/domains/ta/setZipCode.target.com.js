@@ -5,7 +5,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { url, zipcode } = inputs;
+  const { zipcode } = inputs;
   // const { country, domain, store } = parameters;
 
   await context.waitForXPath('//button[@data-test="storeId-utilityNavBtn"]');
@@ -34,7 +34,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'target.com',
-    store: 'target',   
+    store: 'target',
   },
-  implementation
+  implementation,
 };

@@ -7,5 +7,5 @@ module.exports = {
     url: 'https://www.target.com/s?searchTerm={searchTerms}',
     loadedSelector: 'ul li',
     noResultsXPath: '//h1[contains(.,"no results found")]',
-  },  
+  },
 };
