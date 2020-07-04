@@ -15,9 +15,6 @@ fields:
     xpath: //*[@id="imageBlock_feature_div"]/script
     regExp: large\":\"(.{40,200})\"\,\"main
     regExpReplace: $1
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
