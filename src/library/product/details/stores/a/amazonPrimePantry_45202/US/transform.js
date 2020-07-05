@@ -35,7 +35,7 @@ const transform = (data) => {
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {
-          text += `${item.text.replace(': Amazon.co.uk: Prime Pantry', '')}`;
+          text += `${item.text.replace('Amazon.com:', '').replace(': Prime Pantry', '')}`;
         });
         row.nameExtended = [
           {
@@ -65,9 +65,15 @@ const transform = (data) => {
         });
       }
       if (row.manufacturerDescription) {
+        let text = '';
         row.manufacturerDescription.forEach(item => {
-          item.text = cleanUp(item.text.replace(/<img.{1,300}">/g, ''));
+          text += item.text.replace(/\n \n/g, ' ');
         });
+        row.manufacturerDescription = [
+          {
+            text: cleanUp(text.replace(/<img.{1,300}">/g, '')),
+          },
+        ];
       }
       if (row.promotion) {
         row.promotion.forEach(item => {
