@@ -83,10 +83,10 @@ module.exports = {
 
       if(btns[0].length){
         while(i < btns[0].length && i < 100) {
-          context.click(btns[0][i]);
-          context.click(btns[0][i]);
+          await context.click(btns[0][i]);
+          await context.click(btns[0][i]);
 
-          await new Promise(resolve => setTimeout(resolve, 15000));
+          await new Promise(resolve => setTimeout(resolve, 5000));
           await context.waitForSelector(waitSelector, { timeout: 20000 });
 
 
@@ -94,10 +94,11 @@ module.exports = {
             while(j < btns[1].length && j < 100) {
               let check = await buttonCheck(btns[1][j] + " div");
               if(check) {
-                context.click(btns[1][j]);
-                context.click(btns[1][j]);
+                
+                await context.click(btns[1][j]);
+                await context.click(btns[1][j]);
 
-                await new Promise(resolve => setTimeout(resolve, 15000));
+                await new Promise(resolve => setTimeout(resolve, 5000));
                 await context.waitForSelector(waitSelector, { timeout: 20000 });
                 await getVariantIdNum();
                 await collectVariantInfo();
