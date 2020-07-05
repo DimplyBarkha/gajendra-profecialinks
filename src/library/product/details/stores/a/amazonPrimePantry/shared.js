@@ -54,9 +54,15 @@ const transform = (data) => {
         });
       }
       if (row.manufacturerDescription) {
+        let text = '';
         row.manufacturerDescription.forEach(item => {
-          item.text = cleanUp(item.text);
+          text += item.text.replace(/\n \n/g, ' ');
         });
+        row.manufacturerDescription = [
+          {
+            text: cleanUp(text.replace(/<img.{1,300}">/g, '')),
+          },
+        ];
       }
       if (row.promotion) {
         row.promotion.forEach(item => {
