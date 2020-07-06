@@ -20,9 +20,18 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
     addHiddenDiv(`ii_url`, window.location.href);
-
-
+    
+    
   });
+  // const addSku = await context.evaluate(function () {
+  //   const skuScript  = '//script[contains(.,"productIndexData")]'
+  //   if(skuScript) {
+  //     var element = document.evaluate( skuScript, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+  //     if( element.snapshotLength > 0 ) {
+  //         console.log(element.snapshotItem(1).textContent)
+  //     }
+  //   }
+  // }) 
 
   console.log("Do pagination");
   let resultCounter = 0;
@@ -69,8 +78,9 @@ async function implementation (
                   break;
               }
           }
-  
+
   }
+
 
 
   await continuedClickToShowResults()
