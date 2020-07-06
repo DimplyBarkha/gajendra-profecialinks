@@ -31,7 +31,6 @@ module.exports = {
     await context.click(linkURL[0])
 
     const urlTest = await context.evaluate(function(linkURL) {
-
       let currentUrl = window.location.href;
       let urlFromLink = linkURL[1]
       if(currentUrl === urlFromLink){
@@ -130,7 +129,6 @@ module.exports = {
           } else {
             await getVariantIdNum();
             await new Promise(resolve => setTimeout(resolve, 2000));
-
             await collectVariantInfo();
             
             }
