@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'booker',
     nextLinkSelector: '#pagingCtrls > span > a:not(.pagerSelected)',
-    loadedSelector: 'span#BPLIC table',
-    noResultsXPath: 'div.boxValidationError',
+    loadedSelector: 'span#BPLIC table tr.pr',
+    noResultsXPath: '//div[contains(@class,"boxValidationError")]',
     domain: 'booker.co.uk',
   },
 };
