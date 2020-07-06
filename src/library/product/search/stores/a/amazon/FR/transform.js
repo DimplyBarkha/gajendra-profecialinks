@@ -22,6 +22,16 @@ const transform = (data, context) => {
   // const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
+      if (row.price) {
+        row.price.forEach(priceItem => {
+          priceItem.text = priceItem.text.replace(/\./g, '').replace(/,/g, '.');
+        });
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace(',', '.');
+        });
+      }
       if (row.id && row.id[0]) {
         // productCodes.push(row.id[0].text);
         rankCounter += 1;
