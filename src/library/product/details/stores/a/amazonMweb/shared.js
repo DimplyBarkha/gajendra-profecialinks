@@ -44,22 +44,21 @@ const transform = (data) => {
           },
         ];
       }
-      // if (row.description) {
-      //   const text = '';
-      //   row.description = [
-      //     {
-      //       text: cleanUp(text),
-      //     },
-      //   ];
-      // }
-      // if (row.manufacturerDescription) {
-      //   const text = '';
-      //   row.manufacturerDescription = [
-      //     {
-      //       text: cleanUp(text),
-      //     },
-      //   ];
-      // }
+      if (row.price) {
+        row.price.forEach(price => {
+          price.text = price.text.replace('.', '').replace(',', '.').trim();
+        });
+      }
+      if (row.description) {
+        row.description.forEach(description => {
+          description.text = cleanUp(description.text);
+        });
+      }
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription.forEach(manufacturerDescription => {
+          manufacturerDescription.text = cleanUp(manufacturerDescription.text);
+        });
+      }
     }
   }
   return data;

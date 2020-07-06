@@ -25,6 +25,10 @@ async function implementation (
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
+    let enhancedContent = document.querySelector('div#aplus');
+    // @ts-ignore
+    enhancedContent = enhancedContent ? enhancedContent.innerText : '';
+    addElementToDocument('a_enhancedContent', enhancedContent);
     addElementToDocument('a_pageTimestamp', (new Date()).toISOString().replace(/[TZ]/g, ' '));
   });
   return await context.extract(productDetails, { transform: parameters.transform });

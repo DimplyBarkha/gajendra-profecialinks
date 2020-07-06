@@ -12,7 +12,7 @@ fields:
   - name: pageTimestamp
     singleValue: false
     xpath: //div[@id="a_pageTimestamp"]
-  - name: searchUrl
+  - name: url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
   - name: category
@@ -69,7 +69,7 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //*[@id="aplus"]
+    xpath: //div[@id="a_enhancedContent"]
   - name: descriptionBullets 
     singleValue: false
     xpath: count(//div[@id="feature-bullets-btf"]/*//ul/li | //div[@id="featurebullets_feature_div"]/*//ul/li)
