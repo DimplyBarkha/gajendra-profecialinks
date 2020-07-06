@@ -13,7 +13,7 @@ fields:
     singleValue: false
     xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
     regExp: (.*)(_SX.*_)(.*)
-    regExpReplace: $1_SR500,500_.jpg
+    regExpReplace: $1_SR500,500_$3
   - name: metaKeywords
     singleValue: true
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -29,7 +29,7 @@ fields:
     singleValue: true
     xpath: //div[@id="productDescription"]
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="primeNowDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: true
@@ -70,7 +70,7 @@ fields:
     regExp: ([^()]+)
     regExpReplace: $1
   - name: gtin
-    singleValue: true
+    singleValue: false
     xpath: //th[contains(text(), 'UPC')]/following-sibling::*[1]
   - name: eangtin
     singleValue: true
@@ -108,7 +108,7 @@ fields:
     singleValue: true
   - name: aggregateRating
     singleValue: false
-    xpath: //*[@id="acrPopover"]/@title
+    xpath: (//*[@id="acrPopover"]/@title)[1]
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: shippingInfo
