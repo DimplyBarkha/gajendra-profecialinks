@@ -287,13 +287,14 @@ module.exports = {
 
           const shippingInfoContent = () => {
             let shippingInfoTextContent = '';
+            const shippingEnableID = (document.querySelector('p#shiptostoreenable')) ? 'shiptostoreenable' : 'shiptostoredisable';
 
-            if (document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').textContent) {
-              shippingInfoTextContent += document.querySelector('p#shiptostoreenable').textContent;
+            if (document.querySelector('p#' + shippingEnableID) && document.querySelector('p#' + shippingEnableID).textContent) {
+              shippingInfoTextContent += document.querySelector('p#' + shippingEnableID).textContent;
             }
 
-            if (document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').nextElementSibling && document.querySelector('p#shiptostoreenable').nextElementSibling.textContent) {
-              shippingInfoTextContent += ' ' + document.querySelector('p#shiptostoreenable').nextElementSibling.textContent + restrictedStatesList();
+            if (document.querySelector('p#' + shippingEnableID) && document.querySelector('p#' + shippingEnableID).nextElementSibling && document.querySelector('p#' + shippingEnableID).nextElementSibling.textContent) {
+              shippingInfoTextContent += ' ' + document.querySelector('p#' + shippingEnableID).nextElementSibling.textContent + restrictedStatesList();
             }
 
             if (shippingInfoTextContent.length === 0 && (jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0))) {
@@ -306,15 +307,28 @@ module.exports = {
           const promotions = () => {
             const notPromotionRe = /(donation)/ig;
             const isPromotionRe = /(rebate)|(Extra Savings)/ig;
-            const promotion = details.OfferList ? details.OfferList.map(u => !notPromotionRe.test(u.title) ? (u.title) : '') : '';
+            const promotion = details.OfferList ? details.OfferList.map(u => !notPromotionRe.test(u.title) ? (u.redirectPageTitle ? u.redirectPageTitle : u.title) : '') : '';
             if (isPromotionRe.test(promotion)) {
               return (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
             }
             return promotion;
           };
 
-          console.log('videos!');
-          console.log(videos());
+          const customWarning = () => {
+            console.log('customWarning');
+            if (document.querySelector('div.description') && (document.querySelector('div.description').innerHTML.match(/<p><strong>WARNING:<\/strong>.*?<\/p>/)) !== null) {
+              // if ((document.querySelector('div.description').innerHTML.match(/<p><strong>WARNING:<\/strong>.*?<\/p>/))[0] !== null) {}
+              const htmlTagWithWarnings = (document.querySelector('div.description').innerHTML.match(/<p><strong>WARNING:<\/strong>.*?<\/p>/))[0];
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(htmlTagWithWarnings, 'text/html');
+              if (doc.querySelector('p') && doc.querySelector('p').textContent) {
+                return doc.querySelector('p').textContent;
+              } else {
+                return '';
+              }
+            }
+            return '';
+          };
 
           console.log(jsonObj.inventory);
           console.log(jsonObj.inventory.shipAvailableMessage);
@@ -346,7 +360,7 @@ module.exports = {
             packSize: infos.prodPacksAvailable,
             legalDisclaimer: '',
             directions: directions && fullDescription ? fullDescription.slice(directions, fullDescription.length) : '',
-            warnings: warnings ? warnings.productWarning : '',
+            warnings: (warnings && warnings.productWarning) ? warnings.productWarning : customWarning(),
             ratingCount: reviews ? reviews.reviewCount : '',
             aggregateRatingText: reviews ? reviews.overallRating : '',
             aggregateRating: reviews ? reviews.overallRating : '',
