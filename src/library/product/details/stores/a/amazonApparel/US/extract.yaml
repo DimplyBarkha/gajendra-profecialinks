@@ -18,9 +18,3 @@ fields:
     xpath: (//span[@class="a-dropdown-container"])[1]//option[@data-a-css-class="dropdownSelect"]/@value
     regExp: \,(.+)
     regExpReplace: https://www.amazon.com/dp/$1?th=1&psc=1
-  - name: fastTrack
-    xpath: (//div[@id="fast-track-message"]//div[@id="delivery-message"])[1]
-  - name: amazonChoiceCategory
-    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]
-  - name : news
-    xpath: //a[@class="badge-link"]
