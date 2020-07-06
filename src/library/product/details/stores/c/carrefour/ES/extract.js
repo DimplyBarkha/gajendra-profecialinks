@@ -30,7 +30,7 @@ module.exports = {
         // @ts-ignore
         const obj = window.dataLayer[0];
         const brand = obj ? obj.productBrand : '';
-        const gtin = obj ? obj.productEAN[0] : '';
+        const gtin = obj ? obj.productEAN : obj.productEAN[0] ? '' : '';
         document.body.setAttribute('brand', brand);
         document.body.setAttribute('gtin', gtin);
       }
