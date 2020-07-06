@@ -232,7 +232,7 @@ module.exports = {
         let flag = false;
         const selectors = [[],[]];
         let i = 1;
-        while(!flag && i < 41) {
+        while(!flag && i < 40) {
           const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           if(document.querySelector(firstVar)){
@@ -301,7 +301,8 @@ module.exports = {
       const variantDescription2 = '(//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()'
       const variantWarnings = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Warnings")]//div[@class="htmlView"]//text()'
       // const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Directions")]//div[@class="htmlView"]'
-      const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Directions")]//div[@class="htmlView"]//text()[not( contains(., "Questions?"))]'
+      // const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Directions")]//div[@class="htmlView"]//text()[not( contains(., "Questions?"))]'
+      const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[not(descendant-or-self::*[contains(@id,"wc")]) and contains(.,"Directions")]//div[@class="htmlView"]//text()[not( contains(., "Questions?"))]'
       const variantIngredients = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Ingredients") and not(contains(., "Details"))]//div[@class="htmlView"]'
       const variantADBI1 = '(//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Details")]//div[@class="htmlView"])[1]//li'
       const variantADBI2 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"]/ul/li'

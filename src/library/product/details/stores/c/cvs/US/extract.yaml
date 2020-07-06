@@ -111,16 +111,16 @@ fields:
     singleValue: true
     selector: div.css-901oao.r-v857uc.r-1jn44m2.r-1i10wst.r-vw2c0b.r-9qu9m4
     defaultValue: In Stock
-  - name: inStorePrice
-    xpath: //div[@id='ii_variantPrice']
+  # - name: inStorePrice
+  #   xpath: //div[@id='ii_variantPrice']
     # xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
     # singleValue: true
     # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
-  - name: inStorePriceSymbol
-    xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
-    # singleValue: true
-    # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
-    regExp: ^[$]
+  # - name: inStorePriceSymbol
+  #   xpath: ancestor::html//div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+  #   # singleValue: true
+  #   # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
+  #   regExp: ^[$]
   - name: ingredientsList
     # xpath: ancestor::html//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients') and not(contains(., "Details"))]//div[@class='htmlView']
     xpath: //div[@id='ii_variantIngredients']
