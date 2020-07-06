@@ -53,7 +53,7 @@ async function implementation (
     await context.click('button.kds-SolitarySearch-button');
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await findButtonWithStoreSelect();
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     await findClosestStore();
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   };
