@@ -23,3 +23,5 @@ fields:
   xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   regExp: (.+)
   regExpReplace: https://www.amazon.com/dp/$1
+- name: asins
+  xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
