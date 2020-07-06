@@ -49,6 +49,18 @@ module.exports = {
       await new Promise(resolve => setTimeout(resolve, 30000));
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner');
+      await context.waitForSelector('a.view-more-trigger');
+
+      // await context.evaluate(function () {
+      //   const showMoreButton = document.querySelector('a.view-more-trigger');
+      //   console.log(showMoreButton);
+      //   if (showMoreButton !== null) {
+      //     showMoreButton.className += ' open';
+      //     showMoreButton.setAttribute('aria-expanded', 'true');
+      //     showMoreButton.click();
+      //     console.log(showMoreButton);
+      //   }
+      // });
     }
 
     const extractAll = async (id, url, variants) => {
@@ -212,11 +224,11 @@ module.exports = {
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
           const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), ...obj.ingredients], []) : '';
 
-          if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0] && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
-            const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
-            const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
-            ingrList.unshift(typeOfIngredient);
-          }
+          // if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0] && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
+          //   const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
+          //   const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
+          //   ingrList.unshift(typeOfIngredient);
+          // }
 
           const nutrition = ingredients && ingredients.nutritionFactsGroups ? ingredients.nutritionFactsGroups : '';
           const hasNutrition = nutrition && nutrition.find(u => u.nutritionFact);
@@ -273,9 +285,27 @@ module.exports = {
             return '';
           };
 
+          const shippingInfoContent = () => {
+            let shippingInfoTextContent = '';
+
+            if (document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').textContent) {
+              shippingInfoTextContent += document.querySelector('p#shiptostoreenable').textContent;
+            }
+
+            if (document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').nextElementSibling && document.querySelector('p#shiptostoreenable').nextElementSibling.textContent) {
+              shippingInfoTextContent += ' ' + document.querySelector('p#shiptostoreenable').nextElementSibling.textContent + restrictedStatesList();
+            }
+
+            if (shippingInfoTextContent.length === 0 && (jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0))) {
+              shippingInfoTextContent = 'This product has no shipping restrictions.';
+            }
+
+            return shippingInfoTextContent;
+          };
+
           const promotions = () => {
             const notPromotionRe = /(donation)/ig;
-            const isPromotionRe = /(rebate)/ig;
+            const isPromotionRe = /(rebate)|(Extra Savings)/ig;
             const promotion = details.OfferList ? details.OfferList.map(u => !notPromotionRe.test(u.title) ? (u.title) : '') : '';
             if (isPromotionRe.test(promotion)) {
               return (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
@@ -320,7 +350,8 @@ module.exports = {
             ratingCount: reviews ? reviews.reviewCount : '',
             aggregateRatingText: reviews ? reviews.overallRating : '',
             aggregateRating: reviews ? reviews.overallRating : '',
-            shippingInfo: jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0) ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates ? jsonObj.inventory.restrictedStates.join(', ') : ((document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').nextElementSibling && document.querySelector('p#shiptostoreenable').nextElementSibling.textContent) ? document.querySelector('p#shiptostoreenable').nextElementSibling.textContent + restrictedStatesList() : ''),
+            shippingInfo: shippingInfoContent(),
+            // jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0) ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates ? jsonObj.inventory.restrictedStates.join(', ') : ((document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').nextElementSibling && document.querySelector('p#shiptostoreenable').nextElementSibling.textContent) ? document.querySelector('p#shiptostoreenable').nextElementSibling.textContent + restrictedStatesList() : ''),
             shippingDimensions: shipping ? shipping.productInInches : '',
             shippingWeight: shipping ? shipping.shippingWeight : '',
             variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc + (arr ? arr.length : 0)), 0),
@@ -363,9 +394,9 @@ module.exports = {
             addonItem: '',
             fastTrack: '',
             ingredientsList: ingrList ? ingrList.join(' ') : '',
-            servingSize: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] : '',
-            servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
-            numberOfServingsInPackage: nutrition && nutrition[0] ? nutrition[0].servingPerContainer : '',
+            // servingSize: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] : '',
+            // servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
+            // numberOfServingsInPackage: nutrition && nutrition[0] && nutrition[0].servingPerContainer ? nutrition[0].servingPerContainer : '',
             caloriesPerServing: getNutri(['calories', 'calorie'], false),
             caloriesFromFatPerServing: '',
             totalFatPerServing: getNutri(['fat', 'total_fat'], false),
