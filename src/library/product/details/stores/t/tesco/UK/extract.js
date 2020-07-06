@@ -9,14 +9,18 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      // Get additional product info
-      const productInfo = Array.from(document.querySelectorAll('[class^="product-info-block product-info-block--"]')).map(elm => {
+      // Get additional product info 2. Currently not retrieving.
+      const productInfo2 = Array.from(document.querySelectorAll('[class^="product-info-block product-info-block--"]')).map(elm => {
         if (elm.querySelector('h3')) {
           const key = elm.querySelector('h3').innerText;
           const value = elm.querySelector('ul,p').textContent.trim();
           return `${key}: ${value}`;
         }
       }).filter(elm => elm);
+      document.body.setAttribute('additional_product_info2', productInfo2.join('|'));
+
+      // Get additional product info
+      const productInfo = Array.from(document.querySelectorAll('#features > ul, #product-description > ul')).map(elm => elm.textContent).filter(elm => elm);
       document.body.setAttribute('additional_product_info', productInfo.join('|'));
 
       // Get Ingredients
