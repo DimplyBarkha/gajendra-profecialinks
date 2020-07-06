@@ -23,7 +23,7 @@ fields:
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name='title']/@content
+    xpath: //*[@id="productTitle"]
   - name: listPrice
     singleValue: true
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
@@ -140,7 +140,7 @@ fields:
     regExpReplace: $1
   - name: specifications
     singleValue: false
-    xpath: //div[@id="detail-bullets"]//ul/li
+    xpath: //div[@id="detail-bullets"]//ul/li[text()] | //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
