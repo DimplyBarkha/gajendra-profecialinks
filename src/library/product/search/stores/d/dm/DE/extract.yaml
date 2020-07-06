@@ -30,7 +30,7 @@ fields:
     description: Unique id (within this extractor)
     xpath: //div[@data-dmid="product-tile"]//@id[contains(.,'tile')]
     regExp: ([^-]+$)
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //div[@data-dmid="product-tile-rating"]//@rating
   - name: ratingCount
