@@ -16,7 +16,7 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    const url = window.location.href;
+    const url = window.location.href.replace(/%20/g, ' ');
     addHiddenDiv('added-searchurl', url);
   }
   await context.evaluate(addUrl);
