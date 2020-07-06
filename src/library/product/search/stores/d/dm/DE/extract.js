@@ -12,7 +12,8 @@ async function implementation (
     document.querySelectorAll('[data-dmid="product-tile-rating"]').forEach(elm => {
       const ratingStars = [...elm.querySelectorAll('img[data-dmid="filled-star"]')].map(rate => Number(rate.getAttribute('alt') ? rate.getAttribute('alt').match(/\d+/)[0] : '0'));
       const rating = ratingStars.reduce((a, b) => a + b, 0) / 100;
-      elm.setAttribute('rating', rating);
+      const ratingValue = rating.toString().replace(".", ",");
+      elm.setAttribute('rating', ratingValue);
     });
   });
   return await context.extract(productDetails, { transform });
