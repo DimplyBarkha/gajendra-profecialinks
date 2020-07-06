@@ -57,6 +57,9 @@ const transform = (data, context) => {
         //     },
         //   ];
         // }
+        if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
+          row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+        }
         if (row.productOtherInformation) {
           let text = '';
           row.productOtherInformation.forEach(item => {

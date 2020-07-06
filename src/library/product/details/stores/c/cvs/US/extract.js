@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 20000));
-
+    
     const linkURL = await context.evaluate(function () {
       const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
       const elementSelector = 'div.css-1dbjc4n.r-18u37iz.r-tzz3ar a'
@@ -41,10 +41,10 @@ module.exports = {
       }
     }, linkURL)
     if(!urlTest){
-      await context.goto(linkURL[1]);
+      await context.goto(linkURL[1], { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     }
 
-    await new Promise(resolve => setTimeout(resolve, 30000));
+    await new Promise(resolve => setTimeout(resolve, 20000));
 
     await context.evaluate(function () {
 
@@ -100,8 +100,8 @@ module.exports = {
 
       if(btns[0].length){
         while(i < btns[0].length && i < 100) {
-          context.click(btns[0][i]);
-          context.click(btns[0][i]);
+          await context.click(btns[0][i]);
+          await context.click(btns[0][i]);
           let mCheck = await manufCheck()
           if(mCheck) {
             await new Promise(resolve => setTimeout(resolve, 20000));
@@ -113,8 +113,8 @@ module.exports = {
             while(j < btns[1].length && j < 100) {
               let check = await buttonCheck(btns[1][j]);
               if(check) {
-                context.click(btns[1][j]);
-                context.click(btns[1][j]);
+                await context.click(btns[1][j]);
+                await context.click(btns[1][j]);
                 if(mCheck) {
                   await new Promise(resolve => setTimeout(resolve, 20000));
                 } else {
@@ -225,7 +225,7 @@ module.exports = {
       });
       const moreSelector = 'div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48';
       if(moreCheck){
-        context.click(moreSelector);
+        await context.click(moreSelector);
         await new Promise(resolve => setTimeout(resolve, 10000));
       }
 
@@ -234,7 +234,7 @@ module.exports = {
         let flag = false;
         const selectors = [[],[]];
         let i = 1;
-        while(!flag && i < 21) {
+        while(!flag && i < 41) {
           const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           if(document.querySelector(firstVar)){
