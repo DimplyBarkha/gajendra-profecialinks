@@ -32,5 +32,5 @@ module.exports = {
     loadedSelector: '.PaginateItems',
     noResultsXPath: "//p[@class='no-query-results heading-l font-medium mt-0']",
   },
-  implementation,
+  implementation
 };
