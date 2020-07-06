@@ -27,6 +27,11 @@ const transform = (data, context) => {
           price.text = price.text.replace('.', '').replace(',', '.').trim();
         });
       }
+      if (row.aggregateRatingText) {
+        row.aggregateRatingText.forEach(aggregateRatingText => {
+          aggregateRatingText.text = aggregateRatingText.text.replace(',', '.').trim();
+        });
+      }
       rankCounter = rankCounter + 1;
       if (!row.sponsored) {
         orgRankCounter = orgRankCounter + 1;
