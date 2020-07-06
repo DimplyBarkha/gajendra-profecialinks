@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'amazonPrimeNow',
     domain: 'primenow.amazon.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'table.prodDetTable tr:nth-last-child(1)',
+    noResultsXPath: '//div[contains(@class,"error-page-background")]',
     zipcode: '75204',
   },
 };

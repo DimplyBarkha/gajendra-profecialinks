@@ -12,6 +12,8 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    regExp: (.*)(_SX.*_|_AC.*_)(.*)
+    regExpReplace: $1_SR500,500_$3
   - name: metaKeywords
     singleValue: true
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -27,7 +29,7 @@ fields:
     singleValue: true
     xpath: //div[@id="productDescription"]
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="primeNowDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: true
@@ -68,7 +70,7 @@ fields:
     regExp: ([^()]+)
     regExpReplace: $1
   - name: gtin
-    singleValue: true
+    singleValue: false
     xpath: //th[contains(text(), 'UPC')]/following-sibling::*[1]
   - name: eangtin
     singleValue: true
@@ -89,8 +91,8 @@ fields:
     regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
     regExpReplace: $1$3
   - name: legalDisclaimer
-    singleValue: true
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
+    singleValue: false
+    xpath: //span[contains(text(), "Legal Disclaimer")][contains(@class,"a-text-bold")]/../p[text()]/text()|//h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
     singleValue: true
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
@@ -106,7 +108,7 @@ fields:
     singleValue: true
   - name: aggregateRating
     singleValue: false
-    xpath: //*[@id="acrPopover"]/@title
+    xpath: (//*[@id="acrPopover"]/@title)[1]
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: shippingInfo
@@ -143,10 +145,7 @@ fields:
   - name: inStorePrice
     sinlgeValue: true
   - name: sku
-    singleValue: false
-    xpath: //link[@rel='canonical']/@href
-    regExp: '(.*/dp/)(.+)'
-    regExpReplace: $2
+    singleValue: true
   - name: coupon
     singleValue: true
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
