@@ -151,8 +151,8 @@ fields:
     singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     # xpath: //div[@id='ii_sku']
-    xpath: ancestor::html//div[@id='ii_url']
-    regExp: ([0-9])+$
+    xpath: ancestor::html//div[@id='ii_productCode']
+    # regExp: ([0-9])+$
   - name: variants
     xpath: ancestor::html//div[@id="ii_variantId"]
     regExp: ^([0-9])+

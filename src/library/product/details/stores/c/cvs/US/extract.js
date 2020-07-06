@@ -83,10 +83,23 @@ module.exports = {
           addHiddenDiv('ii_Brand', `${brandObject[0].brand}`);
         }
       }
+
+      function collectVariantId () {
+        const variantId = window.location.href
+
+        if (variantId) {
+          const regex1 = /[0-9]+$/g;
+          let varText = regex1.exec(variantId);
+          if(varText){
+          addHiddenDiv('ii_productCode', varText[0]);
+          }
+        }
+      }
       
       addHiddenDiv('ii_url', window.location.href);
       collectNutritionInfo();
       collectBrand();
+      collectVariantId()
     });
     
 
@@ -232,7 +245,7 @@ module.exports = {
         let flag = false;
         const selectors = [[],[]];
         let i = 1;
-        while(!flag && i < 40) {
+        while(!flag && i < 10) {
           const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           if(document.querySelector(firstVar)){
