@@ -1,0 +1,93 @@
+input:
+  RPC: B00061EQ30
+  _url: https://primenow.amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=5cfa0d73-0adf-483d-8f4b-3bcab6c512c1/task=27576d4c-6e36-40b5-914b-5651f175de02/004aa38d-8db0-4d52-8595-5f7fefe46f5c.html
+    extractionConfigId: product/details/stores/a/amazonPrimeNow_75204/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/51p5kh3T3oL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Sunkist Orange Soda, 2 Liters,Sunkist Soda
+                xpath: /html/head[1]/meta[5]/@content
+            nameExtended:
+              - text: Relax and soak up the taste of the sun with Sunkist Soda. Sunkist Soda
+                  beams with bold, sweet orange flavor and refreshes the moment
+                  you taste it. Enjoy Sunkist Soda anytime or mix with ice cream
+                  for delicious orange floats. Gear up for good times with the
+                  bright taste of Sunkist Soda. SUNKIST is a registered
+                  trademark of Sunkist Growers, Inc., USA used under license by
+                  Dr Pepper/Seven Up, Inc. 2015 Sunkist Growers, Inc. and Dr
+                  Pepper/Seven Up, Inc.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[9]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]
+            description:
+              - text: Packaging May Vary
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[2]
+              - text: One 2 liter bottle
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[3]
+              - text: Bold, tangy orange taste
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[4]
+              - text: Enjoy Sunkist Soda anytime or mix with ice cream for delicious orange
+                  floats
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[5]
+              - text: One 2 liter bottle
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[6]
+              - text: Bold, tangy orange taste
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[7]
+              - text: Enjoy Sunkist Soda anytime or mix with ice cream for delicious orange
+                  floats
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[8]
+            brandText:
+              - text: Sunkist
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[2]
+            manufacturer:
+              - text: Sunkist Soda
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
+            weightNet:
+              - text: 4.74 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            weightGross:
+              - text: 4.74 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            asin:
+              - text: B00061EQ30
+                xpath: /html/head[1]/link[8]/@href
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[3]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/div[1]/span[1]/span[1]/@title
+            name:
+              - text: Sunkist Orange Soda, 2 Liters
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/h1[1]
+            sku:
+              - text: B00061EQ30
+                xpath: /html/head[1]/link[8]/@href
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/710rf4BrXpL._SY741_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Sunkist Orange Soda, 2 Liters
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "7"
+            shippingDimensions:
+              - text: 4.5 x 12.7 x 4.5 inches; 4.74 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/text()[1]
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "2"
+            amazonChoice:
+              - text: No
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+        xpath: /html
+    timestamp: 1592905720276
