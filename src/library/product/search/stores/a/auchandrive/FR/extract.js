@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'auchandrive',
-    transform: transform,
+    transform,
     domain: 'auchandrive.fr',
   },
 };

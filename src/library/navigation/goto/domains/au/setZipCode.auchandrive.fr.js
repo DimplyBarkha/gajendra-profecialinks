@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'auchandrive.fr',
     country: 'FR',
+    domain: 'auchandrive.fr',
     store: 'auchandrive',
-    timeout: 100000,
+    zipcode: '',
   },
 };
