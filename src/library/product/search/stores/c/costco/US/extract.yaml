@@ -18,7 +18,7 @@ fields:
   - name: ratingCount
     description: The number of ratings
     xpath: //div[@class='stars']//div[@class='ratings-number']
-    regExp: \((\d+)\)
+    regExp: (\d+)
     regExpReplace: $1
   - name: price
     singleValue: true
@@ -28,7 +28,7 @@ fields:
     singleValue: true
     description: Unique id (within this extractor)
     xpath: //div[@class='scProdId']/@sc.prodid
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@class='ratings row']/div/@aria-label

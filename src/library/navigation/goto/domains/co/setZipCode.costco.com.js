@@ -5,6 +5,6 @@ module.exports = {
     country: 'US',
     domain: 'costco.com',
     store: 'costco',
-    zipcode: '',
+    zipcode: '98188',
   },
 };
