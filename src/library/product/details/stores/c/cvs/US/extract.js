@@ -16,7 +16,7 @@ module.exports = {
       const elementSelector = 'div.css-1dbjc4n.r-18u37iz.r-tzz3ar a'
       if (element) {
         // return element.href;
-        return elementSelector;
+        return [elementSelector, element.href];
       } else {
         return null;
       }
@@ -28,8 +28,21 @@ module.exports = {
     if(linkURL === null) {
       throw new Error("notFound");
     }
-    await context.click(linkURL)
-    // await context.goto(linkURL);
+    await context.click(linkURL[0])
+
+    const urlTest = await context.evaluate(function(linkURL) {
+
+      let currentUrl = window.location.href;
+      let urlFromLink = linkURL[1]
+      if(currentUrl === urlFromLink){
+        return true;
+      } else{
+        return false
+      }
+    }, linkURL)
+    if(!urlTest){
+      await context.goto(linkURL[1]);
+    }
 
     await new Promise(resolve => setTimeout(resolve, 30000));
 
@@ -87,13 +100,14 @@ module.exports = {
 
       if(btns[0].length){
         while(i < btns[0].length && i < 100) {
-          // await context.waitForSelector(waitFor, { timeout: 20000 });
           context.click(btns[0][i]);
           context.click(btns[0][i]);
-
-          await new Promise(resolve => setTimeout(resolve, 20000));
-          // await context.waitForMutation(waitSelector, { timeout: 20000 });
-
+          let mCheck = await manufCheck()
+          if(mCheck) {
+            await new Promise(resolve => setTimeout(resolve, 20000));
+          } else {
+            await new Promise(resolve => setTimeout(resolve, 10000));
+          }
 
           if(btns[1].length && j < 100){
             while(j < btns[1].length && j < 100) {
@@ -101,10 +115,13 @@ module.exports = {
               if(check) {
                 context.click(btns[1][j]);
                 context.click(btns[1][j]);
-
-                await new Promise(resolve => setTimeout(resolve, 20000));
-                // await context.waitForMutation(waitSelector, { timeout: 20000 });
+                if(mCheck) {
+                  await new Promise(resolve => setTimeout(resolve, 20000));
+                } else {
+                  await new Promise(resolve => setTimeout(resolve, 10000));
+                }
                 await getVariantIdNum();
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await collectVariantInfo();
               }
               j++
@@ -112,6 +129,8 @@ module.exports = {
             j = 0;
           } else {
             await getVariantIdNum();
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
             await collectVariantInfo();
             
             }
@@ -129,14 +148,26 @@ module.exports = {
         });
         await collectVariantInfo();
       }
-      // if(btns[0].length){
-      //   context.click(btns[0][0]);
-      //   context.click(btns[0][0]);
-      //   await new Promise(resolve => setTimeout(resolve, 10000));
-
-      // }
     }
 
+    async function manufCheck(selector) {
+      return await context.evaluate(function(input) {
+        let sel3 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[contains(@id, "wc-power-page")]//text()'
+        let sel2 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[contains(@id, "wc-power-page")]//img'
+        let sel1 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[contains(@id, "wc-power-page")]//iframe'
+        
+        var element1 = document.evaluate( sel1, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        var element2 = document.evaluate( sel2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        var element3 = document.evaluate( sel3, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+        if( element1.snapshotLength > 0 || element2.snapshotLength > 0 || element3.snapshotLength > 0) {
+          return true
+        } else {
+          return false
+        }
+          
+      });
+    }
 
     async function buttonCheck(selector) {
       let input = selector
@@ -152,6 +183,8 @@ module.exports = {
         
       }, input);
     }
+
+    
 
     async function getVariantIdNum(value) {
       let varArray = [];
@@ -170,8 +203,9 @@ module.exports = {
         if(varPath){
           let varText = regex1.exec(varPath.innerText);
           console.log(varText);
-
-          addHiddenDiv('ii_variantId', varText);
+          if(varText){
+            addHiddenDiv('ii_variantId', varText);
+          }
         }
       });
     }
@@ -200,7 +234,7 @@ module.exports = {
         let flag = false;
         const selectors = [[],[]];
         let i = 1;
-        while(!flag && i < 35) {
+        while(!flag && i < 21) {
           const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           if(document.querySelector(firstVar)){
@@ -235,7 +269,9 @@ module.exports = {
           newDiv.id = id;
           newDiv.textContent = content;
           newDiv.style.display = 'none';
-          variantDiv.appendChild(newDiv);
+          if(variantDiv){
+            variantDiv.appendChild(newDiv);
+          }
         }
         function collectIframe() {
           const iframeList = document.querySelectorAll('iframe');
