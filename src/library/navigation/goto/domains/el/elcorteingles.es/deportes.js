@@ -1,5 +1,6 @@
 
 module.exports = {
+  implements: 'navigation/goto',
   parameterValues: {
     domain: 'elcorteingles.es/deportes',
     country: 'ES',
