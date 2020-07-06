@@ -19,7 +19,7 @@ async function implementation (
     }
     await stall(100);
     const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
-    if (link != null) {
+    if (link !== null) {
       const href = link.getAttribute('href');
       if (href.indexOf('preselect=') > -1) {
         let productId = href.split('preselect=')[1];
@@ -1125,7 +1125,7 @@ async function implementation (
       addHiddenDiv('additionalInfo', additionalInfo.join(', '));
 
       const button = document.querySelector('#tab-ShippingReturns');
-      if (button != null) {
+      if (button !== null) {
         button.click();
         if (document && document.querySelector('div[data-test="shippingOptionsMessage"]')) {
           addHiddenDiv('shippingInfo', document.querySelector('div[data-test="shippingOptionsMessage"]').innerText);
@@ -1175,7 +1175,7 @@ async function implementation (
 
       const warning = [];
       const button = document.querySelector("a[href='#tabContent-tab-Labelinfo']");
-      if (button != null) {
+      if (button !== null) {
         button.click();
         await stall(200);
         const headerEls = document.querySelectorAll('.h-margin-t-default.h-padding-h-default');
@@ -1285,7 +1285,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Total Fat') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Fat') {
+            if (val.trim() !== 'Fat') {
               addHiddenDiv('totalFatInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('totalFatUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1293,7 +1293,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Saturated Fat') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Fat') {
+            if (val.trim() !== 'Fat') {
               addHiddenDiv('saturatedFatInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('saturatedFatUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1301,7 +1301,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Trans Fat') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Fat') {
+            if (val.trim() !== 'Fat') {
               addHiddenDiv('transFatInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('transFatUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1309,7 +1309,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Cholesterol') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Cholesterol') {
+            if (val.trim() !== 'Cholesterol') {
               addHiddenDiv('cholesterolInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('cholesterolUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1317,7 +1317,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Sodium') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Sodium') {
+            if (val.trim() !== 'Sodium') {
               addHiddenDiv('sodiumInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('sodiumUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1325,7 +1325,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Total Carbohydrate') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Carbohydrate') {
+            if (val.trim() !== 'Carbohydrate') {
               addHiddenDiv('totalCarbInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('totalCarbUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1333,7 +1333,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Dietary Fiber') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Fiber') {
+            if (val.trim() !== 'Fiber') {
               addHiddenDiv('dietaryFiberInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('dietaryFiberUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1341,7 +1341,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && (e.innerText.indexOf('Total Sugars') > -1 || e.innerText.indexOf('Sugars') === 0)) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Sugars') {
+            if (val.trim() !== 'Sugars') {
               addHiddenDiv('totalSugarInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('totalSugarUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1349,7 +1349,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Protein') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Protein') {
+            if (val.trim() !== 'Protein') {
               addHiddenDiv('proteinInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('proteinUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1357,7 +1357,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin A') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'A') {
+            if (val.trim() !== 'A') {
               addHiddenDiv('vitaminAInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('vitaminAUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1365,7 +1365,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin C') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'C') {
+            if (val.trim() !== 'C') {
               addHiddenDiv('vitaminCInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('vitaminCUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1373,7 +1373,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Calcium') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Calcium') {
+            if (val.trim() !== 'Calcium') {
               addHiddenDiv('calciumInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('calciumUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1381,7 +1381,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Iron') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Iron') {
+            if (val.trim() !== 'Iron') {
               addHiddenDiv('ironInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('ironUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1389,7 +1389,7 @@ async function implementation (
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Magnesium') > -1) {
             const split = e.querySelector('span').innerText.split(' ');
             const val = split[split.length - 1];
-            if (val.trim() != 'Magnesium') {
+            if (val.trim() !== 'Magnesium') {
               addHiddenDiv('magInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('magUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
             }
@@ -1477,7 +1477,7 @@ async function implementation (
         if (slideDeck) {
           console.log('has slide deck');
           slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
-            if (e && e.getAttribute('alt') && e.getAttribute('src') && e.getAttribute('alt').indexOf('- video') === -1 && e.getAttribute('type') != 'video' && ind > 0) {
+            if (e && e.getAttribute('alt') && e.getAttribute('src') && e.getAttribute('alt').indexOf('- video') === -1 && e.getAttribute('type') !== 'video' && ind > 0) {
               secondaryImages.push(e.getAttribute('src').split('?')[0]);
             } else if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
               videos.push(e.getAttribute('src').split('?')[0] + '_Flash9_Autox720p_2600k');
