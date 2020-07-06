@@ -37,18 +37,20 @@ const transform = (data, context) => {
       if (row.price) {
         row.price = [
           {
-            text: row.price[0].text.replace(/.+ . /, '').replace(',', '.'),
+            text: row.price[0].text.replace(/.+ . /, ''),
           },
         ];
       }
       if (row.name) {
-        let text = '';
+        let text = [];
         row.name.forEach(item => {
-          text += ` ${item.text}`;
+          text.push(`${item.text}`);
         });
+        text = text.reverse();
+        const value = text.join(' ');
         row.name = [
           {
-            text: (text.trim()),
+            text: (value.trim()),
           },
         ];
       }
