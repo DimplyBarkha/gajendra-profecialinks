@@ -1,0 +1,538 @@
+input:
+  Keywords: coffee maker
+  _url: https://costco.com
+extractions:
+  - html: https://workbench.import.io/html/run=52fe08a9-fa84-4cfb-9643-9b26adec4dbe/task=0e15212c-9121-4d72-9aa1-48cd5ad18817/600411a5-1090-4171-94fd-92a74fe78703.html
+    extractionConfigId: product/search/stores/c/costco_98188/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.costco.com/cuisinart-perfectemp-14-cup-programmable-coffee-maker.product.100481668.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=3565000-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Cuisinart PerfecTemp 14-cup Programmable Coffee Maker
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100481668"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "1754"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "1754"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $49.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/chef%e2%80%99n-3-in-1-cold-brew-coffee-maker-%2526-french-press.product.100663595.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1450288-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Chef’n 3-in-1 Cold Brew Coffee Maker & French Press
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100663595"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $46.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/de'longhi-eletta-fully-automatic-espresso-cappuccino-and-coffee-maker.product.100389345.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100389345-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: De'Longhi Eletta Fully Automatic Espresso Cappuccino and Coffee Maker
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100389345"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "419"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "419"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $1,499.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.4"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/keurig-k-duo-plus-c-coffee-maker%2c-with-single-serve-k-cup-pod-and-12-cup-thermal-carafe-brewer.product.100508741.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=9999975-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Keurig K-Duo Plus C Coffee Maker, with Single Serve K-Cup Pod and 12 Cup
+                  Thermal Carafe Brewer
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100508741"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "1242"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "1242"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $199.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/jura-z6-automatic-coffee-machine---aluminum-silver.product.100465292.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1295044-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Jura Z6 Automatic Coffee Machine - Aluminum Silver
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100465292"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "200"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "200"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $2,999.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/jura-we6-automatic-coffee-machine%2c-piano-black.product.100654847.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1444527-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Jura WE6 Automatic Coffee Machine, Piano Black
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100654847"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $1,599.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/jura-s8-automatic-coffee-machine%2c-piano-black.product.100664000.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1434024-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Jura S8 Automatic Coffee Machine, Piano Black
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100664000"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $2,399.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "3"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/miele-one-touch-countertop-espresso-and-coffee-system-with-integrated-milk-frother.product.100404916.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/p[4]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100404916-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Miele One-Touch Countertop Espresso and Coffee System with Integrated Milk
+                  Frother
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/p[4]/a[1]
+            id:
+              - text: "100404916"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $1,499.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.2"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/capresso-12-cup-stainless-steel-percolator.product.100357119.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1160743-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Capresso 12-cup Stainless Steel Percolator
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100357119"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "264"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "264"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $54.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.1"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/fellow-stagg-ekg-pour-over-kettle.product.100481042.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/p[4]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100481042-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Fellow Stagg EKG Pour-Over Kettle
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/p[4]/a[1]
+            id:
+              - text: "100481042"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "253"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "253"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $114.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/de'longhi-dedica-15-bar-espresso-and-cappuccino-machine.product.100488957.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1338711-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: De'Longhi Dedica 15 Bar Espresso and Cappuccino Machine
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100488957"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "182"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "182"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $399.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "3.6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/capresso-h20-steel-plus-water-kettle.product.100534886.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2641604-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Capresso H20 Steel Plus Water Kettle
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100534886"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "73"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "73"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $49.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "3.9"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/jura-ena-micro-5-espresso-machine.product.100131445.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=923970-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Jura ENA Micro 5 Espresso Machine
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100131445"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "262"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "262"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $899.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.1"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/chefman-instacoffee-single-serve-brewer.product.100591619.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=7712345-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Chefman Instacoffee Single Serve Brewer
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100591619"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "147"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "147"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $39.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.1"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/de'longhi-magnifica-s-fully-automatic-espresso-and-cappuccino-machine.product.100399550.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100399550-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: De'Longhi Magnifica S Fully Automatic Espresso and Cappuccino Machine
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100399550"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "243"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "243"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $1,299.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/capresso-ec100-espresso-machine.product.100234736.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1021887-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Capresso EC100 Espresso Machine
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100234736"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "538"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "538"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $99.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "3.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/de'longhi-magnifica-xs-fully-automatic-espresso-and-cappuccino-machine-with-manual-cappuccino-system.product.100397717.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100397717-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: De'Longhi Magnifica XS Fully Automatic Espresso and Cappuccino Machine
+                  with Manual Cappuccino System
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100397717"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "569"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "569"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $499.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.4"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/de%e2%80%99longhi-primadonna-s-fully-automatic-espresso-and-cappuccino-machine.product.100525660.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100525660-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: De’Longhi PrimaDonna S Fully Automatic Espresso and Cappuccino Machine
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100525660"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "15"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $2,299.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "3.4"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/nespresso-essenza-plus-espresso-machine.product.100674816.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=5085272-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Nespresso Essenza Plus Espresso Machine
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100674816"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $179.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/miele-one-touch-countertop-espresso-and-coffee-machine.product.100488401.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[39]/div[1]/div[3]/div[2]/div[2]/p[4]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100488401-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[39]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Miele One-Touch Countertop Espresso and Coffee Machine
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[39]/div[1]/div[3]/div[2]/div[2]/p[4]/a[1]
+            id:
+              - text: "100488401"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[39]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "86"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[39]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "86"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[39]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $1,799.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[39]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[39]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/nespresso-vertuo-next-coffee-and-espresso-maker.product.100674613.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[42]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=4085272-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[42]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Nespresso Vertuo Next Coffee and Espresso Maker
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[42]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100674613"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[42]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[42]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[42]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $159.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[42]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[42]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+        xpath: /html
+    timestamp: 1594122763392

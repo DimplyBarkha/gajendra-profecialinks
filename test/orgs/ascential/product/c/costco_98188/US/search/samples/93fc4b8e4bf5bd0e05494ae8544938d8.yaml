@@ -1,0 +1,486 @@
+input:
+  Keywords: coffee k cups
+  _url: https://costco.com
+extractions:
+  - html: https://workbench.import.io/html/run=52fe08a9-fa84-4cfb-9643-9b26adec4dbe/task=0b8f3fd2-d9d7-45cd-8083-338a39a04acb/8b524e72-0b1d-4c3a-91db-4d1a3129e0aa.html
+    extractionConfigId: product/search/stores/c/costco_98188/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.costco.com/the-original-donut-shop-decaf-coffee-k-cup-pods%2c-96-count.product.100570128.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2818035-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: The Original Donut Shop Decaf Coffee K-Cup Pods, 96-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100570128"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "241"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "241"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $39.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/green-mountain-coffee-breakfast-blend-k-cup-pod%2c-96-count.product.100455408.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100455408-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Green Mountain Coffee Breakfast Blend K-Cup Pod, 96-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100455408"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "955"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "955"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $39.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/green-mountain-coffee-nantucket-blend-k-cup-pod%2c-96-count.product.100455446.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100455446-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Green Mountain Coffee Nantucket Blend K-Cup Pod, 96-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100455446"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "803"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "803"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $39.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[4]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/green-mountain-coffee-dark-magic-k-cup-pod%2c-96-count.product.100455443.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100455443-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Green Mountain Coffee Dark Magic K-Cup Pod, 96-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100455443"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "1417"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "1417"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $39.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[6]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/green-mountain-coffee-hazelnut-flavored-k-cup-pod%2c-96-count.product.100455430.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100455430-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Green Mountain Coffee Hazelnut Flavored K-Cup Pod, 96-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100455430"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "743"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "743"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $39.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[9]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/starbucks-coffee-flavored-variety-pack-k-cup-pod%2c-64ct.product.100461637.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289937-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Starbucks Coffee Flavored Variety Pack K-Cup Pod, 64ct
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100461637"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "344"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "344"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $42.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[10]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/starbucks-coffee-house-blend-k-cup-pod%2c-64ct.product.100461646.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289926-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Starbucks Coffee House Blend K-Cup Pod, 64ct
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100461646"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "414"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "414"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $42.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[13]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/peet%e2%80%99s-coffee-french-roast-k-cup-pod%2c-60-count.product.100383908.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100383908-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Peet’s Coffee French Roast K-Cup Pod, 60-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100383908"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "1471"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "1471"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $34.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[14]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/peet%e2%80%99s-coffee-house-blend-k-cup-pod%2c-60-count.product.100383896.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100383896-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Peet’s Coffee House Blend K-Cup Pod, 60-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100383896"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "928"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "928"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $34.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[17]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/peet%e2%80%99s-coffee-caf%c3%a9-domingo-k-cup-pod%2c-60-count.product.100383906.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100383906-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Peet’s Coffee Café Domingo K-Cup Pod, 60-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100383906"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "762"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "762"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $34.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[19]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/tully's-coffee-decaf-french-roast-k-cup-pod%2c-96-count.product.100455464.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100455464-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Tully's Coffee Decaf French Roast K-Cup Pod, 96-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100455464"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "2394"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "2394"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $39.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[21]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/starbucks-coffee-medium-roast-variety-pack-k-cup-pod%2c-64ct.product.100461640.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289929-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Starbucks Coffee Medium Roast Variety Pack K-Cup Pod, 64ct
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100461640"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "340"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "340"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $42.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[22]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/starbucks-coffee-dark-roast-variety-pack-k-cup-pods%2c-64ct.product.100461644.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1289928-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Starbucks Coffee Dark Roast Variety Pack K-Cup Pods, 64ct
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100461644"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "711"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "711"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $42.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[26]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/starbucks-coffee-classic-collection-variety-pack-k-cup%2c-72-count.product.100574624.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2272325-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Starbucks Coffee Classic Collection Variety Pack K-Cup, 72-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100574624"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "149"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "149"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $32.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[27]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/peet%e2%80%99s-coffee-decaf-house-blend-k-cup-pod%2c-60-count.product.100383894.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100383894-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Peet’s Coffee Decaf House Blend K-Cup Pod, 60-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100383894"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "3238"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "3238"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $34.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[29]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/keurig-k-duo-plus-c-coffee-maker%2c-with-single-serve-k-cup-pod-and-12-cup-thermal-carafe-brewer.product.100508741.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=9999975-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Keurig K-Duo Plus C Coffee Maker, with Single Serve K-Cup Pod and 12 Cup
+                  Thermal Carafe Brewer
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100508741"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "1242"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "1242"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $199.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[31]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/peet's-coffee-organic-alma-de-la-tierra-k-cup-pod%2c-60-count.product.100383895.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=100383895-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Peet's Coffee Organic Alma De La Tierra K-Cup Pod, 60-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100383895"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "951"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "951"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $34.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[34]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/peet's-coffee-nespresso-compatible-aluminum-capsules%2c-80-count.product.100462497.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1290988-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Peet's Coffee Nespresso Compatible Aluminum Capsules, 80-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100462497"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "2784"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "2784"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $44.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[35]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/san-francisco-bay-coffee-organic-haight-ashbury-blend-onecup%2c-80-count.product.100484062.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=3218272-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[1]/div[1]/img[1]/@data-src
+            name:
+              - text: San Francisco Bay Coffee Organic Haight Ashbury Blend OneCup, 80-count
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100484062"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "744"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "744"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $34.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.6"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[38]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+        xpath: /html
+    timestamp: 1594122762583

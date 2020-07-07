@@ -1,0 +1,60 @@
+input:
+  Keywords: apple juice
+  _url: https://costco.com
+extractions:
+  - html: https://workbench.import.io/html/run=52fe08a9-fa84-4cfb-9643-9b26adec4dbe/task=efce6e38-ad53-4a1a-ad34-bdc6f24ef3ea/2b2509f8-5af0-4cf3-a709-5f9bc0a30fb8.html
+    extractionConfigId: product/search/stores/c/costco_98188/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.costco.com/the-fruit-company-bountiful-harvest-gift-basket.product.11253883.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=259725-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: The Fruit Company Bountiful Harvest Gift Basket
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "11253883"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "203"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "203"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $94.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.4"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+          - productUrl:
+              - text: https://www.costco.com/nature's-truth-apple-cider-vinegar-1200-mg.%2c-180-capsules.product.100468580.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1241036-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Nature's Truth Apple Cider Vinegar 1200 mg., 180 Capsules
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/p[2]/a[1]
+            id:
+              - text: "100468580"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "189"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "189"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $18.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[2]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+        xpath: /html
+    timestamp: 1594123213875

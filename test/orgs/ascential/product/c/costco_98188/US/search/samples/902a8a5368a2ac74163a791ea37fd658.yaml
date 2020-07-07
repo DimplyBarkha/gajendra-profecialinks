@@ -1,0 +1,36 @@
+input:
+  Keywords: carafe brewer
+  _url: https://costco.com
+extractions:
+  - html: https://workbench.import.io/html/run=52fe08a9-fa84-4cfb-9643-9b26adec4dbe/task=d33e2e38-8a5b-4030-9189-4c57deae457a/4e4947ec-e687-4d7e-ae41-ba7e689cd285.html
+    extractionConfigId: product/search/stores/c/costco_98188/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.costco.com/keurig-k-duo-plus-c-coffee-maker%2c-with-single-serve-k-cup-pod-and-12-cup-thermal-carafe-brewer.product.100508741.html
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]/@href
+            thumbnail:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=9999975-847__1&recipeName=350
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Keurig K-Duo Plus C Coffee Maker, with Single Serve K-Cup Pod and 12 Cup
+                  Thermal Carafe Brewer
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/p[3]/a[1]
+            id:
+              - text: "100508741"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[1]/div[1]/@sc.prodid
+            reviewCount:
+              - text: "1242"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "1242"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            price:
+              - text: $199.99
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/ctl:cache[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/@aria-label
+                type: number
+        xpath: /html
+    timestamp: 1594122786645
