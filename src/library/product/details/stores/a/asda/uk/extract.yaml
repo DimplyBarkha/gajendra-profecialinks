@@ -2,11 +2,11 @@ fields:
   - name: image
     singleValue: false
     xpath: (//div[@data-auto-id="image"]//img)[1]/@src
-  - name: keywords
+  - name: metaKeywords
     singleValue: true
-  - name: downloadTime
+  - name: _pageTimestamp
     singleValue: true
-  - name: url
+  - name: _url
     singleValue: false
     xpath: //html/head/link[@rel='canonical']/@href
   - name: urlId
@@ -24,7 +24,16 @@ fields:
   - name: onlinePrice
     singleValue: true
     manualSelector: div.pdp-main-details__price-container strong.pdp-main-details__price
+  - name: price
+    singleValue: true
+    manualSelector: div.pdp-main-details__price-container strong.pdp-main-details__price
   - name: availability
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-main-details__actions-cntr')]//button[@data-auto-id='btnAdd']
+    regExp: Add
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: availabilityText
     singleValue: false
     xpath: //div[contains(@class,'pdp-main-details__actions-cntr')]//button[@data-auto-id='btnAdd']
     regExp: Add
@@ -207,7 +216,7 @@ fields:
     singleValue: true
   - name: dietarySymbols
     singleValue: true
-  - name: secondaryImage
+  - name: alternateImages
     singleValue: false
     xpath: //*[@id='s7viewer_swatches']//div[contains(@class,'s7thumbcell')][@aria-selected='false']/div[contains(@class,'s7thumb')]/@style
     regExp: (")(.*)(")
@@ -218,7 +227,10 @@ fields:
     regExp: (\d+)
     regExpReplace: $1
   - name: ratingCount
-    singleValue: true
+    singleValue: false
+    manualSelector: div.asda-tab-list button[aria-label*='Reviews']
+    regExp: (\d+)
+    regExpReplace: $1
   - name: aplusImages
     singleValue: true
   - name: categoryRanking
@@ -232,6 +244,8 @@ fields:
   - name: shippingWeight
     singleValue: true
   - name: warranty
+    singleValue: true
+  - name: eangtin
     singleValue: true
   - name: gtin
     singleValue: false
@@ -287,9 +301,9 @@ fields:
     singleValue: true
   - name: descriptionBullets
     singleValue: true
-  - name: video
+  - name: videos
     singleValue: true
-  - name: coupons
+  - name: coupon
     singleValue: true
   - name: productsPerPage
     singleValue: true
@@ -313,7 +327,7 @@ fields:
     regExpReplace: $5
   - name: scrapeCode
     singleValue: true
-  - name: imageAltText
+  - name: imageAlt
     singleValue: true
   - name: promotion
     singleValue: false
@@ -420,6 +434,8 @@ fields:
     regExpReplace: $1
   - name: newDescription
     singleValue: true
+  - name: variants
+    singleValue: true
   - name: variantInformation
     singleValue: true
   - name: firstVariant
@@ -442,7 +458,7 @@ fields:
     regExpReplace: $2
   - name: amazonChoice
     singleValue: true
-  - name: amazonChoiceText
+  - name: amazonChoiceCategory
     singleValue: true
   - name: dealType
     singleValue: true
@@ -456,7 +472,7 @@ fields:
     singleValue: true
   - name: colour
     singleValue: true
-  - name: colourRef
+  - name: colourCode
     singleValue: true
   - name: fastTrack
     singleValue: true
@@ -472,13 +488,18 @@ fields:
     singleValue: true
   - name: privacyPolicy
     singleValue: true
+  - name: termsAndConditions
+    singleValue: true
   - name: customerServiceAvailability
     singleValue: true
   - name: materials
     singleValue: true
-  - name: 360ImagePresent
+  - name: image360Present
     singleValue: true
   - name: imageZoomFeaturePresent
     singleValue: true
+  - name: productUrl
+    singleValue: true
+    xpath: //html/head/link[@rel='canonical']/@href
 schema: product/details
 singleRecord: true
