@@ -319,7 +319,8 @@ module.exports = {
       const variantIngredients = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Ingredients") and not(contains(., "Details"))]//div[@class="htmlView"]'
       const variantADBI1 = '(//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Details")]//div[@class="htmlView"])[1]//li'
       const variantADBI2 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"]/ul/li'
-      const variantAlternateImages = '(//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])[position()>1]/@src'
+      // const variantAlternateImages = '(//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])[position()>1]/@src'
+      const variantAlternateImages = '(//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])/@src'
       const variantManufImages = '//div[@id="wc-aplus"]//img/@src[not (contains(., "syndigo.svg"))]'
       // const variantDescriptionBullets = '//div[@class="htmlView"]/ul/li'
       const variantVideo = '//img[contains(@class,"wc-iframe")]/@data-asset-url'
@@ -428,10 +429,17 @@ module.exports = {
 
       if(variantAlternateImages) {
         var element = document.evaluate( variantAlternateImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if( element.snapshotLength > 0 ) {
-          for(let i = 0; i < element.snapshotLength; i++) {
+        if( element.snapshotLength > 1 ) {
+          for(let i = 1; i < element.snapshotLength; i++) {
             addHiddenDiv(`ii_variantAlternateImages`, `${element.snapshotItem(i).textContent}`);
           }
+        }
+        if( element.snapshotLength > 0 ) {
+          addHiddenDiv('ii_variantImage', `${element.snapshotItem(0).textContent}`);
+        } 
+        if(element.snapshotLength > 1) {
+          // debugger
+          addHiddenDiv('ii_variantImageAlt', `${element.snapshotItem(1).textContent}`);
         }
       }
       new Promise(resolve => setTimeout(resolve, 1000));
@@ -472,16 +480,16 @@ module.exports = {
       }
       new Promise(resolve => setTimeout(resolve, 1000));
 
-      if(variantAlternateImages) {
-        var element = document.evaluate( variantAlternateImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if( element.snapshotLength > 0 ) {
-          addHiddenDiv('ii_variantImage', `${element.snapshotItem(0).textContent}`);
-        } 
-        if(element.snapshotLength > 1) {
-          // debugger
-          addHiddenDiv('ii_variantImageAlt', `${element.snapshotItem(1).textContent}`);
-        }
-      }
+      // if(variantAlternateImages) {
+      //   var element = document.evaluate( variantAlternateImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      //   if( element.snapshotLength > 0 ) {
+      //     addHiddenDiv('ii_variantImage', `${element.snapshotItem(0).textContent}`);
+      //   } 
+      //   if(element.snapshotLength > 0) {
+      //     // debugger
+      //     addHiddenDiv('ii_variantImageAlt', `${element.snapshotItem(0).textContent}`);
+      //   }
+      // }
 
       // if(variantImage){
       //   addHiddenDiv('ii_variantImage', `${variantImage[0].src}`);
