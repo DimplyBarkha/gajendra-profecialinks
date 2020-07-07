@@ -7,5 +7,6 @@ module.exports = {
     domain: 'amazon.de',
     loadedSelector: '#landingImage',
     noResultsXPath: null,
+    zipcode: '10117',
   },
 };
