@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'US',
-    store: 'amazonPharmapacks',
+    store: 'amazonApparel',
     domain: 'amazon.com',
   },
 };
