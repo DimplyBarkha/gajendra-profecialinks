@@ -1,52 +1,37 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //td[@class="items depth_0"]/table[1]/tbody[1]/tr
 fields:
   - name: id
-    singleValue: true
+    xpath: td[@class="cin depth_1"]
   - name: rankOrganic
     defaultValue: false
   - name: name
-    xpath: //h3//a[@data-auto-id="linkProductTitle"]
-    singleValue: false
+    xpath: td[@class="name depth_1"]  
   - name: productUrl
-    xpath: //h3//a[@data-auto-id="linkProductTitle"]/@href
+    xpath: td[@class="id depth_1"]
     regExp: (.+)
-    regExpReplace: https://groceries.asda.com$1
-    singleValue: false
+    regExpReplace: https://groceries.asda.com/product/$1
   - name: reviewCount
-    xpath: //span[@class="co-product__review-count"]
-    regExp: (\d+)
-    regExpReplace: $1
-    singleValue: false
-  - name: input
-    xpath: //div[@class="search-content-header__keyword"]
-    singleValue: true
+    xpath: td[@class="totalReviewCount depth_1"]
   - name: gtin
-    singleValue: true
+    xpath: td[@class="cin depth_1"]
   - name: thumbnail
-    xpath: //button[@data-auto-id="linkProductImage"]//img/@src
-    singleValue: true
-  - name: aggregateRating
-    singleValue: true
+    xpath: td[@class="imageURL depth_1"]
+  - name: aggregateRatingText
+    xpath: td[@class="avgStarRating depth_1"]
   - name: ratingCount
-    singleValue: false
     xpath: //div[contains(@class,"rating-stars__stars")]/parent::div/@aria-label
     regExp: (.+)( stars.*|No rating.*)
     regExpReplace: $1
   - name: price
-    xpath: //strong[@class="co-product__price"]
-    regExp: (£)(.+)
-    regExpReplace: $2
-    singleValue: false
+    xpath: td[@class="price depth_1"]
   - name: manufacturer
-    singleValue: true
+    xpath: td[@class="brandName depth_1"]
   - name: soldBy
-    singleValue: true
   - name: rank
     defaultValue: false
   - name: sponsored
     defaultValue: false
   - name: endorsementText
-    singleValue: true
