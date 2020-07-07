@@ -1,9 +1,9 @@
 
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'product/details',
   parameterValues: {
     country: 'US',
-    store: 'amazonPharmapacks',
+    store: 'amazonApparel',
     domain: 'amazon.com',
   },
 };
