@@ -4,22 +4,25 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const cleanUp = (data, context) => {
-    let dataStr = JSON.stringify(data);
-    dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[^\x00-\x7F]/g, '')
-      .replace(/&nbsp;/g, ' ');
-
-    return JSON.parse(dataStr);
-  };
+  // const cleanUp = (data, context) => {
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .replace(/&nbsp;/g, ' ');
+  //   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+  //     el.text = clean(el.text);
+  //   }))));
+  //   return data;
+  // };
   for (const { group } of data) {
     for (const row of group) {
       if (row.servingSizeUom) {
@@ -27,14 +30,34 @@ const transform = (data) => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
         });
       }
+      if (row.servingSize) {
+        row.servingSize.forEach(item => {
+          item.text = `${item.text.replace(/([\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
+        });
+      }
       if (row.totalFatPerServingUom) {
         row.totalFatPerServingUom.forEach(item => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
         });
       }
+      if (row.totalFatPerServing) {
+        row.totalFatPerServing.forEach(item => {
+          item.text = `${item.text.replace(/([\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
+        });
+      }
       if (row.saltPerServingUom) {
         row.saltPerServingUom.forEach(item => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
+        });
+      }
+      if (row.proteinPerServing) {
+        row.proteinPerServing.forEach(item => {
+          item.text = `${item.text.replace(/([\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
+        });
+      }
+      if (row.saturatedFatPerServing) {
+        row.saturatedFatPerServing.forEach(item => {
+          item.text = `${item.text.replace(/([\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
         });
       }
       if (row.proteinPerServingUom) {
@@ -52,9 +75,19 @@ const transform = (data) => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
         });
       }
+      if (row.totalCarbPerServing) {
+        row.totalCarbPerServing.forEach(item => {
+          item.text = `${item.text.replace(/([\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
+        });
+      }
       if (row.totalCarbPerServingUom) {
         row.totalCarbPerServingUom.forEach(item => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
+        });
+      }
+      if (row.totalSugarsPerServing) {
+        row.totalSugarsPerServing.forEach(item => {
+          item.text = `${item.text.replace(/([\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
         });
       }
       if (row.totalSugarsPerServingUom) {
@@ -103,23 +136,13 @@ const transform = (data) => {
       }
       if (row.imageAlt) {
         row.imageAlt.forEach(item => {
-          // item.text = cleanUp(`${item.text}`);
+          item.text = clean(`${item.text}`);
         });
       }
       if (row.news) {
-        let text = '';
         row.news.forEach((item, index) => {
-          if (index === 0) {
-            text += ` ${item.text} : `;
-          } else {
-            text += ` ${item.text}`;
-          }
+          item.text = item.text.replace(/(#\d+)(.*)/, '$1 Best Seller$2');
         });
-        row.news = [
-          {
-            text: cleanUp(text.slice(0, -4)),
-          },
-        ];
       }
       if (row.fastTrack) {
         let text = '';
@@ -128,7 +151,7 @@ const transform = (data) => {
         });
         row.fastTrack = [
           {
-            text: cleanUp(text.slice(0, -4)),
+            text: clean(text.slice(0, -4)),
           },
         ];
       }
@@ -139,9 +162,29 @@ const transform = (data) => {
         });
         row.specifications = [
           {
-            text: cleanUp(text.join('||')),
+            text: clean(text.join(' || ')),
           },
         ];
+      }
+      if (row.largeImageCount) {
+        for (const item of row.largeImageCount) {
+          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+        }
+      }
+      if (row.alternateImages) {
+        row.alternateImages.forEach((item) => {
+          const val = [];
+          // eslint-disable-next-line no-useless-escape
+          let data = item.text.replace(/\r\n|\n|\r/gm, '').match(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/) ? item.text.replace(/\r\n|\n|\r/gm, '').replace(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/, '$1').replace(/\"/gm, '"') : {};
+          data = JSON.parse(data);
+          data.forEach((ele, index) => {
+            if (index !== 0 && ele.main && ele.main) {
+              const arr = Object.keys(ele.main);
+              val.push({ text: arr[0] });
+            }
+          });
+          row.alternateImages = val;
+        });
       }
     }
   }
