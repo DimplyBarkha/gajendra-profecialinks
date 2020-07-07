@@ -3,9 +3,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'costco.com',
-    zipcode: '98188',
     country: 'US',
     store: 'costco',
+    zipcode: '98188',
   },
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
     if (zipcode) {
