@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'fops fops-regular fops-shel')]//li
+fields:
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //div[contains(@role,"presentation")]//a[1]/@href
+    regExp: (.+)
+    regExpReplace: https://groceries.morrisons.com$1
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //img//@src
+    regExp: (.+)(150x150)(.+)
+    regExpReplace: https://groceries.morrisons.com$1640x640$3
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h4//@title
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //span[contains(@class,'fop-price')] 
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@role,"presentation")]//a[1]/@href
+    regExp: ([^-]+$)
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //span[contains(@class,'fop-rating-inner')]//@title
+    regExp: (.+\s)([0-9.]+)(\s.+)
+    regExpReplace: $2
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
