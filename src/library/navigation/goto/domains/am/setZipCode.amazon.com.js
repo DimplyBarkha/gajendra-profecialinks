@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'US',
-    store: 'amazonPharmapacks',
     domain: 'amazon.com',
+    store: 'amazonApparel',
+    zipcode: '',
   },
 };

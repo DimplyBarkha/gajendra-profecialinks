@@ -2,8 +2,8 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'ES',
-    store: 'elcorteingles_deportes',
-    domain: 'elcorteingles.es',
+    country: 'US',
+    store: 'amazonApparel',
+    domain: 'amazon.com',
   },
 };

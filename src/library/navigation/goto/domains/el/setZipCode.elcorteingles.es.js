@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'ES',
-    store: 'elcorteingles_deportes',
     domain: 'elcorteingles.es',
+    store: 'elcorteingles',
+    zipcode: '',
   },
 };
