@@ -32,8 +32,8 @@ module.exports = {
       }
     });
 
-    if(linkURL === null) {
-      throw new Error("notFound");
+    if (linkURL === null) {
+      throw new Error('notFound');
     }
 
     // await context.goto(linkURL);
@@ -49,7 +49,6 @@ module.exports = {
     await new Promise(resolve => setTimeout(resolve, 10000));
 
     await context.evaluate(function (skuFromUrl) {
-
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -131,8 +130,6 @@ module.exports = {
         }
       }
 
-
-
       function collectBrand () {
         const brandBlock = document.querySelector('script#schema-json-ld');
 
@@ -157,33 +154,33 @@ module.exports = {
       //   }
       // }
 
-      function collectIframe() {
+      function collectIframe () {
         const iframeList = document.querySelectorAll('iframe');
-        if(iframeList) {
+        if (iframeList) {
           iframeList.forEach((frame) => {
             const video = frame.contentDocument;
-            if(!!video){
-              let videoSrc = video.querySelector('video');
-              if(videoSrc) {
-              addHiddenDiv('ii_videoSrc', `${videoSrc.src}`);
+            if (video) {
+              const videoSrc = video.querySelector('video');
+              if (videoSrc) {
+                addHiddenDiv('ii_videoSrc', `${videoSrc.src}`);
               }
             }
           });
         }
       }
 
-      function collectKeywords() {
+      function collectKeywords () {
         const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
         const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-          if (variantInfo[1] && prodName) {
-            let varName = variantInfo[1].innerText;
-            addHiddenDiv('ii_metaKeywords', `${prodName.innerText + " " + varName}`);
-          }
+        if (variantInfo[1] && prodName) {
+          const varName = variantInfo[1].innerText;
+          addHiddenDiv('ii_metaKeywords', `${prodName.innerText + ' ' + varName}`);
+        }
       }
-      
+
       addHiddenDiv('ii_url', window.location.href);
       addHiddenDiv('ii_sku', skuFromUrl);
-      
+
       collectNutritionInfo();
       collectBools();
       collectManufImages();
@@ -192,48 +189,46 @@ module.exports = {
       collectIframe();
       // collectKeywords();
     }, skuFromUrl);
-    
+
     // collectVariantNums();
     // identifySections();
 
-    async function variantClick() {
-      let btns = await collectButtons();
+    async function variantClick () {
+      const btns = await collectButtons();
       const waitSelector = 'div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)';
       let i = 0;
       let j = 0;
 
-      if(btns[0].length){
-        while(i < btns[0].length && i < 100) {
+      if (btns[0].length) {
+        while (i < btns[0].length && i < 100) {
           context.click(btns[0][i]);
           await new Promise(resolve => setTimeout(resolve, 5000));
           await context.waitForSelector(waitSelector, { timeout: 20000 });
 
-
-          if(btns[1].length && j < 100){
-            console.log('INSIDE IF')
-            while(j < btns[1].length && j < 100) {
-              console.log("INSIDE LOOP")
-              let check = await buttonCheck(btns[1][j] + " div")
-              if(check) {
-                console.log("INSIDE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                context.click(btns[1][j])
+          if (btns[1].length && j < 100) {
+            console.log('INSIDE IF');
+            while (j < btns[1].length && j < 100) {
+              console.log('INSIDE LOOP');
+              const check = await buttonCheck(btns[1][j] + ' div');
+              if (check) {
+                console.log('INSIDE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+                context.click(btns[1][j]);
                 await getVariantIdNum();
                 await collectVariantInfo();
                 await new Promise(resolve => setTimeout(resolve, 5000));
                 await context.waitForSelector(waitSelector, { timeout: 20000 });
               }
-              j++
+              j++;
             }
             j = 0;
           } else {
             await getVariantIdNum();
             await collectVariantInfo();
-            
-            }
-          i++
+          }
+          i++;
         }
       } else {
-        const varStore = await context.evaluate(function() {
+        const varStore = await context.evaluate(function () {
           function addHiddenDiv (id, content) {
             const newDiv = document.createElement('div');
             newDiv.id = id;
@@ -246,41 +241,39 @@ module.exports = {
       }
     }
 
-
-    async function buttonCheck(selector) {
-      let input = selector
-      return await context.evaluate(function(input) {
-        let sel = document.querySelector(input)
-        if(sel) {
+    async function buttonCheck (selector) {
+      const input = selector;
+      return await context.evaluate(function (input) {
+        const sel = document.querySelector(input);
+        if (sel) {
         // debugger
           // if(!sel.ariaLabel.includes("Out-of-stock")) {
-            return true;
-          } else {
-              return false
-          }
+          return true;
+        } else {
+          return false;
+        }
         // }
-        
       }, input);
     }
 
-    async function getVariantIdNum(value) {
-      let varArray = [];
-      const varStore = await context.evaluate(function() {
-          function addHiddenDiv (id, content) {
-            const newDiv = document.createElement('div');
-            newDiv.id = id;
-            newDiv.textContent = content;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
-          }
-        
+    async function getVariantIdNum (value) {
+      const varArray = [];
+      const varStore = await context.evaluate(function () {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+
         // const variantOnDom = document.querySelector('div#ii_variantId');
 
-        let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
+        const varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
         const regex1 = /[0-9]+$/g;
 
-        if(varPath){
-          let varText = regex1.exec(varPath.innerText);
+        if (varPath) {
+          const varText = regex1.exec(varPath.innerText);
           console.log(varText);
 
           addHiddenDiv('ii_variantId', varText);
@@ -288,54 +281,51 @@ module.exports = {
       });
     }
 
-
-
-    async function collectButtons() {
-      const moreCheck = await context.evaluate(function() {
-        let selectorCheck = document.querySelector('div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48');
-        if(selectorCheck) {
+    async function collectButtons () {
+      const moreCheck = await context.evaluate(function () {
+        const selectorCheck = document.querySelector('div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48');
+        if (selectorCheck) {
           return true;
         } else {
           return false;
         }
       });
       const moreSelector = 'div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48';
-      if(moreCheck){
+      if (moreCheck) {
         context.click(moreSelector);
         await new Promise(resolve => setTimeout(resolve, 10000));
       }
 
-      return await context.evaluate(function() {
+      return await context.evaluate(function () {
         let flag = false;
-        const selectors = [[],[]];
+        const selectors = [[], []];
         let i = 1;
-        while(!flag && i < 100) {
+        while (!flag && i < 100) {
           const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`;
           const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i})`;
-          if(document.querySelector(firstVar)){
+          if (document.querySelector(firstVar)) {
             selectors[0].push(firstVar);
           }
-          if(document.querySelector(secondVar)){
+          if (document.querySelector(secondVar)) {
             selectors[1].push(secondVar);
           }
-          if(!document.querySelector(firstVar) && !document.querySelector(secondVar)){
+          if (!document.querySelector(firstVar) && !document.querySelector(secondVar)) {
             flag = true;
             break;
           }
-          i++
+          i++;
         }
 
-         if(selectors.length) {
-             return selectors;
-         } else {
-             return false;
-         }
-     });
-  }
+        if (selectors.length) {
+          return selectors;
+        } else {
+          return false;
+        }
+      });
+    }
 
-
-  async function collectVariantInfo (value) {
-    const varStore = await context.evaluate(function() {
+    async function collectVariantInfo (value) {
+      const varStore = await context.evaluate(function () {
         function addHiddenDiv (id, content) {
           const variantId = document.querySelectorAll('div#ii_variantId');
           const variantDiv = variantId[variantId.length - 1];
@@ -343,81 +333,79 @@ module.exports = {
           newDiv.id = id;
           newDiv.textContent = content;
           newDiv.style.display = 'none';
-          if(variantDiv){
+          if (variantDiv) {
             variantDiv.appendChild(newDiv);
           }
         }
-      const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-      const variantImage = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz div.css-1dbjc4n.r-1pi2tsx img');
-      const variantPrice = document.querySelector('div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q');
-      const variantRating = document.querySelector('div.css-1dbjc4n div.css-901oao.r-1enofrn.r-b88u0q.r-m2pi6t');
-      const variantReview = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz a');
-      const variantRatingText = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz section');
-      // const variantListPrice = document.querySelector('div.css-1dbjc4n.r-k8qxaj div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
-      const variantListPrice = document.querySelector('div.css-1dbjc4n.r-1awozwy.r-18u37iz.r-1wtj0ep.r-13qz1uu div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
-      const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
-      const keyWordAdd = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-      const prodInfoLine = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
-// debugger
-      const variantArray = [];
-      const packSize = ['Pack: ', 'Group Size: '];
-      const packSizeResult = [];
-      for(let i = 0; i < 10; i = i + 2) {
-        if (variantInfo[i + 1]) {
-          if (packSize.includes(variantInfo[i].innerText)) {
-            packSizeResult.push(variantInfo[i + 1].innerText);
+        const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
+        const variantImage = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz div.css-1dbjc4n.r-1pi2tsx img');
+        const variantPrice = document.querySelector('div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q');
+        const variantRating = document.querySelector('div.css-1dbjc4n div.css-901oao.r-1enofrn.r-b88u0q.r-m2pi6t');
+        const variantReview = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz a');
+        const variantRatingText = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz section');
+        // const variantListPrice = document.querySelector('div.css-1dbjc4n.r-k8qxaj div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
+        const variantListPrice = document.querySelector('div.css-1dbjc4n.r-1awozwy.r-18u37iz.r-1wtj0ep.r-13qz1uu div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
+        const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
+        const keyWordAdd = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
+        const prodInfoLine = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
+        // debugger
+        const variantArray = [];
+        const packSize = ['Pack: ', 'Group Size: '];
+        const packSizeResult = [];
+        for (let i = 0; i < 10; i = i + 2) {
+          if (variantInfo[i + 1]) {
+            if (packSize.includes(variantInfo[i].innerText)) {
+              packSizeResult.push(variantInfo[i + 1].innerText);
+            }
+            variantArray.push(variantInfo[i + 1].innerText);
           }
-          variantArray.push(variantInfo[i + 1].innerText);
         }
-      }
 
-      if (variantArray.length) {
-        const variantString = variantArray.join(' || ');
-        addHiddenDiv('ii_variantInfo', `${variantString}`);
-      }
-      if (packSizeResult.length) {
-        const packString = packSizeResult.join(' ');
-        addHiddenDiv('ii_packSize', `${packString}`);
-      }
-       if(variantPrice) {
-        addHiddenDiv('ii_variantPrice', `${variantPrice.innerText}`);
-      }
-      if(variantImage){
-        addHiddenDiv('ii_variantImage', `${variantImage[0].src}`);
-      }
-      if(variantImage){
-        if(variantImage[1]){
-          addHiddenDiv('ii_variantImageAlt', `${variantImage[1].src}`);
+        if (variantArray.length) {
+          const variantString = variantArray.join(' || ');
+          addHiddenDiv('ii_variantInfo', `${variantString}`);
         }
-      }
-      if(variantRating){
-        addHiddenDiv('ii_variantRating', `${variantRating.innerText}`);
-      }
-      if(variantReview){
-        addHiddenDiv('ii_variantReview', `${variantReview.innerText}`);
-      }
-      if(variantListPrice){
-        addHiddenDiv('ii_variantListPrice', `${variantListPrice.innerText}`);
-      }
-      if (keyWordAdd[1] && prodName) {
-        let varName = keyWordAdd[1].innerText;
-        addHiddenDiv('ii_metaKeywords', `${prodName.innerText + " " + varName}`);
-      } else if(prodName) {
-        addHiddenDiv('ii_metaKeywords', `${prodName.innerText}`);
-      }
-      if(prodInfoLine){
-        addHiddenDiv('ii_grossWeight', `${prodInfoLine.innerText}`);
-      }
-      if(prodInfoLine){
-        addHiddenDiv('ii_quantity', `${prodInfoLine.innerText}`);
-      }
+        if (packSizeResult.length) {
+          const packString = packSizeResult.join(' ');
+          addHiddenDiv('ii_packSize', `${packString}`);
+        }
+        if (variantPrice) {
+          addHiddenDiv('ii_variantPrice', `${variantPrice.innerText}`);
+        }
+        if (variantImage) {
+          addHiddenDiv('ii_variantImage', `${variantImage[0].src}`);
+        }
+        if (variantImage) {
+          if (variantImage[1]) {
+            addHiddenDiv('ii_variantImageAlt', `${variantImage[1].src}`);
+          }
+        }
+        if (variantRating) {
+          addHiddenDiv('ii_variantRating', `${variantRating.innerText}`);
+        }
+        if (variantReview) {
+          addHiddenDiv('ii_variantReview', `${variantReview.innerText}`);
+        }
+        if (variantListPrice) {
+          addHiddenDiv('ii_variantListPrice', `${variantListPrice.innerText}`);
+        }
+        if (keyWordAdd[1] && prodName) {
+          const varName = keyWordAdd[1].innerText;
+          addHiddenDiv('ii_metaKeywords', `${prodName.innerText + ' ' + varName}`);
+        } else if (prodName) {
+          addHiddenDiv('ii_metaKeywords', `${prodName.innerText}`);
+        }
+        if (prodInfoLine) {
+          addHiddenDiv('ii_grossWeight', `${prodInfoLine.innerText}`);
+        }
+        if (prodInfoLine) {
+          addHiddenDiv('ii_quantity', `${prodInfoLine.innerText}`);
+        }
+      });
+    }
 
-    });
-  }
-  
-  await variantClick()
+    await variantClick();
 
     return await context.extract(productDetails, { transform: transformParam });
-
   },
 };
