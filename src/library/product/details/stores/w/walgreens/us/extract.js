@@ -234,11 +234,12 @@ module.exports = {
           const hasNutrition = nutrition && nutrition.find(u => u.nutritionFact);
           const nutritionTable = hasNutrition ? nutrition.find(u => u.nutritionFact).nutritionFact.reduce((acc, obj) => {
             const key = obj.nutritionFactName || 'unknown';
-            return { ...acc, [key.trim().toLowerCase().split(' ').join('_')]: obj.amountPerServing || '' };
+            return { ...acc, [key.replace(/\([^()]*\)/, '').trim().toLowerCase().split(' ').join('_')]: obj.amountPerServing || '' };
           }, {}) : '';
 
           const getNutri = (arrOrVal, isUnit) => {
             if (!nutritionTable) return '';
+            console.log(nutritionTable);
             const nb = isUnit ? 2 : 1;
             const arr = Array.isArray(arrOrVal) ? arrOrVal : [arrOrVal];
             return arr.reduce((acc, query) => {
@@ -360,7 +361,7 @@ module.exports = {
             packSize: infos.prodPacksAvailable,
             legalDisclaimer: '',
             directions: directions && fullDescription ? fullDescription.slice(directions, fullDescription.length) : '',
-            warnings: (warnings && warnings.productWarning) ? warnings.productWarning : customWarning(),
+            warnings: (warnings && warnings.productWarning) ? (warnings.productWarning).replace(/<[P|p]*>?/gm, '$1 ') : customWarning(),
             ratingCount: reviews ? reviews.reviewCount : '',
             aggregateRatingText: reviews ? reviews.overallRating : '',
             aggregateRating: reviews ? reviews.overallRating : '',
@@ -408,9 +409,9 @@ module.exports = {
             addonItem: '',
             fastTrack: '',
             ingredientsList: ingrList ? ingrList.join(' ') : '',
-            // servingSize: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] : '',
-            // servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
-            // numberOfServingsInPackage: nutrition && nutrition[0] && nutrition[0].servingPerContainer ? nutrition[0].servingPerContainer : '',
+            servingSize: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] !== null) ? nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] : '',
+            servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] !== null) ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
+            numberOfServingsInPackage: nutrition && nutrition[0] && nutrition[0].servingPerContainer ? nutrition[0].servingPerContainer : '',
             caloriesPerServing: getNutri(['calories', 'calorie'], false),
             caloriesFromFatPerServing: '',
             totalFatPerServing: getNutri(['fat', 'total_fat'], false),
@@ -462,6 +463,7 @@ module.exports = {
             newAsin: '',
             newDescription: '',
             variantInformation: infos.primaryAttribute,
+            // variantInformation: infos.primaryAttribute ? infos.primaryAttribute : infos.color,
             // Object.keys(jsonObj.inventory.relatedProducts),
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
@@ -502,6 +504,7 @@ module.exports = {
         .map(url => (getXpathByText('//li//a', 'style', url)));
       if (result.length > 21) {
         result.splice(21, result.length);
+        // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
       }
       console.log(result);
       return result;
