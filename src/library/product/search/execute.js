@@ -64,8 +64,13 @@ module.exports = {
       type: 'string',
     },
     {
-      name: 'zipcode',
+      name: 'id',
       description: 'keywords to search for',
+      type: 'string',
+    },
+    {
+      name: 'zipcode',
+      description: 'locale to search within',
       type: 'string',
     },
   ],

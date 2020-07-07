@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { url: any, zipcode: any } } inputs
+ * @param { { url: any, zipcode: any , id: any} } inputs
  * @param { { country: any, domain: any, store: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { someAction: ImportIO.Action, someFunction: () => void, someExtraction: string } } dependencies
@@ -46,6 +46,11 @@ module.exports = {
       name: 'zipcode',
       description: '',
       optional: false,
+    },
+    {
+      name: 'id',
+      description: 'Set location ',
+      type: 'string',
     },
   ],
   path: './domains/${domain[0:2]}/setZipCode.${domain}',

@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //ol/li
+fields:
+  - name: asin
+    singleValue: false
+    xpath: .//span[contains(@class, 'item')]/a[1]/@href
+    regExp: dp\/([A-Za-z0-9]{10})\/
+    regExpReplace: $1
+  - name: browsenode
+    singleValue: false
+    xpath: ancestor::html//ul[@id="zg_browseRoot"]//li[@class="zg_browseUp" and 1 and not(following-sibling::li)]/a/text() | //ol/li/ancestor::html//ul[contains(@id, "browseRoot")]//ul[not(li[2])]/li[not(@class)] | //span[contains(@class, "zg_selected")]
+  - name: node_id
+    singleValue: false
+    xpath: .//span[contains(@class, 'item')]/a[1]/@href
+    regExp: \/ref\=.+([0-9]{10,}).+\/
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: .//span[contains(@class, "a-color-price")]
+  - name: rank
+    singleValue: false
+    xpath: .//span[@class="zg-badge-text"]
+  - name: title
+    singleValue: false
+    xpath: .//div[contains(@class, "truncated")]//text()
+  - name: tld
+    singleValue: false
+    defaultValue: www.amazon.com
