@@ -40,6 +40,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.directions) {
+        let text = '';
+        row.directions.forEach(item => {
+          text += item.text.replace(/\n/g, ' ').replace(new RegExp('(.+)(Directions:)(.+)', 'g'), '$3');
+        });
+        row.directions = [
+          {
+            text: text,
+          },
+        ];
+      }
     }
   }
   return data;
