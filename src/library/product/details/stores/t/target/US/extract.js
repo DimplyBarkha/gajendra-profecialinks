@@ -109,10 +109,7 @@ async function implementation (
       }
       return options.querySelectorAll('a').length;
     }
-    let variantProductBtns = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-    if (!variantProductBtns.length) {
-      variantProductBtns = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
-    }
+    let variantProductBtns = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
     if (variantProductBtns.length) {
       const newDiv = document.createElement('div');
       newDiv.id = 'btnIndex';
@@ -725,10 +722,7 @@ async function implementation (
               addHiddenDiv('privacy', privacy);
               addHiddenDiv('customerServiceAvailability', 'Yes');
 
-              let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-              if (!variants.length) {
-                variants = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
-              }
+              let variants = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
               if (variants.length) {
                 variants.forEach(e => {
                   if (e && e.getAttribute('aria-label').indexOf('checked') > -1 && e.innerText) {
@@ -915,10 +909,7 @@ async function implementation (
           return true;
         }
       }
-      let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-      if (!variants.length) {
-        variants = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
-      }
+      let variants = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
       if (variants.length && document.getElementById('btnIndex') && !variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
         return false;
       }
@@ -969,14 +960,11 @@ async function implementation (
           options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
         }
       } else {
-        let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+        let variants = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
         if (variants.length) {
           if (variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText) {
             extendedText = variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText.replace(/\r?\n|\r/g, '').trim();
           }
-        }
-        if (!variants.length) {
-          variants = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
         }
         if (variants.length && document.getElementById('btnIndex')) {
           variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
@@ -1434,10 +1422,7 @@ async function implementation (
       addHiddenDiv('privacy', privacy);
       addHiddenDiv('customerServiceAvailability', 'Yes');
 
-      let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-      if (!variants.length) {
-        variants = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
-      }
+      let variants = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
       if (variants.length) {
         variants.forEach(e => {
           if (e && e.getAttribute('aria-label').indexOf('checked') > -1 && e.innerText) {
@@ -1588,10 +1573,7 @@ async function implementation (
 
       const details = document.querySelector('a[href="#tabContent-tab-Details"]');
 
-      let variations = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-      if (!variations.length) {
-        variations = document.querySelectorAll('.SwatchButton-sc-18yljzc-0');
-      }
+      let variations = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
 
       let isColorDropDown = false;
       if (document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
