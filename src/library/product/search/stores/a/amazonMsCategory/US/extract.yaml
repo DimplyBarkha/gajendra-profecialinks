@@ -17,13 +17,13 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: .//span[contains(@class, "a-color-price")]
+    xpath: translate(.//span[contains(@class, "a-color-price")], "$", "")
   - name: rank
     singleValue: false
-    xpath: .//span[@class="zg-badge-text"]
+    xpath: translate(.//span[@class="zg-badge-text"], "#",  "")
   - name: title
     singleValue: false
     xpath: .//div[contains(@class, "truncated")]//text()
   - name: tld
     singleValue: false
-    defaultValue: www.amazon.com
+    defaultValue: com
