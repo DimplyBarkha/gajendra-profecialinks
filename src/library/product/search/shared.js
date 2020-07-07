@@ -31,7 +31,6 @@ const transform = (data, context) => {
         }
         row.rank = [{ text: rankCounter }];
       } else {
-        console.log(`${row.id[0].text} : ${row.name[0].text}`);
         row.id = [{ text: '' }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
