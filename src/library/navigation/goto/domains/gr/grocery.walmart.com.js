@@ -18,6 +18,6 @@ module.exports = {
     }
 
     const inputUrl = `${url}`;
-    await context.goto(inputUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(inputUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: false });
   },
 };
