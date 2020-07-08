@@ -45,27 +45,46 @@ async function implementation (
 
   const changeZip = async (wantedZip) => {
     await context.click('button.CurrentModality-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve) => setTimeout(resolve, 6000));
+    const hasZipBtn = await context.evaluate(() => {
+      return Boolean(document.querySelector('input[data-testid="PostalCodeSearchBox-input"]'));
+    });
+    console.log(hasZipBtn);
+    if (!hasZipBtn) {
+      await context.click('button.CurrentModality-button');
+      await new Promise((resolve) => setTimeout(resolve, 6000));
+    }
 
-    await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip)
+      .catch(async function () {
+        await context.click('button.CurrentModality-button');
+        await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
+      });
+    await new Promise((resolve) => setTimeout(resolve, 6000));
 
     await context.click('button.kds-SolitarySearch-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve) => setTimeout(resolve, 6000));
     await findButtonWithStoreSelect();
-    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+    await new Promise((resolve) => setTimeout(resolve, 6000));
     await findClosestStore();
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve) => setTimeout(resolve, 6000));
   };
 
-  const currentZip = await getCurrentZip();
+  let currentZip = await getCurrentZip();
   console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
 
-  if (currentZip !== zipcode) {
-    console.log('Trying to change zip');
-    await changeZip(zipcode);
+  try {
+    if (currentZip !== zipcode) {
+      console.log('Trying to change zip');
+      await changeZip(zipcode);
+    }
+  } catch (exception) {
+    currentZip = await getCurrentZip();
+    if (currentZip !== zipcode) {
+      console.log(exception);
+      throw new Error('Failed to change zip');
+    }
   }
-
   await context.evaluate(() => {
     const overlay = document.querySelector('.ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers');
 
@@ -73,7 +92,7 @@ async function implementation (
       overlay.click();
     }
   });
-  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 }
 
 module.exports = {
