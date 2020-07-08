@@ -5,7 +5,7 @@ recordSelector: null
 fields:
   - name: searchUrl
     singleValue: false
-    xpath: //div[@id='searchUrl']    
+    xpath: ancestor::html//div[@id='search-url']   
   - name: price
     singleValue: false
     xpath: //span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]

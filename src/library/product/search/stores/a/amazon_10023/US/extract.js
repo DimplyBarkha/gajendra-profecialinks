@@ -8,24 +8,20 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.waitForXPath('//div/@data-asin');
-  await context.evaluate(async function () {
-    function addElementToDocument (doc, key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      doc.appendChild(catElement);
+  await context.evaluate(async function (inputs) {
+    function addHiddenDiv (id, content) {
+      if (document.querySelector('div[id="search-url"]')) {
+        document.querySelector('div[id="search-url"]').textContent = content;
+      } else {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
     }
-    const searchUrl = window.location.href;
-    const nodesSnapshot = document.evaluate('//div[contains(@data-component-type,"s-search-result")][@data-asin]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    const paginationDiv = document.querySelector('.s-desktop-toolbar');
-    let pageStartIndex = paginationDiv ? paginationDiv.innerText.match(/\d+/) : 0;
-    pageStartIndex = pageStartIndex ? +pageStartIndex[0] : 1;
-    for (let i = 0; i < nodesSnapshot.snapshotLength; i++) {
-      addElementToDocument(nodesSnapshot.snapshotItem(i), 'searchUrl', searchUrl);
-      pageStartIndex++;
-    }
+    const searchUrl = window.location.href.replace(/%20/g, ' ');
+    addHiddenDiv('search-url', searchUrl);
   });
   return await context.extract(productDetails, { transform });
 }
