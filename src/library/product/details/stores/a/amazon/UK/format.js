@@ -166,6 +166,15 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.otherSellersPrime) {
+        for (const item of row.otherSellersPrime) {
+          if (item.text.includes('Details')) {
+            item.text = 'YES';
+          } else {
+            item.text = 'NO';
+          }
+        }
+      }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
           item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
