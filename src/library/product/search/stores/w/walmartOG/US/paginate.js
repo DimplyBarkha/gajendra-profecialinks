@@ -11,6 +11,6 @@ module.exports = {
     openSearchDefinition: {
       template: 'https://grocery.walmart.com/search/?query={searchTerms}&page={page}',
     },
-    domain: 'grocery.walmart.com',
+    domain: 'walmart.com/grocery',
   },
 };

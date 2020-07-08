@@ -27,7 +27,7 @@ module.exports = {
     country: 'US',
     store: 'walmartOG',
     transform: transform,
-    domain: 'grocery.walmart.com',
+    domain: 'walmart.com/grocery',
   },
   implementation,
 };

@@ -8,7 +8,7 @@ module.exports = {
     country: 'US',
     store: 'walmartOG',
     transform: transform,
-    domain: 'grocery.walmart.com',
+    domain: 'walmart.com/grocery',
   },
 
   implementation: async (inputs, { country, domain, zipcode, transform: transformParam }, context, dependencies) => {
@@ -142,7 +142,7 @@ module.exports = {
           addHiddenDiv('iio_listPrice', listPrice);
           addHiddenDiv('iio_onlinePrice', salePrice);
           addHiddenDiv('iio_available', (available ? 'In Stock' : 'Out of Stock'));
-          addHiddenDiv('iio_product_url', `https://grocery.walmart.com/product/${id}`);
+          addHiddenDiv('iio_product_url', `https://www.walmart.com/grocery/product/${id}`);
 
           iioObjects.forEach((item) => {
             addHiddenDiv(item.name, item.value);

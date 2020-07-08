@@ -1,4 +1,14 @@
 
+// module.exports = {
+//   implements: 'navigation/goto/setZipCode',
+//   parameterValues: {
+//     country: 'US',
+//     domain: 'walmart.com/grocery',
+//     store: 'walmartOG',
+//     zipcode: '72758',
+//   },
+// };
+
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {

@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmartOG',
-    domain: 'grocery.walmart.com',
+    domain: 'walmart.com/grocery',
     zipcode: '72758',
   },
 };
