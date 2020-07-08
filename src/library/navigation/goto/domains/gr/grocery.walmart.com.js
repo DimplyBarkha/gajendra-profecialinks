@@ -17,7 +17,7 @@ module.exports = {
       await dependencies.setZipCode({ zipcode: zipcode });
     }
 
-    const inputUrl = `${url}#[!opt!]{"anti_fingerprint":false}[/!opt!]`;
+    const inputUrl = `${url}`;
     await context.goto(inputUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
   },
 };
