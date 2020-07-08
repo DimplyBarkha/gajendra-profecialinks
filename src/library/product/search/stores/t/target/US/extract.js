@@ -64,7 +64,7 @@ async function implementation (
           const rating = itemContainer.querySelector('div[data-test="ratings"]').innerText.split(' ')[0];
           addHiddenDiv(itemContainer, 'rating', rating);
         }
-        addHiddenDiv(itemContainer, 'ratingCount', itemContainer.querySelector('span[data-test="product-rating-count"]') ? itemContainer.querySelector('span[data-test="product-rating-count"]').innerText : 0);
+        addHiddenDiv(itemContainer, 'ratingCount', itemContainer.querySelector('span[data-test="product-rating-count"]') ? itemContainer.querySelector('span[data-test="product-rating-count"]').innerText : '');
       }
 
       const endorsement = itemContainer.querySelector('.AtTargetMessage__AtTargetMessageWrapper-sc-1gv6org-0.liCFqa.h-text-grayDark');

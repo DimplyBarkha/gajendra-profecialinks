@@ -35,10 +35,6 @@ async function implementation (
   await context.goto('https://www.target.com' + productUrl);
   await context.waitForXPath("//div[@data-test='product-price']");
 
-  const currentUrl = await context.evaluate(function () {
-    return window.location.href;
-  });
-
   await context.evaluate(async function () {
     location.reload();
   });
@@ -109,7 +105,10 @@ async function implementation (
       }
       return options.querySelectorAll('a').length;
     }
-    let variantProductBtns = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
+    let variantProductBtns = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+    if (!variantProductBtns.length) {
+      variantProductBtns = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
+    }
     if (variantProductBtns.length) {
       const newDiv = document.createElement('div');
       newDiv.id = 'btnIndex';
@@ -127,7 +126,7 @@ async function implementation (
     variantProductCount = 1;
   }
 
-  const primaryBtnsArr = await context.evaluate(function() {
+  const primaryBtnsArr = await context.evaluate(function () {
     function addHiddenDiv (id, content) {
       if (document && document.getElementById(id)) {
         document.getElementById(id).innerHTML = content;
@@ -141,10 +140,10 @@ async function implementation (
     }
     addHiddenDiv('variantHolder', '');
     const btnArr = [];
-    if(document.querySelectorAll('div[data-test="variationButtonWrapper"]').length === 2) {
+    if (document.querySelectorAll('div[data-test="variationButtonWrapper"]').length === 2) {
       let id = 0;
       document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button').forEach(e => {
-        e.id = "primaryBtn" + id;
+        e.id = 'primaryBtn' + id;
         btnArr.push(id);
         id++;
       });
@@ -153,7 +152,7 @@ async function implementation (
     return btnArr;
   });
 
-  const secondaryBtnsArr = await context.evaluate(async function() {
+  const secondaryBtnsArr = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -163,8 +162,8 @@ async function implementation (
     }
     const btnArr = [];
     if (document.querySelectorAll('div[data-test="variationButtonWrapper"]').length === 2) {
-      let primaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button');
-      for(let primaryBtn of primaryBtns) {
+      const primaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button');
+      for (const primaryBtn of primaryBtns) {
         primaryBtn.click();
         await stall(100);
         btnArr.push(document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button').length);
@@ -175,9 +174,9 @@ async function implementation (
 
   const extractedData = [];
 
-  if(primaryBtnsArr.length && secondaryBtnsArr.length) {
-    for(let i = 0; i < primaryBtnsArr.length; i++) {
-      await context.evaluate(async function(){
+  if (primaryBtnsArr.length && secondaryBtnsArr.length) {
+    for (let i = 0; i < primaryBtnsArr.length; i++) {
+      await context.evaluate(async function () {
         function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -186,13 +185,13 @@ async function implementation (
           });
         }
         await stall(100);
-        let secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
+        const secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
         secondaryBtns.forEach(e => {
           e.parentElement.classList.remove('secondarySelected');
         });
-        let primaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button');
-        for(let pBtn of primaryBtns) {
-          if(!pBtn.parentElement.classList.contains('primarySelected')) {
+        const primaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button');
+        for (const pBtn of primaryBtns) {
+          if (!pBtn.parentElement.classList.contains('primarySelected')) {
             pBtn.parentElement.classList.add('primarySelected');
             pBtn.click();
             console.log('primarybutton', pBtn);
@@ -201,8 +200,8 @@ async function implementation (
           }
         }
       });
-      for(let j = 0; j < secondaryBtnsArr[i]; j++) {
-        await context.evaluate(async function() {
+      for (let j = 0; j < secondaryBtnsArr[i]; j++) {
+        await context.evaluate(async function () {
           function stall (ms) {
             return new Promise((resolve, reject) => {
               setTimeout(() => {
@@ -210,9 +209,9 @@ async function implementation (
               }, ms);
             });
           }
-          let secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
-          for(let sBtn of secondaryBtns) {
-            if(!sBtn.parentElement.classList.contains('secondarySelected')) {
+          const secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
+          for (const sBtn of secondaryBtns) {
+            if (!sBtn.parentElement.classList.contains('secondarySelected')) {
               sBtn.parentElement.classList.add('secondarySelected');
               console.log('secondarybutton', sBtn);
               sBtn.click();
@@ -230,18 +229,18 @@ async function implementation (
         });
       }
     }
-    await context.evaluate(async function(){
-      let primaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button');
+    await context.evaluate(async function () {
+      const primaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button');
       primaryBtns.forEach(e => {
         e.parentElement.classList.remove('primarySelected');
       });
-      let secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
+      const secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
       secondaryBtns.forEach(e => {
         e.parentElement.classList.remove('secondarySelected');
       });
     });
-    for(let i = 0; i < primaryBtnsArr.length; i++) {
-      await context.evaluate(async function(){
+    for (let i = 0; i < primaryBtnsArr.length; i++) {
+      await context.evaluate(async function () {
         function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -250,13 +249,13 @@ async function implementation (
           });
         }
         await stall(100);
-        let secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
+        const secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
         secondaryBtns.forEach(e => {
           e.parentElement.classList.remove('secondarySelected');
         });
-        let primaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button');
-        for(let pBtn of primaryBtns) {
-          if(!pBtn.parentElement.classList.contains('primarySelected')) {
+        const primaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button');
+        for (const pBtn of primaryBtns) {
+          if (!pBtn.parentElement.classList.contains('primarySelected')) {
             pBtn.parentElement.classList.add('primarySelected');
             pBtn.click();
             await stall(100);
@@ -264,41 +263,49 @@ async function implementation (
           }
         }
       });
-      for(let j = 0; j < secondaryBtnsArr[i]; j++) {
-        await context.evaluate(async function() {
-
-        function stall (ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
-        }
-
-        function addHiddenDiv (id, content) {
-          if (document && document.getElementById(id)) {
-            document.getElementById(id).innerHTML = content;
-            return;
+      for (let j = 0; j < secondaryBtnsArr[i]; j++) {
+        await context.evaluate(async function () {
+          function stall (ms) {
+            return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                resolve();
+              }, ms);
+            });
           }
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
 
-        function validTextField (e) {
-          return e && e.innerText && e.parentElement && e.parentElement.innerText;
-        }
+          function addHiddenDiv (id, content) {
+            if (document && document.getElementById(id)) {
+              document.getElementById(id).innerHTML = content;
+              return;
+            }
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
 
-        let secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
-        for(let sBtn of secondaryBtns) {
-          if(!sBtn.parentElement.classList.contains('secondarySelected')) {
-            sBtn.parentElement.classList.add('secondarySelected');
-            sBtn.click();
-            await stall(100);
+          function validTextField (e) {
+            return e && e.innerText && e.parentElement && e.parentElement.innerText;
+          }
+
+          const secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
+          for (const sBtn of secondaryBtns) {
+            if (!sBtn.parentElement.classList.contains('secondarySelected')) {
+              sBtn.parentElement.classList.add('secondarySelected');
+              sBtn.click();
+              await stall(100);
 
               let extendedText = '';
+              document.querySelectorAll('div[data-test="VariationSelector"]').forEach(e => {
+                extendedText += e.querySelector('div[data-test="variationTheme-size"]') ? ' Size ' : e.querySelector('div[data-test="variationTheme-Count"]') ? ' Count ' : e.querySelector('div[data-test="variationTheme-color"]') ? ' Color ' : '';
+                const selectedBtns = e.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
+                selectedBtns.forEach(btn => {
+                  if (btn.getAttribute('aria-label').indexOf('checked') > -1) {
+                    extendedText += ' ' + btn.innerText + ' ';
+                  }
+                });
+              });
 
               window.scroll(0, 0);
 
@@ -722,7 +729,10 @@ async function implementation (
               addHiddenDiv('privacy', privacy);
               addHiddenDiv('customerServiceAvailability', 'Yes');
 
-              let variants = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
+              let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+              if (!variants.length) {
+                variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
+              }
               if (variants.length) {
                 variants.forEach(e => {
                   if (e && e.getAttribute('aria-label').indexOf('checked') > -1 && e.innerText) {
@@ -874,13 +884,13 @@ async function implementation (
               const splitVariantString = document.getElementById('variantHolder').innerText.split(' ').filter(str => str.trim().length > 0);
               const variantArr = [];
               splitVariantString.forEach(str => {
-                if(!variantArr.includes(str)) {
+                if (!variantArr.includes(str)) {
                   variantArr.push(str);
                 }
               });
               addHiddenDiv('firstVariant', variantArr[0]);
               addHiddenDiv('variantCount', variantArr.length);
-              addHiddenDiv('variantInfo', variantArr.join(' | '))
+              addHiddenDiv('variantInfo', variantArr.join(' | '));
 
               break;
             }
@@ -898,7 +908,6 @@ async function implementation (
       break;
     }
     const canContinue = await context.evaluate(async function () {
-
       if (document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
         if (!document.getElementById('options')) {
           document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
@@ -909,7 +918,10 @@ async function implementation (
           return true;
         }
       }
-      let variants = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
+      let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+      if (!variants.length) {
+        variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
+      }
       if (variants.length && document.getElementById('btnIndex') && !variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
         return false;
       }
@@ -960,11 +972,14 @@ async function implementation (
           options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
         }
       } else {
-        let variants = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
+        let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
         if (variants.length) {
           if (variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText) {
             extendedText = variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText.replace(/\r?\n|\r/g, '').trim();
           }
+        }
+        if (!variants.length) {
+          variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
         }
         if (variants.length && document.getElementById('btnIndex')) {
           variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
@@ -1276,6 +1291,10 @@ async function implementation (
             if (val.trim() !== 'Fat') {
               addHiddenDiv('totalFatInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('totalFatUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('totalFatInfo', percentage.replace('%', ''));
+              addHiddenDiv('totalFatUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Saturated Fat') > -1) {
@@ -1284,6 +1303,10 @@ async function implementation (
             if (val.trim() !== 'Fat') {
               addHiddenDiv('saturatedFatInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('saturatedFatUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('saturatedFatInfo', percentage.replace('%', ''));
+              addHiddenDiv('saturatedFatUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Trans Fat') > -1) {
@@ -1292,6 +1315,10 @@ async function implementation (
             if (val.trim() !== 'Fat') {
               addHiddenDiv('transFatInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('transFatUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('transFatInfo', percentage.replace('%', ''));
+              addHiddenDiv('transFatUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Cholesterol') > -1) {
@@ -1300,6 +1327,10 @@ async function implementation (
             if (val.trim() !== 'Cholesterol') {
               addHiddenDiv('cholesterolInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('cholesterolUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('cholesterolInfo', percentage.replace('%', ''));
+              addHiddenDiv('cholesterolUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Sodium') > -1) {
@@ -1308,6 +1339,10 @@ async function implementation (
             if (val.trim() !== 'Sodium') {
               addHiddenDiv('sodiumInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('sodiumUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('sodiumInfo', percentage.replace('%', ''));
+              addHiddenDiv('sodiumUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Total Carbohydrate') > -1) {
@@ -1316,6 +1351,10 @@ async function implementation (
             if (val.trim() !== 'Carbohydrate') {
               addHiddenDiv('totalCarbInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('totalCarbUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('totalCarbInfo', percentage.replace('%', ''));
+              addHiddenDiv('totalCarbUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Dietary Fiber') > -1) {
@@ -1324,6 +1363,10 @@ async function implementation (
             if (val.trim() !== 'Fiber') {
               addHiddenDiv('dietaryFiberInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('dietaryFiberUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('dietaryFiberInfo', percentage.replace('%', ''));
+              addHiddenDiv('dietaryFiberUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && (e.innerText.indexOf('Total Sugars') > -1 || e.innerText.indexOf('Sugars') === 0)) {
@@ -1332,6 +1375,10 @@ async function implementation (
             if (val.trim() !== 'Sugars') {
               addHiddenDiv('totalSugarInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('totalSugarUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('totalSugarInfo', percentage.replace('%', ''));
+              addHiddenDiv('totalSugarUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Protein') > -1) {
@@ -1340,6 +1387,10 @@ async function implementation (
             if (val.trim() !== 'Protein') {
               addHiddenDiv('proteinInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('proteinUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('proteinInfo', percentage.replace('%', ''));
+              addHiddenDiv('proteinUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin A') > -1) {
@@ -1348,6 +1399,10 @@ async function implementation (
             if (val.trim() !== 'A') {
               addHiddenDiv('vitaminAInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('vitaminAUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('vitaminAInfo', percentage.replace('%', ''));
+              addHiddenDiv('vitaminAUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Vitamin C') > -1) {
@@ -1356,6 +1411,10 @@ async function implementation (
             if (val.trim() !== 'C') {
               addHiddenDiv('vitaminCInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('vitaminCUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('vitaminCInfo', percentage.replace('%', ''));
+              addHiddenDiv('vitaminCUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Calcium') > -1) {
@@ -1364,6 +1423,10 @@ async function implementation (
             if (val.trim() !== 'Calcium') {
               addHiddenDiv('calciumInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('calciumUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('calciumInfo', percentage.replace('%', ''));
+              addHiddenDiv('calciumUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Iron') > -1) {
@@ -1372,6 +1435,10 @@ async function implementation (
             if (val.trim() !== 'Iron') {
               addHiddenDiv('ironInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('ironUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('ironInfo', percentage.replace('%', ''));
+              addHiddenDiv('ironUomInfo', '%');
             }
           }
           if (validTextField(e) && e.querySelector('span') && e.innerText.indexOf('Magnesium') > -1) {
@@ -1380,6 +1447,10 @@ async function implementation (
             if (val.trim() !== 'Magnesium') {
               addHiddenDiv('magInfo', val.replace(/[a-zA-Z]/g, ''));
               addHiddenDiv('magUomInfo', val.replace(/[0-9]/g, '').replace(/\.|\//, ''));
+            } else {
+              const percentage = e.querySelector('.h-float-right').innerText;
+              addHiddenDiv('magInfo', percentage.replace('%', ''));
+              addHiddenDiv('magUomInfo', '%');
             }
           }
         });
@@ -1422,7 +1493,10 @@ async function implementation (
       addHiddenDiv('privacy', privacy);
       addHiddenDiv('customerServiceAvailability', 'Yes');
 
-      let variants = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
+      let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+      if (!variants.length) {
+        variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
+      }
       if (variants.length) {
         variants.forEach(e => {
           if (e && e.getAttribute('aria-label').indexOf('checked') > -1 && e.innerText) {
@@ -1573,8 +1647,10 @@ async function implementation (
 
       const details = document.querySelector('a[href="#tabContent-tab-Details"]');
 
-      let variations = document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button');
-
+      let variations = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+      if (!variations.length) {
+        variations = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
+      }
       let isColorDropDown = false;
       if (document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
         if (!document.getElementById('options')) {
