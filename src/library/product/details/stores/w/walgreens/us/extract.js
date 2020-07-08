@@ -212,11 +212,12 @@ module.exports = {
           console.log(infos);
 
           const cleanupIngredient = (typename) => {
-            const ingredDivText = document.querySelector('li#Ingredients');
-            if (ingredDivText && ingredDivText.textContent && (ingredDivText.textContent.includes('Active') || ingredDivText.textContent.includes('Inactive'))) {
-              return typename.charAt(0).toUpperCase() + typename.slice(1) + ' Ingredients: ';
-            }
-            return '';
+            // const ingredDivText = document.querySelector('li#Ingredients');
+            // if (ingredDivText && ingredDivText.textContent && (ingredDivText.textContent.includes('Active') || ingredDivText.textContent.includes('Inactive'))) {
+            // if (ingredDivText && ingredDivText.textContent) {
+            return typename.charAt(0).toUpperCase() + typename.slice(1) + ' Ingredients: ';
+            // }
+            // return '';
           };
 
           const hasIngrList = ingredients && ingredients.ingredientGroups &&
@@ -361,7 +362,7 @@ module.exports = {
             packSize: infos.prodPacksAvailable,
             legalDisclaimer: '',
             directions: directions && fullDescription ? fullDescription.slice(directions, fullDescription.length) : '',
-            warnings: (warnings && warnings.productWarning) ? (warnings.productWarning).replace(/<[P|p]*>?/gm, '$1 ') : customWarning(),
+            warnings: (warnings && warnings.productWarning) ? (warnings.productWarning) : customWarning(),
             ratingCount: reviews ? reviews.reviewCount : '',
             aggregateRatingText: reviews ? reviews.overallRating : '',
             aggregateRating: reviews ? reviews.overallRating : '',
@@ -462,7 +463,7 @@ module.exports = {
             newVersion: '',
             newAsin: '',
             newDescription: '',
-            variantInformation: infos.primaryAttribute,
+            variantInformation: infos.primaryAttribute ? infos.primaryAttribute : (infos.color ? infos.color : ''),
             // variantInformation: infos.primaryAttribute ? infos.primaryAttribute : infos.color,
             // Object.keys(jsonObj.inventory.relatedProducts),
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
