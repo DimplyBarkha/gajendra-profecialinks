@@ -177,7 +177,7 @@ const transform = (data) => {
       }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
-          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+          item.text = item.text.match(/SL1500_.jpg/gm) ? item.text.match(/SL1500_.jpg/gm).length : 0;
         }
       }
       if (row.alternateImages) {
