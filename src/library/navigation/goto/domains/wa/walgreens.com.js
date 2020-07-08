@@ -12,7 +12,7 @@ module.exports = {
     // await context.setBypassCSP(true);
     // await context.setBlockAds(false);
     await context.setLoadAllResources(true);
-    const inputUrl = `${url}#[!opt!]{"discard_CSP_header":true, "block_ads": true}[/!opt!]`;
+    const inputUrl = `${url}#[!opt!]{"discard_CSP_header":true, "block_ads": false}[/!opt!]`;
     await context.goto(inputUrl, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
     console.log(zipcode);
     if (zipcode) {
