@@ -34,7 +34,7 @@ module.exports = {
 
         console.log('waiting for api request....');
         // Default storeId=5260: As customer has been using this storeID for search feed.
-        const url = `https://grocery.walmart.com/v3/api/products/${id}?itemFields=all&storeId=5260`;
+        const url = `https://www.walmart.com/grocery/v3/api/products/${id}?itemFields=all&storeId=5260`;
         var refURL = window.location.href;
 
         async function fetchItems () {
