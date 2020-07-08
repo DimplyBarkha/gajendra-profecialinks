@@ -46,8 +46,7 @@ module.exports = {
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
     const maxCount = (results) => results.reduce((acc, { group }) => (Array.isArray(group) && group.length > 0 && group[0].totalRecordCount ? group[0].totalRecordCount[0].text : 0), 0);
     keywords = (Keywords) || (keywords);
-    const resultsReturned = await execute({ keywords, zipcode });
-
+    console.log('zip:' + zipcode);
     // do the search
 
     if (!resultsReturned) {
