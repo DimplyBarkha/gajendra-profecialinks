@@ -109,6 +109,10 @@ async function implementation (
       }
     }
 
+    if (Object.keys(productInfo).length === 0) {
+      throw new Error('API Call fail');
+    }
+
     const productCards = document.getElementsByClassName('wag-product-card-details');
     let i = 0;
     while (i < productCards.length) {
