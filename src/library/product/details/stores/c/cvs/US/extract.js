@@ -245,7 +245,7 @@ module.exports = {
         let flag = false;
         const selectors = [[],[]];
         let i = 1;
-        while(!flag && i < 40) {
+        while(!flag && i < 10) {
           const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
           if(document.querySelector(firstVar)){
