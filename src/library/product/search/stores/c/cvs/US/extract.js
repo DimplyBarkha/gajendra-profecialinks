@@ -38,10 +38,15 @@ async function implementation (
         if (records[i].allMeta) {
           const product = records[i].allMeta;
           if (product) {
+            debugger
             addHiddenDiv('ii_brand', product.ProductBrand_Brand, newDiv);
             addHiddenDiv('ii_id', product.gbi_defaultSku, newDiv);
             addHiddenDiv('ii_title', product.title, newDiv);
             addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
+            if(product.CAREPASS_INDICATOR === "ELIGIBLE") {
+              addHiddenDiv('ii_endorsementText', "CarePass", newDiv);
+
+            }
             if (product.variants && product.variants && product.variants[0] && product.variants[0].subVariant && product.variants[0].subVariant[0]) {
               const variant = product.variants[0].subVariant[0];
               addHiddenDiv('ii_price', variant.gbi_Actual_Price, newDiv);
