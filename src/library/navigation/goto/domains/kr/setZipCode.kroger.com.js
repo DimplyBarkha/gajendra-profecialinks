@@ -55,7 +55,11 @@ async function implementation (
       await new Promise((resolve) => setTimeout(resolve, 6000));
     }
 
-    await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
+    await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip)
+      .catch(async function () {
+        await context.click('button.CurrentModality-button');
+        await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
+      });
     await new Promise((resolve) => setTimeout(resolve, 6000));
 
     await context.click('button.kds-SolitarySearch-button');
@@ -66,7 +70,7 @@ async function implementation (
     await new Promise((resolve) => setTimeout(resolve, 6000));
   };
 
-  const currentZip = await getCurrentZip();
+  let currentZip = await getCurrentZip();
   console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
 
   try {
@@ -75,6 +79,7 @@ async function implementation (
       await changeZip(zipcode);
     }
   } catch (exception) {
+    currentZip = await getCurrentZip();
     if (currentZip !== zipcode) {
       console.log(exception);
       throw new Error('Failed to change zip');
