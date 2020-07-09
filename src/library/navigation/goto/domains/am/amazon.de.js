@@ -194,9 +194,9 @@ module.exports = {
         document.head.appendChild(javascriptElt);
         // js_enabled
       }, [captchas, Date.now() - start, hasCaptcha]);
-      if (zipcode) {
-        await dependencies.setZipCode({ url: url, zipcode: zipcode });
-      }
+    }
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode });
     }
   },
 };
