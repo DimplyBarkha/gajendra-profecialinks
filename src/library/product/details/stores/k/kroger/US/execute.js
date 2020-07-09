@@ -5,7 +5,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  let { url, id } = inputs;
+  let { url, id, zipcode } = inputs;
 
   if (!url) {
     if (!id) {
@@ -13,7 +13,7 @@ async function implementation (
     }
     url = await dependencies.createUrl({ id });
   }
-  await dependencies.goto({ url });
+  await dependencies.goto({ url, zipcode });
 
   // Check if no items found, after all zip code logic
   if (parameters.loadedSelector) {
