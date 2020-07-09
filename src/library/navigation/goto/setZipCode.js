@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { url: any, zipcode: any , id: any} } inputs
+ * @param { { url: any, zipcode: any , id: any, _date: any} } inputs
  * @param { { country: any, domain: any, store: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { someAction: ImportIO.Action, someFunction: () => void, someExtraction: string } } dependencies
@@ -50,6 +50,11 @@ module.exports = {
     {
       name: 'id',
       description: 'Set location ',
+      type: 'string',
+    },
+    {
+      name: '_date',
+      description: 'Earliest review extracted',
       type: 'string',
     },
   ],
