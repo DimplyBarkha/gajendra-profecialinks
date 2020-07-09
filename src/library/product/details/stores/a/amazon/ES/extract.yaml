@@ -38,7 +38,7 @@ fields:
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
   - name: brandText
     singleValue: false
-    xpath: //*[@id='bylineInfo']
+    xpath: //*[@id='bylineInfo'] | //a[@id='brand']
   - name: quantity
     singleValue: false
     xpath: //td[contains(text(), 'Peso')]/following-sibling::*[1] | //div[@class='content']/ul/li[1]/text()
@@ -72,7 +72,7 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="acrCustomerReviewText"]/text()
-    regExp: ([0-9]{1,}) ratings
+    regExp: ([0-9]{1,}) valoraciones
     regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
@@ -80,7 +80,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //*[@id="acrPopover"]/@title
-    regExp: ([0-9\.]{1,}) out of
+    regExp: ([0-9\,]{1,}) de
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false
@@ -113,7 +113,7 @@ fields:
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
   - name: brandLink
     singleValue: false
-    xpath: //a[@id="bylineInfo"]/@href
+    xpath: //a[@id="bylineInfo"]/@href | //a[@id='brand']/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.de$1
   - name: salesRank
@@ -137,22 +137,24 @@ fields:
     xpath: //li/b[contains(text(), 'Número de modelo del producto')]/following::text()[1]
   - name: pasin
     singleValue: false
-    xpath: (//*[@data-asin])[1]/@data-asin
+    xpath: //script[contains(text(), 'parentAsin')]
+    regExp: parentAsin"\s:\s"(\S+)
+    regExpReplace: $1
   - name: videoLength
     singleValue: false
     xpath: //div[@class='airy-duration-label']
   - name: ingredientImagePresent
     singleValue: false
-    xpath: //*[@id='wayfinding-breadcrumbs_feature_div']/ul/li/span/a[contains(text(), 'Alimentación y bebidas')]
+    xpath: //script[contains(text(),"INGR")]
     regExp: (.+)
-    regExpReplace: 'YES'
+    regExpReplace: 'Yes'
     defaultValue: NO
   - name: factImagePresent
     singleValue: false
     defaultValue: NO
   - name: largeImageCount
     singleValue: false
-    description: null
+    xpath: count(//script[contains(text(),"SL1500_.jpg")])
     type: NUMBER
   - name: variantAsins
     singleValue: false
@@ -169,7 +171,6 @@ fields:
     xpath: //div[contains(@id, 'mbc')]
     regExp: (.+)
     regExpReplace: 'YES'
-    defaultValue: NO
   - name: lbbPrice
     singleValue: false
     xpath: //span[contains(@id, 'mbc-price')]
@@ -178,13 +179,16 @@ fields:
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
     singleValue: false
-    description: null
+    xpath: //span[contains(@class, 'mbcMerchantName')]
   - name: otherSellersPrice
     singleValue: false
-    description: null
+    xpath: //span[contains(@id, 'mbc-price')]
+  - name: otherSellersPrime
+    singleValue: false
+    xpath: //span[contains(@id, "mbc-shipping")]
   - name: otherSellersShipping
     singleValue: false
-    description: null
+    xpath: //span[contains(@id, "mbc-shipping")]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
