@@ -29,9 +29,14 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
-    xpath: //span[@data-test="product-pod-price"]/span  
+    xpath: //span[@data-test="product-pod-price"]/span
   - name: rank
   - name: rankOrganic
   - name: sponsored
+    defaultValue: false
+  - name: id
+    xpath: //a[@data-origincomponent="ProductPod"]/@href
+    regExp: (.+)\/(.+)\-(.+)\-(.+)
+    regExpReplace: $2
     defaultValue: false
 
