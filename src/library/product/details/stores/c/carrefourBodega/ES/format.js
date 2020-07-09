@@ -50,12 +50,12 @@ const transform = (data) => {
         });
       }
       if (row.category) {
-        // const text = [];
-        // row.category.forEach((item, index, array) => {
-        //   if (array.length - 1 !== index) {
-        //     text.push({ text: `${item.text}` });
-        //   }
-        // });
+        row.category.forEach((item, index, array) => {
+          if (index === 0) {
+            item.text = item.text.replace(/\s/g, '-');
+          }
+          item.text = item.text.toLowerCase();
+        });
         row.category = row.category.slice(0, row.category.length - 1);
       }
     }
