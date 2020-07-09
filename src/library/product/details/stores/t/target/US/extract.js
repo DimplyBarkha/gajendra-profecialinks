@@ -100,7 +100,7 @@ async function implementation (
       newDiv.textContent = -1;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
-      if (options.querySelectorAll('a').length) {
+      if (options && options.querySelectorAll('a').length) {
         options.querySelectorAll('a')[0].click();
       }
       return options.querySelectorAll('a').length;
@@ -907,7 +907,7 @@ async function implementation (
         }
         const options = document.getElementById('options');
         console.log('options', options.querySelectorAll('a'));
-        if (document.getElementById('btnIndex') && options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
+        if (document.getElementById('btnIndex') && options && options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
           return true;
         }
       }
@@ -953,12 +953,12 @@ async function implementation (
           document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
         }
         const options = document.getElementById('options');
-        if (document.getElementById('btnIndex') && options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].getAttribute('aria-label')) {
+        if (options && document.getElementById('btnIndex') && options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].getAttribute('aria-label')) {
           addHiddenDiv('colorInfo', options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].getAttribute('aria-label').split('-')[0].replace('color', '').trim());
-        } else if (document.getElementById('btnIndex') && options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
+        } else if (options && document.getElementById('btnIndex') && options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
           addHiddenDiv('colorInfo', options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText.trim());
         }
-        if (document.getElementById('btnIndex')) {
+        if (options && document.getElementById('btnIndex')) {
           options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
         }
       } else {
@@ -1638,7 +1638,11 @@ async function implementation (
           document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
         }
         const options = document.getElementById('options');
-        variations = options.querySelectorAll('a');
+        if (options) {
+          variations = options.querySelectorAll('a');
+        } else {
+          variations = [];
+        }
         isColorDropDown = true;
       }
       if (variations.length && details && !document.getElementById('variantCount')) {
@@ -1650,7 +1654,7 @@ async function implementation (
             document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
           }
           const options = document.getElementById('options');
-          if (options.querySelectorAll('a').length) {
+          if (options && options.querySelectorAll('a').length) {
             options.querySelectorAll('a')[0].click();
           }
         } else {
@@ -1672,7 +1676,7 @@ async function implementation (
               document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
             }
             const options = document.getElementById('options');
-            if (options.querySelectorAll('a').length) {
+            if (options && options.querySelectorAll('a').length) {
               options.querySelectorAll('a')[i].click();
             }
           } else {
