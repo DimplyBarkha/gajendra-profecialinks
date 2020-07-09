@@ -57,9 +57,7 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[contains(@class,'product-info-specs')]/div//div[contains(.,'Package Quantity (Count)')]/../div[position() > 1]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -87,7 +85,6 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //div[@class="row"]//div[contains(.,'Package Quantity (Count)')]/../div[2]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -425,6 +422,7 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: //span[contains(@class,"unitcurrency")]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
