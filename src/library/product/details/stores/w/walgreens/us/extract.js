@@ -103,8 +103,26 @@ module.exports = {
             Object.keys(obj).forEach((key) => document.getElementById(`added_${key}`) && document.getElementById(`added_${key}`).remove());
           };
           const getSelector = (selector, { property = 'textContent', doc = document, raw = false, ifError = '' } = {}) => {
-            const text = doc.querySelector(selector) ? doc.querySelector(selector)[property] : ifError;
-            return raw ? text : text.replace(/\s{2,}, ' '/g).replace(/^\s*\n|^.\n/gm, '').trim();
+            let text = doc.querySelector(selector) ? doc.querySelector(selector)[property] : ifError;
+            if (selector === '#wc-aplus' && document.querySelector('div[data-section-caption="Product Comparison"]')) {
+              if (doc.querySelector('.wc-pct-product-columns-wrapper') && doc.querySelector('.wc-pct-header-column-wrapper')) {
+                if (doc.querySelector('.wc-pct-product-columns-wrapper').innerText === doc.querySelector('.wc-pct-header-column-wrapper').innerText) {
+                  const wcAplusDiv = document.querySelector('#wc-aplus');
+                  const duplicate = wcAplusDiv.cloneNode(true);
+                  if (duplicate.querySelector('div.wc-pct-header-column-wrapper')) {
+                    duplicate.querySelector('div.wc-pct-header-column-wrapper').remove();
+                  }
+                  if (duplicate.querySelector('div.wc-json-data')) {
+                    duplicate.querySelector('div.wc-json-data').remove();
+                  }
+                  if (duplicate.querySelector('wc-powered-by-tagline')) {
+                    duplicate.querySelector('wc-powered-by-tagline').remove();
+                  }
+                  text = duplicate.innerText;
+                }
+              }
+            }
+            return raw ? text : text.replace(/\t/gm, ' ').replace(/\s{2,}, ' '/g).replace(/^\s*\n|^.\n/gm, '').trim();
           };
 
           // wait for full loading
