@@ -1,4 +1,5 @@
 const { transform } = require('../../../../shared');
+// const { transform } = require('./transform');
 
 async function implementation (
   inputs,
@@ -24,7 +25,9 @@ async function implementation (
       newDiv.style.display = 'none';
       newDiv.dataset.url = 'https://www.walgreens.com' + productCards[i].querySelector('a').getAttribute('href');
       newDiv.dataset.thumbnail = 'https://' + productCards[i].querySelector('img').getAttribute('src').slice(2);
-      newDiv.dataset.sponsor = isSponsored ? 'true' : 'false';
+      if (isSponsored) {
+        newDiv.dataset.sponsor = 'true';
+      }
       const priceDiv = (productCards && productCards[i]) ? productCards[i].querySelector('div.wag-prod-price-info span.sr-only') : undefined;
       let hasPriceDeal = false;
       if (priceDiv) {
@@ -57,10 +60,14 @@ async function implementation (
         count = orgRankCounter - 1;
       }
 
-      newDiv.dataset.thumbnail = `orgRankCounter: ${orgRankCounter} rankCounter: ${rankCounter}`;
+      if (isSponsored) {
+        const urlId = (document.getElementsByClassName('wag-product-card-details') && document.getElementsByClassName('wag-product-card-details')[0] && document.getElementsByClassName('wag-product-card-details')[0].querySelector('a')) ? document.getElementsByClassName('wag-product-card-details')[0].querySelector('a').getAttribute('href').split('ID=')[1] : '';
+        newDiv.dataset.id = `isSponsored${urlId}`;
+      }
+      // newDiv.dataset.thumbnail = `orgRankCounter: ${orgRankCounter} rankCounter: ${rankCounter}`;
 
       if (!isSponsored && productInformation !== null && productInformation[count] !== null && productInformation[count] !== undefined) {
-        newDiv.dataset.thumbnail = 'blah';
+        // newDiv.dataset.thumbnail = `orgRankCounter: ${orgRankCounter} rankCounter: ${rankCounter}`;
         newDiv.dataset.id = (productInformation[count].productInfo && productInformation[count].productInfo.wic) ? productInformation[count].productInfo.wic : '';
         newDiv.dataset.upc = (productInformation[count].productInfo && productInformation[count].productInfo.upc) ? productInformation[count].productInfo.upc : '';
         newDiv.dataset.rating = (productInformation[count].productInfo && productInformation[count].productInfo.averageRating) ? productInformation[count].productInfo.averageRating : '';
@@ -126,17 +133,17 @@ async function implementation (
     }
 
     const productCards = document.getElementsByClassName('wag-product-card-details');
-    const numberOfProductsWithSponsored = productCards.length;
+    // const numberOfProductsWithSponsored = productCards.length;
 
-    if ((numberOfProducts <= itemsPerPage) || (numberOfProductsWithSponsored <= itemsPerPage)) {
-      productInformation = (window.__APP_INITIAL_STATE__ && window.__APP_INITIAL_STATE__.searchResult && window.__APP_INITIAL_STATE__.searchResult.searchData) ? window.__APP_INITIAL_STATE__.searchResult.searchData.products : {};
-    } else {
+    // if ((numberOfProducts <= itemsPerPage) && (numberOfProductsWithSponsored <= itemsPerPage)) {
+    //   productInformation = (window.__APP_INITIAL_STATE__ && window.__APP_INITIAL_STATE__.searchResult && window.__APP_INITIAL_STATE__.searchResult.searchData) ? window.__APP_INITIAL_STATE__.searchResult.searchData.products : {};
+    // } else {
       productInformation = await fetchItems();
 
       if (Object.keys(productInformation).length === 0 && productNotFound === false) {
         productInformation = await fetchItems();
       }
-    }
+    // }
 
     if (Object.keys(productInformation).length === 0) {
       throw new Error('API Call fail');
