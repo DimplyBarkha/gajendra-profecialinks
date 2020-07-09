@@ -33,6 +33,12 @@ const transform = (data, context) => {
           }
         });
       }
+      if (row.brand) {
+        const brand = row.brand[0].text;
+        if (row.name) {
+          row.name[0].text = `${brand} ${row.name[0].text}`;
+        }
+      }
       if (row.id && row.id[0] && productCodes.indexOf(row.id[0].text) === -1) {
         productCodes.push(row.id[0].text);
         rankCounter += 1;
