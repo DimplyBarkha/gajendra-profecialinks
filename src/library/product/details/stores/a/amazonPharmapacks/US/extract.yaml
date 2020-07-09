@@ -195,7 +195,7 @@ fields:
     regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
     regExpReplace: $2
   - name: variantInformation
-    xpath: (//span[@class="selection"])[1]
+    xpath: //span[@class="selection"]
   - name: largeImageCount
     xpath: //script[contains(., "ImageBlockATF")]/text()
     defaultValue: 0
