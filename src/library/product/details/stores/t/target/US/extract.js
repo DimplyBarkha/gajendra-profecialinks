@@ -105,10 +105,7 @@ async function implementation (
       }
       return options.querySelectorAll('a').length;
     }
-    let variantProductBtns = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-    if (!variantProductBtns.length) {
-      variantProductBtns = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
-    }
+    const variantProductBtns = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
     if (variantProductBtns.length) {
       const newDiv = document.createElement('div');
       newDiv.id = 'btnIndex';
@@ -121,7 +118,7 @@ async function implementation (
     return 0;
   });
 
-  console.log('variations', variantProductCount);
+  console.log('variationProductBtns', variantProductCount);
   if (variantProductCount === 0) {
     variantProductCount = 1;
   }
@@ -729,10 +726,7 @@ async function implementation (
               addHiddenDiv('privacy', privacy);
               addHiddenDiv('customerServiceAvailability', 'Yes');
 
-              let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-              if (!variants.length) {
-                variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
-              }
+              const variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
               if (variants.length) {
                 variants.forEach(e => {
                   if (e && e.getAttribute('aria-label').indexOf('checked') > -1 && e.innerText) {
@@ -891,7 +885,6 @@ async function implementation (
               addHiddenDiv('firstVariant', variantArr[0]);
               addHiddenDiv('variantCount', variantArr.length);
               addHiddenDiv('variantInfo', variantArr.join(' | '));
-
               break;
             }
           }
@@ -918,10 +911,7 @@ async function implementation (
           return true;
         }
       }
-      let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-      if (!variants.length) {
-        variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
-      }
+      const variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
       if (variants.length && document.getElementById('btnIndex') && !variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1]) {
         return false;
       }
@@ -972,14 +962,11 @@ async function implementation (
           options.querySelectorAll('a')[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
         }
       } else {
-        let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
+        const variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
         if (variants.length) {
           if (variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText) {
             extendedText = variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].innerText.replace(/\r?\n|\r/g, '').trim();
           }
-        }
-        if (!variants.length) {
-          variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
         }
         if (variants.length && document.getElementById('btnIndex')) {
           variants[parseInt(document.getElementById('btnIndex').innerHTML) + 1].click();
@@ -1493,10 +1480,7 @@ async function implementation (
       addHiddenDiv('privacy', privacy);
       addHiddenDiv('customerServiceAvailability', 'Yes');
 
-      let variants = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-      if (!variants.length) {
-        variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
-      }
+      const variants = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
       if (variants.length) {
         variants.forEach(e => {
           if (e && e.getAttribute('aria-label').indexOf('checked') > -1 && e.innerText) {
@@ -1647,10 +1631,7 @@ async function implementation (
 
       const details = document.querySelector('a[href="#tabContent-tab-Details"]');
 
-      let variations = document.querySelectorAll('.StyledButton__VariationButton-qhksha-0');
-      if (!variations.length) {
-        variations = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
-      }
+      let variations = document.querySelector('div[data-test="variationButtonWrapper"]') ? document.querySelector('div[data-test="variationButtonWrapper"]').querySelectorAll('button') : [];
       let isColorDropDown = false;
       if (document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
         if (!document.getElementById('options')) {
