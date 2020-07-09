@@ -361,3 +361,8 @@ fields:
     singleValue: true
   - name: imageZoomFeaturePresent
     singleValue: true
+  - name: productUrl
+    xpath: //form[@method="post"]/@action
+    regExp: .(.+)
+    regExpReplace: https://www.booker.co.uk$1
+    singleValue: false
