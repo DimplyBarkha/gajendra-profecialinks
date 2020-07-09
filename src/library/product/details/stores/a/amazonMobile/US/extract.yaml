@@ -15,9 +15,6 @@ fields:
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
-  - name: _url
-    singleValue: false
-    xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: true
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
