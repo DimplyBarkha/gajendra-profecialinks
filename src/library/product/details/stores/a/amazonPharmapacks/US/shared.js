@@ -72,6 +72,17 @@ const transform = (data) => {
           }
         });
       }
+      if (row.variantAsins) {
+        let text = '';
+        row.variantAsins.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variantAsins = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
     }
   }
   return data;
