@@ -1,0 +1,163 @@
+input:
+  id: 110602011
+  _url: https://groceries.morrisons.com
+extractions:
+  - html: https://workbench.import.io/html/run=14722f6d-df83-4fef-b1a1-1b8c9551d82e/task=2a4cafcf-afcd-47b4-89f5-bfa84828b7d9/a7d6c8f7-e739-4a7c-8d2d-c76e178ee3ab.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://groceries.morrisons.com//productImages/110/110602011_0_640x640.jpg?identifier=ee867dfaae62772394899bcf4119c78e
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, Vegetarian, Vegan, Morrisons, Tins, Cans &
+                  Packets, Beans & Chickpeas, Beans, Food Cupboard, Vegetables
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: Morrisons Mixed Beans (300g) 185g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            category:
+              - text: Food Cupboard
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Tins, Cans & Packets
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Vegetables
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Beans & Chickpeas
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Morrisons Mixed Beans (300g)
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[5]
+            price:
+              - text: 60p
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]
+            description:
+              - text: A 1/2 can serving contains 1 portion of your 5 a day fruit and vegetables.
+                  1/5 a day, Naturally high in fibre, Suitable for vegans
+                  Country of Origin Italy Suitable for vegetarians
+                xpath: /html/body/@description
+            ingredientsList:
+              - text: Mixed Beans (60%) (Haricot Beans, Pinto Beans, Borlotti Beans, Cannellini
+                  Beans, Red Kidney Beans), Water, Antioxidant (Ascorbic Acid),
+                  Firming Agent (Calcium Chloride)
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Morrisons
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]
+            sku:
+              - text: "300"
+                xpath: /html/head[1]/meta[17]/@content
+            directions:
+              - text: >-
+                  Cooking Instructions - General. Cooking appliances vary. These
+                  instructions are given as a guide. Please ensure that the
+                  product is piping hot throughout before serving.; Hob - From
+                  Ambient. 2-3 mins
+
+                  Empty contents into a saucepan. Heat gently, stirring frequently. Do not boil as this will impair the flavour.; Microwave - From Ambient. Cat E 850w 2 min
+
+                  Cat D 750w 2 min 30 sec
+
+                  Place contents into a non-metallic bowl. Cover and heat. Stir halfway through heating.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[2]/div[1]/h4[1]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
+            countryOfOrigin:
+              - text: Italy
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            recyclingInformation:
+              - text: Can - Metal - Widely Recycled
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            totalCarbPerServing:
+              - text: "13"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServing:
+              - text: "0.3"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            caloriesPerServing:
+              - text: 360kJ/85kcal
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServing:
+              - text: "0.8"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            dietaryFibrePerServing:
+              - text: "3.6"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalSugarsPerServing:
+              - text: "0.9"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            proteinPerServing:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServing:
+              - text: "0.03"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            legalDisclaimer:
+              - text: This page serves as a summary for information purposes only, and are
+                  designed to enhance your shopping experience on the website.
+                  While we have taken care in preparing this summary and believe
+                  it is accurate, it is not a substitute for your reading the
+                  product packaging and label prior to use. You should note that
+                  products and their ingredients are subject to change. If you
+                  do require precise ingredient information you should consult
+                  the manufacturer, whose contact details will appear on the
+                  packaging or label. Shop is therefore unable to accept
+                  liability for any incorrect information. Where this
+                  description contains a link to another party's website for
+                  further information on the product, please note that Shop has
+                  no control over and no liability for the contents of that
+                  website. You should also note that the picture images show
+                  only our serving suggestions of how to prepare your food - all
+                  table accessories and additional items and/or ingredients
+                  pictured with the product you are purchasing are not included.
+                  This data is supplied for personal use only. It may not be
+                  reproduced in any way whatsoever without Shop Limited's prior
+                  consent, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            availabilityText:
+              - text: Out of Stock
+            manufacturer:
+              - text: Wm Morrison Supermarkets PLC, Gain Lane, Bradford, BD3 7DL.
+            shippingInfo:
+              - text: "Wm Morrison Supermarkets PLC,Gain Lane,Bradford,BD3 7DL.Tel: 0345 611
+                  6111"
+            storage:
+              - text: Store in a cool dry place.Once opened, transfer contents into a
+                  non-metallic container, keep refrigerated and consume within 2
+                  days.For Best Before End See End of Can
+            productOtherInformation:
+              - text: Full Product Name:Mixed beans in water.Storage:Store in a cool dry
+                  place.Once opened, transfer contents into a non-metallic
+                  container, keep refrigerated and consume within 2 days.For
+                  Best Before End See End of CanUsage:2 ServingsOrigin:Produced
+                  in ItalyAdditional Information:Widely Recycled
+        xpath: /
+    timestamp: 1593090699873

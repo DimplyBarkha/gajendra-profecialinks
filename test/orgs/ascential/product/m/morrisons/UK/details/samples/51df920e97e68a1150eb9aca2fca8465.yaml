@@ -1,0 +1,148 @@
+input:
+  id: 112362011
+  _url: https://groceries.morrisons.com
+extractions:
+  - html: https://workbench.import.io/html/run=14722f6d-df83-4fef-b1a1-1b8c9551d82e/task=9040c182-0e48-4214-958f-987a24a0e6e5/b16aef33-fc7e-4abb-b0f7-d39aab2e75e1.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://groceries.morrisons.com//productImages/112/112362011_0_640x640.jpg?identifier=adc28b50dbc71cab140b5d2e3f135829
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, Vegetarian, Flora, Seasonal, Milk, Butter &
+                  Eggs, Dairy & Chilled, Light, Cholesterol Lowering, Healthier
+                  Start, Fresh, Milk, Eggs & Butter, Butters, Fats & Spreads
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: Flora ProActiv Light Spread 250g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            category:
+              - text: Fresh
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Milk, Eggs & Butter
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Butters, Fats & Spreads
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Spreads
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Light
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: Flora ProActiv Light Spread
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[6]
+            price:
+              - text: £2.10
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/button[1]
+            description:
+              - text: How Plant Sterols Work Plant sterols work by reducing the absorption of
+                  some cholesterol from the gut, thereby reducing blood
+                  cholesterol levels† † A daily consumption of 1.5 - 2.4g plant
+                  sterol can lower cholesterol by 7-10% in 2-3 weeks as part of
+                  a healthy diet and lifestyle with sufficient fruit and
+                  vegetables. Contains active plant sterols, 100% plant based,
+                  Clinically proven by over 50 studies to actively lower
+                  cholesterol, Reduces cholesterol in a natural way, Omega 3 &
+                  6, Vitamin D & E, Vegan Country of Origin United Kingdom
+                  Suitable for freezingSuitable for vegetarians LIFE 3w+ Product
+                  life guaranteed for more than 3 weeks.
+                xpath: /html/body/@description
+            ingredientsList:
+              - text: Water, Plant Oils (30%) (Sunflower, Palm1, Linseed, Rapeseed), Plant
+                  Sterol Esters (11%)*, Salt (1%), Emulsifiers (Mono- and
+                  Diglycerides of Fatty Acids, Sunflower Lecithin), Natural
+                  Flavourings, Vitamin A and D, *6.6g Plant Sterols/100g, 1Flora
+                  ProActiv is committed to sustainable Palm Oil
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Flora
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]
+            sku:
+              - text: "112362011"
+                xpath: /html/head[1]/meta[17]/@content
+            warnings:
+              - text: Product life guaranteed for more than 3 weeks.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[4]/p[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[2]/div[1]/h4[1]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
+            countryOfOrigin:
+              - text: United Kingdom
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            totalCarbPerServing:
+              - text: "0.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            caloriesPerServing:
+              - text: 1294kJ/315kcal
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServing:
+              - text: "35"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalSugarsPerServing:
+              - text: "0.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            proteinPerServing:
+              - text: "0.5"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServing:
+              - text: "1.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            vitaminAPerServing:
+              - text: "120"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            vitaminAPerServingUom:
+              - text: µg
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            legalDisclaimer:
+              - text: Minimum life based on 'use-by' date of product. Average life based on last
+                  week's deliveries. Life guarantee shown based on delivery
+                  tomorrow with the Life guarantee starting the following day.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            manufacturer:
+              - text: Flora ProActiv UK and Ireland,PO Box 75608,London,SW19 3RU.
+            shippingInfo:
+              - text: "Flora ProActiv UK and Ireland,PO Box 75608,London,SW19 3RU.For additional
+                  information, please visit: www.pro-activ.com"
+            storage:
+              - text: Keep chilled (2-7°C).Not suitable for freezing.For best before date see
+                  lid.
+            productOtherInformation:
+              - text: Full Product Name:35% vegetable fat spread with added plant
+                  sterolsStorage:Keep chilled (2-7°C).Not suitable for
+                  freezing.For best before date see lid.Safety Warning:Plant
+                  sterols have been shown to lower blood cholesterol. High
+                  cholesterol is a major risk factor in the development of
+                  coronary heart disease. As heart disease has multiple risk
+                  factors, you may need to improve more than one to reduce your
+                  overall risk. Check with your doctor first if you are already
+                  taking cholesterol lowering medication, or if you have special
+                  dietary needs.Not suitable for pregnant or breast-feeding
+                  women and children under 5. This product is not intended for
+                  people who do not need to control their blood cholesterol
+                  level.Usage:25 Servings
+        xpath: /
+    timestamp: 1593093227106

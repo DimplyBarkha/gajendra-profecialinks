@@ -1,0 +1,128 @@
+input:
+  id: 112334011
+  _url: https://groceries.morrisons.com
+extractions:
+  - html: https://workbench.import.io/html/run=14722f6d-df83-4fef-b1a1-1b8c9551d82e/task=3d39dff0-44ba-4bd9-ac68-c08865f439bb/2199e73c-b214-49d6-9c8e-0431f087e009.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://groceries.morrisons.com//productImages/112/112334011_0_640x640.jpg?identifier=31d5756ea0cba22bfe9f10976f00b004
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, Vegetarian, Lurpak, Cheese, Light, Fresh,
+                  Milk, Eggs & Butter, Butters, Fats & Spreads
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: Lurpak Lighter Spreadable 250g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]
+            category:
+              - text: Fresh
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Milk, Eggs & Butter
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Butters, Fats & Spreads
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Spreadable Butter
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Light
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: Lurpak Lighter Spreadable
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[6]
+            price:
+              - text: £2.25
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/button[1]
+            description:
+              - text: To create Lurpak® Spreadable Lighter, we blend pure Lurpak® butter with
+                  rapeseed oil. Try it on your favourite fresh bread and top
+                  with whatever you fancy. Be inventive, see where the flavours
+                  take you. Made from natural ingredients, Reduced fat blend of
+                  Lurpak butter and rapeseed oil, Free from palm oil, From
+                  pressed rapeseed oil only, No ifs, no buts, Contains no
+                  colourings, preservatives or other additives, Suitable for
+                  vegetarians, Kosher - D Suitable for freezingSuitable for
+                  vegetarians LIFE 3w+ Product life guaranteed for more than 3
+                  weeks.
+                xpath: /html/body/@description
+            ingredientsList:
+              - text: Butter (40%) (Milk), Water, Rapeseed Oil, Lactic Culture (Milk), Salt
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Lurpak
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]
+            sku:
+              - text: "112334011"
+                xpath: /html/head[1]/meta[17]/@content
+            warnings:
+              - text: Product life guaranteed for more than 3 weeks.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[3]/p[1]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            totalCarbPerServing:
+              - text: "0.4 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServing:
+              - text: "22 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            caloriesPerServing:
+              - text: 2121 kJ/ 516 kcal
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServing:
+              - text: "57 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalSugarsPerServing:
+              - text: "0.4 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            proteinPerServing:
+              - text: "0.3 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            saltPerServing:
+              - text: "0.90 "
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            legalDisclaimer:
+              - text: Minimum life based on 'use-by' date of product. Average life based on last
+                  week's deliveries. Life guarantee shown based on delivery
+                  tomorrow with the Life guarantee starting the following day.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/footer[1]/p[1]
+            ratingCount:
+              - text: "0"
+            manufacturer:
+              - text: Arla Foods Ltd,4 Savannah Way,Leeds Valley Park,Leeds,LS10 1AB.
+            shippingInfo:
+              - text: "UK contact details: Arla Consumer Careline 0845 600
+                  6688www.lurpak.co.ukArla Foods Ltd,4 Savannah Way,Leeds Valley
+                  Park,Leeds,LS10 1AB."
+            storage:
+              - text: "Keep refrigeratedSuitable for freezing.Best before: See lid"
+            productOtherInformation:
+              - text: "Full Product Name:Blended Spread 57% (32% milk fat & 25% rapeseed
+                  oil).Storage:Keep refrigeratedSuitable for freezing.Best
+                  before: See lidOrigin:Produced in Denmark"
+        xpath: /
+    timestamp: 1593091251230

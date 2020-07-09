@@ -1,0 +1,173 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[contains(@class,'gallery__item')][1]/img[@class="bop-gallery__image"][1]//@src
+    regExp: (.+)
+    regExpReplace: https://groceries.morrisons.com/$1
+  - name: productUrl
+    xpath: //meta[@property="og:url"]//@content
+    regExp: >-
+      (.+)
+    regExpReplace: >-
+      https://groceries.morrisons.com$1
+  - name: metaKeywords
+    xpath: //meta[contains(@name,"keywords")]//@content
+  - name: nameExtended
+    xpath: //header[contains(@class,"bop-title")]/h2
+  - name: category
+    xpath: //ul[@class="u-inline gn-breadcrumbs__list"]//li
+  - name: price
+    xpath: //h2[contains(@class,"bop-price__current")]
+  - name: availabilityText
+    xpath: //li//div[contains(@class,"basketControls")]//button[contains(@class,"gn-button gn-button--buy")]
+    regExp: Add to trolley
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //span[contains(.,'Description')]/../../../../div/div/div
+  - name: ingredientsList
+    xpath: //h6[contains(.,'Ingredients')]/../div
+  - name: brandText
+    xpath: //span[contains(.,'Brands')]/../div
+  - name: manufacturer
+    xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,"Manufacturer")]//../div[contains(@class,"bop-info__content")])
+  - name: quantity
+    xpath: //span[contains(@class,'catchWeight')]
+  - name: storage
+    xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Storage')]/../div)
+  - name: countryOfOrigin
+    xpath: //div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Origin')]/../div
+  - name: recyclingInformation
+    xpath: //h6[contains(.,'Recycling')]/../div
+  - name: servingSize
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//th[contains(.,'Typical Values')]/../th[2]
+    regExp: ([0-9.]+)
+  - name: servingSizeUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//th[contains(.,'Typical Values')]/../th[2]
+    regExp: g|ml
+  - name: totalCarbPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Carbohydrate')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: totalCarbPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Carbohydrate')]/../td[2]
+    regExp: ([a-z]+)
+  - name: sodiumPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Sodium')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: sodiumPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Sodium')]/../td[2]
+    regExp: ([a-z]+)
+  - name: saturatedFatPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates') or (contains(.,'Saturates') or (contains(.,'which saturated')))]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: saturatedFatPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates') or (contains(.,'Saturates') or (contains(.,'which saturated')))]/../td[2]
+    regExp: ([a-z]+)
+  - name: caloriesPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Energy')]/../td[2]
+  - name: totalFatPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fat')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: totalFatPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fat')]/../td[2]
+    regExp: ([a-z]+)
+  - name: dietaryFibrePerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fibre')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: dietaryFibrePerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fibre')]/../td[2]
+    regExp: ([a-z]+)
+  - name: totalSugarsPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'sugar')]/../td[2] | //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Sugars')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: totalSugarsPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'sugar')]/../td[2] | //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Sugars')]/../td[2]
+    regExp: ([a-z]+)
+  - name: proteinPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Protein')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: proteinPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Protein')]/../td[2]
+    regExp: ([a-z]+)
+  - name: saltPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Salt')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: saltPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Salt')]/../td[2]
+    regExp: ([a-z]+)
+  - name: calciumPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Calcium')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: calciumPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Calcium')]/../td[2]
+    regExp: ([a-z]+)
+  - name: ironPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Iron')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: ironPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Iron')]/../td[2]
+    regExp: ([a-z]+)
+  - name: magnesiumPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Magnesium')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: magnesiumPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Magnesium')]/../td[2]
+    regExp: ([a-z]+)
+  - name: vitaminAPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin A')]/../td[2]
+    regExp: (^[^µg]+)
+  - name: vitaminAPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin A')]/../td[2]
+    regExp: (µg)
+  - name: vitaminCPerServing
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin C')]/../td[2]
+    regExp: (?:([\d\.]+)\s?)
+  - name: vitaminCPerServingUom
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Vitamin C')]/../td[2]
+    regExp: ([a-z]+)
+  - name: promotion
+    xpath: //p[contains(@class,'bop-promotion__title')]  
+  - name: alcoholContent
+    xpath: //h6[contains(.,'Units')]/../div  
+  - name: dietaryInformation
+    xpath: //div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Dietary Information')]/../div
+  - name: productOtherInformation
+    xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Other Information')]/../div)
+  - name: packaging
+    xpath: //div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Package Type')]/../div
+  - name: listPrice
+    xpath: //span[contains(@class,"bop-price__old")]
+    regExp: ([^£]+)
+  - name: legalDisclaimer
+    xpath: //footer/p
+  - name: sku
+    xpath: //meta[@property="og:url"]//@content
+    regExp: (\d+){3}
+  - name: directions
+    xpath: //div[contains(@class,"gn-content bop-info__field")]//h6[contains(.,'Cooking Guidelines')]/../div | //h6[contains(.,'Preparation and Usage')]/../div
+  - name: warnings
+    xpath: //h6[contains(.,'Other Information')]/..//div[@class='bop-info__content'][contains(.,'Warning:')]
+  - name: alternateImages
+    xpath: //div/div[contains(@class,"bop-gallery__itemImage")][position()>1]//img//@src
+    regExp: (.+)
+    regExpReplace: https://groceries.morrisons.com/$1
+  - name: ratingCount
+    defaultValue: "0"
+    xpath: //div[@id="customerReviews"]/h4
+    regExp: (\d+)
+  - name: aggregateRating
+    defaultValue: "0"
+    xpath: //span[@itemprop="ratingValue"]
+  - name: shippingInfo
+    xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]//h6[contains(.,'Return')]/../div)
+  - name: pricePerUnit
+    xpath: //span[contains(@class,'price__per')]
+    regExp: (.+)(\sper.+)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //span[contains(@class,'price__per')]
+    regExp: kg|g|ml|litre
+  
