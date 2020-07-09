@@ -25,3 +25,6 @@ fields:
   - name: price
     singleValue: false
     xpath: //input[@name="product"]/@data-price|//span[@class="price_main"]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']

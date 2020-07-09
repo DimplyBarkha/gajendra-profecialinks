@@ -7,6 +7,15 @@ async function implementation (
 ) {
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    const searchUrl = window.location.href.replace(/%20/g, ' ');
+    addHiddenDiv('search-url', searchUrl);
     // if(price-format__main-price)
     document.querySelectorAll('div[class="product-result__wrapped-results"] div.product-pod').forEach(node => {
       let priceBlock = node.querySelector('div.price-format__main-price');

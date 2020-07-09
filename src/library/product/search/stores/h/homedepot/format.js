@@ -42,6 +42,8 @@ const transform = (data, context) => {
       }
     }
   }
+  context.setState({ rankCounter });
+  context.setState({ productCodes });
   return data;
 };
 
