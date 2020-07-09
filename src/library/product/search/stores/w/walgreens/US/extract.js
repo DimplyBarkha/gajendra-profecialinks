@@ -17,14 +17,14 @@ async function implementation (
     urlDiv.textContent = filteredUrl;
     document.body.appendChild(urlDiv);
 
-    function addHiddenDiv (i, productCards, productInfo) {
+    function addHiddenDiv (i, productCards, productInformation) {
       const newDiv = document.createElement('div');
       newDiv.id = i;
       newDiv.className = 'extra-info';
       newDiv.style.display = 'none';
       newDiv.dataset.url = 'https://www.walgreens.com' + productCards[i].querySelector('a').getAttribute('href');
       newDiv.dataset.thumbnail = 'https://' + productCards[i].querySelector('img').getAttribute('src').slice(2);
-
+      newDiv.dataset.sponsor = productCards[i].querySelector('.sponsored-text') !== null ? 'true' : 'false';
       const priceDiv = (productCards && productCards[i]) ? productCards[i].querySelector('div.wag-prod-price-info span.sr-only') : undefined;
       let hasPriceDeal = false;
       if (priceDiv) {
@@ -35,12 +35,12 @@ async function implementation (
         }
       }
 
-      if (productInfo !== null && productInfo[i] !== null) {
-        newDiv.dataset.id = (productInfo[i].productInfo && productInfo[i].productInfo.wic) ? productInfo[i].productInfo.wic : '';
-        newDiv.dataset.upc = (productInfo[i].productInfo && productInfo[i].productInfo.upc) ? productInfo[i].productInfo.upc : '';
-        newDiv.dataset.rating = (productInfo[i].productInfo && productInfo[i].productInfo.averageRating) ? productInfo[i].productInfo.averageRating : '';
-        if (productInfo[i].productInfo && productInfo[i].productInfo.priceInfo && hasPriceDeal === false) {
-          newDiv.dataset.price = (productInfo[i].productInfo.priceInfo.salePrice) ? (productInfo[i].productInfo.priceInfo.salePrice) : (productInfo[i].productInfo.priceInfo.regularPrice);
+      if (productInformation !== null && productInformation[i] !== null && productInformation[i] !== undefined) {
+        newDiv.dataset.id = (productInformation[i].productInfo && productInformation[i].productInfo.wic) ? productInformation[i].productInfo.wic : '';
+        newDiv.dataset.upc = (productInformation[i].productInfo && productInformation[i].productInfo.upc) ? productInformation[i].productInfo.upc : '';
+        newDiv.dataset.rating = (productInformation[i].productInfo && productInformation[i].productInfo.averageRating) ? productInformation[i].productInfo.averageRating : '';
+        if (productInformation[i].productInfo && productInformation[i].productInfo.priceInfo && hasPriceDeal === false) {
+          newDiv.dataset.price = (productInformation[i].productInfo.priceInfo.salePrice) ? (productInformation[i].productInfo.priceInfo.salePrice) : (productInformation[i].productInfo.priceInfo.regularPrice ? productInformation[i].productInfo.priceInfo.regularPrice : '');
         }
       }
 
@@ -52,7 +52,7 @@ async function implementation (
     const numberOfProducts = (document.querySelector('p#resultcount')) ? parseInt(document.querySelector('p#resultcount').textContent) : 0;
     const itemsPerPage = (document.querySelector('select[name="itemsperpage"]')) ? parseInt(document.querySelector('select[name="itemsperpage"]').value) : 0;
     let productNotFound = false;
-    let productInfo = null;
+    let productInformation = null;
 
     async function fetchItems () {
       const refURL = window.location.href;
@@ -94,32 +94,36 @@ async function implementation (
         console.log('Product Found!!!!');
         const data = await response.json();
         console.log(data);
-        productInfo = data.products;
-        return productInfo;
+        productInformation = data.products;
+        return productInformation;
       }
       return {};
     }
-    if (numberOfProducts <= itemsPerPage) {
-      productInfo = (window.__APP_INITIAL_STATE__ && window.__APP_INITIAL_STATE__.searchResult && window.__APP_INITIAL_STATE__.searchResult.searchData) ? window.__APP_INITIAL_STATE__.searchResult.searchData.products : {};
-    } else {
-      productInfo = await fetchItems();
 
-      if (Object.keys(productInfo).length === 0 && productNotFound === false) {
-        productInfo = await fetchItems();
+    const productCards = document.getElementsByClassName('wag-product-card-details');
+    const numberOfProductsWithSponsored = productCards.length;
+
+    if ((numberOfProducts <= itemsPerPage) || (numberOfProductsWithSponsored <= itemsPerPage)) {
+      productInformation = (window.__APP_INITIAL_STATE__ && window.__APP_INITIAL_STATE__.searchResult && window.__APP_INITIAL_STATE__.searchResult.searchData) ? window.__APP_INITIAL_STATE__.searchResult.searchData.products : {};
+    } else {
+      productInformation = await fetchItems();
+
+      if (Object.keys(productInformation).length === 0 && productNotFound === false) {
+        productInformation = await fetchItems();
       }
     }
 
-    if (Object.keys(productInfo).length === 0) {
+    if (Object.keys(productInformation).length === 0) {
       throw new Error('API Call fail');
     }
 
-    const productCards = document.getElementsByClassName('wag-product-card-details');
+    
     let i = 0;
     while (i < productCards.length) {
       if (productCards.item(i).querySelectorAll('.extra-info').length > 0) {
         document.getElementById(i.toString()).remove();
       }
-      addHiddenDiv(i, productCards, productInfo);
+      addHiddenDiv(i, productCards, productInformation);
       i++;
     }
   });
