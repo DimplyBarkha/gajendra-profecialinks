@@ -4,6 +4,6 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles_deportes',
-    domain: 'elcorteingles.es/deportes',
+    domain: 'elcorteingles.es',
   },
 };
