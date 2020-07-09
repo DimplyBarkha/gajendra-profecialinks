@@ -10,6 +10,13 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.evaluate(() => {
+    console.log('new page!')
+    //potential page 2 confirmation popup:
+    const confirmButton = document.querySelector('button[data-testid="DynamicTooltip-Button-confirm"]');
+    if ( confirmButton ){
+      confirmButton.click();
+    }
+
     const searchEl = document.querySelector('span.kds-Text--l');
     let searchTerms;
     if (searchEl) {
