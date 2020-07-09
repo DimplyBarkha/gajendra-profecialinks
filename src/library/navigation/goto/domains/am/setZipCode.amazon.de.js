@@ -8,6 +8,7 @@ async function implementation (
   await context.waitForSelector('#nav-packard-glow-loc-icon');
   await context.click('#nav-packard-glow-loc-icon');
   await context.waitForSelector('input#GLUXZipUpdateInput');
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   try {
     await context.click('a#GLUXChangePostalCodeLink');
   } catch (error) {
@@ -15,13 +16,11 @@ async function implementation (
   }
   await context.setInputValue('input#GLUXZipUpdateInput', zipcode);
   await context.waitForSelector('#GLUXZipUpdate input');
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   await context.click('#GLUXZipUpdate input');
-  try {
-    await context.waitForSelector('button[name="glowDoneButton"]');
-    await context.click('button[name="glowDoneButton"]');
-  } catch (error) {
-    console.log('Done button not found');
-  }
+  await context.waitForSelector('button[name="glowDoneButton"]');
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  await context.click('button[name="glowDoneButton"]');
   await context.waitForNavigation();
 }
 

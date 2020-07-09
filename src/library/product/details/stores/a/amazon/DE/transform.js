@@ -19,6 +19,28 @@ const transform = (data, context) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.videos) {
+        let text = '';
+        row.videos.forEach(item => {
+          text += `${item.text.replace(/\n/g, ':')} || `;
+        });
+        row.videos = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
+      }
+      if (row.videoLength) {
+        let text = '';
+        row.videoLength.forEach(item => {
+          text += `${item.text.replace(/\n/g, ':')} || `;
+        });
+        row.videoLength = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
+      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
@@ -35,9 +57,19 @@ const transform = (data, context) => {
           price.text = price.text.replace('.', '').replace(',', '.').trim();
         });
       }
+      if (row.listPrice) {
+        row.listPrice.forEach(listPrice => {
+          listPrice.text = listPrice.text.replace('.', '').replace(',', '.').trim();
+        });
+      }
       if (row.subscriptionPrice) {
         row.subscriptionPrice.forEach(subscriptionPrice => {
           subscriptionPrice.text = subscriptionPrice.text.replace('.', '').replace(',', '.').trim();
+        });
+      }
+      if (row.otherSellersPrice) {
+        row.otherSellersPrice.forEach(otherSellersPrice => {
+          otherSellersPrice.text = otherSellersPrice.text.replace('.', '').replace(',', '.').trim();
         });
       }
       if (row.aggregateRating) {

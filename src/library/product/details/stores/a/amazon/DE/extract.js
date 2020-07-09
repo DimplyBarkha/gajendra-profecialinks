@@ -1,4 +1,4 @@
-const { transform } = require('../shared');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -9,7 +9,13 @@ module.exports = {
     domain: 'amazon.de',
     zipcode: '10117',
   },
-  implementation: async ({ url }, { country, domain }, context, dependencies) => {
+  implementation: async function implementation (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) {
+    const { transform } = parameters;
     await context.evaluate(() => {
       let prodDesc;
       if (document.querySelector('#feature-bullets ul')) {
@@ -27,6 +33,6 @@ module.exports = {
       }
       document.body.setAttribute('prod_desc', prodDesc);
     });
-    await context.extract(dependencies.productDetails);
+    await context.extract(dependencies.productDetails, { transform });
   },
 };
