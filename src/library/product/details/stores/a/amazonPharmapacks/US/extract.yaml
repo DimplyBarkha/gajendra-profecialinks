@@ -77,7 +77,7 @@ fields:
   - name: color
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: manufacturerDescription
-    xpath: //div[@id="productDescription"]/p[text()]/text()|//div[@class="apm-hovermodule-slides-inner"]/h3|//div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
+    xpath: //div[@id="productDescription"]/p[text()]/text()|//div[@class="apm-hovermodule-slides-inner"]/h3|//div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]|//h4[@class="a-spacing-mini"]
   - name: manufacturerImages
     xpath: //div[@cel_widget_id="aplus"]//img/@data-src
   - name: videos
@@ -116,8 +116,6 @@ fields:
     regExp: ([^ ]+)
     regExpReplace: "YES"
     defaultValue: "NO"
-  - name: pasin
-    xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
   - name: videoLength
     xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration
   - name: heroQuickPromoHeadline
@@ -139,7 +137,7 @@ fields:
     regExpReplace: "YES"
     defaultValue: "NO"
   - name: variantAsins
-    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin|//select[@name="dropdown_selected_size_name"]/option[position()>1]/@value
+    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin|//select[@name="dropdown_selected_size_name"]/option[position()>1]/@value|//div[@id="cerberus-data-metrics"]/@data-asin
   - name: specifications
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
@@ -191,8 +189,8 @@ fields:
     regExpReplace: "YES"
     defaultValue: "NO"
   - name: firstVariant
-    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
-    regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
+    xpath: //script[contains(.,'parentAsin')][contains(@type, "a-state")]
+    regExp: (.+)\"parentAsin\"\:\"([A-Z0-9]+)(.*)
     regExpReplace: $2
   - name: variantInformation
     xpath: (//span[@class="selection"])[1]
@@ -200,8 +198,8 @@ fields:
     xpath: //script[contains(., "ImageBlockATF")]/text()
     defaultValue: 0
   - name: pasin
-    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
-    regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
+    xpath: //script[contains(.,'parentAsin')][contains(@type, "a-state")]
+    regExp: (.+)\"parentAsin\"\:\"([A-Z0-9]+)(.*)
     regExpReplace: $2
   - name: productUrl
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
