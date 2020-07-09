@@ -104,10 +104,10 @@ module.exports = {
           };
           const getSelector = (selector, { property = 'textContent', doc = document, raw = false, ifError = '' } = {}) => {
             let text = doc.querySelector(selector) ? doc.querySelector(selector)[property] : ifError;
-            if (selector === '#wc-aplus' && document.querySelector('div[data-section-caption="Product Comparison"]')) {
+            if (selector === '#wc-aplus' && doc.querySelector('div[data-section-caption="Product Comparison"]')) {
               if (doc.querySelector('.wc-pct-product-columns-wrapper') && doc.querySelector('.wc-pct-header-column-wrapper')) {
-                if (doc.querySelector('.wc-pct-product-columns-wrapper').innerText === doc.querySelector('.wc-pct-header-column-wrapper').innerText) {
-                  const wcAplusDiv = document.querySelector('#wc-aplus');
+                if (doc.querySelector('.wc-pct-product-columns-wrapper')[property] === doc.querySelector('.wc-pct-header-column-wrapper')[property]) {
+                  const wcAplusDiv = doc.querySelector('#wc-aplus');
                   const duplicate = wcAplusDiv.cloneNode(true);
                   if (duplicate.querySelector('div.wc-pct-header-column-wrapper')) {
                     duplicate.querySelector('div.wc-pct-header-column-wrapper').remove();
@@ -118,7 +118,7 @@ module.exports = {
                   if (duplicate.querySelector('wc-powered-by-tagline')) {
                     duplicate.querySelector('wc-powered-by-tagline').remove();
                   }
-                  text = duplicate.innerText;
+                  text = duplicate[property];
                 }
               }
             }
