@@ -1,5 +1,4 @@
 const { transform } = require('../../../../shared');
-// const { transform } = require('./transform');
 
 async function implementation (
   inputs,
@@ -41,10 +40,6 @@ async function implementation (
           const price = priceText.split('And')[0];
           newDiv.dataset.price = price.replace(/\$(\d+) and (\d+) cents/, '$1.$2');
         }
-        // else if (priceText.includes('Sale price')) {
-        //   const price = priceText.split('And')[0];
-        //   newDiv.dataset.price = priceText.replace(/\$(\d+) and (\d+) cents/, '$1.$2');
-        // }
       }
 
       const reviewRatings = (productCards && productCards[i] && productCards[i].querySelector('.wag-prod-review-info').querySelector('img')) ? productCards[i].querySelector('.wag-prod-review-info').querySelector('img') : null;
@@ -60,24 +55,12 @@ async function implementation (
         count = orgRankCounter - 1;
       }
 
-      console.log('sponsoredCounter12332');
-      // // sponsoredCounter = sponsoredCounter - 1;
-      // console.log(sponsoredCounter);
-      // console.log(sponsoredProductInformation);
-      // console.log(sponsoredProductInformation[sponsoredCounter]);
-
       if (isSponsored && sponsoredProductInformation !== null && sponsoredProductInformation[sponsoredCounter] !== null && sponsoredProductInformation[sponsoredCounter] !== undefined) {
         newDiv.dataset.id = (sponsoredProductInformation[sponsoredCounter].productInfo && sponsoredProductInformation[sponsoredCounter].productInfo.wic) ? sponsoredProductInformation[sponsoredCounter].productInfo.wic : '';
         newDiv.dataset.upc = (sponsoredProductInformation[sponsoredCounter].productInfo && sponsoredProductInformation[sponsoredCounter].productInfo.upc) ? sponsoredProductInformation[sponsoredCounter].productInfo.upc : '';
-        // newDiv.dataset.rating = (productInformation[count].productInfo && productInformation[count].productInfo.averageRating) ? productInformation[count].productInfo.averageRating : '';
-        // if (productInformation[count].productInfo && productInformation[count].productInfo.priceInfo && hasPriceDeal === false) {
-        //   newDiv.dataset.price = (productInformation[count].productInfo.priceInfo.salePrice) ? (productInformation[count].productInfo.priceInfo.salePrice) : (productInformation[count].productInfo.priceInfo.regularPrice ? productInformation[count].productInfo.priceInfo.regularPrice : '');
-        // }
       }
-      // newDiv.dataset.thumbnail = `orgRankCounter: ${orgRankCounter} rankCounter: ${rankCounter}`;
 
       if (!isSponsored && productInformation !== null && productInformation[count] !== null && productInformation[count] !== undefined) {
-        // newDiv.dataset.thumbnail = `orgRankCounter: ${orgRankCounter} rankCounter: ${rankCounter}`;
         newDiv.dataset.id = (productInformation[count].productInfo && productInformation[count].productInfo.wic) ? productInformation[count].productInfo.wic : '';
         newDiv.dataset.upc = (productInformation[count].productInfo && productInformation[count].productInfo.upc) ? productInformation[count].productInfo.upc : '';
         newDiv.dataset.rating = (productInformation[count].productInfo && productInformation[count].productInfo.averageRating) ? productInformation[count].productInfo.averageRating : '';
@@ -91,8 +74,6 @@ async function implementation (
       }
     }
 
-    // const numberOfProducts = (document.querySelector('p#resultcount')) ? parseInt(document.querySelector('p#resultcount').textContent) : 0;
-    // const itemsPerPage = (document.querySelector('select[name="itemsperpage"]')) ? parseInt(document.querySelector('select[name="itemsperpage"]').value) : 0;
     let productNotFound = false;
     let productInformation = null;
     let sponsoredProductNotFound = false;
@@ -100,25 +81,13 @@ async function implementation (
 
     async function fetchSponsoredItems (sponsoredProductsArr) {
       const refURL = window.location.href;
-      // const sponsoredProductsArr = ["300396808", "300395235"]
       console.log('sponsoredProductsArr');
       console.log(sponsoredProductsArr);
       const bodyParser = '{"products":' + JSON.stringify(sponsoredProductsArr) + '}';
-      // '"{\"products\":' + JSON.stringify(sponsoredProductsArr)+'}';
       console.log('bodyParser');
       console.log(bodyParser);
-      console.log(bodyParser.products);
-      console.log('{"products":["300396808","300395235"]}');
-      // '{"planograms":' + '["' + planograms + '"]' + ', "store":' + '"' + storeId + '"}';
-      // '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","q":"' + searchQuery + '","requestType":"search","sort":"relevance","couponStoreId":"4372"}';
-      // "{\"planograms\":[\"40000413730\"],\"store\":\"4372\"}",
       const response = await fetch('https://www.walgreens.com/productsearch/v1/products/productsInfo', {
         headers: {
-          // accept: '*/*',
-          // 'accept-language': 'en-US,en;q=0.9',
-          // 'sec-fetch-dest': 'script',
-          // 'sec-fetch-mode': 'no-cors',
-          // 'sec-fetch-site': 'cross-site',
           accept: 'application/json, text/plain, */*',
           'accept-language': 'en-US,en;q=0.9',
           'cache-control': 'no-cache',
@@ -131,7 +100,6 @@ async function implementation (
         referrer: refURL,
         referrerPolicy: 'no-referrer-when-downgrade',
         body: bodyParser,
-        // body: "{\"products\":[\"6111681\",\"300396808\",\"300395235\", \"6111681\"]}",
         method: 'POST',
         mode: 'cors',
       });
@@ -144,12 +112,7 @@ async function implementation (
       if (response && response.status === 200) {
         console.log('Product Found!!!!');
         const data = await response.json();
-        // console.log(data);
         sponsoredProductInformation = data;
-        console.log('sponsoredProductInformation1');
-        console.log(sponsoredProductInformation);
-        console.log(sponsoredProductInformation.productList);
-        console.log(sponsoredProductInformation.productList.length);
         sponsoredProductInformation = data.productList;
         return sponsoredProductInformation;
       }
@@ -160,16 +123,12 @@ async function implementation (
 
     const sponsoredProductsList = document.querySelectorAll('div.wag-product-card-details div.sponsored-text');
     const sponsoredProductsListNum = sponsoredProductsList.length;
-    console.log('sponsoredProductsListAD');
-    console.log(sponsoredProductsList);
-    console.log('sponsoredProductsListNumAD');
-    console.log(sponsoredProductsListNum);
+
     if (sponsoredProductsListNum !== 0) {
       const sponsoredProductsArr = [];
       sponsoredProductsList.forEach((div) => {
         let prodId = div.parentElement ? div.parentElement.id : '';
         prodId = prodId.includes('impBeaconprod') ? prodId.split('impBeaconprod')[1] : (prodId.includes('impBeacon') ? prodId.split('impBeacon')[1] : '');
-        // prodId = prodId.includes('impBeacon') ? prodId.split('impBeacon')[1] : '';
         sponsoredProductsArr.push(prodId);
       });
       sponsoredProductInformation = await fetchSponsoredItems(sponsoredProductsArr);
@@ -178,6 +137,7 @@ async function implementation (
         sponsoredProductInformation = await fetchSponsoredItems();
       }
     }
+
     console.log('sponsoredProductInformation2');
     console.log(sponsoredProductInformation);
 
@@ -238,7 +198,6 @@ async function implementation (
     if (Object.keys(productInformation).length === 0 && productNotFound === false) {
       productInformation = await fetchItems();
     }
-    // }
 
     if (Object.keys(productInformation).length === 0) {
       throw new Error('API Call fail');
