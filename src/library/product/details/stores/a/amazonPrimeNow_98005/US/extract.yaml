@@ -12,7 +12,7 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
-    regExp: (.*)(_SX.*_)(.*)
+    regExp: (.*)(_SX.*_|_AC.*_)(.*)
     regExpReplace: $1_SR500,500_$3
   - name: metaKeywords
     singleValue: true
@@ -27,7 +27,7 @@ fields:
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
   - name: nameExtended
     singleValue: true
-    xpath: //div[@id="productDescription"]
+    xpath: normalize-space(//span[@id="productTitle"])
   - name: listPrice
     singleValue: false
     xpath: //div[@id="primeNowDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
@@ -83,7 +83,7 @@ fields:
     singleValue: true
     xpath: //th[contains(text(), 'Item model number')]/following-sibling::*[1]
   - name: mpc
-    singleValue:  true
+    singleValue:  false
     xpath: //th[contains(text(), 'Item model number')]/following-sibling::*[1]
   - name: packSize
     singleValue: false
@@ -92,9 +92,9 @@ fields:
     regExpReplace: $1$3
   - name: legalDisclaimer
     singleValue: false
-    xpath: //span[contains(text(), "Legal Disclaimer")][contains(@class,"a-text-bold")]/../p[text()]/text()
+    xpath: //span[contains(text(), "Legal Disclaimer")][contains(@class,"a-text-bold")]/../p[text()]/text()|//h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
   - name: warnings
     singleValue: false
@@ -131,7 +131,7 @@ fields:
   - name: colorCode
     singleValue: true
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="productDescription"]/p[text()]/text()
   - name: manufacturerImages
     singleValue: true
@@ -327,7 +327,6 @@ fields:
     singleValue: true
   - name: dietaryInformation
     singleValue: true
-    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
   - name: warranty
     singleValue: true
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
@@ -337,7 +336,7 @@ fields:
     singleValue: true
   - name: allergyAdvice
     singleValue: true
-    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
+    xpath: //div[@id='important-information']//div[contains(.,'Allergy Advice')]/p
   - name: recyclingInformation
     singleValue: true
   - name: productOtherInformation
