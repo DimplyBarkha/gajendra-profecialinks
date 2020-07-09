@@ -50,10 +50,11 @@ fields:
     # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   # - name: news
   #   singleValue: true
-  - name: secondaryImageTotal !!!!!!!!!!!!!!!!!!!!!!!
+  - name: secondaryImageTotal
+    xpath: //div[@id='ii_secondaryImageTotal']
     # singleValue: true
     # xpath: count((//div[contains(@id, 'zoom-carousel')]//img)/@src)
-    xpath: count((//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])[position()>1]/@src)
+    # xpath: count((//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])[position()>1]/@src)
   - name: productOtherInformation !!!!!!!!!!!!!!!
     xpath: //div[@id='ii_manufDesc']
     # singleValue: false
@@ -150,11 +151,11 @@ fields:
     xpath: //div[@id='ii_id']
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     # regExp: ^([0-9])+
-  - name: variantId !!!!!!!!!!!!!
+  - name: variantId !!!!!!!!!!!
     singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     # xpath: //div[@id='ii_sku']
-    xpath: //div[@id='ii_productCode']
+    xpath: //div[@id='ii_productUrl']
     # regExp: ([0-9])+$
   - name: variants
     xpath: ancestor::html//div[@id='ii_id']
@@ -167,10 +168,10 @@ fields:
   - name: warnings
     # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
     xpath: //div[@id='ii_warnings']
-  - name: alternateImages !!!!!!!!!!!!!!!!!!!!
+  - name: alternateImages
     singleValue: false
     # xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src[contains(., "https")]
-    xpath: //div[@id='ii_variantAlternateImages']
+    xpath: //div[@id='ii_alternateImages']
   - name: ratingCount
     xpath: //div[@id='ii_reviewCount']
     defaultValue: '0'
@@ -252,19 +253,21 @@ fields:
   # - name: cholesterolPerServingUom
   #   xpath: //div[@id='ii_Cholesterol']
   #   regExp: ([g|mg|]+$)
-  - name: numberOfServingsInPackage !!!!!!!!!!!!!
-    xpath: //div[@id='ii_packSize']
+  - name: numberOfServingsInPackage
+    xpath: //div[@id='ii_numberOfServingsInPackage']
     # xpath: //div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
-    regExp: ([.0-9]+ ((CT)))
+    # regExp: ([.0-9]+ ((CT)))
     # selector: div[style].css-1dbjc4n.r-18u37iz.r-15d164r > div.css-901oao:nth-of-type(2)
-  - name: servingSize !!!!!!!
+  - name: servingSize 
+    xpath: //div[@id='ii_servingSize']
     # selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
-    xpath: (//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
-    regExp: (^[.0-9]+)
+    # xpath: (//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
+    # regExp: (^[.0-9]+)
   - name: servingSizeUom
-    xpath: (//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
+    xpath: //div[@id='ii_servingSizeUom']
+    # xpath: (//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
     # selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
-    regExp: ([-a-z]+$)
+    # regExp: ([-a-z]+$)
   - name: manufacturerDescription !!!!!!!!!!!!!!!
     singleValue: false
     # selector: div.wc-rich-content-description
@@ -284,8 +287,8 @@ fields:
   #   regExp: ^[0-9]+
   - name: _input
     singleValue: true
-  - name: imageAlt !!!!!!!!!!!!!!!!!!!!!!!!!
-    xpath: //div[@id='ii_variantImageAlt']
+  - name: imageAlt 
+    xpath: //div[@id='ii_imageAlt']
     # singleValue: true
     # xpath: (//div[contains(@id,'zoom-carousel')]//img)[2]/@src
   - name: promotion

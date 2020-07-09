@@ -44,6 +44,11 @@ module.exports = {
     // if(!urlTest){
     //   await context.goto(linkURL[1], { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     // }
+
+
+
+
+
     var jsonText = await context.evaluate(function () {
       return document.body.innerText;
     });
@@ -85,8 +90,18 @@ module.exports = {
                 addHiddenDiv('ii_category', product.categories);  
                 
                 const variant = product.variants[i].subVariant[0];
-                // addHiddenDiv('ii_image', variant.upc_image[0], newDiv);    
-                // debugger          
+                    if(variant.upc_image.length){
+                      // debugger
+                      addHiddenDiv('ii_image',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[0]}`, newDiv); 
+                      
+                      if(variant.upc_image.length > 1){
+                        addHiddenDiv('ii_imageAlt',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[1]}`, newDiv); 
+                        addHiddenDiv('ii_secondaryImageTotal',`${variant.upc_image.length - 1}`, newDiv); 
+                        for(let j = 1; j < variant.upc_image.length; j++){
+                          addHiddenDiv('ii_alternateImages',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[j]}`, newDiv); 
+                        }
+                      }   
+                    }
                     addHiddenDiv('ii_id', variant.p_Sku_ID, newDiv);
                     addHiddenDiv('ii_packSize', variant.p_Sku_Size, newDiv);              
                     addHiddenDiv('ii_additionalDescBulletInfo', variant.gbi_Product_Details, newDiv); 
@@ -98,12 +113,18 @@ module.exports = {
                     addHiddenDiv('ii_reviewCount', variant.p_Product_Review, newDiv);              
                     addHiddenDiv('ii_promotion', variant.p_Promotion_Description, newDiv);  
                     addHiddenDiv('ii_price', variant.gbi_Actual_Price, newDiv);
+
+                    addHiddenDiv('ii_servingSize', variant.p_Vendor_Serving_Size, newDiv);
+                    addHiddenDiv('ii_numberOfServingsInPackage', variant.p_Vendor_Serving_Per_Container, newDiv);
+                    addHiddenDiv('ii_servingSizeUom', variant.p_Vendor_Serving_Size_UOM, newDiv);
+                    // addHiddenDiv('ii_price', variant.gbi_Actual_Price, newDiv);
+
                     if(variant.CAREPASS_INDICATOR === "ELIGIBLE") {
                     addHiddenDiv('ii_shipping', 'Ships Free With CarePass', newDiv);
                     }
                     
                     // debugger
-                    addHiddenDiv('ii_image', variant.BV_ImageUrl, newDiv);
+                    // addHiddenDiv('ii_image', variant.BV_ImageUrl, newDiv);
                     addHiddenDiv('ii_reviews', variant.p_Product_Review, newDiv);
                     addHiddenDiv('ii_rating', variant.p_Product_Rating, newDiv);
                     if (variant.gbi_Badge_Sponsored && variant.gbi_Badge_Sponsored === true) { addHiddenDiv('ii_sponsored', 'Sponsored', newDiv); }
@@ -115,6 +136,26 @@ module.exports = {
       }, json.records, json.totalRecordCount);
     }
 
+    const html = await context.evaluate(async function getDataFromUrl() {
+      console.log('getDataFromUrl');
+      const redirectUrl = 'https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=874110'
+      let response = await fetch(redirectUrl, {
+        referrerPolicy: 'no-referrer-when-downgrade',
+        body: null,
+        method: 'GET',
+        mode: 'no-cors',
+      });
+      if (response && response.status === 404) {
+        console.log('Product Not Found!!!!');
+        return '';
+      }
+      if (response) {
+        console.log('Product Found!!!!');
+        const data = await response.text();
+        return data;
+      }
+    });
+debugger
 
     return await context.extract(productDetails, { transform: transformParam });
 
