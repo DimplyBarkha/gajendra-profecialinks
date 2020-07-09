@@ -1,5 +1,4 @@
 const { transform } = require('../../../../shared');
-// const { transform } = require('./transform');
 
 async function implementation (
   inputs,
@@ -18,7 +17,7 @@ async function implementation (
     urlDiv.textContent = filteredUrl;
     document.body.appendChild(urlDiv);
 
-    function addHiddenDiv (i, productCards, productInformation, orgRankCounter, rankCounter, isSponsored) {
+    function addHiddenDiv (i, productCards, productInformation, sponsoredProductInformation, sponsoredCounter, orgRankCounter, rankCounter, isSponsored) {
       const newDiv = document.createElement('div');
       newDiv.id = i;
       newDiv.className = 'extra-info';
@@ -41,10 +40,6 @@ async function implementation (
           const price = priceText.split('And')[0];
           newDiv.dataset.price = price.replace(/\$(\d+) and (\d+) cents/, '$1.$2');
         }
-        // else if (priceText.includes('Sale price')) {
-        //   const price = priceText.split('And')[0];
-        //   newDiv.dataset.price = priceText.replace(/\$(\d+) and (\d+) cents/, '$1.$2');
-        // }
       }
 
       const reviewRatings = (productCards && productCards[i] && productCards[i].querySelector('.wag-prod-review-info').querySelector('img')) ? productCards[i].querySelector('.wag-prod-review-info').querySelector('img') : null;
@@ -60,14 +55,12 @@ async function implementation (
         count = orgRankCounter - 1;
       }
 
-      if (isSponsored) {
-        const urlId = (document.getElementsByClassName('wag-product-card-details') && document.getElementsByClassName('wag-product-card-details')[0] && document.getElementsByClassName('wag-product-card-details')[0].querySelector('a')) ? document.getElementsByClassName('wag-product-card-details')[0].querySelector('a').getAttribute('href').split('ID=')[1] : '';
-        newDiv.dataset.id = `isSponsored${urlId}`;
+      if (isSponsored && sponsoredProductInformation !== null && sponsoredProductInformation[sponsoredCounter] !== null && sponsoredProductInformation[sponsoredCounter] !== undefined) {
+        newDiv.dataset.id = (sponsoredProductInformation[sponsoredCounter].productInfo && sponsoredProductInformation[sponsoredCounter].productInfo.wic) ? sponsoredProductInformation[sponsoredCounter].productInfo.wic : '';
+        newDiv.dataset.upc = (sponsoredProductInformation[sponsoredCounter].productInfo && sponsoredProductInformation[sponsoredCounter].productInfo.upc) ? sponsoredProductInformation[sponsoredCounter].productInfo.upc : '';
       }
-      // newDiv.dataset.thumbnail = `orgRankCounter: ${orgRankCounter} rankCounter: ${rankCounter}`;
 
       if (!isSponsored && productInformation !== null && productInformation[count] !== null && productInformation[count] !== undefined) {
-        // newDiv.dataset.thumbnail = `orgRankCounter: ${orgRankCounter} rankCounter: ${rankCounter}`;
         newDiv.dataset.id = (productInformation[count].productInfo && productInformation[count].productInfo.wic) ? productInformation[count].productInfo.wic : '';
         newDiv.dataset.upc = (productInformation[count].productInfo && productInformation[count].productInfo.upc) ? productInformation[count].productInfo.upc : '';
         newDiv.dataset.rating = (productInformation[count].productInfo && productInformation[count].productInfo.averageRating) ? productInformation[count].productInfo.averageRating : '';
@@ -81,10 +74,72 @@ async function implementation (
       }
     }
 
-    const numberOfProducts = (document.querySelector('p#resultcount')) ? parseInt(document.querySelector('p#resultcount').textContent) : 0;
-    const itemsPerPage = (document.querySelector('select[name="itemsperpage"]')) ? parseInt(document.querySelector('select[name="itemsperpage"]').value) : 0;
     let productNotFound = false;
     let productInformation = null;
+    let sponsoredProductNotFound = false;
+    let sponsoredProductInformation = null;
+
+    async function fetchSponsoredItems (sponsoredProductsArr) {
+      const refURL = window.location.href;
+      console.log('sponsoredProductsArr');
+      console.log(sponsoredProductsArr);
+      const bodyParser = '{"products":' + JSON.stringify(sponsoredProductsArr) + '}';
+      console.log('bodyParser');
+      console.log(bodyParser);
+      const response = await fetch('https://www.walgreens.com/productsearch/v1/products/productsInfo', {
+        headers: {
+          accept: 'application/json, text/plain, */*',
+          'accept-language': 'en-US,en;q=0.9',
+          'cache-control': 'no-cache',
+          'content-type': 'application/json; charset=UTF-8',
+          pragma: 'no-cache',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-origin',
+        },
+        referrer: refURL,
+        referrerPolicy: 'no-referrer-when-downgrade',
+        body: bodyParser,
+        method: 'POST',
+        mode: 'cors',
+      });
+
+      if (response && response.status === 404) {
+        console.log('Product Not Found!!!!');
+        sponsoredProductNotFound = true;
+      }
+
+      if (response && response.status === 200) {
+        console.log('Product Found!!!!');
+        const data = await response.json();
+        sponsoredProductInformation = data;
+        sponsoredProductInformation = data.productList;
+        return sponsoredProductInformation;
+      }
+      return {};
+    }
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+    const sponsoredProductsList = document.querySelectorAll('div.wag-product-card-details div.sponsored-text');
+    const sponsoredProductsListNum = sponsoredProductsList.length;
+
+    if (sponsoredProductsListNum !== 0) {
+      const sponsoredProductsArr = [];
+      sponsoredProductsList.forEach((div) => {
+        let prodId = div.parentElement ? div.parentElement.id : '';
+        prodId = prodId.includes('impBeaconprod') ? prodId.split('impBeaconprod')[1] : (prodId.includes('impBeacon') ? prodId.split('impBeacon')[1] : '');
+        sponsoredProductsArr.push(prodId);
+      });
+      sponsoredProductInformation = await fetchSponsoredItems(sponsoredProductsArr);
+
+      if (Object.keys(sponsoredProductInformation).length === 0 && sponsoredProductNotFound === false) {
+        sponsoredProductInformation = await fetchSponsoredItems();
+      }
+    }
+
+    console.log('sponsoredProductInformation2');
+    console.log(sponsoredProductInformation);
 
     async function fetchItems () {
       const refURL = window.location.href;
@@ -138,12 +193,11 @@ async function implementation (
     // if ((numberOfProducts <= itemsPerPage) && (numberOfProductsWithSponsored <= itemsPerPage)) {
     //   productInformation = (window.__APP_INITIAL_STATE__ && window.__APP_INITIAL_STATE__.searchResult && window.__APP_INITIAL_STATE__.searchResult.searchData) ? window.__APP_INITIAL_STATE__.searchResult.searchData.products : {};
     // } else {
-      productInformation = await fetchItems();
+    productInformation = await fetchItems();
 
-      if (Object.keys(productInformation).length === 0 && productNotFound === false) {
-        productInformation = await fetchItems();
-      }
-    // }
+    if (Object.keys(productInformation).length === 0 && productNotFound === false) {
+      productInformation = await fetchItems();
+    }
 
     if (Object.keys(productInformation).length === 0) {
       throw new Error('API Call fail');
@@ -152,6 +206,7 @@ async function implementation (
     let i = 0;
     let orgRankCounter = 0;
     let rankCounter = 0;
+    let sponsoredCounter = 0;
     while (i < productCards.length) {
       if (productCards.item(i).querySelectorAll('.extra-info').length > 0) {
         document.getElementById(i.toString()).remove();
@@ -159,8 +214,10 @@ async function implementation (
       rankCounter += 1;
       if (productCards[i].querySelector('.sponsored-text') === null) {
         orgRankCounter += 1;
+      } else {
+        sponsoredCounter += 1;
       }
-      addHiddenDiv(i, productCards, productInformation, orgRankCounter, rankCounter, productCards[i].querySelector('.sponsored-text') !== null);
+      addHiddenDiv(i, productCards, productInformation, sponsoredProductInformation, sponsoredCounter - 1, orgRankCounter, rankCounter, productCards[i].querySelector('.sponsored-text') !== null);
       i++;
     }
   });
