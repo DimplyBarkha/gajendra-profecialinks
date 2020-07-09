@@ -24,18 +24,8 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
     let node = document.evaluate("//script[contains(.,'dataLayer = ')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    // eslint-disable-next-line no-useless-escape
     // @ts-ignore
-    // node = node ? node.text.replace(/\r\n|\n|\r/gm, '').replace('dataLayer = ', '').replace(';', '').replace('[', '').slice(0, -1) : {};
-    node = node ? node.textContent.replace(/\r\n|\n|\r/gm, '').replace(/.*"productEAN":\["(\d+).*/gm, '$1') : '';
-    console.log("nooode",node);
-    // @ts-ignore
-    // node = node ? JSON.parse(node) : {};
-    // let value = node && node.productEAN && node.productEAN[0] ? node.productEAN[0] : '';
-    // let node = (document.querySelector("div[class='pdp'] button").getAttribute('data-datalayer')) ? document.querySelector("div[class='pdp'] button").getAttribute('data-datalayer') : '';
-    // node = (node && JSON.parse(node)) ? JSON.parse(node) : '';
-    // @ts-ignore
-    // node = (node && node.ecommerce && node.ecommerce.add && node.ecommerce.add.products && node.ecommerce.add.products[0].id && JSON.parse(node.ecommerce.add.products[0].id)[0]) ? JSON.parse(node.ecommerce.add.products[0].id)[0] : '';
+    node = node && node.textContent.replace(/\r\n|\n|\r/gm, '').match(/.*"productEAN":\["(\d+).*/gm).length > 0 ? node.textContent.replace(/\r\n|\n|\r/gm, '').replace(/.*"productEAN":\["(\d+).*/gm, '$1') : '';
     if (node) {
       addHiddenDiv('ii_gtin', node);
     }

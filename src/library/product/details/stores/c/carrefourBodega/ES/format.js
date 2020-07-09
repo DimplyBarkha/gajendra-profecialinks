@@ -7,17 +7,18 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.gtin) {
-      //   row.gtin.forEach(item => {
-      //     let data = JSON.parse(item.text);
-      //     data = (data.ecommerce && data.ecommerce.add && data.ecommerce.add.products && data.ecommerce.add.products[0].id && JSON.parse(data.ecommerce.add.products[0].id)[0]) ? JSON.parse(data.ecommerce.add.products[0].id)[0] : '';
-      //     item.text = data;
-      //   });
-      // }
       if (row.nameExtended) {
+        let text = [];
         row.nameExtended.forEach(item => {
-          item.text = item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ');
+          text.push(`${item.text}`);
         });
+        text = text.reverse();
+        const value = text.join(' ');
+        row.nameExtended = [
+          {
+            text: (value.trim()),
+          },
+        ];
       }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
@@ -36,7 +37,7 @@ const transform = (data) => {
       }
       if (row.directions) {
         row.directions.forEach(item => {
-          item.text = item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ');
+          item.text = (item.text.indexOf('Sugerencia...') !== -1) ? item.text.replace(/\n/g, '').replace(/.*Sugerencia\.\.\.(.*)/gm, '$1').replace(/\s{2,}/g, ' ') : '';
         });
       }
       if (row.sku) {

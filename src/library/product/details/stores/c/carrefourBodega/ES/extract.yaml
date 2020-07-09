@@ -23,8 +23,8 @@ fields:
     xpath: //div[contains(@id,'breadcrumbs')]//li[position()>=3]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    singleValue: true
-    xpath: //header[contains(@class,'title-inner title-product')]
+    singleValue: false
+    xpath: //header/h1[@id='product-01'] | //header//p[contains(@class,'name-marca lora')]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -47,7 +47,7 @@ fields:
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'desc html-editor lora')]//p
+    xpath: //div[contains(@class,'desc html-editor lora')]/p
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -98,7 +98,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
-    xpath: //p[contains(@class,'pb-20')]/following-sibling::*[1]
+    xpath: //div[@class='desc html-editor lora']
     description: Content under "directions" header
   - name: warnings
     singleValue: true
@@ -235,6 +235,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[contains(@class,'thumb thumbnails')]//img/@src)
     # type: NUMBER
   - name: news
     singleValue: true
