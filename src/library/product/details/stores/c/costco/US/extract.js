@@ -20,16 +20,17 @@ module.exports = {
         arr.push(videoLink);
       }
       const id = document.querySelector('#product-body-item-number') ? document.querySelector('#product-body-item-number').textContent.match(/(\d+)/g) : '';
-      const url = `https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=${id}&format=json`;
-      const data = await fetch(url);
-      const json = await data.json();
-
-      const array = json.widgets.widget;
-      array.forEach(item => {
-        const val = item.asset_id;
-        const url = `https://d2vxgxvhgubbj8.cloudfront.net/videos/69/${val}_1_liveclicker.mp4`;
-        arr.push(url);
-      });
+      if (id !== '') {
+        const url = `https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=${id}&format=json`;
+        const data = await fetch(url);
+        const json = await data.json();
+        const array = json.widgets.widget;
+        array.forEach(item => {
+          const val = item.asset_id;
+          const url = `https://d2vxgxvhgubbj8.cloudfront.net/videos/69/${val}_1_liveclicker.mp4`;
+          arr.push(url);
+        });
+      }
       document.querySelector('body').setAttribute('videos', arr.join('|'));
     });
     const { transform } = parameters;
