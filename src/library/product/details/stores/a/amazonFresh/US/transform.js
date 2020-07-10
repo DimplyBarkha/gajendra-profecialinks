@@ -97,7 +97,7 @@ const transform = (data, context) => {
           }
         }
         if (row.name && row.name[0]) {
-          if(row.name[0].text.includes(/(Amazon.com\s*:)/)){
+          if(row.name[0].text.match(/(Amazon.com\s*:)/)){
             row.name = [{ text: row.name[0].text.replace(/(Amazon.com\s*:)/, '') }];
           }
         }
