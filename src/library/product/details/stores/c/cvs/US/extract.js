@@ -149,13 +149,12 @@ module.exports = {
     }
 
     // const html = await context.evaluate(async function getDataFromUrl() {
-    //   console.log('getDataFromUrl');
     //   const redirectUrl = 'https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=874110'
     //   let response = await fetch(redirectUrl, {
     //     referrerPolicy: 'no-referrer-when-downgrade',
     //     // body: null,
     //     method: 'GET',
-    //     mode: 'cors',
+    //     mode: 'no-cors',
     //     headers: {
     //       "Content-Type": "application/json"        }
     //   })
