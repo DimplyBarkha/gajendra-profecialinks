@@ -123,7 +123,7 @@ fields:
   - name: salesRank
     singleValue: false
     xpath: //*[@id="SalesRank"]/text()[contains(., "º")] | //*[@id="SalesRank"]//span[contains(., "°")]
-    regExp: ([0-9.]{1,})
+    regExp: ([0-9]+.[0-9]{1,})
     regExpReplace: $1
   - name: salesRankCategory
     singleValue: false
@@ -164,7 +164,6 @@ fields:
   - name: largeImageCount
     singleValue: false
     xpath: count(//script[contains(text(),"SL1500_.jpg")])
-    type: NUMBER
   - name: variantAsins
     singleValue: false
     xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
@@ -228,4 +227,3 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //ul/li[1]/@data-defaultasin
-
