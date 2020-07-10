@@ -31,7 +31,7 @@ fields:
   - name: brandText
     xpath: //*[@id='bylineInfo']
   - name: manufacturer
-    xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]
+    xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1]
   - name: quantity
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
   - name: weightGross

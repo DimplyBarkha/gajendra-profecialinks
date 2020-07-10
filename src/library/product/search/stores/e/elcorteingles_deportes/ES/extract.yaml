@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="product-list 4"]/li
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[contains(@class,"product-name")]//a[contains(@data-event,"product_click")]/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.elcorteingles.es$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    regExp: ^(.+)$
+    regExpReplace: https:$1    
+    xpath: //img[contains(@id,"image")]/@src
+  - name: name
+    xpath: //div[contains(@class,"product-name")]//a[contains(@data-event,"product_click")]
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //a[@data-product-ean]/@data-product-ean
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+    xpath: //a[@itemprop="aggregateRating"]/@aria-label
+    regExp: (.+)de(.+)
+    regExpReplace: $1
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //a[@itemprop="aggregateRating"]/@aria-label
+    regExp: (.+)\.(.+) (.+)
+    regExpReplace: $2
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //a[@itemprop="aggregateRating"]/@aria-label
+    regExp: (.+)\.(.+) (.+)
+    regExpReplace: $2    
+  - name: price
+    description: The offered price for the product
+    xpath: //div[contains(@class,"product-price")]/span[1]
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: //a[@data-product-sku]/@data-product-sku
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
