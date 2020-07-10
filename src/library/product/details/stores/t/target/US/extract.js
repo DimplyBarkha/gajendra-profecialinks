@@ -17,7 +17,7 @@ async function implementation (
         }, ms);
       });
     }
-    await stall(100);
+    await stall(25);
     const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
     if (link !== null) {
       const href = link.getAttribute('href');
@@ -51,7 +51,7 @@ async function implementation (
     let scrollTop = 500;
     while (true) {
       window.scroll(0, scrollTop);
-      await stall(500);
+      await stall(400);
       scrollTop += 500;
       if (scrollTop === 5000) {
         break;
@@ -59,12 +59,12 @@ async function implementation (
     }
     window.scroll(0, 300);
 
-    await stall(100);
+    await stall(25);
     const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight');
     if (manufacturerCTA) {
       manufacturerCTA.click();
     }
-    await stall(100);
+    await stall(25);
     const element = document.querySelector('#salsify-ec-iframe');
     if (element) {
       console.log('found iframe');
@@ -93,7 +93,7 @@ async function implementation (
       if (!document.getElementById('options')) {
         document.querySelector('button[data-test="SelectVariationSelector-color"]').click();
       }
-      await stall(100);
+      await stall(25);
       const options = document.getElementById('options');
       const newDiv = document.createElement('div');
       newDiv.id = 'btnIndex';
@@ -162,7 +162,7 @@ async function implementation (
       const primaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[0].querySelectorAll('button');
       for (const primaryBtn of primaryBtns) {
         primaryBtn.click();
-        await stall(100);
+        await stall(25);
         btnArr.push(document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button').length);
       };
     }
@@ -181,7 +181,7 @@ async function implementation (
             }, ms);
           });
         }
-        await stall(100);
+        await stall(25);
         const secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
         secondaryBtns.forEach(e => {
           e.parentElement.classList.remove('secondarySelected');
@@ -192,7 +192,7 @@ async function implementation (
             pBtn.parentElement.classList.add('primarySelected');
             pBtn.click();
             console.log('primarybutton', pBtn);
-            await stall(100);
+            await stall(25);
             break;
           }
         }
@@ -212,7 +212,7 @@ async function implementation (
               sBtn.parentElement.classList.add('secondarySelected');
               console.log('secondarybutton', sBtn);
               sBtn.click();
-              await stall(100);
+              await stall(25);
               if (document && document.querySelectorAll('b').length) {
                 document.querySelectorAll('b').forEach(e => {
                   if (e && e.innerText && e.innerText.indexOf('TCIN') > -1) {
@@ -245,7 +245,7 @@ async function implementation (
             }, ms);
           });
         }
-        await stall(100);
+        await stall(25);
         const secondaryBtns = document.querySelectorAll('div[data-test="variationButtonWrapper"]')[1].querySelectorAll('button');
         secondaryBtns.forEach(e => {
           e.parentElement.classList.remove('secondarySelected');
@@ -255,7 +255,7 @@ async function implementation (
           if (!pBtn.parentElement.classList.contains('primarySelected')) {
             pBtn.parentElement.classList.add('primarySelected');
             pBtn.click();
-            await stall(100);
+            await stall(25);
             break;
           }
         }
@@ -291,7 +291,7 @@ async function implementation (
             if (!sBtn.parentElement.classList.contains('secondarySelected')) {
               sBtn.parentElement.classList.add('secondarySelected');
               sBtn.click();
-              await stall(100);
+              await stall(25);
 
               let extendedText = '';
               document.querySelectorAll('div[data-test="VariationSelector"]').forEach(e => {
@@ -326,7 +326,7 @@ async function implementation (
               let descText = '';
               if (document.querySelector('a[href="#tabContent-tab-Details"]')) {
                 document.querySelector('a[href="#tabContent-tab-Details"]').click();
-                await stall(100);
+                await stall(25);
               }
               document.querySelectorAll('h3').forEach(e => {
                 if (e && e.innerText === 'Highlights') {
@@ -368,7 +368,7 @@ async function implementation (
               const materials = [];
               let quantity = 1;
               document.querySelector('a[href="#tabContent-tab-Details"]').click();
-              await stall(100);
+              await stall(25);
               if (document && document.querySelectorAll('b').length) {
                 document.querySelectorAll('b').forEach(e => {
                   if (validTextField(e) && (e.innerText.indexOf('UPC') > -1)) {
@@ -692,7 +692,7 @@ async function implementation (
               const drugFacts = document.querySelector('a[href="#tabContent-tab-Drugfacts"]');
               if (drugFacts) {
                 drugFacts.click();
-                await stall(100);
+                await stall(25);
                 document.querySelectorAll('h4').forEach(e => {
                   if (validTextField(e) && e.innerText.trim() === 'Directions') {
                     addHiddenDiv('directionsInfo', e.parentElement.innerText.replace('Directions', '').trim());
@@ -807,7 +807,7 @@ async function implementation (
                 addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
               } else if (manufacturerCTA) {
                 manufacturerCTA.click();
-                await stall(100);
+                await stall(25);
                 const manufacturerImgs = [];
                 if (document.getElementById('wcframable1-0') && document.getElementById('wcframable1-0').contentWindow) {
                   const frameContents = document.getElementById('wcframable1-0').contentWindow.document.body;
@@ -897,9 +897,6 @@ async function implementation (
   }
 
   for (let i = 0; i < variantProductCount; i++) {
-    if (i === 50) {
-      break;
-    }
     const canContinue = await context.evaluate(async function () {
       if (document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
         if (!document.getElementById('options')) {
@@ -998,7 +995,7 @@ async function implementation (
       let descText = '';
       if (document.querySelector('a[href="#tabContent-tab-Details"]')) {
         document.querySelector('a[href="#tabContent-tab-Details"]').click();
-        await stall(100);
+        await stall(25);
       }
       document.querySelectorAll('h3').forEach(e => {
         if (e && e.innerText === 'Highlights') {
@@ -1040,7 +1037,7 @@ async function implementation (
       const materials = [];
       let quantity = 1;
       document.querySelector('a[href="#tabContent-tab-Details"]').click();
-      await stall(100);
+      await stall(25);
       if (document && document.querySelectorAll('b').length) {
         document.querySelectorAll('b').forEach(e => {
           if (validTextField(e) && (e.innerText.indexOf('UPC') > -1)) {
@@ -1446,7 +1443,7 @@ async function implementation (
       const drugFacts = document.querySelector('a[href="#tabContent-tab-Drugfacts"]');
       if (drugFacts) {
         drugFacts.click();
-        await stall(100);
+        await stall(25);
         document.querySelectorAll('h4').forEach(e => {
           if (validTextField(e) && e.innerText.trim() === 'Directions') {
             addHiddenDiv('directionsInfo', e.parentElement.innerText.replace('Directions', '').trim());
@@ -1561,7 +1558,7 @@ async function implementation (
         addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
       } else if (manufacturerCTA) {
         manufacturerCTA.click();
-        await stall(100);
+        await stall(25);
         const manufacturerImgs = [];
         if (document.getElementById('wcframable1-0') && document.getElementById('wcframable1-0').contentWindow) {
           const frameContents = document.getElementById('wcframable1-0').contentWindow.document.body;
@@ -1647,7 +1644,7 @@ async function implementation (
       }
       if (variations.length && details && !document.getElementById('variantCount')) {
         details.click();
-        await stall(100);
+        await stall(25);
         addHiddenDiv('variantCount', variations.length);
         if (isColorDropDown) {
           if (!document.getElementById('options') && document.querySelector('button[data-test="SelectVariationSelector-color"]')) {
@@ -1660,7 +1657,7 @@ async function implementation (
         } else {
           variations[0].click();
         }
-        await stall(100);
+        await stall(25);
         if (document && document.querySelectorAll('b').length) {
           document.querySelectorAll('b').forEach(e => {
             if (validTextField(e) && e.innerText.indexOf('TCIN') > -1) {
@@ -1682,7 +1679,7 @@ async function implementation (
           } else {
             variation.click();
           }
-          await stall(50);
+          await stall(25);
           if (document && document.querySelectorAll('b').length) {
             document.querySelectorAll('b').forEach(e => {
               if (validTextField(e) && e.innerText.indexOf('TCIN') > -1) {

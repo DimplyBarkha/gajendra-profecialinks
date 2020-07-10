@@ -1,45 +1,39 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //ul//li
+recordSelector: td.Item.depth_2>table>tbody>tr
+recordXPath: null
 #recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="itemId"]
+    xpath: .//td[contains(@class,"tcin depth_3")]
+  - name: name
+    singleValue: false
+    xpath: .//td[contains(@class,"title depth_3")]
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN
-    selector: div.detail-messaging-sponsored-wrapper
-  - name: name
-    singleValue: false
-    xpath: //div[@class="product-name"]
+    selector: div.sponsored
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="productUrl"]
+    xpath: .//div[@class="url"]
   - name: gtin
     singleValue: true
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="thumbnail"]
+    xpath: .//div[@class="thumbnail"]
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="rating"]
+    xpath: .//td[contains(@class,"average_rating depth_3")]
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class="ratingCount"]
+    xpath: .//div[@class="reviewCount"]
   - name: price
     singleValue: false
-    xpath: //span[@data-test="product-price"]
+    xpath: .//td[contains(@class,"current_retail depth_4")]
   - name: manufacturer
     singleValue: false
-    xpath: //a[@data-test="itemDetail-brand"]
+    xpath: .//div[@class="brand"]
   - name: soldBy
     singleValue: true
-  - name: endorsementText
-    singleValue: false
-    xpath: //div[@class="endorsement"]
-  - name: searchUrl
-    singleValue: false
-    xpath: //div[@class="searchUrl"]
