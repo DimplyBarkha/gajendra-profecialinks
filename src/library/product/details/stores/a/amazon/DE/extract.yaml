@@ -138,7 +138,7 @@ fields:
   - name: salesRank
     singleValue: false
     xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]
-    regExp: \#([0-9]{1,})
+    regExp: \Nr. ([0-9]{1,})
     regExpReplace: $1
   - name: salesRankCategory
     singleValue: false
