@@ -163,7 +163,7 @@ module.exports = {
     //   //   console.log('Product Not Found!!!!');
     //   //   return '';
     //   // }
-    //   if (response ) {
+    //   if (response && response.status === 200 ) {
     //     console.log('Product Found!!!!');
     //     const data = await response;
     //     debugger
