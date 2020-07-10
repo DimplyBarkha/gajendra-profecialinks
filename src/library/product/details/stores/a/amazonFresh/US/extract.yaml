@@ -80,7 +80,7 @@ fields:
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
   - name: legalDisclaimer
     singleValue: false
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()|//div[contains(@id, 'important-information')]//span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
     singleValue: false
     xpath: (//html//div[contains(@id, 'important-information')]//div[contains(@class,'content')]/*[contains(text(), 'Directions')]/../p[text()]/text() | //html[not(//div[contains(@id, 'important-information')]//div[contains(@class,'content')]/*[contains(text(), 'Directions')]/../p[text()]/text())]//*[contains(text(), "Directions")]/following-sibling::*[text()]/text())[1]
@@ -360,7 +360,7 @@ fields:
     xpath: 
   - name: allergyAdvice
     singleValue: true
-    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
+    xpath: //div[@id='important-information']//span[contains(text(),  "Safety Information")]/following-sibling::p[contains(text(),  "May Contain")]/text()
   - name: recyclingInformation
     singleValue: true
     xpath: 
@@ -398,7 +398,7 @@ fields:
     xpath: //div[@id='newerVersion_feature_div']//a[not(child::img)]
   - name: variants
     singleValue: true
-    xpath: 
+    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@id="productDescription"]/p/text() 
@@ -431,4 +431,7 @@ fields:
     xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
   - name: imageZoomFeaturePresent
     singleValue: true
-    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]|//div[contains(@id, "hover-zoom-end")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No

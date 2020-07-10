@@ -89,6 +89,36 @@ const transform = (data, context) => {
             row.brandLink = [{ text: row.brandLink[0].text }];
           }
         }
+        if (row.brand) {
+          const regexBrand = /([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm;
+          if (regexBrand.test(row.brand[0].text)) {
+            const brandName = (row.brandLink[0].text).replace(regexBrand, '');
+            row.brand = [{ text: brandName }];
+          }
+        }
+        if (row.name && row.name[0]) {
+          if(row.name[0].text.includes(/(Amazon.com\s*:)/)){
+            row.name = [{ text: row.name[0].text.replace(/(Amazon.com\s*:)/, '') }];
+          }
+        }
+        if (!(row.quantity && row.quantity[0] && row.quantity[0].text) && (row.nameExtended && row.nameExtended[0] && row.nameExtended[0].text)) {
+          const quantityText = row.nameExtended[0].text;
+          const quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?)(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?\s)*/;
+          const packQuantityRe = /([(]Pack of \d*[)])/;
+          const quantity = quantityRe.test(quantityText) ? quantityRe.exec(quantityText) : '';
+          const packText = packQuantityRe.test(quantityText) ? packQuantityRe.exec(quantityText) : '';
+          if (quantity && quantity[0]) {
+            row.quantity = [{ text: quantity[0].trim() }];
+          }
+
+          if (quantity == null) {
+            row.quantity = [{ text: '' }];
+          }
+
+          if (packText.length && packText[0]) {
+            row.quantity[0].text += row.quantity[0].text.length ? ' ' + packText[0] : packText[0];
+          }
+        }
         if (row.variantAsins) {
           let asins = [];
           row.variantAsins.forEach(item => {
@@ -166,6 +196,8 @@ const transform = (data, context) => {
         if (row.manufacturerDescription) {
           let description = [];
           row.manufacturerDescription.forEach(item => {
+            const regexIgnoreText = /^(Read more)/;
+            item.text = item.text.replace(regexIgnoreText, '');
             description.push(item.text);
           });
           row.manufacturerDescription = [
