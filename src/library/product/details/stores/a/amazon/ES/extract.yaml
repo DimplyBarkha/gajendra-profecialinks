@@ -101,7 +101,9 @@ fields:
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     singleValue: false
-    xpath: //video/@src
+    xpath: //script[contains(text(), 'durationTimestamp')]
+    regExp: url":"(.{30,300})"\,"videoHeight
+    regExpReplace: $1
   - name: amazonChoice
     singleValue: false
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
@@ -142,7 +144,9 @@ fields:
     regExpReplace: $1
   - name: videoLength
     singleValue: false
-    xpath: //div[@class='airy-duration-label']
+    xpath: //script[contains(text(), 'durationTimestamp')]
+    regExp: (\d+:\d+)
+    regExpReplace: $1
   - name: ingredientImagePresent
     singleValue: false
     xpath: //script[contains(text(),"INGR")]
@@ -151,6 +155,9 @@ fields:
     defaultValue: NO
   - name: factImagePresent
     singleValue: false
+    xpath: //script[contains(text(),"FACT")]
+    regExp: (.+)
+    regExpReplace: 'Yes'
     defaultValue: NO
   - name: largeImageCount
     singleValue: false
@@ -171,6 +178,7 @@ fields:
     xpath: //div[contains(@id, 'mbc')]
     regExp: (.+)
     regExpReplace: 'YES'
+    defaultValue: NO
   - name: lbbPrice
     singleValue: false
     xpath: //span[contains(@id, 'mbc-price')]
