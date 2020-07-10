@@ -71,6 +71,16 @@ const transform = (data) => {
           aggregateRating.text = aggregateRating.text.replace(',', '.').trim();
         });
       }
+      if (row.otherSellersShipping) {
+        row.otherSellersShipping.forEach(otherSellersShipping => {
+          otherSellersShipping.text = otherSellersShipping.text.replace(',', '.').trim();
+        });
+      }
+      if (row.salesRank) {
+        row.salesRank.forEach(salesRank => {
+          salesRank.text = salesRank.text.replace('.', ',').trim();
+        });
+      }
     }
   }
   return data;

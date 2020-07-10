@@ -11,7 +11,9 @@ fields:
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    xpath: //*[@id="imageBlock_feature_div"]/script
+    regExp: large\":\"(.{40,200})\"\,\"main
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -117,15 +119,15 @@ fields:
     singleValue: false
     xpath: //a[@id="bylineInfo"]/@href | //a[@id='brand']/@href
     regExp: (.+)
-    regExpReplace: https://www.amazon.de$1
+    regExpReplace: https://www.amazon.es$1
   - name: salesRank
     singleValue: false
-    xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]
-    regExp: \#([0-9]{1,})
+    xpath: //*[@id="SalesRank"]/text()[contains(., "º")] | //*[@id="SalesRank"]//span[contains(., "°")]
+    regExp: ([0-9.]{1,})
     regExpReplace: $1
   - name: salesRankCategory
     singleValue: false
-    xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a
+    xpath: //*[@id="SalesRank"]/*[contains(text(), "en")]/text() | //*[@id="SalesRank"]//span[contains(., "en")]/a
     regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*$+-]{1,})
     regExpReplace: $1
   - name: subscribeAndSave
@@ -197,6 +199,8 @@ fields:
   - name: otherSellersShipping
     singleValue: false
     xpath: //span[contains(@id, "mbc-shipping")]
+    regExp: ([0-9\,]{1,}) € de
+    regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
