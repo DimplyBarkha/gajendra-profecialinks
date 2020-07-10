@@ -11,39 +11,37 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 10000));
     
-    // const linkURL = await context.evaluate(function () {
-    //   const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
-    //   const elementSelector = 'div.css-1dbjc4n.r-18u37iz.r-tzz3ar a'
-    //   if (element) {
-    //     // return element.href;
-    //     return [elementSelector, element.href];
-    //   } else {
-    //     return null;
-    //   }
-    // });
 
-    // https://www.cvs.com/shop/american-crew-styling-gel-prodid-1013504
-    // https://www.cvs.com/shop/american-crew-styling-gel-prodid-1013504
-
-    // if(linkURL === null) {
-    //   throw new Error("notFound");
+    // async function gotoUrl(){
+    //   const currentUrl = await context.evaluate(function() {
+      
+    //     return window.location.href;
+    //   });
+    //   console.log('ABOUT TO GO BACK???????????????????????????????????????????????????')
+    //   await context.goto(currentUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+    //   return currentUrl;
     // }
-    // await context.goto(linkURL[1], { timeout: 30000, waitUntil: 'load', checkBlocked: true });
 
-    // await context.click(linkURL[0])
+    // async function collectManuf() {
+    //   const currentUrl = context.evaluate(function() {
+    //     return window.location.href
+    //   })
+    //   await context.goto('https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=874110', { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+    //   var jsonText = await context.evaluate(function () {
+    //     return document.querySelector('pre').innerText;
+    //   });
+    //   const findStr1 = 'html:';
+    //   const startIdx1 = jsonText.indexOf(findStr1) + findStr1.length;
+    //   const endIdx1 = jsonText.indexOf('var _wcscript');
+    //   let text = (startIdx1 && startIdx1 > -1 && endIdx1 && endIdx1 > -1) ? jsonText.substr(startIdx1, endIdx1 - startIdx1) : 0;
+    //   text = text.substr(0, text.indexOf('div>"')+5);
+    //   console.log('END OF COLLECTMANUF!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    //   await context.goto(currentUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
 
-    // const urlTest = await context.evaluate(function(linkURL) {
-    //   let currentUrl = window.location.href;
-    //   let urlFromLink = linkURL[1]
-    //   if(currentUrl === urlFromLink){
-    //     return true;
-    //   } else{
-    //     return false
-    //   }
-    // }, linkURL)
-    // if(!urlTest){
-    //   await context.goto(linkURL[1], { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    //   return text;
     // }
+
+    // await context.goto(currentUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
 
 
 
@@ -55,7 +53,7 @@ module.exports = {
     const json = JSON.parse(jsonText);
   
     if (json && json.records && json.totalRecordCount) {
-      await context.evaluate(function (records, cnt) {
+      await context.evaluate(function (records, cnt, gotoUrl, collectManuf) {
         function addHiddenDiv (id, content, parentDiv = null) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
@@ -73,7 +71,8 @@ module.exports = {
         // const parentDiv = addHiddenDiv('ii_products', '');
         addHiddenDiv('totalRecordCount', cnt);
         addHiddenDiv('ii_url', window.location.href);
-        
+        // addHiddenDiv('ii_product', text);
+
         // for (let i = 0; i < records.length; i++) {
           
           if (records[0].allMeta) {
@@ -84,6 +83,11 @@ module.exports = {
                 for(let i = 0; i < product.variants.length; i++){
                   
                 const newDiv = addHiddenDiv(`ii_product`, `${i}`);
+                
+
+                // collectManuf
+                // gotoUrl
+
                 addHiddenDiv('ii_brand', product.ProductBrand_Brand, newDiv);
                 addHiddenDiv('ii_title', product.title, newDiv);
                 addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
@@ -136,26 +140,29 @@ module.exports = {
       }, json.records, json.totalRecordCount);
     }
 
-    const html = await context.evaluate(async function getDataFromUrl() {
-      console.log('getDataFromUrl');
-      const redirectUrl = 'https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=874110'
-      let response = await fetch(redirectUrl, {
-        referrerPolicy: 'no-referrer-when-downgrade',
-        body: null,
-        method: 'GET',
-        mode: 'no-cors',
-      });
-      if (response && response.status === 404) {
-        console.log('Product Not Found!!!!');
-        return '';
-      }
-      if (response) {
-        console.log('Product Found!!!!');
-        const data = await response.text();
-        return data;
-      }
-    });
-debugger
+    // const html = await context.evaluate(async function getDataFromUrl() {
+    //   console.log('getDataFromUrl');
+    //   const redirectUrl = 'https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=874110'
+    //   let response = await fetch(redirectUrl, {
+    //     referrerPolicy: 'no-referrer-when-downgrade',
+    //     // body: null,
+    //     method: 'GET',
+    //     mode: 'cors',
+    //     headers: {
+    //       "Content-Type": "application/json"        }
+    //   })
+    //   // if (response && response.status === 404) {
+    //   //   console.log('Product Not Found!!!!');
+    //   //   return '';
+    //   // }
+    //   if (response ) {
+    //     console.log('Product Found!!!!');
+    //     const data = await response;
+    //     debugger
+    //     return data;
+    //   }
+    // });
+
 
     return await context.extract(productDetails, { transform: transformParam });
 
