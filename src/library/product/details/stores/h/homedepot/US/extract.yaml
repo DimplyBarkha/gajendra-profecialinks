@@ -42,12 +42,13 @@ fields:
     singleValue: false
   - name: warnings
     singleValue: false
+    xpath: //a[@class='prop65-warning__link u__default-link'][1]
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="thumbnails"]//img/@src|//div[@class="overlay__side-content__product-images"]//img/@src|//div[starts-with(@id,"altImage")]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product_description"]//img[@class="stretchy"]|//div[@data-component="description"]//img
+    xpath: //div[@id="product_description"]//img[@class="stretchy"]/@src|//div[@data-component="description"]//img/@src
   - name: ratingCount
     singleValue: false
     xpath: //span[@class="product-details__review-count"]
@@ -66,7 +67,7 @@ fields:
     xpath: //div[text()="Manufacturer Warranty"]/following-sibling::div
   - name: gtin
     singleValue: false
-    xpath: substring(//upc, 3, string-length(//upc))
+    xpath: substring(//upc, 2, string-length(//upc))
   - name: videos
     singleValue: false
     xpath: //div[@itemprop="video"]/meta[@itemprop="contentURL"]/@content|//script[contains(text(),'"video"')]
