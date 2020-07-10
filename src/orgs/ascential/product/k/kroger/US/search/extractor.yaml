@@ -8,11 +8,9 @@ proxy:
   zone: USA
   type: RESIDENTIAL
 policy:
-  numberRetries: 4
+  numberRetries: 3
   priority: MEDIUM
-  retryDelay: 60
-  backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 99
+  retryDelay: 60  
 meta:
   branches:
     test:
