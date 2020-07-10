@@ -1,13 +1,13 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'foodservicedirect',
-    transform: null,
+    transform: cleanUp,
     domain: 'foodservicedirect.com',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(() => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -20,12 +20,12 @@ module.exports = {
       function addAllergensList () {
         const allergensList = [];
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-
-        // @ts-ignore
-        for (const div of rowDiv) {
-          if (div.textContent.includes('Allergens')) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
+          if (div.textContent && div.textContent.includes('Allergens')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item-value');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               if (element.textContent.includes('CONTAINS')) {
                 allergensList.push(element.parentElement.querySelector('.c-expandable-list-block__item-label').innerHTML);
               }
@@ -37,14 +37,21 @@ module.exports = {
       }
 
       function addShippingInfo () {
-        const shippingDivText = document.querySelector('span.c-product-shop-box__ship-info-description-shipping').textContent;
+        const shippingDiv = document.querySelector('span.c-product-shop-box__ship-info-description-shipping');
+        let shippingDivText = '';
+        if (shippingDiv) {
+          shippingDivText = shippingDiv.textContent;
+        } else {
+          return;
+        }
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
         let shipText = '';
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Properties')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               if (element.textContent.includes('Shipping')) {
                 shipText = element.textContent;
               }
@@ -61,11 +68,12 @@ module.exports = {
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
         let soldAsText = '';
         let unitQuantityText = '';
-        // @ts-ignore
-        for (const div of rowDiv) {
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Product Specifications')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (const element of allList) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
               if (element.textContent.includes('Sold As')) {
                 soldAsText = element.children[1].textContent;
               }
@@ -84,6 +92,7 @@ module.exports = {
       function nurtitionInfo () {
         const nutriObj = {
           serving: 'servingSize',
+          'serving size uom': 'servingSizeUom',
           calories: 'caloriesPerServing',
           'calories from fat': 'caloriesFromFatPerServing',
           'total fat': 'totalFatPerServing',
@@ -92,6 +101,8 @@ module.exports = {
           'saturated fat uom': 'saturatedFatPerServingUom',
           'trans fat': 'transFatPerServing',
           'trans fat uom': 'transFatPerServingUom',
+          'transfatty acids': 'transFatPerServing',
+          'transfatty acids uom': 'transFatPerServingUom',
           cholesterol: 'cholestrolPerServing',
           'cholesterol uom': 'cholestrolPerServingUom',
           'total carbohydrates': 'totalCarbPerServing',
@@ -112,39 +123,54 @@ module.exports = {
           'iron uom': 'ironPerServingUom',
           magnesium: 'magnesiumPerServing',
           'magnesium uom': 'magnesiumPerServingUom',
-          sodium: 'saltPerServing',
-          'sodium uom': 'saltPerServingUom',
+          salt: 'saltPerServing',
+          'salt uom': 'saltPerServingUom',
+          sodium: 'sodiumPerServing',
+          'sodium uom': 'sodiumPerServingUom',
         };
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-        // @ts-ignore
-        for (const div of rowDiv) {
+        let servingSizeExist = false;
+        let servingSizeText = '';
+        for (let i = 0; i < rowDiv.length; i++) {
+          const div = rowDiv[i];
           if (div.textContent.includes('Nutrition Facts')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (const element of allList) {
-              const nurtiItem = (element.children[0].textContent).toLowerCase();
-              if (nutriObj[nurtiItem]) {
+            for (let i = 0; i < allList.length; i++) {
+              const element = allList[i];
+              const nurtiItem = (element.children[0] && element.children[0].textContent) ? (element.children[0].textContent).toLowerCase() : '';
+              if (nurtiItem.length && nutriObj[nurtiItem]) {
                 addHiddenDiv(nutriObj[nurtiItem], element.children[1].textContent);
+              }
+              if (nurtiItem === 'serving size uom') {
+                servingSizeExist = true;
+              }
+              if (nurtiItem === 'serving') {
+                servingSizeText = element.children[1].textContent;
               }
             }
           }
         }
-      }
 
-      function hasZoomFeature () {
-        const content = document.querySelector('.c-product-viewer__image-wrapper');
-
-        if (content.querySelector('div').hasAttribute('data-zoom')) {
-          addHiddenDiv('imageZoomFeaturePresent', 'Yes');
+        if (!servingSizeExist && servingSizeText.length) {
+          const re = /[a-zA-Z]+$/;
+          const regPhrase = /[a-zA-Z\s]+/;
+          if (servingSizeText.match(re) && servingSizeText.match(re)[0]) {
+            servingSizeText = servingSizeText.match(re)[0];
+          } else if (servingSizeText.match(regPhrase) && servingSizeText.match(regPhrase)[0]) {
+            servingSizeText = servingSizeText.match(regPhrase)[0];
+          } else {
+            servingSizeText = '';
+          }
+          addHiddenDiv('servingSizeUom', servingSizeText);
         }
       }
 
       addAllergensList();
       nurtitionInfo();
-      addShippingInfo();
-      hasZoomFeature();
       quantity();
+      addShippingInfo();
     });
 
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform: transformParam });
   },
 };

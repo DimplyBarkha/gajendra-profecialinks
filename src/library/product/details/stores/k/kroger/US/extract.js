@@ -1,5 +1,5 @@
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -8,37 +8,29 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise(r => setTimeout(r, 3e3));
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-  // await context.click('div.ProductCard-imageBlock')
-
-  //click nutrition info button to view nutr facts, ingred, disclaimer
   await context.evaluate(async function () {
+    const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
 
-    let overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
-
-
-    // change overlay to nodelist and double check before click
-    if (overlay != null) {
+    if (overlay !== undefined) {
       overlay.click();
     }
+  });
 
-  })
+  await context.waitForSelector('div.ProductCard a');
 
-  await context.waitForSelector('div.ProductCard-imageBlock a')
+  await context.evaluate(() => {
+    const firstItem = document.querySelector('div.ProductCard a');
+    firstItem.click();
+  });
 
-  await context.evaluate(()=>{
-    let firstItem = document.querySelector('div.ProductCard-imageBlock a')
-    firstItem.click()
+  await context.waitForSelector('div.ProductDetails-header');
 
-  })
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-  await context.waitForSelector('div.ProductDetails-header')
-
-
-  await context.evaluate( async function(){
-
-    function addHiddenDiv(id, content) {
+  await context.evaluate(async function () {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -46,103 +38,140 @@ async function implementation(
       document.body.appendChild(newDiv);
     }
 
-    let descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden')
+    const productDetailsButton = document.getElementsByClassName('kds-Tabs-tab')[0];
 
-    if(descriptionItem){
-      let descriptionText = descriptionItem[0].textContent
-      addHiddenDiv('description',descriptionText)
+    if (productDetailsButton && productDetailsButton.textContent === 'Product Details') {
+      productDetailsButton.click();
     }
 
+    const descriptionItem = document.querySelector('.RomanceDescription.overflow-x-hidden');
+    if (descriptionItem) {
+      let descriptionText = '';
 
-    let button = document.getElementsByClassName('kds-Tabs-tab')[1]
-
-    if (button != null && button.textContent == 'Nutrition Info') {
-      button.click();
-      //click read more button to expand text
-      let readMore = document.querySelectorAll(".NutritionIngredients-Disclaimer")[0].children[1].children
-
-      let aElement = readMore[0]
-      if (aElement != null) {
-        aElement.click()
-      } else {
-        console.log('cannot read more')
+      const mainDesc = descriptionItem.querySelectorAll('p');
+      if (mainDesc) {
+        mainDesc.forEach((txtEl, index) => {
+          if (txtEl.textContent) {
+            index === 0 ? descriptionText += txtEl.textContent : descriptionText += ' ' + txtEl.textContent;
+          }
+        });
       }
 
+      const bullets = descriptionItem.querySelectorAll('ul li');
+      if (bullets) {
+        bullets.forEach((bullet, index) => {
+          if (bullet.textContent) {
+            index === 0 ? descriptionText += bullet.textContent : descriptionText += ' || ' + bullet.textContent;
+          }
+        });
+      }
+
+      addHiddenDiv('description', descriptionText);
     }
-    else {
-      console.log("not clicking");
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+    const button = document.getElementsByClassName('kds-Tabs-tab')[1];
+
+    if (button && button.textContent === 'Nutrition Info') {
+      button.click();
+    }
+
+    const readMore = document.querySelector('p.NutritionIngredients-Disclaimer span a');
+
+    if (readMore) {
+      readMore.click();
+    } else {
+      console.log('cannot read more');
+    }
+
+    const ingredientsEl = document.querySelector('p.NutritionIngredients-Ingredients');
+    if (ingredientsEl && ingredientsEl.textContent) {
+      let ingredientsText = ingredientsEl.textContent;
+      if (ingredientsText.includes('Ingredients')) {
+        ingredientsText = ingredientsText.replace('Ingredients', '');
+      }
+      addHiddenDiv('my-ingredients', ingredientsText);
+    }
+
+    const allergenEl = document.querySelector('p.NutritionIngredients-Allergens');
+    if (allergenEl && allergenEl.textContent) {
+      let allergenText = allergenEl.textContent;
+      if (allergenText.includes('Allergen Info')) {
+        allergenText = allergenText.replace('Allergen Info', '');
+      }
+      addHiddenDiv('my-allergies', allergenText);
     }
   });
 
-  //set url
   await context.evaluate(function () {
-    let myURL = document.createElement('li')
-    myURL.classList.add('ii_url')
-    myURL.textContent = window.location.href
+    const myURL = document.createElement('li');
+    myURL.classList.add('ii_url');
+    myURL.textContent = window.location.href;
     myURL.style.display = 'none';
-    document.body.append(myURL)
+    document.body.append(myURL);
   });
 
-  // search price and check if discount or not
-  await context.evaluate(()=>{
-      let listPrice = document.createElement('li')
-      listPrice.classList.add('my-list-price')
-      listPrice.style.display = 'none'
+  await context.evaluate(() => {
+    const listPrice = document.createElement('li');
+    listPrice.classList.add('my-list-price');
+    listPrice.style.display = 'none';
 
-      let price = document.createElement('li')
-      price.classList.add('my-price')
-      price.style.display = 'none'
+    const price = document.createElement('li');
+    price.classList.add('my-price');
+    price.style.display = 'none';
 
-      let pickupPrice = document.getElementsByClassName('mt-4 flex flex-col items-end')[0]
+    const pickupPrice = document.getElementsByClassName('mt-4 flex flex-col items-end')[0];
 
-    if (pickupPrice){
-        let pickupPriceText = pickupPrice.textContent
+    if (pickupPrice !== undefined) {
+      const pickupPriceText = pickupPrice.textContent;
 
-        if (pickupPriceText.includes('discount')){
-          let firstDIndex = pickupPriceText.indexOf('d')
-          price.textContent=pickupPriceText.slice(0,firstDIndex);
+      if (pickupPriceText.includes('discount')) {
+        const firstDIndex = pickupPriceText.indexOf('d');
+        price.textContent = pickupPriceText.slice(0, firstDIndex);
 
-          let mIndex = pickupPriceText.indexOf('m')
-          listPrice.textContent = pickupPriceText.slice(mIndex+1)
-
+        const mIndex = pickupPriceText.indexOf('m');
+        listPrice.textContent = pickupPriceText.slice(mIndex + 1);
       } else {
         price.textContent = pickupPriceText;
         listPrice.textContent = pickupPriceText;
       }
+    } else {
+      price.textContent = 'Product Unavailable';
+      listPrice.textContent = 'Product Unavailable';
     }
     document.body.append(price);
     document.body.append(listPrice);
   });
 
-  //check pickup && delivery availability
   await context.evaluate(() => {
-    let available = document.createElement('li');
-    available.classList.add('availability')
+    const available = document.createElement('li');
+    available.classList.add('availability');
     available.style.display = 'none';
 
-    let purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end')
+    const purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end');
 
-    if (purchaseOptions.length>0) {
-      available.textContent = 'In Stock'
+    if (purchaseOptions.length > 0) {
+      available.textContent = 'In Stock';
     } else {
-      available.textContent = 'Out of Stock'
+      available.textContent = 'Out of Stock';
     }
 
-    document.body.append(available)
-  })
+    document.body.append(available);
+  });
 
-
-  console.log("ready to extract");
+  console.log('ready to extract');
 
   return await context.extract(productDetails, { transform });
 }
+
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'kroger',
-    transform: null,
+    transform: cleanUp,
     domain: 'kroger.com',
   },
   inputs: [

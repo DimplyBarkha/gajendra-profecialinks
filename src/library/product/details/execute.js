@@ -1,6 +1,6 @@
 /**
  *
- * @param { { url?: string,  id?: string} } inputs
+ * @param { { url?: string,  id?: string, zipcode?: any} } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action, createUrl: ImportIO.Action} } dependencies
@@ -11,14 +11,20 @@ async function implementation (
   context,
   dependencies,
 ) {
-  let { url, id } = inputs;
+  let { url, id, zipcode } = inputs;
   if (!url) {
     if (!id) {
       throw new Error('no id provided');
     }
     url = await dependencies.createUrl({ id });
   }
-  await dependencies.goto({ url });
+  await dependencies.goto({ url, zipcode });
+
+  if (parameters.loadedSelector) {
+    await context.waitForFunction(function (sel, xp) {
+      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  }
 
   // TODO: Check for not found?
 }
@@ -37,6 +43,15 @@ module.exports = {
       name: 'domain',
       description: 'top private domain (e.g. amazon.com)',
     },
+    {
+      name: 'loadedSelector',
+      description: 'XPath to tell us the page has loaded',
+      optional: true,
+    },
+    {
+      name: 'noResultsXPath',
+      description: 'XPath to tell us the page has loaded',
+    },
   ],
   inputs: [
     {
@@ -48,6 +63,12 @@ module.exports = {
     {
       name: 'id',
       description: 'unique identifier for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'zipcode',
+      description: 'set location',
       type: 'string',
       optional: true,
     },

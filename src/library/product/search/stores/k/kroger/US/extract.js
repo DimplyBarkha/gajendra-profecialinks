@@ -1,4 +1,6 @@
-async function implementation(
+const { transform } = require('../../../../shared');
+
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,32 +9,35 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  async function getElementsOnPage() {
-    return await context.evaluate(() => {
-      return document.getElementsByClassName('kds-Text--m text-default-800 mt-12 mb-4 font-500').length;
-    });
-  }
+  await context.evaluate(() => {
+    const searchEl = document.querySelector('span.kds-Text--l');
+    let searchTerms;
+    if (searchEl) {
+      const searchText = searchEl.textContent;
+      const idx = searchText.indexOf(':');
+      searchTerms = searchText.slice(idx + 2);
+    }
 
-  let currentElCount = await getElementsOnPage();
+    const url = `https://www.kroger.com/search?query=${searchTerms}&searchType=natural`;
 
-  let totalElCount = currentElCount;
+    const searchUrlDiv = document.createElement('div');
+    searchUrlDiv.classList.add('my-search-url');
+    searchUrlDiv.style.display = 'none';
+    searchUrlDiv.textContent = url;
 
-
-
-
-
+    document.body.appendChild(searchUrlDiv);
+  });
 
   return await context.extract(productDetails, { transform });
 }
-
-const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'kroger',
-    transform: transform,
+    transform,
     domain: 'kroger.com',
-  }, implementation
+  },
+  implementation,
 };
