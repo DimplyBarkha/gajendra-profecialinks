@@ -19,6 +19,6 @@ module.exports = {
     await context.click('input[id="cmdProceed"]');
     await context.waitForSelector('input[name="BranchInfo$cmdBrowseSite"]');
     await context.click('input[name="BranchInfo$cmdBrowseSite"]');
-    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
   },
 };
