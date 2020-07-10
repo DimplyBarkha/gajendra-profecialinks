@@ -31,13 +31,22 @@ const transform = (data) => {
         });
       }
       if (row.description) {
+        const val = [];
         row.description.forEach(item => {
-          item.text = item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ');
+          val.push(item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ').replace(/\.\.\./gm, '... '));
         });
+        row.description = [{ text: val.join(' ') }];
+      }
+      if (row.alternateImages) {
+        const val = [];
+        row.alternateImages.forEach(item => {
+          val.push(item.text);
+        });
+        row.alternateImages = [{ text: val.join('|') }];
       }
       if (row.directions) {
         row.directions.forEach(item => {
-          item.text = (item.text.indexOf('Sugerencia...') !== -1) ? item.text.replace(/\n/g, '').replace(/.*Sugerencia\.\.\.(.*)/gm, '$1').replace(/\s{2,}/g, ' ') : '';
+          item.text = (item.text.indexOf('Sugerencia...') !== -1) ? item.text.replace(/\n/g, '').replace(/.*Sugerencia\.\.\.(.*)/gm, '$1').replace(/\s{2,}/g, ' ').trim() : '';
         });
       }
       if (row.sku) {
