@@ -293,22 +293,22 @@ const transform = (data, context) => {
           }
         }
         if (row.additionalDescBulletInfo) {
-          // let text = ['']
-          // row.additionalDescBulletInfo.forEach(item => {
-          //   if(item.text.length > 0){text.push(item.text)}
-          // })
-          // if(text.length>0){
-          //   row.additionalDescBulletInfo = [
-          //     {
-          //       text: text.join(' || ').trim().replace(/\|\| \|/g, '|')
-          //     }
-          //   ]
-          // }
+          let text = ['']
           row.additionalDescBulletInfo.forEach(item => {
-            if (item.text.length > 0) {
-              item.text = item.text.startsWith(' || ') ? item.text : ' || ' + item.text;
-            }
-          });
+            if(item.text.length > 0){text.push(item.text)}
+          })
+          if(text.length>0){
+            row.additionalDescBulletInfo = [
+              {
+                text: text.join(' || ').trim().replace(/\|\| \|/g, '|')
+              }
+            ]
+          }
+          // row.additionalDescBulletInfo.forEach(item => {
+          //   if (item.text.length > 0) {
+          //     item.text = item.text.startsWith(' || ') ? item.text : ' || ' + item.text;
+          //   }
+          // });
         }
         if (row.otherSellersPrime) {
           row.otherSellersPrime.forEach(item => {
