@@ -5,7 +5,7 @@ fields:
   xpath: //h1[contains(@id,"title")]
 - name: otherSellersName
   singleValue: true
-  xpath: //div[@id="merchant-info"]/a[@id="sellerProfileTriggerId"]
+  xpath: //div[@id="merchant-info"]/a[@id="sellerProfileTriggerId"]|//span[contains(@class,'mbcMerchantName')]
 - name: otherSellersPrice
   singleValue: true
   xpath: //span[@id="newBuyBoxPrice"]

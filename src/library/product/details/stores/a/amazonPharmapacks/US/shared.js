@@ -79,7 +79,7 @@ const transform = (data) => {
         });
         row.variantAsins = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -3),
           },
         ];
       }
