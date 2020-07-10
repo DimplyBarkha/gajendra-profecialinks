@@ -53,7 +53,9 @@ module.exports = {
     const json = JSON.parse(jsonText);
   
     if (json && json.records && json.totalRecordCount) {
+      
       await context.evaluate(function (records, cnt, gotoUrl, collectManuf) {
+        
         function addHiddenDiv (id, content, parentDiv = null) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
@@ -68,13 +70,9 @@ module.exports = {
           return newDiv;
         }
         document.body.innerText = '';
-        // const parentDiv = addHiddenDiv('ii_products', '');
         addHiddenDiv('totalRecordCount', cnt);
         addHiddenDiv('ii_url', window.location.href);
-        // addHiddenDiv('ii_product', text);
 
-        // for (let i = 0; i < records.length; i++) {
-          
           if (records[0].allMeta) {
             const product = records[0].allMeta;
             if (product) {
@@ -83,11 +81,7 @@ module.exports = {
                 for(let i = 0; i < product.variants.length; i++){
                   
                 const newDiv = addHiddenDiv(`ii_product`, `${i}`);
-                
-
-                // collectManuf
-                // gotoUrl
-
+              
                 addHiddenDiv('ii_brand', product.ProductBrand_Brand, newDiv);
                 addHiddenDiv('ii_title', product.title, newDiv);
                 addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
@@ -106,6 +100,7 @@ module.exports = {
                         }
                       }   
                     }
+
                     addHiddenDiv('ii_id', variant.p_Sku_ID, newDiv);
                     addHiddenDiv('ii_packSize', variant.p_Sku_Size, newDiv);              
                     addHiddenDiv('ii_additionalDescBulletInfo', variant.gbi_Product_Details, newDiv); 
@@ -117,20 +112,33 @@ module.exports = {
                     addHiddenDiv('ii_reviewCount', variant.p_Product_Review, newDiv);              
                     addHiddenDiv('ii_promotion', variant.p_Promotion_Description, newDiv);  
                     addHiddenDiv('ii_price', variant.gbi_Actual_Price, newDiv);
-
                     addHiddenDiv('ii_servingSize', variant.p_Vendor_Serving_Size, newDiv);
                     addHiddenDiv('ii_numberOfServingsInPackage', variant.p_Vendor_Serving_Per_Container, newDiv);
                     addHiddenDiv('ii_servingSizeUom', variant.p_Vendor_Serving_Size_UOM, newDiv);
-                    // addHiddenDiv('ii_price', variant.gbi_Actual_Price, newDiv);
+                    addHiddenDiv('ii_reviews', variant.p_Product_Review, newDiv);
+                    addHiddenDiv('ii_rating', variant.p_Product_Rating, newDiv);
+
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Color, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Size, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Group_Size, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Flavor, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Count, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Form, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Absorbency, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Final_Look, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Finish, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Fragrance, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Pack, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_SPF, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Scent, newDiv);
+                    addHiddenDiv('ii_variantInfo', variant.p_Sku_Strength, newDiv);
+                    
 
                     if(variant.CAREPASS_INDICATOR === "ELIGIBLE") {
                     addHiddenDiv('ii_shipping', 'Ships Free With CarePass', newDiv);
                     }
                     
-                    // debugger
-                    // addHiddenDiv('ii_image', variant.BV_ImageUrl, newDiv);
-                    addHiddenDiv('ii_reviews', variant.p_Product_Review, newDiv);
-                    addHiddenDiv('ii_rating', variant.p_Product_Rating, newDiv);
+                  
                     if (variant.gbi_Badge_Sponsored && variant.gbi_Badge_Sponsored === true) { addHiddenDiv('ii_sponsored', 'Sponsored', newDiv); }
                 }
               }
