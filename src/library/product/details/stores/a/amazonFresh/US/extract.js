@@ -238,6 +238,17 @@ async function implementation (
     return variants;
   };
 
+  // const manufacturerInfo = await context.evaluate(async function () {
+  //   await new Promise(resolve => setTimeout(resolve, 15000));
+  //   return document.querySelector('#aplus') ? document.querySelectorAll('#aplus').length : 0;
+  // });
+
+  // async function loadManufacturerContent () {
+  //   if (manufacturerInfo.length !== 0) {
+  //     await context.waitForSelector('div.aplus-module');
+  //   }
+  // }
+
   async function addUrl () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -266,6 +277,7 @@ async function implementation (
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });
     await context.evaluate(addUrl);
+    // loadManufacturerContent();
     await context.extract(productDetails, { transform, type: 'APPEND' });
     const pageVariants = await getVariants();
     console.log('#### of Variants:', allVariants.length);

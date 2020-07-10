@@ -89,17 +89,35 @@ const transform = (data, context) => {
             row.brandLink = [{ text: row.brandLink[0].text }];
           }
         }
-        if (row.brand) {
+        if (row.brandText) {
           const regexBrand = /([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm;
-          if (regexBrand.test(row.brand[0].text)) {
-            const brandName = (row.brandLink[0].text).replace(regexBrand, '');
+          if (regexBrand.test(row.brandText[0].text)) {
+            const brandName = (row.brandText[0].text).replace(regexBrand, '');
             row.brand = [{ text: brandName }];
           }
         }
         if (row.name && row.name[0]) {
-          if(row.name[0].text.match(/(Amazon.com\s*:)/)){
+          const regexIgnore = /(Amazon.com\s*:)/;
+          if (regexIgnore.test(row.name[0].text)) {
             row.name = [{ text: row.name[0].text.replace(/(Amazon.com\s*:)/, '') }];
           }
+        }
+        if (row.pricePerUnit) {
+          row.pricePerUnit.forEach(item => {
+            if (item.test(item.text)) {
+              item.text = item.text.replace(/[{()}]/g, '');
+              item.text = item.text.exec(/^(.+[\/])/g, '');
+              item.text = item.text.replace(/[\/]/g, '');
+            }
+          });
+        }
+        if (row.pricePerUnitUom) {
+          row.pricePerUnitUom.forEach(item => {
+            if (item.test(item.text)) {
+              item.text = item.text.replace(/[{()}]/g, '');
+              item.text = item.text.exec(/([^\/]+$)/g, '');
+            }
+          });
         }
         if (!(row.quantity && row.quantity[0] && row.quantity[0].text) && (row.nameExtended && row.nameExtended[0] && row.nameExtended[0].text)) {
           const quantityText = row.nameExtended[0].text;
@@ -146,6 +164,21 @@ const transform = (data, context) => {
           row.variantCount = [
             {
               text: dedupeAsins.length
+            }
+          ];
+        }
+        if (row.variants) {
+          let asins = [];
+          row.variants.forEach(item => {
+            if(item.text){
+              asins.push(item.text);
+            }
+          });
+          // @ts-ignore
+          const dedupeAsins = [...new Set(asins)];
+          row.variantCount = [
+            {
+              text: dedupeAsins,
             }
           ];
         }
@@ -260,17 +293,22 @@ const transform = (data, context) => {
           }
         }
         if (row.additionalDescBulletInfo) {
-          let text = ['']
+          // let text = ['']
+          // row.additionalDescBulletInfo.forEach(item => {
+          //   if(item.text.length > 0){text.push(item.text)}
+          // })
+          // if(text.length>0){
+          //   row.additionalDescBulletInfo = [
+          //     {
+          //       text: text.join(' || ').trim().replace(/\|\| \|/g, '|')
+          //     }
+          //   ]
+          // }
           row.additionalDescBulletInfo.forEach(item => {
-            if(item.text.length > 0){text.push(item.text)}
-          })
-          if(text.length>0){
-            row.additionalDescBulletInfo = [
-              {
-                text: text.join(' || ').trim().replace(/\|\| \|/g, '|')
-              }
-            ]
-          }
+            if (item.text.length > 0) {
+              item.text = item.text.startsWith(' || ') ? item.text : ' || ' + item.text;
+            }
+          });
         }
         if (row.otherSellersPrime) {
           row.otherSellersPrime.forEach(item => {
