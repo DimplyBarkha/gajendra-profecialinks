@@ -8,7 +8,7 @@ async function implementation (
   const { zipcode } = inputs;
   // const { country, domain, store } = parameters;
 
-  await context.waitForXPath('//button[@data-test="storeId-utilityNavBtn"]');
+  /*await context.waitForXPath('//button[@data-test="storeId-utilityNavBtn"]');
   await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -28,7 +28,7 @@ async function implementation (
   await context.evaluate(function () {
     document.querySelectorAll('button[data-test="storeId-listItem-setStore"]')[0].click();
   });
-}
+}*/
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
