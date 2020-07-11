@@ -1,51 +1,47 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[@id="mainContainer"]//li[@class="productInfo"]
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="primaryImage"]
   - name: alternateImages
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="secondaryImages"]
   - name: imageAlt
-    singleValue: true
-    xpath: //div[@id="productNameExtended"]
-  - name: metaKeywords
-    singleValue: true
-    xpath: //script[contains(.,"__PRELOADED_STATE__")]
-    regExp: >-
-      "seo_keywords":"([^"]+)"
-    regExpReplace: >-
-      $1
-  - name: pageTimeStamp
-    singleValue: true
-    xpath: //div[@id="dateStamp"]
-  - name: productUrl
-    singleValue: true
-    xpath: //div[@id="urlInfo"]
-  - name: category
     singleValue: false
-    xpath: //div[@data-test="breadcrumb"]//span[position()>1]//span[@itemprop="name"]
+    xpath: //div[@class="imageAlt"]
+  - name: metaKeywords
+    singleValue: false
+    xpath: //div[@class="keywords"]
+  - name: pageTimeStamp
+    singleValue: false
+    xpath: //div[@class="timeStamp"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="productUrl"]
+  #- name: category
+  #  singleValue: false
+  #  xpath: //div[@data-test="breadcrumb"]//span[position()>1]//span[@itemprop="name"]
   - name: price
-    singleValue: true
-    xpath: //div[@id="priceInfo"]
+    singleValue: false
+    xpath: //div[@class="price"]
   - name: nameExtended
-    singleValue: true
-    xpath: //div[@id="productNameExtended"]
+    singleValue: false
+    xpath: //div[@class="imageAlt"]
   - name: listPrice
-    singleValue: true
-    xpath: //div[@id="regPriceInfo"]
+    singleValue: false
+    xpath: //div[@class="regPrice"]
   - name: availabilityText
-    singleValue: true
-    xpath: //div[@id="availability"]
+    singleValue: false
+    xpath: //div[@class="availability"]
   - name: description
-    singleValue: true
-    xpath: //div[@id="description"]
+    singleValue: false
+    xpath: //div[@class="description"]
   - name: descriptionBullets
-    singleValue: true
-    xpath: //div[@id="bulletCount"]
+    singleValue: false
+    xpath: //div[@class="descriptionBullets"]
   - name: ingredientsList
     singleValue: true
     xpath: //div[@class="h-margin-t-default h-padding-h-default"]//div[@class="h-text-transform-caps"]
