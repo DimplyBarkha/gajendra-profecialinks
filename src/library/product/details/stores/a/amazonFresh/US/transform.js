@@ -167,19 +167,30 @@ const transform = (data, context) => {
           ];
         }
         if (row.variantCount) {
-          const asins = [];
-          row.variantCount.forEach(item => {
-            if (item.text) {
-              asins.push(item.text);
-            }
-          });
-          // @ts-ignore
-          const dedupeAsins = [...new Set(asins)];
-          row.variantCount = [
-            {
-              text: dedupeAsins.length,
-            },
-          ];
+          // console.log('row.variantCount')
+          // const asins = [];
+          // row.variantCount.forEach(item => {
+          //   if (item.text) {
+          //     asins.push(item.text);
+          //   }
+          // });
+          // // @ts-ignore
+          // const dedupeAsins = [...new Set(asins)];
+          // row.variantCount = [
+          //   {
+          //     text: dedupeAsins.length,
+          //   },
+          // ];
+          // console.log('row.variantCount')
+          // console.log(row.variantCount)
+
+          if (typeof row.variantCount[0].text !== 'number') {
+            row.variantCount = [
+              {
+                text: row.variants[0].text.length,
+              },
+            ];
+          }
         }
         if (row.variants) {
           const asins = [];
