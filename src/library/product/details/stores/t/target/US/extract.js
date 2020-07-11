@@ -19,15 +19,15 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-    const primaryImageBaseUrl = document.querySelector('td.parent_items.depth_2 td.base_url.depth_5');
-    const primaryImageUrl = document.querySelector('td.parent_items.depth_2 td.primary.depth_5');
+    const primaryImageBaseUrl = document.querySelector('td.images td.base_url');
+    const primaryImageUrl = document.querySelector('td.images td.primary');
     if(primaryImageBaseUrl && primaryImageUrl) {
       addHiddenDiv('primaryImage', primaryImageBaseUrl.innerText + primaryImageUrl.innerText);
     }
 
-    const secondaryImageBaseUrl = document.querySelector('td.images.depth_3 td.base_url.depth_4');
+    const secondaryImageBaseUrl = document.querySelector('td.images td.base_url');
     let secondaryImageUrls = [];
-    document.querySelectorAll('td.images.depth_3 td.image_url.depth_5').forEach(e => {
+    document.querySelectorAll('td.images td.image_url').forEach(e => {
       secondaryImageUrls.push(secondaryImageBaseUrl.innerText + e.innerText);
     });
     addHiddenDiv('secondaryImages', secondaryImageUrls.join(' | '));
