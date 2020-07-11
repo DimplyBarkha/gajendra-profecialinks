@@ -21,9 +21,9 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[@class="productUrl"]
-  #- name: category
-  #  singleValue: false
-  #  xpath: //div[@data-test="breadcrumb"]//span[position()>1]//span[@itemprop="name"]
+  - name: category
+    singleValue: false
+    xpath: //div[@class="category"]
   - name: price
     singleValue: false
     xpath: //div[@class="price"]
@@ -43,144 +43,137 @@ fields:
     singleValue: false
     xpath: //div[@class="descriptionBullets"]
   - name: ingredientsList
-    singleValue: true
-    xpath: //div[@class="h-margin-t-default h-padding-h-default"]//div[@class="h-text-transform-caps"]
+    singleValue: false
+    xpath: //div[@class="ingredients"]
   - name: brandText
-    singleValue: true
-    xpath: //script[contains(.,"__PRELOADED_STATE__")]
-    regExp: >-
-      "manufacturing_brand":"([^"]+)"
-    regExpReplace: >-
-      $1
+    singleValue: false
+    xpath: //div[@class="brand"]
   - name: quantity
-    singleValue: true
-    xpath: //div[@id="quantityInfo"]
+    singleValue: false
+    xpath: //div[@class="size"]
   - name: weightNet
-    singleValue: true
-    xpath: //div[@id="weightInfo"]
+    singleValue: false
+    xpath: //div[@class="netWeight"]
   - name: weightGross
-    singleValue: true
-    xpath: //div[@id="shipWeightInfo"]
+    singleValue: false
+    xpath: //div[@class="shipWeight"]
   - name: gtin
-    singleValue: true
-    xpath: //div[@id="upcInfo"]
+    singleValue: false
+    xpath: //div[@class="upc"]
   - name: sku
-    singleValue: true
-    xpath: //div[@id="skuInfo"]
+    singleValue: false
+    xpath: //div[@class="sku"]
   - name: variantId
-    singleValue: true
-    xpath: //div[@id="variantIdInfo"]
+    singleValue: false
+    xpath: //div[@class="variantId"]
   - name: mpc
-    singleValue: true
-    xpath: //div[@id="skuInfo"]
+    singleValue: false
+    xpath: //div[@class="sku"]
   - name: packSize
-    singleValue: true
-    xpath: //div[@id="packSize"]|//div[@id="quantityInfo"]
-  - name: disclaimer
-    singleValue: true
-    xpath: //div[@id="disclaimerInfo"]
+    singleValue: false
+    xpath: //div[@class="packSize"]
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@class="disclaimer"]
   - name: directions
-    singleValue: true
-    xpath: //div[@id="directionsInfo"]
+    singleValue: false
+    xpath: //div[@class="directions"]
   - name: warnings
-    singleValue: true
-    xpath: //div[@data-test="chokingHazard"]|//div[@id='warningInfo']
+    singleValue: false
+    xpath: //div[@class="warnings"]
   - name: ratingCount
-    singleValue: true
-    xpath: //div[@id="ratingCount"]
+    singleValue: false
+    xpath: //div[@class="ratingCount"]
   - name: aggregateRatingText
     singleValue: true
     xpath: //div[@id="ratingText"]
   - name: aggregateRating
     singleValue: true
     xpath: //div[@id="rating"]
-  - name: shippingInfo
-    singleValue: true
-    xpath: //div[@id="shippingInfo"]
+  #- name: shippingInfo
+  #  singleValue: true
+  #  xpath: //div[@id="shippingInfo"]
   - name: shippingDimensions
-    singleValue: true
-    xpath: //div[@id="shipDimensionsInfo"]
+    singleValue: false
+    xpath: //div[@class="shippingDimensions"]
   - name: shippingWeight
-    singleValue: true
-    xpath: //div[@id="shipWeightInfo"]
+    singleValue: false
+    xpath: //div[@class="shipWeight"]
   - name: variantCount
-    singleValue: true
-    xpath: //div[@id="variantCount"]
+    singleValue: false
+    xpath: //div[@class="variantCount"]
   - name: color
-    singleValue: true
-    xpath: //div[@id="colorInfo"]
-  - name: manufacturerDescription
-    singleValue: true
-    xpath: //div[@id="manufacturerDesc"]
-  - name: manufacturerImages
-    singleValue: true
-    xpath: //div[@id="manufacturerImgs"]
+    singleValue: false
+    xpath: //div[@class="color"]
+  #- name: manufacturerDescription
+  #  singleValue: true
+  #  xpath: //div[@id="manufacturerDesc"]
+  #- name: manufacturerImages
+  #  singleValue: true
+  #  xpath: //div[@id="manufacturerImgs"]
   - name: videos
-    singleValue: true
-    xpath: //div[@id="videos"]
+    singleValue: false
+    xpath: //div[@class="videos"]
   - name: name
-    singleValue: true
-    xpath: //td[@class="product_description depth_2"]//td[contains(@class,"title depth_3")]
-  - name: ingredientsList
-    singleValue: true
-    xpath: //div[@id="ingredientsInfo"]
+    singleValue: false
+    xpath: //div[@class="productName"]
   - name: servingSize
-    singleValue: true
-    xpath: //div[@id="servingSizeInfo"]
+    singleValue: false
+    xpath: //div[@class="servingSize"]
   - name: servingSizeUom
-    singleValue: true
-    xpath: //div[@id="servingSizeUomInfo"]
+    singleValue: false
+    xpath: //div[@class="servingSizeUom"]
   - name: numberOfServingsInPackage
-    singleValue: true
-    xpath: //div[@id="servingPerContainerInfo"]
+    singleValue: false
+    xpath: //div[@class="servingsPerContainer"]
   - name: caloriesPerServing
-    singleValue: true
-    xpath: //div[@id="caloriesInfo"]
+    singleValue: false
+    xpath: //div[@class="caloriesPerServing"]
   - name: caloriesFromFatPerServing
-    singleValue: true
-    xpath: //div[@id="caloriesFromFatInfo"]
+    singleValue: false
+    xpath: //div[@class="caloriesFromFat"]
   - name: totalFatPerServing
-    singleValue: true
-    xpath: //div[@id="totalFatInfo"]
+    singleValue: false
+    xpath: //div[@class="totalFatPerServing"]
   - name: totalFatPerServingUom
-    singleValue: true
-    xpath: //div[@id="totalFatUomInfo"]
+    singleValue: false
+    xpath: //div[@class="totalFatPerServingUom"]
   - name: saturatedFatPerServing
-    singleValue: true
-    xpath: //div[@id="saturatedFatInfo"]
+    singleValue: false
+    xpath: //div[@class="saturatedFatPerServing"]
   - name: saturatedFatPerServingUom
-    singleValue: true
-    xpath: //div[@id="saturatedFatUomInfo"]
+    singleValue: false
+    xpath: //div[@class="saturatedFatPerServingUom"]
   - name: transFatPerServing
-    singleValue: true
-    xpath: //div[@id="transFatInfo"]
+    singleValue: false
+    xpath: //div[@class="transFatPerServing"]
   - name: transFatPerServingUom
-    singleValue: true
-    xpath: //div[@id="transFatUomInfo"]
+    singleValue: false
+    xpath: //div[@class="transFatPerServingUom"]
   - name: cholesterolPerServing
-    singleValue: true
-    xpath: //div[@id="cholesterolInfo"]
+    singleValue: false
+    xpath: //div[@class="cholesterolPerServing"]
   - name: cholesterolPerServingUom
-    singleValue: true
-    xpath: //div[@id="cholesterolUomInfo"]
+    singleValue: false
+    xpath: //div[@class="cholesterolPerServingUom"]
   - name: sodiumPerServing
-    singleValue: true
-    xpath: //div[@id="sodiumInfo"]
+    singleValue: false
+    xpath: //div[@class="sodiumPerServing"]
   - name: sodiumPerServingUom
-    singleValue: true
-    xpath: //div[@id="sodiumUomInfo"]
+    singleValue: false
+    xpath: //div[@class="sodiumPerServingUom"]
   - name: totalCarbPerServing
-    singleValue: true
-    xpath: //div[@id="totalCarbInfo"]
+    singleValue: false
+    xpath: //div[@class="totalCarbPerServing"]
   - name: totalCarbPerServingUom
-    singleValue: true
-    xpath: //div[@id="totalCarbUomInfo"]
+    singleValue: false
+    xpath: //div[@class="totalCarbPerServingUom"]
   - name: dietaryFibrePerServing
-    singleValue: true
-    xpath: //div[@id="dietaryFiberInfo"]
+    singleValue: false
+    xpath: //div[@class="dietaryFibrePerServing"]
   - name: dietaryFibrePerServingUom
-    singleValue: true
-    xpath: //div[@id="dietaryFiberUomInfo"]
+    singleValue: false
+    xpath: //div[@class="dietaryFibrePerServingUom"]
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //div[@id="totalSugarInfo"]
