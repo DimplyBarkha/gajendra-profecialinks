@@ -243,6 +243,10 @@ module.exports = {
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
           const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), ...obj.ingredients], []) : '';
 
+          // const formatIngredientList = () => {
+          //   if (ingrList)
+          // }
+
           // if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0] && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
           //   const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
           //   const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
@@ -314,7 +318,7 @@ module.exports = {
             }
 
             if (document.querySelector('p#' + shippingEnableID) && document.querySelector('p#' + shippingEnableID).nextElementSibling && document.querySelector('p#' + shippingEnableID).nextElementSibling.textContent) {
-              shippingInfoTextContent += ' ' + document.querySelector('p#' + shippingEnableID).nextElementSibling.textContent + restrictedStatesList();
+              shippingInfoTextContent += ' ' + document.querySelector('p#' + shippingEnableID).nextElementSibling.textContent + ' ' + restrictedStatesList();
             }
 
             if (shippingInfoTextContent.length === 0 && (jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0))) {
@@ -428,6 +432,7 @@ module.exports = {
             addonItem: '',
             fastTrack: '',
             ingredientsList: ingrList ? ingrList.join(' ') : '',
+            // ingredientsList: ingrList ? ingrList[0] + ' ' + ingrList.slice(2, -1).join(', ') + ', ' + ingrList.slice(-1) : '',
             servingSize: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] !== null) ? nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] : '',
             servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] !== null) ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
             numberOfServingsInPackage: nutrition && nutrition[0] && nutrition[0].servingPerContainer ? nutrition[0].servingPerContainer : '',
