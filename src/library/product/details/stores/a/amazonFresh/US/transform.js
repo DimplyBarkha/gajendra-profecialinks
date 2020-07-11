@@ -36,56 +36,56 @@ const transform = (data, context) => {
           row.grossWeight = [{ text: row.grossgWeight[0].text.replace(/\s\(/g, '').trim() }];
         }
         if (row.largeImageCount) {
-          const count = row.largeImageCount[0].text.toString().split("SL1500") ? (row.largeImageCount[0].text.toString().split("SL1500").length-1) : null;
-          if(!!count){
+          const count = row.largeImageCount[0].text.toString().split('SL1500') ? (row.largeImageCount[0].text.toString().split('SL1500').length - 1) : null;
+          if (count) {
             row.largeImageCount = [{ text: count }];
-          }else{
+          } else {
             row.largeImageCount = [{ text: '0' }];
           }
         }
         if (row.alternateImages) {
-          if(row.alternateImages.length > 0){
-            let images = []
+          if (row.alternateImages.length > 0) {
+            const images = [];
             row.alternateImages.forEach(image => {
-              images.push(image.text)
-            })
+              images.push(image.text);
+            });
             row.alternateImages = [{ text: images.join(' | ').trim().replace(/\| \|/g, '|') }];
-          }else{
+          } else {
             row.alternateImages = [{ text: '' }];
           }
         }
         if (row.videos) {
-          let regex = /\"url\":\"([^"]+)/g
-          const rawArray = row.videos[0].text.toString().match(regex)
+          const regex = /\"url\":\"([^"]+)/g;
+          const rawArray = row.videos[0].text.toString().match(regex);
           const videos = [];
-          if(rawArray){
+          if (rawArray) {
             rawArray.forEach(item => {
-              let regex2 = /(https.+mp4)/s
-              videos.push(item.match(regex2)[0])
-            })
+              const regex2 = /(https.+mp4)/s;
+              videos.push(item.match(regex2)[0]);
+            });
             row.videos = [{ text: videos.join(' | ').trim().replace(/\| \|/g, '|') }];
-          }else{
+          } else {
             row.videos = [{ text: '' }];
           }
         }
         if (row.videoLength) {
-          let regex1 = /\"durationTimestamp\":\"([^"]+)/g
-          const rawArray = row.videoLength[0].text.toString().match(regex1)
+          const regex1 = /\"durationTimestamp\":\"([^"]+)/g;
+          const rawArray = row.videoLength[0].text.toString().match(regex1);
           const videos = [];
-          if(rawArray){
+          if (rawArray) {
             rawArray.forEach(item => {
-              let regex2 = /([0-9\:]{3,})/s
-              videos.push(item.match(regex2)[0])
-            })
+              const regex2 = /([0-9\:]{3,})/s;
+              videos.push(item.match(regex2)[0]);
+            });
             row.videoLength = [{ text: videos.join(' | ').trim().replace(/\| \|/g, '|') }];
-          }else{
+          } else {
             row.videoLength = [{ text: '' }];
           }
         }
         if (row.brandLink) {
-          if(!row.brandLink[0].text.includes('www.amazon.com')){
+          if (!row.brandLink[0].text.includes('www.amazon.com')) {
             row.brandLink = [{ text: `https://www.amazon.com${row.brandLink[0].text}` }];
-          }else{
+          } else {
             row.brandLink = [{ text: row.brandLink[0].text }];
           }
         }
@@ -103,21 +103,35 @@ const transform = (data, context) => {
           }
         }
         if (row.pricePerUnit) {
+          const regexBraces = /[{()}]/g;
+          const regexBeforeSlash = /([^\/]+$)/g;
+          const regexIgnoreSlash = /[\/]/g;
           row.pricePerUnit.forEach(item => {
             if (item.test(item.text)) {
-              item.text = item.text.replace(/[{()}]/g, '');
-              item.text = item.text.exec(/^(.+[\/])/g, '');
-              item.text = item.text.replace(/[\/]/g, '');
+              item.text = item.text.replace(regexBraces, '');
+              item.text = item.text.exec(regexBeforeSlash);
+              item.text = item.text.replace(regexIgnoreSlash, '');
             }
           });
+          // const priceUnit = row.pricePerUnit[0].text.replace(regexBraces, '').exec(regexBeforeSlash).replace(regexIgnoreSlash, '');
+
+          // row.pricePerUnitUom = [{ text: priceUnit}];
+
         }
         if (row.pricePerUnitUom) {
+          const regexBraces = /[{()}]/g;
+          const regexAfterSlash = /([^\/]+$)/g;
+          // const regexOnlyAlpha = /[A-Za-z]
           row.pricePerUnitUom.forEach(item => {
             if (item.test(item.text)) {
-              item.text = item.text.replace(/[{()}]/g, '');
-              item.text = item.text.exec(/([^\/]+$)/g, '');
+              item.text = item.text.replace(regexBraces, '');
+              item.text = item.text.exec(regexAfterSlash);
             }
           });
+
+          // const priceUOM = row.pricePerUnitUom[0].text.replace(regexBraces, '').exec(regexAfterSlash);
+
+          // row.pricePerUnitUom = [{ text: priceUOM}];
         }
         if (!(row.quantity && row.quantity[0] && row.quantity[0].text) && (row.nameExtended && row.nameExtended[0] && row.nameExtended[0].text)) {
           const quantityText = row.nameExtended[0].text;
@@ -138,9 +152,9 @@ const transform = (data, context) => {
           }
         }
         if (row.variantAsins) {
-          let asins = [];
+          const asins = [];
           row.variantAsins.forEach(item => {
-            if(item.text.match(/([A-Za-z0-9]{8,})/g)){
+            if (item.text.match(/([A-Za-z0-9]{8,})/g)) {
               asins.push(item.text.match(/([A-Za-z0-9]{8,})/g)[0]);
             }
           });
@@ -148,14 +162,14 @@ const transform = (data, context) => {
           const dedupeAsins = [...new Set(asins)];
           row.variantAsins = [
             {
-              text: dedupeAsins.join(' | ').trim().replace(/\| \|/g, '|')
-            }
+              text: dedupeAsins.join(' | ').trim().replace(/\| \|/g, '|'),
+            },
           ];
         }
         if (row.variantCount) {
-          let asins = [];
+          const asins = [];
           row.variantCount.forEach(item => {
-            if(item.text){
+            if (item.text) {
               asins.push(item.text);
             }
           });
@@ -163,113 +177,118 @@ const transform = (data, context) => {
           const dedupeAsins = [...new Set(asins)];
           row.variantCount = [
             {
-              text: dedupeAsins.length
-            }
+              text: dedupeAsins.length,
+            },
           ];
         }
         if (row.variants) {
-          let asins = [];
+          const asins = [];
           row.variants.forEach(item => {
-            if(item.text){
+            if (item.text) {
               asins.push(item.text);
             }
           });
           // @ts-ignore
           const dedupeAsins = [...new Set(asins)];
-          row.variantCount = [
+          row.variants = [
             {
               text: dedupeAsins,
-            }
+            },
           ];
         }
         if (row.salesRankCategory) {
-          let rankCat = []
+          const rankCat = [];
           row.salesRankCategory.forEach(item => {
-            if(item.text.includes('#')){
-              let regex = /\#[0-9,]{1,} in (.+) \(/s
-              let rawCat = item.text.match(regex)
+            if (item.text.includes('#')) {
+              const regex = /\#[0-9,]{1,} in (.+) \(/s;
+              const rawCat = item.text.match(regex);
               rankCat.push(
                 {
-                  text: rawCat[1]
-                }
+                  text: rawCat[1],
+                },
               );
-            }else{
+            } else {
               rankCat.push(
                 {
-                  text: item.text
-                }
+                  text: item.text,
+                },
               );
             }
           });
-          row.salesRankCategory = rankCat
+          row.salesRankCategory = rankCat;
         }
         if (row.salesRank) {
-          let rank = []
+          const rank = [];
           row.salesRank.forEach(item => {
-            if(item.text.includes('#')){
-              let regex = /([0-9,]{1,})/s
-              let rawCat = item.text.match(regex)
-              if(!!rawCat){
+            if (item.text.includes('#')) {
+              const regex = /([0-9,]{1,})/s;
+              const rawCat = item.text.match(regex);
+              if (rawCat) {
                 rank.push(
                   {
-                    text: rawCat[0]
-                  }
+                    text: rawCat[0],
+                  },
                 );
               }
-            }else{
+            } else {
               rank.push(
                 {
-                  text: ''
-                }
+                  text: '',
+                },
               );
             }
           });
-          row.salesRank = rank
+          row.salesRank = rank;
         }
         if (row.manufacturerDescription) {
-          let description = [];
+          const description = [];
+          console.log('manufacturerDescription');
           row.manufacturerDescription.forEach(item => {
             const regexIgnoreText = /^(Read more)/;
+            console.log(item.text);
             item.text = item.text.replace(regexIgnoreText, '');
-            description.push(item.text);
+            console.log(item.text);
+            if (!regexIgnoreText.test(item.text)) {
+              description.push(item.text);
+            }
           });
           row.manufacturerDescription = [
             {
-              text: description.join(' ').trim()
-            }
+              text: description.join(' ').trim(),
+            },
           ];
         }
         if (row.heroQuickPromoUrl) {
-          if(row.heroQuickPromoUrl[0].text.includes('http')){
-            row.heroQuickPromoUrl = [{ text: row.heroQuickPromoUrl[0].text}]
-          }else{
-            row.heroQuickPromoUrl = [{ text: 'https://www.amazon.com/' + row.heroQuickPromoUrl[0].text}]
+          if (row.heroQuickPromoUrl[0].text.includes('http')) {
+            row.heroQuickPromoUrl = [{ text: row.heroQuickPromoUrl[0].text }];
+          } else {
+            row.heroQuickPromoUrl = [{ text: 'https://www.amazon.com/' + row.heroQuickPromoUrl[0].text }];
           }
         }
         if (row.description) {
-          let text = ['']
+          const text = [''];
           row.description.forEach(item => {
             text.push(item.text);
-          })
-          row.description = [{text: text.join(' || ').trim().replace(/\|\| \|/g, '|')}]
+          });
+          row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
         }
         if (row.amazonChoice) {
           if (row.amazonChoice[0].text.includes('Amazon')) {
             row.amazonChoice = [
               {
                 text: 'Yes',
-              }
+              },
             ];
           } else {
             row.amazonChoice = [
               {
                 text: 'No',
-              }
+              },
             ];
           }
         }
         if (row.specifications) {
-          let text = [];
+          const text = [];
           row.specifications.forEach(item => {
             text.push(`${item.text.replace(/\n \n/g, ':')}`);
           });
@@ -280,29 +299,29 @@ const transform = (data, context) => {
           ];
         }
         if (row.productOtherInformation) {
-          let text = []
+          const text = [];
           row.productOtherInformation.forEach(item => {
-            text.push(item.text)
-          })
-          if(text.length>0){
+            text.push(item.text);
+          });
+          if (text.length > 0) {
             row.productOtherInformation = [
               {
-                text: text.join(' | ').trim().replace(/\| \|/g, '|')
-              }
-            ]
+                text: text.join(' | ').trim().replace(/\| \|/g, '|'),
+              },
+            ];
           }
         }
         if (row.additionalDescBulletInfo) {
-          let text = ['']
+          const text = [''];
           row.additionalDescBulletInfo.forEach(item => {
-            if(item.text.length > 0){text.push(item.text)}
-          })
-          if(text.length>0){
+            if (item.text.length > 0) { text.push(item.text); }
+          });
+          if (text.length > 0) {
             row.additionalDescBulletInfo = [
               {
-                text: text.join(' || ').trim().replace(/\|\| \|/g, '|')
-              }
-            ]
+                text: text.join(' || ').trim().replace(/\|\| \|/g, '|'),
+              },
+            ];
           }
           // row.additionalDescBulletInfo.forEach(item => {
           //   if (item.text.length > 0) {
@@ -322,9 +341,9 @@ const transform = (data, context) => {
         if (row.availabilityText) {
           row.availabilityText = [
             {
-              text: row.availabilityText[0].text.replace(/\./g,'').trim()
-            }
-          ]
+              text: row.availabilityText[0].text.replace(/\./g, '').trim(),
+            },
+          ];
         }
         if (row.otherSellersShipping2) {
           row.otherSellersShipping2.forEach(item => {
@@ -339,7 +358,7 @@ const transform = (data, context) => {
           });
         }
         if (row.featureBullets) {
-          let text = [];
+          const text = [];
           row.featureBullets.forEach(item => {
             text.push(`${item.text}`);
           });
