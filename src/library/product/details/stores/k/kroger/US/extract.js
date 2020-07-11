@@ -58,13 +58,19 @@ async function implementation (
       }
 
       const bullets = descriptionItem.querySelectorAll('ul li');
-      if (bullets) {
+      let bulletCount;
+      if (bullets && bullets.length > 0) { 
+        bulletCount = bullets.length
+
         bullets.forEach((bullet, index) => {
           if (bullet.textContent) {
             index === 0 ? descriptionText += bullet.textContent : descriptionText += ' || ' + bullet.textContent;
           }
         });
+      } else {
+        bulletCount = ''
       }
+      addHiddenDiv('bulletCount', bulletCount);
 
       addHiddenDiv('description', descriptionText);
     }
