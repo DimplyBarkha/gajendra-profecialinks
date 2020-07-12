@@ -51,7 +51,7 @@ async function implementation (
     let count = 0;
     while (numberPageResults <= 150 && count < 200) {
       if (await buttonCheck()) {
-        await context.click(moreButton);
+        await context.clickAndWaitForNavigation(moreButton, {}, { timeout: 20000 });
         await new Promise(resolve => setTimeout(resolve, 10000));
         const prevNumberPageResults = numberPageResults;
         numberPageResults = await getNumberResultsOnPage();
@@ -157,8 +157,8 @@ async function implementation (
           return newDiv;
         }
         for (let i = 0; i < productSkus.length; i++) {
-          const newDiv = document.querySelector(`${productsSel}[href*='${productSkus[i].split('|')[0]}']`);
-          addHiddenDiv('ii_id', productSkus[i].split('|')[1], newDiv);
+          const newDivs = document.querySelectorAll(`${productsSel}[href*='${productSkus[i].split('|')[0]}']`);
+          newDivs.forEach(newDiv =>  addHiddenDiv('ii_id', productSkus[i].split('|')[1], newDiv));
         }
       }, productSkus, productsSel);
     }

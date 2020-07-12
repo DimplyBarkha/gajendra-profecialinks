@@ -5,6 +5,7 @@ module.exports = {
     domain: 'cvs.com',
     country: 'US',
     store: 'cvs',
+    timeout: 30000,
   },
   // implementation: async ({ url }, parameterValues, context, dependencies) => {
   //   const memory = {};
