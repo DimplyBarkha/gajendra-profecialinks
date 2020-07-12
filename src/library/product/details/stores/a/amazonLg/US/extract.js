@@ -6,6 +6,7 @@ module.exports = {
     store: 'amazonLg',
     transform,
     domain: 'amazon.com',
+    zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {

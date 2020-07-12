@@ -6,5 +6,6 @@ module.exports = {
     domain: 'amazon.com',
     loadedSelector: 'div[id="dp-container"]',
     // noResultsXPath: ,
+    zipcode: '',
   },
 };

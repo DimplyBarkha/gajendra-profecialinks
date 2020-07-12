@@ -6,5 +6,6 @@ module.exports = {
     country: 'US',
     store: 'amazonLg',
     url: 'https://amazon.com/dp/{id}',
+    zipcode: '',
   },
 };
