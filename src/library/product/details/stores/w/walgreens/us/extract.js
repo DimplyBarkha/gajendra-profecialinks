@@ -238,14 +238,25 @@ module.exports = {
             // return '';
           };
 
+          const formatIngredientList = (ingredientsList) => {
+            // if (ingredientsList && ingredientsList.length > 1) {
+            //   for (var i = 0; i < ingredientsList.length; i++) {
+            //     if ((i !== ingredientsList.length - 1) && (ingredientsList[i].slice(-1) !== ',')) {
+            //       ingredientsList[i] += ',';
+            //     }
+            //   }
+            // }
+            if (ingredientsList.length === 1) {
+              return ingredientsList;
+            }
+            console.log(ingredientsList);
+            return ingredientsList.join(', ');
+          };
+
           const hasIngrList = ingredients && ingredients.ingredientGroups &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes) &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
-          const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), ...obj.ingredients], []) : '';
-
-          // const formatIngredientList = () => {
-          //   if (ingrList)
-          // }
+          const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), formatIngredientList(obj.ingredients)], []) : '';
 
           // if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0] && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
           //   const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
