@@ -5,11 +5,11 @@ async function implementation (
   context,
   dependencies,
 ) {
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
 
-    await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-    const productUrl = await context.evaluate(async function () {
+  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+  const productUrl = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -35,9 +35,7 @@ async function implementation (
   await context.goto('https://www.target.com' + productUrl);
   await context.waitForXPath("//div[@data-test='product-price']");
 
-
-  await context.evaluate(async function() {
-
+  await context.evaluate(async function () {
     let parentData = {};
 
     function addHiddenDiv (el, className, content) {
@@ -48,7 +46,7 @@ async function implementation (
       el.appendChild(newDiv);
     }
 
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -56,7 +54,7 @@ async function implementation (
       });
     }
 
-    function createListItem() {
+    function createListItem () {
       const newDiv = document.createElement('li');
       newDiv.setAttribute('class', 'productInfo');
       newDiv.textContent = '';
@@ -105,7 +103,7 @@ async function implementation (
       console.log('did not find iframe');
     }
 
-    async function getProductInfo(variant, productName, variantCount = null) {
+    async function getProductInfo (variant, productName, variantCount = null) {
       const newDiv = createListItem();
 
       addHiddenDiv(newDiv, 'productName', productName);
@@ -113,17 +111,17 @@ async function implementation (
       if (variant.enrichment && variant.enrichment.images && variant.enrichment.images.length) {
         addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
         if (variant.enrichment.images[0].content_labels && variant.enrichment.images[0].content_labels.length) {
-          let secondaryImages = variant.enrichment.images[0].content_labels.map(image => variant.enrichment.images[0].base_url + image.image_url);
+          const secondaryImages = variant.enrichment.images[0].content_labels.map(image => variant.enrichment.images[0].base_url + image.image_url);
           addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.join(' | '));
         }
       }
 
-      if(parentData.product.item.enrichment
-        && parentData.product.item.enrichment.videos
-        && parentData.product.item.enrichment.videos.length
-        && parentData.product.item.enrichment.videos[0]
-        && parentData.product.item.enrichment.videos[0].video_files) {
-        addHiddenDiv(newDiv, 'videos', parentData.product.item.enrichment.videos[0].video_files.map(video => "https:" + video.video_url).join(' | '));
+      if (parentData.product.item.enrichment &&
+        parentData.product.item.enrichment.videos &&
+        parentData.product.item.enrichment.videos.length &&
+        parentData.product.item.enrichment.videos[0] &&
+        parentData.product.item.enrichment.videos[0].video_files) {
+        addHiddenDiv(newDiv, 'videos', parentData.product.item.enrichment.videos[0].video_files.map(video => 'https:' + video.video_url).join(' | '));
       }
 
       const productTitle = variant.product_description.title;
@@ -166,11 +164,11 @@ async function implementation (
         addHiddenDiv(newDiv, 'brand', variant.product_brand.brand);
       }
 
-      if(variant.variation && variant.variation.size) {
+      if (variant.variation && variant.variation.size) {
         addHiddenDiv(newDiv, 'size', variant.variation.size);
       }
 
-      if(variant.variation && variant.variation.color) {
+      if (variant.variation && variant.variation.color) {
         addHiddenDiv(newDiv, 'color', variant.variation.color);
       }
 
@@ -236,7 +234,7 @@ async function implementation (
       }
 
       if (variant.enrichment && variant.enrichment.drug_facts) {
-        if(variant.enrichment.drug_facts.direction && variant.enrichment.drug_facts.direction.general_directions && variant.enrichment.drug_facts.direction.general_directions.length) {
+        if (variant.enrichment.drug_facts.direction && variant.enrichment.drug_facts.direction.general_directions && variant.enrichment.drug_facts.direction.general_directions.length) {
           addHiddenDiv(newDiv, 'directions', variant.enrichment.drug_facts.direction.general_directions[0]);
         }
         if (variant.enrichment.drug_facts.warning && variant.enrichment.drug_facts.warning.text) {
@@ -248,84 +246,84 @@ async function implementation (
         addHiddenDiv(newDiv, 'variantCount', variantCount);
       }
 
-      if(variant.proposition_65_warning_text) {
+      if (variant.proposition_65_warning_text) {
         addHiddenDiv(newDiv, 'prop65Warning', variant.proposition_65_warning_text);
       }
 
-      if (variant.enrichment
-        && variant.enrichment.nutrition_facts
-        && variant.enrichment.nutrition_facts.value_prepared_list
-        && variant.enrichment.nutrition_facts.value_prepared_list.length
-        && variant.enrichment.nutrition_facts.value_prepared_list[0]
-        && variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size) {
-          addHiddenDiv(newDiv, 'servingSize', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size);
-          addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement);
-          addHiddenDiv(newDiv, 'servingsPerContainer', variant.enrichment.nutrition_facts.value_prepared_list[0].servings_per_container);
+      if (variant.enrichment &&
+        variant.enrichment.nutrition_facts &&
+        variant.enrichment.nutrition_facts.value_prepared_list &&
+        variant.enrichment.nutrition_facts.value_prepared_list.length &&
+        variant.enrichment.nutrition_facts.value_prepared_list[0] &&
+        variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size) {
+        addHiddenDiv(newDiv, 'servingSize', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size);
+        addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement);
+        addHiddenDiv(newDiv, 'servingsPerContainer', variant.enrichment.nutrition_facts.value_prepared_list[0].servings_per_container);
 
-          variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients.forEach(e => {
-            if (e.name === 'Calories') {
-              addHiddenDiv(newDiv, 'caloriesPerServing', e.quantity || e.percentage);
-            }
-            if (e.name === 'Calories From Fat') {
-              addHiddenDiv(newDiv, 'caloriesFromFat', e.quantity || e.percentage);
-            }
-            if (e.name === 'Total Fat') {
-              addHiddenDiv(newDiv, 'totalFatPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'totalFatPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Saturated Fat') {
-              addHiddenDiv(newDiv, 'saturatedFatPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'saturatedFatPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Trans Fat') {
-              addHiddenDiv(newDiv, 'transFatPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'transFatPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Cholesterol') {
-              addHiddenDiv(newDiv, 'cholesterolPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'cholesterolPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Sodium') {
-              addHiddenDiv(newDiv, 'sodiumPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'sodiumPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Total Carb.') {
-              addHiddenDiv(newDiv, 'totalCarbPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'totalCarbPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Dietary Fiber') {
-              addHiddenDiv(newDiv, 'dietaryFibrePerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'dietaryFibrePerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Sugars') {
-              addHiddenDiv(newDiv, 'totalSugarsPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'totalSugarsPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Protein') {
-              addHiddenDiv(newDiv, 'proteinPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'proteinPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Vitamin A') {
-              addHiddenDiv(newDiv, 'vitaminAPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'vitaminAPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Vitamin C') {
-              addHiddenDiv(newDiv, 'vitaminCPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'vitaminCPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Calcium') {
-              addHiddenDiv(newDiv, 'calciumPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'calciumPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Iron') {
-              addHiddenDiv(newDiv, 'ironPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'ironPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Magnesium') {
-              addHiddenDiv(newDiv, 'magnesiumPerServing', e.quantity || e.percentage);
-              addHiddenDiv(newDiv, 'magnesiumPerServingUom', e.unit_of_measurement || '%');
-            }
-          });
+        variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients.forEach(e => {
+          if (e.name === 'Calories') {
+            addHiddenDiv(newDiv, 'caloriesPerServing', e.quantity || e.percentage);
+          }
+          if (e.name === 'Calories From Fat') {
+            addHiddenDiv(newDiv, 'caloriesFromFat', e.quantity || e.percentage);
+          }
+          if (e.name === 'Total Fat') {
+            addHiddenDiv(newDiv, 'totalFatPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'totalFatPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Saturated Fat') {
+            addHiddenDiv(newDiv, 'saturatedFatPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'saturatedFatPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Trans Fat') {
+            addHiddenDiv(newDiv, 'transFatPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'transFatPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Cholesterol') {
+            addHiddenDiv(newDiv, 'cholesterolPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'cholesterolPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Sodium') {
+            addHiddenDiv(newDiv, 'sodiumPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'sodiumPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Total Carb.') {
+            addHiddenDiv(newDiv, 'totalCarbPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'totalCarbPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Dietary Fiber') {
+            addHiddenDiv(newDiv, 'dietaryFibrePerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'dietaryFibrePerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Sugars') {
+            addHiddenDiv(newDiv, 'totalSugarsPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'totalSugarsPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Protein') {
+            addHiddenDiv(newDiv, 'proteinPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'proteinPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Vitamin A') {
+            addHiddenDiv(newDiv, 'vitaminAPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'vitaminAPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Vitamin C') {
+            addHiddenDiv(newDiv, 'vitaminCPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'vitaminCPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Calcium') {
+            addHiddenDiv(newDiv, 'calciumPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'calciumPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Iron') {
+            addHiddenDiv(newDiv, 'ironPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'ironPerServingUom', e.unit_of_measurement || '%');
+          }
+          if (e.name === 'Magnesium') {
+            addHiddenDiv(newDiv, 'magnesiumPerServing', e.quantity || e.percentage);
+            addHiddenDiv(newDiv, 'magnesiumPerServingUom', e.unit_of_measurement || '%');
+          }
+        });
       }
 
       if (parentData.product.item && parentData.product.item.child_items) {
@@ -339,8 +337,8 @@ async function implementation (
 
       if (variant.variation && variant.variation.flexible_themes) {
         const variationInfo = [];
-        for (let key in variant.variation.flexible_themes) {
-          variationInfo.push(variant.variation.flexible_themes[key])
+        for (const key in variant.variation.flexible_themes) {
+          variationInfo.push(variant.variation.flexible_themes[key]);
         }
         addHiddenDiv(newDiv, 'variationInfo', variationInfo.join(' '));
       }
@@ -432,26 +430,24 @@ async function implementation (
       }
 
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
-      .then(data => data.json())
-      .then(availabilityData => {
-        let inStore = false;
-        let deliver = false;
-        if(availabilityData
-          && availabilityData.data
-          && availabilityData.data.product
-          && availabilityData.data.product.fulfillment) {
-
-            if (availabilityData.data.product.fulfillment.store_options
-                && availabilityData.data.product.fulfillment.store_options.length
-                && availabilityData.data.product.fulfillment.store_options[0].in_store_only.availability_status === 'IN_STOCK') {
-                inStore = true;
+        .then(data => data.json())
+        .then(availabilityData => {
+          let inStore = false;
+          let deliver = false;
+          if (availabilityData &&
+          availabilityData.data &&
+          availabilityData.data.product &&
+          availabilityData.data.product.fulfillment) {
+            if (availabilityData.data.product.fulfillment.store_options &&
+                availabilityData.data.product.fulfillment.store_options.length &&
+                availabilityData.data.product.fulfillment.store_options[0].in_store_only.availability_status === 'IN_STOCK') {
+              inStore = true;
             }
 
-            if (availabilityData.data.product.fulfillment.shipping_options
-                && availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK') {
-                deliver = true;
+            if (availabilityData.data.product.fulfillment.shipping_options &&
+                availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK') {
+              deliver = true;
             }
-
           }
 
           if (deliver) {
@@ -462,40 +458,38 @@ async function implementation (
           if (!deliver && !inStore) {
             addHiddenDiv(newDiv, 'availability', 'Out of stock');
           }
-
-      });
+        });
 
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
-      .then(data => data.json())
-      .then(variantData => {
-        if (variantData.price) {
-          if (variantData.price.current_retail) {
-            addHiddenDiv(newDiv, 'price', variantData.price.current_retail);
+        .then(data => data.json())
+        .then(variantData => {
+          if (variantData.price) {
+            if (variantData.price.current_retail) {
+              addHiddenDiv(newDiv, 'price', variantData.price.current_retail);
+            }
+            if (variantData.price.reg_retail) {
+              addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
+            }
+            if (variantData.price.save_dollar) {
+              addHiddenDiv(newDiv, 'promotion', 'Save $' + variantData.price.save_dollar.toFixed(2) + ' ' + variantData.price.save_percent + '%' + ' off');
+            }
           }
-          if (variantData.price.reg_retail) {
-            addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
-          }
-          if (variantData.price.save_dollar) {
-            addHiddenDiv(newDiv, 'promotion', "Save $" + variantData.price.save_dollar.toFixed(2) + ' ' + variantData.price.save_percent + '%' + ' off')
-          }
-        }
-      });
+        });
 
       await fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?excludes=taxonomy%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&pricing_store_id=1465&storeId=1465&fulfillment_test_mode=grocery_opu_team_member_test')
-      .then(data => data.json())
-      .then(ratingData => {
-        if (ratingData.product
-          && ratingData.product.rating_and_review_statistics
-          && ratingData.product.rating_and_review_statistics.result
-          && ratingData.product.rating_and_review_statistics.result[variant.tcin]
-          && ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats
-          && ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal) {
-          addHiddenDiv(newDiv, 'ratingCount', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal);
-          addHiddenDiv(newDiv, 'aggregateRating', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.AverageOverallRating);
-          addHiddenDiv(newDiv, 'aggregateRatingText', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.AverageOverallRating + " out of 5");
-        }
-      });
-
+        .then(data => data.json())
+        .then(ratingData => {
+          if (ratingData.product &&
+          ratingData.product.rating_and_review_statistics &&
+          ratingData.product.rating_and_review_statistics.result &&
+          ratingData.product.rating_and_review_statistics.result[variant.tcin] &&
+          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats &&
+          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal) {
+            addHiddenDiv(newDiv, 'ratingCount', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal);
+            addHiddenDiv(newDiv, 'aggregateRating', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.AverageOverallRating);
+            addHiddenDiv(newDiv, 'aggregateRatingText', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.AverageOverallRating + ' out of 5');
+          }
+        });
     }
 
     const newDiv = document.createElement('ul');
@@ -503,38 +497,34 @@ async function implementation (
     newDiv.style.display = 'none';
     document.body.appendChild(newDiv);
 
-    let splitUrl = window.location.href.split('-');
-    await fetch("https://redsky.target.com/v3/pdp/tcin/" + splitUrl[splitUrl.length - 1] + "?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&pricing_store_id=1465&storeId=1465&fulfillment_test_mode=grocery_opu_team_member_test")
-    .then(data => data.json())
-    .then(async function (res) {
-      parentData = res;
-      if (res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
-
-        const parentId = res.product.item.parent_items;
-        await fetch("https://redsky.target.com/v3/pdp/tcin/" + parentId + "?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&pricing_store_id=1465&storeId=1465&fulfillment_test_mode=grocery_opu_team_member_test")
-        .then(data => data.json())
-        .then(async function (parentRes) {
-          parentData = parentRes;
-          for (let variant of parentRes.product.item.child_items) {
-            getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
+    const splitUrl = window.location.href.split('-');
+    await fetch('https://redsky.target.com/v3/pdp/tcin/' + splitUrl[splitUrl.length - 1] + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&pricing_store_id=1465&storeId=1465&fulfillment_test_mode=grocery_opu_team_member_test')
+      .then(data => data.json())
+      .then(async function (res) {
+        parentData = res;
+        if (res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
+          const parentId = res.product.item.parent_items;
+          await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&pricing_store_id=1465&storeId=1465&fulfillment_test_mode=grocery_opu_team_member_test')
+            .then(data => data.json())
+            .then(async function (parentRes) {
+              parentData = parentRes;
+              for (const variant of parentRes.product.item.child_items) {
+                getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
+              }
+            });
+        } else if (res.product.item.child_items) {
+          for (const variant of res.product.item.child_items) {
+            getProductInfo(variant, res.product.item.product_description.title, res.product.item.child_items.length);
           }
-        });
-
-      } else if (res.product.item.child_items) {
-        for (let variant of res.product.item.child_items) {
-          getProductInfo(variant, res.product.item.product_description.title, res.product.item.child_items.length);
+        } else {
+          getProductInfo(res.product.item, res.product.item.product_description.title);
         }
-      } else {
-        getProductInfo(res.product.item, res.product.item.product_description.title);
-      }
-    });
+      });
 
     await stall(5000);
-
   });
 
   await context.extract(productDetails, { transform });
-
 }
 
 const { transform } = require('../../../../shared');
