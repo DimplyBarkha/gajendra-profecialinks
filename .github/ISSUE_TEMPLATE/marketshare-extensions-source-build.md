@@ -70,10 +70,10 @@ https://import-io.github.io/import-io-cli-public/#import-io-actionrunremote
 - [ ] Promote Source to `Staging Deployment` in Project Dash
 - [ ] Remove `Development` Label
 - [ ] Add `Staging` Label
-- [ ] Create a Workbench source in the Production(external) collection
 - [ ] Deploy to `staging` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
-- [ ] Link `staging` extractor GUID to Production(external) collection > source in workbench
+- [ ] Link `staging` extractor GUID to MarketShare (POC) project > search_raw_parquet collection > source in workbench
+[**ascential/projects/marketshare_extensions/collections**](https://workbench.import.io/orgs/ascential/projects/marketshare_extensions/collections)
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `staging`
 - [ ] Scale/High Volume test
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
