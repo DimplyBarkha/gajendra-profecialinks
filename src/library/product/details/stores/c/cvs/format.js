@@ -27,11 +27,17 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (let row of group) {
       try {
-        if (row.weightGross) {
-          let text = row.weightGross[0].text;
-          let split = text.split(' ')
-          row.weightGross = [{ text: `${split[0]}` }];
+        if (row.firstVariant || row.variantId) {
+          let text = row.firstVariant[0].text;
+          let split = text.split('-')
+          row.variantId = [{ text: `${split[split.length - 1]}` }];
+          row.firstVariant = [{ text: `${split[split.length - 1]}` }];
         }
+        // if (row.weightGross) {
+        //   let text = row.weightGross[0].text;
+        //   let split = text.split(' ')
+        //   row.weightGross = [{ text: `${split[0]}` }];
+        // }
         if (row.sku) {
           row.productUrl = [{ text: `${row.productUrl[0].text}?skuid=${row.sku[0].text}` }];
         }

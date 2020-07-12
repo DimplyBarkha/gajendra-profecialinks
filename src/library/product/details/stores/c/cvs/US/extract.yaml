@@ -34,10 +34,10 @@ fields:
     defaultValue: false
   # - name: featureBullets
   #   singleValue: true
-  - name: firstVariant !!!!!!!!!!!
+  - name: firstVariant
     singleValue: true
     xpath: //div[@id='ii_productUrl']
-    regExp: ([0-9])+$
+    # regExp: ([0-9])+$
   - name: ingredientImagePresent
     singleValue: true
     defaultValue: false
@@ -83,24 +83,28 @@ fields:
     # xpath: (//div[contains(@id, 'zoom-carousel')]//img)[1]/@src
     xpath: //div[@id='ii_image']
   - name: nameExtended
-    xpath: //div[@id='ii_name']
+    xpath: ancestor::html//div[@id='ii_name']
     # singleValue: true
     # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: _pageTimestamp
     singleValue: true
   - name: productUrl
     xpath: //div[@id='ii_productUrl']
+    regExp: >- 
+      ^(.*)$
+    regExpReplace: >-
+      https://www.cvs.com$1
   - name: category
     xpath: //div[@id='ii_category']
   - name: description
-    xpath: //div[@id='ii_additionalDescBulletInfo']
+    xpath: //div[@id='ii_description']
     # xpath: (//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()
     # xpath: (//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//text()|(//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()
     # singleValue: true
     # selector: div[style].htmlView:nth-of-type(4)
-  - name: metaKeywords !!!!!!!!!!!!!
+  - name: metaKeywords
     singleValue: true
-    xpath: //div[@id='ii_name']
+    xpath: //div[@id='ii_metaKeywords']
     # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: price
   #   # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
@@ -151,7 +155,7 @@ fields:
     xpath: //div[@id='ii_id']
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     # regExp: ^([0-9])+
-  - name: variantId !!!!!!!!!!!
+  - name: variantId
     singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     # xpath: //div[@id='ii_sku']
@@ -160,7 +164,7 @@ fields:
   - name: variants
     xpath: ancestor::html//div[@id='ii_id']
     regExp: ^([0-9])+
-  - name: variantInformation !!!!!!!!!!!!!!
+  - name: variantInformation
     xpath: //div[@id='ii_variantInfo']
   - name: directions
     # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Directions')]//div[@class='htmlView']
@@ -272,10 +276,10 @@ fields:
     singleValue: false
     # selector: div.wc-rich-content-description
     xpath: //div[@id='ii_manufDesc']
-  - name: descriptionBullets !!!!!!!!!!!!!
+  - name: descriptionBullets
     defaultValue: '0'
     # xpath: count(//div[@class='htmlView']/ul/li)
-    xpath: //div[@id='ii_variantDescriptionBullets']
+    xpath: //div[@id='ii_descriptionBullets']
   - name: videos !!!!!!!!!!!!!!
     # xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
     # xpath: //div[@id='ii_videoSrc']|//img[contains(@class,'wc-iframe')]/@data-asset-url|//img[contains(@class, 'wc-video')]/@wcobj
