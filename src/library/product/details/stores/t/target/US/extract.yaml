@@ -105,12 +105,12 @@ fields:
   - name: color
     singleValue: false
     xpath: //div[@class="color"]
-  #- name: manufacturerDescription
-  #  singleValue: true
-  #  xpath: //div[@id="manufacturerDesc"]
-  #- name: manufacturerImages
-  #  singleValue: true
-  #  xpath: //div[@id="manufacturerImgs"]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class="manufacturerDesc"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="manufacturerImgs"]
   - name: videos
     singleValue: false
     xpath: //div[@class="videos"]
@@ -175,105 +175,101 @@ fields:
     singleValue: false
     xpath: //div[@class="dietaryFibrePerServingUom"]
   - name: totalSugarsPerServing
-    singleValue: true
-    xpath: //div[@id="totalSugarInfo"]
+    singleValue: false
+    xpath: //div[@class="totalSugarsPerServing"]
   - name: totalSugarsPerServingUom
-    singleValue: true
-    xpath: //div[@id="totalSugarUomInfo"]
+    singleValue: false
+    xpath: //div[@class="totalSugarsPerServingUom"]
   - name: proteinPerServing
-    singleValue: true
-    xpath: //div[@id="proteinInfo"]
+    singleValue: false
+    xpath: //div[@class="proteinPerServing"]
   - name: proteinPerServingUom
-    singleValue: true
-    xpath: //div[@id="proteinUomInfo"]
+    singleValue: false
+    xpath: //div[@class="proteinPerServingUom"]
   - name: vitaminAPerServing
-    singleValue: true
-    xpath: //div[@id="vitaminAInfo"]
+    singleValue: false
+    xpath: //div[@class="vitaminAPerServing"]
   - name: vitaminAPerServingUom
-    singleValue: true
-    xpath: //div[@id="vitaminAUomInfo"]
+    singleValue: false
+    xpath: //div[@class="vitaminAPerServingUom"]
   - name: vitaminCPerServing
-    singleValue: true
-    xpath: //div[@id="vitaminCInfo"]
+    singleValue: false
+    xpath: //div[@class="vitaminCPerServing"]
   - name: vitaminCPerServingUom
-    singleValue: true
-    xpath: //div[@id="vitaminCUomInfo"]
+    singleValue: false
+    xpath: //div[@class="vitaminCPerServingUom"]
   - name: calciumPerServing
-    singleValue: true
-    xpath: //div[@id="calciumInfo"]
+    singleValue: false
+    xpath: //div[@class="calciumPerServing"]
   - name: calciumPerServingUom
-    singleValue: true
-    xpath: //div[@id="calciumUomInfo"]
+    singleValue: false
+    xpath: //div[@class="calciumPerServingUom"]
   - name: ironPerServing
-    singleValue: true
-    xpath: //div[@id="ironInfo"]
+    singleValue: false
+    xpath: //div[@class="ironPerServing"]
   - name: ironPerServingUom
-    singleValue: true
-    xpath: //div[@id="ironUomInfo"]
+    singleValue: false
+    xpath: //div[@class="ironPerServingUom"]
   - name: magnesiumPerServing
-    singleValue: true
-    xpath: //div[@id="magInfo"]
+    singleValue: false
+    xpath: //div[@class="magnesiumPerServing"]
   - name: magnesiumPerServingUom
-    singleValue: true
-    xpath: //div[@id="magUomInfo"]
+    singleValue: false
+    xpath: //div[@class="magnesiumPerServingUom"]
   - name: specifications
-    singleValue: true
-    xpath: //div[@id="dimensionsInfo"]
+    singleValue: false
+    xpath: //div[@class="specifications"]
   - name: warranty
-    singleValue: true
-    xpath: //div[@id="warrantyInfo"]
+    singleValue: false
+    xpath: //div[@class="warranty"]
   - name: storage
-    singleValue: true
-    xpath: //div[@id="storageInfo"]
+    singleValue: false
+    xpath: //div[@class="storage"]
   - name: countryOfOrigin
-    singleValue: true
-    xpath: //script[contains(.,"__PRELOADED_STATE__")]|//div[@id="countryInfo"]
-    regExp: >-
-      "country_of_origin":"([^"]+)"
-    regExpReplace: >-
-      $1
+    singleValue: false
+    xpath: //div[@class="countryOfOrigin"]
   - name: allergyAdvice
-    singleValue: true
-    xpath: //div[@id="allergyAdviceInfo"]
+    singleValue: false
+    xpath: //div[@class="allergyAdvice"]
   - name: promotion
-    singleValue: true
-    xpath: //div[@id="promotionInfo"]
+    singleValue: false
+    xpath: //div[@class="promotion"]
   - name: alcoholContent
-    singleValue: true
-    xpath: //div[@id="alcoholInfo"]
+    singleValue: false
+    xpath: //div[@class="alcoholContent"]
   - name: variantInformation
-    singleValue: true
-    xpath: //div[@id="variantInfo"]
+    singleValue: false
+    xpath: //div[@class="variationInfo"]
   - name: firstVariant
-    singleValue: true
-    xpath: //div[@id="firstVariant"]
+    singleValue: false
+    xpath: //div[@class="firstVariant"]
   - name: variants
-    singleValue: true
-    xpath: //div[@id="variants"]
-  - name: additionDescBulletInfo
-    singleValue: true
-    xpath: //div[@id="additionalInfo"]
+    singleValue: false
+    xpath: //div[@class="variants"]
+  #- name: additionDescBulletInfo
+  #  singleValue: true
+  #  xpath: //div[@id="additionalInfo"]
   - name: prop65Warning
-    singleValue: true
-    xpath: //div[@id="p65Info"]
+    singleValue: false
+    xpath: //div[@class="prop65Warning"]
   - name: ageSuitability
-    singleValue: true
-    xpath: //div[@id="ageInfo"]
+    singleValue: false
+    xpath: //div[@class="ageSuitability"]
   - name: termsAndConditions
-    singleValue: true
-    xpath: //div[@id="terms"]
+    singleValue: false
+    xpath: //div[@class="terms"]
   - name: privacyPolicy
-    singleValue: true
-    xpath: //div[@id="privacy"]
+    singleValue: false
+    xpath: //div[@class="privacy"]
   - name: customerServiceAvailability
-    singleValue: true
-    xpath: //div[@id="customerServiceAvailability"]
+    singleValue: false
+    xpath: //div[@class="customerServiceAvailability"]
   - name: materials
-    singleValue: true
-    xpath: //div[@id="materialInfo"]
+    singleValue: false
+    xpath: //div[@class="materials"]
   - name: imageZoomFeaturePresent
-    singleValue: true
-    xpath: //div[@id="zoomInfo"]
+    singleValue: false
+    xpath: //div[@class="zoom"]
   - name:  360ImagePresent
-    singleValue: true
-    xpath: //div[@id="rotateInfo"]
+    singleValue: false
+    xpath: //div[@class="rotate"]
