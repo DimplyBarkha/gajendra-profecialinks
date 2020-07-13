@@ -20,9 +20,6 @@ fields:
     xpath: //span[@data-component-type="s-status-badge-component"]/@data-component-props | //i[@aria-label="Amazon Pantry"]/@aria-label | //i[@aria-label="Amazon Prime"]/@aria-label
   - name: sub_and_save
     xpath: //*[contains(@dir,"auto") and contains(text(), "ubscribe")]/text()
-    regExp: (.+)
-    regExpReplace: true
-    defaultValue: false
   - name: title
     xpath: //h2
   - name: rank
