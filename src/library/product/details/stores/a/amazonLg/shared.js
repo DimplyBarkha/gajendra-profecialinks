@@ -38,9 +38,24 @@ const transform = (data) => {
           item.text = `${item.text.replace('US40_', '')}`;
         });
       }
+      if (row.imageAlt) {
+        row.imageAlt.forEach(item => {
+          item.text = cleanUp(item.text);
+        });
+      }
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
           item.text = cleanUp(item.text);
+        });
+      }
+      if (row.salesRank) {
+        row.salesRank.forEach(item => {
+          item.text = `${item.text.replace('#', '')}`;
+        });
+      }
+      if (row.salesRankCategory) {
+        row.salesRankCategory.forEach(item => {
+          item.text = `${item.text.replace(/\(.*\)/gm, '').split('in')[1]}`;
         });
       }
       if (row.description) {
@@ -58,28 +73,15 @@ const transform = (data) => {
           item.text = cleanUp(item.text);
         });
       }
-      if (row.sales_rank) {
-        row.sales_rank.forEach(item => {
+      if (row.shippingWeight) {
+        row.shippingWeight.forEach(item => {
           item.text = cleanUp(item.text);
-          item.text = `${item.text.replace(/\([^()]*\)/g, '')}`;
-          item.text = item.text.split('#');
-          item.text = item.text.filter(Boolean);
-          const saleRank = [];
-          for (let index = 0; index < item.text.length; index++) {
-            saleRank.push(item.text[index].split('in')[0]);
-          }
-          item.text = saleRank.join('|');
+          item.text = `${item.text.replace('(', '')}`;
         });
-        row.sales_rank_category.forEach(item => {
+      }
+      if (row.productOtherInformation) {
+        row.productOtherInformation.forEach(item => {
           item.text = cleanUp(item.text);
-          item.text = `${item.text.replace(/\([^()]*\)/g, '')}`;
-          item.text = item.text.split('#');
-          item.text = item.text.filter(Boolean);
-          const saleRankCategory = [];
-          for (let index = 0; index < item.text.length; index++) {
-            saleRankCategory.push(item.text[index].split('in')[1]);
-          }
-          item.text = saleRankCategory.join('|');
         });
       }
     }

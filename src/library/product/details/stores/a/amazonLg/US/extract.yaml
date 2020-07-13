@@ -41,7 +41,7 @@ fields:
     xpath: //*[@id='bylineInfo'] 
   - name: quantity
     singleValue: false
-    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1] | //*[@id="variation_size_name"]/div/span
   - name: weightGross
     singleValue: false
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
@@ -58,7 +58,7 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
   - name: warnings
     singleValue: false
-    xpath: //div[contains(@id, 'cpsia-product-safety-warning_feature_div')]
+    xpath: //*[@id="cpsiaMainDiv"]/table/tbody/tr/td[2]/div[2]
   - name: numberOfServingsInPackage
     singleValue: false
     xpath: //*[@id="product-specification-table"]/tbody/tr/th[text()='Number of Items']/following-sibling::td[1]
@@ -77,7 +77,7 @@ fields:
     regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id,'aplus_feature_div')]//img/@src
+    xpath: //div[contains(@id,'aplus_feature_div')]//img/@src | //*[@id="HLCXComparisonTable"]/tbody/tr[1]/th/div[@class="a-row a-spacing-top-micro"]/center/img/@src | //div[@id="aplus"]/..//img/@src | //table[@id="HLCXComparisonTable"]/..//img/@src
   - name: shippingInfo
     singleValue: false
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
@@ -98,7 +98,7 @@ fields:
     xpath: //*[@class="aplus"] | //div[@class="aplus-module-wrapper"] | //div[@id="a_manufacturerDescription"]
   - name: descriptionBullets 
     singleValue: false
-    xpath: count(//div[@id="feature-bullets-btf"]/*//ul/li | //div[@id="featurebullets_feature_div"]/*//ul/li)
+    xpath: count(//*[@id='feature-bullets']/*//li[not(@id)])
   - name: videos
     singleValue: false
     xpath: //li[contains(@class,"a-carousel-card vse-video-card")]/div/@data-video-url
@@ -107,7 +107,7 @@ fields:
     xpath: //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]/div[@id="unclippedCoupon"] | //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]//div[contains(@class,"vpcApplyCoupon")]
   - name: productsPerPage
     singleValue: false
-    xpath: count(//div[@id="variation_color_name"]/ul/li | //div[@id="variation_configuration"]/ul/li | //*[@id="a-popover-4"]//*/ul/li)
+    xpath: count(//div[@id="variation_color_name"]/ul/li | //div[@id="variation_configuration"]/ul/li | //*[@id="a-popover-4"]//*/ul/li | //ul[contains(@class, "swatches swatchesSquare")]/li)
   - name: scrapeCode
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
@@ -116,15 +116,16 @@ fields:
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: promotion
     singleValue: false
-    xpath: //tr[contains(@id, 'dealprice_savings')]
+    xpath: //tr[contains(@id, 'dealprice_savings')] | //tr[contains(@id, 'regularprice_savings')]
   - name: lbb
     singleValue: false
+    defaultValue:  'NO'
   - name: featureBullets
     singleValue: false
     xpath: //div[@id="feature-bullets-btf"]/*//ul/li | //div[@id="featurebullets_feature_div"]/*//ul/li
-  # - name: packSize 
-  #   singleValue: false
-  #   xpath: 
+  - name: packSize 
+    singleValue: false
+    # xpath: 
   - name: secondaryImageTotal
     singleValue: false
     xpath: //div[@id="a_secondaryImageTotal"]
@@ -143,29 +144,30 @@ fields:
   - name: salesRank
     singleValue: false
     xpath: //*[@id="productDetails_detailBullets_sections1"]/tbody/tr[th//text()[contains(., 'Sellers')]]/td
+    regExp: \#([0-9]{1,},?[0-9]{0,})
   - name: salesRankCategory
     singleValue: false
-    xpath: //*[@id="productDetails_detailBullets_sections1"]/tbody/tr[th//text()[contains(., 'Sellers')]]/td
+    xpath: //*[@id="productDetails_detailBullets_sections1"]/tbody/tr[th//text()[contains(., 'Sellers')]]/td/span/span
   - name: subscribeAndSave
     singleValue: false
-  # - name: hero_quick_promo_headline
-  #   singleValue: false
-  #   xpath: 
-  # - name: hero_quick_promo_image_url
-  #   singleValue: false
-  #   xpath: 
-  # - name: hero_quick_promo_url
-  #   singleValue: false
-  #   xpath: 
+    defaultValue: "NO"
+  - name: heroQuickPromoHeadline
+    xpath: //div[@id="hero-quick-promo"]//span
+  - name: heroQuickPromoImageUrl
+    xpath: //div[@id="hero-quick-promo"]//img[@class="a-dynamic-image"]/@src
+  - name: heroQuickPromoUrl
+    xpath: (//div[@id="hero-quick-promo"]//a[@class="a-link-normal"]/@href)[1]
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com$1 
   - name: pasin
     singleValue: false
     xpath: //div[@id="a_first_variant"]
   - name: videoLength
     singleValue: false
-    xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1] | //p[@data-element-id="video-duration"]
+    xpath: //p[@data-element-id="video-duration"]
   - name: dealPrice
     singleValue: false
-    xpath: //span[contains(@id, 'priceblock_dealprice')]
+    xpath: //span[contains(@id, 'priceblock_dealprice')] | //span[contains(@id, 'priceblock_ourprice')]
   - name: ingredientImagePresent
     singleValue: false
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
@@ -187,14 +189,14 @@ fields:
   - name: andonCord
     singleValue: false
   - name: primeFlag
-    singleValue: false
+    singleValue: true
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue:  'NO'
   - name: fastTrack
     singleValue: false
-    xpath: //div[@id="fast-track-message"]/*//div[@id="delivery-message"]
+    xpath: (//div[@id="fast-track-message"]//div[@id="delivery-message"])[1] | //div[@id="fast-track-message"]/*//div[@id="delivery-message"]
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@id, "twister_feature_div")]/*//ul/li[last()]/*//span[@class="a-size-base"]
