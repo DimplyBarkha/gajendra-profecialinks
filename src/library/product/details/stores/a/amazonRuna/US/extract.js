@@ -9,23 +9,51 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const scrollToContent = async (selector) => {
-      await context.evaluate(async (selectorToWaitFor) => {
-        const delay = t => new Promise(resolve => setTimeout(resolve, t));
+      await context.evaluate(async (selectorToScrollTo) => {
 
-        console.log('SCROLLING TO PAGE');
-        const element = document.querySelector(selectorToWaitFor);
+        function scrollToSmoothly(pos, time) {
+          return new Promise((res, rej) => {
+            if (isNaN(pos)) {
+              return rej(new Error("Position must be a number"));
+            }
+            if (pos < 0) {
+              return rej(new Error("Position can not be negative"));
+            }
+            var currentPos = window.scrollY || window.screenTop;
+            if (currentPos < pos) {
+              var t = 10;
+              for (let i = currentPos; i <= pos; i += 10) {
+                console.log('Scrolling');
+                t += 10;
+                setTimeout(function () {
+                  window.scrollTo(0, i);
+                }, t / 2);
+              }
+              return res();
+            } else {
+              time = time || 100;
+              var i = currentPos;
+              var x;
+              x = setInterval(function () {
+                window.scrollTo(0, i);
+                i -= 10;
+                if (i <= pos) {
+                  clearInterval(x);
+                }
+              }, time);
 
-        if (!element) {
-          console.log('Element not found');
-          return;
+              return res();
+            }
+          });
         }
 
-        element.scrollIntoView(false);
-        await delay(1500);
-        return;
+
+        const elem = document.querySelector(selectorToScrollTo);
+        await scrollToSmoothly(elem.offsetTop);
       }, selector);
     }
 
+    await scrollToContent('#reviewsMedley');
     await scrollToContent('.askDetailPageSearchWidgetSection');
 
     try {
