@@ -11,16 +11,16 @@ fields:
   - name: thumbnail
     description: The URL for the product thumbnail image
     regExp: ^(.+)$
-    regExpReplace: https:$1    
+    regExpReplace: https:$1
     xpath: //img/@data-src
   - name: name
-    xpath: //div[contains(@class,"product-name")]//a[contains(@data-event,"product_click")]
+    xpath: //a[contains(@data-event,"product_click")]
   - name: gtin
     regExp: gtin":"([^"]+)
     regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
     xpath: //span[@data-json]/@data-json
-  - name: aggregateRatingText
+  - name: aggregateRating
     description: The stated aggregate rating
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
     regExp: (.+)de(.+)
