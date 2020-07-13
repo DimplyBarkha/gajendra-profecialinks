@@ -22,6 +22,14 @@ fields:
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
   - name: price
     xpath: //*[@id="priceblock_ourprice"]|//*[@id="priceblock_saleprice"]
+  - name: pricePerUnit
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: (\((.+)?Count(.+))
+    regExpReplace: $21
+  - name: pricePerUnitUom
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: (\((.+)?Count(.+))
+    regExpReplace: Count
   - name: availabilityText
     xpath: //*[@id='availability']
   - name: description
@@ -30,6 +38,8 @@ fields:
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
   - name: brandText
     xpath: //*[@id='bylineInfo']
+    regExp: (?:Visit the (.+))
+    regExpReplace: $1
   - name: manufacturer
     xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1]
   - name: quantity
