@@ -1,0 +1,19 @@
+extends: ../US/extract
+fields:
+  - name: prime
+    singleValue: false
+    type: BOOLEAN
+    xpath: //i[@aria-label="Amazon Prime"]
+    regExp: .+
+    regExpReplace: true
+    defaultValue: false
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.ca$1  
+  - name: sub_and_save
+    xpath: //span[contains(@dir,"auto") and contains(text(), "ubscribe")]/text()
+    regExp: .+
+    regExpReplace: true
+    defaultValue: false
