@@ -72,6 +72,11 @@ const transform = (data, context) => {
           otherSellersPrice.text = otherSellersPrice.text.replace('.', '').replace(',', '.').trim();
         });
       }
+      if (row.otherSellersShipping) {
+        row.otherSellersShipping.forEach(otherSellersShipping => {
+          otherSellersShipping.text = otherSellersShipping.text.replace('.', '').replace(',', '.').trim();
+        });
+      }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(aggregateRating => {
           aggregateRating.text = aggregateRating.text.replace(',', '.').trim();

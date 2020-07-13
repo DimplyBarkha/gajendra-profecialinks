@@ -33,7 +33,6 @@ fields:
   - name: description
     singleValue: false
     xpath: /html/body/@prod_desc
-    # xpath: //*[@id='feature-bullets']/ul/li[not(@id)] or //div[@id='productDescription']/p or //div[@id='productDescription']/h3[contains(text(), 'Produktbeschreibung')]//following-sibling::*[1]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
@@ -63,26 +62,9 @@ fields:
   - name: asin
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
-  
-  # - name: variantId
-  #   singleValue: true
-  #   description: Identifier for a variant from a store where variants share the same sku
-  # - name: mpc
-  #   singleValue: true
-  #   description: The manufacturer model code (unique) of the product
-  # - name: packSize
-  #   singleValue: true
-  #   description: The number of packs in the product offer (if stated separately on
-  #     the site to quantity)
-  # - name: legalDisclaimer
-  #   singleValue: true
-  #   description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
     xpath: //*[contains(text(), 'Gebrauchsanweisung')]/following-sibling::*[1]
-  # - name: warnings
-  #   singleValue: true
-  #   description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="acrCustomerReviewText"]/text()
@@ -212,6 +194,8 @@ fields:
   - name: otherSellersShipping
     singleValue: false
     xpath: //span[contains(@id, "mbc-shipping")]
+    regExp: ([0-9\,]{1,}) €
+    regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
