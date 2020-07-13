@@ -50,7 +50,7 @@ fields:
     xpath: //p[contains(text(),"Instrucciones")]/following-sibling::p
     singleValue: false
   - name: allergyAdvice
-    xpath: //div[@class="nutrition-allergens"]
+    xpath: //div[@class="nutrition-allergens"]//span[@class="nutrition-allergens__contain"]
     singleValue: true
   - name: packaging
     xpath: //p[contains(text(),"Características")]/following-sibling::div
@@ -120,7 +120,7 @@ fields:
     regExp: '[^\s]$'
     singleValue: false
   - name: price
-    xpath: //span[@class="buybox__price"]
+    xpath: //span[@class="buybox__price"] | //span[@class="buybox__price--current"]
     singleValue: true
   - name: ratingCount
     xpath: //span[@class="stars-rate-extended__reviews"]
@@ -164,4 +164,9 @@ fields:
     singleValue: false
   - name: gtin
     xpath: //body/@gtin
+    singleValue: true
+  - name: promotion
+    xpath: //span[@class='badge__name']|//span[@class="badge__text-food"]
+  - name: listPrice
+    xpath: //span[@class="buybox__price-strikethrough"]
     singleValue: true
