@@ -280,7 +280,7 @@ fields:
     defaultValue: NO
   - name: lbb
     singleValue: true
-    xpath: //span[@data-action='show-all-offers-display' and contains(text(),'Available from ')] | //div[contains(@id,'olp-upd-new-used-freeshipping-threshold')]
+    xpath: //span[@id="price_inside_buybox"]
     description: Check Lost by Box Requirements (just for Amazon and a couple of
       other stores) - LBB occurs when a product is bought from someone other
       than Amazon (on Amazon Website) - even though Amazon has the product "in
@@ -290,7 +290,7 @@ fields:
     defaultValue: 'NO'
   - name: lbbPrice
     singleValue: true
-    xpath: //*[@id="priceblock_ourprice" or contains(@class,"offer-price")  or contains(@class,"a-color-price")]
+    xpath: //span[@id="price_inside_buybox"]
     description: null
   - name: featureBullets
     singleValue: false

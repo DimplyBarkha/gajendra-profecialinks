@@ -166,6 +166,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.variantAsins) {
+        const text = [];
+        row.variantAsins.forEach((item) => {
+          text.push(item.text);
+        });
+        row.variantAsins = [
+          {
+            text: text.join(' | '),
+          },
+        ];
+      }
       if (row.otherSellersPrime) {
         for (const item of row.otherSellersPrime) {
           if (item.text.includes('Details')) {
