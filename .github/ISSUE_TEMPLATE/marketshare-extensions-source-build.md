@@ -70,9 +70,9 @@ https://import-io.github.io/import-io-cli-public/#import-io-actionrunremote
 - [ ] Promote Source to `Staging Deployment` in Project Dash
 - [ ] Remove `Development` Label
 - [ ] Add `Staging` Label
-- [ ] Deploy to `staging` branch
+- [ ] Deploy to `ms-staging` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
-- [ ] Link `staging` extractor GUID to MarketShare (POC) project > search_raw_parquet collection > source in workbench
+- [ ] Link `ms-staging` extractor GUID to MarketShare (POC) project > {collection}_raw_parquet > source in workbench
 [**ascential/projects/marketshare_extensions/collections**](https://workbench.import.io/orgs/ascential/projects/marketshare_extensions/collections)
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `staging`
 - [ ] Scale/High Volume test
@@ -97,6 +97,6 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 #### Production
 - [ ] Promote Source to `Production` in Project Dash
 - [ ] Add `Production` Label
-- [ ] Ensure extractor gets deployed to the `production` branch in the daily production deployment
+- [ ] Ensure extractor gets deployed to the `ms-production` branch in the daily production deployment
 - [ ] Link production extractor GUID to production source in workbench
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `production`
