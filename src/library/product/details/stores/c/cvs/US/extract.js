@@ -17,12 +17,11 @@ module.exports = {
     });
     const json = JSON.parse(jsonText);
   
-    if (json && json.records && json.totalRecordCount) {
+    if (json && json.records && json.totalRecordCount > 0) {
+
       const currentUrl = await context.evaluate(function() {
         return window.location.href;
       })
-
-
 
       async function collectManuf() {
         // let variants = [302482,302514,302696];
@@ -40,26 +39,45 @@ module.exports = {
             }
           }
         },json.records, json.totalRecordCount,)
-        let manufArray = [];
-        let i = 0;
-        while(i < variants.length) {
-          await context.goto(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
-          await new Promise(resolve => setTimeout(resolve, 1000));
+        await context.goto(`https://scontent.webcollage.net#[!opt!]{"type":"js","init_js":""}[/!opt!]`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
 
-          var jsonText = await context.evaluate(function () {
-            return document.querySelector('pre').innerText;
-          });
-          const findStr1 = 'html:';
-          const startIdx1 = jsonText.indexOf(findStr1) + findStr1.length;
-          const endIdx1 = jsonText.indexOf('var _wcscript');
-          let text = (startIdx1 && startIdx1 > -1 && endIdx1 && endIdx1 > -1) ? jsonText.substr(startIdx1, endIdx1 - startIdx1) : 0;
-          text = text.substr(1, text.indexOf('div>"')+4);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        let manufArray = [];
+        // let i = 0;
+        // while(i < variants.length) {
+        //   console.log("DOING THE SECOND GOTO")
+        //   await context.goto(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+        //   await new Promise(resolve => setTimeout(resolve, 1000));
+
+        //   var jsonText = await context.evaluate(function () {
+        //     return document.querySelector('pre').innerText;
+        //   });
+        //   const findStr1 = 'html:';
+        //   console.log("START OF JSON" + jsonText)
+        //   const startIdx1 = jsonText.indexOf(findStr1) + findStr1.length;
+        //   const endIdx1 = jsonText.indexOf('var _wcscript');
+        //   let text = (startIdx1 && startIdx1 > -1 && endIdx1 && endIdx1 > -1) ? jsonText.substr(startIdx1, endIdx1 - startIdx1) : 0;
+        //   text = text.substr(1, text.indexOf('div>"')+4);
+        //   manufArray.push(text);
+        //   i++;
+        // }
+        for(let i = 0; i < variants.length; i++ ){
+          const html = await context.evaluate(async function getEnhancedContent(variants, i) {
+            return fetch(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`)
+            .then(response => response.text())
+          }, variants, i);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const regex = /html: "(.+)"\n\s\s\}\n\}\;/s
+          let text = "Not Found"
+          if(html.match(regex)){
+            text = html.match(regex)[1];
+          }
+          text = text.replace(/html: /g, "")
           manufArray.push(text);
-          i++;
         }
         return manufArray;
       }
-
 
       const htmlList = await collectManuf();
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -71,7 +89,7 @@ module.exports = {
           newDiv.id = id;
           if (!content) content = '';
           if(html) {
-            newDiv.innerHTML = unescape(content.replace(/\\/g, '')).replace(/"""/g, '');
+            newDiv.innerHTML = unescape(content.replace(/\\\\\\/g, '').replace(/\\/g,'')).replace(/\"/g,'').replace(/"""/g, '');
           } else {
             newDiv.textContent = content;
           }
@@ -96,63 +114,22 @@ module.exports = {
                 for(let i = 0; i < product.variants.length; i++){
                   
                   const newDiv = addHiddenDiv(`ii_product`, `${i}`);
-                  addHiddenDiv(`ii_manufHTML${i}`, htmlList[i], newDiv, true);
+                  addHiddenDiv(`ii_manufHTML`, htmlList[i], newDiv, true);
 
                   addHiddenDiv('ii_brand', product.ProductBrand_Brand, newDiv);
                   addHiddenDiv('ii_title', product.title, newDiv);
                   addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
-                  // addHiddenDiv('ii_category', product.categories); 
                   if(product.categories){
                     Object.values(product.categories[0]).forEach(cat => {
-                      addHiddenDiv('ii_category', cat); 
+                      addHiddenDiv('ii_category', cat, newDiv); 
                     })
                   } 
-                  const manufDesc = `//div[@id="ii_manufHTML${i}"]//div[contains(@id, "wc-power-page")]//div[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()`
-                  const variantManufImages = '//div[@id="wc-aplus"]//img/@src[not (contains(., "syndigo.svg"))]'
-                  const variantVideo = '//img[contains(@class,"wc-iframe")]/@data-asset-url'
-                  const variantVideo2 = '//img[contains(@class, "wc-video")]/@wcobj'
-                  const variantVideo3 = '//div[contains(@class, "wc-iframe")]//@data-src'
-debugger
-                  if(manufDesc) {
-                    var element = document.evaluate( manufDesc, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-                    if( element.snapshotLength > 0 ) {
-                      for(let i = 0; i < element.snapshotLength; i++) {
-                        addHiddenDiv(`ii_manufDesc`, `${element.snapshotItem(i).textContent}`);
-                      }
-                    }
-                  }
-
-                  if(variantManufImages) {
-                    var element = document.evaluate( variantManufImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-                    if( element.snapshotLength > 0 ) {
-                      for(let i = 0; i < element.snapshotLength; i++) {
-                        addHiddenDiv(`ii_variantManufImages`, `${element.snapshotItem(i).textContent}`);
-                      }
-                    }
-                  }
-
-                  if(variantVideo) {
-                    var element = document.evaluate( variantVideo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-                    var element2 = document.evaluate( variantVideo2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-                    var element3 = document.evaluate( variantVideo3, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-            
-            
-                    if( element.snapshotLength > 0 ) {
-                      for(let i = 0; i < element.snapshotLength; i++) {
-                        addHiddenDiv(`ii_videoSrc`, `${element.snapshotItem(i).textContent}`);
-                      }
-                    } 
-                    if(element2.snapshotLength > 0){
-                      for(let i = 0; i < element2.snapshotLength; i++) {
-                        addHiddenDiv(`ii_videoSrc`, `${element2.snapshotItem(i).textContent}`);
-                      }
-                    }
-                    if(element3.snapshotLength > 0){
-                      for(let i = 0; i < element3.snapshotLength; i++) {
-                        addHiddenDiv(`ii_videoSrc`, `${element3.snapshotItem(i).textContent}`);
-                      }
-                    }
-                  }
+                  // const manufDesc = `//div[@id="ii_manufHTML${i}"]//div[contains(@id, "wc-power-page")]//div[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()`
+                  // const variantManufImages = '//div[@id="wc-aplus"]//img/@src[not (contains(., "syndigo.svg"))]'
+                  // const variantVideo = '//img[contains(@class,"wc-iframe")]/@data-asset-url'
+                  // const variantVideo2 = '//img[contains(@class, "wc-video")]/@wcobj'
+                  // const variantVideo3 = '//div[contains(@class, "wc-iframe")]//@data-src'
+              
               
                   
                   const variant = product.variants[i].subVariant[0];
@@ -221,17 +198,26 @@ debugger
                         let bullets = deets.match(regex)
                         deets = deets.replace(/<li>(.*?)<\/li>/g, ' ')
                         deets = deets.replace(/<.+?>/g, ' ')
-                        addHiddenDiv('ii_directions', `${deets}`, newDiv); 
+                        debugger
+                        if(deets.includes("Questions?")){
+                          let deetSplit = deets.split("Questions")
+                          addHiddenDiv('ii_directions', `${deetSplit[0]}`, newDiv); 
+                        } else{
+                          addHiddenDiv('ii_directions', `${deets}`, newDiv); 
+
+                        }
                         if(bullets){
                           for(let i = 0; i < bullets.length; i++){
                             let newBullet = bullets[i].replace(/<\/?li>/g,' ')
-                            addHiddenDiv('ii_directions', `${newBullet}`, newDiv); 
+                            if(!deets.includes("Questions?")){
+                              addHiddenDiv('ii_directions', `${newBullet}`, newDiv); 
+                            }
                           }
                         }
                       }
                       addHiddenDiv('ii_id', variant.p_Sku_ID, newDiv);
                       skuArray.push(variant.p_Sku_ID);
-                      addHiddenDiv('ii_packSize', variant.p_Sku_Size, newDiv);  
+                      addHiddenDiv('ii_quantity', variant.p_Sku_Size, newDiv);  
                       addHiddenDiv('ii_listPrice', variant.p_Product_Price, newDiv);              
                       addHiddenDiv('ii_weight', variant.p_Product_Weight, newDiv);              
                       addHiddenDiv('ii_reviewCount', variant.p_Product_Review, newDiv);              
@@ -254,6 +240,7 @@ debugger
                         metaKeywords.push(variant.p_Sku_Size)
                       }
                       if(variant.p_Sku_Group_Size){
+                        addHiddenDiv('ii_packSize', variant.p_Sku_Group_Size, newDiv);  
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Group_Size, newDiv);
                         metaKeywords.push(variant.p_Sku_Group_Size)
                       }
@@ -286,6 +273,7 @@ debugger
                         metaKeywords.push(variant.p_Sku_Fragrance)
                       }
                       if(variant.p_Sku_Pack){
+                        addHiddenDiv('ii_packSize', variant.p_Sku_Pack, newDiv);  
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Pack, newDiv);
                         metaKeywords.push(variant.p_Sku_Pack)
                       }
@@ -307,62 +295,17 @@ debugger
 
                       if(variant.CAREPASS_INDICATOR === "ELIGIBLE") {
                       addHiddenDiv('ii_shipping', 'Ships Free With CarePass', newDiv);
-                      }
-                    
-                    
+                      }                    
                     
                   }
-                  // return skuArray;
                 }
             
           }
         }
       }, json.records, json.totalRecordCount, htmlList);
+    } else {
+      throw new Error("notFound");
     }
-
-
-
-    // const html = await context.evaluate(async function getDataFromUrl() {
-    //   // const redirectUrl = 'https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=874110'
-    //   let response = fetch("https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=874110", {
-    //     "headers": {
-    //     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    //     "accept-language": "en-US,en;q=0.9",
-    //     "cache-control": "no-cache",
-    //     "pragma": "no-cache",
-    //     "sec-fetch-dest": "document",
-    //     "sec-fetch-mode": "navigate",
-    //     "sec-fetch-site": "none",
-    //     "sec-fetch-user": "?1",
-    //     "upgrade-insecure-requests": "1"
-    //   },
-    //   "referrerPolicy": "no-referrer-when-downgrade",
-    //   "body": null,
-    //   "method": "GET",
-    //   "mode": "no-cors",
-    //   "credentials": "omit"
-    //   })
-    //   // .then(response => response.text())
-    //   // .then(function (text) {
-    //   //   // debugger
-    //   //   console.log("THE TEXT IS COMING!!!!!!!!!")
-    //   //   console.log(text + "THIS IS THE TEXT!!!!!!!!!!!!!")
-    //   // });
-  
-    //   // if (response && response.status === 404) {
-    //   //   console.log('Product Not Found!!!!');
-    //   //   return '';
-    //   // }
-    //   if (response[0]) {
-    //     console.log('Product Found!!!!');
-    //     // console.log(response.status)
-    //     console.log(response)
-    //     const data = (await response[0]);
-    //     debugger
-    //     return data;
-    //   }
-    // });
-    
 
     
     return await context.extract(productDetails, { transform: transformParam });

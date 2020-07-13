@@ -27,31 +27,35 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (let row of group) {
       try {
+
+        if (row.variants) {
+          if(row.variants.length < 2){
+
+            row.variants = [{ text: '' }];
+          }
+        }
+
         if (row.firstVariant || row.variantId) {
           let text = row.firstVariant[0].text;
           let split = text.split('-')
           row.variantId = [{ text: `${split[split.length - 1]}` }];
           row.firstVariant = [{ text: `${split[split.length - 1]}` }];
         }
-        // if (row.weightGross) {
-        //   let text = row.weightGross[0].text;
-        //   let split = text.split(' ')
-        //   row.weightGross = [{ text: `${split[0]}` }];
-        // }
+
         if (row.sku) {
           row.productUrl = [{ text: `${row.productUrl[0].text}?skuid=${row.sku[0].text}` }];
         }
-        if (row.manufacturerDescription) {
-          let text = '';
-          row.manufacturerDescription.forEach(item => {
-            text += `${item.text.replace(/\n \n/g, ' ')}  `;
-          });
-          row.manufacturerDescription = [
-            {
-              text: text.slice(0, -4),
-            },
-          ];
-        }
+        // if (row.manufacturerDescription) {
+        //   let text = '';
+        //   row.manufacturerDescription.forEach(item => {
+        //     text += `${item.text.replace(/\n \n/g, ' ')}  `;
+        //   });
+        //   row.manufacturerDescription = [
+        //     {
+        //       text: text.slice(0, -4),
+        //     },
+        //   ];
+        // }
         // if (row.additionalDescBulletInfo) {
         //   let text = '';
         //   row.additionalDescBulletInfo.forEach(item => {
@@ -66,17 +70,17 @@ const transform = (data, context) => {
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
-        if (row.productOtherInformation) {
-          let text = '';
-          row.productOtherInformation.forEach(item => {
-            text += `${item.text.replace(/\n \n/g, ' ')}  `;
-          });
-          row.productOtherInformation = [
-            {
-              text: text.slice(0, -4),
-            },
-          ];
-        }
+        // if (row.productOtherInformation) {
+        //   let text = '';
+        //   row.productOtherInformation.forEach(item => {
+        //     text += `${item.text.replace(/\n \n/g, ' ')}  `;
+        //   });
+        //   row.productOtherInformation = [
+        //     {
+        //       text: text.slice(0, -4),
+        //     },
+        //   ];
+        // }
         // row = cleanUp(row);
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
