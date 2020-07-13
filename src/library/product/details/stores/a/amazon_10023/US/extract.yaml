@@ -20,14 +20,13 @@ fields:
   - name: _pageTimestamp
     singleValue: false
   - name: _url
-    singleValue: false
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name='title']/@content
+    xpath: //*[@id="productTitle"]
   - name: listPrice
     singleValue: false
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
@@ -39,7 +38,7 @@ fields:
     xpath: //*[@id='availability']
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//div[@id="productDescription"]/p[text()]/text()
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
@@ -84,14 +83,14 @@ fields:
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
     singleValue: false
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text() | //*[@id="aplus"]//span[contains(text(), 'Directions')]/parent::p/following-sibling::ul[1]//li
   - name: warnings
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text()
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="acrCustomerReviewText"]/text()
-    regExp: ([0-9]{1,}) ratings
+    regExp: (.+) ratings
     regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
@@ -113,8 +112,7 @@ fields:
     regExp: ([^()]+)
     regExpReplace: $1
   - name: variantCount
-    singleValue: false
-    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
+    xpath: count(//select[@name="dropdown_selected_size_name"]/option[position()>1]|//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: color
     singleValue: false
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
@@ -123,13 +121,13 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="pd_enhancedContent"]
+    xpath: //div[@id="aplus"]/div
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     singleValue: false
-    xpath: //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
+    xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url | //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
   - name: name
     singleValue: false
     xpath: //title
@@ -148,6 +146,9 @@ fields:
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue:  'No'
+  - name: amazonChoiceCategory
+    singleValue: false
+    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
   - name: brandLink
     singleValue: false
     xpath: //a[@id="bylineInfo"]/@href
@@ -157,9 +158,8 @@ fields:
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
   - name: salesRank
-    singleValue: false
     xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]
-    regExp: \#([0-9]{1,}(,[0-9]+)?)
+    regExp: \#([^\s]+)
     regExpReplace: $1
   - name: salesRankCategory
     singleValue: false
@@ -178,8 +178,9 @@ fields:
     regExpReplace: 'YES'
     defaultValue: 'NO'
   - name: pasin
-    singleValue: false
-    xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
+    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
+    regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
+    regExpReplace: $2
   - name: videoLength
     singleValue: false
     xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
@@ -205,8 +206,7 @@ fields:
     regExpReplace: 'YES'
     defaultValue: 'NO'
   - name: variantAsins
-    singleValue: false
-    xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-defaultasin
+    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin|//select[@name="dropdown_selected_size_name"]/option[position()>1]/@value
   - name: specifications
     singleValue: false
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
@@ -214,26 +214,25 @@ fields:
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
     regExp: (.+)
-    regExpReplace: "Yes - Shipped and Sold"
-    defaultValue: "NO" 
+    regExpReplace: 'Yes'
   - name: lbb
-    singleValue: false
-    xpath: 
+    xpath: //span[@id="price_inside_buybox"]
+    regExp: (.+)
+    regExpReplace: "YES"
+    defaultValue: "NO"
   - name: lbbPrice
-    singleValue: false
-    xpath: 
+    xpath: //span[@id="price_inside_buybox"]
   - name: featureBullets
-    singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] 
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
-    singleValue: false
-    xpath: 
+    xpath: //span[contains(@class,'mbcMerchantName')]
+  - name: otherSellersPrice
+    xpath: //span[contains(@id, "mbc-price")]      
   - name: otherSellersPrime
     singleValue: false
     xpath: 
-  - name: otherSellersShipping
-    singleValue: false
-    xpath: 
+  - name: otherSellersShipping2
+    xpath: //span[contains(@id, "mbc-shipping")]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
@@ -245,13 +244,19 @@ fields:
     xpath: 
   - name: fastTrack
     singleValue: false
-    xpath: 
+    xpath: (//div[@id="fast-track-message"]//div[@id="delivery-message"])[1]
+  - name: firstVariant
+    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
+    regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
+    regExpReplace: $2 
+  - name: variantInformation
+    xpath: //*[@id="variation_flavor_name"]//*[@id="dropdown_selected_flavor_name"] | (//span[@class="selection"])[1]
   - name: product/food
     singleValue: false
     xpath: 
   - name: ingredientsList
     singleValue: false
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
+    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p) | //*[@id="aplus"]//span[contains(text(), 'Directions')]/parent::p/following-sibling::ul[1]//li
   - name: servingSize
     singleValue: false
     xpath: 
@@ -368,7 +373,7 @@ fields:
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
   - name: storage
     singleValue: false
-    xpath: //*[@id="glow-ingress-line2"]
+    xpath: 
   - name: countryOfOrigin
     singleValue: false
     xpath: 
@@ -439,6 +444,5 @@ fields:
     singleValue: false
     xpath: 
   - name: largeImageCount
-    singleValue: false
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
-    
+    xpath: //script[contains(., "ImageBlockATF")]/text()
+    defaultValue: 0    

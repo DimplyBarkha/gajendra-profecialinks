@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -9,19 +9,18 @@ module.exports = {
     domain: 'amazon.com',
     zipcode: '10023',
   },
-  implementation: async ({ url }, { transform }, context, { productDetails }) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
-      let manufacturerDescription = document.querySelector('div[id="aplus"] div[data-cel-widget="aplus"]');
-      manufacturerDescription = manufacturerDescription ? manufacturerDescription.innerText.trim() : '';
-      if (manufacturerDescription) {
-        addElementToDocument('pd_enhancedContent', manufacturerDescription);
+      await new Promise(resolve => setTimeout(resolve, 2814));
+      const element = document.getElementById('aplus');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        await new Promise(resolve => setTimeout(resolve, 2197));
       }
     });
     return await context.extract(productDetails, { transform });
