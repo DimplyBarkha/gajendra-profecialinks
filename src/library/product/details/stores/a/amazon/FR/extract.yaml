@@ -5,13 +5,14 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//img[@id="landingImage"])[1]/@src
+    xpath: (//img[@id="landingImage"])[1]/@src | //div[contains(@id,'img-canvas')]/img/@src
   - name: imageAlt
     singleValue: false
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    xpath: //*[@id="imageBlock_feature_div"]/script
+    regExp: large\":\"(.{40,200})\"\,\"main
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -26,13 +27,13 @@ fields:
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: false
-    xpath: //*[@id="priceblock_ourprice"]
+    xpath: //*[@id="priceblock_ourprice"] | //*[contains(@class, "a-color-price a-color-price")] | //div[@id="olp-new"]//span[contains(@class, "a-color-price")]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id='availability']
+    xpath: //*[@id='availability']//span
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]//p | //*[@id="productDescription"]//ul
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
@@ -52,7 +53,7 @@ fields:
     regExpReplace: $1
   - name: weightGross
     singleValue: false
-    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
+    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //*[contains(text(),'Weight')]//following-sibling::*
     regExp: ([^()]+)
     regExpReplace: $1
   - name: gtin
@@ -61,9 +62,6 @@ fields:
   - name: sku
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
-  - name: variantId
-    singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
   - name: mpc
     singleValue:  false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
@@ -80,20 +78,16 @@ fields:
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
   - name: warnings
     singleValue: false
-    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]
+    xpath: //*[contains(text(), 'avertissements')]/parent::*
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="acrCustomerReviewText"]/text()
-    regExp: ([0-9]{1,}) ratings
-    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
     xpath: //*[@id="acrPopover"]/@title
   - name: aggregateRating
     singleValue: false
     xpath: //*[@id="acrPopover"]/@title
-    regExp: ([0-9\.]{1,}) out of
-    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]
@@ -113,10 +107,10 @@ fields:
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="productDescription"]/p[text()]/text()
+    xpath: //div[@data-feature-name="importantInformation"] | //div[@id="prodDetails"] | //div[contains(@id, "productDescription_feature_div") and @class="feature"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@cel_widget_id="aplus"]//img/@src
+    xpath: //div[@class="aplus"]//img/@src | //div[contains(@class, "aplus-module-content")]//th[@class="apm-tablemodule-image "]//img/@src
   - name: videos
     singleValue: false
     xpath: //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
@@ -134,15 +128,13 @@ fields:
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
     regExp: (.+)
     regExpReplace: 'Yes'
-    defaultValue:  'No'
+    description: YES or Blank
   - name: amazonChoiceCategory
     singleValue: false
-    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
+    xpath: //*[@class="ac-for-text"]
   - name: brandLink
     singleValue: false
     xpath: //a[@id="bylineInfo"]/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.com$1
   - name: internationalShipping
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
@@ -212,12 +204,15 @@ fields:
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
     singleValue: false
+    xpath: //div[contains(@id,'mbc')]//span[contains(@class,'mbcMerchantName')]
     description: null
   - name: otherSellersPrice
     singleValue: false
+    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-price')]
     description: null
   - name: otherSellersShipping
     singleValue: false
+    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-shipping')]
     description: null
   - name: secondaryImageTotal
     singleValue: false
@@ -269,3 +264,10 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //*[@id="twister"]//span[@class="selection"]
+  - name: largeImageCount
+    singleValue: false
+    description: null
+    xpath: //script[contains(., "ImageBlockATF")]/text()
+    defaultValue: 0
+  - name: otherSellersPrime
+    xpath: //span[contains(@id, "mbc-shipping")]
