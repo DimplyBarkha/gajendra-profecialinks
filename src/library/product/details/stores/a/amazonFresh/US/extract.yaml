@@ -40,7 +40,10 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: (//*[contains(@id,'availability')] | //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
-    defaultValue: Out of Stock
+    regExp: (.+)
+    regExpReplace: 'In stock'
+    defaultValue: 'Out of Stock'
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/p/text()
@@ -144,7 +147,7 @@ fields:
     xpath: //div[@id='added-url']
   - name: asin
     singleValue: true
-    xpath: //div[@id='added-asin']
+    xpath: (//div[@id='added-asin']|//div[contains(@id, "averageCustomerReviews")]/@data-asin)[1]
   - name: sku
     singleValue: false
     xpath: 

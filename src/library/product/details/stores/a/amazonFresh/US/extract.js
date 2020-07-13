@@ -253,7 +253,7 @@ async function implementation (
     addHiddenDiv('added-asin', asinRaw);
   }
 
-  await setLocale();
+  // await setLocale();
   // @ts-ignore
   const allVariants = [...new Set(await getVariants())];
   await context.evaluate(addUrl);

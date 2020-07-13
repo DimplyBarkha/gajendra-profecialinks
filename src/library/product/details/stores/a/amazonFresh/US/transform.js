@@ -20,22 +20,22 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-        if (row.asin) {
+        if (row.asin && row.asin[0]) {
           row.asin = [{ text: row.asin[0].text.match(/([A-Za-z0-9]{10,})/g)[0] }];
         }
-        if (row.warnings) {
+        if (row.warnings && row.warnings[0]) {
           row.warnings = [{ text: row.warnings[0].text.replace(/Safety Information/g, '').trim() }];
         }
-        if (row.weightGross) {
+        if (row.weightGross && row.weightGross[0]) {
           row.weightGross = [{ text: row.weightGross[0].text.trim() }];
         }
-        if (row.shippingWeight) {
+        if (row.shippingWeight && row.shippingWeight[0]) {
           row.shippingWeight = [{ text: row.shippingWeight[0].text.replace(/\s\(/g, '').trim() }];
         }
-        if (row.grossWeight) {
-          row.grossWeight = [{ text: row.grossgWeight[0].text.replace(/\s\(/g, '').trim() }];
+        if (row.grossWeight && row.grossWeight[0]) {
+          row.grossWeight = [{ text: row.grossWeight[0].text.replace(/\s\(/g, '').trim() }];
         }
-        if (row.largeImageCount) {
+        if (row.largeImageCount && row.largeImageCount[0]) {
           const count = row.largeImageCount[0].text.toString().split('SL1500') ? (row.largeImageCount[0].text.toString().split('SL1500').length - 1) : null;
           if (count) {
             row.largeImageCount = [{ text: count }];
@@ -54,7 +54,7 @@ const transform = (data, context) => {
             row.alternateImages = [{ text: '' }];
           }
         }
-        if (row.videos) {
+        if (row.videos && row.videos[0]) {
           const regex = /\"url\":\"([^"]+)/g;
           const rawArray = row.videos[0].text.toString().match(regex);
           const videos = [];
@@ -68,7 +68,7 @@ const transform = (data, context) => {
             row.videos = [{ text: '' }];
           }
         }
-        if (row.videoLength) {
+        if (row.videoLength && row.videoLength[0]) {
           const regex1 = /\"durationTimestamp\":\"([^"]+)/g;
           const rawArray = row.videoLength[0].text.toString().match(regex1);
           const videos = [];
@@ -82,14 +82,14 @@ const transform = (data, context) => {
             row.videoLength = [{ text: '' }];
           }
         }
-        if (row.brandLink) {
+        if (row.brandLink && row.brandLink[0]) {
           if (!row.brandLink[0].text.includes('www.amazon.com')) {
             row.brandLink = [{ text: `https://www.amazon.com${row.brandLink[0].text}` }];
           } else {
             row.brandLink = [{ text: row.brandLink[0].text }];
           }
         }
-        if (row.brandText) {
+        if (row.brandText && row.brandText[0]) {
           const regexBrand = /([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm;
           if (regexBrand.test(row.brandText[0].text)) {
             const brandName = (row.brandText[0].text).replace(regexBrand, '');
@@ -105,12 +105,14 @@ const transform = (data, context) => {
         if (row.pricePerUnit) {
           const regexBraces = /[{()}]/g;
           const regexBeforeSlash = /([^\/]+$)/g;
-          const regexIgnoreSlash = /[\/]/g;
+          const regexIgnoreSlash = /[\/].*$/g;
           row.pricePerUnit.forEach(item => {
-            if (item.test(item.text)) {
-              item.text = item.text.replace(regexBraces, '');
-              item.text = item.text.exec(regexBeforeSlash);
-              item.text = item.text.replace(regexIgnoreSlash, '');
+            if (regexBraces.test(item.text)) {
+              item.text = (item.text).toString().replace(regexBraces, '');
+              console.log('item.text.exec12')
+              console.log(item.text)
+              // item.text = regexBeforeSlash.exec(item.text);
+              item.text = (item.text).toString().replace(regexIgnoreSlash, '');
             }
           });
           // const priceUnit = row.pricePerUnit[0].text.replace(regexBraces, '').exec(regexBeforeSlash).replace(regexIgnoreSlash, '');
@@ -123,9 +125,11 @@ const transform = (data, context) => {
           const regexAfterSlash = /([^\/]+$)/g;
           // const regexOnlyAlpha = /[A-Za-z]
           row.pricePerUnitUom.forEach(item => {
-            if (item.test(item.text)) {
+            console.log('row.pricePerUnitUom')
+            console.log(item.text)
+            if (regexBraces.test(item.text)) {
               item.text = item.text.replace(regexBraces, '');
-              item.text = item.text.exec(regexAfterSlash);
+              item.text = item.text.match(regexAfterSlash) ? item.text.match(regexAfterSlash)[0] : item.text;
             }
           });
 
@@ -166,30 +170,15 @@ const transform = (data, context) => {
             },
           ];
         }
-        if (row.variantCount) {
-          // console.log('row.variantCount')
-          // const asins = [];
-          // row.variantCount.forEach(item => {
-          //   if (item.text) {
-          //     asins.push(item.text);
-          //   }
-          // });
-          // // @ts-ignore
-          // const dedupeAsins = [...new Set(asins)];
-          // row.variantCount = [
-          //   {
-          //     text: dedupeAsins.length,
-          //   },
-          // ];
-          // console.log('row.variantCount')
-          // console.log(row.variantCount)
-
-          if (typeof row.variantCount[0].text !== 'number') {
-            row.variantCount = [
-              {
-                text: row.variants[0].text.length,
-              },
-            ];
+        if (row.variantCount && row.variantCount[0]) {
+          if (typeof row.variantCount[0].text !== 'number' && (row.variants && row.variants[0])) {
+            if (typeof parseInt(row.variantCount[0].text) !== 'number') {
+              row.variantCount = [
+                {
+                  text: row.variants[0].text.length,
+                },
+              ];
+            }
           }
         }
         if (row.variants) {
@@ -251,13 +240,13 @@ const transform = (data, context) => {
           });
           row.salesRank = rank;
         }
-        if (row.manufacturerDescription) {
+        if (row.manufacturerDescription && row.manufacturerDescription) {
           const description = [];
           console.log('manufacturerDescription');
           row.manufacturerDescription.forEach(item => {
             const regexIgnoreText = /^(Read more)/;
             console.log(item.text);
-            item.text = item.text.replace(regexIgnoreText, '');
+            item.text = (item.text).toString().replace(regexIgnoreText, '');
             console.log(item.text);
             if (!regexIgnoreText.test(item.text)) {
               description.push(item.text);
@@ -269,7 +258,7 @@ const transform = (data, context) => {
             },
           ];
         }
-        if (row.heroQuickPromoUrl) {
+        if (row.heroQuickPromoUrl && row.heroQuickPromoUrl[0]) {
           if (row.heroQuickPromoUrl[0].text.includes('http')) {
             row.heroQuickPromoUrl = [{ text: row.heroQuickPromoUrl[0].text }];
           } else {
@@ -283,7 +272,7 @@ const transform = (data, context) => {
           });
           row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
         }
-        if (row.amazonChoice) {
+        if (row.amazonChoice && row.amazonChoice[0]) {
           if (row.amazonChoice[0].text.includes('Amazon')) {
             row.amazonChoice = [
               {
@@ -352,7 +341,7 @@ const transform = (data, context) => {
         if (row.availabilityText) {
           row.availabilityText = [
             {
-              text: row.availabilityText[0].text.replace(/\./g, '').trim(),
+              text: /[Ii]n [Ss]tock/gm.test(row.availabilityText[0].text) ? 'In stock' : row.availabilityText[0].text,
             },
           ];
         }
