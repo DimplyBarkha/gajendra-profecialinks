@@ -75,6 +75,11 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          item.text = `${item.text.replace(',', '')}`;
+        });
+      }
     }
   }
   return data;

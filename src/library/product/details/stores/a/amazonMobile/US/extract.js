@@ -23,8 +23,13 @@ module.exports = {
         prodEle.style.display = 'none';
         document.body.appendChild(prodEle);
       }
-      const element = document.getElementById('detail-bullets');
-      element && element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      await new Promise(resolve => setTimeout(resolve, 2814));
+      let element = document.getElementById('aplus');
+      element = element || document.getElementById('detail-bullets');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        await new Promise(resolve => setTimeout(resolve, 2197));
+      }
       const specifications = document.querySelectorAll('div[id="detail-bullets"]  ul  li ,  table[id="productDetails_techSpec"]  tbody  tr');
       const data = [];
       specifications && specifications.forEach(item => data.push(item.innerText.trim()));
