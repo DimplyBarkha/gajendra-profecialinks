@@ -256,7 +256,30 @@ module.exports = {
           const hasIngrList = ingredients && ingredients.ingredientGroups &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes) &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
-          const ingrList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), formatIngredientList(obj.ingredients)], []) : '';
+          const ingrList = () => {
+            const ingredList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), formatIngredientList(obj.ingredients)], []).join(' ') : '';
+            const ingredListDom = () => {
+              if (document.querySelector('li#Ingredients div.inner')) {
+                let ingredText = document.querySelector('li#Ingredients div.inner').textContent.replace(/\s\s+/g, ' ');
+
+                if (ingredText.includes('Active Ingredient') || ingredText.includes('Inactive Ingredient')) {
+                  ingredText = ingredText.includes('Active Ingredient') ? ingredText.replace('Active Ingredients', ' Active Ingredients').trim() : ingredText;
+                  ingredText = ingredText.includes('Inactive Ingredient') ? ingredText.replace('Inactive Ingredients', ' Inactive Ingredients').trim() : ingredText;
+                  return ingredText;
+                } else {
+                  return '';
+                }
+              }
+              return '';
+            };
+            const ingredListDomText = ingredListDom();
+
+            if (ingredListDomText.length !== 0) {
+              return ingredListDomText;
+            } else {
+              return ingredList;
+            }
+          };
 
           // if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0] && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
           //   const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
@@ -334,6 +357,14 @@ module.exports = {
 
             if (shippingInfoTextContent.length === 0 && (jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0))) {
               shippingInfoTextContent = 'This product has no shipping restrictions.';
+            }
+
+            if (document.querySelector('p[class^="universal-Shipping-Weight"]')) {
+              shippingInfoTextContent += ' ' + document.querySelector('p[class^="universal-Shipping-Weight"]').textContent;
+            }
+
+            if (document.querySelector('p[class^="universal-product-inches"]')) {
+              shippingInfoTextContent += ' ' + document.querySelector('p[class^="universal-product-inches"]').textContent;
             }
 
             return shippingInfoTextContent;
@@ -442,7 +473,8 @@ module.exports = {
             news: '',
             addonItem: '',
             fastTrack: '',
-            ingredientsList: ingrList ? ingrList.join(' ') : '',
+            ingredientsList: hasIngrList ? ingrList() : '',
+            // ingredientsList: ingrList ? (Array.isArray(ingrList) ? ingrList.join(' ') : ingrList) : '',
             // ingredientsList: ingrList ? ingrList[0] + ' ' + ingrList.slice(2, -1).join(', ') + ', ' + ingrList.slice(-1) : '',
             servingSize: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] !== null) ? nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] : '',
             servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] !== null) ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
