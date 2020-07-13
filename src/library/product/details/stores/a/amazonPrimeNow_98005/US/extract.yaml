@@ -44,7 +44,7 @@ fields:
     xpath: //*[@id='availability']
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li/following-sibling::li
+    xpath: //*[@id='feature-bullets']/ul/li/following-sibling::li|//div[@id="productDescription"]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
