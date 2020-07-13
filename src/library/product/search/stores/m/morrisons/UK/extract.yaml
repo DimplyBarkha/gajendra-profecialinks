@@ -28,12 +28,16 @@ fields:
     description: Unique id (within this extractor)
     xpath: //div[contains(@role,"presentation")]//a[1]/@href
     regExp: ([^-]+$)
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     xpath: //span[contains(@class,'fop-rating-inner')]//@title
     regExp: (.+\s)([0-9.]+)(\s.+)
     regExpReplace: $2
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
   - name: rank
   - name: rankOrganic
   - name: sponsored
