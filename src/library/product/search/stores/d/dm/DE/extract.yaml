@@ -19,9 +19,9 @@ fields:
     description: The URL for the product thumbnail image
     xpath: //div[@data-dmid="product-image-container"]//img//@data-src
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
-    xpath: //div[@data-dmid="product-description"]
+    xpath: //span[@data-dmid="product-brand"]| //div[@data-dmid="product-description"]//a//@title[1] | //a[@data-dmid="dm-link"]//span//text()
   - name: price
     singleValue: true
     description: The offered price for the product
