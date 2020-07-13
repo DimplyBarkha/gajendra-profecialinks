@@ -26,11 +26,7 @@ const transform = (data, context) => {
       if (row.badgeType) {
         let pantry = false;
         let prime = false;
-        let sub_and_save = false;
         row.badgeType.forEach(badge => {
-          if (badge.text.includes('ubscribe')) {
-            sub_and_save = true;
-          }
           if (badge.text.includes('rime')) {
             prime = true;
           }
@@ -48,11 +44,6 @@ const transform = (data, context) => {
           type: 'BOOLEAN',
           value: prime,
         }];
-        row.sub_and_save = [{
-          text: sub_and_save.toString(),
-          type: 'BOOLEAN',
-          value: sub_and_save,
-        }];
       } else {
         row.pantry = [{
           text: 'false',
@@ -60,11 +51,6 @@ const transform = (data, context) => {
           value: false,
         }];
         row.prime = [{
-          text: 'false',
-          type: 'BOOLEAN',
-          value: false,
-        }];
-        row.sub_and_save = [{
           text: 'false',
           type: 'BOOLEAN',
           value: false,
