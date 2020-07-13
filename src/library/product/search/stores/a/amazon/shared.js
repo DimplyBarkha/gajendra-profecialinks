@@ -26,11 +26,8 @@ const transform = (data, context) => {
       if (row.badgeType) {
         let pantry = false;
         let prime = false;
-        let sub_and_save = false;
+        let sub_and_save = Boolean(row.sub_and_save);
         row.badgeType.forEach(badge => {
-          if (badge.text.includes('ubscribe')) {
-            sub_and_save = true;
-          }
           if (badge.text.includes('rime')) {
             prime = true;
           }
