@@ -17,8 +17,8 @@ fields:
     singleValue: false
     xpath: //div[@id="breadcrumb"]/a[position()>1 and position()<last()]
   - name: description
-    singleValue: true
-    xpath: (//p[@itemprop="description"])[1]
+    singleValue: false
+    xpath: concat(//div[@id="pdp__details"]//p[@itemprop="description"],' ',//div[@id="pdp__details"]//h3[contains(.,"Features")]/following-sibling::p[1])
   - name: price
     singleValue: true
     xpath: concat(//span[@itemprop="priceCurrency"],//span[@itemprop="price"])
@@ -30,7 +30,7 @@ fields:
     defaultValue: Out Of Stock
   - name: ingredientsList
     singleValue: false
-    xpath: //strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]
+    xpath: //div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::p[1]|//strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]
   - name: brandText
     singleValue: true
     xpath: //a[@itemprop="brand"]
@@ -65,7 +65,8 @@ fields:
     regExp: Height.+$
   - name: packSize
     xpath: //p[contains(text(),"Size")][contains(text(),"Height")][contains(text(),"Width")][contains(text(),"Depth")]
-    regExp: (.+)(?=Height)
+    regExp: (Size )(.+)(?=Height)
+    regExpReplace: $2
   - name: allergyAdvice
     singleValue: true
     xpath: //h3[contains(.,"Product Specification")]/following::p[@class="embedded"]/span
@@ -163,10 +164,11 @@ fields:
   - name: directions
     xpath: //h3[contains(.,"Product Uses")]/following-sibling::p[1]|//h3[contains(.,"Product Uses")]/following-sibling::li
   - name: descriptionBullets
-    xpath: count(//article//h3[contains(.,"Benefits")]/parent::article//li)
+    xpath: count(//article//h3[contains(.,"Benefits") or contains(.,"Features")]/parent::article//li|//p[@itemprop="description"]/br)
   - name: quantity
     xpath: //p[contains(text(),"Size")][contains(text(),"Height")][contains(text(),"Width")][contains(text(),"Depth")]
-    regExp: (.+)(?=Height)
-    regExpReplace: $1
+    regExp: (Size )(.+)(?=Height)
+    regExpReplace: $2
   - name: secondaryImageTotal
     xpath: count(//ul[@id="thumbnails"]//li[position()>1])
+    singleValue: false
