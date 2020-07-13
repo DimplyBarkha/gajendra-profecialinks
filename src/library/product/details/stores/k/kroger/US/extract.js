@@ -59,8 +59,8 @@ async function implementation (
 
       const bullets = descriptionItem.querySelectorAll('ul li');
       let bulletCount;
-      if (bullets && bullets.length > 0) { 
-        bulletCount = bullets.length
+      if (bullets && bullets.length > 0) {
+        bulletCount = bullets.length;
 
         bullets.forEach((bullet, index) => {
           if (bullet.textContent) {
@@ -68,7 +68,7 @@ async function implementation (
           }
         });
       } else {
-        bulletCount = ''
+        bulletCount = '';
       }
       addHiddenDiv('bulletCount', bulletCount);
 
@@ -88,6 +88,13 @@ async function implementation (
       readMore.click();
     } else {
       console.log('cannot read more');
+    }
+
+    const legalDisclaimer = document.querySelector('p.NutritionIngredients-Disclaimer span');
+    if (legalDisclaimer && legalDisclaimer.textContent) {
+      let legalDisclaimerText = legalDisclaimer.textContent;
+      legalDisclaimerText = legalDisclaimerText.replace('Read Less', '');
+      addHiddenDiv('my-legal-disclaimer', legalDisclaimerText);
     }
 
     const ingredientsEl = document.querySelector('p.NutritionIngredients-Ingredients');
