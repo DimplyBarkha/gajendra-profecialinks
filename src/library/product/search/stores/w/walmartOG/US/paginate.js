@@ -21,6 +21,7 @@ async function implementation (
       .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
+    url += '&spelling=false';
   }
 
   if (!url) {
