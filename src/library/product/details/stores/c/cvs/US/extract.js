@@ -112,12 +112,13 @@ module.exports = {
               if(product.variants.length){
                 let skuArray = [];
                 for(let i = 0; i < product.variants.length; i++){
+                  const variant = product.variants[i].subVariant[0];
                   
                   const newDiv = addHiddenDiv(`ii_product`, `${i}`);
                   addHiddenDiv(`ii_manufHTML`, htmlList[i], newDiv, true);
 
                   addHiddenDiv('ii_brand', product.ProductBrand_Brand, newDiv);
-                  addHiddenDiv('ii_title', product.title, newDiv);
+                  addHiddenDiv('ii_title', variant.product_title_desktop, newDiv);
                   addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
                   if(product.categories){
                     Object.values(product.categories[0]).forEach(cat => {
@@ -132,7 +133,6 @@ module.exports = {
               
               
                   
-                  const variant = product.variants[i].subVariant[0];
 
                       if(variant.upc_image.length){
                         addHiddenDiv('ii_image',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[0]}`, newDiv); 
@@ -149,14 +149,17 @@ module.exports = {
                         let deets = variant.p_Product_Details;
                         const regex = /<li>(.*?)<\/li>/g
                         let bullets = deets.match(regex)
-                        deets = deets.replace(/<li>(.*?)<\/li>/g, ' ')
+                        deets = deets.replace(/<li>|<\/li>/g, ' @ ')
                         deets = deets.replace(/<.+?>/g, ' ')
+                        deets = deets.replace(/@\s+@/g, ' || ')
+                        deets = deets.replace(/@/g, ' || ')
+
                         addHiddenDiv('ii_description', `${deets}`, newDiv); 
                         if(bullets){
                           addHiddenDiv('ii_descriptionBullets', `${bullets.length}`, newDiv); 
                           for(let i = 0; i < bullets.length; i++){
                             let newBullet = bullets[i].replace(/<\/?li>/g,' ')
-                            addHiddenDiv('ii_description', `${newBullet}`, newDiv); 
+                            // addHiddenDiv('ii_description', `${newBullet}`, newDiv); 
                             addHiddenDiv('ii_additionalDescBulletInfo', `${newBullet}`, newDiv); 
                           }
                         }
@@ -192,13 +195,39 @@ module.exports = {
                         }
                       }
 
+                      // if(variant.p_Product_Directions){
+                      //   let deets = variant.p_Product_Directions;
+                      //   const regex = /<li>(.*?)<\/li>/g
+                      //   let bullets = deets.match(regex)
+                      //   deets = deets.replace(/<li>(.*?)<\/li>/g, ' ')
+                      //   deets = deets.replace(/<.+?>/g, ' ')
+                      //   if(deets.includes("Questions?")){
+                      //     let deetSplit = deets.split("Questions")
+                      //     addHiddenDiv('ii_directions', `${deetSplit[0]}`, newDiv); 
+                      //   } else{
+                      //     addHiddenDiv('ii_directions', `${deets}`, newDiv); 
+
+                      //   }
+                      //   if(bullets){
+                      //     for(let i = 0; i < bullets.length; i++){
+                      //       let newBullet = bullets[i].replace(/<\/?li>/g,' ')
+                      //       if(!deets.includes("Questions?")){
+                      //         addHiddenDiv('ii_directions', `${newBullet}`, newDiv); 
+                      //       }
+                      //     }
+                      //   }
+                      // }
+
+
                       if(variant.p_Product_Directions){
                         let deets = variant.p_Product_Directions;
                         const regex = /<li>(.*?)<\/li>/g
-                        let bullets = deets.match(regex)
-                        deets = deets.replace(/<li>(.*?)<\/li>/g, ' ')
+                        deets = deets.replace(/<li>|<\/li>/g, ' @ ')
                         deets = deets.replace(/<.+?>/g, ' ')
-                        debugger
+                        deets = deets.replace(/@\s+@/g, ' || ')
+                        deets = deets.replace(/@/g, ' || ')
+                        // let split = deets.split("||  ||")
+                        // deets = split.join("||")
                         if(deets.includes("Questions?")){
                           let deetSplit = deets.split("Questions")
                           addHiddenDiv('ii_directions', `${deetSplit[0]}`, newDiv); 
@@ -206,14 +235,7 @@ module.exports = {
                           addHiddenDiv('ii_directions', `${deets}`, newDiv); 
 
                         }
-                        if(bullets){
-                          for(let i = 0; i < bullets.length; i++){
-                            let newBullet = bullets[i].replace(/<\/?li>/g,' ')
-                            if(!deets.includes("Questions?")){
-                              addHiddenDiv('ii_directions', `${newBullet}`, newDiv); 
-                            }
-                          }
-                        }
+                 
                       }
                       addHiddenDiv('ii_id', variant.p_Sku_ID, newDiv);
                       skuArray.push(variant.p_Sku_ID);
@@ -230,72 +252,103 @@ module.exports = {
                       addHiddenDiv('ii_rating', variant.p_Product_Rating, newDiv);
                       
                       let metaKeywords = [product.title];
-                      
+                      let packSizes = [];
                       if(variant.p_Sku_Color){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Color, newDiv);
-                        metaKeywords.push(variant.p_Sku_Color)
+                        if(!product.title.includes(variant.p_Sku_Color)){
+                          metaKeywords.push(variant.p_Sku_Color)
+                        }
                       }
-                      if(variant.p_Sku_Size){
-                        addHiddenDiv('ii_variantInfo', variant.p_Sku_Size, newDiv);
-                        metaKeywords.push(variant.p_Sku_Size)
-                      }
+                      // if(variant.p_Sku_Size){
+                      //   addHiddenDiv('ii_variantInfo', variant.p_Sku_Size, newDiv);
+                      //   if(!product.title.includes(variant.p_Sku_Size)){
+                      //     metaKeywords.push(variant.p_Sku_Size)
+                      //   }
+                      // }
                       if(variant.p_Sku_Group_Size){
-                        addHiddenDiv('ii_packSize', variant.p_Sku_Group_Size, newDiv);  
+                        packSizes.push(variant.p_Sku_Group_Size)
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Group_Size, newDiv);
-                        metaKeywords.push(variant.p_Sku_Group_Size)
+                        if(!product.title.includes(variant.p_Sku_Group_Size)){
+                          metaKeywords.push(variant.p_Sku_Group_Size)
+                        }
                       }
                       if(variant.p_Sku_Flavor){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Flavor, newDiv);
-                        metaKeywords.push(variant.p_Sku_Flavor)
+                        if(!product.title.includes(variant.p_Sku_Flavor)){
+                          metaKeywords.push(variant.p_Sku_Flavor)
+                        }
                       }
                       if(variant.p_Sku_Count){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Count, newDiv);
-                        metaKeywords.push(variant.p_Sku_Count)
+                        if(!product.title.includes(variant.p_Sku_Count)){
+                          metaKeywords.push(variant.p_Sku_Count)
+                        }
                       }
                       if(variant.p_Sku_Form){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Form, newDiv);
-                        metaKeywords.push(variant.p_Sku_Form)
+                        if(!product.title.includes(variant.p_Sku_Form)){
+                          metaKeywords.push(variant.p_Sku_Form)
+                        }
                       }
                       if(variant.p_Sku_Absorbency){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Absorbency, newDiv);
-                        metaKeywords.push(variant.p_Sku_Absorbency)
+                        if(!product.title.includes(variant.p_Sku_Absorbency)){
+                          metaKeywords.push(variant.p_Sku_Absorbency)
+                        }
                       }
                       if(variant.p_Sku_Final_Look){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Final_Look, newDiv);
-                        metaKeywords.push(variant.p_Sku_Final_Look)
+                        if(!product.title.includes(variant.p_Sku_Final_Look)){
+                          metaKeywords.push(variant.p_Sku_Final_Look)
+                        }
                       }
                       if(variant.p_Sku_Finish){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Finish, newDiv);
-                        metaKeywords.push(variant.p_Sku_Finish)
+                        if(!product.title.includes(variant.p_Sku_Finish)){
+                          metaKeywords.push(variant.p_Sku_Finish)
+                        }
                       }
                       if(variant.p_Sku_Fragrance){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Fragrance, newDiv);
-                        metaKeywords.push(variant.p_Sku_Fragrance)
+                        if(!product.title.includes(variant.p_Sku_Fragrance)){
+                          metaKeywords.push(variant.p_Sku_Fragrance)
+                        }
                       }
                       if(variant.p_Sku_Pack){
-                        addHiddenDiv('ii_packSize', variant.p_Sku_Pack, newDiv);  
+                        packSizes.push(variant.p_Sku_Pack)
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Pack, newDiv);
-                        metaKeywords.push(variant.p_Sku_Pack)
+                        if(!product.title.includes(variant.p_Sku_Pack)){
+                          metaKeywords.push(variant.p_Sku_Pack)
+                        }
                       }
                       if(variant.p_Sku_SPF){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_SPF, newDiv);
-                        metaKeywords.push(variant.p_Sku_SPF)
+                        if(!product.title.includes(variant.p_Sku_SPF)){
+                          metaKeywords.push(variant.p_Sku_SPF)
+                        }
                       }
                       if(variant.p_Sku_Scent){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Scent, newDiv);
-                        metaKeywords.push(variant.p_Sku_Scent)
+                        if(!product.title.includes(variant.p_Sku_Scent)){
+                          metaKeywords.push(variant.p_Sku_Scent)
+                        }
                       }
                       if(variant.p_Sku_Strength){
                         addHiddenDiv('ii_variantInfo', variant.p_Sku_Strength, newDiv);
-                        metaKeywords.push(variant.p_Sku_Strength)
+                        if(!product.title.includes(variant.p_Sku_Strength)){
+                          metaKeywords.push(variant.p_Sku_Strength)
+                        }
                       }
                       let meta = metaKeywords.join(' ');
-                      addHiddenDiv('ii_metaKeywords', `${meta}`, newDiv);
+                      addHiddenDiv('ii_metaKeywords', variant.p_Sku_FullName, newDiv);
 
 
                       if(variant.CAREPASS_INDICATOR === "ELIGIBLE") {
                       addHiddenDiv('ii_shipping', 'Ships Free With CarePass', newDiv);
-                      }                    
+                      }   
+                      let packResult = packSizes.join(" ") 
+                      addHiddenDiv('ii_packSize', packResult, newDiv);  
+
                     
                   }
                 }

@@ -27,11 +27,21 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (let row of group) {
       try {
-
         if (row.variants) {
           if(row.variants.length < 2){
 
             row.variants = [{ text: '' }];
+          }
+        }
+
+        if (row.variantInformation) {
+          let variantsArray = [];
+          if(row.variantInformation.length > 1){
+            row.variantInformation.forEach(variant => {
+              variantsArray.push(variant.text)
+            })
+            let variantString = variantsArray.join(" || ")
+            row.variantInformation = [{ text: variantString }];
           }
         }
 
@@ -45,17 +55,17 @@ const transform = (data, context) => {
         if (row.sku) {
           row.productUrl = [{ text: `${row.productUrl[0].text}?skuid=${row.sku[0].text}` }];
         }
-        // if (row.manufacturerDescription) {
-        //   let text = '';
-        //   row.manufacturerDescription.forEach(item => {
-        //     text += `${item.text.replace(/\n \n/g, ' ')}  `;
-        //   });
-        //   row.manufacturerDescription = [
-        //     {
-        //       text: text.slice(0, -4),
-        //     },
-        //   ];
-        // }
+        if (row.manufacturerDescription) {
+          let text = '';
+          row.manufacturerDescription.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ' ')}  `;
+          });
+          row.manufacturerDescription = [
+            {
+              text: text.slice(0, -4),
+            },
+          ];
+        }
         // if (row.additionalDescBulletInfo) {
         //   let text = '';
         //   row.additionalDescBulletInfo.forEach(item => {
