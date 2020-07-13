@@ -5,3 +5,5 @@ fields:
     xpath: //h2/a/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.fr$1
+  - name: sub_and_save
+    xpath: //*[contains(@dir,"auto") and contains(text(), "abonnant")]/text()
