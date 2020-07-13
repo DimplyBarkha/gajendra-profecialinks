@@ -1,0 +1,7 @@
+extends: ../US/extract
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.es$1
