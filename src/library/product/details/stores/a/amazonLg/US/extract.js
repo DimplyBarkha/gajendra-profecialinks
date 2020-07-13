@@ -8,10 +8,11 @@ module.exports = {
     domain: 'amazon.com',
     zipcode: '',
   },
-  // @ts-ignore
-  // @ts-ignore
-  // @ts-ignore
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies) => {
+    const { productDetails } = dependencies;
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -23,8 +24,11 @@ module.exports = {
       function findJsonObj (scriptSelector, startString, endString) {
         const xpath = `//script[contains(.,'${scriptSelector}')]`;
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        // @ts-ignore
-        const scriptContent = element.innerText;
+        let scriptContent = '';
+        if (element) {
+          // @ts-ignore
+          scriptContent = element != null ? element.innerText : '';
+        }
         let jsonStr = scriptContent;
         jsonStr = jsonStr.trim();
         jsonStr = jsonStr.replace(/\\n/g, '\\n')
@@ -56,7 +60,7 @@ module.exports = {
       // @ts-ignore
       let firstVariant = findJsonObj('{"pageRefreshUrlParams":{"', '{"pageRefreshUrlParams":', '}}');
       // @ts-ignore
-      firstVariant = firstVariant !== null ? JSON.parse(firstVariant) : '';
+      firstVariant = firstVariant ? JSON.parse(firstVariant) : '';
       // @ts-ignore
       // eslint-disable-next-line no-unused-vars
       firstVariant = firstVariant ? firstVariant.pageRefreshUrlParams.parentAsin : '';
@@ -84,6 +88,6 @@ module.exports = {
       addElementToDocument('a_largeImgCount', largeImgCount);
       addElementToDocument('a_secondaryImageTotal', secondaryImageTotal);
     });
-    return await context.extract(productDetails, { transform });
+    return await context.extract(productDetails, { transform: parameters.transform });
   },
 };
