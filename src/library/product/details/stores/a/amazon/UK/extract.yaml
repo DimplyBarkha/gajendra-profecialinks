@@ -558,13 +558,11 @@ fields:
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: true
-    xpath: //span[contains(@id,'priceblock_ourprice')]/following-sibling::*/text()
+    # xpath: //span[contains(@id,'priceblock_ourprice')]/following-sibling::*/text()
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     singleValue: false
-    xpath: //span[contains(@id,'priceblock_ourprice')]/following-sibling::*/text()
-    # regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
-    # regExpReplace: $1
+    # xpath: //span[contains(@id,'priceblock_ourprice')]/following-sibling::*/text()
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
