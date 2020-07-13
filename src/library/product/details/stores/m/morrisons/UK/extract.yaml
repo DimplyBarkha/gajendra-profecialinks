@@ -20,7 +20,7 @@ fields:
   - name: category
     xpath: //ul[@class="u-inline gn-breadcrumbs__list"]//li
   - name: price
-    xpath: //h2[contains(@class,"bop-price__current")]
+    xpath: //h2[contains(@class,"bop-price__current")]//meta[@itemprop="price"]//@content
   - name: availabilityText
     xpath: //li//div[contains(@class,"basketControls")]//button[contains(@class,"gn-button gn-button--buy")]
     regExp: Add to trolley
@@ -67,7 +67,7 @@ fields:
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates') or (contains(.,'Saturates') or (contains(.,'which saturated')))]/../td[2]
     regExp: ([a-z]+)
   - name: caloriesPerServing
-    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Energy')]/../td[2]
+    xpath: concat(//div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Energy')]/../td[2],'/',(//tr[contains(.,"Energy")]/following-sibling::tr//following-sibling::td[contains(text(),'kcal')])[1])
   - name: totalFatPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fat')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
@@ -146,6 +146,9 @@ fields:
   - name: sku
     xpath: //meta[@property="og:url"]//@content
     regExp: (\d+){3}
+  - name: variantId
+    xpath: //meta[@property="og:url"]//@content
+    regExp: (\d+){3}
   - name: directions
     xpath: //div[contains(@class,"gn-content bop-info__field")]//h6[contains(.,'Cooking Guidelines')]/../div | //h6[contains(.,'Preparation and Usage')]/../div
   - name: warnings
@@ -154,15 +157,13 @@ fields:
     xpath: //div/div[contains(@class,"bop-gallery__itemImage")][position()>1]//img//@src
     regExp: (.+)
     regExpReplace: https://groceries.morrisons.com/$1
+  - name: secondaryImageTotal
+    xpath: count(//div/div[contains(@class,"bop-gallery__itemImage")][position()>1]//img//@src)
   - name: ratingCount
-    defaultValue: "0"
     xpath: //div[@id="customerReviews"]/h4
     regExp: (\d+)
   - name: aggregateRating
-    defaultValue: "0"
     xpath: //span[@itemprop="ratingValue"]
-  - name: shippingInfo
-    xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]//h6[contains(.,'Return')]/../div)
   - name: pricePerUnit
     xpath: //span[contains(@class,'price__per')]
     regExp: (.+)(\sper.+)
@@ -170,4 +171,7 @@ fields:
   - name: pricePerUnitUom
     xpath: //span[contains(@class,'price__per')]
     regExp: kg|g|ml|litre
-  
+  - name: numberOfServingsInPackage
+    xpath: //h6[contains(.,'Other Information')]/..
+  - name: imageZoomFeaturePresent
+    defaultValue: yes
