@@ -8,7 +8,17 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  
+  const hasResults = await context.evaluate(function (xp) {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, '//div[contains(@class,"css-1dbjc4n r-ymttw5")]/h4[contains(.,"Sorry")]|//h1[@id="keyword"][contains(.,"No results")]');
+  if(!hasResults) {
+    return;
+  }
   await context.evaluate(function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -17,6 +27,7 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    
     addHiddenDiv('ii_url', window.location.href);
   });
 
@@ -97,7 +108,7 @@ async function implementation (
         let newUrl = '';
 
         for (let i = page; i < page + 50; i++) {
-          if (products[i]) {
+          if (products[i] && products[i].split('|')[0]) {
             if (i > page) {
               newUrl = `${newUrl},`;
             }
@@ -141,7 +152,7 @@ async function implementation (
 
       return productSkus;
     }, products, numberPageResults);
-
+    console.log(`productSkus - ${productSkus.length}`)
     if (productSkus && productSkus.length > 0) {
       await context.evaluate(function (productSkus, productsSel) {
         function addHiddenDiv (id, content, parentDiv = null) {
