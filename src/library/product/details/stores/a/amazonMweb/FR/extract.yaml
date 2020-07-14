@@ -17,10 +17,10 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
-    xpath: //div[contains(@id, 'wayfinding-breadcrumbs_container')]//ul/li[1]
-  - name: subCategory
-    singleValue: false
-    xpath: //div[contains(@id, 'wayfinding-breadcrumbs_container')]//ul/li[position() > 2]
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+  # - name: subCategory
+  #   singleValue: false
+  #   xpath: //div[contains(@id, 'wayfinding-breadcrumbs_container')]//ul/li[position() > 2]
   - name: nameExtended
     singleValue: false
     xpath: //span[contains(@id, 'productTitle')]
