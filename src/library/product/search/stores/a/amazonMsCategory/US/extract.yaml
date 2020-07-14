@@ -13,7 +13,7 @@ fields:
   - name: node_id
     singleValue: false
     xpath: .//span[contains(@class, 'item')]/a[1]/@href
-    regExp: \/ref\=.+([0-9]{10,}).+\/
+    regExp: ref=[^0-9]+(\d+)
     regExpReplace: $1
   - name: price
     singleValue: false
