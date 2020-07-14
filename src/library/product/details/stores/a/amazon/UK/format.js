@@ -200,6 +200,13 @@ const transform = (data) => {
           item.text = item.text.match(/SL1500_.jpg/gm) ? item.text.match(/SL1500_.jpg/gm).length : 0;
         }
       }
+      if (row.variantCount) {
+        for (const item of row.variantCount) {
+          if (item.text === '0') {
+            item.text = 1;
+          }
+        }
+      }
       if (row.alternateImages) {
         row.alternateImages.forEach((item) => {
           const val = [];
