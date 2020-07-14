@@ -9,11 +9,11 @@ fields:
     regExpReplace: $1
   - name: browsenode
     singleValue: false
-    xpath: ancestor::html//li[@class="zg_browseUp"]/a | ancestor::html//li[@class="zg_browseUp"]/following-sibling::ul/li/a | ancestor::html//span[@class="zg_selected"] | ancestor::html//ul[@id="zg_browseRoot"]//li[@class="zg_browseUp" and 1 and not(following-sibling::li)]/a/text() | //ol/li/ancestor::html//ul[contains(@id, "browseRoot")]//ul[not(li[2])]/li[not(@class)] | //span[contains(@class, "zg_selected")]
+    xpath: ancestor::html//li[@class="zg_browseUp"]/a | ancestor::html//li[@class="zg_browseUp"]/following-sibling::ul/li/a | ancestor::html//span[@class="zg_selected"]
   - name: node_id
     singleValue: false
     xpath: .//span[contains(@class, 'item')]/a[1]/@href
-    regExp: \/ref\=.+([0-9]{10,}).+\/
+    regExp: ref=[^0-9]+(\d+)
     regExpReplace: $1
   - name: price
     singleValue: false
@@ -23,7 +23,7 @@ fields:
     xpath: translate(.//span[@class="zg-badge-text"], "#",  "")
   - name: title
     singleValue: false
-    xpath: .//div[contains(@class, "truncated")]//text()
+    xpath: .//div[contains(@class, "truncated")]/@title | .//div[contains(@class, "truncated")][not(@title)]//text()
   - name: tld
     singleValue: false
     xpath: ancestor::html//a[@class="nav-logo-link"]/@aria-label
