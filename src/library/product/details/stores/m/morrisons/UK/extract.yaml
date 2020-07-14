@@ -62,10 +62,10 @@ fields:
     regExp: ([a-z]+)
   - name: saturatedFatPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates') or (contains(.,'Saturates') or (contains(.,'which saturated')))]/../td[2]
-    regExp: (?:([\d\.]+)\s?)
+    regExp: (?:([\d\.]+)\s?)|trace
   - name: saturatedFatPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates') or (contains(.,'Saturates') or (contains(.,'which saturated')))]/../td[2]
-    regExp: ([a-z]+)
+    regExp: g
   - name: caloriesPerServing
     xpath: concat(//div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Energy')]/../td[2],'/',(//tr[contains(.,"Energy")]/following-sibling::tr//following-sibling::td[contains(text(),'kcal')])[1])
   - name: totalFatPerServing
