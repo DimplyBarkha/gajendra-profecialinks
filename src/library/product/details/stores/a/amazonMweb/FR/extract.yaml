@@ -45,6 +45,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
+  - name: asin
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin
   - name: numberOfServingsInPackage
     singleValue: false
     xpath: //div[contains(@id,"variation_item_package_quantity")]/div/span
