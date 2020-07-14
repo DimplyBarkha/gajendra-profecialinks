@@ -15,11 +15,12 @@ fields:
     defaultValue: 'No'
   - name: customerServiceAvailability
     singleValue: true
-    # xpath: //h3[@id='footer-nav-CUSTOMER-SERVICE']
     defaultValue: 'Yes'
+  - name: coupon
+    singleValue: true
+    defaultValue: ''
   - name: imageZoomFeaturePresent
     singleValue: true
-    # xpath: //span[contains(text(),'Hover to Zoom')]
     defaultValue: 'Yes'
   - name: secondaryImageTotal
     singleValue: true
@@ -30,7 +31,6 @@ fields:
   - name: descriptionBullets
     singleValue: true
     xpath: //div[@id='bulletCount']
-    # xpath: count(//div[@class='RomanceDescription overflow-x-hidden']/ul/li)
   - name: termsAndConditions
     singleValue: true
     xpath: //a[contains(text(),'Terms and Conditions')]
@@ -165,7 +165,6 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     xpath: //div[@id='my-legal-disclaimer']
-    # xpath: //p[@class='NutritionIngredients-Disclaimer']/span
   - name: ingredientsList
     singleValue: true
     xpath: //div[@id='my-ingredients']
@@ -191,9 +190,11 @@ fields:
       \d+
   - name: caloriesFromFatPerServing
     singleValue: true
-    xpath: (number(translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*/following-sibling::span,'%',''))*(//div[@class='NutritionLabel-Calories font-bold flex justify-between']/span)[2]) * 0.01
-    regExp: >-
-      [^NaN]+
+    xpath: //div[@id='my-cal-from-fat']
+    # type: NUMBER
+    # xpath: (number(translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*/following-sibling::span,'%',''))*(//div[@class='NutritionLabel-Calories font-bold flex justify-between']/span)[2]) * 0.01
+    # regExp: >-
+      # [^NaN]+
   - name: totalFatPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*

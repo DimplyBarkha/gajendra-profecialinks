@@ -82,6 +82,16 @@ async function implementation (
       button.click();
     }
 
+    const totalCalEl = document.querySelector('div.NutritionLabel-Calories.font-bold.flex.justify-between > span:nth-child(2)');
+    const totalFatwPercent = document.querySelector('span.NutrientDetail-DailyValue.is-macronutrient');
+
+    if (totalCalEl && totalFatwPercent) {
+      const totalFat = totalFatwPercent.textContent.replace('%', '');
+      const totalCal = totalCalEl.textContent;
+      const calFromFat = parseFloat(totalFat) * parseFloat(totalCal) * 0.01;
+      addHiddenDiv('my-cal-from-fat', calFromFat);
+    }
+
     const readMore = document.querySelector('p.NutritionIngredients-Disclaimer span a');
 
     if (readMore) {
@@ -90,30 +100,19 @@ async function implementation (
       console.log('cannot read more');
     }
 
-    const legalDisclaimer = document.querySelector('p.NutritionIngredients-Disclaimer span');
-    if (legalDisclaimer && legalDisclaimer.textContent) {
-      let legalDisclaimerText = legalDisclaimer.textContent;
-      legalDisclaimerText = legalDisclaimerText.replace('Read Less', '');
-      addHiddenDiv('my-legal-disclaimer', legalDisclaimerText);
+    const filterText = (cssSelector, textToFilter, newId) => {
+      const node = document.querySelector(cssSelector);
+      if ( node && node.textContent) {
+        let myText = node.textContent;
+        myText = myText.replace(textToFilter, '');
+        addHiddenDiv(newId, myText)
+      }
     }
 
-    const ingredientsEl = document.querySelector('p.NutritionIngredients-Ingredients');
-    if (ingredientsEl && ingredientsEl.textContent) {
-      let ingredientsText = ingredientsEl.textContent;
-      if (ingredientsText.includes('Ingredients')) {
-        ingredientsText = ingredientsText.replace('Ingredients', '');
-      }
-      addHiddenDiv('my-ingredients', ingredientsText);
-    }
+    filterText('p.NutritionIngredients-Disclaimer span','Read Less', 'my-legal-disclaimer');
+    filterText('p.NutritionIngredients-Ingredients', 'Ingredients', 'my-ingredients');
+    filterText('p.NutritionIngredients-Allergens', 'Allergen Info', 'my-allergies');
 
-    const allergenEl = document.querySelector('p.NutritionIngredients-Allergens');
-    if (allergenEl && allergenEl.textContent) {
-      let allergenText = allergenEl.textContent;
-      if (allergenText.includes('Allergen Info')) {
-        allergenText = allergenText.replace('Allergen Info', '');
-      }
-      addHiddenDiv('my-allergies', allergenText);
-    }
   });
 
   await context.evaluate(function () {
