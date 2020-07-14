@@ -17,7 +17,7 @@ fields:
     xpath: //div[@id="a_url"]
   - name: category
     singleValue: false
-    xpath: //div[contains(@id, 'wayfinding-breadcrumbs_container')]//ul/li[1]
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
   # - name: subCategory
   #   singleValue: false
   #   xpath: //div[contains(@id, 'wayfinding-breadcrumbs_container')]//ul/li
@@ -51,6 +51,9 @@ fields:
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'UPC')]/../td
   - name: sku
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin
+  - name: asin
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
   - name: variantId
