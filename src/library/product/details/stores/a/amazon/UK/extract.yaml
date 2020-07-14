@@ -279,17 +279,15 @@ fields:
     regExpReplace: 'Yes'
     defaultValue: NO
   - name: lbb
-    singleValue: true
+    singleValue: false
     xpath: //span[@id="price_inside_buybox"]
     description: Check Lost by Box Requirements (just for Amazon and a couple of
       other stores) - LBB occurs when a product is bought from someone other
       than Amazon (on Amazon Website) - even though Amazon has the product "in
       Stock"
-    regExp: (.+)
-    regExpReplace: 'Yes'
     defaultValue: 'NO'
   - name: lbbPrice
-    singleValue: true
+    singleValue: false
     xpath: //span[@id="price_inside_buybox"]
     description: null
   - name: featureBullets

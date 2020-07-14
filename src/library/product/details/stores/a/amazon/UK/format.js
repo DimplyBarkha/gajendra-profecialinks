@@ -35,6 +35,15 @@ const transform = (data) => {
           item.text = `${item.text.replace(/([\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
         });
       }
+      if (row.lbb) {
+        row.lbb.forEach(item => {
+          if (item.text !== 'NO' && item.text.length > 0) {
+            item.text = `${item.text.replace(/(.+)/, 'YES')}`;
+          } else {
+            item.text = 'NO';
+          }
+        });
+      }
       if (row.totalFatPerServingUom) {
         row.totalFatPerServingUom.forEach(item => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
@@ -194,16 +203,20 @@ const transform = (data) => {
       if (row.alternateImages) {
         row.alternateImages.forEach((item) => {
           const val = [];
-          // eslint-disable-next-line no-useless-escape
-          let data = item.text.replace(/\r\n|\n|\r/gm, '').match(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/) ? item.text.replace(/\r\n|\n|\r/gm, '').replace(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/, '$1').replace(/\"/gm, '"') : {};
-          data = JSON.parse(data);
-          data.forEach((ele, index) => {
-            if (index !== 0 && ele.main && ele.main) {
-              const arr = Object.keys(ele.main);
-              val.push({ text: arr[0] });
-            }
-          });
-          row.alternateImages = val;
+          if (item.text.replace(/\r\n|\n|\r/gm, '').match(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/)) {
+            // eslint-disable-next-line no-useless-escape
+            let data = item.text.replace(/\r\n|\n|\r/gm, '').match(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/) ? item.text.replace(/\r\n|\n|\r/gm, '').replace(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/, '$1').replace(/\"/gm, '"') : {};
+            data = JSON.parse(data);
+            data.forEach((ele, index) => {
+              if (index !== 0 && ele.main && ele.main) {
+                const arr = Object.keys(ele.main);
+                val.push({ text: arr[0] });
+              }
+            });
+            row.alternateImages = val;
+          } else {
+            row.alternateImages = [{ text: '' }];
+          }
         });
       }
     }

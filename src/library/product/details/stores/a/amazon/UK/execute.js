@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'amazon',
     domain: 'amazon.co.uk',
-    loadedSelector: '#altImages li[class*="imageThumbnail"] img',
+    loadedSelector: '#main-image-container img , #altImages li[class*="imageThumbnail"] img',
     noResultsXPath: null,
     zipcode: 'SW1P 3EU',
   },
