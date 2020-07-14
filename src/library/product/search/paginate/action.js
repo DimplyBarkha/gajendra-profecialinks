@@ -4,7 +4,6 @@
  *  keywords: string,
  *  page: number,
  *  offset: number,
- *  _date: string,
  *  id: string,
  * }} inputs
  * @param {{
@@ -24,9 +23,9 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { keywords, page, offset, id, _date } = inputs;
+  const { keywords, page, offset, id } = inputs;
   const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
-  console.log('****************************', _date)
+
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
     if (!hasNextLink) {
@@ -120,9 +119,6 @@ module.exports = {
     description: 'page number (1 indexed)',
   }, {
     name: 'offset',
-    description: 'offset (0 indexed)',
-  }, {
-    name: '_date',
     description: 'offset (0 indexed)',
   }],
   path: './stores/${store[0:1]}/${store}/${country}/paginate',

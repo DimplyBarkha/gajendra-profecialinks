@@ -12,7 +12,6 @@ async function implementation (
   dependencies,
 ) {
   console.log('params', parameters);
-  console.log('inputs###########################', inputs)
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {

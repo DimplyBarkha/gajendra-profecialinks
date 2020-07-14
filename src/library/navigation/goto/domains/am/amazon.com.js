@@ -78,7 +78,7 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
-
+      await new Promise(r => setTimeout(r, 1000));
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
         return;
       }
@@ -89,7 +89,7 @@ module.exports = {
 
         console.log('Waiting for page to reload on homepage');
         context.waitForNavigation();
-        if (!await solveCaptchaIfNecessary()) {
+        if (await solveCaptchaIfNecessary() === 'false') {
           hasCaptcha = true;
           return;
         }
@@ -124,6 +124,7 @@ module.exports = {
           random_move_mouse: true,
         });
         console.log('lastResponseData', lastResponseData);
+        await new Promise(r => setTimeout(r, 1000));
       }
 
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
@@ -151,16 +152,15 @@ module.exports = {
       }
 
       const wrongLocale = await context.evaluate(async function () {
-        const detailsLocaleEl = document.evaluate("//*[contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/span", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        const searchLocaleEl = document.evaluate("//span[@id='glow-ingress-line1']//*[contains(text(),':')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if (!!detailsLocaleEl.snapshotLength || !!searchLocaleEl.snapshotLength) {
+        const locationWarningPopupEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and not(//*[contains(text(), 'Amazon Fresh')])]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if(locationWarningPopupEl.snapshotLength > 0) {
           return 'true';
-        } else {
-          return 'false';
+        }else{
+          return 'false'
         }
       });
 
-      if (wrongLocale === 'true' && !benchmark) {
+      if (await wrongLocale === 'true' && !benchmark) {
         console.log('wrongLocale', !benchmark, wrongLocale);
         console.log('Incorrect locale detected');
         if (backconnect) {
