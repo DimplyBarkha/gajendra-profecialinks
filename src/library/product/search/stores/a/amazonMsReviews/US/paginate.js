@@ -1,7 +1,6 @@
 /**
  *
- * @param { { url?: string,  id?: string, _date?: string } } inputs
- * @param { Record<string, any> } parameters
+ * @param { { _date?: string, page: number, keywords: string } } inputs
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
@@ -11,10 +10,12 @@
   context,
   dependencies,
  ) {
-   const { id, _date} = inputs;
-   const nextLinkSelector = 'ul.a-pagination>li.a-last a';
+   const { _date, page, keywords } = inputs;
    const loadedSelector = 'div[data-hook=review]';
    const noResultsXPath = '//div[contains(@class, "no-reviews-section")]';
+   const openSearchDefinition = {
+    template: 'https://www.amazon.com/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
+  }
 
   async function checkDate () {
       const reviewDateRaw = document.querySelector('div[id*="review_list"]>div:nth-last-child(2) span[data-hook*="review-date"]') ? document.querySelector('div[id*="review_list"]>div:nth-last-child(2) span[data-hook*="review-date"]').innerText :  ''
@@ -29,35 +30,35 @@
       }
   }
 
-  if((new Date(await context.evaluate(checkDate)).valueOf() - new Date(_date).valueOf())<0){
-    return false;
-  }else{
-    if (nextLinkSelector) {
-      const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
-      if (!hasNextLink) {
-        return false;
-      }
-    }
-  }
-
    const { pager } = dependencies;
-   const success = await pager({ nextLinkSelector, loadedSelector });
+   const success = await pager({ loadedSelector });
    if (success) {
      return true;
    }
  
    let url = await context.evaluate(function () {
-     /** @type { HTMLLinkElement } */
-     const next = document.querySelector('head link[rel="next"]');
-     if (!next) {
-       return false;
-     }
-     return next.href;
-   });
- 
-   if (!url) {
-     return false;
-   }
+    /** @type { HTMLLinkElement } */
+    const next = document.querySelector('head link[rel="next"]');
+    if (!next) {
+      return false;
+    }
+    return next.href;
+  });
+  
+  if((new Date(await context.evaluate(checkDate)).valueOf() - new Date(_date).valueOf())<0){
+    return false;
+  }else{
+    if (!url && openSearchDefinition) {
+      url = openSearchDefinition.template
+        .replace('{searchTerms}', encodeURIComponent(keywords))
+        .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
+    }
+  }
+
+  if (!url) {
+    return false;
+  }
+
    console.log('GOING to url', url);
    await dependencies.goto({ url });
    if (loadedSelector) {
@@ -112,10 +113,10 @@
    ],
    inputs: [{
       name: '_date',
-      description: 'date of last review extracted',
+      description: 'date of last review that should be extracted',
     }, {
       name: 'id',
-      description: 'offset (0 indexed)',
+      description: 'asin of product',
     }],
    path: './stores/${store[0:1]}/${store}/${country}/paginate',
    dependencies: {
