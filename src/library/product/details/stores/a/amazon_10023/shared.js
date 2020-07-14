@@ -46,11 +46,15 @@ const transform = (data) => {
         ];
       }
       if (row.variantAsins) {
-        for (const item of row.variantAsins) {
-          if (item.text.match(/(.+),(.+)/)) {
-            item.text = item.text.match(/(.+),(.+)/)[2];
-          }
-        }
+        let text = '';
+        row.variantAsins.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, '')} | `;
+        });
+        row.variantAsins = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
       }
       if (row.shippingWeight) {
         let text = '';
@@ -63,21 +67,21 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.amazonChoiceCategory) {
+      if (row.featureBullets) {
         let text = '';
-        row.amazonChoiceCategory.forEach(item => {
+        row.featureBullets.forEach(item => {
           text += `${item.text.replace(/\n \n/g, ':')} | `;
         });
-        row.amazonChoiceCategory = [
+        row.featureBullets = [
           {
-            text: cleanUp(text),
+            text: cleanUp(text.slice(0, -3)),
           },
         ];
       }
       if (row.amazonChoiceCategory) {
         let text = '';
         row.amazonChoiceCategory.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          text += `${item.text.replace(/\n \n/g, ':')}`;
         });
         row.amazonChoiceCategory = [
           {
