@@ -260,7 +260,7 @@ module.exports = {
             const ingredList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), formatIngredientList(obj.ingredients)], []).join(' ') : '';
             const ingredListDom = () => {
               if (document.querySelector('li#Ingredients div.inner')) {
-                let ingredText = document.querySelector('li#Ingredients div.inner').textContent.replace(/\s\s+/g, ' ');
+                let ingredText = document.querySelector('li#Ingredients div.inner').innerText.replace(/\s\s+/g, ' ');
 
                 if (ingredText.includes('Active Ingredient') || ingredText.includes('Inactive Ingredient')) {
                   ingredText = ingredText.includes('Active Ingredient') ? ingredText.replace('Active Ingredients', ' Active Ingredients').trim() : ingredText;

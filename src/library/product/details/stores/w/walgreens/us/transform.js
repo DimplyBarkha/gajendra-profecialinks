@@ -30,6 +30,17 @@ const transform = (data, context) => {
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
+        if (row.manufacturerImages) {
+          const aplusImagesText = [];
+          const aplusImages = [];
+          row.manufacturerImages.forEach(item => {
+            if (aplusImagesText.indexOf(item.text) === -1) {
+              aplusImagesText.push(item.text);
+              aplusImages.push(item);
+            }
+          });
+          row.manufacturerImages = aplusImages;
+        }
       } catch (exception) { console.log('Error in transform', exception); }
     }
   }
