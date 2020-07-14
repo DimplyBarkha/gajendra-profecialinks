@@ -22,7 +22,7 @@ const transform = (data) => {
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {
-          text += `${item.text.replace(': Amazon.es', '')}`;
+          text += `${item.text.replace(': Amazon.es', '').trim()}`;
         });
         row.nameExtended = [
           {
@@ -79,6 +79,21 @@ const transform = (data) => {
       if (row.salesRank) {
         row.salesRank.forEach(salesRank => {
           salesRank.text = salesRank.text.replace('.', ',').trim();
+        });
+      }
+      if (row.category) {
+        row.category.forEach(category => {
+          category.text = category.text.replace(/\n \n/g, '').trim();
+        });
+      }
+      if (row.alternateImages) {
+        row.alternateImages.shift();
+      }
+      if (row.quantity) {
+        row.quantity.forEach(quantity => {
+          if (quantity.text.includes(';')) {
+            quantity.text = quantity.text.split(';')[1].trim();
+          }
         });
       }
     }

@@ -22,7 +22,7 @@ fields:
     xpath: //div[@id='wayfinding-breadcrumbs_feature_div']/ul
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name='title']/@content
+    xpath: //h1[@id='title']
   - name: listPrice
     singleValue: false
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
@@ -44,8 +44,6 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //td[contains(text(), 'Peso')]/following-sibling::*[1] | //div[@class='content']/ul/li[1]/text()
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
     xpath: //td[contains(text(), 'Nettogewicht')]/following-sibling::*[1]
