@@ -4,10 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'amazon',
-    nextLinkSelector: '#pagnNextString, #pagnNextLink, ul.a-pagination li.a-last:not(.a-disabled) a',
-    mutationSelector: 'span[cel_widget_id="UPPER-RESULT_INFO_BAR"] div>span[dir="auto"]:first-of-type',
-    spinnerSelector: 'div.s-result-list-placeholder:not([class*="hidden"])',
+    openSearchDefinition: {
+      template: 'https://www.amazon.it/s?k={searchTerms}&__mk_it_IT=ÅMÅŽÕÑ&ref=nb_sb_noss_2&page={page}',
+    },
     loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
+    noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "Nessun risultato")] | /html[not(//div[contains(@data-component-type,"s-search-result") and @data-asin][not(contains(@class, "AdHolder"))])]',
     domain: 'amazon.it',
     zipcode: '',
   },
