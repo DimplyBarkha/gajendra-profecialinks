@@ -55,7 +55,7 @@ async function implementation (
     //   context.click('body'),
     //   context.click(nextLinkSelector),
     // ]);
-    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000});
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
     if (loadedSelector) {
       await context.waitForSelector(loadedSelector, { timeout: 20000 });
     }

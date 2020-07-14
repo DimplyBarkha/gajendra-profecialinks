@@ -155,7 +155,6 @@ fields:
     xpath: //span[@id="ProductDetails-sellBy-unit"]
   - name: weightGross
     singleValue: true
-    # xpath: //span[@id="ProductDetails-sellBy-unit"]
   - name: sku
     singleValue: true
     xpath: //span[@class='ProductDetails-upc']
@@ -163,10 +162,10 @@ fields:
       [0-9]+
   - name: warnings
     singleValue: true
-    # xpath: //p[@class='NutritionIngredients-Disclaimer']/span
   - name: legalDisclaimer
     singleValue: true
-    xpath: //p[@class='NutritionIngredients-Disclaimer']/span
+    xpath: //div[@id='my-legal-disclaimer']
+    # xpath: //p[@class='NutritionIngredients-Disclaimer']/span
   - name: ingredientsList
     singleValue: true
     xpath: //div[@id='my-ingredients']
