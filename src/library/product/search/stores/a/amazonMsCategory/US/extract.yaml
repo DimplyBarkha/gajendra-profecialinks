@@ -23,7 +23,7 @@ fields:
     xpath: translate(.//span[@class="zg-badge-text"], "#",  "")
   - name: title
     singleValue: false
-    xpath: .//div[contains(@class, "truncated")]//text()
+    xpath: .//div[contains(@class, "truncated")]/@title | .//div[contains(@class, "truncated")][not(@title)]//text()
   - name: tld
     singleValue: false
     xpath: ancestor::html//a[@class="nav-logo-link"]/@aria-label
