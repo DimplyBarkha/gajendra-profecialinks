@@ -28,8 +28,7 @@
         return false
       }
   }
-    // console.log("DATEEEEEEEEE",(new Date(await context.evaluate(checkDate)).valueOf() - new Date(_date).valueOf())<0)
-  //compare 
+
   if((new Date(await context.evaluate(checkDate)).valueOf() - new Date(_date).valueOf())<0){
     return false;
   }else{
