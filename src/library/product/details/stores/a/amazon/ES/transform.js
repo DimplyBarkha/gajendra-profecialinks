@@ -81,6 +81,11 @@ const transform = (data) => {
           salesRank.text = salesRank.text.replace('.', ',').trim();
         });
       }
+      if (row.salesRankCategory) {
+        row.salesRankCategory.shift();
+        row.salesRankCategory.shift();
+        row.salesRankCategory.shift();
+      }
       if (row.category) {
         row.category.forEach(category => {
           category.text = category.text.replace(/\n \n/g, '').trim();
@@ -88,6 +93,9 @@ const transform = (data) => {
       }
       if (row.alternateImages) {
         row.alternateImages.shift();
+      }
+      if (row.alternateImages) {
+        row.secondaryImageTotal = row.alternateImages.length;
       }
       if (row.quantity) {
         row.quantity.forEach(quantity => {
