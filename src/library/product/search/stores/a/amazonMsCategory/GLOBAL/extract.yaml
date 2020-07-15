@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //ol/li
+fields:
+  - name: asin
+    singleValue: false
+    xpath: .//span[contains(@class, 'item')]/a[1]/@href
+    regExp: dp\/([A-Za-z0-9]{10})\/
+    regExpReplace: $1
+  - name: browsenode
+    singleValue: false
+    xpath: ancestor::html//li[@class="zg_browseUp"]/a | ancestor::html//li[@class="zg_browseUp"]/following-sibling::ul/li/a | ancestor::html//span[@class="zg_selected"]
+  - name: node_id
+    singleValue: false
+    xpath: .//span[contains(@class, 'item')]/a[1]/@href
+    regExp: ref=[^0-9]+(\d+)
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: translate(.//span[contains(@class, "a-color-price")], "$", "")
+  - name: rank
+    singleValue: false
+    xpath: translate(.//span[@class="zg-badge-text"], "#",  "")
+  - name: title
+    singleValue: false
+    xpath: .//div[contains(@class, "truncated")]/@title | .//div[contains(@class, "truncated")][not(@title)]//text()
+  - name: tld
+    singleValue: false
+    xpath: ancestor::html//a[@class="nav-logo-link"]/@aria-label
+    regExp: '\.(.+)$'
+    regExpReplace: $1
+    defaultValue: com
