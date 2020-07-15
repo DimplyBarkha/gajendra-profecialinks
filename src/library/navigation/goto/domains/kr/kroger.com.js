@@ -14,7 +14,7 @@ module.exports = {
     await context.goto(optUrl, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
-      await dependencies.setZipCode({ url: optUrl, zipcode: zipcode });
+      await dependencies.setZipCode({ url: optUrl, zipcode });
     }
   },
 };
