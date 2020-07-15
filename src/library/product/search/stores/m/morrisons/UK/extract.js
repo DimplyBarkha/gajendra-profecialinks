@@ -25,6 +25,13 @@ async function implementation (
         break;
       }
     }
+    document.querySelectorAll('.price-group-wrapper').forEach(item => {
+      let price = item.querySelector('span.fop-price') ? item.querySelector('span.fop-price').innerHTML : '';
+      if (price.includes('p')) {
+        price = `£${price.match(/\d+/g) / 100}`;
+      }
+      item.setAttribute('price', price);
+    });
   });
   return await context.extract(productDetails, { transform });
 }
