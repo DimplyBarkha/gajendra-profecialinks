@@ -14,11 +14,11 @@ async function implementation (
   const loadedSelector = 'div[data-hook=review]';
   const noResultsXPath = '//div[contains(@class, "no-reviews-section")]';
   const openSearchDefinition = {
-    template: 'https://www.amazon.fr/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
+    template: 'https://www.amazon.de/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
   };
 
   async function checkDate () {
-    const frToEn = {
+    const itToEn = {
       gennaio: 'january',
       febbraio: 'february',
       marzo: 'march',
@@ -35,7 +35,7 @@ async function implementation (
     let reviewDateRaw = document.querySelector('div[id*="review_list"]>div:nth-last-child(2) span[data-hook*="review-date"]') ? document.querySelector('div[id*="review_list"]>div:nth-last-child(2) span[data-hook*="review-date"]').innerText : '';
     const month = reviewDateRaw.match(/([^\s]+)\s*[^\s]+$/) && reviewDateRaw.match(/([^\s]+)\s*[^\s]+$/)[1];
     if (month) {
-      const engMonth = frToEn[month];
+      const engMonth = itToEn[month];
       reviewDateRaw = reviewDateRaw.replace(month, engMonth);
     }
     const topReviewDate = new Date(reviewDateRaw);
