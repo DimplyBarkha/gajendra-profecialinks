@@ -132,7 +132,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http'))] | //div[@class="product-info-description"]//img//@srcset
+    xpath: //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))] | //div[@class="product-info-description"]//img//@srcset
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -394,7 +394,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //h2[contains(.,'Specifications')]/../div//table//tbody | //p//a[contains(.,'Specifications')]/../../..
+    xpath: //h2[contains(.,'Specifications')]/../div//table//tbody | //p//a[contains(.,'Specifications')]/../../../div[2]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
