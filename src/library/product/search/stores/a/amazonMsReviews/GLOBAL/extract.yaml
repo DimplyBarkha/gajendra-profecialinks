@@ -10,6 +10,11 @@ fields:
     xpath: .//span[contains(@class, "review-comment-total")]
     regExp: ([0-9]{1,})
     defaultValue: 0
+  - name: product_id
+    singleValue: false
+    xpath: .//span[contains(@class, 'item')]/a[1]/@href
+    regExp: dp\/([A-Za-z0-9]{10})\/
+    regExpReplace: $1
   - name: date
     singleValue: false
     description: Date the review  was made
