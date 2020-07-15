@@ -11,7 +11,6 @@ fields:
     regExp: ([0-9]{1,})
     defaultValue: 0
   - name: product_id
-    singleValue: false
     xpath: ancestor::html//span[contains(@class, 'item')]/a[1]/@href
     regExp: dp\/([^\/]+)
     regExpReplace: $1
