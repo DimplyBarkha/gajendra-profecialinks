@@ -12,14 +12,13 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const scrollToContent = async (selector) => {
       await context.evaluate(async (selectorToScrollTo) => {
-
-        function scrollToSmoothly(pos, time) {
-          return new Promise((res, rej) => {
+        function scrollToSmoothly (pos, time) {
+          return new Promise((resolve, reject) => {
             if (isNaN(pos)) {
-              return rej(new Error("Position must be a number"));
+              return reject(new Error('Position must be a number'));
             }
             if (pos < 0) {
-              return rej(new Error("Position can not be negative"));
+              return reject(new Error('Position can not be negative'));
             }
             var currentPos = window.scrollY || window.screenTop;
             if (currentPos < pos) {
@@ -31,7 +30,7 @@ module.exports = {
                   window.scrollTo(0, i);
                 }, t / 2);
               }
-              return res();
+              return resolve();
             } else {
               time = time || 100;
               var i = currentPos;
@@ -44,12 +43,10 @@ module.exports = {
                 }
               }, time);
 
-              return res();
+              return resolve();
             }
           });
         }
-
-
         const elem = document.querySelector(selectorToScrollTo);
         await scrollToSmoothly(elem.offsetTop);
       }, selector);

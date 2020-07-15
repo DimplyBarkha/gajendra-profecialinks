@@ -58,4 +58,4 @@ const productPrimeCheck = async () => {
   document.querySelector('body').setAttribute('primeValue', primeValue);
 };
 
-module.exports = { productPrimeCheck }
+module.exports = { productPrimeCheck };
