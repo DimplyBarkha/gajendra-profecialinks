@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: #pageItem
 recordXPath: null
 fields:
   - name: paid
@@ -22,12 +22,15 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: true
+    xpath: //div[@id='ii_url']
     description: The URL for the product details page
   - name: thumbnail
-    singleValue: true
+    singleValue: false
+    xpath: //div[@id='ii_image']
     description: The URL for the product thumbnail image
   - name: name
     singleValue: true
+    xpath: //div[@id='ii_name']
     description: The product name
   - name: sku
     singleValue: true
@@ -45,10 +48,12 @@ fields:
     singleValue: true
     description: The number of ratings
   - name: reviewCount
-    singleValue: true
+    singleValue: false
+    xpath: //div[@id='ii_reviewCount']
     description: The number of reviews
   - name: price
-    singleValue: true
+    singleValue: false
+    xpath: //div[@id='ii_price']
     description: The offered price for the product
   - name: listPrice
     singleValue: true
@@ -65,10 +70,10 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-  - name: rank
-    singleValue: true
-    description: search/listing rank
-    type: NUMBER
+  # - name: rank
+  #   singleValue: true
+  #   description: search/listing rank
+  #   type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
@@ -79,12 +84,14 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: true
+    xpath: //div[@id='ii_id']
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
+  - name: aggregateRating2
+    xpath: //div[@id='ii_rating']
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
