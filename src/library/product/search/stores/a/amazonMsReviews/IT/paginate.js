@@ -14,7 +14,7 @@ async function implementation (
   const loadedSelector = 'div[data-hook=review]';
   const noResultsXPath = '//div[contains(@class, "no-reviews-section")]';
   const openSearchDefinition = {
-    template: 'https://www.amazon.de/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
+    template: 'https://www.amazon.it/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
   };
 
   async function checkDate () {
