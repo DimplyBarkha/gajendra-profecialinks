@@ -7,12 +7,17 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.alternateImages) {
-        row.secondaryImageTotal = [{
-          text: row.alternateImages.length,
-        }];
+        const secondaryImages = [];
         row.alternateImages.forEach(alternateImage => {
-          alternateImage.text = alternateImage.text.replace(/\d+(\..*)$/, '1000$1');
+          if (!alternateImage.text.includes('videoId')) {
+            alternateImage.text = alternateImage.text.replace(/\d+(\..*)$/, '1000$1');
+            secondaryImages.push(alternateImage);
+          }
         });
+        row.alternateImages = secondaryImages;
+        row.secondaryImageTotal = [{
+          text: secondaryImages.length,
+        }];
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
@@ -33,12 +38,17 @@ const transform = (data) => {
       }
       if (row.description) {
         row.description.forEach(item => {
-          item.text = item.text.replace(/[\s\n]{2,}/g, ' || ').replace(/\n/g, ' ').trim();
+          item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item => {
           item.text = item.text.replace(/-\s*The Home Depot$/, '').trim();
+        });
+      }
+      if (row.warnings) {
+        row.warnings.forEach(item => {
+          item.text = item.text.replace(/see\s*/i, '').trim();
         });
       }
       if (row.price) {
@@ -52,14 +62,6 @@ const transform = (data) => {
       if (row.mpc) {
         row.mpc.forEach(item => {
           item.text = item.text.replace(/.*?#/, '').trim();
-        });
-      }
-      if (row.videos) {
-        row.videos.forEach(item => {
-          if (item.text.includes('"video"')) {
-            const video = item.text.replace(/.*"video":"(.*?)",.*/, '$1');
-            item.text = video;
-          }
         });
       }
     }

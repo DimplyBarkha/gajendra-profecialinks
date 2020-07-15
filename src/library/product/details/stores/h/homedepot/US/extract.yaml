@@ -45,7 +45,7 @@ fields:
     xpath: //a[@class='prop65-warning__link u__default-link'][1]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="thumbnails"]//img/@src|//div[@class="overlay__side-content__product-images"]//img/@src|//div[starts-with(@id,"altImage")]
+    xpath: //div[@id="thumbnails"]//img/@src|Y|//div[starts-with(@id,"altImage")]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="product_description"]//img[@class="stretchy"]/@src|//div[@data-component="description"]//img/@src
@@ -70,7 +70,7 @@ fields:
     xpath: substring(//upc, 2, string-length(//upc))
   - name: videos
     singleValue: false
-    xpath: //div[@itemprop="video"]/meta[@itemprop="contentURL"]/@content|//script[contains(text(),'"video"')]
+    xpath: //div[starts-with(@id,"video_url")]
   - name: imageAlt
     singleValue: false
     xpath: //img[@id="mainImage"]/@alt|//div[@class="mediagallery__mainimage"]//img/@alt

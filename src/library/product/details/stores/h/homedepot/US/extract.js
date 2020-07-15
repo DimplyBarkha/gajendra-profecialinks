@@ -45,25 +45,91 @@ module.exports = {
       }
 
       addHiddenDiv('custom_availability_text', availabilityText);
-
       const regularSite = document.querySelector('div#thumbnails');
+      async function addVideoUrl (videoId) {
+        const videoJson = await fetch(`https://edge.api.brightcove.com/playback/v1/accounts/66036796001/videos/${videoId}`, {
+          headers: {
+            accept: 'application/json;pk=BCpkADawqM1R4SCVtAbuCMoV8_qAjR72HCIdahKkP_EVYDN5CZrBJIcAnpRv8i1e-btnRvDxRYedYyE9G44ucRGlPepdnvI7oXLRIPxAXyFvLd3W9D1-bEwmIoo',
+            'accept-language': 'en-US,en;q=0.9',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'cross-site',
+          },
+          referrer: window.location.origin,
+          referrerPolicy: 'no-referrer-when-downgrade',
+          body: null,
+          method: 'GET',
+          mode: 'cors',
+          credentials: 'omit',
+        }).then(r => r.json());
+        const regex = new RegExp(`^https.*${videoId}$`);
+        const videoUrl = videoJson.sources.map(({ src }) => src && regex.test(src) && src).filter(Boolean)[0];
+        addHiddenDiv(`video_url${videoId}`, videoUrl);
+      }
       if (!regularSite) {
         const imgExpander = document.querySelector('span.mediagallery__thumbnailicons--count');
         if (imgExpander) {
           // @ts-ignore
           imgExpander.click();
         } else {
-          document.querySelectorAll('div[class="mediagallery__thumbnails"] img').forEach((img, index) => {
+          // @ts-ignore
+          for (const [index, img] of document.querySelectorAll('div[class="mediagallery__thumbnails"] img').entries()) {
             // @ts-ignore
-            !img.src.includes('videoId') && addHiddenDiv(`altImage${index}`, img.src);
-          });
+            if (!img.src.includes('videoId')) {
+              // @ts-ignore
+              addHiddenDiv(`altImage${index}`, img.src);
+            } else {
+              const videoId = img.getAttribute('src').replace(/.*videoId=(.*$)/, '$1');
+              await addVideoUrl(videoId);
+            }
+          }
         }
         return !!imgExpander;
+      } else {
+        // @ts-ignore
+        for (const video of document.querySelectorAll('div#thumbnails a[data-target="VIDEO"]:not(.media__thumbnail-additional)')) {
+          const videoId = video.getAttribute('data-media_id');
+          await addVideoUrl(videoId);
+        };
       }
     });
     if (RegularSite) {
       try {
         await context.waitForXPath('//div[@class="overlay__side-content__product-images"]//img');
+        await context.evaluate(async function () {
+          function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+          async function addVideoUrl (videoId) {
+            const videoJson = await fetch(`https://edge.api.brightcove.com/playback/v1/accounts/66036796001/videos/${videoId}`, {
+              headers: {
+                accept: 'application/json;pk=BCpkADawqM1R4SCVtAbuCMoV8_qAjR72HCIdahKkP_EVYDN5CZrBJIcAnpRv8i1e-btnRvDxRYedYyE9G44ucRGlPepdnvI7oXLRIPxAXyFvLd3W9D1-bEwmIoo',
+                'accept-language': 'en-US,en;q=0.9',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'cross-site',
+              },
+              referrer: window.location.origin,
+              referrerPolicy: 'no-referrer-when-downgrade',
+              body: null,
+              method: 'GET',
+              mode: 'cors',
+              credentials: 'omit',
+            }).then(r => r.json());
+            const regex = new RegExp(`^https.*${videoId}$`);
+            const videoUrl = videoJson.sources.map(({ src }) => src && regex.test(src) && src).filter(Boolean)[0];
+            addHiddenDiv(`video_url${videoId}`, videoUrl);
+          }
+          // @ts-ignore
+          for (const img of document.querySelectorAll('div[class="overlay__side-content__alt-media"] img')) {
+            const videoId = img.getAttribute('src').replace(/.*videoId=(.*$)/, '$1');
+            await addVideoUrl(videoId);
+          };
+        });
       } catch (error) {
         console.log('Error');
       }
