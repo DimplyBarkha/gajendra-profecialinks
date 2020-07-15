@@ -71,7 +71,7 @@ module.exports = {
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
-        timeout: 10000,
+        timeout: 30000,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
@@ -116,7 +116,7 @@ module.exports = {
 
         console.log('Going back to desired page');
         lastResponseData = await context.goto(url, {
-          timeout: 10000,
+          timeout: 30000,
           waitUntil: 'load',
           checkBlocked: true,
           js_enabled: true,
@@ -150,15 +150,17 @@ module.exports = {
         return;
       }
 
-      const wrongLocale = await context.evaluate(async function () {
-        const detailsLocaleEl = document.evaluate("//*[contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/span", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        const searchLocaleEl = document.evaluate("//span[@id='glow-ingress-line1']//*[contains(text(),':')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if (!!detailsLocaleEl.snapshotLength || !!searchLocaleEl.snapshotLength) {
-          return 'true';
-        } else {
-          return 'false';
-        }
-      });
+      // const wrongLocale = await context.evaluate(async function () {
+      //   const detailsLocaleEl = document.evaluate("//*[contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/span", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      //   const searchLocaleEl = document.evaluate("//span[@id='glow-ingress-line1']//*[contains(text(),':')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      //   if (!!detailsLocaleEl.snapshotLength || !!searchLocaleEl.snapshotLength) {
+      //     return 'true';
+      //   } else {
+      //     return 'true';
+      //   }
+      // });
+
+      const wrongLocale = 'false';
 
       if (wrongLocale === 'true' && !benchmark) {
         console.log('wrongLocale', !benchmark, wrongLocale);
