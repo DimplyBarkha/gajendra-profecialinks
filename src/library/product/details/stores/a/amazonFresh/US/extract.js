@@ -253,10 +253,57 @@ async function implementation (
     addHiddenDiv('added-asin', asinRaw);
   }
 
+  const loadProductInformationSelectors = () => (document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"importantInformation":{"divToUpdate":"importantInformation_feature_div"}') : false;
+  // {
+  //   const scriptJSON = document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script');
+  //   console.log('scriptJSON.length loadProductInformationSelectors')
+  //   console.log(scriptJSON.length);
+  //   if (scriptJSON.length !== 0) {
+  //     scriptJSON.forEach((script) => {
+  //       console.log(script.textContent)
+  //       if (script.textContent.includes('"importantInformation":{"divToUpdate":"importantInformation_feature_div"}')) {
+  //         console.log('pivotal');
+  //         return true;
+  //       }
+  //     });
+  //   }
+  //   return false;
+  // };
+
+  // async function loadManufacturerSelectors () {
+  //   const scriptJSON = document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script');
+  //   console.log('scriptJSON.length loadManufacturerSelectors')
+  //   console.log(scriptJSON.length);
+  //   if (scriptJSON.length !== 0) {
+  //     scriptJSON.forEach((script) => {
+  //       console.log(script.textContent)
+  //       if (script.textContent.includes('"aplus":{"divToUpdate":"aplus_feature_div"}')) {
+  //         return true;
+  //       }
+  //     });
+  //   }
+  //   return false;
+  // }
+  const loadManufacturerSelectors = () => (document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"aplus":{"divToUpdate":"aplus_feature_div"}') : false;
+
   // await setLocale();
   // @ts-ignore
   const allVariants = [...new Set(await getVariants())];
   await context.evaluate(addUrl);
+  const loadProductInfo = await context.evaluate(loadProductInformationSelectors);
+  console.log('loadProductInfo')
+  console.log(loadProductInfo)
+  if (loadProductInfo) {
+    console.log('in here waiting for importantInformation_feature_div')
+    context.waitForSelector('div#importantInformation_feature_div');
+  }
+  const loadManufacturer = await context.evaluate(loadManufacturerSelectors);
+  console.log('loadManufacturer')
+  console.log(loadManufacturer)
+  if (loadManufacturer) {
+    console.log('in here waiting for aplus_feature_div')
+    context.waitForSelector('div#aplus_feature_div');
+  }
   console.log('getting variants');
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log('#### of Variants:', allVariants.length);
@@ -266,6 +313,20 @@ async function implementation (
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });
     await context.evaluate(addUrl);
+    const loadProductInfo = await context.evaluate(loadProductInformationSelectors);
+    console.log('loadProductInfo')
+    console.log(loadProductInfo)
+    if (loadProductInfo) {
+      console.log('in here waiting for importantInformation_feature_div')
+      context.waitForSelector('div#importantInformation_feature_div');
+    }
+    const loadManufacturer = await context.evaluate(loadManufacturerSelectors);
+    console.log('loadManufacturer')
+    console.log(loadManufacturer)
+    if (loadManufacturer) {
+      console.log('in here waiting for aplus_feature_div')
+      context.waitForSelector('div#aplus_feature_div');
+    }
     await context.extract(productDetails, { transform, type: 'APPEND' });
     const pageVariants = await getVariants();
     console.log('#### of Variants:', allVariants.length);
