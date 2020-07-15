@@ -9,4 +9,8 @@ fields:
     xpath: .//a[@data-hook="review-title"]/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.it$1
-  
+  - name: product_id
+    singleValue: false
+    xpath: ancestor::html//span[contains(@class, 'item')]/a[1]/@href
+    regExp: dp\/([A-Za-z0-9]{10})\/
+    regExpReplace: $1
