@@ -49,8 +49,47 @@ const transform = (data) => {
 
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
-          item.text = item.text.trim().match(/hiRes":"/g) ? item.text.trim().match(/hiRes":"/g).length : 0;
+          item.text = item.text.trim().match(/SL1500_.jpg/g) ? item.text.trim().match(/SL1500_.jpg/g).length : 0;
         }
+      }
+
+      if (row.variantAsins) {
+        for (const item of row.variantAsins) {
+          if (item.text.match(/(.+),(.+)/)) {
+            item.text = item.text.match(/(.+),(.+)/)[2];
+          }
+        }
+      }
+
+      if (row.variantCount) {
+        row.variantCount.forEach(item => {
+          if (item.text === '0') {
+            row.variantCount = [
+              {
+                text: '1',
+              },
+            ];
+          }
+        });
+      }
+
+      if (row.variantAsins) {
+        let text = '';
+        row.variantAsins.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variantAsins = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
+      }
+
+      if (!row.listPrice) {
+        row.listPrice = [];
+        row.listPrice.push({
+          text: row.price,
+        });
       }
     }
   }
