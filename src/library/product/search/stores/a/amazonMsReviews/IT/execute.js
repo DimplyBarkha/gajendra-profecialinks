@@ -6,7 +6,8 @@ module.exports = {
     store: 'amazonMsReviews',
     domain: 'amazon.it',
     url: 'https://www.amazon.it/product-reviews/{searchTerms}/?sortBy=recent',
-    loadedSelector: 'div[data-hook=review]',
+    loadedSelector: 'span[data-hook^=review]',
     noResultsXPath: '//div[contains(@class, "no-reviews-section")]',
+    zipcode: ''
   },
 };

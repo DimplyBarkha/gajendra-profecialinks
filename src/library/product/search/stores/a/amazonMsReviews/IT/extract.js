@@ -25,9 +25,28 @@ async function implementation (
     addHiddenDiv('added-url', url);
   }
   async function addValidDateFlag (inputDate = _date) {
+    const frToEn = {
+      gennaio: 'january',
+      febbraio: 'february',
+      marzo: 'march',
+      aprile: 'april',
+      maggio: 'may',
+      giugno: 'june',
+      luglio: 'july',
+      agosto: 'august',
+      settembre: 'september',
+      ottobre: 'october',
+      novembre: 'november',
+      dicembre: 'december',
+    };
     Array.from(document.querySelectorAll('div[id*="review_list"] > div[data-hook="review"]')).forEach((review) => {
       let dateFlag = true;
       if (review.querySelector('span[data-hook*="review-date"]')) {
+        const month = review.querySelector('span[data-hook*="review-date"]').textContent.match(/([^\s]+)\s*[^\s]+$/) && review.querySelector('span[data-hook*="review-date"]').textContent.match(/([^\s]+)\s*[^\s]+$/)[1];
+        if (month) {
+          const engMonth = frToEn[month];
+          review.querySelector('span[data-hook*="review-date"]').innerText = review.querySelector('span[data-hook*="review-date"]').innerText.replace(month, engMonth);
+        }
         const reviewDate = new Date(review.querySelector('span[data-hook*="review-date"]').textContent).getTime();
         const date = new Date(inputDate).getTime();
         dateFlag = (reviewDate - date) >= 0;
