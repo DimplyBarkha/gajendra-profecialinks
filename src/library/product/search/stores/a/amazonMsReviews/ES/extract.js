@@ -26,30 +26,30 @@ async function implementation (
   }
   async function addValidDateFlag (inputDate = _date) {
     const esToEn = {
-      enero: "january",
-      febrero: "february",
-      marzo: "arch",
-      abril: "april",
-      mayo: "may",
-      junio: "june",
-      julio: "july",
-      agosto: "august",
-      septiembre: "september",
-      octubre: "october",
-      noviembre: "november",
-      diciembre: "december"
+      enero: 'january',
+      febrero: 'february',
+      marzo: 'arch',
+      abril: 'april',
+      mayo: 'may',
+      junio: 'june',
+      julio: 'july',
+      agosto: 'august',
+      septiembre: 'september',
+      octubre: 'october',
+      noviembre: 'november',
+      diciembre: 'december',
     };
     Array.from(document.querySelectorAll('div[id*="review_list"] > div[data-hook="review"]')).forEach((review) => {
       let dateFlag = true;
       if (review.querySelector('span[data-hook*="review-date"]')) {
-        review.querySelector('span[data-hook*="review-date"]').innerText = review.querySelector('span[data-hook*="review-date"]').innerText.replace(/de\s+/g,'');
+        review.querySelector('span[data-hook*="review-date"]').innerText = review.querySelector('span[data-hook*="review-date"]').innerText.replace(/de\s+/g, '');
         const month = review.querySelector('span[data-hook*="review-date"]').textContent.match(/([^\s]+)\s*[^\s]+$/) && review.querySelector('span[data-hook*="review-date"]').textContent.match(/([^\s]+)\s*[^\s]+$/)[1];
         if (month) {
           const engMonth = esToEn[month];
           review.querySelector('span[data-hook*="review-date"]').innerText = review.querySelector('span[data-hook*="review-date"]').innerText.replace(month, engMonth);
         }
-        const reviewDate = new Date(review.querySelector('span[data-hook*="review-date"]').textContent).getTime();
-        const date = new Date(inputDate).getTime();
+        const reviewDate = new Date(review.querySelector('span[data-hook*="review-date"]').textContent).setHours(0, 0, 0, 0);
+        const date = new Date(inputDate).setHours(0, 0, 0, 0);
         dateFlag = (reviewDate - date) >= 0;
       }
       review.setAttribute('date-flag', dateFlag.toString());
