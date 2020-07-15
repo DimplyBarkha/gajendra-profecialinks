@@ -1,4 +1,3 @@
-const { util } = require("chai");
 
 module.exports = {
   implements: 'product/search/paginate',

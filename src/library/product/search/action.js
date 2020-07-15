@@ -58,7 +58,7 @@ module.exports = {
     keywords = (Keywords) || (keywords) || (id);
 
     // do the search
-    const resultsReturned = await execute({ keywords, zipcode , _date, context });
+    const resultsReturned = await execute({ keywords, zipcode, _date, context });
 
     if (!resultsReturned) {
       console.log('No results were returned');
@@ -66,7 +66,7 @@ module.exports = {
     }
 
     // try gettings some search results
-    const pageOne = await extract({ });
+    const pageOne = await extract({ _date });
 
     let collected = length(pageOne);
 
@@ -79,7 +79,7 @@ module.exports = {
 
     let page = 2;
     while (collected < results && await paginate({ keywords, page, offset: collected, _date, context })) {
-      const data = await extract({ });
+      const data = await extract({ _date });
       const count = length(data);
       if (count === 0) {
         // no results

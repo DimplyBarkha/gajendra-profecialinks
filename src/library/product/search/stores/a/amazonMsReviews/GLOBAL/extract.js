@@ -44,7 +44,7 @@ async function implementation (
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'US',
+    country: 'GLOBAL',
     store: 'amazonMsReviews',
     transform: null,
     domain: 'amazon.com',
