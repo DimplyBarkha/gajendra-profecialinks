@@ -47,8 +47,8 @@ async function implementation (
           const engMonth = deToEn[month.toLowerCase()];
           review.querySelector('span[data-hook*="review-date"]').innerText = review.querySelector('span[data-hook*="review-date"]').innerText.replace(month, engMonth);
         }
-        const reviewDate = new Date(review.querySelector('span[data-hook*="review-date"]').textContent).getTime();
-        const date = new Date(inputDate).getTime();
+        const reviewDate = new Date(review.querySelector('span[data-hook*="review-date"]').textContent).setHours(0, 0, 0, 0);
+        const date = new Date(inputDate).setHours(0, 0, 0, 0);
         dateFlag = (reviewDate - date) >= 0;
       }
       review.setAttribute('date-flag', dateFlag.toString());
