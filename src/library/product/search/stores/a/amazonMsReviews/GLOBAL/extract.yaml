@@ -13,7 +13,7 @@ fields:
   - name: product_id
     singleValue: false
     xpath: ancestor::html//span[contains(@class, 'item')]/a[1]/@href
-    regExp: dp\/([A-Za-z0-9]{10})\/
+    regExp: dp\/([^\/]+)
     regExpReplace: $1
   - name: date
     singleValue: false
@@ -54,6 +54,7 @@ fields:
     description: Hardcoded amazon
     defaultValue: amazon
   - name: tld
+    singleValue: false
     xpath: ancestor::html//a[@class="nav-logo-link"]/@aria-label
     regExp: '\.(.+)$'
     regExpReplace: $1
