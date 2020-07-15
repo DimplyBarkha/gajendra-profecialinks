@@ -145,8 +145,6 @@ fields:
   - name: primeFlag
     sinlgeValue: true
     xpath: //body[@primeValue]/@primeValue
-    regExp: (.+)
-    regExpReplace: "Yes - Shipped and Sold"
     defaultValue: "NO"
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
