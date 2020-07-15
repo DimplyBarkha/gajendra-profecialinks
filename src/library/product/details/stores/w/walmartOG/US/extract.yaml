@@ -97,9 +97,9 @@ fields:
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//div[contains(@class,"servingSize")]//div[contains(@class,"ssRowOne")]
   xpath: //*[@id="iio_nutrient_servingsPerContainer"]
-  regExp: (\d*\.?\d+)
+  # regExp: (\d*\.?\d+)
   #regExp: (?:(\w+\s[\d.]+)\sserving)|(?:([\d.]+)\sserving)
-  #regExpReplace: $1$2
+  # regExpReplace: About $1
 - name: caloriesPerServing
   singleValue: false
   #xpath: //section[@data-automation-id="nutritionFacts"]//table[contains(@class,'nutritionTable')]//tr[contains(@class,'calorie')]//span[@data-automation-id="value"]
