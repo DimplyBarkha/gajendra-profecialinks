@@ -45,7 +45,7 @@ async function implementation (
         const month = review.querySelector('span[data-hook*="review-date"]').textContent.match(/([^\s]+)\s+[^\s]+$/) && review.querySelector('span[data-hook*="review-date"]').textContent.match(/([^\s]+)\s+[^\s]+$/)[1].trim();
         if (month) {
           const engMonth = deToEn[month.toLowerCase()];
-          review.querySelector('span[data-hook*="review-date"]').innerText = review.querySelector('span[data-hook*="review-date"]').innerText.replace(month, engMonth);
+          review.querySelector('span[data-hook*="review-date"]').innerText = review.querySelector('span[data-hook*="review-date"]').innerText.replace(month, engMonth).replace(/\./, '');
         }
         const reviewDate = new Date(review.querySelector('span[data-hook*="review-date"]').textContent).setHours(0, 0, 0, 0);
         const date = new Date(inputDate).setHours(0, 0, 0, 0);
