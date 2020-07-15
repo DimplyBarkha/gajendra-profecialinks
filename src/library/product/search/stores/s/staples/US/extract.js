@@ -28,7 +28,6 @@ async function implementation (
     if (pageData && pageData.innerText) {
       // @ts-ignore
       const data = (JSON.parse(pageData.innerText) && JSON.parse(pageData.innerText).products) ? JSON.parse(pageData.innerText).products : {};
-      console.log('Count => ', data.totalCount);
       for (var index in data) {
         addParentDiv('pageItem');
         const id = (data[index].itemId) ? data[index].itemId : '';
