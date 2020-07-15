@@ -28,8 +28,8 @@ async function implementation (
     Array.from(document.querySelectorAll('div[id*="review_list"] > div[data-hook="review"]')).forEach((review) => {
       let dateFlag = true;
       if (review.querySelector('span[data-hook*="review-date"]')) {
-        const reviewDate = new Date(review.querySelector('span[data-hook*="review-date"]').textContent).getTime();
-        const date = new Date(inputDate).getTime();
+        const reviewDate = new Date(review.querySelector('span[data-hook*="review-date"]').textContent).setHours(0, 0, 0, 0);
+        const date = new Date(inputDate).setHours(0, 0, 0, 0);
         dateFlag = (reviewDate - date) >= 0;
       }
       review.setAttribute('date-flag', dateFlag.toString());
