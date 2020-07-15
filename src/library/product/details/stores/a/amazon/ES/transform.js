@@ -95,7 +95,9 @@ const transform = (data) => {
         row.alternateImages.shift();
       }
       if (row.alternateImages) {
-        row.secondaryImageTotal = row.alternateImages.length;
+        row.secondaryImageTotal.forEach(secondaryImageTotal => {
+          secondaryImageTotal.text = row.alternateImages.length;
+        });
       }
       if (row.quantity) {
         row.quantity.forEach(quantity => {
