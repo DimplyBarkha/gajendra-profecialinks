@@ -45,7 +45,7 @@ async function implementation (
     return next.href;
   });
 
-  if ((new Date(await context.evaluate(checkDate)).valueOf() - new Date(_date).valueOf()) < 0) {
+  if ((new Date(await context.evaluate(checkDate)).setHours(0, 0, 0, 0) - new Date(_date).setHours(0, 0, 0, 0)) < 0) {
     return false;
   } else {
     if (!url && openSearchDefinition) {
