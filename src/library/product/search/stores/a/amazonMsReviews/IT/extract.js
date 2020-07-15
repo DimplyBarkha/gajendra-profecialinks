@@ -5,7 +5,7 @@
 * @param { ImportIO.IContext } context
 * @param { Record<string, any> } dependencies
 */
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -13,8 +13,8 @@ async function implementation(
 ) {
   const { productDetails } = dependencies;
   const { _date } = inputs;
-  async function addUrl() {
-    function addHiddenDiv(id, content) {
+  async function addUrl () {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -24,7 +24,7 @@ async function implementation(
     const url = window.location.href;
     addHiddenDiv('added-url', url);
   }
-  async function addValidDateFlag(inputDate = _date) {
+  async function addValidDateFlag (inputDate = _date) {
     const frToEn = {
       gennaio: 'january',
       febbraio: 'february',
