@@ -144,7 +144,7 @@ fields:
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
     sinlgeValue: true
-    xpath: (//span[@id="price-shipping-message"]//a[contains(text(), "Prime")])[1]
+    xpath: //body[@primeValue]/@primeValue
     regExp: (.+)
     regExpReplace: "Yes - Shipped and Sold"
     defaultValue: "NO"

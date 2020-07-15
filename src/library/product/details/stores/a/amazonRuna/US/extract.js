@@ -1,4 +1,6 @@
 const { transform } = require('../../amazonPharmapacks/US/shared');
+const { productPrimeCheck } = require('../../amazonPharmapacks/US/checkPrime');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -63,6 +65,8 @@ module.exports = {
     }
 
     await scrollToContent('div[data-cel-widget="aplus_feature_div"]');
+
+    await context.evaluate(productPrimeCheck);
 
     return await context.extract(productDetails, { transform });
   },

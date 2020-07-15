@@ -49,7 +49,7 @@ const transform = (data) => {
 
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
-          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+          item.text = item.text.trim().match(/SL1500_.jpg/g) ? item.text.trim().match(/SL1500_.jpg/g).length : 0;
         }
       }
 
@@ -72,6 +72,7 @@ const transform = (data) => {
           }
         });
       }
+
       if (row.variantAsins) {
         let text = '';
         row.variantAsins.forEach(item => {
@@ -82,6 +83,13 @@ const transform = (data) => {
             text: text.slice(0, -3),
           },
         ];
+      }
+
+      if (!row.listPrice) {
+        row.listPrice = [];
+        row.listPrice.push({
+          text: row.price
+        })
       }
     }
   }
