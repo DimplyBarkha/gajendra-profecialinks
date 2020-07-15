@@ -47,8 +47,7 @@ fields:
     description: The review  rating
     type: NUMBER
     xpath: .//i[@data-hook="review-star-rating"]
-    regExp: ([0-9\.]{1,}) out of 
-    regExpReplace: $1
+    regExp: '^[^\s]+'
   - name: source
     singleValue: true
     description: Hardcoded amazon
