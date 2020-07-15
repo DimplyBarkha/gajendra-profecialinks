@@ -15,6 +15,7 @@ fields:
     xpath: //h1[@itemprop="name"]/text()
   - name: description
     xpath: //div[contains(@class,'section__description rd__order-confirmation-page')]//div[@class="rd__checkout-details__section__description"]
+    singleValue: true
   - name: price
     xpath: (//span[contains(@class,'rd__discount-conflict-layer')])[1]
   - name: availabilityText
@@ -30,8 +31,10 @@ fields:
   - name: sku
     xpath: //h2[@class="rd__headlline rd__headline--80"]/@title
     regExp: ([0-9])\d+
-  - name: aggregateRatingText
-    xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
+  - name: aggregateRating
+    xpath: //div[@itemprop="ratingValue"]
+    regExp: (\d+).(\d+)
+    regExpReplace: $1,$2
   - name: ratingCount
     xpath: //div[@class="bv_numReviews_text"]
     regExp: (\d+)
@@ -58,8 +61,11 @@ fields:
   - name: videos
     xpath: //div[@class="sd__vidcontent"]/iframe/@src
   - name: ingredientsList
-    xpath: (//div[contains(@class,'rd__order-confirmation-page__infotext')]//div[@class="rd__checkout-details__section__description"])[2]
+    xpath: //li//span[contains(text(),'Ingredientes')]/parent::li/parent::ul/parent::nav/parent::div/parent::div/following-sibling::div[3] | //div[contains(text(),'INGREDIENTS:')]
+    singleValue: true
   - name: name
     xpath: //h1[@itemprop="name"]/text()
   - name: listPrice
-    xpath: (//img[@alt="Precio habitual"]/parent::div)[1]
+    xpath: (//img[@alt="Precio habitual"]/parent::div)[1] | (//img[@alt="Precio habitual"]/parent::span/parent::span)[1]
+  - name: directions
+    xpath: //li//span[contains(text(),'Usos')]/parent::li/parent::ul/parent::nav/parent::div/parent::div/following-sibling::div[2]
