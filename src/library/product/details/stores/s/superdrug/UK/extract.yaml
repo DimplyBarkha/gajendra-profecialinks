@@ -30,7 +30,7 @@ fields:
     defaultValue: Out Of Stock
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::p[1]|//strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]
+    xpath: //div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::p[1][not(contains(.,"Size"))]|//strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]
   - name: brandText
     singleValue: true
     xpath: //a[@itemprop="brand"]
@@ -154,7 +154,7 @@ fields:
   - name: variantInformation
     xpath: //form[@id="addToCartForm"]//a[contains(@class,"color__item--active")]/@title
   - name: firstVariant
-    xpath: //form[@id="addToCartForm"]//a[contains(@class,"color__item--active")]/@href
+    xpath: //form[@id="addToCartForm"]//a[contains(@class,"color__item")][1]/@href
     regExp: (.*/p/)(.*)
     regExpReplace: $2
   - name: variants
@@ -164,7 +164,7 @@ fields:
   - name: directions
     xpath: //h3[contains(.,"Product Uses")]/following-sibling::p[1]|//h3[contains(.,"Product Uses")]/following-sibling::li
   - name: descriptionBullets
-    xpath: count(//article//h3[contains(.,"Benefits") or contains(.,"Features")]/parent::article//li|//p[@itemprop="description"]/br)
+    xpath: count(//article//h3[contains(.,"Benefits") or contains(.,"Features")]/parent::article//li)
   - name: quantity
     xpath: //p[contains(text(),"Size")][contains(text(),"Height")][contains(text(),"Width")][contains(text(),"Depth")]
     regExp: (Size )(.+)(?=Height)
