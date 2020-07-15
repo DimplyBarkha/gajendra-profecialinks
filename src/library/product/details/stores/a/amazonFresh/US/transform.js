@@ -93,7 +93,7 @@ const transform = (data, context) => {
           const regexBrand = /([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm;
           if (regexBrand.test(row.brandText[0].text)) {
             const brandName = (row.brandText[0].text).replace(regexBrand, '');
-            row.brand = [{ text: brandName }];
+            row.brandText = [{ text: brandName }];
           }
         }
         if (row.name && row.name[0]) {
