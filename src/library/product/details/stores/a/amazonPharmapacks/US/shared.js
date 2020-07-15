@@ -88,8 +88,8 @@ const transform = (data) => {
       if (!row.listPrice) {
         row.listPrice = [];
         row.listPrice.push({
-          text: row.price
-        })
+          text: row.price,
+        });
       }
     }
   }

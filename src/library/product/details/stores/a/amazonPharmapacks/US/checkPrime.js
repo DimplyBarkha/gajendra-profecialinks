@@ -6,22 +6,22 @@ const productPrimeCheck = async () => {
   const metaNames = document.querySelectorAll('meta[name]');
 
   const findMatchingString = (nodeList) => {
-    return new Promise((res, rej) => {
+    return new Promise((resolve, reject) => {
       for (const node of nodeList) {
         const text = node.textContent;
 
         if (text.match(/sold by amazon/ig)) {
-          return res('Yes - Shipped & Sold');
+          return resolve('Yes - Shipped & Sold');
         } else if (text.match(/fulfilled by amazon/ig)) {
-          return res('Yes - Fulfilled');
+          return resolve('Yes - Fulfilled');
         } else if (text.match(/prime pantry/ig)) {
-          return res('Prime Pantry');
+          return resolve('Prime Pantry');
         }
       }
 
-      return res(undefined);
-    })
-  }
+      return resolve(undefined);
+    });
+  };
 
   if (document.querySelector('i#burjActionPanelAddOnBadge.a-icon.a-icon-addon')) {
     primeValue = 'Add-On';
@@ -56,6 +56,6 @@ const productPrimeCheck = async () => {
   }
 
   document.querySelector('body').setAttribute('primeValue', primeValue);
-}
+};
 
 module.exports = { productPrimeCheck };
