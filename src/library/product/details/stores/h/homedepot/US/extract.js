@@ -62,9 +62,13 @@ module.exports = {
           mode: 'cors',
           credentials: 'omit',
         }).then(r => r.json());
-        const regex = new RegExp(`^https.*${videoId}$`);
-        const videoUrl = videoJson.sources.map(({ src }) => src && regex.test(src) && src).filter(Boolean)[0];
-        addHiddenDiv(`video_url${videoId}`, videoUrl);
+        try {
+          const regex = new RegExp(`^https.*${videoId}$`);
+          const videoUrl = videoJson.sources.map(({ src }) => src && regex.test(src) && src).filter(Boolean)[0];
+          addHiddenDiv(`video_url${videoId}`, videoUrl);
+        } catch (error) {
+          console.log('video not found');
+        }
       }
       if (!regularSite) {
         const imgExpander = document.querySelector('span.mediagallery__thumbnailicons--count');
@@ -120,9 +124,13 @@ module.exports = {
               mode: 'cors',
               credentials: 'omit',
             }).then(r => r.json());
-            const regex = new RegExp(`^https.*${videoId}$`);
-            const videoUrl = videoJson.sources.map(({ src }) => src && regex.test(src) && src).filter(Boolean)[0];
-            addHiddenDiv(`video_url${videoId}`, videoUrl);
+            try {
+              const regex = new RegExp(`^https.*${videoId}$`);
+              const videoUrl = videoJson.sources.map(({ src }) => src && regex.test(src) && src).filter(Boolean)[0];
+              addHiddenDiv(`video_url${videoId}`, videoUrl);
+            } catch (error) {
+              console.log('video not found');
+            }
           }
           // @ts-ignore
           for (const img of document.querySelectorAll('div[class="overlay__side-content__alt-media"] img')) {
