@@ -5,13 +5,17 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//img[@id="landingImage"])[1]/@src | //div[@id='img-canvas']/img/@src
+    xpath: //script[contains(text(), 'ImageBlockATF')]
+    regExp: hiRes\":\"(.{40,200})\"\,\"thumb
+    regExpReplace: $1
   - name: imageAlt
     singleValue: false
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    xpath: //*[@id="imageBlock_feature_div"]/script
+    regExp: large\":\"(.{40,200})\"\,\"main
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -20,7 +24,7 @@ fields:
     xpath: //div[@id='wayfinding-breadcrumbs_feature_div']/ul
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name='title']/@content
+    xpath: //h1[@id='title']
   - name: listPrice
     singleValue: false
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
@@ -44,7 +48,7 @@ fields:
     xpath: //*[@id='bylineInfo']
   - name: manufacturer
     singleValue: false
-    xpath: //td[contains(text(), 'Hersteller')]/following-sibling::*[1]
+    xpath: //td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //td/a[contains(text(), 'Hersteller')]/parent::*[1]/following-sibling::*[1]
   - name: quantity
     singleValue: false
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Größe')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Größe')]/* | //label[contains(text(), 'Größe')]/following-sibling::*[1] | //td[text()='Größe']/following-sibling::*[1])[1] |  //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Größe')]/../td | //*[contains(text(),'Volumen')]/following-sibling::*[1]
@@ -63,7 +67,7 @@ fields:
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
   - name: directions
-    singleValue: true
+    singleValue: false
     xpath: //*[contains(text(), 'Gebrauchsanweisung')]/following-sibling::*[1]
   - name: ratingCount
     singleValue: false
@@ -128,7 +132,7 @@ fields:
     regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*$+-]{1,})
     regExpReplace: $1
   - name: subscriptionPrice
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="sns-base-price"]
     regExp: ([^ ]+)
     regExpReplace: $1
@@ -139,7 +143,7 @@ fields:
     regExpReplace: 'YES'
     defaultValue: 'NO'
   - name: pasin
-    singleValue: true
+    singleValue: false
     xpath: //script[contains(text(), 'parentAsin')]
     regExp: parentAsin"\s:\s"(\S+)
     regExpReplace: $1
@@ -149,19 +153,19 @@ fields:
     regExp: (\d+:\d+)
     regExpReplace: $1
   - name: ingredientImagePresent
-    singleValue: true
+    singleValue: false
     xpath: //script[contains(text(),"INGR")]
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: NO
   - name: factImagePresent
-    singleValue: true
+    singleValue: false
     xpath: //script[contains(text(),"FACT")]
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: NO
   - name: largeImageCount
-    singleValue: true
+    singleValue: false
     xpath: count(//script[contains(text(),"SL1500_.jpg")])
   - name: variantAsins
     singleValue: false
@@ -204,10 +208,15 @@ fields:
     xpath: //*[@id="ddmDeliveryMessage"]
   - name: ingredientsList
     singleValue: false
-    xpath: //td[contains(text(), 'Inhaltsstoffe')]/following-sibling::*[1] | //td[contains(text(), 'Zutaten')]/following-sibling::*[1]
+    xpath: //*[contains(text(), 'Inhaltsstoffe')]/following-sibling::*[1] | //*[contains(text(), 'Zutaten')]/following-sibling::*[1]
   - name: promotion
     singleValue: false
     xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
   - name: variantInformation
     singleValue: false
     xpath: //*[@id="twister"]//span[@class="selection"]
+  - name: firstVariant
+    singleValue: false
+    xpath: (//li[contains(@data-dp-url,"dp/")])[1]/@data-dp-url
+    regExp: twister_([A-Z0-9]{9,})
+    regExpReplace: $1

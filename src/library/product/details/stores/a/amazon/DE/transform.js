@@ -87,6 +87,45 @@ const transform = (data, context) => {
           lbbPrice.text = lbbPrice.text.replace('.', '').replace(',', '.').trim();
         });
       }
+      if (row.pasin) {
+        row.pasin.forEach(pasin => {
+          pasin.text = pasin.text.replace('\",', '');
+        });
+      }
+      if (row.nameExtended) {
+        let text = '';
+        row.nameExtended.forEach(item => {
+          text += `${item.text.replace(': Amazon.de', '').trim()}`;
+        });
+        row.nameExtended = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.alternateImages) {
+        row.alternateImages.shift();
+      }
+      if (row.alternateImages) {
+        row.secondaryImageTotal.forEach(secondaryImageTotal => {
+          secondaryImageTotal.text = row.alternateImages.length;
+        });
+      }
+      if (row.variantCount) {
+        row.variantCount.forEach(variantCount => {
+          if (variantCount.text === '0') {
+            variantCount.text = '1';
+          }
+        });
+      }
+      if (row.salesRankCategory) {
+        if (row.salesRankCategory.text.includes('Nr')) {
+          row.salesRankCategory.shift();
+        }
+      }
+      if (row.image) {
+        row.image.text = row.image.splice(1);
+      }
     }
   }
   return data;
