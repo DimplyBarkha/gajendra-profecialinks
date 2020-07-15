@@ -50,7 +50,7 @@ module.exports = {
         const elem = document.querySelector(selectorToScrollTo);
         await scrollToSmoothly(elem.offsetTop);
       }, selector);
-    }
+    };
 
     await scrollToContent('#reviewsMedley');
     await scrollToContent('.askDetailPageSearchWidgetSection');
@@ -58,7 +58,7 @@ module.exports = {
     try {
       await context.waitForSelector('#aplus', { timeout: 30000 });
     } catch (err) {
-      console.log(`Manufacturer details did not load.`);
+      console.log('Manufacturer details did not load.');
     }
 
     await scrollToContent('div[data-cel-widget="aplus_feature_div"]');
