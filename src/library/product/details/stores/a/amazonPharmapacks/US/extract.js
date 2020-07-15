@@ -1,5 +1,4 @@
 const { transform } = require('./shared');
-const { productPrimeCheck } = require('./checkPrime');
 
 module.exports = {
   parameterValues: {
@@ -9,7 +8,6 @@ module.exports = {
     domain: 'amazon.com',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await context.evaluate(productPrimeCheck);
     return await context.extract(productDetails, { transform });
   },
 };

@@ -27,5 +27,3 @@ fields:
   xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
 - name: manufacturerImages
   xpath: //div[@cel_widget_id="aplus"]//img/@data-src | //th[@class="apm-tablemodule-image"]//img[@alt="runa"]/@src
-- name: largeImageCount
-  xpath: //script[contains(., "ImageBlockATF")]/text()
