@@ -72,8 +72,6 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //th[contains(text(), 'UPC')]/following-sibling::*[1]
-  - name: eangtin
-    singleValue: true
   - name: asin
     singleValue: false
     xpath: //link[@rel='canonical']/@href
@@ -131,8 +129,7 @@ fields:
   - name: colorCode
     singleValue: true
   - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@id="productDescription"]/p[text()]/text()
+    singleValue: true
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@cel_widget_id="aplus"]//img/@src
