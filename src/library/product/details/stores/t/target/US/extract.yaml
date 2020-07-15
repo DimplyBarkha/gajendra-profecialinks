@@ -29,7 +29,7 @@ fields:
     xpath: //div[@class="price"]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="imageAlt"]
+    xpath: //div[@class="nameExtended"]
   - name: listPrice
     singleValue: false
     xpath: //div[@class="regPrice"]
@@ -85,11 +85,11 @@ fields:
     singleValue: false
     xpath: //div[@class="ratingCount"]
   - name: aggregateRatingText
-    singleValue: true
-    xpath: //div[@id="ratingText"]
+    singleValue: false
+    xpath: //div[@class="aggregateRatingText"]
   - name: aggregateRating
-    singleValue: true
-    xpath: //div[@id="rating"]
+    singleValue: false
+    xpath: //div[@class="aggregateRating"]
   #- name: shippingInfo
   #  singleValue: true
   #  xpath: //div[@id="shippingInfo"]

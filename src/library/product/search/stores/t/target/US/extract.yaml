@@ -1,15 +1,15 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: td.Item.depth_2>table>tbody>tr
-recordXPath: null
+recordSelector: null
+recordXPath: //ul[@id="mainContainer"]//li[@class="productInfo"]
 #recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: .//td[contains(@class,"tcin depth_3")]
+    xpath: .//div[@class="productId"]
   - name: name
     singleValue: false
-    xpath: .//td[contains(@class,"title depth_3")]
+    xpath: .//div[@class="productName"]
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid
@@ -17,21 +17,22 @@ fields:
     selector: div.sponsored
   - name: productUrl
     singleValue: false
-    xpath: .//div[@class="url"]
+    xpath: .//div[@class="productUrl"]
   - name: gtin
     singleValue: true
+    xpath: .//div[@class="gtin"]
   - name: thumbnail
     singleValue: false
     xpath: .//div[@class="thumbnail"]
   - name: aggregateRating2
     singleValue: false
-    xpath: .//td[contains(@class,"average_rating depth_3")]
+    xpath: .//div[@class="averageRating"]
   - name: reviewCount
     singleValue: false
     xpath: .//div[@class="reviewCount"]
   - name: price
     singleValue: false
-    xpath: .//td[contains(@class,"current_retail depth_4")]
+    xpath: .//div[@class="price"]
   - name: manufacturer
     singleValue: false
     xpath: .//div[@class="brand"]
