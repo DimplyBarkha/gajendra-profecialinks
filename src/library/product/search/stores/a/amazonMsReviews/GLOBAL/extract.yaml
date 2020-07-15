@@ -49,9 +49,9 @@ fields:
     description: Hardcoded amazon
     defaultValue: amazon
   - name: tld
-    singleValue: false
-    description: Top level domain
-    type: TEXT
+    xpath: ancestor::html//a[@class="nav-logo-link"]/@aria-label
+    regExp: '\.(.+)$'
+    regExpReplace: $1
     defaultValue: com
   - name: user
     singleValue: false
