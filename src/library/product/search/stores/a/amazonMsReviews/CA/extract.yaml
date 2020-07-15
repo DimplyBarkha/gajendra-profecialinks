@@ -1,0 +1,11 @@
+extends: ../US/extract
+fields:
+  - name: review_id
+    singleValue: false
+    description: A direct link to the review
+    type: TEXT
+    xpath: .//a[@data-hook="review-title"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.ca$1
+  - name: tld
+    defaultValue: ca
