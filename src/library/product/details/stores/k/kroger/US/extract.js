@@ -1,4 +1,4 @@
-const { implementation } = require("./sharedExtract")
+const { implementation } = require('./sharedExtract');
 const { cleanUp } = require('../../../../shared');
 
 module.exports = {
