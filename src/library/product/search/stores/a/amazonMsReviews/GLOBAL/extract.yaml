@@ -12,7 +12,7 @@ fields:
     defaultValue: 0
   - name: product_id
     singleValue: false
-    xpath: .//span[contains(@class, 'item')]/a[1]/@href
+    xpath: ancestor::html//span[contains(@class, 'item')]/a[1]/@href
     regExp: dp\/([A-Za-z0-9]{10})\/
     regExpReplace: $1
   - name: date
@@ -55,8 +55,9 @@ fields:
     defaultValue: amazon
   - name: tld
     singleValue: false
-    description: Top level domain
-    type: TEXT
+    xpath: ancestor::html//a[@class="nav-logo-link"]/@aria-label
+    regExp: '\.(.+)$'
+    regExpReplace: $1
     defaultValue: com
   - name: user
     singleValue: false
