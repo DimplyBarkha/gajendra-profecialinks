@@ -46,7 +46,7 @@ module.exports = {
     // autoScroll();
 
     if (manufacturerInfo.length !== 0) {
-      await new Promise(resolve => setTimeout(resolve, 30000));
+      await new Promise(resolve => setTimeout(resolve, 15000));
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner');
       await context.waitForSelector('a.view-more-trigger');
