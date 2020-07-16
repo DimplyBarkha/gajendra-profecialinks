@@ -14,7 +14,7 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-  const { _date } = inputs;
+  // const { _date } = inputs;
   async function addUrl () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
