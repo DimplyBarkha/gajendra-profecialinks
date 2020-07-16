@@ -19,6 +19,18 @@ const transform = (data) => {
         ];
       }
 
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+            text += `${item.text.replace(/\r\n|\r|\n/g, ' ').trim()} `;
+        });
+        row.manufacturerDescription = [
+          {
+            text: text.trim(),
+          },
+        ];
+      }
+
       if (row.otherSellersShipping2) {
         for (const item of row.otherSellersShipping2) {
           if (item.text.toLowerCase().includes('free')) {
@@ -53,10 +65,21 @@ const transform = (data) => {
         }
       }
 
-      if (row.variantAsins) {
-        for (const item of row.variantAsins) {
+      if (row.asin) {
+        for (const item of row.asin) {
           if (item.text.match(/(.+),(.+)/)) {
             item.text = item.text.match(/(.+),(.+)/)[2];
+          }
+        }
+      }
+
+      if (row.brandText) {
+        for (const item of row.brandText) {
+          if (item.text.match(/Visit the (.+)/g)) {
+            item.text = item.text.match(/Visit the (.+)/g)[0].replace('Visit the ', '').replace('Store', '');
+          }
+          if (item.text.match(/Brand: (.+)/g)) {
+            item.text = item.text.match(/Brand: (.+)/g)[0].replace('Brand: ', '');
           }
         }
       }
@@ -85,11 +108,8 @@ const transform = (data) => {
         ];
       }
 
-      if (!row.listPrice) {
-        row.listPrice = [];
-        row.listPrice.push({
-          text: row.price,
-        });
+      if (!row.listPrice && row.price) {
+        row.listPrice = row.price;
       }
     }
   }

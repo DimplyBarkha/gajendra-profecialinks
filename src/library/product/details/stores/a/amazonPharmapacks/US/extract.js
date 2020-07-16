@@ -114,6 +114,11 @@ module.exports = {
       }, selector);
     };
 
+    try {
+      await scrollToContent('#descriptionAndDetails');
+    } catch (err) {
+      console.log('Product description is not found.');
+    }
     await scrollToContent('#reviewsMedley');
     await scrollToContent('.askDetailPageSearchWidgetSection');
 
