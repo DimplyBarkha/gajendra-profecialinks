@@ -8,6 +8,9 @@ fields:
     xpath: //span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
     regExp: (.+)
     regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='my-search-url']
   - name: name
     singleValue: true
     xpath: //h2
