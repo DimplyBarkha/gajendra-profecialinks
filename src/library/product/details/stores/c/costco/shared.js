@@ -29,6 +29,28 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.Image360Present) {
+        let text = '';
+        row.Image360Present.forEach(item => {
+          text += item.text.replace(new RegExp('360°', 'g'), 'Yes');
+        });
+        row.Image360Present = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.technicalInformationPdfPresent) {
+        let text = '';
+        row.technicalInformationPdfPresent.forEach(item => {
+          text += item.text.replace(new RegExp('Documents', 'g'), 'Yes');
+        });
+        row.technicalInformationPdfPresent = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {

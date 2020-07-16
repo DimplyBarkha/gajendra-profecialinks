@@ -29,6 +29,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class="row no-gutter active"]//div[@class="online-price active"]//span[@class="op-value"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -42,7 +43,7 @@ fields:
     regExpReplace: In Stock
   - name: description
     singleValue: false
-    xpath: (//ul[@class="pdp-features"]/li | //div[@id="wc-power-page"]//h1 | //div[@id="wc-power-page"]//h2 | //div[@id="wc-power-page"]//div[not(contains(.,'{'))])
+    xpath: (//ul[@class="pdp-features"]/li | //div[@id="wc-power-page"]//h1 | //div[@id="wc-power-page"]//h2 | //div[@id="wc-power-page"]//div[not(contains(.,'{'))] | //div[@class="product-info-description"]/span)
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -122,6 +123,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@class="variantContainer"]//a[1]//@data-content
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -483,6 +485,7 @@ fields:
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
+    xpath: //button[contains(.,'Documents')]
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
@@ -502,12 +505,13 @@ fields:
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    xpath: //button[contains(.,'360')]
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
   
