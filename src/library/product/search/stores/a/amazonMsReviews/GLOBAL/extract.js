@@ -38,13 +38,13 @@ async function implementation (
 
   await context.evaluate(addUrl);
   await context.evaluate(addValidDateFlag, _date);
-  return await context.extract(productDetails, { type: 'APPEND' });
+  return await context.extract(productDetails);
 }
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'US',
+    country: 'GLOBAL',
     store: 'amazonMsReviews',
     transform: null,
     domain: 'amazon.com',

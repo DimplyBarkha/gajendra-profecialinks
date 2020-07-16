@@ -23,7 +23,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { keywords, page, offset, id } = inputs;
+  const { keywords, page, offset } = inputs;
   const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
 
   if (nextLinkSelector) {

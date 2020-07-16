@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /**
  *
  * @param {ImportIO.Group[]} data
