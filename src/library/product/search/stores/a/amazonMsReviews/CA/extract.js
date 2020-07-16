@@ -12,7 +12,7 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-  const { _date } = inputs;
+  // const { _date } = inputs;
   async function addUrl () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -23,7 +23,9 @@ async function implementation (
     }
     const url = window.location.href;
     addHiddenDiv('added-url', url);
-  }
+  }/*
+   *NOTE: Use this function to include only valid date results from last page.
+   *
   async function addValidDateFlag (inputDate = _date) {
     Array.from(document.querySelectorAll('div[id*="review_list"] > div[data-hook="review"]')).forEach((review) => {
       let dateFlag = true;
@@ -34,10 +36,10 @@ async function implementation (
       }
       review.setAttribute('date-flag', dateFlag.toString());
     });
-  }
+  } */
 
   await context.evaluate(addUrl);
-  await context.evaluate(addValidDateFlag, _date);
+  // await context.evaluate(addValidDateFlag, _date);
   return await context.extract(productDetails);
 }
 
