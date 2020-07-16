@@ -36,9 +36,13 @@ fields:
     singleValue: true
     xpath: //div[@id="brand"]
   - name: quantity
-    singleValue: true
-    xpath: //div[@id="quantity"]
+    xpath: //h1[@itemprop="description"]/text()
+    regExp: (.+)\s(\d+)\s(.+)
+    regExpReplace: $2 $3
   - name: gtin
+    singleValue: true
+    xpath: //span[@itemprop="sku"]
+  - name: sku
     singleValue: true
     xpath: //span[@itemprop="sku"]
   - name: asin
@@ -130,7 +134,7 @@ fields:
     xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
     regExp: \s(.+)
     regExpReplace: $1
-  - name: pricePerUnit
+  - name: price_per_unit2
     singleValue: false
     xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
     regExp: \((.+)\s\/(.+)
@@ -166,3 +170,8 @@ fields:
     xpath: //div[@id="bulletDescription"]
     regExp: (.+Cantidad Neta)\:\s(\d+\s\w)(.*)
     regExpReplace: $2
+  - name: allergyAdvice
+    singleValue: true
+    xpath: //div[@id="allergyAdvice"]
+  - name: numberOfServingsInPackage
+    xpath: //li/span[contains(text(), 'Número de raciones por envase:')]/../text()

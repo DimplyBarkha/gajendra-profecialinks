@@ -9,6 +9,8 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    const sectionsDiv = 'span[itemprop="name"]';
+    await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     await context.evaluate(async function () {
       // function to append the elements to DOM
       function addElementToDocument (key, value) {
@@ -160,14 +162,33 @@ module.exports = {
       if (reviewsCount) {
         ratingCount = reviewsCount.textContent.trim().match(/[^\s]+(?=\sOpiniones)/);
         if (ratingCount) {
-          addElementToDocument('ratingCount', ratingCount[2]);
+          addElementToDocument('ratingCount', ratingCount[0]);
         }
       } else if (document.querySelector('h4[itemprop="headline"]')) {
         ratingCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
+
         if (ratingCount) {
-          addElementToDocument('ratingCount', ratingCount[0]);
+          if (document.querySelector('li[itemprop="review"]')) {
+            ratingCount = parseInt(ratingCount[0]) + document.querySelectorAll('li[itemprop="review"]').length;
+          }
+          addElementToDocument('ratingCount', ratingCount);
+        }
+      } else if (document.querySelector('li[itemprop="review"]')) {
+        ratingCount = document.querySelectorAll('li[itemprop="review"]').length;
+        if (ratingCount) {
+          addElementToDocument('ratingCount', ratingCount);
         }
       }
+
+      function allergyAdvice () {
+        const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        if (element) {
+          const allElements = [...element.querySelectorAll('b')];
+          const allergyAdvice = allElements.map(i => i.textContent).join(' ');
+          addElementToDocument('allergyAdvice ', allergyAdvice);
+        }
+      } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
       function textContent (element, attributeName) {
