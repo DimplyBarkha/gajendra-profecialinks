@@ -88,6 +88,11 @@ const transform = (data) => {
       if (!row.listPrice && row.price) {
         row.listPrice = row.price;
       }
+
+      if (!row.asin && row.sku) {
+        row.asin = row.sku;
+        delete row.sku;
+      }
     }
   }
   return data;

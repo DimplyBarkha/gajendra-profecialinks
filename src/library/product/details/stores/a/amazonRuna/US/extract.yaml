@@ -23,7 +23,10 @@ fields:
   xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   regExp: (.+)
   regExpReplace: https://www.amazon.com/dp/$1
-- name: asins
+- name: asin
   xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
 - name: manufacturerImages
-  xpath: //div[@cel_widget_id="aplus"]//img/@data-src | //th[@class="apm-tablemodule-image"]//img[@alt="runa"]/@src
+  xpath: //div[@cel_widget_id="aplus"]//img/@data-src | //th[@class="apm-tablemodule-image "]//img/@src
+- name: sku
+  singleValue: true
+  xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
