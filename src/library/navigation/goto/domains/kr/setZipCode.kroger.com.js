@@ -1,7 +1,7 @@
 async function implementation (
   inputs, parameters, context, dependencies,
 ) {
-  const { zipcode } = inputs;
+  const { url, zipcode } = inputs;
 
   const getCurrentZip = async () => {
     return await context.evaluate(async function () {
@@ -51,6 +51,8 @@ async function implementation (
     });
     console.log(hasZipBtn);
     if (!hasZipBtn) {
+      await context.goto('about:blank');
+      await context.goto(url, { timeout: 20000, waitUntil: 'load', checkBlocked: true });      
       await context.click('button.CurrentModality-button');
       await new Promise((resolve) => setTimeout(resolve, 6000));
     }
@@ -78,8 +80,8 @@ async function implementation (
       console.log('Trying to change zip');
       await changeZip(zipcode);
     }
-  } catch (exception) {
-    currentZip = await getCurrentZip();
+  } catch (exception) {    
+    currentZip = await getCurrentZip();    
     if (currentZip !== zipcode) {
       console.log(exception);
       throw new Error('Failed to change zip');
