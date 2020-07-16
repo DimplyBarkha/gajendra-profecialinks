@@ -43,11 +43,11 @@ const transform = (data) => {
       if (row.warnings) {
         let text = '';
         row.warnings.forEach(item => {
-          text += item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ').replace(new RegExp('(.+)(Warning:)(.+)', 'g'), '$3');
+          text += item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ').replace(new RegExp('(.+)(Warning:)(.+)(Origin:.+)', 'g'), '$3').replace(new RegExp('(.+)(Usage:.+)', 'g'), '$1');
         });
         row.warnings = [
           {
-            text: text,
+            text: text.replace(new RegExp('(.+)(Warning:)(.+)', 'g'), '$3'),
           },
         ];
       }
