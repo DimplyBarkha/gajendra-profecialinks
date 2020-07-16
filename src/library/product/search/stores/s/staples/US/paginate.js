@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'staples',
-    loadedSelector: "body > pre[style='word-wrap: break-word; white-space: pre-wrap;']",
-    noResultsXPath: null,
+    loadedSelector: "div[class*='productView__productTileContainer'] div[class*='nested_grid_content']",
+    noResultsXPath: "//div[@class='NullPage__comNullPageHeading']",
     openSearchDefinition: {
       page: 1,
-      template: 'https://www.staples.com/searchux/api/v1/searchProxy?term={searchTerms}&pn={page}&ajaxRequest=true&deviceType=desktop&autoFilter=false',
+      template: 'https://www.staples.com/{searchTerms}/directory_{searchTerms}?pn={page}',
     },
     domain: 'staples.com',
     zipcode: '',

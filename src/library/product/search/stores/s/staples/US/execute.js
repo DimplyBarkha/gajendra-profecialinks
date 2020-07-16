@@ -5,9 +5,9 @@ module.exports = {
     country: 'US',
     store: 'staples',
     domain: 'staples.com',
-    url: 'https://www.staples.com/searchux/api/v1/searchProxy?term={searchTerms}&ajaxRequest=true&deviceType=desktop&autoFilter=false',
-    loadedSelector: "body > pre[style='word-wrap: break-word; white-space: pre-wrap;']",
-    noResultsXPath: null,
+    url: 'https://www.staples.com/{searchTerms}/directory_{searchTerms}',
+    loadedSelector: "div[class*='productView__productTileContainer'] div[class*='nested_grid_content']",
+    noResultsXPath: "//div[@class='NullPage__comNullPageHeading']",
     zipcode: '',
   },
 };

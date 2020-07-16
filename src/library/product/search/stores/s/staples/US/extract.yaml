@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: #pageItem
-recordXPath: null
+recordSelector: null
+recordXPath: //div[contains(@class,'grid__row')]/div[contains(@class,'nested_grid_content')]
 fields:
   - name: paid
     singleValue: true
@@ -53,7 +53,7 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: //div[@id='ii_price']
+    xpath: //span[contains(@class,'standard-type__price')]
     description: The offered price for the product
   - name: listPrice
     singleValue: true
