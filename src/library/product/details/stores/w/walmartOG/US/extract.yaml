@@ -18,6 +18,9 @@ fields:
   singleValue: false
   # xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]|//div[@data-automation-id="productPageTile"]//div[contains(@class,"imageContainer")]//img[@data-automation-id="image"])[1]/@src
   xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]/@src|//*[@id="iio_image"])[1]
+- name: imageAlt
+  singleValue: false
+  xpath: //div[contains(@class, 'prod-HeroImage')]//img/@alt
 - name: alternateImages
   singleValue: false
   xpath: (//div[contains(@class, 'productImageCarouselContainer')]//li[@class='slider-slide']//img/@src)[position()>1]
@@ -37,6 +40,12 @@ fields:
 - name: listPrice
   singleValue: true
   xpath: //*[@id="iio_listPrice"]
+- name: pricePerUnit
+  singleValue: true
+  xpath: //*[@id="iio_pricePerUnit"]
+- name: pricePerUnitUom
+  singleValue: true
+  xpath: //*[@id="iio_pricePerUnitUOM"]
 - name: promotion
   singleValue: true
   xpath: (//div[@data-automation-id="productPageTile"]//div[@data-automation-id="rollback-flag"])[1]
@@ -304,6 +313,9 @@ fields:
 - name: productUrl
   singleValue: false
   xpath: //*[@id="iio_product_url"]
+- name: legalDisclaimer
+  singleValue: true
+  xpath: //*[text() = 'Disclaimer']/following-sibling::p
 
 
 

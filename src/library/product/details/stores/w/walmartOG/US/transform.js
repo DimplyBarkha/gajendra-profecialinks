@@ -55,7 +55,11 @@ const transform = (data, context) => {
         }
 
         if (row.quantity && row.quantity[0] && row.quantity[0].text && row.quantity[0].text.length > 1) {
-          const quantityText = row.quantity[0].text;
+          let quantityText = row.quantity[0].text;
+          let count = (quantityText.match(/[bB]ar[s]?/g) || []).length;
+          if (count > 1) {
+            quantityText = quantityText.replace(/[bB]ar?/, '');
+          }
           let quantityRe = /(?:([\d\.]+\s{1})([bB]ar[s]?|[cC]ount||[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
           let quantity = quantityRe.exec(quantityText);
 
