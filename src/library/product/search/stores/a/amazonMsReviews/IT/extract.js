@@ -1,3 +1,5 @@
+// const { MergeType } = require('../../../../../../../../types/globals');
+
 /**
 *
 * @param { { url?: string, id?: string, _date?: string } } inputs
@@ -24,6 +26,9 @@ async function implementation (
     const url = window.location.href;
     addHiddenDiv('added-url', url);
   }
+  /*
+   *NOTE: Use this function to include only valid date results from last page.
+   *
   async function addValidDateFlag (inputDate = _date) {
     const frToEn = {
       gennaio: 'january',
@@ -53,11 +58,11 @@ async function implementation (
       }
       review.setAttribute('date-flag', dateFlag.toString());
     });
-  }
+  } */
 
   await context.evaluate(addUrl);
-  await context.evaluate(addValidDateFlag, _date);
-  return await context.extract(productDetails);
+  /* await context.evaluate(addValidDateFlag, _date); */
+  return await context.extract(productDetails, { type: 'APPEND' });
 }
 
 module.exports = {
