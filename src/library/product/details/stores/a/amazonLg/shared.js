@@ -140,6 +140,12 @@ const transform = (data) => {
           }
         }
       }
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          item.text = cleanUp(item.text);
+          item.text = `${item.text.replace('Brand:', '')}`;
+        });
+      }
     }
   }
   return data;
