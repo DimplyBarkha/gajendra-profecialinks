@@ -461,7 +461,7 @@ module.exports = {
             name: infos.displayName,
             inStorePrice: '',
             asin: '',
-            coupon: getSelector('[aria-labelledby="coupon-card"] li span'),
+            coupon: [...document.querySelectorAll('[aria-labelledby="coupon-card"] li span:not([aria-hidden="true"])')].map(u => u.textContent).join(' '),
             amazonChoice: '',
             amazonChoiceCategory: '',
             brandLink: infos.brandPageUrl ? `https://www.walgreens.com${infos.brandPageUrl}` : '',
