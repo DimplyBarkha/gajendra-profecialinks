@@ -541,7 +541,7 @@ module.exports = {
             packaging: '',
             additives: '',
             pricePerUnit: price.unitPrice ? price.unitPrice.split('$')[1] : '',
-            pricePerUnitUom: price.unitPrice ? price.unitPrice.split(/(\d+)/)[jsonObj.priceInfo.unitPrice.split(/(\d+)/).length - 1] : '',
+            pricePerUnitUom: price.unitPriceSize ? price.unitPriceSize : '',
             promotion: promotions(),
             alcoholContent: '',
             newVersion: '',
