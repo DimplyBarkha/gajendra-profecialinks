@@ -21,7 +21,7 @@ async function implementation (
         var totalHeight = 0;
         var distance = 100;
         var timer = setInterval(() => {
-          var scrollHeight = document.body.scrollHeight*.45;
+          var scrollHeight = document.body.scrollHeight*.20;
           window.scrollBy(0, distance);
           totalHeight += distance;
 
@@ -389,7 +389,6 @@ async function implementation (
   // @ts-ignore
   
   await new Promise(resolve => setTimeout(resolve, 5000));
-  // await loadAllResources();
   await context.evaluate(addUrl);
   console.log('getting variants');
   const allVariants = [...new Set(await getVariants())];
@@ -401,6 +400,7 @@ async function implementation (
   console.log('#### Variants:', allVariants);
   console.log('autoscroll');
   await autoScroll();
+  await loadAllResources();
   console.log('autoscroll end');
   for (let i = 0; i < allVariants.length; i++) {
     const id = allVariants[i];
@@ -409,6 +409,7 @@ async function implementation (
     await new Promise(resolve => setTimeout(resolve, 5000));
     console.log('autoscroll');
     await autoScroll();
+    await loadAllResources();
     console.log('autoscroll end');
     // await loadAllResources();
     await context.evaluate(addUrl);
