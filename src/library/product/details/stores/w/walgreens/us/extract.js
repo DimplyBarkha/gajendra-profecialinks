@@ -118,6 +118,15 @@ module.exports = {
                   if (duplicate.querySelector('wc-powered-by-tagline')) {
                     duplicate.querySelector('wc-powered-by-tagline').remove();
                   }
+                  if (duplicate.querySelector('style')) {
+                    duplicate.querySelector('style').remove();
+                  }
+                  if (duplicate.querySelector('br')) {
+                    duplicate.querySelectorAll('br').forEach( function (br) {
+                      var space = document.createTextNode(' ')
+                      br.replaceWith(space)
+                    })
+                  }
                   text = duplicate[property];
                 }
               }
@@ -371,9 +380,10 @@ module.exports = {
           };
 
           const promotions = () => {
-            const notPromotionRe = /(donation)/ig;
+            const notPromotionRe = /(donation)|[Rr]eward/ig;
             const isPromotionRe = /(rebate)|(Extra Savings)/ig;
-            const promotion = details.OfferList ? details.OfferList.map(u => !notPromotionRe.test(u.title) ? (u.redirectPageTitle ? u.redirectPageTitle : u.title) : '') : '';
+            const withCardRe = /(With Card)/ig;
+            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? ((u.redirectPageTitle && !withCardRe.test(u.redirectPageTitle)) ? u.redirectPageTitle : u.title) : '') : '';
             if (isPromotionRe.test(promotion)) {
               return (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
             }
@@ -411,7 +421,7 @@ module.exports = {
             nameExtended: infos.title,
             listPrice: priceValue('regularPrice'),
             price: priceValue('salePrice'),
-            availabilityText: jsonObj.inventory.shipAvailable ? 'In Stock' : 'Out of Stock',
+            availabilityText: jsonObj.inventory.shipAvailable ? 'In Stock' : (jsonObj.inventory.shipAvailableMessage.includes('Not sold online') ? 'Not sold online' : 'Out of Stock'),
             description: fullDescriptionWithDoublePipes,
             descriptionBullets: (document.querySelector('#prodDesc') && document.querySelectorAll('#prodDesc ul > li')) ? document.querySelectorAll('#prodDesc ul > li').length : (document.querySelectorAll('div.description p') ? document.querySelectorAll('div.description p').length : 0),
             brandText: infos.brandName,
