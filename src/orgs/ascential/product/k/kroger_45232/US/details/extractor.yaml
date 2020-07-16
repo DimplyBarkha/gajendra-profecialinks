@@ -1,0 +1,15 @@
+robot: product/details
+parameters:
+  country: US
+  domain: kroger.com
+  store: kroger_45232
+  zipcode: "45232"
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+policy:
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
