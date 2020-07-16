@@ -39,7 +39,7 @@ const transform = (data, context) => {
       if (row.name) {
         let text = '';
         row.name.forEach(item => {
-          text = row.name.map(elm => elm.text.replace(new RegExp('(.+,\\s)(\\d.+)', 'g'), ', $2')).join(' ');
+          text = row.name.map(elm => elm.text.replace(new RegExp('(.+,\\s)(\\d+\\s(ml|g|St|Wl|l))', 'g'), ', $2')).join(' ');
         });
         row.name = [
           {
