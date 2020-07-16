@@ -541,7 +541,7 @@ module.exports = {
             packaging: '',
             additives: '',
             pricePerUnit: price.unitPrice ? price.unitPrice.split('$')[1] : '',
-            pricePerUnitUom: price.unitPriceSize ? price.unitPriceSize : '',
+            pricePerUnitUom: price.unitPriceSize ? (price.unitPriceSize.includes('undefined') ? '' : price.unitPriceSize) : '',
             promotion: promotions(),
             alcoholContent: '',
             newVersion: '',
