@@ -40,7 +40,7 @@ async function implementation (
 
   await context.evaluate(addUrl);
   // await context.evaluate(addValidDateFlag, _date);
-  return await context.extract(productDetails);
+  return await context.extract(productDetails, { type: 'APPEND' });
 }
 
 module.exports = {
