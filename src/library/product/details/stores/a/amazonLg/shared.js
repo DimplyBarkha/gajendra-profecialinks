@@ -84,6 +84,62 @@ const transform = (data) => {
           item.text = cleanUp(item.text);
         });
       }
+      if (row.lbb !== null) {
+        if (row.lbbPrice) {
+          row.lbbPrice.forEach(item => {
+            item.text = `${item.text.replace('$', '')}`;
+          });
+        }
+      } else {
+        if (row.lbbPrice) {
+          row.lbbPrice.forEach(item => {
+            item.text = '';
+          });
+        }
+      }
+      if (row.primeFlag) {
+        row.primeFlag.forEach(item => {
+          if (item.text.includes('sold by Amazon')) {
+            item.text = 'Yes - Shipped and Sold';
+          } else if (item.text.includes('Fulfilled by Amazon')) {
+            item.text = 'Yes - Fulfilled';
+          } else {
+            item.text = 'NO';
+          }
+        });
+      }
+      if (row.largeImageCount) {
+        for (const item of row.largeImageCount) {
+          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+        }
+      }
+      if (row.packSize) {
+        for (const item of row.packSize) {
+          if (item.text.includes('PIbundle-')) {
+            item.text = `${item.text.split(',')[0].split('PIbundle-')[1]}`;
+          } else {
+            item.text = '';
+          }
+        }
+      }
+      if (row.otherSellersPrime) {
+        for (const item of row.otherSellersPrime) {
+          if (item.text.includes('Details')) {
+            item.text = 'YES';
+          } else {
+            item.text = 'NO';
+          }
+        }
+      }
+      if (row.otherSellersShipping2) {
+        for (const item of row.otherSellersShipping2) {
+          if (item.text.toLowerCase().includes('free')) {
+            item.text = '0.00';
+          } else if (item.text.match(/\$([^\s]+)/)) {
+            item.text = item.text.match(/\$([^\s]+)/)[1];
+          }
+        }
+      }
     }
   }
   return data;
