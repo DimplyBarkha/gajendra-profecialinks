@@ -605,9 +605,12 @@ fields:
   defaultValue: false
 - name: customerServiceAvailability
   singleValue: true
-  xpath: "//*[@id='added_customerServiceAvailability']//text()"
+  xpath: //a[contains(text(), 'Customer Service')]
+  regExp: (.+)
+  regExpReplace: "Yes"
+  defaultValue: "No"
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  # defaultValue: false
 - name: materials
   singleValue: true
   xpath: "//*[@id='added_materials']//text()"

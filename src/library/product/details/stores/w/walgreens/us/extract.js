@@ -225,7 +225,7 @@ module.exports = {
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<(li)[^>]+>/ig, '<$1>');
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<li>/g, ' ||');
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.trim();
-          const manufacturerName = (fullDescription && fullDescription.match('©') !== null) ? fullDescription.split('©')[fullDescription.split('©').length - 1] : '';
+          const manufacturerName = (fullDescription && fullDescription.match('©') !== null) ? fullDescription.split('©')[fullDescription.split('©').length - 1] : ((fullDescription && fullDescription.match('&#169;') !== null) ? fullDescription.split('&#169;')[fullDescription.split('&#169;').length - 1] : '');
           console.log(manufacturerName);
           const images = infos.filmStripUrl.reduce((acc, obj) => {
             const filtered = Object.entries(obj).filter(([key]) => key.includes('largeImageUrl'));
@@ -309,7 +309,15 @@ module.exports = {
             const nb = isUnit ? 2 : 1;
             const arr = Array.isArray(arrOrVal) ? arrOrVal : [arrOrVal];
             return arr.reduce((acc, query) => {
-              return nutritionTable[query] ? nutritionTable[query].split(/(\d+)/)[nb] : acc;
+              console.log(query) 
+              if (nutritionTable[query]) {
+                console.log(nutritionTable[query].split(/(\d*\.?\d+)/));
+              }
+              const hasGreaterThanOrLessThan = (nutritionTable[query] && nutritionTable[query].split(/(\d*\.?\d+)/)[0].length !== 0 && (/[>|<]/).test(nutritionTable[query].split(/(\d*\.?\d+)/)[0]));
+              if (isUnit) {
+                return nutritionTable[query] ? nutritionTable[query].split(/(\d*\.?\d+)/)[nb] : acc;
+              }
+              return nutritionTable[query] ? (hasGreaterThanOrLessThan ? nutritionTable[query].split(/(\d*\.?\d+)/)[0] : '') + nutritionTable[query].split(/(\d*\.?\d+)/)[nb] : acc;
             }, '');
           };
 
@@ -490,23 +498,23 @@ module.exports = {
             servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] !== null) ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
             numberOfServingsInPackage: nutrition && nutrition[0] && nutrition[0].servingPerContainer ? nutrition[0].servingPerContainer : '',
             caloriesPerServing: getNutri(['calories', 'calorie'], false),
-            caloriesFromFatPerServing: '',
+            caloriesFromFatPerServing: getNutri(['calories_from_fat', 'calories_from_fat_-_calories'], false),
             totalFatPerServing: getNutri(['fat', 'total_fat'], false),
             totalFatPerServingUom: getNutri(['fat', 'total_fat'], true),
             saturatedFatPerServing: getNutri('saturated_fat', false),
             saturatedFatPerServingUom: getNutri('saturated_fat', true),
-            transFatPerServing: getNutri('trans_fat', false),
-            transFatPerServingUom: getNutri('trans_fat', true),
+            transFatPerServing: getNutri(['trans_fat', 'trans_fat_-_total_fat'], false),
+            transFatPerServingUom: getNutri(['trans_fat', 'trans_fat_-_total_fat'], true),
             cholesterolPerServing: getNutri('cholesterol', false),
             cholesterolPerServingUom: getNutri('cholesterol', true),
             sodiumPerServing: getNutri(['salt', 'sodium'], false),
             sodiumPerServingUom: getNutri(['salt', 'sodium'], true),
-            totalCarbPerServing: getNutri(['carb', 'carbs', 'carbohydrate', 'total_carbohydrate'], false),
-            totalCarbPerServingUom: getNutri(['carb', 'carbs', 'carbohydrate', 'total_carbohydrate'], true),
+            totalCarbPerServing: getNutri(['carb', 'carbs', 'carbohydrate', 'carbohydrates', 'total_carbohydrate'], false),
+            totalCarbPerServingUom: getNutri(['carb', 'carbs', 'carbohydrate', 'carbohydrates', 'total_carbohydrate'], true),
             dietaryFibrePerServing: getNutri(['fibre', 'fibres', 'dietary_fibre'], false),
             dietaryFibrePerServingUom: getNutri(['fibre', 'fibres', 'dietary_fibre'], true),
-            totalSugarsPerServing: getNutri(['sugar', 'sugars', 'total_sugars', 'total_sugar'], false),
-            totalSugarsPerServingUom: getNutri(['sugar', 'sugars', 'total_sugars', 'total_sugar'], true),
+            totalSugarsPerServing: getNutri(['sugar', 'sugars', 'total_sugars', 'total_sugar', 'sugars_-_carbohydrates'], false),
+            totalSugarsPerServingUom: getNutri(['sugar', 'sugars', 'total_sugars', 'total_sugar', 'sugars_-_carbohydrates'], true),
             proteinPerServing: getNutri(['protein', 'proteins'], false),
             proteinPerServingUom: getNutri(['protein', 'proteins'], true),
             vitaminAPerServing: getNutri('vitamin_a', false),
