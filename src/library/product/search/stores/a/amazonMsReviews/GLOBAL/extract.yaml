@@ -11,8 +11,9 @@ fields:
     regExp: ([0-9]{1,})
     defaultValue: 0
   - name: product_id
+    singleValue: false
     xpath: ancestor::html//span[contains(@class, 'item')]/a[1]/@href
-    regExp: dp\/([A-Za-z0-9]{10})\/
+    regExp: dp\/([^\/]+)
     regExpReplace: $1
   - name: date
     singleValue: false
@@ -46,8 +47,7 @@ fields:
     description: The review  rating
     type: NUMBER
     xpath: .//i[@data-hook="review-star-rating"]
-    regExp: ([0-9\.]{1,}) out of 
-    regExpReplace: $1
+    regExp: '^[^\s]+'
   - name: source
     singleValue: true
     description: Hardcoded amazon
