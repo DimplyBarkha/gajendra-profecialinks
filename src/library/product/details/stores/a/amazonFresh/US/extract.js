@@ -389,22 +389,28 @@ async function implementation (
   // @ts-ignore
   
   await new Promise(resolve => setTimeout(resolve, 5000));
-  console.log('autoscroll');
-  await autoScroll();
-  console.log('autoscroll end');
-  await loadAllResources();
+  // await loadAllResources();
   await context.evaluate(addUrl);
   console.log('getting variants');
   const allVariants = [...new Set(await getVariants())];
+  console.log('autoscroll');
+  await autoScroll();
+  console.log('autoscroll end');
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log('#### of Variants:', allVariants.length);
   console.log('#### Variants:', allVariants);
+  console.log('autoscroll');
+  await autoScroll();
+  console.log('autoscroll end');
   for (let i = 0; i < allVariants.length; i++) {
     const id = allVariants[i];
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });
     await new Promise(resolve => setTimeout(resolve, 5000));
-    await loadAllResources();
+    console.log('autoscroll');
+    await autoScroll();
+    console.log('autoscroll end');
+    // await loadAllResources();
     await context.evaluate(addUrl);
     await context.extract(productDetails, { transform, type: 'APPEND' });
     const pageVariants = await getVariants();
