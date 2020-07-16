@@ -17,14 +17,14 @@ module.exports = {
 
       document.body.setAttribute('disclaimer', legalDisclaimer.join(''));
       // Get ingredientsInfo
-      const ingredientList =
-      (document.querySelector('ul.piIngredientsList') &&
-        document.querySelector('ul.piIngredientsList').textContent
-          .split(/[\n]/)
-          .filter((elm) => elm)
-          .join('')) ||
-      '';
-      document.body.setAttribute('ingredientsInfo', ingredientList);
+      // const ingredientList =
+      // (document.querySelector('ul.piIngredientsList') &&
+      //   document.querySelector('ul.piIngredientsList').textContent
+      //     .split(/[\n]/)
+      //     .filter((elm) => elm)
+      //     .join('')) ||
+      // '';
+      // document.body.setAttribute('ingredientsInfo', ingredientList);
       // Get metakeywords
       const metaKeyword = (document.querySelector('meta[name="keywords"]') && document.querySelector('meta[name="keywords"]').getAttribute('content')) || '';
       const newEle = document.createElement('meta-key');

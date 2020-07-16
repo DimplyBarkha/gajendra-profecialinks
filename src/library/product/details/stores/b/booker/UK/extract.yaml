@@ -18,7 +18,7 @@ fields:
     regExpReplace: https://www.booker.co.uk$1
     singleValue: false
   - name: category
-    xpath: //div[@id="csmpc"]//a
+    xpath: //div[@id="csmpc"]
     singleValue: true
   - name: nameExtended
     xpath: //div[@class="pip"]/h3
@@ -68,7 +68,7 @@ fields:
     xpath: //h1[contains(.,'Description')]/following-sibling::p
     singleValue: true
   - name: ingredientsList
-    xpath: //body/@ingredientsInfo
+    xpath: //ul[contains(@class,'piIngredientsList')]
     singleValue: true
   - name: manufacturerDescription
     singleValue: true
@@ -123,14 +123,15 @@ fields:
     singleValue: true
   - name: saltPerServing
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Salt')]/following-sibling::td[1]
-    si(ngleValue: false
+    regExp: (\d+(\.\d)?)
+    singleValue: false
   - name: saltPerServingUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Salt')]/following-sibling::td[1]
     regExp: ([^\d]+$)
     singleValue: false
   - name: servingSize
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr[1]/th[2]
-    regExp: (\d+(\.\d)?\w+)
+    regExp: (\d+(\.\d)?)
     singleValue: false
   - name: servingSizeUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr[1]/th[2]
@@ -160,6 +161,7 @@ fields:
     singleValue: false
   - name: totalFatPerServing
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Fat')]/following-sibling::td[1]
+    regExp: (\d+(\.\d)?)
     singleValue: true
   - name: totalFatPerServingUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Fat')]/following-sibling::td[1]
@@ -167,6 +169,7 @@ fields:
     singleValue: false
   - name: saturatedFatPerServing
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'saturates')]/following-sibling::td[1]
+    regExp: (\d+(\.\d)?)
     singleValue: true
   - name: saturatedFatPerServingUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'saturates')]/following-sibling::td[1]
@@ -181,6 +184,7 @@ fields:
     singleValue: false
   - name: totalCarbPerServing
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Carbohydrate')]/following-sibling::td[1]
+    regExp: (\d+(\.\d)?)
     singleValue: true
   - name: totalCarbPerServingUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Carbohydrate')]/following-sibling::td[1]
@@ -193,6 +197,7 @@ fields:
     singleValue: true
   - name: totalSugarsPerServing
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'sugars')]/following-sibling::td[1]
+    regExp: (\d+(\.\d)?)
     singleValue: true
   - name: totalSugarsPerServingUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'sugars')]/following-sibling::td[1]
@@ -200,6 +205,7 @@ fields:
     singleValue: false
   - name: proteinPerServing
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Protein')]/following-sibling::td[1]
+    regExp: (\d+(\.\d)?)
     singleValue: true
   - name: proteinPerServingUom
     xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Protein')]/following-sibling::td[1]
