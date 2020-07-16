@@ -1,10 +1,10 @@
-const { transform } = require('../../../l/shared');
+const { transform } = require('../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'lowes_1360',
+    store: 'lowes_lg',
     transform,
     domain: 'lowes.com',
   },
@@ -31,8 +31,8 @@ module.exports = {
         document.body.appendChild(secondaryImageCount);
       }
       const videoApi = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent &&
-      document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/) &&
-      document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/)[1]);
+        document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/) &&
+        document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/)[1]);
       if (videoApi && videoApi.length) {
         videoApi.map(ele => {
           const newlink = document.createElement('a');
