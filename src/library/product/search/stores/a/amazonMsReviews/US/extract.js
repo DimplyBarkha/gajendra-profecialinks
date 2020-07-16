@@ -26,7 +26,7 @@ async function implementation (
   }
 
   await context.evaluate(addUrl);
-  return await context.extract(productDetails);
+  return await context.extract(productDetails, { type: 'APPEND' });
 }
 
 module.exports = {
