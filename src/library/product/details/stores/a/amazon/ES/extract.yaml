@@ -43,9 +43,7 @@ fields:
     xpath: //*[@id='bylineInfo'] | //a[@id='brand']
   - name: quantity
     singleValue: false
-    xpath: //*[@id="productTitle"]
-    regExp: ([0-9\.][0-9\.\,]{1,5}[-\s]?([Ff]luid)?\s?([Cc]ount|[fF][lL].?\s[Oo][Zz]|[Oo]unce|[Oo]z|[Gg]r|[Mm]l))
-    regExpReplace: $1
+    xpath: //td[contains(text(), 'Peso')]/following-sibling::*[1] | //div[@class='content']/ul/li/b[contains(text(), 'Peso')]/parent::*[1]/text() | //div[@class='content']/ul/li/b[contains(text(), 'Dimensiones')]/parent::*[1]/text()
   - name: weightNet
     singleValue: false
     xpath: //td[contains(text(), 'Nettogewicht')]/following-sibling::*[1]

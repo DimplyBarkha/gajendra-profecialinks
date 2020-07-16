@@ -76,11 +76,6 @@ const transform = (data) => {
           otherSellersShipping.text = otherSellersShipping.text.replace(',', '.').trim();
         });
       }
-      if (row.salesRank) {
-        row.salesRank.forEach(salesRank => {
-          salesRank.text = salesRank.text.replace('.', ',').trim();
-        });
-      }
       if (row.salesRankCategory) {
         row.salesRankCategory.shift();
         row.salesRankCategory.shift();
@@ -103,6 +98,13 @@ const transform = (data) => {
         row.quantity.forEach(quantity => {
           if (quantity.text.includes(';')) {
             quantity.text = quantity.text.split(';')[1].trim();
+          }
+        });
+      }
+      if (row.shippingDimensions) {
+        row.shippingDimensions.forEach(shippingDimensions => {
+          if (shippingDimensions.text.includes(';')) {
+            shippingDimensions.text = shippingDimensions.text.split(';')[0].trim();
           }
         });
       }
