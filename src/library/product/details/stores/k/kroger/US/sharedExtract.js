@@ -26,7 +26,7 @@ const implementation = async (
 
   await context.waitForSelector('div.ProductDetails-header');
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 9000));
 
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
