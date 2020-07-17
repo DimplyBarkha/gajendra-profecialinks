@@ -22,7 +22,14 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-            text += `${item.text.replace(/\r\n|\r|\n/g, ' ').trim()} `;
+          text += `${item.text.replace(/\r\n|\r|\n/g, ' ')
+            .replace(/&amp;nbsp;/g, ' ')
+            .replace(/&amp;#160/g, ' ')
+            .replace(/\u00A0/g, ' ')
+            .replace(/\s{2,}/g, ' ')
+            .replace(/"\s{1,}/g, '"')
+            .replace(/\s{1,}"/g, '"')
+            .replace(/^ +| +$|( )+/g, ' ').trim()} `;
         });
         row.manufacturerDescription = [
           {

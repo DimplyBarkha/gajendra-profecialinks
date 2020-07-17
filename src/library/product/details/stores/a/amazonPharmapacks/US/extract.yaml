@@ -44,8 +44,6 @@ fields:
     xpath: //div/label[contains(.,"Size") and not(contains(.,"Special"))]/following-sibling::span[1] | (//span[@class="a-dropdown-prompt"][ancestor::span/preceding-sibling::div/label[contains(.,"Size")]])[1]
   - name: weightGross
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
-    regExp: ([^()]+)\s
-    regExpReplace: $1
   - name: gtin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
   - name: asin
@@ -91,7 +89,7 @@ fields:
   - name: color
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: manufacturerDescription
-    xpath: //div[@data-a-expander-name="aplus-module-expander"]//div[contains(@class,"apm-spacing")]//p
+    xpath: //div[@data-a-expander-name="aplus-module-expander"]//div[contains(@class,"apm-spacing")]//td/div | //div[@class="aplus-module-wrapper"]//div[contains(@class,"apm-tablemodule")]//tr[1]/following-sibling::tr
   - name: manufacturerImages
     xpath: //div[@cel_widget_id="aplus"]//img/@data-src
   - name: videos
