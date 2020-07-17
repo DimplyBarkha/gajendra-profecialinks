@@ -26,14 +26,12 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    # xpath: //a[@class='Color Link']/@href
     xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
     regExp: >-
       [0-9]{13}
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    # xpath: //a[@componentname='internal search']/@href
     xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
     regExp: >-
        ^(.*)$
@@ -73,7 +71,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //span[@class='kds-Price-singular']
+    xpath: //span[@class='kds-Price-singular']|//mark[@class='kds-Price-promotional']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer

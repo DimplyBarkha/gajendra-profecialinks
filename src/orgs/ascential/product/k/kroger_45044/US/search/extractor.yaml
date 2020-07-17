@@ -1,0 +1,13 @@
+robot: product/search
+parameters:
+  country: US
+  domain: kroger.com
+  store: kroger_45044
+  zipcode: "45044"
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60  
