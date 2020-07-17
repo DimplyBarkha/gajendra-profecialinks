@@ -67,8 +67,7 @@ https://import-io.github.io/import-io-cli-public/#import-io-actionrunremote
 
 
 #### Staging Deployment
-- [ ] Promote Source to `Staging Deployment` in Project Dash
-- [ ] Remove `Development` Label
+- [ ] Promote Source to `Staging` in Project Dash
 - [ ] Add `Staging` Label
 - [ ] Deploy to `ms-staging` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
