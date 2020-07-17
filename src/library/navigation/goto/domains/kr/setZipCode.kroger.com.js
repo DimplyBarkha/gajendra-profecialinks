@@ -23,21 +23,22 @@ async function implementation (
   const findClosestStore = async () => {
     const indexToClick = await context.evaluate(async function () {
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
-      let smallestDistance = null;
+      //let smallestDistance = null;
       let indexToClosestStore = null;
       sections.forEach((sectionItem, i) => {
-        const section = sectionItem.querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
+        const section = sectionItem.querySelector('div.ModalitySelector-StoreSearchResultVanityNameWrapper');
 
         if (section && section.textContent) {
-          const distance = parseFloat(section.textContent);
-          if (!smallestDistance || distance < smallestDistance) {
-            smallestDistance = distance;
+          //const distance = parseFloat(section.textContent);
+          //if (!smallestDistance || distance < smallestDistance) {
+          if (section.textContent.includes("Hyde Park")) {
+            //smallestDistance = distance;
             indexToClosestStore = i + 1;
           }
         }
         console.log(section.textContent);
       });
-      console.log('Closest store: ' + smallestDistance);
+      //console.log('Closest store: ' + smallestDistance);
       return indexToClosestStore;
     });
     await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
