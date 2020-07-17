@@ -76,16 +76,16 @@ fields:
   - name: videos
     singleValue: false
     xpath: //iframe[contains(@src,"youtube")]/@src
-  - name: pricePerUnit
+  - name: pricePerUnit2
     singleValue: false
     xpath: //p[contains(@class,"pricing__per-item")]
-    regExp: (.+)(per.*)
+    regExp: (.+\d+)(\w+)
     regExpReplace: $1
   - name: pricePerUnitUom
     singleValue: false
     xpath: //p[contains(@class,"pricing__per-item")]
-    regExp: (.+)(per.*\d)(\w+)
-    regExpReplace: $3
+    regExp: (.+\d+)(\w+)
+    regExpReplace: $2
   - name: imageAlt
     singleValue: true
     xpath: //div[@class="pdp-gallery__zoom"]//img/@alt
