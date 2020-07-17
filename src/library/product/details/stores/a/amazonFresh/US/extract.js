@@ -21,7 +21,7 @@ async function implementation (
         var totalHeight = 0;
         var distance = 100;
         var timer = setInterval(() => {
-          var scrollHeight = document.body.scrollHeight*.20;
+          var scrollHeight = document.body.scrollHeight * .20;
           window.scrollBy(0, distance);
           totalHeight += distance;
 
@@ -31,6 +31,8 @@ async function implementation (
           }
         }, 100);
       });
+      document.querySelector('div.askDetailPageSearchWidgetSection').scrollIntoView();
+      await new Promise(resolve => setTimeout(resolve, 5000));
       // let scrollTop = 0;
       // while (scrollTop <= 20000) {
       //   await stall(500);
@@ -48,7 +50,6 @@ async function implementation (
       //     }, ms);
       //   });
       // }
-  
     });
   }
 
@@ -291,100 +292,7 @@ async function implementation (
     addHiddenDiv('added-asin', asinRaw);
   }
 
-  const loadProductInformationSelectors = async () => (document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"importantInformation":{"divToUpdate":"importantInformation_feature_div"}') : false;
-  const loadManufacturerSelectors = async () => (document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"aplus":{"divToUpdate":"aplus_feature_div"}') : false;
-  const loadScriptInfoSelectors = async () => (document.querySelectorAll('div#pageRefreshJsInitializer_feature_div').length !== 0);
 
-  async function loadAllResources() {
-    const loadScriptInfo = await context.evaluate(loadScriptInfoSelectors);
-    console.log('loadScriptInfo')
-    console.log(loadScriptInfo)
-    if (loadScriptInfo) {
-      console.log('in here waiting for loadScriptInfo');
-      try {
-        await context.waitForSelector('div#pageRefreshJsInitializer_feature_div script')
-        console.log('we did it!')
-      } catch (err) {
-        await new Promise(resolve => setTimeout(resolve, 6000));
-        let ErrMsg = await context.evaluate((sel) => {
-          let element = document.querySelector(sel);
-          return element? element.innerHTML: null;
-      },'div#pageRefreshJsInitializer_feature_div script');
-        if (ErrMsg) {
-          console.log('yay');
-        } else {
-          throw new Error('Not able to find script')
-        }
-      }
-    }
-    const loadProductInfo = await context.evaluate(loadProductInformationSelectors);
-    console.log('loadProductInfo')
-    console.log(loadProductInfo)
-    if (loadProductInfo) {
-      console.log('in here waiting for importantInformation_feature_div')
-      try {
-        await context.waitForSelector('div#importantInformation_feature_div')
-        console.log('we did it importantInformation_feature_div!')
-      } catch (err) {
-        await new Promise(resolve => setTimeout(resolve, 6000));
-        let ErrMsg = await context.evaluate((sel) => {
-          let element = document.querySelector(sel);
-          return element? element.innerHTML: null;
-      },'div#importantInformation_feature_div');
-        if (ErrMsg) {
-          console.log('yay importantInformation_feature_div');
-        } else {
-          throw new Error('Not able to find div#importantInformation_feature_div')
-        }
-      }
-      // await context.waitForSelector('div#importantInformation_feature_div');
-    }
-    await new Promise(resolve => setTimeout(resolve, 6000));
-    const loadManufacturer = await context.evaluate(loadManufacturerSelectors);
-    console.log('loadManufacturer')
-    console.log(loadManufacturer)
-    if (loadManufacturer) {
-      console.log('in here waiting for aplus_feature_div');
-      try {
-        await context.waitForSelector('div#aplus_feature_div')
-        console.log('we did it div#aplus_feature_div!')
-      } catch (err) {
-        console.log('autoscroll');
-        await autoScroll();
-        console.log('autoscroll end');
-        await new Promise(resolve => setTimeout(resolve, 8000));
-        let ErrMsg = await context.evaluate((sel) => {
-          let element = document.querySelector(sel);
-          return element? element.innerHTML: null;
-      },'div#aplus_feature_div');
-        if (ErrMsg) {
-          console.log('yay div#aplus_feature_div');
-        } else {
-          throw new Error('Not able to find div#aplus_feature_div')
-        }
-      }
-      try {
-        await context.waitForSelector('div.aplus-v2')
-        console.log('we did it div.aplus-v2!')
-      } catch (err) {
-        console.log('autoscroll');
-        await autoScroll();
-        console.log('autoscroll end');
-        await new Promise(resolve => setTimeout(resolve, 8000));
-        let ErrMsg = await context.evaluate((sel) => {
-          let element = document.querySelector(sel);
-          return element? element.innerHTML: null;
-      },'div.aplus-v2');
-        if (ErrMsg) {
-          console.log('yay div.aplus-v2');
-        } else {
-          throw new Error('No able to find div.aplus-v2')
-        }
-      }
-      // await context.waitForSelector('div#aplus_feature_div');
-      // await context.waitForSelector('div.aplus-v2');
-    }
-  }
   // await setLocale();
   // @ts-ignore
   
@@ -400,7 +308,6 @@ async function implementation (
   console.log('#### Variants:', allVariants);
   console.log('autoscroll');
   await autoScroll();
-  await loadAllResources();
   console.log('autoscroll end');
   for (let i = 0; i < allVariants.length; i++) {
     const id = allVariants[i];
@@ -409,7 +316,6 @@ async function implementation (
     await new Promise(resolve => setTimeout(resolve, 5000));
     console.log('autoscroll');
     await autoScroll();
-    await loadAllResources();
     console.log('autoscroll end');
     // await loadAllResources();
     await context.evaluate(addUrl);
