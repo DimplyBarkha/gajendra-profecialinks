@@ -65,14 +65,6 @@ const transform = (data) => {
         }
       }
 
-      if (row.asin) {
-        for (const item of row.asin) {
-          if (item.text.match(/(.+),(.+)/)) {
-            item.text = item.text.match(/(.+),(.+)/)[2];
-          }
-        }
-      }
-
       if (row.brandText) {
         for (const item of row.brandText) {
           if (item.text.match(/Visit the (.+)/g)) {
@@ -110,6 +102,11 @@ const transform = (data) => {
 
       if (!row.listPrice && row.price) {
         row.listPrice = row.price;
+      }
+
+      if (!row.asin && row.sku) {
+        row.asin = row.sku;
+        delete row.sku;
       }
     }
   }

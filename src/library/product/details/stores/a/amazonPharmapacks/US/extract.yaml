@@ -49,9 +49,10 @@ fields:
   - name: gtin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
   - name: asin
-    xpath: (//span[@class="a-dropdown-container"])[1]//option[@data-a-css-class="dropdownSelect"]/@value
-    regExp: \,(.+)
-    regExpReplace: $1
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
+  - name: sku
+    singleValue: true
+    xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
   - name: variantId
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]|//*[contains(text(), 'Item model number')]/../span[last()]
   - name: mpc
