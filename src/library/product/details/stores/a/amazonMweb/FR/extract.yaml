@@ -18,9 +18,6 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
-  # - name: subCategory
-  #   singleValue: false
-  #   xpath: //div[contains(@id, 'wayfinding-breadcrumbs_container')]//ul/li[position() > 2]
   - name: nameExtended
     singleValue: false
     xpath: //span[contains(@id, 'productTitle')]
@@ -59,11 +56,11 @@ fields:
     xpath: //*[@id="acrCustomerReviewText"]/text()
     regExp: (\d+)
     regExpReplace: $1
-  - name: aggregateRating2
-    singleValue: true
-    regExp: (\d+(?:,\d+)?)
-    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
     xpath: //*[@id="acrPopover"]/@title
+    regExp: (.*(sur))
+    regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@id,'aplus_feature_div')]//img/@src | //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
@@ -72,20 +69,30 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="a_enhancedContent"]
+    xpath: //div[@id="aplus"]
+    # xpath: //div[@id="productDescription_feature_div"]/..//h2 | //div[@id="productDescription_feature_div"]/..//p | //div[@class="aplus-module-wrapper"]
   - name: descriptionBullets 
     singleValue: false
     xpath: count(//div[@id="feature-bullets-btf"]/*//ul/li | //div[@id="featurebullets_feature_div"]/*//ul/li)
   - name: videos
     singleValue: false
     xpath: //div[contains(@id,"video-outer-container")]//../video/@src | //video/@src
-  - name: productsPerPage
+  - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@id,"variation_style_name")]/ul/li)
-    defaultValue:  '1'
   - name: scrapeCode
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
   - name: imageAlt
     singleValue: false
-    xpath: (//img[@id="landingImage"])[1]/@alt
+    xpath: (//img[@id="landingImage"])[1]/@alt 
+  - name: coupon
+    singleValue: false
+    xpath: //tr[@class="couponFeature vpc_sns snsVpc"]/..//span[@class="a-label a-checkbox-label"]
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@id="variation_color_name"]/ul/li | //div[@id="variation_configuration"]/ul/li | //*[@id="a-popover-4"]//*/ul/li | //ul[contains(@class, "swatches swatchesSquare")]/li)
+  
