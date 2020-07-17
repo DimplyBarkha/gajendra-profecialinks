@@ -17,7 +17,9 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: translate(.//span[contains(@class, "a-color-price")], "$", "")
+    xpath: //span[contains(@class, "a-color-price")]
+  - name: min_price
+  - name: max_price
   - name: rank
     singleValue: false
     xpath: translate(.//span[@class="zg-badge-text"], "#",  "")
