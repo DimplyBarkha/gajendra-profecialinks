@@ -11,7 +11,7 @@ const transform = (data) => {
         row.alternateImages.forEach(alternateImage => {
           if (!alternateImage.text.includes('videoId')) {
             alternateImage.text = alternateImage.text.replace(/\d+(\..*)$/, '1000$1');
-            secondaryImages.push(alternateImage);
+            !secondaryImages.find(({ text }) => text === alternateImage.text) && secondaryImages.push(alternateImage);
           }
         });
         row.alternateImages = secondaryImages;
@@ -21,7 +21,12 @@ const transform = (data) => {
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
-          item.text = item.text.replace(/\n \n \n \n \n/g, ' ').replace(/\n \n \n \n/g, ' | ').replace('Specifications', '').replace(/\n \n/g, ' : ').trim();
+          item.text = item.text.replace(/(\n\s?){6,}/g, ' | ').replace(/(\n\s?){5}/g, ' ').replace(/(\n\s?){4}/g, ' | ').replace('Specifications', '').replace(/\n \n/g, ' : ').trim();
+        });
+      }
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription.forEach(item => {
+          item.text = item.text.replace(/(\s?\n\s?)+/g, ' ').replace('Product Overview', '').trim();
         });
       }
       if (row.shippingDimensions) {
