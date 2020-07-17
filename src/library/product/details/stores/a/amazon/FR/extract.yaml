@@ -24,7 +24,7 @@ fields:
     xpath: //meta[@name='title']/@content
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
+    xpath: //*[contains(text(), "Payez")]//following-sibling::*[1]//following-sibling::*[1]//span | //span[@class="olp-used olp-link"]//a | (//*[@class="a-color-price"])[2]
   - name: price
     singleValue: false
     xpath: //*[@id="priceblock_ourprice"] | //*[contains(@class, "a-color-price a-color-price")] | //div[@id="olp-new"]//span[contains(@class, "a-color-price")]
@@ -110,7 +110,7 @@ fields:
     xpath: //div[@data-feature-name="importantInformation"] | //div[@id="prodDetails"] | //div[contains(@id, "productDescription_feature_div") and @class="feature"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="aplus"]//img/@src | //div[contains(@class, "aplus-module-content")]//th[@class="apm-tablemodule-image "]//img/@src
+    xpath: //div[contains(@class, "aplus-v2")]//img//@src | //div[@class="aplus"]//img/@src | //div[contains(@class, "aplus-module-content")]//th[@class="apm-tablemodule-image "]//img/@src
   - name: videos
     singleValue: false
     xpath: //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
@@ -224,7 +224,7 @@ fields:
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
     singleValue: false
-    xpath: //*[@id="deliveryMessageMirId"]
+    xpath: //*[@id="deliveryMessageMirId"] | //*[@id="ddmDeliveryMessage"]
   - name: ingredientsList
     singleValue: false
     xpath: //h3[contains(text(), 'Ingrédients')]/following-sibling::*[1]

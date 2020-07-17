@@ -27,6 +27,10 @@ const transform = (data, context) => {
         const text = [];
         text.push({ text: 'NO' });
         row.primeFlag = text;
+      } else {
+        row.primeFlag.forEach(item => {
+          item.text = item.text.includes('Yes') || item.text.includes('YES') ? 'Yes' : 'No';
+        });
       }
       if (row.otherSellersPrice) {
         row.otherSellersPrice.forEach(priceItem => {
@@ -60,6 +64,10 @@ const transform = (data, context) => {
             item.text = '';
           }
         });
+      } else {
+        const text = [];
+        text.push({ text: '' });
+        row.ratingCount = text;
       }
       if (row.secondaryImageTotal) {
         row.secondaryImageTotal.forEach(item => {
