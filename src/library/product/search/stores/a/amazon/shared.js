@@ -13,7 +13,7 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
@@ -66,6 +66,44 @@ const transform = (data, context) => {
           type: 'BOOLEAN',
           value: false,
         }];
+      }
+      if (row.price) {
+        function getPrice(price) {
+          if (price.includes('EUR') || price.includes('€')) {
+            price = price.replace('.', '')
+            price = price.replace(',', '.')
+          }
+          else if (price.includes('￥')) {
+            price = price.replace('￥', '')
+            price = price.replace(',', '')
+          }
+          price = price.replace(/€,EUR,£,CDN\$,$/g, '')
+          price = price.match(/([\d,\.]+[\.,][\d]+)/g) ? price.match(/([\d,\.]+[\.,][\d]+)/g)[0] : '';
+          return price;
+        }
+
+        row.price.forEach(item => {
+          item.text = getPrice(item.text);
+        });
+      }
+      if (row.original_price) {
+        function getPrice(price) {
+          if (price.includes('EUR') || price.includes('€')) {
+            price = price.replace('.', '')
+            price = price.replace(',', '.')
+          }
+          else if (price.includes('￥')) {
+            price = price.replace('￥', '')
+            price = price.replace(',', '')
+          }
+          price = price.replace(/€,EUR,£,CDN\$,$/g, '')
+          price = price.match(/([\d,\.]+[\.,][\d]+)/g) ? price.match(/([\d,\.]+[\.,][\d]+)/g)[0] : '';
+          return price;
+        }
+
+        row.original_price.forEach(item => {
+          item.text = getPrice(item.text);
+        });
       }
       if (row.aggregateRatingText) {
         row.aggregateRating = [
