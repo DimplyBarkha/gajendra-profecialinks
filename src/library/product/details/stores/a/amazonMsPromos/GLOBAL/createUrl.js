@@ -5,7 +5,7 @@ module.exports = {
     domain: 'amazon.com',
     prefix: null,
     url: 'https://www.amazon.com/gp/goldbox?ref_=nav_cs_gb',
-    country: 'US',
+    country: 'GLOBAL',
     store: 'amazonMsPromos',
   },
 };

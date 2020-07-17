@@ -4,7 +4,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'amazonMsPromos',
+    store: 'amazonMsPromosDealId',
     transform: null,
     domain: 'amazon.com',
   },
