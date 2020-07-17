@@ -153,10 +153,10 @@ module.exports = {
 
       const wrongLocale = await context.evaluate(async function () {
         const locationWarningPopupEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and not(//*[contains(text(), 'Amazon Fresh')])]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if(locationWarningPopupEl.snapshotLength > 0) {
+        if (locationWarningPopupEl.snapshotLength > 0) {
           return 'true';
-        }else{
-          return 'false'
+        } else {
+          return 'false';
         }
       });
 

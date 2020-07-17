@@ -21,12 +21,24 @@ const transform = (data, context) => {
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
   let sponsRankCounter = state.sponsRankCounter || 0;
+  const getPrice = function (price) {
+    if (price.includes('EUR') || price.includes('€')) {
+      price = price.replace('.', '');
+      price = price.replace(',', '.');
+    } else if (price.includes('￥')) {
+      price = price.replace('￥', '');
+      price = price.replace(',', '');
+    }
+    price = price.replace(/€,EUR,£,CDN\$,$/g, '');
+    price = price.match(/([\d,.]+[.,][\d]+)/g);
+    return price;
+  };
   for (const { group } of data) {
     for (const row of group) {
       if (row.badgeType) {
         let pantry = false;
         let prime = false;
-        let sub_and_save = Boolean(row.sub_and_save);
+        const sub_and_save = Boolean(row.sub_and_save);
         row.badgeType.forEach(badge => {
           if (badge.text.includes('rime')) {
             prime = true;
@@ -68,41 +80,29 @@ const transform = (data, context) => {
         }];
       }
       if (row.price) {
-        function getPrice(price) {
-          if (price.includes('EUR') || price.includes('€')) {
-            price = price.replace('.', '')
-            price = price.replace(',', '.')
-          }
-          else if (price.includes('￥')) {
-            price = price.replace('￥', '')
-            price = price.replace(',', '')
-          }
-          price = price.replace(/€,EUR,£,CDN\$,$/g, '')
-          price = price.match(/([\d,\.]+[\.,][\d]+)/g) ? price.match(/([\d,\.]+[\.,][\d]+)/g)[0] : '';
-          return price;
-        }
-
         row.price.forEach(item => {
-          item.text = getPrice(item.text);
+          item.text = getPrice(item.text) && getPrice(item.text)[0];
+          if (getPrice(item.text).length > 1) {
+            row.min_price = [{
+              text: getPrice(item.text)[0],
+            }];
+            row.max_price = [{
+              text: getPrice(item.text)[1],
+            }];
+          }
         });
       }
       if (row.original_price) {
-        function getPrice(price) {
-          if (price.includes('EUR') || price.includes('€')) {
-            price = price.replace('.', '')
-            price = price.replace(',', '.')
-          }
-          else if (price.includes('￥')) {
-            price = price.replace('￥', '')
-            price = price.replace(',', '')
-          }
-          price = price.replace(/€,EUR,£,CDN\$,$/g, '')
-          price = price.match(/([\d,\.]+[\.,][\d]+)/g) ? price.match(/([\d,\.]+[\.,][\d]+)/g)[0] : '';
-          return price;
-        }
-
         row.original_price.forEach(item => {
-          item.text = getPrice(item.text);
+          item.text = getPrice(item.text) && getPrice(item.text)[0];
+          if (getPrice(item.text).length > 1) {
+            row.min_original_price = [{
+              text: getPrice(item.text)[0],
+            }];
+            row.max_original_price = [{
+              text: getPrice(item.text)[1],
+            }];
+          }
         });
       }
       if (row.aggregateRatingText) {
