@@ -19,6 +19,25 @@ const transform = (data) => {
         ];
       }
 
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text += `${item.text.replace(/\r\n|\r|\n/g, ' ')
+            .replace(/&amp;nbsp;/g, ' ')
+            .replace(/&amp;#160/g, ' ')
+            .replace(/\u00A0/g, ' ')
+            .replace(/\s{2,}/g, ' ')
+            .replace(/"\s{1,}/g, '"')
+            .replace(/\s{1,}"/g, '"')
+            .replace(/^ +| +$|( )+/g, ' ').trim()} `;
+        });
+        row.manufacturerDescription = [
+          {
+            text: text.trim(),
+          },
+        ];
+      }
+
       if (row.otherSellersShipping2) {
         for (const item of row.otherSellersShipping2) {
           if (item.text.toLowerCase().includes('free')) {
@@ -49,14 +68,17 @@ const transform = (data) => {
 
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
-          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+          item.text = item.text.trim().match(/hiRes":"/g) ? item.text.trim().match(/hiRes":"/g).length : 0;
         }
       }
 
-      if (row.variantAsins) {
-        for (const item of row.variantAsins) {
-          if (item.text.match(/(.+),(.+)/)) {
-            item.text = item.text.match(/(.+),(.+)/)[2];
+      if (row.brandText) {
+        for (const item of row.brandText) {
+          if (item.text.match(/Visit the (.+)/g)) {
+            item.text = item.text.match(/Visit the (.+)/g)[0].replace('Visit the ', '').replace('Store', '');
+          }
+          if (item.text.match(/Brand: (.+)/g)) {
+            item.text = item.text.match(/Brand: (.+)/g)[0].replace('Brand: ', '');
           }
         }
       }
@@ -71,6 +93,27 @@ const transform = (data) => {
             ];
           }
         });
+      }
+
+      if (row.variantAsins) {
+        let text = '';
+        row.variantAsins.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variantAsins = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
+      }
+
+      if (!row.listPrice && row.price) {
+        row.listPrice = row.price;
+      }
+
+      if (!row.asin && row.sku) {
+        row.asin = row.sku;
+        delete row.sku;
       }
     }
   }
