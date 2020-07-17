@@ -1,0 +1,83 @@
+extends: ../../amazonPharmapacks/US/extract
+fields:
+  - name: image
+    xpath: //img[@id="landingImage"]/@src
+  - name: size
+    singleValue: true
+    xpath: //option[@id='native_size_name_0']
+  - name: ratingCount
+    singleValue: true
+    xpath: //*[@id="acrCustomerReviewText"]
+    regExp: (^[.0-9]+)
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[@data-hook]
+    regExp: (.+)von(.+)
+    regExpReplace: $1
+  - name: shippingInfo
+    singleValue: true
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]
+  - name: shippingWeight
+    singleValue: true
+    xpath: //li[contains(., 'Produktgewicht inkl. Verpackung:')]
+    regExp: >-
+      (.+)\:(.+)
+    regExpReplace: $2
+  - name: variantCount
+    xpath: count(//ul[contains(@class, 'imageSwatches')]/li)
+  - name: availabilityText
+    singleValue: true
+    xpath: //*[@id='availability']/span
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1
+  - name: gtin
+    xpath: //li/b[contains(text(), 'UPC:')]/../text()
+  - name: directions
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text()
+  - name: lbb
+    xpath: //span[@id="price_inside_buybox"]
+    regExp: (.+)
+    regExpReplace: "YES"
+    defaultValue: "NO"
+    singleValue: true
+  - name: lbbPrice
+    xpath: //span[@id="price_inside_buybox"]
+    singleValue: true
+  - name: featureBullets
+    singleValue: false
+    xpath: //*[@id='feature-bullets']//ul/li
+  - name: otherSellersName
+    xpath: //a[@id="sellerProfileTriggerId"]
+  - name: otherSellersPrice
+    xpath: //span[@id="price_inside_buybox"]
+  - name: listPrice
+    xpath: //span[contains(@class, 'priceBlockStrikePriceString')]
+    singleValue: false
+  - name: legalDisclaimer
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
+  - name: weightNet
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
+    regExp: '[^()]+'
+  - name: variantId
+    singleValue: true
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
+  - name: firstVariant
+    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")][1]//@data-dp-url
+    regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
+    regExpReplace: $2
+  - name: brandLink
+    xpath: //a[@id="bylineInfo"]/@href
+    regExp: >-
+      (.+)
+    regExpReplace: amazon.de$1
+    singleValue: true
+  - name: videos
+    xpath: //video/@src
+    singleValue: true
+  - name: price
+    xpath: //*[@id="priceblock_ourprice"]
+    regExp: >-
+      (\d+,?\d+)
+    regExpReplace: $1 € 
+    singleValue: true
