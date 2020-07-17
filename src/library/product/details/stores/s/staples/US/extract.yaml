@@ -1,0 +1,14 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //*[@id="product_title"]
+  - name: description
+    singleValue: false
+    xpath: //*[@id="detail_container"]//text()
+  - name: price
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice"]
