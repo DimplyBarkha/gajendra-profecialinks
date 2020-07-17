@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'amazonMsCategory',
     domain: 'amazon.com',
-    url: 'https://www.amazon.com/gp/bestsellers/*/{searchTerms}?_encoding=UTF8',
+    url: 'https://www.amazon.com/gp/bestsellers/{searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
   },
