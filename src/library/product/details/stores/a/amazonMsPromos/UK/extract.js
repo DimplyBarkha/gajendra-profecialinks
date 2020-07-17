@@ -6,7 +6,7 @@ module.exports = {
     country: 'UK',
     store: 'amazonMsPromos',
     transform: null,
-    domain: 'amazon.com',
+    domain: 'amazon.co.uk',
   },
   implementation,
 };
