@@ -20,13 +20,14 @@ const transform = (data, context) => {
     for (const row of group) {
       if (row.price) {
         row.price.forEach(item => {
-          item.text = getPrice(item.text) && getPrice(item.text)[0];
-          if (getPrice(item.text).length > 1) {
+          const price = getPrice(item.text);
+          item.text = price && price[0];
+          if (price.length > 1) {
             row.min_price = [{
-              text: getPrice(item.text)[0],
+              text: price[0],
             }];
             row.max_price = [{
-              text: getPrice(item.text)[1],
+              text: price[1],
             }];
           }
         });
