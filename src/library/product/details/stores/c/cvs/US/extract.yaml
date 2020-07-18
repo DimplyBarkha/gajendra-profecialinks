@@ -18,11 +18,22 @@ fields:
   #   singleValue: true
     # xpath: //div[@id='ii_image360']
     # xpath: boolean(//div[contains(@id, 'wc-360-view-2e50e148')])
-  # - name: imageZoomFeaturePresent
-    # xpath: //div[@id='ii_imageZoom']
+  - name: imageZoomFeaturePresent
+    defaultValue: "No"
+    xpath: //div[@id='ii_imageZoom']
     # xpath: boolean(//div[contains(@data-class, "zoom-btn")])
+  - name: color
+    xpath: //div[@id="ii_color"]
+  - name: colorCode
+    xpath: //div[@id="ii_colorRef"]
   - name: additionalDescBulletInfo
     xpath: //div[@id='ii_additionalDescBulletInfo']
+  - name: pricePerUnit
+    xpath: //div[@id='ii_unitPrice']
+    regExp:
+  - name: pricePerUnitUom
+    xpath: //div[@id='ii_unitPriceUom']
+    regExp:
     # xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
     # xpath: (//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//li|//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
   # - name: dietaryInformation
@@ -31,7 +42,7 @@ fields:
     # xpath: //div[@id='ii_Ingredients']
   - name: factImagePresent
     singleValue: true
-    defaultValue: false
+    defaultValue: "No"
   # - name: featureBullets
   #   singleValue: true
   - name: firstVariant
@@ -40,7 +51,7 @@ fields:
     # regExp: ([0-9])+$
   - name: ingredientImagePresent
     singleValue: true
-    defaultValue: false
+    defaultValue: "No"
   # - name: legalDisclaimer
   #   singleValue: true
   - name: name
@@ -119,6 +130,7 @@ fields:
     # singleValue: true
     # selector: div.css-901oao.r-v857uc.r-1jn44m2.r-1i10wst.r-vw2c0b.r-9qu9m4
     defaultValue: In Stock
+    xpath: //div[@id='ii_availability']
   # - name: inStorePrice
   #   xpath: //div[@id='ii_variantPrice']
     # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
@@ -143,7 +155,7 @@ fields:
     regExp: ([.0-9]+ ((CT)|(ct)|(OZ)|(oz)|(EA)|(ea)))
     # singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-  - name: weightGross
+  - name: weightNet # was weightGross
     xpath: //div[@id='ii_weight']
     # xpath: //div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
     # singleValue: true
@@ -189,75 +201,75 @@ fields:
     # xpath: //div[@id='wc-aplus']//img/@src[not (contains(., "syndigo.svg"))]
     xpath: //div[@id='ii_manufHTML']//div[@id="wc-aplus"]//img[not(ancestor::div[contains(@class,'wc-comparison')]) and not(contains(@src,"syndigo.svg"))]/@src[contains(., "https:")]
     # xpath: //div[@id='ii_manufHTML']//div[@id="wc-aplus"]//div[not(contains(@class,'wc-comparison'))]//img/@src[not (contains(., "syndigo.svg"))]
-  - name: allergyAdvice 
+  # - name: allergyAdvice 
     # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
-    xpath: //div[@id='ii_warnings']
-  # - name: dietaryFiberPerServing
-  #   xpath: //div[@id='ii_Dietary Fiber']
-  #   regExp: (^[.0-9]+)
-  # - name: dietaryFiberPerServingUom
-  #   xpath: //div[@id='ii_Dietary Fiber']
-  #   regExp: ([g|mg|]+$)
-  # - name: totalSugarsPerServing
-  #   xpath: //div[@id='ii_Sugars']
-  #   regExp: (^[.0-9]+)
-  # - name: totalSugarsPerServingUom
-  #   xpath: //div[@id='ii_Sugars']
-  #   regExp: ([g|mg|]+$)
-  # - name: proteinPerServing
-  #   xpath: //div[@id='ii_Protein']
-  #   regExp: (^[.0-9]+)
-  # - name: proteinPerServingUom
-  #   xpath: //div[@id='ii_Protein']
-  #   regExp: ([g|mg|]+$)
-  # - name: ironPerServing
-  #   xpath: //div[@id='ii_Iron']
-  #   regExp: (^[.0-9]+)
-  # - name: ironPerServingUom
-  #   xpath: //div[@id='ii_Iron']
-  #   regExp: ([g|mg|]+$)
-  # - name: saltPerServing
-  # - name: saltPerServingUom
-  # - name: totalCarbPerServing
-  #   xpath: //div[@id='ii_Total Carbohydrate']
-  #   regExp: (^[.0-9]+)
-  # - name: totalCarbPerServingUom
-  #   xpath: //div[@id='ii_Total Carbohydrate']
-  #   regExp: ([g|mg|]+$)
-  # - name: sodiumPerServing
-  #   xpath: //div[@id='ii_Sodium']
-  #   regExp: (^[.0-9]+)
-  # - name: sodiumPerServingUom
-  #   xpath: //div[@id='ii_Sodium']
-  #   regExp: ([g|mg|]+$)
-  # - name: totalFatPerServing
-  #   xpath: //div[@id='ii_Total Fat']
-  #   regExp: (^[.0-9]+)
-  # - name: totalFatPerServingUom
-  #   xpath: //div[@id='ii_Total Fat']
-  #   regExp: ([g|mg|]+$)
-  # - name: saturatedFatPerServing
-  #   xpath: //div[@id='ii_Saturated Fat']
-  #   regExp: (^[.0-9]+)
-  # - name: saturatedFatPerServingUom
-  #   xpath: //div[@id='ii_Saturated Fat']
-  #   regExp: ([g|mg|]+$)
-  # - name: transFatPerServing
-  #   xpath: //div[@id='ii_Trans Fat']
-  #   regExp: (^[.0-9]+)
-  # - name: transFatPerServingUom
-  #   xpath: //div[@id='ii_Trans Fat']
-  #   regExp: ([g|mg|]+$)
-  # - name: caloriesPerServing
-  #   xpath: //div[@id='ii_Calories']
-  # - name: caloriesFromFatPerServing
-  #   xpath: //div[@id='ii_Calories from Fat']
-  # - name: cholesterolPerServing
-  #   xpath: //div[@id='ii_Cholesterol']
-  #   regExp: (^[.0-9]+)
-  # - name: cholesterolPerServingUom
-  #   xpath: //div[@id='ii_Cholesterol']
-  #   regExp: ([g|mg|]+$)
+    # xpath: //div[@id='ii_warnings']
+  - name: dietaryFiberPerServing
+    xpath: //div[contains(@id, 'Dietary Fiber')]
+    regExp: (^[.0-9]+)
+  - name: dietaryFiberPerServingUom
+    xpath: //div[contains(@id, 'Dietary Fiber')]
+    regExp: ([g|mg|]+$)
+  - name: totalSugarsPerServing
+    xpath: //div[contains(@id, 'Sugars')]
+    regExp: (^[.0-9]+)
+  - name: totalSugarsPerServingUom
+    xpath: //div[contains(@id, 'Sugars')]
+    regExp: ([g|mg|]+$)
+  - name: proteinPerServing
+    xpath: //div[contains(@id, 'Protein')]
+    regExp: (^[.0-9]+)
+  - name: proteinPerServingUom
+    xpath: //div[contains(@id, 'Protein')]
+    regExp: ([g|mg|]+$)
+  - name: ironPerServing
+    xpath: //div[contains(@id, 'Iron')]
+    regExp: (^[.0-9]+)
+  - name: ironPerServingUom
+    xpath: //div[contains(@id, 'Iron')]
+    regExp: ([g|mg|]+$)
+  - name: saltPerServing
+  - name: saltPerServingUom
+  - name: totalCarbPerServing
+    xpath: //div[contains(@id, 'Total Carbohydrate')]
+    regExp: (^[.0-9]+)
+  - name: totalCarbPerServingUom
+    xpath: //div[contains(@id, 'Total Carbohydrate')]
+    regExp: ([g|mg|]+$)
+  - name: sodiumPerServing
+    xpath: //div[contains(@id, 'Sodium')]
+    regExp: (^[.0-9]+)
+  - name: sodiumPerServingUom
+    xpath: //div[contains(@id, 'Sodium')]
+    regExp: ([g|mg|]+$)
+  - name: totalFatPerServing
+    xpath: //div[contains(@id, 'Total Fat')]
+    regExp: (^[.0-9]+)
+  - name: totalFatPerServingUom
+    xpath: //div[contains(@id, 'Total Fat')]
+    regExp: ([g|mg|]+$)
+  - name: saturatedFatPerServing
+    xpath: //div[contains(@id, 'Saturated Fat')]
+    regExp: (^[.0-9]+)
+  - name: saturatedFatPerServingUom
+    xpath: //div[contains(@id, 'Saturated Fat')]
+    regExp: ([g|mg|]+$)
+  - name: transFatPerServing
+    xpath: //div[contains(@id, 'Trans Fat')]
+    regExp: (^[.0-9]+)
+  - name: transFatPerServingUom
+    xpath: //div[contains(@id, 'Trans Fat')]
+    regExp: ([g|mg|]+$)
+  - name: caloriesPerServing
+    xpath: //div[contains(@id, 'Calories')]
+  - name: caloriesFromFatPerServing
+    xpath: //div[contains(@id, 'Calories from Fat')]
+  - name: cholesterolPerServing
+    xpath: //div[contains(@id, 'Cholesterol')]
+    regExp: (^[.0-9]+)
+  - name: cholesterolPerServingUom
+    xpath: //div[contains(@id, 'Cholesterol')]
+    regExp: ([g|mg|]+$)
   - name: numberOfServingsInPackage
     xpath: //div[@id='ii_numberOfServingsInPackage']
     # xpath: //div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
@@ -275,23 +287,23 @@ fields:
     # regExp: ([-a-z]+$)
   - name: manufacturerDescription 
     singleValue: false
-    # selector: div.wc-rich-content-description
-    # xpath: //div[@id="ii_manufHTML"]//div[contains(@id, "wc-aplus")]//div[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()
-    xpath: //div[@id="ii_manufHTML"]//div[contains(@class, "wc-fragment")]//*[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()[not(contains(.,"layout:")) and not(contains(.,".jpg"))]
+    # xpath: //div[@id='ii_manufDescription']
+    xpath: //div[@id="ii_manufHTML"]//div[contains(@class, "wc-fragment")]//*[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()[not(contains(.,"layout:")) and not(contains(.,".jpg")) and not(contains(.,".png"))]
   - name: descriptionBullets
-    defaultValue: '0'
+    # defaultValue: '0'
     # xpath: count(//div[@class='htmlView']/ul/li)
     xpath: //div[@id='ii_descriptionBullets']
   - name: videos
     # xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
     # xpath: //div[@id='ii_videoSrc']|//img[contains(@class,'wc-iframe')]/@data-asset-url|//img[contains(@class, 'wc-video')]/@wcobj
-    xpath: //div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]/@wcobj|//div[@id='ii_manufHTML']//img/@data-asset-url[contains(.,'https:')]|//div[@id='ii_manufHTML']//div[contains(@class, "media-wrap")]//@data-src|//div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]//meta[contains(@content, 'mp4')]/@content
-    regExp: 
+    # ADDITIONAL THAT WAS TAKEN OUT BY REQUEST: |//div[@id='ii_manufHTML']//img/@data-asset-url[contains(.,'https:') and not(contains(.,".jpg"))]
+    xpath: //div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]/@wcobj[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "media-wrap")]//@data-src[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]//meta[contains(@content, 'mp4')]/@content[not(contains(.,".jpg"))]
   # - name: coupon
   #   singleValue: true
-  # - name: variantCount 
-  #   xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
-  #   regExp: ^[0-9]+
+  - name: variantCount 
+    xpath: //div[@id="ii_totalRecordCount"]
+    # xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
+    # regExp: ^[0-9]+
   - name: _input
     singleValue: true
   - name: imageAlt 
@@ -303,29 +315,29 @@ fields:
   # - name: aggregateRatingText
   #   # xpath: //div[@id='ii_variantRatingText']
   #   xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//section/@aria-label
-  # - name: vitaminAPerServing
-  #   xpath: //div[@id='ii_Vitamin A']
-  #   regExp: (^[.0-9]+)
-  # - name: vitaminAPerServingUom
-  #   xpath: //div[@id='ii_Vitamin A']
-  #   regExp: ([g|mg|mcg|IU]+$)
-  # - name: vitaminCPerServing
-  #   xpath: //div[contains(@id,'ii_Vitamin C')]
-  #   regExp: (^[.0-9]+)
-  # - name: vitaminCPerServingUom
-  #   xpath: //div[contains(@id,'ii_Vitamin C')]
-  #   regExp: ([g|mg|mcg|IU]+$)
-  # - name: calciumPerServing
-  #   xpath: //div[@id='ii_Calcium']
-  #   regExp: (^[.0-9]+)
-  # - name: calciumPerServingUom
-  #   xpath: //div[@id='ii_Calcium']
-  #   regExp: ([g|mg|mcg|IU]+$)
-  # - name: magnesiumPerServing
-  #   xpath: //div[@id='ii_Magnesium']
-  #   regExp: (^[.0-9]+)
-  # - name: magnesiumPerServingUom
-  #   xpath: //div[@id='ii_Magnesium']
-  #   regExp: ([g|mg|mcg|IU]+$)
+  - name: vitaminAPerServing
+    xpath: //div[contains(@id, 'Vitamin A')]
+    regExp: (^[.0-9]+)
+  - name: vitaminAPerServingUom
+    xpath: //div[contains(@id, 'Vitamin A')]
+    regExp: ([g|mg|mcg|IU]+$)
+  - name: vitaminCPerServing
+    xpath: //div[contains(@id,'Vitamin C')]
+    regExp: (^[.0-9]+)
+  - name: vitaminCPerServingUom
+    xpath: //div[contains(@id,'Vitamin C')]
+    regExp: ([g|mg|mcg|IU]+$)
+  - name: calciumPerServing
+    xpath: //div[contains(@id, 'Calcium')]
+    regExp: (^[.0-9]+)
+  - name: calciumPerServingUom
+    xpath: //div[contains(@id, 'Calcium')]
+    regExp: ([g|mg|mcg|IU]+$)
+  - name: magnesiumPerServing
+    xpath: //div[contains(@id, 'Magnesium')]
+    regExp: (^[.0-9]+)
+  - name: magnesiumPerServingUom
+    xpath: //div[contains(@id, 'Magnesium')]
+    regExp: ([g|mg|mcg|IU]+$)
   
   

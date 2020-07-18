@@ -21,7 +21,9 @@ const transform = (data, context) => {
     .replace(/^ +| +$|( )+/g, ' ')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '');
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/\"/g, ' " ')
+    .replace(/&#[0-9;]+/g, "");
 
 
   for (const { group } of data) {
@@ -30,7 +32,7 @@ const transform = (data, context) => {
         if (row.variants) {
           if(row.variants.length < 2){
 
-            row.variants = [{ text: '' }];
+            row.variants = [];
           }
         }
 
@@ -62,35 +64,44 @@ const transform = (data, context) => {
           });
           row.manufacturerDescription = [
             {
-              text: text.slice(0, -4),
+              text: text,
             },
           ];
         }
-        // if (row.additionalDescBulletInfo) {
-        //   let text = '';
-        //   row.additionalDescBulletInfo.forEach(item => {
-        //     text += `${item.text.replace(/\n \n/g, ' ')}  `;
-        //   });
-        //   row.additionalDescBulletInfo = [
-        //     {
-        //       text: text.slice(0, -4),
-        //     },
-        //   ];
-        // }
+
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
-        // if (row.productOtherInformation) {
-        //   let text = '';
-        //   row.productOtherInformation.forEach(item => {
-        //     text += `${item.text.replace(/\n \n/g, ' ')}  `;
-        //   });
-        //   row.productOtherInformation = [
-        //     {
-        //       text: text.slice(0, -4),
-        //     },
-        //   ];
-        // }
+    
+        if (row.description) {
+          let text = row.description[0].text
+          let splits = text.split(" ");
+          if(splits[splits.length - 1] === "||"){
+            let joins = splits.slice(0,splits.length - 1).join(" ")
+            row.description[0].text = joins
+          }
+        }
+
+        if (row.videos) {
+          let videoArray = [];
+          row.videos.forEach(video => {
+            if(!videoArray.includes(video.text)){
+              videoArray.push(video.text);
+            }
+          });
+          row.videos = [{text: ""}]
+          let videoStr = videoArray.join(" | ");
+          row.videos[0].text = videoStr;
+        }
+
+        if (row.directions) {
+          let text = row.directions[0].text
+          let splits = text.split(" ");
+          if(splits[splits.length - 1] === "||"){
+            let joins = splits.slice(0,splits.length - 1).join(" ")
+            row.directions[0].text = joins
+          }
+        }
         // row = cleanUp(row);
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
