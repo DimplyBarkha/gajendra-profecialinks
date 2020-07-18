@@ -13,10 +13,10 @@ async function implementation (
     });
   };
 
-  const findButtonWithStoreSelect = async () => {
+  const findInStoreButton = async () => {
     await context.evaluate(function () {
-      const mystore = document.querySelector('button[aria-label*="Select Store"]');
-      if (mystore) mystore.click();
+      const inStoreButton = document.querySelector('button[aria-label="In-Store [object Object]   Select Store"]');
+      if (inStoreButton) inStoreButton.click();
     });
   };
 
@@ -67,7 +67,7 @@ async function implementation (
 
     await context.click('button.kds-SolitarySearch-button');
     await new Promise((resolve) => setTimeout(resolve, 6000));
-    await findButtonWithStoreSelect();
+    await findInStoreButton();
     await new Promise((resolve) => setTimeout(resolve, 6000));
     await findClosestStore();
     await new Promise((resolve) => setTimeout(resolve, 6000));
