@@ -27,6 +27,14 @@ const transform = (data, context) => {
             }
           });
         }
+        if (row.description) {
+          row.description.forEach(item => {
+            item.text = item.text.replace(/>/g, '> ');
+            item.text = item.text.replace(/<(li)[^>]+>/ig, '<$1>');
+            item.text = item.text.replace(/<li>/g, ' ||');
+            item.text = item.text.trim();
+          });
+        }
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }

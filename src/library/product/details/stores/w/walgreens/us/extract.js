@@ -11,7 +11,7 @@ module.exports = {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ url, id }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    // await context.waitForSelector('li#prodCollage');
+
     const manufacturerInfo = await context.evaluate(function () {
       return document.querySelector('li#prodCollage') ? document.querySelector('li#prodCollage').getAttribute('class') : '';
     });
@@ -43,24 +43,11 @@ module.exports = {
       });
     }
 
-    // autoScroll();
-
     if (manufacturerInfo.length !== 0) {
       await new Promise(resolve => setTimeout(resolve, 15000));
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner');
       await context.waitForSelector('a.view-more-trigger');
-
-      // await context.evaluate(function () {
-      //   const showMoreButton = document.querySelector('a.view-more-trigger');
-      //   console.log(showMoreButton);
-      //   if (showMoreButton !== null) {
-      //     showMoreButton.className += ' open';
-      //     showMoreButton.setAttribute('aria-expanded', 'true');
-      //     showMoreButton.click();
-      //     console.log(showMoreButton);
-      //   }
-      // });
     }
 
     const extractAll = async (id, url, variants) => {
@@ -160,7 +147,6 @@ module.exports = {
           XMLHttpRequest.prototype.open = originalRequestOpen;
 
           const jsonObj = MergeRecursive((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {}, response);
-          console.log(response);
           console.log('jsonObj');
           console.log(jsonObj);
 
@@ -168,27 +154,11 @@ module.exports = {
           const details = jsonObj.prodDetails;
           const price = jsonObj.priceInfo;
 
-          // const priceOther = JSON.parse(getSelector('script[type="application/ld+json"]', { raw: true, ifError: JSON.stringify({}) }));
           const grabSinglePrice = (price) => {
             return price.split('or 1/')[1];
           };
 
           const priceValue = (prop) => {
-            /*
-            if (!Array.isArray(props)) return priceValue([props]);
-            const result = props.reduce((acc, prop) => {
-              if (!price[prop]) return acc;
-              console.log('result')
-              console.log(prop)
-              if (document.querySelector('#saving-price-info') && prop === 'salePrice') {
-                console.log('here')
-                return (price.salePrice.split('$').length > 2) ? price.salePrice : '';
-              }
-              return (price[prop].split('$').length > 2
-                ? (priceOther.offers ? priceOther.offers.price : '')
-                : price[prop]);
-            }, '');
-            */
             const result = (document.querySelector('#saving-price-info') && prop === 'salePrice' && price.salePrice) ? (price.salePrice.match('or 1') ? grabSinglePrice(price.salePrice) : price.salePrice) : (price.regularPrice ? (price.regularPrice.match('or 1') ? grabSinglePrice(price.regularPrice) : price.regularPrice) : null);
             if (!result) return '';
             return result.includes('$') ? result : `$${result}`;
@@ -202,12 +172,8 @@ module.exports = {
           const shipping = findInSection('shipping');
           const reviews = findInSection('reviews');
 
-          console.log(desc);
-          console.log(desc.productDesc);
 
           let fullDescription = (desc && desc.productDesc) ? (((desc.quickView && desc.quickView !== 'undefined') ? decodeURIComponent(desc.quickView.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25')) : '') + decodeURIComponent(desc.productDesc.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25'))) : '';
-          console.log('fullDescription');
-          console.log(fullDescription);
           fullDescription = fullDescription.replace(/<table.*?>/g, '');
           fullDescription = fullDescription.replace(/<tbody.*?>/g, '');
           fullDescription = fullDescription.replace(/<tr.*?>/g, '');
@@ -219,13 +185,13 @@ module.exports = {
           fullDescription = fullDescription.replace(/&copy;/g, '©');
           fullDescription = fullDescription.replace(/%C2%A9/g, '©');
           const directions = fullDescription.toLowerCase().indexOf('how to') > -1 ? fullDescription.toLowerCase().indexOf('how to') : '';
-          console.log(fullDescription);
-          let fullDescriptionWithDoublePipes = fullDescription;
-          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/>/g, '> ');
-          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<(li)[^>]+>/ig, '<$1>');
-          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<li>/g, ' ||');
-          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.trim();
-          const manufacturerName = (fullDescription && fullDescription.match('©') !== null) ? fullDescription.split('©')[fullDescription.split('©').length - 1] : ((fullDescription && fullDescription.match('&#169;') !== null) ? fullDescription.split('&#169;')[fullDescription.split('&#169;').length - 1] : '');
+          // console.log(fullDescription);
+          // console.log(fullDescription.match((/([^©]*)$/)))
+          // console.log((/([^©]*)$/).exec(fullDescription))
+          // const manufacturerName = (fullDescription && (/([^©]*)$/).test(fullDescription) !== false) ? fullDescription.lastIndexOf('©')[0] : ((fullDescription && fullDescription.match('&#169;') !== null) ? fullDescription.split('&#169;')[fullDescription.split('&#169;').length - 1] : '');
+          const index = fullDescription.lastIndexOf('©');
+          const manufacturerName = (fullDescription && index !== -1) ? decodeURIComponent(fullDescription.substring(index + 1).trim().replace('&#169;', '')) : ((fullDescription && fullDescription.match('&#169;') !== null) ? fullDescription.split('&#169;')[fullDescription.split('&#169;').length - 1] : '');          
+          console.log('manufacturerName');
           console.log(manufacturerName);
           const images = infos.filmStripUrl.reduce((acc, obj) => {
             const filtered = Object.entries(obj).filter(([key]) => key.includes('largeImageUrl'));
@@ -233,28 +199,11 @@ module.exports = {
             return [...acc, ...array];
           }, []);
 
-          console.log('ingredients');
-          console.log(ingredients);
-
-          console.log(infos);
-
           const cleanupIngredient = (typename) => {
-            // const ingredDivText = document.querySelector('li#Ingredients');
-            // if (ingredDivText && ingredDivText.textContent && (ingredDivText.textContent.includes('Active') || ingredDivText.textContent.includes('Inactive'))) {
-            // if (ingredDivText && ingredDivText.textContent) {
             return typename.charAt(0).toUpperCase() + typename.slice(1) + ' Ingredients: ';
-            // }
-            // return '';
           };
 
           const formatIngredientList = (ingredientsList) => {
-            // if (ingredientsList && ingredientsList.length > 1) {
-            //   for (var i = 0; i < ingredientsList.length; i++) {
-            //     if ((i !== ingredientsList.length - 1) && (ingredientsList[i].slice(-1) !== ',')) {
-            //       ingredientsList[i] += ',';
-            //     }
-            //   }
-            // }
             if (ingredientsList.length === 1) {
               return ingredientsList;
             }
@@ -289,12 +238,6 @@ module.exports = {
               return ingredList;
             }
           };
-
-          // if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0] && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
-          //   const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
-          //   const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
-          //   ingrList.unshift(typeOfIngredient);
-          // }
 
           const nutrition = ingredients && ingredients.nutritionFactsGroups ? ingredients.nutritionFactsGroups : '';
           const hasNutrition = nutrition && nutrition.find(u => u.nutritionFact);
@@ -388,10 +331,9 @@ module.exports = {
           };
 
           const promotions = () => {
-            const notPromotionRe = /(donation)|[Rr]eward/ig;
+            const notPromotionRe = /(donation)|[Rr]eward|[Pp]oint/ig;
             const isPromotionRe = /(rebate)|(Extra Savings)/ig;
-            const withCardRe = /(With Card)/ig;
-            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? ((u.redirectPageTitle && !withCardRe.test(u.redirectPageTitle)) ? u.redirectPageTitle : u.title) : '') : '';
+            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.title) : '') : '';
             if (isPromotionRe.test(promotion)) {
               return (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
             }
@@ -399,9 +341,7 @@ module.exports = {
           };
 
           const customWarning = () => {
-            console.log('customWarning');
             if (document.querySelector('div.description') && (document.querySelector('div.description').innerHTML.match(/<p><strong>WARNING:<\/strong>.*?<\/p>/)) !== null) {
-              // if ((document.querySelector('div.description').innerHTML.match(/<p><strong>WARNING:<\/strong>.*?<\/p>/))[0] !== null) {}
               const htmlTagWithWarnings = (document.querySelector('div.description').innerHTML.match(/<p><strong>WARNING:<\/strong>.*?<\/p>/))[0];
               const parser = new DOMParser();
               const doc = parser.parseFromString(htmlTagWithWarnings, 'text/html');
@@ -412,6 +352,49 @@ module.exports = {
               }
             }
             return '';
+          };
+
+          const manufacturerDescription = () => {
+            const features = () => {
+              if (document.querySelectorAll('.wc-fragment').length) {
+                return [...[...document.querySelectorAll('.wc-fragment')].reduce((acc, frame) => {
+                  if (frame.querySelector('iframe')) {
+                    const text = frame.innerText ? frame.innerText : '';
+                    const iframe = frame.querySelector('iframe');
+                    if (!iframe.allowFullscreen) return acc;
+                    if (iframe.contentWindow && iframe.contentWindow.settings && iframe.contentWindow.settings.itemsList) {
+                      return [...acc, text, ...[...iframe.contentWindow.settings.itemsList].filter(v => (v.caption && v.description)).map(v => v.caption + ' ' + v.description)];
+                    } else {
+                      return acc;
+                    }
+                  } else {
+                    return [...acc, [frame.innerText]];
+                  }
+                }, [])];
+              }
+              return [];
+            };
+            return features().join(' ');
+          };
+
+          const manufacturerImages = () => {
+            const allImages = () => {
+              if (document.querySelectorAll('.wc-fragment').length) {
+                return [...[...document.querySelectorAll('.wc-fragment')].reduce((acc, frame) => {
+                  if (frame.querySelector('iframe')) {
+                    const imgSrc = frame.querySelector('img') ? frame.querySelector('img').src : '';
+                    const iframe = frame.querySelector('iframe');
+                    console.log(iframe);
+                    if (!iframe.allowFullscreen) return acc;
+                    return [...acc, imgSrc, ...[...iframe.contentDocument.querySelectorAll('img')].filter(v => (v.src)).map(v => v.src)];
+                  } else {
+                    return [...acc, ...[...frame.querySelectorAll('img') ? [...frame.querySelectorAll('img')].map(u => u.src).filter(img => !img.match('syndigo')) : '']];
+                  }
+                }, [])];
+              }
+              return [];
+            };
+            return allImages();
           };
 
           console.log(jsonObj.inventory);
@@ -430,7 +413,7 @@ module.exports = {
             listPrice: priceValue('regularPrice'),
             price: priceValue('salePrice'),
             availabilityText: jsonObj.inventory.shipAvailable ? 'In Stock' : (jsonObj.inventory.shipAvailableMessage.includes('Not sold online') ? 'Not sold online' : 'Out of Stock'),
-            description: fullDescriptionWithDoublePipes,
+            description: fullDescription,
             descriptionBullets: (document.querySelector('#prodDesc') && document.querySelectorAll('#prodDesc ul > li')) ? document.querySelectorAll('#prodDesc ul > li').length : (document.querySelectorAll('div.description p') ? document.querySelectorAll('div.description p').length : 0),
             brandText: infos.brandName,
             manufacturer: manufacturerName,
@@ -449,51 +432,19 @@ module.exports = {
             aggregateRatingText: reviews ? reviews.overallRating : '',
             aggregateRating: reviews ? reviews.overallRating : '',
             shippingInfo: shippingInfoContent(),
-            // jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0) ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates ? jsonObj.inventory.restrictedStates.join(', ') : ((document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').nextElementSibling && document.querySelector('p#shiptostoreenable').nextElementSibling.textContent) ? document.querySelector('p#shiptostoreenable').nextElementSibling.textContent + restrictedStatesList() : ''),
             shippingDimensions: shipping ? shipping.productInInches : '',
             shippingWeight: shipping ? shipping.shippingWeight : '',
             variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc + (arr ? arr.length : 0)), 0),
             color: infos.color,
-            colorCode: '',
-            manufacturerDescription: getSelector('#wc-aplus', { property: 'innerText' }),
-            manufacturerImages: [...document.querySelectorAll('#wc-aplus img')].map(u => u.src).filter(img => !img.match('syndigo')),
+            manufacturerDescription: manufacturerDescription(),
+            manufacturerImages: manufacturerImages(),
             videos: allVideos && allVideos.length > 0 ? allVideos : '',
             name: infos.displayName,
-            inStorePrice: '',
-            asin: '',
             coupon: [...document.querySelectorAll('[aria-labelledby="coupon-card"] li span:not([aria-hidden="true"])')].map(u => u.textContent).join(' '),
-            amazonChoice: '',
-            amazonChoiceCategory: '',
             brandLink: infos.brandPageUrl ? `https://www.walgreens.com${infos.brandPageUrl}` : '',
-            internationalShipping: '',
-            salesRank: '',
-            salesRankCategory: '',
-            subscriptionPrice: '',
-            subscribeAndSave: '',
-            heroQuickPromoHeadline: '',
-            heroQuickPromoImageUrl: '',
-            heroQuickPromoUrl: '',
-            pasin: '',
             videoLength: videos() && videos().length > 0 ? videosDurations().filter(duration => (duration !== undefined)) : '',
-            otherSellersPrime: '',
-            ingredientImagePresent: '',
-            factImagePresent: '',
-            largeImageCount: '',
-            variantAsins: '',
-            primeFlag: '',
-            lbb: '',
-            lbbPrice: '',
-            featureBullets: '',
-            otherSellersName: '',
-            otherSellersPrice: '',
-            otherSellersShipping: '',
             secondaryImageTotal: infos.filmStripUrl ? infos.filmStripUrl.length : 0,
-            news: '',
-            addonItem: '',
-            fastTrack: '',
             ingredientsList: hasIngrList ? ingrList() : '',
-            // ingredientsList: ingrList ? (Array.isArray(ingrList) ? ingrList.join(' ') : ingrList) : '',
-            // ingredientsList: ingrList ? ingrList[0] + ' ' + ingrList.slice(2, -1).join(', ') + ', ' + ingrList.slice(-1) : '',
             servingSize: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] !== null) ? nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] : '',
             servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] !== null) ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
             numberOfServingsInPackage: nutrition && nutrition[0] && nutrition[0].servingPerContainer ? nutrition[0].servingPerContainer : '',
@@ -525,44 +476,17 @@ module.exports = {
             calciumPerServingUom: getNutri('calcium', true),
             ironPerServing: getNutri('iron', false),
             ironPerServingUom: getNutri('iron', true),
-            dietarySymbols: '',
             magnesiumPerServing: getNutri('magnesium', false),
             magnesiumPerServingUom: getNutri('magnesium', true),
             saltPerServing: getNutri(['sodium', 'salt'], false),
             saltPerServingUom: getNutri(['sodium', 'salt'], true),
-            dietaryInformation: '',
-            specifications: '',
-            warranty: '',
-            storage: '',
-            countryOfOrigin: '',
-            allergyAdvice: '',
-            recyclingInformation: '',
-            productOtherInformation: '',
-            packaging: '',
-            additives: '',
             pricePerUnit: price.unitPrice ? price.unitPrice.split('$')[1] : '',
             pricePerUnitUom: price.unitPriceSize ? (price.unitPriceSize.includes('undefined') ? '' : price.unitPriceSize) : '',
             promotion: promotions(),
-            alcoholContent: '',
-            newVersion: '',
-            newAsin: '',
-            newDescription: '',
             variantInformation: infos.primaryAttribute ? infos.primaryAttribute : (infos.color ? infos.color : ''),
-            // variantInformation: infos.primaryAttribute ? infos.primaryAttribute : infos.color,
-            // Object.keys(jsonObj.inventory.relatedProducts),
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
             additionalDescBulletInfo: [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent),
-            prop65Warning: '',
-            ageSuitability: '',
-            energyEfficiency: '',
-            technicalInformationPdfPresent: 'No',
-            termsAndConditions: 'Yes',
-            privacyPolicy: 'Yes',
-            customerServiceAvailability: 'No',
-            materials: '',
-            Image360Present: 'No',
-            imageZoomFeaturePresent: document.querySelector('#zoomLensContainer') ? 'Yes' : 'No',
           };
           removeObjectToDocument(obj);
           addObjectToDocument(obj);
