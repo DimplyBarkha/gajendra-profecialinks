@@ -56,7 +56,7 @@ const transform = (data, context) => {
 
         if (row.quantity && row.quantity[0] && row.quantity[0].text && row.quantity[0].text.length > 1) {
           let quantityText = row.quantity[0].text;
-          let count = (quantityText.match(/[bB]ar[s]?/g) || []).length;
+          const count = (quantityText.match(/[bB]ar[s]?/g) || []).length;
           if (count > 1) {
             quantityText = quantityText.replace(/[bB]ar?/, '');
           }

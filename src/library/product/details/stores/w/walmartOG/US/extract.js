@@ -88,7 +88,7 @@ module.exports = {
 
         if (data) {
           console.log('parsing data ...');
-          console.log(data)
+          console.log(data);
 
           const asin = (data.USItemId) ? data.USItemId : '';
           const sku = (data.sku) ? data.sku : '';
@@ -102,7 +102,7 @@ module.exports = {
           const listPrice = (data.store && data.store.price && data.store.price.previousPrice) ? data.store.price.previousPrice : (document.querySelector('div[data-automation-id="salePrice"]') ? document.querySelector('div[data-automation-id="salePrice"]').textContent : '');
           const available = (data.store && data.store.isInStock) ? data.store.isInStock : availableSelector();
           const pricePerUnit = (data.store && data.store.price && data.store.price.unit) ? data.store.price.unit : '';
-          const pricePerUnitUOM = (data.store && data.store.price && data.store.price.displayUnitPrice) ? data.store.price.displayUnitPrice.split('/')[data.store.price.displayUnitPrice.split('/').length-1] : '';
+          const pricePerUnitUOM = (data.store && data.store.price && data.store.price.displayUnitPrice) ? data.store.price.displayUnitPrice.split('/')[data.store.price.displayUnitPrice.split('/').length - 1] : '';
 
           addHiddenDiv('iio_quantity', title);
 
