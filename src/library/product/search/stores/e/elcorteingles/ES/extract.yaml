@@ -18,9 +18,10 @@ fields:
     xpath: //div[contains(@class,"product_tile-image _fade")]/a/img/@src
     regExp: (.+)
     regExpReplace: https:$1
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
-    regExp: .+(?=\sde)
+    regExp: (\d)\.(\d)(?=\sde).+
+    regExpReplace: $1,$2
   - name: reviewCount
     xpath: //meta[@itemprop="reviewCount"]/@content
   - name: price
