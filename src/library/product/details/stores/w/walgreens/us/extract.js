@@ -331,7 +331,7 @@ module.exports = {
           };
 
           const promotions = () => {
-            const notPromotionRe = /(donation)|[Rr]eward|[Pp]oint/ig;
+            const notPromotionRe = /(donation)|[Rr]eward|[Pp]oint|[Pp]ts/ig;
             const isPromotionRe = /(rebate)|(Extra Savings)/ig;
             const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.title) : '') : '';
             if (isPromotionRe.test(promotion)) {
