@@ -89,34 +89,41 @@ module.exports = {
           const removeObjectToDocument = (obj) => {
             Object.keys(obj).forEach((key) => document.getElementById(`added_${key}`) && document.getElementById(`added_${key}`).remove());
           };
+          const removeDuplicateText = (property, doc = document, text) => {
+            if (doc.querySelector('.wc-pct-product-columns-wrapper') && doc.querySelector('.wc-pct-header-column-wrapper')) {
+              if (doc.querySelector('.wc-pct-product-columns-wrapper')[property] === doc.querySelector('.wc-pct-header-column-wrapper')[property]) {
+                const wcAplusDiv = doc.querySelector('#wc-aplus');
+                const duplicate = wcAplusDiv.cloneNode(true);
+                if (duplicate.querySelector('div.wc-pct-header-column-wrapper')) {
+                  duplicate.querySelector('div.wc-pct-header-column-wrapper').remove();
+                }
+                if (duplicate.querySelector('div.wc-json-data')) {
+                  duplicate.querySelector('div.wc-json-data').remove();
+                }
+                if (duplicate.querySelector('wc-powered-by-tagline')) {
+                  duplicate.querySelector('wc-powered-by-tagline').remove();
+                }
+                if (duplicate.querySelector('style')) {
+                  duplicate.querySelector('style').remove();
+                }
+                if (duplicate.querySelector('br')) {
+                  duplicate.querySelectorAll('br').forEach(function (br) {
+                    var space = document.createTextNode(' ');
+                    br.replaceWith(space);
+                  });
+                }
+                return duplicate[property];
+              } else {
+                return text;
+              }
+            }
+            return text;
+          };
+
           const getSelector = (selector, { property = 'textContent', doc = document, raw = false, ifError = '' } = {}) => {
             let text = doc.querySelector(selector) ? doc.querySelector(selector)[property] : ifError;
             if (selector === '#wc-aplus' && doc.querySelector('div[data-section-caption="Product Comparison"]')) {
-              if (doc.querySelector('.wc-pct-product-columns-wrapper') && doc.querySelector('.wc-pct-header-column-wrapper')) {
-                if (doc.querySelector('.wc-pct-product-columns-wrapper')[property] === doc.querySelector('.wc-pct-header-column-wrapper')[property]) {
-                  const wcAplusDiv = doc.querySelector('#wc-aplus');
-                  const duplicate = wcAplusDiv.cloneNode(true);
-                  if (duplicate.querySelector('div.wc-pct-header-column-wrapper')) {
-                    duplicate.querySelector('div.wc-pct-header-column-wrapper').remove();
-                  }
-                  if (duplicate.querySelector('div.wc-json-data')) {
-                    duplicate.querySelector('div.wc-json-data').remove();
-                  }
-                  if (duplicate.querySelector('wc-powered-by-tagline')) {
-                    duplicate.querySelector('wc-powered-by-tagline').remove();
-                  }
-                  if (duplicate.querySelector('style')) {
-                    duplicate.querySelector('style').remove();
-                  }
-                  if (duplicate.querySelector('br')) {
-                    duplicate.querySelectorAll('br').forEach( function (br) {
-                      var space = document.createTextNode(' ')
-                      br.replaceWith(space)
-                    })
-                  }
-                  text = duplicate[property];
-                }
-              }
+              text = removeDuplicateText(property, doc, text);
             }
             return raw ? text : text.replace(/\t/gm, ' ').replace(/\s{2,}, ' '/g).replace(/^\s*\n|^.\n/gm, '').trim();
           };
@@ -184,13 +191,15 @@ module.exports = {
           fullDescription = fullDescription.replace(/<\/td>/g, '');
           fullDescription = fullDescription.replace(/&copy;/g, '©');
           fullDescription = fullDescription.replace(/%C2%A9/g, '©');
+          fullDescription = fullDescription.replace(/<p.*?>/g, '<p> ');
+          fullDescription = fullDescription.replace('&#169;', '©');
           const directions = fullDescription.toLowerCase().indexOf('how to') > -1 ? fullDescription.toLowerCase().indexOf('how to') : '';
           // console.log(fullDescription);
           // console.log(fullDescription.match((/([^©]*)$/)))
           // console.log((/([^©]*)$/).exec(fullDescription))
           // const manufacturerName = (fullDescription && (/([^©]*)$/).test(fullDescription) !== false) ? fullDescription.lastIndexOf('©')[0] : ((fullDescription && fullDescription.match('&#169;') !== null) ? fullDescription.split('&#169;')[fullDescription.split('&#169;').length - 1] : '');
           const index = fullDescription.lastIndexOf('©');
-          const manufacturerName = (fullDescription && index !== -1) ? decodeURIComponent(fullDescription.substring(index + 1).trim().replace('&#169;', '')) : ((fullDescription && fullDescription.match('&#169;') !== null) ? fullDescription.split('&#169;')[fullDescription.split('&#169;').length - 1] : '');          
+          const manufacturerName = (fullDescription && index !== -1) ? fullDescription.substring(index + 1).trim() : '';
           console.log('manufacturerName');
           console.log(manufacturerName);
           const images = infos.filmStripUrl.reduce((acc, obj) => {
