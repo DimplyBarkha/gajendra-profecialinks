@@ -12,8 +12,8 @@ fields:
     regExp: (.+)
     regExpReplace: $1
   - name: page
-    xpath: ancestor::html//link[@rel="canonical"]/@href
-    regExp: .+page=([0-9]{1,})
+    xpath: ancestor::html//script[contains(text(),"queryString")]
+    regExp: page=(\d+)
     regExpReplace: $1
     defaultValue: 1
   - name: badgeType
