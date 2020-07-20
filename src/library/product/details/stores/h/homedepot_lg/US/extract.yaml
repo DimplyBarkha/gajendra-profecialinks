@@ -30,6 +30,7 @@ fields:
     xpath: //h2[@itemprop="brand"]//span|//span[@class="product-details__brand-name"]
   - name: manufacturerDescription
     singleValue: false
+    xpath: //div[@id='product_description']//div[@class="rich-content-container"]
   - name: weightNet
     singleValue: false
   - name: weightGross
