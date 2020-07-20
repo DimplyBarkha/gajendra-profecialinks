@@ -33,9 +33,19 @@ const transform = (data) => {
           },
         ];
       }
+      // if (row.largeImageCount) {
+      //   for (const item of row.largeImageCount) {
+      //     item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+      //   }
+      // }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = `${item.text.replace('US40_', '')}`;
+        });
+      }
+      if (row.secondaryImageTotal) {
+        row.secondaryImageTotal.forEach(item => {
+          item.text = row.alternateImages.length;
         });
       }
       if (row.imageAlt) {
@@ -47,6 +57,38 @@ const transform = (data) => {
         row.manufacturerDescription.forEach(item => {
           item.text = cleanUp(item.text);
         });
+      }
+      if (row.featureBullets) {
+        let text = '';
+        row.featureBullets.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} | `;
+        });
+        row.featureBullets = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(manufacturerImages => {
+          if (manufacturerImages.text.includes('grey-pixel.gif')) {
+            manufacturerImages.text = '';
+          } else {
+            manufacturerImages.text = manufacturerImages.text.replace('._AC_US40_', '');
+          }
+        });
+      }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          item.text = `${item.text.replace(/([\<img].*[\"\>])/g, ' ').trim()}  `;
+          text += `${item.text.replace(/\n \n/g, ' ').trim()}  `;
+        });
+        row.manufacturerDescription = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
       }
       if (row.salesRank) {
         row.salesRank.forEach(item => {
