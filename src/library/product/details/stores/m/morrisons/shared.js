@@ -10,9 +10,20 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ');
+          text += item.text.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ');
         });
         row.description = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.manufacturer) {
+        let text = '';
+        row.manufacturer.forEach(item => {
+          text += item.text.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ');
+        });
+        row.manufacturer = [
           {
             text: text,
           },
@@ -21,7 +32,7 @@ const transform = (data) => {
       if (row.directions) {
         let text = '';
         row.directions.forEach(item => {
-          text += item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ');
+          text += item.text.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ');
         });
         row.directions = [
           {
@@ -32,7 +43,7 @@ const transform = (data) => {
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
-          text += item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ');
+          text += item.text.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ');
         });
         row.specifications = [
           {
@@ -43,7 +54,7 @@ const transform = (data) => {
       if (row.warnings) {
         let text = '';
         row.warnings.forEach(item => {
-          text += item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ').replace(new RegExp('(.+)(Warning:)(.+)(Origin:.+)', 'g'), '$3').replace(new RegExp('(.+)(Usage:.+)', 'g'), '$1');
+          text += item.text.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').replace(new RegExp('(.+)(Warning:)(.+)(Origin:.+)', 'g'), '$3').replace(new RegExp('(.+)(Usage:.+)', 'g'), '$1');
         });
         row.warnings = [
           {
@@ -72,7 +83,7 @@ const transform = (data) => {
         });
         row.caloriesPerServing = [
           {
-            text: text,
+            text: text.replace(new RegExp('(.+\\/)\\/(.+)', 'g'), '$1$2'),
           },
         ];
       }

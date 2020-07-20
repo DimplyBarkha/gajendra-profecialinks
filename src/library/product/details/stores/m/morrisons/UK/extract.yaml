@@ -33,7 +33,7 @@ fields:
   - name: brandText
     xpath: //span[contains(.,'Brands')]/../div
   - name: manufacturer
-    xpath: normalize-space(//div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,"Manufacturer")]//../div[contains(@class,"bop-info__content")])
+    xpath: //div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,"Manufacturer")]//../div[contains(@class,"bop-info__content")]
   - name: quantity
     xpath: //span[contains(@class,'catchWeight')]
   - name: storage
@@ -94,7 +94,7 @@ fields:
     regExp: ([a-z]+)
   - name: saltPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Salt')]/../td[2]
-    regExp: (?:([\d\.]+)\s?)
+    regExp: (?:([\d(\.|\,)]+))
   - name: saltPerServingUom
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Salt')]/../td[2]
     regExp: ([a-z]+)
@@ -131,7 +131,9 @@ fields:
   - name: promotion
     xpath: //p[contains(@class,'bop-promotion__title')]  
   - name: alcoholContent
-    xpath: //h6[contains(.,'Units')]/../div  
+    xpath: //h6[contains(.,'Units')]/../div 
+  - name: allergyAdvice    
+    xpath: //div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Dietary Information')]/../div
   - name: dietaryInformation
     xpath: //div[contains(@class,"gn-content bop-info__field")]/h6[contains(.,'Dietary Information')]/../div
   - name: productOtherInformation
