@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'amazon.de',
-    timeout: 800000,
+    timeout: 900000,
     country: 'DE',
     store: 'amazonApparel',
   },
@@ -51,6 +51,7 @@ module.exports = {
 
     const solveCaptchaIfNecessary = async () => {
       console.log('Checking for CAPTCHA');
+      await new Promise(resolve => setTimeout(resolve, 1000));
       while (await isCaptcha() === 'true' && captchas < MAX_CAPTCHAS) {
         captchas++;
         if (backconnect) {
@@ -74,7 +75,7 @@ module.exports = {
       lastResponseData = await context.goto(url, {
         timeout: 60000,
         waitUntil: 'load',
-        checkBlocked: true,
+        checkBlocked: false,
         js_enabled: true,
         css_enabled: false,
         random_move_mouse: true,
@@ -97,7 +98,7 @@ module.exports = {
 
         console.log('Go to some random page');
         const clickedOK = await context.evaluate(async function () { //* [contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/spa
-          const randomLinkEls = document.evaluate("a[href*='/dp/']", document, null, XPathResult.ANY_TYPE, null);
+          const randomLinkEls = document.evaluate("//a[contains(@href,'/dp/')]", document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
             // @ts-ignore
