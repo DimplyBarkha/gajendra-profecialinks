@@ -90,7 +90,7 @@ fields:
     xpath: //span[contains(text(), "Legal Disclaimer")][contains(@class,"a-text-bold")]/../p[text()]/text()|//h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
     singleValue: false
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/*[contains(text(), 'Directions')]/../p[text()]/text() | //b[contains(.,'Directions')]/following-sibling::br/../text()[4]
   - name: warnings
     singleValue: false
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]
@@ -127,6 +127,7 @@ fields:
     singleValue: true
   - name: manufacturerDescription
     singleValue: true
+    xpath: //h3[contains(.,"From the Manufacturer")]/following-sibling::p[1]|//h3[contains(.,"From the Manufacturer")]/parent::div//div[@class="aplus"]/p[1]
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@cel_widget_id="aplus"]//img/@src
@@ -245,11 +246,11 @@ fields:
   - name: product/food
     singleValue: true
   - name: ingredientsList
-    singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
+    singleValue: false
+    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)|//b[contains(.,'Ingredients')]/following-sibling::br/../text()[2]
   - name: servingSize
     singleValue: true
-  - name: servingSizeUom
+  - name: servingSizeUomSS
     singleValue: true
   - name: numberOfServingsInPackage
     singleValue: true
@@ -338,6 +339,7 @@ fields:
     xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: packaging
     singleValue: true
+    xpath: //div[@id="twisterContainer"]//div[contains(.,"Product Packaging:")]/span[1]
   - name: additives
     singleValue: true
   - name: pricePerUnit2
