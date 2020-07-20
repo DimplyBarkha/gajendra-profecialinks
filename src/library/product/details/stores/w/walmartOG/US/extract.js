@@ -37,7 +37,7 @@ module.exports = {
         const url = `https://www.walmart.com/grocery/v3/api/products/${id}?itemFields=all&storeId=5260`;
         var refURL = window.location.href;
 
-        async function fetchItems () {
+        async function fetchItems (numberOfRetries = 0) {
           const response = await fetch(url, {
             accept: 'application/json, text/plain, */*',
             referrer: refURL,
@@ -46,30 +46,35 @@ module.exports = {
             method: 'GET',
             mode: 'cors',
           });
+          console.log(numberOfRetries);
+
+          try {
+            if (response && response.status === 200) {
+              console.log('Product Found!!!!');
+              data = await response.json();
+              productInfo = data;
+              return productInfo;
+            }
+
+            if (response && response.status === 404) {
+              console.log('Product Not Found!!!!');
+              productNotFound = true;
+              return {};
+            }
+          } catch (err) {
+            if (numberOfRetries === 1) {
+              // throw err;
+              return {};
+            }
+
+            return await fetchItems(numberOfRetries++);
+          }
 
           console.log(response);
           console.log(response.status);
-
-          if (response && response.status === 404) {
-            console.log('Product Not Found!!!!');
-            productNotFound = true;
-          }
-
-          if (response && response.status === 200) {
-            console.log('Product Found!!!!');
-            data = await response.json();
-            productInfo = data;
-            return productInfo;
-          }
-
-          return {};
         }
 
         productInfo = await fetchItems();
-
-        if (Object.keys(productInfo).length === 0 && productNotFound === false) {
-          productInfo = await fetchItems();
-        }
 
         data = productInfo;
 
@@ -119,7 +124,6 @@ module.exports = {
               });
             }
             if (data.nutritionFacts.calorieInformation) {
-            // iioObjects.push({ name: 'iio_caloriesPerServing', value: data.nutritionFacts.calorieInformation.caloriesPerServing });
               const keys = Object.keys(data.nutritionFacts.calorieInformation);
               for (const key of keys) {
                 iioObjects.push({ name: `iio_nutrient_${key}`, value: data.nutritionFacts.calorieInformation[key] });
@@ -127,7 +131,6 @@ module.exports = {
             }
 
             if (data.nutritionFacts.servingInformation) {
-            // iioObjects.push({ name: 'iio_caloriesPerServing', value: data.nutritionFacts.calorieInformation.caloriesPerServing });
               const keys = Object.keys(data.nutritionFacts.servingInformation);
               for (const key of keys) {
                 iioObjects.push({ name: `iio_nutrient_${key}`, value: data.nutritionFacts.servingInformation[key] });
