@@ -119,9 +119,18 @@ const transform = (data, context) => {
         });
       }
       if (row.salesRankCategory) {
-        if (row.salesRankCategory.text.includes('Nr')) {
-          row.salesRankCategory.shift();
+        if (row.salesRankCategory.text) {
+          if (row.salesRankCategory.text.includes('Nr')) {
+            row.salesRankCategory.shift();
+          }
         }
+      }
+      if (row.shippingDimensions) {
+        row.shippingDimensions.forEach(shippingDimensions => {
+          if (shippingDimensions.text.includes(';')) {
+            shippingDimensions.text = shippingDimensions.text.split(';')[0].trim();
+          }
+        });
       }
       if (row.image) {
         row.image.text = row.image.splice(1);
