@@ -12,7 +12,7 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
-    regExp: (.*)(_SX.*_|_AC.*_)(.*)
+    regExp: (.*)(_SX.*_|_AC.*_|_SS.*_)(.*)
     regExpReplace: $1_SR500,500_$3
   - name: metaKeywords
     singleValue: true
