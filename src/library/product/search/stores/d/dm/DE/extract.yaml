@@ -8,7 +8,7 @@ fields:
   - name: sponsored
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[contains(@data-dmid,"product-tile-image-wrapper")]//a//@href
+    xpath: //div[contains(@data-dmid,"product-tile-image-wrapper")]//a[@data-dmid="dm-link"]/@href
     regExp: (.+)
     regExpReplace: https://www.dm.de$1
   - name: thumbnail
@@ -18,7 +18,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //span[@data-dmid="product-brand"]| //div[@data-dmid="product-description"]//a//@title[1] | //a[@data-dmid="dm-link"]//span//text()
+    xpath: //div[@data-dmid="product-description"]//@name
   - name: price
     singleValue: true
     description: The offered price for the product
