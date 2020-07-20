@@ -89,42 +89,9 @@ module.exports = {
           const removeObjectToDocument = (obj) => {
             Object.keys(obj).forEach((key) => document.getElementById(`added_${key}`) && document.getElementById(`added_${key}`).remove());
           };
-          const removeDuplicateText = (property, doc = document, text) => {
-            if (doc.querySelector('.wc-pct-product-columns-wrapper') && doc.querySelector('.wc-pct-header-column-wrapper')) {
-              if (doc.querySelector('.wc-pct-product-columns-wrapper')[property] === doc.querySelector('.wc-pct-header-column-wrapper')[property]) {
-                const wcAplusDiv = doc.querySelector('#wc-aplus');
-                const duplicate = wcAplusDiv.cloneNode(true);
-                if (duplicate.querySelector('div.wc-pct-header-column-wrapper')) {
-                  duplicate.querySelector('div.wc-pct-header-column-wrapper').remove();
-                }
-                if (duplicate.querySelector('div.wc-json-data')) {
-                  duplicate.querySelector('div.wc-json-data').remove();
-                }
-                if (duplicate.querySelector('wc-powered-by-tagline')) {
-                  duplicate.querySelector('wc-powered-by-tagline').remove();
-                }
-                if (duplicate.querySelector('style')) {
-                  duplicate.querySelector('style').remove();
-                }
-                if (duplicate.querySelector('br')) {
-                  duplicate.querySelectorAll('br').forEach(function (br) {
-                    var space = document.createTextNode(' ');
-                    br.replaceWith(space);
-                  });
-                }
-                return duplicate[property];
-              } else {
-                return text;
-              }
-            }
-            return text;
-          };
 
           const getSelector = (selector, { property = 'textContent', doc = document, raw = false, ifError = '' } = {}) => {
-            let text = doc.querySelector(selector) ? doc.querySelector(selector)[property] : ifError;
-            if (selector === '#wc-aplus' && doc.querySelector('div[data-section-caption="Product Comparison"]')) {
-              text = removeDuplicateText(property, doc, text);
-            }
+            const text = doc.querySelector(selector) ? doc.querySelector(selector)[property] : ifError;
             return raw ? text : text.replace(/\t/gm, ' ').replace(/\s{2,}, ' '/g).replace(/^\s*\n|^.\n/gm, '').trim();
           };
 
@@ -363,10 +330,12 @@ module.exports = {
             return '';
           };
 
+          const isVisible = (elem) => elem.offsetWidth > 0 || elem.offsetHeight > 0 || elem.getClientRects().length > 0;
+
           const manufacturerDescription = () => {
             const features = () => {
-              if (document.querySelectorAll('.wc-fragment').length) {
-                return [...[...document.querySelectorAll('.wc-fragment')].reduce((acc, frame) => {
+              if (document.querySelectorAll('.wc-fragment, .wc-footnotes').length) {
+                return [...[...document.querySelectorAll('.wc-fragment, .wc-footnotes')].filter(function (elem, index) { return isVisible(elem); }).reduce((acc, frame) => {
                   if (frame.querySelector('iframe')) {
                     const text = frame.innerText ? frame.innerText : '';
                     const iframe = frame.querySelector('iframe');
