@@ -10,7 +10,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.waitForXPath('//div/@data-asin');
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { transform, type: 'APPEND' });
 }
 module.exports = {
   implements: 'product/search/extract',
