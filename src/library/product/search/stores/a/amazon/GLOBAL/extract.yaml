@@ -12,7 +12,7 @@ fields:
     regExp: (.+)
     regExpReplace: $1
   - name: page
-    xpath: ancestor::html//script[contains(text(),"queryString")]
+    xpath: ancestor::html//script[contains(text(),"queryString")] | ancestor::html//script[contains(text(),"s\-clean\-url")][not(ancestor::html//script[contains(text(),"queryString")])]
     regExp: page=(\d+)
     regExpReplace: $1
     defaultValue: 1
