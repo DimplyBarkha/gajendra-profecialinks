@@ -22,7 +22,6 @@ module.exports = {
         let data = {};
         const iioObjects = [];
         let productInfo = null;
-        let productNotFound = false;
 
         function addHiddenDiv (elementID, content) {
           const newDiv = document.createElement('div');
@@ -58,7 +57,6 @@ module.exports = {
 
             if (response && response.status === 404) {
               console.log('Product Not Found!!!!');
-              productNotFound = true;
               return {};
             }
           } catch (err) {
