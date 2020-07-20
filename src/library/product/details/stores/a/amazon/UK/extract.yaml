@@ -34,7 +34,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //*[@id="priceblock_ourprice" or contains(@class,"offer-price")]
+    xpath: //*[@id="priceblock_ourprice" or contains(@class,"offer-price")] | //span[@id='priceblock_saleprice']
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -153,7 +153,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='productDescription']/h3[contains(text(), 'Manufacturer')]//following-sibling::*[1]
+    xpath: //div[@id='productDescription']/h3[contains(text(), 'Manufacturer')]//following-sibling::*[1] | //div[@data-cel-widget='aplus']
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -200,9 +200,9 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
   - name: salesRank
     singleValue: false
-    xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]
-    regExp: \#([0-9]{1,})
-    regExpReplace: $1
+    xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")] | //*[@id="SalesRank"]//td[contains(., "in")]
+    # regExp: ([\d]+(?:.[\d]+)?)
+    # regExpReplace: $1
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
@@ -583,12 +583,12 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUnavail") or contains(@class, "swatchSelect")]//img/@alt
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
-    xpath: //div[contains(@id,"variation")]//li[contains(@class, "swatchAvailable") or contains(@class, "swatchUnavail") or contains(@class, "swatchSelect")][1]//img/@alt
+    xpath: //div[contains(@id,"variation")]//li[contains(@class, "swatchAvailable") or contains(@class, "swatchUnavail") or contains(@class, "swatchSelect")][1]/@data-defaultasin
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use

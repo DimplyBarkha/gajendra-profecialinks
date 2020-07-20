@@ -104,6 +104,16 @@ const transform = (data) => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
         });
       }
+      if (row.salesRank) {
+        row.salesRank.forEach(item => {
+          console.log("SalesRanmk ",item.text.match(/([\d]+(?:,[\d]+)?)/));
+          if (item.text.match(/([\d]+(?:,[\d]+)?)/) && item.text.match(/([\d]+(?:,[\d]+)?)/).length > 0) {
+            console.log("SalesRanmk ",item.text);
+            item.text = item.text.match(/([\d]+(?:,[\d]+)?)/)[0];
+            console.log("SalesRanmk ",item.text);
+          }
+        });
+      }
       if (row.ironPerServingUom) {
         row.ironPerServingUom.forEach(item => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
@@ -135,7 +145,7 @@ const transform = (data) => {
       }
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
-          item.text = `${item.text.replace(/\n/g, '')}`;
+          item.text = `${item.text.replace(/\s{2,}|\n|\t|\r/g, ' ').replace(/Read more/gm, '').trim()}`;
         });
       }
       if (row.allergyAdvice) {
@@ -160,7 +170,18 @@ const transform = (data) => {
         });
         row.fastTrack = [
           {
-            text: clean(text.slice(0, -4)),
+            text: clean(text.trim()),
+          },
+        ];
+      }
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text += `${item.text} || `;
+        });
+        row.variantInformation = [
+          {
+            text: clean(text.slice(0, -4).trim()),
           },
         ];
       }
@@ -202,9 +223,15 @@ const transform = (data) => {
       }
       if (row.variantCount) {
         for (const item of row.variantCount) {
-          if (item.text === '0') {
+          // eslint-disable-next-line eqeqeq
+          if (item.text == 0) {
             item.text = 1;
           }
+        }
+      }
+      if (row.brandText) {
+        for (const item of row.brandText) {
+          item.text = item.text.replace('Brand: ', '');
         }
       }
       if (row.alternateImages) {
@@ -214,10 +241,11 @@ const transform = (data) => {
             // eslint-disable-next-line no-useless-escape
             let data = item.text.replace(/\r\n|\n|\r/gm, '').match(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/) ? item.text.replace(/\r\n|\n|\r/gm, '').replace(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/, '$1').replace(/\"/gm, '"') : {};
             data = JSON.parse(data);
+            console.log("data=>",data);
             data.forEach((ele, index) => {
-              if (index !== 0 && ele.main && ele.main) {
-                const arr = Object.keys(ele.main);
-                val.push({ text: arr[0] });
+              if (index !== 0 && ele.large) {
+                // const arr = Object.keys(ele.large);
+                val.push({ text: ele.large });
               }
             });
             row.alternateImages = val;
