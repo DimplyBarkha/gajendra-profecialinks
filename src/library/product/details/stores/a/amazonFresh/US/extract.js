@@ -355,7 +355,7 @@ async function implementation (
   await setLocale();
   await autoScroll();
   await new Promise(resolve => setTimeout(resolve, 6500));
-  await loadAllResources();
+  // await loadAllResources();
   console.log('autoscroll end');
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log('#### of Variants:', allVariants.length);
@@ -369,11 +369,11 @@ async function implementation (
     await setLocale();
     await autoScroll();
     await new Promise(resolve => setTimeout(resolve, 6500));
-    if (allVariants.length >= 5) {
-      await loadAllResources(4000);
-    } else {
-      await loadAllResources();
-    }
+    // if (allVariants.length >= 5) {
+    //   await loadAllResources(4000);
+    // } else {
+    //   await loadAllResources();
+    // }
     console.log('autoscroll end');
     await context.evaluate(addUrl);
     await context.extract(productDetails, { transform, type: 'APPEND' });
