@@ -54,18 +54,31 @@ async function implementation (
       // }
     });
   }
+  const loadScriptInfoSelectors = async () => (document.querySelectorAll('div#pageRefreshJsInitializer_feature_div').length !== 0);
+  const loadManufacturerSelectors = async () => ((document.querySelector('div#dpx-aplus-product-description_feature_div') !== null) || (document.querySelector('div#aplus_feature_div div#aplus') !== null)) || ((document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"aplus":{"divToUpdate":"aplus_feature_div"}') : false);
+  const loadImportantInfoSelectors = async () => ((document.querySelector('div#dpx-default-important-information_feature_div div#importantInformation_feature_div') !== null)) || ((document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"importantInformation":{"divToUpdate":"importantInformation_feature_div"}') : false);
 
-  const loadManufacturerSelectors = async () => (document.querySelector('div#dpx-aplus-product-description_feature_div') !== null) || (document.querySelector('div#aplus_feature_div div#aplus') !== null);
-  const loadImportantInfoSelectors = async () => (document.querySelector('div#dpx-default-important-information_feature_div div#importantInformation_feature_div') !== null);
+  async function loadAllResources (timeout = 8000) {
+    const loadScriptInfo = await context.evaluate(loadScriptInfoSelectors);
+    console.log('loadScriptInfo');
+    console.log(loadScriptInfo);
+    if (loadScriptInfo) {
+      console.log('in here waiting for loadScriptInfo');
+      try {
+        await context.waitForSelector('div#pageRefreshJsInitializer_feature_div script');
+        console.log('we did it!')
+      } catch (err) {
+        console.log('could not load div#pageRefreshJsInitializer_feature_div script');
+      }
+    }
 
-  async function loadAllResources () {
     const loadManufacturer = await context.evaluate(loadManufacturerSelectors);
     console.log('loadManufacturer');
     console.log(loadManufacturer);
     if (loadManufacturer) {
       console.log('in here waiting for aplus-v2');
       try {
-        await context.waitForSelector('div.aplus-v2', { timeout: 75000 });
+        await context.waitForSelector('div.aplus-v2', { timeout: timeout });
       } catch (err) {
         // throw new Error('Not able to find div.aplus-v2')
         console.log('Could not load div.aplus-v2');
@@ -78,7 +91,7 @@ async function implementation (
     if (loadImportantInfo) {
       console.log('in here waiting for important-information');
       try {
-        await context.waitForSelector('div#important-information', { timeout: 75000 });
+        await context.waitForSelector('div#important-information', { timeout: timeout });
       } catch (err) {
         // throw new Error('Not able to find div#important-information')
         console.log('Could not load div#important-information');
@@ -334,7 +347,7 @@ async function implementation (
   // await setLocale();
   // @ts-ignore
 
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  // await new Promise(resolve => setTimeout(resolve, 5000));
   await context.evaluate(addUrl);
   console.log('getting variants');
   const allVariants = [...new Set(await getVariants())];
@@ -351,12 +364,16 @@ async function implementation (
     const id = allVariants[i];
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    // await new Promise(resolve => setTimeout(resolve, 5000));
     console.log('autoscroll');
     await setLocale();
     await autoScroll();
     await new Promise(resolve => setTimeout(resolve, 6500));
-    await loadAllResources();
+    if (allVariants.length >= 5) {
+      await loadAllResources(4000);
+    } else {
+      await loadAllResources();
+    }
     console.log('autoscroll end');
     await context.evaluate(addUrl);
     await context.extract(productDetails, { transform, type: 'APPEND' });
