@@ -12,8 +12,8 @@ fields:
     regExp: (.+)
     regExpReplace: $1
   - name: page
-    xpath: ancestor::html//link[@rel="canonical"]/@href
-    regExp: .+page=([0-9]{1,})
+    xpath: ancestor::html//script[contains(text(),"queryString")]
+    regExp: page=(\d+)
     regExpReplace: $1
     defaultValue: 1
   - name: badgeType
@@ -64,7 +64,3 @@ fields:
     xpath: //@data-asin
   - name: original_price
     xpath: //span[contains(@class, "a-price") and @data-a-strike="true"]/span[@class="a-offscreen"]
-  - name: max_original_price
-  - name: min_original_price
-  - name: min_price
-  - name: max_price
