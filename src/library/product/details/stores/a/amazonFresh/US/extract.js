@@ -65,7 +65,7 @@ async function implementation (
     if (loadManufacturer) {
       console.log('in here waiting for aplus-v2');
       try {
-        await context.waitForSelector('div.aplus-v2', { timeout: 70000 });
+        await context.waitForSelector('div.aplus-v2', { timeout: 75000 });
       } catch (err) {
         // throw new Error('Not able to find div.aplus-v2')
         console.log('Could not load div.aplus-v2');
@@ -78,7 +78,7 @@ async function implementation (
     if (loadImportantInfo) {
       console.log('in here waiting for important-information');
       try {
-        await context.waitForSelector('div#important-information', { timeout: 70000 });
+        await context.waitForSelector('div#important-information', { timeout: 75000 });
       } catch (err) {
         // throw new Error('Not able to find div#important-information')
         console.log('Could not load div#important-information');
@@ -341,18 +341,12 @@ async function implementation (
   console.log('autoscroll');
   await setLocale();
   await autoScroll();
-  await new Promise(resolve => setTimeout(resolve, 7000));
+  await new Promise(resolve => setTimeout(resolve, 6500));
   await loadAllResources();
   console.log('autoscroll end');
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log('#### of Variants:', allVariants.length);
   console.log('#### Variants:', allVariants);
-  // console.log('autoscroll');
-  // await setLocale();
-  // await autoScroll();
-  // await new Promise(resolve => setTimeout(resolve, 5000));
-  // await loadAllResources();
-  // console.log('autoscroll end');
   for (let i = 0; i < allVariants.length; i++) {
     const id = allVariants[i];
     const url = await dependencies.createUrl({ id });
@@ -361,7 +355,7 @@ async function implementation (
     console.log('autoscroll');
     await setLocale();
     await autoScroll();
-    await new Promise(resolve => setTimeout(resolve, 7000));
+    await new Promise(resolve => setTimeout(resolve, 6500));
     await loadAllResources();
     console.log('autoscroll end');
     await context.evaluate(addUrl);
