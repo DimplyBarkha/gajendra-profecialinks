@@ -207,7 +207,7 @@ fields:
       to be collapsed
   - name: salesRankCategory
     singleValue: false
-    xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]/following-sibling::*[1]/a
+    xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]/following-sibling::*[1]/a | //*[@id="SalesRank"]//td[contains(., "in")]
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
@@ -238,8 +238,10 @@ fields:
     regExpReplace: https://www.amazon.co.uk/dp$1
     description: null
   - name: pasin
-    singleValue: true
-    xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
+    singleValue: false
+    xpath: //script[contains(text(), 'parentAsin')]
+    regExp: parentAsin"\s:\s"(\S+)"
+    regExpReplace: $1
     description: Parent asin
   - name: videoLength
     singleValue: false
@@ -272,12 +274,9 @@ fields:
     # regExp: p\/([A-Z0-9]{9,})\/
     # regExpReplace: $1
   - name: primeFlag
-    singleValue: true
+    singleValue: false
     description: null
-    xpath: //div[contains(@id,'centerCol')]//i[contains(@class, "a-icon-prime")]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: NO
+    xpath: //a[@id="SSOFpopoverLink"] | //div[@id="merchant-info"] | //meta[contains(@content,'Prime')]/@content
   - name: lbb
     singleValue: false
     xpath: //span[@id="price_inside_buybox"]

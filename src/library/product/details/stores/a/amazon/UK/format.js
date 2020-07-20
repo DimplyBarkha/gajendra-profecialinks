@@ -106,11 +106,15 @@ const transform = (data) => {
       }
       if (row.salesRank) {
         row.salesRank.forEach(item => {
-          console.log("SalesRanmk ",item.text.match(/([\d]+(?:,[\d]+)?)/));
           if (item.text.match(/([\d]+(?:,[\d]+)?)/) && item.text.match(/([\d]+(?:,[\d]+)?)/).length > 0) {
-            console.log("SalesRanmk ",item.text);
             item.text = item.text.match(/([\d]+(?:,[\d]+)?)/)[0];
-            console.log("SalesRanmk ",item.text);
+          }
+        });
+      }
+      if (row.salesRankCategory) {
+        row.salesRankCategory.forEach(item => {
+          if (item.text.match(/[\d]+(?:,[\d]+)? in (.*) \(/) && item.text.match(/[\d]+(?:,[\d]+)? in (.*) \(/).length > 1) {
+            item.text = item.text.match(/[\d]+(?:,[\d]+)? in (.*) \(/)[1];
           }
         });
       }
@@ -241,7 +245,6 @@ const transform = (data) => {
             // eslint-disable-next-line no-useless-escape
             let data = item.text.replace(/\r\n|\n|\r/gm, '').match(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/) ? item.text.replace(/\r\n|\n|\r/gm, '').replace(/.*'colorImages': { 'initial':(.*)},'colorToAsin.*/, '$1').replace(/\"/gm, '"') : {};
             data = JSON.parse(data);
-            console.log("data=>",data);
             data.forEach((ele, index) => {
               if (index !== 0 && ele.large) {
                 // const arr = Object.keys(ele.large);
@@ -253,6 +256,27 @@ const transform = (data) => {
             row.alternateImages = [{ text: '' }];
           }
         });
+      }
+      if (row.secondaryImageTotal && row.alternateImages) {
+        row.secondaryImageTotal.forEach(item => {
+          item.text = row.alternateImages.length;
+        });
+      }
+      if (row.primeFlag) {
+        let value = '';
+        row.primeFlag.forEach(item => {
+          if (item.text.includes('sold by Amazon') && !value.includes('Yes - Shipped and Sold')) {
+            value += 'Yes - Shipped and Sold | ';
+          } else if (item.text.includes('Fulfilled by Amazon') && !value.includes('Yes - Fulfilled')) {
+            value += 'Yes - Fulfilled | ';
+          } else if (item.text.includes('Prime') && !value.includes('Prime')) {
+            value += 'Prime Pantry | ';
+          }
+        });
+        if (value === '') {
+          value = 'NO | ';
+        }
+        row.primeFlag = [{ text: value.slice(0, value.length - 3) }];
       }
     }
   }
