@@ -85,13 +85,14 @@ const transform = (data) => {
         ];
       }
       if (row.manufacturerImages) {
-        row.manufacturerImages.forEach(manufacturerImages => {
-          // if (manufacturerImages.text.includes('grey-pixel.gif')) {
-          //   manufacturerImages.text = '';
-          // } else {
-          manufacturerImages.text = manufacturerImages.text.replace('._AC_US40_', '');
-          // }
-        });
+        if (row.manufacturerImages) {
+          const secondaryImages = [];
+          row.manufacturerImages.forEach(alternateImage => {
+            alternateImage.text = alternateImage.text.replace('._AC_US40_', '').trim();
+            !secondaryImages.find(({ text }) => text === alternateImage.text) && secondaryImages.push(alternateImage);
+          });
+          row.manufacturerImages = secondaryImages;
+        }
       }
       if (row.alternateImages) {
         row.alternateImages.forEach(alternateImages => {

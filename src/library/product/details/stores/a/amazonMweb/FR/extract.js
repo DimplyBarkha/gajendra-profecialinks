@@ -24,6 +24,12 @@ async function implementation (
       element.scrollIntoView({ behavior: 'smooth' });
       await new Promise((resolve) => setTimeout(resolve, 2197));
     }
+    try {
+      await context.waitForXPath('//div[@id="aplus"]/..//h2 | //div[@id="aplus"]/..//div[contains(@class, "celwidget aplus-module")] | //div[@class="apm-hovermodule-slides-inner"]');
+    } catch (error) {
+      console.log('error: ', error);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 2197));
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
