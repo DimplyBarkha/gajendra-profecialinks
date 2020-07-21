@@ -3,11 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'sainsburys',
-    nextLinkSelector: 'div.pagination ul.pages li.next>a',
-    mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: 'div#productsContainer ul.productLister li',
-    openSearchDefinition: null,
+    nextLinkSelector: 'div.paginationBottom ul.pages li.next a',
     domain: 'sainsburys.co.uk',
   },
 };

@@ -1,45 +1,30 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//li[@class="gridItem"]/div[contains(@class,"product")]
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//li[@class="gridItem"]//div//div[@class="productInfo"]//div[@class="productNameAndPromotions"]/h3/a/@href | //div[contains(@id,"hookLogicBottomTiles")]//ul[contains(@class,"productLister")]//li[contains(@class,"gridItem")]//h3/a/@href
-    regExp: (http|c|w)(.+)
+    xpath: //div[@class='productInfo']//h3/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//li[@class="gridItem"]//div//div[@class="productInfo"]//div[@class="productNameAndPromotions"]/h3/a/img/@src | //div[contains(@id,"hookLogicBottomTiles")]//ul[contains(@class,"productLister")]//li[contains(@class,"gridItem")]//h3/a/img/@src
+    xpath: //div[@class='productInfo']//h3/a/img/@src
     regExp: (http|c|w)(.+)
   - name: name
-    singleValue: true
-    xpath: //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//li[@class="gridItem"]//div//div[@class="productInfo"]//div[@class="productNameAndPromotions"]/h3/a | //div[contains(@id,"hookLogicBottomTiles")]//ul[contains(@class,"productLister")]//li[contains(@class,"gridItem")]//h3
+    xpath: //div[@class='productInfo']//h3/a
   - name: id
-    singleValue: true
-    xpath: //div[contains(@id,"hookLogicBottomTiles")]//input[@name="ItemSKU_ID"]/@value | //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//input[@name="ItemSKU_ID"]/@value
+    xpath: //form[@class="addToTrolleyForm"]/input[@name='ItemSKU_ID']/@value
   - name: gtin
-    singleValue: true
-    xpath: //div[@id="productsContainer"]//div[@class="productNameAndPromotions"]//div/@barcode | //div[contains(@id,"hookLogicBottomTiles")]//div/@barcode
+    xpath: //div[@class="FM_suitability_indicator"]/@barcode
   - name: reviewCount
     singleValue: false
-    xpath: //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//li[@class="gridItem"]//div//div[@class="addToTrolleytabBox"]//div[@class="reviews"]/a | //div[contains(@id,"hookLogicBottomTiles")]//ul[contains(@class,"productLister")]//a[@class="numberOfReviews"]
-    regExp: \d+
-  - name: ratingCount
-    singleValue: false
-    xpath: //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//li[@class="gridItem"]//div//div[@class="addToTrolleytabBox"]//div[@class="reviews"]/a | //div[contains(@id,"hookLogicBottomTiles")]//ul[contains(@class,"productLister")]//a[@class="numberOfReviews"]
+    xpath: //a[@class="numberOfReviews"]
     regExp: \d+
   - name: price
     singleValue: false
-    xpath: //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//li[@class="gridItem"]//div//div[@class="addToTrolleytabBox"]//div[@class="pricing"]/p[@class="pricePerUnit"] | //div[contains(@id,"hookLogicBottomTiles")]//ul[contains(@class,"productLister")]//div[@class="pricing"]/p[@class="pricePerUnit"]
-    regExp: (\£\d+\.?\d+)
+    xpath: //p[@class="pricePerUnit"]
+    regExp: ([0-9.]+)\w
   - name: aggregateRating2
-    singleValue: true
-    xpath: //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//li[@class="gridItem"]//div//div[@class="addToTrolleytabBox"]//div[@class="reviews"]/a/img/@alt | //div[contains(@id,"hookLogicBottomTiles")]//ul[contains(@class,"productLister")]//a[contains(@class,"numberOfReviews")]//img/@alt
+    xpath: //a[@class="numberOfReviews"]/img/@alt
   - name: rankOrganic
   - name: rank
-  - name: sponsored
-    singleValue: true
-    xpath: //div[contains(@id,"hookLogicBottomTiles")]//ul[contains(@class,"productLister")]//li[contains(@class,"gridItem")]//h3
-    defaultValue: false
-    regExp: (.+)
-    regExpReplace: true
