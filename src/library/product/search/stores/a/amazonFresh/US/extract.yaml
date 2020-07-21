@@ -1,6 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //div[contains(@data-component-type,"s-search-result") and @data-asin]
+# recordXPath: //div[contains(@data-component-type,"s-search-result") and @data-asin]
+recordXPath: //div[contains(@data-component-type,"s-search-result")]
 recordSelector: null
 fields:
   - name: price
@@ -37,7 +38,9 @@ fields:
     xpath:
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class, 'image')]/img/@src
+    xpath: //div[contains(@class, 'image')]/img/@srcset
+    regExp: >-
+      (?<=1.5x, )(.*)(?= 2x)
   - name: aggregateRating
     singleValue: false
     xpath: //span[contains(@aria-label,"stars")]/@aria-label
@@ -54,15 +57,10 @@ fields:
   - name: reviewCount
     singleValue: true
     xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
-  - name: reviewCount
-    singleValue: true
-    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
   - name: manufacturer
     singleValue: true
-    xpath: 
   - name: soldBy
     singleValue: true
-    xpath:
   - name: endorsementText
     singleValue: true
     xpath: //span[contains(@class, "a-badge-label") and @id]
