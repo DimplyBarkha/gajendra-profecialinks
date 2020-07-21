@@ -21,7 +21,7 @@ fields:
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
-  xpath: "//*[@id='added_imageAlt']//text()"
+  xpath: (//img[@id="productImg"]/@alt|//img[contains(@id,"productImage")]/@alt)[1]
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
@@ -30,7 +30,7 @@ fields:
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
-  xpath: "//*[@id='added_metaKeywords']//text()"
+  # xpath: "//*[@id='added_metaKeywords']//text()"
   description: The <meta> keywords content
 - name: category
   singleValue: false
@@ -68,7 +68,8 @@ fields:
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
   singleValue: true
-  xpath: "//*[@id='added_descriptionBullets']//text()"
+  xpath: "//*[@id='added_descriptionBullets']"
+  # xpath: count((//*[contains(@id, "prodDesc")]//ul//li|//*[contains(@class, "description")]//p))
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
@@ -132,15 +133,15 @@ fields:
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
-  xpath: "//*[@id='added_ratingCount']//text()"
+  xpath: //div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"reviewCount")]
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
-  xpath: "//*[@id='added_aggregateRatingText']//text()"
+  xpath: //div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
-  xpath: "//*[@id='added_aggregateRating']//text()"
+  xpath: //div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   singleValue: true
@@ -628,9 +629,9 @@ fields:
   defaultValue: "No"
 - name: imageZoomFeaturePresent
   singleValue: true
-  xpath: "//div[@id='zoomLensContainer']"
-  regExp: (.+)
-  regExpReplace: "Yes"
-  defaultValue: "No"
+  xpath: boolean(//div[@id='zoomLensContainer'])
+  # regExp: "true"
+  # regExpReplace: "Yes"
+  # defaultValue: "No"
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html

@@ -22,21 +22,26 @@ const transform = (data, context) => {
       try {
         if (row.manufacturerDescription) {
           row.manufacturerDescription.forEach(item => {
+            // if (item.text.match('Product Description')) {
+            //   item.text = item.text.replace('Product Description', '');
+            // }
             if (item.text.match('The information above is powered by')) {
               item.text = item.text.replace('The information above is powered by', '');
             }
           });
         }
-        if (row.description) {
-          row.description.forEach(item => {
-            item.text = item.text.replace(/>/g, '> ');
-            item.text = item.text.replace(/<(li)[^>]+>/ig, '<$1>');
-            item.text = item.text.replace(/<li>/g, ' ||');
-            item.text = item.text.trim();
-          });
-        }
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+        }
+        if (row.packSize && row.packSize[0] && row.packSize[0].text.length) {
+          row.packSize[0].text = row.packSize[0].text.replace('x ', '');
+        }
+        if (row.imageZoomFeaturePresent && row.imageZoomFeaturePresent[0] && row.imageZoomFeaturePresent[0].text.length) {
+          if (row.imageZoomFeaturePresent[0].text === 'true') {
+            row.imageZoomFeaturePresent[0].text = 'Yes';
+          } else {
+            row.imageZoomFeaturePresent[0].text = 'No';
+          }
         }
         if (row.manufacturerImages) {
           const aplusImagesText = [];

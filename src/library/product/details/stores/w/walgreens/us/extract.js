@@ -119,7 +119,7 @@ module.exports = {
 
           await new Promise(resolve => setTimeout(resolve, 5e3));
           XMLHttpRequest.prototype.open = originalRequestOpen;
-
+          // const jsonObj = response;
           const jsonObj = MergeRecursive((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {}, response);
           console.log('jsonObj');
           console.log(jsonObj);
@@ -161,7 +161,17 @@ module.exports = {
           fullDescription = fullDescription.replace(/<p.*?>/g, '<p> ');
           fullDescription = fullDescription.replace('&#169;', '©');
           const directions = fullDescription.toLowerCase().indexOf('how to') > -1 ? fullDescription.toLowerCase().indexOf('how to') : '';
-          // console.log(fullDescription);
+          console.log('fullDescription');
+          console.log(fullDescription)
+          let fullDescriptionWithDoublePipes = fullDescription;
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/>/g, '> ');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<(li)[^>]+>/ig, '<$1>');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<li>/g, ' ||');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<(LI)[^>]+>/ig, '<$1>');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<LI>/g, ' ||');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.trim();
+          console.log('fullDescriptionWithDoublePipes');
+          console.log(fullDescriptionWithDoublePipes)
           // console.log(fullDescription.match((/([^©]*)$/)))
           // console.log((/([^©]*)$/).exec(fullDescription))
           // const manufacturerName = (fullDescription && (/([^©]*)$/).test(fullDescription) !== false) ? fullDescription.lastIndexOf('©')[0] : ((fullDescription && fullDescription.match('&#169;') !== null) ? fullDescription.split('&#169;')[fullDescription.split('&#169;').length - 1] : '');
@@ -190,11 +200,32 @@ module.exports = {
           const hasIngrList = ingredients && ingredients.ingredientGroups &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes) &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
+
+          const useIngredJson = (ingredientGroups, ingredText) => {
+            const ingredArr = [];
+
+            for (let i = 0; i < ingredientGroups.length; i++) {
+              if (ingredientGroups[i].ingredientTypes) {
+                if (ingredText.includes(ingredientGroups[i].groupName)) {
+                  ingredArr.push(ingredientGroups[i].groupName);
+                }
+                const ingredGroup = ingredientGroups[i].ingredientTypes;
+                for (let j = 0; j < ingredGroup.length; j++) {
+                  ingredArr.push(cleanupIngredient(ingredGroup[j].typeName));
+                  ingredArr.push(formatIngredientList(ingredGroup[j].ingredients));
+                }
+              }
+            }
+            return ingredArr;
+          };
           const ingrList = () => {
-            const ingredList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), formatIngredientList(obj.ingredients)], []).join(' ') : '';
+            let ingredText = document.querySelector('li#Ingredients div.inner').innerText;
+            //const ingredList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), formatIngredientList(obj.ingredients)], []).join(' ') : '';
+            const ingredList = hasIngrList ? useIngredJson(ingredients.ingredientGroups, ingredText).join(' ') : '';
+
             const ingredListDom = () => {
               if (document.querySelector('li#Ingredients div.inner')) {
-                let ingredText = document.querySelector('li#Ingredients div.inner').innerText.replace(/\s\s+/g, ' ');
+                ingredText = ingredText.replace(/\s\s+/g, ' ');
 
                 if (ingredText.includes('Active Ingredient') || ingredText.includes('Inactive Ingredient')) {
                   ingredText = ingredText.includes('Active Ingredient') ? ingredText.replace('Active Ingredients', ' Active Ingredients').trim() : ingredText;
@@ -281,9 +312,15 @@ module.exports = {
 
           const shippingInfoContent = () => {
             let shippingInfoTextContent = '';
+
+            if (document.querySelector('div#product-description li#Shipping a')) {
+              document.querySelector('div#product-description li#Shipping a').click();
+              // setTimeout(function(){ }, 3000);
+            }
+
             const shippingEnableID = (document.querySelector('p#shiptostoreenable')) ? 'shiptostoreenable' : 'shiptostoredisable';
 
-            if (document.querySelector('p#' + shippingEnableID) && document.querySelector('p#' + shippingEnableID).textContent) {
+            if (document.querySelector('p#' + shippingEnableID) && (document.querySelector('p#' + shippingEnableID).textContent !== undefined)) {
               shippingInfoTextContent += document.querySelector('p#' + shippingEnableID).textContent;
             }
 
@@ -307,6 +344,9 @@ module.exports = {
           };
 
           const promotions = () => {
+            if (!document.querySelector('span[class^="product-offer-text"]')) {
+              return '';
+            }
             const notPromotionRe = /(donation)|[Rr]eward|[Pp]oint|[Pp]ts/ig;
             const isPromotionRe = /(rebate)|(Extra Savings)/ig;
             const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.title) : '') : '';
@@ -375,14 +415,15 @@ module.exports = {
             return allImages();
           };
 
+          // const updatedRatings = () => document.querySelector('div[class^="bv-summary-bar"] span[itemprop="ratingValue"]') ? document.querySelector('div[class^="bv-summary-bar"] span[itemprop="ratingValue"]').textContent : null;
+          // const updatedReview = () => document.querySelector('div[class^="bv-summary-bar"] span[itemprop="reviewCount"]') ? document.querySelector('div[class^="bv-summary-bar"] span[itemprop="reviewCount"]').textContent : null;
+
           console.log(jsonObj.inventory);
           console.log(jsonObj.inventory.shipAvailableMessage);
           const obj = {
             _input,
             image: infos.productImageUrl,
-            imageAlt: getSelector('#productImg', { property: 'alt' }),
             alternateImages: images,
-            metaKeywords: getSelector('meta[name="keywords"]', { property: 'content' }),
             _pageTimeStamp: (new Date()).toISOString(),
             _url,
             productUrl: window.location.href,
@@ -391,8 +432,8 @@ module.exports = {
             listPrice: priceValue('regularPrice'),
             price: priceValue('salePrice'),
             availabilityText: jsonObj.inventory.shipAvailable ? 'In Stock' : (jsonObj.inventory.shipAvailableMessage.includes('Not sold online') ? 'Not sold online' : 'Out of Stock'),
-            description: fullDescription,
-            descriptionBullets: (document.querySelector('#prodDesc') && document.querySelectorAll('#prodDesc ul > li')) ? document.querySelectorAll('#prodDesc ul > li').length : (document.querySelectorAll('div.description p') ? document.querySelectorAll('div.description p').length : 0),
+            description: fullDescriptionWithDoublePipes,
+            descriptionBullets: (document.querySelector('#prodDesc') && document.querySelectorAll('#prodDesc ul > li')) ? document.querySelectorAll('#prodDesc ul > li').length : (document.querySelectorAll('div.description tr') ? document.querySelectorAll('div.description tr').length : (document.querySelectorAll('div.description p') ? document.querySelectorAll('div.description p').length : 0)),
             brandText: infos.brandName,
             manufacturer: manufacturerName,
             quantity: infos.sizeCount,
@@ -402,13 +443,12 @@ module.exports = {
             sku: infos.skuId.split('sku')[infos.skuId.split('sku').length - 1],
             variantId: jsonObj.inventory.wicId,
             mpc: '',
-            packSize: infos.prodPacksAvailable,
             legalDisclaimer: '',
             directions: directions && fullDescription ? fullDescription.slice(directions, fullDescription.length) : '',
             warnings: (warnings && warnings.productWarning) ? ((warnings.productWarning).replace(/<[P|p]>/g, '<p> ')) : customWarning(),
-            ratingCount: reviews ? reviews.reviewCount : '',
-            aggregateRatingText: reviews ? reviews.overallRating : '',
-            aggregateRating: reviews ? reviews.overallRating : '',
+            // ratingCount: reviews ? (updatedReview() !== null ? updatedReview() : reviews.reviewCount) : '',
+            // aggregateRatingText: reviews ? (updatedRatings() !== null ? updatedRatings() : reviews.overallRating) : '',
+            // aggregateRating: reviews ? (updatedRatings() !== null ? updatedRatings() : reviews.overallRating) : '',
             shippingInfo: shippingInfoContent(),
             shippingDimensions: shipping ? shipping.productInInches : '',
             shippingWeight: shipping ? shipping.shippingWeight : '',
@@ -464,7 +504,7 @@ module.exports = {
             variantInformation: infos.primaryAttribute ? infos.primaryAttribute : (infos.color ? infos.color : ''),
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
-            additionalDescBulletInfo: [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent),
+            additionalDescBulletInfo: document.querySelectorAll('#prodDesc ul > li').length ? [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent) : (document.querySelectorAll('div.description tr').length ? [...document.querySelectorAll('div.description tr')].map(d => d.textContent) : ''),
           };
           removeObjectToDocument(obj);
           addObjectToDocument(obj);
