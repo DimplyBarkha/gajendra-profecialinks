@@ -19,6 +19,17 @@ const transform = (data, context) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':').replace(/\n/g, ':')} || `;
+        });
+        row.description = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
+      }
       if (row.videos) {
         let text = '';
         row.videos.forEach(item => {
@@ -119,9 +130,12 @@ const transform = (data, context) => {
         });
       }
       if (row.salesRankCategory) {
-        if (row.salesRankCategory.text) {
-          if (row.salesRankCategory.text.includes('Nr')) {
-            row.salesRankCategory.shift();
+        for (let i = 0; i < row.salesRankCategory.length; i++) {
+          if (row.salesRankCategory[i].text.includes('in')) {
+            row.salesRankCategory[i].text = row.salesRankCategory[i].text.split('in')[1].replace('(', '').trim();
+          }
+          if ((row.salesRankCategory[i].text.includes(')'))) {
+            row.salesRankCategory.splice(i, 1);
           }
         }
       }
