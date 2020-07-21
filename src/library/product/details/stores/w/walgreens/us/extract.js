@@ -219,7 +219,7 @@ module.exports = {
             return ingredArr;
           };
           const ingrList = () => {
-            let ingredText = document.querySelector('li#Ingredients div.inner').innerText;
+            let ingredText = (document.querySelector('li#Ingredients div.inner')) ? document.querySelector('li#Ingredients div.inner').innerText : '';
             //const ingredList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), formatIngredientList(obj.ingredients)], []).join(' ') : '';
             const ingredList = hasIngrList ? useIngredJson(ingredients.ingredientGroups, ingredText).join(' ') : '';
 
@@ -377,7 +377,7 @@ module.exports = {
               if (document.querySelectorAll('.wc-fragment, .wc-footnotes').length) {
                 return [...[...document.querySelectorAll('.wc-fragment, .wc-footnotes')].filter(function (elem, index) { return isVisible(elem); }).reduce((acc, frame) => {
                   if (frame.querySelector('iframe')) {
-                    const text = frame.innerText ? frame.innerText : '';
+                    const text = (frame && frame.innerText) ? frame.innerText : '';
                     const iframe = frame.querySelector('iframe');
                     if (!iframe.allowFullscreen) return acc;
                     if (iframe.contentWindow && iframe.contentWindow.settings && iframe.contentWindow.settings.itemsList) {
@@ -385,8 +385,10 @@ module.exports = {
                     } else {
                       return acc;
                     }
-                  } else {
+                  } else if (frame) {
                     return [...acc, [frame.innerText]];
+                  } else {
+                    return acc;
                   }
                 }, [])];
               }
