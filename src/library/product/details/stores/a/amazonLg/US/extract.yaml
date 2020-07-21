@@ -78,7 +78,8 @@ fields:
     regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id,'aplus_feature_div')]//img/@src | //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    xpath: //div[@id="aplus"]//img/@src
+    # xpath: //div[contains(@id,'aplus_feature_div')]//img/@src | //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
     # xpath: //div[contains(@id,'aplus_feature_div')]//img/@src | //*[@id="HLCXComparisonTable"]/tbody/tr[1]/th/div[@class="a-row a-spacing-top-micro"]/center/img/@src | //div[@id="aplus"]/..//img/@src | //table[@id="HLCXComparisonTable"]/..//img/@src
   - name: shippingInfo
     singleValue: false
@@ -98,7 +99,7 @@ fields:
     xpath: //*[@class="aplus"]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //*[@class='aplus-module-wrapper']
+    xpath: //div[@id="aplus"]/..//h2 | //div[@id="aplus"]/..//div[contains(@class, "celwidget aplus-module")]
   - name: descriptionBullets 
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/*//li[not(@id)])
