@@ -70,8 +70,7 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="acrCustomerReviewText"]/text()
-    regExp: ([0-9]{1,}) ratings
-    regExpReplace: $1
+    defaultValue: ''
   - name: aggregateRating
     singleValue: false
     xpath: //*[@id="acrPopover"]/@title

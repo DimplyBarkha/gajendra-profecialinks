@@ -188,6 +188,12 @@ const transform = (data) => {
           item.text = `${item.text.replace('Brand:', '')}`;
         });
       }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          item.text = cleanUp(item.text);
+          item.text = `${item.text.replace('ratings', '').replace('rating', '').replace(',', '').trim()}`;
+        });
+      }
     }
   }
   return data;
