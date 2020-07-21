@@ -66,11 +66,17 @@ const transform = (data) => {
           availabilityText.text = availabilityText.text.trim();
         });
       }
+      if (row.description) {
+        row.description.forEach(item => {
+          item.text = item.text.replace(/[\r\n]+/gm, '');
+        });
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          item.text = `${item.text.replace(/([\<img].*[\"\>])/g, ' ').trim()}  `;
-          text += `${item.text.replace(/\n \n/g, ' ').trim()}  `;
+          item.text = item.text.replace(/[\r\n]+/gm, '').replace(/ +(?= )/g, ''); ;
+          item.text = `${item.text.replace(/([\<img].*[\"\>])/g, ' ').trim().replace('\n', '')}  `;
+          text += `${item.text.replace(/\n \n/g, '')}  `;
         });
         row.manufacturerDescription = [
           {
@@ -80,11 +86,11 @@ const transform = (data) => {
       }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(manufacturerImages => {
-          if (manufacturerImages.text.includes('grey-pixel.gif')) {
-            manufacturerImages.text = '';
-          } else {
-            manufacturerImages.text = manufacturerImages.text.replace('._AC_US40_', '');
-          }
+          // if (manufacturerImages.text.includes('grey-pixel.gif')) {
+          //   manufacturerImages.text = '';
+          // } else {
+          manufacturerImages.text = manufacturerImages.text.replace('._AC_US40_', '');
+          // }
         });
       }
       if (row.alternateImages) {

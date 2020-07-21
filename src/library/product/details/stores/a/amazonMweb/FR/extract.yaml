@@ -32,7 +32,7 @@ fields:
     xpath: //*[@id='availability'] | //*[@id='availability']//span[@data-action="show-all-offers-display"]
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //*[@id='productDescription']
+    xpath: //div[@id='feature-bullets']/ul/li[not(@id)]  | //div[@id="productDescription_feature_div"]/div
   - name: brandText
     singleValue: false
     xpath: //*[@id='bylineInfo'] 
@@ -63,13 +63,14 @@ fields:
     regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id,'aplus_feature_div')]//img/@src | //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    xpath: //div[@cel_widget_id="aplus"]//img/@src
+    # xpath: //div[contains(@id,'aplus_feature_div')]//img/@src | //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
   - name: shippingInfo
     singleValue: true
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="aplus"]
+    xpath: //div[@id="aplus"]/..//h2 | //div[@id="aplus"]/..//div[contains(@class, "celwidget aplus-module")] | //div[@class="apm-hovermodule-slides-inner"]
     # xpath: //div[@id="productDescription_feature_div"]/..//h2 | //div[@id="productDescription_feature_div"]/..//p | //div[@class="aplus-module-wrapper"]
   - name: descriptionBullets 
     singleValue: false

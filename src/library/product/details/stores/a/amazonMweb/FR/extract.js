@@ -18,6 +18,12 @@ async function implementation (
 ) {
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    const element = document.getElementById('aplus');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      await new Promise((resolve) => setTimeout(resolve, 2197));
+    }
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
