@@ -152,6 +152,15 @@ const transform = (data) => {
           item.text = `${item.text.replace(/\s{2,}|\n|\t|\r/g, ' ').replace(/Read more/gm, '').trim()}`;
         });
       }
+      if (row.manufacturerImages) {
+        const text = [];
+        row.manufacturerImages.forEach(item => {
+          if (!item.text.includes('grey-pixel.gif')) {
+            text.push({ text: `${item.text}` });
+          }
+        });
+        row.manufacturerImages = text;
+      }
       if (row.allergyAdvice) {
         row.allergyAdvice.forEach(item => {
           item.text = `${item.text.replace(/Contains: /g, '')}`;
@@ -273,9 +282,6 @@ const transform = (data) => {
             value += 'Prime Pantry | ';
           }
         });
-        if (value === '') {
-          value = 'NO | ';
-        }
         row.primeFlag = [{ text: value.slice(0, value.length - 3) }];
       }
     }

@@ -14,7 +14,7 @@ async function implementation (
       element.forEach(async (node) => {
         node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         await new Promise((resolve) => {
-          setTimeout(resolve, 200);
+          setTimeout(resolve, 1000);
         });
       });
     }

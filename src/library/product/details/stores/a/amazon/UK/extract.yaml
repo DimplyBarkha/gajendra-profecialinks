@@ -277,6 +277,7 @@ fields:
     singleValue: false
     description: null
     xpath: //a[@id="SSOFpopoverLink"] | //div[@id="merchant-info"] | //meta[contains(@content,'Prime')]/@content
+    defaultValue: NO
   - name: lbb
     singleValue: false
     xpath: //span[@id="price_inside_buybox"]
@@ -310,7 +311,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')]) - 1
+    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
     # type: NUMBER
   - name: news
     singleValue: false
@@ -586,8 +587,10 @@ fields:
     xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUnavail") or contains(@class, "swatchSelect")]//img/@alt
     description: colour / scent / flavour / other
   - name: firstVariant
-    singleValue: true
-    xpath: //div[contains(@id,"variation")]//li[contains(@class, "swatchAvailable") or contains(@class, "swatchUnavail") or contains(@class, "swatchSelect")][1]/@data-defaultasin
+    singleValue: false
+    xpath: //script[contains(text(), 'parentAsin')]
+    regExp: parentAsin"\s:\s"(\S+)"
+    regExpReplace: $1
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
