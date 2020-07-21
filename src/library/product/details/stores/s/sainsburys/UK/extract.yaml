@@ -74,13 +74,13 @@ fields:
     xpath:  //h3[normalize-space(text())="Ingredients"]/following-sibling::div[1] | //ul[contains(@class,"productIngredients")]
   - name: allergyAdvice
     singleValue: false
-    xpath:  //h3[normalize-space(text())="Ingredients"]/following-sibling::div[1]//strong/following-sibling::strong | //ul[contains(@class,"productIngredients")]//span
+    xpath:  normalize-space(//h3[contains(text(),'Dietary Information')]/following-sibling::div[1])
   - name: numberOfServingsInPackage
     singleValue: true
     xpath:
   - name: caloriesPerServing
     singleValue: false
-    xpath: //table[contains(@class,"nutritionTable")]/tbody/tr[1]/td[1]
+    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1], '/', //th[contains(text(),'Energy')]/following-sibling::td[1]/parent::tr/following-sibling::tr[1]/td[1])
   - name: servingSize
     singleValue: true
     xpath: //table[contains(@class,"nutritionTable")]/thead/tr[1]//th[2]
@@ -133,7 +133,7 @@ fields:
     xpath: normalize-space(//th[normalize-space(text())="Sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which Sugars"]/following-sibling::td[1])
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: //th[contains(text(),"Sugars")]/following-sibling::td[1] | //th[contains(text(),"of which Sugars")]/following-sibling::td[1]
+    xpath: //th[contains(text(),"Sugars")]/following-sibling::td[1] | //th[contains(text(),"of which sugars")]/following-sibling::td[1]
     regExp: >-
       [^\d]+$
   - name: proteinPerServing
@@ -176,3 +176,11 @@ fields:
     xpath: //th[contains(text(),"Carbohydrate")]/following-sibling::td[1]
     regExp: >-
       [a-zA-Z]{1,2}$
+  - name: pricePerUnit
+    xpath: //span[@class="pd__cost__per-unit"]
+    regExp: (\d+)(.+)/(.+)
+    regExpReplace: $1$2
+  - name: pricePerUnitUom
+    xpath: //span[@class="pd__cost__per-unit"]
+    regExp: (\d+)(.+)/(.+)
+    regExpReplace: $3
