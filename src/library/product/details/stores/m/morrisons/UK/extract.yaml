@@ -67,7 +67,7 @@ fields:
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'saturates') or (contains(.,'Saturates') or (contains(.,'which saturated')))]/../td[2]
     regExp: g
   - name: caloriesPerServing
-    xpath: concat(//div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Energy')]/../td[2],'/',(//tr[contains(.,"Energy")]/following-sibling::tr//following-sibling::td[contains(text(),'kcal')])[1])
+    xpath: concat(//div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Energy')]/../td[2],'/',(//tr[contains(.,"Energy")]/following-sibling::tr//following-sibling::td[contains(text(),'cal')])[1])
   - name: totalFatPerServing
     xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Fat')]/../td[2]
     regExp: (?:([\d\.]+)\s?)
@@ -152,7 +152,7 @@ fields:
     xpath: //meta[@property="og:url"]//@content
     regExp: (\d+){3}
   - name: directions
-    xpath: //div[contains(@class,"gn-content bop-info__field")]//h6[contains(.,'Cooking Guidelines')]/../div | //h6[contains(.,'Preparation and Usage')]/../div
+    xpath: //div[contains(@class,"gn-content bop-info__field")]//h6[contains(.,'Cooking Guidelines')]/../div | //h6[contains(.,'Preparation and Usage')]/../div | //h6[contains(.,'Serving Suggestions')]/../div
   - name: warnings
     xpath: //h6[contains(.,'Other Information')]/..//div[@class='bop-info__content'][contains(.,'Warning:')]
   - name: alternateImages
