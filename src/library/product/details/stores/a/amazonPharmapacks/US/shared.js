@@ -48,6 +48,14 @@ const transform = (data) => {
         }
       }
 
+      if (row.weightGross) {
+        for (const item of row.weightGross) {
+          if (item.text.match(/.+\(/g)) {
+            item.text = item.text.replace('(', '').trim();
+          }
+        }
+      }
+
       if (row.otherSellersPrime) {
         for (const item of row.otherSellersPrime) {
           if (item.text.includes('Details')) {
@@ -115,6 +123,7 @@ const transform = (data) => {
         row.asin = row.sku;
         delete row.sku;
       }
+
     }
   }
   return data;
