@@ -32,10 +32,10 @@ fields:
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: false
-    xpath: //*[@id="priceblock_ourprice"]
+    xpath: //*[@id="priceblock_ourprice"] | //*[@id="priceblock_dealprice"]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id='availability']
+    xpath: (//*[@id="availability"])[1]
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//div[@id="productDescription"]/p[text()]/text()
@@ -63,10 +63,10 @@ fields:
     regExpReplace: $1
   - name: gtin
     singleValue:  false
-    xpath:   //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
   - name: asin
     singleValue: false
-    xpath: (//*[@data-asin])[1]/@data-asin   
+    xpath: (//div[@id='ppd']//div[@data-asin]/@data-asin)[1]
   - name: variantId
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
@@ -75,15 +75,13 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
   - name: packSize
     singleValue: false
-    xpath: //*[@id="productTitle"]
-    regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
-    regExpReplace: $1$3
+    xpath:  (//*[@id="variation_size_name"]//span[@class="selection"] | //span[@id="productTitle"])
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
     singleValue: false
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text() | //*[@id="aplus"]//span[contains(text(), 'Directions')]/parent::p/following-sibling::ul[1]//li
+    xpath: //*[@id="aplus"]//span[contains(text(), 'Directions')]/parent::p/following-sibling::ol[1]  | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text() | //*[@id="aplus"]//span[contains(text(), 'Directions')]/parent::p/following-sibling::ul[1]//li
   - name: warnings
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text()
@@ -102,7 +100,7 @@ fields:
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //*[@id="outOfStock"]/div[@class='a-box-inner']/div[1]/span
   - name: shippingDimensions
     singleValue: false
     xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
@@ -121,7 +119,7 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="aplus"]/div
+    xpath: //div[@id="aplus"]//div[contains(@class,"aplus-module-wrapper")]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@src
@@ -139,7 +137,7 @@ fields:
     xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
   - name: coupon
     singleValue: false
-    xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
+    xpath: (//div[contains(@id,"unclippedCoupon")]//span[@class="a-color-success"])[1]
   - name: amazonChoice
     singleValue: false
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
@@ -212,9 +210,8 @@ fields:
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
     singleValue: false
-    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
-    regExp: (.+)
-    regExpReplace: 'Yes'
+    xpath: //body[@primeValue]/@primeValue
+    defaultValue: "NO"
   - name: lbb
     xpath: //span[@id="price_inside_buybox"]
     regExp: (.+)
@@ -250,13 +247,13 @@ fields:
     regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
     regExpReplace: $2 
   - name: variantInformation
-    xpath: //*[@id="variation_flavor_name"]//*[@id="dropdown_selected_flavor_name"] | (//span[@class="selection"])[1]
+    xpath: //*[@id="variation_flavor_name"]//*[@id="dropdown_selected_flavor_name"] | //*[@id="variation_style_name" or @id="variation_flavor_name"]//span[@class="selection"] 
   - name: product/food
     singleValue: false
     xpath: 
   - name: ingredientsList
     singleValue: false
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p) | //*[@id="aplus"]//span[contains(text(), 'Directions')]/parent::p/following-sibling::ul[1]//li
+    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p) | //*[@id="aplus"]//span[contains(text(), 'Ingredients')]/parent::p/following-sibling::ul[1]//li
   - name: servingSize
     singleValue: false
     xpath: 

@@ -56,6 +56,52 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.variantInformation) {
+        console.log('variantInformation-->', row.variantInformation);
+        const variantInformation = row.variantInformation.reverse();
+        let text = '';
+        variantInformation.forEach(item => {
+          text += `${item.text.trim()} || `;
+        });
+        row.variantInformation = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
+      }
+      if (row.availabilityText) {
+        let text = '';
+        row.availabilityText.forEach(item => {
+          text += item.text.trim();
+        });
+        row.availabilityText = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.weightGross) {
+        let text = '';
+        row.weightGross.forEach(item => {
+          text += item.text.trim();
+        });
+        row.weightGross = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.metaKeywords) {
+        let text = '';
+        row.metaKeywords.forEach(item => {
+          text += item.text.trim();
+        });
+        row.metaKeywords = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
       if (row.shippingWeight) {
         let text = '';
         row.shippingWeight.forEach(item => {
@@ -67,6 +113,33 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.ingredientsList) {
+        let text = '';
+        row.ingredientsList.forEach(item => {
+          text += item.text.trim();
+        });
+        row.ingredientsList = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          if (!item.text.includes('Brand')) {
+            item.text = `Brand: ${item.text}`;
+          }
+        });
+      }
+      if (row.otherSellersShipping2) {
+        for (const item of row.otherSellersShipping2) {
+          if (item.text.toLowerCase().includes('free')) {
+            item.text = '0.00';
+          } else if (item.text.match(/\$([^\s]+)/)) {
+            item.text = item.text.match(/\$([^\s]+)/)[1];
+          }
+        }
+      }
       if (row.featureBullets) {
         let text = '';
         row.featureBullets.forEach(item => {
@@ -75,6 +148,28 @@ const transform = (data) => {
         row.featureBullets = [
           {
             text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.legalDisclaimer) {
+        let text = '';
+        row.legalDisclaimer.forEach(item => {
+          text += item.text.trim();
+        });
+        row.legalDisclaimer = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.directions) {
+        let text = '';
+        row.directions.forEach(item => {
+          text += `${item.text.trim()}`;
+        });
+        row.directions = [
+          {
+            text: cleanUp(text),
           },
         ];
       }
@@ -96,7 +191,7 @@ const transform = (data) => {
       }
       if (row.variantCount) {
         row.variantCount.forEach(item => {
-          item.text = item.text == '0' ? '1' : item.text;
+          item.text = item.text === '0' ? '1' : item.text;
         });
       }
       if (row.manufacturerDescription) {
@@ -110,9 +205,41 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturerImages) {
+        const secondaryImages = [];
+        row.manufacturerImages.forEach(alternateImage => {
+          if (!alternateImage.text.includes('videoId')) {
+            alternateImage.text = alternateImage.text.trim();
+            !secondaryImages.find(({ text }) => text === alternateImage.text) && secondaryImages.push(alternateImage);
+          }
+        });
+        row.manufacturerImages = secondaryImages;
+      }
+      if (row.videos) {
+        for (const item of row.videos) {
+          if (item.text.includes('.hls.m3u8')) {
+            item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
+          }
+        }
+      }
+      if (row.packSize) {
+        const item = row.packSize.length > 1 ? row.packSize[1] : row.packSize[0];
+        if (/-Pack/.test(item.text)) {
+          item.text = item.text.replace(/.*?(\d+)-Pack.*/i, '$1');
+        } else if (/Pack of/i.test(item.text)) {
+          item.text = item.text.replace(/.*pack of\s*(\d+).*/i, '$1');
+        } else if (/-Count/i.test(item.text)) {
+          item.text = item.text.replace(/.*?(\d+)-Count.*/i, '$1');
+        } else if (/.*(\d+)\s*Count.*/.test(item.text)) {
+          item.text = item.text.replace(/.*?(\d+)\s[Cc]{1}ount.*/, '$1');
+        } else {
+          item.text = '';
+        }
+        row.packSize = [item];
+      }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
-          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+          item.text = item.text.trim().match(/_SL1500_.jpg/g) ? item.text.trim().match(/_SL1500_.jpg/g).length : 0;
         }
       }
       if (row.promotion) {
