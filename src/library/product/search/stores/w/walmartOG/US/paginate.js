@@ -14,14 +14,18 @@ async function implementation (
     }
   }
 
+  const goodSearch = await context.evaluate((selector) => document.querySelector('div[data-automation-id="spellsuggest"] b') ? document.querySelector('div[data-automation-id="spellsuggest"] b').textContent : '');
+
   let url = '';
+
+  const searchKeyword = goodSearch.length ? goodSearch : keywords;
 
   if (openSearchDefinition) {
     url = openSearchDefinition.template
-      .replace('{searchTerms}', encodeURIComponent(keywords))
+      .replace('{searchTerms}', encodeURIComponent(searchKeyword))
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
-    url += '&spelling=false';
+    url += '&spelling=true';
   }
 
   if (!url) {
