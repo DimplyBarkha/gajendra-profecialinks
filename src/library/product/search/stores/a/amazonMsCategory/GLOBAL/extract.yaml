@@ -25,7 +25,7 @@ fields:
     xpath: translate(.//span[@class="zg-badge-text"], "#",  "")
   - name: title
     singleValue: false
-    xpath: //div[contains(@class, "truncated")]/@title | //div[contains(@class, "truncated")][not(@title)]//text()
+    xpath: //div[contains(@class, "truncate")]/@title | //div[contains(@class, "truncate")][not(@title)]//text()
   - name: tld
     singleValue: false
     xpath: ancestor::html//a[@class="nav-logo-link"]/@aria-label
