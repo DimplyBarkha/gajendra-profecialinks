@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -106,9 +113,10 @@ fields:
     xpath: count(//*[@id='feature-bullets']/*//li[not(@id)])
   - name: videos
     singleValue: false
-    xpath: //*[@id="imageBlockVariations_feature_div"]/script/text()
-    regExp: url":"(.{30,300})"\,"videoHeight
-    regExpReplace: $1
+    xpath: //div[contains(@class,"a-carousel-viewport")]/ol/li[contains(@class,"vse-video")]/div[@data-vendor-name="Manufacturer"]/@data-video-url
+    # xpath: //*[@id="imageBlockVariations_feature_div"]/script/text()
+    # regExp: url":"(.{30,300})"\,"videoHeight
+    # regExpReplace: $1
   - name: coupon
     singleValue: false
     xpath: //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]/div[@id="unclippedCoupon"] | //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]//div[contains(@class,"vpcApplyCoupon")]
@@ -215,7 +223,8 @@ fields:
     xpath: (//div[@id="fast-track-message"]//div[@id="delivery-message"])[1] | //div[@id="fast-track-message"]/*//div[@id="delivery-message"]
   - name: variantInformation
     singleValue: false
-    xpath: (//span[@class="selection"])
+    xpath: //form[@id="twister"]/div/div[@class="a-row"]/span
+    # xpath: //div[@id="variation_graphics_description"]/div[@class="a-row"]/span | //div[@id="variation_processor_description"]/div[@class="a-row"]/span | //div[@id="variation_color_name"]/div[@class="a-row"]/span | //div[@id="variation_style_name"]/div[@class="a-row"]/span
   - name: firstVariant
     xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
     regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
@@ -234,9 +243,10 @@ fields:
     xpath: //span[contains(@id, "mbc-shipping")]
   - name: videoLength
     singleValue: false
-    xpath: //*[@id="imageBlockVariations_feature_div"]/script/text()
-    regExp: \"durationTimestamp\":\"(\d+:\d+)\"\,\"slateUrl
-    regExpReplace: $1
+    xpath: //div[contains(@class,"a-carousel-viewport")]/ol/li[contains(@class,"vse-video")]/div[@data-vendor-name="Manufacturer"]/@data-duration
+    # xpath: //*[@id="imageBlockVariations_feature_div"]/script/text()
+    # regExp: \"durationTimestamp\":\"(\d+:\d+)\"\,\"slateUrl
+    # regExpReplace: $1
   - name: mpc
     singleValue:  false
     xpath: //th[contains(text(), 'Item model number')]/following-sibling::*[1]

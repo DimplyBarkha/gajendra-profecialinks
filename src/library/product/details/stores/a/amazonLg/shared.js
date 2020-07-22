@@ -74,6 +74,18 @@ const transform = (data) => {
       //     item.text += `${item.text.match(/\/dp\/(.*)\//g)}`;
       //   });
       // }
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          // item.text = `${item.text.split(':')[1]}`;
+          text += `${item.text} || `;
+        });
+        row.variantInformation = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
       if (row.manufacturerImages) {
         if (row.manufacturerImages) {
           const secondaryImages = [];
