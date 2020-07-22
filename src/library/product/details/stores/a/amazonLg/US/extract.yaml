@@ -87,10 +87,11 @@ fields:
     xpath: //*[@id="shipsFromSoldBy_feature_div"] |//*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
   - name: shippingDimensions
     singleValue: false
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1]
+    # xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
+    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //*[contains(text(),'Additional Information')]/..//tbody/tr
   - name: shippingWeight
     singleValue: false
     xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
@@ -174,8 +175,9 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.amazon.com$1 
   - name: pasin
-    singleValue: false
-    xpath: //div[@id="a_first_variant"]
+    xpath: //script[contains(text(), 'parentAsin')]
+    regExp: parentAsin"\s:\s"(\S+)"
+    regExpReplace: $1
   - name: dealPrice
     singleValue: false
     xpath: //span[contains(@id, 'priceblock_dealprice')] | //span[contains(@id, 'priceblock_ourprice')]
@@ -194,9 +196,14 @@ fields:
   - name: largeImageCount
     xpath: //script[contains(., "ImageBlockATF")]/text()
     defaultValue: 0
+  - name: variantAsins1
+    singleValue: false
+    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
+    regExp: \/dp\/(.*)\/
+    regExpReplace: $1
   - name: variantAsins
     singleValue: false
-    xpath: //ul[contains(@class,'swatchesSquare')]/li[@data-defaultasin]/@data-defaultasin|//select[@name="dropdown_selected_size_name"]/option[position()>1]/@value
+    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
   - name: andonCord
     singleValue: false
   - name: primeFlag

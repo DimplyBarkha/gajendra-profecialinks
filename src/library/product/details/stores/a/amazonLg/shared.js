@@ -33,6 +33,11 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.specifications) {
+        row.specifications.forEach(item => {
+          item.text = item.text.replace(/\n/g, '');
+        });
+      }
       // if (row.largeImageCount) {
       //   for (const item of row.largeImageCount) {
       //     item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
@@ -64,6 +69,11 @@ const transform = (data) => {
           },
         ];
       }
+      // if (row.variantAsins1) {
+      //   row.variantAsins1.forEach(item => {
+      //     item.text += `${item.text.match(/\/dp\/(.*)\//g)}`;
+      //   });
+      // }
       if (row.manufacturerImages) {
         if (row.manufacturerImages) {
           const secondaryImages = [];
