@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 async function implementation (
   inputs,
   parameters,
@@ -21,22 +20,14 @@ async function implementation (
   await context.click('button[name="glowDoneButton"]');
   await context.waitForNavigation();
 }
-=======
->>>>>>> d95f97099fa753c762a2d504fde447c181e6fd2e
 
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'US',
     domain: 'amazon.com',
-<<<<<<< HEAD
     store: 'Amazonprimepantry_45202',
     zipcode: '45202',
   },
   implementation,
-=======
-    store: 'amazonApparel',
-    zipcode: '',
-  },
->>>>>>> d95f97099fa753c762a2d504fde447c181e6fd2e
 };
