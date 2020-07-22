@@ -16,8 +16,13 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
+    const searchUrlDom = document.getElementById('search-url');
     const searchUrl = window.location.href.replace(/%20/g, ' ');
-    addHiddenDiv('search-url', searchUrl);
+    if (searchUrlDom && searchUrlDom.innerText) {
+      searchUrlDom.innerText = searchUrl;
+    } else {
+      addHiddenDiv('search-url', searchUrl);
+    }
   });
   return await context.extract(productDetails, { transform });
 }
