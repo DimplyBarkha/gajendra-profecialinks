@@ -6,6 +6,7 @@ module.exports = {
     domain: 'amazon.com',
     url: 'https://www.amazon.com/s?k={searchTerms}&i=amazonfresh&ref=nb_sb_noss_2',
     loadedSelector: 'div[data-asin]',
-    noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "No results")]',
+    // noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "No results")]',
+    // noResultsXPath: 'count(//div[contains(@data-component-type,"s-search-result")])!=0'
   },
 };
