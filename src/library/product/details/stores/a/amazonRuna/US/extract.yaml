@@ -17,8 +17,7 @@ fields:
   singleValue: true
   xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
 - name: manufacturerDescription
-  sinlgeValue: false
-  xpath: normalize-space(concat(//div[@class="aplus-module-wrapper"]//h3,//div[@class='apm-sidemodule-textright'],//div[@data-a-expander-name="aplus-module-expander"]//div[contains(@class,"apm-spacing")]//table//tr[2],(//div[@class="aplus-module-wrapper"]//h3)[2],(//div[contains(@class,"apm-spacing")]//table//tr[2])[2]))
+  xpath: /div[@class="aplus-v2 desktop celwidget"]//div[contains(@class,"aplus-module-wrapper")]//text()[not(ancestor::noscript)]
 - name: productUrl
   xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   regExp: (.+)
