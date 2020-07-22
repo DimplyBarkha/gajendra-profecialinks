@@ -9,7 +9,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   
-  const hasResults = await context.evaluate(function (xp) {
+  /* const hasResults = await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
     const e = r.iterateNext();
@@ -18,7 +18,7 @@ async function implementation (
   }, '//div[contains(@class,"css-1dbjc4n r-ymttw5")]/h4[contains(.,"Sorry")]|//h1[@id="keyword"][contains(.,"No results")]');
   if(!hasResults) {
     return;
-  }
+  } */
   await context.evaluate(function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
