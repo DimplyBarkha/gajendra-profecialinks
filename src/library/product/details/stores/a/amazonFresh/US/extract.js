@@ -31,10 +31,16 @@ async function implementation (
           }
         }, 100);
       });
+<<<<<<< Updated upstream
       if (document.querySelector('div.askDetailPageSearchWidgetSection')) {
         document.querySelector('div.askDetailPageSearchWidgetSection').scrollIntoView();
       }
       await new Promise(resolve => setTimeout(resolve, 10000));
+=======
+      document.querySelector('div.askDetailPageSearchWidgetSection').scrollIntoView();
+      await new Promise(resolve => setTimeout(resolve, 10000));
+
+>>>>>>> Stashed changes
       // let scrollTop = 0;
       // while (scrollTop <= 20000) {
       //   await stall(500);
@@ -361,6 +367,100 @@ async function implementation (
   //   addHiddenDiv('added-manufacturer', manufacturerContentForAll);
   // }
 
+  async function loadAllResources () {
+    const loadScriptInfo = await context.evaluate(loadScriptInfoSelectors);
+    console.log('loadScriptInfo');
+    console.log(loadScriptInfo);
+    if (loadScriptInfo) {
+      console.log('in here waiting for loadScriptInfo');
+      try {
+        await context.waitForSelector('div#pageRefreshJsInitializer_feature_div script');
+        console.log('we did it!');
+      } catch (err) {
+        await new Promise(resolve => setTimeout(resolve, 6000));
+        const ErrMsg = await context.evaluate((sel) => {
+          const element = document.querySelector(sel);
+          return element ? element.innerHTML : null;
+        }, 'div#pageRefreshJsInitializer_feature_div script');
+        if (ErrMsg) {
+          console.log('yay');
+        } else {
+          console.log('Not able to find script');
+          // throw new Error('Not able to find script')
+        }
+      }
+    }
+    const loadProductInfo = await context.evaluate(loadProductInformationSelectors);
+    console.log('loadProductInfo');
+    console.log(loadProductInfo);
+    if (loadProductInfo) {
+      console.log('in here waiting for importantInformation_feature_div');
+      try {
+        await context.waitForSelector('div#importantInformation_feature_div');
+        console.log('we did it importantInformation_feature_div!');
+      } catch (err) {
+        document.querySelector('div.askDetailPageSearchWidgetSection').scrollIntoView();
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        const ErrMsg = await context.evaluate((sel) => {
+          const element = document.querySelector(sel);
+          return element ? element.innerHTML : null;
+        }, 'div#importantInformation_feature_div');
+        if (ErrMsg) {
+          console.log('yay importantInformation_feature_div');
+        } else {
+          console.log('Not able to find div#importantInformation_feature_div');
+
+          // throw new Error('Not able to find div#importantInformation_feature_div')
+        }
+      }
+      // await context.waitForSelector('div#importantInformation_feature_div');
+    }
+    await new Promise(resolve => setTimeout(resolve, 6000));
+    const loadManufacturer = await context.evaluate(loadManufacturerSelectors);
+    console.log('loadManufacturer');
+    console.log(loadManufacturer);
+    if (loadManufacturer) {
+      console.log('in here waiting for aplus_feature_div');
+      let loadManufacturerContentDiv = false;
+      try {
+        await context.waitForSelector('div#aplus_feature_div');
+        loadManufacturerContentDiv = true;
+        console.log('we did it div#aplus_feature_div!');
+      } catch (err) {
+        document.querySelector('div.askDetailPageSearchWidgetSection').scrollIntoView();
+        await new Promise(resolve => setTimeout(resolve, 7000));
+        const ErrMsg = await context.evaluate((sel) => {
+          const element = document.querySelector(sel);
+          return element ? element.innerHTML : null;
+        }, 'div#aplus_feature_div');
+        if (ErrMsg) {
+          loadManufacturerContentDiv = true;
+          console.log('yay div#aplus_feature_div');
+        } else {
+          console.log('Not able to find div#importantInformation_feature_div');
+          // throw new Error('Not able to find div#aplus_feature_div')
+        }
+      }
+      if (loadManufacturerContentDiv === true) {
+        try {
+          await context.waitForSelector('div.aplus-v2');
+          console.log('we did it div.aplus-v2!');
+        } catch (err) {
+          document.querySelector('div.askDetailPageSearchWidgetSection').scrollIntoView();
+          await new Promise(resolve => setTimeout(resolve, 7000));
+          const ErrMsg = await context.evaluate((sel) => {
+            const element = document.querySelector(sel);
+            return element ? element.innerHTML : null;
+          }, 'div.aplus-v2');
+          if (ErrMsg) {
+            console.log('yay div.aplus-v2');
+          } else {
+            throw new Error('No able to find div.aplus-v2');
+          }
+        }
+      }
+    }
+  }
   // await setLocale();
   // @ts-ignore
 
@@ -378,6 +478,13 @@ async function implementation (
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log('#### of Variants:', allVariants.length);
   console.log('#### Variants:', allVariants);
+<<<<<<< Updated upstream
+=======
+  console.log('autoscroll');
+  await autoScroll();
+  await loadAllResources();
+  console.log('autoscroll end');
+>>>>>>> Stashed changes
   for (let i = 0; i < allVariants.length; i++) {
     const id = allVariants[i];
     const url = await dependencies.createUrl({ id });
