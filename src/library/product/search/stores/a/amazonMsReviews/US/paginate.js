@@ -29,14 +29,6 @@ async function implementation (
       return false;
     }
   }
-  async function checkNoPagination () {
-    const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
-    if(!nextPageBtn){
-      return true
-    }else{
-      return false
-    }
-  }
 
   const { pager } = dependencies;
   const success = await pager({ loadedSelector });
@@ -66,7 +58,14 @@ async function implementation (
   if (!url) {
     return false;
   }
-
+  async function checkNoPagination () {
+    const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
+    if(!nextPageBtn){
+      return true
+    }else{
+      return false
+    }
+  }
   if (await context.evaluate(checkNoPagination)) {
     return false;
   }
