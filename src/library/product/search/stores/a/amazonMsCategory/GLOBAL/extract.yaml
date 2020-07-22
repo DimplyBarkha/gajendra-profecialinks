@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //ol/li
+recordXPath: //ol[@id="zg-ordered-list"]/li
 fields:
   - name: asin
     singleValue: false
@@ -25,7 +25,7 @@ fields:
     xpath: translate(.//span[@class="zg-badge-text"], "#",  "")
   - name: title
     singleValue: false
-    xpath: .//div[contains(@class, "truncated")]/@title | .//div[contains(@class, "truncated")][not(@title)]//text()
+    xpath: //div[contains(@class, "truncated")]/@title | //div[contains(@class, "truncated")][not(@title)]//text()
   - name: tld
     singleValue: false
     xpath: ancestor::html//a[@class="nav-logo-link"]/@aria-label
