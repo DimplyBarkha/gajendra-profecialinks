@@ -37,7 +37,7 @@ const transform = (data, context) => {
           row.packSize[0].text = row.packSize[0].text.replace('x ', '');
         }
         if (row.imageZoomFeaturePresent && row.imageZoomFeaturePresent[0] && row.imageZoomFeaturePresent[0].text.length) {
-          if (row.imageZoomFeaturePresent[0].text === 'true') {
+          if (row.imageZoomFeaturePresent[0].text === 'true' || row.imageZoomFeaturePresent[0].text === '1') {
             row.imageZoomFeaturePresent[0].text = 'Yes';
           } else {
             row.imageZoomFeaturePresent[0].text = 'No';

@@ -576,7 +576,7 @@ fields:
   description: 
 - name: prop65Warning
   singleValue: true
-  # xpath: "//*[@id='added_prop65Warning']//text()"
+  xpath: "//*[@id='added_prop65Warning']//text()"
   description: 
 - name: ageSuitability
   singleValue: true
@@ -630,7 +630,9 @@ fields:
 - name: imageZoomFeaturePresent
   singleValue: true
   xpath: boolean(//div[@id='zoomLensContainer'])
-  # regExp: "true"
+    # xpath: "//*[@id='added_imageZoomFeaturePresent']//text()"
+
+  # regExp: "1"
   # regExpReplace: "Yes"
   # defaultValue: "No"
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']

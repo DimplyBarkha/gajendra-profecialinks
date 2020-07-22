@@ -120,7 +120,9 @@ module.exports = {
           await new Promise(resolve => setTimeout(resolve, 5e3));
           XMLHttpRequest.prototype.open = originalRequestOpen;
           // const jsonObj = response;
-          const jsonObj = MergeRecursive((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {}, response);
+          console.log('response')
+          console.log(response)
+          const jsonObj = Object.keys(response).length !== 0 ? response : MergeRecursive((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {}, response);
           console.log('jsonObj');
           console.log(jsonObj);
 
@@ -224,6 +226,7 @@ module.exports = {
             const ingredList = hasIngrList ? useIngredJson(ingredients.ingredientGroups, ingredText).join(' ') : '';
 
             const ingredListDom = () => {
+              console.log('ingredListDom')
               if (document.querySelector('li#Ingredients div.inner')) {
                 ingredText = ingredText.replace(/\s\s+/g, ' ');
 
@@ -240,8 +243,12 @@ module.exports = {
             const ingredListDomText = ingredListDom();
 
             if (ingredListDomText.length !== 0) {
+              console.log('ingredListDomText')
+              console.log(ingredListDomText)
               return ingredListDomText;
             } else {
+              console.log('ingredList')
+              console.log(ingredList)
               return ingredList;
             }
           };
@@ -320,7 +327,7 @@ module.exports = {
 
             const shippingEnableID = (document.querySelector('p#shiptostoreenable')) ? 'shiptostoreenable' : 'shiptostoredisable';
 
-            if (document.querySelector('p#' + shippingEnableID) && (document.querySelector('p#' + shippingEnableID).textContent !== undefined)) {
+            if (document.querySelector('p#' + shippingEnableID) && (document.querySelector('p#' + shippingEnableID).textContent)) {
               shippingInfoTextContent += document.querySelector('p#' + shippingEnableID).textContent;
             }
 
@@ -340,20 +347,36 @@ module.exports = {
               shippingInfoTextContent += ' ' + document.querySelector('p[class^="universal-product-inches"]').textContent;
             }
 
+
+            if (document.querySelector('div#product-description li#Description a')) {
+              document.querySelector('div#product-description li#Description a').click();
+              // setTimeout(function(){ }, 3000);
+            }
+
             return shippingInfoTextContent;
           };
+
+          const ifMixMatch = (title) => {
+            return title + ' Mix & Match';
+          }
 
           const promotions = () => {
             if (!document.querySelector('span[class^="product-offer-text"]')) {
               return '';
             }
+            const mixMatch = 'Mix & match products';
             const notPromotionRe = /(donation)|[Rr]eward|[Pp]oint|[Pp]ts/ig;
             const isPromotionRe = /(rebate)|(Extra Savings)/ig;
-            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.title) : '') : '';
-            if (isPromotionRe.test(promotion)) {
-              return (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
-            }
-            return promotion;
+            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.linkText === mixMatch ? ifMixMatch(u.title) : (u.linkText ? u.linkText : u.title)) : '') : '';
+            console.log('promotion')
+            console.log(promotion)
+            console.log(details.OfferList)
+            promotion.forEach((promo) => {
+              if (isPromotionRe.test(promo)) {
+                promo = (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
+              }
+            });
+            return promotion.join(' ');
           };
 
           const customWarning = () => {
@@ -370,7 +393,7 @@ module.exports = {
             return '';
           };
 
-          const isVisible = (elem) => elem.offsetWidth > 0 || elem.offsetHeight > 0 || elem.getClientRects().length > 0;
+          const isVisible = (elem) => elem.offsetWidth > 0 || elem.offsetHeight > 0;
 
           const manufacturerDescription = () => {
             const features = () => {
@@ -386,6 +409,14 @@ module.exports = {
                       return acc;
                     }
                   } else if (frame) {
+                    console.log(frame);
+                    if (frame.querySelector('span.wc-screen-reader-only')) {
+                      [...frame.querySelectorAll('span.wc-screen-reader-only')].forEach((elem) => {
+                        elem.style.display = 'none';
+                        elem.textContent = '';
+                      });
+                    }
+                    console.log(frame.querySelector('span.wc-screen-reader-only'));
                     return [...acc, [frame.innerText]];
                   } else {
                     return acc;
@@ -435,7 +466,7 @@ module.exports = {
             price: priceValue('salePrice'),
             availabilityText: jsonObj.inventory.shipAvailable ? 'In Stock' : (jsonObj.inventory.shipAvailableMessage.includes('Not sold online') ? 'Not sold online' : 'Out of Stock'),
             description: fullDescriptionWithDoublePipes,
-            descriptionBullets: (document.querySelector('#prodDesc') && document.querySelectorAll('#prodDesc ul > li')) ? document.querySelectorAll('#prodDesc ul > li').length : (document.querySelectorAll('div.description tr') ? document.querySelectorAll('div.description tr').length : (document.querySelectorAll('div.description p') ? document.querySelectorAll('div.description p').length : 0)),
+            descriptionBullets: (document.querySelector('#prodDesc') && document.querySelectorAll('#prodDesc ul > li')) ? document.querySelectorAll('#prodDesc ul > li').length : (document.querySelectorAll('div.description li, div.description tr') ? document.querySelectorAll('div.description li, div.description tr').length : (document.querySelectorAll('div.description p') ? document.querySelectorAll('div.description p').length : 0)),
             brandText: infos.brandName,
             manufacturer: manufacturerName,
             quantity: infos.sizeCount,
@@ -506,7 +537,9 @@ module.exports = {
             variantInformation: infos.primaryAttribute ? infos.primaryAttribute : (infos.color ? infos.color : ''),
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
-            additionalDescBulletInfo: document.querySelectorAll('#prodDesc ul > li').length ? [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent) : (document.querySelectorAll('div.description tr').length ? [...document.querySelectorAll('div.description tr')].map(d => d.textContent) : ''),
+            additionalDescBulletInfo: document.querySelectorAll('#prodDesc ul > li').length ? [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent) : (document.querySelectorAll('div.description li, div.description tr').length ? [...document.querySelectorAll('div.description li, div.description tr')].map(d => d.textContent) : ''),
+            prop65Warning: document.querySelector('li#Warnings') && document.querySelector('li#Warnings').textContent.includes('P65') ? document.querySelector('li#Warnings').textContent : '',
+            // imageZoomFeaturePresent: document.querySelector('div#zoomLensContainer') ? 'Yes' : 'No',
           };
           removeObjectToDocument(obj);
           addObjectToDocument(obj);
