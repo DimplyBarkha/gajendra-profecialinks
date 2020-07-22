@@ -204,11 +204,11 @@ fields:
   - name: largeImageCount
     xpath: //script[contains(., "ImageBlockATF")]/text()
     defaultValue: 0
-  - name: variantAsins1
-    singleValue: false
-    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
-    regExp: \/dp\/(.*)\/
-    regExpReplace: $1
+  # - name: variantAsins1
+  #   singleValue: false
+  #   xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
+  #   regExp: \/dp\/(.*)\/
+  #   regExpReplace: $1
   - name: variantAsins
     singleValue: false
     xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
