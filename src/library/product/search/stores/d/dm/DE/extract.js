@@ -21,11 +21,11 @@ async function implementation (
       const size = elm.querySelector('a[data-dmid="dm-link"] > span');
       const brandName = brand.innerHTML;
       if (size.innerHTML.includes('...')) {
-	      const fullName = brandName.concat(' ', name, ' ', size.innerHTML.replace(new RegExp('(.+,\\s)(\\d+\\s(ml|g|St|Wl|l))', 'g'), ', $2'));
+        const fullName = brandName.concat(' ', name, size.innerHTML.replace(new RegExp('(.+,\\s)(.+\\s(ml|g|St|Wl|l|kg|Bl|Paar))', 'g'), ', $2'));
         elm.setAttribute('name', fullName);
       } else {
-	      const fullName = brandName.concat(' ', size.innerHTML);
-	      elm.setAttribute('name', fullName);
+        const fullName = brandName.concat(' ', size.innerHTML);
+        elm.setAttribute('name', fullName);
       }
     });
   });
