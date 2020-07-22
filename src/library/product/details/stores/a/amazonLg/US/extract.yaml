@@ -211,7 +211,9 @@ fields:
     regExpReplace: $1
   - name: variantAsins
     singleValue: false
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
+    xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
+    regExp: p\/([A-Z0-9]{9,})\/
+    regExpReplace: $1
   - name: andonCord
     singleValue: false
   - name: primeFlag
