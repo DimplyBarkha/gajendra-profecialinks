@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles_deportes',
-    nextLinkSelector: 'a[rel="next"]',
+    nextLinkSelector: 'li#pagination-next',
     loadedSelector: 'img.js_preview_image.lazyloaded',
     zipcode: '',
     domain: 'elcorteingles.es',

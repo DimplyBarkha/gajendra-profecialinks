@@ -23,7 +23,7 @@ fields:
   - name: aggregateRating2
     description: The stated aggregate rating
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
-    regExp: (.+)de(.+)
+    regExp: (.+)\sde(.+)
     regExpReplace: $1
   - name: ratingCount
     description: The number of ratings
