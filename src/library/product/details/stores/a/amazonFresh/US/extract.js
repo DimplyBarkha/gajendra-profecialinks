@@ -344,18 +344,36 @@ async function implementation (
     addHiddenDiv('added-asin', asinRaw);
   }
 
+  function getElementByXpath (path) {
+    return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  }
+
+  const manufacturerContentForAll = async () => (getElementByXpath('//div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()'));
+
+  // async function addManufacturer () {
+  //   function addHiddenDiv (id, content) {
+  //     const newDiv = document.createElement('div');
+  //     newDiv.id = id;
+  //     newDiv.textContent = content;
+  //     newDiv.style.display = 'none';
+  //     document.body.appendChild(newDiv);
+  //   }
+  //   addHiddenDiv('added-manufacturer', manufacturerContentForAll);
+  // }
+
   // await setLocale();
   // @ts-ignore
 
   // await new Promise(resolve => setTimeout(resolve, 5000));
   await context.evaluate(addUrl);
+  // await context.evaluate(addManufacturer);
   console.log('getting variants');
   const allVariants = [...new Set(await getVariants())];
   console.log('autoscroll');
   await setLocale();
   await autoScroll();
   await new Promise(resolve => setTimeout(resolve, 6500));
-  // await loadAllResources();
+  await loadAllResources();
   console.log('autoscroll end');
   await context.extract(productDetails, { transform, type: 'APPEND' });
   console.log('#### of Variants:', allVariants.length);
@@ -368,13 +386,15 @@ async function implementation (
     console.log('autoscroll');
     await setLocale();
     await autoScroll();
-    await new Promise(resolve => setTimeout(resolve, 6500));
-    // if (allVariants.length >= 5) {
-    //   await loadAllResources(4000);
-    // } else {
-    //   await loadAllResources();
-    // }
+    await new Promise(resolve => setTimeout(resolve, 4000));
+    if (allVariants.length >= 5) {
+      await loadAllResources(5000);
+      // await context.evaluate(addManufacturer);
+    } else {
+      await loadAllResources();
+    }
     console.log('autoscroll end');
+    // await context.evaluate(addManufacturer);
     await context.evaluate(addUrl);
     await context.extract(productDetails, { transform, type: 'APPEND' });
     const pageVariants = await getVariants();
