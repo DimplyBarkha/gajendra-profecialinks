@@ -1,13 +1,17 @@
-
+const { transform } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'sainsburys',
-    transform: null,
+    transform,
     domain: 'sainsburys.co.uk',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
     // SAMPLE INPUTS - 4409412,1814333,1003226,3912234,1679670
     // CONFIGS
     const cssProduct = 'div#productLister div.productNameAndPromotions a';
@@ -37,6 +41,8 @@ module.exports = {
         throw new Error('ERROR: Failed to load product details page');
       }
     }
-    await context.extract(productDetails);
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    return await context.extract(productDetails, { transform });
   },
 };

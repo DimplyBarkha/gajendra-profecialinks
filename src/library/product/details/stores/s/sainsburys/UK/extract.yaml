@@ -6,12 +6,9 @@ fields:
   - name: image
     singleValue: true
     xpath: //div[@class="pd__wrapper skipto-content__focus"]//img/@src
-  - name: alternateImages
-    singleValue: true
-    xpath: //div[@class="pd__wrapper skipto-content__focus"]/div/img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[@class="pd__wrapper skipto-content__focus"]/div/img/@alt
+    xpath: //img[@class="pd__image"]/@alt
   - name: _url
     xpath: //script[@type = "application/ld+json"][contains(text(),"url")]
     regExp: >-
@@ -36,8 +33,7 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out Of Stock
   - name: description
-    singleValue: true
-    xpath: //div[@id="mainPart"][1]/div[1] | //div[@class="productText"][1]
+    xpath: //h3[contains(text(),'Description')]/following-sibling::div
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@id="mainPart"][1]/div[1]//div | //div[@class="productText"][1]//p[contains(text()," ")])
@@ -79,17 +75,10 @@ fields:
     singleValue: true
     xpath:
   - name: caloriesPerServing
-    singleValue: false
-    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1], '/', //th[contains(text(),'Energy')]/following-sibling::td[1]/parent::tr/following-sibling::tr[1]/td[1])
+    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1],'/',//th[contains(text(),'Energy')]/../../tr[2]/td[1][contains(.,'cal')])
   - name: servingSize
     singleValue: true
     xpath: //table[contains(@class,"nutritionTable")]/thead/tr[1]//th[2]
-    regExp: \d+
-  - name: servingSizeUom
-    singleValue: true
-    xpath: //table[contains(@class,"nutritionTable")]/thead/tr[1]//th[2]
-    regExp: >-
-      [^\d]+$
   - name: caloriesFromFatPerServing
     singleValue: true
     xpath:
@@ -184,3 +173,17 @@ fields:
     xpath: //span[@class="pd__cost__per-unit"]
     regExp: (\d+)(.+)/(.+)
     regExpReplace: $3
+  - name: direction
+    xpath: //h3[contains(text(),'Preparation and Safety')]/following-sibling::div[1]
+  - name: warnings
+    xpath: //h3[contains(text(),'Preparation')]/following-sibling::div/div[2]
+  - name: productOtherInformation
+    xpath: normalize-space(//h3[contains(text(),'Alcohol')]/following-sibling::div[1])
+  - name: gtin
+    xpath: //span[@id="productSKU"]
+  - name: eangtin
+    xpath: //span[@id="productSKU"]
+  - name: promotion
+    xpath: //li[@class="pd__promotion"]//div[@class="promotion-message"][1]
+    regExp: (.+):(.+)
+    regExpReplace: $2
