@@ -51,9 +51,9 @@ fields:
     xpath: //a[@id="sellerProfileTriggerId"]
   - name: otherSellersPrice
     xpath: //span[@id="price_inside_buybox"]
-  # - name: listPrice
-  #   xpath: //span[contains(@class, 'priceBlockStrikePriceString')]
-  #   singleValue: false
+  - name: listPrice
+    xpath: //span[contains(@class, 'priceBlockStrikePriceString')]
+    singleValue: false
   - name: legalDisclaimer
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: weightNet
@@ -75,4 +75,3 @@ fields:
   - name: videos
     xpath: //video/@src
     singleValue: true
-

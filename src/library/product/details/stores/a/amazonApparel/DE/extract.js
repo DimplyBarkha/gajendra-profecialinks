@@ -12,9 +12,9 @@ module.exports = {
 };
 async function implementation(
   inputs,
-  parameters,
+  { country, store, transform, domain },
   context,
-  dependencies,
+  { productDetails },
 ) {
   const isVideoPresent = await context.evaluate(async function () {
     return document.querySelector('li.videoThumbnail');
@@ -87,5 +87,5 @@ async function implementation(
 
   await context.evaluate(productPrimeCheck);
 
-  return await context.extract(dependencies.productDetails, { transform: parameters.transform });
+  return await context.extract(productDetails, { transform });
 }
