@@ -16,8 +16,8 @@ fields:
     regExpReplace: https://www.elcorteingles.es$1
   - name: thumbnail
     xpath: //div[contains(@class,"product_tile-image _fade")]/a/img/@src
-    regExp: (.+)
-    regExpReplace: https:$1
+    regExp: (.+)\_\d+x\d+\.(.+)
+    regExpReplace: https:$1_325x325.$2
   - name: aggregateRating2
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
     regExp: (\d)\.(\d)(?=\sde).+
