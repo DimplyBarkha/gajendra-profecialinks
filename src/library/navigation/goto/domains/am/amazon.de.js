@@ -142,7 +142,7 @@ module.exports = {
         return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       }
 
-      if (!await solveCaptchaIfNecessary) {
+      if (!await solveCaptchaIfNecessary()) {
         hasCaptcha = true;
         return;
       }
