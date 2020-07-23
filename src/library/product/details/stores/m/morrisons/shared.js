@@ -87,6 +87,21 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.listPrice) {
+        let text = '';
+        row.listPrice.forEach(item => {
+          if (item.text.includes('p')) {
+            text += item.text.replace(new RegExp('(.+)p', 'g'), '$1') / 100;
+          } else {
+            text += item.text;
+          }
+        });
+        row.listPrice = [
+          {
+            text: text,
+          },
+        ];
+      }
     }
   }
   return data;
