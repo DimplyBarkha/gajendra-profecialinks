@@ -7,7 +7,7 @@ module.exports = {
     country: 'DE',
     store: 'amazonApparel',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url }, { timeout }, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -72,7 +72,7 @@ module.exports = {
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
-        timeout: 30000,
+        timeout,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
@@ -142,15 +142,40 @@ module.exports = {
         return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       }
 
-      if (!await solveCaptchaIfNecessary) {
+      if (!await solveCaptchaIfNecessary()) {
         hasCaptcha = true;
+        return;
+      }
+
+      if (lastResponseData.status === 404 || lastResponseData.status === 410) {
+        return;
+      }
+
+      const wrongLocale = await context.evaluate(async function () {
+        const detailsLocaleEl = document.evaluate("//*[contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/span", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const searchLocaleEl = document.evaluate("//span[@id='glow-ingress-line1']//*[contains(text(),':')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if (!!detailsLocaleEl.snapshotLength || !!searchLocaleEl.snapshotLength) {
+          return 'true';
+        } else {
+          return 'false';
+        }
+      });
+
+      if (wrongLocale === 'true' && !benchmark) {
+        console.log('wrongLocale', !benchmark, wrongLocale);
+        console.log('Incorrect locale detected');
+        if (backconnect) {
+          throw new Error('Incorrect locale detected');
+        }
+        throw new Error('Incorrect locale detected');
+        // return extractorContext.raiseError('WRONG_GEO', 'Incorrect locale detected');
       }
     };
 
     try {
       await run();
     } finally {
-    // needs to be non-fat arrow
+      // needs to be non-fat arrow
       await context.evaluate((captchaCount, duration, js, hasCaptcha) => {
         const captchasElt = document.createElement('meta');
         captchasElt.name = 'captchas';
