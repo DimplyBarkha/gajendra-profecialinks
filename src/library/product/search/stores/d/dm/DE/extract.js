@@ -20,12 +20,15 @@ async function implementation (
       const name = elm.querySelector('a[data-dmid="dm-link"]').getAttribute('title');
       const size = elm.querySelector('a[data-dmid="dm-link"] > span');
       const brandName = brand.innerHTML;
-      if (size.innerHTML.includes('...')) {
-        const fullName = brandName.concat(' ', name, size.innerHTML.replace(new RegExp('(.+,\\s)(.+\\s(ml|g|St|Wl|l|kg|Bl|Paar))', 'g'), ', $2'));
+      if (size.innerHTML.includes('...,')) {
+        const fullName = brandName.concat(' ', name, size.innerHTML.replace(new RegExp('(.+,\\s)(.+\\s(ml|m|g|St|Wl|l|kg|Bl|Paar|mm))', 'g'), ', $2'));
+        elm.setAttribute('name', fullName);
+      } else if (size.innerHTML.includes('...')) {
+        const fullName = brandName.concat(' ', name);
         elm.setAttribute('name', fullName);
       } else {
         const fullName = brandName.concat(' ', size.innerHTML);
-        elm.setAttribute('name', fullName);
+        elm.setAttribute('name', fullName.replace(new RegExp('(.+)&nbsp;|amp;(.+)', 'g'), '$1$2'));
       }
     });
   });
