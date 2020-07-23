@@ -17,6 +17,14 @@ module.exports = {
     });
 
     await context.evaluate(function () {
+      const popUps = document.querySelector('div.fsrAbandonButton');
+
+      if (popUps && popUps !== undefined) {
+        popUps.click();
+      }
+    });
+
+    await context.evaluate(function () {
       if (document.querySelector('div.fsrModalBackdrop')) {
         document.querySelector('div.fsrModalBackdrop').remove();
       }
@@ -53,6 +61,26 @@ module.exports = {
     const extractAll = async (id, url, variants) => {
       const extract = async (variantXpath) => {
         await context.evaluate(async ([{ id: _input }, _url, variantXpath]) => {
+          async function ignorePopups () {
+            const closeModal = () => {
+              if (document.querySelector('div#fsrInvite') && document.querySelector('div#fsrFullScreenContainer')) {
+                document.querySelector('div#fsrFullScreenContainer').remove();
+              }
+            };
+
+            if (document.querySelector('div.fsrAbandonButton')) {
+              // await context.click('div.fsrAbandonButton');
+              document.querySelector('div.fsrAbandonButton').click();
+            }
+
+            if (document.querySelector('button#fsrFocusFirst')) {
+              await context.click('button#fsrFocusFirst');
+              // document.querySelector('button#fsrFocusFirst').click();
+              closeModal();
+            }
+          };
+
+          await ignorePopups();
           const MergeRecursive = (obj1, obj2) => {
             for (var p in obj2) {
               try {
