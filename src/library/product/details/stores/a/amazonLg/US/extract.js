@@ -66,9 +66,11 @@ module.exports = {
       // @ts-ignore
       currency = currency.includes('$') ? '$' : '';
       // @ts-ignore
-      let manufacturerDescription = document.querySelector('#aplus');
+      let manufacturerDescription = document.querySelector('.aplus-v2.desktop.celwidget');
       // @ts-ignore
       manufacturerDescription = manufacturerDescription !== null ? manufacturerDescription.innerText : ' ';
+      // @ts-ignore
+      manufacturerDescription = manufacturerDescription ? manufacturerDescription.replace(/\\"/g, '"') : '';
       // @ts-ignore
       // let firstVariant = findJsonObj('{"pageRefreshUrlParams":{"', '{"pageRefreshUrlParams":', '}}');
       // // @ts-ignore
