@@ -12,7 +12,7 @@ async function implementation (
 ) {
   const { _date, page, keywords } = inputs;
   const loadedSelector = 'div[data-hook=review]';
-  const noResultsXPath = '//div[contains(@class, "no-reviews-section")]';
+  const noResultsXPath = '//div[contains(@class, "page-content") and not(//div[contains(@class, "reviews-content")])] | //div[contains(@class, "no-reviews-section")]';
   const openSearchDefinition = {
     template: 'https://www.amazon.es/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
   };
@@ -79,7 +79,17 @@ async function implementation (
   if (!url) {
     return false;
   }
-
+  async function checkNoPagination () {
+    const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
+    if(!nextPageBtn){
+      return true
+    }else{
+      return false
+    }
+  }
+  if (await context.evaluate(checkNoPagination)) {
+    return false;
+  }
   async function checkNoPagination () {
     const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
     if (!nextPageBtn) {
