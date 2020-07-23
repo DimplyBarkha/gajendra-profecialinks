@@ -33,6 +33,7 @@ module.exports = {
         '';
       document.body.setAttribute('ingredient_list', ingredientList);
     });
+    await context.waitForSelector('div.product-image__container');
     await context.extract(productDetails);
   },
 };

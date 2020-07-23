@@ -26,7 +26,7 @@ fields:
     xpath: //nav[@aria-label="breadcrumb"]/ol/li//a/span/span
   - name: description
     singleValue: true
-    xpath: concat(//h2[text()="Product Description"]/following-sibling::ul ,//h2[text()="Product Description"]/parent::div/following-sibling::div[not(*[contains(@class,"product-info-block__title")])])
+    xpath: concat(//div[contains(@id,'product-description')]//ul,//div[contains(@id,'product-marketing')]//ul,//div[contains(@id,'other-information')]//ul,//div[contains(@id,'features')]//ul,//div[contains(@id,'pack-size')]//ul)
   - name: price
     singleValue: true
     xpath: //div[@class="product-details-tile"]//div[contains(@class,"price-per-sellable-unit")]|(//div[@data-auto="product-controls"]//div[contains(@class,'price-details--wrapper')]/div//span[@data-auto="price-value"])[1]
@@ -102,11 +102,11 @@ fields:
     xpath: //div[@id="recycling-info"]/p
   - name: saltPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Salt"]/following-sibling::td[1]|//td[contains(text(),"Salt")]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Salt"]/following-sibling::td[1]|(//td[contains(text(),"Salt")]/following-sibling::td[1])[1]
     regExp: (\d+(\.\d+)?)
   - name: saltPerServingUom
     singleValue: false
-    xpath: //td[normalize-space(text())="Salt"]/following-sibling::td[1]|//td[contains(text(),"Salt")]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Salt"]/following-sibling::td[1]|(//td[contains(text(),"Salt")]/following-sibling::td[1])[1]
     regExp: '[^\d]+$'
   - name: totalFatPerServing
     singleValue: true
@@ -173,21 +173,19 @@ fields:
     xpath: //div[@class="price-per-quantity-weight"]/span[2]
   - name: quantity
     singleValue: false
-    xpath: //div[@id="pack-size"]
-    regExp: Pack\ssize\:\s*(.+)
-    regExpReplace: $1
+    xpath: //div[contains(@id,"net-contents")]/p
   - name: packSize
     singleValue: true
     xpath: //div[@id="net-contents"]/p
   - name: directions
     singleValue: true
-    xpath: //div[@id="preparation-and-usage"]//ul
+    xpath: //div[@id="preparation-and-usage"]//ul|//div[contains(@id,'uses')]/p
   - name: warnings
     singleValue: true
-    xpath: //div[@id="warnings"]//ul
+    xpath: //div[@id="warnings"]//ul|//div[contains(@id,'lower-age-limit')]
   - name: caloriesPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Energy"]/following-sibling::td[1]
+    xpath: //td[contains(text(),"Energy")]/following-sibling::td[1]
   - name: servingSize
     singleValue: true
     xpath: //table[@class="product__info-table"]//tr/th[2]
@@ -240,3 +238,9 @@ fields:
     singleValue: false
     xpath: //td[contains(text(),"Vitamin C")]/following-sibling::td[1]
     regExp: '[^\d]+$'
+  - name: promotion
+    singleValue: false
+    xpath: (//ul[contains(@class,"product-promotion")]/li//span[@class='offer-text'])[1]
+  - name: alcoholContent
+    singleValue: false
+    xpath: //div[@id="percentage-alcohol"]/p
