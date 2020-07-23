@@ -71,6 +71,11 @@ const transform = (data) => {
           aggregateRating.text = aggregateRating.text.replace(',', '.').trim();
         });
       }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(ratingCount => {
+          ratingCount.text = ratingCount.text.replace('.', '').trim();
+        });
+      }
       if (row.otherSellersShipping) {
         row.otherSellersShipping.forEach(otherSellersShipping => {
           otherSellersShipping.text = otherSellersShipping.text.replace(',', '.').trim();
@@ -80,11 +85,6 @@ const transform = (data) => {
         row.salesRankCategory.shift();
         row.salesRankCategory.shift();
         row.salesRankCategory.shift();
-      }
-      if (row.category) {
-        row.category.forEach(category => {
-          category.text = category.text.replace(/\n \n/g, '').trim();
-        });
       }
       if (row.alternateImages) {
         row.alternateImages.shift();
@@ -107,6 +107,54 @@ const transform = (data) => {
             shippingDimensions.text = shippingDimensions.text.split(';')[0].trim();
           }
         });
+      }
+      if (row.brandText) {
+        row.brandText.forEach(brandText => {
+          brandText.text = `Marka: ${brandText.text}`;
+        });
+      }
+      if (!(row.variantAsins)) {
+        row.variantAsins = [];
+        if (row.asin) {
+          row.asin.forEach(asin => {
+            row.variantAsins.push({ text: asin.text });
+          });
+        }
+      }
+      if (row.otherSellersShipping2) {
+        for (const item of row.otherSellersShipping2) {
+          if (item.text.toLowerCase().includes('gratis')) {
+            item.text = '0.00';
+          } else if (item.text.match(/\$([^\s]+)/)) {
+            item.text = item.text.match(/\$([^\s]+)/)[1];
+          }
+        }
+      }
+      if (row.largeImageCount) {
+        for (const item of row.largeImageCount) {
+          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+        }
+      }
+      if (row.otherSellersPrime) {
+        for (const item of row.otherSellersPrime) {
+          if (item.text.includes('detalles')) {
+            item.text = 'YES';
+          } else {
+            item.text = 'NO';
+          }
+        }
+      }
+      if (row.pasin) {
+        row.pasin.forEach(pasin => {
+          pasin.text = pasin.text.replace('\",', '');
+        });
+      }
+      if (row.warnings) {
+        for (let i = 0; i < row.warnings.length; i++) {
+          if ((row.warnings[i].text.includes('Más información'))) {
+            row.warnings.splice(i, 1);
+          }
+        }
       }
     }
   }

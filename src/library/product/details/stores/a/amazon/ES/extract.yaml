@@ -19,7 +19,7 @@ fields:
     xpath: //meta[contains(@name, "keywords")]/@content
   - name: category
     singleValue: false
-    xpath: //div[@id='wayfinding-breadcrumbs_feature_div']/ul
+    xpath: //div[@id='wayfinding-breadcrumbs_feature_div']/ul/li/span/a
   - name: nameExtended
     singleValue: false
     xpath: //h1[@id='title']
@@ -31,7 +31,7 @@ fields:
     xpath: //*[@id="priceblock_ourprice"]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id='availability']
+    xpath: //*[@id='availability']/span
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[@id='productDescription'] | //div[@id='productDescription']/h3[contains(text(), 'Descripción del producto')]//following-sibling::*[1]
@@ -61,8 +61,9 @@ fields:
     xpath: //td[contains(text(), 'Series')]/following-sibling::*[1]
   - name: packSize
     singleValue: false
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
+    xpath: //h1[@id='title'] | (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Peso')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Peso')]/* | //label[contains(text(), 'Peso')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Número de unidades en el paquete')]/../td | //td[contains(text(),'Cantidad')]/following-sibling::*[1]
+    regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
+    regExpReplace: $3
   - name: directions
     singleValue: false
     xpath: //*[contains(text(), 'dirección')]/following-sibling::*[1]
@@ -72,7 +73,7 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="acrCustomerReviewText"]/text()
-    regExp: ([0-9]{1,}) valoraciones
+    regExp: ([0-9.]{1,}) valoraciones
     regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
@@ -87,7 +88,7 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
   - name: shippingDimensions
     singleValue: false
-    xpath: //td[contains(text(), 'Dimensiones')]/following-sibling::*[1] | //li/b[contains(text(), 'Dimensiones')]/following::text()[1]
+    xpath: //*[contains(text(), 'Dimensiones')]/following-sibling::*[1] | //li/b[contains(text(), 'Dimensiones')]/following::text()[1]
   - name: shippingWeight
     singleValue: false
   - name: variantCount
@@ -161,10 +162,10 @@ fields:
     defaultValue: NO
   - name: largeImageCount
     singleValue: false
-    xpath: count(//script[contains(text(),"SL1500_.jpg")])
+    xpath: //script[contains(., "ImageBlockATF")]/text()
   - name: variantAsins
     singleValue: false
-    xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
+    xpath:  //*[@id="twister"]//li/@data-defaultasin | //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
     regExp: p\/([A-Z0-9]{9,})\/
     regExpReplace: $1
   - name: primeFlag
@@ -172,6 +173,7 @@ fields:
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
     regExp: (.+)
     regExpReplace: 'Yes'
+    defaultValue: NO
   - name: lbb
     singleValue: false
     xpath: //div[contains(@id, 'mbc')]
@@ -193,11 +195,11 @@ fields:
   - name: otherSellersPrime
     singleValue: false
     xpath: //span[contains(@id, "mbc-shipping")]
-  - name: otherSellersShipping
+  - name: otherSellersShipping2
     singleValue: false
     xpath: //span[contains(@id, "mbc-shipping")]
-    regExp: ([0-9\,]{1,}) € de
-    regExpReplace: $1
+    # regExp: ([0-9\,]{1,}) € de
+    # regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
@@ -224,4 +226,12 @@ fields:
     xpath: //*[@id="twister"]//span[@class="selection"]
   - name: firstVariant
     singleValue: false
-    xpath: //ul/li[1]/@data-defaultasin
+    xpath: //script[contains(text(), 'parentAsin')]
+    regExp: parentAsin"\s:\s"(\S+)
+    regExpReplace: $1
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //*[contains(text(), 'Allergen')]/following-sibling::*[1]
+  - name: alcoholContent
+    singleValue: false
+    xpath: //*[contains(text(), 'Contenido de alcohol')]/following-sibling::*[1]
