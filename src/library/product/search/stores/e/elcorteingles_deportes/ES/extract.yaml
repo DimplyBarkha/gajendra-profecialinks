@@ -21,10 +21,9 @@ fields:
     description: GTIN code (includes UPC/EAN)
     xpath: //span[@data-json]/@data-json
   - name: aggregateRating2
-    description: The stated aggregate rating
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
-    regExp: (.+)\sde(.+)
-    regExpReplace: $1
+    regExp: (\d)\.(\d)(?=\sde).+
+    regExpReplace: $1,$2
   - name: ratingCount
     description: The number of ratings
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
