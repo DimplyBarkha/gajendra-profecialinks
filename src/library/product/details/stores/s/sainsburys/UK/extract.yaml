@@ -75,7 +75,7 @@ fields:
     singleValue: true
     xpath:
   - name: caloriesPerServing
-    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1],'/',//th[contains(text(),'Energy')]/../../tr[2]/td[1][contains(.,'cal')])
+    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1],'/',//th[contains(text(),'Energy')]/../../tr[2]/td[1][contains(.,'cal')] | //th[contains(text(),'Energy Kcal')]/following-sibling::td[1] | //th[contains(text(),'Energy (kcals)')]/following-sibling::td[1] | //th[contains(text(),'kcal')]/following-sibling::td[1]) 
   - name: servingSize
     singleValue: true
     xpath: //table[contains(@class,"nutritionTable")]/thead/tr[1]//th[2]
@@ -87,7 +87,7 @@ fields:
     xpath: //th[normalize-space(text())="Fat"]/following-sibling::td[1]
   - name: saturatedFatPerServing
     singleValue: true
-    xpath: //th[normalize-space(text())="Saturates"]/following-sibling::td[1] | //th[normalize-space(text())="of which Saturates"]/following-sibling::td[1]
+    xpath: //th[normalize-space(text())='Saturates']/following-sibling::td[1] | //th[normalize-space(text())='of which Saturates']/following-sibling::td[1] | //th[normalize-space(text())='(of which saturates)']/following-sibling::td[1] | //th[contains(text(),'of which Saturates')]/following-sibling::td[1] | //th[contains(text(),'of which saturates')]/following-sibling::td[1] | //th[contains(text(),'of which, saturates')]/following-sibling::td[1] | //th[contains(text(),'- Of which Saturates')]/following-sibling::td[1] | //th[contains(text(),"of which:")]/following-sibling::td[1]
   - name: saturatedFatPerServingUom
     singleValue: false
     xpath: //th[normalize-space(text())="Saturates"]/following-sibling::td[1] | //th[normalize-space(text())="of which Saturates"]/following-sibling::td[1]
@@ -119,7 +119,7 @@ fields:
       [a-zA-Z]{1,2}$
   - name: totalSugarsPerServing
     singleValue: true
-    xpath: normalize-space(//th[normalize-space(text())="Sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which Sugars"]/following-sibling::td[1])
+    xpath: normalize-space(//th[normalize-space(text())="Sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which Sugars"]/following-sibling::td[1] | //th[contains(text(),'which sugars')]/following-sibling::td[1] | //th[contains(text(),'Sugars')]/following-sibling::td[1] | //th[contains(text(),'sugars*')]/following-sibling::td[1] | //th[contains(text(),'sugars')]/following-sibling::td[1]) 
   - name: totalSugarsPerServingUom
     singleValue: false
     xpath: //th[contains(text(),"Sugars")]/following-sibling::td[1] | //th[contains(text(),"of which sugars")]/following-sibling::td[1]
@@ -176,7 +176,7 @@ fields:
   - name: direction
     xpath: //h3[contains(text(),'Preparation and Safety')]/following-sibling::div[1]
   - name: warnings
-    xpath: //h3[contains(text(),'Preparation')]/following-sibling::div/div[2]
+    xpath: //h3[contains(text(),'Safety Information')]/following-sibling::div | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Warning:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Caution:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'WARNING:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Serving suggestion:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Warnings')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Keep out of the reach of children.')]
   - name: productOtherInformation
     xpath: normalize-space(//h3[contains(text(),'Alcohol')]/following-sibling::div[1])
   - name: gtin
@@ -187,3 +187,11 @@ fields:
     xpath: //li[@class="pd__promotion"]//div[@class="promotion-message"][1]
     regExp: (.+):(.+)
     regExpReplace: $2
+  - name: vitaminCPerServing
+    xpath: //th[contains(text(),'Vitamin C')]/following-sibling::td[1] | //th[contains(text(),'Vit C')]/following-sibling::td[1]
+  - name: sodiumPerServing
+    xpath: //th[contains(text(),'Sodium')]/following-sibling::td[1]
+  - name: ironPerServing
+    xpath: //th[contains(text(),'Iron')]/following-sibling::td[1]
+  - name: vitaminAPerServing
+    xpath: //th[contains(text(),'Vitamin A')]/following-sibling::td[1] | //th[contains(text(),'Vit A')]/following-sibling::td[1]
