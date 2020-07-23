@@ -78,7 +78,17 @@ async function implementation (
   if (!url) {
     return false;
   }
-
+  async function checkNoPagination () {
+    const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
+    if(!nextPageBtn){
+      return true
+    }else{
+      return false
+    }
+  }
+  if (await context.evaluate(checkNoPagination)) {
+    return false;
+  }
   async function checkNoPagination () {
     const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
     if (!nextPageBtn) {
