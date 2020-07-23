@@ -12,7 +12,7 @@ async function implementation (
 ) {
   const { _date, page, keywords } = inputs;
   const loadedSelector = 'div[data-hook=review]';
-  const noResultsXPath = '//div[contains(@class, "no-reviews-section")]';
+  const noResultsXPath = '//div[contains(@class, "page-content") and not(//div[contains(@class, "reviews-content")])] | //div[contains(@class, "no-reviews-section")]';
   const openSearchDefinition = {
     template: 'https://www.amazon.com/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
   };
