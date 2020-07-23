@@ -110,23 +110,51 @@ const transform = (data) => {
       }
       if (row.brandText) {
         row.brandText.forEach(brandText => {
-          brandText.text = `Marka: ${brandText.text}`;
+          if (!(brandText.text.includes('Marca'))) {
+            brandText.text = `Marca: ${brandText.text}`;
+          }
         });
       }
-      if (!(row.variantAsins)) {
-        row.variantAsins = [];
-        if (row.asin) {
-          row.asin.forEach(asin => {
-            row.variantAsins.push({ text: asin.text });
-          });
-        }
+      // if (!(row.variantAsins)) {
+      //   row.variantAsins = [];
+      //   if (row.asin) {
+      //     row.asin.forEach(asin => {
+      //       row.variantAsins.push({ text: asin.text });
+      //     });
+      //   }
+      // } else {
+      //   if (row.asin) {
+      //     row.asin.forEach(asin => {
+      //       row.variantAsins.push({ text: asin.text });
+      //     });
+      //   }
+      //   let text = '';
+      //   row.variantAsins.forEach(item => {
+      //     text += `${item.text} | `;
+      //   });
+      //   row.variantAsins = [
+      //     {
+      //       text: cleanUp(text.slice(0, -4)),
+      //     },
+      //   ];
+      // }
+      if (row.variantAsins) {
+        let text = '';
+        row.variantAsins.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variantAsins = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
       }
       if (row.otherSellersShipping2) {
         for (const item of row.otherSellersShipping2) {
           if (item.text.toLowerCase().includes('gratis')) {
             item.text = '0.00';
-          } else if (item.text.match(/\$([^\s]+)/)) {
-            item.text = item.text.match(/\$([^\s]+)/)[1];
+          } else {
+            item.text = item.text.replace('+', '').trim();
           }
         }
       }
@@ -147,6 +175,11 @@ const transform = (data) => {
       if (row.pasin) {
         row.pasin.forEach(pasin => {
           pasin.text = pasin.text.replace('\",', '');
+        });
+      }
+      if (row.firstVariant) {
+        row.firstVariant.forEach(firstVariant => {
+          firstVariant.text = firstVariant.text.replace('\",', '');
         });
       }
       if (row.warnings) {
