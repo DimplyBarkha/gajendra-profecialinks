@@ -28,6 +28,9 @@ const transform = (data, context) => {
             if (item.text.match('The information above is powered by')) {
               item.text = item.text.replace('The information above is powered by', '');
             }
+            // if (item.text.match('The information above is powered by')) {
+            //   item.text = item.text.replace('The information above is powered by', '');
+            // }
           });
         }
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
@@ -47,11 +50,57 @@ const transform = (data, context) => {
           const aplusImagesText = [];
           const aplusImages = [];
           row.manufacturerImages.forEach(item => {
-            if (aplusImagesText.indexOf(item.text) === -1) {
-              aplusImagesText.push(item.text);
+            const imageUrl = item.text;
+            if (aplusImagesText.indexOf(imageUrl) === -1) {
+              aplusImagesText.push(imageUrl);
               aplusImages.push(item);
             }
           });
+
+          aplusImages.forEach(item => {
+            const imageUrl = item.text;
+            const type = (imageUrl.match('png') ? '.png' : (imageUrl.match('jpg') ? '.jpg' : ''));
+            const splitUpSize = imageUrl.split(type);
+            let splitImage = type.length ? splitUpSize[0] : imageUrl;
+            splitImage = splitImage.replace('//_cp', '/_cp');
+            if (aplusImagesText.indexOf(splitImage) === -1) {
+              aplusImagesText.push(splitImage);
+              aplusImages.push(item);
+            } else if (imageUrl.match('.w1920')) {
+              const place = aplusImagesText.indexOf(splitImage);
+              aplusImages[place].text = imageUrl;
+            }
+          });
+
+          // row.manufacturerImages.forEach(item => {
+          //   const imageUrl = item.text;
+          //   const type = (imageUrl.match('png') ? '.png' : (imageUrl.match('jpg') ? '.jpg' : ''));
+          //   const splitUpSize = imageUrl.split(type);
+          //   let splitImage = type.length ? splitUpSize[0] : imageUrl;
+          //   splitImage = splitImage.replace('//_cp', '/_cp');
+          //   if (aplusImagesText.indexOf(splitImage) === -1) {
+          //     aplusImagesText.push(splitImage);
+          //     aplusImages.push(item);
+          //   }
+          // });
+
+          // const aplusImagesSizeText = [];
+          // const aplusSizeImages = [];
+          // let obj = {};
+          // row.manufacturerImages.forEach(item => {
+          //   const imageUrl = item.text;
+          //   const type = (imageUrl.match('png') ? '.png' : (imageUrl.match('jpg') ? '.jpg' : ''));
+          //   const splitUpSize = imageUrl.split(type);
+          //   let splitImage = type.length ? splitUpSize[0] : imageUrl;
+          //   splitImage = splitImage.replace('//_cp', '/_cp');
+          //   if (obj[splitImage]) {
+          //     obj[splitImage].push(imageUrl);
+          //   } else {
+          //     obj[splitImage] = [imageUrl];
+          //   }
+          // });
+          // console.log('aplusImagesText')
+          // console.log(aplusImagesText)
           row.manufacturerImages = aplusImages;
         }
       } catch (exception) { console.log('Error in transform', exception); }

@@ -413,6 +413,7 @@ module.exports = {
                     if (frame.querySelector('span.wc-screen-reader-only')) {
                       [...frame.querySelectorAll('span.wc-screen-reader-only')].forEach((elem) => {
                         elem.style.display = 'none';
+                        elem.innerText = '';
                         elem.textContent = '';
                       });
                     }
