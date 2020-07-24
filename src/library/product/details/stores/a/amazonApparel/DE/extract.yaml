@@ -64,11 +64,15 @@ fields:
     singleValue: true
     xpath: //*[@id='feature-bullets']//ul/li
   - name: otherSellersName
-    xpath: //a[@id="sellerProfileTriggerId"]
-    singleValue: true
+    xpath: //span[contains(@class,'mbcMerchantName')]
   - name: otherSellersPrice
-    xpath: //span[@id="price_inside_buybox"]
-    singleValue: true
+    xpath: //span[contains(@class,'mbcMerchantName')]/parent::div/preceding-sibling::div//span[contains(@id,'mbc-price')]
+  - name: otherSellersShipping2
+    xpath: //span[contains(@id, "mbc-shipping")]
+  - name: otherSellersPrime
+    xpath: //span[contains(@id, "mbc-shipping")]
+  - name: primeFlag
+    xpath: //*[@id="primeValue"]
   - name: listPrice
     xpath: //span[contains(@class, 'priceBlockStrikePriceString')]
     singleValue: false
