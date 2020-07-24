@@ -67,11 +67,11 @@ module.exports = {
       }
       console.log('Prime' + primeValue);
       function addEleToDoc (key, value) {
-        const prodEle = document.createElement('div')
-        prodEle.id = key
-        prodEle.textContent = value
-        prodEle.style.display = 'none'
-        document.body.appendChild(prodEle)
+        const prodEle = document.createElement('div');
+        prodEle.id = key;
+        prodEle.textContent = value;
+        prodEle.style.display = 'none';
+        document.body.appendChild(prodEle);
       }
       addEleToDoc('primeValue', primeValue);
     };
