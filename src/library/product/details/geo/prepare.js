@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { url: any, zipcode: any } } inputs
+ * @param { { storeId: any, zipcode: any } } inputs
  * @param { { country: any, domain: any, store: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { someAction: ImportIO.Action, someFunction: () => void, someExtraction: string } } dependencies
@@ -12,10 +12,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  // const { url, zipcode } = inputs;
-  // const { country, domain, store } = parameters;
 
-  // TODO: add your impl - must be self contained (no require/import/external functions)
 }
 
 module.exports = {
@@ -38,21 +35,20 @@ module.exports = {
   ],
   inputs: [
     {
-      name: 'url',
+      name: 'storeId',
       description: '',
+      type: 'string',
       optional: false,
     },
     {
       name: 'zipcode',
       description: '',
-      optional: false,
-    },
-    {
-      name: 'storeId',
-      description: '',
+      type: 'string',
       optional: false,
     },
   ],
-  path: './domains/${domain[0:2]}/setZipCode.${domain}',
+  dependencies: {
+  },
+  path: '../stores/${store[0:1]}/${store}/${country}/prepare',
   implementation,
 };
