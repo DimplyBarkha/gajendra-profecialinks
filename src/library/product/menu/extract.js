@@ -31,7 +31,7 @@ module.exports = {
   ],
   inputs: [],
   dependencies: {
-    productDetails: 'extraction:product/menu/stores/${store[0:1]}/${store}/${country}/extract',
+    productMenu: 'extraction:product/menu/stores/${store[0:1]}/${store}/${country}/extract',
   },
   path: './stores/${store[0:1]}/${store}/${country}/extract',
   implementation,
