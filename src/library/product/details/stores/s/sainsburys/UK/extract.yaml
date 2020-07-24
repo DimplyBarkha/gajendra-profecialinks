@@ -63,6 +63,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //a[@class="star-rating-link"][2]/span/@aria-label
+    defaultValue: '0.0'
     regExp: >-
       [^\s]+(?= stars)
   - name: ingredientsList
@@ -75,7 +76,7 @@ fields:
     singleValue: true
     xpath:
   - name: caloriesPerServing
-    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1],'/',//th[contains(text(),'Energy')]/../../tr[2]/td[1][contains(.,'cal')] | //th[contains(text(),'Energy Kcal')]/following-sibling::td[1] | //th[contains(text(),'Energy (kcals)')]/following-sibling::td[1] | //th[contains(text(),'kcal')]/following-sibling::td[1]) 
+    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1],'/',//th[contains(text(),'Energy')]/../../tr[2]/td[1][contains(.,'cal')] | //th[contains(text(),'Energy Kcal')]/following-sibling::td[1] | //th[contains(text(),'Energy (kcal)')]/following-sibling::td[1] | //th[contains(text(),'(kcal)')]/following-sibling::td[1]) 
   - name: servingSize
     singleValue: true
     xpath: //table[contains(@class,"nutritionTable")]/thead/tr[1]//th[2]
@@ -137,10 +138,7 @@ fields:
     singleValue: true
     xpath: normalize-space(//th[normalize-space(text())="Calcium"]/following-sibling::td[1])
   - name: calciumPerServingUom
-    singleValue: false
-    xpath: //th[contains(text(),"Calcium")]/following-sibling::td[1]
-    regExp: >-
-      [^\d]+$
+    defaultValue: mg/l
   - name: dietaryInformation
     singleValue: true
     xpath: normalize-space(//h3[normalize-space(text())="Dietary Information"]/following-sibling::div[1])
@@ -174,7 +172,7 @@ fields:
     regExp: (\d+)(.+)/(.+)
     regExpReplace: $3
   - name: direction
-    xpath: //h3[contains(text(),'Preparation and Safety')]/following-sibling::div[1]
+    xpath: //h3[contains(text(),'Preparation and Safety')]/following-sibling::div[1] | //h3[contains(text(),'Preparation')]/following-sibling::div[1]
   - name: warnings
     xpath: //h3[contains(text(),'Safety Information')]/following-sibling::div | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Warning:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Caution:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'WARNING:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Serving suggestion:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Warnings')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Keep out of the reach of children.')]
   - name: productOtherInformation
@@ -195,3 +193,7 @@ fields:
     xpath: //th[contains(text(),'Iron')]/following-sibling::td[1]
   - name: vitaminAPerServing
     xpath: //th[contains(text(),'Vitamin A')]/following-sibling::td[1] | //th[contains(text(),'Vit A')]/following-sibling::td[1]
+  - name: magnesiumPerServing
+    xpath: //th[contains(text(),'Magnesium')]/following-sibling::td[1] 
+  - name: magnesiumPerServingUom
+    defaultValue: mg/l
