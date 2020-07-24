@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    country: 'US',
+    country: 'CA',
     domain: 'amazon.ca',
     store: 'amazonMsReviews',
   },
