@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -14,11 +14,10 @@ async function implementation(
   }
 
   console.log('Checking no results', parameters.noResultsXPath);
-  return await context.evaluate(async (xp)=>{
+  return await context.evaluate(async (xp) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     return document.evaluate(xp, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
-  }, parameters.noResultsXPath)
-
+  }, parameters.noResultsXPath);
 }
 
 module.exports = {
@@ -30,7 +29,7 @@ module.exports = {
     url: 'https://www.amazon.com/s?k={searchTerms}&i=amazonfresh&ref=nb_sb_noss_2',
     loadedSelector: 'div[data-asin]',
     // noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "No results")]',
-    noResultsXPath: 'count(//div[contains(@data-component-type,"s-search-result")])!=0'
+    noResultsXPath: 'count(//div[contains(@data-component-type,"s-search-result")])!=0',
   },
   implementation,
 };
