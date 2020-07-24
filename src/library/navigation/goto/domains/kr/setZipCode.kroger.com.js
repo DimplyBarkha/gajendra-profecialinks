@@ -23,37 +23,58 @@ async function implementation (
   const findClosestStore = async () => {
     const indexToClick = await context.evaluate(async function () {
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
-      //let smallestDistance = null;
+      let smallestDistance = null;
       let indexToClosestStore = null;
       sections.forEach((sectionItem, i) => {
         const section = sectionItem.querySelector('div.ModalitySelector-StoreSearchResultVanityNameWrapper');
 
         if (section && section.textContent) {
-          //const distance = parseFloat(section.textContent);
-          //if (!smallestDistance || distance < smallestDistance) {
-          if (section.textContent.includes("Hyde Park")) {
-            //smallestDistance = distance;
+          const distance = parseFloat(section.textContent);
+          if (!smallestDistance || distance < smallestDistance) {
+          // if (section.textContent.includes("Hyde Park")) {
+            smallestDistance = distance;
             indexToClosestStore = i + 1;
           }
         }
         console.log(section.textContent);
       });
-      //console.log('Closest store: ' + smallestDistance);
+      console.log('Closest store: ' + smallestDistance);
       return indexToClosestStore;
     });
+    await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
+  };
+
+  const findSpecificStore = async (storeName) => {
+    const indexToClick = await context.evaluate(async function (storeName) {
+      const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
+      let indexToClosestStore = null;
+      sections.forEach((sectionItem, i) => {
+        const section = sectionItem.querySelector('div.ModalitySelector-StoreSearchResultVanityNameWrapper');
+
+        if (section && section.textContent) {
+          if (section.textContent.includes(storeName)) {
+            indexToClosestStore = i + 1;
+          }
+        }
+        console.log(section.textContent);
+      });
+      return indexToClosestStore;
+    }, storeName);
     await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
   };
 
   const changeZip = async (wantedZip) => {
     await context.click('button.CurrentModality-button');
     await new Promise((resolve) => setTimeout(resolve, 6000));
+
     const hasZipBtn = await context.evaluate(() => {
       return Boolean(document.querySelector('input[data-testid="PostalCodeSearchBox-input"]'));
     });
+
     console.log(hasZipBtn);
     if (!hasZipBtn) {
       await context.goto('about:blank');
-      await context.goto(url, { timeout: 20000, waitUntil: 'load', checkBlocked: true });      
+      await context.goto(url, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
       await context.click('button.CurrentModality-button');
       await new Promise((resolve) => setTimeout(resolve, 6000));
     }
@@ -69,7 +90,20 @@ async function implementation (
     await new Promise((resolve) => setTimeout(resolve, 6000));
     await findInStoreButton();
     await new Promise((resolve) => setTimeout(resolve, 6000));
-    await findClosestStore();
+
+    const desiredLocations = {
+      45209: 'Hyde Park',
+      45255: 'Cherry Grove',
+      48315: 'Shelby Marketplace',
+    };
+
+    if (desiredLocations[wantedZip]) {
+      const store = desiredLocations[wantedZip];
+      await findSpecificStore(store);
+    } else {
+      await findClosestStore();
+    }
+
     await new Promise((resolve) => setTimeout(resolve, 6000));
   };
 
@@ -81,8 +115,8 @@ async function implementation (
       console.log('Trying to change zip');
       await changeZip(zipcode);
     }
-  } catch (exception) {    
-    currentZip = await getCurrentZip();    
+  } catch (exception) {
+    currentZip = await getCurrentZip();
     if (currentZip !== zipcode) {
       console.log(exception);
       throw new Error('Failed to change zip');

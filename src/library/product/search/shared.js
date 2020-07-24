@@ -22,17 +22,17 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.id && row.id[0] && productCodes.indexOf(row.id[0].text) === -1) {
-      //   productCodes.push(row.id[0].text);
-      rankCounter += 1;
-      if (!row.sponsored) {
-        orgRankCounter += 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
+      if (row.id && row.id[0] && productCodes.indexOf(row.id[0].text) === -1) {
+        productCodes.push(row.id[0].text);
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        row.rank = [{ text: rankCounter }];
+      } else {
+        row.id = [{ text: '' }];
       }
-      row.rank = [{ text: rankCounter }];
-      // } else {
-      //   row.id = [{ text: '' }];
-      // }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
