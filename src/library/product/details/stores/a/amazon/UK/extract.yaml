@@ -109,8 +109,8 @@ fields:
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
     description: Content under "directions" header
   - name: warnings
-    singleValue: true
-    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1] | //td[contains(text(),'Use By Recommendation')]/following-sibling::*[1] | //td[contains(text(),'Warning')]/following-sibling::*[1]
+    singleValue: false
+    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')])[1] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text()| //td[contains(text(),'Use By Recommendation')]/following-sibling::*[1] | //td[contains(text(),'Warning')]/following-sibling::*[1] | //div[contains(@id,'product-safety-warning_feature_div')]//div[@class='content'] | //tr//*[@class='warningAlertImageColumn']/following-sibling::td/span
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
@@ -141,7 +141,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
-    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUn")])
+    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUn") or contains(@class, "swatchSelect")])
     description: Number of variants listed
     # type: NUMBER
   - name: color
@@ -296,17 +296,17 @@ fields:
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
     singleValue: false
-    xpath: //div[contains(@id,'mbc')]//span[contains(@class,'mbcMerchantName')]
+    xpath: //div[contains(@id,'mbc')]//span[contains(@class,'mbcMerchantName')] | //div[@id='ii_otherSellersName']
     description: null
   - name: otherSellersPrime
     xpath: //span[contains(@id, "mbc-shipping")]
   - name: otherSellersPrice
     singleValue: false
-    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-price')]
+    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-price')] | //div[@id='ii_otherSellersPrice']
     description: null
   - name: otherSellersShipping
     singleValue: false
-    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-shipping')]
+    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-shipping')] | //div[@id='ii_otherSellersShipping']
     description: null
   - name: secondaryImageTotal
     singleValue: true

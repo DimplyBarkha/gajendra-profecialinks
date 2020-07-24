@@ -175,7 +175,7 @@ module.exports = {
     try {
       await run();
     } finally {
-    // needs to be non-fat arrow
+      // needs to be non-fat arrow
       await context.evaluate((captchaCount, duration, js, hasCaptcha) => {
         const captchasElt = document.createElement('meta');
         captchasElt.name = 'captchas';
@@ -195,6 +195,28 @@ module.exports = {
         document.head.appendChild(javascriptElt);
         // js_enabled
       }, [captchas, Date.now() - start, hasCaptcha]);
+      const allCookies = await context.cookies();
+      allCookies.forEach(({ name, domain }) => {
+        console.log(name, 'and', domain);
+        context.deleteCookies({
+          name, domain,
+        });
+      });
+      context.evaluate(async () => {
+        // function clearCookie (name, domain, path) {
+        //   console.log('Clearing cookie');
+        //   domain = domain || document.domain;
+        //   path = path || '/';
+        //   document.cookie = name + '=; expires=' + +new Date() + '; domain=' + domain + '; path=' + path;
+        // };
+        // await clearCookie('csm-hit', 'www.amazon.co.uk');
+        // await clearCookie('x-wl-uid', '.amazon.co.uk');
+        // await clearCookie('ubid-acbuk', '.amazon.co.uk');
+        // await clearCookie('session-id', '.amazon.co.uk');
+        // await clearCookie('session-token', '.amazon.co.uk');
+        // await clearCookie('session-id-time', '.amazon.co.uk');
+        // await clearCookie('i18n-prefs', '.amazon.co.uk');
+      });
       if (zipcode) {
         await dependencies.setZipCode({ url: url, zipcode: zipcode });
       }

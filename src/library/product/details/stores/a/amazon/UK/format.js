@@ -138,18 +138,24 @@ const transform = (data) => {
           item.text = `${item.text.replace(/\n/g, '')}`;
         });
       }
-      if (row.otherSellersShipping) {
+      if (row.otherSellersShipping && row.otherSellersName) {
         const text = [];
         row.otherSellersShipping.forEach(item => {
-          if (item.text.match(/.(?:[\d]+(?:.[\d]+)?)/)) {
-            text.push({ text: `${item.text.match(/.(?:[\d]+(?:.[\d]+)?)/)[0]}` });
+          if (item.text.match(/.([\d]+(?:.[\d]+)?)/)) {
+            text.push({ text: `${item.text.match(/.([\d]+(?:.[\d]+)?)/)[1]}` });
+          } else {
+            text.push({ text: '0.00' });
           }
         });
+        console.log('length of slleres', row.otherSellersName);
+        while (row.otherSellersName.length !== text.length) {
+          text.push({ text: '0.00' });
+        }
         row.otherSellersShipping = text;
       }
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
-          item.text = `${item.text.replace(/\s{2,}|\n|\t|\r/g, ' ').replace(/Read more/gm, '').trim()}`;
+          item.text = `${item.text.replace(/<[^>]*>/gm, '').replace(/\s{2,}|\n|\t|\r/g, ' ').replace(/Read more/gm, '').trim()}`;
         });
       }
       if (row.manufacturerImages) {
@@ -234,6 +240,13 @@ const transform = (data) => {
           item.text = item.text.match(/SL1500_.jpg/gm) ? item.text.match(/SL1500_.jpg/gm).length : 0;
         }
       }
+      if (row.warnings) {
+        let val = '';
+        for (const item of row.warnings) {
+          val += item.text.replace(/\n/gm, '').replace(/\s{2,}/gm, ' ');
+        }
+        row.warnings = [{ text: val.trim() }];
+      }
       if (row.variantCount) {
         for (const item of row.variantCount) {
           // eslint-disable-next-line eqeqeq
@@ -274,15 +287,21 @@ const transform = (data) => {
       if (row.primeFlag) {
         let value = '';
         row.primeFlag.forEach(item => {
-          if (item.text.includes('sold by Amazon') && !value.includes('Yes - Shipped and Sold')) {
-            value += 'Yes - Shipped and Sold | ';
-          } else if (item.text.includes('Fulfilled by Amazon') && !value.includes('Yes - Fulfilled')) {
-            value += 'Yes - Fulfilled | ';
-          } else if (item.text.includes('Prime') && !value.includes('Prime')) {
-            value += 'Prime Pantry | ';
+          if (!item.text.includes('NO')) {
+            if (item.text.includes('sold by Amazon') && !value.includes('Yes - Shipped and Sold')) {
+              value += 'Yes - Shipped and Sold | ';
+            } else if (item.text.includes('Fulfilled by Amazon') && !value.includes('Yes - Fulfilled')) {
+              value += 'Yes - Fulfilled | ';
+            } else if (item.text.includes('Prime') && !value.includes('Prime')) {
+              value += 'Prime Pantry | ';
+            }
           }
         });
-        row.primeFlag = [{ text: value.slice(0, value.length - 3) }];
+        if (value) {
+          row.primeFlag = [{ text: value.slice(0, value.length - 3) }];
+        } else {
+          row.primeFlag = [{ text: 'NO' }];
+        }
       }
     }
   }
