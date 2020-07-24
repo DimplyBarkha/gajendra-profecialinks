@@ -49,15 +49,15 @@ const transform = (data, context) => {
         if (row.manufacturerImages) {
           const aplusImagesText = [];
           const aplusImages = [];
-          row.manufacturerImages.forEach(item => {
-            const imageUrl = item.text;
-            if (aplusImagesText.indexOf(imageUrl) === -1) {
-              aplusImagesText.push(imageUrl);
-              aplusImages.push(item);
-            }
-          });
+          // row.manufacturerImages.forEach(item => {
+          //   const imageUrl = item.text;
+          //   if (aplusImagesText.indexOf(imageUrl) === -1) {
+          //     aplusImagesText.push(imageUrl);
+          //     aplusImages.push(item);
+          //   }
+          // });
 
-          aplusImages.forEach(item => {
+          row.manufacturerImages.forEach(item => {
             const imageUrl = item.text;
             const type = (imageUrl.match('png') ? '.png' : (imageUrl.match('jpg') ? '.jpg' : ''));
             const splitUpSize = imageUrl.split(type);
@@ -66,9 +66,6 @@ const transform = (data, context) => {
             if (aplusImagesText.indexOf(splitImage) === -1) {
               aplusImagesText.push(splitImage);
               aplusImages.push(item);
-            } else if (imageUrl.match('.w1920')) {
-              const place = aplusImagesText.indexOf(splitImage);
-              aplusImages[place].text = imageUrl;
             }
           });
 
