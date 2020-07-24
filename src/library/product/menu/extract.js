@@ -12,8 +12,6 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const {} = inputs;
-  const { country, domain } = parameters;
 
   // TODO: add your impl - must be self contained (no require/import/external functions)
 }

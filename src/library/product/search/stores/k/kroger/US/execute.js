@@ -1,4 +1,4 @@
-const { implementation } = require('./sharedSearchExecute')
+const { implementation } = require('./sharedSearchExecute');
 
 module.exports = {
   implements: 'product/search/execute',

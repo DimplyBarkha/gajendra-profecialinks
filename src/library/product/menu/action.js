@@ -12,16 +12,15 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const {} = inputs;
-  const { country, domain, store, zipcode } = parameters;
+  const { domain, zipcode } = parameters;
 
   const { URL } = inputs;
   const { execute, extract } = dependencies;
   const url = URL || `https://${domain}`;
-  
-  await execute({ url, zipcode: parameters.zipcode });
 
-  await extract({ url});
+  await execute({ url, zipcode: zipcode });
+
+  await extract({ url });
 }
 
 module.exports = {
@@ -53,7 +52,7 @@ module.exports = {
       description: 'url for menu',
       type: 'string',
       optional: true,
-    },    
+    },
   ],
   dependencies: {
     execute: 'action:product/menu/execute',
