@@ -71,6 +71,29 @@ const transform = (data) => {
           if (item.text.includes('.hls.m3u8')) {
             item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
           }
+          if (item.text.includes('videos') && item.text.match(/"url":"([^"]*)/g)) {
+            let videoLinks = item.text.match(/"url":"([^"]*)/g);
+            let videoLengths = item.text.match(/"durationTimestamp":"([^"]*)/g);
+            let urlText = '';
+            let lengthText = '';
+            videoLinks.forEach(url => {
+              urlText += `${url.replace('"url":"', '')} | `;
+            });
+            videoLengths.forEach(len => {
+              lengthText += `${len.replace('"durationTimestamp":"', '')} | `;
+            });
+            row.videos = [
+              {
+                text: urlText.slice(0, -3),
+              },
+            ];
+            row.videoLength = [
+              {
+                text: lengthText.slice(0, -3),
+              },
+            ];
+            break;
+          }
         }
       }
 

@@ -21,7 +21,7 @@ fields:
   - name: listPrice
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
   - name: price
-    xpath: //*[@id="priceblock_ourprice"]|//*[@id="priceblock_saleprice"]|//span[contains(@id,"priceblock_dealprice")]
+    xpath: //*[@id="priceblock_ourprice"]|//*[@id="priceblock_saleprice"]|//span[contains(@id,"priceblock_dealprice")] | //span[contains(@id,'priceblock_') and contains(@id,'price')]
   - name: pricePerUnit
     xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
     regExp: (\((.+)?Count(.+))
@@ -93,7 +93,7 @@ fields:
   - name: manufacturerImages
     xpath: //div[@cel_widget_id="aplus"]//img/@data-src | //th[@class="apm-tablemodule-image "]//img/@src
   - name: videos
-    xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url
+    xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url | //script[contains(., "triggerVideoAjax")]/text()
   - name: coupon
     xpath: (//div[contains(@id,"unclippedCoupon")]//span[@class="a-color-success"])[1]
   - name: amazonChoice
