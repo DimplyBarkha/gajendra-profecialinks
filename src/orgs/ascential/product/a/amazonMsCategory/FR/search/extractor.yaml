@@ -1,0 +1,20 @@
+robot: product/search
+parameters:
+  country: FR
+  domain: amazon.fr
+  store: amazonMsCategory
+  zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_fr_category:
+      extractor: 506bb99d-9042-4cd1-ab29-5bb2f605d020
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: f839c5fd-a288-4707-a10a-ba20db84d7f2
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: 612917e5-387a-4f04-b4a7-65f83efb7fcb
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
