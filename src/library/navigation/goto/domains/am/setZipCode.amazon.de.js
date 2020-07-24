@@ -6,4 +6,4 @@ module.exports = {
 		store: 'amazonApparel',
 		zipcode: '',
 	},
-}
+};
