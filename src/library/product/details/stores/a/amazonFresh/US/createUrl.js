@@ -5,6 +5,6 @@ module.exports = {
     domain: 'amazon.com',
     country: 'US',
     store: 'amazonFresh',
-    url: 'https://amazon.com/dp/product/{id}/?fpw=alm&s=amazonfresh&fpw=fresh',
+    url: 'https://amazon.com/dp/product/{id}/?fpw=alm&s=amazonfresh&fpw=fresh#[!opt!]{"load_all_resources":true}[/!opt!]',
   },
 };

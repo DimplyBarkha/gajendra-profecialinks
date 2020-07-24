@@ -6,6 +6,6 @@ module.exports = {
     store: 'amazonFresh',
     domain: 'amazon.com',
     loadedSelector: '#productTitle',
-    noResultsXPath: '//div[@id="g"]//img[contains(@alt,"Dogs")]',
+    noResultsXPath: '(//img[contains(@alt,"Sorry! Something went wrong on our end. ")]|//div[@id="g"]//img[contains(@alt,"Dogs")])[1]',
   },
 };
