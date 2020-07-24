@@ -64,9 +64,9 @@ module.exports = {
           console.log('We failed to solve the CAPTCHA');
           return context.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
         }
-        return false;
+        return 'false';
       }
-      return true;
+      return 'true';
     };
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
@@ -78,7 +78,7 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
-      await new Promise(r => setTimeout(r, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
         return;
       }
@@ -89,7 +89,7 @@ module.exports = {
 
         console.log('Waiting for page to reload on homepage');
         context.waitForNavigation();
-        if (!await solveCaptchaIfNecessary()) {
+        if (await solveCaptchaIfNecessary() === 'false') {
           hasCaptcha = true;
           return;
         }
@@ -124,7 +124,7 @@ module.exports = {
           random_move_mouse: true,
         });
         console.log('lastResponseData', lastResponseData);
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
 
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
@@ -142,7 +142,7 @@ module.exports = {
         return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       }
 
-      if (!await solveCaptchaIfNecessary) {
+      if (await solveCaptchaIfNecessary() === 'false') {
         hasCaptcha = true;
         return;
       }
@@ -153,10 +153,10 @@ module.exports = {
 
       const wrongLocale = await context.evaluate(async function () {
         const locationWarningPopupEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and not(//*[contains(text(), 'Amazon Fresh')])]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if(locationWarningPopupEl.snapshotLength > 0) {
+        if (locationWarningPopupEl.snapshotLength > 0) {
           return 'true';
-        }else{
-          return 'false'
+        } else {
+          return 'false';
         }
       });
 
