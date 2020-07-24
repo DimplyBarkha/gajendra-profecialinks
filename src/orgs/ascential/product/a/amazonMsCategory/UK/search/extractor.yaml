@@ -1,0 +1,20 @@
+robot: product/search
+parameters:
+  country: UK
+  domain: amazon.co.uk
+  store: amazonMsCategory
+  zipcode: ""
+proxy:
+  zone: ZUK
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_uk_category:
+      extractor: adc8c133-5305-4972-97eb-d89cdca5a9f2
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 40f198db-1580-4ce4-b8c2-266256d7fd2f
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: c407640d-7268-41fd-8611-76a4c5cd43b8
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
