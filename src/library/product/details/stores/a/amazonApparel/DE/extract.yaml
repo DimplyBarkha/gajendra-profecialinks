@@ -5,6 +5,20 @@ fields:
   - name: size
     singleValue: true
     xpath: //option[@id='native_size_name_0'] | //div[@id='variation_size_name']//span[@class='selection']
+  - name: variantAsins
+    singleValue: true
+    xpath: //li[contains(., 'ASIN')]
+    regExp: >-
+      (.+):(.+)
+    regExpReplace: $2
+  - name : variantInformation
+    xpath: //div[@id='variation_color_name']//span
+  - name: sku
+    xpath: //li/b[contains(., 'Modellnummer')][1]/../text()
+    singleValue: true
+  - name: mpc
+    xpath: //li/b[contains(., 'Modellnummer')][1]/../text()
+    singleValue: true
   - name: ratingCount
     singleValue: true
     xpath: //*[@id="acrCustomerReviewText"]
@@ -15,11 +29,13 @@ fields:
     regExp: (.+)von(.+)
     regExpReplace: $1
   - name: shippingInfo
+    xpath: //div[@id='merchant-info']/a
     singleValue: true
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]
+    regExp: (.+)
+    regExpReplace: Verkauf und Versand durch $1
   - name: shippingWeight
     singleValue: true
-    xpath: //li[contains(., 'Produktgewicht inkl. Verpackung:')]
+    xpath: //li[contains(., 'Produktgewicht inkl. Verpackung:')]/text()
     regExp: >-
       (.+)\:(.+)
     regExpReplace: $2
@@ -36,7 +52,7 @@ fields:
   - name: directions
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Directions')]/../p[text()]/text()
   - name: lbb
-    xpath: //span[@id="price_inside_buybox"]
+    xpath: ///div[@id='merchant-info']/a
     regExp: (.+)
     regExpReplace: "YES"
     defaultValue: "NO"
@@ -49,8 +65,10 @@ fields:
     xpath: //*[@id='feature-bullets']//ul/li
   - name: otherSellersName
     xpath: //a[@id="sellerProfileTriggerId"]
+    singleValue: true
   - name: otherSellersPrice
     xpath: //span[@id="price_inside_buybox"]
+    singleValue: true
   - name: listPrice
     xpath: //span[contains(@class, 'priceBlockStrikePriceString')]
     singleValue: false
@@ -63,8 +81,12 @@ fields:
     singleValue: true
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
   - name: firstVariant
-    xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")][1]//@data-dp-url
-    regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)
+    xpath: //link[@rel='canonical']/@href
+    regExp: (.+)dp\/(.+)
+    regExpReplace: $2
+  - name: pasin
+    xpath: //link[@rel='canonical']/@href
+    regExp: (.+)dp\/(.+)
     regExpReplace: $2
   - name: brandLink
     xpath: //a[@id="bylineInfo"]/@href
