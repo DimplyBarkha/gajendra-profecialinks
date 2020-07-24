@@ -14,7 +14,7 @@ async function implementation (
   const loadedSelector = 'div[data-hook=review]';
   const noResultsXPath = '//div[contains(@class, "no-reviews-section")]';
   const openSearchDefinition = {
-    template: 'https://www.amazon.com/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
+    template: 'https://www.amazon.co.uk/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
   };
 
   async function checkDate () {
@@ -56,17 +56,6 @@ async function implementation (
   }
 
   if (!url) {
-    return false;
-  }
-  async function checkNoPagination () {
-    const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
-    if(!nextPageBtn){
-      return true
-    }else{
-      return false
-    }
-  }
-  if (await context.evaluate(checkNoPagination)) {
     return false;
   }
 
