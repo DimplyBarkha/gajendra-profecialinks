@@ -1,9 +1,9 @@
 /**
- *
- * @param {ImportIO.Group[]} data
- * @returns {ImportIO.Group[]}
- */
-const transform = (data, context) => {
+*
+* @param {ImportIO.Group[]} data
+* @returns {ImportIO.Group[]}
+*/
+const transform = (data) => {
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
@@ -19,22 +19,42 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.price) {
+        if (row.price.length > 1) {
+          row.price.shift();
+        }
         row.price.forEach(priceItem => {
           priceItem.text = priceItem.text.replace(/\./g, '').replace(/,/g, '.');
+          priceItem.text = priceItem.text.replace(/€/g, 'EUR');
+        });
+      }
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if (item.text.includes('Habituellement')) {
+            item.text = '';
+          }
         });
       }
       if (!row.primeFlag) {
         const text = [];
         text.push({ text: 'NO' });
         row.primeFlag = text;
-      } else {
-        row.primeFlag.forEach(item => {
-          item.text = item.text.includes('Yes') || item.text.includes('YES') ? 'Yes' : 'No';
-        });
       }
       if (row.otherSellersPrice) {
         row.otherSellersPrice.forEach(priceItem => {
           priceItem.text = priceItem.text.replace(/\./g, '').replace(/,/g, '.');
+        });
+      }
+      if (row.imageAlt) {
+        row.imageAlt.forEach(item => {
+          item.text = item.text.trim();
+        });
+      }
+      if (row.image) {
+        if (row.image.length > 1) {
+          row.image = [row.image[0]];
+        }
+        row.image.forEach(item => {
+          item.text = item.text.replace('https://www.amazon.fr', 'https://images-na.ssl-images-amazon.com');
         });
       }
       if (row.otherSellersShipping) {
@@ -79,11 +99,18 @@ const transform = (data, context) => {
           priceItem.text = priceItem.text.replace(/\./g, '').replace(/,/g, '.');
         });
       }
+      if (row.category) {
+        row.category.forEach(item => {
+          item.text = item.text.replace(/ {2}/gm, ' ');
+        });
+      }
       if (row.brandLink) {
         row.brandLink.forEach(item => {
           if (!item.text.includes('amazon.fr') || !item.text.includes('amazon.com')) {
             item.text = 'http://www.amazon.fr' + item.text;
           }
+          item.text = item.text.replace(/\+/gm, ' ');
+          item.text = item.text.replace(/%27/gm, '"');
         });
       }
       if (row.listPrice) {
@@ -104,6 +131,8 @@ const transform = (data, context) => {
       if (row.description) {
         row.description.forEach(item => {
           item.text = `${item.text.replace(/\n/g, '')}`;
+          item.text = item.text.replace('Voir plus', '');
+          item.text = item.text.trim();
         });
       }
       if (row.nameExtended) {
@@ -143,6 +172,11 @@ const transform = (data, context) => {
         row.brandText.forEach(item => {
           item.text = item.text.replace(/Marque : /gm, '');
         });
+      }
+      if (!row.variantAsins) {
+        const text = [];
+        text.push({ text: row.asin[0].text });
+        row.variantAsins = text;
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

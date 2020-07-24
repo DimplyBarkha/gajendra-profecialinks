@@ -1,7 +1,6 @@
-
 const { transform } = require('./format');
-
 async function implementation (
+  // @ts-ignore
   inputs,
   parameters,
   context,
@@ -9,6 +8,23 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  // Scrolling to bottom of page where aplus images are located
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await context.evaluate(async function () {
+    const element = document.getElementById('aplus');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      await new Promise((resolve) => setTimeout(resolve, 2500));
+    }
+  });
+  try {
+    await context.waitForXPath('//div[@id="aplus"]/..//h2 | //div[@id="aplus"]/..//div[contains(@class, "celwidget aplus-module")] | //div[@class="apm-hovermodule-slides-inner"]');
+  } catch (error) {
+    console.log('error: ', error);
+  }
+  await new Promise((resolve) => setTimeout(resolve, 2500));
+
   async function addUrl () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -17,7 +33,10 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    const url = window.location.href;
+    let url = window.location.href;
+    if (url.includes('?th=1')) {
+      url = url.replace('?th=1', '');
+    }
     addHiddenDiv('added-searchurl', url);
   }
   await context.evaluate(addUrl);

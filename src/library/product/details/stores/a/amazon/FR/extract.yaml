@@ -5,14 +5,14 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//img[@id="landingImage"])[1]/@src | //div[contains(@id,'img-canvas')]/img/@src
+    xpath: (//img[@id="landingImage"])[1]/@data-old-hires | (//img[@id="landingImage"])[1]/@src
   - name: imageAlt
     singleValue: false
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //*[@id="imageBlock_feature_div"]/script
-    regExp: large\":\"(.{40,200})\"\,\"main
+    xpath: (//*[@id="imageBlock_feature_div"]/script)[1]
+    regExp: (hiRes\":\"(.{40,200})\"\,\"thumb)|(hiRes\":\"(.{40,200})\"\,\"main)
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -33,7 +33,7 @@ fields:
     xpath: //*[@id='availability']//span
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]//p | //*[@id="productDescription"]//ul
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[@id='productDescription'] | //div[@id='productDescription']/h3[contains(text(), 'Description du produit')]//following-sibling::*[1]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
@@ -45,7 +45,7 @@ fields:
     xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]
   - name: quantity
     singleValue: false
-    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Taille')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Taille')]/following-sibling::*[1])[1]
   - name: weightNet
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
@@ -53,9 +53,7 @@ fields:
     regExpReplace: $1
   - name: weightGross
     singleValue: false
-    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //*[contains(text(),'Weight')]//following-sibling::*
-    regExp: ([^()]+)
-    regExpReplace: $1
+    xpath: //*[contains(text(), "Dimensions du colis")]/following-sibling::* | //*[contains(text(), "Item Package Dimensions")]/following-sibling::*
   - name: gtin
     singleValue:  false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
@@ -81,7 +79,7 @@ fields:
     xpath: //*[contains(text(), 'avertissements')]/parent::*
   - name: ratingCount
     singleValue: false
-    xpath: //*[@id="acrCustomerReviewText"]/text()
+    xpath: (//*[@id="acrCustomerReviewText"])[1]/text()
   - name: aggregateRatingText
     singleValue: false
     xpath: //*[@id="acrPopover"]/@title
@@ -101,16 +99,16 @@ fields:
     regExpReplace: $1
   - name: variantCount
     singleValue: false
-    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
+    xpath: count(//div[contains(@id,"variation_color")]//ul[contains(@class, "swatch")]/li | //div[contains(@id,"variation_style")]//ul[contains(@class, "swatch")]/li)
   - name: color
     singleValue: false
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@data-feature-name="importantInformation"] | //div[@id="prodDetails"] | //div[contains(@id, "productDescription_feature_div") and @class="feature"]
+    xpath: //div[@id="prodDetails"] | //div[@id="productDescription"] | //div[@id="aplus_feature_div"] | //div[@id="important-information"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class, "aplus-v2")]//img//@src | //div[@class="aplus"]//img/@src | //div[contains(@class, "aplus-module-content")]//th[@class="apm-tablemodule-image "]//img/@src
+    xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     singleValue: false
     xpath: //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
@@ -179,9 +177,7 @@ fields:
     defaultValue: 'NO'
   - name: variantAsins
     singleValue: false
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
-    regExp: p\/([A-Z0-9]{9,})\/
-    regExpReplace: $1
+    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-defaultasin]/@data-defaultasin
   - name: specifications
     singleValue: false
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
@@ -201,7 +197,7 @@ fields:
     xpath: //span[contains(@id, 'mbc-price')]
   - name: featureBullets
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[contains(@id, "ProductSpecification_feature")]
   - name: otherSellersName
     singleValue: false
     xpath: //div[contains(@id,'mbc')]//span[contains(@class,'mbcMerchantName')]
@@ -245,7 +241,7 @@ fields:
     xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
   - name: alcoholContent
     singleValue: false
-    xpath: //td[contains(text(), 'Contenido de alcohol')]/following-sibling::*[1]
+    xpath: //td[contains(text(), 'Teneur en alcool')]/following-sibling::*[1]
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
