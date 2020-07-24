@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/menu',
   parameterValues: {
     country: 'UK',
     domain: 'asda.com',
     store: 'asda',
+    zipcode: '',
   },
 };
