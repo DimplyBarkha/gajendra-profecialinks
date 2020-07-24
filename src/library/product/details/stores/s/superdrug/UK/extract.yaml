@@ -169,7 +169,7 @@ fields:
     xpath: count(//article//h3[contains(.,"Benefits") or contains(.,"Features")]/parent::article//li)
   - name: quantity
     xpath: //p[contains(text(),"Size")][contains(text(),"Height")][contains(text(),"Width")][contains(text(),"Depth")]
-    regExp: (Size )(.+)(\s)(?=Height)
+    regExp: (Size )(.+)(?=Height)
     regExpReplace: $2
   - name: secondaryImageTotal
     xpath: count(//ul[@id="thumbnails"]//li[position()>1])
