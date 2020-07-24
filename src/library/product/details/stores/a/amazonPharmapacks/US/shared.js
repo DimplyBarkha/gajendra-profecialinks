@@ -123,6 +123,7 @@ const transform = (data) => {
         row.asin = row.sku;
         delete row.sku;
       }
+
     }
   }
   return data;

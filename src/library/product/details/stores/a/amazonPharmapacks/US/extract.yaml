@@ -74,7 +74,7 @@ fields:
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: shippingInfo
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//*[@id="shipsFromSoldBy_feature_div"]
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//*[@id="shipsFromSoldBy_feature_div"] | //div[contains(@id,'outOfStock')]//span[contains(@class,'a-color-price')]
   - name: shippingDimensions
     xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]|//li//span[contains(text(), 'Product Dimensions:')]/../span[last()]
   - name: shippingWeight
@@ -91,7 +91,7 @@ fields:
   - name: manufacturerDescription
     xpath: //div[@class="aplus-v2 desktop celwidget"]//div[contains(@class,"aplus-module-wrapper")]//text()[not(ancestor::noscript)]
   - name: manufacturerImages
-    xpath: //div[@cel_widget_id="aplus"]//img/@data-src
+    xpath: //div[@cel_widget_id="aplus"]//img/@data-src | //th[@class="apm-tablemodule-image "]//img/@src
   - name: videos
     xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url
   - name: coupon
@@ -156,14 +156,14 @@ fields:
   - name: specifications
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
-    xpath: //body[@primeValue]/@primeValue
+    xpath: //*[@id="primeValue"]
     defaultValue: "NO"
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
     xpath: //span[contains(@class,'mbcMerchantName')]
   - name: otherSellersPrice
-    xpath: //span[contains(@id, "mbc-price")]
+    xpath: //span[contains(@class,'mbcMerchantName')]/parent::div/preceding-sibling::div//span[contains(@id,'mbc-price')]
   - name: otherSellersShipping2
     xpath: //span[contains(@id, "mbc-shipping")]
   - name: otherSellersPrime
