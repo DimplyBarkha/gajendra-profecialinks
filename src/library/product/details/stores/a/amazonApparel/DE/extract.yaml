@@ -4,7 +4,7 @@ fields:
     xpath: //img[@id="landingImage"]/@src
   - name: size
     singleValue: true
-    xpath: //option[@id='native_size_name_0']
+    xpath: //option[@id='native_size_name_0'] | //div[@id='variation_size_name']//span[@class='selection']
   - name: ratingCount
     singleValue: true
     xpath: //*[@id="acrCustomerReviewText"]
@@ -45,7 +45,7 @@ fields:
     xpath: //span[@id="price_inside_buybox"]
     singleValue: true
   - name: featureBullets
-    singleValue: false
+    singleValue: true
     xpath: //*[@id='feature-bullets']//ul/li
   - name: otherSellersName
     xpath: //a[@id="sellerProfileTriggerId"]
