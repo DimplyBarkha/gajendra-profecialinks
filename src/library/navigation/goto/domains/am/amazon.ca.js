@@ -66,9 +66,9 @@ module.exports = {
           console.log('We failed to solve the CAPTCHA');
           return context.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
         }
-        return false;
+        return 'false';
       }
-      return true;
+      return 'true';
     };
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
@@ -80,7 +80,7 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
-      await new Promise(r => setTimeout(r, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
         return;
       }
@@ -91,7 +91,7 @@ module.exports = {
 
         console.log('Waiting for page to reload on homepage');
         context.waitForNavigation();
-        if (!await solveCaptchaIfNecessary()) {
+        if (await solveCaptchaIfNecessary() === 'false') {
           hasCaptcha = true;
           return;
         }
@@ -126,7 +126,7 @@ module.exports = {
           random_move_mouse: true,
         });
         console.log('lastResponseData', lastResponseData);
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
 
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
@@ -144,7 +144,7 @@ module.exports = {
         return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       }
 
-      if (!await solveCaptchaIfNecessary) {
+      if (await solveCaptchaIfNecessary() === 'false') {
         hasCaptcha = true;
         return;
       }
