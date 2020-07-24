@@ -279,7 +279,7 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                         if(bullets){
                           addHiddenDiv('ii_descriptionBullets', `${bullets.length}`, newDiv); 
                           for(let i = 0; i < bullets.length; i++){
-                            let newBullet = bullets[i].replace(/<\/?li>/g,' ')
+                            let newBullet = bullets[i].replace(/<\/?li>/g,' ').replace(/<.+?>/g, ' ')
                             // addHiddenDiv('ii_description', `${newBullet}`, newDiv); 
                             addHiddenDiv('ii_additionalDescBulletInfo', `${newBullet}`, newDiv); 
                           }
