@@ -42,7 +42,7 @@ const transform = (data, context) => {
             row.variantInformation.forEach(variant => {
               variantsArray.push(variant.text)
             })
-            let variantString = variantsArray.join(" || ")
+            let variantString = variantsArray.join(" | ")
             row.variantInformation = [{ text: variantString }];
           }
         }
@@ -92,6 +92,18 @@ const transform = (data, context) => {
           row.videos = [{text: ""}]
           let videoStr = videoArray.join(" | ");
           row.videos[0].text = videoStr;
+        }
+
+        if (row.manufacturerImages) {
+          let manufImageArray = [];
+          row.manufacturerImages.forEach(manufImage => {
+            if(!manufImageArray.includes(manufImage.text)){
+              manufImageArray.push(manufImage.text);
+            }
+          });
+          row.manufacturerImages = [{text: ""}]
+          let manufImageStr = manufImageArray.join(" | ");
+          row.manufacturerImages[0].text = manufImageStr;
         }
 
         if (row.directions) {

@@ -23,6 +23,68 @@ module.exports = {
         return window.location.href;
       })
 
+      // const prodSkus = ["167781","989935","989928","167771","989933","989941"];
+      const prodSkus = await context.evaluate(function(records,cnt) {
+        if (records[0].allMeta) {
+          const product = records[0].allMeta;
+          if (product) {
+            if(product.variants.length){
+              let skuArray = [];
+              product.variants.forEach(variant => {
+                skuArray.push(variant.subVariant[0].p_Sku_ID);
+              });
+              if(skuArray.length){
+                return skuArray;
+              } else {
+                return ["hello"]
+              }
+            }
+          }
+        }
+      },json.records, json.totalRecordCount,)
+var stockArr = await context.evaluate(async function getDataFromAPI (products) {
+    let stockArr = {};
+    const url = 'https://www.cvs.com/RETAGPV3/OnlineShopService/V2/getSKUInventoryAndPrice';
+    let body = "{\"request\":{\"header\":{\"lineOfBusiness\":\"RETAIL\",\"appName\":\"CVS_WEB\",\"apiKey\":\"a2ff75c6-2da7-4299-929d-d670d827ab4a\",\"channelName\":\"WEB\",\"deviceToken\":\"d9708df38d23192e\",\"deviceType\":\"DESKTOP\",\"responseFormat\":\"JSON\",\"securityType\":\"apiKey\",\"source\":\"CVS_WEB\",\"type\":\"retleg\"}},\"skuId\":[],\"pageName\":\"PLP\"}";
+    let bodyjson = JSON.parse(body);
+    bodyjson.skuId = products;
+    body = JSON.stringify(bodyjson);   
+    const response = await fetch(url,{
+      "headers": {
+        "accept": "application/json",
+        "accept-language": "en-US,en;q=0.9",
+        "cache-control": "no-cache",
+        "content-type": "application/json;charset=UTF-8",
+        "pragma": "no-cache",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-origin"
+      },
+      "referrer": "https://www.cvs.com/shop/pop-arazzi-special-effects-nail-polish-prodid-1015111",
+      "referrerPolicy": "no-referrer-when-downgrade",
+      "body": body,
+      "method": "POST",
+      "mode": "cors",
+      "credentials": "include"
+    });
+    if (response && response.status === 404) {
+      console.log('Product Not Found!!!!');
+      return [];
+    }
+    if (response && response.status === 200) {
+      console.log('Product Found!!!!');
+      const json = await response.json();
+      
+      if (json && json.response && json.response.getSKUInventoryAndPrice && json.response.getSKUInventoryAndPrice.skuInfo) {
+        json.response.getSKUInventoryAndPrice.skuInfo.forEach(skuInfo => {        
+          // stockArr.push(`${skuInfo.stockStatus}|${skuInfo.skuId}`);
+          stockArr[skuInfo.skuId] = skuInfo.stockStatus
+        });
+      }
+    }
+    return stockArr;
+}, prodSkus);
+
       async function collectManuf() {
         // let variants = [302482,302514,302696];
         const variants = await context.evaluate(function(records,cnt) {
@@ -43,6 +105,7 @@ module.exports = {
             }
           }
         },json.records, json.totalRecordCount,)
+
         await context.goto(`https://scontent.webcollage.net#[!opt!]{"type":"js","init_js":""}[/!opt!]`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
 
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -71,7 +134,7 @@ module.exports = {
             return fetch(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`)
             .then(response => response.text())
           }, variants, i);
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await new Promise(resolve => setTimeout(resolve, 5000));
           const regex = /html: "(.+)"\n\s\s\}\n\}\;/s
           let text = "Not Found"
           if(html.match(regex)){
@@ -86,9 +149,36 @@ module.exports = {
       const htmlList = await collectManuf();
       await new Promise(resolve => setTimeout(resolve, 2000));
       await context.goto(currentUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+
+      const productPageUrl = await context.evaluate(function(records){
+        const product = records[0].allMeta;
+        const variant = product.variants[0].subVariant[0];
+        return product.gbi_ParentProductPageUrl
+      }, json.records)
+
+      await context.goto(`https://www.cvs.com${productPageUrl}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+      await new Promise(resolve => setTimeout(resolve, 5000));
+
+      const variantOptions = await context.evaluate(function(){
+        let optionList = [];
+        let optionPath = '//div[@class="css-1dbjc4n r-18u37iz r-f1odvy"]//div[@class="css-901oao r-vw2c0b"]'
+        if(optionPath) {
+          var element = document.evaluate( optionPath, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          if( element.snapshotLength > 0 ) {
+            for(let i = 0; i < element.snapshotLength; i++) {
+              let option = element.snapshotItem(i).textContent.replace(/: /g, '')
+              if(option){
+                optionList.push(option);
+              }
+            }
+          }
+        }
+        return optionList;
+      })
+      await context.goto(currentUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      await context.evaluate(function (records, cnt, htmlList) {        
+      await context.evaluate(function (records, cnt, htmlList, stockArr, variantOptions) {        
         function addHiddenDiv (id, content, parentDiv = null, html = false) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
@@ -118,8 +208,7 @@ module.exports = {
                 for(let i = 0; i < product.variants.length; i++){
                   const variant = product.variants[i].subVariant[0];
                   const newDiv = addHiddenDiv(`ii_product`, `${i}`);
-
-                  addHiddenDiv('ii_totalRecordCount', product.variants.length - 1, newDiv);
+                  addHiddenDiv('ii_totalRecordCount', product.variants.length, newDiv);
 
                   addHiddenDiv(`ii_manufHTML`, htmlList[i], newDiv, true);
                   addHiddenDiv(`ii_imageAlt`, product.title, newDiv, true);
@@ -128,14 +217,20 @@ module.exports = {
                   addHiddenDiv('ii_brand', product.ProductBrand_Brand, newDiv);
                   if(variant.product_title_desktop){
                     addHiddenDiv('ii_title', variant.product_title_desktop, newDiv);
-                    addHiddenDiv('ii_metaKeywords', `Buy ${variant.product_title_desktop} and enjoy FREE SHIPPING on most orders from CVS Pharmacy. Shop now to stock up on essentials, see coupons, deals, and get the best price!`, newDiv);
+                    // addHiddenDiv('ii_metaKeywords', `Buy ${variant.product_title_desktop} and enjoy FREE SHIPPING on most orders from CVS Pharmacy. Shop now to stock up on essentials, see coupons, deals, and get the best price!`, newDiv);
 
                   } else {
                     addHiddenDiv('ii_title', product.p_Product_FullName, newDiv);
-                    addHiddenDiv('ii_metaKeywords', `Buy ${product.p_Product_FullName} and enjoy FREE SHIPPING on most orders from CVS Pharmacy. Shop now to stock up on essentials, see coupons, deals, and get the best price!`, newDiv);
+                    // addHiddenDiv('ii_metaKeywords', `Buy ${product.p_Product_FullName} and enjoy FREE SHIPPING on most orders from CVS Pharmacy. Shop now to stock up on essentials, see coupons, deals, and get the best price!`, newDiv);
 
                   }
                   addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
+
+                  if(product.p_Product_UPCNumber){
+                    addHiddenDiv('ii_gtin', product.p_Product_UPCNumber, newDiv);
+                  } else {
+                    addHiddenDiv('ii_gtin',`${variant.upc_image[0]}`, newDiv); 
+                  }
                   if(product.categories){
                     let categoryArray = [];
                     Object.values(product.categories[0]).forEach(cat => {
@@ -149,7 +244,7 @@ module.exports = {
                       if(variant.upc_image){
                         addHiddenDiv('ii_image',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[0]}`, newDiv); 
                         if(variant.upc_image.length > 1){
-                          addHiddenDiv('ii_imageAlt',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[1]}`, newDiv); 
+                          // addHiddenDiv('ii_imageAlt',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[1]}`, newDiv); 
                           addHiddenDiv('ii_secondaryImageTotal',`${variant.upc_image.length - 1}`, newDiv); 
                           for(let j = 1; j < variant.upc_image.length; j++){
                             addHiddenDiv('ii_alternateImages',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[j]}`, newDiv); 
@@ -203,7 +298,6 @@ module.exports = {
                         // deets = deets.replace(/\"/g, " ");
                         addHiddenDiv('ii_warnings', `${deets}`, newDiv); 
                       }
-
                       if(variant.p_Product_Ingredients){
                         let deets = variant.p_Product_Ingredients;
                         const regex = /<li>(.*?)<\/li>/g
@@ -214,8 +308,7 @@ module.exports = {
                         deets = deets.replace(/@\s+@/g, ' || ')
                         deets = deets.replace(/@/g, ' || ')
                         addHiddenDiv('ii_ingredients', `${deets}`, newDiv); 
-                  
-                        if(variant.p_Product_Ingredients.includes("% Daily Value")){
+                        if(variant.p_Product_Ingredients.includes("Servings Per Container:")){
                           let ingHtml = variant.p_Product_Ingredients
                           addHiddenDiv('ii_ingredientHTML', ingHtml, newDiv, true); 
                           const nutrTerm = document.querySelectorAll(`div.TablerData tr`);
@@ -251,12 +344,14 @@ module.exports = {
                         // let split = deets.split("||  ||")
                         // deets = split.join("||")
                         if(deets){
-                          if(deets.includes("Questions?")){
-                            let deetSplit = deets.split("Questions")
-                            addHiddenDiv('ii_directions', `${deetSplit[0]}`, newDiv); 
-                          } else{
-                            addHiddenDiv('ii_directions', `${deets}`, newDiv); 
-                          }
+                          addHiddenDiv('ii_directions', `${deets}`, newDiv); 
+
+                          // if(deets.includes("Questions?")){
+                          //   let deetSplit = deets.split("Questions")
+                          //   addHiddenDiv('ii_directions', `${deetSplit[0]}`, newDiv); 
+                          // } else{
+                          //   addHiddenDiv('ii_directions', `${deets}`, newDiv); 
+                          // }
                         }
                  
                       }
@@ -306,89 +401,193 @@ module.exports = {
                       if(variant.HIGH_RES_IMG_AVLBL !== "0"){
                         addHiddenDiv('ii_imageZoom', "Yes", newDiv);
                       }
-                      
-                      if(variant.retail_only === "0" && variant.stock_level === "0"){
-                        addHiddenDiv('ii_availability', "Out of stock", newDiv);
-                      } else if(variant.retail_only === "1"){
-                        addHiddenDiv('ii_availability', "Only in stores", newDiv);
-                      } else if(variant.retail_only === "0" && variant.stock_level !== "0"){
-                        addHiddenDiv('ii_availability', "In Stock", newDiv);
+
+                      if(stockArr){
+                        // if(stockArr[variant.p_Sku_ID] === 0){
+                        //   addHiddenDiv('ii_availability', "Out of stock", newDiv);
+                         if(variant.retail_only === "0" && stockArr[variant.p_Sku_ID] === 0){
+                          addHiddenDiv('ii_availability', "Out of stock", newDiv);
+                        } else if(variant.retail_only === "1"){
+                          addHiddenDiv('ii_availability', "Only in stores", newDiv);
+                        } else if(variant.retail_only === "0" && stockArr[variant.p_Sku_ID] === 1){
+                          addHiddenDiv('ii_availability', "In Stock", newDiv);
+                        }
                       }
+
+                        const iframeImgPath = '//div[contains(@class, "wc-tour-container")]/@data-resources-base';
+                        const imgJson = document.querySelector('div.wc-json-data');
+                        var iframeImg = document.evaluate( iframeImgPath, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+                        if(iframeImg.snapshotLength > 0 && imgJson) {
+                          if(imgJson.innerText){
+                            let text = imgJson.innerText;
+                            if(text.includes("runtimeSrc")){
+                              let textSplit = text.split("runtimeSrc:{src:");
+                              if(textSplit[1]){
+                                if(textSplit[1].includes("web.jpg")){
+                                  let imgText = textSplit[1].split("web.jpg");
+                                  let imgSrc = imgText[0] + "web.jpg"
+                                  addHiddenDiv('ii_iframeImg', `${iframeImg.snapshotItem(0).textContent}${imgSrc}`, newDiv);
+                                }
+                              }
+                            }
+                          }
+                        }
                       
                       
                       let metaKeywords = [product.title];
                       let packSizes = [];
                       let variantInfoArray = [];
-                      if(variant.p_Sku_Color){
-                        addHiddenDiv('ii_color', variant.p_Sku_Color, newDiv);
-                        variantInfoArray.push(variant.p_Sku_Color);
+          
+                      if(variantOptions.length > 0){
+
+                        variantOptions.forEach(option => {
+                          let optionFirst = option.split(" ")
+
+                          if(variant.p_Sku_Color){
+                            addHiddenDiv('ii_color', variant.p_Sku_Color, newDiv);
+                            if("p_Sku_Color".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Color)){
+                              variantInfoArray.push(variant.p_Sku_Color);
+                            }
+                          }
+
+                          if(variant.p_Sku_Size){
+                            if("p_Sku_Size".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Size)){
+                              variantInfoArray.push(variant.p_Sku_Size);
+                            }
+                          }
+                          
+                          if(variant.p_Sku_Group_Size){
+                            if("p_Sku_Group_Size".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Group_Size)){
+                              variantInfoArray.push(variant.p_Sku_Group_Size);
+                            }
+                            packSizes.push(variant.p_Sku_Group_Size)
+                          }
+                          if(variant.p_Sku_Flavor){
+                            if("p_Sku_Flavor".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Flavor)){
+                              variantInfoArray.push(variant.p_Sku_Flavor);
+                            }                    
+                          }
+                          // if(variant.p_Sku_Flavor){
+                          //   variantInfoArray.push(variant.p_Sku_Flavor);
+                       
+                          // }
+                          if(variant.p_Sku_Concern){
+                            if("p_Sku_Concern".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Concern)){
+                              variantInfoArray.push(variant.p_Sku_Concern);
+                            }
+                          } 
+                          if(variant.p_Sku_Form){
+                            if("p_Sku_Form".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Form)){
+                              variantInfoArray.push(variant.p_Sku_Form);
+                            }                
+                          }
+                          if(variant.p_Sku_Absorbency){
+                            if("p_Sku_Absorbency".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Absorbency)){
+                              variantInfoArray.push(variant.p_Sku_Absorbency);
+                            }
+                          }
+                          if(variant.p_Sku_Final_Look){
+                            if("p_Sku_Final_Look".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Final_Look)){
+                              variantInfoArray.push(variant.p_Sku_Final_Look);
+                            }
+                          }
+                          if(variant.p_Sku_Finish){
+                            if("p_Sku_Finish".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Finish)){
+                              variantInfoArray.push(variant.p_Sku_Finish);
+                            }
+                          }
+                          if(variant.p_Sku_Fragrance){
+                            if("p_Sku_Fragrance".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Fragrance)){
+                              variantInfoArray.push(variant.p_Sku_Fragrance);
+                            }
+                          }
+                          if(variant.p_Sku_Pack){
+                            if("p_Sku_Pack".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Pack)){
+                              variantInfoArray.push(variant.p_Sku_Pack);
+                            }
+                            packSizes.push(variant.p_Sku_Pack)
+                          }
+                          if(variant.p_Sku_SPF){
+                            if("p_Sku_SPF".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_SPF)){
+                              variantInfoArray.push(variant.p_Sku_SPF);
+                            }                    
+                          }
+                          if(variant.p_Sku_Scent){
+                            if("p_Sku_Scent".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Scent)){
+                              variantInfoArray.push(variant.p_Sku_Scent);
+                            }                    
+                          }
+                          if(variant.p_Sku_Strength){
+                            if("p_Sku_Strength".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Strength)){
+                              variantInfoArray.push(variant.p_Sku_Strength);
+                            }                   
+                          }
+                        })
+                        if(variantInfoArray.length != variantOptions.length){
+                          if(variant.p_Sku_Size){
+                              variantInfoArray.push(variant.p_Sku_Size);
+                          }
+                        }
+                      } else {
+                        if(variant.p_Sku_Group_Size){
+
+                          variantInfoArray.push(variant.p_Sku_Group_Size);
+                          packSizes.push(variant.p_Sku_Group_Size)
+                      
+                        }
+                        if(variant.p_Sku_Flavor){
+                          variantInfoArray.push(variant.p_Sku_Flavor);
+                    
+                        }
+                        if(variant.p_Sku_Color){
+                          addHiddenDiv('ii_color', variant.p_Sku_Color, newDiv);
+                          variantInfoArray.push(variant.p_Sku_Color);
+                     
+                        }
+                        if(variant.p_Sku_Concern){
+                          variantInfoArray.push(variant.p_Sku_Concern);
                    
-                      }
-                      // if(variant.p_Sku_Size){
-                      //   addHiddenDiv('ii_variantInfo', variant.p_Sku_Size, newDiv);
-                      //   if(!product.title.includes(variant.p_Sku_Size)){
-                      //     metaKeywords.push(variant.p_Sku_Size)
-                      //   }
-                      // }
-                      if(variant.p_Sku_Group_Size){
-                        variantInfoArray.push(variant.p_Sku_Group_Size);
-                        packSizes.push(variant.p_Sku_Group_Size)
-                    
-                      }
-                      if(variant.p_Sku_Flavor){
-                        variantInfoArray.push(variant.p_Sku_Flavor);
+                        } 
+                        if(variant.p_Sku_Form){
+                          variantInfoArray.push(variant.p_Sku_Form);
                   
-                      }
-                      if(variant.p_Sku_Flavor){
-                        variantInfoArray.push(variant.p_Sku_Flavor);
-                   
-                      }
-                      if(variant.p_Sku_Concern){
-                        variantInfoArray.push(variant.p_Sku_Concern);
-                 
-                      } 
-                      // else {
-                      //   addHiddenDiv('ii_variantInfo', variant.p_Sku_Size, newDiv);
-                      // }
-                      if(variant.p_Sku_Form){
-                        variantInfoArray.push(variant.p_Sku_Form);
-                
-                      }
-                      if(variant.p_Sku_Absorbency){
-                        variantInfoArray.push(variant.p_Sku_Absorbency);
+                        }
+                        if(variant.p_Sku_Absorbency){
+                          variantInfoArray.push(variant.p_Sku_Absorbency);
+                      
+                        }
+                        if(variant.p_Sku_Final_Look){
+                          variantInfoArray.push(variant.p_Sku_Final_Look);
                     
-                      }
-                      if(variant.p_Sku_Final_Look){
-                        variantInfoArray.push(variant.p_Sku_Final_Look);
-                  
-                      }
-                      if(variant.p_Sku_Finish){
-                        variantInfoArray.push(variant.p_Sku_Finish);
-                  
-                      }
-                      if(variant.p_Sku_Fragrance){
-                        variantInfoArray.push(variant.p_Sku_Fragrance);
-                  
-                      }
-                      if(variant.p_Sku_Pack){
-                        variantInfoArray.push(variant.p_Sku_Pack);
-                        packSizes.push(variant.p_Sku_Pack)
+                        }
+                        if(variant.p_Sku_Finish){
+                          variantInfoArray.push(variant.p_Sku_Finish);
                     
-                      }
-                      if(variant.p_Sku_SPF){
-                        variantInfoArray.push(variant.p_Sku_SPF);
+                        }
+                        if(variant.p_Sku_Fragrance){
+                          variantInfoArray.push(variant.p_Sku_Fragrance);
                     
-                      }
-                      if(variant.p_Sku_Scent){
-                        variantInfoArray.push(variant.p_Sku_Scent);
-                    
-                      }
-                      if(variant.p_Sku_Strength){
-                        variantInfoArray.push(variant.p_Sku_Strength);
-                   
+                        }
+                        if(variant.p_Sku_Pack){
+                          variantInfoArray.push(variant.p_Sku_Pack);
+                          packSizes.push(variant.p_Sku_Pack)
+                      
+                        }
+                        if(variant.p_Sku_SPF){
+                          variantInfoArray.push(variant.p_Sku_SPF);
+                      
+                        }
+                        if(variant.p_Sku_Scent){
+                          variantInfoArray.push(variant.p_Sku_Scent);
+                      
+                        }
+                        if(variant.p_Sku_Strength){
+                          variantInfoArray.push(variant.p_Sku_Strength);
+                     
+                        }
                       }
                       // let meta = metaKeywords.join(' ');
-                      // addHiddenDiv('ii_metaKeywords', variant.p_Sku_FullName, newDiv);
+                      addHiddenDiv('ii_metaKeywords', variant.p_Sku_FullName, newDiv);
 
 
                       if(variant.gbi_CarePassEligible === "Y") {
@@ -397,20 +596,21 @@ module.exports = {
                       let packResult = packSizes.join(" ") 
                       addHiddenDiv('ii_packSize', packResult, newDiv);  
 
-                      if(product.variants.length > 1){
+                      // if(product.variants.length > 1){
                         if(variantInfoArray.length) {
                           let variantJoin = variantInfoArray.join(" | ")
                           addHiddenDiv('ii_variantInfo', variantJoin, newDiv);
-                        } else {
-                          addHiddenDiv('ii_variantInfo', variant.p_Sku_Size, newDiv);
-                        }
-                      }
+                        } 
+                        // else {
+                        //   addHiddenDiv('ii_variantInfo', variant.p_Sku_Size, newDiv);
+                        // }
+                      // }
                     
                   }
                 }
           }
         }
-      }, json.records, json.totalRecordCount, htmlList);
+      }, json.records, json.totalRecordCount, htmlList, stockArr, variantOptions);
     } else {
       throw new Error("notFound");
     }

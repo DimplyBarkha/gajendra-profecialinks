@@ -40,18 +40,18 @@ fields:
     # singleValue: true
     # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
     # xpath: //div[@id='ii_Ingredients']
-  - name: factImagePresent
-    singleValue: true
-    defaultValue: "No"
+  # - name: factImagePresent
+  #   singleValue: true
+  #   defaultValue: "No"
   # - name: featureBullets
   #   singleValue: true
   - name: firstVariant
     singleValue: true
     xpath: //div[@id='ii_productUrl']
     # regExp: ([0-9])+$
-  - name: ingredientImagePresent
-    singleValue: true
-    defaultValue: "No"
+  # - name: ingredientImagePresent
+  #   singleValue: true
+  #   defaultValue: "No"
   # - name: legalDisclaimer
   #   singleValue: true
   - name: name
@@ -77,11 +77,11 @@ fields:
   - name: packSize
     xpath: //div[@id='ii_packSize']
   - name: gtin 
-    xpath: //div[@id='ii_image']
+    xpath: //div[@id='ii_gtin']
     # xpath: (//div[contains(@id, 'zoom-carousel')]//img/@src)[1]
     regExp: ([0-9]+)
   - name: upc
-    xpath: //div[@id='ii_image']
+    xpath: //div[@id='ii_gtin']
     # xpath: (//div[contains(@id, 'zoom-carousel')]//img/@src)[1]
     regExp: ([0-9]+)
   - name: id
@@ -152,7 +152,7 @@ fields:
   - name: quantity
     # xpath: //div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
     xpath: //div[@id='ii_quantity']
-    regExp: ([.0-9]+ ((CT)|(ct)|(OZ)|(oz)|(EA)|(ea)))
+    # regExp: ([.0-9]+ ((CT)|(ct)|(OZ)|(oz)|(EA)|(ea)|(Oz)))
     # singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
   - name: weightNet # was weightGross
@@ -199,7 +199,7 @@ fields:
     # xpath: //div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
   - name: manufacturerImages
     # xpath: //div[@id='wc-aplus']//img/@src[not (contains(., "syndigo.svg"))]
-    xpath: //div[@id='ii_manufHTML']//div[@id="wc-aplus"]//img[not(ancestor::div[contains(@class,'wc-comparison')]) and not(contains(@src,"syndigo.svg"))]/@src[contains(., "https:")]
+    xpath: //div[@id='ii_iframeImg']|//div[@id='ii_manufHTML']//div[@id="wc-aplus"]//img[not(contains(@src,"syndigo.svg"))]/@src[contains(., "https:")]
     # xpath: //div[@id='ii_manufHTML']//div[@id="wc-aplus"]//div[not(contains(@class,'wc-comparison'))]//img/@src[not (contains(., "syndigo.svg"))]
   # - name: allergyAdvice 
     # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
