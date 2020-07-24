@@ -78,7 +78,7 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
-      await new Promise(r => setTimeout(r, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
         return;
       }
@@ -124,7 +124,7 @@ module.exports = {
           random_move_mouse: true,
         });
         console.log('lastResponseData', lastResponseData);
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
 
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
