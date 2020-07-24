@@ -1,0 +1,20 @@
+robot: product/search
+parameters:
+  country: ES
+  domain: amazon.es
+  store: amazonMsCategory
+  zipcode: ""
+proxy:
+  zone: ZES
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_es_category:
+      extractor: 23afbbab-1491-4e18-a61d-4be8860177b9
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 45ea97e6-1fe6-4fbf-8980-12396a269785
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: 9b0d2018-3db7-418b-8307-3f38f4bae1f0
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
