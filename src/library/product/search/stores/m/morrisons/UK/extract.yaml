@@ -22,7 +22,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[contains(@class,'price-group-wrapper')]//@price
+    xpath: //div[contains(@class,'price-group-wrapper')]//span[contains(@class,"fop-price")]
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
