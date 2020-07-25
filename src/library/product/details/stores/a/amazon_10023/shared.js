@@ -57,7 +57,6 @@ const transform = (data) => {
         ];
       }
       if (row.variantInformation) {
-        console.log('variantInformation-->', row.variantInformation);
         const variantInformation = row.variantInformation.reverse();
         let text = '';
         variantInformation.forEach(item => {
@@ -191,13 +190,19 @@ const transform = (data) => {
       }
       if (row.variantCount) {
         row.variantCount.forEach(item => {
-          item.text = item.text === '0' ? '1' : item.text;
+          if (item.text === '0') {
+            row.variantCount = [
+              {
+                text: '1',
+              },
+            ];
+          }
         });
       }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' ').replace(/Read more/g, '');
+          text += item.text.replace(/\n \n/g, ' ').replace(/Read more/g, '').replace(/View larger/g, '');
         });
         row.manufacturerDescription = [
           {
@@ -224,14 +229,15 @@ const transform = (data) => {
       }
       if (row.packSize) {
         const item = row.packSize.length > 1 ? row.packSize[1] : row.packSize[0];
-        if (/-Pack/.test(item.text)) {
+        console.log('itrm---->', item);
+        if (/.*?(\d+)-Pack.*/i.test(item.text)) {
           item.text = item.text.replace(/.*?(\d+)-Pack.*/i, '$1');
-        } else if (/Pack of/i.test(item.text)) {
+        } else if (/.*pack of\s*(\d+).*/i.test(item.text)) {
           item.text = item.text.replace(/.*pack of\s*(\d+).*/i, '$1');
-        } else if (/-Count/i.test(item.text)) {
+        } else if (/.*?(\d+)-Count.*/i.test(item.text)) {
           item.text = item.text.replace(/.*?(\d+)-Count.*/i, '$1');
         } else if (/.*(\d+)\s*Count.*/.test(item.text)) {
-          item.text = item.text.replace(/.*?(\d+)\s[Cc]{1}ount.*/, '$1');
+          item.text = item.text.replace(/.*?(\d+)\s*[Cc]{1}ount.*/, '$1');
         } else {
           item.text = '';
         }
@@ -239,7 +245,7 @@ const transform = (data) => {
       }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
-          item.text = item.text.trim().match(/_SL1500_.jpg/g) ? item.text.trim().match(/_SL1500_.jpg/g).length : 0;
+          item.text = item.text.trim().match(/"hiRes":"https:/g) ? item.text.trim().match(/"hiRes":"https:/g).length : 0;
         }
       }
       if (row.promotion) {

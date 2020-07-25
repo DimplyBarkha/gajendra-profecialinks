@@ -17,17 +17,15 @@ module.exports = {
     const { productDetails } = dependencies;
     const productPrimeCheck = async () => {
       let primeValue = 'No';
-      const merchantAnchors = document.querySelectorAll('#merchant-info a');
-      const buyBoxSpans = document.querySelectorAll('#buybox span');
-      const metaNames = document.querySelectorAll('meta[name]');
+      const buyBoxSpans = document.querySelectorAll('div#buybox');
+      const metaNames = document.querySelectorAll('meta[name=title]');
 
       const findMatchingString = (nodeList) => {
         return new Promise((resolve, reject) => {
           for (const node of nodeList) {
-            const text = node.textContent;
-
+            const text = node.tagName === 'META' ? node.content : node.textContent;
             if (text.match(/sold by amazon/ig)) {
-              return resolve('Yes - Shipped & Sold');
+              return resolve('Yes - Shipped and Sold');
             } else if (text.match(/fulfilled by amazon/ig)) {
               return resolve('Yes - Fulfilled');
             } else if (text.match(/prime pantry/ig)) {
@@ -37,22 +35,6 @@ module.exports = {
           return resolve(undefined);
         });
       };
-
-      if (document.querySelector('i#burjActionPanelAddOnBadge.a-icon.a-icon-addon')) {
-        primeValue = 'Add-On';
-      }
-
-      if (document.querySelector('body').innerHTML.match(/Exclusively for Prime Members/ig)) {
-        return 'Prime Exclusive';
-      }
-
-      if (merchantAnchors && merchantAnchors.length) {
-        const res = await findMatchingString(merchantAnchors);
-
-        if (res) {
-          primeValue = res;
-        }
-      }
 
       if (buyBoxSpans && buyBoxSpans.length) {
         const res = await findMatchingString(buyBoxSpans);
