@@ -52,6 +52,11 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.firstVariant) {
+        row.firstVariant.forEach(firstVariant => {
+          firstVariant.text = firstVariant.text.replace('\",', '');
+        });
+      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
@@ -81,11 +86,6 @@ const transform = (data, context) => {
       if (row.otherSellersPrice) {
         row.otherSellersPrice.forEach(otherSellersPrice => {
           otherSellersPrice.text = otherSellersPrice.text.replace('.', '').replace(',', '.').trim();
-        });
-      }
-      if (row.otherSellersShipping) {
-        row.otherSellersShipping.forEach(otherSellersShipping => {
-          otherSellersShipping.text = otherSellersShipping.text.replace('.', '').replace(',', '.').trim();
         });
       }
       if (row.aggregateRating) {
@@ -146,9 +146,6 @@ const transform = (data, context) => {
           }
         });
       }
-      if (row.image) {
-        row.image.text = row.image.splice(1);
-      }
       if (row.variantAsins) {
         let text = '';
         row.variantAsins.forEach(item => {
@@ -159,6 +156,9 @@ const transform = (data, context) => {
             text: cleanUp(text.slice(0, -4)),
           },
         ];
+      }
+      if (row.image) {
+        row.image.text = row.image.splice(1);
       }
       if (row.ingredientsList) {
         let text = '';
@@ -185,7 +185,7 @@ const transform = (data, context) => {
           if (item.text.toLowerCase().includes('kostenlose')) {
             item.text = '0.00';
           } else {
-            item.text = item.text.replace('+', '').trim();
+            item.text = item.text.replace('+', '').replace('.', '').replace(',', '.').trim();
           }
         }
       }
