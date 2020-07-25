@@ -115,29 +115,6 @@ const transform = (data) => {
           }
         });
       }
-      // if (!(row.variantAsins)) {
-      //   row.variantAsins = [];
-      //   if (row.asin) {
-      //     row.asin.forEach(asin => {
-      //       row.variantAsins.push({ text: asin.text });
-      //     });
-      //   }
-      // } else {
-      //   if (row.asin) {
-      //     row.asin.forEach(asin => {
-      //       row.variantAsins.push({ text: asin.text });
-      //     });
-      //   }
-      //   let text = '';
-      //   row.variantAsins.forEach(item => {
-      //     text += `${item.text} | `;
-      //   });
-      //   row.variantAsins = [
-      //     {
-      //       text: cleanUp(text.slice(0, -4)),
-      //     },
-      //   ];
-      // }
       if (row.variantAsins) {
         let text = '';
         row.variantAsins.forEach(item => {
@@ -188,6 +165,17 @@ const transform = (data) => {
             row.warnings.splice(i, 1);
           }
         }
+      }
+      if (row.ingredientsList) {
+        let text = '';
+        row.ingredientsList.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.ingredientsList = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
       }
     }
   }

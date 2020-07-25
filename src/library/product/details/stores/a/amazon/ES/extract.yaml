@@ -196,8 +196,6 @@ fields:
   - name: otherSellersShipping2
     singleValue: false
     xpath: //span[contains(@id, "mbc-shipping")]
-    # regExp: ([0-9\,]{1,}) € de
-    # regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
