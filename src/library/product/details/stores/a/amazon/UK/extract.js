@@ -1,6 +1,7 @@
 const { transform } = require('./format');
 async function implementation (
   // @ts-ignore
+  // @ts-ignore
   inputs,
   parameters,
   context,
@@ -25,8 +26,11 @@ async function implementation (
         });
       });
     }
+    // @ts-ignore
     var CurrentSeller = document.querySelector('div[id="merchant-info"]') ? document.querySelector('div[id="merchant-info"]').innerText : '';
+    // @ts-ignore
     var CurrentSellerPrice = document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']") ? document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']").innerText : '';
+    // @ts-ignore
     var CurrentSellerShipping = document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
     if (CurrentSeller && CurrentSeller.search('sold by amazon') < 0 && CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)) {
       CurrentSeller = (CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)[1]) ? CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)[1] : CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)[2];
@@ -38,6 +42,10 @@ async function implementation (
       console.log('CurrentSellerPrice', CurrentSellerPrice);
       console.log('CurrentSellerShipping', CurrentSellerShipping);
     }
+    let manufacturerDescription = document.querySelector('.aplus-v2.desktop.celwidget');
+    // @ts-ignore
+    manufacturerDescription = manufacturerDescription !== null ? manufacturerDescription.innerText : '';
+    addHiddenDiv('ii_manufacturerDescription', manufacturerDescription);
   });
   return await context.extract(productDetails, { transform });
 }

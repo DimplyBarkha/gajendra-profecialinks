@@ -153,7 +153,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='productDescription']/h3[contains(text(), 'Manufacturer')]//following-sibling::*[1] | //div[@data-cel-widget='aplus']
+    xpath: //div[@id='productDescription']/h3[contains(text(), 'Manufacturer')]//following-sibling::*[1] | //div[@id='ii_manufacturerDescription']
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
