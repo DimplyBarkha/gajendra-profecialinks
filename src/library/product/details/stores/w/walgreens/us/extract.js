@@ -16,6 +16,10 @@ module.exports = {
       return document.querySelector('li#prodCollage') ? document.querySelector('li#prodCollage').getAttribute('class') : '';
     });
 
+    const loadMoreManufacturer = await context.evaluate(function () {
+      return document.querySelector('li#prodCollage') ? (document.querySelector('li#prodCollage').innerText.match('Loading manufacturer content') !== null) : false;
+    });
+
     await context.evaluate(function () {
       const popUps = document.querySelector('div.fsrAbandonButton');
 
@@ -56,6 +60,9 @@ module.exports = {
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner');
       await context.waitForSelector('a.view-more-trigger');
+      if (loadMoreManufacturer) {
+        await context.waitForSelector('div.wc-fragment');
+      }
     }
 
     const extractAll = async (id, url, variants) => {
