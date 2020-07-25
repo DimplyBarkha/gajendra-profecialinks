@@ -165,7 +165,10 @@ fields:
     xpath: //script[contains(., "ImageBlockATF")]/text()
   - name: variantAsins
     singleValue: false
-    xpath: //*[@id="twister"]//li/@data-defaultasin
+    xpath: //script[contains(text(),"asinVariationValues")] | //*[contains(@id, 'twisterContainer')]//option/@value
+    regExp: >-
+        "ASIN":\s*"([^\"]+)
+    regExpReplace: $1
   - name: primeFlag
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
