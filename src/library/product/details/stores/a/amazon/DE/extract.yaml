@@ -33,7 +33,7 @@ fields:
     xpath: //*[@id="priceblock_ourprice"]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id='availability']
+    xpath: //*[@id='availability']/span
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[@id='productDescription'] | //div[@id='productDescription']/h3[contains(text(), 'Produktbeschreibung')]//following-sibling::*[1]
@@ -51,9 +51,7 @@ fields:
     xpath: //td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //td/a[contains(text(), 'Hersteller')]/parent::*[1]/following-sibling::*[1] | //th[contains(text(), 'Hersteller')]/following-sibling::*[1]
   - name: quantity
     singleValue: false
-    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Größe')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Größe')]/* | //label[contains(text(), 'Größe')]/following-sibling::*[1] | //td[text()='Größe']/following-sibling::*[1])[1] |  //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Größe')]/../td | //*[contains(text(),'Volumen')]/following-sibling::*[1]
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$|([0-9\.][0-9\.\,]{1,5}[-\s]?([Mm]l))
-    regExpReplace: $1$2$3$4$5
+    xpath: //*[contains(text(), 'Größe')]/following-sibling::*[1]
   - name: weightNet
     singleValue: false
     xpath: //td[contains(text(), 'Netto-Gewicht')]/following-sibling::*[1] | //td[contains(text(), 'Nettogewicht')]/following-sibling::*[1]
@@ -102,7 +100,7 @@ fields:
     manualSelector: '#importantInformation_feature_div,#productDescription_feature_div.feature,#aplus'
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@cel_widget_id="aplus"]//*[not(self::noscript)]/img/@src
+    xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), 'durationTimestamp')]
@@ -115,7 +113,7 @@ fields:
     regExpReplace: 'Yes'
   - name: amazonChoiceCategory
     singleValue: false
-    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
+    xpath: //*[@id='acBadge_feature_div']//span[contains(@class, 'ac-keyword-link')]
   - name: brandLink
     singleValue: false
     xpath: //a[@id="bylineInfo"]/@href
@@ -164,17 +162,16 @@ fields:
     defaultValue: NO
   - name: largeImageCount
     singleValue: false
-    xpath: count(//script[contains(text(),"SL1500_.jpg")])
+    xpath: //script[contains(., "ImageBlockATF")]/text()
   - name: variantAsins
     singleValue: false
-    xpath: //*[@id="twister"]//li/@data-defaultasin | //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
-    regExp: p\/([A-Z0-9]{9,})\/
-    regExpReplace: $1
+    xpath: //*[@id="twister"]//li/@data-defaultasin
   - name: primeFlag
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
     regExp: (.+)
     regExpReplace: 'Yes'
+    defaultValue: NO
   - name: lbb
     singleValue: false
     xpath: //div[contains(@id, 'mbc')]
@@ -193,7 +190,7 @@ fields:
   - name: otherSellersPrime
     singleValue: false
     xpath: //span[contains(@id, "mbc-shipping")]
-  - name: otherSellersShipping
+  - name: otherSellersShipping2
     singleValue: false
     xpath: //span[contains(@id, "mbc-shipping")]
     regExp: ([0-9\,]{1,}) €
@@ -209,12 +206,15 @@ fields:
     xpath: //*[contains(text(), 'Inhaltsstoffe')]/following-sibling::*[1] | //*[contains(text(), 'Zutaten')]/following-sibling::*[1]
   - name: promotion
     singleValue: false
-    xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
+    xpath: //tr[contains(@id, 'regularprice_savings')] | //td[contains(@id, 'priceblock_dealprice_lbl')]
   - name: variantInformation
     singleValue: false
     xpath: //*[@id="twister"]//div[@class="twisterTextDiv text"] | //*[@id="twister"]//span[@class="selection"]
   - name: firstVariant
     singleValue: false
-    xpath: (//li[contains(@data-dp-url,"dp/")])[1]/@data-dp-url
-    regExp: twister_([A-Z0-9]{9,})
+    xpath: //script[contains(text(), 'parentAsin')]
+    regExp: parentAsin"\s:\s"(\S+)
     regExpReplace: $1
+  - name: warnings
+    singleValue: false
+    xpath: //*[contains(text(), 'Haftungsausschluss')]/following-sibling::*[1] | //*[contains(text(), 'Haftungsausschluss')]/following-sibling::*[2]

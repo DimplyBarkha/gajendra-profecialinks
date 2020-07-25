@@ -149,6 +149,56 @@ const transform = (data, context) => {
       if (row.image) {
         row.image.text = row.image.splice(1);
       }
+      if (row.variantAsins) {
+        let text = '';
+        row.variantAsins.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variantAsins = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
+      }
+      if (row.ingredientsList) {
+        let text = '';
+        row.ingredientsList.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.ingredientsList = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
+      }
+      if (row.otherSellersPrime) {
+        for (const item of row.otherSellersPrime) {
+          if (item.text.includes('kostenlose')) {
+            item.text = 'YES';
+          } else {
+            item.text = 'NO';
+          }
+        }
+      }
+      if (row.otherSellersShipping2) {
+        for (const item of row.otherSellersShipping2) {
+          if (item.text.toLowerCase().includes('kostenlose')) {
+            item.text = '0.00';
+          } else {
+            item.text = item.text.replace('+', '').trim();
+          }
+        }
+      }
+      if (row.largeImageCount) {
+        for (const item of row.largeImageCount) {
+          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+        }
+      }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(ratingCount => {
+          ratingCount.text = ratingCount.text.replace('.', '').trim();
+        });
+      }
     }
   }
   return data;

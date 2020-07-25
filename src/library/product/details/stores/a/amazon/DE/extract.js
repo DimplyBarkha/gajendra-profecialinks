@@ -16,23 +16,18 @@ module.exports = {
     dependencies,
   ) {
     const { transform } = parameters;
-    await context.evaluate(() => {
-      let prodDesc;
-      if (document.querySelector('#feature-bullets ul')) {
-        prodDesc = document.querySelector('#feature-bullets ul').innerText;
+    const { productDetails } = dependencies;
+    await context.evaluate(async () => {
+      var element = document.querySelectorAll("div[cel_widget_id*='aplus'] img");
+      if (element) {
+        element.forEach(async (node) => {
+          node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 1000);
+          });
+        });
       }
-      if (document.querySelector('#productDescription')) {
-        if (document.querySelector('#productDescription p')) {
-          prodDesc = prodDesc + ' | ' + document.querySelector('#productDescription p').innerText;
-        }
-        if (document.querySelector('#productDescription h3')) {
-          if (document.querySelector('#productDescription h3').innerText.includes('Produktbeschreibung')) {
-            prodDesc = prodDesc + ' | ' + document.querySelector('#productDescription h3').nextElementSibling.innerText;
-          }
-        }
-      }
-      document.body.setAttribute('prod_desc', prodDesc);
     });
-    await context.extract(dependencies.productDetails, { transform });
+    return await context.extract(productDetails, { transform });
   },
 };
