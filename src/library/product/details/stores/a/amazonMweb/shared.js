@@ -74,15 +74,11 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          item.text = item.text.replace(/[\r\n]+/gm, '').replace(/ +(?= )/g, ''); ;
-          item.text = `${item.text.replace(/([\<img].*[\"\>])/g, ' ').trim().replace('\n', '')}  `;
-          text += `${item.text.replace(/\n \n/g, '')}  `;
+          // item.text = item.text.replace(/[\r\n]+/gm, '').replace(/ +(?= )/g, ''); 
+          item.text = item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() ;
+          // item.text = `${item.text.replace(/([\<img].*[\"\>])/g, ' ').trim().replace('\n', '')}  `;
+          // text += `${item.text.replace(/\n \n/g, '')}  `;
         });
-        row.manufacturerDescription = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
       }
       if (row.manufacturerImages) {
         if (row.manufacturerImages) {
