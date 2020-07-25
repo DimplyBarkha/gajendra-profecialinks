@@ -4,7 +4,7 @@
 * @returns {ImportIO.Group[]}
 */
 const transform = (data) => {
-  const clean = text => text.toString()
+  const cleanUp = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
@@ -27,22 +27,10 @@ const transform = (data) => {
           priceItem.text = priceItem.text.replace(/€/g, 'EUR');
         });
       }
-      if (row.availabilityText) {
-        row.availabilityText.forEach(item => {
-          if (item.text.includes('Habituellement')) {
-            item.text = '';
-          }
-        });
-      }
       if (!row.primeFlag) {
         const text = [];
         text.push({ text: 'NO' });
         row.primeFlag = text;
-      }
-      if (row.otherSellersPrice) {
-        row.otherSellersPrice.forEach(priceItem => {
-          priceItem.text = priceItem.text.replace(/\./g, '').replace(/,/g, '.');
-        });
       }
       if (row.imageAlt) {
         row.imageAlt.forEach(item => {
@@ -57,30 +45,11 @@ const transform = (data) => {
           item.text = item.text.replace('https://www.amazon.fr', 'https://images-na.ssl-images-amazon.com');
         });
       }
-      if (row.otherSellersShipping) {
-        const text = [];
-        if (row.otherSellersPrice.length) {
-          row.otherSellersShipping.forEach(item => {
-            if (item.text.match(/.(?:[\d]+(?:.[\d]+)?)/)) {
-              text.push({ text: `${item.text.match(/.(?:[\d]+(?:.[\d]+)?)/)[0]}` });
-            }
-          });
-          row.otherSellersShipping = text;
-        }
-      }
-      if (row.otherSellersPrime) {
-        for (const item of row.otherSellersPrime) {
-          if (item.text.includes('Details')) {
-            item.text = 'YES';
-          } else {
-            item.text = 'NO';
-          }
-        }
-      }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
+          item.text = item.text.replace(/ /gm, '');
           item.text = item.text.replace(/(\d+).*/g, '$1');
-          if (item.text.includes('0')) {
+          if (item.text === '0') {
             item.text = '';
           }
         });
@@ -88,11 +57,6 @@ const transform = (data) => {
         const text = [];
         text.push({ text: '' });
         row.ratingCount = text;
-      }
-      if (row.secondaryImageTotal) {
-        row.secondaryImageTotal.forEach(item => {
-          item.text = parseInt(item.text) === 0 || parseInt(item.text) - 1 === 0 ? '' : parseInt(item.text) - 1;
-        });
       }
       if (row.lbbPrice) {
         row.lbbPrice.forEach(priceItem => {
@@ -116,6 +80,7 @@ const transform = (data) => {
       if (row.listPrice) {
         row.listPrice.forEach(priceItem => {
           priceItem.text = priceItem.text.replace(/\./g, '').replace(/,/g, '.');
+          priceItem.text = priceItem.text.replace(/€/gm, 'EUR');
         });
       }
       if (row.subscriptionPrice) {
@@ -129,11 +94,20 @@ const transform = (data) => {
         });
       }
       if (row.description) {
+        let text = '';
         row.description.forEach(item => {
-          item.text = `${item.text.replace(/\n/g, '')}`;
-          item.text = item.text.replace('Voir plus', '');
-          item.text = item.text.trim();
+          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
         });
+        let descriptionBottom = [];
+        if (row.descriptionBottom) {
+          descriptionBottom = row.descriptionBottom;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
+        row.description = [
+          {
+            text: cleanUp(descriptionBottom.join(' | ')),
+          },
+        ];
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item => {
@@ -148,12 +122,7 @@ const transform = (data) => {
       }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
-          const itemVar = item.text.match(/SL1500_.jpg/gm) ? item.text.match(/SL1500_.jpg/gm).length : 0;
-          if (itemVar === 0) {
-            item.text = item.text.match(/large":/gm) ? item.text.match(/large":/gm).length : 0;
-          } else {
-            item.text = itemVar;
-          }
+          item.text = item.text.trim().match(/"hiRes":"https:/g) ? item.text.trim().match(/"hiRes":"https:/g).length : 0;
         }
       }
       if (row.variantCount) {
@@ -164,22 +133,45 @@ const transform = (data) => {
         });
       }
       if (row.manufacturerDescription) {
+        let text = '';
         row.manufacturerDescription.forEach(item => {
-          item.text = item.text.replace(/(<.*[^>]+> ?)/gm, '');
+          text += item.text.replace(/\n \n/g, ' ');
         });
+        row.manufacturerDescription = [
+          {
+            text: cleanUp(text.replace(/<img.{1,300}">/g, '')),
+          },
+        ];
       }
       if (row.brandText) {
         row.brandText.forEach(item => {
           item.text = item.text.replace(/Marque : /gm, '');
         });
       }
+      if (row.heroQuickPromoUrl) {
+        row.heroQuickPromoUrl.forEach(item => {
+          item.text = 'http://www.amazon.fr' + item.text;
+        });
+      }
+      row.variantCount = [{
+        text: (row.variantAsins && row.variantAsins.length) || '',
+      }];
       if (!row.variantAsins) {
         const text = [];
         text.push({ text: row.asin[0].text });
         row.variantAsins = text;
+      } else {
+        const variantAsinArr = [];
+        row.variantAsins.forEach(item => {
+          variantAsinArr.push(item.text);
+        });
+        row.variantAsins = [{ text: variantAsinArr.join(' | ') }];
       }
+      row.secondaryImageTotal = [{
+        text: (row.alternateImages && row.alternateImages.length) || 0,
+      }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
+        el.text = cleanUp(el.text);
       }));
     }
   }
