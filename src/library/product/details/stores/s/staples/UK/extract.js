@@ -16,13 +16,21 @@ module.exports = {
     const { productDetails } = dependencies;
     // await context.setViewport({ width: 640, height: 480 });
     await context.evaluate(async function () {
+      let cookiePopup = document.querySelector('#btnCookieContainer > input.accept-all-cookies');
       // @ts-ignore
-      document.querySelector('#btnCookieContainer > input.accept-all-cookies').click();
+      cookiePopup = cookiePopup ? cookiePopup.click() : '';
+      // let winPopup = document.querySelector('div.wpcss-close-popup');
+      // // @ts-ignore
+      // winPopup = winPopup ? winPopup.click() : '';
+      // let vatPopup = document.querySelector("#VATContent > div.dvVatCnt.alignCenter.clear > div.dvCustType.L > div.formRow > input");
+      // // @ts-ignore
+      // vatPopup = vatPopup ? vatPopup.click() : '';
+      let lightbox = document.querySelector('div#light_box_global');
       // @ts-ignore
-      document.querySelector('div#light_box_global').click();
-      const element = document.querySelector('div.skutabDesc');
-      // @ts-ignore
-      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      lightbox = lightbox ? lightbox.click() : '';
+      // const element = document.querySelector('div.skutabDesc');
+      // // @ts-ignore
+      // element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
     });
     return await context.extract(productDetails, { transform });
   },

@@ -58,6 +58,11 @@ const transform = (data) => {
           item.text = `${item.text.replace('-', '').trim()}`;
         });
       }
+      // if (row.ratingCount) {
+      //   row.sku.forEach(item => {
+      //     item.text = `${item.text.replace('Re', '').trim()}`;
+      //   });
+      // }
     }
   }
   return data;
