@@ -70,7 +70,7 @@ module.exports = {
       // @ts-ignore
       manufacturerDescription = manufacturerDescription !== null ? manufacturerDescription.innerText : ' ';
       // @ts-ignore
-      manufacturerDescription = manufacturerDescription ? manufacturerDescription.replace(/\\"/g, '"') : '';
+      manufacturerDescription = manufacturerDescription ? manufacturerDescription.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
       // @ts-ignore
       // let firstVariant = findJsonObj('{"pageRefreshUrlParams":{"', '{"pageRefreshUrlParams":', '}}');
       // // @ts-ignore
