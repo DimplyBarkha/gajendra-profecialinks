@@ -17,7 +17,6 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-  async function prepare(){
     await context.evaluate(async function () {
       await new Promise((resolve) => setTimeout(resolve, 3000));
       const element = document.getElementById('aplus');
@@ -40,26 +39,9 @@ async function implementation (
       }
       let enhancedContent = document.querySelector('div#aplus');
       // @ts-ignore
-      enhancedContent = enhancedContent ? enhancedContent.innerText : '';
+      enhancedContent = enhancedContent ? enhancedContent.innerText.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
       addElementToDocument('a_enhancedContent', enhancedContent);
       addElementToDocument('a_pageTimestamp', (new Date()).toISOString().replace(/[TZ]/g, ' '));
     });
-  }
-  await prepare();
-  const aplusFlag = await context.evaluate(function () {
-  const aplusSelector = document.querySelector('div[id="aplus"]');
-  if (aplusSelector) {
-  return true;
-  } else {
-  location.reload();
-  return false;
-  }
-  });
-
-  if (!aplusFlag) {
-  console.log('page reloading');
-  await context.waitForXPath('(//img[@id="landingImage"])[1]/@src');
-  await prepare();
-  }
   return await context.extract(productDetails, { transform: parameters.transform });
 }
