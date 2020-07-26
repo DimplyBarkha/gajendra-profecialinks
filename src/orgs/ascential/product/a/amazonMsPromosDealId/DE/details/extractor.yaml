@@ -1,0 +1,23 @@
+robot: product/details
+parameters:
+  country: DE
+  domain: amazon.de
+  store: amazonMsPromosDealId
+  zipcode: ""
+proxy:
+  zone: ZDE
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_de_promos_deal_id:
+      extractor: 90bd600c-0ec7-4383-9d8c-7d7c7ea184b6
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 12f5f2fc-51d5-45d2-bf0b-96f669c2a9b2
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: 58970190-cef3-47d9-a7f0-090805facd45
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
+    mse-staging:
+      extractor: 9e4552fc-2a2c-48e6-82da-253c2153dc8a
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
