@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
@@ -70,7 +69,14 @@ module.exports = {
     };
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
-      lastResponseData = await context.goto(url);
+      lastResponseData = await context.goto(url, {
+        timeout: 10000,
+        waitUntil: 'load',
+        checkBlocked: true,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
       console.log("status",lastResponseData.status)
       await new Promise(resolve => setTimeout(resolve, 1000));
 
@@ -127,14 +133,14 @@ module.exports = {
       }
 
       if (lastResponseData.status !== 200) {
-        console.log('Blocked: test2' + lastResponseData.status);
+        console.log('Blocked:' + lastResponseData.status);
         if (benchmark) {
           return;
         }
         if (backconnect) {
           throw Error('Bad response code: ' + lastResponseData.code);
         }
-        return context.reportBlocked(lastResponseData.status, 'Blocked: test2' + lastResponseData.status);
+        return context.reportBlocked(lastResponseData.status, 'Blocked:' + lastResponseData.status);
       }
 
       if (await solveCaptchaIfNecessary() === 'false') {
