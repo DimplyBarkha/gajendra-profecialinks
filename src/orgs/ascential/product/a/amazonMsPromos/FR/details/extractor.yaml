@@ -1,0 +1,23 @@
+robot: product/details
+parameters:
+  country: FR
+  domain: amazon.fr
+  store: amazonMsPromos
+  zipcode: ""
+proxy:
+  zone: ZFR
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_fr_promos:
+      extractor: 0457dea4-8567-4546-9153-1a672cc9b4d3
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 5bbdb73e-f9cf-4249-b66f-d19786d75ae3
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: c4dd84eb-3e21-4618-b846-74e75d09a977
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
+    mse-staging:
+      extractor: 1368e05b-7726-4f18-be7c-7a242de2824f
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

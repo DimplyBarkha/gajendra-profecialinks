@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details',
   parameterValues: {
     country: 'FR',
+    store: 'amazonMsPromosDealId',
     domain: 'amazon.fr',
-    store: 'amazonMsPromos',
     zipcode: '',
   },
 };
