@@ -1,0 +1,23 @@
+robot: product/details
+parameters:
+  country: CA
+  domain: amazon.ca
+  store: amazonMsPromosDealId
+  zipcode: ""
+proxy:
+  zone: ZCA
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_ca_promos_deal_id:
+      extractor: 3f9829ff-013b-42ad-a44c-676c8bcd7c77
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 0deae0c3-a352-4446-a22d-2b5526810a4f
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: 239b34ad-d4e8-4861-955b-a4514ebbbb82
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
+    mse-staging:
+      extractor: b4809159-9071-4e70-9609-2e484425ed76
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
