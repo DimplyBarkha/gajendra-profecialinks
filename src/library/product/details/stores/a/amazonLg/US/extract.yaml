@@ -84,7 +84,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     # xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
-    xpath: //*[@id="shipsFromSoldBy_feature_div"] |//*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
+    xpath: //*[@id="shipsFromSoldBy_feature_div"] |//*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"] | //*[@id="availability"]/span
   - name: shippingDimensions
     singleValue: false
     xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1]
