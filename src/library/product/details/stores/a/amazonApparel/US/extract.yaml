@@ -7,3 +7,5 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //title
+  - name: category
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
