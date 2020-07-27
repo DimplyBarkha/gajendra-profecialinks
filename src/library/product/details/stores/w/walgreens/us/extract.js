@@ -38,8 +38,6 @@ module.exports = {
       }
     });
 
-    console.log(manufacturerInfo);
-
     async function autoScroll () {
       await context.evaluate(async function () {
         await new Promise((resolve, reject) => {
@@ -87,31 +85,17 @@ module.exports = {
             };
 
             if (document.querySelector('div.fsrAbandonButton')) {
-              // await context.click('div.fsrAbandonButton');
               document.querySelector('div.fsrAbandonButton').click();
             }
 
             if (document.querySelector('button#fsrFocusFirst')) {
               await context.click('button#fsrFocusFirst');
-              // document.querySelector('button#fsrFocusFirst').click();
               closeModal();
             }
           };
 
           await ignorePopups();
-          const MergeRecursive = (obj1, obj2) => {
-            for (var p in obj2) {
-              try {
-                // Property in destination object set; update its value.
-                if (typeof obj2[p] === 'object' && obj2[p] !== null) obj1[p] = MergeRecursive(obj1[p], obj2[p]);
-                else obj1[p] = obj2[p];
-              } catch (e) {
-                // Property in destination object not set; create it and set its value.
-                obj1[p] = obj2[p];
-              }
-            }
-            return obj1;
-          };
+
           const getXpath = (selector) => {
             return document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE).singleNodeValue;
           };
@@ -134,11 +118,6 @@ module.exports = {
           };
           const removeObjectToDocument = (obj) => {
             Object.keys(obj).forEach((key) => document.getElementById(`added_${key}`) && document.getElementById(`added_${key}`).remove());
-          };
-
-          const getSelector = (selector, { property = 'textContent', doc = document, raw = false, ifError = '' } = {}) => {
-            const text = doc.querySelector(selector) ? doc.querySelector(selector)[property] : ifError;
-            return raw ? text : text.replace(/\t/gm, ' ').replace(/\s{2,}, ' '/g).replace(/^\s*\n|^.\n/gm, '').trim();
           };
 
           // wait for full loading
@@ -168,7 +147,7 @@ module.exports = {
           // const jsonObj = response;
           console.log('response')
           console.log(response)
-          const jsonObj = Object.keys(response).length !== 0 ? response : MergeRecursive((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {}, response);
+          const jsonObj = Object.keys(response).length !== 0 ? response : ((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {});
           console.log('jsonObj');
           console.log(jsonObj);
 
@@ -192,8 +171,6 @@ module.exports = {
           const ingredients = findInSection('ingredients');
           const warnings = findInSection('warnings');
           const shipping = findInSection('shipping');
-          const reviews = findInSection('reviews');
-
 
           let fullDescription = (desc && desc.productDesc) ? (((desc.quickView && desc.quickView !== 'undefined') ? decodeURIComponent(desc.quickView.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25')) : '') + decodeURIComponent(desc.productDesc.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25'))) : '';
           fullDescription = fullDescription.replace(/<table.*?>/g, '');
@@ -209,8 +186,6 @@ module.exports = {
           fullDescription = fullDescription.replace(/<p.*?>/g, '<p> ');
           fullDescription = fullDescription.replace('&#169;', '©');
           const directions = fullDescription.toLowerCase().indexOf('how to') > -1 ? fullDescription.toLowerCase().indexOf('how to') : '';
-          console.log('fullDescription');
-          console.log(fullDescription)
           let fullDescriptionWithDoublePipes = fullDescription;
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/>/g, '> ');
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<(li)[^>]+>/ig, '<$1>');
@@ -218,15 +193,8 @@ module.exports = {
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<(LI)[^>]+>/ig, '<$1>');
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<LI>/g, ' ||');
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.trim();
-          console.log('fullDescriptionWithDoublePipes');
-          console.log(fullDescriptionWithDoublePipes)
-          // console.log(fullDescription.match((/([^©]*)$/)))
-          // console.log((/([^©]*)$/).exec(fullDescription))
-          // const manufacturerName = (fullDescription && (/([^©]*)$/).test(fullDescription) !== false) ? fullDescription.lastIndexOf('©')[0] : ((fullDescription && fullDescription.match('&#169;') !== null) ? fullDescription.split('&#169;')[fullDescription.split('&#169;').length - 1] : '');
           const index = fullDescription.lastIndexOf('©');
           const manufacturerName = (fullDescription && index !== -1) ? fullDescription.substring(index + 1).trim() : '';
-          console.log('manufacturerName');
-          console.log(manufacturerName);
           const images = infos.filmStripUrl.reduce((acc, obj) => {
             const filtered = Object.entries(obj).filter(([key]) => key.includes('largeImageUrl'));
             const array = filtered && filtered.length === 0 ? ['https:' + Object.entries(obj)[0]] : filtered.map(([key, link]) => 'https:' + link);
@@ -241,7 +209,6 @@ module.exports = {
             if (ingredientsList.length === 1) {
               return ingredientsList;
             }
-            console.log(ingredientsList);
             return ingredientsList.join(', ');
           };
 
@@ -268,11 +235,9 @@ module.exports = {
           };
           const ingrList = () => {
             let ingredText = (document.querySelector('li#Ingredients div.inner')) ? document.querySelector('li#Ingredients div.inner').innerText : '';
-            //const ingredList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), formatIngredientList(obj.ingredients)], []).join(' ') : '';
             const ingredList = hasIngrList ? useIngredJson(ingredients.ingredientGroups, ingredText).join(' ') : '';
 
             const ingredListDom = () => {
-              console.log('ingredListDom')
               if (document.querySelector('li#Ingredients div.inner')) {
                 ingredText = ingredText.replace(/\s\s+/g, ' ');
 
@@ -289,12 +254,8 @@ module.exports = {
             const ingredListDomText = ingredListDom();
 
             if (ingredListDomText.length !== 0) {
-              console.log('ingredListDomText')
-              console.log(ingredListDomText)
               return ingredListDomText;
             } else {
-              console.log('ingredList')
-              console.log(ingredList)
               return ingredList;
             }
           };
@@ -308,14 +269,9 @@ module.exports = {
 
           const getNutri = (arrOrVal, isUnit) => {
             if (!nutritionTable) return '';
-            console.log(nutritionTable);
             const nb = isUnit ? 2 : 1;
             const arr = Array.isArray(arrOrVal) ? arrOrVal : [arrOrVal];
             return arr.reduce((acc, query) => {
-              console.log(query) 
-              if (nutritionTable[query]) {
-                console.log(nutritionTable[query].split(/(\d*\.?\d+)/));
-              }
               const hasGreaterThanOrLessThan = (nutritionTable[query] && nutritionTable[query].split(/(\d*\.?\d+)/)[0].length !== 0 && (/[>|<]/).test(nutritionTable[query].split(/(\d*\.?\d+)/)[0]));
               if (isUnit) {
                 return nutritionTable[query] ? nutritionTable[query].split(/(\d*\.?\d+)/)[nb] : acc;
@@ -348,8 +304,6 @@ module.exports = {
           ];
 
           const allVideos = videos().filter(v => !(/(png)/.test(v)) && !(/(jpg)/.test(v)) && !(/(jpeg)/.test(v)));
-          console.log('allVideos');
-          console.log(allVideos);
 
           const restrictedStatesList = () => {
             const states = [];
@@ -368,7 +322,6 @@ module.exports = {
 
             if (document.querySelector('div#product-description li#Shipping a')) {
               document.querySelector('div#product-description li#Shipping a').click();
-              // setTimeout(function(){ }, 3000);
             }
 
             const shippingEnableID = (document.querySelector('p#shiptostoreenable')) ? 'shiptostoreenable' : 'shiptostoredisable';
@@ -393,10 +346,8 @@ module.exports = {
               shippingInfoTextContent += ' ' + document.querySelector('p[class^="universal-product-inches"]').textContent;
             }
 
-
             if (document.querySelector('div#product-description li#Description a')) {
               document.querySelector('div#product-description li#Description a').click();
-              // setTimeout(function(){ }, 3000);
             }
 
             return shippingInfoTextContent;
@@ -404,7 +355,7 @@ module.exports = {
 
           const ifMixMatch = (title) => {
             return title + ' Mix & Match';
-          }
+          };
 
           const promotions = () => {
             if (!document.querySelector('span[class^="product-offer-text"]')) {
@@ -414,9 +365,6 @@ module.exports = {
             const notPromotionRe = /(donation)|[Rr]eward|[Pp]oint|[Pp]ts/ig;
             const isPromotionRe = /(rebate)|(Extra Savings)/ig;
             const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.linkText === mixMatch ? ifMixMatch(u.title) : (u.linkText ? u.linkText : u.title)) : '') : '';
-            console.log('promotion')
-            console.log(promotion)
-            console.log(details.OfferList)
             promotion.forEach((promo) => {
               if (isPromotionRe.test(promo)) {
                 promo = (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
@@ -462,7 +410,6 @@ module.exports = {
                         elem.textContent = ' ';
                       });
                     }
-                    console.log(frame.querySelector('span.wc-screen-reader-only'));
                     return [...acc, [frame.innerText.replace(/\s+/gm, ' ')]];
                   } else {
                     return acc;
@@ -481,7 +428,6 @@ module.exports = {
                   if (frame.querySelector('iframe')) {
                     const imgSrc = frame.querySelector('img') ? frame.querySelector('img').src : '';
                     const iframe = frame.querySelector('iframe');
-                    console.log(iframe);
                     if (!iframe.allowFullscreen) return acc;
                     return [...acc, imgSrc, ...[...iframe.contentDocument.querySelectorAll('img')].filter(v => (v.src)).map(v => v.src)];
                   } else {
@@ -506,9 +452,6 @@ module.exports = {
             }
             return '';
           };
-
-          // const updatedRatings = () => document.querySelector('div[class^="bv-summary-bar"] span[itemprop="ratingValue"]') ? document.querySelector('div[class^="bv-summary-bar"] span[itemprop="ratingValue"]').textContent : null;
-          // const updatedReview = () => document.querySelector('div[class^="bv-summary-bar"] span[itemprop="reviewCount"]') ? document.querySelector('div[class^="bv-summary-bar"] span[itemprop="reviewCount"]').textContent : null;
 
           console.log(jsonObj.inventory);
           console.log(jsonObj.inventory.shipAvailableMessage);
@@ -538,9 +481,6 @@ module.exports = {
             legalDisclaimer: '',
             directions: directions && fullDescription ? fullDescription.slice(directions, fullDescription.length) : '',
             warnings: (warnings && warnings.productWarning) ? ((warnings.productWarning).replace(/<[P|p]>/g, '<p> ')) : customWarning(),
-            // ratingCount: reviews ? (updatedReview() !== null ? updatedReview() : reviews.reviewCount) : '',
-            // aggregateRatingText: reviews ? (updatedRatings() !== null ? updatedRatings() : reviews.overallRating) : '',
-            // aggregateRating: reviews ? (updatedRatings() !== null ? updatedRatings() : reviews.overallRating) : '',
             shippingInfo: shippingInfoContent(),
             shippingDimensions: shipping ? shipping.productInInches : '',
             shippingWeight: shipping ? shipping.shippingWeight : '',
@@ -598,7 +538,6 @@ module.exports = {
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
             additionalDescBulletInfo: additionalDescBulletInfo(),
             prop65Warning: document.querySelector('li#Warnings') && document.querySelector('li#Warnings').textContent.includes('P65') ? document.querySelector('li#Warnings').textContent : '',
-            // imageZoomFeaturePresent: document.querySelector('div#zoomLensContainer') ? 'Yes' : 'No',
           };
           removeObjectToDocument(obj);
           addObjectToDocument(obj);
