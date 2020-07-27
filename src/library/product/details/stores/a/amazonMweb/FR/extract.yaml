@@ -79,9 +79,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[contains(@id,"video-outer-container")]//../video/@src | //video/@src
-  - name: variantCount
-    singleValue: false
-    xpath: count(//div[contains(@id,"variation_style_name")]/ul/li)
+  # - name: variantCount
+  #   singleValue: false
+  #   xpath: count(//div[contains(@id,"variation_style_name")]/ul/li)
   - name: scrapeCode
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
@@ -97,4 +97,8 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//div[@id="variation_color_name"]/ul/li | //div[@id="variation_configuration"]/ul/li | //*[@id="a-popover-4"]//*/ul/li | //ul[contains(@class, "swatches swatchesSquare")]/li)
+  - name: variantCount
+    singleValue: false
+    xpath: //script[contains(., "ImageBlockBTF")]/text()
+    defaultValue: 0
   
