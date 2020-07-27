@@ -7,7 +7,7 @@ module.exports = {
     domain: 'amazon.it',
     url: 'https://www.amazon.it/gp/bestsellers/*/{searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//img[contains(@alt,"Dogs of Amazon")] | //*[contains(text(),"Cerchi qualcosa in particolare")] | /html[not(//ol/li)]',
     zipcode: '',
   },
 };
