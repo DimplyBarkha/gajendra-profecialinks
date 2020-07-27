@@ -16,7 +16,7 @@ const transform = (data) => {
           }
         });
         row.caloriesPerServing = [{
-          text: text.replace(/\n/g, '').replace('//','/').replace(/(.+)kJ(.+)kcal/g,'$1$2').replace(/\s{1,}/g, '').trim()
+          text: text.replace(/\n/g, '').replace('//','/').replace(/\s{1,}/g, '').trim()
         }, ];
       }
       if (row.allergyAdvice) {

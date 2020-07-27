@@ -76,7 +76,7 @@ fields:
     singleValue: true
     xpath:
   - name: caloriesPerServing
-    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1],'/',//th[contains(text(),'Energy')]/../../tr[2]/td[1][contains(.,'cal')] | //th[contains(text(),'Energy Kcal')]/following-sibling::td[1] | //th[contains(text(),'Energy (kcal)')]/following-sibling::td[1] | //th[contains(text(),'(kcal)')]/following-sibling::td[1]) 
+    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1],'/',//th[contains(text(),'Energy')]/../../tr[2]/td[1][contains(.,'cal')] | //th[contains(text(),'Energy Kcal')]/following-sibling::td[1] | //th[contains(text(),'Energy (kcal)')]/following-sibling::td[1] | //th[contains(text(),'(kcal)')]/following-sibling::td[1]|//th[contains(text(),'Energy kcal')]/following-sibling::td[1]) 
   - name: servingSize
     singleValue: true
     xpath: //table[contains(@class,"nutritionTable")]/thead/tr[1]//th[2]
@@ -171,7 +171,7 @@ fields:
     xpath: //span[@class="pd__cost__per-unit"]
     regExp: (\d+)(.+)/(.+)
     regExpReplace: $3
-  - name: direction
+  - name: directions
     xpath: //h3[contains(text(),'Preparation and Safety')]/following-sibling::div[1] | //h3[contains(text(),'Preparation')]/following-sibling::div[1]
   - name: warnings
     xpath: //h3[contains(text(),'Safety Information')]/following-sibling::div | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Warning:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Caution:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'WARNING:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Serving suggestion:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Warnings')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Keep out of the reach of children.')]
