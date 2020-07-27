@@ -87,10 +87,11 @@ const transform = (data) => {
         ];
       }
       if (row.variantCount) {
-        row.variantCount.forEach(variantCount => {
-          if (variantCount.text < 2) {
-            variantCount.text = 1;
-          }
+        let asinLength = 1;
+        row.variantCount.forEach(item => {
+          const asinArr = item.text.match(/"asin":"(.*?)"/g);
+          asinLength = asinArr.length;
+          item.text = asinLength;
         });
       }
 

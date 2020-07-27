@@ -114,11 +114,6 @@ fields:
   - name: coupon
     singleValue: false
     xpath: //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]/div[@id="unclippedCoupon"] | //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]//div[contains(@class,"vpcApplyCoupon")]
-  - name: variantCount
-    singleValue: false
-    xpath: //div[@id="a_variantCount"]
-    # xpath: count(//div[@id="variation_color_name"]/ul/li | //div[@id="variation_configuration"]/ul/li | //*[@id="a-popover-4"]//*/ul/li | //ul[contains(@class, "swatches swatchesSquare")]/li)
-    defaultValue: 0
   - name: scrapeCode
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
@@ -257,3 +252,8 @@ fields:
     regExp: ([^ ]+)
     regExpReplace: 'YES'
     defaultValue: 'NO'
+  - name: variantCount
+    singleValue: false
+    xpath: //script[contains(., "ImageBlockBTF")]/text()
+    # xpath: count(//div[@id="variation_color_name"]/ul/li | //div[@id="variation_configuration"]/ul/li | //*[@id="a-popover-4"]//*/ul/li | //ul[contains(@class, "swatches swatchesSquare")]/li)
+    defaultValue: 0

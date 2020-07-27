@@ -120,25 +120,25 @@ module.exports = {
       } else {
         lbbPrice = '';
       }
-      let variantCount = 1;
-      document.querySelectorAll('#twister > div[id^="variation"]').forEach(function(variant) {
-        let currCount = variant.querySelectorAll('ul > li').length;
-      if(currCount){
-        variantCount = variantCount * currCount;
-      }
-      });
+      // let variantCount = 1;
+      // document.querySelectorAll('#twister > div[id^="variation"]').forEach(function(variant) {
+      //   let currCount = variant.querySelectorAll('ul > li').length;
+      // if(currCount){
+      //   variantCount = variantCount * currCount;
+      // }
+      // });
       
-      if(variantCount === 1){
-        document.querySelectorAll('#twister select[id^="native_dropdown_selected"]').forEach(function(variant) {
-          let currCount = variant.querySelectorAll('option').length;
-          // console.log("variantCount", variantCount);
-          // console.log("currCount", currCount);
-        if(currCount){
-          variantCount = variantCount * currCount;
-        }
+      // if(variantCount === 1){
+      //   document.querySelectorAll('#twister select[id^="native_dropdown_selected"]').forEach(function(variant) {
+      //     let currCount = variant.querySelectorAll('option').length;
+      //     // console.log("variantCount", variantCount);
+      //     // console.log("currCount", currCount);
+      //   if(currCount){
+      //     variantCount = variantCount * currCount;
+      //   }
        
-        });
-      }
+      //   });
+      // }
       // @ts-ignore
       addElementToDocument('a_pageTimestamp', (new Date()).toISOString().replace(/[TZ]/g, ' '));
       addElementToDocument('a_url', url);
@@ -147,7 +147,7 @@ module.exports = {
       // addElementToDocument('a_brand_url', brandUrl);
       addElementToDocument('a_online_price_currency', currency);
       addElementToDocument('a_manufacturerDescription', manufacturerDescription);
-      addElementToDocument('a_variantCount', variantCount);
+      // addElementToDocument('a_variantCount', variantCount);
       // addElementToDocument('a_largeImgCount', largeImgCount);
       // addElementToDocument('a_secondaryImageTotal', secondaryImageTotal);
     });
