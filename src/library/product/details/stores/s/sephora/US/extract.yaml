@@ -12,6 +12,13 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //a[@data-comp="RatingsSummary Flex Box "]//@aria-label
+  # - name: aggregaterating
+  #   singleValue: true
+  #   xpath: >-
+  #     //div[@data-comp="ReviewsStats Box "]/div[2]/div[1]
+  #   regExp: >-
+  #    (.*)\s\/
+  #   regExpReplace: "$1"
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -21,6 +28,13 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: //a[@data-comp="RatingsSummary Flex Box "]/span
+  # - name: ratingCount
+  #   singleValue: false
+  #   regExp: >-
+  #    (.*)\s
+  #   regExpReplace: $1
+  #   xpath: >-
+  #     //div[@data-comp="ReviewsStats Box "]//span
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -30,18 +44,11 @@ fields:
     description: The product name
     xpath: //h1[@data-comp="DisplayName Box "]/span
 
-  - name: download_time
+  - name: _pageTimestamp
     xpath: /html/body/@downloadtime
-  - name: url
+  - name: _url
     xpath: /html/body/@url
-  - name: number_of_customer_reviews
-    singleValue: false
-    regExp: >-
-     (.*)\s
-    regExpReplace: $1
-    xpath: >-
-      //div[@data-comp="ReviewsStats Box "]//span
-  - name: size
+  - name: quantity
     regExp: >-
      SIZE\s([a-zA-Z0-9.\s\/]+)
     regExpReplace: >-
@@ -49,104 +56,117 @@ fields:
     singleValue: false
     xpath: >-
      //div[@data-comp="SizeAndItemNumber Box "]
-  - name: sub_category
-    singleValue: false
-    regExp: >-
-     (.*)[\n](.*)[\n](.*)
-    regExpReplace: "$2 > $3"
-    xpath: "//ol"
-  - name: product_image
-    singleValue: false
-    regExp: ([/].*)
-    regExpReplace: https://www.sephora.com$1
-    xpath: >-
-     //main//div[@data-hammer-carousel-inner="true"]/div[1]//img[@width="300"]/@src
-  - name: ingredients_list
-    singleValue: false
-    xpath: >-
-      //div[@id="tabpanel2"]/div[1]
-  - name: online_price
-    singleValue: true
-    regExp: >-
-     [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
-    xpath: >-
-      //div[@data-comp="Price Box "]/span[last()]
-  - name: online_price_currency
-    singleValue: true
-    regExp: "[$\u00A3\u20AC\u00A5]{1}"
-    xpath: >-
-      //span[@data-at="price"]
-  - name: additional_description
-    singleValue: true
-    xpath: //div[@id="tabpanel0"]
-  - name: brand
-    singleValue: false
-    xpath: //h1/a[@data-comp="Link Box "]/span
   - name: category
     singleValue: true
     xpath: "//ol/li[1]/a"
-  - name: customer_review_rating
-    singleValue: true
+  # - name: category !!!!!!!!!!!!!!!!!!!!!
+  #   singleValue: false
+  #   regExp: >-
+  #    (.*)[\n](.*)[\n](.*)
+  #   regExpReplace: "$2 > $3"
+  #   xpath: "//ol"
+  # - name: product_image !!!!!!!!!!!!!!!!!!!!!!!
+  #   singleValue: false
+  #   regExp: ([/].*)
+  #   regExpReplace: https://www.sephora.com$1
+  #   xpath: >-
+  #    //main//div[@data-hammer-carousel-inner="true"]/div[1]//img[@width="300"]/@src
+  - name: ingredientsList
+    singleValue: false
     xpath: >-
-      //div[@data-comp="ReviewsStats Box "]/div[2]/div[1]
-    regExp: >-
-     (.*)\s\/
-    regExpReplace: "$1"
-  - name: directions_information
+      //div[@id="tabpanel2"]/div[1]
+  - name: price
+    singleValue: true
+    # regExp: >-
+    #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
+    xpath: >-
+      //div[@data-comp="Price Box "]/span[last()]
+  # - name: online_price_currency
+  #   singleValue: true
+  #   regExp: "[$\u00A3\u20AC\u00A5]{1}"
+  #   xpath: >-
+  #     //span[@data-at="price"]
+  - name: description
+    singleValue: true
+    xpath: //div[@id="tabpanel0"]
+  - name: brandText
+    singleValue: false
+    xpath: //h1/a[@data-comp="Link Box "]/span
+  - name: directions
     singleValue: true
     xpath: //div[@id="tabpanel1"]
-  - name: product_description
+  - name: nameExtended
     singleValue: false
     # regExp: >-
     #  (.*)\s-\s([a-zA-Z0-9]+)\s|
     # regExpReplace: $2 $2
     xpath: >-
      /html/head/title/text()
-  - name: secondary_image
+  - name: alternateImages
     singleValue: false
     # regExp: ([/].*)
     # regExpReplace: https://www.sephora.com$1
     xpath: >-
      //main//div[@data-hammer-carousel-inner="true"]/div[2]//img[@width="300"]/@src
-  - name: sku_number
+  - name: sku
     xpath: /html/body/@inputString
-  - name: availability
+  - name: availabilityText
     singleValue: true
     xpath: >-
       //div[@data-comp="CallToActions "]//button/span
     defaultValue: "In Stock"
-  - name: scrape_code
+  - name: _input
     xpath: /html/body/@scrape_code
   - name: promotion
     regExp: (.*)
     regExpReplace: Sale
     xpath: //span[@data-at="sale_price"]
-  - name: deal_price
-    singleValue: true
-    regExp: >-
-     [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)
-    path: //span[@data-at="sale_price"]
-  - name: list_price
+  # - name: deal_price
+  #   singleValue: true
+  #   regExp: >-
+  #    [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)
+  #   path: //span[@data-at="sale_price"]
+  - name: listPrice
     singleValue: true
     regExp: >-
      [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
     xpath: //span[@data-at="price"]
 
+  - name: warnings
+  - name: serving_size
+  - name: serving_size_uom
+  - name: net_weight
+  - name: gross_weight
+  - name: enhanced_content
+  - name: coupons
+  - name: additional_desc_bullet_count
+  - name: video
+  - name: image_alt_text
+  - name: feature_bullets
+  - name: retailer_category
+  - name: retailer_subcategory
+  - name: products_per_page
+  - name: extended_product_description
+  - name: secondary_image_total
+  - name: pack_size
+  - name: variant_information
+  - name: first_variant
+  - name: variants
+  - name: 360_image_present
+  - name: image_zoom_feature_present
+  - name: colour
+  - name: colour_ref
+  - name: additional_desc_bullet_info
 
 
     
   - name: in_store_price
-  - name: in_store_price_currency
-  - name: net_weight
-  - name: gross_weight
   - name: upc
+  - name: in_store_price_currency
   - name: asin
+  - name: directions_information
   - name: hidden_upc
   - name: retailer_product_code
-  - name: directions_information
-  - name: warnings
-  - name: serving_size
-  - name: serving_size_uom
   - name: number_of_servings_in_package
   - name: calories_per_serving
   - name: calories_from_fat_per_serving
@@ -177,51 +197,43 @@ fields:
   - name: iron_per_serving
   - name: iron_per_serving_uom
   - name: dietary_symbols
+
   - name: aplus_images
+  - name: allergy_advice
+  - name: warranty
+  - name: storage
+  - name: specifications
+  - name: product_other_information
+
   - name: category_ranking
   - name: shipping_details
   - name: shipping_dimensions
-  - name: specifications
   - name: shipping_weight
-  - name: warranty
   - name: ean_gtin
-  - name: storage
   - name: country_of_origin
-  - name: allergy_advice
   - name: recycling_information
   - name: salt_per_serving
   - name: salt_per_serving_uom
   - name: serving_size_2
   - name: serving_size_2_uom
   - name: dietary_information
-  - name: product_other_information
   - name: packaging
   - name: additives
   - name: footer_product_info
   - name: award_symbol
   - name: drive
-  - name: enhanced_content
-  - name: retailer_category
-  - name: retailer_subcategory
-  - name: additional_desc_bullet_count
-  - name: video
-  - name: coupons
-  - name: products_per_page
+
+
   - name: retailer_id
   - name: addon_item
   - name: syndicated_data
   - name: harvested_price
-  - name: image_alt_text
   - name: price_per_unit
   - name: price_per_unit_uom
   - name: harvested_review_rating
-  - name: extended_product_description
   - name: rpc_sku_hybrid
   - name: lbb
   - name: lbb_price
-  - name: feature_bullets
-  - name: pack_size
-  - name: secondary_image_total
   - name: news
   - name: other_sellers_name
   - name: other_sellers_price
@@ -259,11 +271,7 @@ fields:
   - name: new_version
   - name: new_asin
   - name: new_description
-  - name: variant_information
-  - name: first_variant
-  - name: variants
   - name: platform
-  - name: additional_desc_bullet_info
   - name: magnesium_per_serving
   - name: magnesium_per_serving_uom
   - name: amazon_choice
@@ -273,8 +281,6 @@ fields:
   - name: allergy_information
   - name: product_id
   - name: Shipping_Information
-  - name: colour
-  - name: colour_ref
   - name: fast_track
   - name: supplementary_image
   - name: supplementary_image_total
@@ -285,8 +291,6 @@ fields:
   - name: privacy_policy
   - name: customer_service_availability
   - name: materials
-  - name: 360_image_present
-  - name: image_zoom_feature_present
 
   # - name: imageAlt
   #   singleValue: true
@@ -361,9 +365,7 @@ fields:
   # - name: legalDisclaimer
   #   singleValue: true
   #   description: Content under "legal disclaimer" header
-  # - name: directions
-  #   singleValue: true
-  #   description: Content under "directions" header
+
   # - name: warnings
   #   singleValue: true
   #   description: Content under "warnings" header
@@ -495,10 +497,6 @@ fields:
   # - name: fastTrack
   #   singleValue: true
   #   description: null
-  # - name: ingredientsList
-  #   singleValue: true
-  #   description: List of Ingredients from site - can be string of data if no
-  #     discernible start/end point
   # - name: servingSize
   #   singleValue: true
   #   description: The size of serving Nutritional information is based on.
