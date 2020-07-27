@@ -74,7 +74,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //*[@id="acrPopover"]/@title
-    regExp: ([0-9\.]{1,}) out of
+    regExp: (\d{1}\.\d{1}) out of
     regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
@@ -106,16 +106,18 @@ fields:
     xpath: count(//*[@id='feature-bullets']/*//li[not(@id)])
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,"a-carousel-viewport")]/ol/li[contains(@class,"vse-video")]/div[@data-vendor-name="Manufacturer"]/@data-video-url
+    xpath: //script[contains(text(), 'triggerVideoAjax')]
+    # xpath: //div[contains(@class,"a-carousel-viewport")]/ol/li[contains(@class,"vse-video")]/div[@data-vendor-name="Manufacturer"]/@data-video-url
     # xpath: //*[@id="imageBlockVariations_feature_div"]/script/text()
-    # regExp: url":"(.{30,300})"\,"videoHeight
-    # regExpReplace: $1
+    regExp: url":"(.{30,300})"\,"videoHeight
+    regExpReplace: $1
   - name: coupon
     singleValue: false
     xpath: //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]/div[@id="unclippedCoupon"] | //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]//div[contains(@class,"vpcApplyCoupon")]
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@id="variation_color_name"]/ul/li | //div[@id="variation_configuration"]/ul/li | //*[@id="a-popover-4"]//*/ul/li | //ul[contains(@class, "swatches swatchesSquare")]/li)
+    xpath: //div[@id="a_variantCount"]
+    # xpath: count(//div[@id="variation_color_name"]/ul/li | //div[@id="variation_configuration"]/ul/li | //*[@id="a-popover-4"]//*/ul/li | //ul[contains(@class, "swatches swatchesSquare")]/li)
     defaultValue: 0
   - name: scrapeCode
     singleValue: false
@@ -237,10 +239,18 @@ fields:
     xpath: //span[contains(@id, "mbc-shipping")]
   - name: videoLength
     singleValue: false
-    xpath: //div[contains(@class,"a-carousel-viewport")]/ol/li[contains(@class,"vse-video")]/div[@data-vendor-name="Manufacturer"]/@data-duration
+    xpath: //script[contains(text(), 'triggerVideoAjax')]
+    regExp: (\d+:\d+)
+    regExpReplace: $1
+    # xpath: //div[contains(@class,"a-carousel-viewport")]/ol/li[contains(@class,"vse-video")]/div[@data-vendor-name="Manufacturer"]/@data-duration
     # xpath: //*[@id="imageBlockVariations_feature_div"]/script/text()
     # regExp: \"durationTimestamp\":\"(\d+:\d+)\"\,\"slateUrl
     # regExpReplace: $1
   - name: mpc
     singleValue:  false
     xpath: //th[contains(text(), 'Item model number')]/following-sibling::*[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
+    regExp: ([^()]+)
+    regExpReplace: $1

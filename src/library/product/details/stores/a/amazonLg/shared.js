@@ -51,14 +51,24 @@ const transform = (data) => {
       //   }
       // }
       if (row.alternateImages) {
+        // console.log("row.alternateImages",row.alternateImages);
+        row.alternateImages.splice(0,1);
+        // console.log("row.alternateImages",row.alternateImages);
         row.alternateImages.forEach(item => {
           item.text = `${item.text.replace('US40_', '')}`;
         });
       }
       if (row.secondaryImageTotal) {
-        row.secondaryImageTotal.forEach(item => {
-          item.text = row.alternateImages.length;
-        });
+        if(row.alternateImages.length > 1){
+          row.secondaryImageTotal.forEach(item => {
+            item.text = row.alternateImages.length;
+            item.text = row.alternateImages.length - 1;
+          });
+        }else{
+          row.secondaryImageTotal.forEach(item => {
+            item.text = '';
+          });
+        }
       }
       if (row.imageAlt) {
         row.imageAlt.forEach(item => {
@@ -191,7 +201,7 @@ const transform = (data) => {
       }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
-          item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
+          item.text = item.text.trim().match(/hiRes":"\w+/g) ? item.text.trim().match(/hiRes":"\w+/g).length : 0;
         }
       }
       if (row.packSize) {
@@ -224,7 +234,7 @@ const transform = (data) => {
       if (row.brandText) {
         row.brandText.forEach(item => {
           item.text = cleanUp(item.text);
-          item.text = `${item.text.replace('Brand:', '')}`;
+          item.text = `${item.text.replace('Brand:', '').trim()}`;
         });
       }
       if (row.ratingCount) {
