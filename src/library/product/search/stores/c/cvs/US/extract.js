@@ -52,7 +52,11 @@ async function implementation (
               addHiddenDiv('ii_price', variant.gbi_Actual_Price, newDiv);
               addHiddenDiv('ii_image', variant.BV_ImageUrl, newDiv);
               addHiddenDiv('ii_reviews', variant.p_Product_Review, newDiv);
-              addHiddenDiv('ii_rating', variant.p_Product_Rating, newDiv);
+              if(variant.p_Product_Rating){
+                let rating = parseFloat(variant.p_Product_Rating)
+                let adjusted = rating.toPrecision(2)
+                addHiddenDiv('ii_rating', adjusted, newDiv);
+              }
               if (variant.gbi_Badge_Sponsored && variant.gbi_Badge_Sponsored === true) { addHiddenDiv('ii_sponsored', 'Sponsored', newDiv); }
             }
           }
