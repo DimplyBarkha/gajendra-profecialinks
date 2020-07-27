@@ -18,7 +18,7 @@ async function implementation (
   await context.click('#GLUXZipUpdate input');
   // await context.waitForSelector('button[name="glowDoneButton"]');
   // await context.click('button[name="glowDoneButton"]');
-  await context.waitForNavigation();
+  await context.waitForNavigation({ timeout: 70000, waitUntil: 'load' });
   await context.waitForSelector('#main-image-container img , #altImages li[class*="imageThumbnail"] img');
   // await new Promise((r)=>setTimeout(r, 1000));
 }

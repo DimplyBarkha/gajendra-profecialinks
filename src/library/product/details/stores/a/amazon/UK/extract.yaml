@@ -141,8 +141,8 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
-    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUn") or contains(@class, "swatchSelect")])
     description: Number of variants listed
+    defaultValue: '1'
     # type: NUMBER
   - name: color
     singleValue: true
@@ -268,11 +268,9 @@ fields:
     defaultValue: 0
     # type: NUMBER
   - name: variantAsins
-    singleValue: false
+    singleValue: true
     description: null
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin | //div[contains(@id,'variation')]//select[contains(@name,'dropdown')]/option/@value | (//*[@data-asin])[1]/@data-asin
-    # regExp: p\/([A-Z0-9]{9,})\/
-    # regExpReplace: $1
+    xpath: //script[contains(., "ImageBlockBTF")]/text()
   - name: primeFlag
     singleValue: false
     description: null
@@ -280,7 +278,7 @@ fields:
     defaultValue: NO
   - name: lbb
     singleValue: false
-    xpath: //span[@id="price_inside_buybox"]
+    xpath: //span[@id='mbc-title' and contains(.,'Other Sellers')]
     description: Check Lost by Box Requirements (just for Amazon and a couple of
       other stores) - LBB occurs when a product is bought from someone other
       than Amazon (on Amazon Website) - even though Amazon has the product "in
@@ -288,7 +286,7 @@ fields:
     defaultValue: 'NO'
   - name: lbbPrice
     singleValue: false
-    xpath: //span[@id="price_inside_buybox"]
+    xpath: //span[@id='mbc-title' and contains(.,'Other Sellers')]
     description: null
   - name: featureBullets
     singleValue: false
@@ -304,7 +302,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-price')] | //div[@id='ii_otherSellersPrice']
     description: null
-  - name: otherSellersShipping
+  - name: otherSellersShipping2
     singleValue: false
     xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-shipping')] | //div[@id='ii_otherSellersShipping']
     description: null
@@ -584,7 +582,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUnavail") or contains(@class, "swatchSelect")]//img/@alt | //div[@id='variation_style_name']/div[contains(@class,'a-row')] | //div[@id='variation_flavor_name']/div[contains(@class,'a-row')] | //div[@id='variation_size_name']/div[contains(@class,'a-row')] | //div[@id='variation_color_name']/div[contains(@class,'a-row')] | //div[@id='variation_item_package_quantity']/div[contains(@class,'a-row')] | //ul[contains(@class,'swatches')]/li//div[contains(@class,'twisterText')]
+    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUnavail") or contains(@class, "swatchSelect")]//img/@alt | //div[@id='variation_style_name']/div[contains(@class,'a-row')] | //div[@id='variation_flavor_name']/div[contains(@class,'a-row')] | //div[@id='variation_size_name']/div[contains(@class,'a-row')] | //div[@id='variation_color_name']/div[contains(@class,'a-row')] | //div[@id='variation_item_package_quantity']/div[contains(@class,'a-row')] | //ul[contains(@class,'swatches')]/li//div[contains(@class,'twisterText')] | //div[contains(@id,'variation')]//select[contains(@name,'dropdown')]/option
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: false

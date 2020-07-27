@@ -148,10 +148,10 @@ const transform = (data) => {
           item.text = `${item.text.replace(/(\s*[\r\n]\s*)+/g, ' ')}`;
         });
       }
-      if (row.otherSellersShipping && row.otherSellersName) {
+      if (row.otherSellersShipping2 && row.otherSellersName) {
         const text = [];
-        row.otherSellersShipping.forEach(item => {
-          if (item.text.match(/.([\d]+(?:.[\d]+)?)/)) {
+        row.otherSellersShipping2.forEach(item => {
+          if (!item.text.toLowerCase().includes('free delivery') && item.text.match(/.([\d]+(?:.[\d]+)?)/)) {
             text.push({ text: `${item.text.match(/.([\d]+(?:.[\d]+)?)/)[1]}` });
           } else {
             text.push({ text: '0.00' });
@@ -161,7 +161,7 @@ const transform = (data) => {
         while (row.otherSellersName.length !== text.length) {
           text.push({ text: '0.00' });
         }
-        row.otherSellersShipping = text;
+        row.otherSellersShipping2 = text;
       }
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
@@ -206,7 +206,9 @@ const transform = (data) => {
       if (row.variantInformation) {
         let text = [];
         row.variantInformation.forEach(item => {
-          text.push(`${item.text.replace(/.*:(.*)/, '$1').trim()}`);
+          if (item.text.replace(/.*:(.*)/, '$1').trim()) {
+            text.push(`${item.text.replace(/.*:(.*)/, '$1').trim()}`);
+          }
         });
         const value = new Set(text);
         text = Array.from(value);
@@ -227,18 +229,35 @@ const transform = (data) => {
           },
         ];
       }
+      // if (row.variantAsins) {
+      //   let text = [];
+      //   row.variantAsins.forEach((item) => {
+      //     text.push(item.text.replace(/.*,(.*)/, '$1'));
+      //   });
+      //   const value = new Set(text);
+      //   text = Array.from(value);
+      //   row.variantAsins = [
+      //     {
+      //       text: text.join(' | '),
+      //     },
+      //   ];
+      // }
       if (row.variantAsins) {
-        let text = [];
-        row.variantAsins.forEach((item) => {
-          text.push(item.text.replace(/.*,(.*)/, '$1'));
+        // let text = '';
+        let asinLength = 1;
+        row.variantAsins.forEach(item => {
+          const asinArr = item.text.match(/"asin":"(.*?)"/g);
+          asinLength = (asinArr) ? asinArr.length : 1;
+          if (asinArr) {
+            const asins = asinArr.map(el => el.replace(/.*?:"?(.*)/, '$1').slice(0, -1)).join(' | ');
+            item.text = asins;
+          } else if (row.asin) {
+            item.text = row.asin[0].text;
+          }
         });
-        const value = new Set(text);
-        text = Array.from(value);
-        row.variantAsins = [
-          {
-            text: text.join(' | '),
-          },
-        ];
+        row.variantCount.forEach(variantCount => {
+          variantCount.text = asinLength;
+        });
       }
       if (row.otherSellersPrime) {
         for (const item of row.otherSellersPrime) {
@@ -260,14 +279,6 @@ const transform = (data) => {
           val += item.text.replace(/\n/gm, '').replace(/\s{2,}/gm, ' ');
         }
         row.warnings = [{ text: val.trim() }];
-      }
-      if (row.variantCount) {
-        for (const item of row.variantCount) {
-          // eslint-disable-next-line eqeqeq
-          if (item.text == 0) {
-            item.text = 1;
-          }
-        }
       }
       if (row.brandText) {
         for (const item of row.brandText) {
@@ -296,6 +307,11 @@ const transform = (data) => {
       if (row.secondaryImageTotal && row.alternateImages) {
         row.secondaryImageTotal.forEach(item => {
           item.text = row.alternateImages.length;
+        });
+      }
+      if (row.lbbPrice && row.otherSellersPrice) {
+        row.lbbPrice.forEach(item => {
+          item.text = row.otherSellersPrice[0].text;
         });
       }
       if (row.primeFlag) {

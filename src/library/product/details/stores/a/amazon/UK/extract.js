@@ -17,7 +17,7 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    var element = document.querySelectorAll("div[cel_widget_id*='aplus'] img");
+    var element = (document.querySelectorAll("div[cel_widget_id*='aplus'] img")) ? document.querySelectorAll("div[cel_widget_id*='aplus'] img") : [];
     if (element) {
       element.forEach(async (node) => {
         node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
@@ -57,9 +57,21 @@ async function implementation (
       const manufacturerName = document.querySelector("meta[name='keywords']").getAttribute('content');
       if (manufacturerName && manufacturerName.split(',').length > 1) {
         const arr = manufacturerName.split(',');
-        addHiddenDiv('ii_manufacturerName', (arr[arr.length - 2]));
+        const val = arr[arr.length - 2].slice(0, 1).toUpperCase() + arr[arr.length - 2].slice(1);
+        addHiddenDiv('ii_manufacturerName', val);
       }
     }
+    // const variantCountNode = (document.querySelectorAll("div[id*='variation'] ul[class*='swatch']")) ? document.querySelectorAll("div[id*='variation'] ul[class*='swatch']") : [];
+    // if (variantCountNode.length > 0) {
+    //   let count = (variantCountNode[0].querySelectorAll("li[class*= 'swatchAvailable'] , li[class*= 'swatchUn'], li[class*= 'swatchSelect']")) ? variantCountNode[0].querySelectorAll("li[class*= 'swatchAvailable'] , li[class*= 'swatchUn'], li[class*= 'swatchSelect']").length : 0;
+    //   for (let i = 1; i < variantCountNode.length; i++) {
+    //     const val = (variantCountNode[i].querySelectorAll("li[class*= 'swatchAvailable'] , li[class*= 'swatchUn'], li[class*= 'swatchSelect']")) ? variantCountNode[0].querySelectorAll("li[class*= 'swatchAvailable'] , li[class*= 'swatchUn'], li[class*= 'swatchSelect']").length : 0;
+    //     if (val > 0) {
+    //       count *= val;
+    //     }
+    //   }
+    //   addHiddenDiv('ii_variantCount', count);
+    // }
   });
   return await context.extract(productDetails, { transform });
 }
