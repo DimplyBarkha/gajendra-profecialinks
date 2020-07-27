@@ -455,7 +455,6 @@ module.exports = {
                       return acc;
                     }
                   } else if (frame) {
-                    console.log(frame);
                     if (frame.querySelector('span.wc-screen-reader-only')) {
                       [...frame.querySelectorAll('span.wc-screen-reader-only')].forEach((elem) => {
                         elem.style.display = 'none';
@@ -464,7 +463,7 @@ module.exports = {
                       });
                     }
                     console.log(frame.querySelector('span.wc-screen-reader-only'));
-                    return [...acc, [frame.innerText]];
+                    return [...acc, [frame.innerText.replace(/\s+/gm, ' ')]];
                   } else {
                     return acc;
                   }
