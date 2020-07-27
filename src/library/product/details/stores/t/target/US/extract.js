@@ -108,11 +108,15 @@ async function implementation (
     return store.getAttribute('data-test').replace('storeIdSearch-item-', '');
   });
 
-  console.log('storeidis', storeID);
+  const postalCode = await context.evaluate(async function() {
+    const store = document.querySelectorAll('.StoreIdSearchBlock__SpacingWrapper-blkcp3-1')[1];
+    const splitStoreInfo = store.querySelector('.h-text-grayMedium').innerText.split(' ');
+    return splitStoreInfo[splitStoreInfo.length - 1];
+  });
 
   await context.waitForXPath("//h1[@data-test='product-title']");
 
-  await context.evaluate(async function (storeID) {
+  await context.evaluate(async function (storeID, postalCode) {
     let parentData = {};
     let origData = {};
 
@@ -716,6 +720,9 @@ async function implementation (
         await stall(10000);
       }
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
+
+      addHiddenDiv(newDiv, 'retailerId', storeID);
+      addHiddenDiv(newDiv, 'drive', postalCode);
       //addHiddenDiv(newDiv, 'videoLength', videoLength.join(' | '));
 
       const storeString = "&pricing_store_id=" + storeID + "&storeId=" + storeID + "&store_id=" + storeID;
@@ -820,7 +827,7 @@ async function implementation (
       });
 
     await stall(20000);
-  }, storeID);
+  }, storeID, postalCode);
 
   await context.extract(productDetails, { transform });
 }

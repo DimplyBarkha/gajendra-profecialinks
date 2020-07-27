@@ -99,9 +99,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="aggregateRating"]
-  #- name: shippingInfo
-  #  singleValue: true
-  #  xpath: //div[@id="shippingInfo"]
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@class="shippingDimensions"]
@@ -261,9 +258,6 @@ fields:
   - name: variants
     singleValue: false
     xpath: //div[@class="variants"]
-  #- name: additionDescBulletInfo
-  #  singleValue: true
-  #  xpath: //div[@id="additionalInfo"]
   - name: prop65Warning
     singleValue: false
     xpath: //div[@class="prop65Warning"]
@@ -288,3 +282,9 @@ fields:
   - name:  360ImagePresent
     singleValue: false
     xpath: //div[@class="rotate"]
+  - name: retailer_id
+    singleValue: false
+    xpath: //div[@class="retailerId"]
+  - name: drive
+    singleValue: false
+    xpath: //div[@class="drive"]
