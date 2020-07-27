@@ -19,6 +19,8 @@ async function implementation (
   // await context.waitForSelector('button[name="glowDoneButton"]');
   // await context.click('button[name="glowDoneButton"]');
   await context.waitForNavigation();
+  await context.waitForSelector('#main-image-container img , #altImages li[class*="imageThumbnail"] img');
+  // await new Promise((r)=>setTimeout(r, 1000));
 }
 module.exports = {
   implements: 'navigation/goto/setZipCode',

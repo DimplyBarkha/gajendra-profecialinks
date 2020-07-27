@@ -145,7 +145,7 @@ const transform = (data) => {
       }
       if (row.description) {
         row.description.forEach(item => {
-          item.text = `${item.text.replace(/\n/g, '')}`;
+          item.text = `${item.text.replace(/(\s*[\r\n]\s*)+/g, ' ')}`;
         });
       }
       if (row.otherSellersShipping && row.otherSellersName) {
@@ -204,13 +204,15 @@ const transform = (data) => {
         ];
       }
       if (row.variantInformation) {
-        let text = '';
+        let text = [];
         row.variantInformation.forEach(item => {
-          text += `${item.text.replace(/.*:(.*)/, '$1')} || `;
+          text.push(`${item.text.replace(/.*:(.*)/, '$1').trim()}`);
         });
+        const value = new Set(text);
+        text = Array.from(value);
         row.variantInformation = [
           {
-            text: clean(text.slice(0, -4).trim()),
+            text: clean(text.join(' || ')),
           },
         ];
       }
@@ -226,10 +228,12 @@ const transform = (data) => {
         ];
       }
       if (row.variantAsins) {
-        const text = [];
+        let text = [];
         row.variantAsins.forEach((item) => {
-          text.push(item.text);
+          text.push(item.text.replace(/.*,(.*)/, '$1'));
         });
+        const value = new Set(text);
+        text = Array.from(value);
         row.variantAsins = [
           {
             text: text.join(' | '),

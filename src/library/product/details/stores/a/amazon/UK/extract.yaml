@@ -48,7 +48,7 @@ fields:
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]/* | //*[@id="productDescription"]//ul
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"] | //*[@id="productDescription"]//ul
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -63,7 +63,7 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
-    xpath: //td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //th[contains(text(), 'Manufacturer')]/following-sibling::*[1] | //td[contains(text(),'Manufacturer')]/following-sibling::*[1]
+    xpath: //td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //th[contains(text(), 'Manufacturer')]/following-sibling::*[1] | //td[contains(text(),'Manufacturer')]/following-sibling::*[1] | //div[@id='ii_manufacturerName']
     description: Product manufacturer
   - name: quantity
     singleValue: true
@@ -270,7 +270,7 @@ fields:
   - name: variantAsins
     singleValue: false
     description: null
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
+    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin | //div[contains(@id,'variation')]//select[contains(@name,'dropdown')]/option/@value | (//*[@data-asin])[1]/@data-asin
     # regExp: p\/([A-Z0-9]{9,})\/
     # regExpReplace: $1
   - name: primeFlag

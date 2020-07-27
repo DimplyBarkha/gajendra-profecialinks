@@ -52,6 +52,14 @@ async function implementation (
       packSize = (packSize.match(/pack of (\d+)/i)[1]) ? packSize.match(/pack of (\d+)/i)[1] : '';
       addHiddenDiv('ii_packSize', packSize);
     }
+    var xPathRes = document.evaluate("//td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //th[contains(text(), 'Manufacturer')]/following-sibling::*[1] | //td[contains(text(),'Manufacturer')]/following-sibling::*[1]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+    if (!xPathRes.singleNodeValue) {
+      const manufacturerName = document.querySelector("meta[name='keywords']").getAttribute('content');
+      if (manufacturerName && manufacturerName.split(',').length > 1) {
+        const arr = manufacturerName.split(',');
+        addHiddenDiv('ii_manufacturerName', (arr[arr.length - 2]));
+      }
+    }
   });
   return await context.extract(productDetails, { transform });
 }
