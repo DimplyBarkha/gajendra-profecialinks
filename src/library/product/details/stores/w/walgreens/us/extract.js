@@ -68,9 +68,9 @@ module.exports = {
     }
 
     if (loadCustomerRatingsReviews) {
-      if (manufacturerInfo.length !== 0) {
-        await new Promise(resolve => setTimeout(resolve, 8000));
-      }
+      // if (manufacturerInfo.length === 0) {
+      //   await new Promise(resolve => setTimeout(resolve, 8000));
+      // }
       await context.waitForSelector('div.bv-cleanslate');
     }
 
