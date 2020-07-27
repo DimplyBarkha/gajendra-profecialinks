@@ -80,6 +80,35 @@ const transform = (data) => {
           item.text = `${item.text.replace(',', '')}`;
         });
       }
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          if (!item.text.includes('Brand')) {
+            item.text = `Brand: ${item.text}`;
+          }
+        });
+      }
+      if (row.shippingDimensions) {
+        row.shippingDimensions.forEach(item => {
+          if (item.text.includes('ounces')) {
+            row.shippingDimensions = [
+              {
+                text: item.text.replace(/(.+)(\d).?(\d.)\s*ounce[s]?/, '$1'),
+              },
+            ];
+          }
+        });
+      }
+      if (row.variantCount) {
+        row.variantCount.forEach(item => {
+          if (item.text === '0') {
+            row.variantCount = [
+              {
+                text: '1',
+              },
+            ];
+          }
+        });
+      }
     }
   }
   return data;
