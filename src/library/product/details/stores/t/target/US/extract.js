@@ -718,7 +718,8 @@ async function implementation (
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
       //addHiddenDiv(newDiv, 'videoLength', videoLength.join(' | '));
 
-      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
+      const storeString = "&pricing_store_id=" + storeID + "&storeId=" + storeID + "&store_id=" + storeID;
+      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&fulfillment_test_mode=grocery_opu_team_member_test' + storeString)
         .then(data => data.json())
         .then(availabilityData => {
           let inStore = false;
@@ -752,8 +753,7 @@ async function implementation (
           }
         });
 
-      //&pricing_store_id=1465&storeId=1465
-      await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
+      await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?key=eb2551e4accc14f38cc42d32fbc2b2ea' + storeString)
         .then(data => data.json())
         .then(variantData => {
           if (variantData.price) {
@@ -768,42 +768,6 @@ async function implementation (
             }
           }
         });
-
-      await fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?excludes=taxonomy%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
-        .then(data => data.json())
-        .then(async function(ratingData) {
-          if (ratingData.product &&
-          ratingData.product.rating_and_review_statistics &&
-          ratingData.product.rating_and_review_statistics.result &&
-          ratingData.product.rating_and_review_statistics.result[variant.tcin] &&
-          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats &&
-          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal &&
-          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal > 0) {
-            //addHiddenDiv(newDiv, 'ratingCount', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal);
-            //const averageRating = ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.AverageOverallRating;
-            //addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
-            //addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
-          } else {
-            console.log('noRatings', parentId);
-            await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
-              .then(data => data.json())
-              .then(ratingData => {
-                if (ratingData.product &&
-                ratingData.product.rating_and_review_statistics &&
-                ratingData.product.rating_and_review_statistics.result &&
-                ratingData.product.rating_and_review_statistics.result[parentId] &&
-                ratingData.product.rating_and_review_statistics.result[parentId].coreStats &&
-                ratingData.product.rating_and_review_statistics.result[parentId].coreStats.RatingReviewTotal) {
-                  //addHiddenDiv(newDiv, 'ratingCount', ratingData.product.rating_and_review_statistics.result[parentId].coreStats.RatingReviewTotal);
-                  //onst averageRating = ratingData.product.rating_and_review_statistics.result[parentId].coreStats.AverageOverallRating;
-                  //addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
-                  //addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
-                }
-              });
-
-          }
-        });
-
 
         if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
           const averageRating = document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText;
@@ -823,9 +787,10 @@ async function implementation (
     newDiv.style.display = 'none';
     document.body.appendChild(newDiv);
 
+    const storeString = "&pricing_store_id=" + storeID + "&storeId=" + storeID + "&store_id=" + storeID;
     const splitUrl = window.location.href.split('-');
     const fUrl = 'https://redsky.target.com/v3/pdp/tcin/';
-    const urlVars = '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test';
+    const urlVars = '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test' + storeString;
     const fullUrl = fUrl + splitUrl[splitUrl.length - 1].split('#')[0] + urlVars;
     let parentId;
     await fetch(`${fullUrl}`)
@@ -836,7 +801,7 @@ async function implementation (
         if (res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
             parentId = res.product.item.parent_items;
             getProductInfo(res.product.item, res.product.item.product_description.title);
-            await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
+            await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test' + storeString)
             .then(data => data.json())
             .then(async function (parentRes) {
               parentData = parentRes;
@@ -855,7 +820,7 @@ async function implementation (
       });
 
     await stall(20000);
-  });
+  }, storeID);
 
   await context.extract(productDetails, { transform });
 }
