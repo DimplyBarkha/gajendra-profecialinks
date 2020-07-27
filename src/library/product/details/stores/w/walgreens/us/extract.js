@@ -20,6 +20,10 @@ module.exports = {
       return document.querySelector('li#prodCollage') ? (document.querySelector('li#prodCollage').innerText.match('Loading manufacturer content') !== null) : false;
     });
 
+    const loadCustomerRatingsReviews = await context.evaluate(function () {
+      return document.querySelector('li#BVRRSummaryContainer');
+    });
+
     await context.evaluate(function () {
       const popUps = document.querySelector('div.fsrAbandonButton');
 
@@ -63,6 +67,13 @@ module.exports = {
       if (loadMoreManufacturer) {
         await context.waitForSelector('div.wc-fragment');
       }
+    }
+
+    if (loadCustomerRatingsReviews) {
+      if (manufacturerInfo.length !== 0) {
+        await new Promise(resolve => setTimeout(resolve, 8000));
+      }
+      await context.waitForSelector('div.bv-cleanslate');
     }
 
     const extractAll = async (id, url, variants) => {
@@ -448,8 +459,8 @@ module.exports = {
                     if (frame.querySelector('span.wc-screen-reader-only')) {
                       [...frame.querySelectorAll('span.wc-screen-reader-only')].forEach((elem) => {
                         elem.style.display = 'none';
-                        elem.innerText = '';
-                        elem.textContent = '';
+                        elem.innerText = ' ';
+                        elem.textContent = ' ';
                       });
                     }
                     console.log(frame.querySelector('span.wc-screen-reader-only'));
@@ -482,6 +493,19 @@ module.exports = {
               return [];
             };
             return allImages();
+          };
+
+          const additionalDescBulletInfo = () => {
+            if (document.querySelectorAll('#prodDesc ul > li').length) {
+              return [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent);
+            }
+            if (document.querySelectorAll('div.description li, div.description tr').length) {
+              return [...document.querySelectorAll('div.description li, div.description tr')].map(d => d.textContent);
+            }
+            if (document.querySelectorAll('div.content ul.list-styles li').length) {
+              return [...document.querySelectorAll('div.content ul.list-styles li')].map(d => d.textContent);
+            }
+            return '';
           };
 
           // const updatedRatings = () => document.querySelector('div[class^="bv-summary-bar"] span[itemprop="ratingValue"]') ? document.querySelector('div[class^="bv-summary-bar"] span[itemprop="ratingValue"]').textContent : null;
@@ -573,7 +597,7 @@ module.exports = {
             variantInformation: infos.primaryAttribute ? infos.primaryAttribute : (infos.color ? infos.color : ''),
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
-            additionalDescBulletInfo: document.querySelectorAll('#prodDesc ul > li').length ? [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent) : (document.querySelectorAll('div.description li, div.description tr').length ? [...document.querySelectorAll('div.description li, div.description tr')].map(d => d.textContent) : ''),
+            additionalDescBulletInfo: additionalDescBulletInfo(),
             prop65Warning: document.querySelector('li#Warnings') && document.querySelector('li#Warnings').textContent.includes('P65') ? document.querySelector('li#Warnings').textContent : '',
             // imageZoomFeaturePresent: document.querySelector('div#zoomLensContainer') ? 'Yes' : 'No',
           };
