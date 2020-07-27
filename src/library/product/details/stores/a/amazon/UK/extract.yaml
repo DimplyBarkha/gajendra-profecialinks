@@ -48,7 +48,7 @@ fields:
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]//p | //*[@id="productDescription"]//ul
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]/* | //*[@id="productDescription"]//ul
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -97,7 +97,7 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
-    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Number of Items')]/../td | //td[contains(text(),'Item Package Quantity')]/following-sibling::*[1]
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Number of Items')]/../td | //td[contains(text(),'Item Package Quantity')]/following-sibling::*[1] | //div[@id='ii_packSize']
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
@@ -191,8 +191,8 @@ fields:
   - name: brandLink
     singleValue: false
     xpath: //a[@id="bylineInfo"]/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.co.uk$1
+    # regExp: (.+)
+    # regExpReplace: http://www.amazon.co.uk$1
     description: null
   - name: internationalShipping
     singleValue: true
@@ -584,7 +584,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUnavail") or contains(@class, "swatchSelect")]//img/@alt
+    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[contains(@class, "swatchAvailable") or contains(@class, "swatchUnavail") or contains(@class, "swatchSelect")]//img/@alt | //div[@id='variation_style_name']/div[contains(@class,'a-row')] | //div[@id='variation_flavor_name']/div[contains(@class,'a-row')] | //div[@id='variation_size_name']/div[contains(@class,'a-row')] | //div[@id='variation_color_name']/div[contains(@class,'a-row')] | //div[@id='variation_item_package_quantity']/div[contains(@class,'a-row')] | //ul[contains(@class,'swatches')]/li//div[contains(@class,'twisterText')]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: false

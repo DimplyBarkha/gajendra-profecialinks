@@ -35,6 +35,16 @@ const transform = (data) => {
           item.text = `${item.text.replace(/([\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
         });
       }
+      if (row.packSize) {
+        row.packSize.forEach(item => {
+          item.text = `${item.text.replace(/pack of (\d+)/i, '$1')}`;
+        });
+      }
+      if (row.brandLink) {
+        row.brandLink.forEach(item => {
+          item.text = `${item.text.replace(/(.+)/, 'http://www.amazon.co.uk' + '$1')}`;
+        });
+      }
       if (row.lbb) {
         row.lbb.forEach(item => {
           if (item.text !== 'NO' && item.text.length > 0) {
@@ -196,7 +206,7 @@ const transform = (data) => {
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {
-          text += `${item.text} || `;
+          text += `${item.text.replace(/.*:(.*)/, '$1')} || `;
         });
         row.variantInformation = [
           {

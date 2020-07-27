@@ -46,6 +46,12 @@ async function implementation (
     // @ts-ignore
     manufacturerDescription = manufacturerDescription !== null ? manufacturerDescription.innerText : '';
     addHiddenDiv('ii_manufacturerDescription', manufacturerDescription);
+    // @ts-ignore
+    let packSize = document.querySelector("h1[id*='title']").innerText;
+    if (packSize.search(/pack of/gmi) > -1) {
+      packSize = (packSize.match(/pack of (\d+)/i)[1]) ? packSize.match(/pack of (\d+)/i)[1] : '';
+      addHiddenDiv('ii_packSize', packSize);
+    }
   });
   return await context.extract(productDetails, { transform });
 }
