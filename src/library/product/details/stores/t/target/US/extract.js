@@ -22,7 +22,6 @@ async function implementation (
           const splitUrl = href.split('-');
           const endOfUrl = splitUrl[splitUrl.length - 1];
           let productId = endOfUrl.split('?preselect=')[0];
-          console.log('productis...', productId);
           return productId;
         }
       }
@@ -30,7 +29,7 @@ async function implementation (
     return window.location.href.split('=')[1];
   });
 
-  await context.goto('https://scontent.webcollage.net?productId=' + productId + '#[!opt!]{"type":"js","init_js":""}[/!opt!]');
+  /*await context.goto('https://scontent.webcollage.net?productId=' + productId + '#[!opt!]{"type":"js","init_js":""}[/!opt!]');
 
   const enhancedHTML = await context.evaluate(async function() {
     const splitUrl = window.location.href.split('=')[1];
@@ -47,7 +46,7 @@ async function implementation (
     });
   });
 
-  await context.goto(currentUrl);
+  await context.goto(currentUrl);*/
 
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
@@ -75,14 +74,14 @@ async function implementation (
 
   await context.goto('https://www.target.com' + productUrl);
 
-  await context.evaluate(function(html) {
+  /*await context.evaluate(function(html) {
 
     const newDiv = document.createElement('div');
     newDiv.id = "enhancedHtml";
     let nodeArrayRegex = />([a-zA-Z 0-9\.\-\&\!\@\#\$\%\^\*\;\,\:\(\)\=\+\?\\\/\']{2,})</g
     let text = html.match(nodeArrayRegex)
     if (text) {
-      let extractedText = text.join(' ').replace(/>/g,'').replace(/</g,'').replace(/\&amp\;/g, '&').replace(/  /g,' ').replace(/&#174;/g,'®').replace(/\\/g,'').replace(/&#8217;/g,`'`).replace(/&#8224;/g,'†').trim();
+      let extractedText = text.join(' ').replace(/>/g,'').replace(/</g,'').replace(/\&amp\;/g, '&').replace(/  /g,' ').replace(/&#174;/g,'®').replace(/\\/g,'').replace(/&#8217;/g,`'`).replace(/&#8224;/g,'†').replace(/''/, "'").trim();
       console.log('extractinggg', extractedText);
       newDiv.innerHTML = extractedText;
       document.body.appendChild(newDiv);
@@ -93,12 +92,13 @@ async function implementation (
     newDiv2.innerHTML = unescape(html.replace(/\\\\\\/g, '').replace(/\\/g,'')).replace(/\"/g,'').replace(/"""/g, '');
     document.body.appendChild(newDiv2);
 
-  }, enhancedHTML);
+  }, enhancedHTML);*/
 
   await context.waitForXPath("//h1[@data-test='product-title']");
 
   await context.evaluate(async function () {
     let parentData = {};
+    let origData = {};
 
     function addHiddenDiv (el, className, content) {
       const newDiv = document.createElement('div');
@@ -134,74 +134,88 @@ async function implementation (
     let scrollTop = 500;
     while (true) {
       window.scroll(0, scrollTop);
-      await stall(200);
+      await stall(750);
       scrollTop += 500;
-      if (scrollTop === 8000) {
+      if (scrollTop === 15000) {
         break;
       }
     }
 
-    await stall(50);
-    const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight');
+    window.scroll(0, 1000);
+
+    await stall(2000);
+    const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
     if (manufacturerCTA) {
+      console.log('hastheCTA');
       manufacturerCTA.click();
     }
-    await stall(1000);
-    const element = document.querySelector('#salsify-ec-iframe');
-    if (element) {
-      console.log('found iframe');
-      console.log(element.getAttribute('src'));
-      await fetch(element.getAttribute('src'))
-        .then(async function (response) {
-          const sometext = await response.text();
-          const startText = '<body>';
-          const endText = '</body>';
-          const startIx = sometext.indexOf(startText);
-          const endIx = sometext.indexOf(endText, startIx);
-          console.log('start: ' + startIx);
-          console.log('end: ' + endIx);
-          const bodyContent = sometext.substring(startIx + startText.length, endIx);
-          const wrapper = document.createElement('div');
-          wrapper.id = 'frameContents';
-          wrapper.innerHTML = bodyContent;
-          document.body.appendChild(wrapper);
-          console.log('tried to append iframe content');
-        });
-    } else {
-      console.log('did not find iframe');
-    }
+    await stall(3000);
 
+    let id = '';
+    if (window.location.href.includes('?preselect=')) {
+      let splitUrl = window.location.href.split('?preselect=')[1];
+      id = splitUrl.split('#')[0]
+    } else {
+      let splitUrl = window.location.href.split('-');
+      id = splitUrl[splitUrl.length - 1];
+    }
+    await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + id + '/index.html')
+      .then(async function (response) {
+        const sometext = await response.text();
+        const startText = '<body>';
+        const endText = '</body>';
+        const startIx = sometext.indexOf(startText);
+        const endIx = sometext.indexOf(endText, startIx);
+        console.log('start: ' + startIx);
+        console.log('end: ' + endIx);
+        const bodyContent = sometext.substring(startIx + startText.length, endIx);
+        const wrapper = document.createElement('div');
+        wrapper.id = 'frameContents';
+        wrapper.innerHTML = bodyContent;
+        document.body.appendChild(wrapper);
+    });
+    console.log('salsifyContentz', id, document.getElementById('frameContents').innerHTML);
+
+    let tcinSet = new Set();
     async function getProductInfo (variant, productName, variantCount = null) {
+
+      document.getElementById('mainContainer').querySelectorAll('li').forEach(e => {
+        if (e.querySelector('.sku').innerText === variant.tcin) {
+          e.remove();
+        }
+      });
+
       const newDiv = createListItem();
 
-      addHiddenDiv(newDiv, 'productName', productName);
+      addHiddenDiv(newDiv, 'productName', decodeHtml(productName));
 
+      let secondaryImages = [];
       if (variant.enrichment && variant.enrichment.images && variant.enrichment.images.length) {
         addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
-        if (variant.enrichment.images[0] && variant.enrichment.images[0].alternate_urls && variant.enrichment.images[0].alternate_urls.length) {
-          const secondaryImages = variant.enrichment.images[0].alternate_urls.map(image => variant.enrichment.images[0].base_url.replace('https', 'http') + image);
-          addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.join(' | '));
-        } else if (variant.enrichment.images[0].content_labels && variant.enrichment.images[0].content_labels.length) {
-          const secondaryImages = variant.enrichment.images[0].content_labels.filter((image, ind) => image.image_url != variant.enrichment.images[0].primary && image.image_url != variant.enrichment.images[0].swatch).map(image => variant.enrichment.images[0].base_url.replace('https', 'http') + image.image_url);
-          addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.join(' | '));
+        /*if (variant.enrichment.images[0] && variant.enrichment.images[0].alternate_urls && variant.enrichment.images[0].alternate_urls.length) {
+          secondaryImages = variant.enrichment.images[0].alternate_urls.map(image => variant.enrichment.images[0].base_url.replace('https', 'http') + image);
         }
+        if (variant.enrichment.images[0].content_labels && variant.enrichment.images[0].content_labels.length) {
+          secondaryImages = variant.enrichment.images[0].content_labels.filter((image, ind) => image.image_url != variant.enrichment.images[0].primary && image.image_url != variant.enrichment.images[0].swatch).map(image => variant.enrichment.images[0].base_url.replace('https', 'http') + image.image_url);
+        }*/
       }
 
       let videos = [];
+      let videoLength = [];
       if (parentData.product.item.enrichment &&
         parentData.product.item.enrichment.videos &&
-        parentData.product.item.enrichment.videos.length &&
-        parentData.product.item.enrichment.videos[0] &&
-        parentData.product.item.enrichment.videos[0].video_files) {
-        videos = parentData.product.item.enrichment.videos[0].video_files.map(video => 'https:' + video.video_url);
+        parentData.product.item.enrichment.videos.length) {
+          videos = parentData.product.item.enrichment.videos.map(video =>
+            'https:' + video.video_files[0].video_url
+          );
       }
 
       if (!videos.length &&
         variant.enrichment.videos &&
-        variant.enrichment.videos.length &&
-        variant.enrichment.videos[0] &&
-        variant.enrichment.videos[0].video_files) {
-        videos = variant.enrichment.videos[0].video_files.map(video => 'https:' + video.video_url);
+        variant.enrichment.videos.length) {
+          videos = variant.product.item.enrichment.videos.map(video =>
+            'https:' + video.video_files[0].video_url
+          );
       }
 
       const productTitle = document.querySelector('h1[data-test="product-title"]').innerText;
@@ -212,7 +226,7 @@ async function implementation (
       }
 
       if (productTitle && variant.variation_info && variant.variation_info.themes) {
-        addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle) + ' ' + variant.variation_info.themes[0].value);
+        addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
       } else {
         addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
       }
@@ -231,9 +245,19 @@ async function implementation (
       if (variant.product_description && variant.product_description.soft_bullets && variant.product_description.soft_bullets.bullets && variant.product_description.soft_bullets.bullets.length) {
         description = '|| ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')) + ' ';
         addHiddenDiv(newDiv, 'descriptionBullets', variant.product_description.soft_bullets.bullets.length);
+        addHiddenDiv(newDiv, 'additionalDesc', decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')));
       }
+
       if(description.length || (variant.product_description && variant.product_description.downstream_description)) {
-        addHiddenDiv(newDiv, 'description', description + decodeHtml(variant.product_description.downstream_description.replace('<br />', ' ').replace(/(<([^>]+)>)/ig, ' ')));
+        addHiddenDiv(newDiv, 'description', description +  (variant.product_description.downstream_description ? decodeHtml(variant.product_description.downstream_description.replace('<br />', ' ').replace(/(<([^>]+)>)/ig, ' ')) : ''));
+      }
+
+      if (variant.wellness_merchandise_attributes) {
+        addHiddenDiv(newDiv, 'additionalDescBulletInfo', variant.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
+      } else if (parentData.product.item.wellness_merchandise_attributes) {
+        addHiddenDiv(newDiv, 'additionalDescBulletInfo', parentData.product.item.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
+      } else if (origData.product.item.wellness_merchandise_attributes) {
+        addHiddenDiv(newDiv, 'additionalDescBulletInfo', origData.product.item.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
       }
 
       const ingredients = [];
@@ -263,29 +287,44 @@ async function implementation (
         addHiddenDiv(newDiv, 'color', variant.variation.color);
       }
 
+      let hasSpecifications = false;
+      let storage = '';
       if (variant.product_description && variant.product_description.bullet_description) {
         const materials = [];
         variant.product_description.bullet_description.forEach(e => {
           if (e.includes('<B>Weight:</B>') || e.includes('<B>Net weight:</B>')) {
             addHiddenDiv(newDiv, 'netWeight', e.split('</B>')[1].trim());
           }
-          if (e.includes('Number of')) {
+          if (e.includes('Number of') || e.includes('Quantity:')) {
             addHiddenDiv(newDiv, 'packSize', e.split('</B>')[1].trim());
           }
           if (e.includes('Dimensions')) {
+            hasSpecifications = true;
             addHiddenDiv(newDiv, 'specifications', e.split('</B>')[1].trim());
           }
           if (e.includes('Warranty')) {
             addHiddenDiv(newDiv, 'warranty', e.split('</B>')[1].trim());
           }
-          if (e.includes('Storage')) {
-            addHiddenDiv(newDiv, 'storage', e.replace(/(<([^>]+)>)/ig, ''));
+          if (e.includes('Store:')) {
+            storage = e.split('</B>')[1].trim();
+          }
+          if (e.includes('Storage:')) {
+            storage = e.split('</B>')[1].trim();
           }
           if (e.includes('Contains:')) {
             addHiddenDiv(newDiv, 'allergyAdvice', e.split('</B>')[1].trim());
           }
+          if (e.includes('Model #:')) {
+            addHiddenDiv(newDiv, 'mpc', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Package type:')) {
+            addHiddenDiv(newDiv, 'packaging', e.split('</B>')[1].trim());
+          }
           if (e.includes('Alcohol content:')) {
             addHiddenDiv(newDiv, 'alcoholContent', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Hazard Warnings')) {
+            addHiddenDiv(newDiv, 'warnings', e.split('</B>')[1].trim());
           }
           if (e.includes('Suggested Age:')) {
             addHiddenDiv(newDiv, 'ageSuitability', e.split('</B>')[1].trim());
@@ -299,13 +338,20 @@ async function implementation (
         }
       }
 
+      if(storage.length) {
+        addHiddenDiv(newDiv, 'storage', storage);
+      }
+
       if (variant.package_dimensions) {
         addHiddenDiv(newDiv, 'shipWeight', variant.package_dimensions.weight + ' ' + variant.package_dimensions.weight_unit_of_measure.toLowerCase() + 's');
         addHiddenDiv(newDiv, 'shippingDimensions', variant.package_dimensions.depth + ' inches length x ' + variant.package_dimensions.width + ' inches width x ' + variant.package_dimensions.height + ' inches height');
+        if (!hasSpecifications) {
+          addHiddenDiv(newDiv, 'specifications', variant.package_dimensions.depth + ' inches length x ' + variant.package_dimensions.width + ' inches width x ' + variant.package_dimensions.height + ' inches height');
+        }
       }
 
       if (variant.upc) {
-        addHiddenDiv(newDiv, 'upc', variant.upc);
+        addHiddenDiv(newDiv, 'upc', variant.upc.toString());
       }
 
       if (variant.tcin) {
@@ -322,6 +368,10 @@ async function implementation (
 
       if (variant.country_of_origin) {
         addHiddenDiv(newDiv, 'countryOfOrigin', variant.country_of_origin);
+      } else if (parentData.product.item.country_of_origin) {
+        addHiddenDiv(newDiv, 'countryOfOrigin', parentData.product.item.country_of_origin);
+      } else if (origData.product.item.country_of_origin) {
+        addHiddenDiv(newDiv, 'countryOfOrigin', origData.product.item.country_of_origin);
       }
 
       if (variant.enrichment && variant.enrichment.drug_facts) {
@@ -332,6 +382,24 @@ async function implementation (
           addHiddenDiv(newDiv, 'warnings', variant.enrichment.drug_facts.warning.text);
         }
       }
+
+      if (variant.enrichment && variant.enrichment.nutrition_facts) {
+        if (variant.enrichment.nutrition_facts.warning) {
+          addHiddenDiv(newDiv, 'warnings', variant.enrichment.nutrition_facts.warning);
+        }
+      }
+
+      document.querySelectorAll('.h-padding-l-tight').forEach(e => {
+        if (e && (e.innerText.indexOf('WARNING:') > -1 || e.innerText.indexOf('warning') > -1)) {
+            addHiddenDiv(newDiv, 'warnings', e.parentElement.innerText.split(':')[1]);
+        }
+      });
+
+      document.querySelectorAll('.h-padding-l-default').forEach(e => {
+        if (e && (e.innerText.indexOf('Warning:') > -1) && e.querySelector('h3') && e.querySelector('h3').innerText === 'Description') {
+            addHiddenDiv(newDiv, 'warnings', e.innerText.split('Warning:')[1]);
+        }
+      });
 
       if (variantCount) {
         addHiddenDiv(newDiv, 'variantCount', variantCount);
@@ -349,73 +417,78 @@ async function implementation (
         variant.enrichment.nutrition_facts.value_prepared_list[0]) {
 
         if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size) {
-          addHiddenDiv(newDiv, 'servingSize', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size);
-          addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement);
+          addHiddenDiv(newDiv, 'servingSize', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[0]);
+          if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement) {
+            addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement);
+          } else if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[1]) {
+            addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[1]);
+          }
           addHiddenDiv(newDiv, 'servingsPerContainer', variant.enrichment.nutrition_facts.value_prepared_list[0].servings_per_container);
         }
 
         if (variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients) {
           variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients.forEach(e => {
+            const val = e.quantity || e.percentage || '0';
             if (e.name === 'Calories') {
-              addHiddenDiv(newDiv, 'caloriesPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'caloriesPerServing', val);
             }
-            if (e.name === 'Calories From Fat') {
-              addHiddenDiv(newDiv, 'caloriesFromFat', e.quantity || e.percentage || '0');
+            if (e.name === 'Calories From Fat' || e.name === 'Calories from Fat') {
+              addHiddenDiv(newDiv, 'caloriesFromFat', val);
             }
             if (e.name === 'Total Fat') {
-              addHiddenDiv(newDiv, 'totalFatPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'totalFatPerServing', val);
               addHiddenDiv(newDiv, 'totalFatPerServingUom', e.unit_of_measurement || '%');
             }
             if (e.name === 'Saturated Fat') {
-              addHiddenDiv(newDiv, 'saturatedFatPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'saturatedFatPerServing', val);
               addHiddenDiv(newDiv, 'saturatedFatPerServingUom', e.unit_of_measurement || '%');
             }
             if (e.name === 'Trans Fat') {
-              addHiddenDiv(newDiv, 'transFatPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'transFatPerServing', val);
               addHiddenDiv(newDiv, 'transFatPerServingUom', e.unit_of_measurement || '%');
             }
             if (e.name === 'Cholesterol') {
-              addHiddenDiv(newDiv, 'cholesterolPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'cholesterolPerServing', val);
               addHiddenDiv(newDiv, 'cholesterolPerServingUom', e.unit_of_measurement || '%');
             }
             if (e.name === 'Sodium') {
-              addHiddenDiv(newDiv, 'sodiumPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'sodiumPerServing', val);
               addHiddenDiv(newDiv, 'sodiumPerServingUom', e.unit_of_measurement || '%');
             }
             if (e.name === 'Total Carb.' || e.name === 'Total Carbohydrate') {
-              addHiddenDiv(newDiv, 'totalCarbPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'totalCarbPerServing', val);
               addHiddenDiv(newDiv, 'totalCarbPerServingUom', e.unit_of_measurement || '%');
             }
             if (e.name === 'Dietary Fiber') {
-              addHiddenDiv(newDiv, 'dietaryFibrePerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'dietaryFibrePerServing', val);
               addHiddenDiv(newDiv, 'dietaryFibrePerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Sugars') {
-              addHiddenDiv(newDiv, 'totalSugarsPerServing', e.quantity || e.percentage || '0');
+            if (e.name === 'Sugars' || e.name === 'Total Sugars') {
+              addHiddenDiv(newDiv, 'totalSugarsPerServing', val);
               addHiddenDiv(newDiv, 'totalSugarsPerServingUom', e.unit_of_measurement || '%');
             }
             if (e.name === 'Protein') {
-              addHiddenDiv(newDiv, 'proteinPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'proteinPerServing', val);
               addHiddenDiv(newDiv, 'proteinPerServingUom', e.unit_of_measurement || '%');
             }
             if (e.name === 'Vitamin A') {
-              addHiddenDiv(newDiv, 'vitaminAPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'vitaminAPerServing', val);
               addHiddenDiv(newDiv, 'vitaminAPerServingUom', e.unit_of_measurement || '%');
             }
             if (e.name === 'Vitamin C') {
-              addHiddenDiv(newDiv, 'vitaminCPerServing', e.quantity || e.percentage || '0');
+              addHiddenDiv(newDiv, 'vitaminCPerServing', val);
               addHiddenDiv(newDiv, 'vitaminCPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Calcium') {
-              addHiddenDiv(newDiv, 'calciumPerServing', e.quantity || e.percentage || '0');
+            if (e.name === 'Calcium' || e.name.toLowerCase().indexOf('calcium') > -1) {
+              addHiddenDiv(newDiv, 'calciumPerServing', val);
               addHiddenDiv(newDiv, 'calciumPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Iron') {
-              addHiddenDiv(newDiv, 'ironPerServing', e.quantity || e.percentage || '0');
+            if (e.name === 'Iron' || e.name.toLowerCase().indexOf('iron') > -1) {
+              addHiddenDiv(newDiv, 'ironPerServing', val);
               addHiddenDiv(newDiv, 'ironPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Magnesium') {
-              addHiddenDiv(newDiv, 'magnesiumPerServing', e.quantity || e.percentage || '0');
+            if (e.name === 'Magnesium' || e.name.toLowerCase().indexOf('magnesium') > -1) {
+              addHiddenDiv(newDiv, 'magnesiumPerServing', val);
               addHiddenDiv(newDiv, 'magnesiumPerServingUom', e.unit_of_measurement || '%');
             }
           });
@@ -460,7 +533,7 @@ async function implementation (
       addHiddenDiv(newDiv, 'privacy', privacy);
       addHiddenDiv(newDiv, 'customerServiceAvailability', 'Yes');
 
-      const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC');
+      const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC') || document.querySelector('.TapToZoomText-r290sk-0');
       if (zoom) {
         addHiddenDiv(newDiv, 'zoom', 'Yes');
       } else {
@@ -491,28 +564,69 @@ async function implementation (
           console.log('has slide deck!');
           slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
             if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
-              videos.push(e.getAttribute('src').split('?')[0].replace('image', 'content') + '_Flash9_Autox720p_2600k');
+              function stall (ms) {
+                return new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                    resolve();
+                  }, ms);
+                });
+              }
+              e.click();
+              await stall(1000);
+              if(document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
+                videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
+              }
+            } else if(ind > 0) {
+              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://'));
             }
           });
         }
       } else {
         const sideImages = document.querySelectorAll('.styles__ThumbnailImage-beej2j-11');
         if (sideImages) {
-          sideImages.forEach((e, ind) => {
+          sideImages.forEach(async (e, ind) => {
             if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
-              videos.push(e.getAttribute('src').split('?')[0].replace('image', 'content') + '_Flash9_Autox720p_2600k');
+              function stall (ms) {
+                return new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                    resolve();
+                  }, ms);
+                });
+              }
+              e.click();
+              await stall(1000);
+              if(document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
+                videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
+              }
+            } else if (ind > 0) {
+              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://'));
             }
           });
         }
       }
 
+      addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.filter(img => img != variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
+      if (secondaryImages.length) {
+        addHiddenDiv(newDiv, 'secondaryImageTotal', secondaryImages.filter(img => img != variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).length);
+      } else {
+        addHiddenDiv(newDiv, 'secondaryImageTotal', '0');
+      }
+
+      const shipbutton = document.querySelector('#tab-ShippingReturns');
+      if (shipbutton != null) {
+        shipbutton.click();
+        await stall(100);
+        if (document && document.querySelector('div[data-test="productDetailsTabs-shippingReturnsTab-shippingDetails"]')) {
+          addHiddenDiv(newDiv, 'shippingInfo', document.querySelector('div[data-test="productDetailsTabs-shippingReturnsTab-shippingDetails"]').innerText.replace('Shipping details ', ''));
+        }
+      }
+
       let manufacturerDesc = '';
       const manufacturerImgs = [];
-      const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight');
+      const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
       const frameContents = document.getElementById('frameContents');
-      await stall(2000);
-      if (frameContents) {
-        console.log('hasFrameContents', frameContents.innerText);
+      if (frameContents && frameContents.querySelector('#salsify-content')) {
+        await stall(2000);
         manufacturerDesc = frameContents.innerText;
         frameContents.querySelectorAll('img').forEach(e => {
           manufacturerImgs.push(e.getAttribute('src'));
@@ -522,16 +636,29 @@ async function implementation (
         });
       } else if (manufacturerCTA) {
         if(document.getElementById('wc-power-page')) {
-          console.log('haspowerpage');
           document.getElementById('wc-power-page').querySelectorAll('iframe').forEach(e => {
+            console.log('hasframehere');
             const frameContents = e.contentWindow.document.body;
-            frameContents.querySelectorAll('img').forEach(img => {
-              manufacturerImgs.push(img.src);
+            frameContents.querySelectorAll('img').forEach(e => {
+              manufacturerImgs.push(e.src);
+            });
+            frameContents.querySelectorAll('video').forEach(e => {
+              videos.push(e.src);
+            });
+            frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
+              setTimeout(() => {
+                if (e.querySelector('button')) {
+                  e.querySelector('img').click();
+                  if (frameContents.querySelector('.wc-video-container')) {
+                    videos.push(frameContents.querySelector('.wc-video-container').querySelector('video').src);
+                  }
+                }
+              }, (ind * 500) + 500);
             });
           });
         }
         if (document.getElementById('wc-power-page') && document.getElementById('wc-power-page').innerText) {
-          console.log('wcframes!', document.querySelectorAll('.wc-fragment').length);
+          console.log('haswcpowerpage');
           const manufacturerDescArr = [];
           document.querySelectorAll('.wc-fragment').forEach(e => {
             if (e.querySelector('.wc-pct-data')) {
@@ -548,42 +675,42 @@ async function implementation (
           if(!manufacturerDescArr.length) {
             manufacturerDesc = document.getElementById('wc-power-page').innerText;
           }
-          document.querySelectorAll('img.wc-media.wc-image').forEach(e => {
+          document.getElementById('wc-power-page').querySelectorAll('img').forEach(e => {
             console.log('wcimagehere', e.src);
             manufacturerImgs.push(e.src);
           });
-          const aplusBody = document.querySelector('.wc-product-image-row');
-          if (aplusBody) {
-            aplusBody.querySelectorAll('.wc-pct-product-image').forEach(e => {
-              manufacturerImgs.push(e.src);
-            });
-          }
           document.getElementById('wc-power-page').querySelectorAll('video').forEach(e => {
             videos.push(e.src);
           });
         }
       }
 
-      if (document.getElementById('mediaHtml') && document.getElementById('mediaHtml').innerHTML) {
-        document.getElementById('mediaHtml').querySelectorAll('img').forEach(e => {
-          manufacturerImgs.push(e.src);
-        });
-      }
-
       function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
       }
 
-      if (document.getElementById('enhancedHtml') &&
+      if (manufacturerDesc && manufacturerDesc != 'Loading, please wait...') {
+        addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
+      }
+      addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(onlyUnique).join('|'));
+      console.log('manufacturimgs', manufacturerImgs)
+
+      /*if (document.getElementById('mediaHtml') && document.getElementById('mediaHtml').innerHTML) {
+        document.getElementById('mediaHtml').querySelectorAll('img').forEach(e => {
+          manufacturerImgs.push(e.src);
+        });
+      }*/
+
+      /*if (document.getElementById('enhancedHtml') &&
         document.getElementById('enhancedHtml').innerText &&  document.getElementById('enhancedHtml').innerText.trim().length) {
         addHiddenDiv(newDiv, 'manufacturerDesc', document.getElementById('enhancedHtml').innerText);
       } else {
         addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
-      }
+      }*/
 
-      const mediaImages = [];
-      let scrapedWcCollage = false;
-      if(document.getElementById('mediaHtml')) {
+      //const mediaImages = [];
+      //let scrapedWcCollage = false;
+      /*if(document.getElementById('mediaHtml')) {
 
         let path = "";
 
@@ -634,36 +761,14 @@ async function implementation (
           }
 
         });
-      }
+      }*/
 
-      if (manufacturerImgs.length && scrapedWcCollage) {
-        const finalImages = [];
-        manufacturerImgs.forEach(img => {
-          let imgString = '';
-          if (img.includes('.jpg')) {
-            imgString = img.split('.jpg')[0];
-          } else if (img.includes('.png')) {
-            imgString  = img.split('.png')[0];
-          }
-          const splitImgString = imgString.split('/');
-          const finalImageString = splitImgString[splitImgString.length - 1];
-          console.log('finalImageString9', finalImageString);
-          let hasImage = false;
-          for (let image of finalImages) {
-            if(image.includes(finalImageString)) {
-              hasImage = true;
-            }
-          }
-          if(!hasImages) {
-            finalImages.push(img);
-          }
-        });
-        addHiddenDiv(newDiv, 'manufacturerImgs', finalImages.filter(onlyUnique).join('|'));
-      } else {
-        addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('//_cp')).filter(onlyUnique).join('|'));
+      console.log('continuing...');
+      if (videos.length) {
+        await stall(10000);
       }
-
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
+      //addHiddenDiv(newDiv, 'videoLength', videoLength.join(' | '));
 
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
         .then(data => data.json())
@@ -677,14 +782,14 @@ async function implementation (
             if (availabilityData.data.product.fulfillment.store_options &&
                 availabilityData.data.product.fulfillment.store_options.length) {
                   availabilityData.data.product.fulfillment.store_options.forEach(store => {
-                    if(store.in_store_only.availability_status === 'IN_STOCK') {
+                    if(store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
                       inStore = true;
                     }
                   });
             }
 
             if (availabilityData.data.product.fulfillment.shipping_options &&
-                availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK') {
+                (availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK' || availabilityData.data.product.fulfillment.shipping_options.availability_status.includes('LIMITED_STOCK'))) {
               deliver = true;
             }
           }
@@ -699,6 +804,7 @@ async function implementation (
           }
         });
 
+      //&pricing_store_id=1465&storeId=1465
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
         .then(data => data.json())
         .then(variantData => {
@@ -715,20 +821,53 @@ async function implementation (
           }
         });
 
-      await fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?excludes=taxonomy%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&pricing_store_id=1465&storeId=1465&fulfillment_test_mode=grocery_opu_team_member_test')
+      await fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?excludes=taxonomy%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
         .then(data => data.json())
-        .then(ratingData => {
+        .then(async function(ratingData) {
           if (ratingData.product &&
           ratingData.product.rating_and_review_statistics &&
           ratingData.product.rating_and_review_statistics.result &&
           ratingData.product.rating_and_review_statistics.result[variant.tcin] &&
           ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats &&
-          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal) {
-            addHiddenDiv(newDiv, 'ratingCount', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal);
-            addHiddenDiv(newDiv, 'aggregateRating', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.AverageOverallRating);
-            addHiddenDiv(newDiv, 'aggregateRatingText', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.AverageOverallRating + ' out of 5');
+          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal &&
+          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal > 0) {
+            //addHiddenDiv(newDiv, 'ratingCount', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal);
+            //const averageRating = ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.AverageOverallRating;
+            //addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
+            //addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
+          } else {
+            console.log('noRatings', parentId);
+            await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
+              .then(data => data.json())
+              .then(ratingData => {
+                if (ratingData.product &&
+                ratingData.product.rating_and_review_statistics &&
+                ratingData.product.rating_and_review_statistics.result &&
+                ratingData.product.rating_and_review_statistics.result[parentId] &&
+                ratingData.product.rating_and_review_statistics.result[parentId].coreStats &&
+                ratingData.product.rating_and_review_statistics.result[parentId].coreStats.RatingReviewTotal) {
+                  //addHiddenDiv(newDiv, 'ratingCount', ratingData.product.rating_and_review_statistics.result[parentId].coreStats.RatingReviewTotal);
+                  //onst averageRating = ratingData.product.rating_and_review_statistics.result[parentId].coreStats.AverageOverallRating;
+                  //addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
+                  //addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
+                }
+              });
+
           }
         });
+
+
+        if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
+          const averageRating = document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText;
+          addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
+          addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
+        } else {
+          addHiddenDiv(newDiv, 'aggregateRating', '0');
+        }
+
+        if (document.querySelector('span[data-test="ratingCount"]')) {
+          addHiddenDiv(newDiv, 'ratingCount', document.querySelector('span[data-test="ratingCount"]').innerText);
+        }
     }
 
     const newDiv = document.createElement('ul');
@@ -738,24 +877,24 @@ async function implementation (
 
     const splitUrl = window.location.href.split('-');
     const fUrl = 'https://redsky.target.com/v3/pdp/tcin/';
-    const urlVars = '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&pricing_store_id=1465&storeId=1465&fulfillment_test_mode=grocery_opu_team_member_test';
+    const urlVars = '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test';
     const fullUrl = fUrl + splitUrl[splitUrl.length - 1].split('#')[0] + urlVars;
-
+    let parentId;
     await fetch(`${fullUrl}`)
       .then(data => data.json())
       .then(async function (res) {
         parentData = res;
+        origData = res;
         if (res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
-          const parentId = res.product.item.parent_items;
+            parentId = res.product.item.parent_items;
             getProductInfo(res.product.item, res.product.item.product_description.title);
-            await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&pricing_store_id=1465&storeId=1465&fulfillment_test_mode=grocery_opu_team_member_test')
+            await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
             .then(data => data.json())
             .then(async function (parentRes) {
               parentData = parentRes;
-              console.log('hasvariants', parentRes.product.item.child_items.length)
-              for (const variant of parentRes.product.item.child_items) {
+              parentRes.product.item.child_items.forEach(variant => {
                 getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
-              }
+              });
             });
         } else if (res.product.item.child_items) {
           for (const variant of res.product.item.child_items) {
@@ -767,7 +906,7 @@ async function implementation (
         }
       });
 
-    await stall(5000);
+    await stall(20000);
   });
 
   await context.extract(productDetails, { transform });

@@ -1,8 +1,8 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //ul[@id="mainContainer"]//li[@class="productInfo"]
-#recordXPath: null
+recordSelector: .productInfo
+#recordXPath: //ul[@id="mainContainer"]//li[@class="productInfo"]
+recordXPath: null
 fields:
   - name: id
     singleValue: false
@@ -11,7 +11,7 @@ fields:
     singleValue: false
     xpath: .//div[@class="productName"]
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
     selector: div.sponsored
