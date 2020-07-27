@@ -153,7 +153,7 @@ const transform = (data, context) => {
         });
         row.variantAsins = [
           {
-            text: cleanUp(text.slice(0, -4)),
+            text: cleanUp(text.slice(0, -3)),
           },
         ];
       }
