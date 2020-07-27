@@ -103,7 +103,7 @@ fields:
     xpath: //div[@id="a_manufacturerDescription"]
   - name: descriptionBullets 
     singleValue: false
-    xpath: count(//*[@id='feature-bullets']/*//li[not(@id)])
+    xpath: count(//div[@id='feature-bullets']/ul/li[not(@id)]/span[@class="a-list-item"])
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), 'triggerVideoAjax')]
@@ -164,9 +164,6 @@ fields:
   - name: salesRankCategory
     singleValue: false
     xpath: //*[@id="productDetails_detailBullets_sections1"]/tbody/tr[th//text()[contains(., 'Sellers')]]/td/span/span
-  - name: subscribeAndSave
-    singleValue: false
-    defaultValue: "NO"
   - name: heroQuickPromoHeadline
     singleValue: false
     xpath: //div[@id="hero-quick-promo"]//span
@@ -254,3 +251,9 @@ fields:
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
     regExp: ([^()]+)
     regExpReplace: $1
+  - name: subscribeAndSave
+    singleValue: true
+    xpath: //*[@id="sns-base-price"]
+    regExp: ([^ ]+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
