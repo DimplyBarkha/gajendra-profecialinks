@@ -20,7 +20,7 @@ async function implementation (
   // await context.click('button[name="glowDoneButton"]');
   await context.waitForNavigation({ timeout: 70000, waitUntil: 'load' });
   await context.waitForSelector('#main-image-container img , #altImages li[class*="imageThumbnail"] img');
-  // await new Promise((r)=>setTimeout(r, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 20000));
 }
 module.exports = {
   implements: 'navigation/goto/setZipCode',

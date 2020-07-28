@@ -123,9 +123,11 @@ fields:
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //*[@id="acrPopover"]/@title
     description: The stated aggregate rating normalized to be out of 5
+    regExp: (\d{1}\.\d{1}) out of
+    regExpReplace: $1
     # type: NUMBER
   - name: shippingInfo
     singleValue: true
