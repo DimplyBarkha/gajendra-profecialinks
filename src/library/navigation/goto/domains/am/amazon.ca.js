@@ -76,7 +76,6 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
-      console.log('TETETETETSTTTTNG')
       await new Promise(resolve => setTimeout(resolve, 1000));
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
         return;
