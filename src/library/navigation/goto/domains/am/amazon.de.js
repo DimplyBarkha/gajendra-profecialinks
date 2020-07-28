@@ -96,8 +96,8 @@ module.exports = {
         }
 
         console.log('Go to some random page');
-        const clickedOK = await context.evaluate(async function () { //* [contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/spa
-          const randomLinkEls = document.evaluate("a[href*='/dp/']", document, null, XPathResult.ANY_TYPE, null);
+        const clickedOK = await context.evaluate(async function () {
+          const randomLinkEls = document.evaluate("//a[contains(@href,'/dp/')]", document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
             // @ts-ignore
