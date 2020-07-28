@@ -9,6 +9,6 @@ module.exports = {
     mutationSelector: null,
     loadedSelector: null,
     openSearchDefinition: null,
-    domain: 'groceries.asda.com',
+    domain: 'asda.com',
   },
 };

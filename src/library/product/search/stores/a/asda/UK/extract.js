@@ -5,6 +5,6 @@ module.exports = {
     country: 'UK',
     store: 'asda',
     transform: null,
-    domain: 'groceries.asda.com',
+    domain: 'asda.com',
   },
 };

@@ -68,7 +68,7 @@ if (json && json.categories) {
       }
     }
   }, json.categories);
-} 
+}
 return await context.extract(productMenu);
 }
 module.exports = {

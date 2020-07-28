@@ -2,7 +2,7 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'GB',
-    domain: 'groceries.asda.com',
+    domain: 'asda.com',
     store: 'asda',
     url: 'https://groceries.asda.com/search/{searchTerms}',
     loadedSelector: 'div.co-product',
