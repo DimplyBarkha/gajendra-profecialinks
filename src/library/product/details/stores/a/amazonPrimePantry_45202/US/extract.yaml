@@ -31,7 +31,10 @@ fields:
     xpath: //*[@id='availability']
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]/p
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+  - name: descriptionBottom
+    singleValue: false
+    xpath: //*[@id="productDescription"]/p
   - name: ingredientsList
     singleValue: false
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
@@ -102,7 +105,7 @@ fields:
     xpath: //div[@cel_widget_id="aplus"]//*[not(self::noscript)]/img/@src
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: '#importantInformation_feature_div,#productDescription_feature_div.feature,#aplus'
+    manualSelector: '#productDescription_feature_div.feature,#aplus'
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
@@ -263,4 +266,7 @@ fields:
     xpath: //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr
   - name: coupon
     singleValue: false
-    xpath: (//div[contains(@id,"unclippedCoupon")]//span)[1]
+    xpath: //label[@id='couponBadge']|//tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]/div[@id="unclippedCoupon"] | //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]//div[contains(@class,"vpcApplyCoupon")]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
