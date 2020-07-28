@@ -81,7 +81,7 @@ async function implementation (
         mode: 'cors',
         credentials: 'include',
       }).then(res => res.text());
-      console.log('otherSellersHtml', otherSellersHtml);
+      // console.log('otherSellersHtml', otherSellersHtml);
       const domParser = new DOMParser();
       const otherSellersDocument = domParser.parseFromString(otherSellersHtml, 'text/html');
       const pageNotFound = document.evaluate('//title[contains(text(),"Page Not Found")]', otherSellersDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -139,6 +139,9 @@ async function implementation (
           sellerShipping.push(shipping.match(/.([\d]+(?:.[\d]+)?)/)[1]);
         }
       });
+      while (sellerShipping.length !== sellerNames.length) {
+        sellerShipping.push('0.00');
+      }
       sellerShipping && addHiddenDiv('pd_otherSellersShipping2', sellerShipping.join('|'));
       console.log('sellerShipping', sellerShipping);
     }

@@ -143,10 +143,26 @@ const transform = (data) => {
           item.text = `${item.text.replace(/.*(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1').replace('/', '').replace(')', '').trim()}`;
         });
       }
+      // if (row.description) {
+      //   row.description.forEach(item => {
+      //     item.text = `${item.text.replace(/(\s*[\r\n]\s*)+/g, ' ')}`;
+      //   });
+      // }
       if (row.description) {
+        let text = '';
         row.description.forEach(item => {
-          item.text = `${item.text.replace(/(\s*[\r\n]\s*)+/g, ' ')}`;
+          text += ` || ${item.text}`;
         });
+        let descriptionBottom = [];
+        if (row.descriptionBottom) {
+          descriptionBottom = row.descriptionBottom;
+        }
+        descriptionBottom = [text.trim(), ...descriptionBottom.map(({ text }) => text.replace(/(\s*[\r\n]\s*)+/g, ' '))];
+        row.description = [
+          {
+            text: clean(descriptionBottom.join(' | ')),
+          },
+        ];
       }
       // if (row.otherSellersShipping2 && row.otherSellersName) {
       //   const text = [];
@@ -229,45 +245,26 @@ const transform = (data) => {
           },
         ];
       }
-      // if (row.variantAsins) {
-      //   let text = [];
-      //   row.variantAsins.forEach((item) => {
-      //     text.push(item.text.replace(/.*,(.*)/, '$1'));
-      //   });
-      //   const value = new Set(text);
-      //   text = Array.from(value);
-      //   row.variantAsins = [
-      //     {
-      //       text: text.join(' | '),
-      //     },
-      //   ];
-      // }
       if (row.variantAsins) {
-        // let text = '';
         let asinLength = 1;
+        let asinValArr = [];
         row.variantAsins.forEach(item => {
-          const asinArr = item.text.match(/"asin":"(.*?)"/g);
-          asinLength = (asinArr) ? asinArr.length : 1;
+          const asinArr = item.text.match(/"asin":"(.*?)"/gmi);
           if (asinArr) {
-            const asins = asinArr.map(el => el.replace(/.*?:"?(.*)/, '$1').slice(0, -1)).join(' | ');
-            item.text = asins;
+            const asins = asinArr.map(el => el.replace(/.*?:"?(.*)/, '$1').slice(0, -1));
+            asinValArr = asinValArr.concat(asins);
           } else if (row.asin) {
-            item.text = row.asin[0].text;
+            asinValArr.push(row.asin[0].text);
           }
         });
+        const value = new Set(asinValArr);
+        asinValArr = Array.from(value);
+        if (asinValArr.length > 1) asinLength = asinValArr.length;
+        row.variantAsins = [{ text: asinValArr.join(' | ') }];
         row.variantCount.forEach(variantCount => {
           variantCount.text = asinLength;
         });
       }
-      // if (row.otherSellersPrime) {
-      //   for (const item of row.otherSellersPrime) {
-      //     if (item.text.includes('Details')) {
-      //       item.text = 'YES';
-      //     } else {
-      //       item.text = 'NO';
-      //     }
-      //   }
-      // }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
           item.text = item.text.match(/SL1500_.jpg/gm) ? item.text.match(/SL1500_.jpg/gm).length : 0;
