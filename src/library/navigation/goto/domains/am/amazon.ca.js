@@ -12,11 +12,9 @@ module.exports = {
     console.log('backconnect', backconnect);
     const benchmark = !!memory.benchmark;
     console.log('benchmark', benchmark);
-    const start = Date.now();
     const MAX_CAPTCHAS = 3;
 
     let captchas = 0;
-    let hasCaptcha = false;
     let lastResponseData;
 
     const isCaptcha = async () => {
@@ -39,6 +37,7 @@ module.exports = {
         imageElement: 'form img',
         autoSubmit: true,
       });
+      // @ts-ignore
       const [response] = await Promise.all([
         console.log('solved captcha, waiting for page change'),
         context.waitForNavigation(),
@@ -77,12 +76,14 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
+      console.log('TETETETETSTTTTNG')
       await new Promise(resolve => setTimeout(resolve, 1000));
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
         return;
       }
 
       if (lastResponseData.status === 503) {
+        // @ts-ignore
         const [response] = await Promise.all([
           console.log('Waiting for page to reload on homepage'),
           context.waitForNavigation(),
@@ -91,12 +92,11 @@ module.exports = {
         ]);
 
         if (await solveCaptchaIfNecessary() === 'false') {
-          hasCaptcha = true;
           return;
         }
 
         console.log('Go to some random page');
-        const clickedOK = await context.evaluate(async function () { 
+        const clickedOK = await context.evaluate(async function () {
           const randomLinkEls = document.evaluate("//a[contains(@href,'/dp/')]", document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
@@ -132,7 +132,7 @@ module.exports = {
         return;
       }
 
-      if (lastResponseData.status !== 200) {
+      if (lastResponseData.status !== 200 && !!lastResponseData.headers) {
         console.log('Blocked: ' + lastResponseData.status);
         if (benchmark) {
           return;
@@ -144,7 +144,6 @@ module.exports = {
       }
 
       if (await solveCaptchaIfNecessary() === 'false') {
-        hasCaptcha = true;
         return;
       }
 
@@ -172,5 +171,5 @@ module.exports = {
     };
 
     await run();
-  }
+  },
 };
