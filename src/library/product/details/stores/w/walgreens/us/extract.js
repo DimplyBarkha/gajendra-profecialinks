@@ -21,7 +21,7 @@ module.exports = {
     });
 
     const loadCustomerRatingsReviews = await context.evaluate(function () {
-      return document.querySelector('li#BVRRSummaryContainer');
+      return !!document.querySelector('#BVRRSummaryContainer');
     });
 
     await context.evaluate(function () {
