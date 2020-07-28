@@ -23,7 +23,7 @@ async function implementation (
   const loadManufacturerSelectors = async () => ((document.querySelector('div#dpx-aplus-product-description_feature_div') !== null) || (document.querySelector('div#aplus_feature_div div#aplus') !== null)) || ((document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"aplus":{"divToUpdate":"aplus_feature_div"}') : false);
   const loadImportantInfoSelectors = async () => ((document.querySelector('div#dpx-default-important-information_feature_div div#importantInformation_feature_div') !== null)) || ((document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"importantInformation":{"divToUpdate":"importantInformation_feature_div"}') : false);
 
-  async function loadAllResources (timeout = 45000) {
+  async function loadAllResources (timeout = 55000) {
     let manufacturerContentExist = false;
     let importantInfoExist = false;
 
@@ -338,6 +338,10 @@ async function implementation (
   // @ts-ignore
 
   await new Promise(resolve => setTimeout(resolve, 5000));
+  console.log('getting variants');
+  const allVariants = [...new Set(await getVariants())];
+  await setLocale();
+  await new Promise(resolve => setTimeout(resolve, 5000));
   const resourcesExist = await loadAllResources();
   const productID = inputs.id;
   if (resourcesExist.importantInfoExist === false || resourcesExist.manufacturerContentExist === false) {
@@ -345,17 +349,12 @@ async function implementation (
     await dependencies.goto({ url });
     await new Promise(resolve => setTimeout(resolve, 5000));
     await setLocale();
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     await loadAllResources();
   }
   await context.evaluate(addUrl);
   console.log('autoscroll end');
   await context.extract(productDetails, { transform, type: 'APPEND' });
-
-  console.log('getting variants');
-  const allVariants = [...new Set(await getVariants())];
-  await setLocale();
-  await new Promise(resolve => setTimeout(resolve, 2000));
 
   console.log('#### of Variants:', allVariants.length);
   console.log('#### Variants:', allVariants);
@@ -381,7 +380,11 @@ async function implementation (
       await new Promise(resolve => setTimeout(resolve, 5000));
       await setLocale();
       await new Promise(resolve => setTimeout(resolve, 2000));
-      await loadAllResources(3500);
+      if (allVariants.length >= 5) {
+        await loadAllResources(3500);
+      } else {
+        await loadAllResources();
+      }
     }
     console.log('autoscroll end');
     await context.evaluate(addUrl);
