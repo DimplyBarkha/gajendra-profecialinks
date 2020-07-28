@@ -42,6 +42,7 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
+  const { productDetails } = dependencies;
 
   await context.evaluate(() => {
     console.log('new page!');
@@ -68,7 +69,7 @@ async function implementation (
     document.body.appendChild(searchUrlDiv);
   });
 
-  return await context.extract('product/search/stores/k/kroger/US/extract', { transform });
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {

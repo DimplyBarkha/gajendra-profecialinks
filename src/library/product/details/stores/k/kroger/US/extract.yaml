@@ -191,10 +191,6 @@ fields:
   - name: caloriesFromFatPerServing
     singleValue: true
     xpath: //div[@id='my-cal-from-fat']
-    # type: NUMBER
-    # xpath: (number(translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*/following-sibling::span,'%',''))*(//div[@class='NutritionLabel-Calories font-bold flex justify-between']/span)[2]) * 0.01
-    # regExp: >-
-      # [^NaN]+
   - name: totalFatPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*

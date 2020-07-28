@@ -9,7 +9,7 @@ const implementation = async (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   await context.evaluate(async function () {
     const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
@@ -28,7 +28,7 @@ const implementation = async (
 
   await context.waitForSelector('div.ProductDetails-header');
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 9000));
+  await new Promise((resolve) => setTimeout(resolve, 9000));
 
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
@@ -76,7 +76,7 @@ const implementation = async (
       addHiddenDiv('description', descriptionText);
     }
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+    await new Promise((resolve) => setTimeout(resolve, 8000));
     const button = document.getElementsByClassName('kds-Tabs-tab')[1];
 
     if (button && button.textContent === 'Nutrition Info') {
@@ -84,10 +84,10 @@ const implementation = async (
     }
 
     const totalCalEl = document.querySelector('div.NutritionLabel-Calories.font-bold.flex.justify-between > span:nth-child(2)');
-    const totalFatwPercent = document.querySelector('span.NutrientDetail-DailyValue.is-macronutrient');
+    const totalFatWithPercent = document.querySelector('span.NutrientDetail-DailyValue.is-macronutrient');
 
-    if (totalCalEl && totalFatwPercent) {
-      const totalFat = totalFatwPercent.textContent.replace('%', '');
+    if (totalCalEl && totalFatWithPercent) {
+      const totalFat = totalFatWithPercent.textContent.replace('%', '');
       const totalCal = totalCalEl.textContent;
       const calFromFat = parseFloat(totalFat) * parseFloat(totalCal) * 0.01;
       addHiddenDiv('my-cal-from-fat', calFromFat);

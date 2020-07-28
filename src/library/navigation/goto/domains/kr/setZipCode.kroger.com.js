@@ -31,7 +31,6 @@ async function implementation (
         if (section && section.textContent) {
           const distance = parseFloat(section.textContent);
           if (!smallestDistance || distance < smallestDistance) {
-          // if (section.textContent.includes("Hyde Park")) {
             smallestDistance = distance;
             indexToClosestStore = i + 1;
           }
