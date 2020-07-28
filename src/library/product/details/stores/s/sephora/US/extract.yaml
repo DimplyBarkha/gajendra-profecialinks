@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class="css-od26es"]//img/@src
+    xpath: //div[contains(@data-comp, "Carousel")]//img/@src
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -39,11 +39,17 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //video-js//script/@src
-  - name: name
+  # - name: name
+  #   singleValue: false
+  #   # regExp: >-
+  #   #  (.*)\s-\s([a-zA-Z0-9]+)\s|
+  #   # regExpReplace: $2 $2
+  #   xpath: >-
+  #    /html/head/title/text()
+  - name: nameExtended
     singleValue: true
     description: The product name
     xpath: //h1[@data-comp="DisplayName Box "]/span
-
   - name: _pageTimestamp
     xpath: /html/body/@downloadtime
   - name: _url
@@ -57,8 +63,7 @@ fields:
     xpath: >-
      //div[@data-comp="SizeAndItemNumber Box "]
   - name: category
-    singleValue: true
-    xpath: "//ol/li[1]/a"
+    xpath: //ol/li/a
   # - name: category !!!!!!!!!!!!!!!!!!!!!
   #   singleValue: false
   #   regExp: >-
@@ -71,6 +76,10 @@ fields:
   #   regExpReplace: https://www.sephora.com$1
   #   xpath: >-
   #    //main//div[@data-hammer-carousel-inner="true"]/div[1]//img[@width="300"]/@src
+  - name: warnings
+    singleValue: false
+    xpath: >-
+      //div[@id="tabpanel2"]/div[1]
   - name: ingredientsList
     singleValue: false
     xpath: >-
@@ -95,21 +104,16 @@ fields:
   - name: directions
     singleValue: true
     xpath: //div[@id="tabpanel1"]
-  - name: nameExtended
-    singleValue: false
-    # regExp: >-
-    #  (.*)\s-\s([a-zA-Z0-9]+)\s|
-    # regExpReplace: $2 $2
-    xpath: >-
-     /html/head/title/text()
   - name: alternateImages
     singleValue: false
-    # regExp: ([/].*)
-    # regExpReplace: https://www.sephora.com$1
-    xpath: >-
-     //main//div[@data-hammer-carousel-inner="true"]/div[2]//img[@width="300"]/@src
+    xpath: (//div[contains(@data-comp,"Carousel")]/div//img[@width="300"])[position()>1]/@src
+    regExp: ([/].*)
+    regExpReplace: https://www.sephora.com$1
+    #  (//div[@data-hammer-carousel-inner="true"]/div//img[@width="300"])[position()>1]/@src
   - name: sku
-    xpath: /html/body/@inputString
+    # xpath: /html/body/@inputString
+    xpath: //div[@id='ii_url']
+    regExp: ([0-9]+$)
   - name: availabilityText
     singleValue: true
     xpath: >-
@@ -131,35 +135,55 @@ fields:
     regExp: >-
      [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
     xpath: //span[@data-at="price"]
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[contains(@data-comp, "Carousel")]//img/@alt
+  - name: additionalDescBulletInfo
+    xpath: //div[@id="tabpanel0"]//text()[contains(., "- ")]
+  - name: additionalDescBulletCount
+    xpath: count(//div[@id="tabpanel0"]//text()[contains(., "- ")])
+  - name: variants
+    # xpath: //div[contains(@data-comp,"Swatches Box")]//div[contains(@data-comp, "ProductSwatchItem")]//@src
+    # regExp: ([0-9]+)
+    xpath: //div[@id="ii_variants"]
+  - name: variantInformation
+    # xpath: (//span[@data-at="item_variation_type"])[1]
+    xpath: //div[contains(@data-comp, "ProductSwatchItem")]//button[@aria-selected="true"]/@aria-label
+    regExp: >-
+     (([a-zA-Z0-9-.\s\/]+) - Selected)
+    regExpReplace: >-
+     $2
+  - name: color
+    xpath: //span[contains(@data-at, "item_variation_type") and contains(., "COLOR")]
+    regExp: >-
+     COLOR:\s([a-zA-Z\s\/]+)
+    regExpReplace: >-
+     $1
+  - name: imageZoomFeaturePresent
+    xpath: boolean(//div[contains(@data-comp,"HeroMediaList")]//div[contains(., "zoom")])
 
-  - name: warnings
-  - name: serving_size
-  - name: serving_size_uom
-  - name: net_weight
-  - name: gross_weight
-  - name: enhanced_content
-  - name: coupons
-  - name: additional_desc_bullet_count
-  - name: video
-  - name: image_alt_text
-  - name: feature_bullets
+
   - name: retailer_category
   - name: retailer_subcategory
   - name: products_per_page
   - name: extended_product_description
   - name: secondary_image_total
   - name: pack_size
-  - name: variant_information
   - name: first_variant
-  - name: variants
   - name: 360_image_present
-  - name: image_zoom_feature_present
-  - name: colour
   - name: colour_ref
-  - name: additional_desc_bullet_info
 
 
     
+  - name: video
+  - name: enhanced_content
+  - name: allergy_advice
+  - name: warranty
+  - name: net_weight
+  - name: gross_weight
+  - name: serving_size
+  - name: serving_size_uom
   - name: in_store_price
   - name: upc
   - name: in_store_price_currency
@@ -198,13 +222,10 @@ fields:
   - name: iron_per_serving_uom
   - name: dietary_symbols
 
-  - name: aplus_images
-  - name: allergy_advice
-  - name: warranty
-  - name: storage
-  - name: specifications
-  - name: product_other_information
 
+  - name: storage
+  - name: aplus_images
+  - name: specifications
   - name: category_ranking
   - name: shipping_details
   - name: shipping_dimensions
@@ -292,9 +313,6 @@ fields:
   - name: customer_service_availability
   - name: materials
 
-  # - name: imageAlt
-  #   singleValue: true
-  #   description: Alt text of the main product image
   # - name: alternateImages
   #   singleValue: false
   #   description: Other product images (not in manufacturer description)
@@ -660,9 +678,7 @@ fields:
   # - name: recyclingInformation
   #   singleValue: true
   #   description: Recycling information associated with the product
-  # - name: productOtherInformation
-  #   singleValue: false
-  #   description: Any other product information
+
   # - name: packaging
   #   singleValue: true
   #   description: Packaging information
