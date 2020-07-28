@@ -41,9 +41,14 @@ const transform = (data) => {
       if (row.variantCount) {
         let asinLength = 1;
         row.variantCount.forEach(item => {
-          const asinArr = item.text.match(/"asin":"(.*?)"/g);
-          asinLength = asinArr.length;
-          item.text = asinLength;
+          let asinArr = item.text.match(/"asin":"(.*?)"/g);
+          asinArr = asinArr ? asinArr.length : '';
+          if(asinArr > 1){
+            item.text = asinArr;
+          }else{
+            item.text = asinArr;
+          }
+          console.log("asinArr", asinArr);
         });
       }
       if (row.price) {
@@ -67,17 +72,27 @@ const transform = (data) => {
           availabilityText.text = availabilityText.text.trim();
         });
       }
-      if (row.description) {
-        row.description.forEach(item => {
-          item.text = item.text.replace(/[\r\n]+/gm, '');
-        });
-      }
-      // if (row.manufacturerDescription) {
-      //   let text = '';
-      //   row.manufacturerDescription.forEach(item => { 
-      //     item.text = item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() ;
+      // if (row.description) {
+      //   row.description.forEach(item => {
+      //     item.text = item.text.replace(/[\r\n]+/gm, '');
       //   });
       // }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
+        });
+        let descriptionBottom = [];
+        if (row.descriptionBottom) {
+          descriptionBottom = row.descriptionBottom;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
+        row.description = [
+          {
+            text: cleanUp(descriptionBottom.join(' | ')),
+          },
+        ];
+      }
       if (row.manufacturerImages) {
         if (row.manufacturerImages) {
           const secondaryImages = [];
@@ -89,6 +104,7 @@ const transform = (data) => {
         }
       }
       if (row.alternateImages) {
+        row.alternateImages.splice(0,1);
         row.alternateImages.forEach(alternateImages => {
           alternateImages.text = alternateImages.text.replace('._AC_US40_', '');
         });
