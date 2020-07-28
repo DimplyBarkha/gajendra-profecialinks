@@ -133,15 +133,15 @@ fields:
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
-  xpath: //div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"reviewCount")]
+  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"reviewCount")]|//div[@id="reviewsData"]//span[2]/text())[1]
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
-  xpath: //div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]
+  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text())[1]
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
-  xpath: //div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]
+  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text())[1]
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   singleValue: true
@@ -576,7 +576,7 @@ fields:
   description: 
 - name: prop65Warning
   singleValue: true
-  xpath: "//*[@id='added_prop65Warning']//text()"
+  xpath: //li[@id="Warnings"]//*[contains(text(), "65")]/ancestor::li
   description: 
 - name: ageSuitability
   singleValue: true

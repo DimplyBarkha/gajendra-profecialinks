@@ -68,9 +68,6 @@ module.exports = {
     }
 
     if (loadCustomerRatingsReviews) {
-      // if (manufacturerInfo.length === 0) {
-      //   await new Promise(resolve => setTimeout(resolve, 8000));
-      // }
       await context.waitForSelector('div.bv-cleanslate');
     }
 
@@ -353,10 +350,6 @@ module.exports = {
             return shippingInfoTextContent;
           };
 
-          const ifMixMatch = (title) => {
-            return title + ' Mix & Match';
-          };
-
           const promotions = () => {
             if (!document.querySelector('span[class^="product-offer-text"]')) {
               return '';
@@ -364,7 +357,7 @@ module.exports = {
             const mixMatch = 'Mix & match products';
             const notPromotionRe = /(donation)|[Rr]eward|[Pp]oint|[Pp]ts/ig;
             const isPromotionRe = /(rebate)|(Extra Savings)/ig;
-            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.linkText === mixMatch ? ifMixMatch(u.title) : (u.linkText ? u.linkText : u.title)) : '') : '';
+            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.linkText === mixMatch ? (u.title) : (u.linkText ? u.linkText : u.title)) : '') : '';
             promotion.forEach((promo) => {
               if (isPromotionRe.test(promo)) {
                 promo = (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
@@ -537,7 +530,6 @@ module.exports = {
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
             additionalDescBulletInfo: additionalDescBulletInfo(),
-            prop65Warning: document.querySelector('li#Warnings') && document.querySelector('li#Warnings').textContent.includes('P65') ? document.querySelector('li#Warnings').textContent : '',
           };
           removeObjectToDocument(obj);
           addObjectToDocument(obj);
