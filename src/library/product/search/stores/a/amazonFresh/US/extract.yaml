@@ -1,6 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //div[contains(@data-component-type,"s-search-result")]
+# recordXPath: //div[contains(@data-component-type,"s-search-result")]
+recordXPath: //div[contains(@class,"s-main-slot")]//span[contains(text(), "No results for")]/ancestor::html//div[@data-component-type="s-search-result"] |  //div[contains(@class,"s-main-slot")]/div[@data-component-type="s-search-result"]
 recordSelector: null
 fields:
   - name: price
