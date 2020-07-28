@@ -45,15 +45,8 @@ const transform = (data) => {
           item.text = item.text.join(' || ');
         });
       }
-      // if (row.largeImageCount) {
-      //   for (const item of row.largeImageCount) {
-      //     item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
-      //   }
-      // }
       if (row.alternateImages) {
-        // console.log("row.alternateImages",row.alternateImages);
         row.alternateImages.splice(0,1);
-        // console.log("row.alternateImages",row.alternateImages);
         row.alternateImages.forEach(item => {
           item.text = `${item.text.replace('US40_', '')}`;
         });
@@ -90,15 +83,17 @@ const transform = (data) => {
         let asinLength = 1;
         row.variantCount.forEach(item => {
           const asinArr = item.text.match(/"asin":"(.*?)"/g);
-          asinLength = asinArr.length;
-          item.text = asinLength;
+          if(asinArr){
+            asinLength = asinArr.length;
+          }else{
+            item.text = asinLength;
+          }
         });
       }
 
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {
-          // item.text = `${item.text.split(':')[1]}`;
           text += `${item.text} || `;
         });
         row.variantInformation = [
@@ -108,7 +103,6 @@ const transform = (data) => {
         ];
       }
       if (row.variantAsins) {
-        // let text = '';
         row.variantAsins.forEach(item => {
           const asinArr = item.text.match(/"asin":"(.*?)"/g);
           if (asinArr) {
@@ -127,19 +121,6 @@ const transform = (data) => {
           row.manufacturerImages = secondaryImages;
         }
       }
-      // if (row.manufacturerDescription) {
-      //   let text = '';
-      //   row.manufacturerDescription.forEach(item => {
-      //     item.text = item.text.replace(/[\r\n]+/gm, '').replace(/ +(?= )/g, ''); ;
-      //     item.text = `${item.text.replace(/([\<img].*[\"\>])/g, ' ').trim().replace('\n', '')}  `;
-      //     text += `${item.text.replace(/\n \n/g, '')}  `;
-      //   });
-      //   row.manufacturerDescription = [
-      //     {
-      //       text: text.slice(0, -4),
-      //     },
-      //   ];
-      // }
       if (row.salesRank) {
         row.salesRank.forEach(item => {
           item.text = `${item.text.replace('#', '')}`;
@@ -151,9 +132,20 @@ const transform = (data) => {
         });
       }
       if (row.description) {
+        let text = '';
         row.description.forEach(item => {
-          item.text = cleanUp(item.text);
+          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
         });
+        let descriptionBottom = [];
+        if (row.descriptionBottom) {
+          descriptionBottom = row.descriptionBottom;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
+        row.description = [
+          {
+            text: cleanUp(descriptionBottom.join(' | ')),
+          },
+        ];
       }
       if (row.warnings) {
         row.warnings.forEach(item => {
@@ -211,24 +203,6 @@ const transform = (data) => {
             item.text = `${item.text.split(',')[0].split('PIbundle-')[1]}`;
           } else {
             item.text = '';
-          }
-        }
-      }
-      if (row.otherSellersPrime) {
-        for (const item of row.otherSellersPrime) {
-          if (item.text.includes('Details')) {
-            item.text = 'YES';
-          } else {
-            item.text = 'NO';
-          }
-        }
-      }
-      if (row.otherSellersShipping2) {
-        for (const item of row.otherSellersShipping2) {
-          if (item.text.toLowerCase().includes('free')) {
-            item.text = '0.00';
-          } else if (item.text.match(/\$([^\s]+)/)) {
-            item.text = item.text.match(/\$([^\s]+)/)[1];
           }
         }
       }

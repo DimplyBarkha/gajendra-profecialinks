@@ -33,32 +33,7 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      // function findJsonObj (scriptSelector, startString, endString) {
-      //   const xpath = `//script[contains(.,'${scriptSelector}')]`;
-      //   const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      //   let scriptContent = '';
-      //   if (element) {
-      //     // @ts-ignore
-      //     scriptContent = element != null ? element.innerText : '';
-      //   }
-      //   let jsonStr = scriptContent;
-      //   jsonStr = jsonStr.trim();
-      //   jsonStr = jsonStr.replace(/\\n/g, '\\n')
-      //     .replace(/\\'/g, "\\'")
-      //     .replace(/\\"/g, '\\"')
-      //     .replace(/\\&/g, '\\&')
-      //     .replace(/\\r/g, '\\r')
-      //     .replace(/\\t/g, '\\t')
-      //     .replace(/\\b/g, '\\b')
-      //     .replace(/\\f/g, '\\f');
-      //   // eslint-disable-next-line no-control-regex
-      //   jsonStr = jsonStr.replace(/[\u0000-\u0019]+/g, '');
-      //   return jsonStr;
-      // }
       const url = window.location.href;
-      // let brandUrl = document.querySelector('a#bylineInfo');
-      // // @ts-ignore
-      // brandUrl = brandUrl ? brandUrl.href : '';
       // @ts-ignore
       let currency = document.querySelector('[id="priceblock_ourprice"]');
       // @ts-ignore
@@ -71,85 +46,111 @@ module.exports = {
       manufacturerDescription = manufacturerDescription !== null ? manufacturerDescription.innerText : ' ';
       // @ts-ignore
       manufacturerDescription = manufacturerDescription ? manufacturerDescription.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
+      //=======================================================================
       // @ts-ignore
-      // let firstVariant = findJsonObj('{"pageRefreshUrlParams":{"', '{"pageRefreshUrlParams":', '}}');
-      // // @ts-ignore
-      // firstVariant = firstVariant ? JSON.parse(firstVariant) : '';
-      // // @ts-ignore
-      // // eslint-disable-next-line no-unused-vars
-      // firstVariant = firstVariant ? firstVariant.pageRefreshUrlParams.parentAsin : '';
-      // // @ts-ignore
-      // let largeImgCount = document.querySelector('#imageBlock_feature_div > script:nth-child(2)');
-      // // @ts-ignore
-      // largeImgCount = largeImgCount !== null ? largeImgCount.innerText : '';
-      // // @ts-ignore
-      // largeImgCount = (largeImgCount.match(/_AC_SL1500_.jpg/g) || []).length;
-      // @ts-ignore
-      // document.querySelector('div.imgTagWrapper').click();
-      // // @ts-ignore
-      // // eslint-disable-next-line promise/param-names
-      // await new Promise(r => setTimeout(r, 5000));
-      // let secondaryImageTotal = document.querySelectorAll('div.ivRow div.ivThumb div.ivThumbImage');
-      // // @ts-ignore
-      // secondaryImageTotal = secondaryImageTotal.length - 1;
-      // console.log('secondaryImageTotal: ', secondaryImageTotal.length - 1);
-      // @ts-ignore
-      // document.querySelector('#altImages > ul > li.videoThumbnail').click();
-      // @ts-ignore
-      // eslint-disable-next-line promise/param-names
-      // await new Promise(r => setTimeout(r, 90000));
-      // let videoLengthArr = [];
-      // const videoLength = document.querySelectorAll('#anonCarousel6 > ol > li.a-carousel-card.vse-video-card > div');
-      // for (let index = 0; index < videoLength.length; index++) {
-      //   console.log('videoLength: ', videoLength.length);
-      //   const element = videoLength[index];
-      //   console.log('element.duration', element.getAttribute('data-duration'));
-      //   videoLengthArr.push(element.getAttribute('data-duration'));
-      // }
-      // // @ts-ignore
-      // videoLengthArr = videoLengthArr.join('|');
-      // console.log('videoLengthArr: ', videoLengthArr);
-      let lbb = document.querySelector('div[id="merchant-info"] a[id="sellerProfileTriggerId"]');
-      // @ts-ignore
-      lbb = lbb ? lbb.innerText : '';
-      let lbbPrice;
-      if (lbb) {
-        lbbPrice = document.querySelector('#priceblock_ourprice');
-        // @ts-ignore
-        lbbPrice = lbbPrice ? lbbPrice.innerText : '';
+    var CurrentSeller = document.querySelector('div[id="merchant-info"]') ? document.querySelector('div[id="merchant-info"]').innerText : '';
+    // @ts-ignore
+    var CurrentSellerPrice = document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']") ? document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']").innerText : '';
+    // @ts-ignore
+    var CurrentSellerShipping = document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
+
+    // @ts-ignore
+    var CurrentSellerPrime = document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
+
+    if (CurrentSeller && CurrentSeller.search('sold by amazon') < 0 && CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)) {
+      CurrentSeller = (CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)[1]) ? CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)[1] : CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)[2];
+      if (!CurrentSellerShipping) CurrentSellerShipping = '!0.00';
+      if (CurrentSellerPrime.includes('Details')) {
+        CurrentSellerPrime = 'YES';
       } else {
-        lbbPrice = '';
+        CurrentSellerPrime = 'NO';
       }
-      // let variantCount = 1;
-      // document.querySelectorAll('#twister > div[id^="variation"]').forEach(function(variant) {
-      //   let currCount = variant.querySelectorAll('ul > li').length;
-      // if(currCount){
-      //   variantCount = variantCount * currCount;
-      // }
-      // });
-      
-      // if(variantCount === 1){
-      //   document.querySelectorAll('#twister select[id^="native_dropdown_selected"]').forEach(function(variant) {
-      //     let currCount = variant.querySelectorAll('option').length;
-      //     // console.log("variantCount", variantCount);
-      //     // console.log("currCount", currCount);
-      //   if(currCount){
-      //     variantCount = variantCount * currCount;
-      //   }
-       
-      //   });
-      // }
-      // @ts-ignore
+      addElementToDocument('ii_otherSellersName', CurrentSeller);
+      addElementToDocument('ii_otherSellersPrice', CurrentSellerPrice);
+      addElementToDocument('ii_otherSellersShipping', CurrentSellerShipping);
+      addElementToDocument('ii_otherSellersPrime', CurrentSellerPrime);
+      console.log('CurrentSeller', CurrentSeller);
+      console.log('CurrentSellerPrice', CurrentSellerPrice);
+      console.log('CurrentSellerShipping', CurrentSellerShipping);
+    }
+    const otherSellerNew = (document.querySelector("span[data-action='show-all-offers-display'] > a")) ? document.querySelector("span[data-action='show-all-offers-display'] > a").getAttribute('href') : '';
+    if (otherSellerNew) {
+      const otherSellersHtml = await fetch(otherSellerNew, {
+        headers: {
+          cookie: document.cookie,
+        },
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include',
+      }).then(res => res.text());
+      console.log('otherSellersHtml', otherSellersHtml);
+      const domParser = new DOMParser();
+      const otherSellersDocument = domParser.parseFromString(otherSellersHtml, 'text/html');
+      const pageNotFound = document.evaluate('//title[contains(text(),"Page Not Found")]', otherSellersDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (!pageNotFound) {
+        getOtherSellersInfo(otherSellersDocument, 'h3.olpSellerName span , h3.olpSellerName img', 'div.olpOffer span.olpOfferPrice', 'div.olpOffer', 'div.olpOffer .olpShippingInfo');
+      } else {
+        getOtherSellersInfo('', '#mbc span.mbcMerchantName, #ii_otherSellersName', 'div[id*="mbc"] span[id*="mbc-price"], #ii_otherSellersPrice', "span[id*='mbc-shipping'], #ii_otherSellersPrime", 'div[id*="mbc"] span[id*="mbc-shipping"], #ii_otherSellersShipping');
+      }
+    } else {
+      getOtherSellersInfo('', '#mbc span.mbcMerchantName, #ii_otherSellersName', 'div[id*="mbc"] span[id*="mbc-price"], #ii_otherSellersPrice', "span[id*='mbc-shipping'], #ii_otherSellersPrime", 'div[id*="mbc"] span[id*="mbc-shipping"], #ii_otherSellersShipping');
+    }
+    function getOtherSellersInfo (otherSellersDocument, sellerNamSelector, sellerPricesSelector, sellerPrimeSelector, sellerShippingSelector) {
+      const samePageFlag = !otherSellersDocument ? 1 : 0;
+      otherSellersDocument = otherSellersDocument || document;
+      const otherSellersName = otherSellersDocument.querySelectorAll(sellerNamSelector);
+      const sellerNames = [];
+      otherSellersName && otherSellersName.forEach(name => {
+        if (name.tagName === 'IMG') {
+          sellerNames.push(name.alt);
+        } else {
+          sellerNames.push(name.innerText.trim());
+        }
+      });
+      sellerNames && addElementToDocument('pd_otherSellerName', sellerNames.join('|'));
+      console.log('sellerNames', sellerNames);
+      const sellerPrices = [];
+      const otherSellersPrice = otherSellersDocument.querySelectorAll(sellerPricesSelector);
+      otherSellersPrice && otherSellersPrice.forEach(price => {
+        if (price.innerText) {
+          sellerPrices.push(price.innerText.trim());
+        }
+      });
+      sellerPrices && addElementToDocument('pd_otherSellersPrice', sellerPrices.join('|'));
+      console.log('sellerPrices', sellerPrices);
+      const sellerPrime = [];
+      const otherSellersPrime = otherSellersDocument.querySelectorAll(sellerPrimeSelector);
+      otherSellersPrime && otherSellersPrime.forEach(prime => {
+        if (prime.innerText.includes('Details') && samePageFlag) {
+          sellerPrime.push('Yes');
+        } else if (prime.querySelector('i.a-icon-prime')) {
+          sellerPrime.push('Yes');
+        } else {
+          sellerPrime.push('No');
+        }
+      });
+      sellerPrime && addElementToDocument('pd_otherSellersPrime', sellerPrime.join('|'));
+      console.log('sellerPrime', sellerPrime);
+      const sellerShipping = [];
+      const otherSellersShipping2 = otherSellersDocument.querySelectorAll(sellerShippingSelector);
+      otherSellersShipping2 && otherSellersShipping2.forEach(shipping => {
+        shipping = shipping ? shipping.innerText.toLowerCase() : '';
+        if (shipping && shipping.includes('free')) {
+          sellerShipping.push('0.00');
+        } else if (shipping && shipping.match(/.([\d]+(?:.[\d]+)?)/)) {
+          sellerShipping.push(shipping.match(/.([\d]+(?:.[\d]+)?)/)[1]);
+        }
+      });
+      while (sellerShipping.length !== sellerNames.length) {
+        sellerShipping.push('0.00');
+      }
+      sellerShipping && addElementToDocument('pd_otherSellersShipping2', sellerShipping.join('|'));
+      console.log('sellerShipping', sellerShipping);
+    }
+      //=======================================================================
       addElementToDocument('a_pageTimestamp', (new Date()).toISOString().replace(/[TZ]/g, ' '));
       addElementToDocument('a_url', url);
-      // addElementToDocument('a_videoLength', videoLengthArr);
-      addElementToDocument('a_lbbPrice', lbbPrice);
-      // addElementToDocument('a_brand_url', brandUrl);
-      addElementToDocument('a_online_price_currency', currency);
       addElementToDocument('a_manufacturerDescription', manufacturerDescription);
-      // addElementToDocument('a_variantCount', variantCount);
-      // addElementToDocument('a_largeImgCount', largeImgCount);
-      // addElementToDocument('a_secondaryImageTotal', secondaryImageTotal);
     });
     return await context.extract(productDetails, { transform: parameters.transform });
   },
