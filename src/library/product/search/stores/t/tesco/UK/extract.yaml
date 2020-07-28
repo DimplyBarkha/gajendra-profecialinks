@@ -12,11 +12,9 @@ fields:
     xpath: //@thumbnail
     description: The URL for the product thumbnail image
   - name: name
-    singleValue: true
     xpath: //a[@data-auto="product-tile--title"]
     description: The product name
   - name: id
-    singleValue: true
     xpath: //div[@data-auto-id]/@data-auto-id
     description: The store-specific product identifier
   - name: gtin
@@ -25,18 +23,13 @@ fields:
     regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
   - name: price
-    singleValue: true
     xpath: //div[contains(@class,"price-per-sellable-unit")]//span[@data-auto="price-value"]
     description: The offered price for the product
   - name: rankOrganic
-    singleValue: true
   - name: rank
-    singleValue: true
   - name: sponsored
-    singleValue: true
     defaultValue: false
   - name: gtin
     xpath: //@thumbnail
-    singleValue: true
     regExp: (\d+)\/[^\/]+$
     regExpReplace: $1
