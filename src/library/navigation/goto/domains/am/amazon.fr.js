@@ -170,9 +170,41 @@ module.exports = {
           throw new Error('Incorrect locale detected');
         }
         throw new Error('Incorrect locale detected');
+<<<<<<< HEAD
       }
     };
 
     await run();
   }
+=======
+        // return extractorContext.raiseError('WRONG_GEO', 'Incorrect locale detected');
+      }
+    };
+
+    try {
+      await run();
+    } finally {
+    // needs to be non-fat arrow
+      await context.evaluate((captchaCount, duration, js, hasCaptcha) => {
+        const captchasElt = document.createElement('meta');
+        captchasElt.name = 'captchas';
+        captchasElt.content = captchaCount;
+        document.head.appendChild(captchasElt);
+        const hasCaptchaElt = document.createElement('meta');
+        hasCaptchaElt.name = 'hasCaptcha';
+        hasCaptchaElt.content = hasCaptcha;
+        document.head.appendChild(hasCaptchaElt);
+        const timeElt = document.createElement('meta');
+        timeElt.name = 'durationmillis';
+        timeElt.content = duration;
+        document.head.appendChild(timeElt);
+        const javascriptElt = document.createElement('meta');
+        javascriptElt.name = 'javascript';
+        javascriptElt.content = js;
+        document.head.appendChild(javascriptElt);
+        // js_enabled
+      }, [captchas, Date.now() - start, hasCaptcha]);
+    }
+  },
+>>>>>>> 7925f84b5d62674d5db41af33cd364a9475dc972
 };
