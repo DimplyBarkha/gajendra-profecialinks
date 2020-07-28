@@ -1,12 +1,9 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'amazon.co.uk',
-    timeout: null,
     country: 'UK',
-    store: 'amazonMsPromos',
-    zipcode: '',
+    domain: 'amazon.co.uk',
+    store: 'amazonMsReviews',
   },
   implementation: async ({ url }, parameterValues, context, dependencies) => {
     const memory = {};
@@ -17,13 +14,9 @@ module.exports = {
     const start = Date.now();
     const MAX_CAPTCHAS = 3;
 
-    // let pageId;
     let captchas = 0;
     let hasCaptcha = false;
     let lastResponseData;
-    // eslint-disable-next-line
-    // const js_enabled = true; // Math.random() > 0.7;
-    // console.log('js_enabled', js_enabled); ;
 
     const isCaptcha = async () => {
       return await context.evaluate(async function () {
@@ -45,13 +38,16 @@ module.exports = {
         imageElement: 'form img',
         autoSubmit: true,
       });
-      console.log('solved captcha, waiting for page change');
-      context.waitForNavigation();
+      const [response] = await Promise.all([
+        console.log('solved captcha, waiting for page change'),
+        context.waitForNavigation(),
+        await new Promise(resolve => setTimeout(resolve, 3000)),
+      ]);
       console.log('Captcha vanished');
     };
 
     const solveCaptchaIfNecessary = async () => {
-      console.log('Checking for CAPTCHA');
+      console.log('Checking for CAPTCHA', await isCaptcha());
       while (await isCaptcha() === 'true' && captchas < MAX_CAPTCHAS) {
         captchas++;
         if (backconnect) {
@@ -75,7 +71,7 @@ module.exports = {
       lastResponseData = await context.goto(url, {
         timeout: 10000,
         waitUntil: 'load',
-        checkBlocked: true,
+        checkBlocked: false,
         js_enabled: true,
         css_enabled: false,
         random_move_mouse: true,
@@ -86,11 +82,13 @@ module.exports = {
       }
 
       if (lastResponseData.status === 503) {
-        console.log('Clicking 503 image');
-        await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"]');
+        const [response] = await Promise.all([
+          console.log('Waiting for page to reload on homepage'),
+          context.waitForNavigation(),
+          console.log('Clicking 503 image'),
+          await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"]'),
+        ]);
 
-        console.log('Waiting for page to reload on homepage');
-        context.waitForNavigation();
         if (await solveCaptchaIfNecessary() === 'false') {
           hasCaptcha = true;
           return;
@@ -120,7 +118,7 @@ module.exports = {
         lastResponseData = await context.goto(url, {
           timeout: 10000,
           waitUntil: 'load',
-          checkBlocked: true,
+          checkBlocked: false,
           js_enabled: true,
           css_enabled: false,
           random_move_mouse: true,
@@ -169,33 +167,9 @@ module.exports = {
           throw new Error('Incorrect locale detected');
         }
         throw new Error('Incorrect locale detected');
-        // return extractorContext.raiseError('WRONG_GEO', 'Incorrect locale detected');
       }
     };
 
-    try {
-      await run();
-    } finally {
-    // needs to be non-fat arrow
-      await context.evaluate((captchaCount, duration, js, hasCaptcha) => {
-        const captchasElt = document.createElement('meta');
-        captchasElt.name = 'captchas';
-        captchasElt.content = captchaCount;
-        document.head.appendChild(captchasElt);
-        const hasCaptchaElt = document.createElement('meta');
-        hasCaptchaElt.name = 'hasCaptcha';
-        hasCaptchaElt.content = hasCaptcha;
-        document.head.appendChild(hasCaptchaElt);
-        const timeElt = document.createElement('meta');
-        timeElt.name = 'durationmillis';
-        timeElt.content = duration;
-        document.head.appendChild(timeElt);
-        const javascriptElt = document.createElement('meta');
-        javascriptElt.name = 'javascript';
-        javascriptElt.content = js;
-        document.head.appendChild(javascriptElt);
-        // js_enabled
-      }, [captchas, Date.now() - start, hasCaptcha]);
-    }
+    await run();
   },
 };
