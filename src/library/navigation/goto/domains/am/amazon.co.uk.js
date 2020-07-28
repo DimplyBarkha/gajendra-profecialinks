@@ -2,8 +2,8 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    country: 'US',
-    domain: 'amazon.com',
+    country: 'UK',
+    domain: 'amazon.co.uk',
     store: 'amazon',
   },
   implementation: async ({ url }, parameterValues, context, dependencies) => {
@@ -15,13 +15,9 @@ module.exports = {
     const start = Date.now();
     const MAX_CAPTCHAS = 3;
 
-    // let pageId;
     let captchas = 0;
     let hasCaptcha = false;
     let lastResponseData;
-    // eslint-disable-next-line
-    // const js_enabled = true; // Math.random() > 0.7;
-    // console.log('js_enabled', js_enabled); ;
 
     const isCaptcha = async () => {
       return await context.evaluate(async function () {
@@ -43,13 +39,16 @@ module.exports = {
         imageElement: 'form img',
         autoSubmit: true,
       });
-      console.log('solved captcha, waiting for page change');
-      context.waitForNavigation();
+      const [response] = await Promise.all([
+        console.log('solved captcha, waiting for page change'),
+        context.waitForNavigation(),
+        await new Promise(resolve => setTimeout(resolve, 3000)),
+      ]);
       console.log('Captcha vanished');
     };
 
     const solveCaptchaIfNecessary = async () => {
-      console.log('Checking for CAPTCHA');
+      console.log('Checking for CAPTCHA', await isCaptcha());
       while (await isCaptcha() === 'true' && captchas < MAX_CAPTCHAS) {
         captchas++;
         if (backconnect) {
@@ -64,32 +63,34 @@ module.exports = {
           console.log('We failed to solve the CAPTCHA');
           return context.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
         }
-        return false;
+        return 'false';
       }
-      return true;
+      return 'true';
     };
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
         timeout: 10000,
         waitUntil: 'load',
-        checkBlocked: true,
+        checkBlocked: false,
         js_enabled: true,
         css_enabled: false,
         random_move_mouse: true,
       });
-      await new Promise(r => setTimeout(r, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
         return;
       }
 
       if (lastResponseData.status === 503) {
-        console.log('Clicking 503 image');
-        await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"]');
+        const [response] = await Promise.all([
+          console.log('Waiting for page to reload on homepage'),
+          context.waitForNavigation(),
+          console.log('Clicking 503 image'),
+          await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"]'),
+        ]);
 
-        console.log('Waiting for page to reload on homepage');
-        context.waitForNavigation();
-        if (!await solveCaptchaIfNecessary()) {
+        if (await solveCaptchaIfNecessary() === 'false') {
           hasCaptcha = true;
           return;
         }
@@ -118,13 +119,13 @@ module.exports = {
         lastResponseData = await context.goto(url, {
           timeout: 10000,
           waitUntil: 'load',
-          checkBlocked: true,
+          checkBlocked: false,
           js_enabled: true,
           css_enabled: false,
           random_move_mouse: true,
         });
         console.log('lastResponseData', lastResponseData);
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
 
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
@@ -142,7 +143,7 @@ module.exports = {
         return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       }
 
-      if (!await solveCaptchaIfNecessary) {
+      if (await solveCaptchaIfNecessary() === 'false') {
         hasCaptcha = true;
         return;
       }
@@ -153,10 +154,10 @@ module.exports = {
 
       const wrongLocale = await context.evaluate(async function () {
         const locationWarningPopupEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and not(//*[contains(text(), 'Amazon Fresh')])]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if(locationWarningPopupEl.snapshotLength > 0) {
+        if (locationWarningPopupEl.snapshotLength > 0) {
           return 'true';
-        }else{
-          return 'false'
+        } else {
+          return 'false';
         }
       });
 
@@ -167,33 +168,9 @@ module.exports = {
           throw new Error('Incorrect locale detected');
         }
         throw new Error('Incorrect locale detected');
-        // return extractorContext.raiseError('WRONG_GEO', 'Incorrect locale detected');
       }
     };
 
-    try {
-      await run();
-    } finally {
-    // needs to be non-fat arrow
-      await context.evaluate((captchaCount, duration, js, hasCaptcha) => {
-        const captchasElt = document.createElement('meta');
-        captchasElt.name = 'captchas';
-        captchasElt.content = captchaCount;
-        document.head.appendChild(captchasElt);
-        const hasCaptchaElt = document.createElement('meta');
-        hasCaptchaElt.name = 'hasCaptcha';
-        hasCaptchaElt.content = hasCaptcha;
-        document.head.appendChild(hasCaptchaElt);
-        const timeElt = document.createElement('meta');
-        timeElt.name = 'durationmillis';
-        timeElt.content = duration;
-        document.head.appendChild(timeElt);
-        const javascriptElt = document.createElement('meta');
-        javascriptElt.name = 'javascript';
-        javascriptElt.content = js;
-        document.head.appendChild(javascriptElt);
-        // js_enabled
-      }, [captchas, Date.now() - start, hasCaptcha]);
-    }
-  },
+    await run();
+  }
 };

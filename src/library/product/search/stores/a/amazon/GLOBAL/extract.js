@@ -9,14 +9,14 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.waitForXPath('//div/@data-asin');
-  return await context.extract(productDetails, { transform, type: 'APPEND'});
+  return await context.extract(productDetails, { transform,type: 'APPEND' });
 }
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'US',
+    country: 'GLOBAL',
     store: 'amazon',
-    transform: transform,
+    transform,
     domain: 'amazon.com',
   },
   implementation,

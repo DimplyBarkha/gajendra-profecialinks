@@ -1,0 +1,26 @@
+robot: product/search
+parameters:
+  country: UK
+  domain: amazon.co.uk
+  store: amazon
+  zipcode: ""
+proxy:
+  zone: ZEB
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_uk_search:
+      extractor: a7a8eb32-c735-4460-b44a-7d0461b1f814
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 84b1e15f-76f5-4537-8edd-ca2225dc605a
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mes-demo:
+      extractor: c0dda7d5-50a6-49b2-9565-b04f0b87d88f
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
+    mse-demo:
+      extractor: 98daea58-09f9-4443-92d4-243a0fc804ea
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-staging:
+      extractor: 83848fe4-e254-436a-b7c6-32d9edd477a1
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
