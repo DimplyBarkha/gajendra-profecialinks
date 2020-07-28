@@ -264,3 +264,13 @@ fields:
   - name: coupon
     singleValue: false
     xpath: (//div[contains(@id,"unclippedCoupon")]//span)[1]
+  - name: retailer_id
+    xpath: //span[@id="glow-ingress-line2"]
+    singleValue: false
+    regExp: .*?\s+(\w+).*
+    regExpReplace: $1
+  - name: drive
+    singleValue: false
+    xpath: //span[@id="glow-ingress-line2"]
+    regExp: .*?\s+(\w+).*
+    regExpReplace: $1
