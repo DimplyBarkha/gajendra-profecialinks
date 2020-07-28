@@ -296,17 +296,17 @@ fields:
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
     singleValue: false
-    xpath: //div[contains(@id,'mbc')]//span[contains(@class,'mbcMerchantName')] | //div[@id='ii_otherSellersName']
+    xpath: //div[@id='pd_otherSellerName'] #//div[contains(@id,'mbc')]//span[contains(@class,'mbcMerchantName')] | //div[@id='ii_otherSellersName']
     description: null
   - name: otherSellersPrime
-    xpath: //span[contains(@id, "mbc-shipping")]
+    xpath:  //div[@id='pd_otherSellersPrime'] #//span[contains(@id, "mbc-shipping")]
   - name: otherSellersPrice
     singleValue: false
-    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-price')] | //div[@id='ii_otherSellersPrice']
+    xpath: //div[@id='pd_otherSellersPrice'] #//div[contains(@id,'mbc')]//span[contains(@id,'mbc-price')] | //div[@id='ii_otherSellersPrice']
     description: null
   - name: otherSellersShipping2
     singleValue: false
-    xpath: //div[contains(@id,'mbc')]//span[contains(@id,'mbc-shipping')] | //div[@id='ii_otherSellersShipping']
+    xpath: //div[@id='pd_otherSellersShipping2'] #//div[contains(@id,'mbc')]//span[contains(@id,'mbc-shipping')] | //div[@id='ii_otherSellersShipping']
     description: null
   - name: secondaryImageTotal
     singleValue: true

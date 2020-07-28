@@ -32,12 +32,22 @@ async function implementation (
     var CurrentSellerPrice = document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']") ? document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']").innerText : '';
     // @ts-ignore
     var CurrentSellerShipping = document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
+
+    // @ts-ignore
+    var CurrentSellerPrime = document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
+
     if (CurrentSeller && CurrentSeller.search('sold by amazon') < 0 && CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)) {
       CurrentSeller = (CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)[1]) ? CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)[1] : CurrentSeller.match(/sold by (?:(.*) and |(.*).)/i)[2];
       if (!CurrentSellerShipping) CurrentSellerShipping = '!0.00';
+      if (CurrentSellerPrime.includes('Details')) {
+        CurrentSellerPrime = 'YES';
+      } else {
+        CurrentSellerPrime = 'NO';
+      }
       addHiddenDiv('ii_otherSellersName', CurrentSeller);
       addHiddenDiv('ii_otherSellersPrice', CurrentSellerPrice);
       addHiddenDiv('ii_otherSellersShipping', CurrentSellerShipping);
+      addHiddenDiv('ii_otherSellersPrime', CurrentSellerPrime);
       console.log('CurrentSeller', CurrentSeller);
       console.log('CurrentSellerPrice', CurrentSellerPrice);
       console.log('CurrentSellerShipping', CurrentSellerShipping);
@@ -61,17 +71,77 @@ async function implementation (
         addHiddenDiv('ii_manufacturerName', val);
       }
     }
-    // const variantCountNode = (document.querySelectorAll("div[id*='variation'] ul[class*='swatch']")) ? document.querySelectorAll("div[id*='variation'] ul[class*='swatch']") : [];
-    // if (variantCountNode.length > 0) {
-    //   let count = (variantCountNode[0].querySelectorAll("li[class*= 'swatchAvailable'] , li[class*= 'swatchUn'], li[class*= 'swatchSelect']")) ? variantCountNode[0].querySelectorAll("li[class*= 'swatchAvailable'] , li[class*= 'swatchUn'], li[class*= 'swatchSelect']").length : 0;
-    //   for (let i = 1; i < variantCountNode.length; i++) {
-    //     const val = (variantCountNode[i].querySelectorAll("li[class*= 'swatchAvailable'] , li[class*= 'swatchUn'], li[class*= 'swatchSelect']")) ? variantCountNode[0].querySelectorAll("li[class*= 'swatchAvailable'] , li[class*= 'swatchUn'], li[class*= 'swatchSelect']").length : 0;
-    //     if (val > 0) {
-    //       count *= val;
-    //     }
-    //   }
-    //   addHiddenDiv('ii_variantCount', count);
-    // }
+    const otherSellerNew = (document.querySelector("span[data-action='show-all-offers-display'] > a")) ? document.querySelector("span[data-action='show-all-offers-display'] > a").getAttribute('href') : '';
+    if (otherSellerNew) {
+      const otherSellersHtml = await fetch(otherSellerNew, {
+        headers: {
+          cookie: document.cookie,
+        },
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include',
+      }).then(res => res.text());
+      console.log('otherSellersHtml', otherSellersHtml);
+      const domParser = new DOMParser();
+      const otherSellersDocument = domParser.parseFromString(otherSellersHtml, 'text/html');
+      const pageNotFound = document.evaluate('//title[contains(text(),"Page Not Found")]', otherSellersDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (!pageNotFound) {
+        getOtherSellersInfo(otherSellersDocument, 'h3.olpSellerName span , h3.olpSellerName img', 'div.olpOffer span.olpOfferPrice', 'div.olpOffer', 'div.olpOffer .olpShippingInfo');
+      } else {
+        getOtherSellersInfo('', '#mbc span.mbcMerchantName, #ii_otherSellersName', 'div[id*="mbc"] span[id*="mbc-price"], #ii_otherSellersPrice', "span[id*='mbc-shipping'], #ii_otherSellersPrime", 'div[id*="mbc"] span[id*="mbc-shipping"], #ii_otherSellersShipping');
+      }
+    } else {
+      getOtherSellersInfo('', '#mbc span.mbcMerchantName, #ii_otherSellersName', 'div[id*="mbc"] span[id*="mbc-price"], #ii_otherSellersPrice', "span[id*='mbc-shipping'], #ii_otherSellersPrime", 'div[id*="mbc"] span[id*="mbc-shipping"], #ii_otherSellersShipping');
+    }
+    function getOtherSellersInfo (otherSellersDocument, sellerNamSelector, sellerPricesSelector, sellerPrimeSelector, sellerShippingSelector) {
+      const samePageFlag = !otherSellersDocument ? 1 : 0;
+      otherSellersDocument = otherSellersDocument || document;
+      const otherSellersName = otherSellersDocument.querySelectorAll(sellerNamSelector);
+      const sellerNames = [];
+      otherSellersName && otherSellersName.forEach(name => {
+        if (name.tagName === 'IMG') {
+          sellerNames.push(name.alt);
+        } else {
+          sellerNames.push(name.innerText.trim());
+        }
+      });
+      sellerNames && addHiddenDiv('pd_otherSellerName', sellerNames.join('|'));
+      console.log('sellerNames', sellerNames);
+      const sellerPrices = [];
+      const otherSellersPrice = otherSellersDocument.querySelectorAll(sellerPricesSelector);
+      otherSellersPrice && otherSellersPrice.forEach(price => {
+        if (price.innerText) {
+          sellerPrices.push(price.innerText.trim());
+        }
+      });
+      sellerPrices && addHiddenDiv('pd_otherSellersPrice', sellerPrices.join('|'));
+      console.log('sellerPrices', sellerPrices);
+      const sellerPrime = [];
+      const otherSellersPrime = otherSellersDocument.querySelectorAll(sellerPrimeSelector);
+      otherSellersPrime && otherSellersPrime.forEach(prime => {
+        if (prime.innerText.includes('Details') && samePageFlag) {
+          sellerPrime.push('Yes');
+        } else if (prime.querySelector('i.a-icon-prime')) {
+          sellerPrime.push('Yes');
+        } else {
+          sellerPrime.push('No');
+        }
+      });
+      sellerPrime && addHiddenDiv('pd_otherSellersPrime', sellerPrime.join('|'));
+      console.log('sellerPrime', sellerPrime);
+      const sellerShipping = [];
+      const otherSellersShipping2 = otherSellersDocument.querySelectorAll(sellerShippingSelector);
+      otherSellersShipping2 && otherSellersShipping2.forEach(shipping => {
+        shipping = shipping ? shipping.innerText.toLowerCase() : '';
+        if (shipping && shipping.includes('free')) {
+          sellerShipping.push('0.00');
+        } else if (shipping && shipping.match(/.([\d]+(?:.[\d]+)?)/)) {
+          sellerShipping.push(shipping.match(/.([\d]+(?:.[\d]+)?)/)[1]);
+        }
+      });
+      sellerShipping && addHiddenDiv('pd_otherSellersShipping2', sellerShipping.join('|'));
+      console.log('sellerShipping', sellerShipping);
+    }
   });
   return await context.extract(productDetails, { transform });
 }

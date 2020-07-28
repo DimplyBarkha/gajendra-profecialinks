@@ -148,21 +148,21 @@ const transform = (data) => {
           item.text = `${item.text.replace(/(\s*[\r\n]\s*)+/g, ' ')}`;
         });
       }
-      if (row.otherSellersShipping2 && row.otherSellersName) {
-        const text = [];
-        row.otherSellersShipping2.forEach(item => {
-          if (!item.text.toLowerCase().includes('free delivery') && item.text.match(/.([\d]+(?:.[\d]+)?)/)) {
-            text.push({ text: `${item.text.match(/.([\d]+(?:.[\d]+)?)/)[1]}` });
-          } else {
-            text.push({ text: '0.00' });
-          }
-        });
-        console.log('length of slleres', row.otherSellersName);
-        while (row.otherSellersName.length !== text.length) {
-          text.push({ text: '0.00' });
-        }
-        row.otherSellersShipping2 = text;
-      }
+      // if (row.otherSellersShipping2 && row.otherSellersName) {
+      //   const text = [];
+      //   row.otherSellersShipping2.forEach(item => {
+      //     if (!item.text.toLowerCase().includes('free delivery') && item.text.match(/.([\d]+(?:.[\d]+)?)/)) {
+      //       text.push({ text: `${item.text.match(/.([\d]+(?:.[\d]+)?)/)[1]}` });
+      //     } else {
+      //       text.push({ text: '0.00' });
+      //     }
+      //   });
+      //   console.log('length of slleres', row.otherSellersName);
+      //   while (row.otherSellersName.length !== text.length) {
+      //     text.push({ text: '0.00' });
+      //   }
+      //   row.otherSellersShipping2 = text;
+      // }
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
           item.text = `${item.text.replace(/<[^>]*>/gm, '').replace(/\s{2,}|\n|\t|\r/g, ' ').replace(/Read more/gm, '').trim()}`;
@@ -259,15 +259,15 @@ const transform = (data) => {
           variantCount.text = asinLength;
         });
       }
-      if (row.otherSellersPrime) {
-        for (const item of row.otherSellersPrime) {
-          if (item.text.includes('Details')) {
-            item.text = 'YES';
-          } else {
-            item.text = 'NO';
-          }
-        }
-      }
+      // if (row.otherSellersPrime) {
+      //   for (const item of row.otherSellersPrime) {
+      //     if (item.text.includes('Details')) {
+      //       item.text = 'YES';
+      //     } else {
+      //       item.text = 'NO';
+      //     }
+      //   }
+      // }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
           item.text = item.text.match(/SL1500_.jpg/gm) ? item.text.match(/SL1500_.jpg/gm).length : 0;
