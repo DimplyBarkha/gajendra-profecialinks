@@ -1,5 +1,10 @@
 extends: ../../amazonPharmapacks/US/extract
 fields:
+  - name: asin
+    xpath: //script[contains(.,'parentAsin')][contains(@type, "a-state")]
+    regExp: (.+)\"asinList\"\:\"([A-Z0-9]+)(.*)
+    regExpReplace: $2
+    singleValue: true
   - name: image
     xpath: //img[@id="landingImage"]/@src
   - name: size
@@ -101,3 +106,4 @@ fields:
   - name: videos
     xpath: //video/@src
     singleValue: true
+
