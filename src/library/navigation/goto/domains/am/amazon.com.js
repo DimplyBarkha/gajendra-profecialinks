@@ -11,10 +11,8 @@ module.exports = {
     console.log('backconnect', backconnect);
     const benchmark = !!memory.benchmark;
     console.log('benchmark', benchmark);
-    const start = Date.now();
     const MAX_CAPTCHAS = 3;
     let captchas = 0;
-    let hasCaptcha = false;
     let lastResponseData;
     const isCaptcha = async () => {
       return await context.evaluate(async function () {
@@ -34,7 +32,7 @@ module.exports = {
         imageElement: 'form img',
         autoSubmit: true,
       });
-      const [response] = await Promise.all([
+      await Promise.all([
         console.log('solved captcha, waiting for page change'),
         context.waitForNavigation(),
         await new Promise(resolve => setTimeout(resolve, 3000)),
@@ -76,19 +74,18 @@ module.exports = {
         return;
       }
       if (lastResponseData.status === 503) {
-        const [response] = await Promise.all([
+        await Promise.all([
           console.log('Waiting for page to reload on homepage'),
           context.waitForNavigation(),
           console.log('Clicking 503 image'),
           await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"]'),
         ]);
         if (await solveCaptchaIfNecessary() === 'false') {
-          hasCaptcha = true;
           return;
         }
         console.log('Go to some random page');
         const clickedOK = await context.evaluate(async function () { //* [contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/spa
-          const randomLinkEls = document.evaluate("//a[contains(@href,'/dp/')]", document, null, XPathResult.ANY_TYPE, null)
+          const randomLinkEls = document.evaluate("//a[contains(@href,'/dp/')]", document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
             // @ts-ignore
@@ -130,7 +127,6 @@ module.exports = {
         return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       }
       if (await solveCaptchaIfNecessary() === 'false') {
-        hasCaptcha = true;
         return;
       }
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
@@ -155,5 +151,5 @@ module.exports = {
       }
     };
     await run();
-  }
+  },
 };
