@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'elcorteingles_deportes',
     transform: null,
-    domain: 'elcorteingles.es/deportes',
+    domain: 'elcorteingles.es',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {

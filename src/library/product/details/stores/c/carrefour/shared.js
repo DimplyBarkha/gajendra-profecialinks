@@ -40,6 +40,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.promotion) {
+        let text = '';
+        row.promotion.forEach(item => {
+          text += `${item.text.replace(/\n/g, '')} `;
+        });
+        row.promotion = [
+          {
+            text: text.trim(),
+          },
+        ];
+      }
     }
   }
   return data;
