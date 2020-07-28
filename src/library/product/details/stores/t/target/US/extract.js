@@ -325,10 +325,7 @@ async function implementation (
           if (e.includes('Warranty')) {
             addHiddenDiv(newDiv, 'warranty', e.split('</B>')[1].trim());
           }
-          if (e.includes('Store:')) {
-            storage = e.split('</B>')[1].trim();
-          }
-          if (e.includes('Storage:')) {
+          if (e.includes('Storage Instructions:')) {
             storage = e.split('</B>')[1].trim();
           }
           if (e.includes('Contains:')) {
