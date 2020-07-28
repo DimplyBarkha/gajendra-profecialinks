@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     domain: 'amazon.co.uk',
-    store: 'amazonMsReviews',
+    store: 'amazon',
   },
   implementation: async ({ url }, parameterValues, context, dependencies) => {
     const memory = {};
