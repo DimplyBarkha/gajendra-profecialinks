@@ -134,8 +134,11 @@ async function implementation (
     }
     async function checkAddress () {
       console.log('checkAddress() in  progress');
+      await new Promise(resolve => setTimeout(resolve, 5000));
       return await context.evaluate(function () {
+        console.log(document.querySelector('div#nav-global-location-slot'));
         if (document.querySelector('div#nav-global-location-slot')) {
+          console.log(document.querySelector('div#nav-global-location-slot').innerText);
           return document.querySelector('div#nav-global-location-slot').innerText.includes('90210') !== false;
         }
         return false;
@@ -303,9 +306,9 @@ async function implementation (
   // @ts-ignore
 
   await new Promise(resolve => setTimeout(resolve, 5000));
+  await setLocale();
   console.log('getting variants');
   const allVariants = [...new Set(await getVariants())];
-  await setLocale();
   await new Promise(resolve => setTimeout(resolve, 5000));
   await loadAllResources();
   const productID = inputs.id;
