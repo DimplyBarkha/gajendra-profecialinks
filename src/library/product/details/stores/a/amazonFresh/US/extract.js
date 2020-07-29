@@ -316,8 +316,8 @@ async function implementation (
   console.log('autoscroll end');
   // await context.extract(productDetails, { transform, type: 'APPEND' });
 
-  console.log('#### of Variants:', allVariants.length);
-  console.log('#### Variants:', allVariants);
+  // console.log('#### of Variants:', allVariants.length);
+  // console.log('#### Variants:', allVariants);
   // for (let i = 0; i < allVariants.length; i++) {
   //   const id = allVariants[i];
   //   const url = await dependencies.createUrl({ id });
