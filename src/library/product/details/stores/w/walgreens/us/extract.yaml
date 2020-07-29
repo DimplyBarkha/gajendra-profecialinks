@@ -137,11 +137,11 @@ fields:
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
-  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text()|//*[@id='added_aggregateRating']//text())[1]
+  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text()|//*[@id='added_ratingCount']//text())[1]
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
-  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text()|//*[@id='added_aggregateRating']//text())[1]
+  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text()|//*[@id='added_ratingCount']//text())[1]
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   singleValue: true
@@ -163,10 +163,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_color']//text()"
   description: A textual description of the colour
-- name: colorCode
-  singleValue: true
-  # xpath: "//*[@id='added_colorCode']//text()"
-  description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
   singleValue: false
   xpath: "//*[@id='added_manufacturerDescription']//text()"
@@ -183,26 +179,10 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_name']//text()"
   description: The product name
-- name: inStorePrice
-  singleValue: true
-  # xpath: "//*[@id='added_inStorePrice']//text()"
-  description: Price in the selected store
-- name: asin
-  singleValue: true
-  # xpath: "//*[@id='added_asin']//text()"
-  description: 
 - name: coupon
   singleValue: true
   xpath: "//*[@id='added_coupon']//text()"
   description: Text of any coupon offer
-- name: amazonChoice
-  singleValue: true
-  # xpath: "//*[@id='added_amazonChoice']//text()"
-  description: YES or Blank
-- name: amazonChoiceCategory
-  singleValue: true
-  # xpath: "//*[@id='added_amazonChoiceCategory']//text()"
-  description: Text of link next to Amazon choice graphic
 - name: brandLink
   singleValue: true
   xpath: "//*[@id='added_brandLink']//text()"
@@ -211,109 +191,13 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_internationalShipping']//text()"
   description: Text next to bullet point
-- name: salesRank
-  singleValue: false
-  # xpath: "//*[@id='added_salesRank']//text()"
-  description: Amazon best selling rank from product details (linked back) - needs
-    to be collapsed
-- name: salesRankCategory
-  singleValue: false
-  # xpath: "//*[@id='added_salesRankCategory']//text()"
-  description: Amazon best selling rank from product details (linked back) - needs
-    to be collapsed
-- name: subscriptionPrice
-  singleValue: true
-  # xpath: "//*[@id='added_subscriptionPrice']//text()"
-  description: Subscribe and save price
-- name: subscribeAndSave
-  singleValue: true
-  # xpath: "//*[@id='added_subscribeAndSave']//text()"
-  description: YES/NO
-- name: heroQuickPromoHeadline
-  singleValue: true
-  # xpath: "//*[@id='added_heroQuickPromoHeadline']//text()"
-  description: See image - top section hero area
-- name: heroQuickPromoImageUrl
-  singleValue: true
-  # xpath: "//*[@id='added_heroQuickPromoImageUrl']//text()"
-  description: 
-- name: heroQuickPromoUrl
-  singleValue: true
-  # xpath: "//*[@id='added_heroQuickPromoUrl']//text()"
-  description: 
-- name: pasin
-  singleValue: true
-  # xpath: "//*[@id='added_pasin']//text()"
-  description: Parent asin
 - name: videoLength
   singleValue: false
   xpath: "//*[@id='added_videoLength']//text()"
   description: 
-- name: ingredientImagePresent
-  singleValue: true
-  # xpath: "//*[@id='added_ingredientImagePresent']//text()"
-  description: 
-- name: factImagePresent
-  singleValue: true
-  # xpath: "//*[@id='added_factImagePresent']//text()"
-  description: 
-- name: largeImageCount
-  singleValue: true
-  # xpath: "//*[@id='added_largeImageCount']//text()"
-  description: 
-- name: variantAsins
-  singleValue: true
-  # xpath: "//*[@id='added_variantAsins']//text()"
-  description: 
-- name: primeFlag
-  singleValue: true
-  # xpath: "//*[@id='added_primeFlag']//text()"
-  description: 
-- name: lbb
-  singleValue: true
-  # xpath: "//*[@id='added_lbb']//text()"
-  description: Check Lost by Box Requirements (just for Amazon and a couple of other
-    stores) - LBB occurs when a product is bought from someone other than Amazon (on
-    Amazon Website) - even though Amazon has the product "in Stock"
-- name: lbbPrice
-  singleValue: true
-  # xpath: "//*[@id='added_lbbPrice']//text()"
-  description: 
-- name: featureBullets
-  singleValue: false
-  # xpath: "//*[@id='added_featureBullets']//text()"
-  description: 
-- name: otherSellersName
-  singleValue: false
-  # xpath: "//*[@id='added_otherSellersName']//text()"
-  description: 
-- name: otherSellersPrime
-  singleValue: false
-  # xpath: "//*[@id='added_otherSellersPrime']//text()"
-- name: otherSellersPrice
-  singleValue: false
-  # xpath: "//*[@id='added_otherSellersPrice']//text()"
-  description: 
-- name: otherSellersShipping
-  singleValue: false
-  # xpath: "//*[@id='added_otherSellersShipping']//text()"
-  description: 
 - name: secondaryImageTotal
   singleValue: true
   xpath: "count((//*[@id='added_alternateImages']//text())[position()>1])"
-  # xpath: "//*[@id='added_secondaryImageTotal']//text()"
-  description: 
-- name: news
-  singleValue: true
-  # xpath: "//*[@id='added_news']//text()"
-  description: 
-- name: addonItem
-  singleValue: true
-  # xpath: "//*[@id='added_addonItem']//text()"
-  description: 
-- name: fastTrack
-  singleValue: true
-  # xpath: "//*[@id='added_fastTrack']//text()"
   description: 
 - name: ingredientsList
   singleValue: true
@@ -481,46 +365,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_saltPerServingUom']//text()"
   description: Unit of Measure Data for Salt
-- name: dietaryInformation
-  singleValue: true
-  # xpath: "//*[@id='added_dietaryInformation']//text()"
-  description: 
-- name: specifications
-  singleValue: true
-  # xpath: "//*[@id='added_specifications']//text()"
-  description: The physical dimensions of the product including packaging.
-- name: warranty
-  singleValue: true
-  # xpath: "//*[@id='added_warranty']//text()"
-  description: Guarantee associated with the product
-- name: storage
-  singleValue: true
-  # xpath: "//*[@id='added_storage']//text()"
-  description: Suggested storage location for product
-- name: countryOfOrigin
-  singleValue: true
-  # xpath: "//*[@id='added_countryOfOrigin']//text()"
-  description: The country from which the product originates
-- name: allergyAdvice
-  singleValue: true
-  # xpath: "//*[@id='added_allergyAdvice']//text()"
-  description: Allergy information associated with the product
-- name: recyclingInformation
-  singleValue: true
-  # xpath: "//*[@id='added_recyclingInformation']//text()"
-  description: Recycling information associated with the product
-- name: productOtherInformation
-  singleValue: false
-  # xpath: "//*[@id='added_productOtherInformation']//text()"
-  description: Any other product information
-- name: packaging
-  singleValue: true
-  # xpath: "//*[@id='added_packaging']//text()"
-  description: Packaging information
-- name: additives
-  singleValue: true
-  # xpath: "//*[@id='added_additives']//text()"
-  description: List of additives in the product
 - name: pricePerUnit
   singleValue: true
   xpath: "//*[@id='added_pricePerUnit']//text()"
@@ -533,24 +377,6 @@ fields:
   singleValue: true
   xpath: "//*[@id='added_promotion']//text()"
   description: promotion text on product page
-- name: alcoholContent
-  singleValue: true
-  # xpath: "//*[@id='added_alcoholContent']//text()"
-  description: Alcohol content information
-- name: newVersion
-  singleValue: true
-  # xpath: "//*[@id='added_newVersion']//text()"
-  description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
-- name: newAsin
-  singleValue: true
-  # xpath: "//*[@id='added_newAsin']//text()"
-  description: In product page, information about a new version of the product - new
-    asin info
-- name: newDescription
-  singleValue: true
-  # xpath: "//*[@id='added_newDescription']//text()"
-  description: In product page, information about a new version of the product - new
-    desription info
 - name: variantInformation
   singleValue: true
   xpath: "//*[@id='added_variantInformation']//text()"
@@ -578,22 +404,6 @@ fields:
   singleValue: true
   xpath: //li[@id="Warnings"]//*[contains(text(), "65")]/ancestor::li
   description: 
-- name: ageSuitability
-  singleValue: true
-  # xpath: "//*[@id='added_ageSuitability']//text()"
-  description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
-  example: 4 - 99 years
-- name: energyEfficiency
-  singleValue: true
-  # xpath: "//*[@id='added_energyEfficiency']//text()"
-  description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-  example: A+, A+++, B
-- name: technicalInformationPdfPresent
-  singleValue: true
-  # xpath: "//*[@id='added_technicalInformationPdfPresent']//text()"
-  description: If there is for example a manual in pdf format on the website. ['Yes','No']
-  example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: "No"
 - name: termsAndConditions
   singleValue: true
   xpath: //div[contains(@class, 'footer')]//*[contains(text(), 'Terms and Conditions')]
@@ -603,37 +413,20 @@ fields:
   defaultValue: "No"
 - name: privacyPolicy
   singleValue: true
-  xpath: //*[contains(text(), 'Privacy')]
+  xpath: ancestor::html//*[contains(text(), 'Privacy')]
   regExp: (.+)
   regExpReplace: "Yes"
   defaultValue: "No"
   description: Privacy Policy information text ['Yes','No']
 - name: customerServiceAvailability
   singleValue: true
-  xpath: //a[contains(text(), 'Customer Service')]
+  xpath: ancestor::html//a[contains(text(), 'Customer Service')]/text()
   regExp: (.+)
   regExpReplace: "Yes"
   defaultValue: "No"
   description: Information related to customer service availability (text), ['Yes','No']
-  # defaultValue: false
-- name: materials
-  singleValue: true
-  # xpath: "//*[@id='added_materials']//text()"
-  description: Materials used to make the product
-  example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-- name: Image360Present
-  singleValue: true
-  # xpath: "//*[@id='added_Image360Present']//text()"
-  description: If 360 image is present in the carousel ['Yes','No']
-  example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: "No"
 - name: imageZoomFeaturePresent
   singleValue: true
   xpath: boolean(//div[@id='zoomLensContainer'])
-    # xpath: "//*[@id='added_imageZoomFeaturePresent']//text()"
-
-  # regExp: "1"
-  # regExpReplace: "Yes"
-  # defaultValue: "No"
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html

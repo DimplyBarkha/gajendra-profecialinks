@@ -23,19 +23,23 @@ module.exports = {
       return !!document.querySelector('#BVRRSummaryContainer');
     });
 
-    await context.evaluate(async function () {
-      const popUpsUpper = document.querySelector('button.fsrDeclineButton');
+    async function ignoreSurveyPopups () {
+      await context.evaluate(async function () {
+        const popUpsUpper = document.querySelector('button.fsrDeclineButton');
 
-      if (popUpsUpper && popUpsUpper !== undefined) {
-        await context.click('button.fsrDeclineButton');
-      }
+        if (popUpsUpper && popUpsUpper !== undefined) {
+          await context.click('button.fsrDeclineButton');
+        }
 
-      const popUps = document.querySelector('div.fsrAbandonButton');
+        const popUps = document.querySelector('div.fsrAbandonButton');
 
-      if (popUps && popUps !== undefined) {
-        popUps.click();
-      }
-    });
+        if (popUps && popUps !== undefined) {
+          popUps.click();
+        }
+      });
+    }
+
+    ignoreSurveyPopups();
 
     await context.evaluate(function () {
       if (document.querySelector('div.fsrModalBackdrop')) {
@@ -553,19 +557,7 @@ module.exports = {
           addObjectToDocument(obj);
         }, [id, url, variantXpath]);
 
-        await context.evaluate(async function () {
-          const popUpsUpper = document.querySelector('button.fsrDeclineButton');
-
-          if (popUpsUpper && popUpsUpper !== undefined) {
-            await context.click('button.fsrDeclineButton');
-          }
-
-          const popUps = document.querySelector('div.fsrAbandonButton');
-
-          if (popUps && popUps !== undefined) {
-            popUps.click();
-          }
-        });
+        ignoreSurveyPopups();
 
         await context.extract(productDetails, { transform: transformParam, type: 'APPEND' });
       };
