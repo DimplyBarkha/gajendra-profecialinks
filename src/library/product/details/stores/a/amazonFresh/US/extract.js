@@ -320,9 +320,6 @@ async function implementation (
   console.log('#### Variants:', allVariants);
   for (let i = 0; i < allVariants.length; i++) {
     const id = allVariants[i];
-    if (id === productID) {
-      continue;
-    }
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });
     await new Promise(resolve => setTimeout(resolve, 4000));
