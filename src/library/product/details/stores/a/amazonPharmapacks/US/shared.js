@@ -58,7 +58,7 @@ const transform = (data) => {
 
       if (row.otherSellersPrime) {
         for (const item of row.otherSellersPrime) {
-          if (item.text.includes('Details')) {
+          if (item.text.includes('Details') | item.text.includes('supersaver')) {
             item.text = 'YES';
           } else {
             item.text = 'NO';
@@ -72,8 +72,8 @@ const transform = (data) => {
             item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
           }
           if (item.text.includes('videos') && item.text.match(/"url":"([^"]*)/g)) {
-            let videoLinks = item.text.match(/"url":"([^"]*)/g);
-            let videoLengths = item.text.match(/"durationTimestamp":"([^"]*)/g);
+            const videoLinks = item.text.match(/"url":"([^"]*)/g);
+            const videoLengths = item.text.match(/"durationTimestamp":"([^"]*)/g);
             let urlText = '';
             let lengthText = '';
             videoLinks.forEach(url => {
@@ -146,7 +146,6 @@ const transform = (data) => {
         row.asin = row.sku;
         delete row.sku;
       }
-
     }
   }
   return data;
