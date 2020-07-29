@@ -33,11 +33,16 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':').replace(/\n/g, ':')} || `;
+          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
         });
+        let descriptionBottom = [];
+        if (row.descriptionBottom) {
+          descriptionBottom = row.descriptionBottom;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(text.slice(0, -4)),
+            text: cleanUp(descriptionBottom.join(' | ')),
           },
         ];
       }
@@ -126,27 +131,9 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.otherSellersShipping2) {
-        for (const item of row.otherSellersShipping2) {
-          if (item.text.toLowerCase().includes('gratis')) {
-            item.text = '0.00';
-          } else {
-            item.text = item.text.replace('+', '').trim();
-          }
-        }
-      }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
           item.text = item.text.trim().match(/hiRes/g) ? item.text.trim().match(/hiRes/g).length : 0;
-        }
-      }
-      if (row.otherSellersPrime) {
-        for (const item of row.otherSellersPrime) {
-          if (item.text.includes('detalles')) {
-            item.text = 'YES';
-          } else {
-            item.text = 'NO';
-          }
         }
       }
       if (row.pasin) {
