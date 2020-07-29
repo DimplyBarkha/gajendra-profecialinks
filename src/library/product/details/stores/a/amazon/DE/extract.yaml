@@ -189,7 +189,7 @@ fields:
     xpath: //span[contains(@id, 'mbc-price')]
   - name: otherSellersName
     singleValue: false
-    xpath: //div[@id='pd_otherSellerName'] 
+    xpath: //div[@id='pd_otherSellerName']
   - name: otherSellersPrice
     singleValue: false
     xpath: //div[@id='pd_otherSellersPrice']
@@ -228,3 +228,12 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //td[contains(text(), 'Modellnummer')]/following-sibling::*[1] | //td[contains(text(), 'modellnummer')]/following-sibling::*[1]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?(.*)\/.*\)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?.*\/.?(.*)\)
+    regExpReplace: $1
