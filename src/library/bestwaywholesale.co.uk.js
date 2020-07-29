@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'shared/auth/action',
   parameterValues: {
     domain: 'bestwaywholesale.co.uk',
     country: 'UK',
-    timeout: 50000,
     store: 'bestwaywholesale',
+    zipcode: '',
   },
 };
