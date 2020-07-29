@@ -15,36 +15,12 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  const loadScriptInfoSelectors = async () => (document.querySelectorAll('div#pageRefreshJsInitializer_feature_div').length !== 0);
-  // const loadManufacturerSelectors = async () => ((document.querySelector('div#dpx-aplus-product-description_feature_div') !== null) || (document.querySelector('div#aplus_feature_div div#aplus') !== null));
-  // const loadAplus = async () => document.getElementById('aplus');
-  // const loadImportantInfoSelectors = async () => ((document.querySelector('div#dpx-default-important-information_feature_div div#importantInformation_feature_div') !== null));
+  const loadManufacturerSelectors = async () => ((document.querySelector('div#dpx-aplus-product-description_feature_div') !== null) || (document.querySelector('div#aplus_feature_div div#aplus') !== null));
+  const loadImportantInfoSelectors = async () => ((document.querySelector('div#dpx-default-important-information_feature_div div#importantInformation_feature_div') !== null));
 
-  const loadManufacturerSelectors = async () => ((document.querySelector('div#dpx-aplus-product-description_feature_div') !== null) || (document.querySelector('div#aplus_feature_div div#aplus') !== null)) || ((document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"aplus":{"divToUpdate":"aplus_feature_div"}') : false);
-  const loadImportantInfoSelectors = async () => ((document.querySelector('div#dpx-default-important-information_feature_div div#importantInformation_feature_div') !== null)) || ((document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script') && document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1]) ? document.querySelectorAll('div#pageRefreshJsInitializer_feature_div script')[1].textContent.includes('"importantInformation":{"divToUpdate":"importantInformation_feature_div"}') : false);
-
-  async function loadAllResources (timeout = 55000) {
-    let manufacturerContentExist = false;
-    let importantInfoExist = false;
-
-    const loadScriptInfo = await context.evaluate(loadScriptInfoSelectors);
-    console.log('loadScriptInfo');
-    console.log(loadScriptInfo);
-    if (loadScriptInfo) {
-      console.log('in here waiting for loadScriptInfo');
-      try {
-        await context.waitForSelector('div#pageRefreshJsInitializer_feature_div script');
-        console.log('we did it!')
-      } catch (err) {
-        console.log('could not load div#pageRefreshJsInitializer_feature_div script');
-      }
-    }
-
+  async function loadAllResources (timeout = 40000) {
     const loadManufacturer = await context.evaluate(loadManufacturerSelectors);
     console.log('loadManufacturer');
-    console.log(loadManufacturer);
-    console.log('inputs')
-    console.log(inputs)
     let shouldLoadAplusBody = false;
     if (loadManufacturer) {
       console.log('in here waiting for div#aplus_feature_div div#aplus');
@@ -59,34 +35,23 @@ async function implementation (
       if (shouldLoadAplusBody) {
         try {
           await context.waitForSelector('div.aplus-v2', { timeout: timeout });
-          manufacturerContentExist = true;
         } catch (err) {
           console.log('Could not load div.aplus-v2');
         }
       }
-    } else {
-      manufacturerContentExist = true;
     }
 
     const loadImportantInfo = await context.evaluate(loadImportantInfoSelectors);
     console.log('loadImportantInfo');
-    console.log(loadImportantInfo);
     if (loadImportantInfo) {
       console.log('in here waiting for important-information');
-      importantInfoExist = true;
       try {
-        // await context.waitForSelector('div#important-information');
-
-        await context.waitForSelector('div#important-information', { timeout: 15000 });
+        await context.waitForSelector('div#important-information', { timeout: 5000 });
       } catch (err) {
         // throw new Error('Not able to find div#important-information')
         console.log('Could not load div#important-information');
       }
-    } else {
-      importantInfoExist = true;
     }
-
-    return { importantInfoExist: importantInfoExist, manufacturerContentExist: manufacturerContentExist };
   }
 
   async function setLocale () {
@@ -342,16 +307,8 @@ async function implementation (
   const allVariants = [...new Set(await getVariants())];
   await setLocale();
   await new Promise(resolve => setTimeout(resolve, 5000));
-  const resourcesExist = await loadAllResources();
+  await loadAllResources();
   const productID = inputs.id;
-  if (resourcesExist.importantInfoExist === false || resourcesExist.manufacturerContentExist === false) {
-    const url = await dependencies.createUrl({ id: productID });
-    await dependencies.goto({ url });
-    await new Promise(resolve => setTimeout(resolve, 5000));
-    await setLocale();
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    await loadAllResources();
-  }
   await context.evaluate(addUrl);
   console.log('autoscroll end');
   await context.extract(productDetails, { transform, type: 'APPEND' });
@@ -367,24 +324,11 @@ async function implementation (
     await dependencies.goto({ url });
     await new Promise(resolve => setTimeout(resolve, 4000));
     await setLocale();
-    let resourcesExistVar = {};
     await new Promise(resolve => setTimeout(resolve, 2000));
     if (allVariants.length >= 5) {
-      resourcesExistVar = await loadAllResources(3500);
+      await loadAllResources(10000);
     } else {
-      resourcesExistVar = await loadAllResources();
-    }
-    if (resourcesExistVar.importantInfoExist === false || resourcesExistVar.manufacturerContentExist === false) {
-      const url = await dependencies.createUrl({ id });
-      await dependencies.goto({ url });
-      await new Promise(resolve => setTimeout(resolve, 5000));
-      await setLocale();
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      if (allVariants.length >= 5) {
-        await loadAllResources(3500);
-      } else {
-        await loadAllResources();
-      }
+      await loadAllResources();
     }
     console.log('autoscroll end');
     await context.evaluate(addUrl);
