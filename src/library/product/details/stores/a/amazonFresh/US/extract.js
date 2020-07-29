@@ -308,46 +308,46 @@ async function implementation (
   await new Promise(resolve => setTimeout(resolve, 5000));
   await setLocale();
   console.log('getting variants');
-  const allVariants = [...new Set(await getVariants())];
+  // const allVariants = [...new Set(await getVariants())];
   await new Promise(resolve => setTimeout(resolve, 5000));
   await loadAllResources();
   const productID = inputs.id;
   await context.evaluate(addUrl);
   console.log('autoscroll end');
-  await context.extract(productDetails, { transform, type: 'APPEND' });
+  // await context.extract(productDetails, { transform, type: 'APPEND' });
 
   console.log('#### of Variants:', allVariants.length);
   console.log('#### Variants:', allVariants);
-  for (let i = 0; i < allVariants.length; i++) {
-    const id = allVariants[i];
-    const url = await dependencies.createUrl({ id });
-    await dependencies.goto({ url });
-    await new Promise(resolve => setTimeout(resolve, 4000));
-    await setLocale();
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    if (allVariants.length >= 5) {
-      await loadAllResources(10000);
-    } else {
-      await loadAllResources();
-    }
-    console.log('autoscroll end');
-    await context.evaluate(addUrl);
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-    await context.extract(productDetails, { transform, type: 'APPEND' });
-    const pageVariants = await getVariants();
-    console.log('#### of Variants:', allVariants.length);
-    console.log('#### Variants:', allVariants);
-    for (let j = 0; j < pageVariants.length; j++) {
-      const pageVariant = pageVariants[j];
-      if (allVariants.indexOf(pageVariant) === -1) {
-        allVariants.push(pageVariant);
-        console.log('new variant: ' + pageVariant);
-        console.log(allVariants);
-      }
-    }
-  }
+  // for (let i = 0; i < allVariants.length; i++) {
+  //   const id = allVariants[i];
+  //   const url = await dependencies.createUrl({ id });
+  //   await dependencies.goto({ url });
+  //   await new Promise(resolve => setTimeout(resolve, 4000));
+  //   await setLocale();
+  //   await new Promise(resolve => setTimeout(resolve, 2000));
+  //   if (allVariants.length >= 5) {
+  //     await loadAllResources(10000);
+  //   } else {
+  //     await loadAllResources();
+  //   }
+  //   console.log('autoscroll end');
+  //   await context.evaluate(addUrl);
+  //   // await new Promise(resolve => setTimeout(resolve, 2000));
+  //   await context.extract(productDetails, { transform, type: 'APPEND' });
+  //   const pageVariants = await getVariants();
+  //   console.log('#### of Variants:', allVariants.length);
+  //   console.log('#### Variants:', allVariants);
+  //   for (let j = 0; j < pageVariants.length; j++) {
+  //     const pageVariant = pageVariants[j];
+  //     if (allVariants.indexOf(pageVariant) === -1) {
+  //       allVariants.push(pageVariant);
+  //       console.log('new variant: ' + pageVariant);
+  //       console.log(allVariants);
+  //     }
+  //   }
+  // }
 
-  // return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
