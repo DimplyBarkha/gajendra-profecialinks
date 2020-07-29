@@ -38,6 +38,11 @@ const transform = (data, context) => {
           price.text = price.text.replace('.', '').replace(',', '.').trim();
         });
       }
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(aggregateRating2 => {
+          aggregateRating2.text = aggregateRating2.text.split('von')[0].replace(',', '.').trim();
+        });
+      }
     }
   }
   return data;

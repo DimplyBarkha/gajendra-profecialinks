@@ -29,4 +29,10 @@ fields:
     xpath: //div[@class="a-row a-spacing-micro"]/span[text() = "Gesponsert"]
   - name: searchUrl
     singleValue: false
-    xpath: ancestor::html//div[@id='searchUrl']
+    xpath: ancestor::html//div[@id='search-url']
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //i[contains(@class, 'a-icon a-icon-star-small')]/span
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="a-row a-size-small"]/span[2]/a/span[@class="a-size-base"]
