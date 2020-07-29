@@ -108,8 +108,6 @@ module.exports = {
             }
           };
 
-          await ignorePopups();
-
           const getXpath = (selector) => {
             return document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE).singleNodeValue;
           };
