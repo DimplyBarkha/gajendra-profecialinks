@@ -270,3 +270,12 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice_row"]//span[@class="a-size-small a-color-price"]
+    regExp: \(?(.*)\/.*\)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //*[@id="priceblock_ourprice_row"]//span[@class="a-size-small a-color-price"]
+    regExp: \(?.*\/\s*(.*)\)
+    regExpReplace: $1
