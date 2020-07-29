@@ -38,7 +38,10 @@ fields:
     xpath: (//*[@id="availability"])[1]
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//div[@id="productDescription"]/p[text()]/text()
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+  - name: descriptionBottom
+    singleValue: false
+    xpath: //*[@id="productDescription"]/p
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
@@ -114,6 +117,7 @@ fields:
     regExp: >-
        "num_total_variations"\s:\s(\d+),\s"dimensions"
     regExpReplace: $1
+    defaultValue: 1
     # xpath: count(//select[@name="dropdown_selected_size_name"]/option[position()>1]|//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: color
     singleValue: false
@@ -123,13 +127,17 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="aplus"]//div[contains(@class,"aplus-module-wrapper")]
+    xpath: //div[@class="aplus-v2 desktop celwidget"]//div[contains(@class,"aplus-module-wrapper")]//text()[not(ancestor::noscript)]
+    # xpath: //div[@id="aplus"]//div[contains(@class,"aplus-module-wrapper")]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     singleValue: false
-    xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url | //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
+    xpath: //script[contains(text(), 'triggerVideoAjax')]
+    regExp: url":"(.{30,300})"\,"videoHeight
+    regExpReplace: $1
+    # xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url | //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
   - name: name
     singleValue: false
     xpath: //title
@@ -219,12 +227,11 @@ fields:
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
     singleValue: false
-    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: NO
+    xpath: //div[@id="pd_primeValue"]
+    defaultValue: "NO"
   - name: lbb
     xpath: //span[@id="price_inside_buybox"]
+    # xpath: //div[@id="mbc"]//text()[contains(., 'Other Sellers on Amazon')]
     regExp: (.+)
     regExpReplace: "YES"
     defaultValue: "NO"
@@ -233,17 +240,21 @@ fields:
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
-    xpath: //span[contains(@class,'mbcMerchantName')]
+    xpath: //div[@id='pd_otherSellerName'] 
+    # xpath:  //span[contains(@class,'mbcMerchantName')]
   - name: otherSellersPrice
-    xpath: //span[contains(@id, "mbc-price")]      
+    xpath: //div[@id='pd_otherSellersPrice']
+    # xpath: //span[contains(@id, "mbc-price")]      
   - name: otherSellersPrime
     singleValue: false
-    xpath: 
+    # xpath: //span[contains(@id, "mbc-shipping")]
+    xpath: //div[@id='pd_otherSellersPrime']
   - name: otherSellersShipping2
-    xpath: //span[contains(@id, "mbc-shipping")]
+    # xpath: //span[contains(@id, "mbc-shipping")]
+    xpath: //div[@id='pd_otherSellersShipping2']
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
+    xpath: count(//div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src)
   - name: news
     singleValue: false
     xpath: 
@@ -402,10 +413,13 @@ fields:
     xpath: 
   - name: pricePerUnit
     singleValue: false
-    xpath: 
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?(.*)\/.*\)
+    regExpReplace: $1
   - name: pricePerUnitUom
-    singleValue: false
-    xpath: 
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?.*\/\s*(.*)\)
+    regExpReplace: $1
   - name: promotion
     singleValue: false
     xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
@@ -426,7 +440,7 @@ fields:
     xpath: 
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: 
+    xpath: //div[@data-feature-name="featurebullets"]//ul/li
   - name: prop65Warning
     singleValue: false
     xpath: 

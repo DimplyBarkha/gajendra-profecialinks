@@ -34,17 +34,44 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.description) {
+      if (row.imageAlt) {
         let text = '';
-        row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        row.imageAlt.forEach(item => {
+          text += `${item.text.replace('&nbsp;', '')}`;
         });
-        row.description = [
+        row.imageAlt = [
           {
-            text: cleanUp(text.slice(0, -4)),
+            text: cleanUp(text),
           },
         ];
       }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, '')}`;
+        });
+        let descriptionBottom = [];
+        if (row.descriptionBottom) {
+          descriptionBottom = row.descriptionBottom;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
+        row.description = [
+          {
+            text: cleanUp(descriptionBottom.join(' | ')),
+          },
+        ];
+      }
+      //   if (row.description) {
+      //     let text = '';
+      //     row.description.forEach(item => {
+      //       text += `${item.text.replace(/\n \n/g, ':')} || `;
+      //     });
+      //     row.description = [
+      //       {
+      //         text: cleanUp(text.slice(0, -4)),
+      //       },
+      //     ];
+      //   }
       if (row.variantAsins) {
         let text = '';
         row.variantAsins.forEach(item => {
@@ -130,14 +157,25 @@ const transform = (data) => {
           }
         });
       }
-      if (row.otherSellersShipping2) {
-        for (const item of row.otherSellersShipping2) {
-          if (item.text.toLowerCase().includes('free')) {
-            item.text = '0.00';
-          } else if (item.text.match(/\$([^\s]+)/)) {
-            item.text = item.text.match(/\$([^\s]+)/)[1];
-          }
-        }
+      //   if (row.otherSellersShipping2) {
+      //     for (const item of row.otherSellersShipping2) {
+      //       if (item.text.toLowerCase().includes('free')) {
+      //         item.text = '0.00';
+      //       } else if (item.text.match(/\$([^\s]+)/)) {
+      //         item.text = item.text.match(/\$([^\s]+)/)[1];
+      //       }
+      //     }
+      //   }
+      if (row.videoLength) {
+        let text = '';
+        row.videoLength.forEach(item => {
+          text += `${item.text}|`;
+        });
+        row.videoLength = [
+          {
+            text: cleanUp(text.slice(0, -1)),
+          },
+        ];
       }
       if (row.featureBullets) {
         let text = '';
@@ -202,14 +240,34 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' ').replace(/Read more/g, '').replace(/View larger/g, '');
+          text += `${item.text.replace(/\r\n|\r|\n/g, ' ')
+            .replace(/&amp;nbsp;/g, ' ')
+            .replace(/&amp;#160/g, ' ')
+            .replace(/\u00A0/g, ' ')
+            .replace(/\s{2,}/g, ' ')
+            .replace(/"\s{1,}/g, '"')
+            .replace(/\s{1,}"/g, '"')
+            .replace(/Read more/g, '')
+            .replace(/View larger/g, '')
+            .replace(/^ +| +$|( )+/g, ' ').trim()} `;
         });
         row.manufacturerDescription = [
           {
-            text: cleanUp(text.replace(/<img.{1,300}">/g, '')),
+            text: text.replace(/<img.{1,300}">/g, '').trim(),
           },
         ];
       }
+      // if (row.manufacturerDescription) {
+      //   let text = '';
+      //   row.manufacturerDescription.forEach(item => {
+      //     text += item.text.replace(/\n \n/g, ' ').replace(/Read more/g, '').replace(/View larger/g, '');
+      //   });
+      //   row.manufacturerDescription = [
+      //     {
+      //       text: cleanUp(text.replace(/<img.{1,300}">/g, '')),
+      //     },
+      //   ];
+      // }
       if (row.manufacturerImages) {
         const secondaryImages = [];
         row.manufacturerImages.forEach(alternateImage => {
@@ -248,6 +306,21 @@ const transform = (data) => {
           item.text = item.text.trim().match(/"hiRes":"https:/g) ? item.text.trim().match(/"hiRes":"https:/g).length : 0;
         }
       }
+      //   if (row.otherSellersPrime) {
+      //     let text = '';
+      //     for (const item of row.otherSellersPrime) {
+      //       if (item.text.includes('Details')) {
+      //         text += 'Yes|';
+      //       } else {
+      //         text += 'No|';
+      //       }
+      //     }
+      //     row.otherSellersPrime = [
+      //       {
+      //         text: cleanUp(text.slice(0, -1)),
+      //       },
+      //     ];
+      //   }
       if (row.promotion) {
         row.promotion.forEach(item => {
           item.text = cleanUp(item.text);
