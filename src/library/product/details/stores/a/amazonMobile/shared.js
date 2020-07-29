@@ -46,11 +46,16 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `|| ${item.text.replace(/\n \n/g, '')}`;
         });
+        let descriptionBottom = [];
+        if (row.descriptionBottom) {
+          descriptionBottom = row.descriptionBottom;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(text.slice(0, -4)),
+            text: cleanUp(descriptionBottom.join(' | ')),
           },
         ];
       }
@@ -60,9 +65,24 @@ const transform = (data) => {
         });
       }
       if (row.manufacturerDescription) {
+        let text = '';
         row.manufacturerDescription.forEach(item => {
-          item.text = cleanUp(item.text);
+          text += `${item.text.replace(/\r\n|\r|\n/g, ' ')
+            .replace(/&amp;nbsp;/g, ' ')
+            .replace(/&amp;#160/g, ' ')
+            .replace(/\u00A0/g, ' ')
+            .replace(/\s{2,}/g, ' ')
+            .replace(/"\s{1,}/g, '"')
+            .replace(/\s{1,}"/g, '"')
+            .replace(/Read more/g, '')
+            .replace(/View larger/g, '')
+            .replace(/^ +| +$|( )+/g, ' ').trim()} `;
         });
+        row.manufacturerDescription = [
+          {
+            text: text.replace(/<img.{1,300}">/g, '').trim(),
+          },
+        ];
       }
       if (row.specifications) {
         let text = '';

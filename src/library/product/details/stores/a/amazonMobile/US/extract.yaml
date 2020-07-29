@@ -18,6 +18,17 @@ fields:
   - name: category
     singleValue: true
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+  - name: pricePerUnit
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?(.*)\/.*\)
+    regExpReplace: $1
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@data-feature-name="featurebullets"]//ul/li
+  - name: pricePerUnitUom
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?.*\/\s*(.*)\)
+    regExpReplace: $1
   - name: nameExtended
     singleValue: false
     xpath: //*[@id="productTitle"]
@@ -32,7 +43,10 @@ fields:
     xpath: //*[@id='availability']
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]|//*[@id="productDescription"]/p 
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+  - name: descriptionBottom
+    singleValue: false
+    xpath: //*[@id="productDescription"]/p
   - name: descriptionBullets
     singleValue: true
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
@@ -66,6 +80,9 @@ fields:
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
     regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
     regExpReplace: $1$3
+  - name: coupon
+    singleValue: false
+    xpath: (//div[contains(@id,"unclippedCoupon")]//span[@class="a-color-success"])[1]
   - name: legalDisclaimer
     singleValue: true
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
@@ -101,7 +118,7 @@ fields:
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="productDescription"]/p[text()]/text()
+    xpath: //div[@class="aplus-v2 desktop celwidget"]//div[contains(@class,"aplus-module-wrapper")]//text()[not(ancestor::noscript)]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@src
@@ -140,7 +157,7 @@ fields:
     xpath: //div[@id="detail-bullets"]//ul/li[text()] | //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
+    xpath: count(//div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src)
   - name: ingredientsList
     singleValue: false
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
@@ -153,3 +170,12 @@ fields:
   - name: productOtherInformation
     singleValue: false
     xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
+  - name: otherSellersName
+    xpath: //div[@id='pd_otherSellerName'] 
+  - name: otherSellersPrice
+    xpath: //div[@id='pd_otherSellersPrice']   
+  - name: otherSellersPrime
+    singleValue: false
+    xpath: //div[@id='pd_otherSellersPrime']
+  - name: otherSellersShipping2
+    xpath: //div[@id='pd_otherSellersShipping2']
