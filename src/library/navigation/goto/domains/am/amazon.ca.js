@@ -5,7 +5,7 @@ module.exports = {
     domain: 'amazon.ca',
     timeout: null,
     country: 'CA',
-    store: 'amazonMsPromosDealId',
+    store: 'amazon',
     zipcode: '',
   },
   implementation: async ({ url }, parameterValues, context, dependencies) => {
