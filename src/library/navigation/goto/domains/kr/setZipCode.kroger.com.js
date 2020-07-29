@@ -47,9 +47,10 @@ async function implementation (
     const indexToClick = await context.evaluate(async function (storeName) {
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
       let indexToClosestStore = null;
+
       sections.forEach((sectionItem, i) => {
         const section = sectionItem.querySelector('div.ModalitySelector-StoreSearchResultVanityNameWrapper');
-
+        
         if (section && section.textContent) {
           if (section.textContent.includes(storeName)) {
             indexToClosestStore = i + 1;
@@ -94,6 +95,8 @@ async function implementation (
       45209: 'Hyde Park',
       45255: 'Cherry Grove',
       48315: 'Shelby Marketplace',
+      45044: 'Middletown428 Oxford State Rd',
+      45232: 'St. Bernard',
     };
 
     if (desiredLocations[wantedZip]) {
