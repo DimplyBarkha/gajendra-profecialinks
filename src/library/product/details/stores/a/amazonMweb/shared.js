@@ -80,8 +80,9 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
+          text += ` || ${item.text.replace(/\n \n/g, ':')}`;
         });
+        text = text.trim();
         let descriptionBottom = [];
         if (row.descriptionBottom) {
           descriptionBottom = row.descriptionBottom;
@@ -89,7 +90,7 @@ const transform = (data) => {
         descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(descriptionBottom.join(' | ')),
+            text: descriptionBottom.join(' | '),
           },
         ];
       }
