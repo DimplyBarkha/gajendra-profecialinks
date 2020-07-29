@@ -1,30 +1,35 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@data-comp, "ProductGrid")]
+recordXPath: //div[contains(@data-comp, "ProductGrid")]//a
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
+  # - name: paid
+  #   singleValue: true
+  #   description: Whether this is a sponsored/paid result
+  #   type: BOOLEAN
   - name: brand
     singleValue: true
     description: The brand name
     example: Panasonic
     xpath: //span[contains(@data-at,"sku_item_brand")]
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
+  # - name: category
+  #   singleValue: false
+  #   description: The categories (e.g. from breadcrumbs)
+  #   example:
+  #     - Dental Care
+  #     - Toothbrushes & Accessories
+  #     - Electric Toothbrushes & Accessories
+  #     - Electric Toothbrushes
+  #     - Rotating
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
-    xpath: //div[contains(@data-comp, "ProductGrid")]//a/@href
+    # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@href
+    xpath: //@href
+    # regExp: >- 
+    #   ^(.*)$
+    # regExpReplace: >-
+    #   https://www.sephora.com$1
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
@@ -33,15 +38,15 @@ fields:
     singleValue: true
     description: The product name
     xpath: //span[contains(@data-at, "sku_item_name")]
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
+  # - name: sku
+  #   singleValue: true
+  #   description: The store-specific product identifier
+  # - name: mpc
+  #   singleValue: true
+  #   description: The model code of the product
+  # - name: gtin
+  #   singleValue: true
+  #   description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -72,11 +77,11 @@ fields:
     singleValue: true
     description: The text that signifies that a product is endorsed
     xpath: //div[contains(@data-at,"sku_item_flags")]
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
+  # - name: shippingInfo
+  #   singleValue: true
+  #   description: Shipping information for the product
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
@@ -90,10 +95,13 @@ fields:
   - name: id
     singleValue: true
     description: Unique id (within this extractor)
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
+    # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@data-uid
+    xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src
+    # regExp: ([0-9]+$)
+  # - name: nameExtended
+  #   singleValue: true
+  #   description: The product name, prefixing "${brand} - " if not included in "name"
+  #     and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5

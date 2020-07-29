@@ -5,9 +5,9 @@ module.exports = {
     country: 'US',
     store: 'sephora',
     domain: 'sephora.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.sephora.com/search?keyword={searchTerms}',
+    loadedSelector: 'div[data-comp="ProductGrid "] a',
+    noResultsXPath: '//h1[contains(., "0 Product results")]',
     zipcode: '',
   },
 };
