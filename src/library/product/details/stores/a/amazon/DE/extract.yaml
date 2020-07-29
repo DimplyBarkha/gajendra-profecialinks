@@ -36,7 +36,10 @@ fields:
     xpath: //*[@id='availability']/span
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[@id='productDescription'] | //div[@id='productDescription']/h3[contains(text(), 'Produktbeschreibung')]//following-sibling::*[1]
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+  - name: descriptionBottom
+    singleValue: false
+    xpath: //*[@id="productDescription"]/p
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
@@ -60,7 +63,7 @@ fields:
     xpath: //td[contains(text(), 'Paketgewicht')]/following-sibling::*[1]
   - name: sku
     singleValue: false
-    xpath: (//*[@data-asin])[1]/@data-asin
+    xpath: //td[contains(text(), 'Modellnummer')]/following-sibling::*[1] | //td[contains(text(), 'modellnummer')]/following-sibling::*[1]
   - name: asin
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
@@ -186,18 +189,16 @@ fields:
     xpath: //span[contains(@id, 'mbc-price')]
   - name: otherSellersName
     singleValue: false
-    xpath: //span[contains(@class, 'mbcMerchantName')]
+    xpath: //div[@id='pd_otherSellerName'] 
   - name: otherSellersPrice
     singleValue: false
-    xpath: //span[contains(@id, 'mbc-price')]
+    xpath: //div[@id='pd_otherSellersPrice']
   - name: otherSellersPrime
     singleValue: false
-    xpath: //span[contains(@id, "mbc-shipping")]
+    xpath: //div[@id='pd_otherSellersPrime']
   - name: otherSellersShipping2
     singleValue: false
-    xpath: //span[contains(@id, "mbc-shipping")]
-    regExp: ([0-9\,]{1,}) €
-    regExpReplace: $1
+    xpath: //div[@id='pd_otherSellersShipping2']
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
@@ -221,3 +222,9 @@ fields:
   - name: warnings
     singleValue: false
     xpath: //*[contains(text(), 'Haftungsausschluss')]/following-sibling::*[1] | //*[contains(text(), 'Haftungsausschluss')]/following-sibling::*[2]
+  - name: coupon
+    singleValue: false
+    xpath: //div[@id='unclippedCouponSns']
+  - name: mpc
+    singleValue: false
+    xpath: //td[contains(text(), 'Modellnummer')]/following-sibling::*[1] | //td[contains(text(), 'modellnummer')]/following-sibling::*[1]
