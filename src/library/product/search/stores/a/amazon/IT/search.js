@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/search',
   parameterValues: {
     country: 'IT',
-    domain: 'amazon.it',
     store: 'amazon',
+    domain: 'amazon.it',
     zipcode: '',
   },
 };
