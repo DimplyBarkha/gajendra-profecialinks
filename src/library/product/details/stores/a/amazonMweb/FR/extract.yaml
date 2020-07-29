@@ -98,4 +98,13 @@ fields:
     singleValue: false
     xpath: //script[contains(., "ImageBlockBTF")]/text()
     defaultValue: 0
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?(.*)\/.*\)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?.*\/\s*(.*)\)
+    regExpReplace: $1
   
