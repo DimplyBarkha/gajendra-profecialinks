@@ -6,22 +6,21 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-
-  await context.evaluate(async function () {
-    function addElementToDocument (doc, key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      doc.appendChild(catElement);
+  await context.evaluate(async function (inputs) {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
     }
-
-    const searchUrl = window.location.href;
-    const productList = document.querySelectorAll('.a-section.a-spacing-medium');
-    productList && productList.forEach((item1, index) => {
-      const doc = item1;
-      addElementToDocument(doc, 'searchUrl', searchUrl);
-    });
+    const searchUrlDom = document.getElementById('search-url');
+    const searchUrl = window.location.href.replace(/%20/g, ' ');
+    if (searchUrlDom && searchUrlDom.innerText) {
+      searchUrlDom.innerText = searchUrl;
+    } else {
+      addHiddenDiv('search-url', searchUrl);
+    }
   });
   return await context.extract(productDetails, { transform: parameters.transform });
 }
