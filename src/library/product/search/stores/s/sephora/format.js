@@ -34,8 +34,8 @@ const transform = (data, context) => {
         }
         if(row.id){
           let text = row.id[0].text
-          
-          console.log("TEXT HERE" + " " + text)
+          console.log("FORMAT123")
+          console.log("TEXT HERE2" + " " + text)
           let sNum = text.match(/(s[0-9]+)/g)
           if(sNum[0]){
             row.id[0].text = sNum[0]
