@@ -50,7 +50,7 @@ async function implementation (
 
       sections.forEach((sectionItem, i) => {
         const section = sectionItem.querySelector('div.ModalitySelector-StoreSearchResultVanityNameWrapper');
-        
+
         if (section && section.textContent) {
           if (section.textContent.includes(storeName)) {
             indexToClosestStore = i + 1;
