@@ -574,7 +574,7 @@ async function implementation (
                 videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
               }
             } else if(ind > 0) {
-              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://'));
+              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
             }
           });
         }
@@ -596,7 +596,7 @@ async function implementation (
                 videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
               }
             } else if (ind > 0) {
-              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://'));
+              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
             }
           });
         }
@@ -618,6 +618,7 @@ async function implementation (
         }
       }
 
+      let hasTechnicalInfoPDF = 'No';
       let manufacturerDesc = '';
       const manufacturerImgs = [];
       const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
@@ -655,9 +656,19 @@ async function implementation (
           });
         }
         if (document.getElementById('wc-power-page') && document.getElementById('wc-power-page').innerText) {
+
+          if (document.getElementById('wc-power-page').querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
+            hasTechnicalInfoPDF = 'Yes';
+          }
+
           console.log('haswcpowerpage');
           const manufacturerDescArr = [];
           document.querySelectorAll('.wc-fragment').forEach(e => {
+
+            if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
+              return;
+            }
+
             if (e.querySelector('.wc-pct-data')) {
               e.querySelectorAll('tr').forEach(tr => {
                 if (tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
@@ -681,6 +692,8 @@ async function implementation (
           });
         }
       }
+
+      addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
 
       function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
