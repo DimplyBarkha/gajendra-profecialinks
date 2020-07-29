@@ -66,6 +66,11 @@ const transform = (data, context) => {
             if (aplusImagesText.indexOf(splitImage) === -1) {
               aplusImagesText.push(splitImage);
               aplusImages.push(item);
+            } else if (imageUrl.match('.w1920')) {
+              const place = aplusImagesText.indexOf(splitImage);
+              if (place !== -1) {
+                aplusImages[place].text = imageUrl;
+              }
             }
           });
 

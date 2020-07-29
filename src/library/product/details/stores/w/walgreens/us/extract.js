@@ -11,7 +11,6 @@ module.exports = {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ url, id }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-
     const manufacturerInfo = await context.evaluate(function () {
       return document.querySelector('li#prodCollage') ? document.querySelector('li#prodCollage').getAttribute('class') : '';
     });
@@ -24,7 +23,13 @@ module.exports = {
       return !!document.querySelector('#BVRRSummaryContainer');
     });
 
-    await context.evaluate(function () {
+    await context.evaluate(async function () {
+      const popUpsUpper = document.querySelector('button.fsrDeclineButton');
+
+      if (popUpsUpper && popUpsUpper !== undefined) {
+        await context.click('button.fsrDeclineButton');
+      }
+
       const popUps = document.querySelector('div.fsrAbandonButton');
 
       if (popUps && popUps !== undefined) {
@@ -81,8 +86,16 @@ module.exports = {
               }
             };
 
-            if (document.querySelector('div.fsrAbandonButton')) {
-              document.querySelector('div.fsrAbandonButton').click();
+            const popUpsUpper = document.querySelector('button.fsrDeclineButton');
+
+            if (popUpsUpper && popUpsUpper !== undefined) {
+              await context.click('button.fsrDeclineButton');
+            }
+
+            const popUps = document.querySelector('div.fsrAbandonButton');
+
+            if (popUps && popUps !== undefined) {
+              popUps.click();
             }
 
             if (document.querySelector('button#fsrFocusFirst')) {
@@ -120,6 +133,8 @@ module.exports = {
           // wait for full loading
           await new Promise(resolve => setTimeout(resolve, 5e3));
 
+          await ignorePopups();
+
           const foundVariant = !!(variantXpath && getXpath(variantXpath));
 
           // monkey patch ajax calls
@@ -142,8 +157,8 @@ module.exports = {
           await new Promise(resolve => setTimeout(resolve, 5e3));
           XMLHttpRequest.prototype.open = originalRequestOpen;
           // const jsonObj = response;
-          console.log('response')
-          console.log(response)
+          console.log('response');
+          console.log(response);
           const jsonObj = Object.keys(response).length !== 0 ? response : ((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {});
           console.log('jsonObj');
           console.log(jsonObj);
@@ -168,6 +183,7 @@ module.exports = {
           const ingredients = findInSection('ingredients');
           const warnings = findInSection('warnings');
           const shipping = findInSection('shipping');
+          const reviews = findInSection('reviews');
 
           let fullDescription = (desc && desc.productDesc) ? (((desc.quickView && desc.quickView !== 'undefined') ? decodeURIComponent(desc.quickView.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25')) : '') + decodeURIComponent(desc.productDesc.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25'))) : '';
           fullDescription = fullDescription.replace(/<table.*?>/g, '');
@@ -530,10 +546,26 @@ module.exports = {
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
             additionalDescBulletInfo: additionalDescBulletInfo(),
+            ratingCount: reviews ? reviews.reviewCount : '',
+            aggregateRating: reviews ? reviews.overallRating : '',
           };
           removeObjectToDocument(obj);
           addObjectToDocument(obj);
         }, [id, url, variantXpath]);
+
+        await context.evaluate(async function () {
+          const popUpsUpper = document.querySelector('button.fsrDeclineButton');
+
+          if (popUpsUpper && popUpsUpper !== undefined) {
+            await context.click('button.fsrDeclineButton');
+          }
+
+          const popUps = document.querySelector('div.fsrAbandonButton');
+
+          if (popUps && popUps !== undefined) {
+            popUps.click();
+          }
+        });
 
         await context.extract(productDetails, { transform: transformParam, type: 'APPEND' });
       };

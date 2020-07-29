@@ -133,15 +133,15 @@ fields:
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
-  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"reviewCount")]|//div[@id="reviewsData"]//span[2]/text())[1]
+  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"reviewCount")]|//div[@id="reviewsData"]//span[2]/text()|//*[@id='added_ratingCount']//text())[1]
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
-  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text())[1]
+  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text()|//*[@id='added_aggregateRating']//text())[1]
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
-  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text())[1]
+  xpath: (//div[contains(@class,"bv-summary-bar")]//span[contains(@itemprop,"ratingValue")]|//div[@id="reviewsData"]//span[1]/text()|//*[@id='added_aggregateRating']//text())[1]
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   singleValue: true
