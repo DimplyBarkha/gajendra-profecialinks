@@ -8,6 +8,7 @@ module.exports = {
     store: 'amazonPharmapacks',
     domain: 'amazon.com',
   },
+
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const productPrimeCheck = async () => {
       console.log('EXECUTING PRIME RELATED CODE.');
@@ -120,6 +121,53 @@ module.exports = {
         await scrollToSmoothly(elem.offsetTop);
       }, selector);
     };
+
+    const mainURL = await context.evaluate(function () {
+      return document.URL;
+    });
+
+    try {
+      console.log('Executing navigation to sellers');
+      const navigateLink = await context.evaluate(function () {
+        return document.querySelector('span[data-action="show-all-offers-display"] > a').href;
+      });
+      console.log('navigateLink' + navigateLink);
+      await context.goto(navigateLink, {
+        timeout: 20000, waitUntil: 'load', checkBlocked: true,
+      });
+      console.log('Done navigation to sellers');
+
+      const otherSellersTable = await context.evaluate(function () {
+        return document.getElementById('olpOfferList').innerHTML;
+      });
+      console.log('otherSellersTable' + otherSellersTable);
+      console.log('mainURL' + mainURL);
+      await context.goto(mainURL, {
+        timeout: 10000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+      await context.evaluate(function (eleInnerHtml) {
+        const cloneNode = document.createElement('div');
+        cloneNode.innerHTML = eleInnerHtml;
+        document.querySelector('span[data-action="show-all-offers-display"]').appendChild(cloneNode);
+        const addonSectionEle = document.querySelector('#moreBuyingChoices_feature_div > div > #mbc-action-panel-wrapper');
+        addonSectionEle.parentNode.removeChild(addonSectionEle);
+      }, otherSellersTable);
+    } catch (err) {
+      console.log('Additional other sellers error -' + JSON.stringify(err));
+      await context.goto(mainURL, {
+        timeout: 10000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+    }
 
     try {
       await scrollToContent('#descriptionAndDetails');
