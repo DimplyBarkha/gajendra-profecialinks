@@ -1,5 +1,5 @@
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,

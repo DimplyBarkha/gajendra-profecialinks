@@ -22,7 +22,7 @@ const transform = (data) => {
     return JSON.parse(dataStr);
   };
   for (const { group } of data) {
-    for (let row of group) {
+    for (const row of group) {
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {
@@ -30,18 +30,23 @@ const transform = (data) => {
         });
         row.nameExtended = [
           {
-            text: cleanUp(text)
+            text: cleanUp(text),
           },
         ];
       }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
         });
+        let descriptionBottom = [];
+        if (row.descriptionBottom) {
+          descriptionBottom = row.descriptionBottom;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(text.slice(0, -4)),
+            text: cleanUp(descriptionBottom.join(' | ')),
           },
         ];
       }
@@ -52,7 +57,7 @@ const transform = (data) => {
       }
       if (row.variantCount) {
         row.variantCount.forEach(item => {
-          item.text = item.text == "0" ? "1" : item.text;
+          item.text = item.text === '0' ? '1' : item.text;
         });
       }
       if (row.manufacturerDescription) {
@@ -71,6 +76,10 @@ const transform = (data) => {
           item.text = cleanUp(item.text);
         });
       }
+      row.alternateImages && row.alternateImages.splice(0, 1);
+      row.secondaryImageTotal = [{
+        text: (row.alternateImages && row.alternateImages.length) || 0,
+      }];
     }
   }
   return data;
