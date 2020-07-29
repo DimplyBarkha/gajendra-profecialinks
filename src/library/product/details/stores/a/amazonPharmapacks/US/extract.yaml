@@ -52,7 +52,7 @@ fields:
     singleValue: true
     xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
   - name: variantId
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]|//*[contains(text(), 'Item model number')]/../span[last()]
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]|//*[contains(text(), 'Item model number')]/../span[last()]|//*[contains(text(), 'Item model number')]/following-sibling::td
   - name: mpc
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]|//*[contains(text(), 'Item model number')]/../span[last()]
   - name: packSize
@@ -161,7 +161,7 @@ fields:
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
-    xpath: //span[contains(@class,'mbcMerchantName')]
+    xpath: //span[contains(@class,'mbcMerchantName')] | //div[@id="merchant-info"]/a
   - name: otherSellersPrice
     xpath: //span[contains(@class,'mbcMerchantName')]/parent::div/preceding-sibling::div//span[contains(@id,'mbc-price')]
   - name: otherSellersShipping2

@@ -8,7 +8,10 @@ module.exports = {
     store: 'amazonPharmapacks',
     domain: 'amazon.com',
   },
+
+  
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+   
     const productPrimeCheck = async () => {
       console.log('EXECUTING PRIME RELATED CODE.');
       let primeValue = 'No';
