@@ -297,7 +297,7 @@ fields:
     # xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
     # xpath: //div[@id='ii_videoSrc']|//img[contains(@class,'wc-iframe')]/@data-asset-url|//img[contains(@class, 'wc-video')]/@wcobj
     # ADDITIONAL THAT WAS TAKEN OUT BY REQUEST: |//div[@id='ii_manufHTML']//img/@data-asset-url[contains(.,'https:') and not(contains(.,".jpg"))]
-    xpath: //div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]/@wcobj[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "media-wrap")]//@data-src[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]//meta[contains(@content, 'mp4')]/@content[not(contains(.,".jpg"))]
+    xpath: //div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]/@wcobj[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "media-wrap")]//@data-src[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]//meta[contains(@content, 'mp4')]/@content[not(contains(.,".jpg"))]|//div[@wc-movie]/@wcobj
   # - name: coupon
   #   singleValue: true
   - name: variantCount 

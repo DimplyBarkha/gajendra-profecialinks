@@ -130,16 +130,32 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
         //   i++;
         // }
         for(let i = 0; i < variants.length; i++ ){
+          // const html = await context.evaluate(async function getEnhancedContent(variants, i) {
+          //   return fetch(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`)
+          //   .then(response => response.text())
+          // }, variants, i);
           const html = await context.evaluate(async function getEnhancedContent(variants, i) {
-            return fetch(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`)
-            .then(response => response.text())
+            async function fetchRetry(url, n) {
+              // console.log("FETCH RETRY3")
+              let fetched = fetch(url).then(response => response.text()).catch(function(error) {
+                  if (n === 1) return "Nothing Found";
+                  return fetchRetry(url, n - 1);
+              });
+              
+              return fetched
+            }
+            return await fetchRetry(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, 3)
           }, variants, i);
+
+
           await new Promise(resolve => setTimeout(resolve, 5000));
           const regex = /html: "(.+)"\n\s\s\}\n\}\;/s
           let text = "Not Found"
-          if(html.match(regex)){
-            text = html.match(regex)[1];
-          }
+          
+            if(html.match(regex)){
+              text = html.match(regex)[1];
+            }
+          
           text = text.replace(/html: /g, "")
           manufArray.push(text);
         }
@@ -270,6 +286,22 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                         let deets = variant.p_Product_Details;
                         const regex = /<li>(.*?)<\/li>/g
                         let bullets = deets.match(regex)
+                        if(!bullets){
+                          
+                          if(deets.match(/<li>(.*?)<\/ul>/g)){
+                            bullets = deets.replace(/<li>/g, "</li><li>").match(regex)
+                            let noLi = deets.replace(/<li>/g, "</li><li>").replace(regex, "")
+                            if(noLi){
+                              bullets.push(noLi.match(/<li>(.*?)<\/ul>/g)[0])
+                            }
+                          } else {
+                            bullets = deets.replace(/<li>/g, "</li><li>").match(regex)
+                            if(bullets){
+                              bullets = bullets.match(regex)
+                            }
+                          }
+
+                        }
                         deets = deets.replace(/<li>/g, ' @ ')
                         deets = deets.replace(/<\/li>/g, ' ')
                         deets = deets.replace(/<.+?>/g, ' ')
