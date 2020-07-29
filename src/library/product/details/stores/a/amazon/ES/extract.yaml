@@ -245,3 +245,12 @@ fields:
   - name: coupon
     singleValue: false
     xpath: //div[@id='unclippedCouponSns']
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?(.*)\/.*\)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?.*\/.?(.*)\)
+    regExpReplace: $1
