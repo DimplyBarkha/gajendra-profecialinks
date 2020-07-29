@@ -93,7 +93,7 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
     description: Unique id (within this extractor)
     # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@data-uid
     xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src
