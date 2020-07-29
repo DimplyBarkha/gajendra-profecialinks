@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 async function implementation(
   inputs,
   parameters,
@@ -24,22 +23,13 @@ async function implementation(
   await new Promise(resolve => setTimeout(resolve, 5261));
 }
 
-=======
->>>>>>> 7f899d205f620b635ef5b5c41f0f5f0738de61d8
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'US',
     domain: 'amazon.com',
-<<<<<<< HEAD
     store: 'amazonPrimePantry',
     zipcode: '10001',
   },
   implementation,
 };
-=======
-    store: 'amazonApparel',
-    zipcode: '',
-  },
-};
->>>>>>> 7f899d205f620b635ef5b5c41f0f5f0738de61d8
