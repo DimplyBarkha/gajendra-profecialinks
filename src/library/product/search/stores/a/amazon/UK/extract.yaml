@@ -1,0 +1,7 @@
+extends: ../GLOBAL/extract
+fields:
+  - name: productUrl
+    singleValue: true
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.co.uk$1
