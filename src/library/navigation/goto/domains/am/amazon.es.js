@@ -72,7 +72,7 @@ module.exports = {
       let status = 200;
       if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
         status = 503;
-      } else if (document.querySelector('a[href*="dogsofamazon"')) {
+      } else if (document.evaluate("//b[contains(text(), 'Buscas algo?')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength>0)  {
         status = 404;
       }
       return { status };
@@ -96,7 +96,7 @@ module.exports = {
         }
 
         console.log('Go to some random page');
-        const clickedOK = await context.evaluate(async function () { //* [contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/spa
+        const clickedOK = await context.evaluate(async function () {
         // Changed xpath to check for any link.
           const randomLinkEls = document.evaluate('//a[@href]', document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
