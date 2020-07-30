@@ -3,7 +3,6 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'amazon.ca',
-    timeout: null,
     country: 'CA',
     store: 'amazon',
     zipcode: '',
@@ -127,6 +126,10 @@ module.exports = {
         });
         console.log('lastResponseData', lastResponseData);
         await new Promise(resolve => setTimeout(resolve, 1000));
+
+        if (await solveCaptchaIfNecessary() === 'false') {
+          return { status: false };
+        }
         return lastResponseData;
       }
     };
