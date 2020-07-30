@@ -88,7 +88,7 @@ module.exports = {
 
         if (data) {
           console.log('parsing data ...');
-          console.log(data)
+          console.log(data);
 
           const asin = (data.USItemId) ? data.USItemId : '';
           const sku = (data.sku) ? data.sku : '';
