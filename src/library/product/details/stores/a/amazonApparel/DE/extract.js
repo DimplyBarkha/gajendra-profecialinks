@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation,
 };
-async function implementation(
+async function implementation (
   inputs,
   { country, store, transform, domain },
   context,
