@@ -126,6 +126,10 @@ module.exports = {
         });
         console.log('lastResponseData', lastResponseData);
         await new Promise(resolve => setTimeout(resolve, 1000));
+
+        if (await solveCaptchaIfNecessary() === 'false') {
+          return { status: false };
+        }
         return lastResponseData;
       }
     };
