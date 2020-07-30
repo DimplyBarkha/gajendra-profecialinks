@@ -2,7 +2,10 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields:
+fields:  
+- name: parentInput
+  singleValue: true
+  xpath: //div[@id='added-parentInput']
 - name: image
   singleValue: true
   xpath: //meta[@property='og:image']/@content
@@ -308,3 +311,5 @@ fields:
 
 - name: productUrl
   singleValue: true
+
+

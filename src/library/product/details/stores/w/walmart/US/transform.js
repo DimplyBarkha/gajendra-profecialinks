@@ -87,11 +87,11 @@ const transform = (data, context) => {
         }
         if (row.description) {
           row.description = [{ text: row.description[0].text.replace(/\n \n/g, ' || ') }];
-          if(row.description[0].text.includes("Specifications")) {
-            row.Specifications = [{text:row.description[0].text.split('Specifications')[1].replace(' || ', '')}]
+          if (row.description[0].text.includes('Specifications')) {
+            row.Specifications = [{ text: row.description[0].text.split('Specifications')[1].replace(' || ', '') }];
           }
         }
-        
+
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
@@ -110,6 +110,7 @@ const transform = (data, context) => {
         if (row.variantInformation) {
           let text = '';
           row.variantInformation.forEach(item => {
+            // eslint-disable-next-line no-control-regex
             const splits = item.text.replace(/\"/g, '').replace('}', '').split(':');
             text += `${splits[splits.length - 1].replace('actual_color-', '')} | `;
           });
@@ -188,25 +189,25 @@ const transform = (data, context) => {
             }
             if (info && info.nutritionFacts && info.nutritionFacts.vitaminMinerals && info.nutritionFacts.vitaminMinerals.childNutrients) {
               let valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[0];
-              if(valueNode) {
-                row.vitaminAPerServing = [{ text: getSplitValue(valueNode.dvp,1)}];
-                row.vitaminAPerServingUom = [{ text: getSplitValue(valueNode.dvp,2)}];
+              if (valueNode) {
+                row.vitaminAPerServing = [{ text: getSplitValue(valueNode.dvp, 1) }];
+                row.vitaminAPerServingUom = [{ text: getSplitValue(valueNode.dvp, 2) }];
               }
               valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[1];
-              if(valueNode) {
-                row.vitaminCPerServing = [{ text: getSplitValue(valueNode.dvp,1)}];
-                row.vitaminCPerServingUom = [{ text: getSplitValue(valueNode.dvp,2)}];
+              if (valueNode) {
+                row.vitaminCPerServing = [{ text: getSplitValue(valueNode.dvp, 1) }];
+                row.vitaminCPerServingUom = [{ text: getSplitValue(valueNode.dvp, 2) }];
               }
               valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[2];
-              if(valueNode) {
-                row.calciumPerServing = [{ text: getSplitValue(valueNode.dvp,1)}];
-                row.calciumPerServingUom = [{ text: getSplitValue(valueNode.dvp,2)}];
-              } 
+              if (valueNode) {
+                row.calciumPerServing = [{ text: getSplitValue(valueNode.dvp, 1) }];
+                row.calciumPerServingUom = [{ text: getSplitValue(valueNode.dvp, 2) }];
+              }
               valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[3];
-              if(valueNode) {
-                row.ironPerServing = [{ text: getSplitValue(valueNode.dvp,1)}];
-                row.ironPerServingUom = [{ text: getSplitValue(valueNode.dvp,2)}];
-              } 
+              if (valueNode) {
+                row.ironPerServing = [{ text: getSplitValue(valueNode.dvp, 1) }];
+                row.ironPerServingUom = [{ text: getSplitValue(valueNode.dvp, 2) }];
+              }
             }
           }
         }
