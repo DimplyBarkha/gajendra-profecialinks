@@ -33,8 +33,12 @@ const transform = (data, context) => {
       } else {
         row.id = [{ text: '' }];
       }
-      row.name = [{ text: `${row.name[0].text} (${row.size[0].text})`.trim() }];
-      delete row.size;
+
+      if (row.name) {
+        row.name = [{ text: `${row.name[0].text} ${row.size ? `(${row.size[0].text})` : ''}`.trim() }];
+        delete row.size;
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
