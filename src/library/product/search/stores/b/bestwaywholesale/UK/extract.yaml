@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(concat(' ',normalize-space(@class),' '),' prodimage ')][not(@style)]/a[1][not(@class)][not(@style)]/../..
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li/@data-ga-product-id
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //li//h2
+  - name: size
+    singleValue: false
+    xpath: //li//p[contains(@class,'prodsize')]
+  - name: productUrl
+    singleValue: false
+    xpath: //li//h2/a/@href
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //li//div/a/img/@src
+    regExp: (https:\/\/www.bestwaywholesale.co.uk)?(.+)
+    regExpReplace: https://www.bestwaywholesale.co.uk$2
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //li//div/p[contains(@class,'prodprice')]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
