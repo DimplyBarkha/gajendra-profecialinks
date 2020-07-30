@@ -174,7 +174,6 @@ const implementation = async (
   console.log('ready to extract');
 
   return await context.extract(productDetails, { transform });
-  // return await context.extract('product/details/stores/k/kroger/US/extract', { transform });
 };
 
 module.exports = {

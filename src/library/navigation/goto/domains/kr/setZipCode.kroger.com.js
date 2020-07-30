@@ -13,13 +13,6 @@ async function implementation (
     });
   };
 
-  const findInStoreButton = async () => {
-    await context.evaluate(function () {
-      const inStoreButton = document.querySelector('button[aria-label="In-Store [object Object]   Select Store"]');
-      if (inStoreButton) inStoreButton.click();
-    });
-  };
-
   const findClosestStore = async () => {
     const indexToClick = await context.evaluate(async function () {
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
@@ -88,7 +81,8 @@ async function implementation (
 
     await context.click('button.kds-SolitarySearch-button');
     await new Promise((resolve) => setTimeout(resolve, 6000));
-    await findInStoreButton();
+
+    await context.click('button[aria-label="In-Store [object Object]   Select Store"]')
     await new Promise((resolve) => setTimeout(resolve, 6000));
 
     const desiredLocations = {
