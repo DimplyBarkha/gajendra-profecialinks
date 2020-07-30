@@ -77,13 +77,14 @@ async function implementation (
         await context.click('button.CurrentModality-button');
         await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
       });
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    await context.waitForSelector('button.kds-SolitarySearch-button', { timeout: 10000 });
 
     await context.click('button.kds-SolitarySearch-button');
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    await context.waitForSelector('button[aria-label="In-Store [object Object]   Select Store"]');
 
-    await context.click('button[aria-label="In-Store [object Object]   Select Store"]');
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    await context.click('button[aria-label="In-Store [object Object]   Select Store"]', { timeout: 10000 });
+    // await new Promise((resolve) => setTimeout(resolve, 6000));
+    await context.waitForSelector('div.ModalitySelector--StoreSearchResult', { timeout:10000 });
 
     const desiredLocations = {
       45209: 'Hyde Park',
@@ -100,7 +101,7 @@ async function implementation (
       await findClosestStore();
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    // await new Promise((resolve) => setTimeout(resolve, 6000));
   };
 
   let currentZip = await getCurrentZip();
