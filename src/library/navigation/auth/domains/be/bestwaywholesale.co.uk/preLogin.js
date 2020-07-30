@@ -1,9 +1,8 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/auth/preLogin',
   parameterValues: {
     domain: 'bestwaywholesale.co.uk',
-    timeout: 50000,
     country: 'UK',
     store: 'bestwaywholesale',
     zipcode: '',

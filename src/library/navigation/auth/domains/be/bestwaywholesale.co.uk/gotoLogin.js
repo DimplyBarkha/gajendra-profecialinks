@@ -1,9 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/auth/gotoLogin',
   parameterValues: {
     domain: 'bestwaywholesale.co.uk',
-    timeout: 50000,
+    loginPage: 'https://www.bestwaywholesale.co.uk/login-auth',
     country: 'UK',
     store: 'bestwaywholesale',
     zipcode: '',

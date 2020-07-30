@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(concat(' ',normalize-space(@class),' '),' prodimage ')][not(@style)]/a[1][not(@class)][not(@style)]/../..
 fields:
   - name: id
     singleValue: false
@@ -10,6 +10,9 @@ fields:
     singleValue: false
     description: The product name
     xpath: //li//h2
+  - name: size
+    singleValue: false
+    xpath: //li//p[contains(@class,'prodsize')]
   - name: productUrl
     singleValue: false
     xpath: //li//h2/a/@href
@@ -22,9 +25,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //li//div/p[contains(@class,'prodrsp')]
-    regExp: '[RSP:\s]£(.*)'
-    regExpReplace: £$1
+    xpath: //li//div/p[contains(@class,'prodprice')]
   - name: rank
     singleValue: false
     description: search/listing rank

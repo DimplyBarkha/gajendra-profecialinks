@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'bestwaywholesale.co.uk',
-    timeout: 50000,
     country: 'UK',
+    domain: 'bestwaywholesale.co.uk',
     store: 'bestwaywholesale',
     zipcode: '',
   },
