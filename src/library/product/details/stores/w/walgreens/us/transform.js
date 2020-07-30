@@ -22,23 +22,87 @@ const transform = (data, context) => {
       try {
         if (row.manufacturerDescription) {
           row.manufacturerDescription.forEach(item => {
+            // if (item.text.match('Product Description')) {
+            //   item.text = item.text.replace('Product Description', '');
+            // }
             if (item.text.match('The information above is powered by')) {
               item.text = item.text.replace('The information above is powered by', '');
             }
+            // if (item.text.match('The information above is powered by')) {
+            //   item.text = item.text.replace('The information above is powered by', '');
+            // }
           });
         }
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
+        if (row.packSize && row.packSize[0] && row.packSize[0].text.length) {
+          row.packSize[0].text = row.packSize[0].text.replace('x ', '');
+        }
+        if (row.imageZoomFeaturePresent && row.imageZoomFeaturePresent[0] && row.imageZoomFeaturePresent[0].text.length) {
+          if (row.imageZoomFeaturePresent[0].text === 'true' || row.imageZoomFeaturePresent[0].text === '1') {
+            row.imageZoomFeaturePresent[0].text = 'Yes';
+          } else {
+            row.imageZoomFeaturePresent[0].text = 'No';
+          }
+        }
         if (row.manufacturerImages) {
           const aplusImagesText = [];
           const aplusImages = [];
+          // row.manufacturerImages.forEach(item => {
+          //   const imageUrl = item.text;
+          //   if (aplusImagesText.indexOf(imageUrl) === -1) {
+          //     aplusImagesText.push(imageUrl);
+          //     aplusImages.push(item);
+          //   }
+          // });
+
           row.manufacturerImages.forEach(item => {
-            if (aplusImagesText.indexOf(item.text) === -1) {
-              aplusImagesText.push(item.text);
+            const imageUrl = item.text;
+            const type = (imageUrl.match('png') ? '.png' : (imageUrl.match('jpg') ? '.jpg' : ''));
+            const splitUpSize = imageUrl.split(type);
+            let splitImage = type.length ? splitUpSize[0] : imageUrl;
+            splitImage = splitImage.replace('//_cp', '/_cp');
+            if (aplusImagesText.indexOf(splitImage) === -1) {
+              aplusImagesText.push(splitImage);
               aplusImages.push(item);
+            } else if (imageUrl.match('.w1920')) {
+              const place = aplusImagesText.indexOf(splitImage);
+              if (place !== -1) {
+                aplusImages[place].text = imageUrl;
+              }
             }
           });
+
+          // row.manufacturerImages.forEach(item => {
+          //   const imageUrl = item.text;
+          //   const type = (imageUrl.match('png') ? '.png' : (imageUrl.match('jpg') ? '.jpg' : ''));
+          //   const splitUpSize = imageUrl.split(type);
+          //   let splitImage = type.length ? splitUpSize[0] : imageUrl;
+          //   splitImage = splitImage.replace('//_cp', '/_cp');
+          //   if (aplusImagesText.indexOf(splitImage) === -1) {
+          //     aplusImagesText.push(splitImage);
+          //     aplusImages.push(item);
+          //   }
+          // });
+
+          // const aplusImagesSizeText = [];
+          // const aplusSizeImages = [];
+          // let obj = {};
+          // row.manufacturerImages.forEach(item => {
+          //   const imageUrl = item.text;
+          //   const type = (imageUrl.match('png') ? '.png' : (imageUrl.match('jpg') ? '.jpg' : ''));
+          //   const splitUpSize = imageUrl.split(type);
+          //   let splitImage = type.length ? splitUpSize[0] : imageUrl;
+          //   splitImage = splitImage.replace('//_cp', '/_cp');
+          //   if (obj[splitImage]) {
+          //     obj[splitImage].push(imageUrl);
+          //   } else {
+          //     obj[splitImage] = [imageUrl];
+          //   }
+          // });
+          // console.log('aplusImagesText')
+          // console.log(aplusImagesText)
           row.manufacturerImages = aplusImages;
         }
       } catch (exception) { console.log('Error in transform', exception); }

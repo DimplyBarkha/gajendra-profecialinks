@@ -11,18 +11,41 @@ module.exports = {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ url, id }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    // await context.waitForSelector('li#prodCollage');
     const manufacturerInfo = await context.evaluate(function () {
       return document.querySelector('li#prodCollage') ? document.querySelector('li#prodCollage').getAttribute('class') : '';
     });
+
+    const loadMoreManufacturer = await context.evaluate(function () {
+      return document.querySelector('li#prodCollage') ? (document.querySelector('li#prodCollage').innerText.match('Loading manufacturer content') !== null) : false;
+    });
+
+    const loadCustomerRatingsReviews = await context.evaluate(function () {
+      return !!document.querySelector('#BVRRSummaryContainer');
+    });
+
+    async function ignoreSurveyPopups () {
+      await context.evaluate(async function () {
+        const popUpsUpper = document.querySelector('button.fsrDeclineButton');
+
+        if (popUpsUpper && popUpsUpper !== undefined) {
+          await context.click('button.fsrDeclineButton');
+        }
+
+        const popUps = document.querySelector('div.fsrAbandonButton');
+
+        if (popUps && popUps !== undefined) {
+          popUps.click();
+        }
+      });
+    }
+
+    ignoreSurveyPopups();
 
     await context.evaluate(function () {
       if (document.querySelector('div.fsrModalBackdrop')) {
         document.querySelector('div.fsrModalBackdrop').remove();
       }
     });
-
-    console.log(manufacturerInfo);
 
     async function autoScroll () {
       await context.evaluate(async function () {
@@ -43,42 +66,48 @@ module.exports = {
       });
     }
 
-    // autoScroll();
-
     if (manufacturerInfo.length !== 0) {
-      await new Promise(resolve => setTimeout(resolve, 30000));
+      await new Promise(resolve => setTimeout(resolve, 15000));
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner');
       await context.waitForSelector('a.view-more-trigger');
+      if (loadMoreManufacturer) {
+        await context.waitForSelector('div.wc-fragment');
+      }
+    }
 
-      // await context.evaluate(function () {
-      //   const showMoreButton = document.querySelector('a.view-more-trigger');
-      //   console.log(showMoreButton);
-      //   if (showMoreButton !== null) {
-      //     showMoreButton.className += ' open';
-      //     showMoreButton.setAttribute('aria-expanded', 'true');
-      //     showMoreButton.click();
-      //     console.log(showMoreButton);
-      //   }
-      // });
+    if (loadCustomerRatingsReviews) {
+      await context.waitForSelector('div.bv-cleanslate');
     }
 
     const extractAll = async (id, url, variants) => {
       const extract = async (variantXpath) => {
         await context.evaluate(async ([{ id: _input }, _url, variantXpath]) => {
-          const MergeRecursive = (obj1, obj2) => {
-            for (var p in obj2) {
-              try {
-                // Property in destination object set; update its value.
-                if (typeof obj2[p] === 'object' && obj2[p] !== null) obj1[p] = MergeRecursive(obj1[p], obj2[p]);
-                else obj1[p] = obj2[p];
-              } catch (e) {
-                // Property in destination object not set; create it and set its value.
-                obj1[p] = obj2[p];
+          async function ignorePopups () {
+            const closeModal = () => {
+              if (document.querySelector('div#fsrInvite') && document.querySelector('div#fsrFullScreenContainer')) {
+                document.querySelector('div#fsrFullScreenContainer').remove();
               }
+            };
+
+            const popUpsUpper = document.querySelector('button.fsrDeclineButton');
+
+            if (popUpsUpper && popUpsUpper !== undefined) {
+              await context.click('button.fsrDeclineButton');
             }
-            return obj1;
+
+            const popUps = document.querySelector('div.fsrAbandonButton');
+
+            if (popUps && popUps !== undefined) {
+              popUps.click();
+            }
+
+            if (document.querySelector('button#fsrFocusFirst')) {
+              await context.click('button#fsrFocusFirst');
+              closeModal();
+            }
           };
+
           const getXpath = (selector) => {
             return document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE).singleNodeValue;
           };
@@ -102,31 +131,11 @@ module.exports = {
           const removeObjectToDocument = (obj) => {
             Object.keys(obj).forEach((key) => document.getElementById(`added_${key}`) && document.getElementById(`added_${key}`).remove());
           };
-          const getSelector = (selector, { property = 'textContent', doc = document, raw = false, ifError = '' } = {}) => {
-            let text = doc.querySelector(selector) ? doc.querySelector(selector)[property] : ifError;
-            if (selector === '#wc-aplus' && doc.querySelector('div[data-section-caption="Product Comparison"]')) {
-              if (doc.querySelector('.wc-pct-product-columns-wrapper') && doc.querySelector('.wc-pct-header-column-wrapper')) {
-                if (doc.querySelector('.wc-pct-product-columns-wrapper')[property] === doc.querySelector('.wc-pct-header-column-wrapper')[property]) {
-                  const wcAplusDiv = doc.querySelector('#wc-aplus');
-                  const duplicate = wcAplusDiv.cloneNode(true);
-                  if (duplicate.querySelector('div.wc-pct-header-column-wrapper')) {
-                    duplicate.querySelector('div.wc-pct-header-column-wrapper').remove();
-                  }
-                  if (duplicate.querySelector('div.wc-json-data')) {
-                    duplicate.querySelector('div.wc-json-data').remove();
-                  }
-                  if (duplicate.querySelector('wc-powered-by-tagline')) {
-                    duplicate.querySelector('wc-powered-by-tagline').remove();
-                  }
-                  text = duplicate[property];
-                }
-              }
-            }
-            return raw ? text : text.replace(/\t/gm, ' ').replace(/\s{2,}, ' '/g).replace(/^\s*\n|^.\n/gm, '').trim();
-          };
 
           // wait for full loading
           await new Promise(resolve => setTimeout(resolve, 5e3));
+
+          await ignorePopups();
 
           const foundVariant = !!(variantXpath && getXpath(variantXpath));
 
@@ -149,9 +158,10 @@ module.exports = {
 
           await new Promise(resolve => setTimeout(resolve, 5e3));
           XMLHttpRequest.prototype.open = originalRequestOpen;
-
-          const jsonObj = MergeRecursive((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {}, response);
+          // const jsonObj = response;
+          console.log('response');
           console.log(response);
+          const jsonObj = Object.keys(response).length !== 0 ? response : ((window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product) ? window.__ATC_APP_INITIAL_STATE__.product.results : {});
           console.log('jsonObj');
           console.log(jsonObj);
 
@@ -159,27 +169,11 @@ module.exports = {
           const details = jsonObj.prodDetails;
           const price = jsonObj.priceInfo;
 
-          // const priceOther = JSON.parse(getSelector('script[type="application/ld+json"]', { raw: true, ifError: JSON.stringify({}) }));
           const grabSinglePrice = (price) => {
             return price.split('or 1/')[1];
           };
 
           const priceValue = (prop) => {
-            /*
-            if (!Array.isArray(props)) return priceValue([props]);
-            const result = props.reduce((acc, prop) => {
-              if (!price[prop]) return acc;
-              console.log('result')
-              console.log(prop)
-              if (document.querySelector('#saving-price-info') && prop === 'salePrice') {
-                console.log('here')
-                return (price.salePrice.split('$').length > 2) ? price.salePrice : '';
-              }
-              return (price[prop].split('$').length > 2
-                ? (priceOther.offers ? priceOther.offers.price : '')
-                : price[prop]);
-            }, '');
-            */
             const result = (document.querySelector('#saving-price-info') && prop === 'salePrice' && price.salePrice) ? (price.salePrice.match('or 1') ? grabSinglePrice(price.salePrice) : price.salePrice) : (price.regularPrice ? (price.regularPrice.match('or 1') ? grabSinglePrice(price.regularPrice) : price.regularPrice) : null);
             if (!result) return '';
             return result.includes('$') ? result : `$${result}`;
@@ -193,12 +187,7 @@ module.exports = {
           const shipping = findInSection('shipping');
           const reviews = findInSection('reviews');
 
-          console.log(desc);
-          console.log(desc.productDesc);
-
           let fullDescription = (desc && desc.productDesc) ? (((desc.quickView && desc.quickView !== 'undefined') ? decodeURIComponent(desc.quickView.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25')) : '') + decodeURIComponent(desc.productDesc.replace(/%(?![0-9][0-9a-fA-F]+)/g, '%25'))) : '';
-          console.log('fullDescription');
-          console.log(fullDescription);
           fullDescription = fullDescription.replace(/<table.*?>/g, '');
           fullDescription = fullDescription.replace(/<tbody.*?>/g, '');
           fullDescription = fullDescription.replace(/<tr.*?>/g, '');
@@ -209,58 +198,63 @@ module.exports = {
           fullDescription = fullDescription.replace(/<\/td>/g, '');
           fullDescription = fullDescription.replace(/&copy;/g, '©');
           fullDescription = fullDescription.replace(/%C2%A9/g, '©');
+          fullDescription = fullDescription.replace(/<p.*?>/g, '<p> ');
+          fullDescription = fullDescription.replace('&#169;', '©');
           const directions = fullDescription.toLowerCase().indexOf('how to') > -1 ? fullDescription.toLowerCase().indexOf('how to') : '';
-          console.log(fullDescription);
           let fullDescriptionWithDoublePipes = fullDescription;
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/>/g, '> ');
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<(li)[^>]+>/ig, '<$1>');
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<li>/g, ' ||');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<(LI)[^>]+>/ig, '<$1>');
+          fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.replace(/<LI>/g, ' ||');
           fullDescriptionWithDoublePipes = fullDescriptionWithDoublePipes.trim();
-          const manufacturerName = (fullDescription && fullDescription.match('©') !== null) ? fullDescription.split('©')[fullDescription.split('©').length - 1] : '';
-          console.log(manufacturerName);
+          const index = fullDescription.lastIndexOf('©');
+          const manufacturerName = (fullDescription && index !== -1) ? fullDescription.substring(index + 1).trim() : '';
           const images = infos.filmStripUrl.reduce((acc, obj) => {
             const filtered = Object.entries(obj).filter(([key]) => key.includes('largeImageUrl'));
             const array = filtered && filtered.length === 0 ? ['https:' + Object.entries(obj)[0]] : filtered.map(([key, link]) => 'https:' + link);
             return [...acc, ...array];
           }, []);
 
-          console.log('ingredients');
-          console.log(ingredients);
-
-          console.log(infos);
-
           const cleanupIngredient = (typename) => {
-            // const ingredDivText = document.querySelector('li#Ingredients');
-            // if (ingredDivText && ingredDivText.textContent && (ingredDivText.textContent.includes('Active') || ingredDivText.textContent.includes('Inactive'))) {
-            // if (ingredDivText && ingredDivText.textContent) {
             return typename.charAt(0).toUpperCase() + typename.slice(1) + ' Ingredients: ';
-            // }
-            // return '';
           };
 
           const formatIngredientList = (ingredientsList) => {
-            // if (ingredientsList && ingredientsList.length > 1) {
-            //   for (var i = 0; i < ingredientsList.length; i++) {
-            //     if ((i !== ingredientsList.length - 1) && (ingredientsList[i].slice(-1) !== ',')) {
-            //       ingredientsList[i] += ',';
-            //     }
-            //   }
-            // }
             if (ingredientsList.length === 1) {
               return ingredientsList;
             }
-            console.log(ingredientsList);
             return ingredientsList.join(', ');
           };
 
           const hasIngrList = ingredients && ingredients.ingredientGroups &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes) &&
             ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.find(u => u.ingredients);
+
+          const useIngredJson = (ingredientGroups, ingredText) => {
+            const ingredArr = [];
+
+            for (let i = 0; i < ingredientGroups.length; i++) {
+              if (ingredientGroups[i].ingredientTypes) {
+                if (ingredText.includes(ingredientGroups[i].groupName)) {
+                  ingredArr.push(ingredientGroups[i].groupName);
+                }
+                const ingredGroup = ingredientGroups[i].ingredientTypes;
+                for (let j = 0; j < ingredGroup.length; j++) {
+                  ingredArr.push(cleanupIngredient(ingredGroup[j].typeName));
+                  ingredArr.push(formatIngredientList(ingredGroup[j].ingredients));
+                }
+              }
+            }
+            return ingredArr;
+          };
           const ingrList = () => {
-            const ingredList = hasIngrList ? ingredients.ingredientGroups.find(u => u.ingredientTypes).ingredientTypes.reduce((acc, obj) => [...acc, cleanupIngredient(obj.typeName), formatIngredientList(obj.ingredients)], []).join(' ') : '';
+            let ingredText = (document.querySelector('li#Ingredients div.inner')) ? document.querySelector('li#Ingredients div.inner').innerText : '';
+            const ingredList = hasIngrList ? useIngredJson(ingredients.ingredientGroups, ingredText).join(' ') : '';
+
             const ingredListDom = () => {
               if (document.querySelector('li#Ingredients div.inner')) {
-                let ingredText = document.querySelector('li#Ingredients div.inner').innerText.replace(/\s\s+/g, ' ');
+                ingredText = ingredText.replace(/\s\s+/g, ' ');
 
                 if (ingredText.includes('Active Ingredient') || ingredText.includes('Inactive Ingredient')) {
                   ingredText = ingredText.includes('Active Ingredient') ? ingredText.replace('Active Ingredients', ' Active Ingredients').trim() : ingredText;
@@ -281,12 +275,6 @@ module.exports = {
             }
           };
 
-          // if (ingredients && ingredients.ingredientGroups && ingredients.ingredientGroups[0] && ingredients.ingredientGroups[0].ingredientTypes && ingredients.ingredientGroups[0].ingredientTypes.typeName) {
-          //   const typeOfIngredientStr = ingredients.ingredientTypes.typeName;
-          //   const typeOfIngredient = typeOfIngredientStr.charAt(0).toUpperCase() + typeOfIngredientStr.slice(1) + 'Ingredients: ';
-          //   ingrList.unshift(typeOfIngredient);
-          // }
-
           const nutrition = ingredients && ingredients.nutritionFactsGroups ? ingredients.nutritionFactsGroups : '';
           const hasNutrition = nutrition && nutrition.find(u => u.nutritionFact);
           const nutritionTable = hasNutrition ? nutrition.find(u => u.nutritionFact).nutritionFact.reduce((acc, obj) => {
@@ -296,11 +284,14 @@ module.exports = {
 
           const getNutri = (arrOrVal, isUnit) => {
             if (!nutritionTable) return '';
-            console.log(nutritionTable);
             const nb = isUnit ? 2 : 1;
             const arr = Array.isArray(arrOrVal) ? arrOrVal : [arrOrVal];
             return arr.reduce((acc, query) => {
-              return nutritionTable[query] ? nutritionTable[query].split(/(\d+)/)[nb] : acc;
+              const hasGreaterThanOrLessThan = (nutritionTable[query] && nutritionTable[query].split(/(\d*\.?\d+)/)[0].length !== 0 && (/[>|<]/).test(nutritionTable[query].split(/(\d*\.?\d+)/)[0]));
+              if (isUnit) {
+                return nutritionTable[query] ? nutritionTable[query].split(/(\d*\.?\d+)/)[nb] : acc;
+              }
+              return nutritionTable[query] ? (hasGreaterThanOrLessThan ? nutritionTable[query].split(/(\d*\.?\d+)/)[0] : '') + nutritionTable[query].split(/(\d*\.?\d+)/)[nb] : acc;
             }, '');
           };
 
@@ -328,8 +319,6 @@ module.exports = {
           ];
 
           const allVideos = videos().filter(v => !(/(png)/.test(v)) && !(/(jpg)/.test(v)) && !(/(jpeg)/.test(v)));
-          console.log('allVideos');
-          console.log(allVideos);
 
           const restrictedStatesList = () => {
             const states = [];
@@ -345,9 +334,14 @@ module.exports = {
 
           const shippingInfoContent = () => {
             let shippingInfoTextContent = '';
+
+            if (document.querySelector('div#product-description li#Shipping a')) {
+              document.querySelector('div#product-description li#Shipping a').click();
+            }
+
             const shippingEnableID = (document.querySelector('p#shiptostoreenable')) ? 'shiptostoreenable' : 'shiptostoredisable';
 
-            if (document.querySelector('p#' + shippingEnableID) && document.querySelector('p#' + shippingEnableID).textContent) {
+            if (document.querySelector('p#' + shippingEnableID) && (document.querySelector('p#' + shippingEnableID).textContent)) {
               shippingInfoTextContent += document.querySelector('p#' + shippingEnableID).textContent;
             }
 
@@ -367,23 +361,31 @@ module.exports = {
               shippingInfoTextContent += ' ' + document.querySelector('p[class^="universal-product-inches"]').textContent;
             }
 
+            if (document.querySelector('div#product-description li#Description a')) {
+              document.querySelector('div#product-description li#Description a').click();
+            }
+
             return shippingInfoTextContent;
           };
 
           const promotions = () => {
-            const notPromotionRe = /(donation)/ig;
-            const isPromotionRe = /(rebate)|(Extra Savings)/ig;
-            const promotion = details.OfferList ? details.OfferList.map(u => !notPromotionRe.test(u.title) ? (u.redirectPageTitle ? u.redirectPageTitle : u.title) : '') : '';
-            if (isPromotionRe.test(promotion)) {
-              return (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
+            if (!document.querySelector('span[class^="product-offer-text"]')) {
+              return '';
             }
-            return promotion;
+            const mixMatch = 'Mix & match products';
+            const notPromotionRe = /(donation)|[Rr]eward|[Pp]oint|[Pp]ts/ig;
+            const isPromotionRe = /(rebate)|(Extra Savings)/ig;
+            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.linkText === mixMatch ? (u.title) : (u.linkText ? u.linkText : u.title)) : '') : '';
+            promotion.forEach((promo) => {
+              if (isPromotionRe.test(promo)) {
+                promo = (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
+              }
+            });
+            return promotion.join(' ');
           };
 
           const customWarning = () => {
-            console.log('customWarning');
             if (document.querySelector('div.description') && (document.querySelector('div.description').innerHTML.match(/<p><strong>WARNING:<\/strong>.*?<\/p>/)) !== null) {
-              // if ((document.querySelector('div.description').innerHTML.match(/<p><strong>WARNING:<\/strong>.*?<\/p>/))[0] !== null) {}
               const htmlTagWithWarnings = (document.querySelector('div.description').innerHTML.match(/<p><strong>WARNING:<\/strong>.*?<\/p>/))[0];
               const parser = new DOMParser();
               const doc = parser.parseFromString(htmlTagWithWarnings, 'text/html');
@@ -396,14 +398,78 @@ module.exports = {
             return '';
           };
 
+          const isVisible = (elem) => elem.offsetWidth > 0 || elem.offsetHeight > 0;
+
+          const manufacturerDescription = () => {
+            const features = () => {
+              if (document.querySelectorAll('.wc-fragment, .wc-footnotes').length) {
+                return [...[...document.querySelectorAll('.wc-fragment, .wc-footnotes')].filter(function (elem, index) { return isVisible(elem); }).reduce((acc, frame) => {
+                  if (frame.querySelector('iframe')) {
+                    const text = (frame && frame.innerText) ? frame.innerText : '';
+                    const iframe = frame.querySelector('iframe');
+                    if (!iframe.allowFullscreen) return acc;
+                    if (iframe.contentWindow && iframe.contentWindow.settings && iframe.contentWindow.settings.itemsList) {
+                      return [...acc, text, ...[...iframe.contentWindow.settings.itemsList].filter(v => (v.caption && v.description)).map(v => v.caption + ' ' + v.description)];
+                    } else {
+                      return acc;
+                    }
+                  } else if (frame) {
+                    if (frame.querySelector('span.wc-screen-reader-only')) {
+                      [...frame.querySelectorAll('span.wc-screen-reader-only')].forEach((elem) => {
+                        elem.style.display = 'none';
+                        elem.innerText = ' ';
+                        elem.textContent = ' ';
+                      });
+                    }
+                    return [...acc, [frame.innerText.replace(/\s+/gm, ' ')]];
+                  } else {
+                    return acc;
+                  }
+                }, [])];
+              }
+              return [];
+            };
+            return features().join(' ');
+          };
+
+          const manufacturerImages = () => {
+            const allImages = () => {
+              if (document.querySelectorAll('.wc-fragment').length) {
+                return [...[...document.querySelectorAll('.wc-fragment')].reduce((acc, frame) => {
+                  if (frame.querySelector('iframe')) {
+                    const imgSrc = frame.querySelector('img') ? frame.querySelector('img').src : '';
+                    const iframe = frame.querySelector('iframe');
+                    if (!iframe.allowFullscreen) return acc;
+                    return [...acc, imgSrc, ...[...iframe.contentDocument.querySelectorAll('img')].filter(v => (v.src)).map(v => v.src)];
+                  } else {
+                    return [...acc, ...[...frame.querySelectorAll('img') ? [...frame.querySelectorAll('img')].map(u => u.src).filter(img => !img.match('syndigo')) : '']];
+                  }
+                }, [])];
+              }
+              return [];
+            };
+            return allImages();
+          };
+
+          const additionalDescBulletInfo = () => {
+            if (document.querySelectorAll('#prodDesc ul > li').length) {
+              return [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent);
+            }
+            if (document.querySelectorAll('div.description li, div.description tr').length) {
+              return [...document.querySelectorAll('div.description li, div.description tr')].map(d => d.textContent);
+            }
+            if (document.querySelectorAll('div.content ul.list-styles li').length) {
+              return [...document.querySelectorAll('div.content ul.list-styles li')].map(d => d.textContent);
+            }
+            return '';
+          };
+
           console.log(jsonObj.inventory);
           console.log(jsonObj.inventory.shipAvailableMessage);
           const obj = {
             _input,
             image: infos.productImageUrl,
-            imageAlt: getSelector('#productImg', { property: 'alt' }),
             alternateImages: images,
-            metaKeywords: getSelector('meta[name="keywords"]', { property: 'content' }),
             _pageTimeStamp: (new Date()).toISOString(),
             _url,
             productUrl: window.location.href,
@@ -411,9 +477,9 @@ module.exports = {
             nameExtended: infos.title,
             listPrice: priceValue('regularPrice'),
             price: priceValue('salePrice'),
-            availabilityText: jsonObj.inventory.shipAvailable ? 'In Stock' : 'Out of Stock',
+            availabilityText: jsonObj.inventory.shipAvailable ? 'In Stock' : (jsonObj.inventory.shipAvailableMessage.includes('Not sold online') ? 'Not sold online' : 'Out of Stock'),
             description: fullDescriptionWithDoublePipes,
-            descriptionBullets: (document.querySelector('#prodDesc') && document.querySelectorAll('#prodDesc ul > li')) ? document.querySelectorAll('#prodDesc ul > li').length : (document.querySelectorAll('div.description p') ? document.querySelectorAll('div.description p').length : 0),
+            descriptionBullets: (document.querySelector('#prodDesc') && document.querySelectorAll('#prodDesc ul > li')) ? document.querySelectorAll('#prodDesc ul > li').length : (document.querySelectorAll('div.description li, div.description tr') ? document.querySelectorAll('div.description li, div.description tr').length : (document.querySelectorAll('div.description p') ? document.querySelectorAll('div.description p').length : 0)),
             brandText: infos.brandName,
             manufacturer: manufacturerName,
             quantity: infos.sizeCount,
@@ -423,80 +489,44 @@ module.exports = {
             sku: infos.skuId.split('sku')[infos.skuId.split('sku').length - 1],
             variantId: jsonObj.inventory.wicId,
             mpc: '',
-            packSize: infos.prodPacksAvailable,
             legalDisclaimer: '',
             directions: directions && fullDescription ? fullDescription.slice(directions, fullDescription.length) : '',
             warnings: (warnings && warnings.productWarning) ? ((warnings.productWarning).replace(/<[P|p]>/g, '<p> ')) : customWarning(),
-            ratingCount: reviews ? reviews.reviewCount : '',
-            aggregateRatingText: reviews ? reviews.overallRating : '',
-            aggregateRating: reviews ? reviews.overallRating : '',
             shippingInfo: shippingInfoContent(),
-            // jsonObj.inventory.shippingChargeMsg || (jsonObj.inventory.restrictedStates && jsonObj.inventory.restrictedStates.length === 0) ? 'This product has no shipping restrictions.' : jsonObj.inventory.restrictedStates ? jsonObj.inventory.restrictedStates.join(', ') : ((document.querySelector('p#shiptostoreenable') && document.querySelector('p#shiptostoreenable').nextElementSibling && document.querySelector('p#shiptostoreenable').nextElementSibling.textContent) ? document.querySelector('p#shiptostoreenable').nextElementSibling.textContent + restrictedStatesList() : ''),
             shippingDimensions: shipping ? shipping.productInInches : '',
             shippingWeight: shipping ? shipping.shippingWeight : '',
             variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc + (arr ? arr.length : 0)), 0),
             color: infos.color,
-            colorCode: '',
-            manufacturerDescription: getSelector('#wc-aplus', { property: 'innerText' }),
-            manufacturerImages: [...document.querySelectorAll('#wc-aplus img')].map(u => u.src).filter(img => !img.match('syndigo')),
+            manufacturerDescription: manufacturerDescription(),
+            manufacturerImages: manufacturerImages(),
             videos: allVideos && allVideos.length > 0 ? allVideos : '',
             name: infos.displayName,
-            inStorePrice: '',
-            asin: '',
-            coupon: getSelector('[aria-labelledby="coupon-card"] li span'),
-            amazonChoice: '',
-            amazonChoiceCategory: '',
+            coupon: [...document.querySelectorAll('[aria-labelledby="coupon-card"] li span:not([aria-hidden="true"])')].map(u => u.textContent).join(' '),
             brandLink: infos.brandPageUrl ? `https://www.walgreens.com${infos.brandPageUrl}` : '',
-            internationalShipping: '',
-            salesRank: '',
-            salesRankCategory: '',
-            subscriptionPrice: '',
-            subscribeAndSave: '',
-            heroQuickPromoHeadline: '',
-            heroQuickPromoImageUrl: '',
-            heroQuickPromoUrl: '',
-            pasin: '',
             videoLength: videos() && videos().length > 0 ? videosDurations().filter(duration => (duration !== undefined)) : '',
-            otherSellersPrime: '',
-            ingredientImagePresent: '',
-            factImagePresent: '',
-            largeImageCount: '',
-            variantAsins: '',
-            primeFlag: '',
-            lbb: '',
-            lbbPrice: '',
-            featureBullets: '',
-            otherSellersName: '',
-            otherSellersPrice: '',
-            otherSellersShipping: '',
             secondaryImageTotal: infos.filmStripUrl ? infos.filmStripUrl.length : 0,
-            news: '',
-            addonItem: '',
-            fastTrack: '',
             ingredientsList: hasIngrList ? ingrList() : '',
-            // ingredientsList: ingrList ? (Array.isArray(ingrList) ? ingrList.join(' ') : ingrList) : '',
-            // ingredientsList: ingrList ? ingrList[0] + ' ' + ingrList.slice(2, -1).join(', ') + ', ' + ingrList.slice(-1) : '',
             servingSize: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] !== null) ? nutrition[0].servingSize.match(/(\d*\.?\d+)/)[0] : '',
             servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] !== null) ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
             numberOfServingsInPackage: nutrition && nutrition[0] && nutrition[0].servingPerContainer ? nutrition[0].servingPerContainer : '',
             caloriesPerServing: getNutri(['calories', 'calorie'], false),
-            caloriesFromFatPerServing: '',
+            caloriesFromFatPerServing: getNutri(['calories_from_fat', 'calories_from_fat_-_calories'], false),
             totalFatPerServing: getNutri(['fat', 'total_fat'], false),
             totalFatPerServingUom: getNutri(['fat', 'total_fat'], true),
             saturatedFatPerServing: getNutri('saturated_fat', false),
             saturatedFatPerServingUom: getNutri('saturated_fat', true),
-            transFatPerServing: getNutri('trans_fat', false),
-            transFatPerServingUom: getNutri('trans_fat', true),
+            transFatPerServing: getNutri(['trans_fat', 'trans_fat_-_total_fat'], false),
+            transFatPerServingUom: getNutri(['trans_fat', 'trans_fat_-_total_fat'], true),
             cholesterolPerServing: getNutri('cholesterol', false),
             cholesterolPerServingUom: getNutri('cholesterol', true),
             sodiumPerServing: getNutri(['salt', 'sodium'], false),
             sodiumPerServingUom: getNutri(['salt', 'sodium'], true),
-            totalCarbPerServing: getNutri(['carb', 'carbs', 'carbohydrate', 'total_carbohydrate'], false),
-            totalCarbPerServingUom: getNutri(['carb', 'carbs', 'carbohydrate', 'total_carbohydrate'], true),
+            totalCarbPerServing: getNutri(['carb', 'carbs', 'carbohydrate', 'carbohydrates', 'total_carbohydrate'], false),
+            totalCarbPerServingUom: getNutri(['carb', 'carbs', 'carbohydrate', 'carbohydrates', 'total_carbohydrate'], true),
             dietaryFibrePerServing: getNutri(['fibre', 'fibres', 'dietary_fibre'], false),
             dietaryFibrePerServingUom: getNutri(['fibre', 'fibres', 'dietary_fibre'], true),
-            totalSugarsPerServing: getNutri(['sugar', 'sugars', 'total_sugars', 'total_sugar'], false),
-            totalSugarsPerServingUom: getNutri(['sugar', 'sugars', 'total_sugars', 'total_sugar'], true),
+            totalSugarsPerServing: getNutri(['sugar', 'sugars', 'total_sugars', 'total_sugar', 'sugars_-_carbohydrates'], false),
+            totalSugarsPerServingUom: getNutri(['sugar', 'sugars', 'total_sugars', 'total_sugar', 'sugars_-_carbohydrates'], true),
             proteinPerServing: getNutri(['protein', 'proteins'], false),
             proteinPerServingUom: getNutri(['protein', 'proteins'], true),
             vitaminAPerServing: getNutri('vitamin_a', false),
@@ -507,48 +537,25 @@ module.exports = {
             calciumPerServingUom: getNutri('calcium', true),
             ironPerServing: getNutri('iron', false),
             ironPerServingUom: getNutri('iron', true),
-            dietarySymbols: '',
             magnesiumPerServing: getNutri('magnesium', false),
             magnesiumPerServingUom: getNutri('magnesium', true),
             saltPerServing: getNutri(['sodium', 'salt'], false),
             saltPerServingUom: getNutri(['sodium', 'salt'], true),
-            dietaryInformation: '',
-            specifications: '',
-            warranty: '',
-            storage: '',
-            countryOfOrigin: '',
-            allergyAdvice: '',
-            recyclingInformation: '',
-            productOtherInformation: '',
-            packaging: '',
-            additives: '',
             pricePerUnit: price.unitPrice ? price.unitPrice.split('$')[1] : '',
-            pricePerUnitUom: price.unitPrice ? price.unitPrice.split(/(\d+)/)[jsonObj.priceInfo.unitPrice.split(/(\d+)/).length - 1] : '',
+            pricePerUnitUom: price.unitPriceSize ? (price.unitPriceSize.includes('undefined') ? '' : price.unitPriceSize) : '',
             promotion: promotions(),
-            alcoholContent: '',
-            newVersion: '',
-            newAsin: '',
-            newDescription: '',
             variantInformation: infos.primaryAttribute ? infos.primaryAttribute : (infos.color ? infos.color : ''),
-            // variantInformation: infos.primaryAttribute ? infos.primaryAttribute : infos.color,
-            // Object.keys(jsonObj.inventory.relatedProducts),
             firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
-            additionalDescBulletInfo: [...document.querySelectorAll('#prodDesc ul > li')].map(d => d.textContent),
-            prop65Warning: '',
-            ageSuitability: '',
-            energyEfficiency: '',
-            technicalInformationPdfPresent: 'No',
-            termsAndConditions: 'Yes',
-            privacyPolicy: 'Yes',
-            customerServiceAvailability: 'No',
-            materials: '',
-            Image360Present: 'No',
-            imageZoomFeaturePresent: document.querySelector('#zoomLensContainer') ? 'Yes' : 'No',
+            additionalDescBulletInfo: additionalDescBulletInfo(),
+            ratingCount: reviews ? reviews.reviewCount : '',
+            aggregateRating: reviews ? reviews.overallRating : '',
           };
           removeObjectToDocument(obj);
           addObjectToDocument(obj);
         }, [id, url, variantXpath]);
+
+        ignoreSurveyPopups();
 
         await context.extract(productDetails, { transform: transformParam, type: 'APPEND' });
       };
