@@ -1,0 +1,26 @@
+robot: product/search
+parameters:
+  country: CA
+  domain: amazon.ca
+  store: amazon
+  zipcode: ""
+proxy:
+  zone: ZEC
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_ca_search:
+      extractor: fe2a9c79-6c66-4d7e-876a-1e69019bb00b
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 1c41ba64-300d-461d-95f0-6e71efcf41d4
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mes-demo:
+      extractor: 34e495c9-1e32-4df6-a237-0881657209be
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
+    mse-demo:
+      extractor: 3d5a0099-e371-4ef3-a787-635ae3592fb6
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-staging:
+      extractor: c7e65692-61d6-49e3-9ddc-a930bd890b23
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

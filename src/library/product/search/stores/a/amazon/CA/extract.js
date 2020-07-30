@@ -14,10 +14,10 @@ async function implementation (
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'US',
+    country: 'CA',
     store: 'amazon',
     transform: transform,
-    domain: 'amazon.com',
+    domain: 'amazon.ca',
   },
   implementation,
 };
