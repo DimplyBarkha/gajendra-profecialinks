@@ -1,0 +1,9 @@
+extends: ../GLOBAL/extract
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.es$1
+  - name: sub_and_save
+    xpath: //*[contains(@dir,"auto") and contains(text(), "uscríbete")]/text()
