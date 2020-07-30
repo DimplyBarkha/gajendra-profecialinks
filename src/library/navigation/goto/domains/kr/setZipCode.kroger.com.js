@@ -82,7 +82,7 @@ async function implementation (
     await context.click('button.kds-SolitarySearch-button');
     await new Promise((resolve) => setTimeout(resolve, 6000));
 
-    await context.click('button[aria-label="In-Store [object Object]   Select Store"]')
+    await context.click('button[aria-label="In-Store [object Object]   Select Store"]');
     await new Promise((resolve) => setTimeout(resolve, 6000));
 
     const desiredLocations = {
