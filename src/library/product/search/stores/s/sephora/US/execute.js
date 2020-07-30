@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'sephora',
     domain: 'sephora.com',
-    url: 'https://www.sephora.com/search?keyword={searchTerms}',
+    url: 'https://www.sephora.com/search?keyword={searchTerms}&pageSize=150',
     loadedSelector: 'div[data-comp="ProductGrid "] a',
     noResultsXPath: '//h1[contains(., "0 Product results")]',
     zipcode: '',

@@ -25,21 +25,20 @@ async function implementation (
 
   await context.evaluate(async function () {
     let scrollTop = 0;
-    while (scrollTop !== 10000) {
+    while (scrollTop !== 20000) {
       // await stall(2500);
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      // await new Promise(resolve => setTimeout(resolve, 5000));
 
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       await new Promise(resolve => setTimeout(resolve, 2000));
 
       console.log("SCROLLING")
-      if (scrollTop === 10000) {
+      if (scrollTop === 20000) {
         break;
       }
     }
     await new Promise(resolve => setTimeout(resolve, 5000));
-    // debugger
   });
 
 
