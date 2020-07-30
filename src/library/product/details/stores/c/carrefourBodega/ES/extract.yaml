@@ -13,7 +13,7 @@ fields:
     xpath: //div[contains(@class,'image easyzoom')]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'thumb thumbnails')]//img/@src
+    xpath: //div[contains(@class,'thumb thumbnails')]//li[position()>1]//img/@src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
@@ -235,7 +235,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    xpath: count(//div[contains(@class,'thumb thumbnails')]//img/@src)
+    xpath: count(//div[contains(@class,'thumb thumbnails')]//li[position()>1]//img/@src)
     # type: NUMBER
   - name: news
     singleValue: true
