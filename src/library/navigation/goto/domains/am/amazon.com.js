@@ -70,11 +70,7 @@ module.exports = {
       let status = 200;
       if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
         status = 503;
-<<<<<<< HEAD
-      } else if (document.querySelector('a[href*="dogsofamazon"'))  {
-=======
-      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0) {
->>>>>>> fb584c3fb1b7d370f7bf321efe20771d9062f6b7
+      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]') ) {
         status = 404;
       }
       return { status };
@@ -129,23 +125,6 @@ module.exports = {
         });
         console.log('lastResponseData', lastResponseData);
         await new Promise(resolve => setTimeout(resolve, 1000));
-<<<<<<< HEAD
-        return lastResponseData;
-      }
-    };
-    const run = async () => {
-      // do we perhaps want to go to the homepage for amazon first?
-      lastResponseData = await context.goto(url, {
-        timeout: 10000,
-        waitUntil: 'load',
-        checkBlocked: false,
-        js_enabled: true,
-        css_enabled: false,
-        random_move_mouse: true,
-      });
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-=======
 
         if (await solveCaptchaIfNecessary() === 'false') {
           return { status: false };
@@ -165,7 +144,6 @@ module.exports = {
       });
       await new Promise(resolve => setTimeout(resolve, 1000));
 
->>>>>>> fb584c3fb1b7d370f7bf321efe20771d9062f6b7
       if ([200, 503, 410, 404].indexOf(lastResponseData.status) === -1) {
         console.log('Blocked: ' + lastResponseData.status);
         if (benchmark) {
