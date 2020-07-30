@@ -72,9 +72,7 @@ module.exports = {
           console.log(response.status);
         }
 
-        productInfo = await fetchItems();
-
-        data = productInfo;
+        data = await fetchItems();
 
         const availableSelector = () => {
           const outOfStock = document.querySelector('div[class^="ProductPage__outOfStock"]');
@@ -89,7 +87,7 @@ module.exports = {
           return true;
         };
 
-        if (data) {
+        if (Object.keys(data).length) {
           console.log('parsing data ...');
           console.log(data);
 

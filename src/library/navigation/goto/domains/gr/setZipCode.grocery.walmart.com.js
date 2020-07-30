@@ -42,7 +42,7 @@ module.exports = {
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]:first-child input');
       await context.evaluate(async function () {
         const searchZipCode = document.querySelector('input[data-automation-id="selectFlyoutItemBtn"]:first-child');
-        if (searchZipCode !== undefined) {
+        if (!searchZipCode) {
           searchZipCode.click();
         }
         locationStreetAddress = (document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]')) ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]').textContent : '';

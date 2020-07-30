@@ -17,7 +17,6 @@ module.exports = {
       await dependencies.setZipCode({ zipcode: zipcode });
     }
 
-    const inputUrl = `${url}`;
-    await context.goto(inputUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: false });
+    await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: false });
   },
 };
