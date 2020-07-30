@@ -1,0 +1,158 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //*[@id="prodimage"]/@src
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,"prodnav")]//li[contains(@class,"toplevel") or contains(@class,"active")]
+  - name: nameExtended
+    singleValue: false
+    xpath: //*[@id="productName"]
+  - name: price
+    singleValue: false
+    xpath: //*[@id="productPrice"]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'prodtabcontents current') or contains(.,'Additional Information')]/ul/li
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::*[(following-sibling::p and preceding-sibling::h5) or following-sibling::h2]
+  - name: brandText
+    singleValue: false
+    xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Brand:')]/following-sibling::td
+  - name: manufacturer
+    singleValue: false
+    xpath: //h2[contains(text(), 'Manufacturer’s Address')]/following-sibling::p/text()[1]
+    regExp: ^([^:]+:)?([^,]+)
+    regExpReplace: $2
+  - name: quantity
+    singleValue: false
+    xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Pack Size')]/following-sibling::td
+  - name: sku
+    singleValue: false
+    xpath: //*[@id="productId"]
+  - name: directionsTitle
+    singleValue: false
+    xpath: //h2[contains(.,"Preparation and Usage")]
+  - name: directions
+    singleValue: false
+    xpath: //h2[contains(.,"Preparation and Usage")]/following-sibling::p[preceding-sibling::h2[1][contains(.,"Preparation and Usage")]]
+  - name: servingSuggest
+    singleValue: false
+    xpath: //*[@id='servingSuggest']
+  - name: warnings
+    singleValue: false
+    xpath: //*[contains(text(), 'WARNING')]
+  - name: servingSize
+    singleValue: false
+    xpath: //*[@id='servingSize']
+    regExp: (^[.0-9]+)
+  - name: servingSizeUom
+    singleValue: false
+    xpath: //*[@id='servingSizeUom']
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //th[contains(.,'Energy')]/following-sibling::td[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //*[@id='totalFatPerServing']
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //*[@id='totalFatPerServingUom']
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //*[@id='saturatedFatPerServing']
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //*[@id='saturatedFatPerServingUom']
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //*[@id='totalCarbPerServing']
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //*[@id='totalCarbPerServingUom']
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //*[@id='dietaryFibrePerServing']
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //*[@id='dietaryFibrePerServingUom']
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //*[@id='totalSugarsPerServing']
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //*[@id='totalSugarsPerServingUom']
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //*[@id='proteinPerServing']
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //*[@id='proteinPerServingUom']
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //*[@id='calciumPerServing']
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: //*[@id='calciumPerServingUom']
+  - name: vitaminCPerServing
+    singleValue: false
+    xpath: //*[@id='vitaminCPerServing']
+  - name: vitaminCPerServingUom
+    singleValue: false
+    xpath: //*[@id='vitaminCPerServingUom']
+  - name: alternateImages
+    singleValue: false
+    xpath: //*[@id='prodthumbs']/li[position()>1]/img/@data-lrgurl
+  - name: gtin
+    singleValue: false
+    xpath: /html/body//table[@class='prodtable']//*[contains(text(), 'Retail EAN')]/following-sibling::td
+  - name: storage
+    singleValue: false
+    xpath: normalize-space(//h2[contains(text(), 'Storage')]/following-sibling::p[1])
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //*[contains(text(), 'Country of Origin')]/following-sibling::td[1]
+  - name: recyclingInformation
+    singleValue: false
+    xpath: //*[contains(text(), 'Recycling')]
+  - name: saltPerServing
+    singleValue: false
+    xpath: //*[@id='saltPerServing']
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //*[@id='saltPerServingUom']
+  - name: productOtherInformation
+    singleValue: false
+    xpath: normalize-space(concat(//h2[contains(.,"Product Marketing")]/following-sibling::span[1], ' ', //h2[contains(.,"Brand Marketing")], ' ', //h2[contains(.,"Brand Marketing")]/following-sibling::p))
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(/html/body//div[contains(@class,'prodtabcontents current') or contains(.,'Additional Information')]/ul/li)
+  - name: imageAlt
+    singleValue: false
+    xpath: //*[contains(@class, 'prodimage')]//img/@alt
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//*[@id='prodthumbs']/li[position()>1]/img/@data-lrgurl)
+  - name: alcoholContent
+    singleValue: false
+    xpath: //*[contains(text(), 'ABV')]/following-sibling::td
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //*[@class='disclaimer']
+  - name: availabilityText
+    singleValue: false
+    xpath: //p[contains(@class,'prodstock')]
+    defaultValue: Out of Stock
+    regExp: (.+)
+    regExpReplace: In Stock
+  - name: promotion
+    singleValue: false
+    xpath: //span[@class='special']
+  - name: variantId
+    singleValue: false
+    xpath: //*[@id="productId"]
