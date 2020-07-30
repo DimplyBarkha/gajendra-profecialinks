@@ -43,7 +43,6 @@ async function implementation (
 
     let uniqueProductCount = 0;
 
-
     function getProductData(data) {
       if (data && data.search_response && data.search_response.items && data.search_response.items.Item && data.search_response.items.Item.length) {
         for(let product of data.search_response.items.Item) {

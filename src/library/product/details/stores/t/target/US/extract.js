@@ -20,6 +20,10 @@ async function implementation (
     return document.getElementById('storeName').innerText;
   });
 
+  const address = await context.evaluate(async function() {
+    return document.getElementById('address').innerText;
+  });
+
   const currentUrl = await context.evaluate(function() {
     return window.location.href;
   });
@@ -40,25 +44,6 @@ async function implementation (
 
     return window.location.href.split('=')[1];
   });
-
-  /*await context.goto('https://scontent.webcollage.net?productId=' + productId + '#[!opt!]{"type":"js","init_js":""}[/!opt!]');
-
-  const enhancedHTML = await context.evaluate(async function() {
-    const splitUrl = window.location.href.split('=')[1];
-    const productId = splitUrl.split('#')[0];
-    return await fetch('https://scontent.webcollage.net/target/power-page?ird=true&channel-product-id=' + productId)
-    .then(data => data.text())
-    .then(res => {
-      const regex = /html: "(.+)"\n\s\s\}\n\}\;/s
-      const match = res.match(regex);
-      if(match && match.length > 1) {
-        return res.match(regex)[1];
-      }
-      return '';
-    });
-  });
-
-  await context.goto(currentUrl);*/
 
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
@@ -88,7 +73,7 @@ async function implementation (
 
   await context.waitForXPath("//h1[@data-test='product-title']");
 
-  await context.evaluate(async function (storeID, postalCode, storeName) {
+  await context.evaluate(async function (storeID, postalCode, storeName, address) {
     let parentData = {};
     let origData = {};
 
@@ -136,12 +121,6 @@ async function implementation (
     window.scroll(0, 1000);
 
     await stall(2000);
-    const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
-    if (manufacturerCTA) {
-      console.log('hastheCTA');
-      manufacturerCTA.click();
-    }
-    await stall(3000);
 
     let id = '';
     if (window.location.href.includes('?preselect=')) {
@@ -151,24 +130,7 @@ async function implementation (
       let splitUrl = window.location.href.split('-');
       id = splitUrl[splitUrl.length - 1];
     }
-    await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + id + '/index.html')
-      .then(async function (response) {
-        const sometext = await response.text();
-        const startText = '<body>';
-        const endText = '</body>';
-        const startIx = sometext.indexOf(startText);
-        const endIx = sometext.indexOf(endText, startIx);
-        console.log('start: ' + startIx);
-        console.log('end: ' + endIx);
-        const bodyContent = sometext.substring(startIx + startText.length, endIx);
-        const wrapper = document.createElement('div');
-        wrapper.id = 'frameContents';
-        wrapper.innerHTML = bodyContent;
-        document.body.appendChild(wrapper);
-    });
-    console.log('salsifyContentz', id, document.getElementById('frameContents').innerHTML);
 
-    let tcinSet = new Set();
     async function getProductInfo (variant, productName, variantCount = null) {
 
       document.getElementById('mainContainer').querySelectorAll('li').forEach(e => {
@@ -184,38 +146,9 @@ async function implementation (
       let secondaryImages = [];
       if (variant.enrichment && variant.enrichment.images && variant.enrichment.images.length) {
         addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
-        /*if (variant.enrichment.images[0] && variant.enrichment.images[0].alternate_urls && variant.enrichment.images[0].alternate_urls.length) {
-          secondaryImages = variant.enrichment.images[0].alternate_urls.map(image => variant.enrichment.images[0].base_url.replace('https', 'http') + image);
-        }
-        if (variant.enrichment.images[0].content_labels && variant.enrichment.images[0].content_labels.length) {
-          secondaryImages = variant.enrichment.images[0].content_labels.filter((image, ind) => image.image_url != variant.enrichment.images[0].primary && image.image_url != variant.enrichment.images[0].swatch).map(image => variant.enrichment.images[0].base_url.replace('https', 'http') + image.image_url);
-        }*/
-      }
-
-      let videos = [];
-      let videoLength = [];
-      if (parentData.product.item.enrichment &&
-        parentData.product.item.enrichment.videos &&
-        parentData.product.item.enrichment.videos.length) {
-          videos = parentData.product.item.enrichment.videos.map(video =>
-            'https:' + video.video_files[0].video_url
-          );
-      }
-
-      if (!videos.length &&
-        variant.enrichment.videos &&
-        variant.enrichment.videos.length) {
-          videos = variant.product.item.enrichment.videos.map(video =>
-            'https:' + video.video_files[0].video_url
-          );
       }
 
       const productTitle = document.querySelector('h1[data-test="product-title"]').innerText;
-      if (variant.variation_info && variant.variation_info.themes) {
-        addHiddenDiv(newDiv, 'imageAlt', productTitle + ' ' + variant.variation_info.themes.map(theme => theme.value).join(' '));
-      } else {
-        addHiddenDiv(newDiv, 'imageAlt', productTitle);
-      }
 
       if (productTitle && variant.variation_info && variant.variation_info.themes) {
         addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
@@ -223,120 +156,12 @@ async function implementation (
         addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
       }
 
-      if(variant.product_description && variant.product_description.title) {
-        addHiddenDiv(newDiv, 'keywords', decodeHtml(variant.product_description.title));
-      }
-
-      addHiddenDiv(newDiv, 'timeStamp', new Date());
-
       const splitUrl = window.location.href.split('-');
       splitUrl[splitUrl.length - 1] = variant.tcin;
       addHiddenDiv(newDiv, 'productUrl', splitUrl.join('-'));
 
-      let description = '';
-      if (variant.product_description && variant.product_description.soft_bullets && variant.product_description.soft_bullets.bullets && variant.product_description.soft_bullets.bullets.length) {
-        description = '|| ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')) + ' ';
-        addHiddenDiv(newDiv, 'descriptionBullets', variant.product_description.soft_bullets.bullets.length);
-        addHiddenDiv(newDiv, 'additionalDesc', decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')));
-      }
-
-      if(description.length || (variant.product_description && variant.product_description.downstream_description)) {
-        addHiddenDiv(newDiv, 'description', description +  (variant.product_description.downstream_description ? decodeHtml(variant.product_description.downstream_description.replace('<br />', ' ').replace(/(<([^>]+)>)/ig, ' ')) : ''));
-      }
-
-      if (variant.wellness_merchandise_attributes) {
-        addHiddenDiv(newDiv, 'additionalDescBulletInfo', variant.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
-      } else if (parentData.product.item.wellness_merchandise_attributes) {
-        addHiddenDiv(newDiv, 'additionalDescBulletInfo', parentData.product.item.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
-      } else if (origData.product.item.wellness_merchandise_attributes) {
-        addHiddenDiv(newDiv, 'additionalDescBulletInfo', origData.product.item.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
-      }
-
-      const ingredients = [];
-      if (variant.enrichment && variant.enrichment.nutrition_facts && variant.enrichment.nutrition_facts.ingredients) {
-        ingredients.push(variant.enrichment.nutrition_facts.ingredients);
-      }
-      if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.ingredients) {
-        ingredients.push(variant.enrichment.drug_facts.ingredients);
-      }
-      if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.inactive_ingredients) {
-        ingredients.push(variant.enrichment.drug_facts.inactive_ingredients.join(' '));
-      }
-
-      if (ingredients.length) {
-        addHiddenDiv(newDiv, 'ingredients', ingredients.join(' '));
-      }
-
       if (variant.product_brand && variant.product_brand.brand) {
         addHiddenDiv(newDiv, 'brand', variant.product_brand.brand);
-      }
-
-      if (variant.variation && variant.variation.size) {
-        addHiddenDiv(newDiv, 'size', variant.variation.size);
-      }
-
-      if (variant.variation && variant.variation.color) {
-        addHiddenDiv(newDiv, 'color', variant.variation.color);
-      }
-
-      let hasSpecifications = false;
-      let storage = '';
-      if (variant.product_description && variant.product_description.bullet_description) {
-        const materials = [];
-        variant.product_description.bullet_description.forEach(e => {
-          if (e.includes('<B>Weight:</B>') || e.includes('<B>Net weight:</B>')) {
-            addHiddenDiv(newDiv, 'netWeight', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Number of') || e.includes('Quantity:')) {
-            addHiddenDiv(newDiv, 'packSize', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Dimensions')) {
-            hasSpecifications = true;
-            addHiddenDiv(newDiv, 'specifications', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Warranty')) {
-            addHiddenDiv(newDiv, 'warranty', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Storage Instructions:')) {
-            storage = e.split('</B>')[1].trim();
-          }
-          if (e.includes('Contains:')) {
-            addHiddenDiv(newDiv, 'allergyAdvice', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Model #:')) {
-            addHiddenDiv(newDiv, 'mpc', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Package type:')) {
-            addHiddenDiv(newDiv, 'packaging', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Alcohol content:')) {
-            addHiddenDiv(newDiv, 'alcoholContent', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Hazard Warnings')) {
-            addHiddenDiv(newDiv, 'warnings', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Suggested Age:')) {
-            addHiddenDiv(newDiv, 'ageSuitability', e.split('</B>')[1].trim());
-          }
-          if (e.includes('Material:') || e.includes('material:')) {
-            materials.push(e.split('</B>')[1].trim());
-          }
-        });
-        if (materials.length) {
-          addHiddenDiv(newDiv, 'materials', materials.join(', '));
-        }
-      }
-
-      if(storage.length) {
-        addHiddenDiv(newDiv, 'storage', storage);
-      }
-
-      if (variant.package_dimensions) {
-        addHiddenDiv(newDiv, 'shipWeight', variant.package_dimensions.weight + ' ' + variant.package_dimensions.weight_unit_of_measure.toLowerCase() + 's');
-        addHiddenDiv(newDiv, 'shippingDimensions', variant.package_dimensions.depth + ' inches length x ' + variant.package_dimensions.width + ' inches width x ' + variant.package_dimensions.height + ' inches height');
-        if (!hasSpecifications) {
-          addHiddenDiv(newDiv, 'specifications', variant.package_dimensions.depth + ' inches length x ' + variant.package_dimensions.width + ' inches width x ' + variant.package_dimensions.height + ' inches height');
-        }
       }
 
       if (variant.upc) {
@@ -351,349 +176,16 @@ async function implementation (
         addHiddenDiv(newDiv, 'variantId', variant.dpci);
       }
 
-      if (variant.disclaimer && variant.disclaimer.description) {
-        addHiddenDiv(newDiv, 'disclaimer', variant.disclaimer.description);
-      }
-
-      if (variant.country_of_origin) {
-        addHiddenDiv(newDiv, 'countryOfOrigin', variant.country_of_origin);
-      } else if (parentData.product.item.country_of_origin) {
-        addHiddenDiv(newDiv, 'countryOfOrigin', parentData.product.item.country_of_origin);
-      } else if (origData.product.item.country_of_origin) {
-        addHiddenDiv(newDiv, 'countryOfOrigin', origData.product.item.country_of_origin);
-      }
-
-      if (variant.enrichment && variant.enrichment.drug_facts) {
-        if (variant.enrichment.drug_facts.direction && variant.enrichment.drug_facts.direction.general_directions && variant.enrichment.drug_facts.direction.general_directions.length) {
-          addHiddenDiv(newDiv, 'directions', variant.enrichment.drug_facts.direction.general_directions[0]);
-        }
-        if (variant.enrichment.drug_facts.warning && variant.enrichment.drug_facts.warning.text) {
-          addHiddenDiv(newDiv, 'warnings', variant.enrichment.drug_facts.warning.text);
-        }
-      }
-
-      if (variant.enrichment && variant.enrichment.nutrition_facts) {
-        if (variant.enrichment.nutrition_facts.warning) {
-          addHiddenDiv(newDiv, 'warnings', variant.enrichment.nutrition_facts.warning);
-        }
-      }
-
-      document.querySelectorAll('.h-padding-l-tight').forEach(e => {
-        if (e && (e.innerText.indexOf('WARNING:') > -1 || e.innerText.indexOf('warning') > -1)) {
-            addHiddenDiv(newDiv, 'warnings', e.parentElement.innerText.split(':')[1]);
-        }
-      });
-
-      document.querySelectorAll('.h-padding-l-default').forEach(e => {
-        if (e && (e.innerText.indexOf('Warning:') > -1) && e.querySelector('h3') && e.querySelector('h3').innerText === 'Description') {
-            addHiddenDiv(newDiv, 'warnings', e.innerText.split('Warning:')[1]);
-        }
-      });
-
-      if (variantCount) {
-        addHiddenDiv(newDiv, 'variantCount', variantCount);
-      }
-
-      if (variant.proposition_65_warning_text) {
-        addHiddenDiv(newDiv, 'prop65Warning', variant.proposition_65_warning_text);
-      }
-
-
-      if (variant.enrichment &&
-        variant.enrichment.nutrition_facts &&
-        variant.enrichment.nutrition_facts.value_prepared_list &&
-        variant.enrichment.nutrition_facts.value_prepared_list.length &&
-        variant.enrichment.nutrition_facts.value_prepared_list[0]) {
-
-        if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size) {
-          addHiddenDiv(newDiv, 'servingSize', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[0]);
-          if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement) {
-            addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement);
-          } else if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[1]) {
-            addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[1]);
-          }
-          addHiddenDiv(newDiv, 'servingsPerContainer', variant.enrichment.nutrition_facts.value_prepared_list[0].servings_per_container);
-        }
-
-        if (variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients) {
-          variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients.forEach(e => {
-            const val = e.quantity || e.percentage || '0';
-            if (e.name === 'Calories') {
-              addHiddenDiv(newDiv, 'caloriesPerServing', val);
-            }
-            if (e.name === 'Calories From Fat' || e.name === 'Calories from Fat') {
-              addHiddenDiv(newDiv, 'caloriesFromFat', val);
-            }
-            if (e.name === 'Total Fat') {
-              addHiddenDiv(newDiv, 'totalFatPerServing', val);
-              addHiddenDiv(newDiv, 'totalFatPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Saturated Fat') {
-              addHiddenDiv(newDiv, 'saturatedFatPerServing', val);
-              addHiddenDiv(newDiv, 'saturatedFatPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Trans Fat') {
-              addHiddenDiv(newDiv, 'transFatPerServing', val);
-              addHiddenDiv(newDiv, 'transFatPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Cholesterol') {
-              addHiddenDiv(newDiv, 'cholesterolPerServing', val);
-              addHiddenDiv(newDiv, 'cholesterolPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Sodium') {
-              addHiddenDiv(newDiv, 'sodiumPerServing', val);
-              addHiddenDiv(newDiv, 'sodiumPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Total Carb.' || e.name === 'Total Carbohydrate') {
-              addHiddenDiv(newDiv, 'totalCarbPerServing', val);
-              addHiddenDiv(newDiv, 'totalCarbPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Dietary Fiber') {
-              addHiddenDiv(newDiv, 'dietaryFibrePerServing', val);
-              addHiddenDiv(newDiv, 'dietaryFibrePerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Sugars' || e.name === 'Total Sugars') {
-              addHiddenDiv(newDiv, 'totalSugarsPerServing', val);
-              addHiddenDiv(newDiv, 'totalSugarsPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Protein') {
-              addHiddenDiv(newDiv, 'proteinPerServing', val);
-              addHiddenDiv(newDiv, 'proteinPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Vitamin A') {
-              addHiddenDiv(newDiv, 'vitaminAPerServing', val);
-              addHiddenDiv(newDiv, 'vitaminAPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Vitamin C') {
-              addHiddenDiv(newDiv, 'vitaminCPerServing', val);
-              addHiddenDiv(newDiv, 'vitaminCPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Calcium' || e.name.toLowerCase().indexOf('calcium') > -1) {
-              addHiddenDiv(newDiv, 'calciumPerServing', val);
-              addHiddenDiv(newDiv, 'calciumPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Iron' || e.name.toLowerCase().indexOf('iron') > -1) {
-              addHiddenDiv(newDiv, 'ironPerServing', val);
-              addHiddenDiv(newDiv, 'ironPerServingUom', e.unit_of_measurement || '%');
-            }
-            if (e.name === 'Magnesium' || e.name.toLowerCase().indexOf('magnesium') > -1) {
-              addHiddenDiv(newDiv, 'magnesiumPerServing', val);
-              addHiddenDiv(newDiv, 'magnesiumPerServingUom', e.unit_of_measurement || '%');
-            }
-          });
-        }
-
-      }
-
-      if (parentData.product.item && parentData.product.item.child_items) {
-        const variants = [];
-        parentData.product.item.child_items.forEach(e => {
-          variants.push(e.tcin);
-        });
-        addHiddenDiv(newDiv, 'firstVariant', variants[0]);
-        addHiddenDiv(newDiv, 'variants', variants.join(' | '));
-      }
-
-
-      if (variant.variation && variant.variation.flexible_themes) {
-        const variationInfo = [];
-        for (const key in variant.variation.flexible_themes) {
-          variationInfo.push(variant.variation.flexible_themes[key]);
-        }
-        addHiddenDiv(newDiv, 'variationInfo', variationInfo.join(' '));
-      }
-
       document.querySelector('div[data-test="breadcrumb"]').querySelectorAll('span[itemprop="name"]').forEach((e, ind) => {
         if (ind > 0) {
           addHiddenDiv(newDiv, 'category', e.innerText);
         }
       });
 
-      let terms = 'No';
-      if (document && document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
-        terms = 'Yes';
-      }
-      addHiddenDiv(newDiv, 'terms', terms);
-
-      let privacy = 'No';
-      if (document && document.querySelector('a[href="/c/target-privacy-policy/-/N-4sr7p"]')) {
-        privacy = 'Yes';
-      }
-      addHiddenDiv(newDiv, 'privacy', privacy);
-      addHiddenDiv(newDiv, 'customerServiceAvailability', 'Yes');
-
-      const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC') || document.querySelector('.TapToZoomText-r290sk-0');
-      if (zoom) {
-        addHiddenDiv(newDiv, 'zoom', 'Yes');
-      } else {
-        addHiddenDiv(newDiv, 'zoom', 'No');
-      }
-
-      let rotate = document.querySelector('button[data-test="button-model-viewer"]');
-      if (!rotate) {
-        document.querySelectorAll('.wc-demoted').forEach(e => {
-          console.log('h3', e.innerText);
-          if (e && e.innerText && e.innerText === '360° View') {
-            rotate = true;
-          }
-        });
-      }
-      if (rotate) {
-        addHiddenDiv(newDiv, 'rotate', 'Yes');
-      } else {
-        addHiddenDiv(newDiv, 'rotate', 'No');
-      }
-
-      const moreImageBtn = document.querySelector('.styles__LegendGridButtonOverlay-beej2j-13');
-      if (moreImageBtn) {
-        moreImageBtn.click();
-        await stall(100);
-        const slideDeck = document.querySelector('.ZoomedSlideDeck__SlideList-sc-1nqe9sx-0');
-        if (slideDeck) {
-          console.log('has slide deck!');
-          slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
-            if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
-              function stall (ms) {
-                return new Promise((resolve, reject) => {
-                  setTimeout(() => {
-                    resolve();
-                  }, ms);
-                });
-              }
-              e.click();
-              await stall(1000);
-              if(document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
-                videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
-              }
-            } else if(ind > 0) {
-              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://'));
-            }
-          });
-        }
-      } else {
-        const sideImages = document.querySelectorAll('.styles__ThumbnailImage-beej2j-11');
-        if (sideImages) {
-          sideImages.forEach(async (e, ind) => {
-            if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
-              function stall (ms) {
-                return new Promise((resolve, reject) => {
-                  setTimeout(() => {
-                    resolve();
-                  }, ms);
-                });
-              }
-              e.click();
-              await stall(1000);
-              if(document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
-                videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
-              }
-            } else if (ind > 0) {
-              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://'));
-            }
-          });
-        }
-      }
-
-      addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.filter(img => img != variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
-      if (secondaryImages.length) {
-        addHiddenDiv(newDiv, 'secondaryImageTotal', secondaryImages.filter(img => img != variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).length);
-      } else {
-        addHiddenDiv(newDiv, 'secondaryImageTotal', '0');
-      }
-
-      const shipbutton = document.querySelector('#tab-ShippingReturns');
-      if (shipbutton != null) {
-        shipbutton.click();
-        await stall(100);
-        if (document && document.querySelector('div[data-test="productDetailsTabs-shippingReturnsTab-shippingDetails"]')) {
-          addHiddenDiv(newDiv, 'shippingInfo', document.querySelector('div[data-test="productDetailsTabs-shippingReturnsTab-shippingDetails"]').innerText.replace('Shipping details ', ''));
-        }
-      }
-
-      let manufacturerDesc = '';
-      const manufacturerImgs = [];
-      const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
-      const frameContents = document.getElementById('frameContents');
-      if (frameContents && frameContents.querySelector('#salsify-content')) {
-        await stall(2000);
-        manufacturerDesc = frameContents.innerText;
-        frameContents.querySelectorAll('img').forEach(e => {
-          manufacturerImgs.push(e.getAttribute('src'));
-        });
-        frameContents.querySelectorAll('video').forEach(e => {
-          videos.push(e.src);
-        });
-      } else if (manufacturerCTA) {
-        if(document.getElementById('wc-power-page')) {
-          document.getElementById('wc-power-page').querySelectorAll('iframe').forEach(e => {
-            console.log('hasframehere');
-            const frameContents = e.contentWindow.document.body;
-            frameContents.querySelectorAll('img').forEach(e => {
-              manufacturerImgs.push(e.src);
-            });
-            frameContents.querySelectorAll('video').forEach(e => {
-              videos.push(e.src);
-            });
-            frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
-              setTimeout(() => {
-                if (e.querySelector('button')) {
-                  e.querySelector('img').click();
-                  if (frameContents.querySelector('.wc-video-container')) {
-                    videos.push(frameContents.querySelector('.wc-video-container').querySelector('video').src);
-                  }
-                }
-              }, (ind * 500) + 500);
-            });
-          });
-        }
-        if (document.getElementById('wc-power-page') && document.getElementById('wc-power-page').innerText) {
-          console.log('haswcpowerpage');
-          const manufacturerDescArr = [];
-          document.querySelectorAll('.wc-fragment').forEach(e => {
-            if (e.querySelector('.wc-pct-data')) {
-              e.querySelectorAll('tr').forEach(tr => {
-                if (tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
-                  manufacturerDescArr.push(tr.innerText);
-                }
-              });
-            } else {
-              manufacturerDescArr.push(e.innerText);
-            }
-          });
-          manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
-          if(!manufacturerDescArr.length) {
-            manufacturerDesc = document.getElementById('wc-power-page').innerText;
-          }
-          document.getElementById('wc-power-page').querySelectorAll('img').forEach(e => {
-            console.log('wcimagehere', e.src);
-            manufacturerImgs.push(e.src);
-          });
-          document.getElementById('wc-power-page').querySelectorAll('video').forEach(e => {
-            videos.push(e.src);
-          });
-        }
-      }
-
-      function onlyUnique(value, index, self) {
-        return self.indexOf(value) === index;
-      }
-
-      if (manufacturerDesc && manufacturerDesc != 'Loading, please wait...') {
-        addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
-      }
-      addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(onlyUnique).join('|'));
-      console.log('manufacturimgs', manufacturerImgs)
-
-      console.log('continuing...');
-      if (videos.length) {
-        await stall(10000);
-      }
-      addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
-
       addHiddenDiv(newDiv, 'retailerId', storeID);
       addHiddenDiv(newDiv, 'drive', postalCode);
+      addHiddenDiv(newDiv, 'driveAddress', address);
       addHiddenDiv(newDiv, 'onlineStore', storeName);
-      //addHiddenDiv(newDiv, 'videoLength', videoLength.join(' | '));
 
       const storeString = "&pricing_store_id=" + storeID + "&storeId=" + storeID + "&store_id=" + storeID;
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&fulfillment_test_mode=grocery_opu_team_member_test' + storeString)
@@ -730,6 +222,7 @@ async function implementation (
           }
         });
 
+      let promotionFlag = 'No';
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?key=eb2551e4accc14f38cc42d32fbc2b2ea' + storeString)
         .then(data => data.json())
         .then(variantData => {
@@ -741,22 +234,14 @@ async function implementation (
               addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
             }
             if (variantData.price.save_dollar) {
+              promotionFlag = 'Yes';
               addHiddenDiv(newDiv, 'promotion', 'Save $' + variantData.price.save_dollar.toFixed(2) + ' ' + variantData.price.save_percent + '%' + ' off');
             }
           }
         });
 
-        if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
-          const averageRating = document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText;
-          addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
-          addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
-        } else {
-          addHiddenDiv(newDiv, 'aggregateRating', '0');
-        }
+        addHiddenDiv(newDiv, 'promotionFlag', promotionFlag);
 
-        if (document.querySelector('span[data-test="ratingCount"]')) {
-          addHiddenDiv(newDiv, 'ratingCount', document.querySelector('span[data-test="ratingCount"]').innerText);
-        }
     }
 
     const newDiv = document.createElement('ul');
@@ -797,8 +282,8 @@ async function implementation (
         }*/
       });
 
-    await stall(20000);
-  }, storeID, postalCode, storeName);
+    await stall(3000);
+  }, storeID, postalCode, storeName, address);
 
   await context.extract(productDetails, { transform });
 }
