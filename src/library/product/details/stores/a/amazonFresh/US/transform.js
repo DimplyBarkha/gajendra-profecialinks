@@ -109,8 +109,8 @@ const transform = (data, context) => {
           row.pricePerUnit.forEach(item => {
             if (regexBraces.test(item.text)) {
               item.text = (item.text).toString().replace(regexBraces, '');
-              console.log('item.text.exec12')
-              console.log(item.text)
+              console.log('item.text');
+              console.log(item.text);
               // item.text = regexBeforeSlash.exec(item.text);
               item.text = (item.text).toString().replace(regexIgnoreSlash, '');
             }
@@ -125,8 +125,8 @@ const transform = (data, context) => {
           const regexAfterSlash = /([^\/]+$)/g;
           // const regexOnlyAlpha = /[A-Za-z]
           row.pricePerUnitUom.forEach(item => {
-            console.log('row.pricePerUnitUom')
-            console.log(item.text)
+            console.log('row.pricePerUnitUom');
+            console.log(item.text);
             if (regexBraces.test(item.text)) {
               item.text = item.text.replace(regexBraces, '');
               item.text = item.text.match(regexAfterSlash) ? item.text.match(regexAfterSlash)[0] : item.text;
@@ -170,6 +170,21 @@ const transform = (data, context) => {
             },
           ];
         }
+        // if (row.variantCount) {
+        //   let asins = [];
+        //   row.variantCount.forEach(item => {
+        //     if (item.text) {
+        //       asins.push(item.text);
+        //     }
+        //   });
+        //   // @ts-ignore
+        //   const dedupeAsins = [...new Set(asins)];
+        //   row.variantCount = [
+        //     {
+        //       text: dedupeAsins.length,
+        //     },
+        //   ];
+        // }
         if (row.variantCount && row.variantCount[0]) {
           if (typeof row.variantCount[0].text !== 'number' && (row.variants && row.variants[0])) {
             if (typeof parseInt(row.variantCount[0].text) !== 'number') {
@@ -245,9 +260,9 @@ const transform = (data, context) => {
           console.log('manufacturerDescription');
           row.manufacturerDescription.forEach(item => {
             const regexIgnoreText = /^(Read more)/;
-            console.log(item.text);
+            // console.log(item.text);
             item.text = (item.text).toString().replace(regexIgnoreText, '');
-            console.log(item.text);
+            // console.log(item.text);
             if (!regexIgnoreText.test(item.text)) {
               description.push(item.text);
             }
