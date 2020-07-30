@@ -100,19 +100,6 @@ const implementation = async (
     } else {
       console.log('cannot read more');
     }
-
-    const filterText = (cssSelector, textToFilter, newId) => {
-      const node = document.querySelector(cssSelector);
-      if (node && node.textContent) {
-        let myText = node.textContent;
-        myText = myText.replace(textToFilter, '');
-        addHiddenDiv(newId, myText);
-      }
-    };
-
-    filterText('p.NutritionIngredients-Disclaimer span', 'Read Less', 'my-legal-disclaimer');
-    filterText('p.NutritionIngredients-Ingredients', 'Ingredients', 'my-ingredients');
-    filterText('p.NutritionIngredients-Allergens', 'Allergen Info', 'my-allergies');
   });
 
   await context.evaluate(function () {

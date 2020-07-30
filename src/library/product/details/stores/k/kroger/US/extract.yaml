@@ -27,7 +27,7 @@ fields:
     xpath: count(//div[contains(@aria-label,'Perspective')]/div/div//div/img/@data-src)
   - name: allergyAdvice
     singleValue: true
-    xpath: //div[@id='my-allergies']
+    xpath: //p[contains(@class,"NutritionIngredients-Allergens")]/text()
   - name: descriptionBullets
     singleValue: true
     xpath: //div[@id='bulletCount']
@@ -164,10 +164,10 @@ fields:
     singleValue: true
   - name: legalDisclaimer
     singleValue: true
-    xpath: //div[@id='my-legal-disclaimer']
+    xpath: //p[contains(@class,"NutritionIngredients-Disclaimer")]/span/text()
   - name: ingredientsList
     singleValue: true
-    xpath: //div[@id='my-ingredients']
+    xpath: //p[contains(@class,"NutritionIngredients-Ingredients")]/text()
   - name: servingSize
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingSize font-bold flex justify-between']/span[2]
