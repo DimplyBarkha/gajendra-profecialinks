@@ -712,11 +712,11 @@ async function implementation (
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
       //addHiddenDiv(newDiv, 'videoLength', videoLength.join(' | '));
 
+      let inStore = false;
+      let deliver = false;
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
         .then(data => data.json())
         .then(availabilityData => {
-          let inStore = false;
-          let deliver = false;
           if (availabilityData &&
           availabilityData.data &&
           availabilityData.data.product &&
@@ -735,16 +735,15 @@ async function implementation (
               deliver = true;
             }
           }
-
-          if (deliver) {
-            addHiddenDiv(newDiv, 'availability', 'In Stock');
-          } else if (inStore) {
-            addHiddenDiv(newDiv, 'availability', 'In Store Only');
-          }
-          if (!deliver && !inStore) {
-            addHiddenDiv(newDiv, 'availability', 'Out of stock');
-          }
         });
+        if (deliver) {
+          addHiddenDiv(newDiv, 'availability', 'In Stock');
+        } else if (inStore) {
+          addHiddenDiv(newDiv, 'availability', 'In Store Only');
+        }
+        if (!deliver && !inStore) {
+          addHiddenDiv(newDiv, 'availability', 'Out of stock');
+        }
 
       //&pricing_store_id=1465&storeId=1465
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
