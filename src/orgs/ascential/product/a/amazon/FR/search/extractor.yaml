@@ -1,0 +1,26 @@
+robot: product/search
+parameters:
+  country: FR
+  domain: amazon.fr
+  store: amazon
+  zipcode: ""
+proxy:
+  zone: ZEF
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_fr_search:
+      extractor: 60f02c1b-177a-4b2d-9ef1-58c8a0229c8c
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 050e2e17-9201-40d6-a0f5-c9f9fb7df69e
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mes-demo:
+      extractor: 7cf5e6f4-b787-47e6-a339-da7ce9c5fdd5
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
+    mse-staging:
+      extractor: ae022a12-b8d4-4b17-8d66-bc2e13cf2ec7
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: 35f6651a-e314-40e5-85ee-df03194a69aa
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
