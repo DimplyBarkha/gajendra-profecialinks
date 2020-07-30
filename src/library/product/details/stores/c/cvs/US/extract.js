@@ -9,8 +9,7 @@ module.exports = {
     domain: 'cvs.com',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    await new Promise(resolve => setTimeout(resolve, 6000));
-
+    await context.waitForSelector('pre', { timeout: 20000 });
 
     var jsonText = await context.evaluate(function () {
       return document.body.innerText;
@@ -22,6 +21,11 @@ module.exports = {
       const currentUrl = await context.evaluate(function() {
         return window.location.href;
       })
+      const productPageUrl = await context.evaluate(function(records){
+        const product = records[0].allMeta;
+        const variant = product.variants[0].subVariant[0];
+        return product.gbi_ParentProductPageUrl
+      }, json.records)
 
       // const prodSkus = ["167781","989935","989928","167771","989933","989941"];
       const prodSkus = await context.evaluate(function(records,cnt) {
@@ -42,7 +46,7 @@ module.exports = {
           }
         }
       },json.records, json.totalRecordCount,)
-var stockArr = await context.evaluate(async function getDataFromAPI (products) {
+  var stockArr = await context.evaluate(async function getDataFromAPI (products) {
     let stockArr = {};
     const url = 'https://www.cvs.com/RETAGPV3/OnlineShopService/V2/getSKUInventoryAndPrice';
     let body = "{\"request\":{\"header\":{\"lineOfBusiness\":\"RETAIL\",\"appName\":\"CVS_WEB\",\"apiKey\":\"a2ff75c6-2da7-4299-929d-d670d827ab4a\",\"channelName\":\"WEB\",\"deviceToken\":\"d9708df38d23192e\",\"deviceType\":\"DESKTOP\",\"responseFormat\":\"JSON\",\"securityType\":\"apiKey\",\"source\":\"CVS_WEB\",\"type\":\"retleg\"}},\"skuId\":[],\"pageName\":\"PLP\"}";
@@ -77,7 +81,6 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
       
       if (json && json.response && json.response.getSKUInventoryAndPrice && json.response.getSKUInventoryAndPrice.skuInfo) {
         json.response.getSKUInventoryAndPrice.skuInfo.forEach(skuInfo => {        
-          // stockArr.push(`${skuInfo.stockStatus}|${skuInfo.skuId}`);
           stockArr[skuInfo.skuId] = skuInfo.stockStatus
         });
       }
@@ -108,8 +111,6 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
 
         await context.goto(`https://scontent.webcollage.net#[!opt!]{"type":"js","init_js":""}[/!opt!]`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
         let manufArray = [];
         // let i = 0;
         // while(i < variants.length) {
@@ -130,13 +131,9 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
         //   i++;
         // }
         for(let i = 0; i < variants.length; i++ ){
-          // const html = await context.evaluate(async function getEnhancedContent(variants, i) {
-          //   return fetch(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`)
-          //   .then(response => response.text())
-          // }, variants, i);
+
           const html = await context.evaluate(async function getEnhancedContent(variants, i) {
             async function fetchRetry(url, n) {
-              // console.log("FETCH RETRY3")
               let fetched = fetch(url).then(response => response.text()).catch(function(error) {
                   if (n === 1) return "Nothing Found";
                   return fetchRetry(url, n - 1);
@@ -144,11 +141,9 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
               
               return fetched
             }
-            return await fetchRetry(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, 3)
+            return await fetchRetry(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, 5)
           }, variants, i);
 
-
-          // await new Promise(resolve => setTimeout(resolve, 5000));
           const regex = /html: "(.+)"\n\s\s\}\n\}\;/s
           let text = "Not Found"
           
@@ -163,17 +158,11 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
       }
 
       const htmlList = await collectManuf();
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      await context.goto(currentUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
-
-      const productPageUrl = await context.evaluate(function(records){
-        const product = records[0].allMeta;
-        const variant = product.variants[0].subVariant[0];
-        return product.gbi_ParentProductPageUrl
-      }, json.records)
 
       await context.goto(`https://www.cvs.com${productPageUrl}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
       await new Promise(resolve => setTimeout(resolve, 5000));
+      await context.waitForSelector('div.css-1dbjc4n.r-16lk18l.r-1xi2sqm', { timeout: 20000 });
+
 
       const variantOptions = await context.evaluate(function(){
         let optionList = [];
@@ -191,8 +180,6 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
         }
         return optionList;
       })
-      await context.goto(currentUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
-      await new Promise(resolve => setTimeout(resolve, 2000));
 
       await context.evaluate(function (records, cnt, htmlList, stockArr, variantOptions) {        
         function addHiddenDiv (id, content, parentDiv = null, html = false) {
@@ -233,11 +220,9 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                   addHiddenDiv('ii_brand', product.ProductBrand_Brand, newDiv);
                   if(variant.product_title_desktop){
                     addHiddenDiv('ii_title', variant.product_title_desktop, newDiv);
-                    // addHiddenDiv('ii_metaKeywords', `Buy ${variant.product_title_desktop} and enjoy FREE SHIPPING on most orders from CVS Pharmacy. Shop now to stock up on essentials, see coupons, deals, and get the best price!`, newDiv);
 
                   } else {
                     addHiddenDiv('ii_title', product.p_Product_FullName, newDiv);
-                    // addHiddenDiv('ii_metaKeywords', `Buy ${product.p_Product_FullName} and enjoy FREE SHIPPING on most orders from CVS Pharmacy. Shop now to stock up on essentials, see coupons, deals, and get the best price!`, newDiv);
 
                   }
                   addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
@@ -260,7 +245,6 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                       if(variant.upc_image){
                         addHiddenDiv('ii_image',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[0]}`, newDiv); 
                         if(variant.upc_image.length > 1){
-                          // addHiddenDiv('ii_imageAlt',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[1]}`, newDiv); 
                           addHiddenDiv('ii_secondaryImageTotal',`${variant.upc_image.length - 1}`, newDiv); 
                           for(let j = 1; j < variant.upc_image.length; j++){
                             addHiddenDiv('ii_alternateImages',`https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[j]}`, newDiv); 
@@ -313,7 +297,6 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                           addHiddenDiv('ii_descriptionBullets', `${bullets.length}`, newDiv); 
                           for(let i = 0; i < bullets.length; i++){
                             let newBullet = bullets[i].replace(/<\/?li>/g,' ').replace(/<.+?>/g, ' ')
-                            // addHiddenDiv('ii_description', `${newBullet}`, newDiv); 
                             addHiddenDiv('ii_additionalDescBulletInfo', `${newBullet}`, newDiv); 
                           }
                         }
@@ -374,17 +357,9 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                         deets = deets.replace(/<.+?>/g, ' ')
                         deets = deets.replace(/@\s+@/g, ' || ')
                         deets = deets.replace(/@/g, ' || ')
-                        // let split = deets.split("||  ||")
-                        // deets = split.join("||")
                         if(deets){
                           addHiddenDiv('ii_directions', `${deets}`, newDiv); 
 
-                          // if(deets.includes("Questions?")){
-                          //   let deetSplit = deets.split("Questions")
-                          //   addHiddenDiv('ii_directions', `${deetSplit[0]}`, newDiv); 
-                          // } else{
-                          //   addHiddenDiv('ii_directions', `${deets}`, newDiv); 
-                          // }
                         }
                  
                       }
@@ -436,8 +411,6 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                       }
 
                       if(stockArr){
-                        // if(stockArr[variant.p_Sku_ID] === 0){
-                        //   addHiddenDiv('ii_availability', "Out of stock", newDiv);
                          if(variant.retail_only === "0" && stockArr[variant.p_Sku_ID] === 0){
                           addHiddenDiv('ii_availability', "Out of stock", newDiv);
                         } else if(variant.retail_only === "1"){
@@ -500,10 +473,6 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                               variantInfoArray.push(variant.p_Sku_Flavor);
                             }                    
                           }
-                          // if(variant.p_Sku_Flavor){
-                          //   variantInfoArray.push(variant.p_Sku_Flavor);
-                       
-                          // }
                           if(variant.p_Sku_Concern){
                             if("p_Sku_Concern".includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Concern)){
                               variantInfoArray.push(variant.p_Sku_Concern);
@@ -619,7 +588,6 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                      
                         }
                       }
-                      // let meta = metaKeywords.join(' ');
                       addHiddenDiv('ii_metaKeywords', variant.p_Sku_FullName, newDiv);
 
 
@@ -629,16 +597,10 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                       let packResult = packSizes.join(" ") 
                       addHiddenDiv('ii_packSize', packResult, newDiv);  
 
-                      // if(product.variants.length > 1){
                         if(variantInfoArray.length) {
                           let variantJoin = variantInfoArray.join(" | ")
                           addHiddenDiv('ii_variantInfo', variantJoin, newDiv);
-                        } 
-                        // else {
-                        //   addHiddenDiv('ii_variantInfo', variant.p_Sku_Size, newDiv);
-                        // }
-                      // }
-                    
+                        }        
                   }
                 }
           }
