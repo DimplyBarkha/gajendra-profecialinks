@@ -35,7 +35,7 @@ async function implementation (
 
   await context.goto(currentUrl);*/
 
-  await context.waitForXPath('//button[@data-test="storeId-utilityNavBtn"]');
+  /*await context.waitForXPath('//button[@data-test="storeId-utilityNavBtn"]');
 
   await context.evaluate(async function () {
     function stall (ms) {
@@ -79,7 +79,7 @@ async function implementation (
 
     });
 
-  }, storeId);
+  }, storeId);*/
 
   /*await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
