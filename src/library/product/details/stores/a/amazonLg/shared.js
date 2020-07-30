@@ -79,18 +79,6 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.variantCount) {
-        let asinLength = 1;
-        row.variantCount.forEach(item => {
-          const asinArr = item.text.match(/"asin":"(.*?)"/g);
-          if(asinArr){
-            asinLength = asinArr.length;
-          }else{
-            item.text = asinLength;
-          }
-        });
-      }
-
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {
@@ -102,15 +90,26 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.variantAsins) {
-        row.variantAsins.forEach(item => {
-          const asinArr = item.text.match(/"asin":"(.*?)"/g);
-          if (asinArr) {
-            const asins = asinArr.map(el => el.replace(/.*?:"?(.*)/, '$1').slice(0, -1)).join('|');
-            item.text = asins;
-          }
-        });
-      }
+      // if (row.variantAsins) {
+      //   row.variantAsins.forEach(item => {
+      //     const asinArr = item.text.match(/"asin":"(.*?)"/g);
+      //     if (asinArr) {
+      //       const asins = asinArr.map(el => el.replace(/.*?:"?(.*)/, '$1').slice(0, -1)).join('|');
+      //       item.text = asins;
+      //     }
+      //   });
+      // }
+      // if (row.variantCount) {
+      //   let asinLength = 1;
+      //   row.variantCount.forEach(item => {
+      //     const asinArr = item.text.match(/"asin":"(.*?)"/g);
+      //     if(asinArr){
+      //       asinLength = asinArr.length;
+      //     }else{
+      //       item.text = asinLength;
+      //     }
+      //   });
+      // }
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
@@ -228,6 +227,26 @@ const transform = (data) => {
         row.ratingCount.forEach(item => {
           item.text = cleanUp(item.text);
           item.text = `${item.text.replace('ratings', '').replace('rating', '').trim()}`;
+        });
+      }
+      if (row.variantAsins) {
+        let asinLength = 1;
+        let asinValArr = [];
+        row.variantAsins.forEach(item => {
+          const asinArr = item.text.match(/"asin":"(.*?)"/gmi);
+          if (asinArr) {
+            const asins = asinArr.map(el => el.replace(/.*?:"?(.*)/, '$1').slice(0, -1));
+            asinValArr = asinValArr.concat(asins);
+          } else if (row.asin) {
+            asinValArr.push(row.asin[0].text);
+          }
+        });
+        const value = new Set(asinValArr);
+        asinValArr = Array.from(value);
+        if (asinValArr.length > 1) asinLength = asinValArr.length;
+        row.variantAsins = [{ text: asinValArr.join(' | ') }];
+        row.variantCount.forEach(variantCount => {
+          variantCount.text = asinLength;
         });
       }
     }

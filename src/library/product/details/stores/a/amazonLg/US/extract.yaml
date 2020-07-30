@@ -190,7 +190,8 @@ fields:
     defaultValue: 0
   - name: variantAsins
     singleValue: false
-    xpath: //script[contains(., "ImageBlockBTF")]/text()
+    # xpath: //script[contains(., "ImageBlockBTF")]/text()
+    xpath: //script[contains(., "ImageBlockBTF")]/text() | //*[@id='twisterJsInitializer_feature_div']//script
   - name: andonCord
     singleValue: false
   - name: primeFlag
@@ -228,8 +229,7 @@ fields:
     defaultValue: 'NO'
   - name: variantCount
     singleValue: false
-    xpath: //script[contains(., "ImageBlockBTF")]/text()
-    defaultValue: 0
+    defaultValue: '1'
   - name: otherSellersName
     singleValue: false
     xpath: //div[@id='pd_otherSellerName'] #//span[contains(@class,'mbcMerchantName')]
