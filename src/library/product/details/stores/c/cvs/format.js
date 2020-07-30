@@ -22,8 +22,8 @@ const transform = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/\"/g, ' " ')
-    .replace(/&#[0-9;]+/g, "");
+    .replace(/\"/g, ' " ');
+    // .replace(/&#[0-9;]+/g, "");
 
 
 

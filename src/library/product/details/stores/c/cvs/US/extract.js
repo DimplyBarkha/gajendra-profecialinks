@@ -148,7 +148,7 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
           }, variants, i);
 
 
-          await new Promise(resolve => setTimeout(resolve, 5000));
+          // await new Promise(resolve => setTimeout(resolve, 5000));
           const regex = /html: "(.+)"\n\s\s\}\n\}\;/s
           let text = "Not Found"
           
@@ -286,21 +286,22 @@ var stockArr = await context.evaluate(async function getDataFromAPI (products) {
                         let deets = variant.p_Product_Details;
                         const regex = /<li>(.*?)<\/li>/g
                         let bullets = deets.match(regex)
-                        if(!bullets){
+                        if(!bullets && deets.match(/<li>/g)){
                           
                           if(deets.match(/<li>(.*?)<\/ul>/g)){
                             bullets = deets.replace(/<li>/g, "</li><li>").match(regex)
                             let noLi = deets.replace(/<li>/g, "</li><li>").replace(regex, "")
-                            if(noLi){
-                              bullets.push(noLi.match(/<li>(.*?)<\/ul>/g)[0])
+                            if(noLi && bullets){
+                              if(noLi.match(/<li>(.*?)<\/ul>/g)){
+                                bullets.push(noLi.match(/<li>(.*?)<\/ul>/g)[0])
+                              }
                             }
                           } else {
                             bullets = deets.replace(/<li>/g, "</li><li>").match(regex)
-                            if(bullets){
-                              bullets = bullets.match(regex)
+                            if(bullets.length){
+                              bullets = bullets[0].match(regex)
                             }
                           }
-
                         }
                         deets = deets.replace(/<li>/g, ' @ ')
                         deets = deets.replace(/<\/li>/g, ' ')
