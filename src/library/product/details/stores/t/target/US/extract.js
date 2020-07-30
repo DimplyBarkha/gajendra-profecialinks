@@ -8,6 +8,18 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  const storeID = await context.evaluate(async function() {
+    return document.getElementById('storeId').innerText;
+  });
+
+  const postalCode = await context.evaluate(async function() {
+    return document.getElementById('zipCode').innerText;
+  });
+
+  const storeName = await context.evaluate(async function() {
+    return document.getElementById('storeName').innerText;
+  });
+
   const currentUrl = await context.evaluate(function() {
     return window.location.href;
   });
@@ -74,49 +86,9 @@ async function implementation (
 
   await context.goto('https://www.target.com' + productUrl);
 
-  /*await context.evaluate(function(html) {
-
-    const newDiv = document.createElement('div');
-    newDiv.id = "enhancedHtml";
-    let nodeArrayRegex = />([a-zA-Z 0-9\.\-\&\!\@\#\$\%\^\*\;\,\:\(\)\=\+\?\\\/\']{2,})</g
-    let text = html.match(nodeArrayRegex)
-    if (text) {
-      let extractedText = text.join(' ').replace(/>/g,'').replace(/</g,'').replace(/\&amp\;/g, '&').replace(/  /g,' ').replace(/&#174;/g,'®').replace(/\\/g,'').replace(/&#8217;/g,`'`).replace(/&#8224;/g,'†').replace(/''/, "'").trim();
-      console.log('extractinggg', extractedText);
-      newDiv.innerHTML = extractedText;
-      document.body.appendChild(newDiv);
-    }
-
-    const newDiv2 = document.createElement('div');
-    newDiv2.id = "mediaHtml";
-    newDiv2.innerHTML = unescape(html.replace(/\\\\\\/g, '').replace(/\\/g,'')).replace(/\"/g,'').replace(/"""/g, '');
-    document.body.appendChild(newDiv2);
-
-  }, enhancedHTML);*/
-
-  const storeID = await context.evaluate(async function() {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    document.getElementById('storeId-utilityNavBtn').click();
-    await stall(1000);
-    const store = document.querySelectorAll('.StoreIdSearchBlock__SpacingWrapper-blkcp3-1')[1];
-    return store.getAttribute('data-test').replace('storeIdSearch-item-', '');
-  });
-
-  const postalCode = await context.evaluate(async function() {
-    const store = document.querySelectorAll('.StoreIdSearchBlock__SpacingWrapper-blkcp3-1')[1];
-    const splitStoreInfo = store.querySelector('.h-text-grayMedium').innerText.split(' ');
-    return splitStoreInfo[splitStoreInfo.length - 1];
-  });
-
   await context.waitForXPath("//h1[@data-test='product-title']");
 
-  await context.evaluate(async function (storeID, postalCode) {
+  await context.evaluate(async function (storeID, postalCode, storeName) {
     let parentData = {};
     let origData = {};
 
@@ -720,6 +692,7 @@ async function implementation (
 
       addHiddenDiv(newDiv, 'retailerId', storeID);
       addHiddenDiv(newDiv, 'drive', postalCode);
+      addHiddenDiv(newDiv, 'onlineStore', storeName);
       //addHiddenDiv(newDiv, 'videoLength', videoLength.join(' | '));
 
       const storeString = "&pricing_store_id=" + storeID + "&storeId=" + storeID + "&store_id=" + storeID;
@@ -802,7 +775,8 @@ async function implementation (
       .then(async function (res) {
         parentData = res;
         origData = res;
-        if (res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
+        getProductInfo(res.product.item, res.product.item.product_description.title);
+        /*if (res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
             parentId = res.product.item.parent_items;
             getProductInfo(res.product.item, res.product.item.product_description.title);
             await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test' + storeString)
@@ -820,11 +794,11 @@ async function implementation (
         } else {
           console.log('noVariants');
           getProductInfo(res.product.item, res.product.item.product_description.title);
-        }
+        }*/
       });
 
     await stall(20000);
-  }, storeID, postalCode);
+  }, storeID, postalCode, storeName);
 
   await context.extract(productDetails, { transform });
 }

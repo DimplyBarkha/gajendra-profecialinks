@@ -5,7 +5,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { zipcode } = inputs;
+  const { zipcode, storeId } = inputs;
   // const { country, domain, store } = parameters;
 
   /*const currentUrl = await context.evaluate(function() {
@@ -53,9 +53,33 @@ async function implementation (
     document.querySelector('button[data-test="storeLocationSearch-button"]').click();
   });
   await context.waitForXPath("//button[@data-test='storeId-listItem-setStore']");
-  await context.evaluate(function () {
-    document.querySelectorAll('button[data-test="storeId-listItem-setStore"]')[0].click();
-  });
+  await context.evaluate(function (storeId) {
+
+    document.querySelectorAll('.StoreIdSearchBlock__SpacingWrapper-blkcp3-1').forEach(e => {
+
+      function addHiddenDiv(text, id) {
+        const newDiv = document.createElement('div');
+        newDiv.setAttribute('id', id);
+        newDiv.textContent = text;
+        newDiv.style.display = 'none';
+        document.getElementById('skipLinks').appendChild(newDiv);
+      }
+
+      let zipCode = '';
+      let storeName = '';
+      if(e.getAttribute('data-test') === 'storeIdSearch-item-' + storeId) {
+        const splitStoreInfo = e.querySelector('.h-text-grayMedium').innerText.split(' ');
+        zipCode = splitStoreInfo[splitStoreInfo.length - 1];
+        storeName = e.querySelector('h3').innerText;
+        e.querySelector('button[data-test="storeId-listItem-setStore"]').click();
+        addHiddenDiv(storeId, 'storeId');
+        addHiddenDiv(zipCode, 'zipCode');
+        addHiddenDiv(storeName, 'storeName');
+      }
+
+    });
+
+  }, storeId);
 
   /*await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
