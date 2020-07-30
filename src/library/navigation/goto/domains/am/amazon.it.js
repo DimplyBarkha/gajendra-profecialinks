@@ -2,10 +2,9 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'amazon.it',
     country: 'IT',
+    domain: 'amazon.it',
     store: 'amazon',
-    zipcode: '',
   },
   implementation: async ({ url }, parameterValues, context, dependencies) => {
     const memory = {};
@@ -71,7 +70,7 @@ module.exports = {
       let status = 200;
       if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
         status = 503;
-      } else if (document.evaluate("//b[contains(text(), 'Cerchi qualcosa in particolare?')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength>0)  {
+      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0) {
         status = 404;
       }
       return { status };
