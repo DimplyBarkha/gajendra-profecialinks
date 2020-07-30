@@ -13,6 +13,13 @@ async function implementation (
   } catch (error) {
     console.log('Element not visible');
   }
+  const allCookies = await context.cookies();
+  allCookies.forEach(({ name, domain }) => {
+    console.log(name, 'and', domain);
+    context.deleteCookies({
+      name, domain,
+    });
+  });
   await context.setInputValue('input#GLUXZipUpdateInput', zipcode);
   await context.waitForSelector('#GLUXZipUpdate input');
   await context.click('#GLUXZipUpdate input');

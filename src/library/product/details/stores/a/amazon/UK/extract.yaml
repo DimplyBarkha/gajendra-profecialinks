@@ -557,13 +557,13 @@ fields:
     singleValue: true
     # xpath: //td[contains(text(),'Speciality')]/following-sibling::*[1]
     description: List of additives in the product
-  - name: pricePerUnit
+  - name: pricePerUnit2
     singleValue: true
-    # xpath: //span[contains(@id,'priceblock_ourprice')]/following-sibling::*/text()
+    xpath: //span[contains(@id,'priceblock_ourprice')]/following-sibling::*/text()
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     singleValue: false
-    # xpath: //span[contains(@id,'priceblock_ourprice')]/following-sibling::*/text()
+    xpath: //span[contains(@id,'priceblock_ourprice')]/following-sibling::*/text()
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true

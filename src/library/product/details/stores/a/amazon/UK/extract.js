@@ -51,6 +51,7 @@ async function implementation (
       console.log('CurrentSeller', CurrentSeller);
       console.log('CurrentSellerPrice', CurrentSellerPrice);
       console.log('CurrentSellerShipping', CurrentSellerShipping);
+      console.log('CurrentSellerPrime', CurrentSellerPrime);
     }
     let manufacturerDescription = document.querySelector('.aplus-v2.desktop.celwidget');
     // @ts-ignore
@@ -112,9 +113,10 @@ async function implementation (
       otherSellersPrice && otherSellersPrice.forEach(price => {
         if (price.innerText) {
           sellerPrices.push(price.innerText.trim());
+          addHiddenDiv('pd_otherSellersPrice', price.innerText.trim());
         }
       });
-      sellerPrices && addHiddenDiv('pd_otherSellersPrice', sellerPrices.join('|'));
+      // sellerPrices && addHiddenDiv('pd_otherSellersPrice', sellerPrices.join('|'));
       console.log('sellerPrices', sellerPrices);
       const sellerPrime = [];
       const otherSellersPrime = otherSellersDocument.querySelectorAll(sellerPrimeSelector);

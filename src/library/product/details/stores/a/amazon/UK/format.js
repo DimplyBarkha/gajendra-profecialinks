@@ -133,9 +133,15 @@ const transform = (data) => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
         });
       }
-      if (row.pricePerUnit) {
-        row.pricePerUnit.forEach(item => {
-          item.text = `${item.text.replace('(', '').replace(')', '')}`;
+      if (row.pricePerUnit2) {
+        row.pricePerUnit2.forEach(item => {
+          const val = item.text.split('/');
+          let finalVal = '';
+          if (val[1] && val[1].match(/([\d]+)/)) {
+            finalVal = val[0].trim() + ' / ' + val[1].match(/([\d]+)/)[0].trim();
+          }
+          finalVal = finalVal ? finalVal.replace('(', '').trim() : val[0].replace('(', '').trim();
+          item.text = finalVal; // `${item.text.replace(/\((.*)\s*\/\s*([\d+]*)/gm, '$1/$2').replace('(', '').replace(')', '').match(/(.*\/\s*[\d+]*)/)[0]}`;
         });
       }
       if (row.pricePerUnitUom) {
