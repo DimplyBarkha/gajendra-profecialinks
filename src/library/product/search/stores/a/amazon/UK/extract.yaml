@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-component-type="s-search-result"]
+recordXPath: //div[contains(@class,"s-main-slot")]/div[contains(@data-component-type,"s-search-result")]
 fields:
   - name: paid
     singleValue: true
