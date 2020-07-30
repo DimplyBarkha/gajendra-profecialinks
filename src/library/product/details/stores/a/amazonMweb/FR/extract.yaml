@@ -96,8 +96,7 @@ fields:
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: variantCount
     singleValue: false
-    xpath: //script[contains(., "ImageBlockBTF")]/text()
-    defaultValue: 0
+    defaultValue: '1'
   - name: pricePerUnit
     singleValue: false
     xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
@@ -107,4 +106,10 @@ fields:
     xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
     regExp: \(?.*\/\s*(.*)\)
     regExpReplace: $1
+  - name: variantAsins
+    singleValue: false
+    xpath: //script[contains(., "ImageBlockBTF")]/text() | //*[@id='twisterJsInitializer_feature_div']//script
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id="feature-bullets-btf"]/*//ul/li | //div[@id="featurebullets_feature_div"]/*//ul/li
   
