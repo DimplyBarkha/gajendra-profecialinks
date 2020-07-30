@@ -114,9 +114,10 @@ module.exports = {
       otherSellersPrice && otherSellersPrice.forEach(price => {
         if (price.innerText) {
           sellerPrices.push(price.innerText.trim());
+          addElementToDocument('pd_otherSellersPrice', price.innerText.trim());
         }
       });
-      sellerPrices && addElementToDocument('pd_otherSellersPrice', sellerPrices.join('|'));
+      // sellerPrices && addElementToDocument('pd_otherSellersPrice', sellerPrices.join('|'));
       console.log('sellerPrices', sellerPrices);
       const sellerPrime = [];
       const otherSellersPrime = otherSellersDocument.querySelectorAll(sellerPrimeSelector);

@@ -244,3 +244,15 @@ fields:
     singleValue: false
     xpath: //div[@id='pd_otherSellersShipping2'] #//span[contains(@id,'mbc-shipping')]
     description: null
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id='feature-bullets']/ul/li[not(@id)]/span[@class="a-list-item"]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?(.*)\/.*\)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: \(?.*\/\s*(.*)\)
+    regExpReplace: $1
