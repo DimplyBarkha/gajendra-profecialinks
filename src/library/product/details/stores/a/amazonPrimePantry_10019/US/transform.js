@@ -58,7 +58,7 @@ const transform = (data) => {
         descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(descriptionBottom.join(' | ')),
+            text: cleanUp(descriptionBottom.join(' | ')).replace(/\s*Satisfaction Guarantee.*/i, ''),
           },
         ];
       }
