@@ -43,7 +43,7 @@ fields:
     xpath: count(//div[contains(@class,"page__section p-product-detail__about-product")]//div[contains(@class,"page__section-content")]//li)
   - name: brandText
     singleValue: true
-    xpath: //div[contains(text(),'Brand')]/following-sibling::div[last()]
+    xpath: (//div[contains(@class, 'p-product-detail__product-features')]//div[contains(text(),'Brand')]/following-sibling::div[last()])[1]
   - name: manufacturer
     singleValue: true
   - name: quantity
@@ -55,21 +55,21 @@ fields:
     singleValue: true
   - name: gtin
     singleValue: true
-    xpath: //div[contains(text(),'UPC')]/following-sibling::div[last()]
+    xpath: (//div[contains(@class, 'p-product-detail__product-features')]//div[contains(text(),'UPC')]/following-sibling::div[last()])[1]
     regExp: (\d+)
   - name: eangtin
     singleValue: true
-    xpath: //div[contains(text(),'GTIN')]/following-sibling::div[last()]
+    xpath: (//div[contains(@class, 'p-product-detail__product-features')]//div[contains(text(),'GTIN')]/following-sibling::div[last()])[1]
     regExp: (\d+)
   - name: sku 
     singleValue: true
-    xpath: //div[contains(text(),'SKU')]/following-sibling::div[last()]
+    xpath: (//div[contains(@class, 'p-product-detail__product-features')]//div[contains(text(),'SKU')]/following-sibling::div)[1]
   - name: variantId
     singleValue: true
-    xpath: //div[contains(text(),'Stock Reference')]/following-sibling::div[last()]
+    xpath: (//div[contains(@class, 'p-product-detail__product-features')]//div[contains(text(),'Stock Reference')]/following-sibling::div[last()])[1]
   - name: mpc
     singleValue: true
-    xpath: //div[contains(text(),'MPN')]/following-sibling::div[last()]
+    xpath: (//div[contains(@class, 'p-product-detail__product-features')]//div[contains(text(),'MPN')]/following-sibling::div[last()])[1]
   - name: packSize
     singleValue: true
   - name: legalDisclaimer
