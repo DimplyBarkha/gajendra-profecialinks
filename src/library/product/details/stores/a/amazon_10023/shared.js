@@ -26,9 +26,20 @@ const transform = (data) => {
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {
-          text += `${item.text.replace('Amazon.com:', '')}`;
+          text += `${item.text.replace('Amazon.com:', '').replace(': Prime Pantry', '')}`;
         });
         row.nameExtended = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.name) {
+        let text = '';
+        row.name.forEach(item => {
+          text += `${item.text.replace('Amazon.com:', '').replace(': Prime Pantry', '')}`;
+        });
+        row.name = [
           {
             text: cleanUp(text),
           },
@@ -45,11 +56,12 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.description) {
+      if (row.description || row.descriptionBottom) {
         let text = '';
         row.description.forEach(item => {
-          text += `|| ${item.text.replace(/\n \n/g, '')}`;
+          text += ` || ${item.text.replace(/\n \n/g, '')}`;
         });
+        text = text.trim();
         let descriptionBottom = [];
         if (row.descriptionBottom) {
           descriptionBottom = row.descriptionBottom;
@@ -152,7 +164,7 @@ const transform = (data) => {
       }
       if (row.brandText) {
         row.brandText.forEach(item => {
-          if (!item.text.includes('Brand')) {
+          if (!item.text.includes('Brand:')) {
             item.text = `Brand: ${item.text}`;
           }
         });
@@ -240,34 +252,14 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += `${item.text.replace(/\r\n|\r|\n/g, ' ')
-            .replace(/&amp;nbsp;/g, ' ')
-            .replace(/&amp;#160/g, ' ')
-            .replace(/\u00A0/g, ' ')
-            .replace(/\s{2,}/g, ' ')
-            .replace(/"\s{1,}/g, '"')
-            .replace(/\s{1,}"/g, '"')
-            .replace(/Read more/g, '')
-            .replace(/View larger/g, '')
-            .replace(/^ +| +$|( )+/g, ' ').trim()} `;
+          text += item.text.replace(/\n \n/g, ' ').replace('From the manufacturer', '').replace('Read more', '');
         });
         row.manufacturerDescription = [
           {
-            text: text.replace(/<img.{1,300}">/g, '').trim(),
+            text: cleanUp(text.replace(/<img.{1,300}">/g, '')),
           },
         ];
       }
-      // if (row.manufacturerDescription) {
-      //   let text = '';
-      //   row.manufacturerDescription.forEach(item => {
-      //     text += item.text.replace(/\n \n/g, ' ').replace(/Read more/g, '').replace(/View larger/g, '');
-      //   });
-      //   row.manufacturerDescription = [
-      //     {
-      //       text: cleanUp(text.replace(/<img.{1,300}">/g, '')),
-      //     },
-      //   ];
-      // }
       if (row.manufacturerImages) {
         const secondaryImages = [];
         row.manufacturerImages.forEach(alternateImage => {
@@ -286,19 +278,7 @@ const transform = (data) => {
         }
       }
       if (row.packSize) {
-        const item = row.packSize.length > 1 ? row.packSize[1] : row.packSize[0];
-        console.log('itrm---->', item);
-        if (/.*?(\d+)-Pack.*/i.test(item.text)) {
-          item.text = item.text.replace(/.*?(\d+)-Pack.*/i, '$1');
-        } else if (/.*pack of\s*(\d+).*/i.test(item.text)) {
-          item.text = item.text.replace(/.*pack of\s*(\d+).*/i, '$1');
-        } else if (/.*?(\d+)-Count.*/i.test(item.text)) {
-          item.text = item.text.replace(/.*?(\d+)-Count.*/i, '$1');
-        } else if (/.*(\d+)\s*Count.*/.test(item.text)) {
-          item.text = item.text.replace(/.*?(\d+)\s*[Cc]{1}ount.*/, '$1');
-        } else {
-          item.text = '';
-        }
+        const item = row.packSize[0];
         row.packSize = [item];
       }
       if (row.largeImageCount) {

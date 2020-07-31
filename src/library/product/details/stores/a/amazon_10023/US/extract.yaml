@@ -78,7 +78,9 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
   - name: packSize
     singleValue: false
-    xpath:  (//*[@id="variation_size_name"]//span[@class="selection"] | //span[@id="productTitle"])
+    xpath: //script[contains(., "ImageBlockATF")]/text()
+    regExp: PIbundle-(\d+)
+    regExpReplace: $1
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
@@ -127,8 +129,7 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="aplus-v2 desktop celwidget"]//div[contains(@class,"aplus-module-wrapper")]//text()[not(ancestor::noscript)]
-    # xpath: //div[@id="aplus"]//div[contains(@class,"aplus-module-wrapper")]
+    manualSelector: '#aplus'     
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@src
@@ -140,7 +141,7 @@ fields:
     # xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-video-url | //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
   - name: name
     singleValue: false
-    xpath: //title
+    xpath: //*[@id="productTitle"]
   - name: inStorePrice
     singleValue: false
     xpath:
@@ -440,7 +441,7 @@ fields:
     xpath: 
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@data-feature-name="featurebullets"]//ul/li
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: prop65Warning
     singleValue: false
     xpath: 
