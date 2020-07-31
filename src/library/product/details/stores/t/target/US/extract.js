@@ -9,19 +9,19 @@ async function implementation (
   const { productDetails } = dependencies;
 
   const storeID = await context.evaluate(async function() {
-    return document.getElementById('storeId').innerText;
+    return document.getElementById('storeId') ? document.getElementById('storeId').innerText : "";
   });
 
   const postalCode = await context.evaluate(async function() {
-    return document.getElementById('zipCode').innerText;
+    return document.getElementById('storeId') ? document.getElementById('zipCode').innerText : "";
   });
 
   const storeName = await context.evaluate(async function() {
-    return document.getElementById('storeName').innerText;
+    return document.getElementById('storeId') ? document.getElementById('storeName').innerText : "";
   });
 
   const address = await context.evaluate(async function() {
-    return document.getElementById('address').innerText;
+    return document.getElementById('storeId') ? document.getElementById('address').innerText : "";
   });
 
   const currentUrl = await context.evaluate(function() {
@@ -111,9 +111,9 @@ async function implementation (
     let scrollTop = 500;
     while (true) {
       window.scroll(0, scrollTop);
-      await stall(750);
+      await stall(500);
       scrollTop += 500;
-      if (scrollTop === 15000) {
+      if (scrollTop === 10000) {
         break;
       }
     }
