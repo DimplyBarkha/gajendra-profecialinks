@@ -7,6 +7,6 @@ module.exports = {
     domain: 'amazon.com',
     loadedSelector: '#altImages li[class*="imageThumbnail"] img',
     noResultsXPath: null,
-    zipcode: '',
+    zipcode: '10001',
   },
 };
