@@ -6,6 +6,7 @@ const { transform } = require('./transform');
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
+/*
 async function implementation (
   inputs,
   parameters,
@@ -360,8 +361,8 @@ module.exports = {
   },
   implementation,
 };
+*/
 
-/*
 async function implementation (
   inputs,
   parameters,
@@ -716,4 +717,4 @@ module.exports = {
   },
   implementation,
 };
-*/
+
