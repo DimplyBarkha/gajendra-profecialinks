@@ -41,10 +41,14 @@ module.exports = {
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]');
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]:first-child input');
       await context.evaluate(async function () {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
         const searchZipCode = document.querySelector('input[data-automation-id="selectFlyoutItemBtn"]:first-child');
-        if (!searchZipCode) {
+        if (searchZipCode) {
           searchZipCode.click();
         }
+      });
+      await context.waitForSelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]');
+      await context.evaluate(async function () {
         locationStreetAddress = (document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]')) ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]').textContent : '';
       });
 
@@ -65,8 +69,19 @@ module.exports = {
       return document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]') ? document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]').textContent : '';
     });
 
+    let zipcodeStreetAddress = '';
+
+    if (zipcode === '72758') {
+      zipcodeStreetAddress = '4208 Pleasant Crossing Blvd';
+    } else if (zipcode === '75204') {
+      zipcodeStreetAddress = 'Neighborhood Market Dallas Store, 2305 N Central Expy';
+    }
+    console.log('locationStreetAddress123232');
+    console.log(locationStreetAddress);
+    console.log(changedLocationStreetAddress);
+
     // TODO: need to set this as input
-    if (!(changedLocationStreetAddress === '4208 Pleasant Crossing Blvd') && disabledContinueButton === false) {
+    if (!(changedLocationStreetAddress === zipcodeStreetAddress) && disabledContinueButton === false) {
       await changeLocation(zipcode);
       if (locationStreetAddress !== changedLocationStreetAddress) {
         await changeLocation(zipcode);

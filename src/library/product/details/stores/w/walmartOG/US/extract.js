@@ -16,7 +16,17 @@ module.exports = {
       // CODE TO SEARCH FOR API in response
       // const req = await context.searchForRequest(`grocery.walmart.com/v3/api/products/${inputs.id}`, 'GET', 0, 60);
       // const data = (req && req.status === 200 && req.responseBody && req.responseBody.body) ? JSON.parse(req.responseBody.body) : null;
-
+      // console.log('INPUTS');
+      // console.log(inputs);
+      await context.waitForSelector('button[label="Change store"]');
+      await context.click('button[label="Change store"]');
+      const storeID = await context.evaluate(async function () {
+        const storeIDSplit = document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]') ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]').textContent.split('#') : [];
+        const storeID = storeIDSplit.length > 1 ? storeIDSplit[1] : '0';
+        return storeID;
+      });
+      await context.waitForSelector('button[data-automation-id="flyout-close"]');
+      await context.click('button[data-automation-id="flyout-close"]');
       await context.evaluate(async function getDataFromAPI (id) {
         console.log('getDataFromAPI');
         let data = {};
@@ -30,10 +40,20 @@ module.exports = {
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
         }
+        if (document.querySelector('button[label="Change store"]')) {
+          document.querySelector('button[label="Change store"]').click();
+        }
+        console.log('WHOA');
+        console.log(document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]'));
+        const storeIDSplit = document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]') ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]').textContent.split('#') : [];
+        const storeID = storeIDSplit.length > 1 ? storeIDSplit[1] : '0';
+        if (document.querySelector('button[label="Change store"]')) {
+          document.querySelector('button[label="Change store"]').click();
+        }
 
         console.log('waiting for api request....');
         // Default storeId=5260: As customer has been using this storeID for search feed.
-        const url = `https://www.walmart.com/grocery/v3/api/products/${id}?itemFields=all&storeId=5260`;
+        const url = `https://www.walmart.com/grocery/v3/api/products/${id}?itemFields=all&storeId=${storeID}`;
         var refURL = window.location.href;
 
         async function fetchItems (numberOfRetries = 0) {
