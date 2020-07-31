@@ -58,7 +58,8 @@ const transform = (data) => {
       }
       if (row.description || row.descriptionBottom) {
         let text = '';
-        row.description.forEach(item => {
+        const description = row.description;
+        description && description.forEach(item => {
           text += ` || ${item.text.replace(/\n \n/g, '')}`;
         });
         text = text.trim();
@@ -69,7 +70,7 @@ const transform = (data) => {
         descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(descriptionBottom.join(' | ')),
+            text: cleanUp(descriptionBottom.join(text ? ' | ' : '')),
           },
         ];
       }
