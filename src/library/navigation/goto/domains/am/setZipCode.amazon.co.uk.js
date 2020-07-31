@@ -13,18 +13,28 @@ async function implementation (
   } catch (error) {
     console.log('Element not visible');
   }
+  const allCookies = await context.cookies();
+  allCookies.forEach(({ name, domain }) => {
+    console.log(name, 'and', domain);
+    context.deleteCookies({
+      name, domain,
+    });
+  });
   await context.setInputValue('input#GLUXZipUpdateInput', zipcode);
   await context.waitForSelector('#GLUXZipUpdate input');
   await context.click('#GLUXZipUpdate input');
   // await context.waitForSelector('button[name="glowDoneButton"]');
   // await context.click('button[name="glowDoneButton"]');
-  await context.waitForNavigation();
+  await context.waitForNavigation({ timeout: 70000, waitUntil: 'load', js_enabled: true, css_enabled: false });
+  await context.waitForSelector('div[data-asin][data-component-type=s-search-result]');
+  await new Promise((resolve) => setTimeout(resolve, 20000));
 }
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    country: 'UK',
     domain: 'amazon.co.uk',
+    timeout: null,
+    country: 'UK',
     store: 'amazon',
     zipcode: 'SW1P 3EU',
   },
