@@ -50,7 +50,6 @@ async function implementation (
           dealID,
         }],
         responseSize: 'ALL',
-        itemResponseSize: 'DEFAULT_WITH_PREEMPTIVE_LEAKING',
       };
       const response = await fetch(API, {
         method: 'POST',
