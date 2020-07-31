@@ -19,16 +19,14 @@ module.exports = {
         }
         const nextButton = document.querySelector('div.main-image__container img');
         if (nextButton) {
-          // @ts-ignore
           nextButton.click();
           await timeout(5000);
         }
       };
       await clickOnImages();
-      // @ts-ignore
       const obj = window.dataLayer[0];
       const brand = obj ? obj.productBrand : '';
-      const gtin = obj ? obj.productEAN[0] : '';
+      const gtin = !obj ? '' : obj.productEAN ? obj.productEAN[0] : '';
       document.body.setAttribute('brand', brand);
       document.body.setAttribute('gtin', gtin);
     });
