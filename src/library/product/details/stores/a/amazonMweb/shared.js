@@ -82,12 +82,12 @@ const transform = (data) => {
         row.description.forEach(item => {
           text += ` || ${item.text.replace(/\n \n/g, ':')}`;
         });
-        text = text.trim();
+        text = text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim();
         let descriptionBottom = [];
         if (row.descriptionBottom) {
           descriptionBottom = row.descriptionBottom;
         }
-        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim())];
         row.description = [
           {
             text: descriptionBottom.join(' | '),
