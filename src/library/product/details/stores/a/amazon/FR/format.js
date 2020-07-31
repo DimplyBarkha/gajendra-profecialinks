@@ -88,6 +88,11 @@ const transform = (data) => {
           priceItem.text = priceItem.text.replace(/\./g, '').replace(/,/g, '.');
         });
       }
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach(priceItem => {
+          priceItem.text = priceItem.text.replace(/\./g, '').replace(/,/g, '.');
+        });
+      }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           item.text = item.text.replace(',', '.');

@@ -290,3 +290,6 @@ fields:
     xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
     regExp: \(?.*\/\s*(.*)\)
     regExpReplace: $1
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
