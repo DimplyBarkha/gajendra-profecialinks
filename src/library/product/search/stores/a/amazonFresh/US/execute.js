@@ -17,13 +17,7 @@ async function implementation (
   return await context.evaluate(async (xp) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
 
-    const blocked = document.evaluate('count(//a[contains(@href, "404")])', document, null, XPathResult.NUMBER_TYPE).numberValue;
-
-    if (blocked > 0) {
-      return false;
-    } else {
-      return document.evaluate(xp, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
-    }
+    return document.evaluate(xp, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
   }, parameters.noResultsXPath);
 }
 
