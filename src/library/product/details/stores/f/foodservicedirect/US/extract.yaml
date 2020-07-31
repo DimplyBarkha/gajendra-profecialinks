@@ -11,13 +11,13 @@ fields:
     xpath: (//div[contains(@class,'c-product-viewer__content')]//img/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@class,"c-product-viewer__content")]//div[contains(@class,"c-product-viewer__thumb-wrapper swiper-wrapper")]//img/@src)[position()>1]
+    xpath: (//div[contains(@class,"c-product-viewer__thumb-container")]//div[contains(@class,"c-product-viewer__thumb-slide")]//img/@src)[position()>1]
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]
   - name: category
     singleValue: false
-    xpath: //div[contains(@class, 'c-product-viewer__header')]//div[contains(@class, 'c-product-viewer__breadcrumb')]//li[position()>=2]
+    xpath: //div[contains(@class, 'p-product-detail__top')]//div[contains(@class, 'p-product-detail__breadcrumb')]//li[position()>=2]
   - name: nameExtended
     singleValue: true
     xpath: (//div[contains(@class,"c-product-shop-box__title")])[1]
@@ -43,7 +43,7 @@ fields:
     xpath: count(//div[contains(@class,"page__section p-product-detail__about-product")]//div[contains(@class,"page__section-content")]//li)
   - name: brandText
     singleValue: true
-    xpath: //div[contains(text(),'Brand')]/following-sibling::span
+    xpath: //div[contains(text(),'Brand')]/following-sibling::div[last()]
   - name: manufacturer
     singleValue: true
   - name: quantity
@@ -55,21 +55,21 @@ fields:
     singleValue: true
   - name: gtin
     singleValue: true
-    xpath: //div[contains(text(),'UPC')]/following-sibling::span
+    xpath: //div[contains(text(),'UPC')]/following-sibling::div[last()]
     regExp: (\d+)
   - name: eangtin
     singleValue: true
-    xpath: //div[contains(text(),'GTIN')]/following-sibling::span
+    xpath: //div[contains(text(),'GTIN')]/following-sibling::div[last()]
     regExp: (\d+)
   - name: sku 
     singleValue: true
-    xpath: //div[contains(text(),'SKU')]/following-sibling::span
+    xpath: //div[contains(text(),'SKU')]/following-sibling::div[last()]
   - name: variantId
     singleValue: true
-    xpath: //div[contains(text(),'Stock Reference')]/following-sibling::span
+    xpath: //div[contains(text(),'Stock Reference')]/following-sibling::div[last()]
   - name: mpc
     singleValue: true
-    xpath: //div[contains(text(),'MPN')]/following-sibling::span
+    xpath: //div[contains(text(),'MPN')]/following-sibling::div[last()]
   - name: packSize
     singleValue: true
   - name: legalDisclaimer
@@ -123,7 +123,7 @@ fields:
     description: Price in the selected store
   - name: secondaryImageTotal
     singleValue: true
-    xpath: count((//div[contains(@class,"c-product-viewer__content")]//div[contains(@class,"c-product-viewer__thumb-wrapper swiper-wrapper")]//img/@src)[position()>1])
+    xpath: count((//div[contains(@class,"c-product-viewer__thumb-container")]//div[contains(@class,"c-product-viewer__thumb-slide")]//img/@src)[position()>1])
   - name: ingredientsList
     singleValue: true
     description: List of Ingredients from site - can be string of data if no discernible start/end point
@@ -133,107 +133,140 @@ fields:
     regExp: (\d*\.?\d+)
   - name: servingSizeUom
     singleValue: true
-    xpath: //div[@id="servingSizeUom"]
+    xpath: //div[@id="servingSize"]
+    # xpath: //div[@id="servingSizeUom"]
+    regExp: ([a-zA-Z\s*]+)
   - name: numberOfServingsInPackage
     singleValue: true
   - name: caloriesPerServing
     singleValue: true
     xpath: //div[@id="caloriesPerServing"]
+    regExp: (\d*\.?\d+)
   - name: caloriesFromFatPerServing
     singleValue: true
     xpath: //div[@id="caloriesFromFatPerServing"]
   - name: totalFatPerServing
     singleValue: true
     xpath: //div[@id="totalFatPerServing"]
+    regExp: (\d*\.?\d+)
   - name: totalFatPerServingUom
     singleValue: true
-    xpath: //div[@id="totalFatPerServingUom"]
+    xpath: //div[@id="totalFatPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: saturatedFatPerServing
     singleValue: true
     xpath: //div[@id="saturatedFatPerServing"]
+    regExp: (\d*\.?\d+)
   - name: saturatedFatPerServingUom
     singleValue: true
-    xpath: //div[@id="saturatedFatPerServingUom"]
+    xpath: //div[@id="saturatedFatPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: transFatPerServing
     singleValue: true
     xpath: //div[@id="transFatPerServing"]
+    regExp: (\d*\.?\d+)
   - name: transFatPerServingUom
     singleValue: true
-    xpath: //div[@id="transFatPerServingUom"]
+    xpath: //div[@id="transFatPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: cholesterolPerServing
     singleValue: true
     xpath: //div[@id="cholestrolPerServing"]
+    regExp: (\d*\.?\d+)
   - name: cholesterolPerServingUom
     singleValue: true
-    xpath: //div[@id="cholestrolPerServingUom"]
+    xpath: //div[@id="cholestrolPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: sodiumPerServing
     singleValue: true
     xpath: //div[@id="sodiumPerServing"]
+    regExp: (\d*\.?\d+)
   - name: sodiumPerServingUom
     singleValue: true
-    xpath: //div[@id="sodiumPerServingUom"]
+    xpath: //div[@id="sodiumPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: totalCarbPerServing
     singleValue: true
     xpath: //div[@id="totalCarbPerServing"]
+    regExp: (\d*\.?\d+)
   - name: totalCarbPerServingUom
     singleValue: true
-    xpath: //div[@id="totalCarbPerServingUom"]
+    xpath: //div[@id="totalCarbPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: dietaryFibrePerServing
     singleValue: true
     xpath: //div[@id="dietaryFibrePerServing"]
+    regExp: (\d*\.?\d+)
   - name: dietaryFibrePerServingUom
     singleValue: true
-    xpath: //div[@id="dietaryFibrePerServingUom"]
+    xpath: //div[@id="dietaryFibrePerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //div[@id="totalSugarsPerServing"]
+    regExp: (\d*\.?\d+)
   - name: totalSugarsPerServingUom
     singleValue: true
-    xpath: //div[@id="totalSugarsPerServingUom"]
+    xpath: //div[@id="totalSugarsPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: proteinPerServing
     singleValue: true
     xpath: //div[@id="proteinPerServing"]
+    regExp: (\d*\.?\d+)
   - name: proteinPerServingUom
     singleValue: true
-    xpath: //div[@id="proteinPerServingUom"]
+    xpath: //div[@id="proteinPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: vitaminAPerServing
     singleValue: true
     xpath: //div[@id="vitaminAPerServing"]
+    regExp: (\d*\.?\d+)
   - name: vitaminAPerServingUom
     singleValue: true
-    xpath: //div[@id="vitaminAPerServingPerServingUom"]
+    xpath: //div[@id="vitaminAPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: vitaminCPerServing
     singleValue: true
     xpath: //div[@id="vitaminCPerServing"]
+    regExp: (\d*\.?\d+)
   - name: vitaminCPerServingUom
     singleValue: true
-    xpath: //div[@id="vitaminCPerServingPerServingUom"]
+    xpath: //div[@id="vitaminCPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: calciumPerServing
     singleValue: true
     xpath: //div[@id="calciumPerServing"]
+    regExp: (\d*\.?\d+)
   - name: calciumPerServingUom
     singleValue: true
-    xpath: //div[@id="calciumPerServingUom"]
+    xpath: //div[@id="calciumPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: ironPerServing
     singleValue: true
     xpath: //div[@id="ironPerServing"]
+    regExp: (\d*\.?\d+)
   - name: ironPerServingUom
     singleValue: true
-    xpath: //div[@id="ironPerServingUom"]
+    xpath: //div[@id="ironPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: dietarySymbols
     singleValue: true
   - name: magnesiumPerServing
     singleValue: true
     xpath: //div[@id="magnesiumPerServing"]
+    regExp: (\d*\.?\d+)
   - name: magnesiumPerServingUom
     singleValue: true
-    xpath: //div[@id="magnesiumPerServingUom"]
+    xpath: //div[@id="magnesiumPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: saltPerServing
     singleValue: true
     xpath: //div[@id="saltPerServing"]
+    regExp: (\d*\.?\d+)
   - name: saltPerServingUom
     singleValue: true
-    xpath: //div[@id="saltPerServingUom"]
+    xpath: //div[@id="saltPerServing"]
+    regExp: ([a-zA-Z\s*]+)
   - name: dietaryInformation
     singleValue: true
   - name: specifications
@@ -251,12 +284,12 @@ fields:
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id='allergens']
-    # xpath: //div[contains(h6/text(), 'Allergens')]/ancestor::div//li[contains(text(),"CONTAINS")]/parent::ul/parent::div/preceding-sibling::div
   - name: alcoholContent
     singleValue: true
   - name: promotion
     singleValue: true
     xpath: //span[contains(@class,"c-product-shop-box__price-you-save")]
+    # ??????
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -312,8 +345,8 @@ fields:
     defaultValue: "No"
   - name: imageZoomFeaturePresent
     singleValue: true
-    xpath: //div[contains(@class, 'c-product-viewer__image-wrapper')]//div//@data-zoom
-    regExp: (.+)
+    xpath: boolean(//a[contains(@class, 'c-product-viewer__action-zoom')])
+    regExp: (true|false)
     regExpReplace: "Yes"
     defaultValue: "No"
   
