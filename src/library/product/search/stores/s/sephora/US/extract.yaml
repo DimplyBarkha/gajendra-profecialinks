@@ -58,6 +58,7 @@ fields:
     singleValue: true
     description: The number of reviews
     xpath: //span[contains(@data-comp, "ReviewCount Text Box")]/@aria-label
+    defaultValue: "0"
   - name: price
     singleValue: true
     description: The offered price for the product
@@ -105,7 +106,8 @@ fields:
   - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    # type: NUMBER
     xpath: //div[contains(@data-comp, "StarRating ")]/@aria-label
     defaultValue: "0"
+    # regExp: ([.0-9]+)
 
