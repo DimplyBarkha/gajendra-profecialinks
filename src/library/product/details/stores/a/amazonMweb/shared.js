@@ -146,6 +146,11 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach(pricePerUnit => {
+          pricePerUnit.text = pricePerUnit.text.replace('.', '').replace(',', '.').trim();
+        });
+      }
     }
   }
   return data;
