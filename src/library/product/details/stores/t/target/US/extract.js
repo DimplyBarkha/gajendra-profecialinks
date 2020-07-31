@@ -176,7 +176,6 @@ async function implementation (
     });
     console.log('salsifyContentz', id, document.getElementById('frameContents').innerHTML);
 
-    let tcinSet = new Set();
     async function getProductInfo (variant, productName, variantCount = null) {
 
       document.getElementById('mainContainer').querySelectorAll('li').forEach(e => {
@@ -266,8 +265,7 @@ async function implementation (
       }
       if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.ingredients) {
         ingredients.push(variant.enrichment.drug_facts.ingredients);
-      }
-      if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.inactive_ingredients) {
+      } else if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.inactive_ingredients) {
         ingredients.push(variant.enrichment.drug_facts.inactive_ingredients.join(' '));
       }
 
@@ -736,6 +734,7 @@ async function implementation (
             }
           }
         });
+
         if (deliver) {
           addHiddenDiv(newDiv, 'availability', 'In Stock');
         } else if (inStore) {
@@ -847,7 +846,7 @@ async function implementation (
         }
       });
 
-    await stall(20000);
+    await stall(25000);
   });
 
   await context.extract(productDetails, { transform });

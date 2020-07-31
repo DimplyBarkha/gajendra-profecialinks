@@ -85,7 +85,7 @@ async function implementation (
 
         }
       }
-      console.log('arraylength', productNames.length);
+      console.log('results', productNames.length);
     }
 
     const newDiv = document.createElement('ul');
@@ -170,7 +170,7 @@ async function implementation (
 
   });
 
-  await stall(10000);
+  await stall(20000);
 
   let extract = await context.extract(productDetails, { transform });
 
