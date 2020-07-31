@@ -69,12 +69,12 @@ async function implementation (
       document.body.appendChild(newDiv);
       return newDiv;
     }
-    let url = window.location.href;
+    const url = window.location.href;
     console.log('URL1233')
     console.log(window.location.href)
-    const splits = url ? url.split('dp/product/')[0].split('/?') : [];
-    url = (splits.length > 1) ? splits[splits.length - 2] : '';
-    addHiddenDiv('ii_variant', url);
+    const splits = url ? url.split('dp/product/')[1].split('/?') : [];
+    const mainId = (splits.length > 1) ? splits[splits.length - 2] : '';
+    addHiddenDiv('ii_variant', mainId);
 
     const allVariants = [...new Set(getVariants())];
     for (let i = 0; i < allVariants.length; i++) {
