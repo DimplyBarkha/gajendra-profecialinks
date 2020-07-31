@@ -43,13 +43,6 @@ module.exports = {
         if (document.querySelector('button[label="Change store"]')) {
           document.querySelector('button[label="Change store"]').click();
         }
-        console.log('WHOA');
-        console.log(document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]'));
-        const storeIDSplit = document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]') ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]').textContent.split('#') : [];
-        const storeID = storeIDSplit.length > 1 ? storeIDSplit[1] : '0';
-        if (document.querySelector('button[label="Change store"]')) {
-          document.querySelector('button[label="Change store"]').click();
-        }
 
         console.log('waiting for api request....');
         // Default storeId=5260: As customer has been using this storeID for search feed.
