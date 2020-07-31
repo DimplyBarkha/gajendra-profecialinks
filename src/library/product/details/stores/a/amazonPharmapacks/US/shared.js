@@ -58,7 +58,7 @@ const transform = (data) => {
 
       if (row.otherSellersPrime) {
         for (const item of row.otherSellersPrime) {
-          if (item.text.includes('Details')) {
+          if (item.text.includes('Details') | item.text.includes('supersaver')) {
             item.text = 'YES';
           } else {
             item.text = 'NO';
@@ -70,6 +70,29 @@ const transform = (data) => {
         for (const item of row.videos) {
           if (item.text.includes('.hls.m3u8')) {
             item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
+          }
+          if (item.text.includes('videos') && item.text.match(/"url":"([^"]*)/g)) {
+            const videoLinks = item.text.match(/"url":"([^"]*)/g);
+            const videoLengths = item.text.match(/"durationTimestamp":"([^"]*)/g);
+            let urlText = '';
+            let lengthText = '';
+            videoLinks.forEach(url => {
+              urlText += `${url.replace('"url":"', '')} | `;
+            });
+            videoLengths.forEach(len => {
+              lengthText += `${len.replace('"durationTimestamp":"', '')} | `;
+            });
+            row.videos = [
+              {
+                text: urlText.slice(0, -3),
+              },
+            ];
+            row.videoLength = [
+              {
+                text: lengthText.slice(0, -3),
+              },
+            ];
+            break;
           }
         }
       }
@@ -123,7 +146,6 @@ const transform = (data) => {
         row.asin = row.sku;
         delete row.sku;
       }
-
     }
   }
   return data;
