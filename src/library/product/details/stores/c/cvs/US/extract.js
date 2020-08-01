@@ -135,6 +135,7 @@ module.exports = {
           const html = await context.evaluate(async function getEnhancedContent(variants, i) {
             async function fetchRetry(url, n) {
               let fetched = fetch(url).then(response => response.text()).catch(function(error) {
+                  console.log("FETCH FAILED")
                   if (n === 1) return "Nothing Found";
                   return fetchRetry(url, n - 1);
               });
