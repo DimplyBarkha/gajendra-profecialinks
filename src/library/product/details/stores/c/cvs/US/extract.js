@@ -141,7 +141,7 @@ module.exports = {
               
               return fetched
             }
-            return await fetchRetry(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, 5)
+            return await fetchRetry(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, 10)
           }, variants, i);
 
           const regex = /html: "(.+)"\n\s\s\}\n\}\;/s
