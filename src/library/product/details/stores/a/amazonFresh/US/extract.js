@@ -152,77 +152,121 @@ async function implementation (
       return;
     }
 
+    const changeZip = async (wantedZip) => {
+      await context.click('span#glow-ingress-line2.nav-line-2');
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+      await context.setInputValue('input[aria-label="or enter a US zip code"]', wantedZip);
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+      await context.click('input[aria-labelledby="GLUXZipUpdate-announce"]');
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+      await context.click('button[name="glowDoneButton"]');
+    };
+
+    try {
+      await changeZip('90210');
+    } catch (exception) {
+      throw new Error('Failed to update zipcode!');
+    }
+
     // -- Actions to click existing buttons needed to set  locale --//
-    let openNewLocaleWarnBtn = await localeWarningCheck();
-    let additionalChecks = 0;
-    if (openNewLocaleWarnBtn !== 'false') {
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(openNewLocaleWarnBtn),
-      ]);
-      additionalChecks += 1;
-    }
-    await new Promise(r => setTimeout(r, 5000));
-    const openNewLocaleModalBtn = await openNewLocaleModalBtnCheck();
-    openNewLocaleWarnBtn = await localeWarningCheck();
-    if (openNewLocaleModalBtn !== 'false' && await localeWarningCheck() === 'false') {
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(openNewLocaleModalBtn),
-      ]);
-    }
-    const changeLocaleBtn = await changeLocaleBtnCheck();
-    if (changeLocaleBtn !== 'false') {
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(changeLocaleBtn),
-      ]);
-    }
-    await new Promise(r => setTimeout(r, 2000));
-    const localeInput = await localeInputCheck();
-    if (localeInput !== 'false') {
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.setInputValue(localeInput, '90210'),
-      ]);
-    }
-    await new Promise(r => setTimeout(r, 2000));
-    const setNewLocalBtn = await setNewLocalBtnCheck();
-    if (setNewLocalBtn !== 'false') {
-      const [response] = await Promise.all([
-        // context.waitForMutuation('#GLUXZipConfirmationSection', { timeout: 5000 }),
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(setNewLocalBtn),
-      ]);
-    }
-    const setNewLocalDone = await setNewLocalDoneCheck();
-    if (setNewLocalDone !== 'false') {
-      console.log('here');
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(setNewLocalDone),
-      ]);
-    }
-    await new Promise(r => setTimeout(r, 2000));
-    if (additionalChecks > 0) {
-      if (openNewLocaleModalBtn !== 'false' && await localeWarningCheck() === 'false') {
-        const [response] = await Promise.all([
-          context.waitForNavigation({ timeout: 20000 }),
-          context.click(openNewLocaleModalBtn),
-        ]);
-      }
-      await new Promise(r => setTimeout(r, 2000));
-      const finalConfirmBtn = await additionalConfirmCheck();
-      if (finalConfirmBtn !== 'false') {
-        console.log('here');
-        const [response] = await Promise.all([
-          context.waitForNavigation({ timeout: 20000 }),
-          context.click(finalConfirmBtn),
-        ]);
-      }
-    }
+    // let openNewLocaleWarnBtn = await localeWarningCheck();
+    // let additionalChecks = 0;
+    // if (openNewLocaleWarnBtn !== 'false') {
+    //   const [response] = await Promise.all([
+    //     context.waitForNavigation({ timeout: 20000 }),
+    //     context.click(openNewLocaleWarnBtn),
+    //   ]);
+    //   additionalChecks += 1;
+    // }
+    // await new Promise(r => setTimeout(r, 5000));
+    // const openNewLocaleModalBtn = await openNewLocaleModalBtnCheck();
+    // openNewLocaleWarnBtn = await localeWarningCheck();
+    // if (openNewLocaleModalBtn !== 'false' && await localeWarningCheck() === 'false') {
+    //   const [response] = await Promise.all([
+    //     context.waitForNavigation({ timeout: 20000 }),
+    //     context.click(openNewLocaleModalBtn),
+    //   ]);
+    // }
+    // const changeLocaleBtn = await changeLocaleBtnCheck();
+    // if (changeLocaleBtn !== 'false') {
+    //   const [response] = await Promise.all([
+    //     context.waitForNavigation({ timeout: 20000 }),
+    //     context.click(changeLocaleBtn),
+    //   ]);
+    // }
+    // await new Promise(r => setTimeout(r, 2000));
+    // const localeInput = await localeInputCheck();
+    // if (localeInput !== 'false') {
+    //   const [response] = await Promise.all([
+    //     context.waitForNavigation({ timeout: 20000 }),
+    //     context.setInputValue(localeInput, '90210'),
+    //   ]);
+    // }
+    // await new Promise(r => setTimeout(r, 2000));
+    // const setNewLocalBtn = await setNewLocalBtnCheck();
+    // if (setNewLocalBtn !== 'false') {
+    //   const [response] = await Promise.all([
+    //     // context.waitForMutuation('#GLUXZipConfirmationSection', { timeout: 5000 }),
+    //     context.waitForNavigation({ timeout: 20000 }),
+    //     context.click(setNewLocalBtn),
+    //   ]);
+    // }
+    // const setNewLocalDone = await setNewLocalDoneCheck();
+    // if (setNewLocalDone !== 'false') {
+    //   console.log('here');
+    //   const [response] = await Promise.all([
+    //     context.waitForNavigation({ timeout: 20000 }),
+    //     context.click(setNewLocalDone),
+    //   ]);
+    // }
+    // await new Promise(r => setTimeout(r, 2000));
+    // if (additionalChecks > 0) {
+    //   if (openNewLocaleModalBtn !== 'false' && await localeWarningCheck() === 'false') {
+    //     const [response] = await Promise.all([
+    //       context.waitForNavigation({ timeout: 20000 }),
+    //       context.click(openNewLocaleModalBtn),
+    //     ]);
+    //   }
+    //   await new Promise(r => setTimeout(r, 2000));
+    //   const finalConfirmBtn = await additionalConfirmCheck();
+    //   if (finalConfirmBtn !== 'false') {
+    //     console.log('here');
+    //     const [response] = await Promise.all([
+    //       context.waitForNavigation({ timeout: 20000 }),
+    //       context.click(finalConfirmBtn),
+    //     ]);
+    //   }
+    // }
     await new Promise(r => setTimeout(r, 5000));
   }
+
+  // async function setLocaleAgain (url, zipcode) {
+  //   async function checkAddress () {
+  //     console.log('checkAddress() in  progress');
+  //     await new Promise(resolve => setTimeout(resolve, 5000));
+  //     return await context.evaluate(function () {
+  //       console.log(document.querySelector('div#nav-global-location-slot'));
+  //       if (document.querySelector('div#nav-global-location-slot')) {
+  //         console.log(document.querySelector('div#nav-global-location-slot').innerText);
+  //         return document.querySelector('div#nav-global-location-slot').innerText.includes('90210') !== false;
+  //       }
+  //       return false;
+  //     });
+  //   }
+
+  //   const shouldChangeAddress = await checkAddress();
+
+  //   if (shouldChangeAddress === true) {
+  //     return;
+  //   }
+
+  //   if (zipcode) {
+  //     await dependencies.setZipCode({ url, zipcode});
+  //   }
+  // }
 
   async function addUrl (parentInput) {
     await context.evaluate(async function (parentInput) {
@@ -311,6 +355,7 @@ async function implementation (
   };
   await new Promise(resolve => setTimeout(resolve, 5000));
   await setLocale();
+  // await setLocaleAgain();
   console.log('getting variants');
   const allVariants = [...new Set(await getVariants())];
   await new Promise(resolve => setTimeout(resolve, 5000));
@@ -327,6 +372,7 @@ async function implementation (
     await dependencies.goto({ url });
     await new Promise(resolve => setTimeout(resolve, 4000));
     await setLocale();
+    // await setLocaleAgain();
     await new Promise(resolve => setTimeout(resolve, 2000));
     if (allVariants.length >= 5) {
       await loadAllResources(10000);
