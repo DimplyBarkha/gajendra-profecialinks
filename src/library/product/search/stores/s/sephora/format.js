@@ -26,18 +26,21 @@ const transform = (data, context) => {
       if(row.thumbnail){
         let text = row.thumbnail[0].text;
         let split = text.split("?");
-        let url = split[0];
-        if(url){
-          row.thumbnail[0].text = url;
+        if(split[0]){
+          let url = split[0];
+          if(url){
+            row.thumbnail[0].text = url;
+          }
         }
       }
-
       if(row.productUrl){
         let text = row.productUrl[0].text;
         let split = text.split("?");
-        let url = split[0];
-        if(url){
-          row.productUrl[0].text = url;
+        if(split[0]){
+          let url = split[0];
+          if(url){
+            row.productUrl[0].text = url;
+          }
         }
       }
 
@@ -47,11 +50,13 @@ const transform = (data, context) => {
           row.aggregateRating2[0].text = "0"
         } else {
           let split = text.split(" ");
-          let rating = parseFloat(split[0]);
-          let adjusted = rating.toPrecision(2);
-
-          if(adjusted){
-            row.aggregateRating2[0].text = adjusted;
+          if(split[0]){
+            let rating = parseFloat(split[0]);
+            let adjusted = rating.toPrecision(2);
+  
+            if(adjusted){
+              row.aggregateRating2[0].text = adjusted;
+            }
           }
         }
       }
@@ -69,10 +74,12 @@ const transform = (data, context) => {
       if(row.reviewCount){
         let text = row.reviewCount[0].text;
         let splits = text.split(" ");
-        let joins = splits[0];
-
-        if(joins){
-          row.reviewCount[0].text = joins;
+        if(splits[0]){
+          let joins = splits[0];
+  
+          if(joins){
+            row.reviewCount[0].text = joins;
+          }
         }
       }
 
@@ -88,28 +95,41 @@ const transform = (data, context) => {
       if(row.productUrl){
         let text = row.productUrl[0].text;
         let splits = text.split(" ");
-        let joins = "https://www.sephora.com/" + splits[0];
-
-        if(joins){
-          row.productUrl[0].text = joins;
+        if(splits[0]){
+          let joins = "https://www.sephora.com/" + splits[0];
+  
+          if(joins){
+            row.productUrl[0].text = joins;
+          }
         }
       }
 
       if(row.id){
-        let text = row.id[0].text
-        
-        let sNum = text.match(/(s[0-9]+)/g);
-        if(sNum[0]){
-          let num = sNum[0].match(/[0-9]+/g);
-          if(num[0]){
-            // console.log("TEXT HERE" + " " + num[0]);
-            // row.id[0].text = text
+        console.log("hello0")
+        if(row.id[0].text){
+          let text = row.id[0].text
+          
+          let sNum = text.match(/(s[0-9]+)/g);
+          
+          if(sNum){
+            console.log("hopefully1")
+            console.log(sNum[0])
+            let sNumm = sNum[0]
 
-            row.id[0].text = num[0];
+            let num = sNum[0].match(/[0-9]+/g);
+            if(num[0]){
+              // console.log("TEXT HERE" + " " + num[0]);
+              // row.id[0].text = text
+              console.log("hello2")
+  
+              row.id[0].text = num[0];
+            }
           }
         }
       }
-      
+      console.log("hello3")
+
+
       if (row.id && row.id[0]) {
         productCodes.push(row.id[0].text);
         rankCounter += 1;

@@ -11,7 +11,7 @@ fields:
     singleValue: true
     description: The brand name
     example: Panasonic
-    xpath: //span[contains(@data-at,"sku_item_brand")]
+    xpath: //span[contains(@data-at,"sku_item_brand")]|//div[@id="ii_brand"]
   # - name: category
   #   singleValue: false
   #   description: The categories (e.g. from breadcrumbs)
@@ -25,7 +25,7 @@ fields:
     singleValue: true
     description: The URL for the product details page
     # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@href
-    xpath: //@href
+    xpath: //@href|//div[@id="ii_url"]
     # regExp: >- 
     #   ^(.*)$
     # regExpReplace: >-
@@ -33,11 +33,11 @@ fields:
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src
+    xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src|//div[@id="ii_image"]
   - name: name
     singleValue: true
     description: The product name
-    xpath: //span[contains(@data-at, "sku_item_name")]
+    xpath: //span[contains(@data-at, "sku_item_name")]|//div[@id="ii_name"]
   # - name: sku
   #   singleValue: true
   #   description: The store-specific product identifier
@@ -50,23 +50,23 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //div[contains(@data-comp, "StarRating")]/@aria-label
+    xpath: //div[contains(@data-comp, "StarRating")]/@aria-label|//div[@id="ii_aggregateRatingText"]
   - name: ratingCount
     singleValue: true
     description: The number of ratings
   - name: reviewCount
     singleValue: true
     description: The number of reviews
-    xpath: //span[contains(@data-comp, "ReviewCount Text Box")]/@aria-label
+    xpath: //span[contains(@data-comp, "ReviewCount")]/@aria-label|//div[@id="ii_review"]|//div[@id="ii_reviews"]
     defaultValue: "0"
   - name: price
     singleValue: true
     description: The offered price for the product
-    xpath: //span[contains(@data-at, "sku_item_price_sale")]|//span[contains(@data-at, "sku_item_price_list")]
+    xpath: //span[contains(@data-at, "sku_item_price_sale")]|//span[contains(@data-at, "sku_item_price_list")]|//div[@id="ii_price"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[contains(@data-at, "sku_item_price_list")]
+    xpath: //span[contains(@data-at, "sku_item_price_list")]|//div[@id="ii_listPrice"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -97,7 +97,7 @@ fields:
     singleValue: false
     description: Unique id (within this extractor)
     # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@data-uid
-    xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src
+    xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src|//div[@id="ii_sku"]
     # regExp: ([0-9]+$)
   # - name: nameExtended
   #   singleValue: true
@@ -107,7 +107,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     # type: NUMBER
-    xpath: //div[contains(@data-comp, "StarRating ")]/@aria-label
+    xpath: //div[contains(@data-comp, "StarRating")]/@aria-label|//div[@id="ii_aggregateRating"]
     defaultValue: "0"
     # regExp: ([.0-9]+)
 
