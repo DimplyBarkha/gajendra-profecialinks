@@ -167,6 +167,7 @@ module.exports = {
       nurtitionInfo();
       quantity();
       addShippingInfo();
+      addHiddenDiv('imageZoomFeaturePresent', document.querySelector('a.c-product-viewer__action-zoom') !== null ? 'Yes' : 'No');
     });
 
     return await context.extract(productDetails, { transform: transformParam });

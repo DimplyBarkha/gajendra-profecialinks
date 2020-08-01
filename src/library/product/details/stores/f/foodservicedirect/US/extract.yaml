@@ -345,9 +345,6 @@ fields:
     defaultValue: "No"
   - name: imageZoomFeaturePresent
     singleValue: true
-    xpath: boolean(//a[contains(@class, 'c-product-viewer__action-zoom')])
-    regExp: (true)
-    regExpReplace: "Yes"
-    # defaultValue: "No"
+    xpath: //div[@id='imageZoomFeaturePresent']
   
 
