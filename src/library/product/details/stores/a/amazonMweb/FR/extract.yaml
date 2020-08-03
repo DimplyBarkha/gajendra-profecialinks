@@ -38,7 +38,8 @@ fields:
     xpath: //div[@id="productDescription_feature_div"]/div
   - name: brandText
     singleValue: false
-    xpath: //*[@id='bylineInfo'] 
+    xpath: //div[@id="bylineInfo_feature_div"]
+    # xpath: //*[@id='bylineInfo'] 
   - name: quantity
     singleValue: false
     xpath: //div[contains(@id, 'variation_size_name')]//../span
@@ -51,9 +52,9 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: false
     xpath: //div[contains(@id,"variation_item_package_quantity")]/div/span
-  - name: alternateImages
-    singleValue: false
-    xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+  # - name: alternateImages
+  #   singleValue: false
+  #   xpath: //div[@id="altImages"]//ul/li[contains(@class, "imageThumbnail")][position()>1]//img/@src
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="acrCustomerReviewText"]/text()
@@ -112,4 +113,9 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@id="feature-bullets-btf"]/*//ul/li | //div[@id="featurebullets_feature_div"]/*//ul/li
+  - name: alternateImages
+    singleValue: false
+    xpath: //*[@id="imageBlock_feature_div"]/script
+    regExp: large\":\"(.{40,200})\"\,\"main
+    regExpReplace: $1
   
