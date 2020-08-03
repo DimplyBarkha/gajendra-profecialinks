@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'elcorteingles.es/deportes',
+    domain: 'elcorteingles.es',
     prefix: null,
     url: null,
     country: 'ES',
