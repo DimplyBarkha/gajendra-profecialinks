@@ -11,7 +11,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //a[@data-comp="RatingsSummary Flex Box "]//@aria-label
+    xpath: //a[contains(@data-comp,"RatingsSummary")]//@aria-label
   # - name: aggregaterating
   #   singleValue: true
   #   xpath: >-
@@ -22,12 +22,12 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //h1[@data-comp="DisplayName Box "]/a
+    xpath: //h1[contains(@data-comp,"DisplayName")]/a
   - name: ratingCount
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //a[@data-comp="RatingsSummary Flex Box "]/span
+    xpath: //a[contains(@data-comp,"RatingsSummary")]/span
   # - name: ratingCount
   #   singleValue: false
   #   regExp: >-
@@ -49,7 +49,7 @@ fields:
   - name: nameExtended
     singleValue: true
     description: The product name
-    xpath: //h1[@data-comp="DisplayName Box "]/span
+    xpath: //h1[contains(@data-comp,"DisplayName")]/span
   - name: _pageTimestamp
     xpath: /html/body/@downloadtime
   - name: _url
@@ -61,7 +61,7 @@ fields:
      $1
     singleValue: false
     xpath: >-
-     //div[@data-comp="SizeAndItemNumber Box "]
+     //div[contains(@data-comp,"SizeAndItemNumber")]
   - name: category
     xpath: //ol/li/a
   # - name: category !!!!!!!!!!!!!!!!!!!!!
@@ -89,7 +89,7 @@ fields:
     # regExp: >-
     #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
     xpath: >-
-      //div[@data-comp="Price Box "]/span[last()]
+      //div[contains(@data-comp,"Price Box")]/span[last()]
   # - name: online_price_currency
   #   singleValue: true
   #   regExp: "[$\u00A3\u20AC\u00A5]{1}"
@@ -117,7 +117,7 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: >-
-      //div[@data-comp="CallToActions "]//button/span
+      //div[contains(@data-comp,"CallToActions")]//button/span
     defaultValue: "In Stock"
   - name: _input
     xpath: /html/body/@scrape_code
