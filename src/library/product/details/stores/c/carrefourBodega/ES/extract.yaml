@@ -7,6 +7,9 @@ fields:
     singleValue: true
     xpath: //div[contains(@class,'image easyzoom')]//img/@src
     description: URL of the main product image
+  - name: url
+    xpath: //link[@rel="canonical"]/@href
+    singleValue: true
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -47,7 +50,7 @@ fields:
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'desc html-editor lora')]/p
+    xpath: //div[@class='desc html-editor lora']//text()[not(ancestor::div[@class="row-desc-items"])]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets

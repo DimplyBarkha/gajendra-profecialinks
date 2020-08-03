@@ -33,7 +33,7 @@ const transform = (data) => {
       if (row.description) {
         const val = [];
         row.description.forEach(item => {
-          val.push(item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' ').replace(/\.\.\./gm, '... '));
+          val.push(item.text.replace(/\n/g, '').replace(/\s{2,}/g, ' '));
         });
         row.description = [{ text: val.join(' ') }];
       }
