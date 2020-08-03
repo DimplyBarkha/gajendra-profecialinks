@@ -491,7 +491,7 @@ module.exports = {
             mpc: '',
             legalDisclaimer: '',
             directions: directions && fullDescription ? fullDescription.slice(directions, fullDescription.length) : '',
-            warnings: (warnings && warnings.productWarning) ? ((warnings.productWarning).replace(/<[P|p]>/g, '<p> ')) : customWarning(),
+            warnings: (warnings && warnings.productWarning) ? ((warnings.productWarning).replace(/<[P|p]>/g, '<p> ').replace(/(<li>)/g, '<li> ').replace(/(<LI>)/g, '<li> ')) : customWarning(),
             shippingInfo: shippingInfoContent(),
             shippingDimensions: shipping ? shipping.productInInches : '',
             shippingWeight: shipping ? shipping.shippingWeight : '',
