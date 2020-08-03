@@ -69,7 +69,7 @@ module.exports = {
         await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
         await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-        await new Promise((resolve) => setTimeout(resolve, 15000));
+        // await new Promise((resolve) => setTimeout(resolve, 15000));
         await context.waitForXPath('//div[contains(@data-automation-id,"changeStoreFulfillmentBannerBtn")]//span[contains(@class,"AddressPanel__addressLine")]/text()[contains(., "' + zipcodeStreetAddress + '")]');
 
         // await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]');
@@ -79,7 +79,8 @@ module.exports = {
     const changedLocationStreetAddress = await context.evaluate(function () {
       return document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]') ? document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]').textContent : '';
     });
-    console.log('locationStreetAddress123232');
+
+    console.log('locationStreetAddress value');
     console.log(locationStreetAddress);
     console.log(changedLocationStreetAddress);
 
