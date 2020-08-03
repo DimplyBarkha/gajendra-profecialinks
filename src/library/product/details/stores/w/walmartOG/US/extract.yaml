@@ -8,7 +8,7 @@ fields:
   xpath: //section[@data-automation-id="productPage"]//h1[@data-automation-id="name"]
 - name: quantity
   singleValue: true
-  xpath: //*[@id="iio_quantity"]
+  xpath: //section[contains(@data-automation-id,"productPage")]//h1[contains(@data-automation-id,"name")]/text()
 - name: image
   singleValue: false
   xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]/@src|//*[@id="iio_image"])[1]
@@ -30,10 +30,10 @@ fields:
   xpath: count(//div[contains(@class,'prod-AltImageWrapper')]//ul//li//div[contains(@class,'prod-AltImageCarousel') and not(contains(@class,'active'))])
 - name: price
   singleValue: true
-  xpath: //*[@id="iio_onlinePrice"]
+  xpath: (//*[@id="iio_onlinePrice"]|//div[contains(@data-automation-id,"old-price")])[1]
 - name: listPrice
   singleValue: true
-  xpath: //*[@id="iio_listPrice"]
+  xpath: (//*[@id="iio_listPrice"]|(//span[contains(@data-automation-id,"salePrice")]))[1]
 - name: pricePerUnit
   singleValue: true
   xpath: //*[@id="iio_pricePerUnit"]

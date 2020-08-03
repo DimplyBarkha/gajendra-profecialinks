@@ -27,7 +27,7 @@ module.exports = {
       });
       await context.waitForSelector('button[data-automation-id="flyout-close"]');
       await context.click('button[data-automation-id="flyout-close"]');
-      await context.evaluate(async function getDataFromAPI (id) {
+      await context.evaluate(async function getDataFromAPI (id, storeID) {
         console.log('getDataFromAPI');
         let data = {};
         const iioObjects = [];
@@ -110,15 +110,12 @@ module.exports = {
           const variantId = (data.detailed && data.detailed.productCode) ? data.detailed.productCode : '';
           const brandText = (data.detailed && data.detailed.brand) ? data.detailed.brand : '';
           const varianceList = (data.variantOffers) ? Object.values(data.variantOffers).map(value => value.productId) : [];
-          const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : ((document.querySelector('img[class^="ProductPage__productImage"]')) ? document.querySelector('img[class^="ProductPage__productImage"]').getAttribute('src') : '');
-          const title = document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]') ? document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]').textContent : '';
-          const salePrice = (data.store && data.store.price && data.store.price.list) ? data.store.price.list : (document.querySelector('div[data-automation-id="old-price"]') ? document.querySelector('div[data-automation-id="old-price"]').textContent : '');
-          const listPrice = (data.store && data.store.price && data.store.price.previousPrice) ? data.store.price.previousPrice : (document.querySelector('div[data-automation-id="salePrice"]') ? document.querySelector('div[data-automation-id="salePrice"]').textContent : '');
+          const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : '';
+          const salePrice = (data.store && data.store.price && data.store.price.list) ? data.store.price.list : '';
+          const listPrice = (data.store && data.store.price && data.store.price.previousPrice) ? data.store.price.previousPrice : '';
           const available = (data.store && data.store.isInStock) ? data.store.isInStock : availableSelector();
           const pricePerUnit = (data.store && data.store.price && data.store.price.unit) ? data.store.price.unit : '';
           const pricePerUnitUOM = (data.store && data.store.price && data.store.price.displayUnitPrice) ? data.store.price.displayUnitPrice.split('/')[data.store.price.displayUnitPrice.split('/').length - 1] : '';
-
-          addHiddenDiv('iio_quantity', title);
 
           addHiddenDiv('iio_image', image);
 
@@ -164,7 +161,7 @@ module.exports = {
             addHiddenDiv(item.name, item.value);
           });
         }
-      }, inputs.id);
+      }, inputs.id, storeID);
     }
 
     const { productDetails } = dependencies;

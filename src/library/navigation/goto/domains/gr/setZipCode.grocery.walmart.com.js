@@ -14,6 +14,14 @@ module.exports = {
     let locationStreetAddress = '';
     let disabledContinueButton = false;
 
+    let zipcodeStreetAddress = '';
+
+    if (zipcode === '72758') {
+      zipcodeStreetAddress = '4208 Pleasant Crossing Blvd';
+    } else if (zipcode === '75204') {
+      zipcodeStreetAddress = '2305 N Central Expy';
+    }
+
     async function hasDisabledContinuedButton () {
       const hasIt = await context.evaluate(async function () {
         return document.querySelector('button[data-automation-id="locationFlyout-continueBtn"]').hasAttribute('disabled');
@@ -28,6 +36,7 @@ module.exports = {
         }
       });
       await context.waitForSelector('button[label="Change store"]');
+      // await context.click('button[label="Change store"]');
       await context.evaluate(async function () {
         const button = document.querySelector('button[label="Change store"]');
         if (button) {
@@ -60,7 +69,9 @@ module.exports = {
         await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
         await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-        await new Promise((resolve) => setTimeout(resolve, 15000));
+        // await new Promise((resolve) => setTimeout(resolve, 15000));
+        await context.waitForXPath('//div[contains(@data-automation-id,"changeStoreFulfillmentBannerBtn")]//span[contains(@class,"AddressPanel__addressLine")]/text()[contains(., "' + zipcodeStreetAddress + '")]');
+
         // await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]');
       }
     }
@@ -69,19 +80,11 @@ module.exports = {
       return document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]') ? document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]').textContent : '';
     });
 
-    let zipcodeStreetAddress = '';
-
-    if (zipcode === '72758') {
-      zipcodeStreetAddress = '4208 Pleasant Crossing Blvd';
-    } else if (zipcode === '75204') {
-      zipcodeStreetAddress = 'Neighborhood Market Dallas Store, 2305 N Central Expy';
-    }
-    console.log('locationStreetAddress123232');
+    console.log('locationStreetAddress value');
     console.log(locationStreetAddress);
     console.log(changedLocationStreetAddress);
 
-    // TODO: need to set this as input
-    if (!(changedLocationStreetAddress === zipcodeStreetAddress) && disabledContinueButton === false) {
+    if (!(changedLocationStreetAddress.includes(zipcodeStreetAddress) && disabledContinueButton === false)) {
       await changeLocation(zipcode);
       if (locationStreetAddress !== changedLocationStreetAddress) {
         await changeLocation(zipcode);
