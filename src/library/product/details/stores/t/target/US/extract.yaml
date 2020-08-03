@@ -36,12 +36,15 @@ fields:
   - name: sku
     singleValue: false
     xpath: //div[@class="sku"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="variantId"]
   - name: mpc
     singleValue: false
     xpath: //div[@class="mpc"]
-  - name: packSize
+  - name: size
     singleValue: false
-    xpath: //div[@class="packSize"]
+    xpath: //div[@class="size"]
   - name: name
     singleValue: false
     xpath: //div[@class="productName"]
@@ -60,6 +63,3 @@ fields:
   - name: driveAddress
     singleValue: false
     xpath: //div[@class="driveAddress"]
-  - name: promotionFlag
-    singleValue: false
-    xpath: //div[@class="promotionFlag"]

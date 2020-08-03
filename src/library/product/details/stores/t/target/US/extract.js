@@ -133,12 +133,6 @@ async function implementation (
 
     async function getProductInfo (variant, productName, variantCount = null) {
 
-      document.getElementById('mainContainer').querySelectorAll('li').forEach(e => {
-        if (e.querySelector('.sku').innerText === variant.tcin) {
-          e.remove();
-        }
-      });
-
       const newDiv = createListItem();
 
       addHiddenDiv(newDiv, 'productName', decodeHtml(productName));
@@ -174,6 +168,10 @@ async function implementation (
 
       if (variant.dpci) {
         addHiddenDiv(newDiv, 'variantId', variant.dpci);
+      }
+
+      if (variant.variation && variant.variation.size) {
+        addHiddenDiv(newDiv, 'size', variant.variation.size);
       }
 
       document.querySelector('div[data-test="breadcrumb"]').querySelectorAll('span[itemprop="name"]').forEach((e, ind) => {
@@ -222,7 +220,6 @@ async function implementation (
           }
         });
 
-      let promotionFlag = 'No';
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?key=eb2551e4accc14f38cc42d32fbc2b2ea' + storeString)
         .then(data => data.json())
         .then(variantData => {
@@ -239,8 +236,6 @@ async function implementation (
             }
           }
         });
-
-        addHiddenDiv(newDiv, 'promotionFlag', promotionFlag);
 
     }
 
@@ -261,28 +256,9 @@ async function implementation (
         parentData = res;
         origData = res;
         getProductInfo(res.product.item, res.product.item.product_description.title);
-        /*if (res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
-            parentId = res.product.item.parent_items;
-            getProductInfo(res.product.item, res.product.item.product_description.title);
-            await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test' + storeString)
-            .then(data => data.json())
-            .then(async function (parentRes) {
-              parentData = parentRes;
-              parentRes.product.item.child_items.forEach(variant => {
-                getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
-              });
-            });
-        } else if (res.product.item.child_items) {
-          for (const variant of res.product.item.child_items) {
-            getProductInfo(variant, res.product.item.product_description.title, res.product.item.child_items.length);
-          }
-        } else {
-          console.log('noVariants');
-          getProductInfo(res.product.item, res.product.item.product_description.title);
-        }*/
       });
 
-    await stall(3000);
+    await stall(2000);
   }, storeID, postalCode, storeName, address);
 
   await context.extract(productDetails, { transform });
