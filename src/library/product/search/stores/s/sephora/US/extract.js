@@ -49,6 +49,14 @@ async function implementation (
         recordADiv.appendChild(newDiv);
       }
     }
+
+    // debugger
+    // let noResultsXpath = '//h1//text()="0 Product results:"';
+    // var element = document.evaluate( noResultsXpath, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    // if( element.snapshotLength > 0 ) {
+    //   throw new Error("notFound");
+    // }
+
     const recordADiv = document.querySelector('div[data-comp="ProductGrid"] a')
     if(recordADiv){
       let xpathCheck = '//div[contains(@data-comp, "ProductGrid")]//a'
@@ -58,7 +66,7 @@ async function implementation (
           addHiddenDiv(`ii_aTag`, ' wuba', null, null, true);
   
       }
-      // let noResultsXpath = '//h1//text()="0 Product results:"';
+
       let brand = '//h1/a[contains(@data-comp,"Link Box")]/span'
       let price = '//div[contains(@data-comp,"Price Box")]/span[last()]'
       let image = '(//div[contains(@data-comp, "Carousel")]//img/@src)[1]'
@@ -67,10 +75,6 @@ async function implementation (
       let url = '//div[@id="ii_url"]'
       let listPrice = '//span[@data-at="price"]'
       let name = '//h1[contains(@data-comp, "DisplayName")]/span'
-      //   var element = document.evaluate( noResultsXpath, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      //   if( element.snapshotLength > 0 ) {
-      //     throw new Error("notFound");
-      //     }
       addHiddenDiv(`ii_url`, window.location.href);
   
       var brandElement = document.evaluate( brand, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);

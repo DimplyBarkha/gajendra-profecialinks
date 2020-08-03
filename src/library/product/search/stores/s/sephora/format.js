@@ -96,7 +96,7 @@ const transform = (data, context) => {
         let text = row.productUrl[0].text;
         let splits = text.split(" ");
         if(splits[0]){
-          let joins = "https://www.sephora.com/" + splits[0];
+          let joins = "https://www.sephora.com" + splits[0];
   
           if(joins){
             row.productUrl[0].text = joins;
@@ -105,14 +105,12 @@ const transform = (data, context) => {
       }
 
       if(row.id){
-        console.log("hello0")
         if(row.id[0].text){
           let text = row.id[0].text
           
           let sNum = text.match(/(s[0-9]+)/g);
           
           if(sNum){
-            console.log("hopefully1")
             console.log(sNum[0])
             let sNumm = sNum[0]
 
@@ -120,14 +118,12 @@ const transform = (data, context) => {
             if(num[0]){
               // console.log("TEXT HERE" + " " + num[0]);
               // row.id[0].text = text
-              console.log("hello2")
   
               row.id[0].text = num[0];
             }
           }
         }
       }
-      console.log("hello3")
 
 
       if (row.id && row.id[0]) {
