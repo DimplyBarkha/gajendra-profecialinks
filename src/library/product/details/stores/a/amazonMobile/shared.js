@@ -102,13 +102,6 @@ const transform = (data) => {
           item.text = `${item.text.replace(',', '')}`;
         });
       }
-      if (row.brandText) {
-        row.brandText.forEach(item => {
-          if (!item.text.includes('Brand')) {
-            item.text = `Brand: ${item.text}`;
-          }
-        });
-      }
       if (row.shippingDimensions) {
         row.shippingDimensions.forEach(item => {
           if (item.text.includes('ounces')) {
