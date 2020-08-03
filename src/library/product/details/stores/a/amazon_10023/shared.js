@@ -74,17 +74,6 @@ const transform = (data) => {
           },
         ];
       }
-      //   if (row.description) {
-      //     let text = '';
-      //     row.description.forEach(item => {
-      //       text += `${item.text.replace(/\n \n/g, ':')} || `;
-      //     });
-      //     row.description = [
-      //       {
-      //         text: cleanUp(text.slice(0, -4)),
-      //       },
-      //     ];
-      //   }
       if (row.variantAsins) {
         let text = '';
         row.variantAsins.forEach(item => {
@@ -163,22 +152,6 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.brandText) {
-        row.brandText.forEach(item => {
-          if (!item.text.includes('Brand:')) {
-            item.text = `Brand: ${item.text}`;
-          }
-        });
-      }
-      //   if (row.otherSellersShipping2) {
-      //     for (const item of row.otherSellersShipping2) {
-      //       if (item.text.toLowerCase().includes('free')) {
-      //         item.text = '0.00';
-      //       } else if (item.text.match(/\$([^\s]+)/)) {
-      //         item.text = item.text.match(/\$([^\s]+)/)[1];
-      //       }
-      //     }
-      //   }
       if (row.videoLength) {
         let text = '';
         row.videoLength.forEach(item => {
@@ -287,21 +260,6 @@ const transform = (data) => {
           item.text = item.text.trim().match(/"hiRes":"https:/g) ? item.text.trim().match(/"hiRes":"https:/g).length : 0;
         }
       }
-      //   if (row.otherSellersPrime) {
-      //     let text = '';
-      //     for (const item of row.otherSellersPrime) {
-      //       if (item.text.includes('Details')) {
-      //         text += 'Yes|';
-      //       } else {
-      //         text += 'No|';
-      //       }
-      //     }
-      //     row.otherSellersPrime = [
-      //       {
-      //         text: cleanUp(text.slice(0, -1)),
-      //       },
-      //     ];
-      //   }
       if (row.promotion) {
         row.promotion.forEach(item => {
           item.text = cleanUp(item.text);
