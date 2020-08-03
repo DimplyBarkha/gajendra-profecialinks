@@ -1,0 +1,20 @@
+robot: product/search
+parameters:
+  country: CA
+  domain: amazon.ca
+  store: amazonMsReviews
+  zipcode: ""
+proxy:
+  zone: ZCA
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_ca_reviews:
+      extractor: 4b01706e-81ae-40f3-a88b-8dcc4f171355
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 2f7a4339-1998-408f-8e55-84ef258c7181
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: 4de11f7c-167c-4dee-8d35-11b9be1f3aeb
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
