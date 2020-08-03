@@ -85,7 +85,7 @@ const transform = (data, context) => {
 
       if(row.thumbnail){
         let text = row.thumbnail[0].text;
-        let joins = "https://www.sephora.com/" + text;
+        let joins = "https://www.sephora.com" + text;
 
         if(joins){
           row.thumbnail[0].text = joins;
