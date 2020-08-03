@@ -16,8 +16,18 @@ module.exports = {
       // CODE TO SEARCH FOR API in response
       // const req = await context.searchForRequest(`grocery.walmart.com/v3/api/products/${inputs.id}`, 'GET', 0, 60);
       // const data = (req && req.status === 200 && req.responseBody && req.responseBody.body) ? JSON.parse(req.responseBody.body) : null;
-
-      await context.evaluate(async function getDataFromAPI (id) {
+      // console.log('INPUTS');
+      // console.log(inputs);
+      await context.waitForSelector('button[label="Change store"]');
+      await context.click('button[label="Change store"]');
+      const storeID = await context.evaluate(async function () {
+        const storeIDSplit = document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]') ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]').textContent.split('#') : [];
+        const storeID = storeIDSplit.length > 1 ? storeIDSplit[1] : '0';
+        return storeID;
+      });
+      await context.waitForSelector('button[data-automation-id="flyout-close"]');
+      await context.click('button[data-automation-id="flyout-close"]');
+      await context.evaluate(async function getDataFromAPI (id, storeID) {
         console.log('getDataFromAPI');
         let data = {};
         const iioObjects = [];
@@ -30,10 +40,13 @@ module.exports = {
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
         }
+        if (document.querySelector('button[label="Change store"]')) {
+          document.querySelector('button[label="Change store"]').click();
+        }
 
         console.log('waiting for api request....');
         // Default storeId=5260: As customer has been using this storeID for search feed.
-        const url = `https://www.walmart.com/grocery/v3/api/products/${id}?itemFields=all&storeId=5260`;
+        const url = `https://www.walmart.com/grocery/v3/api/products/${id}?itemFields=all&storeId=${storeID}`;
         var refURL = window.location.href;
 
         async function fetchItems (numberOfRetries = 0) {
@@ -97,15 +110,12 @@ module.exports = {
           const variantId = (data.detailed && data.detailed.productCode) ? data.detailed.productCode : '';
           const brandText = (data.detailed && data.detailed.brand) ? data.detailed.brand : '';
           const varianceList = (data.variantOffers) ? Object.values(data.variantOffers).map(value => value.productId) : [];
-          const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : ((document.querySelector('img[class^="ProductPage__productImage"]')) ? document.querySelector('img[class^="ProductPage__productImage"]').getAttribute('src') : '');
-          const title = document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]') ? document.querySelector('section[data-automation-id="productPage"] h1[data-automation-id="name"]').textContent : '';
-          const salePrice = (data.store && data.store.price && data.store.price.list) ? data.store.price.list : (document.querySelector('div[data-automation-id="old-price"]') ? document.querySelector('div[data-automation-id="old-price"]').textContent : '');
-          const listPrice = (data.store && data.store.price && data.store.price.previousPrice) ? data.store.price.previousPrice : (document.querySelector('div[data-automation-id="salePrice"]') ? document.querySelector('div[data-automation-id="salePrice"]').textContent : '');
+          const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : '';
+          const salePrice = (data.store && data.store.price && data.store.price.list) ? data.store.price.list : '';
+          const listPrice = (data.store && data.store.price && data.store.price.previousPrice) ? data.store.price.previousPrice : '';
           const available = (data.store && data.store.isInStock) ? data.store.isInStock : availableSelector();
           const pricePerUnit = (data.store && data.store.price && data.store.price.unit) ? data.store.price.unit : '';
           const pricePerUnitUOM = (data.store && data.store.price && data.store.price.displayUnitPrice) ? data.store.price.displayUnitPrice.split('/')[data.store.price.displayUnitPrice.split('/').length - 1] : '';
-
-          addHiddenDiv('iio_quantity', title);
 
           addHiddenDiv('iio_image', image);
 
@@ -151,7 +161,7 @@ module.exports = {
             addHiddenDiv(item.name, item.value);
           });
         }
-      }, inputs.id);
+      }, inputs.id, storeID);
     }
 
     const { productDetails } = dependencies;
