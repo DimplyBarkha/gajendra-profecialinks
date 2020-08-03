@@ -60,12 +60,22 @@ async function implementation (
     await context.click('button.CurrentModality-button');
     await new Promise((resolve) => setTimeout(resolve, 6000));
 
+    const refreshRequested = await context.evaluate(() => {
+      const refreshMsg = document.querySelector('p.kds-Paragraph.kds-Paragraph--m.kds-GlobalMessage-body.max-w-full.mb-0 span');
+      if (refreshMsg && refreshMsg.textContent === 'Please refresh your browser') {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
     const hasZipBtn = await context.evaluate(() => {
       return Boolean(document.querySelector('input[data-testid="PostalCodeSearchBox-input"]'));
     });
 
     console.log(hasZipBtn);
-    if (!hasZipBtn) {
+    console.log(`Refresh needed? ${refreshRequested}`);
+    if (!hasZipBtn || refreshRequested) {
       await context.goto('about:blank');
       await context.goto(url, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
       await context.click('button.CurrentModality-button');
@@ -77,13 +87,13 @@ async function implementation (
         await context.click('button.CurrentModality-button');
         await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
       });
-    await context.waitForSelector('button.kds-SolitarySearch-button', { timeout: 10000 });
+    await context.waitForSelector('button.kds-SolitarySearch-button', { timeout: 30000 });
 
     await context.click('button.kds-SolitarySearch-button');
-    await context.waitForSelector('button[aria-label="In-Store [object Object]   Select Store"]');
+    await context.waitForSelector('button[aria-label="In-Store [object Object]   Select Store"]', { timeout: 30000 });
 
-    await context.click('button[aria-label="In-Store [object Object]   Select Store"]', { timeout: 10000 });
-    await context.waitForSelector('div.ModalitySelector--StoreSearchResult', { timeout: 10000 });
+    await context.click('button[aria-label="In-Store [object Object]   Select Store"]');
+    await context.waitForSelector('div.ModalitySelector--StoreSearchResult', { timeout: 30000 });
 
     const desiredLocations = {
       45209: 'Hyde Park',
