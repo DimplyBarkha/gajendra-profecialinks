@@ -4,70 +4,75 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: _input
-    singleValue: true 
+    singleValue: false 
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //a[@id="product-image-link"]/img/@src
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: //a[@id="product-image-link"]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="fancybox-thumbs"]/ul/li/a/img/@src | //div[@id="more-images"]/a/img/@src
+    # xpath: //div[@id="fancybox-thumbs"]/ul/li/a/img/@src | //div[@id="more-images"]/a/img/@src
+    xpath: //div[@id="more-images"]/a/img/@src
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     xpath: /html/head/meta[@name="keywords"]/@content
   - name: _pageTimestamp
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="pd_pageTimestamp"]
   - name: url
-    singleValue: true
+    singleValue: false
     xpath: //meta[@itemprop="item"]/@content
   - name: category
     singleValue: false
     xpath: //ol[@class="breadcrumb"]
   - name: nameExtended
-    singleValue: true
-    xpath: //div[@id='pd_nameExtended']
+    singleValue: false
+    xpath: //span[@class='productDetails-name']
+    # xpath: //div[@id='pd_nameExtended']
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="prices"]/span[@class="sp2p normal-price-crossedout"]
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //div[@itemprop="offers"]/span[@class="normal-price"]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="pd_availabilityText"] | //div[@class="stock stock--available"]
   - name: description
-    singleValue: true
-    xpath: //span[@class="productDetails-name"] | //div[@class="content content--productDescription"]
+    singleValue: false
+    # xpath: //span[@class="productDetails-name"] | //div[@class="content content--productDescription"]
+    xpath: //div[@class="content content--productDescription"]
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: count(//div[@class="content content--productDescription"]/ul/li)
   - name: brandText
-    singleValue: true
-    xpath: //div[@id='pd_brandText']
+    singleValue: false
+    xpath: //span[@class='productDetails-name']
+    # xpath: //div[@id='pd_brandText']
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //span[@itemprop="brand"]
   - name: quantity
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="quantity-selectbox"]/div[@class="sbHolder"]/a[@class="sbSelector"]
   - name: weightNet
-    singleValue: true
+    singleValue: false
   - name: weightGross
-    singleValue: true
+    singleValue: false
   - name: gtin
-    singleValue: true
+    singleValue: false
     xpath: //span[@itemprop="gtin14"]
   - name: sku
-    singleValue: true
+    singleValue: false
   - name: variantId
-    singleValue: true
+    singleValue: false
+    xpath: //div[@id="pd_variantId"]
   - name: mpc
-    singleValue: true
+    singleValue: false
   - name: packSize
-    singleValue: true
+    singleValue: false
     xpath: //div[@id='pd_packSize']
   - name: legalDisclaimer
     singleValue: false
@@ -75,34 +80,39 @@ fields:
     singleValue: false
     xpath: //div[@id="pd_directions"]
   - name: warnings
-    singleValue: true
+    singleValue: false
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     xpath: //span[@itemprop="reviewCount"]
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
+    xpath: //div[@id='pd_aggregateRating']
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //div[@id='pd_aggregateRating']
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
   - name: shippingWeight
-    singleValue: true
+    singleValue: false
   - name: variantCount
-    singleValue: true
+    singleValue: false
   - name: color
-    singleValue: true
+    singleValue: false
   - name: colorCode
-    singleValue: true
+    singleValue: false
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
   - name: manufacturerImages
-    singleValue: true
+    singleValue: false
   - name: videos
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="content"]/iframe/@src
+    # xpath: //h2[text()="Video"]/following-sibling::*[1]/iframe/@src
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //span[@class="productDetails-name"]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id="more-images"]/a/img/@src)
