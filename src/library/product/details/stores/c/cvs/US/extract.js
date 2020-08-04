@@ -133,8 +133,18 @@ module.exports = {
         for(let i = 0; i < variants.length; i++ ){
 
           const html = await context.evaluate(async function getEnhancedContent(variants, i) {
+
             async function fetchRetry(url, n) {
-              let fetched = fetch(url).then(response => response.text()).catch(function(error) {
+              function handleErrors(response) {
+                if (response.status === 200){
+                  return response;
+                } else {
+                  console.log("FETCH FAILED")
+                  if (n === 1) return "Nothing Found";
+                  return fetchRetry(url, n - 1);
+                }
+            }
+              let fetched = fetch(url).then(handleErrors).then(response => response.text()).catch(function(error) {
                   console.log("FETCH FAILED")
                   if (n === 1) return "Nothing Found";
                   return fetchRetry(url, n - 1);
@@ -315,6 +325,7 @@ module.exports = {
                         // deets = deets.replace(/\"/g, " ");
                         addHiddenDiv('ii_warnings', `${deets}`, newDiv); 
                       }
+
                       if(variant.p_Product_Ingredients){
                         let deets = variant.p_Product_Ingredients;
                         const regex = /<li>(.*?)<\/li>/g
@@ -362,8 +373,9 @@ module.exports = {
                           addHiddenDiv('ii_directions', `${deets}`, newDiv); 
 
                         }
-                 
                       }
+
+
                       addHiddenDiv('ii_id', variant.p_Sku_ID, newDiv);
                       skuArray.push(variant.p_Sku_ID);
                       addHiddenDiv('ii_quantity', variant.p_Sku_Size, newDiv);  
