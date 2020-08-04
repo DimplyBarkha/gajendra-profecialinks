@@ -37,6 +37,10 @@ const transform = (data) => {
         delete row.directionsTitle;
         delete row.servingSuggest;
       }
+
+      if (row.description) {
+        row.additionalDescBulletInfo = row.description;
+      }
     }
   }
   return data;
