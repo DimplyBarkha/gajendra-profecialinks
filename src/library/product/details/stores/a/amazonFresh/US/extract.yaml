@@ -389,8 +389,8 @@ fields:
     xpath: //tr[contains(@id, 'almDetailPagePrice_buying_price')]//span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
-    # xpath: //div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
+    # xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
+    xpath: //div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li|//tr[contains(@id, "almDetailPagePrice_savings_price")]
   - name: alcoholContent
     singleValue: true
