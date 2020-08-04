@@ -5,6 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
+    xpath: (//div[@class="product-pics__container"]//img/@src)[1]
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
@@ -20,13 +21,16 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
+    xpath: //h1[@class='product-header__name']
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
+    xpath: //span[@class="buybox__price-strikethrough"]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
+    xpath: //span[@class="buybox__price"] | //span[@class="buybox__price--current"]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText

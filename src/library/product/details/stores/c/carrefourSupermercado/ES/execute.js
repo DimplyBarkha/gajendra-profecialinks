@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'carrefourSupermercado',
     domain: 'carrefour.es',
-    loadedSelector: null,
+    loadedSelector: "h1[class='product-header__name']",
     noResultsXPath: null,
     zipcode: '',
   },
