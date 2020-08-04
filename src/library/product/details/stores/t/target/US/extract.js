@@ -159,24 +159,27 @@ async function implementation (
       let splitUrl = window.location.href.split('-');
       id = splitUrl[splitUrl.length - 1];
     }
-    await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + id + '/index.html')
-      .then(async function (response) {
-        const sometext = await response.text();
-        const startText = '<body>';
-        const endText = '</body>';
-        const startIx = sometext.indexOf(startText);
-        const endIx = sometext.indexOf(endText, startIx);
-        console.log('start: ' + startIx);
-        console.log('end: ' + endIx);
-        const bodyContent = sometext.substring(startIx + startText.length, endIx);
-        const wrapper = document.createElement('div');
-        wrapper.id = 'frameContents';
-        wrapper.innerHTML = bodyContent;
-        document.body.appendChild(wrapper);
-    });
-    console.log('salsifyContentz', id, document.getElementById('frameContents').innerHTML);
+
 
     async function getProductInfo (variant, productName, variantCount = null) {
+
+
+      await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + variant.tcin + '/index.html')
+        .then(async function (response) {
+          const sometext = await response.text();
+          const startText = '<body>';
+          const endText = '</body>';
+          const startIx = sometext.indexOf(startText);
+          const endIx = sometext.indexOf(endText, startIx);
+          console.log('start: ' + startIx);
+          console.log('end: ' + endIx);
+          const bodyContent = sometext.substring(startIx + startText.length, endIx);
+          const wrapper = document.createElement('div');
+          wrapper.id = 'frameContents' + variant.tcin;
+          wrapper.innerHTML = bodyContent;
+          document.body.appendChild(wrapper);
+          console.log('fetchFrame', variant.tcin, bodyContent);
+      });
 
       document.getElementById('mainContainer').querySelectorAll('li').forEach(e => {
         if (e.querySelector('.sku').innerText === variant.tcin) {
@@ -620,7 +623,7 @@ async function implementation (
       let manufacturerDesc = '';
       const manufacturerImgs = [];
       const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
-      const frameContents = document.getElementById('frameContents');
+      const frameContents = document.getElementById('frameContents' + variant.tcin);
       if (frameContents && frameContents.querySelector('#salsify-content')) {
         await stall(2000);
         manufacturerDesc = frameContents.innerText;
@@ -832,21 +835,21 @@ async function implementation (
             .then(data => data.json())
             .then(async function (parentRes) {
               parentData = parentRes;
-              parentRes.product.item.child_items.forEach(variant => {
-                getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
+              parentRes.product.item.child_items.forEach(async (variant) => {
+                await getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
               });
             });
         } else if (res.product.item.child_items) {
           for (const variant of res.product.item.child_items) {
-            getProductInfo(variant, res.product.item.product_description.title, res.product.item.child_items.length);
+            await getProductInfo(variant, res.product.item.product_description.title, res.product.item.child_items.length);
           }
         } else {
           console.log('noVariants');
-          getProductInfo(res.product.item, res.product.item.product_description.title);
+          await getProductInfo(res.product.item, res.product.item.product_description.title);
         }
       });
 
-    await stall(25000);
+    await stall(20000);
   });
 
   await context.extract(productDetails, { transform });
