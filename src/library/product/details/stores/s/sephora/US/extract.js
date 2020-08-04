@@ -18,7 +18,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
-      let directions = '//span[contains(., "How to Use")]'
+      // let directions = '//span[contains(., "How to Use")]'
       // const element = document.querySelectorAll("script[type='application/ld+json']");
       // let variantObj;
       // let variantSkuArray = [];
