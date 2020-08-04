@@ -49,6 +49,18 @@ const transform = (data) => {
           }
         }
       }
+
+      if (row.allergyAdvice) {
+        let text = '';
+        row.allergyAdvice.forEach(item => {
+          text += `${item.text},`;
+        });
+        row.allergyAdvice = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
     }
   }
   return data;

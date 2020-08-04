@@ -21,6 +21,9 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::*[(following-sibling::p and preceding-sibling::h5) or following-sibling::h2]
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::*[(following-sibling::p and preceding-sibling::h5) or following-sibling::h2]/strong
   - name: brandText
     singleValue: false
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Brand:')]/following-sibling::td
