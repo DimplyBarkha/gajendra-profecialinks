@@ -243,32 +243,9 @@ async function implementation (
     await new Promise(r => setTimeout(r, 5000));
   }
 
-  // async function setLocaleAgain (url, zipcode) {
-  //   async function checkAddress () {
-  //     console.log('checkAddress() in  progress');
-  //     await new Promise(resolve => setTimeout(resolve, 5000));
-  //     return await context.evaluate(function () {
-  //       console.log(document.querySelector('div#nav-global-location-slot'));
-  //       if (document.querySelector('div#nav-global-location-slot')) {
-  //         console.log(document.querySelector('div#nav-global-location-slot').innerText);
-  //         return document.querySelector('div#nav-global-location-slot').innerText.includes('90210') !== false;
-  //       }
-  //       return false;
-  //     });
-  //   }
-
-  //   const shouldChangeAddress = await checkAddress();
-
-  //   if (shouldChangeAddress === true) {
-  //     return;
-  //   }
-
-  //   if (zipcode) {
-  //     await dependencies.setZipCode({ url, zipcode});
-  //   }
-  // }
-
   async function addUrl (parentInput) {
+    // console.log('Parent Input');
+    // console.log(parentInput);
     await context.evaluate(async function (parentInput) {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -285,124 +262,20 @@ async function implementation (
       if (parentInput) {
         addHiddenDiv('added-parentInput', parentInput);
       }
-    });
+    }, parentInput);
   }
 
   // await setLocale();
   // @ts-ignore
-  // async function getVariants () {
-  //   const variants = await context.evaluate(function () {
-  //     const variantList = [];
-  //     const variantCards = document.querySelectorAll('li[data-defaultasin]');
-  //     const variantDropdown = document.querySelectorAll('[id*="variation"] option');
-  //     const variantBooks = document.querySelectorAll('[id*="Swatches"]>ul>li a[id][href*="dp"]');
-  //     // const parentVariant = document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null) ? document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null).iterateNext() : null;
-  //     // if(parentVariant){
-  //     //   const regex = /parentAsin\"\:\"([A-Za-z0-9]{10,})/s;
-  //     //   let vasinRaw = parentVariant.innerText;
-  //     //   const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
-  //     //   if(vasin !== ''){
-  //     //     variantList.push(vasin);
-  //     //     }
-  //     // }
-  //     if (variantBooks) {
-  //       for (let i = 0; i < variantBooks.length; i++) {
-  //         const element = variantBooks[i];
-  //         if (element == null) {
-  //           continue;
-  //         }
-  //         const vasinRaw = element.getAttribute('href');
-  //         if (vasinRaw !== '') {
-  //           const regex = /\/dp\/([A-Za-z0-9]{10,})/s;
-  //           const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
-  //           if (vasin !== '') {
-  //             variantList.push(vasin);
-  //           }
-  //         }
-  //       }
-  //     }
-  //     if (variantDropdown) {
-  //       for (let i = 0; i < variantDropdown.length; i++) {
-  //         const element = variantDropdown[i];
-  //         if (element == null) {
-  //           continue;
-  //         }
-  //         const vasinRaw = element.getAttribute('value');
-  //         if (vasinRaw !== '') {
-  //           const regex = /[0-9]{1,},([0-9a-zA-Z]{10,})/s;
-  //           const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
-  //           if (vasin !== '') {
-  //             variantList.push(vasin);
-  //           }
-  //         }
-  //       }
-  //     }
-  //     if (variantCards) {
-  //       for (let i = 0; i < variantCards.length; i++) {
-  //         const element = variantCards[i];
-  //         if (element == null) {
-  //           continue;
-  //         }
-  //         const vasin = element.getAttribute('data-defaultasin');
-  //         if (vasin !== '') {
-  //           variantList.push(vasin);
-  //         }
-  //       }
-  //     }
-  //     return variantList;
-  //   });
-  //   return variants;
-  // };
-  // await new Promise(resolve => setTimeout(resolve, 5000));
-  // await setLocale();
-  // // await setLocaleAgain();
-  // console.log('getting variants');
-  // const allVariants = [...new Set(await getVariants())];
-  // await new Promise(resolve => setTimeout(resolve, 5000));
-  // await loadAllResources();
-  // // const productID = inputs.id;
-  // addUrl(parentInput);
-  // console.log('autoscroll end');
-  // await context.extract(productDetails, { transform, type: 'APPEND' });
-  // console.log('#### of Variants:', allVariants.length);
-  // console.log('#### Variants:', allVariants);
-  // for (let i = 0; i < allVariants.length; i++) {
-  //   const id = allVariants[i];
-  //   const url = await dependencies.createUrl({ id });
-  //   await dependencies.goto({ url });
-  //   await new Promise(resolve => setTimeout(resolve, 4000));
-  //   await setLocale();
-  //   // await setLocaleAgain();
-  //   await new Promise(resolve => setTimeout(resolve, 2000));
-  //   if (allVariants.length >= 5) {
-  //     await loadAllResources(10000);
-  //   } else {
-  //     await loadAllResources();
-  //   }
-  //   console.log('autoscroll end');
-  //   addUrl(parentInput);
-  //   // await new Promise(resolve => setTimeout(resolve, 2000));
-  //   await context.extract(productDetails, { transform, type: 'APPEND' });
-  //   const pageVariants = await getVariants();
-  //   console.log('#### of Variants:', allVariants.length);
-  //   console.log('#### Variants:', allVariants);
-  //   for (let j = 0; j < pageVariants.length; j++) {
-  //     const pageVariant = pageVariants[j];
-  //     if (allVariants.indexOf(pageVariant) === -1) {
-  //       allVariants.push(pageVariant);
-  //       console.log('new variant: ' + pageVariant);
-  //       console.log(allVariants);
-  //     }
-  //   }
-  // }
-  // return await context.extract(productDetails, { transform });
+
   await new Promise(resolve => setTimeout(resolve, 5000));
   await setLocale();
   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
   console.log('getting variants');
   // const allVariants = [...new Set(await getVariants())];
+  // await new Promise(resolve => setTimeout(resolve, 5000));
   await loadAllResources();
-  await context.evaluate(addUrl);
+  addUrl(parentInput);
   console.log('autoscroll end');
 
   return await context.extract(productDetails, { transform });
