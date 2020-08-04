@@ -41,6 +41,14 @@ const transform = (data) => {
       if (row.description) {
         row.additionalDescBulletInfo = row.description;
       }
+
+      if (row.availabilityText) {
+        for (const item of row.availabilityText) {
+          if (item.text.includes('Out of Stock')) {
+            delete row.price;
+          }
+        }
+      }
     }
   }
   return data;
