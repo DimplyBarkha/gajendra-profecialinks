@@ -53,7 +53,11 @@ async function implementation (
           }
 
           const newDiv = createListItem();
-          addHiddenDiv(newDiv, 'productId', product.tcin);
+          if(product.representative_child_part_number) {
+            addHiddenDiv(newDiv, 'productId', product.representative_child_part_number);
+          } else {
+            addHiddenDiv(newDiv, 'productId', product.tcin);
+          }
 
           addHiddenDiv(newDiv, 'productName', decodeHtml(product.title));
           if (product.is_sponsored_sku) {
