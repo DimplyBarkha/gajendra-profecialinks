@@ -69,33 +69,11 @@ async function implementation (
     }
   });
 
-  await context.goto('https://redsky.target.com/v3/stores/nearby/' + postalCode + '?key=eb2551e4accc14f38cc42d32fbc2b2ea&limit=20&within=100&unit=mile',  { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-
-  const locationData = await context.evaluate(function(storeId) {
-    let driveAddress = '';
-    let drive = '';
-    let onlineStore = '';
-    const data = JSON.parse(document.body.innerText);
-    if (data && data.length && data[0].locations) {
-      const filterStores = data[0].locations.filter(store => store.location_id === Number(storeId));
-      if (filterStores.length) {
-        if (filterStores[0].address) {
-          driveAddress = filterStores[0].address.address_line1 + ", " + filterStores[0].address.city + ", " + filterStores[0].address.region + " " + filterStores[0].address.postal_code;
-          drive = filterStores[0].address.postal_code;
-        }
-        if (filterStores[0].location_names && filterStores[0].location_names.length) {
-          onlineStore = filterStores[0].location_names[0].name;
-        }
-      }
-    }
-    return {driveAddress, drive, onlineStore};
-  }, storeId)
-
   await context.goto('https://www.target.com' + productUrl,  { timeout: 30000, waitUntil: 'load', checkBlocked: true });
 
   await context.waitForXPath("//h1[@data-test='product-title']");
 
-  await context.evaluate(async function (storeId, postalCode, locationData) {
+  await context.evaluate(async function (storeId, postalCode) {
     let parentData = {};
     let origData = {};
 
@@ -157,9 +135,22 @@ async function implementation (
 
       const newDiv = createListItem();
 
-      addHiddenDiv(newDiv, 'driveAddress', locationData.driveAddress);
-      addHiddenDiv(newDiv, 'drive', locationData.drive);
-      addHiddenDiv(newDiv, 'onlineStore', locationData.onlineStore);
+      await fetch('https://redsky.target.com/v3/stores/nearby/' + postalCode + '?key=eb2551e4accc14f38cc42d32fbc2b2ea&limit=20&within=100&unit=mile')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length && data[0].locations) {
+          const filterStores = data[0].locations.filter(store => store.location_id === Number(storeId));
+          if (filterStores.length) {
+            if (filterStores[0].address) {
+              addHiddenDiv(newDiv, 'driveAddress', filterStores[0].address.address_line1 + ", " + filterStores[0].address.city + ", " + filterStores[0].address.region + " " + filterStores[0].address.postal_code);
+              addHiddenDiv(newDiv, 'drive', filterStores[0].address.postal_code);
+            }
+            if (filterStores[0].location_names && filterStores[0].location_names.length) {
+              addHiddenDiv(newDiv, 'onlineStore', filterStores[0].location_names[0].name);
+            }
+          }
+        }
+      });
 
       addHiddenDiv(newDiv, 'productName', decodeHtml(productName));
 
@@ -283,7 +274,7 @@ async function implementation (
         }
       });
 
-  }, storeId, postalCode, locationData);
+  }, storeId, postalCode);
   await stall(3000);
   await context.extract(productDetails, { transform });
 }
