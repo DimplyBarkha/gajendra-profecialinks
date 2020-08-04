@@ -35,27 +35,7 @@ async function implementation (
 
   await context.goto(currentUrl);*/
 
-  await context.waitForXPath('//button[@data-test="storeId-utilityNavBtn"]');
-
-  await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    document.getElementById('storeId-utilityNavBtn').click();
-    await stall(1000);
-  });
-  await context.setInputValue('#zipOrCityState', zipcode);
-  await context.evaluate(async function () {
-    document.querySelector('button[data-test="storeLocationSearch-button"]').click();
-  });
-  await context.waitForXPath("//button[@data-test='storeId-listItem-setStore']");
-  await context.evaluate(function (storeId) {
-
-    document.querySelectorAll('.StoreIdSearchBlock__SpacingWrapper-blkcp3-1').forEach(e => {
+  await context.evaluate(async function (zipcode, storeId) {
 
       function addHiddenDiv(text, id) {
         const newDiv = document.createElement('div');
@@ -65,22 +45,11 @@ async function implementation (
         document.getElementById('skipLinks').appendChild(newDiv);
       }
 
-      let zipCode = '';
-      let storeName = '';
-      if(e.getAttribute('data-test') === 'storeIdSearch-item-' + storeId) {
-        const splitStoreInfo = e.querySelector('.h-text-grayMedium').innerText.split(' ');
-        zipCode = splitStoreInfo[splitStoreInfo.length - 1];
-        storeName = e.querySelector('h3').innerText;
-        e.querySelector('button[data-test="storeId-listItem-setStore"]').click();
-        addHiddenDiv(storeId, 'storeId');
-        addHiddenDiv(zipCode, 'zipCode');
-        addHiddenDiv(storeName, 'storeName');
-        addHiddenDiv(e.querySelector('.h-text-grayMedium').innerText, 'address');
-      }
+      addHiddenDiv(zipcode, 'zipCode');
+      addHiddenDiv(storeId, 'storeId');
 
-    });
 
-  }, storeId);
+  }, zipcode, storeId);
 
   /*await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {

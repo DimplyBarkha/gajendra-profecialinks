@@ -8,20 +8,12 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  const storeID = await context.evaluate(async function() {
+  const storeId = await context.evaluate(async function() {
     return document.getElementById('storeId') ? document.getElementById('storeId').innerText : "";
   });
 
   const postalCode = await context.evaluate(async function() {
-    return document.getElementById('storeId') ? document.getElementById('zipCode').innerText : "";
-  });
-
-  const storeName = await context.evaluate(async function() {
-    return document.getElementById('storeId') ? document.getElementById('storeName').innerText : "";
-  });
-
-  const address = await context.evaluate(async function() {
-    return document.getElementById('storeId') ? document.getElementById('address').innerText : "";
+    return document.getElementById('zipCode') ? document.getElementById('zipCode').innerText : "";
   });
 
   const currentUrl = await context.evaluate(function() {
@@ -73,7 +65,7 @@ async function implementation (
 
   await context.waitForXPath("//h1[@data-test='product-title']");
 
-  await context.evaluate(async function (storeID, postalCode, storeName, address) {
+  await context.evaluate(async function (storeId, postalCode) {
     let parentData = {};
     let origData = {};
 
@@ -135,6 +127,20 @@ async function implementation (
 
       const newDiv = createListItem();
 
+      await fetch('https://redsky.target.com/v3/stores/nearby/' + postalCode + '?key=eb2551e4accc14f38cc42d32fbc2b2ea&limit=20&within=100&unit=mile')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length && data[0].locations) {
+          const filterStores = data[0].locations.filter(store => store.location_id === Number(storeId));
+
+          if (filterStores.length) {
+            addHiddenDiv(newDiv, 'driveAddress', filterStores[0].address.address_line1 + ", " + filterStores[0].address.city + ", " + filterStores[0].address.region + " " + filterStores[0].address.postal_code);
+            addHiddenDiv(newDiv, 'onlineStore', filterStores[0].location_names[0].name);
+            addHiddenDiv(newDiv, 'drive', filterStores[0].address.postal_code);
+          }
+        }
+      });
+
       addHiddenDiv(newDiv, 'productName', decodeHtml(productName));
 
       let secondaryImages = [];
@@ -180,12 +186,9 @@ async function implementation (
         }
       });
 
-      addHiddenDiv(newDiv, 'retailerId', storeID);
-      addHiddenDiv(newDiv, 'drive', postalCode);
-      addHiddenDiv(newDiv, 'driveAddress', address);
-      addHiddenDiv(newDiv, 'onlineStore', storeName);
+      addHiddenDiv(newDiv, 'retailerId', storeId);
 
-      const storeString = "&pricing_store_id=" + storeID + "&storeId=" + storeID + "&store_id=" + storeID;
+      const storeString = "&pricing_store_id=" + storeId + "&storeId=" + storeId + "&store_id=" + storeId;
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&fulfillment_test_mode=grocery_opu_team_member_test' + storeString)
         .then(data => data.json())
         .then(availabilityData => {
@@ -244,7 +247,7 @@ async function implementation (
     newDiv.style.display = 'none';
     document.body.appendChild(newDiv);
 
-    const storeString = "&pricing_store_id=" + storeID + "&storeId=" + storeID + "&store_id=" + storeID;
+    const storeString = "&pricing_store_id=" + storeId + "&storeId=" + storeId + "&store_id=" + storeId;
     const splitUrl = window.location.href.split('-');
     const fUrl = 'https://redsky.target.com/v3/pdp/tcin/';
     const urlVars = '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test' + storeString;
@@ -259,7 +262,7 @@ async function implementation (
       });
 
     await stall(2000);
-  }, storeID, postalCode, storeName, address);
+  }, storeId, postalCode);
 
   await context.extract(productDetails, { transform });
 }
