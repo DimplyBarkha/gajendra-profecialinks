@@ -51,14 +51,12 @@ module.exports = {
         const otherSellersPrime = otherSellersDocument.querySelectorAll(sellerPrimeSelector);
         otherSellersPrime.length && otherSellersPrime.forEach(prime => {
           if (isNavigated) {
-            console.log('in navigation', isNavigated);
             if (prime.querySelector('i.a-icon-prime')) {
               sellerPrime.push('Yes');
             } else {
               sellerPrime.push('No');
             }
           } else {
-            console.log('no navigation', isNavigated);
             if (prime.includes('Details')) {
               sellerPrime.push('Yes');
             } else {
@@ -159,7 +157,6 @@ module.exports = {
             if (currentPos < pos) {
               var t = 10;
               for (let i = currentPos; i <= pos; i += 10) {
-                console.log('Scrolling');
                 t += 10;
                 setTimeout(function () {
                   window.scrollTo(0, i);
