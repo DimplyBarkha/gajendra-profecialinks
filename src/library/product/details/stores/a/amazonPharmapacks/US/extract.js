@@ -125,22 +125,36 @@ module.exports = {
     const mainURL = await context.evaluate(function () {
       return document.URL;
     });
-
+    console.log('Executing navigation to sellers check');
+    // Navigation related code 
     try {
       console.log('Executing navigation to sellers');
+      await context.waitForSelector('span[data-action="show-all-offers-display"]', { timeout: 30000 });
       const navigateLink = await context.evaluate(function () {
-        return document.querySelector('span[data-action="show-all-offers-display"] > a').href;
+        let showAllOffer = document.querySelector('span[data-action="show-all-offers-display"] > a');
+        let mbcLink = document.querySelector('#mbc-olp-link > a');
+        let idCapturedLink = document.querySelector('#olp-new span[data-action="show-all-offers-display"] a');
+        if(showAllOffer){
+          return  showAllOffer.href
+        } else if(mbcLink){
+          return  mbcLink.href
+        }else if(idCapturedLink){
+          return  idCapturedLink.href
+        }
+        // return document.querySelector('#olp-new span[data-action="show-all-offers-display"] a, span[data-action="show-all-offers-display,#mbc-olp-link > a ').href;
       });
+
       console.log('navigateLink' + navigateLink);
       await context.goto(navigateLink, {
         timeout: 20000, waitUntil: 'load', checkBlocked: true,
       });
+
       console.log('Done navigation to sellers');
 
       const otherSellersTable = await context.evaluate(function () {
         return document.getElementById('olpOfferList').innerHTML;
       });
-      console.log('otherSellersTable' + otherSellersTable);
+      console.log('Got otherSellersTable here');
       console.log('mainURL' + mainURL);
       await context.goto(mainURL, {
         timeout: 10000,
@@ -151,11 +165,11 @@ module.exports = {
         random_move_mouse: true,
       });
       await context.evaluate(function (eleInnerHtml) {
-        const cloneNode = document.createElement('div');
-        cloneNode.innerHTML = eleInnerHtml;
-        document.querySelector('span[data-action="show-all-offers-display"]').appendChild(cloneNode);
         const addonSectionEle = document.querySelector('#moreBuyingChoices_feature_div > div > #mbc-action-panel-wrapper');
         addonSectionEle.parentNode.removeChild(addonSectionEle);
+        const cloneNode = document.createElement('div');
+        cloneNode.innerHTML = eleInnerHtml;
+        document.querySelector('#moreBuyingChoices_feature_div > div.a-section.a-spacing-medium.a-spacing-top-base').appendChild(cloneNode);
       }, otherSellersTable);
     } catch (err) {
       console.log('Additional other sellers error -' + JSON.stringify(err));

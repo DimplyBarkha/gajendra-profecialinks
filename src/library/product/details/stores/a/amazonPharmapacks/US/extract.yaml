@@ -161,9 +161,9 @@ fields:
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
-    xpath: //span[contains(@class,'mbcMerchantName')] | //div[@id="merchant-info"]/a | //div[contains(@class,'a-row')]/div[contains(@class,'Seller')]/h3/span
+    xpath: //div[@class="a-column a-span2 olpSellerColumn"]/h3//a
   - name: otherSellersPrice
-    xpath: //span[contains(@class,'mbcMerchantName')]/parent::div/preceding-sibling::div//span[contains(@id,'mbc-price')] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]/span
+    xpath: //span[contains(@class,'mbcMerchantName')]/parent::div/preceding-sibling::div//span[contains(@id,'mbc-price')] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]/span[1]
   - name: otherSellersShipping2
     xpath: //span[contains(@id, "mbc-shipping")] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]/p
   - name: otherSellersPrime
