@@ -134,7 +134,6 @@ const transform = (data) => {
       }
       if (row.packSize) {
         const item = row.packSize.length > 1 ? row.packSize[1] : row.packSize[0];
-        console.log('itrm---->', item);
         if (/.*?(\d+)-Pack.*/i.test(item.text)) {
           item.text = item.text.replace(/.*?(\d+)-Pack.*/i, '$1');
         } else if (/.*pack of\s*(\d+).*/i.test(item.text)) {

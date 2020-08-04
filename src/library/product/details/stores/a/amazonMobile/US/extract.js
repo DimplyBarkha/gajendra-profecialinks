@@ -56,29 +56,23 @@ module.exports = {
           }
         });
         sellerNames.length && addElementToDocument('pd_otherSellerName', sellerNames.join('|'));
-
-        // const sellerPrices = [];
         const otherSellersPrice = otherSellersDocument.querySelectorAll(sellerPricesSelector);
         otherSellersPrice.length && otherSellersPrice.forEach(price => {
           if (price.innerText) {
-            // sellerPrices.push(price.innerText.trim().replace('$', ''));
             addElementToDocument('pd_otherSellersPrice', price.innerText.trim().replace('$', ''));
           }
         });
-        // sellerPrices && addElementToDocument('pd_otherSellersPrice', sellerPrices.join('|'));
 
         const sellerPrime = [];
         const otherSellersPrime = otherSellersDocument.querySelectorAll(sellerPrimeSelector);
         otherSellersPrime.length && otherSellersPrime.forEach(prime => {
           if (isNavigated) {
-            console.log('in navigation', isNavigated);
             if (prime.querySelector('i.a-icon-prime')) {
               sellerPrime.push('Yes');
             } else {
               sellerPrime.push('No');
             }
           } else {
-            console.log('no navigation', isNavigated);
             if (prime.includes('Details')) {
               sellerPrime.push('Yes');
             } else {
