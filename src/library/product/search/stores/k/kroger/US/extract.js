@@ -36,7 +36,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'kroger',
-    transform: transform,
+    transform,
     domain: 'kroger.com',
   },
   implementation,
