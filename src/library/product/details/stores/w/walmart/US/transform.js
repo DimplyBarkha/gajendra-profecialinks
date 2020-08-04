@@ -14,9 +14,9 @@ const transform = (data, context) => {
     .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/(<([^>]+)>)/ig, '');
-
-  const regexp = '(?:([\\d\\.]+)\\s?(\\w+))';
+    .replace(/(<([^>]+)>)/ig, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  const regexp = '(?:(<?\\s?[\\d\\.]+)\\s?(\\w*))';
   function getSplitValue (inputStr, count) {
     if (inputStr) {
       const result = inputStr.match(regexp);
@@ -39,17 +39,23 @@ const transform = (data, context) => {
         if (row.variantId) {
           row.productUrl = [{ text: `https://www.walmart.com/ip/${row.variantId[0].text}` }];
         }
-
+        if (row.lbb) {
+          if (row.lbb[0] && row.lbb[0].text.includes('Walmart')) {
+            row.lbb = [{ text: 'No' }];
+          } else {
+            row.lbb = [{ text: 'Yes' }];
+          }
+        }
         if (row.lbb && row.lbb[0].text.includes('Yes') && row.price) {
           row.lbbPrice = [{ text: row.price[0].text.trim() }];
         }
-
-        if (row.shippingInfo) {
-          if (row.shippingInfo[0].text.includes('Walmart')) {
-            row.lbb = [{ text: 'No' }];
-          }
+        if (row.shippingInfo && row.shippingInfo[0].text !== '') {
+          row.shippingInfo = [{ text: row.shippingInfo[0].text.trim().replace('Walmart.com', 'Walmart') }];
+        } else
+        if (row.shippingInfo1) {
+          row.shippingInfo = [{ text: row.shippingInfo1[0].text.replace('"sellerDisplayName":"', '').replace('","showSold', '').replace('Walmart.com', 'Walmart') }];
         }
-        if (row.shippingInfo && (!row.otherSellersName || (row.otherSellersName && row.otherSellersName[0].text != 'Walmart' && !row.otherSellersName[0].text.includes(row.shippingInfo[0].text)))) {
+        if (row.shippingInfo && (!row.otherSellersName || (row.otherSellersName && row.otherSellersName[0].text !== 'Walmart' && !row.otherSellersName[0].text.includes(row.shippingInfo[0].text)))) {
           if (row.otherSellersName && row.otherSellersName.length > 0) {
             row.otherSellersName.unshift({ text: row.shippingInfo[0].text.trim() });
           } else {
@@ -75,14 +81,38 @@ const transform = (data, context) => {
             });
           }
         }
+        if (row.otherSellersShipping2) {
+          row.otherSellersShipping2.forEach(item => {
+            item.text = item.text.split('$').length > 1 ? item.text.split('$')[1] : item.text;
+            item.text = item.text.replace('Free', '0').replace(' delivery', '').replace('0.00', '0').replace('0', '0.00');
+          });
+        }
+        if (row.description) {
+          row.description = [{ text: row.description[0].text.replace(/\n \n/g, ' || ') }];
+          if (row.description[0].text.includes('Specifications')) {
+            row.Specifications = [{ text: row.description[0].text.split('Specifications')[1].replace(' || ', '') }];
+          }
+        }
+
+        if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
+          row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+        }
         if (row.availabilityText) {
-          row.availabilityText = [{ text: row.availabilityText[0].text.replace('IN_STOCK', 'In Stock').replace('OUT_OF_STOCK', 'Out of stock') }];
+          row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];
+          if (row.availabilityMessage && row.availabilityMessage[0].text.includes('in-store purchase only')) {
+            row.availabilityText = [{ text: 'In stores only' }];
+          }
         } else if (row.availabilityMessage) {
-          row.availabilityText = [{ text: row.availabilityMessage[0].text }];
+          if (row.availabilityMessage && row.availabilityMessage.includes('Price for in-store purchase only')) {
+            row.availabilityText = [{ text: 'In stores only' }];
+          } else {
+            row.availabilityText = [{ text: row.availabilityText[0].text }];
+          }
         }
         if (row.variantInformation) {
           let text = '';
           row.variantInformation.forEach(item => {
+            // eslint-disable-next-line no-control-regex
             const splits = item.text.replace(/\"/g, '').replace('}', '').split(':');
             text += `${splits[splits.length - 1].replace('actual_color-', '')} | `;
           });
@@ -187,10 +217,26 @@ const transform = (data, context) => {
               row.proteinPerServingUom = [{ text: getSplitValue(proteinPerServing, 2) }];
             }
             if (info && info.nutritionFacts && info.nutritionFacts.vitaminMinerals && info.nutritionFacts.vitaminMinerals.childNutrients) {
-              row.vitaminAPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[0] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
-              row.vitaminCPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[1] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
-              row.calciumPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[2] ? info.nutritionFacts.vitaminMinerals.childNutrients[2].dvp : '' }];
-              row.ironPerServing = [{ text: info.nutritionFacts.vitaminMinerals.childNutrients[3] ? info.nutritionFacts.vitaminMinerals.childNutrients[3].dvp : '' }];
+              let valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[0];
+              if (valueNode) {
+                row.vitaminAPerServing = [{ text: getSplitValue(valueNode.dvp, 1) }];
+                row.vitaminAPerServingUom = [{ text: getSplitValue(valueNode.dvp, 2) }];
+              }
+              valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[1];
+              if (valueNode) {
+                row.vitaminCPerServing = [{ text: getSplitValue(valueNode.dvp, 1) }];
+                row.vitaminCPerServingUom = [{ text: getSplitValue(valueNode.dvp, 2) }];
+              }
+              valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[2];
+              if (valueNode) {
+                row.calciumPerServing = [{ text: getSplitValue(valueNode.dvp, 1) }];
+                row.calciumPerServingUom = [{ text: getSplitValue(valueNode.dvp, 2) }];
+              }
+              valueNode = info.nutritionFacts.vitaminMinerals.childNutrients[3];
+              if (valueNode) {
+                row.ironPerServing = [{ text: getSplitValue(valueNode.dvp, 1) }];
+                row.ironPerServingUom = [{ text: getSplitValue(valueNode.dvp, 2) }];
+              }
             }
           }
         }

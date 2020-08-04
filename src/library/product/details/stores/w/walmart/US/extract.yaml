@@ -1,9 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id='added-variant']
-fields:
-#extracted in transform
+recordXPath: null
+fields:  
+- name: parentInput
+  singleValue: true
+  xpath: //div[@id='added-parentInput']
 - name: image
   singleValue: true
 - name: imageAlt
@@ -11,15 +13,7 @@ fields:
   xpath: //div[@id='added-name']
 - name: alternateImages
   singleValue: false
-  xpath: //script[@id='variant']
-  regExp: >-
-    ({\"id\":\"\w+\",\"url\":\"([^"]+)\"})
-  #regExpReplace: $2
-- name: videos
-  singleValue: false
-  xpath: //script[@id='variant']
-  regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
-  regExpReplace: $2
+  xpath: //div[@id='product-overview']//li[@class='slider-slide']//img/@src
 - name: metaKeywords
   singleValue: true
   xpath: ancestor::html//meta[@name="keywords"]/@content
@@ -52,14 +46,27 @@ fields:
   xpath: //div[@id='added-price']
 - name: shippingPrice
   singleValue: true
-  defaultValue: 0.00
-  xpath: //div[@id='added-sprice']
+  xpath: //div[@id='added-sprice']  
 - name: availabilityText
   singleValue: true
-  xpath: //div[@id='added-avail']  
+  xpath: //link[@itemprop="availability"]/@href | //div[contains(@class,'Price-OOS')]
 - name: availabilityMessage
   singleValue: true
-  xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')]
+  xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')] |//h2[contains(@class,'prod-InvalidPromptMsg')]
+- name: manufacturer
+  singleValue: true
+  manualSelector: script[id='item'], script[id='product']
+  regExp: (\"manufacturer\"\:\")([^"]+)(",")
+  regExpReplace: $2
+- name: description
+  singleValue: false
+  xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div
+- name: descriptionBullets
+  singleValue: true
+  xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li)
+- name: ingredientsList
+  singleValue: true
+  manualSelector: p.Ingredients
 - name: brandText
   singleValue: true
   xpath: //div[@id='added-brand']  
@@ -131,19 +138,31 @@ fields:
   regExp: (\"instructions\"\:\")([^"]+)(",")
 - name: warnings
   singleValue: true
-  #xpath: //p[@class='Warnings'] | //div[@class='LegalBadge-description'][contains(.,'arning')]
-  xpath: //script[@id='variant']
-  regExp: ("idmlWarnings:[{"name":"[^"]+","value":"([^"]+)"])
-  regExpReplace: $2
+  xpath: //p[@class='Warnings'] | //div[@class='LegalBadge-description'][contains(.,'arning')]
 - name: warranty
   singleValue: true
-  xpath: //script[@id='variant']
-  regExp: (\"warranty":{.*"information":")([^"]+)"}
-  regExpReplace: $2
-
-#Variant Info
-
-- name: firstVariant
+  xpath: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  | //div[contains(@title,'Warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span 
+ 
+- name: ratingCount
+  singleValue: true
+  xpath: //*[@itemprop='aggregateRating']//span[@class='stars-reviews-count-node']
+  regExp: (\d*)  
+- name: aggregateRatingText
+  singleValue: true
+- name: aggregateRating
+  singleValue: true
+  xpath: //*[@itemprop='aggregateRating']//*[@itemprop='ratingValue']
+- name: shippingInfo
+  singleValue: true 
+  xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
+- name: shippingInfo1
+  singleValue: false
+  xpath: //script[@id='item'] | //script[@id='product']
+  regExp: \"sellerDisplayName\"\:\"([^"]+)(\"\,\"showSold)  
+- name: shippingDimensions
+  singleValue: true
+  xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
+- name: shippingWeight
   singleValue: true
   xpath: ancestor::html//script[@id='item']
   regExp: ("primaryProductId":")([^"]+)(","primary)
@@ -156,8 +175,8 @@ fields:
     {"name":"\w*_\w*","value":"(\w*_\w*-[^\"]*)"}
 - name: variants
   singleValue: false
-  xpath: ancestor::html//script[@id='item'] |ancestor::html//script[@id='product']
-  regExp: ({"productId":")(\w+)
+  manualSelector: script[id='item'], script[id='product']
+  regExp: ("productId":")(\w+)(","usItem)
   regExpReplace: $2
 - name: color
   singleValue: true 
@@ -166,31 +185,16 @@ fields:
   regExpReplace: $1
 - name: colorCode
   singleValue: true
-
-  #Reviews
-- name: ratingCount
-  singleValue: true
-  xpath: //div[@id='added-ratingCount']
-  #regExp: ("numberOfReviews":)(\d+)
-  #regExpReplace: $2  
-- name: aggregateRatingText
-  singleValue: true
-- name: aggregateRating
-  singleValue: true
-  xpath: //div[@id='added-rating']
-  #regExp: ("averageRating":)([^,]+)
-
-  #ShippingInfo
-- name: shippingInfo
-  singleValue: true 
-  xpath: //script[@id='variant']
-  regExp: \"sellerDisplayName\"\:\"([^"]+)","sell
-  regExpReplace: $1
-  defaultValue: 0.00
-- name: shippingDimensions
-  singleValue: true
-  xpath: //script[@id='variant']
-  regExp: (\"name\":\"[^"]*Product Dimensions[^"]*","value":")([^"]+)"
+- name: manufacturerDescription
+  singleValue: false
+  xpath: //div[@id='added-marketing']
+- name: manufacturerImages
+  singleValue: false
+  xpath: //div[@id='added-marketing']//img/@src
+- name: videos
+  singleValue: false
+  manualSelector: script[id='item'], script[id='product']
+  regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
   regExpReplace: $2
 - name: shippingWeight
   singleValue: true
@@ -207,33 +211,21 @@ fields:
  
 - name: otherSellersShipping2
   singleValue: false
-  xpath: //div[@id='added-sellers']//div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
-  regExp: (,"fulfillmentPrice":{"price":)(\d+\.?\d*)
-  #regExpReplace: $2
-
-
-# - name: otherSellersName
-#   singleValue: false
-#   xpath: //div[@id='added-sellers']//script[@id='item']
-#   regExp: ("sellerDisplayName":")([^"]+)(","sell)
-#   regExpReplace: $2
-# - name: otherSellersPrice
-#   singleValue: false
-#   xpath: //div[@id='added-sellers']//script[@id='item']
-#   regExp: (,"price":)(\d+\.?\d*)(,"sell)
-#   regExpReplace: $2
-# - name: otherSellersShipping
-#   singleValue: false
-#   xpath: //div[@id='added-sellers']//script[@id='item']
-#   regExp: (,"shipPrice":)(\d+\.?\d*)(})
-#   regExpReplace: $2
+  xpath: //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'price price')] | //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'font-semibold')]
+  regExp: ([Free]?\d*\.?\d*))
+  defaultValue: 0
 - name: lbb
-  singleValue: true
-  defaultValue: Yes 
+  singleValue: true  
+  xpath: //div[@class='SellerInfo']//a[@class='seller-name']
+ 
 - name: lbbPrice
   singleValue: true  
-
-#Additional Fields
+- name: additionalDescBulletInfo
+  singleValue: false  
+  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li
+- name: promotion
+  singleValue: false
+  xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
 - name: ageSuitability
   singleValue: false
   xpath: //script[@id='variant']
@@ -244,7 +236,7 @@ fields:
 - name: technicalInformationPdfPresent
   singleValue: true  
   defaultValue: No
-  xpath: (ancestor::html//div[@class='ManualsAndGuides'])[1]
+  xpath: (//div[@class='ManualsAndGuides'])[1]
   regExp: (.*)
   regExpReplace: Yes
 - name: termsAndConditions
@@ -370,4 +362,8 @@ fields:
 
 - name: ironPerServingUom
   singleValue: false
-  
+
+- name: productUrl
+  singleValue: true
+
+
