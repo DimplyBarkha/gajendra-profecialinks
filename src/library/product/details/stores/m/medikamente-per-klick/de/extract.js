@@ -7,6 +7,7 @@ module.exports = {
     store: 'medikamente-per-klick',
     transform,
     domain: 'medikamente-per-klick.de',
+    zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {

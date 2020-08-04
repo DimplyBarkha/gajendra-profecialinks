@@ -5,5 +5,6 @@ module.exports = {
     country: 'DE',
     store: 'medikamente-per-klick',
     domain: 'medikamente-per-klick.de',
+    zipcode: '',
   },
 };
