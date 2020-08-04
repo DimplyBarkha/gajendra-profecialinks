@@ -7,7 +7,6 @@ async function implementation (
   const { createUrl, variants } = dependencies;
 
   await context.evaluate(function () {
-
     function getVariants () {
       const variantList = [];
       const variantCards = document.querySelectorAll('li[data-defaultasin]');
@@ -70,8 +69,8 @@ async function implementation (
       return newDiv;
     }
     const url = window.location.href;
-    console.log('URL1233')
-    console.log(window.location.href)
+    console.log('URL1233');
+    console.log(window.location.href);
     const splits = url ? url.split('dp/product/')[1].split('/?') : [];
     const mainId = (splits.length > 1) ? splits[splits.length - 2] : '';
     addHiddenDiv('ii_variant', mainId);
@@ -81,7 +80,7 @@ async function implementation (
       const id = allVariants[i];
       addHiddenDiv('ii_variant', id);
     }
- 
+
     // const node = document.querySelector("script[id='item']");
     // if (node && node.textContent) {
     //   const jsonObj = node.textContent.startsWith('{"item":') ? JSON.parse(node.textContent) : null;
@@ -165,6 +164,5 @@ module.exports = {
   },
   implementation,
 };
-
 
 */
