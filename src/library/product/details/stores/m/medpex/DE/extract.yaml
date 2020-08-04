@@ -116,3 +116,12 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id="more-images"]/a/img/@src)
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //*[@id="productDetails"]/div[@class="productDetails-content"]/div[@class="description"]/div[@class="productDetails-main"]/text()[4]
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: //*[@id="productDetails"]/div[@class="productDetails-content"]/div[@class="description"]/div[@class="productDetails-main"]/text()[4]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="bargain"]

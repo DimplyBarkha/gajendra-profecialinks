@@ -46,6 +46,25 @@ const transform = (data) => {
                     brandText.text = brandText.text ? brandText.text[0].trim() : '';
                 });
             }
+        if (row.pricePerUnit) {
+              row.pricePerUnit.forEach(pricePerUnit => {
+                if(pricePerUnit.text.includes('Grundpreis:')){
+                  pricePerUnit.text = pricePerUnit.text.split('Grundpreis:')[1].trim();
+                  pricePerUnit.text = pricePerUnit.text.split(' ');
+                  pricePerUnit.text = pricePerUnit.text[2] + pricePerUnit.text[3]; 
+                  pricePerUnit.text = pricePerUnit.text.replace('€','');
+                }
+              });
+          }
+          if (row.pricePerUnitUom) {
+                row.pricePerUnitUom.forEach(pricePerUnitUom => {
+                  if(pricePerUnitUom.text.includes('Grundpreis:')){
+                    pricePerUnitUom.text = pricePerUnitUom.text.split('Grundpreis:')[1].trim();
+                    pricePerUnitUom.text = pricePerUnitUom.text.split(' ');
+                    pricePerUnitUom.text = pricePerUnitUom.text[0] + pricePerUnitUom.text[1];
+                  }
+                });
+            }
         } 
     }
     return data;
