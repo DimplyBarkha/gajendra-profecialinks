@@ -1,4 +1,4 @@
-const { transform } = require('../../amazonPharmapacks/US/shared');
+const { transform } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -14,7 +14,7 @@ module.exports = {
       const merchantAnchors = document.querySelectorAll('#merchant-info a');
       const buyBoxSpans = document.querySelectorAll('#buybox span');
       const metaNames = document.querySelectorAll('meta[name]');
-
+      const merchantEle = document.querySelectorAll('#merchant-info');
       const findMatchingString = (nodeList) => {
         return new Promise((resolve, reject) => {
           for (const node of nodeList) {
@@ -65,69 +65,105 @@ module.exports = {
         }
       }
 
-      document.querySelector('body').setAttribute('primeValue', primeValue);
+      if (merchantEle && merchantEle.length) {
+        const res = await findMatchingString(merchantEle);
+
+        if (res) {
+          primeValue = res;
+        }
+      }
+
+      console.log('Prime' + primeValue);
+      function addEleToDoc (key, value) {
+        const prodEle = document.createElement('div');
+        prodEle.id = key;
+        prodEle.textContent = value;
+        prodEle.style.display = 'none';
+        document.body.appendChild(prodEle);
+      }
+      addEleToDoc('primeValue', primeValue);
     };
 
-    const scrollToContent = async (selector) => {
-      await context.evaluate(async (selectorToScrollTo) => {
-        function scrollToSmoothly (pos, time) {
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 500;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall (ms) {
           return new Promise((resolve, reject) => {
-            if (isNaN(pos)) {
-              return reject(new Error('Position must be a number'));
-            }
-            if (pos < 0) {
-              return reject(new Error('Position can not be negative'));
-            }
-            var currentPos = window.scrollY || window.screenTop;
-            if (currentPos < pos) {
-              var t = 10;
-              for (let i = currentPos; i <= pos; i += 10) {
-                console.log('Scrolling');
-                t += 10;
-                setTimeout(function () {
-                  window.scrollTo(0, i);
-                }, t / 2);
-              }
-              return resolve();
-            } else {
-              time = time || 100;
-              var i = currentPos;
-              var x;
-              x = setInterval(function () {
-                window.scrollTo(0, i);
-                i -= 10;
-                if (i <= pos) {
-                  clearInterval(x);
-                }
-              }, time);
-
-              return resolve();
-            }
+            setTimeout(() => {
+              resolve();
+            }, ms);
           });
         }
-        const elem = document.querySelector(selectorToScrollTo);
-        if (!elem) {
-          return;
-        }
-        await scrollToSmoothly(elem.offsetTop);
-      }, selector);
+      });
     };
 
+    const mainURL = await context.evaluate(function () {
+      return document.URL;
+    });
+
     try {
-      await scrollToContent('#descriptionAndDetails');
+      console.log('Executing navigation to sellers');
+      const navigateLink = await context.evaluate(function () {
+        return document.evaluate('//span[contains(@data-action,\'show-all-offers-display\')]//a', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.href;
+      });
+      console.log('navigateLink' + navigateLink);
+      await context.goto(navigateLink, {
+        timeout: 20000, waitUntil: 'load', checkBlocked: true,
+      });
+      console.log('Done navigation to sellers');
+
+      const otherSellersTable = await context.evaluate(function () {
+        return document.getElementById('olpOfferList').innerHTML;
+      });
+      console.log('otherSellersTable' + otherSellersTable);
+      console.log('mainURL' + mainURL);
+      await context.goto(mainURL, {
+        timeout: 20000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+      await context.evaluate(function (eleInnerHtml) {
+        document.body.innerHTML += eleInnerHtml;
+        const addonSectionEle = document.querySelector('#moreBuyingChoices_feature_div > div > #mbc-action-panel-wrapper');
+        if (addonSectionEle) {
+          addonSectionEle.parentNode.removeChild(addonSectionEle);
+        }
+        const addonMerchantEle = document.querySelector('#merchant-info');
+        if (addonMerchantEle) {
+          addonMerchantEle.parentNode.removeChild(addonMerchantEle);
+        }
+      }, otherSellersTable);
     } catch (err) {
-      console.log('Product description is not found.');
+      console.log('Additional other sellers error -' + JSON.stringify(err));
+      await context.goto(mainURL, {
+        timeout: 20000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
     }
-    await scrollToContent('#reviewsMedley');
-    await scrollToContent('.askDetailPageSearchWidgetSection');
+
+    await applyScroll(context);
 
     try {
       await context.waitForSelector('#aplus', { timeout: 30000 });
     } catch (err) {
       console.log('Manufacturer details did not load.');
     }
-
-    await scrollToContent('div[data-cel-widget="aplus_feature_div"]');
 
     await context.evaluate(productPrimeCheck);
 
