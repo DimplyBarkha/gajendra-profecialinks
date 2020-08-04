@@ -20,6 +20,7 @@ async function implementation (
       await context.waitForSelector('div#product-list > div.product-list-entry');
       async function firstItemLink () {
         return await context.evaluate(function () {
+          // @ts-ignore
           const firstItem = document.querySelector('div#product-list > div.product-list-entry > form > div.clearfix > div.description > span.product-name > b > a').href;
           return firstItem;
         });
@@ -40,6 +41,7 @@ async function implementation (
         function findJsonObj (scriptSelector, startString, endString) {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          // @ts-ignore
           const scriptContent = element.innerText;
           const startIdx = scriptContent.indexOf(startString);
           const endIdx = scriptContent.indexOf(endString);
@@ -57,11 +59,14 @@ async function implementation (
           jsonStr = jsonStr.replace(/[\u0000-\u0019]+/g, '');
           return jsonStr;
         }
+        // @ts-ignore
         let stockAvailabilityText = document.querySelector('link[itemprop="availability"]').href;
         stockAvailabilityText = stockAvailabilityText.split('/')[3];
-        let rating = document.querySelector('div[class="review"] div').classList;
+        let rating = document.querySelector('div[class="review"] div');
         // @ts-ignore
-        rating = rating[2].split('-')[2];
+        rating = rating ? rating.classList : '';
+        // @ts-ignore
+        rating = rating ? rating[2].split('-')[2] : '';
         const directions = document.querySelectorAll('div.content.content--productDescription > p');
         const siblingsDirections = [];
         for (let index = 0; index < directions.length; index++) {
