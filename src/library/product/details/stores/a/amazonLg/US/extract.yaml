@@ -84,7 +84,8 @@ fields:
     xpath: //div[@class="aplus-module-wrapper"]//img/@src
   - name: shippingInfo
     singleValue: false
-    xpath: //*[@id="shipsFromSoldBy_feature_div"] |//*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"] | //*[@id="availability"]/span
+    xpath: //*[@id="shipsFromSoldBy_feature_div"] | //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[@id="merchant-info"]
+    # xpath: //*[@id="shipsFromSoldBy_feature_div"] |//*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"] | //*[@id="availability"]/span
   - name: shippingDimensions
     singleValue: false
     xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1]
@@ -203,7 +204,8 @@ fields:
     xpath: (//div[@id="fast-track-message"]//div[@id="delivery-message"])[1] | //div[@id="fast-track-message"]/*//div[@id="delivery-message"]
   - name: variantInformation
     singleValue: false
-    xpath: //form[@id="twister"]/div/div[@class="a-row"]/span
+    # xpath: //form[@id="twister"]/div/div[@class="a-row"]/span
+    xpath: //form[@id="twister"]/div/div[@class="a-row"]/span | //*[@id="dropdown_selected_style_name"]/span | //*/div[@class="a-row a-spacing-micro singleton"]/span
   - name: firstVariant
     xpath: (//li[contains(@class,"swatchUnavailable")])[1]//@data-dp-url|//li[contains(@class,"swatchAvailable")]//@data-dp-url
     regExp: (.+)\/ref=twister\_([A-Z0-9]+)(.*)

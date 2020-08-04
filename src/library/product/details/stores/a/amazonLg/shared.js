@@ -55,7 +55,7 @@ const transform = (data) => {
         if(row.alternateImages.length > 1){
           row.secondaryImageTotal.forEach(item => {
             item.text = row.alternateImages.length;
-            item.text = row.alternateImages.length - 1;
+            // item.text = row.alternateImages.length - 1;
           });
         }else{
           row.secondaryImageTotal.forEach(item => {
@@ -138,7 +138,7 @@ const transform = (data) => {
       }
       if (row.salesRankCategory) {
         row.salesRankCategory.forEach(item => {
-          item.text = `${item.text.replace(/\(.*\)/gm, '').trim().split('in')[1]}`;
+          item.text = `${item.text.replace(/\(.*\)/gm, '').trim().split('in')[1].trim()}`;
         });
       }
       if (row.description) {
