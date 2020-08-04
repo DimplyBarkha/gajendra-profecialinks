@@ -8,6 +8,14 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  function stall (ms) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  }
+
   const storeId = await context.evaluate(async function() {
     return document.getElementById('storeId') ? document.getElementById('storeId').innerText : "";
   });
@@ -61,11 +69,33 @@ async function implementation (
     }
   });
 
-  await context.goto('https://www.target.com' + productUrl);
+  await context.goto('https://redsky.target.com/v3/stores/nearby/' + postalCode + '?key=eb2551e4accc14f38cc42d32fbc2b2ea&limit=20&within=100&unit=mile',  { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+
+  const locationData = await context.evaluate(function(storeId) {
+    let driveAddress = '';
+    let drive = '';
+    let onlineStore = '';
+    const data = JSON.parse(document.body.innerText);
+    if (data && data.length && data[0].locations) {
+      const filterStores = data[0].locations.filter(store => store.location_id === Number(storeId));
+      if (filterStores.length) {
+        if (filterStores[0].address) {
+          driveAddress = filterStores[0].address.address_line1 + ", " + filterStores[0].address.city + ", " + filterStores[0].address.region + " " + filterStores[0].address.postal_code;
+          drive = filterStores[0].address.postal_code;
+        }
+        if (filterStores[0].location_names && filterStores[0].location_names.length) {
+          onlineStore = filterStores[0].location_names[0].name;
+        }
+      }
+    }
+    return {driveAddress, drive, onlineStore};
+  }, storeId)
+
+  await context.goto('https://www.target.com' + productUrl,  { timeout: 30000, waitUntil: 'load', checkBlocked: true });
 
   await context.waitForXPath("//h1[@data-test='product-title']");
 
-  await context.evaluate(async function (storeId, postalCode) {
+  await context.evaluate(async function (storeId, postalCode, locationData) {
     let parentData = {};
     let origData = {};
 
@@ -105,7 +135,7 @@ async function implementation (
       window.scroll(0, scrollTop);
       await stall(500);
       scrollTop += 500;
-      if (scrollTop === 10000) {
+      if (scrollTop === 5000) {
         break;
       }
     }
@@ -127,19 +157,9 @@ async function implementation (
 
       const newDiv = createListItem();
 
-      await fetch('https://redsky.target.com/v3/stores/nearby/' + postalCode + '?key=eb2551e4accc14f38cc42d32fbc2b2ea&limit=20&within=100&unit=mile')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.length && data[0].locations) {
-          const filterStores = data[0].locations.filter(store => store.location_id === Number(storeId));
-
-          if (filterStores.length) {
-            addHiddenDiv(newDiv, 'driveAddress', filterStores[0].address.address_line1 + ", " + filterStores[0].address.city + ", " + filterStores[0].address.region + " " + filterStores[0].address.postal_code);
-            addHiddenDiv(newDiv, 'onlineStore', filterStores[0].location_names[0].name);
-            addHiddenDiv(newDiv, 'drive', filterStores[0].address.postal_code);
-          }
-        }
-      });
+      addHiddenDiv(newDiv, 'driveAddress', locationData.driveAddress);
+      addHiddenDiv(newDiv, 'drive', locationData.drive);
+      addHiddenDiv(newDiv, 'onlineStore', locationData.onlineStore);
 
       addHiddenDiv(newDiv, 'productName', decodeHtml(productName));
 
@@ -256,14 +276,15 @@ async function implementation (
     await fetch(`${fullUrl}`)
       .then(data => data.json())
       .then(async function (res) {
-        parentData = res;
-        origData = res;
-        getProductInfo(res.product.item, res.product.item.product_description.title);
+        if(res && res.product) {
+          parentData = res;
+          origData = res;
+          getProductInfo(res.product.item, res.product.item.product_description.title);
+        }
       });
 
-    await stall(2000);
-  }, storeId, postalCode);
-
+  }, storeId, postalCode, locationData);
+  await stall(3000);
   await context.extract(productDetails, { transform });
 }
 
