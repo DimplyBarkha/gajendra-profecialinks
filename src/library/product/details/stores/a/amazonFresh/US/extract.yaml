@@ -90,7 +90,7 @@ fields:
     xpath: (//html//div[contains(@id, 'important-information')]//div[contains(@class,'content')]/*[contains(text(), 'Directions')]/../p[text()]/text() | //html[not(//div[contains(@id, 'important-information')]//div[contains(@class,'content')]/*[contains(text(), 'Directions')]/../p[text()]/text())]//*[contains(text(), "Directions")]/following-sibling::*[text()]/text())[1]
   - name: warnings
     singleValue: false
-    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")] | //*[contains(text(), "Warning")]/following-sibling::p)[1] 
+    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")] | //*[contains(text(), "Warning")]/following-sibling::p)[1] 
   - name: ratingCount
     singleValue: false
     xpath: //div[@id="averageCustomerReviews_feature_div"]//*[@id="acrCustomerReviewText"]/text()
