@@ -4,99 +4,115 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //button[@class="sc-image-viewer-img-button"]/img/@src
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: /html/body/@imagealt
   - name: alternateImages
-    singleValue: true
+    singleValue: false
     xpath: //img[@class="sc-image-viewer-thumb"]/@src
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     xpath: /html/head/meta[@name="keywords"]/@content
   - name: url
-    singleValue: true
+    singleValue: false
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
     xpath: //ol[@class="sc-breadcrumbs"]
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="sc-product-header-title-container"]
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //span[@class="sc-channel-savings-list-price"]
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //span[@class="Price-group"]
+    regExp: \$?[0-9]+\.*[0-9]*
   - name: availabilityText
-    singleValue: true
-    xpath: //div[@class="sc-oos-card-label"]
+    singleValue: false
+    xpath: //meta[@itemprop='availability']/@content
   - name: description
-    singleValue: true
-    xpath: //div[@class="sc-full-description-long"]
+    singleValue: false
+    xpath: //div[@class="sc-full-description-long"] | //div[@class='sc-short-description-content']
+  - name: descriptionBottom
+    singleValue: false
+    xpath: //div[@class='sc-full-description-blob']//ul
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='sc-full-description-blob']//ul
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: count(//div[@class="sc-short-description-content"]/ul/li)
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: //span[@class="sc-product-header-item-number"][1]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
   - name: quantity
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="sc-cart-qty-button online"]/form/div/div/input/@value
   - name: weightNet
-    singleValue: true
+    singleValue: false
   - name: weightGross
-    singleValue: true
+    singleValue: false
   - name: gtin
-    singleValue: true
+    singleValue: false
+    xpath: //img[@class="sc-image-viewer-thumb"]/@src
+    regExp: \d{13}
   - name: sku
-    singleValue: true
-    xpath: //div[@id="sc-bv-summary-container"]/@data-bv-product-id
+    singleValue: false
+    xpath: //span[@class="sc-product-header-item-number"][contains(text(), 'Model ')] | //meta[@itemprop='sku']/@content
   - name: variantId
-    singleValue: true
+    singleValue: false
   - name: mpc
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class="sc-product-header-item-number"][contains(text(), 'Model ')] | //meta[@itemprop='sku']/@content
   - name: packSize
-    singleValue: true
+    singleValue: false
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
   - name: directions
-    singleValue: true
+    singleValue: false
   - name: warnings
-    singleValue: true
+    singleValue: false
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]/following-sibling::*[1]
   - name: aggregateRating
-    singleValue: true
-    xpath: //div[@itemprop="ratingValue"]
+    singleValue: false
+    xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="sc-full-description-spec-shipping sc-full-description-info"]
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
   - name: shippingWeight
-    singleValue: true
+    singleValue: false
   - name: variantCount
-    singleValue: true
+    singleValue: false
     xpath: count(//div[@class="sc-product-variants-container"]/div)
   - name: color
-    singleValue: true
+    singleValue: false
     xpath: //span[@class="variant-swatch"]
   - name: colorCode
-    singleValue: true
+    singleValue: false
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
+    manualSelector: '.wc-aplus-body'
   - name: manufacturerImages
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='wc-aplus-body']//img/@src
   - name: videos
-    singleValue: true
+    singleValue: false
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="sc-product-header-title-container"]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='sc-promo-message-primary']
