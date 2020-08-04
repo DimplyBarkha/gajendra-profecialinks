@@ -118,10 +118,14 @@ fields:
     xpath: count(//div[@id="more-images"]/a/img/@src)
   - name: pricePerUnit
     singleValue: false
-    xpath: //*[@id="productDetails"]/div[@class="productDetails-content"]/div[@class="description"]/div[@class="productDetails-main"]/text()[4]
+    xpath: //*[@id="productDetails"]/div[@class="productDetails-content"]/div[@class="description"]/div[@class="productDetails-main"]
+    regExp: (Grundpreis:(.*)€)
+    regExpReplace: $1
   - name: pricePerUnitUom
-    singleValue: false
-    xpath: //*[@id="productDetails"]/div[@class="productDetails-content"]/div[@class="description"]/div[@class="productDetails-main"]/text()[4]
+    singleValue: false #(Grundpreis:(.*)€)
+    xpath: //*[@id="productDetails"]/div[@class="productDetails-content"]/div[@class="description"]/div[@class="productDetails-main"]
+    regExp: (Grundpreis:(.*)€)
+    regExpReplace: $1
   - name: promotion
     singleValue: false
     xpath: //div[@class="bargain"]

@@ -35,9 +35,17 @@ const transform = (data) => {
                 listPrice.text = listPrice.text.replace('.', '').replace(',', '.').trim();
             });
         }
+        if (row.description) {
+          row.description.forEach(description => {
+            description.text = description.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim();
+          });
+      }
       if (row.secondaryImageTotal) {
             row.secondaryImageTotal.forEach(secondaryImageTotal => {
                 secondaryImageTotal.text = Number(secondaryImageTotal.text)-1;
+                if(secondaryImageTotal.text == -1){
+                  secondaryImageTotal.text = 0;
+                }
             });
         }
        if(row.brandText){
