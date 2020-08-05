@@ -40,13 +40,13 @@ module.exports = {
       name: 'url',
       description: '',
       type: 'string',
-      optional: false,
+      optional: true,
     },
     {
       name: 'id',
       description: '',
       type: 'string',
-      optional: false,
+      optional: true,
     },
   ],
   dependencies: {
