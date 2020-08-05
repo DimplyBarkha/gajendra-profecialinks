@@ -60,7 +60,7 @@ const transform = (data, context) => {
           if (count > 1) {
             quantityText = quantityText.replace(/[bB]ar?/, '');
           }
-          let quantityRe = /(?:([\d\.]+\s{1})([bB]ar[s]?|[cC]ount||[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
+          let quantityRe = /(?:([\d\.]+\s{1})([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[wW]ipe[s]?).?)$|(?:\s{0}([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$/;
           let quantity = quantityRe.exec(quantityText);
 
           if (quantity == null) {
@@ -72,13 +72,21 @@ const transform = (data, context) => {
             quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s)/;
             quantity = quantityRe.exec(quantityText);
           }
+
+          if (quantity == null && row.quantity[0].text.includes('(Pack of')) {
+            console.log('QUAN12')
+            quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s(\(Pack of \d+\)))/;
+            quantity = quantityRe.exec(quantityText);
+            row.quantity[0].text = quantity[0].trim();
+          }
+
           const unecessaryStrings = /[Cc]anister|[\d\.]+\s[Cc]harcoal/;
 
           if (quantity && quantity[0] && unecessaryStrings.test(quantity[0])) {
             quantity[0] = quantity[0].replace(unecessaryStrings, '');
           }
 
-          if (quantity && quantity[0]) {
+          if (quantity && quantity[0] && !quantity[0].includes('(Pack of')) {
             quantity[0] = quantity[0].replace(/[{()}]/g, '');
             row.quantity[0].text = quantity[0].trim();
           }
