@@ -19,6 +19,22 @@ module.exports = {
       }
       addHiddenDiv(`ii_parentInput`, parentInput);
 
+      let prodText = {};
+      let flag = true;
+      let i = 0;
+      while(flag){
+        let tab = document.querySelector(`button#tab${i}`);
+        let pannel = document.querySelector(`div[aria-labelledby="tab${i}"]`);
+        if(tab && pannel) {
+          addHiddenDiv(`ii_${tab.innerText}`, pannel.innerText);
+        } else {
+          flag = false;
+          break;
+        }
+        i++
+      }
+
+
       // let directions = '//span[contains(., "How to Use")]'
       // const element = document.querySelectorAll("script[type='application/ld+json']");
       // let variantObj;
@@ -46,7 +62,6 @@ module.exports = {
       //   }
       // }
       // if(variantSkuArray.length){
-      //   // debugger
       //   return variantSkuArray
       // } else {
       //   return null
