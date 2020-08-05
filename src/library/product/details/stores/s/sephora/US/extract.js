@@ -7,9 +7,9 @@ module.exports = {
     transform: null,
     domain: 'sephora.com',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
 
-    const variantArray = await context.evaluate(function () {
+    const variantArray = await context.evaluate(function (parentInput) {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -17,6 +17,7 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      addHiddenDiv(`ii_parentInput`, parentInput);
 
       // let directions = '//span[contains(., "How to Use")]'
       // const element = document.querySelectorAll("script[type='application/ld+json']");
@@ -50,7 +51,7 @@ module.exports = {
       // } else {
       //   return null
       // }
-    });
+    }, parentInput);
 
     // if(variantArray){
     //   for(let i = 0; i < variantArray.length; i++){
