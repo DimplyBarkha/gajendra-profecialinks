@@ -111,7 +111,7 @@ async function implementation (
     }
   };
 
-  let currentZip = await getCurrentZip();
+  const currentZip = await getCurrentZip();
   console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
 
   try {
@@ -120,12 +120,12 @@ async function implementation (
       await changeZip(zipcode);
     }
   } catch (exception) {
-      try {
-        console.log('retry zip change')
-        await changeZip(zipcode)
-      } catch (exception) {
-        throw new Error('Failed to change zip with retry');
-      }
+    try {
+      console.log('retry zip change');
+      await changeZip(zipcode);
+    } catch (exception) {
+      throw new Error('Failed to change zip with retry');
+    }
   }
   await context.evaluate(() => {
     const overlay = document.querySelector('.ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers');
