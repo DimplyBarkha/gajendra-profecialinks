@@ -66,7 +66,7 @@ async function implementation (inputs,
       const servingProp = getEleByXpath(xpath);
       if (servingProp) {
         const normlizedServingProp = servingProp.replace('mg', '').replace('g', '').replace('ml', '').replace('%', '').replace('Per', '').replace(':', '').split('(')[0].trim();
-        if (!normlizedServingProp.match(/(^[.0-9]+)/g)) {
+        if (!normlizedServingProp.match(/(^[.0-9<>]+)/g)) {
           return;
         }
         addEleToDoc(property, normlizedServingProp);

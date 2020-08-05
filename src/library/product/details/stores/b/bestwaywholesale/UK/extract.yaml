@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,"prodnav")]//li[contains(@class,"toplevel") or contains(@class,"active")]
   - name: nameExtended
     singleValue: false
-    xpath: //*[@id="productName"]
+    xpath: //h1[contains(@class,'prodname')]
   - name: price
     singleValue: false
     xpath: //*[@id="productPrice"]
@@ -29,9 +29,7 @@ fields:
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Brand:')]/following-sibling::td
   - name: manufacturer
     singleValue: false
-    xpath: //h2[contains(text(), 'Manufacturer’s Address')]/following-sibling::p/text()[1]
-    regExp: ^([^:]+:)?([^,]+)
-    regExpReplace: $2
+    xpath: //h2[contains(text(), 'Manufacturer’s Address')]/following-sibling::p/text()
   - name: quantity
     singleValue: false
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Pack Size')]/following-sibling::td

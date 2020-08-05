@@ -31,7 +31,7 @@ const transform = (data) => {
         });
         row.directions = [
           {
-            text: `${row.directionsTitle ? row.directionsTitle[0].text : ''} ${text} ${row.servingSuggest ? row.servingSuggest[0].text : ''}`.trim(),
+            text: `${row.directionsTitle ? row.directionsTitle[0].text : ''} ${text} ${row.servingSuggest ? '|| ' + row.servingSuggest[0].text : ''}`.trim(),
           },
         ];
         delete row.directionsTitle;
@@ -60,6 +60,37 @@ const transform = (data) => {
             text: text.slice(0, -1),
           },
         ];
+      }
+
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `|| ${item.text} `;
+        });
+        row.description = [
+          {
+            text: `${text.slice(0, -4)} `,
+          },
+        ];
+      }
+      if (row.manufacturer) {
+        let text = '';
+        if (row.manufacturer[0].text.match(/bottle/ig) || row.manufacturer[0].text.match(/produce/ig)) {
+          text = row.manufacturer[1].text;
+        } else {
+          text = row.manufacturer[0].text;
+        }
+        row.manufacturer = [
+          {
+            text: `${text.replace(',', '').trim()}`,
+          }
+        ];
+      }
+
+      if (row.image) {
+        if (row.image[0].text.match(/no-image/ig) && !row.image[0].text.match(/http/ig)) {
+          row.image[0].text = `https://www.bestwaywholesale.co.uk${row.image[0].text}`
+        }
       }
     }
   }
