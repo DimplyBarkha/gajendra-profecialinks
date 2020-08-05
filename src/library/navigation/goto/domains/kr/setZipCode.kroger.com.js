@@ -62,7 +62,7 @@ async function implementation (
 
     const refreshRequested = await context.evaluate(() => {
       const refreshMsg = document.querySelector('p.kds-Paragraph.kds-Paragraph--m.kds-GlobalMessage-body.max-w-full.mb-0 span');
-      if (refreshMsg && refreshMsg.textContent === 'Please refresh your browser') {
+      if (refreshMsg) {
         return true;
       } else {
         return false;
@@ -120,11 +120,12 @@ async function implementation (
       await changeZip(zipcode);
     }
   } catch (exception) {
-    currentZip = await getCurrentZip();
-    if (currentZip !== zipcode) {
-      console.log(exception);
-      throw new Error('Failed to change zip');
-    }
+      try {
+        console.log('retry zip change')
+        await changeZip(zipcode)
+      } catch (exception) {
+        throw new Error('Failed to change zip with retry');
+      }
   }
   await context.evaluate(() => {
     const overlay = document.querySelector('.ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers');
