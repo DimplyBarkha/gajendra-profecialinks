@@ -39,7 +39,8 @@ fields:
     xpath: //div[@itemprop="offers"]/span[@class="normal-price"]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="pd_availabilityText"] | //div[@class="stock stock--available"]
+    xpath: //div[@id="pd_availabilityText"] 
+    # xpath: //div[@id="pd_availabilityText"] | //div[@class="stock stock--available"]
   - name: description
     singleValue: false
     # xpath: //span[@class="productDetails-name"] | //div[@class="content content--productDescription"]

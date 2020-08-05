@@ -25,6 +25,24 @@ const transform = (data) => {
         if (row.alternateImages) {
           row.alternateImages.splice(0,1);
         } 
+        if (row.category) {
+          let categoryArr = [];
+          row.category.forEach(category => {
+            category.text = category.text.split('\n \n').join('#').split('\n \n \n').join('#').replace('\n', '').trim().split('#');
+            for(let i = 0; i<category.text.length;){
+              categoryArr.push({text: category.text[i].trim(),xpath: ''});
+              i++;
+            } 
+          });
+          console.log("categoryArr",categoryArr)
+          categoryArr.shift();
+          categoryArr.pop();
+          row.category = [
+            {
+              text: categoryArr
+            },
+          ];
+        }
       if (row.price) {
             row.price.forEach(price => {
               price.text = price.text.replace('.', '').replace(',', '.').trim();
