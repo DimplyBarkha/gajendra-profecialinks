@@ -9,6 +9,8 @@ const implementation = async (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  const { url } = inputs;
+
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
   await context.evaluate(async function () {
@@ -21,10 +23,14 @@ const implementation = async (
 
   await context.waitForSelector('div.ProductCard a');
 
-  await context.evaluate(() => {
-    const firstItem = document.querySelector('div.ProductCard a');
-    firstItem.click();
-  });
+  console.log('Url if given:' + inputs.url);
+
+  if (!url) {
+    await context.evaluate(() => {
+      const firstItem = document.querySelector('div.ProductCard a');
+      firstItem.click();
+    });
+  }
 
   await context.waitForSelector('div.ProductDetails-header');
 
