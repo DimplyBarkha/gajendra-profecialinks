@@ -1,10 +1,9 @@
-
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'DE',
-    store: 'shop-apotheke',
     domain: 'shop-apotheke.com',
+    store: 'shop-apotheke',
     zipcode: '',
   },
 };

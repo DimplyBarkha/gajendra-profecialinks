@@ -1,13 +1,15 @@
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'shop-apotheke',
-    transform: null,
+    transform,
     domain: 'shop-apotheke.com',
+    zipcode: '',
   },
-  implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ url }, { country, domain , transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       // @ts-ignore
       const dataObj = window.dataLayer[0].product;
@@ -37,12 +39,27 @@ module.exports = {
         }
         addElementToDocument('pd_image', mainDataObj.product.thumbnailURL);
       }
-      const descXpath = '//*[@id="o-ProductAdditionalInformation__teaser"]';
-      let temp = document.evaluate(descXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const temp = document.querySelector('div[id="o-ProductAdditionalInformation__teaser"]');
+      let descArray = [];
+      if (temp) {
+        for (let i = 0; i < temp.children.length; i++) {
+          const arrayTemp = [];
+          const ulElement = temp.children[i].querySelectorAll('ol li');
+          if (ulElement.length) {
+            ulElement.forEach(item => {
+              const text = ` || ${item.innerText.trim()}`;
+              arrayTemp.push(text);
+            });
+            descArray.push(`${arrayTemp.join('')} | `);
+          } else {
+            descArray.push(temp.children[i].innerText);
+          }
+        }
+      }
       // @ts-ignore
-      temp = temp ? temp.innerText : '';
-      addElementToDocument('pd_description', temp);
+      descArray = descArray && descArray.length ? descArray.join('') : '';
+      descArray && addElementToDocument('pd_description', descArray);
     });
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };

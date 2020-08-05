@@ -6,5 +6,6 @@ module.exports = {
     prefix: 'arzneimittel',
     country: 'DE',
     store: 'shop-apotheke',
+    zipcode: '',
   },
 };

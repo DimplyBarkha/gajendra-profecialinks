@@ -5,5 +5,6 @@ module.exports = {
     country: 'DE',
     store: 'shop-apotheke',
     domain: 'shop-apotheke.com',
+    zipcode: '',
   },
 };
