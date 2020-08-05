@@ -17,11 +17,15 @@ async function implementation (
   }
 
   const storeId = await context.evaluate(async function() {
-    return document.getElementById('storeId') ? document.getElementById('storeId').innerText : "";
+    return document.getElementById('storeId') && document.getElementById('storeId').innerText;
   });
 
   const postalCode = await context.evaluate(async function() {
-    return document.getElementById('zipCode') ? document.getElementById('zipCode').innerText : "";
+    return document.getElementById('zipCode') && document.getElementById('zipCode').innerText;
+  });
+
+  const RPC = await context.evaluate(async function() {
+    return document.getElementById('productId') && document.getElementById('productId').innerText;
   });
 
   const currentUrl = await context.evaluate(function() {
@@ -73,7 +77,7 @@ async function implementation (
 
   await context.waitForXPath("//h1[@data-test='product-title']");
 
-  await context.evaluate(async function (storeId, postalCode) {
+  await context.evaluate(async function (storeId, postalCode, RPC) {
     let parentData = {};
     let origData = {};
 
@@ -108,17 +112,7 @@ async function implementation (
       return txt.value;
     }
 
-    let scrollTop = 500;
-    while (true) {
-      window.scroll(0, scrollTop);
-      await stall(500);
-      scrollTop += 500;
-      if (scrollTop === 5000) {
-        break;
-      }
-    }
-
-    window.scroll(0, 1000);
+    window.scroll(0, 300);
 
     await stall(2000);
 
@@ -135,7 +129,7 @@ async function implementation (
 
       const newDiv = createListItem();
 
-      await fetch('https://redsky.target.com/v3/stores/nearby/' + postalCode + '?key=eb2551e4accc14f38cc42d32fbc2b2ea&limit=20&within=100&unit=mile')
+      await fetch('https://redsky.target.com/v3/stores/nearby/' + postalCode + '?key=eb2551e4accc14f38cc42d32fbc2b2ea&limit=10&within=50&unit=mile')
       .then(res => res.json())
       .then(data => {
         if (data && data.length && data[0].locations) {
@@ -259,10 +253,9 @@ async function implementation (
     document.body.appendChild(newDiv);
 
     const storeString = "&pricing_store_id=" + storeId + "&storeId=" + storeId + "&store_id=" + storeId;
-    const splitUrl = window.location.href.split('-');
     const fUrl = 'https://redsky.target.com/v3/pdp/tcin/';
     const urlVars = '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test' + storeString;
-    const fullUrl = fUrl + splitUrl[splitUrl.length - 1].split('#')[0] + urlVars;
+    const fullUrl = fUrl + "" + RPC + "" + urlVars;
     let parentId;
     await fetch(`${fullUrl}`)
       .then(data => data.json())
@@ -274,7 +267,7 @@ async function implementation (
         }
       });
 
-  }, storeId, postalCode);
+  }, storeId, postalCode, RPC);
   await stall(3000);
   await context.extract(productDetails, { transform });
 }

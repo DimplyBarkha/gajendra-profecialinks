@@ -6,6 +6,10 @@ async function implementation (
   dependencies,
 ) {
   const { zipcode, storeId } = inputs;
+
+  const splitUrl = inputs.url.split('=');
+  const id = splitUrl[1];
+
   // const { country, domain, store } = parameters;
 
   /*const currentUrl = await context.evaluate(function() {
@@ -35,7 +39,7 @@ async function implementation (
 
   await context.goto(currentUrl);*/
 
-  await context.evaluate(async function (zipcode, storeId) {
+  await context.evaluate(async function (zipcode, storeId, productId) {
 
       function addHiddenDiv(text, id) {
         const newDiv = document.createElement('div');
@@ -47,9 +51,10 @@ async function implementation (
 
       addHiddenDiv(zipcode, 'zipCode');
       addHiddenDiv(storeId, 'storeId');
+      addHiddenDiv(productId, 'productId');
 
 
-  }, zipcode, storeId);
+  }, zipcode, storeId, id);
 
   /*await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
