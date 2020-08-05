@@ -265,8 +265,7 @@ async function implementation (
       const ingredients = [];
       if (variant.enrichment && variant.enrichment.nutrition_facts && variant.enrichment.nutrition_facts.ingredients) {
         ingredients.push(variant.enrichment.nutrition_facts.ingredients);
-      }
-      if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.ingredients) {
+      } else if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.ingredients) {
         ingredients.push(variant.enrichment.drug_facts.ingredients);
       } else if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.inactive_ingredients) {
         ingredients.push(variant.enrichment.drug_facts.inactive_ingredients.join(' '));
