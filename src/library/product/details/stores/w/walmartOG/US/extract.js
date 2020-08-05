@@ -33,7 +33,6 @@ module.exports = {
         await context.waitForSelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]');
         storeID = await context.evaluate(async function () {
           const storeIDSplit = document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]') ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]').textContent.split('#') : [];
-          console.log(document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]'))
           const storeID = storeIDSplit.length > 1 ? storeIDSplit[1] : '0';
           return storeID;
         });

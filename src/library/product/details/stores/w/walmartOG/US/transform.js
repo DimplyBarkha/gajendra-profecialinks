@@ -74,7 +74,6 @@ const transform = (data, context) => {
           }
 
           if (quantity == null && row.quantity[0].text.includes('(Pack of')) {
-            console.log('QUAN12')
             quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|qt|[wW]ipe[s]?).?\s(\(Pack of \d+\)))/;
             quantity = quantityRe.exec(quantityText);
             row.quantity[0].text = quantity[0].trim();
