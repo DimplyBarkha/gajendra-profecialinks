@@ -125,7 +125,7 @@ async function implementation (
       id = splitUrl[splitUrl.length - 1];
     }
 
-    async function getProductInfo (variant, productName, variantCount = null) {
+    async function getProductInfo (variant) {
 
       const newDiv = createListItem();
 
@@ -146,9 +146,6 @@ async function implementation (
         }
       });
 
-      addHiddenDiv(newDiv, 'productName', decodeHtml(productName));
-
-      let secondaryImages = [];
       if (variant.enrichment && variant.enrichment.images && variant.enrichment.images.length) {
         addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
       }
@@ -162,7 +159,7 @@ async function implementation (
       }
 
       const splitUrl = window.location.href.split('-');
-      splitUrl[splitUrl.length - 1] = variant.tcin;
+      splitUrl[splitUrl.length - 1] = RPC;
       addHiddenDiv(newDiv, 'productUrl', splitUrl.join('-'));
 
       if (variant.product_brand && variant.product_brand.brand) {
@@ -194,7 +191,7 @@ async function implementation (
       addHiddenDiv(newDiv, 'retailerId', storeId);
 
       const storeString = "&pricing_store_id=" + storeId + "&storeId=" + storeId + "&store_id=" + storeId;
-      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&fulfillment_test_mode=grocery_opu_team_member_test' + storeString)
+      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + RPC + '&fulfillment_test_mode=grocery_opu_team_member_test' + storeString)
         .then(data => data.json())
         .then(availabilityData => {
           let inStore = false;
@@ -228,7 +225,7 @@ async function implementation (
           }
         });
 
-      await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?key=eb2551e4accc14f38cc42d32fbc2b2ea' + storeString)
+      await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + RPC + '?key=eb2551e4accc14f38cc42d32fbc2b2ea' + storeString)
         .then(data => data.json())
         .then(variantData => {
           if (variantData.price) {
@@ -263,7 +260,7 @@ async function implementation (
         if(res && res.product) {
           parentData = res;
           origData = res;
-          getProductInfo(res.product.item, res.product.item.product_description.title);
+          getProductInfo(res.product.item);
         }
       });
 
