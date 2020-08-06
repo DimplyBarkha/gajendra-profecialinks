@@ -6,6 +6,5 @@ module.exports = {
     store: 'amazonPrimeNow',
     transform: null,
     domain: 'primenow.amazon.com',
-    zipcode: '75204',
   },
 };
