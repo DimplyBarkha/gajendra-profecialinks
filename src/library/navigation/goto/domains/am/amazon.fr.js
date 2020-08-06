@@ -125,6 +125,11 @@ module.exports = {
           random_move_mouse: true,
         });
         console.log('lastResponseData', lastResponseData);
+
+        if (!lastResponseData) {
+          return { status: false };
+        }
+
         await new Promise(resolve => setTimeout(resolve, 1000));
 
         if (await solveCaptchaIfNecessary() === 'false') {
@@ -143,6 +148,12 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
+
+      // Treating as 200 if no response.
+      if (!lastResponseData) {
+        return;
+      }
+
       await new Promise(resolve => setTimeout(resolve, 1000));
 
       if ([200, 503, 410, 404].indexOf(lastResponseData.status) === -1) {
