@@ -33,23 +33,6 @@ async function implementation (
   });
 
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-  const productId = await context.evaluate(function() {
-
-      const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
-      if (link !== null) {
-        const href = link.getAttribute('href');
-        if (href.indexOf('?preselect=') > -1) {
-          const splitUrl = href.split('-');
-          const endOfUrl = splitUrl[splitUrl.length - 1];
-          let productId = endOfUrl.split('?preselect=')[0];
-          return productId;
-        }
-      }
-
-    return window.location.href.split('=')[1];
-  });
-
-  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -252,7 +235,7 @@ async function implementation (
     const storeString = "&pricing_store_id=" + storeId + "&storeId=" + storeId + "&store_id=" + storeId;
     const fUrl = 'https://redsky.target.com/v3/pdp/tcin/';
     const urlVars = '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test' + storeString;
-    const fullUrl = fUrl + "" + RPC + "" + urlVars;
+    const fullUrl = fUrl +  RPC +  urlVars;
     let parentId;
     await fetch(`${fullUrl}`)
       .then(data => data.json())

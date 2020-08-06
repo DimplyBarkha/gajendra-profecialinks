@@ -46,7 +46,7 @@ async function implementation (
         newDiv.setAttribute('id', id);
         newDiv.textContent = text;
         newDiv.style.display = 'none';
-        document.getElementById('skipLinks').appendChild(newDiv);
+        document.body.appendChild(newDiv);
       }
 
       addHiddenDiv(zipcode, 'zipCode');
