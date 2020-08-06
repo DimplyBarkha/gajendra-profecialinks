@@ -75,6 +75,23 @@ const transform = (data) => {
         ];
       }
 
+      if (row.otherSellersName) {
+        for (const item of row.otherSellersName) {
+          if (item.text.match(/amazon/ig)) {
+            row.lbb = [
+              {
+                text: 'YES'
+              }
+            ];
+            break;
+          }
+        }
+      }
+
+      if (row.lbb && row.lbb[0].text === 'NO') {
+        delete row.lbbPrice;
+      }
+
       if (row.weightGross) {
         for (const item of row.weightGross) {
           if (item.text.match(/.+\(/g)) {
