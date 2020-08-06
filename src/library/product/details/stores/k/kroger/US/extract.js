@@ -66,17 +66,20 @@ const implementation = async (
 
       const bullets = descriptionItem.querySelectorAll('ul li');
       let bulletCount;
+      let bulletInfo = '';
       if (bullets && bullets.length > 0) {
         bulletCount = bullets.length;
 
         bullets.forEach((bullet, index) => {
           if (bullet.textContent) {
             index === 0 ? descriptionText += bullet.textContent : descriptionText += ' || ' + bullet.textContent;
+            index === 0 ? bulletInfo += bullet.textContent : bulletInfo += ' | ' + bullet.textContent;
           }
         });
       } else {
         bulletCount = '';
       }
+      addHiddenDiv('bullet-info', bulletInfo);
       addHiddenDiv('bulletCount', bulletCount);
 
       addHiddenDiv('description', descriptionText);
