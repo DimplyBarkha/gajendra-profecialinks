@@ -114,6 +114,16 @@ async function implementation (inputs,
       document.body.appendChild(prodEle);
     }
   });
+
+  try {
+    // @hack - Sometimes additional info is not loaded on the DOM
+    await context.click('#tabnav > li:nth-child(5) > a');
+    await context.waitForSelector('#content2');
+    await context.click('#tabnav > li:nth-child(1) > a');
+  } catch (err) {
+    console.log('Manufacturing info is not loaded');
+  }
+
   const { productDetails } = dependencies;
   const { transform } = parameters;
   return await context.extract(productDetails, { transform });

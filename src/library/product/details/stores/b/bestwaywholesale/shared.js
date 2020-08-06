@@ -53,11 +53,11 @@ const transform = (data) => {
       if (row.allergyAdvice) {
         let text = '';
         row.allergyAdvice.forEach(item => {
-          text += `${item.text},`;
+          text += `${item.text}, `;
         });
         row.allergyAdvice = [
           {
-            text: text.slice(0, -1),
+            text: text.slice(0, -2),
           },
         ];
       }
@@ -69,21 +69,22 @@ const transform = (data) => {
         });
         row.description = [
           {
-            text: `${text.trim()} `,
+            text: `${text.trim()}`,
           },
         ];
       }
 
       if (row.manufacturer) {
         let text = '';
-        if (row.manufacturer[0].text.match(/bottle/ig) || row.manufacturer[0].text.match(/produce/ig)) {
+        if (row.manufacturer[0].text.match(/bottle/ig) || row.manufacturer[0].text.match(/produce/ig) || row.manufacturer[0].text.match(/brewed/ig) || row.manufacturer[0].text.match(/manufacture/ig) || row.manufacturer[0].text === 'GB:') {
           text = row.manufacturer[1].text;
         } else {
           text = row.manufacturer[0].text;
         }
+        text = text.replace(/,/g, '').trim();
         row.manufacturer = [
           {
-            text: `${text.replace(',', '').trim()}`,
+            text: text,
           }
         ];
       }
