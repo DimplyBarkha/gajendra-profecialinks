@@ -414,12 +414,14 @@ async function implementation (
         variant.enrichment.nutrition_facts.value_prepared_list[0]) {
 
         if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size) {
-          addHiddenDiv(newDiv, 'servingSize', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[0]);
+          const servingSize = variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size;
+          addHiddenDiv(newDiv, 'servingSize', !variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement ? servingSize : servingSize.split(' ')[0]);
+
           if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement) {
             addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement);
-          } else if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[1]) {
+          } /*else if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[1]) {
             addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[1]);
-          }
+          }*/
           addHiddenDiv(newDiv, 'servingsPerContainer', variant.enrichment.nutrition_facts.value_prepared_list[0].servings_per_container);
         }
 
