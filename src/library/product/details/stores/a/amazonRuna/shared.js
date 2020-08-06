@@ -211,7 +211,7 @@ const transform = (data) => {
         });
         row.description = [
           {
-            text: `${text.trim()} `,
+            text: `${text.trim()}`,
           },
         ];
       }
