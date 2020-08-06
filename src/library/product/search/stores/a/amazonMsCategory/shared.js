@@ -6,13 +6,15 @@
 const transform = (data, context) => {
   const getPrice = function (price) {
     if (price.includes('EUR') || price.includes('€')) {
-      price = price.replace('.', '');
-      price = price.replace(',', '.');
+      if (!price.includes('EUR') || (price.includes('EUR') && !price.replace(/\s/g, '').match(/\.\d{2}$/))) {
+        price = price.replace('.', '');
+        price = price.replace(',', '.');
+      }
     } else if (price.includes('￥')) {
       price = price.replace('￥', '');
       price = price.replace(',', '');
     }
-    price = price.replace(/€,EUR,£,CDN\$,$/g, '');
+    price = price.replace(/[€,£$]|EUR|CDN/g, '');
     price = price.match(/([\d,.]+[.,][\d]+)/g);
     return price;
   };
@@ -22,7 +24,7 @@ const transform = (data, context) => {
         row.price.forEach(item => {
           const price = getPrice(item.text);
           item.text = price && price[0];
-          if (price.length > 1) {
+          if (price && price.length > 1) {
             row.min_price = [{
               text: price[0],
             }];
