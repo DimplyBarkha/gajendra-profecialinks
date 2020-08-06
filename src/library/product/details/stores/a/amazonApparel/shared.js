@@ -80,8 +80,8 @@ const transform = (data) => {
           if (item.text.match(/amazon/ig)) {
             row.lbb = [
               {
-                text: 'YES'
-              }
+                text: 'YES',
+              },
             ];
             break;
           }
