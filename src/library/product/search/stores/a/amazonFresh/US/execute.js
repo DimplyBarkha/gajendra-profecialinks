@@ -5,10 +5,10 @@ async function implementation (
   dependencies,
 ) {
   console.log('params', parameters);
-  
+
   // const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
 
-  const url = parameters.url.replace(new RegExp('{searchTerms}','g'), encodeURIComponent(inputs.keywords)).replace(new RegExp('%20','g'),'+');
+  const url = parameters.url.replace(new RegExp('{searchTerms}', 'g'), encodeURIComponent(inputs.keywords)).replace(new RegExp('%20', 'g'), '+');
 
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {
