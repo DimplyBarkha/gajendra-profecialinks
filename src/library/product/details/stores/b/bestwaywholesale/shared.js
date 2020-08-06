@@ -69,10 +69,11 @@ const transform = (data) => {
         });
         row.description = [
           {
-            text: `${text.slice(0, -4)} `,
+            text: `${text.trim()} `,
           },
         ];
       }
+
       if (row.manufacturer) {
         let text = '';
         if (row.manufacturer[0].text.match(/bottle/ig) || row.manufacturer[0].text.match(/produce/ig)) {
