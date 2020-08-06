@@ -9,7 +9,6 @@ fields:
     description: The brand name
     example: Panasonic
     xpath: //span[contains(@data-at,"sku_item_brand")]|//div[@id="ii_brand"]
-
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
@@ -27,15 +26,6 @@ fields:
     singleValue: true
     description: The product name
     xpath: //span[contains(@data-at, "sku_item_name")]|//div[@id="ii_name"]
-  # - name: sku
-  #   singleValue: true
-  #   description: The store-specific product identifier
-  # - name: mpc
-  #   singleValue: true
-  #   description: The model code of the product
-  # - name: gtin
-  #   singleValue: true
-  #   description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -59,14 +49,14 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-    defaultValue: Sephora
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-    xpath: //div[contains(@data-at,"sku_item_flags") and not(contains(.,"Only"))]
+  # - name: soldBy
+  #   singleValue: true
+  #   description: The name of the seller of the item (if available)
+  #   defaultValue: Sephora
+  # - name: endorsementText
+  #   singleValue: true
+  #   description: The text that signifies that a product is endorsed
+  #   xpath: //div[contains(@data-at,"sku_item_flags") and not(contains(.,"Only"))]
   # - name: shippingInfo
   #   singleValue: true
   #   description: Shipping information for the product
