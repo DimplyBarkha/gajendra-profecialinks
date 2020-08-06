@@ -17,6 +17,7 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      addHiddenDiv(`ii_url`, window.location.href);
       addHiddenDiv(`ii_parentInput`, parentInput);
 
       let flag = true;

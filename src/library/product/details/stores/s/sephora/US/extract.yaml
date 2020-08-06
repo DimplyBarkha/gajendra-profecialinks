@@ -52,19 +52,18 @@ fields:
   - name: nameExtended
     singleValue: true
     description: The product name
-    xpath: //h1[contains(@data-comp,"DisplayName")]/span
+    xpath: //h1[contains(@data-comp,"DisplayName")]
   - name: _pageTimestamp
     xpath: /html/body/@downloadtime
   - name: _url
     xpath: /html/body/@url
   - name: quantity
-    regExp: >-
-     SIZE\s([a-zA-Z0-9.\s\/]+)
-    regExpReplace: >-
-     $1
+    # regExp: >-
+    #  SIZE\s([a-zA-Z0-9.\s\/]+)
+    # regExpReplace: >-
+    #  $1
     singleValue: false
-    xpath: >-
-     //div[contains(@data-comp,"SizeAndItemNumber")]
+    xpath: //div[contains(@data-comp,"SizeAndItemNumber")]
   - name: category
     xpath: //ol/li/a
   # - name: category !!!!!!!!!!!!!!!!!!!!!
@@ -103,7 +102,7 @@ fields:
     xpath: //div[@id="ii_Details"]
   - name: brandText
     singleValue: false
-    xpath: //h1/a[@data-comp="Link Box "]/span
+    xpath: //h1/a[contains(@data-comp, "Link Box")]/span
   - name: directions
     singleValue: true
     # xpath: //div[@id="tabpanel1"]
