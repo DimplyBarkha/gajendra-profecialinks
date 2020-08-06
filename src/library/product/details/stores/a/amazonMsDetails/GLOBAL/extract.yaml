@@ -1,0 +1,62 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: ASIN
+    xpath: //script[contains(text(),"var ue_pti")]/text()
+    regExp: var ue_pti\s*=\s*"([^"]+)
+    regExpReplace: $1
+  - name: ASIN_URL
+    xpath: //script[contains(text(),"var ue_pti")]/text()
+    regExp: var ue_pti\s*=\s*"([^"]+)
+    regExpReplace: https://www.amazon.com/dp/$1
+  - name: AVAILABILITY
+    xpath: //*[@id='availability']
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: A_PLUS
+    xpath: //*[@id="aplus"]
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
+  - name: AVG_STAR_RATING
+    xpath: translate(//*[@id="acrPopover"]/@title, ',', '.')
+    regExp: ^[^\s]+
