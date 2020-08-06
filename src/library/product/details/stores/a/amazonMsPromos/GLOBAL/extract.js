@@ -27,7 +27,7 @@ async function implementation (
     };
 
     async function checkAndAddItems (data, dealID) {
-      if (data && data.dealDetails && data.dealDetails[dealID] && data.dealDetails[dealID].items.length === 0) {
+      if (data && data.dealDetails && data.dealDetails[dealID] && data.dealDetails[dealID].items && data.dealDetails[dealID].items.length === 0) {
         if (data.dealDetails[dealID].type === 'COUPON_DEAL') {
           const encryptedPromoId = data.dealDetails[dealID].egressUrl.match(/[A-Z0-9]+$/) && data.dealDetails[dealID].egressUrl.match(/[^/]+$/)[0];
           if (!encryptedPromoId) {
