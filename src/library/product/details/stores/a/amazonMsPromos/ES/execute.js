@@ -5,8 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'amazonMsPromos',
     domain: 'amazon.es',
-    loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//a//img[contains(@src,"503.png")] | //a[contains(@href,"ref=cs_503_link")] | //script[contains(text(),"PageNotFound")]',
     zipcode: '',
   },
 };
