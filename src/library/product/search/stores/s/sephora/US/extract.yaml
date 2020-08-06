@@ -3,24 +3,13 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@data-comp, "ProductGrid")]//a
 fields:
-  # - name: paid
-  #   singleValue: true
-  #   description: Whether this is a sponsored/paid result
-  #   type: BOOLEAN
+
   - name: brand
     singleValue: true
     description: The brand name
     example: Panasonic
     xpath: //span[contains(@data-at,"sku_item_brand")]|//div[@id="ii_brand"]
-  # - name: category
-  #   singleValue: false
-  #   description: The categories (e.g. from breadcrumbs)
-  #   example:
-  #     - Dental Care
-  #     - Toothbrushes & Accessories
-  #     - Electric Toothbrushes & Accessories
-  #     - Electric Toothbrushes
-  #     - Rotating
+
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
@@ -77,7 +66,7 @@ fields:
   - name: endorsementText
     singleValue: true
     description: The text that signifies that a product is endorsed
-    xpath: //div[contains(@data-at,"sku_item_flags")]
+    xpath: //div[contains(@data-at,"sku_item_flags") and not(contains(.,"Only"))]
   # - name: shippingInfo
   #   singleValue: true
   #   description: Shipping information for the product

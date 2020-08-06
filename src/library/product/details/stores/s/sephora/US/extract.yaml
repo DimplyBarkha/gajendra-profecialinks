@@ -50,10 +50,10 @@ fields:
     singleValue: true
     description: The product name
     xpath: //h1[@data-comp="DisplayName Box "]/span
-  - name: _pageTimestamp
-    xpath: /html/body/@downloadtime
-  - name: _url
-    xpath: /html/body/@url
+  # - name: _pageTimestamp
+  #   xpath: /html/body/@downloadtime
+  # - name: _url
+  #   xpath: /html/body/@url
   - name: quantity
     regExp: >-
      SIZE\s([a-zA-Z0-9.\s\/]+)
