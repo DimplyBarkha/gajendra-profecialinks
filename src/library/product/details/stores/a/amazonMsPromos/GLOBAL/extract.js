@@ -25,6 +25,33 @@ async function implementation (
       it: 'APJ6JRA9NG5V4',
       mx: 'A1AM78C64UM0Y8',
     };
+
+    async function checkAndAddItems (data, dealID) {
+      if (data && data.dealDetails && data.dealDetails[dealID] && data.dealDetails[dealID].items.length === 0) {
+        if (data.dealDetails[dealID].type === 'COUPON_DEAL') {
+          const encryptedPromoId = data.dealDetails[dealID].egressUrl.match(/[A-Z0-9]+$/) && data.dealDetails[dealID].egressUrl.match(/[^/]+$/)[0];
+          if (!encryptedPromoId) {
+            return encryptedPromoId;
+          }
+          const maxResults = 9999;
+          const API = `${window.location.origin}/gp/coupon/ajax/get_clp_asins.html?encryptedPromoId=${encryptedPromoId}&requestedAsins=${maxResults}`;
+          const response = await fetch(API);
+          const jsonData = await response.json();
+          const itemsHtml = jsonData.items;
+          if (itemsHtml.length) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(itemsHtml, 'text/html');
+            const items = Array.from(doc.querySelectorAll('td[class="product-list-table-col"] > a.a-link-normal'))
+              .map((elm) => elm.getAttribute('href'))
+              .filter((elm) => elm.match(/redirectASIN=([^&]+)/))
+              .map((elm) => ({ itemID: elm.match(/redirectASIN=([^&]+)/)[1] }));
+            data.dealDetails[dealID].items = items;
+          }
+        }
+      }
+      return data;
+    }
+
     async function getDealDetails (dealID) {
       const clientID = 'goldbox_mobile_pc';
       const sessionID = ue_sid || document.cookie.match(/session-id=([^;]+)/)[1];
@@ -58,7 +85,8 @@ async function implementation (
         credentials: 'include',
       });
       const data = await response.json();
-      document.body.setAttribute('promo-data', JSON.stringify(data));
+      const updatedData = await checkAndAddItems(data, dealID);
+      document.body.setAttribute('promo-data', JSON.stringify(updatedData));
     }
     return await getDealDetails(dealID);
   }
