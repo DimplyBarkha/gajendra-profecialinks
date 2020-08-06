@@ -171,11 +171,11 @@ module.exports = {
       const htmlList = await collectManuf();
 
       await context.goto(`https://www.cvs.com${productPageUrl}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      await new Promise(resolve => setTimeout(resolve, 15000));
       await context.waitForSelector('div.css-1dbjc4n.r-16lk18l.r-1xi2sqm', { timeout: 20000 });
 
-
       const variantOptions = await context.evaluate(function(){
+        
         let optionList = [];
         let optionPath = '//div[@class="css-1dbjc4n r-18u37iz r-f1odvy"]//div[@class="css-901oao r-vw2c0b"]'
         if(optionPath) {
@@ -543,63 +543,63 @@ module.exports = {
                               variantInfoArray.push(variant.p_Sku_Size);
                           }
                         }
-                      } else {
-                        if(variant.p_Sku_Group_Size){
+                      // } else {
+                      //   if(variant.p_Sku_Group_Size){
 
-                          variantInfoArray.push(variant.p_Sku_Group_Size);
-                          packSizes.push(variant.p_Sku_Group_Size)
+                      //     variantInfoArray.push(variant.p_Sku_Group_Size);
+                      //     packSizes.push(variant.p_Sku_Group_Size)
                       
-                        }
-                        if(variant.p_Sku_Flavor){
-                          variantInfoArray.push(variant.p_Sku_Flavor);
+                      //   }
+                      //   if(variant.p_Sku_Flavor){
+                      //     variantInfoArray.push(variant.p_Sku_Flavor);
                     
-                        }
-                        if(variant.p_Sku_Color){
-                          addHiddenDiv('ii_color', variant.p_Sku_Color, newDiv);
-                          variantInfoArray.push(variant.p_Sku_Color);
+                      //   }
+                      //   if(variant.p_Sku_Color){
+                      //     addHiddenDiv('ii_color', variant.p_Sku_Color, newDiv);
+                      //     variantInfoArray.push(variant.p_Sku_Color);
                      
-                        }
-                        if(variant.p_Sku_Concern){
-                          variantInfoArray.push(variant.p_Sku_Concern);
+                      //   }
+                      //   if(variant.p_Sku_Concern){
+                      //     variantInfoArray.push(variant.p_Sku_Concern);
                    
-                        } 
-                        if(variant.p_Sku_Form){
-                          variantInfoArray.push(variant.p_Sku_Form);
+                      //   } 
+                      //   if(variant.p_Sku_Form){
+                      //     variantInfoArray.push(variant.p_Sku_Form);
                   
-                        }
-                        if(variant.p_Sku_Absorbency){
-                          variantInfoArray.push(variant.p_Sku_Absorbency);
+                      //   }
+                      //   if(variant.p_Sku_Absorbency){
+                      //     variantInfoArray.push(variant.p_Sku_Absorbency);
                       
-                        }
-                        if(variant.p_Sku_Final_Look){
-                          variantInfoArray.push(variant.p_Sku_Final_Look);
+                      //   }
+                      //   if(variant.p_Sku_Final_Look){
+                      //     variantInfoArray.push(variant.p_Sku_Final_Look);
                     
-                        }
-                        if(variant.p_Sku_Finish){
-                          variantInfoArray.push(variant.p_Sku_Finish);
+                      //   }
+                      //   if(variant.p_Sku_Finish){
+                      //     variantInfoArray.push(variant.p_Sku_Finish);
                     
-                        }
-                        if(variant.p_Sku_Fragrance){
-                          variantInfoArray.push(variant.p_Sku_Fragrance);
+                      //   }
+                      //   if(variant.p_Sku_Fragrance){
+                      //     variantInfoArray.push(variant.p_Sku_Fragrance);
                     
-                        }
-                        if(variant.p_Sku_Pack){
-                          variantInfoArray.push(variant.p_Sku_Pack);
-                          packSizes.push(variant.p_Sku_Pack)
+                      //   }
+                      //   if(variant.p_Sku_Pack){
+                      //     variantInfoArray.push(variant.p_Sku_Pack);
+                      //     packSizes.push(variant.p_Sku_Pack)
                       
-                        }
-                        if(variant.p_Sku_SPF){
-                          variantInfoArray.push(variant.p_Sku_SPF);
+                      //   }
+                      //   if(variant.p_Sku_SPF){
+                      //     variantInfoArray.push(variant.p_Sku_SPF);
                       
-                        }
-                        if(variant.p_Sku_Scent){
-                          variantInfoArray.push(variant.p_Sku_Scent);
+                      //   }
+                      //   if(variant.p_Sku_Scent){
+                      //     variantInfoArray.push(variant.p_Sku_Scent);
                       
-                        }
-                        if(variant.p_Sku_Strength){
-                          variantInfoArray.push(variant.p_Sku_Strength);
+                      //   }
+                      //   if(variant.p_Sku_Strength){
+                      //     variantInfoArray.push(variant.p_Sku_Strength);
                      
-                        }
+                      //   }
                       }
                       addHiddenDiv('ii_metaKeywords', variant.p_Sku_FullName, newDiv);
 
