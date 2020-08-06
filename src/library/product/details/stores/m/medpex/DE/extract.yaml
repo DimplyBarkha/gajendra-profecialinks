@@ -26,7 +26,7 @@ fields:
     xpath: //meta[@itemprop="item"]/@content
   - name: category
     singleValue: false
-    xpath: //ol[@class="breadcrumb"]
+    xpath: //ol[@class="breadcrumb"]/li[position() > 1]
   - name: nameExtended
     singleValue: false
     xpath: //span[@class='productDetails-name']
