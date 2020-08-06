@@ -124,3 +124,5 @@ fields:
     xpath: //*[@id="priceblock_ourprice_row"]//span[@class="a-size-small a-color-price"]
     regExp: \(?.*\/\s*(.*)\)
     regExpReplace: $1
+  - name: variantAsins
+    xpath: //script[contains(., "ImageBlockBTF")]/text() | //*[@id='twisterJsInitializer_feature_div']//script

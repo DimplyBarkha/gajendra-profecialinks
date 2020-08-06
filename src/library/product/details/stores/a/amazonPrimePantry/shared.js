@@ -77,6 +77,26 @@ const transform = (data) => {
           item.text = cleanUp(item.text);
         });
       }
+      if (row.variantAsins) {
+        let asinLength = 1;
+        let asinValArr = [];
+        row.variantAsins.forEach(item => {
+          const asinArr = item.text.match(/"asin":"(.*?)"/gmi);
+          if (asinArr) {
+            const asins = asinArr.map(el => el.replace(/.*?:"?(.*)/, '$1').slice(0, -1));
+            asinValArr = asinValArr.concat(asins);
+          } else if (row.asin) {
+            asinValArr.push(row.asin[0].text);
+          }
+        });
+        const value = new Set(asinValArr);
+        asinValArr = Array.from(value);
+        if (asinValArr.length > 1) asinLength = asinValArr.length;
+        row.variantAsins = [{ text: asinValArr.join(' | ') }];
+        row.variantCount.forEach(variantCount => {
+          variantCount.text = asinLength;
+        });
+      }
       row.alternateImages && row.alternateImages.splice(0, 1);
       row.secondaryImageTotal = [{
         text: (row.alternateImages && row.alternateImages.length) || 0,
