@@ -12,6 +12,4 @@ fields:
     description: variant Url
     xpath: //*[@id='ii_variant']
     regExp: (.+)
-    # regExpReplace: https://amazon.com/dp/product/{id}/?fpw=alm&s=amazonfresh&fpw=fresh
-    regExpReplace: 'https://amazon.com/dp/product/$1/?fpw=alm&s=amazonfresh&fpw=fresh#[!opt!]{  "headers": {"cache-control": "max-age=0"}}[/!opt!]'
-    # regExpReplace: https://www.walmart.com/ip/$1/?selected=true
+    regExpReplace: https://amazon.com/dp/product/{id}/?fpw=alm&s=amazonfresh&fpw=fresh
