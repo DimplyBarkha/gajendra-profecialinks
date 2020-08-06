@@ -6,10 +6,10 @@ fields:
   - name: parentInput
     singleValue: true
     xpath: //div[@id='ii_parentInput']
-  - name: image
-    singleValue: true
-    description: URL of the main product image
-    xpath: //div[contains(@data-comp, "Carousel")]//img/@src
+  # - name: image
+  #   singleValue: true
+  #   description: URL of the main product image
+  #   xpath: ((//div[contains(@data-comp, "Carousel")])[1]//img/@src)[1]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -110,7 +110,7 @@ fields:
     xpath: //div[@id="ii_How to Use"]
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@data-comp,"Carousel")]/div//img[@width="300"])[position()>1]/@src
+    xpath: ((//div[contains(@data-comp,"Carousel")])[1]/div//img[@width="300"])[position()>1]/@src
     regExp: ([/].*)
     regExpReplace: https://www.sephora.com$1
     #  (//div[@data-hammer-carousel-inner="true"]/div//img[@width="300"])[position()>1]/@src
@@ -123,8 +123,8 @@ fields:
     xpath: >-
       //div[contains(@data-comp,"CallToActions")]//button/span
     defaultValue: "In Stock"
-  - name: _input
-    xpath: /html/body/@scrape_code
+  # - name: _input
+  #   xpath: /html/body/@scrape_code
   - name: promotion
     regExp: (.*)
     regExpReplace: Sale
@@ -139,10 +139,10 @@ fields:
     regExp: >-
      [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
     xpath: //span[@data-at="price"]
-  - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
-    xpath: //div[contains(@data-comp, "Carousel")]//img/@alt
+  # - name: imageAlt
+  #   singleValue: true
+  #   description: Alt text of the main product image
+  #   xpath: ((//div[contains(@data-comp, "Carousel")])[1]//img/@alt)[1]
   - name: additionalDescBulletInfo
     xpath: //div[@id="tabpanel0"]//text()[contains(., "- ")]
   - name: additionalDescBulletCount
