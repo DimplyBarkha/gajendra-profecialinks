@@ -27,7 +27,7 @@ module.exports = {
     country: 'US',
     domain: 'amazon.com',
     store: 'Amazonprimepantry',
-    zipcode: '10001',
+    zipcode: '',
   },
   implementation,
 };
