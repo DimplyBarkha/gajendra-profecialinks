@@ -33,18 +33,18 @@ module.exports = {
     const waitForSelectorToLoad = async (cssSelector, xpath) => {
       try {
         if (cssSelector) {
-          await context.waitForSelector(cssSelector, {timeout: waitPeriodInMS});
+          await context.waitForSelector(cssSelector, { timeout: waitPeriodInMS });
         }
 
         if (xpath) {
-          await context.waitForSelector(cssSelector, {timeout: waitPeriodInMS});
+          await context.waitForSelector(cssSelector, { timeout: waitPeriodInMS });
         }
 
         console.log(`Selector loaded => ${cssSelector || xpath}`);
       } catch (err) {
         console.log(`Selector => "${cssSelector || xpath}" never loaded in time. :(`);
       }
-    }
+    };
 
     console.log('.....waiting......');
     await context.waitForSelector(cssProduct, { timeout: waitPeriodInMS });
