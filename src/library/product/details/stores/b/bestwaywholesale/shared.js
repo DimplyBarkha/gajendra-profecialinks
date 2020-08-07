@@ -27,8 +27,9 @@ const transform = (data) => {
       if (row.directions) {
         let text = '';
         row.directions.forEach(item => {
-          text += item.text.replace(/\n/g, ' ');
+          text += `${item.text} `;
         });
+        text = text.replace(/\n/g, ' ');
         row.directions = [
           {
             text: `${row.directionsTitle ? row.directionsTitle[0].text : ''} ${text} ${row.servingSuggest ? '|| ' + row.servingSuggest[0].text : ''}`.trim(),
@@ -85,13 +86,51 @@ const transform = (data) => {
         row.manufacturer = [
           {
             text: text,
-          }
+          },
         ];
       }
 
       if (row.image) {
         if (row.image[0].text.match(/no-image/ig) && !row.image[0].text.match(/http/ig)) {
-          row.image[0].text = `https://www.bestwaywholesale.co.uk${row.image[0].text}`
+          row.image[0].text = `https://www.bestwaywholesale.co.uk${row.image[0].text}`;
+        }
+      }
+
+      if (row.ingredientsList) {
+        if (row.ingredientsList[0].text.match(/sodium/ig)) {
+          let sodiumPerServing = row.ingredientsList[0].text.split('Sodium')[1];
+          if (sodiumPerServing) {
+            sodiumPerServing = sodiumPerServing.substr(0, sodiumPerServing.indexOf(', ')).replace(/:/g, '').trim();
+          }
+          row.sodiumPerServing = [
+            {
+              text: sodiumPerServing,
+            },
+          ];
+          row.sodiumPerServingUom = [
+            {
+              text: '(mg/L)',
+            },
+          ];
+        }
+        if (row.ingredientsList[0].text.match(/magnesium/ig)) {
+          let magnesiumPerServing = row.ingredientsList[0].text.split('Magnesium')[1];
+          if (magnesiumPerServing) {
+            magnesiumPerServing = magnesiumPerServing.substr(0, magnesiumPerServing.indexOf(', ')).replace(/:/g, '').trim();
+            if (magnesiumPerServing[magnesiumPerServing.length - 1] === '.') {
+              magnesiumPerServing = magnesiumPerServing.substring(0, magnesiumPerServing.length - 1);
+            }
+          }
+          row.magnesiumPerServing = [
+            {
+              text: magnesiumPerServing,
+            },
+          ];
+          row.magnesiumPerServingUom = [
+            {
+              text: '(mg/L)',
+            },
+          ];
         }
       }
     }

@@ -65,8 +65,8 @@ async function implementation (inputs,
     function addNutritionalEle (property, xpath, propertyUom) {
       const servingProp = getEleByXpath(xpath);
       if (servingProp) {
-        const normlizedServingProp = servingProp.replace('mg', '').replace('g', '').replace('ml', '').replace('%', '').replace('Per', '').replace(':', '').split('(')[0].trim();
-        if (!normlizedServingProp.match(/(^[.0-9<>]+)/g)) {
+        const normlizedServingProp = servingProp.replace('mg', '').replace('g', '').replace('ml', '').replace('Per', '').replace(':', '').split('(')[0].trim();
+        if (!normlizedServingProp.match(/(^[.0-9<>%a-zA-Z]+)/g)) {
           return;
         }
         addEleToDoc(property, normlizedServingProp);
