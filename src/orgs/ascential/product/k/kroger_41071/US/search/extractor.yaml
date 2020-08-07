@@ -1,0 +1,21 @@
+robot: product/search
+parameters:
+  country: US
+  domain: kroger.com
+  store: kroger
+  zipcode: "41071"
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+meta:
+  branches:
+    adam-test:
+      extractor: 6aad90d0-8b03-449d-b447-144f2b67ec9c
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    staging:
+      extractor: 58d9ac26-5b76-4ed2-8064-e3b56d1b5bc5
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

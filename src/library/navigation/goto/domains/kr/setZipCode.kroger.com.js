@@ -101,6 +101,7 @@ async function implementation (
       48315: 'Shelby Marketplace',
       45044: 'Middletown428 Oxford State Rd',
       45232: 'St. Bernard',
+      41071: 'I-471 @ Memorial Pkwy/Carothers Rd',
     };
 
     if (desiredLocations[wantedZip]) {
