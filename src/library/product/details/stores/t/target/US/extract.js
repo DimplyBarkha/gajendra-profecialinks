@@ -72,8 +72,10 @@ async function implementation (
     }
   });
 
-  //await context.setBlockAds(false);
-  await context.goto('https://www.target.com' + productUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+  await context.setBlockAds(false);
+  await context.setFirstRequestTimeout(30000);
+  await context.goto('https://www.target.com' + productUrl, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
+
 
   /*await context.evaluate(function(html) {
 
