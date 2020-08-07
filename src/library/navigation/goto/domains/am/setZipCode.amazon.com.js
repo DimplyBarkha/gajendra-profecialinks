@@ -1,4 +1,3 @@
-
 async function implementation (
   inputs,
   parameters,
@@ -29,7 +28,7 @@ module.exports = {
     country: 'US',
     domain: 'amazon.com',
     store: 'amazonPrimePantry',
-    zipcode: '10001',
+    zipcode: '',
   },
   implementation,
 };
