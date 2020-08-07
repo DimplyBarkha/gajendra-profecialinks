@@ -20,8 +20,12 @@ module.exports = {
       }
 
       // description Block
-      const descSelector = document.querySelector('meta[name=\'description\']');
-      const description = descSelector ? descSelector.getAttribute('content').replace(/(.*?)-.*/, '$1') : '';
+      const descSelector = document.querySelector('h1[itemprop="name"]');
+      const quantity = document.querySelector('dd.packageSize');
+      let description = descSelector ? descSelector.innerText.trim() : '';
+      if (quantity && description) {
+        description = `${description} ${quantity.innerText.trim()}`;
+      }
       addHiddenDiv('ii_description', description);
       // prices Block
       const priceSelector = document.querySelector('dl[class="productPrice"]>dd[class^="yourPrice"]');
@@ -54,16 +58,14 @@ module.exports = {
         addHiddenDiv('ii_gtin', gtin);
       }
       // manufacturer Desc
+      const manufacturerDescFlag = document.querySelector('dd[class="productLongDescription"] img');
       const manufacturerDescSelector = document.querySelector('dd[class="productLongDescription"]');
-      let additionalDescription = '';
-      manufacturerDescSelector && Array.from(manufacturerDescSelector.children).forEach(node => {
-        if (!/(BR|STYLE|IMG)/.test(node.nodeName)) {
-          console.log(node.nodeName !== 'BR');
-          // @ts-ignore
-          additionalDescription = additionalDescription + node.innerText.trim();
-        }
-      });
-      addHiddenDiv('ii_desc', additionalDescription);
+      const additionalDescription = manufacturerDescSelector ? manufacturerDescSelector.innerText : '';
+      if (manufacturerDescFlag) {
+        addHiddenDiv('ii_aplus', additionalDescription);
+      } else {
+        addHiddenDiv('ii_desc', additionalDescription);
+      }
     });
     return await context.extract(productDetails, { transform });
   },

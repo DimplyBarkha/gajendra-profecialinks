@@ -13,6 +13,7 @@ const transform = (data) => {
         });
       }
       if (row.alternateImages) {
+        row.alternateImages && row.alternateImages.splice(0, 1);
         row.secondaryImageTotal = [{
           text: row.alternateImages.length,
         }];
@@ -23,6 +24,11 @@ const transform = (data) => {
       if (row.pricePerUnit) {
         row.pricePerUnit.forEach(pricePerUnit => {
           pricePerUnit.text = pricePerUnit.text.replace(/\./g, '').replace(',', '.');
+        });
+      }
+      if (row.variantId) {
+        row.variantId.forEach(variantId => {
+          variantId.text = variantId.text.replace(/^0+/, '');
         });
       }
       if (row.availabilityText) {
