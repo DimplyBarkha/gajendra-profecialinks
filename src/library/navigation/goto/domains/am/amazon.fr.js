@@ -150,7 +150,7 @@ module.exports = {
       });
 
       // Treating as 200 if no response.
-      if (!lastResponseData) {
+      if (!lastResponseData.code) {
         return;
       }
 
