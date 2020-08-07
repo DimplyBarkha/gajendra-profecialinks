@@ -179,7 +179,7 @@ fields:
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingSize font-bold flex justify-between']/span[2]
     regExp: >-   
-      [0-9]+
+      [0-9,.]+
   - name: servingSizeUom
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingSize font-bold flex justify-between']/span[2]
@@ -194,7 +194,7 @@ fields:
     singleValue: true
     xpath: //div[@class='NutritionLabel-Calories font-bold flex justify-between']
     regExp: >-
-      \d+
+      [0-9,.]+
   - name: caloriesFromFatPerServing
     singleValue: true
     xpath: //div[@id='my-cal-from-fat']
