@@ -211,7 +211,7 @@ async function implementation (
       if (!videos.length &&
         variant.enrichment.videos &&
         variant.enrichment.videos.length) {
-          videos = variant.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
+          videos = variant.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
             'https:' + video.video_files[0].video_url
           );
       }
@@ -243,7 +243,7 @@ async function implementation (
       if (variant.product_description && variant.product_description.soft_bullets && variant.product_description.soft_bullets.bullets && variant.product_description.soft_bullets.bullets.length) {
         description = '|| ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')) + ' ';
         addHiddenDiv(newDiv, 'descriptionBullets', variant.product_description.soft_bullets.bullets.length);
-        addHiddenDiv(newDiv, 'additionalDesc', decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')));
+        addHiddenDiv(newDiv, 'additionalDesc', ' || ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')));
       }
 
       if(description.length || (variant.product_description && variant.product_description.downstream_description)) {
