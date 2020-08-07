@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'amazonPrimeNow',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -174,5 +174,8 @@ module.exports = {
       }
     };
     await run();
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode });
+    }
   },
 };
