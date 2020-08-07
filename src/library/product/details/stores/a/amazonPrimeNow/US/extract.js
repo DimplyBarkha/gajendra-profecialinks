@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'amazonPrimeNow_75204',
+    store: 'amazonPrimeNow',
+    transform: null,
     domain: 'primenow.amazon.com',
   },
 };
