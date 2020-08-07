@@ -52,7 +52,7 @@ const transform = (data) => {
         ];
       }
       if (row.availabilityText) {
-        let newText = 'Out of Stock';
+        let newText = 'Out Of Stock';
         row.availabilityText.forEach(item => {
           if (item.text.trim() === 'Añadir') {
             newText = 'In Stock';
