@@ -213,7 +213,7 @@ module.exports = {
 
         document.body.innerText = '';
         addHiddenDiv('ii_url', window.location.href);
-
+        
           if (records[0].allMeta) {
             const product = records[0].allMeta;
             if (product) {
@@ -237,7 +237,6 @@ module.exports = {
 
                   }
                   addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
-
                   if(product.p_Product_UPCNumber){
                     addHiddenDiv('ii_gtin', product.p_Product_UPCNumber, newDiv);
                   } else {
@@ -601,8 +600,8 @@ module.exports = {
                      
                       //   }
                       }
+                      
                       addHiddenDiv('ii_metaKeywords', variant.p_Sku_FullName, newDiv);
-
 
                       if(variant.gbi_CarePassEligible === "Y") {
                       addHiddenDiv('ii_shipping', 'Ships Free With CarePass', newDiv);
