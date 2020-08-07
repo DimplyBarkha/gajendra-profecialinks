@@ -103,7 +103,7 @@ module.exports = {
       const item = (productDetails.data.uber_item && productDetails.data.uber_item.items.length && productDetails.data.uber_item.items[0]) || false;
 
       if (item) {
-        console.log('Item details found.', item);
+        console.log('Item details found.');
         const packInfo = (item.item_enrichment && item.item_enrichment.enrichment_info && item.item_enrichment.enrichment_info.packaging) || false;
 
         const recipe = (item.item_enrichment && item.item_enrichment.enrichment_info && item.item_enrichment.enrichment_info.recipes) || false;
