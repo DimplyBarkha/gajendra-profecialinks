@@ -171,8 +171,8 @@ module.exports = {
       const htmlList = await collectManuf();
 
       await context.goto(`https://www.cvs.com${productPageUrl}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
-      await new Promise(resolve => setTimeout(resolve, 15000));
-      await context.waitForSelector('div.css-1dbjc4n.r-16lk18l.r-1xi2sqm', { timeout: 20000 });
+      await new Promise(resolve => setTimeout(resolve, 20000));
+      // await context.waitForSelector('div.css-1dbjc4n.r-16lk18l.r-1xi2sqm', { timeout: 20000 });
 
       const variantOptions = await context.evaluate(function(){
         
