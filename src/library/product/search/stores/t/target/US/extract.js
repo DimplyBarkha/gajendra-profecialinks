@@ -44,7 +44,7 @@ async function implementation (
     let uniqueProductCount = 0;
 
 
-    function getProductData(data) {
+    async function getProductData(data) {
       if (data && data.search_response && data.search_response.items && data.search_response.items.Item && data.search_response.items.Item.length) {
         for(let product of data.search_response.items.Item) {
 
@@ -60,15 +60,19 @@ async function implementation (
           }
 
           addHiddenDiv(newDiv, 'productName', decodeHtml(product.title));
+          
           if (product.is_sponsored_sku) {
             addHiddenDiv(newDiv, 'sponsored', product.is_sponsored_sku);
           }
+
           if (product.url) {
             addHiddenDiv(newDiv, 'productUrl', 'https://www.target.com' + product.url);
           }
+
           if (product.upc) {
             addHiddenDiv(newDiv, 'gtin', product.upc);
           }
+
           if (product.images && product.images.length) {
             addHiddenDiv(newDiv, 'thumbnail', product.images[0].base_url + product.images[0].primary);
           }

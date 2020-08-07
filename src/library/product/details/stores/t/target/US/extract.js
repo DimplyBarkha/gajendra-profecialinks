@@ -72,7 +72,8 @@ async function implementation (
     }
   });
 
-  await context.goto('https://www.target.com' + productUrl);
+  await context.setBlockAds(false);
+  await context.goto('https://www.target.com' + productUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
 
   /*await context.evaluate(function(html) {
 
@@ -182,7 +183,7 @@ async function implementation (
       });
 
       document.getElementById('mainContainer').querySelectorAll('li').forEach(e => {
-        if (e.querySelector('.sku').innerText === variant.tcin) {
+        if (e.querySelector('.sku') && e.querySelector('.sku').innerText === variant.tcin) {
           e.remove();
         }
       });
@@ -194,12 +195,6 @@ async function implementation (
       let secondaryImages = [];
       if (variant.enrichment && variant.enrichment.images && variant.enrichment.images.length) {
         addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
-        /*if (variant.enrichment.images[0] && variant.enrichment.images[0].alternate_urls && variant.enrichment.images[0].alternate_urls.length) {
-          secondaryImages = variant.enrichment.images[0].alternate_urls.map(image => variant.enrichment.images[0].base_url.replace('https', 'http') + image);
-        }
-        if (variant.enrichment.images[0].content_labels && variant.enrichment.images[0].content_labels.length) {
-          secondaryImages = variant.enrichment.images[0].content_labels.filter((image, ind) => image.image_url != variant.enrichment.images[0].primary && image.image_url != variant.enrichment.images[0].swatch).map(image => variant.enrichment.images[0].base_url.replace('https', 'http') + image.image_url);
-        }*/
       }
 
       let videos = [];
@@ -207,7 +202,7 @@ async function implementation (
       if (parentData.product.item.enrichment &&
         parentData.product.item.enrichment.videos &&
         parentData.product.item.enrichment.videos.length) {
-          videos = parentData.product.item.enrichment.videos.map(video =>
+          videos = parentData.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
             'https:' + video.video_files[0].video_url
           );
       }
@@ -215,12 +210,12 @@ async function implementation (
       if (!videos.length &&
         variant.enrichment.videos &&
         variant.enrichment.videos.length) {
-          videos = variant.product.item.enrichment.videos.map(video =>
+          videos = variant.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
             'https:' + video.video_files[0].video_url
           );
       }
 
-      const productTitle = document.querySelector('h1[data-test="product-title"]').innerText;
+      const productTitle = document.querySelector('h1[data-test="product-title"]') && document.querySelector('h1[data-test="product-title"]').innerText;
       if (variant.variation_info && variant.variation_info.themes) {
         addHiddenDiv(newDiv, 'imageAlt', productTitle + ' ' + variant.variation_info.themes.map(theme => theme.value).join(' '));
       } else {
@@ -340,7 +335,9 @@ async function implementation (
       }
 
       if (variant.package_dimensions) {
-        addHiddenDiv(newDiv, 'shipWeight', variant.package_dimensions.weight + ' ' + variant.package_dimensions.weight_unit_of_measure.toLowerCase() + 's');
+        if (variant.package_dimensions.weight && variant.package_dimensions.weight_unit_of_measure) {
+          addHiddenDiv(newDiv, 'shipWeight', variant.package_dimensions.weight + ' ' + variant.package_dimensions.weight_unit_of_measure.toLowerCase() + 's');
+        }
         addHiddenDiv(newDiv, 'shippingDimensions', variant.package_dimensions.depth + ' inches length x ' + variant.package_dimensions.width + ' inches width x ' + variant.package_dimensions.height + ' inches height');
         if (!hasSpecifications) {
           addHiddenDiv(newDiv, 'specifications', variant.package_dimensions.depth + ' inches length x ' + variant.package_dimensions.width + ' inches width x ' + variant.package_dimensions.height + ' inches height');
@@ -427,6 +424,9 @@ async function implementation (
 
         if (variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients) {
           variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients.forEach(e => {
+            if (!e) {
+              return;
+            }
             const val = e.quantity || e.percentage || '0';
             if (e.name === 'Calories') {
               addHiddenDiv(newDiv, 'caloriesPerServing', val);
@@ -673,7 +673,7 @@ async function implementation (
 
             if (e.querySelector('.wc-pct-data')) {
               e.querySelectorAll('tr').forEach(tr => {
-                if (tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
+                if (tr && tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
                   manufacturerDescArr.push(tr.innerText);
                 }
               });
