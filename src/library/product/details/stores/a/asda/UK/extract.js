@@ -8,13 +8,16 @@ module.exports = {
     transform,
     domain: 'groceries.asda.com',
   },
-  implementation: async (inputs,
+  implementation: async (
+    inputs,
     parameters,
     context,
     dependencies,
   ) => {
     const cssProduct = "div.search-page-content__products-tab-content ul.co-product-list__main-cntr li.co-item a[data-auto-id='linkProductTitle']";
     const cssProductDetails = 'div.pdp-main-details';
+
+    const waitPeriodInMS = 10000;
 
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
@@ -23,21 +26,44 @@ module.exports = {
       }, cssSelector);
     };
 
+    /**
+     * @param {String} [cssSelector]
+     * @param {String} [xpath]
+     */
+    const waitForSelectorToLoad = async (cssSelector, xpath) => {
+      try {
+        if (cssSelector) {
+          await context.waitForSelector(cssSelector, {timeout: waitPeriodInMS});
+        }
+
+        if (xpath) {
+          await context.waitForSelector(cssSelector, {timeout: waitPeriodInMS});
+        }
+
+        console.log(`Selector loaded => ${cssSelector || xpath}`);
+      } catch (err) {
+        console.log(`Selector => "${cssSelector || xpath}" never loaded in time. :(`);
+      }
+    }
+
     console.log('.....waiting......');
-    await context.waitForSelector(cssProduct, { timeout: 10000 });
+    await context.waitForSelector(cssProduct, { timeout: waitPeriodInMS });
 
     const productAvailable = await isSelectorAvailable(cssProduct);
     console.log(`productAvailable: ${productAvailable}`);
     if (productAvailable) {
       console.log('clicking product link');
       await context.click(cssProduct);
-      await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+      await context.waitForNavigation({ timeout: waitPeriodInMS, waitUntil: 'load' });
       await context.waitForSelector(cssProductDetails);
       const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
       console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
       if (!productDetailsAvailable) {
         throw new Error('ERROR: Failed to load product details page');
       }
+
+      await waitForSelectorToLoad('div[data-auto-id="image"] img');
+      await waitForSelectorToLoad('.asda-tab-list ~ div');
       console.log('navigation complete!!');
     }
 
@@ -52,6 +78,15 @@ module.exports = {
         });
         return response.json();
       };
+
+      async function addElement (id, content = '') {
+        const elem = document.createElement('div');
+        console.log(`Adding element for => ${id}`);
+        elem.id = id;
+        elem.innerText = content;
+
+        document.body.appendChild(elem);
+      }
 
       const sku = document.querySelector('link[rel="canonical"]').href.match(/\d+$/)[0];
       console.log('SKU => ', sku);
@@ -68,27 +103,23 @@ module.exports = {
       const item = (productDetails.data.uber_item && productDetails.data.uber_item.items.length && productDetails.data.uber_item.items[0]) || false;
 
       if (item) {
-        console.log('Item details found.');
+        console.log('Item details found.', item);
         const packInfo = (item.item_enrichment && item.item_enrichment.enrichment_info && item.item_enrichment.enrichment_info.packaging) || false;
+
+        const recipe = (item.item_enrichment && item.item_enrichment.enrichment_info && item.item_enrichment.enrichment_info.recipes) || false;
 
         const itemBrand = (item.item && item.item.brand) || false;
 
         if (itemBrand) {
-          const brandElem = document.createElement('div');
-
-          brandElem.id = 'brandName';
-          brandElem.innerText = itemBrand;
-
-          document.body.appendChild(brandElem);
+          addElement('brandName', itemBrand);
         }
 
         if (packInfo) {
-          const packagingElem = document.createElement('div');
+          addElement('packInfo', packInfo);
+        }
 
-          packagingElem.id = 'packInfo';
-          packagingElem.innerText = packInfo;
-
-          document.body.appendChild(packagingElem);
+        if (recipe) {
+          addElement('recipe', recipe);
         }
       }
     });

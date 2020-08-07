@@ -91,7 +91,7 @@ fields:
     regExpReplace: $1
   - name: directions
     singleValue: false
-    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Preparation and Usage')]]//div[contains(@class,'content')]
+    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Preparation and Usage')]]//div[contains(@class,'content')] | //td[contains(text(), 'Serving Suggestion')]/following-sibling::td | //div[@id='recipe']
   - name: warnings
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Safety Warning')]]//div[contains(@class,'content')]
@@ -114,7 +114,7 @@ fields:
     regExpReplace: $1
   - name: caloriesPerServing
     singleValue: false
-    xpath: concat((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/following-sibling::div)[1],'/',((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/parent::div/following-sibling::div[contains(.,"Energy")])[1]/div[contains(@class,'nutrition-cell--grouped') or contains(@class,"pdp-description-reviews__nutrition-cell--details")])[2],'',((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/parent::div/following-sibling::div)[1]/div[contains(@class,'nutrition-cell--grouped')])[2],'',//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'(kcal)')]/following-sibling::div[1])
+    xpath: //div[contains(@class,'pdp-description-reviews__nutrition-row')]/div[position()=1][contains(text(), 'Energy') or contains(text(), 'kJ') or contains(text(), 'kcal')]/following-sibling::div[1] | //div[contains(text(), 'Energy') and contains(@class, 'pdp-description-reviews__nutrition-cell')]/parent::div/following-sibling::div[1]/div[2][contains(@class, 'pdp-description-reviews__nutrition-cell--grouped')]
   - name: caloriesFromFatPerServing
     singleValue: true
   - name: totalFatPerServing

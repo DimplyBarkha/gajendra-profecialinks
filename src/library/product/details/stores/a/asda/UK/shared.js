@@ -42,24 +42,6 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text }];
       }
 
-      if (row.caloriesPerServing) {
-        let text = '';
-        row.caloriesPerServing.forEach(item => {
-          if (item.text.includes('//')) {
-            text = item.text.replace('//', '/');
-          } else if (item.text.endsWith('/')) {
-            text = item.text.slice(0, -1);
-          } else {
-            text = item.text;
-          }
-        });
-        row.caloriesPerServing = [
-          {
-            text,
-          },
-        ];
-      }
-
       if ((!row.listPrice || !row.listPrice.length) && row.price) {
         row.listPrice = row.price;
       }
@@ -70,6 +52,24 @@ const transform = (data) => {
           text = item.text.replace('View all', '');
         });
         row.promotion = [{ text }];
+      }
+
+      if (row.directions) {
+        let text = '';
+        row.directions.forEach(item => {
+          text += ` ${item.text.trim()}`;
+        });
+        row.directions = [{ text: text.trim() }];
+      }
+
+      if (row.caloriesPerServing) {
+        let text = '';
+        row.caloriesPerServing.forEach(item => {
+          text += `/${item.text.trim()}`;
+        });
+        row.caloriesPerServing = [{
+          text: text.replace(/^\//g, '').replace(/\/\//g, '/').replace(/\/$/g, ''),
+        }];
       }
     }
   }
