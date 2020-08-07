@@ -9,6 +9,7 @@ fields:
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
+    xpath: (//div[@class="product-pics__container"]//img/@alt)[1]
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
@@ -16,8 +17,9 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-  - name: category
+  - name: category2
     singleValue: false
+    xpath: //ul[@class='breadcrumb__list']//li
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
@@ -38,9 +40,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //button[@class="add-to-cart-button__full-button add-to-cart-button__button"]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -53,6 +56,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class='nutrition-more-info__container']/p[contains(.,'Marca')]/../p[@class='info-txt']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -72,9 +76,14 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)R-(.+)\/(.+)
+    regExpReplace: $2
     description: The store-specific product identifier
   - name: variantId
-    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)R-(.+)\/(.+)
+    regExpReplace: $2
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
@@ -418,6 +427,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
+    xpath: //span[@class='badge__name']|//span[@class="badge__text-food"]
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
@@ -499,3 +509,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: url
+    xpath: //link[@rel="canonical"]/@href
+    singleValue: true
