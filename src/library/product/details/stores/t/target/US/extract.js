@@ -72,7 +72,7 @@ async function implementation (
     }
   });
 
-  await context.setBlockAds(false);
+  //await context.setBlockAds(false);
   await context.goto('https://www.target.com' + productUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
 
   /*await context.evaluate(function(html) {
@@ -132,11 +132,11 @@ async function implementation (
       return txt.value;
     }
 
-    let scrollTop = 500;
+    let scrollTop = 750;
     while (true) {
       window.scroll(0, scrollTop);
       await stall(750);
-      scrollTop += 500;
+      scrollTop += 750;
       if (scrollTop === 15000) {
         break;
       }
@@ -150,7 +150,7 @@ async function implementation (
       console.log('hastheCTA');
       manufacturerCTA.click();
     }
-    await stall(3000);
+    await stall(2000);
 
     let id = '';
     if (window.location.href.includes('?preselect=')) {
@@ -199,7 +199,8 @@ async function implementation (
 
       let videos = [];
       let videoLength = [];
-      if (parentData.product.item.enrichment &&
+      if (parentData.product &&
+        parentData.product.item.enrichment &&
         parentData.product.item.enrichment.videos &&
         parentData.product.item.enrichment.videos.length) {
           videos = parentData.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
@@ -251,9 +252,9 @@ async function implementation (
 
       if (variant.wellness_merchandise_attributes) {
         addHiddenDiv(newDiv, 'additionalDescBulletInfo', variant.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
-      } else if (parentData.product.item.wellness_merchandise_attributes) {
+      } else if (parentData.product && parentData.product.item.wellness_merchandise_attributes) {
         addHiddenDiv(newDiv, 'additionalDescBulletInfo', parentData.product.item.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
-      } else if (origData.product.item.wellness_merchandise_attributes) {
+      } else if (origData.product && origData.product.item.wellness_merchandise_attributes) {
         addHiddenDiv(newDiv, 'additionalDescBulletInfo', origData.product.item.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
       }
 
@@ -362,9 +363,9 @@ async function implementation (
 
       if (variant.country_of_origin) {
         addHiddenDiv(newDiv, 'countryOfOrigin', variant.country_of_origin);
-      } else if (parentData.product.item.country_of_origin) {
+      } else if (parentData.product && parentData.product.item.country_of_origin) {
         addHiddenDiv(newDiv, 'countryOfOrigin', parentData.product.item.country_of_origin);
-      } else if (origData.product.item.country_of_origin) {
+      } else if (origData.product && origData.product.item.country_of_origin) {
         addHiddenDiv(newDiv, 'countryOfOrigin', origData.product.item.country_of_origin);
       }
 
@@ -495,7 +496,7 @@ async function implementation (
 
       }
 
-      if (parentData.product.item && parentData.product.item.child_items) {
+      if (parentData.product && parentData.product.item && parentData.product.item.child_items) {
         const variants = [];
         parentData.product.item.child_items.forEach(e => {
           variants.push(e.tcin);
@@ -709,7 +710,7 @@ async function implementation (
 
       console.log('continuing...');
       if (videos.length) {
-        await stall(10000);
+        await stall(5000);
       }
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
       //addHiddenDiv(newDiv, 'videoLength', videoLength.join(' | '));
@@ -844,7 +845,7 @@ async function implementation (
       .then(async function (res) {
         parentData = res;
         origData = res;
-        if (res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
+        if (res && res.product && res.product.item && res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
             parentId = res.product.item.parent_items;
             getProductInfo(res.product.item, res.product.item.product_description.title);
             await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
@@ -855,17 +856,17 @@ async function implementation (
                 await getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
               });
             });
-        } else if (res.product.item.child_items) {
+        } else if (res && res.product && res.product.item && res.product.item.child_items) {
           for (const variant of res.product.item.child_items) {
             await getProductInfo(variant, res.product.item.product_description.title, res.product.item.child_items.length);
           }
-        } else {
+        } else if(res && res.product && res.product.item) {
           console.log('noVariants');
           await getProductInfo(res.product.item, res.product.item.product_description.title);
         }
       });
 
-    await stall(15000);
+    await stall(12000);
   });
 
   await context.extract(productDetails, { transform });
