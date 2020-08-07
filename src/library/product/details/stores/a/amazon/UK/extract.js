@@ -2,14 +2,17 @@ const { transform } = require('./format');
 async function implementation (
   // @ts-ignore
   // @ts-ignore
-  inputs,
+  // @ts-ignore
+  { parentInput },
   parameters,
   context,
   dependencies,
 ) {
+  // @ts-ignore
   const { transform } = parameters;
+  // @ts-ignore
   const { productDetails } = dependencies;
-  await context.evaluate(async () => {
+  await context.evaluate(async (parentInput) => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -17,6 +20,16 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    async function buttonCheck () {
+      const button = '#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a, #mbc-olp-link';
+      // eslint-disable-next-line no-extra-boolean-cast
+      if (!!document.querySelector(button)) {
+        return button;
+      } else {
+        return 'false';
+      }
+    }
+    addHiddenDiv('added-parentInput', parentInput);
     var element = (document.querySelectorAll("div[cel_widget_id*='aplus'] img")) ? document.querySelectorAll("div[cel_widget_id*='aplus'] img") : [];
     if (element) {
       element.forEach(async (node) => {
@@ -87,6 +100,7 @@ async function implementation (
       const otherSellersDocument = domParser.parseFromString(otherSellersHtml, 'text/html');
       const pageNotFound = document.evaluate('//title[contains(text(),"Page Not Found")]', otherSellersDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (!pageNotFound) {
+        getLbb(otherSellersDocument);
         getOtherSellersInfo(otherSellersDocument, 'h3.olpSellerName span , h3.olpSellerName img', 'div.olpOffer span.olpOfferPrice', 'div.olpOffer', 'div.olpOffer .olpShippingInfo');
       } else {
         getOtherSellersInfo('', '#mbc span.mbcMerchantName, #ii_otherSellersName', 'div[id*="mbc"] span[id*="mbc-price"], #ii_otherSellersPrice', "span[id*='mbc-shipping'], #ii_otherSellersPrime", 'div[id*="mbc"] span[id*="mbc-shipping"], #ii_otherSellersShipping');
@@ -147,9 +161,49 @@ async function implementation (
       sellerShipping && addHiddenDiv('pd_otherSellersShipping2', sellerShipping.join('|'));
       console.log('sellerShipping', sellerShipping);
     }
-  });
+    // @ts-ignore
+    async function getLbb (otherSellersDocument) {
+      const button = await buttonCheck();
+      const otherSellersDiv = "div#olpOfferList div[class*='olpOffer']";
+      console.log('##############################', button);
+      if (button !== 'false' && otherSellersDocument.querySelector(otherSellersDiv)) {
+        console.log('trying button', button);
+        const firstCheck = (document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div')) ? document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div') : '';
+        const otherSellers = (otherSellersDocument.querySelectorAll(otherSellersDiv)) ? otherSellersDocument.querySelectorAll(otherSellersDiv) : '';
+        const price = (document.querySelector("#priceblock_ourprice, [class*='offer-price'], span[id='priceblock_saleprice']")) ? document.querySelector("#priceblock_ourprice, [class*='offer-price'], span[id='priceblock_saleprice']") : '';
+        console.log('Sold by box, otherSellers, Actual-price', firstCheck, otherSellers, price);
+        if (firstCheck && price) {
+          // @ts-ignore
+          const priceText = parseFloat((price.innerText).slice(1));
+          // @ts-ignore
+          if (!(firstCheck.innerText.toLowerCase().includes('sold by amazon')) && otherSellers) {
+            otherSellers.forEach((seller) => {
+              // @ts-ignore
+              const sellerPrice = (seller.querySelector('span.olpOfferPrice')) ? seller.querySelector('span.olpOfferPrice').innerText.trim() : '';
+              const priceNum = parseFloat(sellerPrice.slice(1));
+              const soldBy = (seller.querySelector('h3.olpSellerName span , h3.olpSellerName img')) ? seller.querySelector('h3.olpSellerName span , h3.olpSellerName img') : '';
+              let sellerNames;
+              if (soldBy.tagName === 'IMG') {
+                sellerNames = (soldBy.alt);
+              } else {
+                sellerNames = (soldBy.innerText.trim());
+              }
+              console.log('Name of seller', sellerNames, priceNum, priceText);
+              // @ts-ignore
+              if (sellerNames.toLowerCase().includes('amazon.co.uk') && priceNum >= priceText) {
+                addHiddenDiv('ii_lbb', 'YES');
+                addHiddenDiv('ii_lbbPrice', `${priceNum}`);
+              }
+            });
+          }
+        }
+      }
+    }
+  // @ts-ignore
+  }, parentInput);
   return await context.extract(productDetails, { transform });
 }
+// @ts-ignore
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {

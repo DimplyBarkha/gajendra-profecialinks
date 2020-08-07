@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: parentInput
+    singleValue: true
+    xpath: //div[@id='added-parentInput']
   - name: image
     singleValue: true
     xpath: (//img[@id="landingImage"])[1]/@src | //div[contains(@id,'img-canvas')]/img/@src
@@ -282,17 +285,24 @@ fields:
     xpath: //a[@id="SSOFpopoverLink"] | //div[@id="merchant-info"] | //meta[contains(@content,'Prime')]/@content
     defaultValue: NO
   - name: lbb
-    singleValue: false
-    xpath: //span[@id='mbc-title' and contains(.,'Other Sellers')]
-    description: Check Lost by Box Requirements (just for Amazon and a couple of
-      other stores) - LBB occurs when a product is bought from someone other
-      than Amazon (on Amazon Website) - even though Amazon has the product "in
-      Stock"
+    singleValue: true
+    xpath: //div[@id='ii_lbb']
     defaultValue: 'NO'
   - name: lbbPrice
-    singleValue: false
-    xpath: //span[@id='mbc-title' and contains(.,'Other Sellers')]
-    description: null
+    singleValue: true
+    xpath: //div[@id='ii_lbbPrice']
+  # - name: lbb
+  #   singleValue: false
+  #   xpath: //span[@id='mbc-title' and contains(.,'Other Sellers')]
+  #   description: Check Lost by Box Requirements (just for Amazon and a couple of
+  #     other stores) - LBB occurs when a product is bought from someone other
+  #     than Amazon (on Amazon Website) - even though Amazon has the product "in
+  #     Stock"
+  #   defaultValue: 'NO'
+  # - name: lbbPrice
+  #   singleValue: false
+  #   xpath: //span[@id='mbc-title' and contains(.,'Other Sellers')]
+  #   description: null
   - name: featureBullets
     singleValue: false
     description: null

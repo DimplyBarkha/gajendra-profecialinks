@@ -45,15 +45,15 @@ const transform = (data) => {
           item.text = `${item.text.replace(/(.+)/, 'http://www.amazon.co.uk' + '$1')}`;
         });
       }
-      if (row.lbb) {
-        row.lbb.forEach(item => {
-          if (item.text !== 'NO' && item.text.length > 0) {
-            item.text = `${item.text.replace(/(.+)/, 'YES')}`;
-          } else {
-            item.text = 'NO';
-          }
-        });
-      }
+      // if (row.lbb) {
+      //   row.lbb.forEach(item => {
+      //     if (item.text !== 'NO' && item.text.length > 0) {
+      //       item.text = `${item.text.replace(/(.+)/, 'YES')}`;
+      //     } else {
+      //       item.text = 'NO';
+      //     }
+      //   });
+      // }
       if (row.totalFatPerServingUom) {
         row.totalFatPerServingUom.forEach(item => {
           item.text = `${item.text.replace(/(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`;
@@ -312,11 +312,11 @@ const transform = (data) => {
           item.text = row.alternateImages.length;
         });
       }
-      if (row.lbbPrice && row.otherSellersPrice) {
-        row.lbbPrice.forEach(item => {
-          item.text = row.otherSellersPrice[0].text;
-        });
-      }
+      // if (row.lbbPrice && row.otherSellersPrice) {
+      //   row.lbbPrice.forEach(item => {
+      //     item.text = row.otherSellersPrice[0].text;
+      //   });
+      // }
       if (row.primeFlag) {
         let value = '';
         row.primeFlag.forEach(item => {
