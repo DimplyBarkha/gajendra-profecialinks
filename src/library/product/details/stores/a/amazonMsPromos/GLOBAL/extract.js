@@ -34,20 +34,28 @@ async function implementation (
             return encryptedPromoId;
           }
           const maxResults = 9999;
-          const API = `${window.location.origin}/gp/coupon/ajax/get_clp_asins.html?encryptedPromoId=${encryptedPromoId}&requestedAsins=${maxResults}`;
-          const response = await fetch(API);
-          const jsonData = await response.json();
-          const itemsHtml = jsonData.items;
-          if (itemsHtml.length) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(itemsHtml, 'text/html');
-            const items = Array.from(doc.querySelectorAll('td[class="product-list-table-col"] > a.a-link-normal'))
-              .map((elm) => elm.getAttribute('href'))
-              .filter((elm) => elm.match(/redirectASIN=([^&]+)/))
-              .map((elm) => ({ itemID: elm.match(/redirectASIN=([^&]+)/)[1] }));
-            data.dealDetails[dealID].items = items;
+          try {
+            const API = `${window.location.origin}/gp/coupon/ajax/get_clp_asins.html?encryptedPromoId=${encryptedPromoId}&requestedAsins=${maxResults}`;
+            const response = await fetch(API);
+            const jsonData = await response.json();
+            const itemsHtml = jsonData.items;
+            if (itemsHtml.length) {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(itemsHtml, 'text/html');
+              const items = Array.from(doc.querySelectorAll('td[class="product-list-table-col"] > a.a-link-normal'))
+                .map((elm) => elm.getAttribute('href'))
+                .filter((elm) => elm.match(/redirectASIN=([^&]+)/))
+                .map((elm) => ({ itemID: elm.match(/redirectASIN=([^&]+)/)[1] }));
+              data.dealDetails[dealID].items = items;
+            }
+          } catch (err) {
+            throw new Error(`API failed. Promo may not exist. Error: ${err}`);
           }
         }
+      }
+
+      if (data && data.dealDetails && data.dealDetails[dealID] && data.dealDetails[dealID].items && data.dealDetails[dealID].items.length) {
+        data.dealDetails[dealID].asins = data.dealDetails[dealID].items.map(elm => elm.itemID);
       }
       return data;
     }
