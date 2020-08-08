@@ -216,7 +216,7 @@ async function implementation (
       if (!videos.length &&
         variant.enrichment.videos &&
         variant.enrichment.videos.length) {
-          videos = variant.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
+          videos = variant.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
             'https:' + video.video_files[0].video_url
           );
       }
@@ -641,29 +641,7 @@ async function implementation (
           videos.push(e.src);
         });
       } else if (manufacturerCTA) {
-        if(document.getElementById('wc-power-page')) {
-          document.getElementById('wc-power-page').querySelectorAll('iframe').forEach(e => {
-            console.log('hasframehere');
-            const frameContents = e.contentWindow.document.body;
-            frameContents.querySelectorAll('img').forEach(e => {
-              manufacturerImgs.push(e.src);
-            });
-            frameContents.querySelectorAll('video').forEach(e => {
-              videos.push(e.src);
-            });
-            frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
-              setTimeout(() => {
-                if (e.querySelector('button')) {
-                  e.querySelector('img').click();
-                  if (frameContents.querySelector('.wc-video-container')) {
-                    videos.push(frameContents.querySelector('.wc-video-container').querySelector('video').src);
-                  }
-                }
-              }, (ind * 500) + 500);
-            });
-          });
-        }
-        if (document.getElementById('wc-power-page') && document.getElementById('wc-power-page').innerText) {
+        if (document.getElementById('wc-power-page')) {
 
           if (document.getElementById('wc-power-page').querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
             hasTechnicalInfoPDF = 'Yes';
@@ -686,6 +664,29 @@ async function implementation (
             } else {
               manufacturerDescArr.push(e.innerText);
             }
+          });
+          document.getElementById('wc-power-page').querySelectorAll('iframe').forEach(e => {
+            console.log('hasframehere');
+            const frameContents = e.contentWindow.document.body;
+            frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
+              manufacturerDescArr.push(e.innerText);
+            });
+            frameContents.querySelectorAll('img').forEach(e => {
+              manufacturerImgs.push(e.src);
+            });
+            frameContents.querySelectorAll('video').forEach(e => {
+              videos.push(e.src);
+            });
+            frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
+              setTimeout(() => {
+                if (e.querySelector('button')) {
+                  e.querySelector('img').click();
+                  if (frameContents.querySelector('.wc-video-container')) {
+                    videos.push(frameContents.querySelector('.wc-video-container').querySelector('video').src);
+                  }
+                }
+              }, (ind * 500) + 500);
+            });
           });
           manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
           if(!manufacturerDescArr.length) {
