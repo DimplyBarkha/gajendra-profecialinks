@@ -71,11 +71,33 @@ async function implementation (
       return href;
     }
   });
+ 
+  //await context.setBlockAds(false); 
+  await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
+  
+  const manufacturerCTA = await context.waitForFunction(async function () {
+    let scrollTop = 750;
+    while (true) {
+      window.scroll(0, scrollTop);
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 750);
+      });
+      scrollTop += 750;
+      if (scrollTop === 15000) {
+        break;
+      }
+    }
 
-  await context.setBlockAds(false);
-  await context.setFirstRequestTimeout(30000);
-  await context.goto('https://www.target.com' + productUrl, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
-
+    window.scroll(0, 1000);
+    return Boolean(document.querySelector('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]'));
+  }, { timeout: 30000 });
+    
+  if (manufacturerCTA) {
+      console.log('hastheCTA');
+    await context.click('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]');
+  }
 
   /*await context.evaluate(function(html) {
 
@@ -133,26 +155,7 @@ async function implementation (
       txt.innerHTML = html;
       return txt.value;
     }
-
-    let scrollTop = 750;
-    while (true) {
-      window.scroll(0, scrollTop);
-      await stall(750);
-      scrollTop += 750;
-      if (scrollTop === 15000) {
-        break;
-      }
-    }
-
-    window.scroll(0, 1000);
-
-    await stall(2000);
-    const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
-    if (manufacturerCTA) {
-      console.log('hastheCTA');
-      manufacturerCTA.click();
-    }
-    await stall(2000);
+    
 
     let id = '';
     if (window.location.href.includes('?preselect=')) {
