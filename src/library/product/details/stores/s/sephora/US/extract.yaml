@@ -9,7 +9,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@data-comp, "Carousel")]//img/@src
+    xpath: (//div[contains(@data-comp, "Carousel")]//img/@src)[1]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -53,10 +53,7 @@ fields:
     singleValue: true
     description: The product name
     xpath: //h1[contains(@data-comp,"DisplayName")]/span
-  - name: _pageTimestamp
-    xpath: /html/body/@downloadtime
-  - name: _url
-    xpath: /html/body/@url
+ 
   - name: quantity
     regExp: >-
      SIZE\s([a-zA-Z0-9.\s\/]+)
@@ -141,7 +138,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[contains(@data-comp, "Carousel")]//img/@alt
+    xpath: (//div[contains(@data-comp, "Carousel")]//img/@alt)[1]
   - name: additionalDescBulletInfo
     xpath: //div[@id="tabpanel0"]//text()[contains(., "- ")]
   - name: additionalDescBulletCount
@@ -158,7 +155,7 @@ fields:
     regExpReplace: >-
      $2
   - name: color
-    xpath: //span[contains(@data-at, "item_variation_type") and contains(., "COLOR")]
+    xpath: (//span[contains(@data-at, "item_variation_type") and contains(., "COLOR")])[1]
     regExp: >-
      COLOR:\s([a-zA-Z\s\/]+)
     regExpReplace: >-
