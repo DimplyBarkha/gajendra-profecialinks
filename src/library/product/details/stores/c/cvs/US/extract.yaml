@@ -287,8 +287,8 @@ fields:
     # regExp: ([-a-z]+$)
   - name: manufacturerDescription 
     singleValue: false
-    # xpath: //div[@id='ii_manufDescription']
-    xpath: //div[@id="ii_manufHTML"]//div[contains(@class, "wc-fragment")]//*[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()[not(contains(.,"layout:")) and not(contains(.,".jpg")) and not(contains(.,".png"))]
+    xpath: //div[@id='ii_manufDesc']
+    # xpath: //div[@id="ii_manufHTML"]//div[contains(@class, "wc-fragment")]//*[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()[not(contains(.,"layout:")) and not(contains(.,".jpg")) and not(contains(.,".png"))]
   - name: descriptionBullets
     # defaultValue: '0'
     # xpath: count(//div[@class='htmlView']/ul/li)

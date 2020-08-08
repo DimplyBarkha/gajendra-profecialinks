@@ -59,17 +59,17 @@ const transform = (data, context) => {
         if (row.sku) {
           row.productUrl = [{ text: `${row.productUrl[0].text}?skuid=${row.sku[0].text}` }];
         }
-        if (row.manufacturerDescription) {
-          let text = '';
-          row.manufacturerDescription.forEach(item => {
-            text += `${item.text.replace(/\n \n/g, ' ')}  `;
-          });
-          row.manufacturerDescription = [
-            {
-              text: text,
-            },
-          ];
-        }
+        // if (row.manufacturerDescription) {
+        //   let text = '';
+        //   row.manufacturerDescription.forEach(item => {
+        //     text += `${item.text.replace(/\n \n/g, ' ')}  `;
+        //   });
+        //   row.manufacturerDescription = [
+        //     {
+        //       text: text,
+        //     },
+        //   ];
+        // }
 
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;

@@ -170,7 +170,7 @@ module.exports = {
 
       const htmlList = await collectManuf();
 
-      await context.goto(`https://www.cvs.com${productPageUrl}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+      await context.goto(`https://www.cvs.com${productPageUrl}`, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
       await new Promise(resolve => setTimeout(resolve, 20000));
       // await context.waitForSelector('div.css-1dbjc4n.r-16lk18l.r-1xi2sqm', { timeout: 20000 });
 
@@ -311,6 +311,45 @@ module.exports = {
                           }
                         }
                       }
+
+
+ 
+                      if(htmlList[i]){
+                        let deets = htmlList[i];
+                        const regex = /<li>(.*?)li>/g
+                        let bullets = deets.match(regex)
+                        let manufText = '//div[@id="ii_manufHTML"]//div[contains(@class, "wc-fragment")]//*[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()[not(contains(.,"layout:")) and not(contains(.,".jpg")) and not(contains(.,".png"))]'
+                        let text = "";
+                        let bulletsHash = {};
+                        var element = document.evaluate( manufText, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+                        if(bullets){
+                          bullets.forEach(bullet => {
+                            let newBullet = bullet.replace(/<\/?li>/g,'').replace(/<.+?>/g, '').replace(/\\'/g, "'")
+                            bulletsHash[newBullet] = 1;
+                          })
+                        }
+                        
+                          if( element.snapshotLength > 0 ) {
+                            for(let i = 0; i < element.snapshotLength; i++) {
+                              let option = element.snapshotItem(i).textContent
+                              if(bullets){
+                                debugger
+                                if(bulletsHash[option]){
+                                  text += ` || ${option}`
+                                } else {
+                                  text += ` ${option}`
+                                }
+                              } else {
+                                text += ` ${option}`
+                              }                             
+                            }
+                          }
+                          addHiddenDiv('ii_manufDesc', text, newDiv);
+                      }
+ 
+
+
+
 
                       if(variant.p_Product_Warnings){
                         let deets = variant.p_Product_Warnings;
