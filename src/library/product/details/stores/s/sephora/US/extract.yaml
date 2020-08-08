@@ -55,13 +55,12 @@ fields:
     xpath: //h1[contains(@data-comp,"DisplayName")]/span
  
   - name: quantity
-    regExp: >-
-     SIZE\s([a-zA-Z0-9.\s\/]+)
-    regExpReplace: >-
-     $1
+    # regExp: >-
+    #  SIZE\s([a-zA-Z0-9.\s\/]+)
+    # regExpReplace: >-
+    #  $1
     singleValue: false
-    xpath: >-
-     //div[contains(@data-comp,"SizeAndItemNumber")]
+    xpath: //div[contains(@data-comp,"SizeAndItemNumber")]
   - name: category
     xpath: //ol/li/a
   # - name: category !!!!!!!!!!!!!!!!!!!!!
@@ -82,8 +81,8 @@ fields:
       //div[@id="tabpanel2"]/div[1]
   - name: ingredientsList
     singleValue: false
-    xpath: >-
-      //div[@id="tabpanel2"]/div[1]
+    xpath: //div[@id="ii_Ingredients"]
+    # xpath: //div[@id="tabpanel2"]/div[1]
   - name: price
     singleValue: true
     # regExp: >-
@@ -97,16 +96,17 @@ fields:
   #     //span[@data-at="price"]
   - name: description
     singleValue: true
-    xpath: //div[@id="tabpanel0"]
+    xpath: //div[@id="ii_Details"]
   - name: brandText
     singleValue: false
-    xpath: //h1/a[@data-comp="Link Box "]/span
+    xpath: //h1/a[contains(@data-comp, "Link Box")]/span
   - name: directions
     singleValue: true
-    xpath: //div[@id="tabpanel1"]
+    # xpath: //div[@id="tabpanel1"]
+    xpath: //div[@id="ii_How to Use"]
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@data-comp,"Carousel")]/div//img[@width="300"])[position()>1]/@src
+    xpath: ((//div[contains(@data-comp,"Carousel")])[1]/div//img[@width="300"])[position()>1]/@src
     regExp: ([/].*)
     regExpReplace: https://www.sephora.com$1
     #  (//div[@data-hammer-carousel-inner="true"]/div//img[@width="300"])[position()>1]/@src
@@ -119,8 +119,8 @@ fields:
     xpath: >-
       //div[contains(@data-comp,"CallToActions")]//button/span
     defaultValue: "In Stock"
-  - name: _input
-    xpath: /html/body/@scrape_code
+  # - name: _input
+  #   xpath: /html/body/@scrape_code
   - name: promotion
     regExp: (.*)
     regExpReplace: Sale
