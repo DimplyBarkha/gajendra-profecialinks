@@ -57,8 +57,8 @@ async function implementation (
     //   throw new Error("notFound");
     // }
 
-    const recordADiv = document.querySelector('div[data-comp="ProductGrid"] a')
-    if(recordADiv){
+    const recordADiv = document.querySelector('div[data-comp="ProductGrid "] a')
+    if(!recordADiv){
       let xpathCheck = '//div[contains(@data-comp, "ProductGrid")]//a'
       var checkElement = document.evaluate( xpathCheck, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       if( checkElement.snapshotLength === 0 ) {
@@ -75,6 +75,7 @@ async function implementation (
       let url = '//div[@id="ii_url"]'
       let listPrice = '//span[@data-at="price"]'
       let name = '//h1[contains(@data-comp, "DisplayName")]/span'
+
       addHiddenDiv(`ii_url`, window.location.href);
   
       var brandElement = document.evaluate( brand, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -130,7 +131,6 @@ async function implementation (
       if( listPriceElement.snapshotLength > 0 ) {
         for(let i = 0; i < listPriceElement.snapshotLength; i++) {
           let lPrice = listPriceElement.snapshotItem(i).textContent.match(/[+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?/g)
-          debugger
           if(lPrice[0]){
             addHiddenDiv(`ii_listPrice`, `${lPrice[0]}`);
           }
@@ -145,7 +145,6 @@ async function implementation (
     }
 
 
-      debugger
     let scrollTop = 0;
     while (scrollTop !== 20000) {
       // await stall(2500);

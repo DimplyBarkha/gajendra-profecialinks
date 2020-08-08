@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //div[contains(@data-comp, "ProductGrid")]//a
 fields:
 
-  - name: brand
+  - name: manufacturer
     singleValue: true
     description: The brand name
     example: Panasonic
@@ -46,9 +46,10 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //span[contains(@data-at, "sku_item_price_list")]|//div[@id="ii_listPrice"]
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
+  # - name: manufacturer
+  #   singleValue: true
+  #   description: Product manufacturer
+  #   xpath: //span[contains(@data-at, "sku_item_brand")]|//div[@id='ii_brand']
   # - name: soldBy
   #   singleValue: true
   #   description: The name of the seller of the item (if available)
