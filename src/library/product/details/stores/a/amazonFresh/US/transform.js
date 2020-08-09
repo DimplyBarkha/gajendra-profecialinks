@@ -156,12 +156,21 @@ const transform = (data, context) => {
           }
         }
         if (row.variantAsins) {
-          const asins = [];
-          row.variantAsins.forEach(item => {
-            if (item.text.match(/([A-Za-z0-9]{8,})/g)) {
-              asins.push(item.text.match(/([A-Za-z0-9]{8,})/g)[0]);
+          let asins = [];
+          // row.variantAsins.forEach(item => {
+          //   if (item.text.match(/([A-Za-z0-9]{8,})/g)) {
+          //     asins.push(item.text.match(/([A-Za-z0-9]{8,})/g)[0]);
+          //   }
+          // });
+
+          if (row.variantAsins[0]) {
+            if ((row.variantAsins[0].text.includes('asinVariationValues') && (row.variantAsins[0].text.includes('dimensionValuesData')))) {
+              let jsonStr = row.variantAsins[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
+              jsonStr = jsonStr.slice(0, -2);
+              const jsonObj = JSON.parse(jsonStr);
+              asins = Object.keys(jsonObj);
             }
-          });
+          }
           // @ts-ignore
           const dedupeAsins = [...new Set(asins)];
           row.variantAsins = [
@@ -187,10 +196,13 @@ const transform = (data, context) => {
         // }
         if (row.variantCount && row.variantCount[0]) {
           if (typeof row.variantCount[0].text !== 'number' && (row.variants && row.variants[0])) {
-            if (typeof parseInt(row.variantCount[0].text) !== 'number') {
+            if ((row.variantCount[0].text.includes('asinVariationValues') && (row.variantCount[0].text.includes('dimensionValuesData')))) {
+              let jsonStr = row.variantCount[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
+              jsonStr = jsonStr.slice(0, -2);
+              const jsonObj = JSON.parse(jsonStr);
               row.variantCount = [
                 {
-                  text: row.variants[0].text.length,
+                  text: Object.keys(jsonObj).length,
                 },
               ];
             }
@@ -385,6 +397,17 @@ const transform = (data, context) => {
         }
         if (row.primeFlag) {
           row.primeFlag = [{ text: 'Yes' }];
+        }
+        if (row.ingredientsList) {
+          const text = [];
+          row.ingredientsList.forEach(item => {
+            text.push(`${item.text}`);
+          });
+          row.ingredientsList = [
+            {
+              text: text.join(' '),
+            },
+          ];
         }
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);

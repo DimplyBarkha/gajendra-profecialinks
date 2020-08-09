@@ -115,7 +115,9 @@ fields:
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //*[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text()
   - name: variantCount
     singleValue: false
-    xpath: count(//li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href)
+    xpath: //script[contains(text(), "asinVariationValues")]/text()
+    # xpath: //*[@id='ii_variant_length']/text()
+    # xpath: count(//li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href)
     # xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: variantInformation
     singleValue: false
@@ -215,7 +217,8 @@ fields:
     defaultValue: 'NO'
   - name: variantAsins
     singleValue: false
-    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    xpath: //script[contains(text(), "asinVariationValues")]/text()
+    # xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: firstVariant
     singleValue: false
     xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
@@ -243,7 +246,7 @@ fields:
     singleValue: false
     xpath: //div[@id="buybox"]//div[@id="fast-track-message"]
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
   - name: servingSize
     singleValue: true

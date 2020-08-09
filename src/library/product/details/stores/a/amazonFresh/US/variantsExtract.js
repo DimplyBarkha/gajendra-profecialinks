@@ -51,9 +51,19 @@ async function implementation (
           if (element == null) {
             continue;
           }
-          const vasin = element.getAttribute('data-defaultasin');
-          if (vasin !== '') {
-            variantList.push(vasin);
+          // const vasin = element.getAttribute('data-defaultasin');
+          // if (vasin !== '') {
+          //   variantList.push(vasin);
+          // }
+          let vasin = element.getAttribute('data-dp-url');
+          if (vasin.includes('/dp/') && vasin.includes('/ref=')) {
+            const vasinArr = vasin.split('/dp/');
+            vasin = vasinArr.length === 2 ? vasinArr[1].split('/ref=')[0] : '';
+            if (vasin !== '') {
+              variantList.push(vasin);
+            }
+          } else {
+            vasin = element.getAttribute('data-defaultasin');
           }
         }
       }
