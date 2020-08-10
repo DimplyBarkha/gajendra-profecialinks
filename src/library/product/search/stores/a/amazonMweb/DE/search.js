@@ -1,9 +1,10 @@
+
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/search',
   parameterValues: {
     country: 'DE',
-    domain: 'amazon.de',
     store: 'amazonMweb',
+    domain: 'amazon.de',
     zipcode: '',
   },
 };
