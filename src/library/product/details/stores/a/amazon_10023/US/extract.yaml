@@ -1,8 +1,10 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: parentInput
+    xpath: //div[@id='added-parentInput']
   - name: image
     singleValue: false
     xpath: (//img[@id="landingImage"])[1]/@src
@@ -128,8 +130,7 @@ fields:
     singleValue: false
     xpath: 
   - name: manufacturerDescription
-    singleValue: false
-    manualSelector: '#aplus'     
+    xpath: //div[@id='pd_manuDesc']  
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@src
@@ -231,13 +232,13 @@ fields:
     xpath: //div[@id="pd_primeValue"]
     defaultValue: "NO"
   - name: lbb
-    xpath: //span[@id="price_inside_buybox"]
-    # xpath: //div[@id="mbc"]//text()[contains(., 'Other Sellers on Amazon')]
+    xpath: //div[@id='pd_lbb']
     regExp: (.+)
     regExpReplace: "YES"
     defaultValue: "NO"
   - name: lbbPrice
-    xpath: //span[@id="price_inside_buybox"]
+    singleValue: true
+    xpath: //div[@id='ii_lbbPrice']
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName

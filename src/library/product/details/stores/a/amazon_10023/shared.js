@@ -144,7 +144,7 @@ const transform = (data) => {
       if (row.ingredientsList) {
         let text = '';
         row.ingredientsList.forEach(item => {
-          text += item.text.trim();
+          text += ` ${item.text.trim()}`;
         });
         row.ingredientsList = [
           {
@@ -177,7 +177,7 @@ const transform = (data) => {
       if (row.legalDisclaimer) {
         let text = '';
         row.legalDisclaimer.forEach(item => {
-          text += item.text.trim();
+          text += ` ${item.text.trim()}`;
         });
         row.legalDisclaimer = [
           {
@@ -188,7 +188,7 @@ const transform = (data) => {
       if (row.directions) {
         let text = '';
         row.directions.forEach(item => {
-          text += `${item.text.trim()}`;
+          text += ` ${item.text.trim()}`;
         });
         row.directions = [
           {
@@ -226,7 +226,10 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' ').replace('From the manufacturer', '').replace('Read more', '');
+          text += item.text.replace(/\n \n/g, ' ')
+            .replace('From the manufacturer', '')
+            .replace('View larger', '')
+            .replace(/Read more/g, '');
         });
         row.manufacturerDescription = [
           {
