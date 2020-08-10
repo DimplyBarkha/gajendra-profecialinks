@@ -41,6 +41,7 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
+    # xpath: div[@id="ii_price"]
     xpath: //span[contains(@data-at, "sku_item_price_sale")]|//span[contains(@data-at, "sku_item_price_list")]|//div[@id="ii_price"]
   - name: listPrice
     singleValue: true

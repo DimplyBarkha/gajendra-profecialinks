@@ -25,7 +25,7 @@ async function implementation (
 
   await context.evaluate(async function () {
 
-    function addHiddenDiv (id, content, attribute, attributeValue, aTag = false) {
+    function addHiddenDiv (id, content, attribute, attributeValue, aTag = false, reg = false ) {
       const newDiv = document.createElement('div');
       const newA = document.createElement('a');
       const recordDiv = document.querySelector('div[data-comp="ProductGrid"]')
@@ -41,6 +41,11 @@ async function implementation (
         
       } else if(aTag){
         recordDiv.appendChild(newA)
+      } else if(reg){
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
       }
        else{
         newDiv.id = id;
@@ -51,11 +56,7 @@ async function implementation (
     }
 
     // debugger
-    // let noResultsXpath = '//h1//text()="0 Product results:"';
-    // var element = document.evaluate( noResultsXpath, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    // if( element.snapshotLength > 0 ) {
-    //   throw new Error("notFound");
-    // }
+
 
     const recordADiv = document.querySelector('div[data-comp="ProductGrid "] a')
     if(!recordADiv){
@@ -158,6 +159,19 @@ async function implementation (
         break;
       }
     }
+    // let regPrice = '//span[contains(@data-at, "sku_item_price_list")]';
+    // let salePrice = '//span[contains(@data-at, "sku_item_price_sale")]'
+    // var sale = document.evaluate( salePrice, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    // var price = document.evaluate( regPrice, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    // if( sale.snapshotLength > 0 ) {
+    //   for(let i = 0; i < sale.snapshotLength; i++) {
+    //     addHiddenDiv(`ii_price`, `${sale.snapshotItem(i).textContent}`, null, null, false, true);
+    //   }
+    // } else if(price.snapshotLength > 0 ){
+    //   for(let i = 0; i < price.snapshotLength; i++) {
+    //     addHiddenDiv(`ii_price`, `${price.snapshotItem(i).textContent}`, null, null, false, true);
+    //   }
+    // }
     await new Promise(resolve => setTimeout(resolve, 5000));
   });
 
