@@ -100,7 +100,7 @@ fields:
     xpath: //*[@class="aplus"]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="a_manufacturerDescription"]
+    xpath: //div[@id="ii_manufacturerDescription"]
   - name: descriptionBullets 
     singleValue: false
     xpath: count(//div[@id='feature-bullets']/ul/li[not(@id)]/span[@class="a-list-item"])
@@ -122,12 +122,15 @@ fields:
     singleValue: false
     xpath: //tr[contains(@id, 'dealprice_savings')] | //tr[contains(@id, 'regularprice_savings')] | //*[contains(@id,"price_savings") and not(contains(@class,"a-hidden"))]
   - name: lbb
-    xpath: //div[@id="mbc"]//text()[contains(., 'Other Sellers on Amazon')]
-    regExp: (.+)
-    regExpReplace: "YES"
+    xpath: //div[@id='ii_lbb']
+    # xpath: //div[@id="mbc"]//text()[contains(., 'Other Sellers on Amazon')]
+    # regExp: (.+)
+    # regExpReplace: "YES"
     defaultValue: "NO"
   - name: lbbPrice
-    xpath: //span[@id="mbc-price-1"]
+    singleValue: true
+    xpath: //div[@id='ii_lbbPrice']
+    # xpath: //span[@id="mbc-price-1"]
   - name: featureBullets
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
@@ -258,3 +261,6 @@ fields:
     xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
     regExp: \(?.*\/\s*(.*)\)
     regExpReplace: $1
+  - name: parentInput
+    singleValue: true
+    xpath: //div[@id='added-parentInput']

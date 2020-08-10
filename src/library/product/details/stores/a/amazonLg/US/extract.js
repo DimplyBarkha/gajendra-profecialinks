@@ -8,46 +8,49 @@ module.exports = {
     domain: 'amazon.com',
     zipcode: '',
   },
-  implementation: async (inputs,
-    parameters,
-    context,
-    dependencies) => {
-    const { productDetails } = dependencies;
-    await context.evaluate(async function () {
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-      const element = document.getElementById('aplus');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        await new Promise((resolve) => setTimeout(resolve, 2197));
+  implementation,
+};
+async function implementation (
+  // @ts-ignore
+  // @ts-ignore
+  // @ts-ignore
+  { parentInput },
+  parameters,
+  context,
+  dependencies,
+) {
+  // @ts-ignore
+  const { transform } = parameters;
+  // @ts-ignore
+  const { productDetails } = dependencies;
+  await context.evaluate(async (parentInput) => {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    async function buttonCheck () {
+      const button = '#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a, #mbc-olp-link';
+      // eslint-disable-next-line no-extra-boolean-cast
+      if (!!document.querySelector(button)) {
+        return button;
+      } else {
+        return 'false';
       }
-      try {
-        await context.waitForXPath('//div[@id="aplus"]/..//h2 | //div[@id="aplus"]/..//div[contains(@class, "celwidget aplus-module")]');
-      } catch (error) {
-        console.log('error: ', error);
-      }
-      await new Promise((resolve) => setTimeout(resolve, 2197));
-      function addElementToDocument (key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
-      const url = window.location.href;
-      // @ts-ignore
-      let currency = document.querySelector('[id="priceblock_ourprice"]');
-      // @ts-ignore
-      currency = currency !== null ? currency.innerText : '';
-      // @ts-ignore
-      currency = currency.includes('$') ? '$' : '';
-      // @ts-ignore
-      let manufacturerDescription = document.querySelector('.aplus-v2.desktop.celwidget');
-      // @ts-ignore
-      manufacturerDescription = manufacturerDescription !== null ? manufacturerDescription.innerText : ' ';
-      // @ts-ignore
-      manufacturerDescription = manufacturerDescription ? manufacturerDescription.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
-      //=======================================================================
-      // @ts-ignore
+    }
+    addHiddenDiv('added-parentInput', parentInput);
+    var element = (document.querySelectorAll("div[cel_widget_id*='aplus'] img")) ? document.querySelectorAll("div[cel_widget_id*='aplus'] img") : [];
+    if (element) {
+      element.forEach(async (node) => {
+        node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 1000);
+        });
+      });
+    }
+    // @ts-ignore
     var CurrentSeller = document.querySelector('div[id="merchant-info"]') ? document.querySelector('div[id="merchant-info"]').innerText : '';
     // @ts-ignore
     var CurrentSellerPrice = document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']") ? document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']").innerText : '';
@@ -65,14 +68,23 @@ module.exports = {
       } else {
         CurrentSellerPrime = 'NO';
       }
-      addElementToDocument('ii_otherSellersName', CurrentSeller);
-      addElementToDocument('ii_otherSellersPrice', CurrentSellerPrice);
-      addElementToDocument('ii_otherSellersShipping', CurrentSellerShipping);
-      addElementToDocument('ii_otherSellersPrime', CurrentSellerPrime);
+      addHiddenDiv('ii_otherSellersName', CurrentSeller);
+      addHiddenDiv('ii_otherSellersPrice', CurrentSellerPrice);
+      addHiddenDiv('ii_otherSellersShipping', CurrentSellerShipping);
+      addHiddenDiv('ii_otherSellersPrime', CurrentSellerPrime);
       console.log('CurrentSeller', CurrentSeller);
       console.log('CurrentSellerPrice', CurrentSellerPrice);
       console.log('CurrentSellerShipping', CurrentSellerShipping);
+      console.log('CurrentSellerPrime', CurrentSellerPrime);
     }
+    // @ts-ignore
+    let manufacturerDescription = document.querySelector('.aplus-v2.desktop.celwidget');
+    // @ts-ignore
+    manufacturerDescription = manufacturerDescription !== null ? manufacturerDescription.innerText : ' ';
+    // @ts-ignore
+    manufacturerDescription = manufacturerDescription ? manufacturerDescription.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
+
+    addHiddenDiv('ii_manufacturerDescription', manufacturerDescription);
     const otherSellerNew = (document.querySelector("span[data-action='show-all-offers-display'] > a")) ? document.querySelector("span[data-action='show-all-offers-display'] > a").getAttribute('href') : '';
     if (otherSellerNew) {
       const otherSellersHtml = await fetch(otherSellerNew, {
@@ -83,11 +95,12 @@ module.exports = {
         mode: 'cors',
         credentials: 'include',
       }).then(res => res.text());
-      console.log('otherSellersHtml', otherSellersHtml);
+      // console.log('otherSellersHtml', otherSellersHtml);
       const domParser = new DOMParser();
       const otherSellersDocument = domParser.parseFromString(otherSellersHtml, 'text/html');
       const pageNotFound = document.evaluate('//title[contains(text(),"Page Not Found")]', otherSellersDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (!pageNotFound) {
+        getLbb(otherSellersDocument);
         getOtherSellersInfo(otherSellersDocument, 'h3.olpSellerName span , h3.olpSellerName img', 'div.olpOffer span.olpOfferPrice', 'div.olpOffer', 'div.olpOffer .olpShippingInfo');
       } else {
         getOtherSellersInfo('', '#mbc span.mbcMerchantName, #ii_otherSellersName', 'div[id*="mbc"] span[id*="mbc-price"], #ii_otherSellersPrice', "span[id*='mbc-shipping'], #ii_otherSellersPrime", 'div[id*="mbc"] span[id*="mbc-shipping"], #ii_otherSellersShipping');
@@ -107,17 +120,16 @@ module.exports = {
           sellerNames.push(name.innerText.trim());
         }
       });
-      sellerNames && addElementToDocument('pd_otherSellerName', sellerNames.join('|'));
+      sellerNames && addHiddenDiv('pd_otherSellerName', sellerNames.join('|'));
       console.log('sellerNames', sellerNames);
       const sellerPrices = [];
       const otherSellersPrice = otherSellersDocument.querySelectorAll(sellerPricesSelector);
       otherSellersPrice && otherSellersPrice.forEach(price => {
         if (price.innerText) {
           sellerPrices.push(price.innerText.trim());
-          addElementToDocument('pd_otherSellersPrice', price.innerText.trim());
+          addHiddenDiv('pd_otherSellersPrice', price.innerText.trim());
         }
       });
-      // sellerPrices && addElementToDocument('pd_otherSellersPrice', sellerPrices.join('|'));
       console.log('sellerPrices', sellerPrices);
       const sellerPrime = [];
       const otherSellersPrime = otherSellersDocument.querySelectorAll(sellerPrimeSelector);
@@ -130,7 +142,7 @@ module.exports = {
           sellerPrime.push('No');
         }
       });
-      sellerPrime && addElementToDocument('pd_otherSellersPrime', sellerPrime.join('|'));
+      sellerPrime && addHiddenDiv('pd_otherSellersPrime', sellerPrime.join('|'));
       console.log('sellerPrime', sellerPrime);
       const sellerShipping = [];
       const otherSellersShipping2 = otherSellersDocument.querySelectorAll(sellerShippingSelector);
@@ -145,14 +157,48 @@ module.exports = {
       while (sellerShipping.length !== sellerNames.length) {
         sellerShipping.push('0.00');
       }
-      sellerShipping && addElementToDocument('pd_otherSellersShipping2', sellerShipping.join('|'));
+      sellerShipping && addHiddenDiv('pd_otherSellersShipping2', sellerShipping.join('|'));
       console.log('sellerShipping', sellerShipping);
     }
-      //=======================================================================
-      addElementToDocument('a_pageTimestamp', (new Date()).toISOString().replace(/[TZ]/g, ' '));
-      addElementToDocument('a_url', url);
-      addElementToDocument('a_manufacturerDescription', manufacturerDescription);
-    });
-    return await context.extract(productDetails, { transform: parameters.transform });
-  },
-};
+    // @ts-ignore
+    async function getLbb (otherSellersDocument) {
+      const button = await buttonCheck();
+      const otherSellersDiv = "div#olpOfferList div[class*='olpOffer']";
+      console.log('##############################', button);
+      if (button !== 'false' && otherSellersDocument.querySelector(otherSellersDiv)) {
+        console.log('trying button', button);
+        const firstCheck = (document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div')) ? document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div') : '';
+        const otherSellers = (otherSellersDocument.querySelectorAll(otherSellersDiv)) ? otherSellersDocument.querySelectorAll(otherSellersDiv) : '';
+        const price = (document.querySelector("#priceblock_ourprice, [class*='offer-price'], span[id='priceblock_saleprice']")) ? document.querySelector("#priceblock_ourprice, [class*='offer-price'], span[id='priceblock_saleprice']") : '';
+        console.log('Sold by box, otherSellers, Actual-price', firstCheck, otherSellers, price);
+        if (firstCheck && price) {
+          // @ts-ignore
+          const priceText = parseFloat((price.innerText).slice(1));
+          // @ts-ignore
+          if (!(firstCheck.innerText.toLowerCase().includes('sold by amazon')) && otherSellers) {
+            otherSellers.forEach((seller) => {
+              // @ts-ignore
+              const sellerPrice = (seller.querySelector('span.olpOfferPrice')) ? seller.querySelector('span.olpOfferPrice').innerText.trim() : '';
+              const priceNum = parseFloat(sellerPrice.slice(1));
+              const soldBy = (seller.querySelector('h3.olpSellerName span , h3.olpSellerName img')) ? seller.querySelector('h3.olpSellerName span , h3.olpSellerName img') : '';
+              let sellerNames;
+              if (soldBy.tagName === 'IMG') {
+                sellerNames = (soldBy.alt);
+              } else {
+                sellerNames = (soldBy.innerText.trim());
+              }
+              console.log('Name of seller', sellerNames, priceNum, priceText);
+              // @ts-ignore
+              if (sellerNames.toLowerCase().includes('amazon.co.uk') && priceNum >= priceText) {
+                addHiddenDiv('ii_lbb', 'YES');
+                addHiddenDiv('ii_lbbPrice', `${priceNum}`);
+              }
+            });
+          }
+        }
+      }
+    }
+  // @ts-ignore
+  }, parentInput);
+  return await context.extract(productDetails, { transform });
+}
