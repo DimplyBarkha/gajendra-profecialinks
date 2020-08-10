@@ -1,10 +1,11 @@
+const { transform } = require('../format');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'sephora',
-    transform: null,
+    transform,
     domain: 'sephora.com',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
@@ -20,6 +21,17 @@ module.exports = {
       addHiddenDiv(`ii_url`, window.location.href);
       addHiddenDiv(`ii_parentInput`, parentInput);
 
+      let scrollTop = 0;
+      while (scrollTop !== 10000) {
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+  
+        console.log("SCROLLING")
+        if (scrollTop === 10000) {
+          break;
+        }
+      }
+
       let flag = true;
       let i = 0;
       while(flag){
@@ -34,8 +46,9 @@ module.exports = {
         i++
       }
     }, parentInput);
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
 
-      return await context.extract(productDetails);
+      return await context.extract(productDetails, { transform: transformParam });
     },
 };
