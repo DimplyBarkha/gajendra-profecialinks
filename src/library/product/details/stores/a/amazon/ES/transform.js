@@ -56,6 +56,11 @@ const transform = (data) => {
           lbbPrice.text = lbbPrice.text.replace('.', '').replace(',', '.').trim();
         });
       }
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach(pricePerUnit => {
+          pricePerUnit.text = pricePerUnit.text.replace('.', '').replace(',', '.').trim();
+        });
+      }
       if (row.listPrice) {
         row.listPrice.forEach(listPrice => {
           listPrice.text = listPrice.text.replace('.', '').replace(',', '.').trim();
