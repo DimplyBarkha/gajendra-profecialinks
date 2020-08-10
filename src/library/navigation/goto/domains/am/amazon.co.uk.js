@@ -138,6 +138,7 @@ module.exports = {
       }
     };
     const run = async () => {
+      console.log("REEEEEEEE")
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
         timeout: 10000,
@@ -149,7 +150,7 @@ module.exports = {
       });
 
       // Treating as 200 if no response.
-      if (!lastResponseData.code) {
+      if (!lastResponseData.status) {
         return;
       }
 
