@@ -177,7 +177,7 @@ module.exports = {
     };
     await run();
     if (zipcode) {
-      await dependencies.setZipCode({ url: url, zipcode: zipcode });
+      await dependencies.setZipCode({ url, zipcode });
     }
   },
 };

@@ -4,52 +4,34 @@ module.exports.Helpers = class {
     this.context = context;
   }
 
-  async addItemToDocument () {
-    await this.context.evaluate(() => {
-
-    });
-  }
-
-};
-
-module.exports.transform = (data, context) => {
-  const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
-    .replace(/&amp;nbsp;/g, ' ')
-    .replace(/&amp;#160/g, ' ')
-    .replace(/\u00A0/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  const state = context.getState();
-  let orgRankCounter = state.orgRankCounter || 0;
-  let rankCounter = state.rankCounter || 0;
-  const productCodes = state.productCodes || [];
-  for (const { group } of data) {
-    for (const row of group) {
-      if (row.id && row.id[0] && productCodes.indexOf(row.id[0].text) === -1) {
-        productCodes.push(row.id[0].text);
-        rankCounter += 1;
-        if (!row.sponsored) {
-          orgRankCounter += 1;
-          row.rankOrganic = [{ text: orgRankCounter }];
+  // Function which adds an element to the document, if the element is an array it adds it as a list
+  async addItemToDocument (key, value, { parentID = '', type = 'div', clss = '' } = {}) {
+    const inputs = { key, value, parentID, type, clss };
+    await this.context.evaluate((inputs) => {
+      const addItemToDocument = ({ key, value, parentID, type, clss }) => {
+        const keyPrefix = '';
+        const id = `${keyPrefix}${key}`;
+        const htmlString = `<${type} id="${id}" ${clss ? `class="${clss}" ` : ''}></${type}>`;
+        const root = parentID ? document.querySelector(parentID) : document.body;
+        root.insertAdjacentHTML('beforeend', htmlString);
+        if (Array.isArray(value)) {
+          const innerHTML = value.reduce((acc, val) => {
+            return `${acc}<li>${val}</li>`;
+          }, '<ul>') + '</ul>';
+          document.querySelector(id).innerHTML = innerHTML;
+        } else {
+          // This allows to remove all potential HTML markers from the text
+          document.querySelector(id).innerHTML = value;
+          document.querySelector(id).textContent = document.querySelector(id).innerText;
         }
-        row.rank = [{ text: rankCounter }];
-      } else {
-        row.id = [{ text: '' }];
-      }
-      Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }));
-    }
+      };
+      addItemToDocument(inputs);
+    }, inputs);
   }
-  context.setState({ rankCounter });
-  context.setState({ orgRankCounter });
-  context.setState({ productCodes });
-  console.log(productCodes);
-  return data;
+
+  // Function which easily adds the url to the document
+  async addURLtoDocument () {
+    const url = this.context.evaluate(() => window.location.href);
+    await this.addItemToDocument('added-searchurl', url);
+  }
 };
