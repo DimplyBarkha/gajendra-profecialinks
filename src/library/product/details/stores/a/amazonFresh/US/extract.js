@@ -259,6 +259,9 @@ async function implementation (
       const asinRaw = (splits.length > 0) ? splits[splits.length - 2] : '';
       addHiddenDiv('added-url', url);
       addHiddenDiv('added-asin', asinRaw);
+      let allText = '';
+      [...document.querySelectorAll('div.apm-hovermodule-slides .apm-hovermodule-slides-inner')].forEach((element) => { allText += element.innerText});
+      addHiddenDiv('added-enhanced-content', document.querySelector('div#aplus') ? document.querySelector('div#aplus').innerText + allText : '');
       if (parentInput) {
         addHiddenDiv('added-parentInput', parentInput);
       }

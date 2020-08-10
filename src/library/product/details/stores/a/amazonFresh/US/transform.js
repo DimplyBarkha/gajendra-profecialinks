@@ -169,6 +169,8 @@ const transform = (data, context) => {
               jsonStr = jsonStr.slice(0, -2);
               const jsonObj = JSON.parse(jsonStr);
               asins = Object.keys(jsonObj);
+            } else {
+              asins = [];
             }
           }
           // @ts-ignore
@@ -206,6 +208,12 @@ const transform = (data, context) => {
                 },
               ];
             }
+          } else {
+            row.variantCount = [
+              {
+                text: '',
+              },
+            ];
           }
         }
         if (row.variants) {

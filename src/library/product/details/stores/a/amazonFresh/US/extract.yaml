@@ -130,8 +130,9 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and not(span[contains(text(), "Description:")]) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | (//div[contains(@class,"apm-tablemodule")]//tr[position()<3]//th//text()) | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()
-    # xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()
+    # xpath: //div[@id='added-enhanced-content']
+    xpath: //div[@id="aplus"]//h1[text()] | //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and not(span[contains(text(), "Description:")]) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | (//div[contains(@class,"apm-tablemodule")]//tr[position()<3]//th//text()) | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()
+  # xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="aplus"]//img[not(contains(@data-src, "common"))]/@data-src | //div[contains(@class, "apm-tablemodule")]//img[not(contains(@src, "common"))]/@src
