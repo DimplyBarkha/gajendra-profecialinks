@@ -18,7 +18,7 @@ fields:
   - name: gtin
     xpath: td[@class="cin depth_1"]
   - name: thumbnail
-    xpath: td[@class="imageURL depth_1"]
+    xpath: //td[contains(@class, 'extraLargeImageURL')]
   - name: aggregateRating2
     xpath: td[@class="avgStarRating depth_1"]
   - name: aggregateRating
