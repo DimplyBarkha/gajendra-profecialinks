@@ -1,49 +1,28 @@
 
-/**
- *
- * @param {ImportIO.Group[]} data
- * @returns {ImportIO.Group[]}
- */
-const transform = (data, context) => {
-  const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
-    .replace(/&amp;nbsp;/g, ' ')
-    .replace(/&amp;#160/g, ' ')
-    .replace(/\u00A0/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
-    .replace(/[^\x00-\x7F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+module.exports.implementation = async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { productDetails } = dependencies;
 
-  const state = context.getState();
-  let orgRankCounter = state.orgRankCounter || 0;
-  let rankCounter = state.rankCounter || 0;
-  for (const { group } of data) {
-    for (const row of group) {
-      if (row.aggregateRatingText) {
-        row.aggregateRating = [
-          {
-            text: row.aggregateRatingText[0].text.replace(/ \D.*/, ''),
-          },
-        ];
-      }
-      rankCounter = rankCounter + 1;
-      if (!row.sponsored) {
-        orgRankCounter = orgRankCounter + 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
-      }
-      row.rank = [{ text: rankCounter }];
-      context.setState({ rankCounter });
-      context.setState({ orgRankCounter });
-      Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }));
+  await context.evaluate(async function () {
+    function addElementToDocument (doc, key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      doc.appendChild(catElement);
     }
-  }
-  return data;
-};
 
-module.exports = { transform };
+    const searchUrl = window.location.href;
+    const productList = document.querySelectorAll('.a-section.a-spacing-medium');
+
+    productList && productList.forEach((item1) => {
+      const doc = item1;
+      addElementToDocument(doc, 'searchUrl', searchUrl);
+    });
+  });
+  return await context.extract(productDetails, { transform: parameters.transform });
+};
