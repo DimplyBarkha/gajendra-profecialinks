@@ -71,10 +71,9 @@ module.exports = {
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
         // await new Promise((resolve) => setTimeout(resolve, 15000));
         // await context.waitForXPath('//div[contains(@data-automation-id,"changeStoreFulfillmentBannerBtn")]//span[contains(@class,"AddressPanel__addressLine")]', { timeout: 35000 });
+        await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]');
 
         await context.waitForXPath('//div[contains(@data-automation-id,"changeStoreFulfillmentBannerBtn")]//span[contains(@class,"AddressPanel__addressLine")]/text()[contains(., "' + zipcodeStreetAddress + '")]', { timeout: 45000 });
-
-        // await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]');
       }
     }
 
