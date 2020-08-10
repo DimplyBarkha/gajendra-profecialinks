@@ -34,12 +34,26 @@ module.exports = {
       await context.clickAndWaitForNavigation('button.sc-search-field-icon');
       await context.waitForSelector('a.sc-product-card-pdp-link');
       await context.clickAndWaitForNavigation('a.sc-product-card-pdp-link');
+
+      await context.evaluate(async function ({ zipcode, storeId }) {
+        const productId = document.querySelector('#sc-bv-summary-container') ? document.querySelector('#sc-bv-summary-container').getAttribute('data-bv-product-id') : '';
+        const productUrl = `https://www.samsclub.com/api/soa/services/v1/catalog/product/${productId}?response_group=LARGE&clubId=${storeId}`;
+        const response = await fetch(productUrl).then(res => res.json());
+        if (response) {
+          const aggregateRating = response.payload.reviewRating;
+          const ratingCount = response.payload.reviewCount;
+          document.body.setAttribute('aggregateRating', aggregateRating);
+          document.body.setAttribute('ratingCount', ratingCount);
+          document.body.setAttribute('variantId', zipcode);
+          document.body.setAttribute('driveId', storeId);
+        }
+      }, { zipcode, storeId });
     }
 
     if (parameters.loadedSelector) {
       await context.waitForFunction(function (sel, xp) {
         return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-      }, { timeout: 100000 }, parameters.loadedSelector, parameters.noResultsXPath);
+      }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
     }
   },
 };

@@ -8,7 +8,7 @@ fields:
     xpath: //button[@class="sc-image-viewer-img-button"]/img/@src
   - name: imageAlt
     singleValue: false
-    xpath: /html/body/@imagealt
+    xpath: //div[@class="sc-product-header-title-container"]
   - name: alternateImages
     singleValue: false
     xpath: //img[@class="sc-image-viewer-thumb"]/@src
@@ -67,6 +67,8 @@ fields:
     xpath: //span[@class="sc-product-header-item-number"][contains(text(), 'Model ')] | //meta[@itemprop='sku']/@content
   - name: variantId
     singleValue: false
+    # xpath: /html/body/@variantId
+    xpath: //span[@class="sc-product-header-item-number"][contains(text(), 'Model ')] | //meta[@itemprop='sku']/@content
   - name: mpc
     singleValue: false
     xpath: //span[@class="sc-product-header-item-number"][contains(text(), 'Model ')] | //meta[@itemprop='sku']/@content
@@ -80,13 +82,15 @@ fields:
     singleValue: false
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
+    # xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
+    xpath: /html/body/@ratingCount
   - name: aggregateRatingText
     singleValue: false
     xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]/following-sibling::*[1]
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
+    # xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
+    xpath: /html/body/@aggregateRating
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class="sc-full-description-spec-shipping sc-full-description-info"]
@@ -116,3 +120,7 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@class='sc-promo-message-primary']
+  - name: driveId
+    singleValue: false
+    # xpath: //body/@driveId
+    xpath: //span[@class="sc-product-header-item-number"][contains(text(), 'Model ')] | //meta[@itemprop='sku']/@content
