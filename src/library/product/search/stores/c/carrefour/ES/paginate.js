@@ -4,7 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'carrefour',
-    nextLinkSelector: 'div.pagination a.next',
+    nextLinkSelector: 'div[id="pagination-box-arrow-right"]>a[class="next "]',
     domain: 'carrefour.es',
   },
 };
+
+
