@@ -6,6 +6,8 @@ fields:
   - name: parentInput
     singleValue: true
     xpath: //div[@id='ii_parentInput']
+  - name: productUrl
+    xpath: //div[@id='ii_url']
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -40,8 +42,7 @@ fields:
     xpath: //ol/li/a
   - name: warnings
     singleValue: false
-    xpath: >-
-      //div[@id="tabpanel2"]/div[1]
+    xpath: //div[@id='ii_Warnigns']
   - name: ingredientsList
     singleValue: false
     xpath: //div[@id="ii_Ingredients"]
@@ -70,9 +71,6 @@ fields:
   # - name: alternateImages
   #   singleValue: false
   #   xpath: ((//div[contains(@data-comp,"Carousel")])[1]/div//img[@width="300"])[position()>1]/@src
-  - name: sku
-    xpath: //div[@id='ii_url']
-    regExp: ([0-9]+$)
   - name: availabilityText
     singleValue: true
     xpath: >-
@@ -82,11 +80,6 @@ fields:
     regExp: (.*)
     regExpReplace: Sale
     xpath: //span[@data-at="sale_price"]
-  # - name: deal_price
-  #   singleValue: true
-  #   regExp: >-
-  #    [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)
-  #   path: //span[@data-at="sale_price"]
   - name: listPrice
     singleValue: true
     regExp: >-
@@ -105,18 +98,20 @@ fields:
     # regExp: ([0-9]+)
     xpath: //div[@id="ii_variants"]
   - name: variantInformation
-    # xpath: (//span[@data-at="item_variation_type"])[1]
-    xpath: //div[contains(@data-comp, "ProductSwatchItem")]//button[@aria-selected="true"]/@aria-label
-    regExp: >-
-     (([a-zA-Z0-9-.\s\/]+) - Selected)
-    regExpReplace: >-
-     $2
+    xpath: //div[@id="ii_variantInfo"]
+  - name: sku
+    xpath: //div[@id='ii_url']
+    regExp: ([0-9]+$)
+  - name: variantId
+    xpath: //div[@id='ii_url']
+    regExp: ([0-9]+$)
   - name: color
-    xpath: (//span[contains(@data-at, "item_variation_type") and contains(., "COLOR")])[1]
-    regExp: >-
-     COLOR:\s([a-zA-Z\s\/]+)
-    regExpReplace: >-
-     $1
+    xpath: //div[@id='ii_color']
+    # xpath: (//span[contains(@data-at, "item_variation_type") and contains(., "COLOR")])[1]
+    # regExp: >-
+    #  COLOR:\s([a-zA-Z\s\/]+)
+    # regExpReplace: >-
+    #  $1
   - name: imageZoomFeaturePresent
     xpath: boolean(//div[contains(@data-comp,"HeroMediaList")]//div[contains(., "zoom")])
 
