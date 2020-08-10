@@ -62,7 +62,7 @@ module.exports = {
         throw new Error('ERROR: Failed to load product details page');
       }
 
-      await waitForSelectorToLoad('div[data-auto-id="image"] img');
+      await waitForSelectorToLoad('.s7staticimage img');
       await waitForSelectorToLoad('.asda-tab-list ~ div');
       console.log('navigation complete!!');
     }
