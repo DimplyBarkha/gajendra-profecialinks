@@ -1,107 +1,12 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: //div[contains(@class,"s-main-slot")]/div[@data-component-type="s-search-result"]
+extends: ../shared.yaml
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
   - name: productUrl
     singleValue: false
-    description: The URL for the product details page
     xpath: //h2/a/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.fr$1
-  - name: thumbnail
-    singleValue: true
-    xpath:  //span[@data-component-type="s-product-image"]/a/div/img/@src
-    description: The URL for the product thumbnail image
-  - name: name
-    singleValue: true
-    xpath: //h2
-    description: The product name
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    xpath: //span[contains(@aria-label,"sur")]/following-sibling::span[1]
-    description: The number of ratings
-  - name: reviewCount
-    xpath: //span[contains(@aria-label,"sur")]/following-sibling::span[1]
-    singleValue: true
-    description: The number of reviews
-  - name: price
+  - name: aggregateRating
     singleValue: false
-    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
-    description: The offered price for the product
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    xpath: //span[@data-a-badge-color="ac-orange" and text()="Choice"] | //*[contains(@id,"amazons-choice-label")]	//span[@data-a-badge-color="ac-orange" and text()="Choice"] | //*[contains(@id,"amazons-choice-label")]
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-  - name: rank
-    singleValue: true
-    # xpath:  //div[starts-with(@id,'ii_rank')]
-    description: search/listing rank
-    type: NUMBER
-  - name: rankOrganic
-    singleValue: true
-    # xpath: //div[starts-with(@id,'ii_rank')]
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-  - name: sponsored
-    singleValue: false
-    xpath: //span[@class='s-label-popover-default']/span[text() = "Sponsorisé"]
-    description: Is sponsored/paid
-    # defaultValue: false
-    type: BOOLEAN
-  - name: id
-    singleValue: false
-    xpath: //@data-asin
-    description: Unique id (within this extractor)
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating2
-    singleValue: true
-    xpath: //span[contains(@aria-label,"sur")]/@aria-label
-    description: The stated aggregate rating normalized to be out of 5
-  - name: searchUrl
-    singleValue: true
-    xpath: ancestor::html//div[@id='added-searchurl'][last()]
+    xpath: //span[contains(@aria-label,"stars")]/@aria-label
+    regExp: (.+) sur
+    regExpReplace: $1

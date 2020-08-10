@@ -1,28 +1,15 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: //div[@data-component-type='s-search-result']
+extends: ../shared.yaml
 fields:
-  - name: searchUrl
-    singleValue: false
-    xpath: //div[@id='searchUrl']
   - name: productUrl
     singleValue: false
     xpath: //h2/a/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.es$1
-  - name: thumbnail
-    singleValue: false
-    xpath: //div[contains(@class, 'image')]/img/@src
-  - name: name
-    singleValue: false
-    xpath: //h2
-  - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
     xpath: //span[contains(@aria-label,"estrellas")]/@aria-label
+    regExp: (.+) de
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
     xpath: //span[contains(@aria-label,"estrellas")]/following-sibling::span[1]
@@ -32,22 +19,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
-  - name: manufacturer
-    singleValue: false
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: false
-    description: The name of the seller of the item (if available)
   - name: endorsementText
     singleValue: false
     xpath: //span[contains(@class, "a-badge-label") and @id]
-  - name: rank
-    singleValue: false
-  - name: rankOrganic
-    singleValue: false
-  - name: id
-    singleValue: false
-    xpath: //div/../@data-asin
   - name: sponsored
     singleValue: false
     xpath: //span[@class='s-label-popover-default']/span[text() = "Patrocinado"]
