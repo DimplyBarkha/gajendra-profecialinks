@@ -11,10 +11,8 @@ module.exports = {
     console.log('backconnect', backconnect);
     const benchmark = !!memory.benchmark;
     console.log('benchmark', benchmark);
-    const start = Date.now();
     const MAX_CAPTCHAS = 3;
     let captchas = 0;
-    let hasCaptcha = false;
     let lastResponseData;
     const isCaptcha = async () => {
       return await context.evaluate(async function () {
@@ -61,19 +59,18 @@ module.exports = {
       }
       return 'true';
     };
-    const run = async () => {
-      // do we perhaps want to go to the homepage for amazon first?
-      lastResponseData = await context.goto(url, {
-        timeout: 10000,
-        waitUntil: 'load',
-        checkBlocked: false,
-        js_enabled: true,
-        css_enabled: false,
-        random_move_mouse: true,
-      });
-      await new Promise(resolve => setTimeout(resolve, 1000));
+    const analyzePage = async () => {
+      let status = 200;
+      if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
+        status = 503;
+      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]') ) {
+        status = 404;
+      }
+      return { status };
+    };
+    const handlePage = async (lastResponseData) => {
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
-        return;
+        return true;
       }
       if (lastResponseData.status === 503) {
         const [response] = await Promise.all([
@@ -83,12 +80,11 @@ module.exports = {
           await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"]'),
         ]);
         if (await solveCaptchaIfNecessary() === 'false') {
-          hasCaptcha = true;
-          return;
+          return { status: false };
         }
         console.log('Go to some random page');
-        const clickedOK = await context.evaluate(async function () { //* [contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/spa
-          const randomLinkEls = document.evaluate("a[href*='/dp/']", document, null, XPathResult.ANY_TYPE, null);
+        const clickedOK = await context.evaluate(async function () {
+          const randomLinkEls = document.evaluate('//a[@href]', document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
             // @ts-ignore
@@ -100,7 +96,7 @@ module.exports = {
         });
         if (clickedOK === 'false') {
           console.log('Could not click a product, aborting... :/');
-          return;
+          return { status: false };
         } else {
           context.waitForNavigation();
         }
@@ -115,11 +111,24 @@ module.exports = {
         });
         console.log('lastResponseData', lastResponseData);
         await new Promise(resolve => setTimeout(resolve, 1000));
+        if (await solveCaptchaIfNecessary() === 'false') {
+          return { status: false };
+        }
+        return lastResponseData;
       }
-      if (lastResponseData.status === 404 || lastResponseData.status === 410) {
-        return;
-      }
-      if (lastResponseData.status !== 200) {
+    };
+    const run = async () => {
+      // do we perhaps want to go to the homepage for amazon first?
+      lastResponseData = await context.goto(url, {
+        timeout: 10000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      if ([200, 503, 410, 404].indexOf(lastResponseData.status) === -1) {
         console.log('Blocked: ' + lastResponseData.status);
         if (benchmark) {
           return;
@@ -130,15 +139,23 @@ module.exports = {
         return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       }
       if (await solveCaptchaIfNecessary() === 'false') {
-        hasCaptcha = true;
         return;
       }
-      if (lastResponseData.status === 404 || lastResponseData.status === 410) {
+      let pageStatus = await context.evaluate(analyzePage);
+      pageStatus = await handlePage(pageStatus);
+      if (pageStatus && pageStatus.status && pageStatus.status !== 200) {
+        pageStatus = await handlePage(pageStatus);
+      }
+      // Return for false status.
+      if (pageStatus && !pageStatus.status) {
         return;
       }
-      // this needs to be updated for multiple locales and feeds
+      // Check if page still blocked after sencond try.
+      if (pageStatus && pageStatus.status === 503) {
+        return context.reportBlocked('Blocked: 503 error.');
+      }
       const wrongLocale = await context.evaluate(async function () {
-        const locationWarningPopupEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and not(//*[contains(text(), 'Fresh')])]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const locationWarningPopupEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and not(//*[contains(text(), 'Amazon Fresh')])]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         if (locationWarningPopupEl.snapshotLength > 0) {
           return 'true';
         } else {
