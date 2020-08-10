@@ -1,5 +1,5 @@
+const { transform } = require('../../../../transform');
 
-const { transform } = require('./transform');
 async function implementation (
   inputs,
   parameters,
