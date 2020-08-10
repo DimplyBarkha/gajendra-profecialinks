@@ -2,10 +2,10 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     country: 'US',
-    domain: 'amazon.com',
+    domain: 'amazon.us',
     store: 'amazon',
   },
-  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
+  implementation: async ({ url }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -63,7 +63,7 @@ module.exports = {
       let status = 200;
       if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
         status = 503;
-      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]')) {
+      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]') ) {
         status = 404;
       }
       return { status };
@@ -84,6 +84,7 @@ module.exports = {
         }
         console.log('Go to some random page');
         const clickedOK = await context.evaluate(async function () {
+        // Changed xpath to check for any link.
           const randomLinkEls = document.evaluate('//a[@href]', document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
@@ -102,7 +103,7 @@ module.exports = {
         }
         console.log('Going back to desired page');
         lastResponseData = await context.goto(url, {
-          timeout: 50000,
+          timeout: 10000,
           waitUntil: 'load',
           checkBlocked: false,
           js_enabled: true,
@@ -110,6 +111,9 @@ module.exports = {
           random_move_mouse: true,
         });
         console.log('lastResponseData', lastResponseData);
+        if (!lastResponseData) {
+          return { status: false };
+        }
         await new Promise(resolve => setTimeout(resolve, 1000));
         if (await solveCaptchaIfNecessary() === 'false') {
           return { status: false };
@@ -120,13 +124,17 @@ module.exports = {
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
-        timeout: 50000,
+        timeout: 10000,
         waitUntil: 'load',
         checkBlocked: false,
         js_enabled: true,
         css_enabled: false,
         random_move_mouse: true,
       });
+      // Treating as 200 if no response.
+      if (!lastResponseData.status) {
+        return;
+      }
       await new Promise(resolve => setTimeout(resolve, 1000));
       if ([200, 503, 410, 404].indexOf(lastResponseData.status) === -1) {
         console.log('Blocked: ' + lastResponseData.status);
@@ -172,10 +180,5 @@ module.exports = {
       }
     };
     await run();
-
-    console.log(zipcode);
-    if (zipcode) {
-      await dependencies.setZipCode({ url, zipcode });
-    }
   },
 };

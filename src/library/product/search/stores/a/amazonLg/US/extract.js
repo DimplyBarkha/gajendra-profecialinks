@@ -1,29 +1,18 @@
-const { transform } = require('./shared');
+const { transform } = require('../../../../transform');
+
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  const { productDetails } = dependencies;
-
-  await context.evaluate(async function () {
-    function addElementToDocument (doc, key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      doc.appendChild(catElement);
-    }
-
-    const searchUrl = window.location.href;
-    const productList = document.querySelectorAll('.a-section.a-spacing-medium');
-    productList && productList.forEach((item1, index) => {
-      const doc = item1;
-      addElementToDocument(doc, 'searchUrl', searchUrl);
-    });
-  });
-  return await context.extract(productDetails, { transform: parameters.transform });
+  const { transform } = parameters;
+  const { productDetails, Helpers: { Helpers } } = dependencies;
+  
+  await context.waitForXPath('//div/@data-asin');
+  const helpers = new Helpers(context);
+  helpers.addURLtoDocument('added-searchurl');
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
@@ -34,6 +23,10 @@ module.exports = {
     transform: transform,
     domain: 'amazon.com',
     zipcode: '',
+  },
+  dependencies: {
+    productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:product/search/helpers',
   },
   implementation,
 };
