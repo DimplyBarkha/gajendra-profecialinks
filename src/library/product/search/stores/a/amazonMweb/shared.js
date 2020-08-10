@@ -40,7 +40,7 @@ const transform = (data, context) => {
       }
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(aggregateRating2 => {
-          aggregateRating2.text = aggregateRating2.text.split('von')[0].replace(',', '.').trim();
+          aggregateRating2.text = aggregateRating2.text.split('sur')[0].replace(',', '.').trim();
         });
       }
     }

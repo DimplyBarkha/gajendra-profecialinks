@@ -1,13 +1,14 @@
+
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'amazon.co.uk',
-    timeout: null,
-    country: 'UK',
-    store: 'amazon',
-    zipcode: 'SW1P 3EU',
+    domain: 'amazon.fr',
+    timeout: 900000,
+    country: 'FR',
+    store: 'amazonMweb',
+    zipcode: '',
   },
-  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
+  implementation: async ({ url }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
