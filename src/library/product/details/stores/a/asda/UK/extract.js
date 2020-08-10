@@ -54,7 +54,7 @@ module.exports = {
     if (productAvailable) {
       console.log('clicking product link');
       await context.click(cssProduct);
-      await context.waitForNavigation({ timeout: waitPeriodInMS, waitUntil: 'load' });
+      await context.waitForNavigation({ timeout: waitPeriodInMS, waitUntil: 'networkidle0' });
       await context.waitForSelector(cssProductDetails);
       const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
       console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
