@@ -260,7 +260,11 @@ async function implementation (
       addHiddenDiv('added-url', url);
       addHiddenDiv('added-asin', asinRaw);
       let allText = '';
-      [...document.querySelectorAll('div.apm-hovermodule-slides .apm-hovermodule-slides-inner')].forEach((element) => { allText += element.innerText});
+      [...document.querySelectorAll('div.apm-hovermodule-slides')].filter(element => element.style.display !== "block").forEach((element) => {
+        if (element.querySelector('.apm-hovermodule-slides-inner')) {
+          allText += element.querySelector('.apm-hovermodule-slides-inner').innerText;
+        }
+      });
       addHiddenDiv('added-enhanced-content', document.querySelector('div#aplus') ? document.querySelector('div#aplus').innerText + allText : '');
       if (parentInput) {
         addHiddenDiv('added-parentInput', parentInput);
