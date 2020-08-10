@@ -180,13 +180,10 @@ fields:
     defaultValue: NO
   - name: lbb
     singleValue: false
-    xpath: //div[contains(@id, 'mbc')]
-    regExp: (.+)
-    regExpReplace: 'YES'
-    defaultValue: NO
+    xpath: //div[@id='ii_lbb']
   - name: lbbPrice
     singleValue: false
-    xpath: //span[contains(@id, 'mbc-price')]
+    xpath: //div[@id='ii_lbbPrice']
   - name: otherSellersName
     singleValue: false
     xpath: //div[@id='pd_otherSellerName']

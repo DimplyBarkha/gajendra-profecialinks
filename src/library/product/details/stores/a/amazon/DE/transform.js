@@ -103,6 +103,11 @@ const transform = (data, context) => {
           lbbPrice.text = lbbPrice.text.replace('.', '').replace(',', '.').trim();
         });
       }
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach(pricePerUnit => {
+          pricePerUnit.text = pricePerUnit.text.replace('.', '').replace(',', '.').trim();
+        });
+      }
       if (row.pasin) {
         row.pasin.forEach(pasin => {
           pasin.text = pasin.text.replace('\",', '');
