@@ -21,11 +21,6 @@ const transform = (data) => {
           alternateImage.text = `https://www.medikamente-per-klick.de${alternateImage.text}`.replace('/klein/', '/mittel/').replace('_k.', '_m.');
         });
       }
-      if (row.pricePerUnit) {
-        row.pricePerUnit.forEach(pricePerUnit => {
-          pricePerUnit.text = pricePerUnit.text.replace(/\./g, '').replace(',', '.');
-        });
-      }
       if (row.variantId) {
         row.variantId.forEach(variantId => {
           variantId.text = variantId.text.replace(/^0+/, '');

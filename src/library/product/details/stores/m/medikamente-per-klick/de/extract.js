@@ -30,12 +30,12 @@ module.exports = {
       // prices Block
       const priceSelector = document.querySelector('dl[class="productPrice"]>dd[class^="yourPrice"]');
       // @ts-ignore
-      const price = priceSelector ? priceSelector.innerText.replace('.', '').replace(',', '.').trim() : '';
+      const price = priceSelector ? priceSelector.innerText.trim() : '';
       addHiddenDiv('ii_price', price);
 
       const listPriceSelector = document.querySelector('dl[class="productPrice"]>dd[class="listPrice"]');
       // @ts-ignore
-      const listPrice = listPriceSelector ? listPriceSelector.innerText.replace('.', '').replace(',', '.').trim() : '';
+      const listPrice = listPriceSelector ? listPriceSelector.innerText.trim() : '';
       addHiddenDiv('ii_listPrice', listPrice);
 
       const bulletDescCount = document.querySelectorAll('dd[class="productLongDescription"] li').length;
@@ -58,9 +58,14 @@ module.exports = {
         addHiddenDiv('ii_gtin', gtin);
       }
       // manufacturer Desc
-      const manufacturerDescFlag = document.querySelector('dd[class="productLongDescription"] img');
-      const manufacturerDescSelector = document.querySelector('dd[class="productLongDescription"]');
-      const additionalDescription = manufacturerDescSelector ? manufacturerDescSelector.innerText : '';
+      // const manufacturerDescFlag = document.querySelector('dd[class="productLongDescription"] img');
+      // const manufacturerDescSelector = document.querySelector('dd[class="productLongDescription"]');
+      const manufacturerDescFlag = document.querySelector('div[class="nano-content"]>div[itemprop="description"] img');
+      const manufacturerDescSelector = document.querySelector('div[class="nano-content"]>div[itemprop="description"]');
+      let additionalDescription = manufacturerDescSelector ? manufacturerDescSelector.innerText : '';
+      if (!additionalDescription && manufacturerDescSelector) {
+        additionalDescription = manufacturerDescSelector.parentElement.innerText;
+      }
       if (manufacturerDescFlag) {
         addHiddenDiv('ii_aplus', additionalDescription);
       } else {

@@ -42,8 +42,10 @@ fields:
     xpath: //dd[@class='packageSize']
   - name: directions
     singleValue: true
+    xpath: //h3[contains(text(),'Dosierung')]//following-sibling::text()[following-sibling::h3] | //dd[@id='dosierung']
   - name: warnings
     singleValue: true
+    xpath: //li[contains(text(),'Warnhinweise')]/text()/following-sibling::*
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='photo with-multiple-photo']//img[not(@name = 'mainImage')]/@src
@@ -111,11 +113,11 @@ fields:
     xpath: //dd[@itemprop="brand" and @class="producer brand"]
   - name: pricePerUnit
     xpath: //dl[@class="productPrice"]/dd[@class="groundPrice"]
-    regExp: (.*)\/.*
+    regExp: (.*)?\s+\/.*
     regExpReplace: $1
   - name: pricePerUnitUom
     xpath: //dl[@class="productPrice"]/dd[@class="groundPrice"]
-    regExp: .*\/(.*)
+    regExp: .*\/\s*(.*)
     regExpReplace: $1
   - name: promotion
     xpath: //dl[@class="productPrice"]/dd[@class="youSave"]
