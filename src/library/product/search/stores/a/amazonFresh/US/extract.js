@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../../../../transform');
 
 async function implementation (
   inputs,
@@ -7,23 +7,11 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails, Helpers: { Helpers } } = dependencies;
+  
   await context.waitForXPath('//div/@data-asin');
-
-  await context.evaluate(() => {
-    const searchEl = document.querySelector('div#my-search-url');
-    if (searchEl) {
-      searchEl.textContent = window.location.href;
-    } else {
-      const searchUrl = window.location.href;
-      const urlDiv = document.createElement('div');
-      urlDiv.id = 'my-search-url';
-      urlDiv.style.display = 'none';
-      urlDiv.textContent = searchUrl;
-      document.body.appendChild(urlDiv);
-    }
-  });
-
+  const helpers = new Helpers(context);
+  helpers.addURLtoDocument('added-searchurl');
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
@@ -31,8 +19,12 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'amazonFresh',
-    transform: transform,
+    transform,
     domain: 'amazon.com',
+  },
+  dependencies: {
+    productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:product/search/helpers',
   },
   implementation,
 };

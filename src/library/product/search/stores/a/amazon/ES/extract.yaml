@@ -1,11 +1,11 @@
-extends: ../shared.yaml
+extends: ../shared
 fields:
   - name: productUrl
     singleValue: false
     xpath: //h2/a/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.es$1
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //span[contains(@aria-label,"estrellas")]/@aria-label
     regExp: (.+) de

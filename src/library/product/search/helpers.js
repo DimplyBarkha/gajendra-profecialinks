@@ -18,11 +18,11 @@ module.exports.Helpers = class {
           const innerHTML = value.reduce((acc, val) => {
             return `${acc}<li>${val}</li>`;
           }, '<ul>') + '</ul>';
-          document.querySelector(id).innerHTML = innerHTML;
+          document.querySelector(`#${id}`).innerHTML = innerHTML;
         } else {
           // This allows to remove all potential HTML markers from the text
-          document.querySelector(id).innerHTML = value;
-          document.querySelector(id).textContent = document.querySelector(id).innerText;
+          document.querySelector(`#${id}`).innerHTML = value;
+          document.querySelector(`#${id}`).textContent = document.querySelector(`#${id}`).innerText;
         }
       };
       addItemToDocument(inputs);
@@ -30,8 +30,8 @@ module.exports.Helpers = class {
   }
 
   // Function which easily adds the url to the document
-  async addURLtoDocument () {
+  async addURLtoDocument (key) {
     const url = this.context.evaluate(() => window.location.href);
-    await this.addItemToDocument('added-searchurl', url);
+    await this.addItemToDocument(key, url);
   }
 };
