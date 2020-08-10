@@ -4,9 +4,15 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: (//div[@class="product-pics__container"]//img/@src)[1]
     description: URL of the main product image
+  - name: retailerId
+    singleValue: true
+    xpath: //div[@id='ii_zipcode']
+  - name: drive
+    singleValue: true
+    xpath: //div[@id='ii_zipcode']
   - name: imageAlt
     singleValue: true
     xpath: (//div[@class="product-pics__container"]//img/@alt)[1]
@@ -46,6 +52,7 @@ fields:
     defaultValue: Out Of Stock
   - name: description
     singleValue: false
+    xpath: //p[contains(text(),"Datos del producto")]/following-sibling::div
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -61,10 +68,11 @@ fields:
     singleValue: true
     description: Product manufacturer
   - name: quantity
-    singleValue: true
+    singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //span[contains(text(),"Cantidad neta del alimento:")]/following-sibling::span
+    regExp: ([\d]+)
+    regExpReplace: $1 g
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -75,12 +83,13 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
+    singleValue: false
     xpath: //link[@rel="canonical"]/@href
     regExp: (.+)R-(.+)\/(.+)
     regExpReplace: $2
     description: The store-specific product identifier
   - name: variantId
+    singleValue: false
     xpath: //link[@rel="canonical"]/@href
     regExp: (.+)R-(.+)\/(.+)
     regExpReplace: $2
@@ -97,6 +106,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
+    xpath: //p[contains(text(),"Instrucciones")]/following-sibling::p[@class="info-txt"]
     description: Content under "directions" header
   - name: warnings
     singleValue: true
@@ -147,8 +157,10 @@ fields:
     singleValue: true
     description: Price in the selected store
   - name: asin
-    singleValue: true
-    description: null
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)R-(.+)\/(.+)
+    regExpReplace: $2
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
@@ -245,6 +257,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: true
+    xpath: //p[@class='nutrition-ingredients__content'] | //p[contains(text(),"Ingredientes")]/following-sibling::p[contains(@class,"ingredients__content")]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize

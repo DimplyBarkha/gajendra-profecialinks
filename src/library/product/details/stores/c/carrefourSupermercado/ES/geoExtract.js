@@ -1,10 +1,10 @@
-
+const { transform } = require('./transform');
 module.exports = {
   implements: 'product/details/geo/geoExtract',
   parameterValues: {
     country: 'ES',
     store: 'carrefourSupermercado',
-    transform: null,
+    transform,
     domain: 'carrefour.es',
     zipcode: '',
   },
