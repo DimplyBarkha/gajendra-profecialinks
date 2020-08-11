@@ -1,4 +1,4 @@
-const { transform } = require('./transform');
+const { transform } = require('../../../../sharedAmazon/transform');
 /**
  *
  * @param { { url?: string,  id?: string} } inputs
@@ -13,110 +13,30 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails, Helpers: { Helpers } } = dependencies;
+
+  const helpers = new Helpers(context);
 
   async function setLocale () {
-    async function openNewLocaleModalBtnCheck () {
-      console.log('openNewLocaleModalBtnCheck() in  progress')
-      return await context.evaluate(function () {
-        const button = '#nav-global-location-slot a';
-        if (!!document.querySelector(button)){
-          return button
-        }
-        else{
-          return 'false';
-        }
-      });
-    }
-    async function changeLocaleBtnCheck () {
-      console.log('changeLocaleBtnCheck() in  progress')
-      return await context.evaluate(function () {
-        const button = 'a[id*="ChangePostalCodeLink"]';
-        if (!!document.querySelector(button)){
-          return button
-        }
-        else{
-          return 'false';
-        }
-      });
-    }
-    async function localeInputCheck () {
-      console.log('localeInputCheck')
-      return await context.evaluate(function () {
-        const input = 'input[data-action*=PostalInputAction]';
-        if (!!document.querySelector(input)){
-          return input
-        }
-        else{
-          return 'false';
-        }
-      });
-    }
-    async function setNewLocalBtnCheck () {
-      console.log('setNewLocalBtnCheck() in  progress')
-      return await context.evaluate(function () {
-        const button = '[data-action*="GLUXPostalUpdateAction"] input';
-        if (!!document.querySelector(button)){
-          return button
-        }
-        else{
-          return 'false';
-        }
-      });
-    }
-    async function setNewLocalDoneCheck () {
-      console.log('setNewLocalDoneCheck() in  progress')
-      return await context.evaluate(function () {
-        const button = 'button[name=glowDoneButton]';
-        if (!!document.querySelector(button)){
-          return button
-        }
-        else{
-          return 'false';
-        }
-      });
-    }
-    const openNewLocaleModalBtn = await openNewLocaleModalBtnCheck()
-    if(openNewLocaleModalBtn !== 'false'){
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(openNewLocaleModalBtn)
-      ]);
-    };
-    const changeLocaleBtn = await changeLocaleBtnCheck()
-    if(changeLocaleBtn !== 'false'){
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(changeLocaleBtn)
-      ]);    
-    }
+    // openNewLocaleModalBtn
+    await helpers.checkAndClick('#nav-global-location-slot a', 'css', 20000);
+    // changeLocaleBtn
+    await helpers.checkAndClick('a[id*="ChangePostalCodeLink"]', 'css', 20000);
+
     await new Promise(r => setTimeout(r, 2000));
-    const localeInput = await localeInputCheck()
-    if(localeInput !== 'false'){
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.setInputValue(localeInput, "10001")
-      ]);
-    }
+
+    // localeInputCheck
+    await helpers.checkAndClick('input[data-action*=PostalInputAction]', 'css', 20000, '10001');
+
     await new Promise(r => setTimeout(r, 2000));
-    const setNewLocalBtn = await setNewLocalBtnCheck()
-    if(setNewLocalBtn !== 'false'){
-      const [response] = await Promise.all([
-        // context.waitForMutuation('#GLUXZipConfirmationSection', { timeout: 5000 }),
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(setNewLocalBtn)
-      ]);
-    }
-    const setNewLocalDone = await setNewLocalDoneCheck()
-    if(setNewLocalDone !== 'false'){
-      console.log('here')
-      const [response] = await Promise.all([
-        context.waitForNavigation({ timeout: 20000 }),
-        context.click(setNewLocalDone)
-      ]);
-    }
+
+    // setNewLocalBtnCheck
+    await helpers.checkAndClick('[data-action*="GLUXPostalUpdateAction"] input', 'css', 20000);
+
+    // setNewLocalDoneCheck
+    await helpers.checkAndClick('button[name=glowDoneButton]', 'css', 20000);
+
     await new Promise(r => setTimeout(r, 2000));
-    return
   }
 
   async function getVariants () {
@@ -183,48 +103,11 @@ async function implementation (
     return variants;
   };
 
-  async function buttonCheck () {
-    return await context.evaluate(function () {
-      const button = '#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a';
-      // const button2 = '#mbc-olp-link>a';
-      // const button3 = '[data-show-all-offers-display] a';
-      if (!!document.querySelector(button)){
-        return button
-      }
-      // else if(!!document.querySelector(button2)){
-      //   return button2
-      // }else if(!!document.querySelector(button3)){
-      //   return button3
-      // }
-      else{
-        return 'false';
-      }
-    });
-  }
-
-  async function checkNavigation() {
-    return await context.evaluate(function () {
-      function checkNav (id, content) {
-        const url = window.location.href;
-        if(url.includes('offer')){
-          console.log("@@@@@@@@@@@@@@@@@ we navigated")
-        }else{
-          console.log("@@@@@@@@@@@@@@@@@ we didnt navigated")
-        }
-      }
-    });
-  }
-
   async function getLbb () {
-    const button = await buttonCheck();
-    console.log('##############################' ,  button)
-    if ( button !== 'false' ) {
-        console.log('trying button', button)
-        const [response] = await Promise.all([
-          context.waitForNavigation({ timeout: 20000 }),
-          context.click(button),
-        ]);
-      await checkNavigation();
+    const elem = await helpers.checkXpathSelector("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']");
+    if (elem) {
+      await helpers.checkAndClick('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a', 'css', 20000);
+      // await helpers.checkURLFor('offer');
 
       const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
       await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
@@ -260,51 +143,33 @@ async function implementation (
     }
   }
 
-  async function addUrl () {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-    let url = window.location.href;
-    const splits = url ? url.split('/') : [];
-    let asinRaw = (splits.length > 0) ? splits[splits.length - 1] : '';
-    addHiddenDiv('added-url', url);
-    addHiddenDiv('added-asin', asinRaw);
-  }
-
   await setLocale();
-  // @ts-ignore
+
   const allVariants = [...new Set(await getVariants())];
   await getLbb();
-  await context.evaluate(addUrl);
-  console.log('getting variants');
+  await helpers.addURLtoDocument('added-url');
+  await helpers.addURLtoDocument('added-asin', true);
+
   await context.extract(productDetails, { transform, type: 'APPEND' });
-  console.log('#### of Variants:', allVariants.length);
-  console.log('#### Variants:', allVariants);
+
   for (let i = 0; i < allVariants.length; i++) {
     const id = allVariants[i];
     const url = await dependencies.createUrl({ id });
     await dependencies.goto({ url });
-    await context.evaluate(addUrl);
+    await helpers.addURLtoDocument('added-url');
+    await helpers.addURLtoDocument('added-asin', true);
     await getLbb();
     await context.extract(productDetails, { transform, type: 'APPEND' });
     const pageVariants = await getVariants();
-    console.log('#### of Variants:', allVariants.length);
-    console.log('#### Variants:', allVariants);
+
     for (let j = 0; j < pageVariants.length; j++) {
       const pageVariant = pageVariants[j];
       if (allVariants.indexOf(pageVariant) === -1) {
         allVariants.push(pageVariant);
-        console.log('new variant: ' + pageVariant);
-        console.log(allVariants);
       }
     }
   }
 
-  // return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
@@ -315,6 +180,9 @@ module.exports = {
     transform: transform,
     domain: 'amazon.com',
   },
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:helpers/helpers',
+  },
   implementation,
 };
-

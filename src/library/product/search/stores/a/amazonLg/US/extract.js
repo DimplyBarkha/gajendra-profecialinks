@@ -26,7 +26,7 @@ module.exports = {
   },
   dependencies: {
     productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
-    Helpers: 'module:product/search/helpers',
+    Helpers: 'module:helpers/helpers',
   },
   implementation,
 };

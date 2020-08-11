@@ -14,7 +14,7 @@ const transform = (data, context) => {
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '');
 
   for (const { group } of data) {
@@ -118,7 +118,6 @@ const transform = (data, context) => {
           // const priceUnit = row.pricePerUnit[0].text.replace(regexBraces, '').exec(regexBeforeSlash).replace(regexIgnoreSlash, '');
 
           // row.pricePerUnitUom = [{ text: priceUnit}];
-
         }
         if (row.pricePerUnitUom) {
           const regexBraces = /[{()}]/g;
