@@ -29,25 +29,6 @@ async function implementation (
     return window.location.href.split('=')[1];
   });
 
-  /*await context.goto('https://scontent.webcollage.net?productId=' + productId + '#[!opt!]{"type":"js","init_js":""}[/!opt!]');
-
-  const enhancedHTML = await context.evaluate(async function() {
-    const splitUrl = window.location.href.split('=')[1];
-    const productId = splitUrl.split('#')[0];
-    return await fetch('https://scontent.webcollage.net/target/power-page?ird=true&channel-product-id=' + productId)
-    .then(data => data.text())
-    .then(res => {
-      const regex = /html: "(.+)"\n\s\s\}\n\}\;/s
-      const match = res.match(regex);
-      if(match && match.length > 1) {
-        return res.match(regex)[1];
-      }
-      return '';
-    });
-  });
-
-  await context.goto(currentUrl);*/
-
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
     function stall (ms) {
@@ -71,10 +52,9 @@ async function implementation (
       return href;
     }
   });
- 
-  //await context.setBlockAds(false); 
+
   await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
-  
+
   const manufacturerCTA = await context.waitForFunction(async function () {
     let scrollTop = 750;
     while (true) {
@@ -93,31 +73,11 @@ async function implementation (
     window.scroll(0, 1000);
     return Boolean(document.querySelector('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]'));
   }, { timeout: 30000 });
-    
+
   if (manufacturerCTA) {
       console.log('hastheCTA');
     await context.click('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]');
   }
-
-  /*await context.evaluate(function(html) {
-
-    const newDiv = document.createElement('div');
-    newDiv.id = "enhancedHtml";
-    let nodeArrayRegex = />([a-zA-Z 0-9\.\-\&\!\@\#\$\%\^\*\;\,\:\(\)\=\+\?\\\/\']{2,})</g
-    let text = html.match(nodeArrayRegex)
-    if (text) {
-      let extractedText = text.join(' ').replace(/>/g,'').replace(/</g,'').replace(/\&amp\;/g, '&').replace(/  /g,' ').replace(/&#174;/g,'®').replace(/\\/g,'').replace(/&#8217;/g,`'`).replace(/&#8224;/g,'†').replace(/''/, "'").trim();
-      console.log('extractinggg', extractedText);
-      newDiv.innerHTML = extractedText;
-      document.body.appendChild(newDiv);
-    }
-
-    const newDiv2 = document.createElement('div');
-    newDiv2.id = "mediaHtml";
-    newDiv2.innerHTML = unescape(html.replace(/\\\\\\/g, '').replace(/\\/g,'')).replace(/\"/g,'').replace(/"""/g, '');
-    document.body.appendChild(newDiv2);
-
-  }, enhancedHTML);*/
 
   await context.waitForXPath("//h1[@data-test='product-title']");
 
@@ -155,7 +115,6 @@ async function implementation (
       txt.innerHTML = html;
       return txt.value;
     }
-    
 
     let id = '';
     if (window.location.href.includes('?preselect=')) {
@@ -419,12 +378,9 @@ async function implementation (
         if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size) {
           const servingSize = variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size;
           addHiddenDiv(newDiv, 'servingSize', !variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement ? servingSize : servingSize.split(' ')[0]);
-
           if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement) {
             addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement);
-          } /*else if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[1]) {
-            addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size.split(' ')[1]);
-          }*/
+          }
           addHiddenDiv(newDiv, 'servingsPerContainer', variant.enrichment.nutrition_facts.value_prepared_list[0].servings_per_container);
         }
 
@@ -719,32 +675,9 @@ async function implementation (
         await stall(5000);
       }
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
-      //addHiddenDiv(newDiv, 'videoLength', videoLength.join(' | '));
 
       let inStore = false;
       let deliver = false;
-      /*await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
-        .then(data => data.json())
-        .then(availabilityData => {
-          if (availabilityData &&
-          availabilityData.data &&
-          availabilityData.data.product &&
-          availabilityData.data.product.fulfillment) {
-            if (availabilityData.data.product.fulfillment.store_options &&
-                availabilityData.data.product.fulfillment.store_options.length) {
-                  availabilityData.data.product.fulfillment.store_options.forEach(store => {
-                    if(store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
-                      inStore = true;
-                    }
-                  });
-            }
-
-            if (availabilityData.data.product.fulfillment.shipping_options &&
-                (availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK' || availabilityData.data.product.fulfillment.shipping_options.availability_status.includes('LIMITED_STOCK'))) {
-              deliver = true;
-            }
-          }
-        });*/
 
         const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
         if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
@@ -786,42 +719,6 @@ async function implementation (
             }
           }
         });
-
-      await fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?excludes=taxonomy%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
-        .then(data => data.json())
-        .then(async function(ratingData) {
-          if (ratingData.product &&
-          ratingData.product.rating_and_review_statistics &&
-          ratingData.product.rating_and_review_statistics.result &&
-          ratingData.product.rating_and_review_statistics.result[variant.tcin] &&
-          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats &&
-          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal &&
-          ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal > 0) {
-            //addHiddenDiv(newDiv, 'ratingCount', ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.RatingReviewTotal);
-            //const averageRating = ratingData.product.rating_and_review_statistics.result[variant.tcin].coreStats.AverageOverallRating;
-            //addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
-            //addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
-          } else {
-            console.log('noRatings', parentId);
-            await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
-              .then(data => data.json())
-              .then(ratingData => {
-                if (ratingData.product &&
-                ratingData.product.rating_and_review_statistics &&
-                ratingData.product.rating_and_review_statistics.result &&
-                ratingData.product.rating_and_review_statistics.result[parentId] &&
-                ratingData.product.rating_and_review_statistics.result[parentId].coreStats &&
-                ratingData.product.rating_and_review_statistics.result[parentId].coreStats.RatingReviewTotal) {
-                  //addHiddenDiv(newDiv, 'ratingCount', ratingData.product.rating_and_review_statistics.result[parentId].coreStats.RatingReviewTotal);
-                  //onst averageRating = ratingData.product.rating_and_review_statistics.result[parentId].coreStats.AverageOverallRating;
-                  //addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
-                  //addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
-                }
-              });
-
-          }
-        });
-
 
         if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
           const averageRating = document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText;
