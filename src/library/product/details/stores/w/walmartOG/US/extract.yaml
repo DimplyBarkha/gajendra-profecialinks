@@ -30,10 +30,10 @@ fields:
   xpath: count(//div[contains(@class,'prod-AltImageWrapper')]//ul//li//div[contains(@class,'prod-AltImageCarousel') and not(contains(@class,'active'))])
 - name: price
   singleValue: true
-  xpath: (//*[@id="iio_onlinePrice"]|//div[contains(@data-automation-id,"salePrice")])[1]
+  xpath: (//div[@id="iio_onlinePrice"]|(//*[not(//div[@id="iio_onlinePrice"])]//section[contains(@data-automation-id, "productPage")]//div[contains(@class, "ProductPage__priceContainer")]//*[contains(@data-automation-id,"salePrice")]))[1]
 - name: listPrice
   singleValue: true
-  xpath: (//*[@id="iio_listPrice"]|(//span[contains(@data-automation-id,"old-price")]))[1]
+  xpath: (//div[@id="iio_listPrice"]|(//*[not(//div[@id="iio_listPrice"])]//section[contains(@data-automation-id, "productPage")]//div[contains(@class, "ProductPage__priceContainer")]//*[contains(@data-automation-id,"old-price")]))[1]
 - name: pricePerUnit
   singleValue: true
   xpath: //*[@id="iio_pricePerUnit"]

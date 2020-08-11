@@ -36,7 +36,7 @@ module.exports = {
         }
       });
       await context.waitForSelector('button[label="Change store"]');
-      // await context.click('button[label="Change store"]');
+      // Using context.click for selector button[label="Change store"] is not working. Won't click on the button
       await context.evaluate(async function () {
         const button = document.querySelector('button[label="Change store"]');
         if (button) {
@@ -50,7 +50,7 @@ module.exports = {
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]');
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]:first-child input');
       await context.evaluate(async function () {
-        await new Promise((resolve) => setTimeout(resolve, 5000));
+        // await new Promise((resolve) => setTimeout(resolve, 5000));
         const searchZipCode = document.querySelector('input[data-automation-id="selectFlyoutItemBtn"]:first-child');
         if (searchZipCode) {
           searchZipCode.click();
@@ -69,9 +69,11 @@ module.exports = {
         await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
         await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-        // await new Promise((resolve) => setTimeout(resolve, 15000));
-        // await context.waitForXPath('//div[contains(@data-automation-id,"changeStoreFulfillmentBannerBtn")]//span[contains(@class,"AddressPanel__addressLine")]', { timeout: 35000 });
-        await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]');
+
+        await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 45000 });
+        // await context.waitForFunction(function (sel, zipcodeStreetAddress) {
+        //   return Boolean(document.querySelector(sel).textContent === zipcodeStreetAddress);
+        // }, { timeout: 55000 }, 'div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', zipcodeStreetAddress);
 
         await context.waitForXPath('//div[contains(@data-automation-id,"changeStoreFulfillmentBannerBtn")]//span[contains(@class,"AddressPanel__addressLine")]/text()[contains(., "' + zipcodeStreetAddress + '")]', { timeout: 45000 });
       }

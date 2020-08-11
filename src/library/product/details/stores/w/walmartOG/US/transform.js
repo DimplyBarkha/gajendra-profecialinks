@@ -74,8 +74,10 @@ const transform = (data, context) => {
           }
 
           if ((quantityText.match(/[\,]/gi).length > 1) && (quantityText.match(/[pP]ack/gi) || quantityText.match(/[cC]ount/gi))) {
-            quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[lL]\s?([bB]ottles)?[\,]?|[fF][lL][\.]?\s?[oO][zZ][\.]?\s?([cC]ans|[bB]ottles)[\,]?\s?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]ack|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[gG]allon|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[lL]\s?([bB]ottles)?[\,]?|[fF][lL][\.]?\s?[oO][zZ][\.]?\s?([cC]ans|[bB]ottles)[\,]|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ack|qt|[gG]allon|[wW]ipe[s]?).?\s)\d+ (pack|[cC]ount)/;
-            quantity = quantityRe.exec(quantityText);
+            if (!((quantity !== null && quantity[0].includes(',')))) {
+              quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[lL]\s?([bB]ottles)?[\,]?|[fF][lL][\.]?\s?[oO][zZ][\.]?\s?([cC]ans|[bB]ottles)[\,]?\s?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]ack|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[gG]allon|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[lL]\s?([bB]ottles)?[\,]?|[fF][lL][\.]?\s?[oO][zZ][\.]?\s?([cC]ans|[bB]ottles)[\,]|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ack|qt|[gG]allon|[wW]ipe[s]?).?\s)\d+ (pack|[cC]ount)/;
+              quantity = quantityRe.exec(quantityText);
+            }
           }
 
           if (quantity == null && row.quantity[0].text.includes('(Pack of')) {
