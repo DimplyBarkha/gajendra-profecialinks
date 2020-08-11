@@ -39,70 +39,6 @@ async function implementation (
     await new Promise(r => setTimeout(r, 2000));
   }
 
-  async function getVariants () {
-    const variants = await context.evaluate(function () {
-      const variantList = [];
-      const variantCards = document.querySelectorAll('li[data-defaultasin]');
-      const variantDropdown = document.querySelectorAll('[id*="variation"] option');
-      const variantBooks = document.querySelectorAll('[id*="Swatches"]>ul>li a[id][href*="dp"]');
-      // const parentVariant = document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null) ? document.evaluate("//script[contains(@type,'a-state') and contains(text(), 'parentAsin')]", document, null, XPathResult.ANY_TYPE, null).iterateNext() : null;
-      // if(parentVariant){
-      //   const regex = /parentAsin\"\:\"([A-Za-z0-9]{10,})/s;
-      //   let vasinRaw = parentVariant.innerText;
-      //   const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
-      //   if(vasin !== ''){
-      //     variantList.push(vasin);
-      //     }
-      // }
-      if (variantBooks) {
-        for (let i = 0; i < variantBooks.length; i++) {
-          const element = variantBooks[i];
-          if (element == null) {
-            continue;
-          }
-          const vasinRaw = element.getAttribute('href');
-          if (vasinRaw !== '') {
-            const regex = /\/dp\/([A-Za-z0-9]{10,})/s;
-            const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
-            if(vasin !== ''){
-              variantList.push(vasin);
-            }
-          }
-        }
-      }
-      if (variantDropdown) {
-        for (let i = 0; i < variantDropdown.length; i++) {
-          const element = variantDropdown[i];
-          if (element == null) {
-            continue;
-          }
-          const vasinRaw = element.getAttribute('value');
-          if (vasinRaw !== '') {
-            const regex = /[0-9]{1,},([0-9a-zA-Z]{10,})/s;
-            const vasin = vasinRaw.match(regex) ? vasinRaw.match(regex)[1] : '';
-            if(vasin !== ''){
-              variantList.push(vasin);
-            }
-          }
-        }
-      }
-      if (variantCards) {
-        for (let i = 0; i < variantCards.length; i++) {
-          const element = variantCards[i];
-          if (element == null) {
-            continue;
-          }
-          const vasin = element.getAttribute('data-defaultasin');
-          if (vasin !== ''){
-            variantList.push(vasin);
-          }
-        }
-      }
-      return variantList;
-    });
-    return variants;
-  };
-
   async function getLbb () {
     const elem = await helpers.checkXpathSelector("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']");
     if (elem) {
@@ -145,39 +81,19 @@ async function implementation (
 
   await setLocale();
 
-  const allVariants = [...new Set(await getVariants())];
   await getLbb();
   await helpers.addURLtoDocument('added-url');
   await helpers.addURLtoDocument('added-asin', true);
 
-  await context.extract(productDetails, { transform, type: 'APPEND' });
-
-  for (let i = 0; i < allVariants.length; i++) {
-    const id = allVariants[i];
-    const url = await dependencies.createUrl({ id });
-    await dependencies.goto({ url });
-    await helpers.addURLtoDocument('added-url');
-    await helpers.addURLtoDocument('added-asin', true);
-    await getLbb();
-    await context.extract(productDetails, { transform, type: 'APPEND' });
-    const pageVariants = await getVariants();
-
-    for (let j = 0; j < pageVariants.length; j++) {
-      const pageVariant = pageVariants[j];
-      if (allVariants.indexOf(pageVariant) === -1) {
-        allVariants.push(pageVariant);
-      }
-    }
-  }
-
+  await context.extract(productDetails, { transform });
 }
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'amazonFresh',
-    transform: transform,
+    store: 'amazon',
+    transform,
     domain: 'amazon.com',
   },
   dependencies: {
