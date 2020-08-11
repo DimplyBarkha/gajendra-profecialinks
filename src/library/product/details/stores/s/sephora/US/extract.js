@@ -25,48 +25,46 @@ module.exports = {
       await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     }
 
-    // const html = await context.evaluate(async function getEnhancedContent() {
+    const html = await context.evaluate(async function getEnhancedContent() {
 
-    //   let videoEle = document.querySelector('#linkJSON');
-    //   let videoIdForUrl = [];
-    //   if(videoEle){
-    //     let videoObj = JSON.parse(videoEle.innerText);
-    //     let videoIds = videoObj[4].props.currentProduct.productVideos
-    //     if(videoIds){
-    //       videoIds.forEach(obj => {
-    //         videoIdForUrl.push(obj.videoUrl)
-    //       })
-    //     }
-    //   }
+      let videoEle = document.querySelector('#linkJSON');
+      let videoIdForUrl = [];
+      if(videoEle){
+        let videoObj = JSON.parse(videoEle.innerText);
+        let videoIds = videoObj[4].props.currentProduct.productVideos
+        if(videoIds){
+          videoIds.forEach(obj => {
+            videoIdForUrl.push(obj.videoUrl)
+          })
+        }
+      }
 
 
-    //   async function fetchRetry(url, n) {
-    //     function handleErrors(response) {
-    //       if (response.status === 200){
-    //         return response;
-    //       } else {
-    //         debugger
-    //         console.log("FETCH FAILED")
-    //         if (n === 1) return "Nothing Found";
-    //         return fetchRetry(url, n - 1);
-    //       }
-    //     }
-    //     let fetched = fetch(url, {
-        
-    //       "referrer": "https://www.sephora.com/product/top-secrets-instant-matte-pore-refiner-P443340?skuId=2225589&keyword=2225589",
-    //       "body": null,
-    //       "method": "GET",
-    //     }).then(handleErrors).then(response => response.text()).catch(error => {
-    //       debugger
-    //         console.log("FETCH FAILED")
-    //         if (n === 1) return "Nothing Found";
-    //         return fetchRetry(url, n - 1);
+      async function fetchRetry(url, n) {
+        function handleErrors(response) {
+          if (response.status === 200){
+            return response;
+          } else {
+            debugger
+            console.log("FETCH FAILED")
+            if (n === 1) return "Nothing Found";
+            return fetchRetry(url, n - 1);
+          }
+        }
+        let fetched = fetch(url, {
 
-    //     });
-    //     return fetched;
-    //   }
-    //   fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[0]}`, 10)
-    // })
+          "credentials": "same-origin"
+        }).then(handleErrors).then(response => response.text()).catch(error => {
+          debugger
+            console.log("FETCH FAILED")
+            if (n === 1) return "Nothing Found";
+            return fetchRetry(url, n - 1);
+
+        });
+        return fetched;
+      }
+      return fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[0]}`, 10)
+    })
 
     const variantArray = await context.evaluate(function (parentInput, html) {
       function addHiddenDiv (id, content) {
@@ -146,7 +144,7 @@ module.exports = {
         }
       }
 
-    }, parentInput);
+    }, parentInput, html);
 
       await new Promise(resolve => setTimeout(resolve, 5000));
 
