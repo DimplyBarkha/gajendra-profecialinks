@@ -8,26 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  const currentUrl = await context.evaluate(function() {
-    return window.location.href;
-  });
-
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-  const productId = await context.evaluate(function() {
-
-      const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
-      if (link !== null) {
-        const href = link.getAttribute('href');
-        if (href.indexOf('?preselect=') > -1) {
-          const splitUrl = href.split('-');
-          const endOfUrl = splitUrl[splitUrl.length - 1];
-          let productId = endOfUrl.split('?preselect=')[0];
-          return productId;
-        }
-      }
-
-    return window.location.href.split('=')[1];
-  });
 
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
@@ -75,7 +56,7 @@ async function implementation (
   }, { timeout: 30000 });
 
   if (manufacturerCTA) {
-      console.log('hastheCTA');
+    console.log('hastheCTA');
     await context.click('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]');
   }
 
@@ -110,25 +91,13 @@ async function implementation (
       return newDiv;
     }
 
-    function decodeHtml(html) {
-      const txt = document.createElement("textarea");
+    function decodeHtml (html) {
+      const txt = document.createElement('textarea');
       txt.innerHTML = html;
       return txt.value;
     }
 
-    let id = '';
-    if (window.location.href.includes('?preselect=')) {
-      let splitUrl = window.location.href.split('?preselect=')[1];
-      id = splitUrl.split('#')[0]
-    } else {
-      let splitUrl = window.location.href.split('-');
-      id = splitUrl[splitUrl.length - 1];
-    }
-
-
     async function getProductInfo (variant, productName, variantCount = null) {
-
-
       await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + variant.tcin + '/index.html')
         .then(async function (response) {
           const sometext = await response.text();
@@ -144,7 +113,7 @@ async function implementation (
           wrapper.innerHTML = bodyContent;
           document.body.appendChild(wrapper);
           console.log('fetchFrame', variant.tcin, bodyContent);
-      });
+        });
 
       document.getElementById('mainContainer').querySelectorAll('li').forEach(e => {
         if (e.querySelector('.sku') && e.querySelector('.sku').innerText === variant.tcin) {
@@ -156,28 +125,27 @@ async function implementation (
 
       addHiddenDiv(newDiv, 'productName', decodeHtml(productName));
 
-      let secondaryImages = [];
+      const secondaryImages = [];
       if (variant.enrichment && variant.enrichment.images && variant.enrichment.images.length) {
         addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
       }
 
       let videos = [];
-      let videoLength = [];
       if (parentData.product &&
         parentData.product.item.enrichment &&
         parentData.product.item.enrichment.videos &&
         parentData.product.item.enrichment.videos.length) {
-          videos = parentData.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
-            'https:' + video.video_files[0].video_url
-          );
+        videos = parentData.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
+          'https:' + video.video_files[0].video_url,
+        );
       }
 
       if (!videos.length &&
         variant.enrichment.videos &&
         variant.enrichment.videos.length) {
-          videos = variant.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
-            'https:' + video.video_files[0].video_url
-          );
+        videos = variant.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
+          'https:' + video.video_files[0].video_url,
+        );
       }
 
       const productTitle = document.querySelector('h1[data-test="product-title"]') && document.querySelector('h1[data-test="product-title"]').innerText;
@@ -193,7 +161,7 @@ async function implementation (
         addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
       }
 
-      if(variant.product_description && variant.product_description.title) {
+      if (variant.product_description && variant.product_description.title) {
         addHiddenDiv(newDiv, 'keywords', decodeHtml(variant.product_description.title));
       }
 
@@ -210,8 +178,8 @@ async function implementation (
         addHiddenDiv(newDiv, 'additionalDesc', ' || ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')));
       }
 
-      if(description.length || (variant.product_description && variant.product_description.downstream_description)) {
-        addHiddenDiv(newDiv, 'description', description +  (variant.product_description.downstream_description ? decodeHtml(variant.product_description.downstream_description.replace('<br />', ' ').replace(/(<([^>]+)>)/ig, ' ')) : ''));
+      if (description.length || (variant.product_description && variant.product_description.downstream_description)) {
+        addHiddenDiv(newDiv, 'description', description + (variant.product_description.downstream_description ? decodeHtml(variant.product_description.downstream_description.replace('<br />', ' ').replace(/(<([^>]+)>)/ig, ' ')) : ''));
       }
 
       if (variant.wellness_merchandise_attributes) {
@@ -295,7 +263,7 @@ async function implementation (
         }
       }
 
-      if(storage.length) {
+      if (storage.length) {
         addHiddenDiv(newDiv, 'storage', storage);
       }
 
@@ -350,13 +318,13 @@ async function implementation (
 
       document.querySelectorAll('.h-padding-l-tight').forEach(e => {
         if (e && (e.innerText.indexOf('WARNING:') > -1 || e.innerText.indexOf('warning') > -1)) {
-            addHiddenDiv(newDiv, 'warnings', e.parentElement.innerText.split(':')[1]);
+          addHiddenDiv(newDiv, 'warnings', e.parentElement.innerText.split(':')[1]);
         }
       });
 
       document.querySelectorAll('.h-padding-l-default').forEach(e => {
         if (e && (e.innerText.indexOf('Warning:') > -1) && e.querySelector('h3') && e.querySelector('h3').innerText === 'Description') {
-            addHiddenDiv(newDiv, 'warnings', e.innerText.split('Warning:')[1]);
+          addHiddenDiv(newDiv, 'warnings', e.innerText.split('Warning:')[1]);
         }
       });
 
@@ -368,13 +336,11 @@ async function implementation (
         addHiddenDiv(newDiv, 'prop65Warning', variant.proposition_65_warning_text);
       }
 
-
       if (variant.enrichment &&
         variant.enrichment.nutrition_facts &&
         variant.enrichment.nutrition_facts.value_prepared_list &&
         variant.enrichment.nutrition_facts.value_prepared_list.length &&
         variant.enrichment.nutrition_facts.value_prepared_list[0]) {
-
         if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size) {
           const servingSize = variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size;
           addHiddenDiv(newDiv, 'servingSize', !variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement ? servingSize : servingSize.split(' ')[0]);
@@ -454,7 +420,6 @@ async function implementation (
             }
           });
         }
-
       }
 
       if (parentData.product && parentData.product.item && parentData.product.item.child_items) {
@@ -465,7 +430,6 @@ async function implementation (
         addHiddenDiv(newDiv, 'firstVariant', variants[0]);
         addHiddenDiv(newDiv, 'variants', variants.join(' | '));
       }
-
 
       if (variant.variation && variant.variation.flexible_themes) {
         const variationInfo = [];
@@ -525,19 +489,16 @@ async function implementation (
           console.log('has slide deck!');
           slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
             if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
-              function stall (ms) {
-                return new Promise((resolve, reject) => {
-                  setTimeout(() => {
-                    resolve();
-                  }, ms);
-                });
-              }
               e.click();
-              await stall(1000);
-              if(document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
+              await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  resolve();
+                }, 1000);
+              });
+              if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
                 videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
               }
-            } else if(ind > 0) {
+            } else if (ind > 0) {
               secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
             }
           });
@@ -547,16 +508,13 @@ async function implementation (
         if (sideImages) {
           sideImages.forEach(async (e, ind) => {
             if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
-              function stall (ms) {
-                return new Promise((resolve, reject) => {
-                  setTimeout(() => {
-                    resolve();
-                  }, ms);
-                });
-              }
               e.click();
-              await stall(1000);
-              if(document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
+              await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  resolve();
+                }, 1000);
+              });
+              if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
                 videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
               }
             } else if (ind > 0) {
@@ -566,9 +524,9 @@ async function implementation (
         }
       }
 
-      addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.filter(img => img != variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
+      addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
       if (secondaryImages.length) {
-        addHiddenDiv(newDiv, 'secondaryImageTotal', secondaryImages.filter(img => img != variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).length);
+        addHiddenDiv(newDiv, 'secondaryImageTotal', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).length);
       } else {
         addHiddenDiv(newDiv, 'secondaryImageTotal', '0');
       }
@@ -598,7 +556,6 @@ async function implementation (
         });
       } else if (manufacturerCTA) {
         if (document.getElementById('wc-power-page')) {
-
           if (document.getElementById('wc-power-page').querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
             hasTechnicalInfoPDF = 'Yes';
           }
@@ -606,7 +563,6 @@ async function implementation (
           console.log('haswcpowerpage');
           const manufacturerDescArr = [];
           document.querySelectorAll('.wc-fragment').forEach(e => {
-
             if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
               return;
             }
@@ -645,7 +601,7 @@ async function implementation (
             });
           });
           manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
-          if(!manufacturerDescArr.length) {
+          if (!manufacturerDescArr.length) {
             manufacturerDesc = document.getElementById('wc-power-page').innerText;
           }
           document.getElementById('wc-power-page').querySelectorAll('img').forEach(e => {
@@ -660,15 +616,15 @@ async function implementation (
 
       addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
 
-      function onlyUnique(value, index, self) {
+      function onlyUnique (value, index, self) {
         return self.indexOf(value) === index;
       }
 
-      if (manufacturerDesc && manufacturerDesc != 'Loading, please wait...') {
+      if (manufacturerDesc && manufacturerDesc !== 'Loading, please wait...') {
         addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
       }
       addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('/assets/')).filter(onlyUnique).join('|'));
-      console.log('manufacturimgs', manufacturerImgs)
+      console.log('manufacturimgs', manufacturerImgs);
 
       console.log('continuing...');
       if (videos.length) {
@@ -679,31 +635,31 @@ async function implementation (
       let inStore = false;
       let deliver = false;
 
-        const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
-        if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
-          inStore = true;
-        }
+      const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
+      if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+        inStore = true;
+      }
 
-        const orderMessage = document.querySelector('div[data-test="deliverToZipCodeMessage"]');
-        if (orderMessage && (orderMessage.querySelector('.h-text-greenDark.h-text-bold') || orderMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
-          deliver = true;
-        }
+      const orderMessage = document.querySelector('div[data-test="deliverToZipCodeMessage"]');
+      if (orderMessage && (orderMessage.querySelector('.h-text-greenDark.h-text-bold') || orderMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+        deliver = true;
+      }
 
-        const scheduledDelivery = document.querySelector('div[data-test="scheduledDeliveryBlock"]');
-        if (scheduledDelivery && (scheduledDelivery.querySelector('.h-text-greenDark.h-text-bold') || scheduledDelivery.querySelector('.h-text-orangeDark.h-text-bold'))) {
-          deliver = true;
-        }
+      const scheduledDelivery = document.querySelector('div[data-test="scheduledDeliveryBlock"]');
+      if (scheduledDelivery && (scheduledDelivery.querySelector('.h-text-greenDark.h-text-bold') || scheduledDelivery.querySelector('.h-text-orangeDark.h-text-bold'))) {
+        deliver = true;
+      }
 
-        if (deliver) {
-          addHiddenDiv(newDiv, 'availability', 'In Stock');
-        } else if (inStore) {
-          addHiddenDiv(newDiv, 'availability', 'In Store Only');
-        }
-        if (!deliver && !inStore) {
-          addHiddenDiv(newDiv, 'availability', 'Out of stock');
-        }
+      if (deliver) {
+        addHiddenDiv(newDiv, 'availability', 'In Stock');
+      } else if (inStore) {
+        addHiddenDiv(newDiv, 'availability', 'In Store Only');
+      }
+      if (!deliver && !inStore) {
+        addHiddenDiv(newDiv, 'availability', 'Out of stock');
+      }
 
-      //&pricing_store_id=1465&storeId=1465
+      // &pricing_store_id=1465&storeId=1465
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
         .then(data => data.json())
         .then(variantData => {
@@ -720,17 +676,17 @@ async function implementation (
           }
         });
 
-        if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
-          const averageRating = document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText;
-          addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
-          addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
-        } else {
-          addHiddenDiv(newDiv, 'aggregateRating', '0');
-        }
+      if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
+        const averageRating = document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText;
+        addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
+        addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
+      } else {
+        addHiddenDiv(newDiv, 'aggregateRating', '0');
+      }
 
-        if (document.querySelector('span[data-test="ratingCount"]')) {
-          addHiddenDiv(newDiv, 'ratingCount', document.querySelector('span[data-test="ratingCount"]').innerText);
-        }
+      if (document.querySelector('span[data-test="ratingCount"]')) {
+        addHiddenDiv(newDiv, 'ratingCount', document.querySelector('span[data-test="ratingCount"]').innerText);
+      }
     }
 
     const newDiv = document.createElement('ul');
@@ -749,9 +705,9 @@ async function implementation (
         parentData = res;
         origData = res;
         if (res && res.product && res.product.item && res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
-            parentId = res.product.item.parent_items;
-            getProductInfo(res.product.item, res.product.item.product_description.title);
-            await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
+          parentId = res.product.item.parent_items;
+          getProductInfo(res.product.item, res.product.item.product_description.title);
+          await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
             .then(data => data.json())
             .then(async function (parentRes) {
               parentData = parentRes;
@@ -763,7 +719,7 @@ async function implementation (
           for (const variant of res.product.item.child_items) {
             await getProductInfo(variant, res.product.item.product_description.title, res.product.item.child_items.length);
           }
-        } else if(res && res.product && res.product.item) {
+        } else if (res && res.product && res.product.item) {
           console.log('noVariants');
           await getProductInfo(res.product.item, res.product.item.product_description.title);
         }

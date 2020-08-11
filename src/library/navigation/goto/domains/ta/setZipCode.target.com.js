@@ -5,10 +5,9 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { zipcode } = inputs;
   // const { country, domain, store } = parameters;
 
-  /*const currentUrl = await context.evaluate(function() {
+  /* const currentUrl = await context.evaluate(function() {
     return window.location.href;
   });
 
@@ -33,9 +32,9 @@ async function implementation (
     });
   });
 
-  await context.goto(currentUrl);*/
+  await context.goto(currentUrl); */
 
-  /*await context.waitForXPath('//button[@data-test="storeId-utilityNavBtn"]');
+  /* await context.waitForXPath('//button[@data-test="storeId-utilityNavBtn"]');
 
   await context.evaluate(async function () {
     function stall (ms) {
@@ -55,9 +54,9 @@ async function implementation (
   await context.waitForXPath("//button[@data-test='storeId-listItem-setStore']");
   await context.evaluate(function () {
     document.querySelectorAll('button[data-test="storeId-listItem-setStore"]')[0].click();
-  });*/
+  }); */
 
-  /*await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+  /* await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -81,9 +80,9 @@ async function implementation (
     }
   });
 
-  await context.goto('https://www.target.com' + productUrl);*/
+  await context.goto('https://www.target.com' + productUrl); */
 
-  /*await context.evaluate(function(html) {
+  /* await context.evaluate(function(html) {
 
     const newDiv = document.createElement('div');
     newDiv.id = "enhancedHtml";
@@ -95,15 +94,12 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-
     const newDiv2 = document.createElement('div');
     newDiv2.id = "mediaHtml";
     newDiv2.innerHTML = unescape(html.replace(/\\\\\\/g, '').replace(/\\/g,'')).replace(/\"/g,'').replace(/"""/g, '');
     document.body.appendChild(newDiv2);
 
-
-  }, enhancedHTML);*/
-
+  }, enhancedHTML); */
 }
 module.exports = {
   implements: 'navigation/goto/setZipCode',
