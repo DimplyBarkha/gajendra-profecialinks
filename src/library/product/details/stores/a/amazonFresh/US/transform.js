@@ -137,22 +137,27 @@ const transform = (data, context) => {
 
           // row.pricePerUnitUom = [{ text: priceUOM}];
         }
-        if (!(row.quantity && row.quantity[0] && row.quantity[0].text) && (row.nameExtended && row.nameExtended[0] && row.nameExtended[0].text)) {
+        if ((!(row.quantity && row.quantity[0] && row.quantity[0].text)) && (row.nameExtended && row.nameExtended[0] && row.nameExtended[0].text)) {
           const quantityText = row.nameExtended[0].text;
-          const quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?)(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?\s)*/;
+          const quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|[oO]unce|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?)(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|[oO]unce|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?\s)*/;
           const packQuantityRe = /([(]Pack of \d*[)])/;
           const quantity = quantityRe.test(quantityText) ? quantityRe.exec(quantityText) : '';
           const packText = packQuantityRe.test(quantityText) ? packQuantityRe.exec(quantityText) : '';
-          if (quantity && quantity[0]) {
+          if (quantity && quantity !== undefined && quantity[0]) {
             row.quantity = [{ text: quantity[0].trim() }];
           }
 
-          if (quantity == null) {
+          if (quantity == null || quantity === undefined) {
             row.quantity = [{ text: '' }];
           }
 
           if (packText.length && packText[0]) {
-            row.quantity[0].text += row.quantity[0].text.length ? ' ' + packText[0] : packText[0];
+            if (row.quantity && row.quantity[0] && row.quantity[0].text.length) {
+              row.quantity[0].text += ' ' + packText[0];
+            } else {
+              row.quantity = [{ text: packText[0] }];
+            }
+            // row.quantity[0].text += row.quantity[0].text.length ? ' ' + packText[0] : packText[0];
           }
         }
         if (row.variantAsins) {
@@ -166,6 +171,9 @@ const transform = (data, context) => {
           if (row.variantAsins[0]) {
             if ((row.variantAsins[0].text.includes('asinVariationValues') && (row.variantAsins[0].text.includes('dimensionValuesData')))) {
               let jsonStr = row.variantAsins[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
+              // let jsonStr = row.variantAsins[0].text.split('"asinVariationValues" : ');
+              // jsonStr = jsonStr.length >= 1 ? jsonStr[1].split('"dimensionValuesData" : ') : '';
+              // jsonStr = jsonStr.length ? jsonStr[0] : '';
               jsonStr = jsonStr.slice(0, -2);
               const jsonObj = JSON.parse(jsonStr);
               asins = Object.keys(jsonObj);
@@ -201,6 +209,10 @@ const transform = (data, context) => {
             if ((row.variantCount[0].text.includes('asinVariationValues') && (row.variantCount[0].text.includes('dimensionValuesData')))) {
               let jsonStr = row.variantCount[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
               jsonStr = jsonStr.slice(0, -2);
+              // let jsonStr = row.variantAsins[0].text.split('"asinVariationValues" : ');
+              // jsonStr = jsonStr.length >= 1 ? jsonStr[1].split('"dimensionValuesData" : ') : '';
+              // jsonStr = jsonStr.length ? jsonStr[0] : '';
+              // jsonStr = jsonStr.slice(0, -2);
               const jsonObj = JSON.parse(jsonStr);
               row.variantCount = [
                 {
@@ -239,7 +251,7 @@ const transform = (data, context) => {
               const rawCat = item.text.match(regex);
               rankCat.push(
                 {
-                  text: rawCat[1],
+                  text: rawCat[1] ? rawCat[1] : '',
                 },
               );
             } else {
@@ -301,6 +313,7 @@ const transform = (data, context) => {
           }
         }
         if (row.description) {
+          // row.description = [{ text: row.description[0].text.replace(/\n \n/g, ' || ') }];
           const text = [''];
           row.description.forEach(item => {
             text.push(item.text);
@@ -373,7 +386,7 @@ const transform = (data, context) => {
             }
           });
         }
-        if (row.availabilityText) {
+        if (row.availabilityText && row.availabilityText[0]) {
           row.availabilityText = [
             {
               text: /[Ii]n [Ss]tock/gm.test(row.availabilityText[0].text) ? 'In stock' : row.availabilityText[0].text,
@@ -412,6 +425,17 @@ const transform = (data, context) => {
             text.push(`${item.text}`);
           });
           row.ingredientsList = [
+            {
+              text: text.join(' '),
+            },
+          ];
+        }
+        if (row.promotion) {
+          const text = [];
+          row.promotion.forEach(item => {
+            text.push(`${item.text}`);
+          });
+          row.promotion = [
             {
               text: text.join(' '),
             },

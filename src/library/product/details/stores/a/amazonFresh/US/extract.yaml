@@ -142,7 +142,7 @@ fields:
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
   - name: name
     singleValue: true
-    xpath: //title
+    xpath: //span[@id="productTitle"]
   - name: inStorePrice
     singleValue: true
     xpath: 
@@ -393,7 +393,8 @@ fields:
     xpath: //tr[contains(@id, 'almDetailPagePrice_buying_price')]//span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@id, "promotions_feature_div")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
+    xpath: (//div[@id ="promotions_feature_div"]//ul)[1]//li
+    # xpath: //div[contains(@id, "promotions_feature_div")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "promotions_feature_div")]//div[contains(@class, "content")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li|//tr[contains(@id, "almDetailPagePrice_savings_price")]
@@ -416,7 +417,7 @@ fields:
     xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@id="productDescription"]/p/text() 
+    xpath: //div[@id="feature-bullets"]//li|//div[@id="productDescription_feature_div"]//li
   - name: prop65Warning
     singleValue: true
     xpath: 
