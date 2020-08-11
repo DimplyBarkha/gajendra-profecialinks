@@ -52,7 +52,7 @@ module.exports.implementation = async function implementation (
             continue;
           }
           let vasin = element.getAttribute('data-dp-url');
-          if (vasin.includes('/dp/') && vasin.includes('/ref=')) {
+          if (vasin && vasin.includes('/dp/') && vasin.includes('/ref=')) {
             const vasinArr = vasin.split('/dp/');
             vasin = vasinArr.length === 2 ? vasinArr[1].split('/ref=')[0] : '';
             if (vasin !== '') {
@@ -75,7 +75,7 @@ module.exports.implementation = async function implementation (
       return newDiv;
     }
     const url = window.location.href;
-    const splits = url ? url.split('dp/product/')[1].split('/?') : [];
+    const splits = url && url.split('dp/product/')[1] ? url.split('dp/product/')[1].split('/?') : [];
     const mainId = (splits.length > 1) ? splits[splits.length - 2] : '';
     addHiddenDiv('ii_variant', mainId);
 
