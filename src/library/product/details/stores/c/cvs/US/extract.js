@@ -11,23 +11,22 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.waitForSelector('pre', { timeout: 20000 });
 
+    // Initially starts on API JSON page
+    // Grabs JSON object from the DOM
     var jsonText = await context.evaluate(function () {
       return document.body.innerText;
     });
     const json = JSON.parse(jsonText);
-  
+    // Checks to see if required information is present before continuing 
     if (json && json.records && json.totalRecordCount > 0) {
 
-      const currentUrl = await context.evaluate(function() {
-        return window.location.href;
-      })
+    // Saving the URL of the client side product page to use to check for variant names
       const productPageUrl = await context.evaluate(function(records){
         const product = records[0].allMeta;
-        const variant = product.variants[0].subVariant[0];
         return product.gbi_ParentProductPageUrl
       }, json.records)
 
-      // const prodSkus = ["167781","989935","989928","167771","989933","989941"];
+    // Collecting all variant SKUs from API object to be used for constructing the URL for fetching manufacturer information 
       const prodSkus = await context.evaluate(function(records,cnt) {
         if (records[0].allMeta) {
           const product = records[0].allMeta;
@@ -46,94 +45,60 @@ module.exports = {
           }
         }
       },json.records, json.totalRecordCount,)
-  var stockArr = await context.evaluate(async function getDataFromAPI (products) {
-    let stockArr = {};
-    const url = 'https://www.cvs.com/RETAGPV3/OnlineShopService/V2/getSKUInventoryAndPrice';
-    let body = "{\"request\":{\"header\":{\"lineOfBusiness\":\"RETAIL\",\"appName\":\"CVS_WEB\",\"apiKey\":\"a2ff75c6-2da7-4299-929d-d670d827ab4a\",\"channelName\":\"WEB\",\"deviceToken\":\"d9708df38d23192e\",\"deviceType\":\"DESKTOP\",\"responseFormat\":\"JSON\",\"securityType\":\"apiKey\",\"source\":\"CVS_WEB\",\"type\":\"retleg\"}},\"skuId\":[],\"pageName\":\"PLP\"}";
-    let bodyjson = JSON.parse(body);
-    bodyjson.skuId = products;
-    body = JSON.stringify(bodyjson);   
-    const response = await fetch(url,{
-      "headers": {
-        "accept": "application/json",
-        "accept-language": "en-US,en;q=0.9",
-        "cache-control": "no-cache",
-        "content-type": "application/json;charset=UTF-8",
-        "pragma": "no-cache",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin"
-      },
-      "referrer": "https://www.cvs.com/shop/pop-arazzi-special-effects-nail-polish-prodid-1015111",
-      "referrerPolicy": "no-referrer-when-downgrade",
-      "body": body,
-      "method": "POST",
-      "mode": "cors",
-      "credentials": "include"
-    });
-    if (response && response.status === 404) {
-      console.log('Product Not Found!!!!');
-      return [];
-    }
-    if (response && response.status === 200) {
-      console.log('Product Found!!!!');
-      const json = await response.json();
-      
-      if (json && json.response && json.response.getSKUInventoryAndPrice && json.response.getSKUInventoryAndPrice.skuInfo) {
-        json.response.getSKUInventoryAndPrice.skuInfo.forEach(skuInfo => {        
-          stockArr[skuInfo.skuId] = skuInfo.stockStatus
+
+      // Fetching the inventory information for each variant
+      var stockArr = await context.evaluate(async function getDataFromAPI (products) {
+        let stockArr = {};
+        const url = 'https://www.cvs.com/RETAGPV3/OnlineShopService/V2/getSKUInventoryAndPrice';
+        let body = "{\"request\":{\"header\":{\"lineOfBusiness\":\"RETAIL\",\"appName\":\"CVS_WEB\",\"apiKey\":\"a2ff75c6-2da7-4299-929d-d670d827ab4a\",\"channelName\":\"WEB\",\"deviceToken\":\"d9708df38d23192e\",\"deviceType\":\"DESKTOP\",\"responseFormat\":\"JSON\",\"securityType\":\"apiKey\",\"source\":\"CVS_WEB\",\"type\":\"retleg\"}},\"skuId\":[],\"pageName\":\"PLP\"}";
+        let bodyjson = JSON.parse(body);
+        bodyjson.skuId = products;
+        body = JSON.stringify(bodyjson);   
+        const response = await fetch(url,{
+          "headers": {
+            "accept": "application/json",
+            "accept-language": "en-US,en;q=0.9",
+            "cache-control": "no-cache",
+            "content-type": "application/json;charset=UTF-8",
+            "pragma": "no-cache",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin"
+          },
+          "referrer": "https://www.cvs.com/shop/pop-arazzi-special-effects-nail-polish-prodid-1015111",
+          "referrerPolicy": "no-referrer-when-downgrade",
+          "body": body,
+          "method": "POST",
+          "mode": "cors",
+          "credentials": "include"
         });
-      }
-    }
-    return stockArr;
-}, prodSkus);
-
-      async function collectManuf() {
-        // let variants = [302482,302514,302696];
-        const variants = await context.evaluate(function(records,cnt) {
-          if (records[0].allMeta) {
-            const product = records[0].allMeta;
-            if (product) {
-              if(product.variants.length){
-                let skuArray = [];
-                product.variants.forEach(variant => {
-                  skuArray.push(variant.subVariant[0].p_Sku_ID);
-                });
-                if(skuArray.length){
-                  return skuArray;
-                } else {
-                  return ["hello"]
-                }
-              }
-            }
+        if (response && response.status === 404) {
+          console.log('Product Not Found!!!!');
+          return [];
+        }
+        if (response && response.status === 200) {
+          console.log('Product Found!!!!');
+          const json = await response.json();
+          // Inventory information is stored in an object with key = SKU and value = inventory status
+          if (json && json.response && json.response.getSKUInventoryAndPrice && json.response.getSKUInventoryAndPrice.skuInfo) {
+            json.response.getSKUInventoryAndPrice.skuInfo.forEach(skuInfo => {        
+              stockArr[skuInfo.skuId] = skuInfo.stockStatus
+            });
           }
-        },json.records, json.totalRecordCount,)
+        }
+        return stockArr;
+      }, prodSkus);
 
+      // Using variant SKU array from 'prodSkus' to preform fetch for manufacturer information for each variant 
+      async function collectManuf(variants) {
+        // Must first goto the scontent.webcollage to get credentials for next fetch
         await context.goto(`https://scontent.webcollage.net#[!opt!]{"type":"js","init_js":""}[/!opt!]`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
-
         let manufArray = [];
-        // let i = 0;
-        // while(i < variants.length) {
-        //   console.log("DOING THE SECOND GOTO")
-        //   await context.goto(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
-        //   await new Promise(resolve => setTimeout(resolve, 1000));
-
-        //   var jsonText = await context.evaluate(function () {
-        //     return document.querySelector('pre').innerText;
-        //   });
-        //   const findStr1 = 'html:';
-        //   console.log("START OF JSON" + jsonText)
-        //   const startIdx1 = jsonText.indexOf(findStr1) + findStr1.length;
-        //   const endIdx1 = jsonText.indexOf('var _wcscript');
-        //   let text = (startIdx1 && startIdx1 > -1 && endIdx1 && endIdx1 > -1) ? jsonText.substr(startIdx1, endIdx1 - startIdx1) : 0;
-        //   text = text.substr(1, text.indexOf('div>"')+4);
-        //   manufArray.push(text);
-        //   i++;
-        // }
+        // Looping through each variant SKU 
         for(let i = 0; i < variants.length; i++ ){
 
           const html = await context.evaluate(async function getEnhancedContent(variants, i) {
-
+            // Recursive retry for fetches failures 
             async function fetchRetry(url, n) {
               function handleErrors(response) {
                 if (response.status === 200){
@@ -149,33 +114,39 @@ module.exports = {
                   if (n === 1) return "Nothing Found";
                   return fetchRetry(url, n - 1);
               });
-              
               return fetched
             }
             return await fetchRetry(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, 10)
           }, variants, i);
-
+          
           const regex = /html: "(.+)"\n\s\s\}\n\}\;/s
           let text = "Not Found"
-          
+            // Checking the output of fetchRetry, if the output contains an "html" object it is collected and stored in the manufArray
             if(html.match(regex)){
               text = html.match(regex)[1];
             }
-          
+          // Trimming the object so that it can be appended to the DOM
           text = text.replace(/html: /g, "")
           manufArray.push(text);
         }
         return manufArray;
       }
+      const htmlList = await collectManuf(prodSkus);
 
-      const htmlList = await collectManuf();
-
+      // Must do a context.goto for the product page to collect only the variant information section names present on the page because the API alone
+      // is too unreliable for this
       await context.goto(`https://www.cvs.com${productPageUrl}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
-      await new Promise(resolve => setTimeout(resolve, 20000));
-      // await context.waitForSelector('div.css-1dbjc4n.r-16lk18l.r-1xi2sqm', { timeout: 20000 });
+      
+      // await context.waitForFunction(function() {
+      //   let check = document.querySelector('div.css-1dbjc4n.r-16lk18l.r-1xi2sqm')
+      //   if(check){
+      //     return 
+      //   }
+      // }, { timeout: 20000 });
+      
 
+      // Collecting the variant information section names in an array
       const variantOptions = await context.evaluate(function(){
-        
         let optionList = [];
         let optionPath = '//div[@class="css-1dbjc4n r-18u37iz r-f1odvy"]//div[@class="css-901oao r-vw2c0b"]'
         if(optionPath) {
@@ -192,6 +163,7 @@ module.exports = {
         return optionList;
       })
 
+      // Append all relevant information from the API object to the DOM for extraction
       await context.evaluate(function (records, cnt, htmlList, stockArr, variantOptions) {        
         function addHiddenDiv (id, content, parentDiv = null, html = false) {
           const newDiv = document.createElement('div');
@@ -202,7 +174,6 @@ module.exports = {
           } else {
             newDiv.textContent = content;
           }
-          // newDiv.style.display = 'none';
           if (parentDiv) {
             parentDiv.appendChild(newDiv);
           } else {
@@ -219,22 +190,21 @@ module.exports = {
             if (product) {
               if(product.variants.length){
                 let skuArray = [];
+                // Looping for each variant 
                 for(let i = 0; i < product.variants.length; i++){
                   const variant = product.variants[i].subVariant[0];
                   const newDiv = addHiddenDiv(`ii_product`, `${i}`);
-                  addHiddenDiv('ii_totalRecordCount', product.variants.length, newDiv);
 
+                  addHiddenDiv('ii_totalRecordCount', product.variants.length, newDiv);
                   addHiddenDiv(`ii_manufHTML`, htmlList[i], newDiv, true);
                   addHiddenDiv(`ii_imageAlt`, product.title, newDiv, true);
-
-
                   addHiddenDiv('ii_brand', product.ProductBrand_Brand, newDiv);
+
                   if(variant.product_title_desktop){
                     addHiddenDiv('ii_title', variant.product_title_desktop, newDiv);
 
                   } else {
                     addHiddenDiv('ii_title', product.p_Product_FullName, newDiv);
-
                   }
                   addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
                   if(product.p_Product_UPCNumber){
@@ -274,7 +244,6 @@ module.exports = {
                           addHiddenDiv('ii_unitPriceUom', unitSplit[1], newDiv); 
                         }
                       }
-
 
                       if(variant.p_Product_Details){
                         let deets = variant.p_Product_Details;
@@ -335,6 +304,7 @@ module.exports = {
                         deets = deets.replace(/@\s+@/g, ' || ')
                         deets = deets.replace(/@/g, ' || ')
                         addHiddenDiv('ii_ingredients', `${deets}`, newDiv); 
+                      
                         if(variant.p_Product_Ingredients.includes("Servings Per Container:")){
                           let ingHtml = variant.p_Product_Ingredients
                           addHiddenDiv('ii_ingredientHTML', ingHtml, newDiv, true); 
@@ -359,7 +329,6 @@ module.exports = {
                         }
                       }
 
-
                       if(variant.p_Product_Directions){
                         let deets = variant.p_Product_Directions;
                         const regex = /<li>(.*?)<\/li>/g
@@ -374,25 +343,26 @@ module.exports = {
                         }
                       }
 
-
+                      addHiddenDiv('ii_metaKeywords', variant.p_Sku_FullName, newDiv);
+                      addHiddenDiv('ii_price', variant.gbi_Actual_Price, newDiv);
+                      addHiddenDiv('ii_numberOfServingsInPackage', variant.p_Vendor_Serving_Per_Container, newDiv);
+                      addHiddenDiv('ii_servingSizeUom', variant.p_Vendor_Serving_Size_UOM, newDiv);
+                      addHiddenDiv('ii_reviews', variant.p_Product_Review, newDiv);
                       addHiddenDiv('ii_id', variant.p_Sku_ID, newDiv);
                       skuArray.push(variant.p_Sku_ID);
                       addHiddenDiv('ii_quantity', variant.p_Sku_Size, newDiv);  
                       addHiddenDiv('ii_listPrice', variant.p_Product_Price, newDiv);              
                       addHiddenDiv('ii_weight', variant.p_Product_Weight, newDiv);              
                       addHiddenDiv('ii_reviewCount', variant.p_Product_Review, newDiv);   
+
                       if(variant.p_Promotion_Description){
                         addHiddenDiv('ii_promotion', variant.p_Promotion_Description, newDiv);  
                       } else if(variant.coupons.ceb[0]) {
                         if(variant.coupons.ceb[0].webDsc){
                           addHiddenDiv('ii_promotion', variant.coupons.ceb[0].webDsc, newDiv);  
                         }
-
                       }
-                      addHiddenDiv('ii_price', variant.gbi_Actual_Price, newDiv);
-                      addHiddenDiv('ii_numberOfServingsInPackage', variant.p_Vendor_Serving_Per_Container, newDiv);
-                      addHiddenDiv('ii_servingSizeUom', variant.p_Vendor_Serving_Size_UOM, newDiv);
-                      addHiddenDiv('ii_reviews', variant.p_Product_Review, newDiv);
+
                       if(variant.p_Product_Rating){
                         let rating = parseFloat(variant.p_Product_Rating)
                         let adjusted = rating.toPrecision(2)
@@ -452,12 +422,11 @@ module.exports = {
                         }
                       
                       
-                      let metaKeywords = [product.title];
                       let packSizes = [];
                       let variantInfoArray = [];
-          
-                      if(variantOptions.length > 0){
 
+                      // Collecting variant information 
+                      if(variantOptions.length > 0){
                         variantOptions.forEach(option => {
                           let optionFirst = option.split(" ")
 
@@ -542,66 +511,8 @@ module.exports = {
                               variantInfoArray.push(variant.p_Sku_Size);
                           }
                         }
-                      // } else {
-                      //   if(variant.p_Sku_Group_Size){
-
-                      //     variantInfoArray.push(variant.p_Sku_Group_Size);
-                      //     packSizes.push(variant.p_Sku_Group_Size)
-                      
-                      //   }
-                      //   if(variant.p_Sku_Flavor){
-                      //     variantInfoArray.push(variant.p_Sku_Flavor);
-                    
-                      //   }
-                      //   if(variant.p_Sku_Color){
-                      //     addHiddenDiv('ii_color', variant.p_Sku_Color, newDiv);
-                      //     variantInfoArray.push(variant.p_Sku_Color);
-                     
-                      //   }
-                      //   if(variant.p_Sku_Concern){
-                      //     variantInfoArray.push(variant.p_Sku_Concern);
-                   
-                      //   } 
-                      //   if(variant.p_Sku_Form){
-                      //     variantInfoArray.push(variant.p_Sku_Form);
-                  
-                      //   }
-                      //   if(variant.p_Sku_Absorbency){
-                      //     variantInfoArray.push(variant.p_Sku_Absorbency);
-                      
-                      //   }
-                      //   if(variant.p_Sku_Final_Look){
-                      //     variantInfoArray.push(variant.p_Sku_Final_Look);
-                    
-                      //   }
-                      //   if(variant.p_Sku_Finish){
-                      //     variantInfoArray.push(variant.p_Sku_Finish);
-                    
-                      //   }
-                      //   if(variant.p_Sku_Fragrance){
-                      //     variantInfoArray.push(variant.p_Sku_Fragrance);
-                    
-                      //   }
-                      //   if(variant.p_Sku_Pack){
-                      //     variantInfoArray.push(variant.p_Sku_Pack);
-                      //     packSizes.push(variant.p_Sku_Pack)
-                      
-                      //   }
-                      //   if(variant.p_Sku_SPF){
-                      //     variantInfoArray.push(variant.p_Sku_SPF);
-                      
-                      //   }
-                      //   if(variant.p_Sku_Scent){
-                      //     variantInfoArray.push(variant.p_Sku_Scent);
-                      
-                      //   }
-                      //   if(variant.p_Sku_Strength){
-                      //     variantInfoArray.push(variant.p_Sku_Strength);
-                     
-                      //   }
                       }
                       
-                      addHiddenDiv('ii_metaKeywords', variant.p_Sku_FullName, newDiv);
 
                       if(variant.gbi_CarePassEligible === "Y") {
                       addHiddenDiv('ii_shipping', 'Ships Free With CarePass', newDiv);
