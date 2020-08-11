@@ -12,7 +12,7 @@ async function implementation (
 
   // const { country, domain, store } = parameters;
 
-  /*const currentUrl = await context.evaluate(function() {
+  /* const currentUrl = await context.evaluate(function() {
     return window.location.href;
   });
 
@@ -37,26 +37,23 @@ async function implementation (
     });
   });
 
-  await context.goto(currentUrl);*/
+  await context.goto(currentUrl); */
 
   await context.evaluate(async function (zipcode, storeId, productId) {
+    function addHiddenDiv (text, id) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('id', id);
+      newDiv.textContent = text;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
 
-      function addHiddenDiv(text, id) {
-        const newDiv = document.createElement('div');
-        newDiv.setAttribute('id', id);
-        newDiv.textContent = text;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-
-      addHiddenDiv(zipcode, 'zipCode');
-      addHiddenDiv(storeId, 'storeId');
-      addHiddenDiv(productId, 'productId');
-
-
+    addHiddenDiv(zipcode, 'zipCode');
+    addHiddenDiv(storeId, 'storeId');
+    addHiddenDiv(productId, 'productId');
   }, zipcode, storeId, id);
 
-  /*await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+  /* await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   const productUrl = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -80,9 +77,9 @@ async function implementation (
     }
   });
 
-  await context.goto('https://www.target.com' + productUrl);*/
+  await context.goto('https://www.target.com' + productUrl); */
 
-  /*await context.evaluate(function(html) {
+  /* await context.evaluate(function(html) {
 
     const newDiv = document.createElement('div');
     newDiv.id = "enhancedHtml";
@@ -94,15 +91,12 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-
     const newDiv2 = document.createElement('div');
     newDiv2.id = "mediaHtml";
     newDiv2.innerHTML = unescape(html.replace(/\\\\\\/g, '').replace(/\\/g,'')).replace(/\"/g,'').replace(/"""/g, '');
     document.body.appendChild(newDiv2);
 
-
-  }, enhancedHTML);*/
-
+  }, enhancedHTML); */
 }
 module.exports = {
   implements: 'navigation/goto/setZipCode',

@@ -16,20 +16,16 @@ async function implementation (
     });
   }
 
-  const storeId = await context.evaluate(async function() {
+  const storeId = await context.evaluate(async function () {
     return document.getElementById('storeId') && document.getElementById('storeId').innerText;
   });
 
-  const postalCode = await context.evaluate(async function() {
+  const postalCode = await context.evaluate(async function () {
     return document.getElementById('zipCode') && document.getElementById('zipCode').innerText;
   });
 
-  const RPC = await context.evaluate(async function() {
+  const RPC = await context.evaluate(async function () {
     return document.getElementById('productId') && document.getElementById('productId').innerText;
-  });
-
-  const currentUrl = await context.evaluate(function() {
-    return window.location.href;
   });
 
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
@@ -56,14 +52,11 @@ async function implementation (
     }
   });
 
-  await context.goto('https://www.target.com' + productUrl,  { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+  await context.goto('https://www.target.com' + productUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
 
   await context.waitForXPath("//h1[@data-test='product-title']");
 
   await context.evaluate(async function (storeId, postalCode, RPC) {
-    let parentData = {};
-    let origData = {};
-
     function addHiddenDiv (el, className, content) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('class', className);
@@ -89,8 +82,8 @@ async function implementation (
       return newDiv;
     }
 
-    function decodeHtml(html) {
-      const txt = document.createElement("textarea");
+    function decodeHtml (html) {
+      const txt = document.createElement('textarea');
       txt.innerHTML = html;
       return txt.value;
     }
@@ -99,35 +92,25 @@ async function implementation (
 
     await stall(2000);
 
-    let id = '';
-    if (window.location.href.includes('?preselect=')) {
-      let splitUrl = window.location.href.split('?preselect=')[1];
-      id = splitUrl.split('#')[0]
-    } else {
-      let splitUrl = window.location.href.split('-');
-      id = splitUrl[splitUrl.length - 1];
-    }
-
     async function getProductInfo (variant) {
-
       const newDiv = createListItem();
 
       await fetch('https://redsky.target.com/v3/stores/nearby/' + postalCode + '?key=eb2551e4accc14f38cc42d32fbc2b2ea&limit=10&within=50&unit=mile')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.length && data[0].locations) {
-          const filterStores = data[0].locations.filter(store => store.location_id === Number(storeId));
-          if (filterStores.length) {
-            if (filterStores[0].address) {
-              addHiddenDiv(newDiv, 'driveAddress', filterStores[0].address.address_line1 + ", " + filterStores[0].address.city + ", " + filterStores[0].address.region + " " + filterStores[0].address.postal_code);
-              addHiddenDiv(newDiv, 'drive', filterStores[0].address.postal_code);
-            }
-            if (filterStores[0].location_names && filterStores[0].location_names.length) {
-              addHiddenDiv(newDiv, 'onlineStore', filterStores[0].location_names[0].name);
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.length && data[0].locations) {
+            const filterStores = data[0].locations.filter(store => store.location_id === Number(storeId));
+            if (filterStores.length) {
+              if (filterStores[0].address) {
+                addHiddenDiv(newDiv, 'driveAddress', filterStores[0].address.address_line1 + ', ' + filterStores[0].address.city + ', ' + filterStores[0].address.region + ' ' + filterStores[0].address.postal_code);
+                addHiddenDiv(newDiv, 'drive', filterStores[0].address.postal_code);
+              }
+              if (filterStores[0].location_names && filterStores[0].location_names.length) {
+                addHiddenDiv(newDiv, 'onlineStore', filterStores[0].location_names[0].name);
+              }
             }
           }
-        }
-      });
+        });
 
       if (variant.enrichment && variant.enrichment.images && variant.enrichment.images.length) {
         addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
@@ -173,7 +156,7 @@ async function implementation (
 
       addHiddenDiv(newDiv, 'retailerId', storeId);
 
-      const storeString = "&pricing_store_id=" + storeId + "&storeId=" + storeId + "&store_id=" + storeId;
+      const storeString = '&pricing_store_id=' + storeId + '&storeId=' + storeId + '&store_id=' + storeId;
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + RPC + '&fulfillment_test_mode=grocery_opu_team_member_test' + storeString)
         .then(data => data.json())
         .then(availabilityData => {
@@ -185,11 +168,11 @@ async function implementation (
           availabilityData.data.product.fulfillment) {
             if (availabilityData.data.product.fulfillment.store_options &&
                 availabilityData.data.product.fulfillment.store_options.length) {
-                  availabilityData.data.product.fulfillment.store_options.forEach(store => {
-                    if(store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
-                      inStore = true;
-                    }
-                  });
+              availabilityData.data.product.fulfillment.store_options.forEach(store => {
+                if (store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
+                  inStore = true;
+                }
+              });
             }
 
             if (availabilityData.data.product.fulfillment.shipping_options &&
@@ -219,12 +202,10 @@ async function implementation (
               addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
             }
             if (variantData.price.save_dollar) {
-              promotionFlag = 'Yes';
               addHiddenDiv(newDiv, 'promotion', 'Save $' + variantData.price.save_dollar.toFixed(2) + ' ' + variantData.price.save_percent + '%' + ' off');
             }
           }
         });
-
     }
 
     const newDiv = document.createElement('ul');
@@ -232,21 +213,17 @@ async function implementation (
     newDiv.style.display = 'none';
     document.body.appendChild(newDiv);
 
-    const storeString = "&pricing_store_id=" + storeId + "&storeId=" + storeId + "&store_id=" + storeId;
+    const storeString = '&pricing_store_id=' + storeId + '&storeId=' + storeId + '&store_id=' + storeId;
     const fUrl = 'https://redsky.target.com/v3/pdp/tcin/';
     const urlVars = '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test' + storeString;
-    const fullUrl = fUrl +  RPC +  urlVars;
-    let parentId;
+    const fullUrl = fUrl + RPC + urlVars;
     await fetch(`${fullUrl}`)
       .then(data => data.json())
       .then(async function (res) {
-        if(res && res.product) {
-          parentData = res;
-          origData = res;
+        if (res && res.product) {
           getProductInfo(res.product.item);
         }
       });
-
   }, storeId, postalCode, RPC);
   await stall(3000);
   await context.extract(productDetails, { transform });
