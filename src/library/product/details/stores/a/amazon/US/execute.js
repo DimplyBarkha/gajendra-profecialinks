@@ -5,5 +5,7 @@ module.exports = {
     country: 'US',
     store: 'amazon',
     domain: 'amazon.com',
+    loadedSelector: '#productTitle',
+    noResultsXPath: '//div[@id="g"]//img[contains(@alt,"Dogs")]',
   },
 };
