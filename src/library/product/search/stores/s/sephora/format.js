@@ -33,6 +33,13 @@ const transform = (data, context) => {
       //     }
       //   }
       // }
+
+      if(row.price){
+        let text = row.price[0].text;
+        let splits = text.split(" ");
+        row.price[0].text = splits[0];
+      }
+
       if(row.productUrl){
         let text = row.productUrl[0].text;
         let split = text.split("?");
