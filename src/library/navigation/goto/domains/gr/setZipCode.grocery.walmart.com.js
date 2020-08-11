@@ -71,11 +71,11 @@ module.exports = {
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
 
         await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 45000 });
-        // await context.waitForFunction(function (sel, zipcodeStreetAddress) {
-        //   return Boolean(document.querySelector(sel).textContent === zipcodeStreetAddress);
-        // }, { timeout: 55000 }, 'div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', zipcodeStreetAddress);
+        await context.waitForFunction(function (sel, zipcodeStreetAddress) {
+          return Boolean(document.querySelector(sel).textContent === zipcodeStreetAddress);
+        }, { timeout: 55000 }, 'div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', zipcodeStreetAddress);
 
-        await context.waitForXPath('//div[contains(@data-automation-id,"changeStoreFulfillmentBannerBtn")]//span[contains(@class,"AddressPanel__addressLine")]/text()[contains(., "' + zipcodeStreetAddress + '")]', { timeout: 45000 });
+        // await context.waitForXPath('//div[contains(@data-automation-id,"changeStoreFulfillmentBannerBtn")]//span[contains(@class,"AddressPanel__addressLine")]/text()[contains(., "' + zipcodeStreetAddress + '")]', { timeout: 45000 });
       }
     }
 
