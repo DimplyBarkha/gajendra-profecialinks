@@ -111,7 +111,7 @@ const transform = (data, context) => {
           let text = '';
           row.variantInformation.forEach(item => {
             // eslint-disable-next-line no-control-regex
-            const splits = item.text.replace(/\"/g, '').replace('}', '').split(':');
+            const splits = item.text.replace(/\\"/g, '').replace('}', '').split(':');
             text += `${splits[splits.length - 1].replace('actual_color-', '')} | `;
           });
           row.variantInformation = [
