@@ -38,7 +38,15 @@ module.exports = {
           })
         }
       }
-
+      let videoClick = '(//div[@data-comp="Carousel "])[1]//img[contains(@src, "Video")]'
+      var videoLinks = document.evaluate( videoClick, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if( videoLinks.snapshotLength > 0 ) {
+        for(let i = 0; i < videoLinks.snapshotLength; i++) {
+          let info = videoLinks.snapshotItem(i).textContent;
+          if(info.includes("COLOR")){
+    
+        }
+      }
 
       async function fetchRetry(url, n) {
         function handleErrors(response) {
