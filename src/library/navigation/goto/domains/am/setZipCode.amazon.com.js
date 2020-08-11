@@ -13,13 +13,24 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     await context.click('input[aria-labelledby="GLUXZipUpdate-announce"]');
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
+    // After clicking apply, check if error msg is present
+    await context.evaluate(() => {
+      const errorMsg = document.querySelector('#GLUXZipError[style="display: inline;"]');
+      if (errorMsg) {
+        throw new Error('Site claiming zip code is invalid');
+      }
+    });
+
     await context.click('button[name="glowDoneButton"]');
   };
 
   try {
     await changeZip(zipcode);
   } catch (exception) {
-    throw new Error('Failed to update zipcode!');
+    // try one more time if it fails:
+    console.log(exception);
+    await changeZip(zipcode);
+    // throw new Error('Failed to update zipcode!');
   }
 };
 
