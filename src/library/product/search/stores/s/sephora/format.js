@@ -23,16 +23,16 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
 
-      if(row.thumbnail){
-        let text = row.thumbnail[0].text;
-        let split = text.split("?");
-        if(split[0]){
-          let url = split[0];
-          if(url){
-            row.thumbnail[0].text = url;
-          }
-        }
-      }
+      // if(row.thumbnail){
+      //   let text = row.thumbnail[0].text;
+      //   let split = text.split("&");
+      //   if(split[0]){
+      //     let url = split[0];
+      //     if(url){
+      //       row.thumbnail[0].text = url;
+      //     }
+      //   }
+      // }
       if(row.productUrl){
         let text = row.productUrl[0].text;
         let split = text.split("?");
@@ -42,6 +42,15 @@ const transform = (data, context) => {
             row.productUrl[0].text = url;
           }
         }
+      }
+
+      if(row.name){
+        let names = [];
+        row.name.forEach(n => {
+          names.push(n.text);
+        });
+        let nameJoin = names.join(" - ")
+        row.name = [{text: nameJoin}]
       }
 
       if(row.aggregateRating2){

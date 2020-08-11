@@ -3,12 +3,11 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@data-comp, "ProductGrid")]//a
 fields:
-
-  - name: manufacturer
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-    xpath: //span[contains(@data-at,"sku_item_brand")]|//div[@id="ii_brand"]
+  # - name: manufacturer
+  #   singleValue: true
+  #   description: The brand name
+  #   example: Panasonic
+  #   xpath: //span[contains(@data-at,"sku_item_brand")]|//div[@id="ii_brand"]
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
@@ -23,9 +22,10 @@ fields:
     description: The URL for the product thumbnail image
     xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src|//div[@id="ii_image"]
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
-    xpath: //span[contains(@data-at, "sku_item_name")]|//div[@id="ii_name"]
+    # xpath: //span[contains(@data-at, "sku_item_name")]|//div[@id="ii_name"]
+    xpath: //div[@data-comp="ProductDisplayName "]//span|//div[@id="ii_name"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
