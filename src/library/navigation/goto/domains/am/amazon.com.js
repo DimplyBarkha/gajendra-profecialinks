@@ -84,7 +84,6 @@ module.exports = {
         }
         console.log('Go to some random page');
         const clickedOK = await context.evaluate(async function () {
-        // Changed xpath to check for any link.
           const randomLinkEls = document.evaluate('//a[@href]', document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
