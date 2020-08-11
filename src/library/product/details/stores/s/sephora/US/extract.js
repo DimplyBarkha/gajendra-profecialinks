@@ -38,15 +38,15 @@ module.exports = {
           })
         }
       }
-      let videoClick = '(//div[@data-comp="Carousel "])[1]//img[contains(@src, "Video")]'
-      var videoLinks = document.evaluate( videoClick, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      if( videoLinks.snapshotLength > 0 ) {
-        for(let i = 0; i < videoLinks.snapshotLength; i++) {
-          let info = videoLinks.snapshotItem(i).textContent;
-          if(info.includes("COLOR")){
+      // let videoClick = '(//div[@data-comp="Carousel "])[1]//img[contains(@src, "Video")]'
+      // var videoLinks = document.evaluate( videoClick, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      // if( videoLinks.snapshotLength > 0 ) {
+      //   for(let i = 0; i < videoLinks.snapshotLength; i++) {
+      //     let info = videoLinks.snapshotItem(i).textContent;
+      //     if(info.includes("COLOR")){
     
-        }
-      }
+      //   }
+      // }
 
       async function fetchRetry(url, n) {
         function handleErrors(response) {
@@ -60,7 +60,23 @@ module.exports = {
           }
         }
         let fetched = fetch(url, {
-
+          "headers": {
+            "accept": "*/*",
+            "accept-language": "en-US,en;q=0.9",
+            "accept-encoding": "gzip, deflate, br",
+            "cache-control": "no-cache",
+            "origin": "https://www.sephora.com",
+            "authority": "manifest.prod.boltdns.net",
+            "pragma": "no-cache",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site"
+          },
+          "referrer": "https://www.sephora.com/ca/en/product/highliner-gel-crayon-P379434?icid2=products%20grid:p379434:product&skuId=1880079",
+          "referrerPolicy": "no-referrer-when-downgrade",
+          "body": null,
+          "method": "GET",
+          "mode": "cors",
           "credentials": "same-origin"
         }).then(handleErrors).then(response => response.text()).catch(error => {
           debugger
