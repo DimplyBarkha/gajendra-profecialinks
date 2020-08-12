@@ -81,9 +81,8 @@ fields:
   - name: ratingCount
     singleValue: true
     defaultValue: 0
-    xpath: (//span[contains(@class,"c-product-shop-box__review-rating")]//span)[1]
-    regExp: (\d*)
-    regExpReplace: $1
+    regExp: (\d+)    
+    xpath: (//span[contains(@class,"review-count")])[1]    
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
