@@ -81,10 +81,11 @@ fields:
     singleValue: false
     xpath: //div[contains(@aria-label,'Perspective')]/div/div//div/img/@data-src
   - name: imageAlt
-    singleValue: false
-    xpath: //img[@class='ProductImages-image']/@alt 
-    regExp: >-
-      .+?(?= Perspective)
+    singleValue: true
+    xpath: concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])
+    # xpath: //img[@class='ProductImages-image']/@alt 
+    # regExp: >-
+      # .+?(?= Perspective)
   - name: name
     singleValue: true
     description: The product name
@@ -139,7 +140,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //div[@class='ProductDetails-header']/h1
+    xpath: concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -164,9 +165,11 @@ fields:
     singleValue: true
   - name: sku
     singleValue: true
-    xpath: //span[@class='ProductDetails-upc']
-    regExp: >-   
-      [0-9]+
+    # xpath: //span[@class='ProductDetails-upc']
+    xpath: //div[@id='my-sku']
+  - name: parentInput
+    singleValue: true
+    xpath: //div[@id='my-sku']
   - name: warnings
     singleValue: true
   - name: legalDisclaimer

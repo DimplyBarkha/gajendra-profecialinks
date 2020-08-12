@@ -9,7 +9,7 @@ const implementation = async (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  const { url } = inputs;
+  const { url, id } = inputs;
 
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
@@ -31,6 +31,26 @@ const implementation = async (
       firstItem.click();
     });
   }
+
+  await context.evaluate((url,id)=>{
+    function addHiddenDiv(id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
+    let skuCode;
+    if ( id ){
+      skuCode = id;
+    } else {
+      let urlLength = url.length;
+      skuCode = url.slice(urlLength-13,urlLength);
+    }
+    
+    addHiddenDiv('my-sku',skuCode)
+  },url,id)
 
   await context.waitForSelector('div.ProductDetails-header');
 
@@ -72,8 +92,8 @@ const implementation = async (
 
         bullets.forEach((bullet, index) => {
           if (bullet.textContent) {
-            index === 0 ? descriptionText += bullet.textContent : descriptionText += ' || ' + bullet.textContent;
-            index === 0 ? bulletInfo += bullet.textContent : bulletInfo += ' | ' + bullet.textContent;
+            descriptionText += ' || ' + bullet.textContent;
+            bulletInfo += ' | ' + bullet.textContent;
           }
         });
       } else {
