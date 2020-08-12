@@ -40,8 +40,8 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     domain: 'amazon.fr',
-    store: 'amazon',
-    zipcode: '75019',
+    timeout: 900000,
+    store: 'amazonMweb',
+    zipcode: '',
   },
-  implementation,
 };
