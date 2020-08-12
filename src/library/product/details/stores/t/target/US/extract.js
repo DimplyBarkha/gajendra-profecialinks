@@ -581,7 +581,7 @@ async function implementation (
             console.log('hasframehere');
             const frameContents = e.contentWindow.document.body;
             frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
-              if (!e.getAttribute('class').includes('vjs')) {
+              if (!e.getAttribute('class') || (e.getAttribute('class') && !e.getAttribute('class').includes('vjs'))) {
                 manufacturerDescArr.push(e.innerText);
               }
             });
@@ -662,9 +662,11 @@ async function implementation (
       }
 
       // &pricing_store_id=1465&storeId=1465
+      console.log('pricing');
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
         .then(data => data.json())
         .then(variantData => {
+          console.log('pricing', variantData);
           if (variantData.price) {
             if (variantData.price.current_retail) {
               addHiddenDiv(newDiv, 'price', variantData.price.current_retail);
