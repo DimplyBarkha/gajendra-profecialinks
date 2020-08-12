@@ -43,7 +43,7 @@ fields:
     regExpReplace: $1
   - name: ratingCount
     singleValue: true
-    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
+    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
   - name: manufacturer
     singleValue: true
     xpath: 
