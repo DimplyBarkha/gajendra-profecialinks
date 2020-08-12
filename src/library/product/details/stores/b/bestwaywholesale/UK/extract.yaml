@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -17,10 +17,19 @@ fields:
     xpath: //*[@id="productPrice"]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'prodtabcontents current') or contains(.,'Additional Information')]/ul/li
+    xpath: //div[contains(@class,'prodtabcontents current')]/ul/li
+  - name: descriptionExtended
+    singleValue: false
+    xpath: //div[contains(@class,'prodtabcontents current')]/p[not(preceding-sibling::h2)] | //div[contains(@class,'prodtabcontents current')]/span[contains(@itemprop,'description')][not(preceding-sibling::h2)]/p/text()
+  - name: descriptionAdditional
+    singleValue: false
+    xpath: //div[contains(.,'Additional Information')]/ul/li
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::*[(following-sibling::p and preceding-sibling::h5) or following-sibling::h2]
+  - name: ingredientsList2
+    singleValue: false
+    xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::*
   - name: allergyAdvice
     singleValue: false
     xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::*[(following-sibling::p and preceding-sibling::h5) or following-sibling::h2]/strong
@@ -29,7 +38,7 @@ fields:
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Brand:')]/following-sibling::td
   - name: manufacturer
     singleValue: false
-    xpath: //h2[contains(text(), 'Manufacturer’s Address')]/following-sibling::p/text()
+    xpath: //*[@id="manufacturer"]
   - name: quantity
     singleValue: false
     xpath: /html/body//table[@class='prodtable']//th[contains(text(), 'Pack Size')]/following-sibling::td
@@ -51,7 +60,6 @@ fields:
   - name: servingSize
     singleValue: false
     xpath: //*[@id='servingSize']
-    regExp: (^[.0-9]+)
   - name: servingSizeUom
     singleValue: false
     xpath: //*[@id='servingSizeUom']

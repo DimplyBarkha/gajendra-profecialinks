@@ -5,8 +5,6 @@ module.exports = {
     country: 'UK',
     store: 'bestwaywholesale',
     domain: 'bestwaywholesale.co.uk',
-    loadedSelector: null,
-    noResultsXPath: null,
     zipcode: '',
   },
 };

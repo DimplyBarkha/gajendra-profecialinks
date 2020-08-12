@@ -32,15 +32,17 @@ const transform = (data) => {
         text = text.replace(/\n/g, ' ');
         row.directions = [
           {
-            text: `${row.directionsTitle ? row.directionsTitle[0].text : ''} ${text} ${row.servingSuggest ? '|| ' + row.servingSuggest[0].text : ''}`.trim(),
+            text: `${row.directionsTitle ? row.directionsTitle[0].text.trim() : ''} ${text.trim()} ${row.servingSuggest ? '|| ' + row.servingSuggest[0].text.trim() : ''}`.trim(),
           },
         ];
         delete row.directionsTitle;
         delete row.servingSuggest;
-      }
-
-      if (row.description) {
-        row.additionalDescBulletInfo = row.description;
+      } else if (row.servingSuggest) {
+        row.directions = [
+          {
+            text: row.servingSuggest[0].text.trim(),
+          },
+        ];
       }
 
       if (row.availabilityText) {
@@ -75,25 +77,62 @@ const transform = (data) => {
         ];
       }
 
-      if (row.manufacturer) {
+      if (row.descriptionExtended) {
         let text = '';
-        if (row.manufacturer[0].text.match(/bottle/ig) || row.manufacturer[0].text.match(/produce/ig) || row.manufacturer[0].text.match(/brewed/ig) || row.manufacturer[0].text.match(/manufacture/ig) || row.manufacturer[0].text === 'GB:') {
-          text = row.manufacturer[1].text;
+        row.descriptionExtended.forEach(item => {
+          text += `${item.text} `;
+        });
+        text = text.trim();
+        if (row.description) {
+          row.description = [
+            {
+              text: `${row.description[0].text} ${text}`,
+            },
+          ];
         } else {
-          text = row.manufacturer[0].text;
+          row.description = [
+            {
+              text: `${text}`,
+            },
+          ];
         }
-        text = text.replace(/,/g, '').trim();
-        row.manufacturer = [
-          {
-            text: text,
-          },
-        ];
+        delete row.descriptionExtended;
+      }
+
+      if (row.descriptionAdditional) {
+        let text = '';
+        row.descriptionAdditional.forEach(item => {
+          text += `|| ${item.text} `;
+        });
+        text = text.trim();
+        if (row.description) {
+          row.description = [
+            {
+              text: `${row.description[0].text} ${text}`,
+            },
+          ];
+        } else {
+          row.description = [
+            {
+              text: `${text}`,
+            },
+          ];
+        }
+        delete row.descriptionAdditional;
+      }
+
+      if (row.description) {
+        row.additionalDescBulletInfo = row.description;
       }
 
       if (row.image) {
         if (row.image[0].text.match(/no-image/ig) && !row.image[0].text.match(/http/ig)) {
           row.image[0].text = `https://www.bestwaywholesale.co.uk${row.image[0].text}`;
         }
+      }
+
+      if (!row.ingredientsList && row.ingredientsList2) {
+        row.ingredientsList = row.ingredientsList2;
       }
 
       if (row.ingredientsList) {
