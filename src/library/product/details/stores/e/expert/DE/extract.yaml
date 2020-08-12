@@ -21,6 +21,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
+    xpath: //script[contains(text(), "window.dataLayer")]/text()
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
@@ -36,6 +37,9 @@ fields:
     xpath: (//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price")]/text()|(//div[contains(@class, "widget-Grid--subContent")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price") and not(contains(@style,'display:none'))]/text()))[last()]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+  - name: priceCurrency
+    singleValue: true
+    default: €
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -140,6 +144,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
+    xpath: //div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//div[@title="Play video"]//meta[@itemprop="embedURL"]/@content|//div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//img[contains(@data-type, "Video")]/@src
     description: URLs of videos on page
   - name: name
     singleValue: true
