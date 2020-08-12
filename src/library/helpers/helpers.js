@@ -31,7 +31,7 @@ module.exports.Helpers = class {
 
   // Function which easily adds the url to the document
   async addURLtoDocument (key, lastPartOnly) {
-    const url = this.context.evaluate(() => window.location.href);
+    const url = await this.context.evaluate(() => window.location.href);
     const urlParts = url ? url.split('/') : [];
     if (lastPartOnly) return await this.addItemToDocument(key, urlParts[urlParts.length - 1]);
     await this.addItemToDocument(key, url);
@@ -39,17 +39,17 @@ module.exports.Helpers = class {
 
   // Function which easily checks if a selector exists, and returns it, or returns false
   async checkCSSSelector (selector) {
-    return await context.evaluate((selector) => {
+    return await this.context.evaluate((selector) => {
       const elem = document.querySelector(selector);
-      return elem || false;
+      return !!elem;
     }, selector);
   }
 
   // Function which easily checks if a selector exists, and returns it, or returns false
   async checkXpathSelector (selector) {
-    return await context.evaluate((selector) => {
+    return await this.context.evaluate((selector) => {
       const elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-      return elem ? elem.singleNodeValue : false;
+      return elem ? !!elem.singleNodeValue : false;
     }, selector);
   }
 
@@ -61,23 +61,30 @@ module.exports.Helpers = class {
 
   // Function which checks if the provided object of selectors is there then navigate and click
   async checkAndClick (selector, type, timeout, input) {
-    let elem;
-    if (type === 'xpath') elem = await this.checkXpathSelector(selector);
-    else if (type === 'css') elem = await this.checkCSSSelector(selector);
-    else return false;
+    if (!this.checkSelector(selector, type)) return;
     await Promise.all([
       this.context.waitForNavigation({ timeout }),
-      !input ? this.context.click(elem) : this.context.setInputValue(elem, input),
+      !input ? this.context.click(selector) : this.context.setInputValue(selector, input),
     ]);
-    return elem;
+  }
+
+  // Function which checks a selecor
+  async checkSelector (selector, type) {
+    let elemIsThere;
+    if (type === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
+    else if (type === 'css') elemIsThere = await this.checkCSSSelector(selector);
+    else return false;
+    return elemIsThere;
   }
 
   // Function which checks if the provided object of selectors is there then navigate and click
   async checkAndReturnProp (selector, type, property) {
-    let elem;
-    if (type === 'xpath') elem = await this.checkXpathSelector(selector);
-    else if (type === 'css') elem = await this.checkCSSSelector(selector);
-    else return false;
-    return elem[property];
+    if (!this.checkSelector(selector, type)) return;
+    return await this.context.evaluate(({ selector, property, type }) => {
+      let elem;
+      if (type === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      else if (type === 'css') elem = document.querySelector(selector);
+      return elem[property];
+    }, { selector, property, type });
   }
 };

@@ -14,12 +14,13 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails, Helpers: { Helpers } } = dependencies;
+  const { productDetails, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+
   const helpers = new Helpers(context);
+  const amazonHelp = new AmazonHelp(context, helpers);
 
   async function loadAllResources (timeout = 40000) {
     const loadManufacturerSelectors = async () => ((document.querySelector('div#dpx-aplus-product-description_feature_div') !== null) || (document.querySelector('div#aplus_feature_div div#aplus') !== null));
-    const loadImportantInfoSelectors = async () => ((document.querySelector('div#dpx-default-important-information_feature_div div#importantInformation_feature_div') !== null));
   
     const loadManufacturer = await context.evaluate(loadManufacturerSelectors);
  
@@ -40,6 +41,7 @@ async function implementation (
       }
     }
 
+    const loadImportantInfoSelectors = async () => ((document.querySelector('div#dpx-default-important-information_feature_div div#importantInformation_feature_div') !== null));
     const loadImportantInfo = await context.evaluate(loadImportantInfoSelectors);
     if (loadImportantInfo) {
       try {
@@ -48,27 +50,6 @@ async function implementation (
         console.log('Could not load div#important-information');
       }
     }
-  }
-
-  async function setLocale () {
-    await new Promise(resolve => setTimeout(resolve, 5000));
-    const shouldChangeAddress = await Helpers.checkAndReturnProp('div#nav-global-location-slot', 'css', 'innerText');
-
-    if (shouldChangeAddress && shouldChangeAddress.includes('90210')) {
-      return;
-    }
-
-    try {
-      const wantedZip = '90210';
-      await helpers.checkAndClick('span#glow-ingress-line2.nav-line-2', 'css', 6000);
-      await helpers.checkAndClick('input[aria-label="or enter a US zip code"]', 'css', 6000, wantedZip);
-      await helpers.checkAndClick('input[aria-labelledby="GLUXZipUpdate-announce"]', 'css', 6000);
-      await helpers.checkAndClick('button[name="glowDoneButton"]', 'css', 6000);
-    } catch (exception) {
-      throw new Error('Failed to update zipcode!');
-    }
-
-    await new Promise(r => setTimeout(r, 5000));
   }
 
   async function addContent (parentInput) {
@@ -94,7 +75,7 @@ async function implementation (
   }
 
   await new Promise(resolve => setTimeout(resolve, 5000));
-  await setLocale();
+  await amazonHelp.setLocale('90210');
   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
  
   await loadAllResources();
@@ -115,6 +96,7 @@ module.exports = {
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
     Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };
