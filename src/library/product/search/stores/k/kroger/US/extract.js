@@ -59,7 +59,7 @@ async function implementation (
       searchTerms = searchText.slice(idx + 2);
     }
 
-    const url = `https://www.kroger.com/search?query=${searchTerms}&searchType=natural`;
+    const url = `https://www.kroger.com/search?query=${searchTerms}&searchType=natural&fulfillment=all`;
 
     const searchUrlDiv = document.createElement('div');
     searchUrlDiv.classList.add('my-search-url');
