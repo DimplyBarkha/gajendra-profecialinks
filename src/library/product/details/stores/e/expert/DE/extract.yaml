@@ -132,6 +132,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: true
+    xpath: //th[contains(text(),'Farbe')]//ancestor::th//parent::tr//td
     description: A textual description of the colour
   - name: colorCode
     singleValue: true

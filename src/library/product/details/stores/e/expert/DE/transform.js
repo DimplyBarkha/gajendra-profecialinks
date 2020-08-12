@@ -22,9 +22,16 @@ const transform = (data, context) => {
       try {
         if (row.category && row.category[0] && row.category[0].text) {
           let jsonObj = row.category[0].text;
-          jsonObj = jsonObj.replace(/\n \n/g, '').trim();
+          jsonObj = jsonObj.replace(/\n/gm, '').replace(/\n \n/g, '').trim();
           jsonObj = jsonObj.replace('window.dataLayer = window.dataLayer || [];', '').replace('dataLayer.push(', '');
-          jsonObj = jsonObj.split('function Tracking(){}')[0].slice(0, -2);
+
+          console.log('jsonObj');
+          console.log(jsonObj);
+          jsonObj = jsonObj.split('(function')[0];
+          jsonObj = jsonObj.split('function Tracking(){}')[0];
+          jsonObj = jsonObj.slice(0, -2);
+          console.log('JSON');
+          console.log(jsonObj);
           const jsonDetails = JSON.parse(jsonObj);
           const detailObj = jsonDetails.ecommerce.detail.products[0];
           const category = detailObj.category;
