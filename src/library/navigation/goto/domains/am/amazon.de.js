@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'amazon.de',
-    timeout: 900000,
+    timeout: 30000,
     country: 'DE',
     store: 'amazonApparel',
     zipcode: '10117',
@@ -374,8 +374,10 @@ module.exports = {
     console.log('backconnect', backconnect);
     const benchmark = !!memory.benchmark;
     console.log('benchmark', benchmark);
+    const start = Date.now();
     const MAX_CAPTCHAS = 3;
     let captchas = 0;
+    let hasCaptcha = false;
     let lastResponseData;
     const isCaptcha = async () => {
       return await context.evaluate(async function () {
@@ -422,18 +424,19 @@ module.exports = {
       }
       return 'true';
     };
-    const analyzePage = async () => {
-      let status = 200;
-      if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
-        status = 503;
-      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]') ) {
-        status = 404;
-      }
-      return { status };
-    };
-    const handlePage = async (lastResponseData) => {
+    const run = async () => {
+      // do we perhaps want to go to the homepage for amazon first?
+      lastResponseData = await context.goto(url, {
+        timeout: 10000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+      await new Promise(resolve => setTimeout(resolve, 1000));
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
-        return true;
+        return;
       }
       if (lastResponseData.status === 503) {
         const [response] = await Promise.all([
