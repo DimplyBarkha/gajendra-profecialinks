@@ -22,35 +22,29 @@ fields:
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
   - name: price
     xpath: //*[@id="priceblock_ourprice"]|//*[@id="priceblock_saleprice"]|//span[contains(@id,"priceblock_dealprice")] | //span[contains(@id,'priceblock_') and contains(@id,'price')]
-  - name: pricePerUnit
-    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
-    regExp: (\((.+)?Count(.+))
-    regExpReplace: $21
-  - name: pricePerUnitUom
-    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
-    regExp: (\((.+)?Count(.+))
-    regExpReplace: Count
   - name: availabilityText
     xpath: //*[@id='availability']
   - name: description
-    xpath: //*[@id='feature-bullets']//ul/li[not(@id)]|//div[@id="productDescription"]/p[text()]/text()
+    xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
+  - name: prodDescription
+    xpath: //div[@id="productDescription"]//p
   - name: descriptionBullets
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     xpath: //*[@id='bylineInfo']
   - name: manufacturer
     xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1]
-  - name: quantity
-    xpath: //div/label[contains(.,"Size") and not(contains(.,"Special"))]/following-sibling::span[1] | (//span[@class="a-dropdown-prompt"][ancestor::span/preceding-sibling::div/label[contains(.,"Size")]])[1]
   - name: weightGross
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
   - name: gtin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
   - name: asin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
-  - name: sku
+  - name: asin2
     singleValue: true
     xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
+  - name: sku
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]|//*[contains(text(), 'Item model number')]/../span[last()]|//*[contains(text(), 'Item model number')]/following-sibling::td
   - name: variantId
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]|//*[contains(text(), 'Item model number')]/../span[last()]|//*[contains(text(), 'Item model number')]/following-sibling::td
   - name: mpc
@@ -133,9 +127,9 @@ fields:
   - name: heroQuickPromoHeadline
     xpath: //div[@id="hero-quick-promo"]//span
   - name: heroQuickPromoImageUrl
-    xpath: //div[@id="hero-quick-promo"]//img[@class="a-dynamic-image"]/@src
+    xpath: //div[contains(@id,"hero-quick-promo")]//img/@src
   - name: heroQuickPromoUrl
-    xpath: (//div[@id="hero-quick-promo"]//a[@class="a-link-normal"]/@href)[1]
+    xpath: //div[contains(@id,"hero-quick-promo")]//a/@href | //div[contains(@id,"hero-quick-promo")]//area/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.com$1
   - name: ingredientImagePresent
@@ -161,31 +155,29 @@ fields:
   - name: featureBullets
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: otherSellersName
-    xpath: //span[contains(@class,'mbcMerchantName')] | //div[@id="merchant-info"]/a | //div[contains(@class,'a-row')]/div[contains(@class,'Seller')]/h3/span
+    xpath: //span[contains(@class,'mbcMerchantName')] | //div[contains(@class,'a-row')]/div[contains(@class,'Seller')]/h3/span | //div[contains(@class,'a-row')]/div[contains(@class,'Seller')]/h3/img/@alt
+  - name: otherSellersName2
+    xpath: //div[@id="merchant-info"]/a[contains(@id,'sellerProfileTriggerId')]
   - name: otherSellersPrice
-    xpath: //span[contains(@class,'mbcMerchantName')]/parent::div/preceding-sibling::div//span[contains(@id,'mbc-price')] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]/span
+    xpath: //span[contains(@class,'mbcMerchantName')]/parent::div/preceding-sibling::div//span[contains(@id,'mbc-price')] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]/span[1]
   - name: otherSellersShipping2
     xpath: //span[contains(@id, "mbc-shipping")] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]/p
   - name: otherSellersPrime
-    xpath: //span[contains(@id, "mbc-shipping")] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]//span/following-sibling::*[preceding-sibling::*[position()=1][contains(@class,'price')]]/@class
+    xpath: //span[contains(@id, "mbc-shipping")] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]//span/following-sibling::*[preceding-sibling::*[position()=1][contains(@class,'price')]][last()]/@class
   - name: secondaryImageTotal
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')][position()>1])
   - name: addonItem
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
     xpath: (//div[@id="fast-track-message"]//div[@id="delivery-message"])[1]
-  - name: product/food
-    xpath:
   - name: ingredientsList
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p
   - name: numberOfServingsInPackage
     xpath: //label[contains(text(), "Package Quantity:")]/../span
   - name: warranty
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
   - name: promotion
     xpath: //tr[@id="regularprice_savings"]
-  - name: additionalDescBulletInfo
-    xpath: count(//div[@data-feature-name="featurebullets"]//ul/li)
   - name: technicalInformationPdfPresent
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
   - name: materials
@@ -213,23 +205,33 @@ fields:
     xpath: //script[contains(.,'parentAsin')][contains(@type, "a-state")]
     regExp: (.+)\"parentAsin\"\:\"([A-Z0-9]+)(.*)
     regExpReplace: $2
+  - name: name
+    singleValue: true
+    xpath: //h1//span[@id="productTitle"]
+  - name: lbb
+    defaultValue: "NO"
+  - name: lbbPrice
+    xpath: //span[@id="price_inside_buybox"] | //span[@id="newBuyBoxPrice"]
+  - name: weightNet
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
+    regExp: '[^()]+'
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@id,"title")]
+  - name: quantity
+    singleValue: true
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
   - name: productUrl
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
     regExp: (.+)
     regExpReplace: https://www.amazon.com/dp/$1
-  - name: name
+  - name: pricePerUnit
     singleValue: true
-    xpath: //h1//span[@id="productTitle"]
-  - name: nameExtended
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: (\()(.+)\s(\/)\s(.+)(\))
+    regExpReplace: $2 / 1
+  - name: pricePerUnitUom
     singleValue: true
-    xpath: //h1//span[@id="productTitle"]
-  - name: lbb
-    xpath: //span[@id="price_inside_buybox"]
-    regExp: (.+)
-    regExpReplace: "YES"
-    defaultValue: "NO"
-  - name: lbbPrice
-    xpath: //span[@id="price_inside_buybox"]
-  - name: weightNet
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
-    regExp: '[^()]+'
+    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
+    regExp: (\()(.+)\s(\/)\s(.+)(\))
+    regExpReplace: $4

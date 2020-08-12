@@ -6,6 +6,6 @@ module.exports = {
     prefix: null,
     url: 'https://amazon.com/dp/{id}?th=1&psc=1',
     country: 'US',
-    store: 'amazonPharmapacks',
+    store: 'amazonRuna',
   },
 };
