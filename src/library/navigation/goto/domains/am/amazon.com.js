@@ -4,6 +4,8 @@ module.exports = {
     country: 'US',
     domain: 'amazon.us',
     store: 'amazon',
+    timeout: 90000,
+    zipcode: '',
   },
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
