@@ -4,13 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'sephora',
-    nextLinkSelector: 'nav[aria-label="Pagination"] button[aria-label="Next"]:not([disabled])',
+    nextLinkSelector: 'a.page.next',
     // mutationSelector: null,
     // spinnerSelector: 'div[data-comp="Interstice Loader "]:not([style="display:none"])',
-    loadedSelector: '//div[@class="products-grid"]//div[contains(@class,"product-item")]',
-    // noResultsXPath: '//h1[contains(., "0 Product results")]',
+    loadedSelector: 'div.products-grid',
+    // noResultsXPath: '//h4[contains(., "no products found")]',
     // openSearchDefinition: null,
     domain: 'sephora.com',
     zipcode: '',
   },
 };
+// loadedSelector: 'div.products-grid div.product-item',
