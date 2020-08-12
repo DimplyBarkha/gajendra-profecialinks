@@ -293,7 +293,7 @@ const transform = (data, context) => {
           row.manufacturerDescription.forEach(item => {
             const regexIgnoreText = /(^(Read more))|((From the manufacturer))/gm;
             // console.log(item.text);
-            item.text = (item.text).toString().replace(regexIgnoreText, '');
+            item.text = (item.text).toString().replace(regexIgnoreText, '').replace(/<img[^>]*>/gm, '');
             // console.log(item.text);
             if (!regexIgnoreText.test(item.text)) {
               description.push(item.text);
