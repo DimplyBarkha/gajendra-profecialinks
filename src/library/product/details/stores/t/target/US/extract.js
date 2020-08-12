@@ -662,12 +662,13 @@ async function implementation (
       }
 
       // &pricing_store_id=1465&storeId=1465
+      let priceSuccess = false;
       console.log('pricing');
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
         .then(data => data.json())
         .then(variantData => {
-          console.log('pricing', variantData);
           if (variantData.price) {
+            priceSuccess = true;
             if (variantData.price.current_retail) {
               addHiddenDiv(newDiv, 'price', variantData.price.current_retail);
             }
@@ -679,6 +680,18 @@ async function implementation (
             }
           }
         });
+
+      if (!priceSuccess) {
+        if (document.querySelector('span[data-test="product-savings"]') && document.querySelector('span[data-test="product-savings"]').innerText) {
+          addHiddenDiv(newDiv, 'regPrice', document.querySelector('span[data-test="product-savings"]').innerText.split(' ')[1]);
+        } else if (document.querySelector('div[data-test="product-price"]')) {
+          addHiddenDiv(newDiv, 'regPrice', document.querySelector('div[data-test="product-price"]').innerText);
+        }
+        addHiddenDiv(newDiv, 'price', document.querySelector('div[data-test="product-price"]').innerText.split(' ')[0]);
+        if (document.querySelector('span[data-test="product-savings"]') && document.querySelector('span[data-test="product-savings"]').innerText) {
+          addHiddenDiv(newDiv, 'promotion', 'Save ' + document.querySelector('span[data-test="product-savings"]').innerText.split('Save')[1]);
+        }
+      }
 
       if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
         const averageRating = document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText;
