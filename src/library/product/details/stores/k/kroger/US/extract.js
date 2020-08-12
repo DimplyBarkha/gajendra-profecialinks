@@ -32,8 +32,8 @@ const implementation = async (
     });
   }
 
-  await context.evaluate((url,id)=>{
-    function addHiddenDiv(id, content) {
+  await context.evaluate((url, id) => {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -42,15 +42,15 @@ const implementation = async (
     }
 
     let skuCode;
-    if ( id ){
+    if (id) {
       skuCode = id;
     } else {
-      let urlLength = url.length;
-      skuCode = url.slice(urlLength-13,urlLength);
+      const urlLength = url.length;
+      skuCode = url.slice(urlLength - 13, urlLength);
     }
-    
-    addHiddenDiv('my-sku',skuCode)
-  },url,id)
+
+    addHiddenDiv('my-sku', skuCode);
+  }, url, id);
 
   await context.waitForSelector('div.ProductDetails-header');
 

@@ -83,9 +83,6 @@ fields:
   - name: imageAlt
     singleValue: true
     xpath: concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])
-    # xpath: //img[@class='ProductImages-image']/@alt 
-    # regExp: >-
-      # .+?(?= Perspective)
   - name: name
     singleValue: true
     description: The product name
