@@ -4,10 +4,8 @@ module.exports = {
     country: 'US',
     domain: 'amazon.us',
     store: 'amazon',
-    timeout: 90000,
-    zipcode: '',
   },
-  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
+  implementation: async ({ url }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -34,7 +32,7 @@ module.exports = {
         imageElement: 'form img',
         autoSubmit: true,
       });
-      await Promise.all([
+      const [response] = await Promise.all([
         console.log('solved captcha, waiting for page change'),
         context.waitForNavigation(),
         await new Promise(resolve => setTimeout(resolve, 3000)),
@@ -65,7 +63,7 @@ module.exports = {
       let status = 200;
       if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
         status = 503;
-      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]')) {
+      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]') ) {
         status = 404;
       }
       return { status };
@@ -75,7 +73,7 @@ module.exports = {
         return true;
       }
       if (lastResponseData.status === 503) {
-        await Promise.all([
+        const [response] = await Promise.all([
           console.log('Waiting for page to reload on homepage'),
           context.waitForNavigation(),
           console.log('Clicking 503 image'),
@@ -86,6 +84,7 @@ module.exports = {
         }
         console.log('Go to some random page');
         const clickedOK = await context.evaluate(async function () {
+        // Changed xpath to check for any link.
           const randomLinkEls = document.evaluate('//a[@href]', document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
@@ -104,7 +103,7 @@ module.exports = {
         }
         console.log('Going back to desired page');
         lastResponseData = await context.goto(url, {
-          timeout: 60000,
+          timeout: 10000,
           waitUntil: 'load',
           checkBlocked: false,
           js_enabled: true,
@@ -181,8 +180,5 @@ module.exports = {
       }
     };
     await run();
-    if (zipcode) {
-      await dependencies.setZipCode({ url, zipcode });
-    }
   },
 };
