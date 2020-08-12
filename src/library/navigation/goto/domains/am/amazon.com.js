@@ -5,7 +5,7 @@ module.exports = {
     domain: 'amazon.us',
     store: 'amazon',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);

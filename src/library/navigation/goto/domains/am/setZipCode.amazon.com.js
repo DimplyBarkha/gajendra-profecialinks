@@ -19,6 +19,7 @@ async function implementation (
   await context.waitForSelector('button[name="glowDoneButton"]');
   await context.click('button[name="glowDoneButton"]');
   await context.waitForNavigation();
+  await new Promise(resolve => setTimeout(resolve, 5261));
 }
 
 module.exports = {
@@ -26,8 +27,8 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'amazon.com',
-    store: 'Amazonprimepantry',
-    zipcode: '10001',
+    store: 'amazonPrimePantry',
+    zipcode: '',
   },
   implementation,
 };
