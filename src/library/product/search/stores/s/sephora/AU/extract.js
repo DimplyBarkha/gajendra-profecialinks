@@ -1,11 +1,12 @@
 const { transform } = require('../format');
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'CA',
+    country: 'AU',
     store: 'sephora',
     transform,
-    domain: 'sephora.ca',
+    domain: 'sephora.com.au',
     zipcode: '',
   },
   implementation
