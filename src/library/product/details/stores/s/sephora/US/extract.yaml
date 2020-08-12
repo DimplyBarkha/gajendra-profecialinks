@@ -53,11 +53,6 @@ fields:
     #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
     xpath: >-
       //div[contains(@data-comp,"Price Box")]/span[last()]
-  # - name: online_price_currency
-  #   singleValue: true
-  #   regExp: "[$\u00A3\u20AC\u00A5]{1}"
-  #   xpath: >-
-  #     //span[@data-at="price"]
   - name: description
     singleValue: true
     xpath: //div[@id="ii_Details"]
@@ -66,11 +61,10 @@ fields:
     xpath: //h1/a[contains(@data-comp, "Link Box")]/span
   - name: directions
     singleValue: true
-    # xpath: //div[@id="tabpanel1"]
     xpath: //div[@id="ii_How to Use"]
-  # - name: alternateImages
-  #   singleValue: false
-  #   xpath: ((//div[contains(@data-comp,"Carousel")])[1]/div//img[@width="300"])[position()>1]/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: ((//div[contains(@data-comp,"Carousel")])[1]/div//img[@width="300"])[position()>1]/@src
   - name: availabilityText
     singleValue: true
     xpath: >-
@@ -91,11 +85,9 @@ fields:
     xpath: (//div[contains(@data-comp, "Carousel")]//img/@alt)[1]
   - name: additionalDescBulletInfo
     xpath: //div[@id="tabpanel0"]//text()[contains(., "- ")]
-  - name: additionalDescBulletCount
+  - name: descriptionBullets
     xpath: count(//div[@id="tabpanel0"]//text()[contains(., "- ")])
   - name: variants
-    # xpath: //div[contains(@data-comp,"Swatches Box")]//div[contains(@data-comp, "ProductSwatchItem")]//@src
-    # regExp: ([0-9]+)
     xpath: //div[@id="ii_variants"]
   - name: variantInformation
     xpath: //div[@id="ii_variantInfo"]
@@ -115,13 +107,3 @@ fields:
   - name: imageZoomFeaturePresent
     xpath: boolean(//div[contains(@data-comp,"HeroMediaList")]//div[contains(., "zoom")])
 
-
-  - name: retailer_category
-  - name: retailer_subcategory
-  - name: products_per_page
-  - name: extended_product_description
-  - name: secondary_image_total
-  - name: pack_size
-  - name: first_variant
-  - name: 360_image_present
-  - name: colour_ref
