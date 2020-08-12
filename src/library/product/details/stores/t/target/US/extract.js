@@ -581,7 +581,9 @@ async function implementation (
             console.log('hasframehere');
             const frameContents = e.contentWindow.document.body;
             frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
-              manufacturerDescArr.push(e.innerText);
+              if (!e.getAttribute('class').includes('vjs')) {
+                manufacturerDescArr.push(e.innerText);
+              }
             });
             frameContents.querySelectorAll('img').forEach(e => {
               manufacturerImgs.push(e.src);
@@ -623,7 +625,7 @@ async function implementation (
       if (manufacturerDesc && manufacturerDesc !== 'Loading, please wait...') {
         addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
       }
-      addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('/assets/')).filter(onlyUnique).join('|'));
+      addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('/assets/') && !img.includes('/resources/')).filter(onlyUnique).join('|'));
       console.log('manufacturimgs', manufacturerImgs);
 
       console.log('continuing...');
