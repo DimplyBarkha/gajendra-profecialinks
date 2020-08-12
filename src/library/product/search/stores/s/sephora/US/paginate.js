@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'CA',
+    country: 'US',
     store: 'sephora',
     nextLinkSelector: 'nav[aria-label="Pagination"] button[aria-label="Next"]:not([disabled])',
     // mutationSelector: null,

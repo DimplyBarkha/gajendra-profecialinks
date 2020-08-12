@@ -34,7 +34,15 @@ fields:
   - name: nameExtended
     singleValue: false
     description: The product name
+<<<<<<< HEAD
     xpath: //h1[contains(@data-comp,"DisplayName")]//text()
+=======
+    xpath: //h1[@data-comp="DisplayName Box "]/span
+  # - name: _pageTimestamp
+  #   xpath: /html/body/@downloadtime
+  # - name: _url
+  #   xpath: /html/body/@url
+>>>>>>> 5fd2178084191a3cb6f0fbe91c8e7bae4efcaa6c
   - name: quantity
     singleValue: true
     xpath: //div[contains(@data-comp,"SizeAndItemNumber")]

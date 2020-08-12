@@ -1,15 +1,19 @@
+// const { transform } = require('../../../../shared');
 const { transform } = require('../format');
+
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'CA',
+    country: 'US',
     store: 'sephora',
-    transform: null,
-    domain: 'sephora.ca',
+    transform,
+    domain: 'sephora.com',
     zipcode: '',
   },
   implementation
 };
+
 async function implementation (
   inputs,
   parameters,
