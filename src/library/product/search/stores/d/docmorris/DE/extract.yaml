@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: 
+recordSelector: null
+recordXPath: //div[@class="row productlist__row"]//div[contains(@class,"productlist__item")]
+fields:
+- name: productUrl
+  description: The URL for the product details page
+  xpath: //a[@class="row productlist__tile"]/@href
+  regExp: ^(.+)$
+  regExpReplace: https://www.docmorris.de$1
+- name: thumbnail
+  description: The URL for the product thumbnail image
+  regExp: ^(.+)$
+  regExpReplace: https://www.docmorris.de$1
+  xpath: //img[contains(@class,"productlist__image")]/@src
+- name: name
+  xpath: //h2[contains(@class,"productlist__name")]
+- name: aggregateRatingText
+  description: The stated aggregate rating
+  xpath: //span[@class="rating__totalCount"]
+- name: ratingCount
+  description: The number of ratings
+  xpath: //span[@class="rating__totalCount"]
+- name: reviewCount
+  description: The number of reviews
+  xpath: //span[@class="rating__totalCount"]
+- name: price
+  description: The offered price for the product
+  xpath: //div[@class="productlist__price"]
+- name: id
+  description: Unique id (within this extractor)
+  xpath: //span[@data-json]/@data-json
+  regExp: \"id":"([^"]+)
+  regExpReplace: $1
+- name: rank
+- name: rankOrganic
+- name: sponsored
+  defaultValue: false
