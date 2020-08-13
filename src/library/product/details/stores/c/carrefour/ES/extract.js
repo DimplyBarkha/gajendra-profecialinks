@@ -19,16 +19,17 @@ module.exports = {
         }
         const nextButton = document.querySelector('div.main-image__container img');
         if (nextButton) {
-          // @ts-ignore
           nextButton.click();
           await timeout(5000);
         }
       };
       await clickOnImages();
-      // @ts-ignore
+      let brand = document.evaluate('//p[contains(text(),"Marca")]/following-sibling::p', document).iterateNext() && document.evaluate('//p[contains(text(),"Marca")]/following-sibling::p', document).iterateNext().textContent && document.evaluate('//p[contains(text(),"Marca")]/following-sibling::p', document).iterateNext().textContent.trim();
       const obj = window.dataLayer[0];
-      const brand = obj ? obj.productBrand : '';
-      const gtin = obj ? obj.productEAN[0] : '';
+      const gtin = (obj.productEAN && obj.productEAN[0]) || '';
+      if (!brand) {
+        brand = obj.productBrand || '';
+      }
       document.body.setAttribute('brand', brand);
       document.body.setAttribute('gtin', gtin);
     });

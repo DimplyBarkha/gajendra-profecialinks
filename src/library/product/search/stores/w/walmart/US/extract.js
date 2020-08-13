@@ -23,6 +23,12 @@ module.exports = {
       addHiddenDiv('added-searchurl', url);
     }
     await context.evaluate(addUrl);
+
+    await context.clickAndWaitForNavigation('a[data-automation-id="primary-stack-recall-see-all-button"] span')
+      .catch(() => {
+        console.log('no extra page results');
+      });
+
     return await context.extract(dependencies.productDetails, { transform: transformParam });
   },
 };
