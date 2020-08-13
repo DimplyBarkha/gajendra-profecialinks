@@ -75,7 +75,8 @@ module.exports = {
     let page = 2;
     //maxPage hard coded because category should only  paginates max 2  pages
     let maxPage = 2;
-    while (page <= maxPage &&  collected < results && await paginate({ keywords, page, offset: collected })) {      const data = await extract({});
+    while (page <= maxPage &&  collected < results && await paginate({ keywords, page, offset: collected })) {      
+      const data = await extract({});
       const count = length(data);
       if (count === 0) {
         // no results
