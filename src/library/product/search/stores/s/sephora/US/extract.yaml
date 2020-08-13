@@ -88,8 +88,9 @@ fields:
   - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id="ii_aggregateRating"]
     # type: NUMBER
-    xpath: //div[contains(@data-comp, "StarRating")]/@aria-label|//div[@id="ii_aggregateRating"]
+    # xpath: //div[contains(@data-comp, "StarRating")]/@aria-label|//div[@id="ii_aggregateRating"]
     defaultValue: "0"
     # regExp: ([.0-9]+)
 

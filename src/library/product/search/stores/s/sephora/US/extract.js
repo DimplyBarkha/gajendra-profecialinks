@@ -23,7 +23,24 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await context.evaluate(async function () {
+  const scrollFunc = await context.evaluate(async function () {
+    let scrollTop = 0;
+    while (scrollTop !== 20000) {
+      // await stall(2500);
+      // await new Promise(resolve => setTimeout(resolve, 5000));
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      console.log("SCROLLING");
+      if (scrollTop === 20000) {
+        break;
+      }
+    }
+  });
+
+
+  const singleProdCheck = await context.evaluate(async function () {
 
     function addHiddenDiv (id, content, attribute, attributeValue, aTag = false, reg = false ) {
       const newDiv = document.createElement('div');
@@ -55,9 +72,6 @@ async function implementation (
       }
     }
 
-    // debugger
-
-
     const recordADiv = document.querySelector('div[data-comp="ProductGrid "] a')
     if(!recordADiv){
       let xpathCheck = '//div[contains(@data-comp, "ProductGrid")]//a'
@@ -65,7 +79,6 @@ async function implementation (
       if( checkElement.snapshotLength === 0 ) {
           addHiddenDiv(`ii_hello`, ' wuba', 'data-comp','ProductGrid');
           addHiddenDiv(`ii_aTag`, ' wuba', null, null, true);
-  
       }
 
       let brand = '//h1/a[contains(@data-comp,"Link Box")]/span'
@@ -143,39 +156,74 @@ async function implementation (
           addHiddenDiv(`ii_name`, `${nameElement.snapshotItem(i).textContent}`);
         }
       }
+      debugger
+      return true
+    } else {
+      return false
     }
 
-
-    let scrollTop = 0;
-    while (scrollTop !== 20000) {
-      // await stall(2500);
-      // await new Promise(resolve => setTimeout(resolve, 5000));
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      console.log("SCROLLING")
-      if (scrollTop === 20000) {
-        break;
+  });
+  if(!singleProdCheck){
+    const ratingArr = await context.evaluate(async function getEnhancedContent() {
+      let objArray = [];
+      let ratingArray = [];
+      let keywordStr = document.querySelector('h1 strong[data-at="search_keyword"]')
+      let keyword;
+      if(keywordStr){
+        keyword = keywordStr.innerText.replace(/“/g, "").replace(/”/g, "")
+      }
+      
+      async function fetchRetry(url, n) {
+        function handleErrors(response) {
+          if (response.status === 200){
+            return response;
+          } else {
+            console.log("FETCH FAILED")
+            if (n === 1) return "Nothing Found";
+            return fetchRetry(url, n - 1);
+          }
+      }
+        let fetched = fetch(url).then(handleErrors).then(response => response.text()).catch(function(error) {
+            console.log("FETCH FAILED")
+            if (n === 1) return "Nothing Found";
+            return fetchRetry(url, n - 1);
+        });
+  
+        return fetched
+      }
+      if(keyword){
+        let fetch1 = JSON.parse(await fetchRetry(`https://www.sephora.com/api/catalog/search?type=keyword&q=${keyword}&content=true&includeRegionsMap=true&page=60&currentPage=1`, 10));
+        let fetch2 = JSON.parse(await fetchRetry(`https://www.sephora.com/api/catalog/search?type=keyword&q=${keyword}&content=true&includeRegionsMap=true&page=60&currentPage=2`, 10));
+        let fetch3 = JSON.parse(await fetchRetry(`https://www.sephora.com/api/catalog/search?type=keyword&q=${keyword}&content=true&includeRegionsMap=true&page=60&currentPage=3`, 10));
+        objArray.push(fetch1), objArray.push(fetch2), objArray.push(fetch3);
+        for(let i = 0; i < objArray.length; i++){
+          objArray[i].products.forEach(product => {
+            let rating = product.rating;
+            let ratingFloat = parseFloat(rating)
+            let adjusted = ratingFloat.toPrecision(2)
+            if(ratingArray.length < 150) {
+              ratingArray.push(adjusted)
+            }
+          })
+        }
+      }
+      return ratingArray
+    });
+  
+    await context.evaluate(function(ratings) {
+      const products = document.querySelectorAll('div[data-comp="ProductGrid "] a')
+    if(products){
+      for(let i = 0; i < products.length; i++){
+          const newDiv = document.createElement('div');
+            newDiv.id = 'ii_aggregateRating';
+            newDiv.textContent = ratings[i];
+            newDiv.style.display = 'block';
+            products[i].appendChild(newDiv);
       }
     }
-    // let regPrice = '//span[contains(@data-at, "sku_item_price_list")]';
-    // let salePrice = '//span[contains(@data-at, "sku_item_price_sale")]'
-    // var sale = document.evaluate( salePrice, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    // var price = document.evaluate( regPrice, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    // if( sale.snapshotLength > 0 ) {
-    //   for(let i = 0; i < sale.snapshotLength; i++) {
-    //     addHiddenDiv(`ii_price`, `${sale.snapshotItem(i).textContent}`, null, null, false, true);
-    //   }
-    // } else if(price.snapshotLength > 0 ){
-    //   for(let i = 0; i < price.snapshotLength; i++) {
-    //     addHiddenDiv(`ii_price`, `${price.snapshotItem(i).textContent}`, null, null, false, true);
-    //   }
-    // }
-    await new Promise(resolve => setTimeout(resolve, 5000));
-  });
-
-
+      
+    }, ratingArr)
+  }
 
 
   return await context.extract(productDetails, { transform });
