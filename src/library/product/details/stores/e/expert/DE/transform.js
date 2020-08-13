@@ -21,21 +21,21 @@ const transform = (data, context) => {
     for (const row of group) {
       try {
         if (row.category && row.category[0] && row.category[0].text) {
-          let jsonObj = row.category[0].text;
-          jsonObj = jsonObj.replace(/\n/gm, '').replace(/\n \n/g, '').trim();
-          jsonObj = jsonObj.replace('window.dataLayer = window.dataLayer || [];', '').replace('dataLayer.push(', '');
+          // let jsonObj = row.category[0].text;
+          // jsonObj = jsonObj.replace(/\n/gm, '').replace(/\n \n/g, '').trim();
+          // jsonObj = jsonObj.replace('window.dataLayer = window.dataLayer || [];', '').replace('dataLayer.push(', '');
 
-          console.log('jsonObj');
-          console.log(jsonObj);
-          jsonObj = jsonObj.split('(function')[0];
-          jsonObj = jsonObj.split('function Tracking(){}')[0];
-          jsonObj = jsonObj.slice(0, -2);
-          console.log('JSON');
-          console.log(jsonObj);
-          const jsonDetails = JSON.parse(jsonObj);
-          const detailObj = jsonDetails.ecommerce.detail.products[0];
-          const category = detailObj.category;
-          row.category = [{ text: category }];
+          // console.log('jsonObj');
+          // console.log(jsonObj);
+          // jsonObj = jsonObj.split('(function')[0];
+          // jsonObj = jsonObj.split('function Tracking(){}')[0];
+          // jsonObj = jsonObj.slice(0, -2);
+          // console.log('JSON');
+          // console.log(jsonObj);
+          // const jsonDetails = JSON.parse(jsonObj);
+          // const detailObj = jsonDetails.ecommerce.detail.products[0];
+          // const category = detailObj.category;
+          // row.category = [{ text: category }];
 
         //   row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
         }

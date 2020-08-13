@@ -21,7 +21,8 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //script[contains(text(), "window.dataLayer")]/text()
+    xpath: //li[@itemprop="itemListElement"][position()>1]
+    # xpath: //script[contains(text(), "window.dataLayer")]/text()
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
@@ -76,6 +77,7 @@ fields:
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
+    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr//td
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
@@ -132,7 +134,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: true
-    xpath: //th[contains(text(),'Farbe')]//ancestor::th//parent::tr//td
+    xpath: //th[contains(text(),'Farbe')]//ancestor::th//parent::tr//td|//th[contains(text(),'Produktfarbe')]//ancestor::th//parent::tr//td
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
@@ -405,6 +407,8 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
+    xpath: //div[contains(@class, "widget-AdditionalServices")]//span[contains(text(), "Garantie")]/text()
+    # xpath: //div[contains(@class, "widget-AdditionalServices")]//text()
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -435,6 +439,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
+    xpath: //div[contains(@class, "widget-ArticlePromotion--container")]//text()
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
@@ -486,11 +491,19 @@ fields:
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: true
+    xpath: //div[contains(@class, "widget-ArticleDownloads")]//a[contains(@href, "pdf")]/@href
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
+    xpath: (//*[contains(text(), "AGB Onlinekauf / Widerrufsbelehrung")])[1]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
   - name: privacyPolicy
@@ -516,3 +529,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: productUrl
+    singleValue: false
+    xpath: //*[@id="iio_product_url"]
