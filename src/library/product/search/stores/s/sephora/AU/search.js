@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search',
   parameterValues: {
-    country: 'AU',
+    country: 'AUS',
     store: 'sephora',
     domain: 'sephora.com.au',
     zipcode: '',
