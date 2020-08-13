@@ -11,7 +11,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { productDetails } = dependencies;
+  const { productDetails, goto } = dependencies;
   const { id } = inputs;
   async function getDealInfo (dealID) {
     const marketplaceIds = {
@@ -33,20 +33,31 @@ async function implementation (
           if (!encryptedPromoId) {
             return encryptedPromoId;
           }
-          const maxResults = 9999;
           try {
-            const API = `${window.location.origin}/gp/coupon/ajax/get_clp_asins.html?encryptedPromoId=${encryptedPromoId}&requestedAsins=${maxResults}`;
-            const response = await fetch(API);
-            const jsonData = await response.json();
-            const itemsHtml = jsonData.items;
-            if (itemsHtml.length) {
-              const parser = new DOMParser();
-              const doc = parser.parseFromString(itemsHtml, 'text/html');
-              const items = Array.from(doc.querySelectorAll('td[class="product-list-table-col"] > a.a-link-normal'))
-                .map((elm) => elm.getAttribute('href'))
-                .filter((elm) => elm.match(/redirectASIN=([^&]+)/))
-                .map((elm) => ({ itemID: elm.match(/redirectASIN=([^&]+)/)[1] }));
-              data.dealDetails[dealID].items = items;
+            const requestedAsins = 100;
+            let previouslySeen = 0;
+            let hasResults = true;
+            while (hasResults) {
+              const API = `${window.location.origin}/gp/coupon/ajax/get_clp_asins.html?encryptedPromoId=${encryptedPromoId}&requestedAsins=${requestedAsins}&previouslySeen=${previouslySeen}`;
+              const response = await fetch(API);
+              const jsonData = await response.json();
+              const itemsHtml = jsonData.items;
+              if (itemsHtml.length) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(itemsHtml, 'text/html');
+                const items = Array.from(doc.querySelectorAll('td[class="product-list-table-col"] > a.a-link-normal'))
+                  .map((elm) => elm.getAttribute('href'))
+                  .filter((elm) => elm.match(/redirectASIN=([^&]+)/))
+                  .map((elm) => ({
+                    itemID: elm.match(/redirectASIN=([^&]+)/)[1],
+                  }));
+                if (items.length) {
+                  data.dealDetails[dealID].items = data.dealDetails[dealID].items.concat(items);
+                  previouslySeen += requestedAsins;
+                } else {
+                  hasResults = false;
+                }
+              }
             }
           } catch (err) {
             throw new Error(`API failed. Promo may not exist. Error: ${err}`);
@@ -94,11 +105,16 @@ async function implementation (
       });
       const data = await response.json();
       const updatedData = await checkAndAddItems(data, dealID);
-      document.body.setAttribute('promo-data', JSON.stringify(updatedData));
+      return updatedData;
     }
     return await getDealDetails(dealID);
   }
-  await context.evaluate(getDealInfo, id);
+  const data = await context.evaluate(getDealInfo, id);
+
+  if (data && data.dealDetails && data.dealDetails[id] && data.dealDetails[id].egressUrl) {
+    await goto({ url: data.dealDetails[id].egressUrl });
+  }
+  await context.evaluate((data) => { document.body.setAttribute('promo-data', JSON.stringify(data)); }, data);
   return await context.extract(productDetails);
 }
 
@@ -134,6 +150,7 @@ module.exports = {
   ],
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    goto: 'action:navigation/goto',
   },
   path: './stores/${store[0:1]}/${store}/${country}/extract',
   implementation,
