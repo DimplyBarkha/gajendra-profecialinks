@@ -93,7 +93,7 @@ const implementation = async (
         bullets.forEach((bullet, index) => {
           if (bullet.textContent) {
             descriptionText += ' || ' + bullet.textContent;
-            bulletInfo += ' | ' + bullet.textContent;
+            bulletInfo += ' || ' + bullet.textContent;
           }
         });
       } else {
@@ -148,20 +148,20 @@ const implementation = async (
     price.classList.add('my-price');
     price.style.display = 'none';
 
-    const pickupPrice = document.getElementsByClassName('mt-4 flex flex-col items-end')[0];
+    const pickupPrice = document.evaluate('//span[contains(@class,"PurchaseOptions--headingLabel") and contains(text(),"Pickup")]//parent::span//parent::div//parent::div/div[@class="mt-4 flex flex-col items-end"]/data', document, null, XPathResult.STRING_TYPE, null).stringValue;
 
     if (pickupPrice !== undefined) {
-      const pickupPriceText = pickupPrice.textContent;
+      if (pickupPrice.includes('discount')) {
+        const firstDIndex = pickupPrice.indexOf('d');
+        price.textContent = pickupPrice.slice(0, firstDIndex);
 
-      if (pickupPriceText.includes('discount')) {
-        const firstDIndex = pickupPriceText.indexOf('d');
-        price.textContent = pickupPriceText.slice(0, firstDIndex);
-
-        const mIndex = pickupPriceText.indexOf('m');
-        listPrice.textContent = pickupPriceText.slice(mIndex + 1);
+        const listPriceEl = document.querySelector('s.kds-Price-original');
+        if (listPriceEl && listPriceEl.textContent) {
+          listPrice.textContent = listPriceEl.textContent;
+        }
       } else {
-        price.textContent = pickupPriceText;
-        listPrice.textContent = pickupPriceText;
+        price.textContent = pickupPrice;
+        listPrice.textContent = pickupPrice;
       }
     } else {
       price.textContent = 'Product Unavailable';

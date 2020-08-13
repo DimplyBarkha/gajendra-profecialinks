@@ -116,8 +116,6 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //li[@class='my-list-price']
-    regExp: >-
-      [^$]+
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -163,9 +161,6 @@ fields:
   - name: sku
     singleValue: true
     # xpath: //span[@class='ProductDetails-upc']
-    xpath: //div[@id='my-sku']
-  - name: parentInput
-    singleValue: true
     xpath: //div[@id='my-sku']
   - name: warnings
     singleValue: true
