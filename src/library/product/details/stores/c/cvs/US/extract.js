@@ -140,9 +140,11 @@ module.exports = {
       // await context.waitForFunction(function() {
       //   let check = document.querySelector('div.css-1dbjc4n.r-16lk18l.r-1xi2sqm')
       //   if(check){
-      //     return 
+      //     return true
+      //   } else {
+      //     return false
       //   }
-      // }, { timeout: 20000 });
+      // }, { timeout: 30000 });
       
 
       // Collecting the variant information section names in an array
