@@ -5,6 +5,7 @@ module.exports = {
     country: 'ES',
     domain: 'carrefour.es',
     store: 'carrefourBodega',
+    // store: 'carrefour',
     zipcode: '',
   },
 };
