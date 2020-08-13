@@ -112,6 +112,7 @@ async function implementation (
   const data = await context.evaluate(getDealInfo, id);
 
   if (data && data.dealDetails && data.dealDetails[id] && data.dealDetails[id].egressUrl) {
+    data.dealDetails[id].egressUrl = data.dealDetails[id].egressUrl.replace(/YOUR_DEAL_ID/g, id);
     await goto({ url: data.dealDetails[id].egressUrl });
   }
   await context.evaluate((data) => { document.body.setAttribute('promo-data', JSON.stringify(data)); }, data);
