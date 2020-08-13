@@ -40,23 +40,28 @@ const transform = (data, context) => {
           }
           if(row.alternateImages){
               let imageArray = [];
-              for(let i = 0; i < row.alternateImages.length; i++){
-                let text = row.alternateImages[i].text
-                let splits = text.split("?");
-                imageArray.push(`https://sephora.com${splits[0]}`)
+              if(row.alternateImages.length > 1){
+                for(let i = 0; i < row.alternateImages.length; i++){
+                  let text = row.alternateImages[i].text
+                  let splits = text.split("?");
+                  imageArray.push(`https://sephora.com${splits[0]}`);
+                }
+                let oneLess = imageArray.slice(1);
+                let joins = oneLess.join(" | ");
+                row.alternateImages = [{text: joins}]
+              } else {
+                row.alternateImages = [{}]
               }
-              let joins = imageArray.join(" | ")
-              row.alternateImages = [{text: joins}]
           }
 
           if(row.aggregateRating){
-              let text = row.aggregateRating[0].text
+              let text = row.aggregateRating[0].text;
               let splits = text.split(" /");
-            row.aggregateRating[0].text = splits[0]
+            row.aggregateRating[0].text = splits[0];
         }
 
         if(row.quantity){
-            let text = row.quantity[0].text
+            let text = row.quantity[0].text;
             let splits = text.split("•");
           row.quantity[0].text = splits[0]
         }

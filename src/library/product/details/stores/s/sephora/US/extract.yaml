@@ -63,8 +63,7 @@ fields:
     singleValue: true
     xpath: //div[@id="ii_How to Use"]
   - name: alternateImages
-    singleValue: false
-    xpath: ((//div[contains(@data-comp,"Carousel")])[1]/div//img[@width="300"])[position()>1]/@src
+    xpath: ((//div[contains(@data-comp,"Carousel")])[1]//img[@width="300"])/@src
   - name: availabilityText
     singleValue: true
     xpath: >-
