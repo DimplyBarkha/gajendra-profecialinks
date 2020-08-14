@@ -95,4 +95,9 @@ fields:
   - name: name
     singleValue: false
     manualSelector: h1.pdp-header__product-name
-  
+  - name: additionalDescBulletInfo
+    singleValue: false
+    manualSelector: div#product-details div.pdp-details-features__items > ul > li
+  - name: variantCount
+    singleValue: false
+    defaultValue: '1'
