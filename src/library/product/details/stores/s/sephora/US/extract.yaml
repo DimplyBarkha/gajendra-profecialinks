@@ -1,0 +1,108 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: parentInput
+    singleValue: true
+    xpath: //div[@id='ii_parentInput']
+  - name: productUrl
+    xpath: //div[@id='ii_url']
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: (//div[contains(@data-comp, "Carousel")]//img/@src)[1]
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: (//div[contains(@data-comp,"ReviewsStats")]//div//div[contains(.,"/")])[1]
+    # xpath: //a[contains(@data-comp,"RatingsSummary")]//@aria-label
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //h1[contains(@data-comp,"DisplayName")]/a
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    type: NUMBER
+    xpath: //div[contains(@data-comp,"ReviewsStats")]//div[contains(.,"review")]
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //video-js//script/@src
+  - name: nameExtended
+    singleValue: false
+    description: The product name
+    xpath: //h1[contains(@data-comp,"DisplayName")]//text()
+  - name: quantity
+    singleValue: true
+    xpath: //div[contains(@data-comp,"SizeAndItemNumber")]
+  - name: category
+    xpath: //ol/li/a
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id='ii_Warnigns']
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id="ii_Ingredients"]
+    # xpath: //div[@id="tabpanel2"]/div[1]
+  - name: price
+    singleValue: true
+    # regExp: >-
+    #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
+    xpath: >-
+      //div[contains(@data-comp,"Price Box")]/span[last()]
+  - name: description
+    singleValue: true
+    xpath: //div[@id="ii_Details"]
+  - name: brandText
+    singleValue: false
+    xpath: //h1/a[contains(@data-comp, "Link Box")]/span
+  - name: directions
+    singleValue: true
+    xpath: //div[@id="ii_How to Use"]
+  - name: alternateImages
+    xpath: ((//div[contains(@data-comp,"Carousel")])[1]//img[@width="300"])/@src
+  - name: availabilityText
+    singleValue: true
+    xpath: >-
+      //div[contains(@data-comp,"CallToActions")]//button/span
+    defaultValue: "In Stock"
+  - name: promotion
+    regExp: (.*)
+    regExpReplace: Sale
+    xpath: //span[@data-at="sale_price"]
+  - name: listPrice
+    singleValue: true
+    regExp: >-
+     [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
+    xpath: //span[@data-at="price"]
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: (//div[contains(@data-comp, "Carousel")]//img/@alt)[1]
+  - name: additionalDescBulletInfo
+    xpath: //div[@id="tabpanel0"]//text()[contains(., "- ")]
+  - name: descriptionBullets
+    xpath: count(//div[@id="tabpanel0"]//text()[contains(., "- ")])
+  - name: variants
+    xpath: //div[@id="ii_variants"]
+  - name: variantInformation
+    xpath: //div[@id="ii_variantInfo"]
+  - name: sku
+    xpath: //div[@id='ii_url']
+    regExp: ([0-9]+$)
+  - name: variantId
+    xpath: //div[@id='ii_url']
+    regExp: ([0-9]+$)
+  - name: color
+    xpath: //div[@id='ii_color']
+    # xpath: (//span[contains(@data-at, "item_variation_type") and contains(., "COLOR")])[1]
+    # regExp: >-
+    #  COLOR:\s([a-zA-Z\s\/]+)
+    # regExpReplace: >-
+    #  $1
+  - name: imageZoomFeaturePresent
+    xpath: boolean(//div[contains(@data-comp,"HeroMediaList")]//div[contains(., "zoom")])
+

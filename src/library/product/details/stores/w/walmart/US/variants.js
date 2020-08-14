@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/details/variants',
   parameterValues: {
     country: 'US',
     store: 'walmart',
     domain: 'walmart.com',
-    zipcode: '94066',
+    zipcode: '',
   },
 };
