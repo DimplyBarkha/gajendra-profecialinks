@@ -2,7 +2,7 @@
 /**
  *
  * @param { { username: string, password: string } } inputs
- * @param { { domain: any, usernameSelector: string, passwordSelector: string, buttonSelector: string, loggedInSelector: string } } parameters
+ * @param { { domain: any, usernameSelector: string, passwordSelector: string, buttonSelector: string, formSelector: string, loggedInSelector: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { someAction: ImportIO.Action, someFunction: () => void, someExtraction: string } } dependencies
  */
@@ -13,11 +13,19 @@ async function implementation (
   dependencies,
 ) {
   const { username, password } = inputs;
-  const { usernameSelector, passwordSelector, buttonSelector, loggedInSelector } = parameters;
+  const { usernameSelector, passwordSelector, buttonSelector, formSelector, loggedInSelector } = parameters;
 
   await context.setInputValue(usernameSelector, username);
   await context.setInputValue(passwordSelector, password);
-  await context.click(buttonSelector);
+  if (buttonSelector) {
+    await context.click(buttonSelector);
+  }
+
+  if (formSelector) {
+    await context.evaluate(function () {
+      document.querySelector(formSelector).submit();
+    });
+  }
 
   if (loggedInSelector) {
     await context.waitForFunction(function (sel) {
