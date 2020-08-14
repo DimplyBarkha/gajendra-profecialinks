@@ -12,8 +12,8 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { _credentials } = inputs;
-  const { domain } = parameters;
+  const { _credentials } = inputs; // eslint-disable-line no-unused-vars
+  const { domain } = parameters; // eslint-disable-line no-unused-vars
 
   // TODO: add your impl - must be self contained (no require/import/external functions)
 }
