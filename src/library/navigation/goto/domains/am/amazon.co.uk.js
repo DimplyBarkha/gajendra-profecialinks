@@ -36,7 +36,7 @@ module.exports = {
         autoSubmit: true,
       });
       // @ts-ignore
-      const [response] = await Promise.all([
+      await Promise.all([
         console.log('solved captcha, waiting for page change'),
         context.waitForNavigation(),
         await new Promise(resolve => setTimeout(resolve, 3000)),
@@ -78,8 +78,7 @@ module.exports = {
         return true;
       }
       if (lastResponseData.status === 503) {
-        // @ts-ignore
-        const [response] = await Promise.all([
+        await Promise.all([
           console.log('Waiting for page to reload on homepage'),
           context.waitForNavigation(),
           console.log('Clicking 503 image'),
@@ -93,7 +92,6 @@ module.exports = {
           const randomLinkEls = document.evaluate('//a[@href]', document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
-            // @ts-ignore
             randomLinkEl.click();
             return 'true';
           } else {

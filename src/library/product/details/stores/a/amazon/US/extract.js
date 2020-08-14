@@ -13,31 +13,10 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails, Helpers: { Helpers } } = dependencies;
+  const { productDetails, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
 
   const helpers = new Helpers(context);
-
-  async function setLocale () {
-    // openNewLocaleModalBtn
-    await helpers.checkAndClick('#nav-global-location-slot a', 'css', 20000);
-    // changeLocaleBtn
-    await helpers.checkAndClick('a[id*="ChangePostalCodeLink"]', 'css', 20000);
-
-    await new Promise(r => setTimeout(r, 2000));
-
-    // localeInputCheck
-    await helpers.checkAndClick('input[data-action*=PostalInputAction]', 'css', 20000, '10001');
-
-    await new Promise(r => setTimeout(r, 2000));
-
-    // setNewLocalBtnCheck
-    await helpers.checkAndClick('[data-action*="GLUXPostalUpdateAction"] input', 'css', 20000);
-
-    // setNewLocalDoneCheck
-    await helpers.checkAndClick('button[name=glowDoneButton]', 'css', 20000);
-
-    await new Promise(r => setTimeout(r, 2000));
-  }
+  const amazonHelp = new AmazonHelp(context, helpers);
 
   async function getLbb () {
     const elem = await helpers.checkXpathSelector("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']");
@@ -79,7 +58,7 @@ async function implementation (
     }
   }
 
-  await setLocale();
+  await amazonHelp.setLocale('10001');
 
   await getLbb();
   await helpers.addURLtoDocument('added-url');
@@ -99,6 +78,7 @@ module.exports = {
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
     Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };

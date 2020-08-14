@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'amazon.de',
-    timeout: 900000,
+    timeout: 30000,
     country: 'DE',
     store: 'amazonApparel',
     zipcode: '10117',
@@ -374,8 +374,10 @@ module.exports = {
     console.log('backconnect', backconnect);
     const benchmark = !!memory.benchmark;
     console.log('benchmark', benchmark);
+    const start = Date.now();
     const MAX_CAPTCHAS = 3;
     let captchas = 0;
+    let hasCaptcha = false;
     let lastResponseData;
     const isCaptcha = async () => {
       return await context.evaluate(async function () {
@@ -422,18 +424,19 @@ module.exports = {
       }
       return 'true';
     };
-    const analyzePage = async () => {
-      let status = 200;
-      if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
-        status = 503;
-      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]') ) {
-        status = 404;
-      }
-      return { status };
-    };
-    const handlePage = async (lastResponseData) => {
+    const run = async () => {
+      // do we perhaps want to go to the homepage for amazon first?
+      lastResponseData = await context.goto(url, {
+        timeout: 10000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+      await new Promise(resolve => setTimeout(resolve, 1000));
       if (lastResponseData.status === 404 || lastResponseData.status === 410) {
-        return true;
+        return;
       }
       if (lastResponseData.status === 503) {
         const [response] = await Promise.all([
@@ -478,60 +481,6 @@ module.exports = {
           return { status: false };
         }
         return lastResponseData;
-      }
-    };
-    const run = async () => {
-      // do we perhaps want to go to the homepage for amazon first?
-      lastResponseData = await context.goto(url, {
-        timeout: 10000,
-        waitUntil: 'load',
-        checkBlocked: false,
-        js_enabled: true,
-        css_enabled: false,
-        random_move_mouse: true,
-      });
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      if ([200, 503, 410, 404].indexOf(lastResponseData.status) === -1) {
-        console.log('Blocked: ' + lastResponseData.status);
-        if (benchmark) {
-          return;
-        }
-        if (backconnect) {
-          throw Error('Bad response code: ' + lastResponseData.code);
-        }
-        return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
-      }
-      if (await solveCaptchaIfNecessary() === 'false') {
-        return;
-      }
-      let pageStatus = await context.evaluate(analyzePage);
-      pageStatus = await handlePage(pageStatus);
-      if (pageStatus && pageStatus.status && pageStatus.status !== 200) {
-        pageStatus = await handlePage(pageStatus);
-      }
-      // Return for false status.
-      if (pageStatus && !pageStatus.status) {
-        return;
-      }
-      // Check if page still blocked after sencond try.
-      if (pageStatus && pageStatus.status === 503) {
-        return context.reportBlocked('Blocked: 503 error.');
-      }
-      const wrongLocale = await context.evaluate(async function () {
-        const locationWarningPopupEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and not(//*[contains(text(), 'Amazon Fresh')])]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if (locationWarningPopupEl.snapshotLength > 0) {
-          return 'true';
-        } else {
-          return 'false';
-        }
-      });
-      if (await wrongLocale === 'true' && !benchmark) {
-        console.log('wrongLocale', !benchmark, wrongLocale);
-        console.log('Incorrect locale detected');
-        if (backconnect) {
-          throw new Error('Incorrect locale detected');
-        }
-        throw new Error('Incorrect locale detected');
       }
     };
     await run();

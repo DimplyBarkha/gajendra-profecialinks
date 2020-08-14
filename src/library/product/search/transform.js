@@ -17,11 +17,6 @@ module.exports.transform = (data, context) => {
   // const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (row.price) {
-        row.price.forEach(priceItem => {
-          priceItem.text = priceItem.text.replace(/\./g, '').replace(/,/g, '.');
-        });
-      }
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(item => {
           item.text = item.text.replace(',', '.');

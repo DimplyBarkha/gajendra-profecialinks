@@ -1,0 +1,335 @@
+input:
+  id: B078NCN36H
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=463b8a72-5e9b-4ea0-9465-0e076a07d7a5/task=48f2263c-e8d1-4ccc-9a45-4ec742bbbf29/e1d22201-f8fe-4b31-bc92-02887bde8ae4.html
+    extractionConfigId: product/details/stores/a/amazonRuna/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/51AAG0cNHKL.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51K9GpnYcVL.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51wBvM6o4FL.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51bluQM5p%2BL.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51kqBaAmlLL.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51RXen8FaSL.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Organic Clean Energy Drink by RUNA, Mango Tango | Refreshing Tea Taste |
+                  10 Calories | Powerful Natural Caffeine | Healthy Energy &
+                  Focus | No Crash or Jitters | 12 Oz (Pack of 12),Runa LLC
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Grocery & Gourmet Food
+                xpath: /html/body/div[2]/div[2]/div[6]/div[1]/ul[1]/li[1]
+              - text: Beverages
+                xpath: /html/body/div[2]/div[2]/div[6]/div[1]/ul[1]/li[3]
+              - text: Bottled Beverages, Water & Drink Mixes
+                xpath: /html/body/div[2]/div[2]/div[6]/div[1]/ul[1]/li[5]
+              - text: Energy Drinks
+                xpath: /html/body/div[2]/div[2]/div[6]/div[1]/ul[1]/li[7]
+            price:
+              - text: $29.88
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+              - text: $29.88
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            availabilityText:
+              - text: Only 15 left in stock - order soon.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[18]/div[1]
+            description:
+              - text: "POWERFUL CLEAN ENERGY: Made with organic ingredients, powerful natural
+                  caffeine, and low calories, to help give you lasting Clean
+                  Energy without a crash."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[1]
+              - text: "REFRESHING TEA TASTE MADE WITH NATURAL FLAVORS: RUNA’s brewed guayusa has
+                  a light and delicious flavor reminiscent of chilled tea with
+                  an added hint of natural mango flavor, but is more powerful
+                  than the leading energy drink."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[2]
+              - text: "PACKED WITH NATURAL CAFFEINE: The 150mg of natural caffeine in RUNA comes
+                  from a single source, Guayusa. This Amazonian super leaf
+                  provides sustained energy and focus, without the crash or
+                  jitters. Guayusa is also naturally rich in plant based
+                  antioxidants."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[3]
+              - text: "ONLY 10 CALORIES: RUNA does not use any fake sweeteners. 2 grams of
+                  organic cane sugar is just enough for a light refreshing
+                  taste."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[4]
+              - text: "BETTER INGREDIENTS: We’re dedicated to bringing you clean energy in every
+                  way possible, from using real ingredients, to how we source
+                  and produce. That’s why our drinks are certified USDA Organic,
+                  Non-GMO, and Kosher. RUNA energy drinks are also gluten-free
+                  and vegan."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[5]
+              - text: High Germination Rate - Resalable Packaging. They are very delicious,
+                  Gluten Free. This Product Is Manufactured In United States.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[23]/div[2]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[1]/text()[1]
+            brandText:
+              - text: RUNA
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[2]/div[1]/a[1]
+            weightGross:
+              - text: 10.2 pounds
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[2]/text()[1]
+            shippingInfo:
+              - text: Sold by Runa LLC and Fulfilled by Amazon.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[23]
+            manufacturerDescription:
+              - text: "What's Inside Made with organic ingredients, powerful natural caffeine,
+                  and low calories, to help give you lasting Clean Energy
+                  without a crash. RUNA's brewed guayusa has a light, delicious
+                  flavor reminiscent of chilled tea with an added hint of
+                  natural fruit flavor. Unlike other sugary-tasting energy
+                  drinks made with synthetic ingredients, RUNA adds just 2g of
+                  organic cane sugar to enhance flavor. RUNA's 150mg of natural
+                  caffeine comes from a single source: Guayusa. This Amazonian
+                  super leaf provides sustained energy and focus, without a
+                  crash or jitters. We're dedicated to bringing you Clean Energy
+                  in every possible way. That's why we're proud to say our
+                  drinks are certified USDA Organic, Non-GMO, and Kosher. RUNA's
+                  commitment to ethical and environmental standards goes above
+                  and beyond our certifications, but it's all part of what makes
+                  us Fair Trade Certified."
+            manufacturerImages:
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/bb660eac-6b88-4b71-a731-8de8c50f2b17.__CR0,0,970,600_PT0_SX970_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/adac91d3-4b80-455f-a939-1bdcde7578ae.__CR0,0,970,300_PT0_SX970_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/93f92c20-5e9c-4e7c-a1de-e4e328aea56b.__CR0,0,300,300_PT0_SX300_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/5950c8fc-a3a9-4235-b9ab-354aef1b37b9.__CR0,0,300,300_PT0_SX300_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/69562626-12ba-4949-93f8-1472070f2171.__CR0,0,300,300_PT0_SX300_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/c7030308-10c9-4b85-b06a-66e65408f1da.__CR0,0,300,300_PT0_SX300_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/cc9a0966-52bd-4404-a8c9-8260a932ca85.__CR0,0,300,300_PT0_SX300_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/a1f15856-ce10-4025-84ae-357ef81e0d89.__CR0,0,300,300_PT0_SX300_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/div[1]/p[1]/img[1]/@data-src
+            brandLink:
+              - text: https://www.amazon.com/stores/RUNA/page/12C505EC-A1EB-4E06-B015-B14B184A6661?ref_=ast_bln
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[2]/div[1]/a[1]/@href
+            internationalShipping:
+              - text: This item can be shipped to select countries outside of the U.S.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[4]/text()[1]
+            salesRank:
+              - text: 5,483
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[7]/text()[2]
+              - text: "103"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[7]/ul[1]/li[1]/span[1]
+            salesRankCategory:
+              - text: "Grocery & Gourmet Food "
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[7]/text()[2]
+              - text: Energy Drinks
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[7]/ul[1]/li[1]/span[2]/a[1]
+            subscriptionPrice:
+              - text: $28.39
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+              - text: ($0.20
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+              - text: /
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+              - text: Fl
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+              - text: Oz)
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+            subscribeAndSave:
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]/h5[1]/div[1]/div[2]/span[1]/span[1]
+            variantAsins:
+              - text: B078NCN36H
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/ul[1]/li[1]/@data-defaultasin
+              - text: B089MVRC9X
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/ul[1]/li[2]/@data-defaultasin
+            featureBullets:
+              - text: "POWERFUL CLEAN ENERGY: Made with organic ingredients, powerful natural
+                  caffeine, and low calories, to help give you lasting Clean
+                  Energy without a crash."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[1]
+              - text: "REFRESHING TEA TASTE MADE WITH NATURAL FLAVORS: RUNA’s brewed guayusa has
+                  a light and delicious flavor reminiscent of chilled tea with
+                  an added hint of natural mango flavor, but is more powerful
+                  than the leading energy drink."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[2]
+              - text: "PACKED WITH NATURAL CAFFEINE: The 150mg of natural caffeine in RUNA comes
+                  from a single source, Guayusa. This Amazonian super leaf
+                  provides sustained energy and focus, without the crash or
+                  jitters. Guayusa is also naturally rich in plant based
+                  antioxidants."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[3]
+              - text: "ONLY 10 CALORIES: RUNA does not use any fake sweeteners. 2 grams of
+                  organic cane sugar is just enough for a light refreshing
+                  taste."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[4]
+              - text: "BETTER INGREDIENTS: We’re dedicated to bringing you clean energy in every
+                  way possible, from using real ingredients, to how we source
+                  and produce. That’s why our drinks are certified USDA Organic,
+                  Non-GMO, and Kosher. RUNA energy drinks are also gluten-free
+                  and vegan."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[5]
+            otherSellersName:
+              - text: Runa LLC
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[23]/div[1]/a[1]
+            Image360Present:
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/script[1]
+            imageZoomFeaturePresent:
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            largeImageCount:
+              - text: >-
+                  P.when('A').register("ImageBlockATF", function(A){
+
+                  var data = {
+
+                  'colorImages': { 'initial': [{"hiRes":"https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SL1500_.jpg","thumb":"https://images-na.ssl-images-amazon.com/images/I/51pJ74LsNML._SX38_SY50_CR,0,0,38,50_.jpg","large":"https://images-na.ssl-images-amazon.com/images/I/51pJ74LsNML.jpg","main":{"https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SX342_PIbundle-12,TopRight,0,0_AA342SH20_.jpg":[342,342],"https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SX385_PIbundle-12,TopRight,0,0_AA385SH20_.jpg":[385,385],"https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SX425_PIbundle-12,TopRight,0,0_AA425SH20_.jpg":[425,425],"https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SX466_PIbundle-12,TopRight,0,0_AA466SH20_.jpg":[466,466],"https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SX522_PIbundle-12,TopRight,0,0_AA522SH20_.jpg":[522,522],"https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SX569_PIbundle-12,TopRight,0,0_AA569SH20_.jpg":[569,569],"https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SX679_PIbundle-12,TopRight,0,0_AA679SH20_.jpg":[679,679]},"variant":"MAIN","lowRes":null},{"hiRes":"https://images-na.ssl-images-amazon.com/images/I/815ABjfXCvL._SL1500_.jpg","thumb":"https://images-na.ssl-images-amazon.com/images/I/51AAG0cNHKL._SX38_SY50_CR,0,0,38,50_.jpg","large":"https://images-na.ssl-images-amazon.com/images/I/51AAG0cNHKL.jpg","main":{"https://images-na.ssl-images-amazon.com/images/I/815ABjfXCvL._SX342_.jpg":[342,342],"https://images-na.ssl-images-amazon.com/images/I/815ABjfXCvL._SX385_.jpg":[385,385],"https://images-na.ssl-images-amazon.com/images/I/815ABjfXCvL._SX425_.jpg":[425,425],"https://images-na.ssl-images-amazon.com/images/I/815ABjfXCvL._SX466_.jpg":[466,466],"https://images-na.ssl-images-amazon.com/images/I/815ABjfXCvL._SX522_.jpg":[522,522],"https://images-na.ssl-images-amazon.com/images/I/815ABjfXCvL._SX569_.jpg":[569,569],"https://images-na.ssl-images-amazon.com/images/I/815ABjfXCvL._SX679_.jpg":[679,679]},"variant":"PT01","lowRes":null},{"hiRes":"https://images-na.ssl-images-amazon.com/images/I/81x56yshGDL._SL1500_.jpg","thumb":"https://images-na.ssl-images-amazon.com/images/I/51K9GpnYcVL._SX38_SY50_CR,0,0,38,50_.jpg","large":"https://images-na.ssl-images-amazon.com/images/I/51K9GpnYcVL.jpg","main":{"https://images-na.ssl-images-amazon.com/images/I/81x56yshGDL._SX342_.jpg":[342,342],"https://images-na.ssl-images-amazon.com/images/I/81x56yshGDL._SX385_.jpg":[385,385],"https://images-na.ssl-images-amazon.com/images/I/81x56yshGDL._SX425_.jpg":[425,425],"https://images-na.ssl-images-amazon.com/images/I/81x56yshGDL._SX466_.jpg":[466,466],"https://images-na.ssl-images-amazon.com/images/I/81x56yshGDL._SX522_.jpg":[522,522],"https://images-na.ssl-images-amazon.com/images/I/81x56yshGDL._SX569_.jpg":[569,569],"https://images-na.ssl-images-amazon.com/images/I/81x56yshGDL._SX679_.jpg":[679,679]},"variant":"PT02","lowRes":null},{"hiRes":"https://images-na.ssl-images-amazon.com/images/I/81bai1sFRcL._SL1500_.jpg","thumb":"https://images-na.ssl-images-amazon.com/images/I/51wBvM6o4FL._SX38_SY50_CR,0,0,38,50_.jpg","large":"https://images-na.ssl-images-amazon.com/images/I/51wBvM6o4FL.jpg","main":{"https://images-na.ssl-images-amazon.com/images/I/81bai1sFRcL._SX342_.jpg":[342,342],"https://images-na.ssl-images-amazon.com/images/I/81bai1sFRcL._SX385_.jpg":[385,385],"https://images-na.ssl-images-amazon.com/images/I/81bai1sFRcL._SX425_.jpg":[425,425],"https://images-na.ssl-images-amazon.com/images/I/81bai1sFRcL._SX466_.jpg":[466,466],"https://images-na.ssl-images-amazon.com/images/I/81bai1sFRcL._SX522_.jpg":[522,522],"https://images-na.ssl-images-amazon.com/images/I/81bai1sFRcL._SX569_.jpg":[569,569],"https://images-na.ssl-images-amazon.com/images/I/81bai1sFRcL._SX679_.jpg":[679,679]},"variant":"PT03","lowRes":null},{"hiRes":"https://images-na.ssl-images-amazon.com/images/I/81W9xm-m32L._SL1500_.jpg","thumb":"https://images-na.ssl-images-amazon.com/images/I/51bluQM5p%2BL._SX38_SY50_CR,0,0,38,50_.jpg","large":"https://images-na.ssl-images-amazon.com/images/I/51bluQM5p%2BL.jpg","main":{"https://images-na.ssl-images-amazon.com/images/I/81W9xm-m32L._SX342_.jpg":[342,342],"https://images-na.ssl-images-amazon.com/images/I/81W9xm-m32L._SX385_.jpg":[385,385],"https://images-na.ssl-images-amazon.com/images/I/81W9xm-m32L._SX425_.jpg":[425,425],"https://images-na.ssl-images-amazon.com/images/I/81W9xm-m32L._SX466_.jpg":[466,466],"https://images-na.ssl-images-amazon.com/images/I/81W9xm-m32L._SX522_.jpg":[522,522],"https://images-na.ssl-images-amazon.com/images/I/81W9xm-m32L._SX569_.jpg":[569,569],"https://images-na.ssl-images-amazon.com/images/I/81W9xm-m32L._SX679_.jpg":[679,679]},"variant":"PT04","lowRes":null},{"hiRes":"https://images-na.ssl-images-amazon.com/images/I/717vZ56gq0L._SL1500_.jpg","thumb":"https://images-na.ssl-images-amazon.com/images/I/51kqBaAmlLL._SX38_SY50_CR,0,0,38,50_.jpg","large":"https://images-na.ssl-images-amazon.com/images/I/51kqBaAmlLL.jpg","main":{"https://images-na.ssl-images-amazon.com/images/I/717vZ56gq0L._SX342_.jpg":[342,342],"https://images-na.ssl-images-amazon.com/images/I/717vZ56gq0L._SX385_.jpg":[385,385],"https://images-na.ssl-images-amazon.com/images/I/717vZ56gq0L._SX425_.jpg":[425,425],"https://images-na.ssl-images-amazon.com/images/I/717vZ56gq0L._SX466_.jpg":[466,466],"https://images-na.ssl-images-amazon.com/images/I/717vZ56gq0L._SX522_.jpg":[522,522],"https://images-na.ssl-images-amazon.com/images/I/717vZ56gq0L._SX569_.jpg":[569,569],"https://images-na.ssl-images-amazon.com/images/I/717vZ56gq0L._SX679_.jpg":[679,679]},"variant":"PT05","lowRes":null},{"hiRes":"https://images-na.ssl-images-amazon.com/images/I/91l5iVzAhGL._SL1500_.jpg","thumb":"https://images-na.ssl-images-amazon.com/images/I/51RXen8FaSL._SX38_SY50_CR,0,0,38,50_.jpg","large":"https://images-na.ssl-images-amazon.com/images/I/51RXen8FaSL.jpg","main":{"https://images-na.ssl-images-amazon.com/images/I/91l5iVzAhGL._SX342_.jpg":[342,342],"https://images-na.ssl-images-amazon.com/images/I/91l5iVzAhGL._SX385_.jpg":[385,385],"https://images-na.ssl-images-amazon.com/images/I/91l5iVzAhGL._SX425_.jpg":[425,425],"https://images-na.ssl-images-amazon.com/images/I/91l5iVzAhGL._SX466_.jpg":[466,466],"https://images-na.ssl-images-amazon.com/images/I/91l5iVzAhGL._SX522_.jpg":[522,522],"https://images-na.ssl-images-amazon.com/images/I/91l5iVzAhGL._SX569_.jpg":[569,569],"https://images-na.ssl-images-amazon.com/images/I/91l5iVzAhGL._SX679_.jpg":[679,679]},"variant":"PT06","lowRes":null}]},
+
+                  'colorToAsin': {'initial': {}},
+
+                  'holderRatio': 0.77,
+
+                  'holderMaxHeight': 700,
+
+                  'heroImage': {'initial': []},
+
+                  'heroVideo': {'initial': []},
+
+                  'spin360ColorData': {'initial': {}},
+
+                  'spin360ColorEnabled': {'initial': 0},
+
+                  'spin360ConfigEnabled': false,
+
+                  'spin360LazyLoadEnabled': false,
+
+                  'showroomEnabled': false,
+
+                  'showroomViewModel': {'initial': {}},
+
+                  'playVideoInImmersiveView':true,
+
+                  'useTabbedImmersiveView':true,
+
+                  'totalVideoCount':'0',
+
+                  'videoIngressATFSlateThumbURL':'',
+
+                  'mediaTypeCount':'0',
+
+                  'atfEnhancedHoverOverlay' : false,
+
+                  'winningAsin': 'B078NCN36H',
+
+                  'weblabs' : {},
+
+                  'aibExp3Layout' : 0,
+
+                  'aibRuleName' : 'frank-powered',
+
+                  'acEnabled' : false,
+
+                  'dp60VideoPosition': 0,
+
+                  'dp60VariantList': '',
+
+                  'dp60VideoThumb': '',
+
+                  'dp60MainImage': 'https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SX342_PIbundle-12,TopRight,0,0_AA342SH20_.jpg',
+
+                  'airyConfig' :A.$.parseJSON('{"jsUrl":"https://images-na.ssl-images-amazon.com/images/G/01/vap/video/airy2/prod/2.0.1460.0/js/airy.skin._CB485981857_.js","cssUrl":"https://images-na.ssl-images-amazon.com/images/G/01/vap/video/airy2/prod/2.0.1460.0/css/beacon._CB485971591_.css","swfUrl":"https://images-na.ssl-images-amazon.com/images/G/01/vap/video/airy2/prod/2.0.1460.0/flash/AiryBasicRenderer._CB485925577_.swf","foresterMetadataParams":{"marketplaceId":"ATVPDKIKX0DER","method":"Grocery.ImageBlock","requestId":"4JK7KTR1MW5K0TG3VNP7","session":"147-9047620-9816237","client":"Dpx"}}')
+
+                  };
+
+                  A.trigger('P.AboveTheFold'); // trigger ATF event.
+
+                  return data;
+
+                  });
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/script[1]/text()[1]
+            name:
+              - text: Organic Clean Energy Drink by RUNA, Mango Tango | Refreshing Tea Taste |
+                  10 Calories | Powerful Natural Caffeine | Healthy Energy &
+                  Focus | No Crash or Jitters | 12 Oz (Pack of 12)
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[1]/div[1]/h1[1]/span[1]
+            nameExtended:
+              - text: Organic Clean Energy Drink by RUNA, Mango Tango | Refreshing Tea Taste |
+                  10 Calories | Powerful Natural Caffeine | Healthy Energy &
+                  Focus | No Crash or Jitters | 12 Oz (Pack of 12)
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[1]/div[1]/h1[1]
+            weightNet:
+              - text: 12 ounces
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[1]/text()[1]
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/81cOjBmUZ1L._SX679_PIbundle-12,TopRight,0,0_AA679SH20_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Organic Clean Energy Drink by RUNA, Mango Tango | Refreshing Tea Taste |
+                  10 Calories | Powerful Natural Caffeine | Healthy Energy &amp;
+                  Focus | No Crash or Jitters | 12 Oz (Pack of 12)
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "5"
+            packSize:
+              - text: "12"
+                xpath: /html/head[1]/title[1]
+            legalDisclaimer:
+              - text: Statements regarding dietary supplements have not been evaluated by the
+                  FDA and are not intended to diagnose, treat, cure, or prevent
+                  any disease or health condition.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[26]/div[1]/div[3]/p[2]/text()[1]
+            ratingCount:
+              - text: "48"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[3]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "3.6"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[3]/div[1]/span[1]/span[1]/@title
+            shippingWeight:
+              - text: "10.2 pounds "
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[2]/text()[1]
+            variantCount:
+              - text: "2"
+            coupon:
+              - text: Save an extra 10% on your first Subscribe & Save order.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/div[1]/div[1]/div[1]/label[1]/span[1]/span[1]
+            pasin:
+              - text: B08BXNMQSD
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/ul[1]/li[2]/@data-dp-url
+            secondaryImageTotal:
+              - text: "6"
+            ingredientsList:
+              - text: Mango
+                xpath: /html/body/div[2]/div[2]/div[7]/div[26]/div[1]/div[2]/p[2]
+            additionalDescBulletInfo:
+              - text: "5"
+            firstVariant:
+              - text: B08BXNMQSD
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/ul[1]/li[2]/@data-dp-url
+            variantInformation:
+              - text: Mango Tango
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/div[1]/span[1]
+            amazonChoice:
+              - text: No
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+            primeFlag:
+              - text: NO
+            lbb:
+              - text: NO
+        xpath: /html
+    timestamp: 1593422371388

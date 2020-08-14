@@ -27,8 +27,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'amazon.com',
-    store: 'Amazonprimepantry',
+    store: 'amazonMobile',
     zipcode: '',
   },
-  implementation,
 };
