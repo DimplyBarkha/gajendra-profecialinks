@@ -64,15 +64,15 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmart',
-    // nextLinkSelector: null,
-    nextLinkSelector: 'button.elc-icon.paginator-hairline-btn.paginator-btn.paginator-btn-next',
+    nextLinkSelector: null,
+    //nextLinkSelector: 'button.elc-icon.paginator-hairline-btn.paginator-btn.paginator-btn-next',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[data-type="items"]',
     noResultsXPath: '//span[@data-automation-id="zero-results-message"]',
-    // openSearchDefinition: {
-    //   template: 'https://www.walmart.com/search/search-ng.do?grid=true&page={page}&ps=48&search_query={searchTerms}',
-    // },
+    openSearchDefinition: {
+      template: 'https://www.walmart.com/search/search-ng.do?grid=true&page={page}&ps=40&search_query={searchTerms}',
+    },
     domain: 'walmart.com',
   },
   implementation,
