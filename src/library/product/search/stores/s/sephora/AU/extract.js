@@ -143,32 +143,20 @@ async function implementation (
     // }
 
 
-    let scrollTop = 0;
-    while (scrollTop !== 20000) {
-      // await stall(2500);
-      // await new Promise(resolve => setTimeout(resolve, 5000));
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      await new Promise(resolve => setTimeout(resolve, 2000));
+    // let scrollTop = 0;
+    // while (scrollTop !== 20000) {
+    //   // await stall(2500);
+    //   // await new Promise(resolve => setTimeout(resolve, 5000));
+    //   scrollTop += 1000;
+    //   window.scroll(0, scrollTop);
+    //   await new Promise(resolve => setTimeout(resolve, 2000));
 
-      console.log("SCROLLING")
-      if (scrollTop === 20000) {
-        break;
-      }
-    }
-    // let regPrice = '//span[contains(@data-at, "sku_item_price_list")]';
-    // let salePrice = '//span[contains(@data-at, "sku_item_price_sale")]'
-    // var sale = document.evaluate( salePrice, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    // var price = document.evaluate( regPrice, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    // if( sale.snapshotLength > 0 ) {
-    //   for(let i = 0; i < sale.snapshotLength; i++) {
-    //     addHiddenDiv(`ii_price`, `${sale.snapshotItem(i).textContent}`, null, null, false, true);
-    //   }
-    // } else if(price.snapshotLength > 0 ){
-    //   for(let i = 0; i < price.snapshotLength; i++) {
-    //     addHiddenDiv(`ii_price`, `${price.snapshotItem(i).textContent}`, null, null, false, true);
+    //   console.log("SCROLLING")
+    //   if (scrollTop === 20000) {
+    //     break;
     //   }
     // }
+
     });
     
       await new Promise(resolve => setTimeout(resolve, 5000));
