@@ -22,13 +22,19 @@ const transform = (data, context) => {
     for (const row of group) {
       try {
         if (row.description) {
-          let desc = '';
-          row.description.forEach(item => {
-            desc += `${item.text} || `;
-          });
+        //   let desc = '';
+        //   row.description.forEach(item => {
+        //     desc += `${item.text} || `;
+        //   });
+        //   row.description = [
+        //     {
+        //       text: desc.replace(/\s\n/g, ' || ').replace(/\n/g, ' ').replace(/([\|\s]{5,}\s*)/g, ' || ').slice(0, -4).trim(),
+        //     },
+        //   ];
+
           row.description = [
             {
-              text: desc.replace(/\s\n/g, ' || ').replace(/\n/g, ' ').replace(/([\|\s]{5,}\s*)/g, ' || ').slice(0, -4).trim(),
+              text: row.description[0].text.trim(),
             },
           ];
         }

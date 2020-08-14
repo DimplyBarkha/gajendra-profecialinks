@@ -126,10 +126,19 @@ module.exports = {
           const available = (data.store && data.store.isInStock) ? data.store.isInStock : availableSelector();
           const pricePerUnit = (data.store && data.store.price && data.store.price.unit) ? data.store.price.unit : '';
           const pricePerUnitUOM = (data.store && data.store.price && data.store.price.displayUnitPrice) ? data.store.price.displayUnitPrice.split('/')[data.store.price.displayUnitPrice.split('/').length - 1] : '';
+          const shortDescription = document.querySelector('div[data-automation-id="productAttributeShortDescription"]') ? document.querySelector('div[data-automation-id="productAttributeShortDescription"]').textContent : '';
+          const productAttributeDescription = document.querySelector('div[data-automation-id="details"] > div[class^="ProductAttribute__value"][data-automation-id="productAttributeValue"]');
+          const productAttributeDescriptionText = productAttributeDescription ? productAttributeDescription.innerHTML.replace(/<(li)[^>]+>/ig, '<$1>').replace(/<li>/g, ' || ').replace(/<[^>]*>/gm, '') : '';
+          // productAttributeDescriptionText = productAttributeDescriptionText.startsWith(' || ') ? productAttributeDescriptionText.slice(3) : productAttributeDescriptionText;
+          const productDescription = shortDescription + ' ' + productAttributeDescriptionText;
+
+          console.log(productDescription);
 
           addHiddenDiv('iio_image', image);
 
           addHiddenDiv('iio_variants', varianceList.join(' | '));
+
+          addHiddenDiv('iio_productDescription', productDescription);
           // nutritionFacts
           if (data.nutritionFacts) {
             if (data.nutritionFacts.keyNutrients) {
