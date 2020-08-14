@@ -107,7 +107,7 @@ fields:
   - name: saltPerServingUom
     singleValue: false
     xpath: //td[contains(text(),"Salt")]/following-sibling::td[not(contains(.,'%*'))]|(//td[contains(text(),"Salt")]/following-sibling::td[1])[1]
-    regExp: '[^\d]+$'
+    regExp: g
   - name: totalFatPerServing
     singleValue: true
     xpath: //td[contains(text(),"Fat")]/following-sibling::td[not(contains(.,'%*'))]|//td[contains(text(),"Fat")]/following-sibling::td[1]
@@ -115,7 +115,7 @@ fields:
   - name: totalFatPerServingUom
     singleValue: false
     xpath: //td[contains(text(),"Fat")]/following-sibling::td[not(contains(.,'%*'))]|//td[contains(text(),"Fat")]/following-sibling::td[1]
-    regExp: '[^\d]+$'
+    regExp: g
   - name: saturatedFatPerServing
     singleValue: true
     xpath: //td[contains(text(),"of which Saturates")]/following-sibling::td[not(contains(.,'%*'))]|//td[normalize-space(text())="Saturates"]/following-sibling::td[1] | //td[normalize-space(text())="of which saturates"]/following-sibling::td[1]|//td[normalize-space(text())="of which Saturates"]/following-sibling::td[1]|//td[contains(text(),"Saturates")]/following-sibling::td[1]|//td[contains(text(),"saturates")]/following-sibling::td[1]|//td[contains(text(),"Saturated")]/following-sibling::td[1]
@@ -123,54 +123,58 @@ fields:
   - name: saturatedFatPerServingUom
     singleValue: false
     xpath: //td[contains(text(),"of which Saturates")]/following-sibling::td[not(contains(.,'%*'))]|//td[normalize-space(text())="Saturates"]/following-sibling::td[1] | //td[normalize-space(text())="of which saturates"]/following-sibling::td[1]|//td[normalize-space(text())="of which Saturates"]/following-sibling::td[1]|//td[contains(text(),"Saturates")]/following-sibling::td[1]|//td[contains(text(),"saturates")]/following-sibling::td[1]|//td[contains(text(),"Saturated")]/following-sibling::td[1]
-    regExp: '[^\d]+$'
+    regExp: g
   - name: totalCarbPerServing
     singleValue: true
     xpath: //td[normalize-space(text())="Carbohydrates"]/following-sibling::td[1]|//td[normalize-space(text())="Carbohydrate"]/following-sibling::td[1]|//td[contains(text(),"Carbohydrate")]/following-sibling::td[1]
-    regExp: (\d+(\.\d+)?)
+    regExp: ([^g]+)
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: //td[normalize-space(text())="Carbohydrates"]/following-sibling::td[1]|//td[normalize-space(text())="Carbohydrate"]/following-sibling::td[1]|//td[contains(text(),"Carbohydrate")]/following-sibling::td[1]
-    regExp: '[^\d]+$'
+    regExp: g
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //td[contains(text(),"of which Sugars")]/following-sibling::td[not(contains(.,'%*'))]|//td[normalize-space(text())="Sugars"]/following-sibling::td[1] | //td[normalize-space(text())="of which sugars"]/following-sibling::td[1]|//td[normalize-space(text())="of which Sugars"]/following-sibling::td[1]|//td[contains(text(),"sugars")]/following-sibling::td[1]|//td[contains(text(),"Of which Sugars")]/following-sibling::td[1]
-    regExp: (\d+(\.\d+)?)
+    regExp: ([^g]+)|Trace
   - name: totalSugarsPerServingUom
     singleValue: false
     xpath: //td[contains(text(),"of which Sugars")]/following-sibling::td[not(contains(.,'%*'))]|//td[normalize-space(text())="Sugars"]/following-sibling::td[1] | //td[normalize-space(text())="of which sugars"]/following-sibling::td[1]|//td[normalize-space(text())="of which Sugars"]/following-sibling::td[1]|//td[contains(text(),"sugars")]/following-sibling::td[1]|//td[contains(text(),"Of which Sugars")]/following-sibling::td[1]
-    regExp: '[^\d]+$'
+    regExp: g
   - name: proteinPerServing
     singleValue: true
     xpath: //td[normalize-space(text())="Protein"]/following-sibling::td[1] | //td[normalize-space(text())="Protein g"]/following-sibling::td[1]|//td[contains(text(),"Protein")]/following-sibling::td[1]
-    regExp: (\d+(\.\d)?)
+    regExp: ([^g]+)
   - name: proteinPerServingUom
     singleValue: false
     xpath: //td[normalize-space(text())="Protein"]/following-sibling::td[1] | //td[normalize-space(text())="Protein g"]/following-sibling::td[1]|//td[contains(text(),"Protein")]/following-sibling::td[1]
-    regExp: '[^\d]+$'
+    regExp: g
   - name: calciumPerServing
     singleValue: true
     xpath: //td[normalize-space(text())="Calcium"]/following-sibling::td[1] |//td[contains(text(),"Calcium")]/following-sibling::td[1]
     regExp: (\d+(\.\d+)?)
   - name: calciumPerServingUom
-    singleValue: false
+    singleValue: true
     xpath: //td[normalize-space(text())="Calcium"]/following-sibling::td[1] | //td[contains(text(),"Calcium")]/following-sibling::td[1]
-    regExp: '[^\d]+$'
+    regExp: mg
   - name: dietaryFibrePerServing
-    singleValue: false
+    singleValue: true
     xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1] |//td[contains(text(),"Fibre")]/following-sibling::td[1]
-    regExp: (\d+(\.\d+)?)
+    regExp: ([^g]+)
   - name: dietaryFibrePerServingUom
-    singleValue: false
-    xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1]|//td[contains(text(),"Fibre")]/following-sibling::td[1]
-    regExp: '[^\d]+$'
+    singleValue: true
+    xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1] |//td[contains(text(),"Fibre")]/following-sibling::td[1]
+    regExp: g
   - name: pricePerUnit2
-    singleValue: false
+    singleValue: true
     xpath: //div[@class="price-per-quantity-weight"]/span[1]
   - name: pricePerUnitUom
     regExp: '[^\/]+$'
     singleValue: true
     xpath: //div[@class="price-per-quantity-weight"]/span[2]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class="product-details-tile"]//span[@class="offer-text"]
+    regExp: (?<=Was\s)(.+)(?=\sNow)
   - name: quantity
     singleValue: false
     xpath: //div[contains(@id,"net-contents")]/p
@@ -185,15 +189,15 @@ fields:
     xpath: //div[@id="warnings"]//ul|//div[contains(@id,'lower-age-limit')]
   - name: caloriesPerServing
     singleValue: true
-    xpath: //td[contains(text(),"Energy")]/following-sibling::td[1]
-  - name: servingSize
-    singleValue: true
-    xpath: //table[@class="product__info-table"]//tr/th[2]
-    regExp: (\d+(\.\d+)?)
-  - name: servingSizeUom
-    singleValue: false
-    xpath: //table[@class="product__info-table"]//tr/th[2]
-    regExp: '[^\d]+$'
+    xpath: concat(//td[contains(text(),"Energy")]/following-sibling::td[1],"/", //td[contains(text(),"cal")]/following-sibling::td[1]|//td[contains(text(),"Energy")]/../following-sibling::tr[1]//td[2])
+  # - name: servingSize
+  #   singleValue: true
+  #   xpath: //table[@class="product__info-table"]//tr/th[2]
+  #   regExp: (\d+(\.\d+)?)
+  # - name: servingSizeUom
+  #   singleValue: false
+  #   xpath: //table[@class="product__info-table"]//tr/th[2]
+  #   regExp: '[^\d]+$'
   - name: productUrl
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
@@ -203,7 +207,7 @@ fields:
     xpath: //td[contains(text(),"Sodium")]/following-sibling::td[1]
     regExp: (\d+(\.\d+)?)
   - name: sodiumPerServingUom
-    singleValue: false
+    singleValue: true
     xpath: //td[contains(text(),"Sodium")]/following-sibling::td[1]
     regExp: '[^\d]+$'
   - name: ironPerServing
@@ -244,3 +248,6 @@ fields:
   - name: alcoholContent
     singleValue: false
     xpath: //div[@id="percentage-alcohol"]/p
+  - name: dietarySymbols
+    singleValue: true
+    xpath: //span[contains(.,'Suitable for vegetarians')]

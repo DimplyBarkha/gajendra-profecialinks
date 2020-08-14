@@ -34,7 +34,7 @@ module.exports = {
       document.body.setAttribute('ingredient_list', ingredientList);
     });
     await context.waitForSelector('div.product-image__container');
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise(resolve => setTimeout(resolve, 8000));
     await context.extract(productDetails);
   },
 };
