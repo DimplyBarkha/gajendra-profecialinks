@@ -20,9 +20,27 @@ export declare enum MergeType {
     APPEND = "APPEND",
     MERGE_ROWS = "MERGE_ROWS"
 }
+export interface ITransformContext {
+    /**
+     * Updates transform state. Merges keys with current state
+     */
+    setState(state: any): void;
+    /**
+     * Returns current transform state
+     */
+    getState(): any;
+    /**
+     * Returns all currently merged and transformed data
+     */
+    getData(): Group[];
+    /**
+     * Returns previous extraction point (untransformed and unmerged)
+     */
+    getPreviousExtraction(): IExtractionPoint;
+}
 export interface IMergeOptions {
     type?: MergeType;
-    transform?: (data: Group[]) => Group[];
+    transform?: ((data: Group[], transformContext: ITransformContext) => Group[]) | string;
 }
 export interface Group {
     rows?: number;
@@ -81,6 +99,15 @@ export interface IGoToOptions extends IWaitOptions {
     referer?: string;
     checkBlocked?: boolean;
     captureRequests?: boolean;
+    blockAds?: boolean;
+    antiFingerPrint?: boolean;
+    cookies?: ICookie[];
+    deleteCookies?: ICookieDef[];
+    firstRequestTimeout?: number;
+    downloadLimit?: number;
+    downloadRetries?: number;
+    downloadTimeout?: number;
+    headers?: Record<string, string>;
 }
 export declare type ScreenshotType = 'jpeg' | 'png' | 'pdf';
 export interface IContext {
@@ -89,6 +116,10 @@ export interface IContext {
      * This function is required to be called if you want to use searchForRequest function.
      */
     captureRequests(): Promise<void>;
+    /**
+     * Checks to see if current page is getting blocked. Uses internal block detection and can be called at anytime
+     */
+    checkBlocked(statusCode?: number): Promise<boolean>;
     /**
      * This method fetches an element with selector, scrolls it into view if needed, and then uses page.mouse to click in the center of the element. If there's no element matching selector, the method throws an error.
      *
@@ -120,7 +151,7 @@ export interface IContext {
      */
     waitForMutuation(selector: string, options: ITimeoutable): Promise<void>;
     /**
-     * Delete some cookies
+     * Sets cookies to be removed on calls to goto actions. Must be called before goto
      */
     /**
      * Change the timezone of the page
@@ -147,6 +178,10 @@ export interface IContext {
      */
     reportBlocked(code: number, details?: string): Promise<any>;
     /**
+     * Report that the site is reporting a different country from expected
+     */
+    reportWrongGeocoding(): Promise<any>;
+    /**
      * Hover over an element
      */
     /**
@@ -167,8 +202,7 @@ export interface IContext {
      */
     select(selector: string, ...values: string[]): Promise<void>;
     /**
-     *
-     * @param html
+     * Sets cookies to be set on calls to goto actions. Must be called before goto
      */
     /**
      * Must be set before calling goto
@@ -186,6 +220,10 @@ export interface IContext {
      * Must be set before calling goto
      */
     setJavaScriptEnabled(enabled: boolean): Promise<void>;
+    /**
+     * Must be set before calling goto
+     */
+    setCssEnabled(enabled: boolean): Promise<void>;
     /**
      * Must be set before calling goto.
      * Default false.
@@ -209,6 +247,26 @@ export interface IContext {
      * Must be set before calling goto.
      */
     setBlockAds(enabled: boolean): Promise<void>;
+    /**
+     * Timeout between start to 'did-navigate'. Defaults to 20 seconds, but can be extended. This method must be called before goto
+     */
+    setFirstRequestTimeout(firstRequestTimeout: number): Promise<void>;
+    /**
+     * Mocks browser APIs commonly used to fingerprint a user. Defaults to true. Must be called before goto.
+     */
+    setAntiFingerprint(antiFingerPrint: boolean): Promise<void>;
+    /**
+     * Sets size limit for file downloads, default is 150e6 or 150Mb
+     */
+    setDownloadLimit(downloadLimit: number): Promise<void>;
+    /**
+     * Sets timeout for file downloads, default is 240e3 or 4 minutes
+     */
+    setDownloadTimeout(downloadTimeout: number): Promise<void>;
+    /**
+     * Sets retry attempts for file downloads, default is 3
+     */
+    setDownloadRetries(downloadRetries: number): Promise<void>;
     /**
      * Set the value of an `input` element
      */
