@@ -1,0 +1,192 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@id='productimg-box']/img/@src
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='thumbimg-container'][position()>1]//img/@src
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@itemprop='itemReviewed']/@content
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //div[@id='breadcrumb-container']/a[position()>1]
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: true
+    xpath: //*[@itemprop='name']
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: true
+    manualSelector: span[id*='ContentPlaceHolder1_ctrlProductDetailUC_lblStrikeRegPrice']
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    xpath: //*[@id='ContentPlaceHolder1_ctrlProductDetailUC_lblSalePrice']
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[contains(.,'Add To Cart')] | //a[contains(.,'In Store Only')]
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    manualSelector: div[id='ii_description']
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    singleValue: true
+    xpath: //img[@id='ContentPlaceHolder1_ctrlProductDetailUC_imgBrand']/@title
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  # - name: manufacturer
+  #   singleValue: true
+  #   description: Product manufacturer
+  # - name: quantity
+  #   singleValue: true
+  #   description: Quantity as described on the page
+  #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+  #   regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@id='productdetail-tabs-dimension']//td[contains(.,'Weight')]/following-sibling::td
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: true
+    xpath: //div[@id='productdetail-tabs-dimension']//td[contains(.,'Weight')]/following-sibling::td
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: true
+    xpath: //script[@type='application/ld+json']
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    xpath: //link[@rel='canonical']/@href
+    description: The store-specific product identifier
+  - name: variantId
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+    description: The manufacturer model code (unique) of the product
+  # - name: packSize
+  #   singleValue: true
+  #   description: The number of packs in the product offer (if stated separately on
+  #     the site to quantity)
+  # - name: legalDisclaimer
+  #   singleValue: true
+  #   description: Content under "legal disclaimer" header
+  # - name: directions
+  #   singleValue: true
+  #   description: Content under "directions" header
+  # - name: warnings
+  #   singleValue: true
+  #   description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: true
+    # xpath: //dd[@class="bv-rating-ratio-count"]/a
+    manualSelector: dd.bv-rating-ratio-count a
+    description: The number of ratings
+  # - name: aggregateRatingText
+  #   singleValue: true
+  #   description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: true
+    manualSelector: dd.bv-rating-ratio-number
+    description: The stated aggregate rating normalized to be out of 5
+    # type: NUMBER
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@id='productdetail-tabs-dimension']//tr[not(contains(.,'Weight'))]
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue: true
+    xpath: //div[@id='productdetail-tabs-dimension']//td[contains(.,'Weight')]/following-sibling::td
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: true
+    defaultValue: 1
+    description: Number of variants listed
+    type: NUMBER
+  # - name: color
+  #   singleValue: true
+  #   description: A textual description of the colour
+  # - name: colorCode
+  #   singleValue: true
+  #   description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    xpath: //div[@id='ii_enhancedContent']
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='productdetail-tabs-overview']//img/@src
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='productdetail-tabs-overview']//center/iframe/@src
+    description: URLs of videos on page
+  - name: name
+    singleValue: true
+    xpath: //*[@itemprop='name']
+    description: The product name
+  - name: featureBullets
+    singleValue: false
+    description: null
+  - name: otherSellersName
+    singleValue: false
+    description: null
+  - name: otherSellersPrice
+    singleValue: false
+    description: null
+  - name: otherSellersShipping
+    singleValue: false
+    description: null
+  - name: secondaryImageTotal
+    singleValue: true
+    description: null
+    # type: NUMBER
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='productdetail-tabs-warranty']//li | //div[@id='productdetail-tabs-dimension']//tr
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    singleValue: false
+    manualSelector: div[id*='productdetail-tabs-warranty'] li
+    description: Guarantee associated with the product
+  - name: promotion
+    singleValue: true
+    xpath: //*[@id='ContentPlaceHolder1_ctrlProductDetailUC_lblSaving']
+    description: promotion text on product page
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //table[@id='productdetail-features']//td
+    description: null
+  
