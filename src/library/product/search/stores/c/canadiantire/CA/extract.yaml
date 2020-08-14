@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-component="ProductTileSrp"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@class="product-tile-srp__main-link"]/@data-anchor
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_rank')]
+  - name: name
+    singleValue: false
+    xpath: //h3[@class="product-tile-srp__title grid--grid-view__item"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="product-tile-srp__main-link"]/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="product-tile-srp__image"]/@src
+    regExp: (.*)
+    regExpReplace: https://www.medikamente-per-klick.de$1
+  - name: price
+    singleValue: false
+    xpath: //section[@class="product-tile__price"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class='bv-off-screen']
+  - name: reviewCount
+    singleValue: false
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_rank')]
+  - name: endorsementText
+    singleValue: false
