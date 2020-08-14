@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class, "js-grid-container")]/div[contains(@class, "
 fields:
   - name: id
     xpath: //div[contains(@class,"js-product")]/@data-product-id
-    regExp: \d(\d+)(.+)
+    regExp: (\d+)(.+)
     regExpReplace: $1
   - name: name
     singleValue: true
@@ -16,8 +16,8 @@ fields:
     regExpReplace: https://www.elcorteingles.es$1
   - name: thumbnail
     xpath: //div[contains(@class,"product_tile-image _fade")]/a/img/@src
-    regExp: (.+)
-    regExpReplace: https:$1
+    regExp: (.+__)\d+x\d+(.+)
+    regExpReplace: http:$1325x325$2
   - name: aggregateRating
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
     regExp: .+(?=\sde)
