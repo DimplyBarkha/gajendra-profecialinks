@@ -11,7 +11,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     // await context.click('i.widget-Popup--close')
-    await context.evaluate(() => {
+    await context.evaluate(function () {
       if (document.querySelector('.widget-Popup--container-outer---view-popup')) {
         document.querySelector('.widget-Popup--container-outer---view-popup').click();
       }
@@ -26,8 +26,37 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-
       addHiddenDiv('iio_product_url', window.location.href);
+
+
+      var requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+      };
+
+      var refURL = window.location.href;
+      
+      fetch("https://service.loadbee.com/ean/5025155028155/de_DE?css=default&template=default&button=default", {
+        // "headers": {
+        //   "accept": "*/*",
+        //   "accept-language": "en-US,en;q=0.9",
+        //   "sec-fetch-dest": "empty",
+        //   "sec-fetch-mode": "no-cors",
+        //   "sec-fetch-site": "same-origin",
+        //   "x-requested-with": "XMLHttpRequest"
+        // },
+        // "referrer": refURL,
+        // "referrerPolicy": "no-referrer-when-downgrade",
+        // "body": null,
+        "method": "GET",
+        "mode": "no-cors"
+      }).then(response => response.text())
+        .then(result => {
+          console.log('result');
+          console.log(result.length);
+          console.log(result);
+        })
+        .catch(error => console.log('error', error));
     });
 
     return await context.extract(productDetails, { transform: transformParam });

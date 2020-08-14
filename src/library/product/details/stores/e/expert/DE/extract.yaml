@@ -497,7 +497,6 @@ fields:
     defaultValue: No
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
   - name: termsAndConditions
     singleValue: true
     xpath: (//*[contains(text(), "AGB Onlinekauf / Widerrufsbelehrung")])[1]
@@ -505,7 +504,6 @@ fields:
     regExpReplace: Yes
     defaultValue: No
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
