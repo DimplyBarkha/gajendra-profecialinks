@@ -33,30 +33,53 @@ module.exports = {
     if(itemUrl){
       await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     }
+    context.captureRequests();
 
-    // const html = await context.evaluate(async function getEnhancedContent() {
+    const scrollFunc = await context.evaluate(function(){
+      let scrollTop = 0;
+      while (scrollTop !== 10000) {
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+  
+        console.log("SCROLLING")
+        if (scrollTop === 10000) {
+          break;
+        }
+      }
+    })
 
-    //   let videoEle = document.querySelector('#linkJSON');
-    //   let videoIdForUrl = [];
-    //   if(videoEle){
-    //     let videoObj = JSON.parse(videoEle.innerText);
-    //     let videoIds = videoObj[4].props.currentProduct.productVideos
-    //     if(videoIds){
-    //       videoIds.forEach(obj => {
-    //         videoIdForUrl.push(obj.videoUrl)
-    //       })
-    //     }
-    //   }
-    //   // let videoClick = '(//div[@data-comp="Carousel "])[1]//img[contains(@src, "Video")]'
-    //   // var videoLinks = document.evaluate( videoClick, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    //   // if( videoLinks.snapshotLength > 0 ) {
-    //   //   for(let i = 0; i < videoLinks.snapshotLength; i++) {
-    //   //     let info = videoLinks.snapshotItem(i).textContent;
-    //   //     if(info.includes("COLOR")){
+    const videoIdArray = await context.evaluate(function(){
+      let videoEle = document.querySelector('#linkJSON');
+      let videoIdForUrl = [];
+      if(videoEle){
+        let videoObj = JSON.parse(videoEle.innerText);
+        let videoIds = videoObj[4].props.currentProduct.productVideos
+        if(videoIds){
+          videoIds.forEach(obj => {
+            videoIdForUrl.push(obj.videoUrl)
+          })
+        }
+      }
+      return videoIdForUrl
+    })
+
+    await context.evaluate(function() {
+      let videoClicks = document.querySelectorAll('div[data-comp="BccVideo BccBase BccStyleWrapper "] img');
+      let offClick = document.querySelector('div#ratings-reviews-container')
+      for(let i = 0; i < videoClicks.length; i++){
+        let link = videoClicks[i].src;
+        if(link.includes("video.jpg")){
+          videoClicks[i].click();
+        }
+      }
+    })
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    context.searchForRequest(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdArray[0]}`);
+    context.click('div#ratings-reviews-container')
+
     
-    //   //   }
-    //   // }
-
+    // const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl) {
+    
     //   async function fetchRetry(url, n) {
     //     function handleErrors(response) {
     //       if (response.status === 200){
@@ -95,7 +118,8 @@ module.exports = {
     //     return fetched;
     //   }
     //   return fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[0]}`, 10)
-    // });
+    // }, videoIdArray);
+
 
     const variantArray = await context.evaluate(function (parentInput, html) {
       function addHiddenDiv (id, content) {
@@ -109,16 +133,7 @@ module.exports = {
       addHiddenDiv(`ii_url`, window.location.href);
       addHiddenDiv(`ii_parentInput`, parentInput);
 
-      let scrollTop = 0;
-      while (scrollTop !== 10000) {
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-  
-        console.log("SCROLLING")
-        if (scrollTop === 10000) {
-          break;
-        }
-      }
+
       const element = document.querySelectorAll("script[type='application/ld+json']");
       let variantObj;
       let variantSkuArray = [];

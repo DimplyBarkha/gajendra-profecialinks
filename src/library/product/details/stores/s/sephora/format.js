@@ -50,7 +50,7 @@ const transform = (data, context) => {
                 let joins = oneLess.join(" | ");
                 row.alternateImages = [{text: joins}]
               } else {
-                row.alternateImages = [{}]
+                row.alternateImages = [{text: ''}]
               }
           }
 
