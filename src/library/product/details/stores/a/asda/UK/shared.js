@@ -14,7 +14,6 @@ const transform = (data) => {
             text = item.text.replace('p/', '');
           } else if (item.text.endsWith('/')) {
             text = item.text.slice(0, -1);
-            console.log(text);
           } else {
             text = item.text;
           }
@@ -70,6 +69,12 @@ const transform = (data) => {
         row.caloriesPerServing = [{
           text: text.replace(/^\//g, '').replace(/\/\//g, '/').replace(/\/$/g, ''),
         }];
+      }
+
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = Number(item.text) ? Number(item.text).toFixed(1) : item.text;
+        });
       }
     }
   }
