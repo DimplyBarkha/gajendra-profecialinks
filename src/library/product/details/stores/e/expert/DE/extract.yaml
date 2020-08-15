@@ -52,10 +52,12 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
+    xpath: //div[contains(@class, "widget-ArticlePriceTagText")]//ul//text()|(//div[contains(@class,'widget-Accordion--header')]//*[contains(text(),"Beschreibung")]/parent::p/parent::div/parent::div/following-sibling::div//div)[1]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
+    xpath: count(//div[contains(@class, "widget-ArticlePriceTagText")]//ul//li//text()|(//div[contains(@class,'widget-Accordion--header')]//*[contains(text(),"Beschreibung")]/parent::p/parent::div/parent::div/following-sibling::div//div//li)[1])
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -79,11 +81,15 @@ fields:
     singleValue: true
     xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr//td
     description: Gross weight as described on the page
+  - name: upc
+    singleValue: true
   - name: gtin
     singleValue: true
+    xpath: //script[contains(text(), "window.emos3.send({'ec_Event':")][2]
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
+    xpath: //span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -150,6 +156,7 @@ fields:
     xpath: //div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//div[@title="Play video"]//meta[@itemprop="embedURL"]/@content|//div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//img[contains(@data-type, "Video")]/@src
     description: URLs of videos on page
   - name: name
+    xpath: //meta[@itemprop="name"]/@content
     singleValue: true
     description: The product name
   - name: inStorePrice
@@ -475,6 +482,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //div[contains(@class, "widget-ArticlePriceTagText")]//ul//li//text()|(//div[contains(@class,'widget-Accordion--header')]//*[contains(text(),"Beschreibung")]/parent::p/parent::div/parent::div/following-sibling::div//div//li)[1]
     description: null
   - name: prop65Warning
     singleValue: true

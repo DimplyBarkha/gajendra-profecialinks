@@ -20,6 +20,16 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
+        if (row.gtin && row.gtin[0] && row.gtin[0].text) {
+          let jsonObj = row.gtin[0].text;
+          console.log(jsonObj)
+          jsonObj = jsonObj.replace('window.emos3.send(', '').slice(0, -2).replace(/\'/gm, '"').trim();
+          console.log(jsonObj)
+          const jsonDetails = JSON.parse(jsonObj);
+          const gtin = jsonDetails.ec_Event ? (jsonDetails.ec_Event[0] ? jsonDetails.ec_Event[0].pid : '') : '';
+          row.gtin[0].text = gtin;
+          row.upc[0].text = gtin;
+        }
         if (row.category && row.category[0] && row.category[0].text) {
           // let jsonObj = row.category[0].text;
           // jsonObj = jsonObj.replace(/\n/gm, '').replace(/\n \n/g, '').trim();
