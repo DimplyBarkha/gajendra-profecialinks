@@ -78,47 +78,47 @@ module.exports = {
     context.click('div#ratings-reviews-container')
 
     
-    // const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl) {
+    const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl) {
     
-    //   async function fetchRetry(url, n) {
-    //     function handleErrors(response) {
-    //       if (response.status === 200){
-    //         return response;
-    //       } else {
-    //         console.log("FETCH FAILED")
-    //         if (n === 1) return "Nothing Found";
-    //         return fetchRetry(url, n - 1);
-    //       }
-    //     }
-    //     let fetched = fetch(url, {
-    //       "headers": {
-    //         "accept": "*/*",
-    //         "accept-language": "en-US,en;q=0.9",
-    //         "accept-encoding": "gzip, deflate, br",
-    //         "cache-control": "no-cache",
-    //         "origin": "https://www.sephora.com",
-    //         "authority": "manifest.prod.boltdns.net",
-    //         "pragma": "no-cache",
-    //         "sec-fetch-dest": "empty",
-    //         "sec-fetch-mode": "cors",
-    //         "sec-fetch-site": "cross-site"
-    //       },
-    //       "referrer": "https://www.sephora.com/ca/en/product/highliner-gel-crayon-P379434?icid2=products%20grid:p379434:product&skuId=1880079",
-    //       "referrerPolicy": "no-referrer-when-downgrade",
-    //       "body": null,
-    //       "method": "GET",
-    //       "mode": "cors",
-    //       "credentials": "same-origin"
-    //     }).then(handleErrors).then(response => response.text()).catch(error => {
-    //         console.log("FETCH FAILED")
-    //         if (n === 1) return "Nothing Found";
-    //         return fetchRetry(url, n - 1);
+      async function fetchRetry(url, n) {
+        function handleErrors(response) {
+          if (response.status === 200){
+            return response;
+          } else {
+            console.log("FETCH FAILED")
+            if (n === 1) return "Nothing Found";
+            return fetchRetry(url, n - 1);
+          }
+        }
+        let fetched = fetch(url, {
+          "headers": {
+            "accept": "*/*",
+            "accept-language": "en-US,en;q=0.9",
+            "accept-encoding": "gzip, deflate, br",
+            "cache-control": "no-cache",
+            "origin": "https://www.sephora.com",
+            "authority": "manifest.prod.boltdns.net",
+            "pragma": "no-cache",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site"
+          },
+          "referrer": "https://www.sephora.com/ca/en/product/highliner-gel-crayon-P379434?icid2=products%20grid:p379434:product&skuId=1880079",
+          "referrerPolicy": "no-referrer-when-downgrade",
+          "body": null,
+          "method": "GET",
+          "mode": "cors",
+          "credentials": "same-origin"
+        }).then(handleErrors).then(response => response.text()).catch(error => {
+            console.log("FETCH FAILED")
+            if (n === 1) return "Nothing Found";
+            return fetchRetry(url, n - 1);
 
-    //     });
-    //     return fetched;
-    //   }
-    //   return fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[0]}`, 10)
-    // }, videoIdArray);
+        });
+        return fetched;
+      }
+      return fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[0]}`, 10)
+    }, videoIdArray);
 
 
     const variantArray = await context.evaluate(function (parentInput, html) {
