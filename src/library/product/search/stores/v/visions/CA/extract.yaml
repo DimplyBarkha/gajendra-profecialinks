@@ -13,6 +13,7 @@ fields:
     example: Panasonic
   - name: category
     singleValue: false
+    # xpath: //div[@id='breadcrumb-container']//a[position()>1]
     description: The categories (e.g. from breadcrumbs)
     example:
       - Dental Care
@@ -105,3 +106,6 @@ fields:
     singleValue: false
     xpath: //span[@title='rating value']
     description: The stated aggregate rating normalized to be out of 5
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
