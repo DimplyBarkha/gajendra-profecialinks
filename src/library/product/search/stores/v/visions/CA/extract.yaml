@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: div[class*='prodlist-itembox']
 recordXPath: null
 fields:
   - name: paid
@@ -21,19 +21,30 @@ fields:
       - Electric Toothbrushes
       - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
+    xpath: //a[contains(@id,'lnkDecription')]/@href
     description: The URL for the product details page
   - name: thumbnail
-    singleValue: true
+    xpath: //img[@class='prodlist-img']/@src
+    singleValue: false
+    # regExp: (.*)
+    # regExpReplace: https://www.visions.ca$1
     description: The URL for the product thumbnail image
   - name: name
     singleValue: true
+    manualSelector: div.prodlist-title
     description: The product name
   - name: sku
     singleValue: true
+    xpath: //a[contains(@id,'lnkDecription')]/@href
     description: The store-specific product identifier
   - name: mpc
     singleValue: true
+    xpath: //a[contains(@id,'lnkDecription')]/@href
+    description: The model code of the product
+  - name: variantId
+    singleValue: true
+    xpath: //a[contains(@id,'lnkDecription')]/@href
     description: The model code of the product
   - name: gtin
     singleValue: true
@@ -42,13 +53,16 @@ fields:
     singleValue: true
     description: The stated aggregate rating
   - name: ratingCount
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='prodlist-rating-txt']//span[position()=2]
     description: The number of ratings
   - name: reviewCount
-    singleValue: true
+    xpath: //div[@class='prodlist-rating-txt']//span[position()=2]
+    singleValue: false
     description: The number of reviews
   - name: price
     singleValue: true
+    manualSelector: div[class*='pricingtag-leftcell'] , div[class='prodlist-regprice pricing-font']
     description: The offered price for the product
   - name: listPrice
     singleValue: true
@@ -63,7 +77,8 @@ fields:
     singleValue: true
     description: The text that signifies that a product is endorsed
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class="prodlist-pricing-info2"]//div[contains(., 'Ship')]
     description: Shipping information for the product
   - name: rank
     singleValue: true
@@ -79,12 +94,14 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: true
+    xpath: //a[contains(@id,'lnkDecription')]/@href
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: true
+    manualSelector: div.prodlist-title
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: true
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[@title='rating value']
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
