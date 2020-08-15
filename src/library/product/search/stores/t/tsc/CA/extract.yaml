@@ -1,14 +1,10 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, 'productItems')]/div[contains(@class, 'productItemWrap')]
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
   - name: brand
-    singleValue: true
+    singleValue: false
     description: The brand name
     example: Panasonic
   - name: category
@@ -21,70 +17,69 @@ fields:
       - Electric Toothbrushes
       - Rotating
   - name: productUrl
-    singleValue: true
-    description: The URL for the product details page
+    singleValue: false
+    xpath: //div[contains(@class, 'productItemWrap')]/a/@href
   - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
+    singleValue: false
+    xpath: //img[@class="productImg"]/@src
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
+    singleValue: false
+    xpath: //div[@class="itemNo"]
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The model code of the product
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
   - name: ratingCount
-    singleValue: true
-    description: The number of ratings
+    singleValue: false
+    xpath: //div[contains(@class, 'snippet-rating')]
   - name: reviewCount
-    singleValue: true
-    description: The number of reviews
+    singleValue: false
+    xpath: //div[contains(@class, 'snippet__total')]
   - name: price
-    singleValue: true
-    description: The offered price for the product
+    singleValue: false
+    xpath: //span[contains(@class, "pr-price-bold")]
   - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
+    singleValue: false
+    xpath: //del[contains(@class, "pr-price-light")]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: soldBy
-    singleValue: true
+    singleValue: false
     description: The name of the seller of the item (if available)
   - name: endorsementText
-    singleValue: true
+    singleValue: false
     description: The text that signifies that a product is endorsed
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
     description: Unique id (within this extractor)
   - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
+    singleValue: false
+    xpath: //*[contains(@class, 'productDesc')]
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
