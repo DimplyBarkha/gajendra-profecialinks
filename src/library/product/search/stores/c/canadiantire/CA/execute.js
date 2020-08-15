@@ -7,7 +7,7 @@ module.exports = {
     domain: 'canadiantire.ca',
     url: 'https://www.canadiantire.ca/en/search-results.html?q={searchTerms}',
     loadedSelector: 'div[data-component="ProductTileSrp"]',
-    noResultsXPath: null,
+    noResultsXPath: '//span[@class="g-s-no-results__top-message-heading-text"]',
     zipcode: '',
   },
 };
