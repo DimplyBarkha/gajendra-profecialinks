@@ -270,10 +270,10 @@ async function implementation (
       if (manufContent) {
         const clonedManufContent = manufContent.cloneNode(true);
         if (clonedManufContent.getElementsByTagName("style")) {
-          clonedManufContent.getElementsByTagName("style")[0].remove();
+          [...clonedManufContent.getElementsByTagName("style")].forEach((styleElement) => styleElement.remove());
         }
         if (clonedManufContent.getElementsByTagName("script")) {
-          clonedManufContent.getElementsByTagName("script")[0].remove();
+          [...clonedManufContent.getElementsByTagName("script")].forEach((scriptElement) => scriptElement.remove());
         }
         manufContentText = clonedManufContent.innerHTML.replace(/<(li)[^>]+>/ig, '<$1>').replace(/<li>/gm, ' || ').replace(/<[^>]*>/gm, '').trim();
       }

@@ -306,13 +306,17 @@ const transform = (data, context) => {
           });
           */
           row.manufacturerDescription.forEach(item => {
-            const regexIgnoreText = /(^(Read more))|((From the manufacturer))|(View larger)/gm;
+            const manufTitleIgnoreText = /((From the manufacturer))/gm;
+            const regexIgnoreText = /^(Read more)|(View larger)/gm;
             // console.log(item.text);
-            item.text = (item.text).toString().replace(regexIgnoreText, '').replace(/<img[^>]*>/gm, '');
-            // console.log(item.text);
+            item.text = (item.text).toString().replace(manufTitleIgnoreText, '').trim();
+            console.log(item.text);
+            item.text = (item.text).replace(regexIgnoreText, '').replace(/<img[^>]*>/gm, '');
+            console.log(item.text);
             // if (!regexIgnoreText.test(item.text)) {
             // }
           });
+
           row.manufacturerDescription = [
             {
               text: row.manufacturerDescription[0].text.trim(),
