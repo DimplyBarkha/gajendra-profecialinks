@@ -11,8 +11,9 @@ fields:
     singleValue: true
     description: The brand name
     example: Panasonic
+    xpath: //*[contains(@class,"brand")]
   - name: category
-    singleValue: false
+    singleValue: true
     description: The categories (e.g. from breadcrumbs)
     example:
       - Dental Care
@@ -23,15 +24,20 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
+    xpath: //a[@class="js-product-image-link"]/@href
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
+    xpath: //img[@class="owl-lazy"]/@src
   - name: name
     singleValue: true
     description: The product name
+    xpath: //*[contains(@class,"name")]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    type: NUMBER
+    xpath: //a[@class="js-product-image-link"]/@href
   - name: mpc
     singleValue: true
     description: The model code of the product
@@ -50,9 +56,11 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
+    xpath: //*[contains(@class, "price")]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //*[contains(@class, "price--old")]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
