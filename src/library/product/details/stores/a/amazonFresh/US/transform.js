@@ -90,9 +90,12 @@ const transform = (data, context) => {
           }
         }
         if (row.brandText && row.brandText[0]) {
-          const regexBrand = /([B|b]rand:)|(\s{1}[B|b]y)|([B|b]rand)|([V|v]isit the)/gm;
+          console.log('1row.brandText')
+          console.log(row.brandText)
+          const regexBrand = /([B|b]rand:)|(^[B|b]y)|([B|b]rand)|([V|v]isit the)|([S|s]tore)/gm;
           if (regexBrand.test(row.brandText[0].text)) {
             const brandName = (row.brandText[0].text).replace(regexBrand, '').trim();
+            console.log(brandName);
             row.brandText = [{ text: brandName }];
           }
         }
