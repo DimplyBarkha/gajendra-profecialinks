@@ -93,7 +93,6 @@ async function implementation (
       let name = '//h1[contains(@data-comp, "DisplayName")]/span'
 
       addHiddenDiv(`ii_url`, window.location.href);
-  
       var brandElement = document.evaluate( brand, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       if( brandElement.snapshotLength > 0 ) {
         for(let i = 0; i < brandElement.snapshotLength; i++) {
@@ -136,10 +135,14 @@ async function implementation (
       var urlElement = document.evaluate( url, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       if( urlElement.snapshotLength > 0 ) {
         for(let i = 0; i < urlElement.snapshotLength; i++) {
-          let rating =  urlElement.snapshotItem(i).textContent
-          let sku = urlElement.snapshotItem(i).textContent.match(/[0-9]+/g)
-          if(sku[0]){
-            addHiddenDiv(`ii_sku`, `${sku[0]}`);
+          let sku = urlElement.snapshotItem(i).textContent
+          let splits = sku.split("skuId=")
+          if(splits[1]){
+            let half = splits[1]
+            let last = half.split("&");
+            if(last[0]){
+                addHiddenDiv(`ii_sku`, `${last[0]}`);
+            }
           }
         }
       }
@@ -158,7 +161,6 @@ async function implementation (
           addHiddenDiv(`ii_name`, `${nameElement.snapshotItem(i).textContent}`);
         }
       }
-      debugger
       return true
     } else {
       return false

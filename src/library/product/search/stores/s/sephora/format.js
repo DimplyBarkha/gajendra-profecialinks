@@ -101,7 +101,12 @@ const transform = (data, context) => {
 
       if(row.thumbnail){
         let text = row.thumbnail[0].text;
-        let joins = "https://www.sephora.com" + text;
+        let joins;
+        if(!text.includes("sephora.com")){
+          joins = "https://www.sephora.com" + text;
+        } else {
+          joins = text;
+        }
 
         if(joins){
           row.thumbnail[0].text = joins;
@@ -111,12 +116,15 @@ const transform = (data, context) => {
       if(row.productUrl){
         let text = row.productUrl[0].text;
         let splits = text.split(" ");
+        let joins
         if(splits[0]){
-          let joins = "https://www.sephora.com" + splits[0];
-  
-          if(joins){
+          if(!splits[0].includes("sephora.com")){
+            joins = "https://www.sephora.com" + splits[0];
             row.productUrl[0].text = joins;
           }
+        } else {
+          joins = splits[0];
+          row.productUrl[0].text = joins;
         }
       }
 
@@ -128,7 +136,6 @@ const transform = (data, context) => {
           
           if(sNum){
             console.log(sNum[0])
-            let sNumm = sNum[0]
 
             let num = sNum[0].match(/[0-9]+/g);
             if(num[0]){
