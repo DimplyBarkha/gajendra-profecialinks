@@ -3,12 +3,41 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    manualSelector: div[data-automation="productItemName"]
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="displayingImage_3xp0y"]/img[@class="productItemImage_1en8J"]/@srcset
+  - name: name
+    singleValue: false
+    description: The product name
+    manualSelector: div[data-automation="productItemName"]
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+    xpath: //meta[@itemprop="ratingValue"]/@content
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+    manualSelector: span[itemprop="ratingCount"]
+    regExp: ([0-9]{1,}) Review
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    manualSelector: span[itemprop="ratingCount"]
+    regExp: ([0-9]{1,}) Review
+    regExpReplace: $1
   - name: paid
-    singleValue: true
+    singleValue: false
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
   - name: brand
-    singleValue: true
+    singleValue: false
     description: The brand name
     example: Panasonic
   - name: category
@@ -21,73 +50,51 @@ fields:
       - Electric Toothbrushes
       - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
-  - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
-    xpath: //div[@class="displayingImage_3xp0y"]/img[@class="productItemImage_1en8J"]/@srcset
-  - name: name
-    singleValue: true
-    description: The product name
-    xpath: //div[@data-automation="productItemName"]
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The model code of the product
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-  - name: reviewCount
-    singleValue: true
-    description: The number of reviews
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the product
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: soldBy
-    singleValue: true
+    singleValue: false
     description: The name of the seller of the item (if available)
   - name: endorsementText
-    singleValue: true
+    singleValue: false
     description: The text that signifies that a product is endorsed
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
     description: Unique id (within this extractor)
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-    manualSelector: div[data-automation="productItemName"]
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER

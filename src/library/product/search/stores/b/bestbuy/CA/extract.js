@@ -19,11 +19,10 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-      const element = document.querySelector('div.endOfList_b04RG');
+      const element = document.querySelector('footer.globalFooter_Kvg_F ');
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        await new Promise((resolve) => setTimeout(resolve, 7000));
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => setTimeout(resolve, 10000));
       }
   });
   return await context.extract(productDetails, { transform });
