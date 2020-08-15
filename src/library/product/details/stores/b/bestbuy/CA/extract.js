@@ -62,39 +62,18 @@ module.exports = {
      // @ts-ignore
      detailsAndSpecsTextArr = detailsAndSpecsTextArr.join(' || ');
      addElementToDocument('bb_specifications', detailsAndSpecsTextArr);
-     let netWeight = document.querySelectorAll('div.itemContainer_RJI-h div.itemName_jGrp0');
-     let netWeightTxt = '';
-     for (let index = 0; index < netWeight.length; index++) {
-       const element = netWeight[index];
-       // @ts-ignore
-       let elementTxt = element.innerText;
-       if((elementTxt === 'Weight') || (elementTxt==='Weight (lbs)')){
-        // @ts-ignore
-        netWeightTxt = element.nextSibling.innerText;
-        console.log('netWeight: ', netWeightTxt);
-       }
-     }
-     addElementToDocument('bb_weightNet', netWeightTxt);
-     //-----------------------------------------------------------------
-     let color = document.querySelectorAll('div.itemContainer_RJI-h div.itemName_jGrp0');
-     let colorTxt = '';
-     for (let index = 0; index < color.length; index++) {
-       const element = color[index];
-       // @ts-ignore
-       let elementTxt = element.innerText;
-       if(elementTxt === 'Colour'){
-        // @ts-ignore
-        colorTxt = element.nextSibling.innerText;
-        console.log('colorTxt: ', colorTxt);
-       }
-     }
-     addElementToDocument('bb_colour', colorTxt);
      //---------------------------------------------------------------
      let dimension = document.querySelectorAll('div.itemContainer_RJI-h div.itemName_jGrp0');
      let dimensionTxtField = '';
+     let originTxtField = '';
      let dimensionTxtFieldVal = '';
+     let originTxtFieldVal = '';
      let dimensionTxt = '';
+     let originTxt = '';
      let dimensionTxtArr =[];
+     let originTxtArr=[];
+     let netWeightTxt = '';
+     let colorTxt = '';
      for (let index = 0; index < dimension.length; index++) {
        const element = dimension[index];
        // @ts-ignore
@@ -107,35 +86,26 @@ module.exports = {
         dimensionTxt = dimensionTxtField+' : '+dimensionTxtFieldVal;
         dimensionTxtArr.push(dimensionTxt);
        }
+       if((elementTxt === 'Country of Origin')){
+        // @ts-ignore
+        originTxtField = element.innerText;
+        // @ts-ignore
+        originTxtFieldVal = element.nextSibling.innerText;
+        originTxtArr.push(originTxtFieldVal);
+       }
+       if((elementTxt === 'Weight') || (elementTxt==='Weight (lbs)')){
+        // @ts-ignore
+        netWeightTxt = element.nextSibling.innerText;
+       }
+       if(elementTxt === 'Colour'){
+        // @ts-ignore
+        colorTxt = element.nextSibling.innerText;
+       }
      }
+     addElementToDocument('bb_colour', colorTxt);
+     addElementToDocument('bb_weightNet', netWeightTxt);
+     addElementToDocument('bb_countryOfOrigin', originTxtArr.join(' | '));
      addElementToDocument('bb_dimension', dimensionTxtArr.join(' | '));
-     //----------------------------------------------------------------
-    //  await new Promise((resolve) => setTimeout(resolve, 3000));
-    //   const element = document.getElementById('div.container_2uRCr');
-    //   if (element) {
-    //     element.scrollIntoView({ behavior: 'smooth' });
-    //     await new Promise((resolve) => setTimeout(resolve, 2197));
-    //   }
-    //  let warranty = document.querySelectorAll('div.itemContainer_RJI-h div.itemName_jGrp0');
-    //  let warrantyTxtField = '';
-    //  let warrantyTxtFieldVal = '';
-    //  let warrantyTxt = '';
-    //  let warrantyTxtArr =[];
-    //  for (let index = 0; index < warranty.length; index++) {
-    //    const element = warranty[index];
-    //    // @ts-ignore
-    //    let elementTxt = element.innerText;
-    //    console.log('elementTxt warranty: ', elementTxt);
-    //    if((elementTxt === "Manufacturer's Warranty - Parts")||(elementTxt === "Manufacturer's Warranty - Labour")){
-    //     // @ts-ignore
-    //     warrantyTxtField = element.innerText;
-    //     // @ts-ignore
-    //     warrantyTxtFieldVal = element.nextSibling.innerText;
-    //     warrantyTxt = warrantyTxtField+' : '+warrantyTxtFieldVal;
-    //     warrantyTxtArr.push(warrantyTxt);
-    //    }
-    //  }
-    //  addElementToDocument('bb_warranty', warrantyTxtArr.join(' | '));
      //-----------------------------------------------------------------
      let videoLinkArr = [];
      let videos = document.querySelectorAll('img[class="middle_1qXv8"]');
