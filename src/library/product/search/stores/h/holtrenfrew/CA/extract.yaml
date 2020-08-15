@@ -56,7 +56,7 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
-    xpath: //*[contains(@class, "price")]
+    xpath: //div[contains(@class, "price")]/span[contains(@class, "product-details__price--sale js-price-min") or not(@class)]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
