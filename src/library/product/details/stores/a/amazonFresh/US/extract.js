@@ -265,7 +265,19 @@ async function implementation (
           allText += element.querySelector('.apm-hovermodule-slides-inner').innerText;
         }
       });
-      addHiddenDiv('added-enhanced-content', document.querySelector('div#aplus') ? document.querySelector('div#aplus').innerText + allText : '');
+      const manufContent = document.querySelector('div#aplus');
+      let manufContentText = '';
+      if (manufContent) {
+        const clonedManufContent = manufContent.cloneNode(true);
+        if (clonedManufContent.getElementsByTagName("style")) {
+          clonedManufContent.getElementsByTagName("style")[0].remove();
+        }
+        if (clonedManufContent.getElementsByTagName("script")) {
+          clonedManufContent.getElementsByTagName("script")[0].remove();
+        }
+        manufContentText = clonedManufContent.innerHTML.replace(/<(li)[^>]+>/ig, '<$1>').replace(/<li>/gm, ' || ').replace(/<[^>]*>/gm, '').trim();
+      }
+      addHiddenDiv('added-enhanced-content', (manufContent ? manufContentText : '') + allText);
       if (parentInput) {
         addHiddenDiv('added-parentInput', parentInput);
       }

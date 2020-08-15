@@ -53,8 +53,8 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())]
-    regExp: (?:by )?(.+)
-    regExpReplace: $1
+    # regExp: (?:by )?(.+)
+    # regExpReplace: $1
   - name: manufacturer
     singleValue: false
     xpath: //th[contains(text(), 'Manufacturer') and not(contains(text(), "Discontinue")) and not(contains(text(),  "Part"))]/following-sibling::*[1]
@@ -130,8 +130,8 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="aplus"]//*[not(self::script or self::style or img)]/text()
-    # xpath: //div[@id='added-enhanced-content']
+    # xpath: //div[@id="aplus"]//*[not(self::script or self::style or img)]/text()
+    xpath: //div[@id='added-enhanced-content']
     # xpath: //div[@id="aplus"]//h1[text()] | //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and not(span[contains(text(), "Description:")]) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | (//div[contains(@class,"apm-tablemodule")]//tr[position()<3]//th//text()) | //div[contains(@class,"aplus-module")]//div[contains(@class, "a-box")]//span[@class and text()]/text() | //div[contains(@class,"aplus-module")]//div[contains(@class, "apm-right")]//text() | //div[contains(@class,"aplus-module")]//tr//span[@class and text()]/text()
     # xpath: //div[@id="aplus"]//h1[text()] | //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and not(span[contains(text(), "Description:")]) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | (//div[contains(@class,"apm-tablemodule")]//tr[position()<3]//th//text()) | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()
   # xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()

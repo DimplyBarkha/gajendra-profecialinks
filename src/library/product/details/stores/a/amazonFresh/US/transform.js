@@ -90,9 +90,9 @@ const transform = (data, context) => {
           }
         }
         if (row.brandText && row.brandText[0]) {
-          const regexBrand = /([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm;
+          const regexBrand = /([B|b]rand:)|(\s{1}[B|b]y)|([B|b]rand)|([V|v]isit the)/gm;
           if (regexBrand.test(row.brandText[0].text)) {
-            const brandName = (row.brandText[0].text).replace(regexBrand, '');
+            const brandName = (row.brandText[0].text).replace(regexBrand, '').trim();
             row.brandText = [{ text: brandName }];
           }
         }
@@ -290,18 +290,29 @@ const transform = (data, context) => {
         if (row.manufacturerDescription && row.manufacturerDescription) {
           const description = [];
           console.log('manufacturerDescription');
+          console.log(row.manufacturerDescription);
+          /*
           row.manufacturerDescription.forEach(item => {
             const regexIgnoreText = /(^(Read more))|((From the manufacturer))|(View larger)/gm;
             // console.log(item.text);
             item.text = (item.text).toString().replace(regexIgnoreText, '').replace(/<img[^>]*>/gm, '');
             // console.log(item.text);
-            if (!regexIgnoreText.test(item.text)) {
+            // if (!regexIgnoreText.test(item.text)) {
               description.push(item.text);
-            }
+            // }
+          });
+          */
+          row.manufacturerDescription.forEach(item => {
+            const regexIgnoreText = /(^(Read more))|((From the manufacturer))|(View larger)/gm;
+            // console.log(item.text);
+            item.text = (item.text).toString().replace(regexIgnoreText, '').replace(/<img[^>]*>/gm, '');
+            // console.log(item.text);
+            // if (!regexIgnoreText.test(item.text)) {
+            // }
           });
           row.manufacturerDescription = [
             {
-              text: description.join(' ').trim(),
+              text: row.manufacturerDescription[0].text.trim(),
             },
           ];
         }
@@ -319,6 +330,7 @@ const transform = (data, context) => {
             text.push(item.text);
           });
           row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+          row.description[0].text = row.description[0].text.startsWith('|| ') ? row.description[0].text.slice(2) : row.description[0].text;
         }
         if (row.amazonChoice && row.amazonChoice[0]) {
           if (row.amazonChoice[0].text.includes('Amazon')) {
