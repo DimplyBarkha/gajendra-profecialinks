@@ -26,7 +26,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class="breadcrumb"]/li[not(contains(@class, 'active')) and not(contains(@class, 'products'))]
+    xpath: //ol[@class="breadcrumb"]/li[1]/following-sibling::li[not(contains(@class, 'active')) and not(contains(@class, 'products'))]
   - name: size
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
