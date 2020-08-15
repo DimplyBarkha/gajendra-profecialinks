@@ -53,20 +53,11 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    type: NUMBER
   - name: brandText
     singleValue: true
     xpath: //img[@id='ContentPlaceHolder1_ctrlProductDetailUC_imgBrand']/@title
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-  # - name: manufacturer
-  #   singleValue: true
-  #   description: Product manufacturer
-  # - name: quantity
-  #   singleValue: true
-  #   description: Quantity as described on the page
-  #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-  #   regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
     xpath: //div[@id='productdetail-tabs-dimension']//td[contains(.,'Weight')]/following-sibling::td
@@ -90,32 +81,15 @@ fields:
     singleValue: true
     xpath: //link[@rel='canonical']/@href
     description: The manufacturer model code (unique) of the product
-  # - name: packSize
-  #   singleValue: true
-  #   description: The number of packs in the product offer (if stated separately on
-  #     the site to quantity)
-  # - name: legalDisclaimer
-  #   singleValue: true
-  #   description: Content under "legal disclaimer" header
-  # - name: directions
-  #   singleValue: true
-  #   description: Content under "directions" header
-  # - name: warnings
-  #   singleValue: true
-  #   description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
     # xpath: //dd[@class="bv-rating-ratio-count"]/a
     manualSelector: dd.bv-rating-ratio-count a
     description: The number of ratings
-  # - name: aggregateRatingText
-  #   singleValue: true
-  #   description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     manualSelector: dd.bv-rating-ratio-number
     description: The stated aggregate rating normalized to be out of 5
-    # type: NUMBER
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -131,13 +105,6 @@ fields:
     singleValue: true
     defaultValue: 1
     description: Number of variants listed
-    type: NUMBER
-  # - name: color
-  #   singleValue: true
-  #   description: A textual description of the colour
-  # - name: colorCode
-  #   singleValue: true
-  #   description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     xpath: //div[@id='ii_enhancedContent']
     singleValue: false
@@ -169,7 +136,6 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    # type: NUMBER
   - name: specifications
     singleValue: false
     xpath: //div[@id='productdetail-tabs-warranty']//li | //div[@id='productdetail-tabs-dimension']//tr
@@ -184,6 +150,11 @@ fields:
     description: promotion text on product page
   - name: additionalDescBulletInfo
     singleValue: false
+    manualSelector: div[id='ii_additionalBullet']
+    description: null
+  - name: descriptionBullets
+    singleValue: true
+    xpath: //div[@id='ii_additionalBulletCount']
     description: null
   - name: productOtherInformation
     singleValue: false
