@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'canadiantire',
-    nextLinkSelector: 'a.search-results-grid__load-more-results__link',
+    nextLinkSelector: 'div[style*="block"]>a.search-results-grid__load-more-results__link',
     mutationSelector: 'div[data-component="SearchResultsGrid"]',
     spinnerSelector: null,
     loadedSelector: 'div[data-component="ProductTileSrp"]',
