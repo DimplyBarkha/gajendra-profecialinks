@@ -1,38 +1,47 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'category-products')]/ul/li[not(@class='no-hover')]
+recordXPath: //h3[text()="Alle Produkte von Dyson"]/following-sibling::div[@class="columns"]/div[@class="columns medium-6 gap-margin"] | //h3[text()="Alle Produkte von Dyson"]/following-sibling::div[@class="columns"]/div[@class="columns medium-4 gap-margin"] 
 fields: 
-  - name: id
+  - name: nameExtended
     singleValue: false
-    xpath: //div[@class='wishlist-heart']/@data-wishlist
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@id='pd_rank']
-  - name: name
-    singleValue: false
-    xpath: //div[@class='product-item-box']/a/img/@title
-  - name: productUrl
-    singleValue: false
-    xpath: concat(('https://www.flaconi.de'),'',(//div[@class='product-item-box']/a/@href))
-  - name: gtin
-    singleValue: true
+    xpath: //center/a/b
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='product-item-box']/a/img/@src
-  - name: aggregateRating
-    singleValue: true
-  - name: reviewCount
-    singleValue: true
+    xpath: //a//img[@class="lazy"]/@src
+  - name: name
+    singleValue: false
+    xpath: //center/a/b
   - name: price
     singleValue: false
-    xpath: //span[@class='price']
-  - name: manufacturer
-    singleValue: true
-  - name: soldBy
-    singleValue: true
-  - name: rank
-    singleValue: true
-  - name: endorsementText
-    singleValue: true
+    xpath: //p/small
+  - name: quantity
+    singleValue: false
+    xpath: //p/small
+  - name: category
+    singleValue: false
+    xpath: //center/a//text()
+  # - name: id
+  #   singleValue: false
+  #   xpath: //div[@class='wishlist-heart']/@data-wishlist
+  # - name: rankOrganic
+  #   singleValue: false
+  #   xpath: //div[@id='pd_rank']
+  # - name: productUrl
+  #   singleValue: false
+  #   xpath: concat(('https://www.flaconi.de'),'',(//div[@class='product-item-box']/a/@href))
+  # - name: gtin
+  #   singleValue: true
+  # - name: aggregateRating
+  #   singleValue: true
+  # - name: reviewCount
+  #   singleValue: true
+  # - name: manufacturer
+  #   singleValue: true
+  # - name: soldBy
+  #   singleValue: true
+  # - name: rank
+  #   singleValue: true
+  # - name: endorsementText
+  #   singleValue: true
 
