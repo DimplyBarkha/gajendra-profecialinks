@@ -8,9 +8,9 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="content"]',
-    // openSearchDefinition: {
-    //   template: 'https://www.flaconi.de/search/?q={searchTerms}',
-    // },
+    openSearchDefinition: {
+      template: 'https://www.flaconi.de/search/?q={searchTerms}',
+    },
     domain: 'flaconi.de',
   },
 };
