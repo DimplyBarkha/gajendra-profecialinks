@@ -1,0 +1,98 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: nameExtended
+    singleValue: false
+    xpath: concat(//h1[@class='product-details-name'],'-',//meta[@name="description"]/@content)
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,"keyword")]/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class="product-images-main"]//img/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="slick-list"]//div[@data-slick-index and not(contains(@class,'slick-current'))]//img/@src
+  - name: videos
+    singleValue: false 
+    xpath: //button[@class="pdp-image-carousel__item-video-thumbnail"]/@style
+    regExp: .*url\((.*)\)
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    manualSelector: div.priceOfProduct
+  - name: listPrice
+    singleValue: false
+  - name: promotion
+    singleValue: false
+  - name: secondaryImageTotal
+    singleValue: false
+    type: NUMBER
+    xpath: count(//div[@class="slick-list"]//div[@data-slick-index and not(contains(@class,'slick-current'))]//img/@src)
+  - name: specifications
+    singleValue: false
+    manualSelector: div#classifications-tab
+  - name: availabilityText
+    singleValue: false
+    manualSelector: div.product-cart-delivery-availability
+  - name: description
+    singleValue: false
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="product-images-main"]//img/@alt
+  - name: aggregateRating
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: category
+    singleValue: false
+    manualSelector: li.breadcrumb-item-home~li
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="product-details-panel"]/@data-brandname
+  - name: descriptionBullets
+    singleValue: false
+  - name: weightNet
+    singleValue: false
+    xpath: //div[div[contains(text(),'Netto-Maße')]]//td[contains(text(),'Gewicht')]/following-sibling::td
+  - name: weightGross
+    singleValue: false
+    xpath: //div[div[contains(text(),'Logistikmaße mit Verpackung')]]//td[contains(text(),'Gewicht')]/following-sibling::td
+  - name: mpc
+    singleValue: false
+  - name: variantId
+    singleValue: false
+    manualSelector: div.product-details-code
+    regExp: .*?:\s*(.*)
+    regExpReplace: $1
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[div[contains(text(),'Logistikmaße mit Verpackung')]]//tr
+  - name: name
+    singleValue: false
+    manualSelector: h1.product-details-name
+  - name: additionalDescBulletInfo
+    singleValue: false
+  - name: variantCount
+    singleValue: false
+    defaultValue: '1'
+  - name: gtin
+    singleValue: false
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#details-tab
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[div[contains(text(),'Logistikmaße mit Verpackung')]]//td[contains(text(),'Gewicht')]/following-sibling::td
+  - name: color
+    singleValue: false
+    manualSelector: h1.product-details-name
+    regExp: .*?\s-\s(.*)
+    regExpReplace: $1
+  - name: manufacturerImages
+    singleValue: false
+    manualSelector: h1.product-details-name
+    regExp: .*?\s-\s(.*)
+    regExpReplace: $1
