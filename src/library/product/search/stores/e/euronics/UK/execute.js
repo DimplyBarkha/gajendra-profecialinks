@@ -12,7 +12,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  
+
   function stall (ms) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -38,7 +38,7 @@ module.exports = {
     domain: 'euronics.co.uk',
     url: 'https://www.euronics.co.uk/search/?text={searchTerms}',
     loadedSelector: 'div[class="yCmsContentSlot product-grid-right-result-slot"] div',
-    noResultsXPath: '//span[contains(.,"0 results found")]',
+    noResultsXPath: '//span[contains(.,"0 items found")]',
   },
   implementation,
 };
