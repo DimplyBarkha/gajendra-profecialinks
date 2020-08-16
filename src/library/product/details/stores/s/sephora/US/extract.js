@@ -20,7 +20,7 @@ module.exports = {
     });
     if (videos && videos.length) {
       for (let i = 0; i < videos.length; i++) {        
-        await context(`img[src='${videos[i]}']`);
+        await context.click(`img[src='${videos[i]}']`);
         const request = await context.searchForRequest('https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/6173784723001');
         const data = request && request.responseBody && request.responseBody.body ? JSON.parse(request.responseBody.body) : '';
         console.log('Video response found', data);
