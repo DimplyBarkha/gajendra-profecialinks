@@ -105,7 +105,7 @@ fields:
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: false
-    xpath:  //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight')]/parent::tr
+    xpath: //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight')]/parent::tr
   - name: variantCount
     singleValue: false
     description: Number of variants listed
