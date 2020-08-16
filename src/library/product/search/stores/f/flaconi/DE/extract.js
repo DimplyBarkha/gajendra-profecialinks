@@ -9,6 +9,6 @@ module.exports = {
     domain: 'flaconi.de',
     zipcode: '',
   },
-  // implementation
+  // implementation removed
 };
 

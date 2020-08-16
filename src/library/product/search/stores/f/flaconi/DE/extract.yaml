@@ -21,12 +21,13 @@ fields:
   - name: category
     singleValue: false
     xpath: //center/a//text()
+  - name: rank
+    singleValue: true
+  - name: rankOrganic
+    singleValue: false
   # - name: id
   #   singleValue: false
   #   xpath: //div[@class='wishlist-heart']/@data-wishlist
-  # - name: rankOrganic
-  #   singleValue: false
-  #   xpath: //div[@id='pd_rank']
   # - name: productUrl
   #   singleValue: false
   #   xpath: concat(('https://www.flaconi.de'),'',(//div[@class='product-item-box']/a/@href))
@@ -39,8 +40,6 @@ fields:
   # - name: manufacturer
   #   singleValue: true
   # - name: soldBy
-  #   singleValue: true
-  # - name: rank
   #   singleValue: true
   # - name: endorsementText
   #   singleValue: true

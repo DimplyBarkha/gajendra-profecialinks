@@ -6,5 +6,6 @@ module.exports = {
     domain: 'flaconi.de',
     store: 'flaconi',
     zipcode: '',
+    
   },
 };
