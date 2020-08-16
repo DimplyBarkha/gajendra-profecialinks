@@ -7,6 +7,6 @@ module.exports = {
     domain: 'flaconi.de',
     url: 'https://www.flaconi.de/search/?q={searchTerms}',
     loadedSelector: 'div[class="content"]',
-    noResultsXPath: '//div[@class="search-noresult"]/span[1][contains(.,"Please try again!")]',
+    noResultsXPath: '//div[@class="search-noresult"]',
   },
 };
