@@ -32,6 +32,12 @@ const transform = (data, context) => {
       for (let row of group) {
         try {
 
+          if(row.description){
+            let text = row.description[0].text;
+            let bulletReplace = text.replace(/ - /g, " || ")
+            row.description[0].text = bulletReplace
+          }
+
           if(row.image){
             let text = row.image[0].text;
             let splits = text.split("?");
@@ -61,9 +67,14 @@ const transform = (data, context) => {
         }
 
         if(row.quantity){
-            let text = row.quantity[0].text;
-            let splits = text.split("•");
-          row.quantity[0].text = splits[0]
+          let text = row.quantity[0].text;
+          let splits = text.split("•");
+          if(!splits[0].includes("ITEM")){
+            let removeSize = splits[0].replace(/SIZE /g, "");
+            row.quantity[0].text = removeSize;
+          } else {
+            row.quantity = [{text: ""}];
+          }
         }
 
         // if(row.ratingCount){
@@ -81,6 +92,13 @@ const transform = (data, context) => {
             })
             let joins = newName.join(" ")
             row.nameExtended = [{text: joins}]
+          }
+
+          if(row.additionalDescBulletInfo){
+            row.additionalDescBulletInfo.forEach(bullet => {
+              let text = bullet.text.replace(/- /g, "")
+              bullet.text = text
+            })
           }
 
           if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {

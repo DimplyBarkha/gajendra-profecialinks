@@ -63,62 +63,62 @@ module.exports = {
       return videoIdForUrl
     })
 
-    await context.evaluate(function() {
-      let videoClicks = document.querySelectorAll('div[data-comp="BccVideo BccBase BccStyleWrapper "] img');
-      let offClick = document.querySelector('div#ratings-reviews-container')
-      for(let i = 0; i < videoClicks.length; i++){
-        let link = videoClicks[i].src;
-        if(link.includes("video.jpg")){
-          videoClicks[i].click();
-        }
-      }
-    })
-    await new Promise(resolve => setTimeout(resolve, 5000));
-    context.searchForRequest(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdArray[0]}`);
-    context.click('div#ratings-reviews-container')
+    // await context.evaluate(function() {
+    //   let videoClicks = document.querySelectorAll('div[data-comp="BccVideo BccBase BccStyleWrapper "] img');
+    //   let offClick = document.querySelector('div#ratings-reviews-container')
+    //   for(let i = 0; i < videoClicks.length; i++){
+    //     let link = videoClicks[i].src;
+    //     if(link.includes("video.jpg")){
+    //       videoClicks[i].click();
+    //     }
+    //   }
+    // })
+    // await new Promise(resolve => setTimeout(resolve, 5000));
+    // context.searchForRequest(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdArray[0]}`);
+    // context.click('div#ratings-reviews-container')
 
     
-    const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl) {
+    // const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl) {
     
-      async function fetchRetry(url, n) {
-        function handleErrors(response) {
-          if (response.status === 200){
-            return response;
-          } else {
-            console.log("FETCH FAILED")
-            if (n === 1) return "Nothing Found";
-            return fetchRetry(url, n - 1);
-          }
-        }
-        let fetched = fetch(url, {
-          "headers": {
-            "accept": "*/*",
-            "accept-language": "en-US,en;q=0.9",
-            "accept-encoding": "gzip, deflate, br",
-            "cache-control": "no-cache",
-            "origin": "https://www.sephora.com",
-            "authority": "manifest.prod.boltdns.net",
-            "pragma": "no-cache",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "cross-site"
-          },
-          "referrer": "https://www.sephora.com/ca/en/product/highliner-gel-crayon-P379434?icid2=products%20grid:p379434:product&skuId=1880079",
-          "referrerPolicy": "no-referrer-when-downgrade",
-          "body": null,
-          "method": "GET",
-          "mode": "cors",
-          "credentials": "same-origin"
-        }).then(handleErrors).then(response => response.text()).catch(error => {
-            console.log("FETCH FAILED")
-            if (n === 1) return "Nothing Found";
-            return fetchRetry(url, n - 1);
+    //   async function fetchRetry(url, n) {
+    //     function handleErrors(response) {
+    //       if (response.status === 200){
+    //         return response;
+    //       } else {
+    //         console.log("FETCH FAILED")
+    //         if (n === 1) return "Nothing Found";
+    //         return fetchRetry(url, n - 1);
+    //       }
+    //     }
+    //     let fetched = fetch(url, {
+    //       "headers": {
+    //         "accept": "*/*",
+    //         "accept-language": "en-US,en;q=0.9",
+    //         "accept-encoding": "gzip, deflate, br",
+    //         "cache-control": "no-cache",
+    //         "origin": "https://www.sephora.com",
+    //         "authority": "manifest.prod.boltdns.net",
+    //         "pragma": "no-cache",
+    //         "sec-fetch-dest": "empty",
+    //         "sec-fetch-mode": "cors",
+    //         "sec-fetch-site": "cross-site"
+    //       },
+    //       "referrer": "https://www.sephora.com/ca/en/product/highliner-gel-crayon-P379434?icid2=products%20grid:p379434:product&skuId=1880079",
+    //       "referrerPolicy": "no-referrer-when-downgrade",
+    //       "body": null,
+    //       "method": "GET",
+    //       "mode": "cors",
+    //       "credentials": "same-origin"
+    //     }).then(handleErrors).then(response => response.text()).catch(error => {
+    //         console.log("FETCH FAILED")
+    //         if (n === 1) return "Nothing Found";
+    //         return fetchRetry(url, n - 1);
 
-        });
-        return fetched;
-      }
-      return fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[0]}`, 10)
-    }, videoIdArray);
+    //     });
+    //     return fetched;
+    //   }
+    //   return fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[0]}`, 10)
+    // }, videoIdArray);
 
 
     const variantArray = await context.evaluate(function (parentInput, html) {
@@ -179,15 +179,32 @@ module.exports = {
 
       let variantInfo = '//span[contains(@data-at,"item_variation_type")]'
       var vInfo = document.evaluate( variantInfo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      let variantArr = [];
       if( vInfo.snapshotLength > 0 ) {
         // for(let i = 0; i < vInfo.snapshotLength; i++) {
           let info = vInfo.snapshotItem(0).textContent;
           let splits = info.split(":");
+          variantArr.push(splits[1]);
           if(info.includes("COLOR")){
             addHiddenDiv(`ii_color`, splits[1]);
           }
           addHiddenDiv(`ii_variantInfo`, splits[1]);
         // }
+      }
+
+      let nameExtended = '//h1[contains(@data-comp,"DisplayName")]//text()'
+      var eName = document.evaluate( nameExtended, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      let nameArray = [];
+      if( eName.snapshotLength > 0 ) {
+        for(let i = 0; i < eName.snapshotLength; i++) {
+          let name = eName.snapshotItem(i).textContent;
+          nameArray.push(name);
+        }
+        variantArr.forEach(info => {
+          nameArray.push(info);
+        })
+        let fullName = nameArray.join(" ")
+        addHiddenDiv(`ii_nameExtended`, fullName);
       }
 
     }, parentInput);
