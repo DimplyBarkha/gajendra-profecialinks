@@ -4,5 +4,7 @@ module.exports = {
     country: 'US',
     store: 'target',
     domain: 'target.com',
+    loadedSelector: 'body',
+    noResultsXPath: '//h1[contains(.,"no results found")]',
   },
 };
