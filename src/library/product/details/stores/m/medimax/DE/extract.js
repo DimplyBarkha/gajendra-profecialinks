@@ -1,6 +1,6 @@
 const { transform } = require('../format');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -20,9 +20,17 @@ async function implementation (
   });
   await context.extract(productDetails, { transform });
   if (src) {
-    await context.goto(src);
-    await context.waitForSelector('div.wrapper.preview');
-    return await context.extract(productDetails, { type: 'MERGE_ROWS' });
+    try {
+      await context.goto(src);
+      await context.waitForSelector('div.wrapper.preview');
+      return await context.extract(productDetails, { type: 'MERGE_ROWS' });
+    } catch (error) {
+      await context.evaluate(async function (src) {
+        window.location.assign(src);
+        await context.waitForSelector('div.wrapper.preview');
+        return await context.extract(productDetails, { type: 'MERGE_ROWS' });
+      }, src);
+    }
   }
 }
 
