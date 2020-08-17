@@ -18,13 +18,14 @@ fields:
     xpath: //div[contains(@class,"product_tile-image _fade")]/a/img/@src
     regExp: (.+__)\d+x\d+(.+)
     regExpReplace: http:$1325x325$2
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
-    regExp: .+(?=\sde)
+    regExp: (\d+).(\d)
+    regExpReplace: $1,$2
   - name: reviewCount
     xpath: //meta[@itemprop="reviewCount"]/@content
   - name: price
-    xpath: //div[contains(@class,"product_tile-prices")]/div/div[last()-1]
+    xpath: //div[contains(@class,"prices-price _current")] | //div[contains(@class,"prices-price _offer")]
   - name: rank
   - name: rankOrganic
   - name: sponsored
