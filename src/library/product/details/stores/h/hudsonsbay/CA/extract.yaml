@@ -31,11 +31,13 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    manualSelector: span.list.strike-through
+    regExp: \$\d+.\d+
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    manualSelector: span.price
+    manualSelector: span.value.bfx-price
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -118,8 +120,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    manualSelector: span.sr-only
-    regExp: \d.\d
+    manualSelector: span.tt-c-reviews-summary__rating-number
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -181,6 +182,8 @@ fields:
     singleValue: false
     description: null
     xpath: //h1[@class='product-brand-name']/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.thebay.com$1
   - name: internationalShipping
     singleValue: false
     description: Text next to bullet point
@@ -513,6 +516,9 @@ fields:
   - name: privacyPolicy
     singleValue: false
     description: Privacy Policy information text ['Yes','No']
+    xpath: //span/a/@title
+    regExp: Privacy policy
+    regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
     singleValue: false
@@ -532,4 +538,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
