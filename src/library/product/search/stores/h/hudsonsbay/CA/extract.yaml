@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='product bfx-disable-product standard']
 fields:
   - name: paid
     singleValue: false
@@ -23,6 +23,10 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
+    xpath: //div[@class='image-container']/a/@href
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id='searchUrl']
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
