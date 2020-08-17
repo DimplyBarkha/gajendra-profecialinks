@@ -96,6 +96,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
+    xpath
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -540,3 +541,20 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //*[@id="iio_product_url"]
+  - name: contentSyndication
+    singleValue: false
+    xpath: //*[@id="iio_product_url"]
+  - name: inTheBox
+    singleValue: false
+    # xpath: //*[@id="iio_product_url"]
+  - name: specificationList
+    singleValue: false
+    xpath: //div[contains(@class,"widget-Accordion--header")]//*[text()="Technische Daten"]/ancestor::div[position()=1]/ancestor::div[position()=1]/following-sibling::div[position()=1]
+  - name: compareTheRange
+    singleValue: false
+    # xpath: //*[@id="iio_product_url"]
+  - name: uninterrupedPDP
+    singleValue: false
+    # xpath: //*[@id="iio_product_url"]
+      
+      
