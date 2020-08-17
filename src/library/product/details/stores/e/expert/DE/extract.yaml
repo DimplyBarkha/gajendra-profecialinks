@@ -126,7 +126,7 @@ fields:
     type: NUMBER
   - name: shippingInfo
     singleValue: true
-    xpath: //th[contains(text(),'Lieferumfang')]//ancestor::th//parent::tr//td
+    xpath: //th[contains(text(),'Lieferumfang')]//ancestor::th//parent::tr//td|//div[contains(@class, "widget widget-ArticlePrice")]/following-sibling::div//p//text()
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -411,6 +411,7 @@ fields:
     description: null
   - name: specifications
     singleValue: true
+    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
@@ -434,6 +435,7 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: true
+    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsinhalt')]//ancestor::th//parent::tr//following-sibling::tr[count(td)=1]
     description: Packaging information
   - name: additives
     singleValue: true

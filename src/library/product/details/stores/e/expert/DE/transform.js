@@ -50,6 +50,48 @@ const transform = (data, context) => {
         //   row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
         }
 
+        if (row.specifications) {
+          const text = [];
+          row.specifications.forEach(item => {
+            if (item.text.length > 0) { text.push(item.text); }
+          });
+          if (text.length > 0) {
+            row.specifications = [
+              {
+                text: text.join(' || ').trim(),
+              },
+            ];
+          }
+        }
+
+        if (row.packaging) {
+          const text = [];
+          row.packaging.forEach(item => {
+            if (item.text.length > 0) { text.push(item.text); }
+          });
+          if (text.length > 0) {
+            row.packaging = [
+              {
+                text: text.join(' || ').trim(),
+              },
+            ];
+          }
+        }
+
+        if (row.shippingInfo) {
+          const text = [];
+          row.shippingInfo.forEach(item => {
+            if (item.text.length > 0) { text.push(item.text); }
+          });
+          if (text.length > 0) {
+            row.shippingInfo = [
+              {
+                text: text.join(' || ').trim(),
+              },
+            ];
+          }
+        }
+
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));
