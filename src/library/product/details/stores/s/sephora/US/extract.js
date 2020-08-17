@@ -181,15 +181,19 @@ module.exports = {
       var vInfo = document.evaluate( variantInfo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       let variantArr = [];
       if( vInfo.snapshotLength > 0 ) {
-        // for(let i = 0; i < vInfo.snapshotLength; i++) {
           let info = vInfo.snapshotItem(0).textContent;
           let splits = info.split(":");
-          variantArr.push(splits[1]);
-          if(info.includes("COLOR")){
-            addHiddenDiv(`ii_color`, splits[1]);
+          if(splits[1]){
+            variantArr.push(splits[1]);
+  
+            if(info.includes("COLOR")){
+              addHiddenDiv(`ii_color`, splits[1]);
+            }
+            addHiddenDiv(`ii_variantInfo`, splits[1]);
+          } else {
+            variantArr.push(splits[0]);
+            addHiddenDiv(`ii_variantInfo`, splits[0]);
           }
-          addHiddenDiv(`ii_variantInfo`, splits[1]);
-        // }
       }
 
       let nameExtended = '//h1[contains(@data-comp,"DisplayName")]//text()'

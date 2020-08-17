@@ -3,15 +3,15 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="products-grid"]//div[contains(@class,"product-item")]
 fields:
-  - name: productUrl !
+  - name: productUrl
     singleValue: false
     description: The URL for the product details page
     xpath: //a[contains(@class, "product-card-image")]/@href
-  - name: thumbnail !
+  - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
     xpath: //a[contains(@class, "product-card-image")]//img/@src
-  - name: name !
+  - name: name
     singleValue: false
     description: The product name
     xpath: //a[contains(@class, "product-card-description")]/p[contains(@class,"card")]
@@ -27,7 +27,7 @@ fields:
   #   description: The number of reviews
   #   xpath: //span[contains(@data-comp, "ReviewCount")]/@aria-label|//div[@id="ii_reviews"]
   #   defaultValue: "0"
-  - name: price !
+  - name: price
     singleValue: false
     description: The offered price for the product
     xpath: //p[contains(@class, "product-price")]//span
@@ -47,9 +47,9 @@ fields:
     singleValue: false
     description: Unique id (within this extractor)
     # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@data-uid
-    xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src|//div[@id="ii_sku"]
+    xpath: //div[contains(@class, "product-item")]//@data-product-id
     # regExp: ([0-9]+$)
-  - name: aggregateRating2 !
+  - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     # type: NUMBER

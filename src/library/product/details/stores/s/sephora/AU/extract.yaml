@@ -4,13 +4,13 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
-    xpath: (//div[@class='product-images']//img/@src[contains(., "zoom")])[1]
+    xpath: (//div[@class='product-images']//img/@src)[1]
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
-    xpath: //div[contains(@class,'product-images')]//img/@src[contains(., "zoom")]
+    # xpath: (//div[contains(@class,'product-images')]//img/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -20,6 +20,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //div[contains(@class, "product-breadcrumbs")]//li
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -32,6 +33,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: (//div[contains(@class, "product-info")]//p[contains(@class, "product-price")])[1]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -39,22 +41,25 @@ fields:
       should be "In Stock"
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@class, "product-description")]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[contains(@class, "product-brand")]/a
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
+    xpath: //div[contains(@class, "product-brand")]/a
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -86,8 +91,9 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
-    singleValue: true
+    singleValue: false
     description: Content under "directions" header
+    xpath: //div[contains(@class, "product-how-to")]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -106,6 +112,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //div[contains(@id, "shipping-collapse")]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -116,6 +123,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: count(//div[contains(@class, "variant-selector")]//li[contains(@class, "product-variant")]/@class)
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -452,6 +460,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "product-variant")]/@class
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
