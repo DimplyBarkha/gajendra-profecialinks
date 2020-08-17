@@ -82,6 +82,9 @@ fields:
     singleValue: false
   - name: manufacturerDescription
     singleValue: false
+    xpath: //body[div[@class="logo-wrapper"]]
+  - name: manufacturerDescription2
+    singleValue: false
     manualSelector: div#details-tab
   - name: shippingWeight
     singleValue: false
@@ -93,6 +96,4 @@ fields:
     regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
-    manualSelector: h1.product-details-name
-    regExp: .*?\s-\s(.*)
-    regExpReplace: $1
+    xpath: //body[div[@class="logo-wrapper"]]//img/@src

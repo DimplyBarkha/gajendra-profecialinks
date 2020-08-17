@@ -15,8 +15,14 @@ const transform = (data) => {
           text: row.shippingDimensions.reduce((item, currItem) => item ? `${item} | ${currItem.text.replace(/:*(\n\s*)/g, ': ')}` : currItem.text.replace(/:*(\n\s*)/g, ': '), ''),
         }];
       }
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
+      }
+      if (row.manufacturerDescription2) {
+        row.manufacturerDescription[0].text = `${row.manufacturerDescription2[0].text} ${row.manufacturerDescription[0].text}`;
+      }
       if (row.availabilityText) {
-        row.availabilityText[0].text = 'In Stock'
+        row.availabilityText[0].text = 'In Stock';
       } else {
         row.availabilityText = [{
           text: 'Out of Stock',
