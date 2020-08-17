@@ -17,7 +17,32 @@ async function implementation (
 
   await context.waitForXPath('//a[@class="img-link-block"]');
   await context.click('.img-link-block');
-  stall(2000);
+  await stall(4000);
+
+  await context.evaluate(function() {
+
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
+    const alternateImages = [];
+    document.querySelectorAll('.jcarousel-item').forEach(e => {
+      if (e.querySelector('img')) {
+        alternateImages.push(el.querySelector('img').getAttribute('srcset'));
+      }
+    })
+    addHiddenDiv('alternateImages', alternateImages.join(' | '));
+    addHiddenDiv('pageTimeStamp', new Date());
+    addHiddenDiv('url', window.location.href);
+    if (document.querySelector('.product-price.hide-for-small')) {
+      
+    }
+
+  });
   return await context.extract(productDetails, { transform });
 }
 

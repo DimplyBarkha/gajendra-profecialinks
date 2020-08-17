@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[@class="m-p-img zoom-thumb active"]/@src
+    xpath: //ul[@id="thumbnails"]//a/@data-featherlight
   - name: alternateImages
     singleValue: true
     xpath: //div[@id="alternateImages"]
-  #- name: metaKeywords
-  #  singleValue: true
-  #  xpath: //meta[@name="keywords"]/@content
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="Keywords"]/@content
   - name: pageTimeStamp
     singleValue: true
     xpath: //div[@id="pageTimeStamp"]
@@ -20,7 +20,7 @@ fields:
     xpath: //div[@id="url"]
   - name: category
     singleValue: false
-    xpath: //ol[@class="breadcrumb__list"]//a[position()!=0]/text()
+    xpath: //ul[@class="breadcrumbs"]//a[position()!=0]/text()
   - name: price
     singleValue: true
     xpath: //div[@id="price"]
