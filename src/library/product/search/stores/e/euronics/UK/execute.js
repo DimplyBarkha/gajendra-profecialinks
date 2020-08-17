@@ -22,7 +22,7 @@ async function implementation (
   }
 
   const url = 'https://www.euronics.co.uk/search/?text=' + inputs.keywords || inputs.Keywords;
-  await dependencies.goto({ url });
+  await dependencies.goto({ url }, {timeout: 20000});
   await context.waitForXPath('//div[@class="yCmsContentSlot product-grid-right-result-slot"]');
   await stall(2000);
   return context.evaluate(function () {

@@ -12,27 +12,25 @@ fields:
     xpath: //div[@class="rank"]
   - name: name
     singleValue: false
-    xpath: //div[@class="product-name"]
+    xpath: //div[@class="name"]
   - name: productUrl
     singleValue: false
-    xpath: //a[@data-test="product-title"]/@href
-  - name: gtin
-    singleValue: true
+    xpath: //a[@class="product-card__image-wrap"]/@href
   - name: thumbnail
     singleValue: true
-    xpath: //picture//source/@srcset
-  - name: aggregateRating
+    xpath: //img/@src
+  - name: aggregateRating2
     singleValue: false
-    xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
+    xpath: //div[@class="rating"]
   - name: reviewCount
     singleValue: false
-    xpath: //span[@data-test="product-rating-count"]
+    xpath: //div[@class="reviews"]
   - name: price
     singleValue: false
-    xpath: //span[@data-test="product-price"]
+    xpath: //li[@class="prd-price__now"]
   - name: manufacturer
     singleValue: false
-    xpath: //a[@data-test="itemDetail-brand"]
+    xpath: //div[@class="manufacturer"]
   - name: soldBy
     singleValue: true
   - name: rank
