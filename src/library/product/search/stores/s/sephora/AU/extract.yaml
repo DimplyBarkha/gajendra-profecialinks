@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="products-grid"]//div[contains(@class,"product-item")]
+fields:
+  - name: productUrl !
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //a[contains(@class, "product-card-image")]/@href
+  - name: thumbnail !
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //a[contains(@class, "product-card-image")]//img/@src
+  - name: name !
+    singleValue: false
+    description: The product name
+    xpath: //a[contains(@class, "product-card-description")]/p[contains(@class,"card")]
+  # - name: aggregateRatingText
+  #   singleValue: true
+  #   description: The stated aggregate rating
+  #   xpath: //div[contains(@data-comp, "StarRating")]/@aria-label|//div[@id="ii_aggregateRatingText"]
+  # - name: ratingCount
+  #   singleValue: true
+  #   description: The number of ratings
+  # - name: reviewCount
+  #   singleValue: true
+  #   description: The number of reviews
+  #   xpath: //span[contains(@data-comp, "ReviewCount")]/@aria-label|//div[@id="ii_reviews"]
+  #   defaultValue: "0"
+  - name: price !
+    singleValue: false
+    description: The offered price for the product
+    xpath: //p[contains(@class, "product-price")]//span
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@data-uid
+    xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src|//div[@id="ii_sku"]
+    # regExp: ([0-9]+$)
+  - name: aggregateRating2 !
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    # type: NUMBER
+    xpath: //a[contains(@class, "product-card-description")]//div[contains(@id, "rateit")]/@aria-valuenow
+    defaultValue: "0"
+    # regExp: ([.0-9]+)

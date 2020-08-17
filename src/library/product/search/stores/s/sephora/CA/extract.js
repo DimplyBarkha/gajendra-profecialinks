@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'sephora',
-    transform: null,
+    transform,
     domain: 'sephora.ca',
     zipcode: '',
   },
