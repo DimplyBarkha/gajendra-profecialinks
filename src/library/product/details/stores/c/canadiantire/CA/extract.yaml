@@ -6,7 +6,7 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //meta[@name="title"]/@content
-    regExp: (.*)\s*|
+    regExp: (.*?)\s*\|
     regExpReplace: $1
   - name: metaKeywords
     singleValue: false
@@ -111,7 +111,7 @@ fields:
     manualSelector: span.js-product-title-id
   - name: termsAndConditions
     singleValue: false
-    manualSelector: //a[text()='Terms & Conditions']
+    xpath: //a[text()='Terms & Conditions']
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: Out of Stock
