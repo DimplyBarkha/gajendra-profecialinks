@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'li[class="pagination-next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'li[class="pagination-next"]',
+    loadedSelector: 'li[data-id]',
     noResultsXPath: '//div[@class="search-empty"]/div',
     openSearchDefinition: null,
     domain: 'holtrenfrew.com',
