@@ -307,7 +307,7 @@ const transform = (data, context) => {
           */
           row.manufacturerDescription.forEach(item => {
             const manufTitleIgnoreText = /((From the manufacturer))/gm;
-            const regexIgnoreText = /^(Read more)|(View larger)/gm;
+            const regexIgnoreText = /(Read more)|(View larger)/gm;
             // console.log(item.text);
             item.text = (item.text).toString().replace(manufTitleIgnoreText, '').trim();
             console.log(item.text);
