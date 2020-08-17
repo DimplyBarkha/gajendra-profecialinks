@@ -39,7 +39,13 @@ async function implementation (
     addHiddenDiv('pageTimeStamp', new Date());
     addHiddenDiv('url', window.location.href);
     if (document.querySelector('.product-price.hide-for-small')) {
-      
+      if (document.querySelector('.product-price.hide-for-small').querySelector('.oldprice')) {
+        addHiddenDiv('listPrice', document.querySelector('.product-price.hide-for-small').querySelector('.oldprice').innerText.split(' ')[1]);
+        addHiddenDiv('price', document.querySelector('.product-price.hide-for-small').innerText.trim().split(' ')[1]);
+      } else {
+        addHiddenDiv('listPrice', document.querySelector('.product-price.hide-for-small').innerText.trim());
+        addHiddenDiv('price', document.querySelector('.product-price.hide-for-small').innerText.trim());
+      }
     }
 
   });
