@@ -337,7 +337,7 @@ const transform = (data, context) => {
             text.push(item.text);
           });
           row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
-          row.description[0].text = row.description[0].text.startsWith('|| ') ? row.description[0].text.slice(2) : row.description[0].text;
+          // row.description[0].text = row.description[0].text.startsWith('|| ') ? row.description[0].text.slice(2) : row.description[0].text;
         }
         if (row.amazonChoice && row.amazonChoice[0]) {
           if (row.amazonChoice[0].text.includes('Amazon')) {
