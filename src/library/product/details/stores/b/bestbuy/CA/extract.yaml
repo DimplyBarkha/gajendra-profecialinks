@@ -18,6 +18,12 @@ fields:
   - name: weightNet
     singleValue: false
     manualSelector: div[id="bb_weightNet"]
+  - name: weightGross
+    singleValue: false
+    manualSelector: div[id="bb_weightNet"]
+  - name: shippingWeight
+    singleValue: false
+    manualSelector: div[id="bb_weightNet"]
   - name: image
     singleValue: false
     xpath: //img[@class="productImage_AMBPT"]/@src
@@ -45,9 +51,6 @@ fields:
   - name: variantId
     singleValue: false
     manualSelector: span[itemprop="sku"]
-  - name: warranty
-    singleValue: false
-    manualSelector: div[id="bb_warranty"]
   - name: mpc
     singleValue: false
     manualSelector: span[itemprop="model"]
@@ -71,12 +74,12 @@ fields:
     xpath: //div[@class="modelDetailSection_2o3XX"]//span[@itemprop="ratingCount"]
     regExp: ([0-9]{1,}) Review
     regExpReplace: $1
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id="bb_warranty"] | //h3[text()="Warranty"]/parent::div/following-sibling::div
   - name: aggregateRatingText
-    singleValue: true
-    xpath: //div[@class="modelDetailSection_2o3XX"]//div[@class="reviews_1KIjQ"]/label[@class="ratings_I_BnL"]/strong
-  # - name: quantity
-  #   singleValue: false
-  #   defaultValue: 1
+    singleValue: false
+    xpath: //label[@class="ratings_I_BnL"]/strong | //div[@class="modelDetailSection_2o3XX"]//div[@class="reviews_1KIjQ"]/label[@class="ratings_I_BnL"]/strong
   - name: color
     singleValue: false
     manualSelector: div[id="bb_colour"]
