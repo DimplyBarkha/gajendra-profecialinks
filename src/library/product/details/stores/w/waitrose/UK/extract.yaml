@@ -36,9 +36,9 @@ fields:
     singleValue: true
     xpath: //div[@class="ingredientsText___Ztpzh"]
   - name: brandText
-    singleValue: true
-    xpath: //script[contains(text(),"brand")]
-    regExp: brand":"([^"]+)
+    singleValue: false
+    xpath: //h1[@id="productName"]
+    regExp: ^((?:\S+\s+){0}\S+).*
     regExpReplace: $1
   - name: manufacturer
     singleValue: true
@@ -117,6 +117,7 @@ fields:
   - name: variantCount
     singleValue: true
   - name: input
+    singleValue: true
     xpath: //script[contains(text(),"lineNumber")]
     regExp: lineNumber":"([^"]+)
     regExpReplace: $1 
@@ -142,7 +143,7 @@ fields:
     xpath: //div[@data-product-id]/@data-product-id
   - name: imageZoomFeaturePresent
     singleValue: true
-    xpath: boolean(//span[@id="largerImageOpen"])
+    xpath: boolean(//button[@id="largerImageOpen"])
   - name: caloriesPerServing
     singleValue: true
     xpath: //div[@class="nutrition___24-Nx"]//table//th[contains(.,"Energy")][@class="hidden___JqOyU"]/../td[1]
@@ -224,6 +225,7 @@ fields:
     singleValue: true
     defaultValue: £
   - name: sku
+    singleValue: true
     xpath: //script[contains(text(),"lineNumber")]
     regExp: lineNumber":"([^"]+)
     regExpReplace: $1     

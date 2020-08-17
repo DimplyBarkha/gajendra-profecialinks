@@ -6,5 +6,6 @@ module.exports = {
     prefix: 'search',
     country: 'UK',
     store: 'waitrose',
+    url: 'https://www.waitrose.com/ecom/shop/search?&searchTerm={id}',
   },
 };
