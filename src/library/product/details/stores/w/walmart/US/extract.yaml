@@ -68,7 +68,7 @@ fields:
 - name: sku
   singleValue: true
   xpath: //script[@id='item'] | //script[id='product']
-  regExp: (","productId":\")(\w+)(","sell)?(","item)?
+  regExp: (","primaryProductId":\")(\w+)(",")?
   regExpReplace: $2
 - name: asin
   singleValue: false
@@ -127,7 +127,7 @@ fields:
   singleValue: false 
   manualSelector: script[id='item'], script[id='product']
   regExp: >-
-    {"name":"\w*_\w*","value":"(\w*_\w*-[^\"]*)"}
+    {"name":"\w*_?\w*","value":"(\w*_?\w*-[^\"]*)"}
 
 - name: variants
   singleValue: false
