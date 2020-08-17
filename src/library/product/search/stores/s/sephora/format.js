@@ -116,7 +116,7 @@ const transform = (data, context) => {
       if(row.productUrl){
         let text = row.productUrl[0].text;
         let splits = text.split(" ");
-        let joins
+        let joins;
         if(splits[0]){
           if(!splits[0].includes("sephora.com")){
             joins = "https://www.sephora.com" + splits[0];
