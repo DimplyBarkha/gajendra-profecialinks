@@ -83,12 +83,13 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: ratingCount
     singleValue: true
-    # xpath: //dd[@class="bv-rating-ratio-count"]/a
-    manualSelector: dd.bv-rating-ratio-count a
+    xpath: //dd[@class="bv-rating-ratio-count"]/a
+    # manualSelector: dd.bv-rating-ratio-count a
     description: The number of ratings
   - name: aggregateRating
     singleValue: true
-    manualSelector: dd.bv-rating-ratio-number
+    xpath: //dd[@class='bv-rating-ratio-number']
+    # manualSelector: dd.bv-rating-ratio-number
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: true
