@@ -60,9 +60,9 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //span[@itemprop="offers"]/meta[@itemprop="price"]/@content
-  - name: productOtherInformation
-    singleValue: false
-    manualSelector: div[id="bb_productOtherInformation"]
+  # - name: productOtherInformation
+  #   singleValue: false
+  #   manualSelector: div[id="bb_productOtherInformation"]
   - name: additionalDescBulletInfo
     singleValue: false
     manualSelector: div[id="bb_productOtherInformation"]
@@ -72,11 +72,8 @@ fields:
     regExp: ([0-9]{1,}) Review
     regExpReplace: $1
   - name: aggregateRatingText
-    singleValue: false
+    singleValue: true
     xpath: //div[@class="modelDetailSection_2o3XX"]//div[@class="reviews_1KIjQ"]/label[@class="ratings_I_BnL"]/strong
-  - name: quantity
-    singleValue: false
-    defaultValue: 1
   - name: color
     singleValue: false
     manualSelector: div[id="bb_colour"]

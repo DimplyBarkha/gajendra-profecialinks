@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'bestbuy.ca',
     prefix: null,
-    url: 'https://www.bestbuy.ca/en-ca/product/{id}',
+    // url: 'https://www.bestbuy.ca/en-ca/product/{id}',
     country: 'CA',
     store: 'bestbuy',
     zipcode: '',

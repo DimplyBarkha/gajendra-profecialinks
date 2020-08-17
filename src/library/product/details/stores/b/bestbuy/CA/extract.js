@@ -136,10 +136,10 @@ module.exports = {
      for (let index = 0; index < otherInfoTxt.length; index++) {
        // @ts-ignore
        const element = otherInfoTxt[index].innerText;
-       otherInfoArr.push(element);
+       otherInfoArr.push(" | "+element);
      }
      // @ts-ignore
-     otherInfoArr = otherInfoArr.join(' | ');
+     otherInfoArr = otherInfoArr.join('');
      addElementToDocument('bb_productOtherInformation', otherInfoArr);
      //------------------------------------------------------------------------------
      function addElementToDocument (key, value) {
