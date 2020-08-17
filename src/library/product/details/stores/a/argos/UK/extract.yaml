@@ -1,20 +1,21 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[contains(@class,'MediaGallerystyles__ImageWrapper')]/picture/source[@width=750 and @type='image/webp']/@srcset
-    regExp: (.+)
+    xpath: (//div[contains(@data-test,"component-media-gallery_activeSlide")])[1]//img/@src
+    regExp: (.+)(?:\?)
     regExpReplace: https:$1
-    description: URL of the main product image
   - name: imageAlt
     singleValue: true
+    xpath: (//div[contains(@data-test,"component-media-gallery_activeSlide")])[1]//img/@alt
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@id,'image')]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -26,21 +27,20 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: concat(//h2[@data-test="product-name-main"]/span[1],' ',//h2[@data-test="product-name-main"]/span[2])
   - name: listPrice
     singleValue: true
+    xpath: //span[@data-test="price-was"]
+    regExp: £[0-9\.]+
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //span[@itemprop="priceCurrency"]/following-sibling::h2
   - name: availabilityText
     singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    manualSelector: div#availability
   - name: description
     singleValue: false
     xpath: //span[@data-test="product-title"]
@@ -50,10 +50,12 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//div[@id="pdp-description"]//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    manualSelector: div#brand
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -69,10 +71,13 @@ fields:
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
+    xpath: //li[contains(text(),"EAN:")]
+    regExp: EAN:\s+(\w+)
+    regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
+    xpath: //span[@itemprop="sku"]/@content
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -91,17 +96,20 @@ fields:
     singleValue: true
     description: Content under "directions" header
   - name: warnings
-    singleValue: true
+    xpath: //p[contains(text(),"WARNING")]/following-sibling::ul/li
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
+    xpath: //span[@itemprop="ratingCount"]
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
+    xpath: //h3[@data-test="reviews-accordion-title"]//span[contains(@class,"TrustmarkMessage")]/text()
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+    xpath: //h3[@data-test="reviews-accordion-title"]//span[contains(@class,"TrustmarkMessage")]/text()
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -126,18 +134,23 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@data-test="cnet-accordion-content"]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@data-test="cnet-accordion-content"]//div[contains(@class,"inline-thumbnail")]/img/@data-large | //div[@class="ccs-slick-track"]//a/img/@src
   - name: videos
     singleValue: false
+    xpath: //div[contains(@id,'video')]
     description: URLs of videos on page
   - name: name
     singleValue: true
     description: The product name
+    xpath: //span[@data-test="product-title"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
+    xpath: //span[@itemprop="priceCurrency"]/following-sibling::h2
   - name: asin
     singleValue: true
     description: null
@@ -419,6 +432,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
+    xpath: //div[contains(@id, "offer-text")]
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true

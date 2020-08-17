@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'argos',
     domain: 'argos.co.uk',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'span[data-test="product-title"]',
+    noResultsXPath: '//h1[@data-test="error-page-message-title"]',
     zipcode: 'SE19PD',
   },
 };
