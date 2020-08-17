@@ -12,7 +12,7 @@ module.exports = {
     await context.evaluate(async function () {
       const isSearchPage = document.querySelector('#searchMeta');
       // @ts-ignore
-      function timeout(ms) {
+      function timeout (ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
       // @ts-ignore
@@ -35,6 +35,7 @@ module.exports = {
         const cookieBar = document.querySelector('button.button___2YB28[data-webviewid="accept-cookies"]');
         // @ts-ignore
         cookieBar.click();
+        // eslint-disable-next-line promise/param-names
         await new Promise(r => setTimeout(r, 2000));
         await waitForElementWithTimeout('a > h2 > div > span.name___CmYia', 100, 5000);
       }
