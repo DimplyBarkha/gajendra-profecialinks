@@ -1,333 +1,343 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id='ii_product']
 fields:
-  - name: ageSuitability
-    xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(., 'Warnings')]//div[contains(., 'Age')]
-  - name: energyEfficiency
-    singleValue: true
-    selector: 
-  - name: technicalInformationPdfPresent
-    singleValue: true
-    defaultValue: false
-  - name: termsAndConditions
-    singleValue: true
-    selector:
-  - name: pricavyPolicy
-    singleValue: true
-    defaultValue: false
-  - name: customerServiceAvailability
-    singleValue: true
-    defaultValue: false
-  - name: materials
-    singleValue: true
-    selector:
-  - name: Image360Present
-    singleValue: true
-    xpath: //div[@id='ii_image360']
+  # - name: ageSuitability
+  #   xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(., 'Warnings')]//div[contains(., 'Age')]
+  # - name: technicalInformationPdfPresent
+  #   singleValue: true
+  #   defaultValue: false
+  # - name: pricavyPolicy
+  #   singleValue: true
+  #   defaultValue: false
+  # - name: customerServiceAvailability
+  #   singleValue: true
+  #   defaultValue: false
+  # - name: Image360Present
+  #   singleValue: true
+    # xpath: //div[@id='ii_image360']
+    # xpath: boolean(//div[contains(@id, 'wc-360-view-2e50e148')])
   - name: imageZoomFeaturePresent
-    singleValue: true
+    defaultValue: "No"
     xpath: //div[@id='ii_imageZoom']
+    # xpath: boolean(//div[contains(@data-class, "zoom-btn")])
+  - name: color
+    xpath: //div[@id="ii_color"]
+  - name: colorCode
+    xpath: //div[@id="ii_colorRef"]
   - name: additionalDescBulletInfo
-    xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
-  - name: dietaryInformation
-    singleValue: true
-    xpath: //div[@id='ii_Ingredients']
-  - name: dietarySymbols
-    singleValue: true
-    selector:
-  - name: factImagePresent
-    singleValue: true
-    defaultValue: false
-  - name: featureBullets
-    singleValue: true
+    xpath: //div[@id='ii_additionalDescBulletInfo']
+  - name: pricePerUnit
+    xpath: //div[@id='ii_unitPrice']
+    regExp:
+  - name: pricePerUnitUom
+    xpath: //div[@id='ii_unitPriceUom']
+    regExp:
+    # xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
+    # xpath: (//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//li|//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
+  # - name: dietaryInformation
+    # singleValue: true
+    # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
+    # xpath: //div[@id='ii_Ingredients']
+  # - name: factImagePresent
+  #   singleValue: true
+  #   defaultValue: "No"
+  # - name: featureBullets
+  #   singleValue: true
   - name: firstVariant
     singleValue: true
-    xpath: //div[@id='ii_url']
-    regExp: ([0-9])+$ 
-  - name: variants
-    xpath: //div[@id="ii_variantId"]
-  #   xpath: //script[contains(@src,'scontent.webcollage.net')]
-  #   regExp: cpi=([0-9]+)
-  #   regExpReplace: $1
-  - name: ingredientImagePresent
-    singleValue: true
-    defaultValue: false
-  - name: legalDisclaimer
-    singleValue: true
+    xpath: //div[@id='ii_productUrl']
+    # regExp: ([0-9])+$
+  # - name: ingredientImagePresent
+  #   singleValue: true
+  #   defaultValue: "No"
+  # - name: legalDisclaimer
+  #   singleValue: true
   - name: name
-    singleValue: true
-    selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
-  - name: news
-    singleValue: true
+    xpath: //div[@id='ii_title']
+    # xpath: //div[@class="css-1dbjc4n r-6koalj r-13awgt0"]//h1
+    # singleValue: true
+    # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
+  # - name: news
+  #   singleValue: true
   - name: secondaryImageTotal
-    singleValue: true
-    xpath: count((//div[contains(@id, 'zoom-carousel')]//img)/@src)
-  - name: productOtherInformation
-    singleValue: false
-    selector: div.wc-rich-content-description
-  - name: recyclingInformation
-    singleValue: true
-  - name: specifications
-    singleValue: true
+    xpath: //div[@id='ii_secondaryImageTotal']
+    # singleValue: true
+    # xpath: count((//div[contains(@id, 'zoom-carousel')]//img)/@src)
+    # xpath: count((//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])[position()>1]/@src)
+  # - name: productOtherInformation !!!!!!!!!!!!!!!
+  #   xpath: //div[@id="ii_manufHTML"]//div[contains(@class, "wc-fragment")]//div[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()[not(contains(.,"layout:")) and not(contains(.,".jpg"))]
+    # singleValue: false
+    # selector: div.wc-rich-content-description
   - name: shippingInfo
-    singleValue: true
-    selector: h1[aria-label="Ships free with CarePass"]
+    xpath: //div[@id='ii_shipping']
+    # singleValue: true
+    # selector: h1[aria-label="Ships free with CarePass"]
   - name: packSize
     xpath: //div[@id='ii_packSize']
-  - name: gtin
-    xpath: (//div[contains(@id, 'zoom-carousel')]//img/@src)[1] 
+  - name: gtin 
+    xpath: //div[@id='ii_gtin']
+    # xpath: (//div[contains(@id, 'zoom-carousel')]//img/@src)[1]
     regExp: ([0-9]+)
   - name: upc
-    xpath: (//div[contains(@id, 'zoom-carousel')]//img/@src)[1] 
+    xpath: //div[@id='ii_gtin']
+    # xpath: (//div[contains(@id, 'zoom-carousel')]//img/@src)[1]
     regExp: ([0-9]+)
   - name: id
-    singleValue: true
-    selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
+    xpath: //div[@id='ii_id']
+    # singleValue: true
+    # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
     regExp: ([0-9])+$
   - name: image
-    singleValue: true
-    xpath: (//div[contains(@id, 'zoom-carousel')]//img)[1]/@src
-  - name: metaKeywords
-    singleValue: true
+    # singleValue: true
+    # xpath: (//div[contains(@id, 'zoom-carousel')]//img)[1]/@src
+    xpath: //div[@id='ii_image']
   - name: nameExtended
-    singleValue: true
-    selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
+    xpath: //div[@id='ii_title']
+    # singleValue: true
+    # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: _pageTimestamp
     singleValue: true
-  - name: _url
-    singleValue: true
-    xpath: //div[@id='ii_url']
+  - name: productUrl
+    xpath: //div[@id='ii_productUrl']
+    regExp: >- 
+      ^(.*)$
+    regExpReplace: >-
+      https://www.cvs.com$1
   - name: category
-    xpath: //nav[@aria-label="breadcrumbs"]/div/div[position()>2]/a
-  - name: description 
-    singleValue: true
-    selector: div[style].htmlView:nth-of-type(4)
+    xpath: //div[@id='ii_category']
+  - name: description
+    xpath: //div[@id='ii_description']
+    # xpath: (//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()
+    # xpath: (//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//text()|(//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()
+    # singleValue: true
+    # selector: div[style].htmlView:nth-of-type(4)
   - name: metaKeywords
     singleValue: true
-    selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
-  - name: price 
-    xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+    xpath: //div[@id='ii_metaKeywords']
+    # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
+  - name: price
+  #   # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+    xpath: //div[@id='ii_price']
   - name: listPrice
-    singleValue: true
-    selector: div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by
-    regExp: ([$.0-9]+$)
-  - name: availabilityText
-    singleValue: true
-    selector: div.css-901oao.r-v857uc.r-1jn44m2.r-1i10wst.r-vw2c0b.r-9qu9m4
+    xpath: //div[@id='ii_listPrice']
+    # xpath: //div[@class='css-1dbjc4n r-k8qxaj']//div[@class='css-901oao r-1khnkhu r-1jn44m2 r-1b43r93 r-5fcqz0 r-m611by']
+    # singleValue: true
+    # selector: div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by
+    # regExp: ([$.0-9]+$)
+  - name: availabilityText 
+    # singleValue: true
+    # selector: div.css-901oao.r-v857uc.r-1jn44m2.r-1i10wst.r-vw2c0b.r-9qu9m4
     defaultValue: In Stock
-  - name: inStorePrice 
-    singleValue: true
-    selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
-  - name: inStorePriceSymbol
-    singleValue: true
-    selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
-    regExp: ^[$]
+    xpath: //div[@id='ii_availability']
+  # - name: inStorePrice
+  #   xpath: //div[@id='ii_variantPrice']
+    # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+    # singleValue: true
+    # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
+  # - name: inStorePriceSymbol
+  #   xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+  #   # singleValue: true
+  #   # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
+  #   regExp: ^[$]
   - name: ingredientsList
-    singleValue: true
-    xpath: //div[@id='ii_Ingredients']
+    # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients') and not(contains(., "Details"))]//div[@class='htmlView']
+    xpath: //div[@id='ii_ingredients']
   - name: brandText
-    xpath: //div[@id='ii_Brand']
-  - name: manufacturer 
+    xpath: //div[@id='ii_brand']
+  - name: manufacturer
     singleValue: true
     xpath: //div[@id='ii_Brand']
-  - name: quantity 
-    singleValue: true
-    selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    regExp: ([0-9]+ ((CT)|(ct)|(OZ)|(oz)|(EA)|(ea)))
-  - name: weightGross
-    singleValue: true
-    selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    regExp: ([.0-9]+ (lbs))
-  - name: sku 
-    singleValue: true
-    xpath: //div[@id='ii_sku']
+  - name: quantity
+    # xpath: //div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    xpath: //div[@id='ii_quantity']
+    # regExp: ([.0-9]+ ((CT)|(ct)|(OZ)|(oz)|(EA)|(ea)|(Oz)))
+    # singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    # regExp: ([0-9])+$ 
-  - name: variantId 
+  - name: weightNet # was weightGross
+    xpath: //div[@id='ii_weight']
+    # xpath: //div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    # singleValue: true
+    # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
+    # regExp: ([.0-9]+ (lbs))
+    # regExpReplace: $2
+  - name: sku
+    singleValue: true
+    xpath: //div[@id='ii_id']
+    # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
+    # regExp: ^([0-9])+
+  - name: variantId
     singleValue: true
     # selector: div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)
-    xpath: //div[@id='ii_url']
-    regExp: ([0-9])+$ 
-  - name: directions
-    singleValue: true
-    xpath: //div[@id='ii_Directions']
-  - name: warnings 
-    singleValue: true
-    xpath: //div[@id='ii_Warnings']
-  - name: alternateImages
-    singleValue: false
-    xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src
-  - name: ratingCount
-    xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//a
-    regExp: ([0-9])+
-  - name: aggregateRating
-    xpath: //div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
-  - name: manufacturerImages
-    xpath: //div[@id='wc-aplus']//img/@src
-    # xpath: //div[@id='ii_manufImages']
-  - name: allergyAdvice
-    singleValue: true
-    xpath: //div[@id='ii_Warnings']
-  - name: dietaryFiberPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Dietary Fiber']
-    regExp: (^[.0-9]+)
-  - name: dietaryFiberPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Dietary Fiber']
-    regExp: ([g|mg|]+$)
-  - name: totalSugarsPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Sugars']
-    regExp: (^[.0-9]+)
-  - name: totalSugarsPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Sugars']
-    regExp: ([g|mg|]+$)
-  - name: proteinPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Protein']
-    regExp: (^[.0-9]+)
-  - name: proteinPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Protein']
-    regExp: ([g|mg|]+$)
-  - name: ironPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Iron']
-    regExp: (^[.0-9]+)
-  - name: ironPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Iron']
-    regExp: ([g|mg|]+$)
-  - name: saltPerServing
-    singleValue: true
-  - name: saltPerServingUom
-    singleValue: true
-  - name: totalCarbPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Total Carbohydrate']
-    regExp: (^[.0-9]+)
-  - name: totalCarbPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Total Carbohydrate']
-    regExp: ([g|mg|]+$)
-  - name: sodiumPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Sodium']
-    regExp: (^[.0-9]+)
-  - name: sodiumPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Sodium']
-    regExp: ([g|mg|]+$)
-  - name: totalFatPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Total Fat']
-    regExp: (^[.0-9]+)
-  - name: totalFatPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Total Fat']
-    regExp: ([g|mg|]+$)
-  - name: saturatedFatPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Saturated Fat']
-    regExp: (^[.0-9]+)
-  - name: saturatedFatPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Saturated Fat']
-    regExp: ([g|mg|]+$)
-  - name: transFatPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Trans Fat']
-    regExp: (^[.0-9]+)
-  - name: transFatPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Trans Fat']
-    regExp: ([g|mg|]+$)
-  - name: caloriesPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Calories']
-  - name: caloriesFromFatPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Calories from Fat']
-  - name: cholesterolPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Cholesterol']
-    regExp: (^[.0-9]+)
-  - name: cholesterolPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Cholesterol']
-    regExp: ([g|mg|]+$)
-  - name: numberOfServingsInPackage
-    singleValue: true
-    selector: div[style].css-1dbjc4n.r-18u37iz.r-15d164r > div.css-901oao:nth-of-type(2)
-  - name: servingSize
-    singleValue: true
-    selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
-    regExp: (^[.0-9]+)
-  - name: servingSizeUom
-    singleValue: true
-    selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
-    regExp: ([a-z]+$)
-  - name: manufacturerDescription 
-    singleValue: false
-    # selector: div.wc-rich-content-description
-    xpath: //div[@id='ii_manufDesc']
-  - name: descriptionBullets
-    xpath: count(//div[@class='htmlView']/ul/li)
-  - name: videos 
-    xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
-  - name: coupon
-    singleValue: true
-  - name: variantCount
-    singleValue: true
-    xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
-    regExp: ^[0-9]+
+    # xpath: //div[@id='ii_sku']
+    xpath: //div[@id='ii_productUrl']
+    # regExp: ([0-9])+$
+  - name: variants
+    xpath: ancestor::html//div[@id='ii_id']
+    regExp: ^([0-9])+
   - name: variantInformation
     xpath: //div[@id='ii_variantInfo']
-  - name: _input 
+  - name: directions
+    # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Directions')]//div[@class='htmlView']
+    xpath: //div[@id='ii_directions']
+  - name: warnings
+    # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
+    xpath: //div[@id='ii_warnings']
+  - name: alternateImages
+    singleValue: false
+    # xpath: (//div[contains(@id, 'zoom-carousel')]//img)/@src[contains(., "https")]
+    xpath: //div[@id='ii_alternateImages']
+  - name: ratingCount
+    xpath: //div[@id='ii_reviewCount']
+    defaultValue: '0'
+    # xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//a
+    regExp: ([0-9])+
+  - name: aggregateRating
+    xpath: //div[@id='ii_rating']
+    defaultValue: '0'
+    # xpath: //div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
+  - name: manufacturerImages
+    # xpath: //div[@id='wc-aplus']//img/@src[not (contains(., "syndigo.svg"))]
+    xpath: //div[@id='ii_iframeImg']|//div[@id='ii_manufHTML']//div[@id="wc-aplus"]//img[not(contains(@src,"syndigo.svg"))]/@src[contains(., "https:")]
+    # xpath: //div[@id='ii_manufHTML']//div[@id="wc-aplus"]//div[not(contains(@class,'wc-comparison'))]//img/@src[not (contains(., "syndigo.svg"))]
+  # - name: allergyAdvice 
+    # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
+    # xpath: //div[@id='ii_warnings']
+  - name: dietaryFiberPerServing
+    xpath: //div[contains(@id, 'Dietary Fiber')]
+    regExp: (^[.0-9]+)
+  - name: dietaryFiberPerServingUom
+    xpath: //div[contains(@id, 'Dietary Fiber')]
+    regExp: ([g|mg|]+$)
+  - name: totalSugarsPerServing
+    xpath: //div[contains(@id, 'Sugars')]
+    regExp: (^[.0-9]+)
+  - name: totalSugarsPerServingUom
+    xpath: //div[contains(@id, 'Sugars')]
+    regExp: ([g|mg|]+$)
+  - name: proteinPerServing
+    xpath: //div[contains(@id, 'Protein')]
+    regExp: (^[.0-9]+)
+  - name: proteinPerServingUom
+    xpath: //div[contains(@id, 'Protein')]
+    regExp: ([g|mg|]+$)
+  - name: ironPerServing
+    xpath: //div[contains(@id, 'Iron')]
+    regExp: (^[.0-9]+)
+  - name: ironPerServingUom
+    xpath: //div[contains(@id, 'Iron')]
+    regExp: ([g|mg|]+$)
+  - name: saltPerServing
+  - name: saltPerServingUom
+  - name: totalCarbPerServing
+    xpath: //div[contains(@id, 'Total Carbohydrate')]
+    regExp: (^[.0-9]+)
+  - name: totalCarbPerServingUom
+    xpath: //div[contains(@id, 'Total Carbohydrate')]
+    regExp: ([g|mg|]+$)
+  - name: sodiumPerServing
+    xpath: //div[contains(@id, 'Sodium')]
+    regExp: (^[.0-9]+)
+  - name: sodiumPerServingUom
+    xpath: //div[contains(@id, 'Sodium')]
+    regExp: ([g|mg|]+$)
+  - name: totalFatPerServing
+    xpath: //div[contains(@id, 'Total Fat')]
+    regExp: (^[.0-9]+)
+  - name: totalFatPerServingUom
+    xpath: //div[contains(@id, 'Total Fat')]
+    regExp: ([g|mg|]+$)
+  - name: saturatedFatPerServing
+    xpath: //div[contains(@id, 'Saturated Fat')]
+    regExp: (^[.0-9]+)
+  - name: saturatedFatPerServingUom
+    xpath: //div[contains(@id, 'Saturated Fat')]
+    regExp: ([g|mg|]+$)
+  - name: transFatPerServing
+    xpath: //div[contains(@id, 'Trans Fat')]
+    regExp: (^[.0-9]+)
+  - name: transFatPerServingUom
+    xpath: //div[contains(@id, 'Trans Fat')]
+    regExp: ([g|mg|]+$)
+  - name: caloriesPerServing
+    xpath: //div[contains(@id, 'Calories')]
+  - name: caloriesFromFatPerServing
+    xpath: //div[contains(@id, 'Calories from Fat')]
+  - name: cholesterolPerServing
+    xpath: //div[contains(@id, 'Cholesterol')]
+    regExp: (^[.0-9]+)
+  - name: cholesterolPerServingUom
+    xpath: //div[contains(@id, 'Cholesterol')]
+    regExp: ([g|mg|]+$)
+  - name: numberOfServingsInPackage
+    xpath: //div[@id='ii_numberOfServingsInPackage']
+    # xpath: //div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
+    # regExp: ([.0-9]+ ((CT)))
+    # selector: div[style].css-1dbjc4n.r-18u37iz.r-15d164r > div.css-901oao:nth-of-type(2)
+  - name: servingSize 
+    xpath: //div[@id='ii_servingSize']
+    # selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
+    # xpath: (//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
+    # regExp: (^[.0-9]+)
+  - name: servingSizeUom
+    xpath: //div[@id='ii_servingSizeUom']
+    # xpath: (//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
+    # selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
+    # regExp: ([-a-z]+$)
+  - name: manufacturerDescription 
+    singleValue: false
+    # xpath: //div[@id='ii_manufDescription']
+    xpath: //div[@id="ii_manufHTML"]//div[contains(@class, "wc-fragment")]//*[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()[not(contains(.,"layout:")) and not(contains(.,".jpg")) and not(contains(.,".png"))]
+  - name: descriptionBullets
+    # defaultValue: '0'
+    # xpath: count(//div[@class='htmlView']/ul/li)
+    xpath: //div[@id='ii_descriptionBullets']
+  - name: videos
+    # xpath: //div[@id='wc-aplus']//div[contains(@class, 'wc-iframe-media-wrap')]//@data-asset-url
+    # xpath: //div[@id='ii_videoSrc']|//img[contains(@class,'wc-iframe')]/@data-asset-url|//img[contains(@class, 'wc-video')]/@wcobj
+    # ADDITIONAL THAT WAS TAKEN OUT BY REQUEST: |//div[@id='ii_manufHTML']//img/@data-asset-url[contains(.,'https:') and not(contains(.,".jpg"))]
+    xpath: //div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]/@wcobj[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "media-wrap")]//@data-src[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]//meta[contains(@content, 'mp4')]/@content[not(contains(.,".jpg"))]|//div[@wc-movie]/@wcobj
+  # - name: coupon
+  #   singleValue: true
+  - name: variantCount 
+    xpath: //div[@id="ii_totalRecordCount"]
+    # xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
+    # regExp: ^[0-9]+
+  - name: _input
     singleValue: true
   - name: imageAlt 
-    singleValue: true
-    xpath: (//div[contains(@id,'zoom-carousel')]//img)[2]/@src
+    xpath: //div[@id='ii_imageAlt']
+    # singleValue: true
+    # xpath: (//div[contains(@id,'zoom-carousel')]//img)[2]/@src
   - name: promotion
-    # selector: div.css-1dbjc4n div.css-901oao.r-cme181.r-1jn44m2.r-ubezar.r-b88u0q
-    xpath: (//div[@class='css-1dbjc4n r-utggzx']//div[@class='css-1dbjc4n']/div[contains(., 'Sale') or (contains(., 'Buy'))])[1]
-  - name: aggregateRatingText
-    xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//section/@aria-label
+    xpath: //div[@id='ii_promotion']
+  # - name: aggregateRatingText
+  #   # xpath: //div[@id='ii_variantRatingText']
+  #   xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//section/@aria-label
   - name: vitaminAPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Vitamin A']
+    xpath: //div[contains(@id, 'Vitamin A')]
     regExp: (^[.0-9]+)
   - name: vitaminAPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Vitamin A']
+    xpath: //div[contains(@id, 'Vitamin A')]
     regExp: ([g|mg|mcg|IU]+$)
   - name: vitaminCPerServing
-    singleValue: true
-    xpath: //div[contains(@id,'ii_Vitamin C')]
+    xpath: //div[contains(@id,'Vitamin C')]
     regExp: (^[.0-9]+)
   - name: vitaminCPerServingUom
-    singleValue: true
-    xpath: //div[contains(@id,'ii_Vitamin C')]
+    xpath: //div[contains(@id,'Vitamin C')]
     regExp: ([g|mg|mcg|IU]+$)
   - name: calciumPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Calcium']
+    xpath: //div[contains(@id, 'Calcium')]
     regExp: (^[.0-9]+)
   - name: calciumPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Calcium']
+    xpath: //div[contains(@id, 'Calcium')]
     regExp: ([g|mg|mcg|IU]+$)
   - name: magnesiumPerServing
-    singleValue: true
-    xpath: //div[@id='ii_Magnesium']
+    xpath: //div[contains(@id, 'Magnesium')]
     regExp: (^[.0-9]+)
   - name: magnesiumPerServingUom
-    singleValue: true
-    xpath: //div[@id='ii_Magnesium']
+    xpath: //div[contains(@id, 'Magnesium')]
     regExp: ([g|mg|mcg|IU]+$)
-
+  
   
