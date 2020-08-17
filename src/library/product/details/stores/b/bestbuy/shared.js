@@ -12,6 +12,11 @@ const transform = (data) => {
             item.text= item.text.replace(/(100x100)/, '500X500');
           });
         }
+        if (row.brandText) {
+          row.brandText.forEach(item => {
+            item.text= item.text ? item.text.split(' ')[0] : '';
+          });
+        }
       }
     }
     return data;
