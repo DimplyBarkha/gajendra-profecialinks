@@ -109,3 +109,9 @@ fields:
   - name: gtin
     singleValue: false
     manualSelector: span.js-product-title-id
+  - name: termsAndConditions
+    singleValue: false
+    manualSelector: //a[text()='Terms & Conditions']
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: Out of Stock
