@@ -27,22 +27,6 @@ const transform = (data) => {
           }
         });
       }
-      // Added code as brand is not available directly on the webpage
-      if (row.brandText) {
-        row.brandText.forEach(brandItem => {
-          try {
-            const brandJSON = JSON.parse(brandItem.text);
-            const brand = brandJSON.Brand;
-            if (brand) {
-              brandItem.text = brand;
-            } else {
-              brandItem.text = '';
-            }
-          } catch (e) {
-            brandItem.text = '';
-          }
-        });
-      }
       if (row.alternateImages) {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
