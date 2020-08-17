@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //ul[@class='color-wrapper radio-group-list']//button/@data-adobelaunchcolorproductid
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //ul[@class='color-wrapper radio-group-list']//button/@data-url
