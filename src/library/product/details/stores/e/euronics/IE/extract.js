@@ -6,6 +6,18 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  function stall(ms) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, ms)
+    })
+  }
+
+  await context.waitForXPath('//a[@class="img-link-block"]');
+  await context.click('.img-link-block');
+  stall(2000);
   return await context.extract(productDetails, { transform });
 }
 
