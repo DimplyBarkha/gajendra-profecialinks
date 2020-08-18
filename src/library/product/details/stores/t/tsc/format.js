@@ -30,12 +30,13 @@ const transform = (data) => {
       if (row.alternateImages) {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
-      // Adding | to nameExtended bullets and nameExtended bullet count
-      if (row.nameExtended) {
-        row.nameExtended.forEach(descItem => {
+      // Adding || to nameExtended bullets and nameExtended bullet count
+      if (row.description) {
+        row.description.forEach(descItem => {
           const numberOfBullets = descItem.text.match(/•/g).length;
           row.descriptionBullets = [{ text: numberOfBullets }];
-          descItem.text = descItem.text.replace(/•/g, ' | ');
+          descItem.text = descItem.text.replace(/•/g, ' || ');
+          descItem.text = cleanUp(descItem.text);
         });
       }
       // If availabilityText contains SOLD OUT then it will be OUT OF STOCK else IN STOCK
