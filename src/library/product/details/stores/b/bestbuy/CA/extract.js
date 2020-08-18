@@ -127,7 +127,7 @@ module.exports = {
       for (let index = 0; index < bulletsDescription.length; index++) {
         let element = bulletsDescription[index];
         // @ts-ignore
-        element = element ? element.innerText : '';
+        element = element ? element.innerText.replace(/•/, '') : '';
         descArr.push(element);
       }
       // @ts-ignore

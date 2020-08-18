@@ -19,7 +19,7 @@ const transform = (data) => {
         }
         if (row.description) {
           row.description.forEach(item => {
-            item.text= item.text ? item.text.replace('•','') : '';
+            item.text= item.text ? item.text.replace(/•(.*)<br>/gm) : '';
           });
         }
       }
