@@ -17,6 +17,8 @@ fields:
   - name: gtin
     singleValue: false
     manualSelector: p.product-tile-srp__product-id
+    regExp: ^#(.*)
+    regExpReplace: $1
   - name: thumbnail
     singleValue: false
     xpath: //img[@class="product-tile-srp__image"]/@src
