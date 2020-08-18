@@ -15,10 +15,19 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    const buttonSelector = 'button#detailsAndSpecs';
-    await context.click(buttonSelector);
-    await context.waitForXPath('//h3[text()="Warranty"]/parent::div/following-sibling::div');
     await context.evaluate(async function () {
+      const buttonSelector = 'button#detailsAndSpecs';
+      let available = document.querySelector(buttonSelector);
+      // @ts-ignore
+      available = available ? available.click() : '';
+    });
+    try {
+      await context.waitForXPath('//h3[text()="Warranty"]/parent::div/following-sibling::div');
+    } catch (error) {
+      console.log("Warranty element not found");
+    }
+    await context.evaluate(async function () {
+      
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -26,9 +35,6 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-    //  let detailsAndSpecs = document.querySelector('button#detailsAndSpecs');
-     // @ts-ignore
-    //  detailsAndSpecs = detailsAndSpecs ? detailsAndSpecs.click() : '';
      let detailsAndSpecsTextArr = [];
      let warrantyTextArr = [];
      let detailsAndSpecsText = document.querySelectorAll('div.itemContainer_RJI-h');
@@ -94,9 +100,17 @@ module.exports = {
      addElementToDocument('bb_dimension', dimensionTxtArr.join(' | '));
     });
      //-----------------------------------------------------------------
-     const buttonSelector1 = 'button#moreInfo';
-     await context.click(buttonSelector1);
+     await context.evaluate(async function () {
+      const buttonSelector1 = 'button#moreInfo';
+      let available = document.querySelector(buttonSelector1);
+      // @ts-ignore
+      available = available ? available.click() : '';
+     });
+     try {
      await context.waitForSelector('div.productDescription_ujYCD');
+     } catch (error) {
+       console.log("Product description not loaded");
+     }
      await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -113,9 +127,6 @@ module.exports = {
       if(description !== ''){
         descArr.push(description);
       }
-      // let moreInfoBtn = document.querySelector('div#moreInfo');
-      // // @ts-ignore
-      // moreInfoBtn = moreInfoBtn ? moreInfoBtn.click() : '';
       let bulletsDescription = document.querySelectorAll('div.productDescription_ujYCD ul li');
       console.log('bulletsDescription: ', bulletsDescription);
       let bulletCount = bulletsDescription.length;
@@ -166,9 +177,18 @@ module.exports = {
      addElementToDocument('bb_videos', videoLinkArr);
     });
      //------------------------------------------------------------------------------
-     const buttonSelector2 = 'button#whatsIncluded';
-     await context.click(buttonSelector2);
-     await context.waitForSelector('div#whatsIncluded ul li');
+     await context.evaluate(async function () {
+      const buttonSelector2 = 'button#whatsIncluded';
+      let available = document.querySelector(buttonSelector2);
+      // @ts-ignore
+      available = available ? available.click() : '';
+     });
+     try {
+       await context.waitForSelector('div#whatsIncluded ul li');
+     } catch (error) {
+      console.log("whatsIncluded description not loaded");
+     }
+     //------------------------------------------------------------------------
      await context.evaluate(async function () {
      let otherInfoArr = [];
      let otherInfo = document.querySelector('button#whatsIncluded');
