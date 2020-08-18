@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //li[@class='swatch-list-item']/a/@href
+    regExp: p\d+
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //li[@class='swatch-list-item']/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.johnlewis.com$1
