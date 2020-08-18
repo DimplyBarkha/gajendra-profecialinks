@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'johnlewis',
     domain: 'johnlewis.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'ul.swiper-wrapper li.swiper-slide',
+    noResultsXPath: '//h1[@class="cms-title-text h1"]',
     zipcode: '',
   },
 };

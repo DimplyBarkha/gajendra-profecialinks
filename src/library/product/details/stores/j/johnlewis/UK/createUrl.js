@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'johnlewis.com',
     prefix: null,
-    url: null,
+    url: 'https://www.johnlewis.com/',
     country: 'UK',
     store: 'johnlewis',
     zipcode: '',
