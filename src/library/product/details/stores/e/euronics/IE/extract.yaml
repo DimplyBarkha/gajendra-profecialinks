@@ -87,33 +87,33 @@ fields:
   - name: aggregatedRating
     singleValue: true
     xpath: //div[@id="aggregatedRating"]
-#  - name: shippingInfo
-#    singleValue: true
-#    xpath: //div[@id="shippingInfo"]
-  - name: shippingDimensions
+  - name: shippingInfo
     singleValue: true
-    xpath: //div[@id="shippingDimensions"]
-  #- name: shippingWeight
-  #  singleValue: true
-  #  xpath: //div[@data-test="estimatedShipWeight"]
+    xpath: //div[@id="shippingInfo"]
+# - name: shippingDimensions
+#   singleValue: true
+#   xpath: //div[@id="shippingDimensions"]
+# - name: shippingWeight
+#   singleValue: true
+#   xpath: //div[@data-test="estimatedShipWeight"]
 #  - name: variantCount
 #    singleValue: true
 #    xpath: //div[@id="variantCount"]
   - name: color
     singleValue: true
     xpath: //div[@id="color"]
-#  - name: manufacturerDescription
-#    singleValue: true
-#    xpath: //div[@class="wc-rich-content-description"]
-#  - name: manufacturerImages
-#    singleValue: true
-#    xpath: //div[@id="manufacturerImgs"]
-#  - name: videos
-#    singleValue: true
-#    xpath: //video//source/@src
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //div[@id="manufacturerDescription"]
+  - name: manufacturerImages
+    singleValue: true
+    xpath: //div[@id="manufacturerImgs"]
+  - name: videos
+    singleValue: true
+    xpath: //div[@id="videos"]
   - name: name
     singleValue: true
-    xpath: //div[@class="product-detail__heading-wrap "]//h1[@class="product-name product-detail__heading"]/text()
+    xpath: //h1[@class="mini hide-for-small"]/text()
   - name: specifications
     singleValue: true
     xpath: //div[@id="specifications"]
@@ -125,9 +125,9 @@ fields:
   #  xpath: //div[@id="storageInfo"]
   #- name: countryOfOrigin
   #  xpath: //div[@id="originInfo"]
-  - name: promotion
-    singleValue: true
-    xpath: //div[@id="promotion"]
+  #- name: promotion
+  #  singleValue: true
+  #  xpath: //div[@id="promotion"]
   #- name: variants
   #  singleValue: true
   #  xpath: //div[@id="variants"]
