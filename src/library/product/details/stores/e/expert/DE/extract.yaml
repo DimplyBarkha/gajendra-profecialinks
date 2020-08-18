@@ -96,7 +96,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
-    xpath
+    xpath: (//div[contains(@class, "widget widget-ArticleNumber")]//span)[2]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -556,5 +556,3 @@ fields:
   - name: uninterrupedPDP
     singleValue: false
     # xpath: //*[@id="iio_product_url"]
-      
-      
