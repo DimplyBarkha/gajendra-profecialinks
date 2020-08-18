@@ -9,7 +9,7 @@ fields:
     singleValue: false
   - name: _url
     singleValue: false
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //acl-rating//a/@title
     type: NUMBER
@@ -21,21 +21,16 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //a[contains(@class, "acl-product-card__title-link")]/@href
+    regExp: .*\/(.*)$
+    regExpReplace: $1
   - name: id
     singleValue: false
     xpath: //a[contains(@class, "acl-product-card__title-link")]/@href
-  - name: manufacturer
-    singleValue: false
-  - name: mpc
-    singleValue: false
+    regExp: .*\/(.*)$
+    regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //a[contains(@class, "acl-product-card__title-link")]/@title
-  - name: nameExtended
-    singleValue: false
-    xpath: //a[contains(@class, "acl-product-card__title-link")]/@title
-  - name: packSize
-    singleValue: false
   - name: price
     singleValue: false
     xpath: //div[contains(@class, "price-dollars")]//span
@@ -45,12 +40,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a[contains(@class, "acl-product-card__title-link")]/@href
-  - name: quantity
-    singleValue: false
-  - name: rank
-    singleValue: false
-  - name: rankOrganic
-    singleValue: false
+    regExp: (.+)
+    regExpReplace: https://www.homedepot.ca$1
   - name: ratingCount
     singleValue: false
     xpath: //acl-rating
@@ -58,17 +49,6 @@ fields:
   - name: reviewCount
     singleValue: false
     type: NUMBER
-  - name: shippingInfo
-    singleValue: false
-  - name: soldBy
-    singleValue: false
   - name: thumbnail
     singleValue: false
     xpath: //acl-product-card-group[contains(@evtperfname,"acl-product-card-group")]//article//div[contains(@class, "acl-product-card__image")]//img/@src
-  - name: variantCount
-    singleValue: false
-  - name: variantId
-    singleValue: false
-    xpath: //a[contains(@class, "acl-product-card__title-link")]/@href
-  - name: variantType
-    singleValue: false
