@@ -13,6 +13,8 @@ const transform = (data) => {
         row.availabilityText.forEach(item => {
           if (item.text === 'COLLECTION_FROM_TOMORROW_AT_TIME') {
             text = 'In Stock';
+          } else if (item.text === "DELIVERY_1_MAN_FROM_TODAY") {
+            text = 'In Stock';
           } else {
             console.log(`Unhandled case => ${item.text}`);
           }
@@ -34,6 +36,18 @@ const transform = (data) => {
           text += ` ${item.text.trim()}`;
         });
         row.warnings = [{ text: text.trim() }];
+      }
+
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = Number(item.text) ? Number(item.text).toFixed(1) : item.text;
+        });
+      }
+
+      if (row.aggregateRatingText) {
+        row.aggregateRatingText.forEach(item => {
+          item.text = Number(item.text) ? Number(item.text).toFixed(1) : item.text;
+        });
       }
     };
   }

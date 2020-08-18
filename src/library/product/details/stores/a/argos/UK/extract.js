@@ -69,7 +69,10 @@ module.exports = {
 
         const images = (productInfo && productInfo.media && productInfo.media.images) || [];
         images.forEach((img, index) => {
-          injectElementToBody(`image-${++index}`, `https:${img}`);
+          // Skip the first image
+          if (index) {
+            injectElementToBody(`image-${index}`, `https:${img}`);
+          }
         });
 
         const videos = (productInfo && productInfo.media && productInfo.media.videos) || [];
