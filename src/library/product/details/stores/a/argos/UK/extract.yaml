@@ -43,7 +43,7 @@ fields:
     manualSelector: div#availability
   - name: description
     singleValue: false
-    xpath: //span[@data-test="product-title"]
+    xpath: //div[@id="description"]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -133,11 +133,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@data-test="cnet-accordion-content"]//text()
+    xpath: //div[@id="manufacturer-details"]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@data-test="cnet-accordion-content"]//div[contains(@class,"inline-thumbnail")]/img/@data-large | //div[@class="ccs-slick-track"]//a/img/@src
+    xpath: //a[contains(@class,"ccs-cc-inline-thumbnail-image")]/img/@data-large | //div[@class="ccs-slick-slide"][@data-media-type="image"]/@data-image-url
   - name: videos
     singleValue: false
     xpath: //div[contains(@id,'video')]

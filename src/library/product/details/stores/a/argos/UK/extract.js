@@ -12,22 +12,19 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies, ) => {
     const defaultTimeOutInMS = 10000;
 
-    const isSelectorAvailable = async (cssSelector) => {
-      console.log(`Is selector available: ${cssSelector}`);
-      return await context.evaluate(function (selector) {
-        return !!document.querySelector(selector);
-      }, cssSelector);
-    };
-
     await context.waitForNavigation({ timeout: defaultTimeOutInMS, waitUntil: 'networkidle0' });
 
     try {
       await context.evaluate(async function (zip) {
-        const injectElementToBody = (id, value) => {
+        const injectElementToBody = (id, value, isHtmlContent) => {
           const elem = document.createElement('div');
 
           elem.id = id;
-          elem.innerText = value;
+          if (isHtmlContent) {
+            elem.innerHTML = value;
+          } else {
+            elem.innerText = value;
+          }
 
           document.body.appendChild(elem);
         };
@@ -48,6 +45,20 @@ module.exports = {
           });
 
           return text.trim();
+        };
+
+        const makeApiCall = async (url, headers) => {
+          try {
+            console.log(`Making API call to => ${url}`);
+            if (!headers) {
+              headers = { headers: { 'Content-Type': 'application/json' } };
+              return await (await fetch(url, headers)).json();
+            }
+
+            return await (await fetch(url, headers)).text();
+          } catch (err) {
+            console.log('Error while making API call.', err);
+          }
         };
 
         injectElementToBody(`description`, buildDescription());
@@ -81,30 +92,29 @@ module.exports = {
         });
 
         const sku = document.querySelector('span[itemprop="sku"]').getAttribute('content');
-        const url = `https://www.argos.co.uk/stores/api/orchestrator/v0/cis-locator/availability?maxDistance=50&maxResults=10&skuQty=${sku}_1&channel=web_pdp&timestamp=${new Date().getTime()}&postcode=${zip}`;
-        console.log(url);
-        const response = await (await fetch(url, { headers: { 'Content-Type': 'application/json' } })).json();
-        console.log(response);
 
-        const availability = (response.stores && response.stores[0] && response.stores[0].messages && response.stores[0].messages[sku] && response.stores[0].messages[sku].messageKey) || '';
+        const url = `https://www.argos.co.uk/stores/api/orchestrator/v0/cis-locator/availability?maxDistance=50&maxResults=10&skuQty=${sku}_1&channel=web_pdp&timestamp=${new Date().getTime()}&postcode=${zip}`;
+        const response = await makeApiCall(url);
+        console.log('availability', response);
+
+        const availability = (response && response.stores && response.stores[0] && response.stores[0].messages && response.stores[0].messages[sku] && response.stores[0].messages[sku].messageKey) || '';
         injectElementToBody('availability', availability);
+
+        const aplusUrl = `https://ws.cnetcontent.com/d90c7492/script/86f5427d30?cpn=${sku}&lang=en_gb&market=UK&host=www.argos.co.uk&nld=1`;
+        let aplusResponse = await makeApiCall(aplusUrl, {});
+
+        if (aplusResponse) {
+          aplusResponse = 'window.ccs_cc_loadQueue = [];' + aplusResponse;
+          eval(aplusResponse);
+          const clonedInfo = JSON.parse(JSON.stringify(window.ccs_cc_loadQueue));
+          console.log('aplusResponse', clonedInfo);
+          const aplusHtml = (clonedInfo && clonedInfo.length && clonedInfo[0] && clonedInfo[0].htmlBlocks && clonedInfo[0].htmlBlocks.length && clonedInfo[0].htmlBlocks[0].html) || '';
+
+          injectElementToBody('manufacturer-details', aplusHtml, true);
+        }
       }, parameters.zipcode);
     } catch (err) {
       console.log('Entering zip code for availability details failed.', err);
-    }
-
-    const manufactureData = await isSelectorAvailable('#cnet-accordion button[data-test="cnet-accordion-button-toggle"]');
-
-    if (manufactureData) {
-      try {
-        await context.click('#cnet-accordion button[data-test="cnet-accordion-button-toggle"]');
-        await context.waitForSelector('div[data-test="cnet-accordion-content"] .ccs-cc-block-inline', { timeout: defaultTimeOutInMS });
-
-        await context.waitForXPath('(//div[contains(@data-test,"component-media-gallery_activeSlide")])[1]//img', { timeout: defaultTimeOutInMS });
-        await context.waitForXPath('//div[@data-test="cnet-accordion-content"]//div[contains(@class,"inline-thumbnail")]/img/', { timeout: defaultTimeOutInMS });
-      } catch (err) {
-        console.log('Getting manufacturer data failed.');
-      }
     }
 
     const { transform } = parameters;
