@@ -43,6 +43,7 @@ const transform = (data) => {
         if(row.image) {
           row.image = row.image.map(prefixImageWithDomain);
         }
+        
         row.imageZoomFeaturePresent[0].text = row.imageZoomFeaturePresent ? "Yes" : "No";
       }
     }

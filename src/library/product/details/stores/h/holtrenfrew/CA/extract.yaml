@@ -50,6 +50,8 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //p[@class="product-details__id"]
+    regExp: ([^\d]+)(\d+)?
+    regExpReplace: $2
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: no
