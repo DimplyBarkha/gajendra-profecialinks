@@ -181,8 +181,8 @@ module.exports = {
       var sInfo = document.evaluate( sizeInfo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       if( sInfo.snapshotLength > 0 ) {
         let info = sInfo.snapshotItem(0).textContent;
-        if(info.includes("• ITEM")){
-          let splits = info.split("• ITEM");
+        if(info.includes("•ITEM") || info.includes("• ITEM")){
+          let splits = info.split("•");
           if(!splits[0].includes("ITEM")){
             let removeSize = splits[0].replace(/SIZE /g, "");
             addHiddenDiv(`ii_quantity`, removeSize);
