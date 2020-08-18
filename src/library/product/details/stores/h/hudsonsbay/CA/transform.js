@@ -35,13 +35,14 @@ const transform = (data) => {
       }
       if (row.category) {
         row.category.forEach(category => {
-          category.text = category.text.replace('Home \n \n Home \n \n', '').trim();
+          category.text = category.text.replace('Home', '').replace(/\n/g, '').trim();
         });
       }
       if (row.variantCount) {
         row.variantCount.forEach(variantCount => {
-            if(variantCount.text == "0")
-            variantCount.text = "1";
+          if (variantCount.text == '0') {
+            variantCount.text = '1';
+          }
         });
       }
     }
