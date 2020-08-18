@@ -17,7 +17,7 @@ fields:
     xpath: //ul[@class="pdp-carousel__thumb-list js-pdp-carousel__thumb-list swiper-wrapper"]/li/img/@src
     regExp: ([^\?]+)(\?.*)?
     regExpReplace: $1
-  - name: colour
+  - name: color
     singleValue: false
     xpath: //div[@class="pdp-variant__title mb-13 text-uppercase"]/span[@class="color-value"]
   - name: category
@@ -46,14 +46,10 @@ fields:
     xpath: //h2[contains(@class,"product-details__brand text-uppercase")]/a
   - name: sku
     singleValue: false
-    type: NUMBER
     xpath: (//input[@name="productCodePost"])[1]/@value
-  - name: variantId
-    singleValue: false
   - name: mpc
     singleValue: false
     xpath: //p[@class="product-details__id"]
-    type: NUMBER
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: no
