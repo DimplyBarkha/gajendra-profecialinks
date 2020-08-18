@@ -20,7 +20,7 @@ async function implementation (
     });
   }
 
-  const url = 'https://euronics.ie/search/?query=' + inputs.keywords || inputs.Keywords;
+  const url = 'https://euronics.ie/search/?query=' + (inputs.keywords || inputs.Keywords) + '&records=150';
   await dependencies.goto({ url });
   return context.evaluate(function () {
     return document.querySelectorAll('.item').length > 0;

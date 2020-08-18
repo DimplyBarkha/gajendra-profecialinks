@@ -12,15 +12,13 @@ fields:
     xpath: //div[@class="rank"]
   - name: name
     singleValue: false
-    xpath: //div[@class="product-name"]
+    xpath: //h3[@class="name"]
   - name: productUrl
     singleValue: false
-    xpath: //a[@data-test="product-title"]/@href
-  - name: gtin
-    singleValue: true
+    xpath: //h3[@class="name"]//a/@href
   - name: thumbnail
-    singleValue: true
-    xpath: //picture//source/@srcset
+    singleValue: false
+    xpath: //img[@class='product-thumb']/@src
   - name: aggregateRating
     singleValue: false
     xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
@@ -29,10 +27,10 @@ fields:
     xpath: //span[@data-test="product-rating-count"]
   - name: price
     singleValue: false
-    xpath: //span[@data-test="product-price"]
+    xpath: //div[@class="price"]
   - name: manufacturer
     singleValue: false
-    xpath: //a[@data-test="itemDetail-brand"]
+    xpath: //div[@class="brand"]
   - name: soldBy
     singleValue: true
   - name: rank

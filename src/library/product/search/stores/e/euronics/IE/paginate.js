@@ -4,9 +4,6 @@ module.exports = {
   parameterValues: {
     country: 'IE',
     store: 'target',
-    openSearchDefinition: {
-      indexOffset: 0,
-    },
     loadedSelector: 'div[data-test="product-grid"] div',
     domain: 'euronics.ie',
   },
