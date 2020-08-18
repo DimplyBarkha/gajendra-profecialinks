@@ -36,6 +36,14 @@ async function implementation (
       brand = name ? name.replace(/^([\w]+).*/gm, '$1') : '';
     }
     addHiddenDiv('added-brand', brand);
+
+    // Adding variantCount based on variants present on the website else 1
+    const variantCountSelector = document.querySelectorAll('div[id="radStyle"] > label');
+    let variantCount = variantCountSelector ? variantCountSelector.length : '';
+    if (!variantCount) {
+      variantCount = 1;
+    }
+    addHiddenDiv('added-variantCount', variantCount);
   });
 
   await new Promise(resolve => setTimeout(resolve, 20000));
