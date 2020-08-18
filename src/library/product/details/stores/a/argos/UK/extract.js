@@ -32,6 +32,26 @@ module.exports = {
           document.body.appendChild(elem);
         };
 
+        const buildDescription = () => {
+          const description = document.querySelector('div[itemprop="description"]');
+          let subNodes = description.querySelectorAll('*');
+          let text = '';
+          subNodes.forEach(subNode => {
+            const listItems = subNode.querySelectorAll('li');
+            if (listItems && listItems.length) {
+              listItems.forEach(list => {
+                text += `||${list.textContent}`;
+              });
+            } else if (subNode.nodeName.toLowerCase() !== 'li' && subNode.nodeName.toLowerCase() !== 'ul') {
+              text += `${subNode.textContent}`;
+            }
+          });
+
+          return text.trim();
+        };
+
+        injectElementToBody(`description`, buildDescription());
+
         // Gather product attributes
         const productInfo = (window.__data && window.__data.productStore && window.__data.productStore.data && window.__data.productStore.data) || {};
 

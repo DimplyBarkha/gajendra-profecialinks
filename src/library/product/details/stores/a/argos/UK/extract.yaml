@@ -27,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//h2[@data-test="product-name-main"]/span[1],' ',//h2[@data-test="product-name-main"]/span[2])
+    xpath: //h2[@data-test="product-name-main"]/span[1]
   - name: listPrice
     singleValue: true
     xpath: //span[@data-test="price-was"]
@@ -104,11 +104,9 @@ fields:
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
-    singleValue: true
     xpath: //h3[@data-test="reviews-accordion-title"]//span[contains(@class,"TrustmarkMessage")]/text()
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
     xpath: //h3[@data-test="reviews-accordion-title"]//span[contains(@class,"TrustmarkMessage")]/text()
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
