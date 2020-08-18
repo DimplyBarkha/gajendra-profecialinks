@@ -6,10 +6,8 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //*[@id='ii_variant']    
+    xpath: //div[contains(@id, "added_variant_id")]
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //*[@id='ii_variant']
-    regExp: (\d+)
-    regExpReplace: https://www.walmart.com/ip/$1/?selected=true
+    xpath: //div[contains(@id, "added_variant_url")]
