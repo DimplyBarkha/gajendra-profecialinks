@@ -1,7 +1,9 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: 'div.referenced.list, div.widget-ArticlePPM--ppm-listentry'
-recordXPath: null
+recordSelector: div.referenced.list.grid-col-xs-12
+# recordSelector: 'div.referenced.list, div.widget-ArticlePPM--ppm-listentry'
+# recordXPath: //div[contains(@class, "referenced list grid-col-xs-12")]//div[contains(@class, "widget-Container--subContent")]//a
+# recordXPath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Container--subContent")]//div[contains(@class, "widget-Hyperlink")]//a
 fields:
   - name: paid
     singleValue: true
@@ -22,6 +24,7 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: true
+    # xpath: //ancestor::html//div[@id='searchurl']
     description: The URL for the product details page
   - name: thumbnail
     singleValue: true
