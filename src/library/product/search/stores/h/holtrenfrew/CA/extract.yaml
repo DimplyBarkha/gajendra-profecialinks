@@ -3,10 +3,6 @@ regionsSelector: null
 recordSelector: li[data-id]
 recordXPath: //li[@data-id]
 fields:
-  - name: brand
-    singleValue: false
-    example: Panasonic
-    xpath: //*[contains(@class,"brand")]
   - name: productUrl
     singleValue: false
     xpath: //a[@class="js-product-image-link"]/@href
@@ -18,13 +14,6 @@ fields:
   - name: name
     singleValue: false
     xpath: //*[contains(@class,"name")]
-  - name: sku
-    singleValue: false
-    type: NUMBER
-    xpath: //li[@class="product-item js-product-item js-ga-triggered"]/@data-id
   - name: price
     singleValue: false
     xpath: //div[contains(@class, "price")]/span[contains(@class, "product-details__price--sale js-price-min") or not(@class)]
-  - name: listPrice
-    singleValue: false
-    xpath: //*[contains(@class, "price--old")]
