@@ -26,7 +26,7 @@ async function implementation (
       console.log(Boolean(document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()));
       console.log(Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()));
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, '//h1[contains(@id, "zero-result-alert1")]');
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
 
     console.log('hasProductPage');
     console.log(hasProductPage);
@@ -67,7 +67,7 @@ module.exports = {
     store: 'walgreens',
     domain: 'walgreens.com',
     loadedSelector: 'div.wag-product-card-details',
-    noResultsXPath: '//h1[contains(@id, "zero-result-alert")]',
+    noResultsXPath: '//h1[contains(@id, "zero-result-alert")]|//h1[contains(@id, "zero-result-alert")]|//span[contains(text(), "This product is no longer available on our site.")]',
   },
   dependencies: {
     goto: 'action:navigation/goto',
