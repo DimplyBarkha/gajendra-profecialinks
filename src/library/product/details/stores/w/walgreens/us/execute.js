@@ -20,43 +20,48 @@ async function implementation (
   await dependencies.goto({ url });
 
   if (parameters.loadedSelector) {
-    const hasProductPage = await context.waitForFunction(function (sel, xp) {
-      console.log('waitForFunction');
-      console.log(document.querySelector(sel));
-      console.log(Boolean(document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()));
-      console.log(Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()));
+    await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  }
+  console.log('Checking no results', parameters.noResultsXPath);
+  const hasProduct = await context.evaluate(function (xp) {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, parameters.noResultsXPath);
 
-    console.log('hasProductPage');
-    console.log(hasProductPage);
-    if (hasProductPage === false) {
-      return false;
+  if (hasProduct) {
+    const path = await context.evaluate(() => {
+      const xpathFirstResult = '//div[@id="product-row-0"]//a[@name="product-title"]/@href';
+      const node = document.evaluate(xpathFirstResult, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      if (node && node.singleNodeValue) {
+        return node.singleNodeValue.nodeValue;
+      } else {
+        return false;
+      }
+    });
+
+    if (path) {
+      await dependencies.goto({ url: `https://${domain}${path}` });
+
+      await context.waitForFunction(function (sel, xp) {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, { timeout: 10000 }, 'div#product', parameters.noResultsXPath);
+
+      console.log('Checking no results', parameters.noResultsXPath);
+      return await context.evaluate(function (xp) {
+        const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+        console.log(xp, r);
+        const e = r.iterateNext();
+        console.log(e);
+        return !e;
+      }, parameters.noResultsXPath);
     }
   }
-
-  const path = await context.evaluate(() => {
-    const xpathFirstResult = '//div[@id="product-row-0"]//a[@name="product-title"]/@href';
-    const node = document.evaluate(xpathFirstResult, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-    if (node && node.singleNodeValue) {
-      return node.singleNodeValue.nodeValue;
-    } else {
-      return false;
-    }
-  });
-
-  if (path) {
-    await dependencies.goto({ url: `https://${domain}${path}` });
-
-    const hadProductInfo = await context.waitForFunction(function (sel, xp) {
-      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, 'div#product', parameters.noResultsXPath);
-
-    console.log(hadProductInfo);
-    if (!hadProductInfo) {
-      return false;
-    }
-  }
+  return hasProduct;
   // TODO: Check for not found?
 }
 
@@ -67,7 +72,7 @@ module.exports = {
     store: 'walgreens',
     domain: 'walgreens.com',
     loadedSelector: 'div.wag-product-card-details',
-    noResultsXPath: '//h1[contains(@id, "zero-result-alert")]|//h1[contains(@id, "zero-result-alert")]|//span[contains(text(), "This product is no longer available on our site.")]',
+    noResultsXPath: '//h1[contains(@id, "zero-result-alert")]|//span[contains(text(), "This product is no longer available on our site.")]',
   },
   dependencies: {
     goto: 'action:navigation/goto',

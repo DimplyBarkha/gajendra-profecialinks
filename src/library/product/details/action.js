@@ -16,8 +16,13 @@ async function implementation (
   const { execute, extract } = dependencies;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
-  await execute({ url, id, zipcode: parameters.zipcode });
 
+  const productFound = await execute({ url, id, zipcode: parameters.zipcode });
+
+  if (!productFound) {
+    console.log('No product found');
+    return;
+  }
   await extract({ url, id });
 }
 
