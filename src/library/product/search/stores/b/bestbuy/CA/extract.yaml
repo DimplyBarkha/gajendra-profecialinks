@@ -46,3 +46,8 @@ fields:
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@itemprop="url"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.bestbuy.ca$1
