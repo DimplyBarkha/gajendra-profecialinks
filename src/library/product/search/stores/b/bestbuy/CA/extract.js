@@ -18,6 +18,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await context.waitForXPath('//div[@class="productPricingContainer_3gTS3"]//meta[@itemprop="price"]');
   await context.evaluate(async () => {
       const element = document.querySelector('footer.globalFooter_Kvg_F ');
       if (element) {

@@ -32,53 +32,12 @@ fields:
     manualSelector: span[itemprop="ratingCount"]
     regExp: ([0-9]{1,}) Review
     regExpReplace: $1
-  - name: paid
-    singleValue: false
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: false
-    description: The brand name
-    example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
-  - name: productUrl
-    singleValue: false
-    description: The URL for the product details page
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: false
-    description: The model code of the product
-  - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
   - name: price
     singleValue: false
-    description: The offered price for the product
+    xpath: //div[@class="productPricingContainer_3gTS3"]//meta[@itemprop="price"]/@content
   - name: listPrice
     singleValue: false
-    description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: false
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: false
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: false
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
+    xpath: //div[@class="productPricingContainer_3gTS3"]//meta[@itemprop="price"]/@content
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -86,15 +45,4 @@ fields:
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-  - name: sponsored
-    singleValue: false
-    description: Is sponsored/paid
-    type: BOOLEAN
-  - name: id
-    singleValue: false
-    description: Unique id (within this extractor)
-  - name: aggregateRating
-    singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
