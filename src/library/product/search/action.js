@@ -44,7 +44,7 @@ module.exports = {
   implementation: async ({ keywords, Keywords, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
 
-    results = (results) ? results : defaultResults;
+    results = (results) || defaultResults;
     console.log('No of results were returned' + results);
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
