@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -37,8 +37,7 @@ fields:
     xpath: //div[@id="ii_nameExtended"]
     # xpath: //h1[contains(@data-comp,"DisplayName")]//text()
   - name: quantity
-    singleValue: true
-    xpath: //div[contains(@data-comp,"SizeAndItemNumber")]
+    xpath: //div[@id="ii_quantity"]
   - name: category
     xpath: //ol/li/a
   - name: warnings
@@ -64,6 +63,7 @@ fields:
     singleValue: true
     xpath: //div[@id="ii_How to Use"]
   - name: alternateImages
+    singleValue: false
     xpath: ((//div[contains(@data-comp,"Carousel")])[1]//img[@width="300"])/@src
   - name: availabilityText
     singleValue: true

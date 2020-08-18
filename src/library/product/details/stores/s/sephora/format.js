@@ -37,6 +37,16 @@ const transform = (data, context) => {
             let bulletReplace = text.replace(/ - /g, " || ")
             row.description[0].text = bulletReplace
           }
+          if(row.ingredientsList){
+            let text = row.ingredientsList[0].text;
+            let bulletReplace = text.replace(/ - /g, " || ")
+            row.ingredientsList[0].text = bulletReplace
+          }
+          if(row.directions){
+            let text = row.directions[0].text;
+            let bulletReplace = text.replace(/ - /g, " || ")
+            row.directions[0].text = bulletReplace
+          }
 
           if(row.image){
             let text = row.image[0].text;
@@ -44,6 +54,7 @@ const transform = (data, context) => {
 
             row.image[0].text = `https://sephora.com${splits[0]}`
           }
+          
           if(row.alternateImages){
               let imageArray = [];
               if(row.alternateImages.length > 1){
@@ -56,7 +67,7 @@ const transform = (data, context) => {
                 let joins = oneLess.join(" | ");
                 row.alternateImages = [{text: joins}]
               } else {
-                row.alternateImages = [{text: ''}]
+                row.alternateImages = [{text: ""}]
               }
           }
 
@@ -65,24 +76,6 @@ const transform = (data, context) => {
               let splits = text.split(" /");
             row.aggregateRating[0].text = splits[0];
         }
-
-        if(row.quantity){
-          let text = row.quantity[0].text;
-          let splits = text.split("•");
-          if(!splits[0].includes("ITEM")){
-            let removeSize = splits[0].replace(/SIZE /g, "");
-            row.quantity[0].text = removeSize;
-          } else {
-            row.quantity = [{text: ""}];
-          }
-        }
-
-        // if(row.ratingCount){
-        //     let text = row.ratingCount[0].text
-        //     let splits = text.split(" ");
-        //   row.ratingCount[0].text = splits[0]
-        // }
-
 
           if(row.nameExtended){
             let newName = [];

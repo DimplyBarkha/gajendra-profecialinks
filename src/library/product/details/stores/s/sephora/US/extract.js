@@ -177,6 +177,20 @@ module.exports = {
         i++
       }
 
+      let sizeInfo = '//div[contains(@data-comp,"SizeAndItemNumber")]'
+      var sInfo = document.evaluate( sizeInfo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if( sInfo.snapshotLength > 0 ) {
+        let info = sInfo.snapshotItem(0).textContent;
+        if(info.includes("• ITEM")){
+          let splits = info.split("• ITEM");
+          if(!splits[0].includes("ITEM")){
+            let removeSize = splits[0].replace(/SIZE /g, "");
+            addHiddenDiv(`ii_quantity`, removeSize);
+          }
+        }
+      }
+
+      
       let variantInfo = '//span[contains(@data-at,"item_variation_type")]'
       var vInfo = document.evaluate( variantInfo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       let variantArr = [];
@@ -189,8 +203,14 @@ module.exports = {
             if(info.includes("COLOR")){
               addHiddenDiv(`ii_color`, splits[1]);
             }
+            if(info.includes("SIZE") || info.includes("oz/") || info.includes(" mL")){
+              addHiddenDiv(`ii_quantity`, splits[1]);
+            }
             addHiddenDiv(`ii_variantInfo`, splits[1]);
           } else {
+            if(splits[0].includes("oz/") || splits[0].includes(" mL")){
+              addHiddenDiv(`ii_quantity`, splits[0]);
+            }
             variantArr.push(splits[0]);
             addHiddenDiv(`ii_variantInfo`, splits[0]);
           }

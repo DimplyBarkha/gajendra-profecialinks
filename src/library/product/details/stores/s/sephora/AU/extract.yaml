@@ -98,19 +98,20 @@ fields:
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
     type: NUMBER
+    xpath: //div[contains(@class, "product-info")]//p[contains(@class, "product-rating-count")]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating2
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //div[@class='rating-container']//div[contains(@id, 'rateit-range')]/@aria-valuenow
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
     xpath: //div[contains(@id, "shipping-collapse")]
   - name: shippingDimensions
@@ -446,6 +447,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //span[contains(@class, 'current-variant-name')]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
