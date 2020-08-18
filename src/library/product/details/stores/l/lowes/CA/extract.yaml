@@ -11,7 +11,7 @@ fields:
     xpath: //button[contains(@class,'product-image')]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'slick-track')]/div[contains(@class,'slick-slide')][position()>1]//img/@src
+    xpath: //div[contains(@class,'slick-track')]//div[@class='product-carousel-item ']//img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -42,7 +42,6 @@ fields:
     xpath: //div[contains(@class,"product-overview")]//ul//li
   - name: descriptionBullets
     xpath: count(//div[contains(@class,"product-overview")]/descendant::li)
-    type: NUMBER
   - name: brandText
     xpath: //h3[@class='product-brand']
   - name: manufacturer
@@ -92,7 +91,7 @@ fields:
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
-  - name: aggregateRating2
+  - name: aggregateRating
     xpath: (//div[contains(@class,'bv_avgRating_component_container')])[1]
     type: NUMBER
   - name: shippingInfo

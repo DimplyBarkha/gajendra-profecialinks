@@ -27,14 +27,14 @@ const transform = (data) => {
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
         });
         row.specifications = [
           {
-            text: cleanUp(text.slice(0, -3)),
+            text: cleanUp(text.slice(0, -4)),
           },
         ];
-      } 
+      }
       if (row.weightNet) {
         let text = '';
         row.weightNet.forEach(item => {
@@ -52,6 +52,17 @@ const transform = (data) => {
           text += `${item.text.replace(/\n \n/g, ':')} | `;
         });
         row.shippingDimensions = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.shippingWeight) {
+        let text = '';
+        row.shippingWeight.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} | `;
+        });
+        row.shippingWeight = [
           {
             text: cleanUp(text.slice(0, -3)),
           },
