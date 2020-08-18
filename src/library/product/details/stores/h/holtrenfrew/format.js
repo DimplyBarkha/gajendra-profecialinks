@@ -18,9 +18,21 @@ const transform = (data) => {
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   
     const prefixImageWithDomain = (image) => {
-        const domainPrefix = "https:";
-        const { text } = image;
-        return { ...image, text: domainPrefix + text };
+      const domainPrefix = "https:";
+      const { text } = image;
+      return { ...image, text: domainPrefix + text };
+    }
+
+    const prefixVariantWithDomain = (variantObject) => {
+      const domainPrefix = "https://www.holtrenfrew.com";
+      const { text } = variantObject;
+      return { ...variantObject, text: domainPrefix + text };
+    }
+
+    const getVariantId = (variantObject) => {
+      const regex = /.*p\/(.*)/;
+      const { text } = variantObject;
+      return { ...variantObject, text: text.replace(regex,'$1') };
     }
 
     for (const { group } of data) {
@@ -44,7 +56,13 @@ const transform = (data) => {
           row.image = row.image.map(prefixImageWithDomain);
         }
         
-        row.imageZoomFeaturePresent[0].text = row.imageZoomFeaturePresent ? "Yes" : "No";
+        if(row.imageZoomFeaturePresent) {
+          row.imageZoomFeaturePresent[0].text = row.imageZoomFeaturePresent ? "Yes" : "No";
+        }
+
+        if(row.variantUrl) row.variantUrl = row.variantUrl.map(prefixVariantWithDomain);
+
+        if(row.variantId) row.variantId = row.variantId.map(getVariantId);
       }
     }
     return data;
