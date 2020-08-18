@@ -17,6 +17,11 @@ const transform = (data) => {
             item.text= item.text ? item.text.split(' ')[0] : '';
           });
         }
+        if (row.description) {
+          row.description.forEach(item => {
+            item.text= item.text ? item.text.replace('•','') : '';
+          });
+        }
       }
     }
     return data;

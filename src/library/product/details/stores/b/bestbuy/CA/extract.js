@@ -96,7 +96,7 @@ module.exports = {
      //-----------------------------------------------------------------
      const buttonSelector1 = 'button#moreInfo';
      await context.click(buttonSelector1);
-     await context.waitForSelector('div.productDescription_ujYCD ul li');
+     await context.waitForSelector('div.productDescription_ujYCD');
      await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -117,7 +117,12 @@ module.exports = {
       // // @ts-ignore
       // moreInfoBtn = moreInfoBtn ? moreInfoBtn.click() : '';
       let bulletsDescription = document.querySelectorAll('div.productDescription_ujYCD ul li');
+      console.log('bulletsDescription: ', bulletsDescription);
       let bulletCount = bulletsDescription.length;
+      if(bulletsDescription.length == 0){
+        bulletsDescription = document.querySelectorAll('div.productDescription_ujYCD p');
+        bulletCount = bulletsDescription.length;
+      }
       addElementToDocument('bb_descriptionBulletsCount', bulletCount);
       for (let index = 0; index < bulletsDescription.length; index++) {
         let element = bulletsDescription[index];
