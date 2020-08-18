@@ -109,6 +109,8 @@ fields:
   - name: gtin
     singleValue: false
     manualSelector: span.js-product-title-id
+    regExp: ^#(.*)
+    regExpReplace: $1
   - name: termsAndConditions
     singleValue: false
     xpath: //a[text()='Terms & Conditions']
