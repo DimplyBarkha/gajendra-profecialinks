@@ -15,34 +15,20 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    const buttonSelector = 'button#detailsAndSpecs';
+    await context.click(buttonSelector);
+    await context.waitForXPath('//h3[text()="Warranty"]/parent::div/following-sibling::div');
     await context.evaluate(async function () {
-      let description = document.querySelector('div[itemprop="description"]');
-      // @ts-ignore
-      description = description ? description.innerText : '';
-      let descArr = [];
-      // @ts-ignore
-      if(description !== ''){
-        descArr.push(description);
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
       }
-      let moreInfoBtn = document.querySelector('div#moreInfo');
-      // @ts-ignore
-      moreInfoBtn = moreInfoBtn ? moreInfoBtn.click() : '';
-      let bulletsDescription = document.querySelectorAll('div.productDescription_ujYCD ul li');
-      let bulletCount = bulletsDescription.length;
-      addElementToDocument('bb_descriptionBulletsCount', bulletCount);
-      for (let index = 0; index < bulletsDescription.length; index++) {
-        let element = bulletsDescription[index];
-        // @ts-ignore
-        element = element ? element.innerText : '';
-        descArr.push(element);
-      }
-      // @ts-ignore
-      descArr = descArr.join(' || ');
-      addElementToDocument('bb_descriptionBullets', descArr);
-      //------------------------------------------------------------
-     let detailsAndSpecs = document.querySelector('button#detailsAndSpecs');
+    //  let detailsAndSpecs = document.querySelector('button#detailsAndSpecs');
      // @ts-ignore
-     detailsAndSpecs = detailsAndSpecs ? detailsAndSpecs.click() : '';
+    //  detailsAndSpecs = detailsAndSpecs ? detailsAndSpecs.click() : '';
      let detailsAndSpecsTextArr = [];
      let warrantyTextArr = [];
      let detailsAndSpecsText = document.querySelectorAll('div.itemContainer_RJI-h');
@@ -106,7 +92,53 @@ module.exports = {
      addElementToDocument('bb_weightNet', netWeightTxt);
      addElementToDocument('bb_countryOfOrigin', originTxtArr.join(' | '));
      addElementToDocument('bb_dimension', dimensionTxtArr.join(' | '));
+    });
      //-----------------------------------------------------------------
+     const buttonSelector1 = 'button#moreInfo';
+     await context.click(buttonSelector1);
+     await context.waitForSelector('div.productDescription_ujYCD ul li');
+     await context.evaluate(async function () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+     let description = document.querySelector('div[itemprop="description"]');
+      // @ts-ignore
+      description = description ? description.innerText : '';
+      let descArr = [];
+      // @ts-ignore
+      if(description !== ''){
+        descArr.push(description);
+      }
+      // let moreInfoBtn = document.querySelector('div#moreInfo');
+      // // @ts-ignore
+      // moreInfoBtn = moreInfoBtn ? moreInfoBtn.click() : '';
+      let bulletsDescription = document.querySelectorAll('div.productDescription_ujYCD ul li');
+      let bulletCount = bulletsDescription.length;
+      addElementToDocument('bb_descriptionBulletsCount', bulletCount);
+      for (let index = 0; index < bulletsDescription.length; index++) {
+        let element = bulletsDescription[index];
+        // @ts-ignore
+        element = element ? element.innerText : '';
+        descArr.push(element);
+      }
+      // @ts-ignore
+      descArr = descArr.join(' || ');
+      addElementToDocument('bb_descriptionBullets', descArr);
+    });
+      //------------------------------------------------------------
+      // await context.waitForSelector('img[class="middle_1qXv8"]');
+      await context.evaluate(async function () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
      let videoLinkArr = [];
      let videos = document.querySelectorAll('img[class="middle_1qXv8"]');
      for (let index = 0; index < videos.length; index++) {
@@ -127,7 +159,12 @@ module.exports = {
      // @ts-ignore
      videoLinkArr = videoLinkArr.join(' | ');
      addElementToDocument('bb_videos', videoLinkArr);
+    });
      //------------------------------------------------------------------------------
+     const buttonSelector2 = 'button#whatsIncluded';
+     await context.click(buttonSelector2);
+     await context.waitForSelector('div#whatsIncluded ul li');
+     await context.evaluate(async function () {
      let otherInfoArr = [];
      let otherInfo = document.querySelector('button#whatsIncluded');
      // @ts-ignore
@@ -149,8 +186,8 @@ module.exports = {
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
-    
-    });
+   });
+   
     return await context.extract(productDetails, { transform });
   },
 };
