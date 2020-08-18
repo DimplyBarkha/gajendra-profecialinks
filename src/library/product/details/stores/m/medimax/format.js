@@ -4,7 +4,9 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, context) => {
+  const state = context.getState();
+  const manufacturerDescription = state.manufacturerDescription || '';
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
@@ -16,10 +18,14 @@ const transform = (data) => {
         }];
       }
       if (row.manufacturerDescription) {
-        row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
+        row.manufacturerDescription[0].text = manufacturerDescription + row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
       }
-      if (row.manufacturerDescription2) {
-        row.manufacturerDescription[0].text = `${row.manufacturerDescription2[0].text} ${row.manufacturerDescription[0].text}`;
+      if (!manufacturerDescription) {
+        if (row.manufacturerDescription2) {
+          context.setState({ manufacturerDescription: row.manufacturerDescription2[0].text });
+        }
+      } else {
+        row.manufacturerDescription[0].text = `${manufacturerDescription} ${row.manufacturerDescription[0].text}`;
       }
       if (row.availabilityText) {
         row.availabilityText[0].text = 'In Stock';

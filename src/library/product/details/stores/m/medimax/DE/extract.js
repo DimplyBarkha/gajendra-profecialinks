@@ -1,6 +1,6 @@
 const { transform } = require('../format');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -9,7 +9,7 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   try {
-    await context.click('button.cookies-overlay-dialog__accept-all-btn')
+    await context.click('button.cookies-overlay-dialog__accept-all-btn');
   } catch (err) {
 
   }
@@ -21,15 +21,19 @@ async function implementation(
   await context.extract(productDetails, { transform });
   if (src) {
     try {
-      await context.goto(src);
+      await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
       await context.waitForSelector('div.wrapper.preview');
-      return await context.extract(productDetails, { type: 'MERGE_ROWS' });
+      return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
     } catch (error) {
-      await context.evaluate(async function (src) {
-        window.location.assign(src);
-      }, src);
-      await context.waitForSelector('div.wrapper.preview');
-      return await context.extract(productDetails, { type: 'MERGE_ROWS' });
+      try {
+        await context.evaluate(async function (src) {
+          window.location.assign(src);
+        }, src);
+        await context.waitForSelector('div.wrapper.preview');
+        return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 }
