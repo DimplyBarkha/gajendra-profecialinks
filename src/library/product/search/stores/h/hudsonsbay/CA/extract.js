@@ -33,14 +33,6 @@ module.exports = {
         const doc = item1;
         addElementToDocument(doc, 'searchUrl', searchUrl);
       });
-      // let element = document.querySelectorAll('div.product.bfx-disable-product.standard');
-      // element = element[element.length - 1];
-      // if (element) {
-      //   element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-      //   await new Promise((resolve) => setTimeout(resolve, 10000));
-      //   element = document.querySelectorAll('div.product.bfx-disable-product.standard');
-      //   console.log('-----------------', element.length);
-      // }
     });
     return await context.extract(productDetails);
   },

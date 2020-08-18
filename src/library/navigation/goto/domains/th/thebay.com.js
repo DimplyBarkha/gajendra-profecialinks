@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'thebay.com',
-    timeout: 10000,
+    timeout: null,
     country: 'CA',
     store: 'hudsonsbay',
     zipcode: '',
