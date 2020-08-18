@@ -1,13 +1,17 @@
-
+const { transform } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'tesco',
-    transform: null,
+    transform,
     domain: 'tesco.com',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
     await context.evaluate(async function () {
       // Get additional product info 2. Currently not retrieving.
       const productInfo2 = Array.from(document.querySelectorAll('[class^="product-info-block product-info-block--"]')).map(elm => {
@@ -32,9 +36,19 @@ module.exports = {
             .join('|')) ||
         '';
       document.body.setAttribute('ingredient_list', ingredientList);
+
+      const details = document.querySelector(`script[type="application/ld+json"]`);
+      if(details) {
+        let imageArr = JSON.parse(details.text)[2].image;  
+        let images = imageArr.slice(1).join('|');
+        document.body.setAttribute('additional_image', images);
+      }
     });
-    await context.waitForSelector('div.product-image__container');
+    
+    //await context.waitForSelector('div.product-image__container');
     await new Promise(resolve => setTimeout(resolve, 8000));
-    await context.extract(productDetails);
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.extract(productDetails, { transform });
   },
 };

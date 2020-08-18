@@ -8,7 +8,7 @@ fields:
     xpath: //img[@class="product-image product-image-visible"]/@src|//div[contains(@class,'product-image--wrapper')]/span//img/@src
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class="carousel__list"]/li//img[not(contains(@class,'selected'))]/@src
+    xpath: //ul[@class="carousel__list"]/li//img[not(contains(@class,'selected'))]/@src[contains(.,'https')] | //body//@additional_image
   - name: imageAlt
     singleValue: true
     xpath: //img[@class="product-image product-image-visible"]/@alt|//div[contains(@class,'product-image--wrapper')]/span//img/@alt
@@ -127,7 +127,7 @@ fields:
   - name: totalCarbPerServing
     singleValue: true
     xpath: //td[normalize-space(text())="Carbohydrates"]/following-sibling::td[1]|//td[normalize-space(text())="Carbohydrate"]/following-sibling::td[1]|//td[contains(text(),"Carbohydrate")]/following-sibling::td[1]
-    regExp: ([^g]+)
+    regExp: ([^\sg]+)
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: //td[normalize-space(text())="Carbohydrates"]/following-sibling::td[1]|//td[normalize-space(text())="Carbohydrate"]/following-sibling::td[1]|//td[contains(text(),"Carbohydrate")]/following-sibling::td[1]
@@ -135,7 +135,7 @@ fields:
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //td[contains(text(),"of which Sugars")]/following-sibling::td[not(contains(.,'%*'))]|//td[normalize-space(text())="Sugars"]/following-sibling::td[1] | //td[normalize-space(text())="of which sugars"]/following-sibling::td[1]|//td[normalize-space(text())="of which Sugars"]/following-sibling::td[1]|//td[contains(text(),"sugars")]/following-sibling::td[1]|//td[contains(text(),"Of which Sugars")]/following-sibling::td[1]
-    regExp: ([^g]+)|Trace
+    regExp: ([^\sg]+)|Trace
   - name: totalSugarsPerServingUom
     singleValue: false
     xpath: //td[contains(text(),"of which Sugars")]/following-sibling::td[not(contains(.,'%*'))]|//td[normalize-space(text())="Sugars"]/following-sibling::td[1] | //td[normalize-space(text())="of which sugars"]/following-sibling::td[1]|//td[normalize-space(text())="of which Sugars"]/following-sibling::td[1]|//td[contains(text(),"sugars")]/following-sibling::td[1]|//td[contains(text(),"Of which Sugars")]/following-sibling::td[1]
@@ -143,7 +143,7 @@ fields:
   - name: proteinPerServing
     singleValue: true
     xpath: //td[normalize-space(text())="Protein"]/following-sibling::td[1] | //td[normalize-space(text())="Protein g"]/following-sibling::td[1]|//td[contains(text(),"Protein")]/following-sibling::td[1]
-    regExp: ([^g]+)
+    regExp: ([^\sg]+)
   - name: proteinPerServingUom
     singleValue: false
     xpath: //td[normalize-space(text())="Protein"]/following-sibling::td[1] | //td[normalize-space(text())="Protein g"]/following-sibling::td[1]|//td[contains(text(),"Protein")]/following-sibling::td[1]
@@ -158,8 +158,8 @@ fields:
     regExp: mg
   - name: dietaryFibrePerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1] |//td[contains(text(),"Fibre")]/following-sibling::td[1]
-    regExp: ([^g]+)
+    xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1] |//td[contains(text(),"Fibre")]/following-sibling::td[1] | //td[contains(text(),"fibre")]/following-sibling::td[1]
+    regExp: ([^\s(g|%)]+)
   - name: dietaryFibrePerServingUom
     singleValue: true
     xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1] |//td[contains(text(),"Fibre")]/following-sibling::td[1]
@@ -189,7 +189,7 @@ fields:
     xpath: //div[@id="warnings"]//ul|//div[contains(@id,'lower-age-limit')]
   - name: caloriesPerServing
     singleValue: true
-    xpath: concat(//td[contains(text(),"Energy")]/following-sibling::td[1],"/", //td[contains(text(),"cal")]/following-sibling::td[1]|//td[contains(text(),"Energy")]/../following-sibling::tr[1]//td[2])
+    xpath: concat(//td[contains(text(),"Energy")]/following-sibling::td[1],"/", //tr/following-sibling::td[contains(text(),"cal")]/following-sibling::td[1] | //td[contains(text(),"Energy")]/../following-sibling::tr[contains(.,'cal')]//td[2])
   # - name: servingSize
   #   singleValue: true
   #   xpath: //table[@class="product__info-table"]//tr/th[2]
