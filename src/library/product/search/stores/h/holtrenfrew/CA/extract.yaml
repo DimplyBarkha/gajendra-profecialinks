@@ -5,33 +5,26 @@ recordXPath: //li[@data-id]
 fields:
   - name: brand
     singleValue: false
-    description: The brand name
     example: Panasonic
     xpath: //*[contains(@class,"brand")]
   - name: productUrl
     singleValue: false
-    description: The URL for the product details page
     xpath: //a[@class="js-product-image-link"]/@href
   - name: thumbnail
     singleValue: false
-    description: The URL for the product thumbnail image
     xpath: //img[@class="owl-lazy"]/@src
     regExp: ([^\?]+)(\?.*)?
     regExpReplace: $1
   - name: name
     singleValue: false
-    description: The product name
     xpath: //*[contains(@class,"name")]
   - name: sku
     singleValue: false
-    description: The store-specific product identifier
     type: NUMBER
-    xpath: //a[@class="js-product-image-link"]/@href
+    xpath: //li[@class="product-item js-product-item js-ga-triggered"]/@data-id
   - name: price
     singleValue: false
-    description: The offered price for the product
     xpath: //div[contains(@class, "price")]/span[contains(@class, "product-details__price--sale js-price-min") or not(@class)]
   - name: listPrice
     singleValue: false
-    description: The stated undiscounted price for the product
     xpath: //*[contains(@class, "price--old")]
