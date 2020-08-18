@@ -24,6 +24,8 @@ fields:
     singleValue: false
     description: The URL for the product details page
     xpath: //div[@class='image-container']/a/@href
+    regExp: (.*)
+    regExpReplace: https://www.thebay.com$1
   - name: searchUrl
     singleValue: false
     xpath: //div[@id='searchUrl']
