@@ -27,9 +27,9 @@ async function implementation(
     } catch (error) {
       await context.evaluate(async function (src) {
         window.location.assign(src);
-        await context.waitForSelector('div.wrapper.preview');
-        return await context.extract(productDetails, { type: 'MERGE_ROWS' });
       }, src);
+      await context.waitForSelector('div.wrapper.preview');
+      return await context.extract(productDetails, { type: 'MERGE_ROWS' });
     }
   }
 }
