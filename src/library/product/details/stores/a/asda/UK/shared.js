@@ -76,6 +76,12 @@ const transform = (data) => {
           item.text = Number(item.text) ? Number(item.text).toFixed(1) : item.text;
         });
       }
+
+      if (row.aggregateRatingText) {
+        row.aggregateRatingText.forEach(item => {
+          item.text = Number(item.text) ? Number(item.text).toFixed(1) : item.text;
+        });
+      }
     }
   }
 
