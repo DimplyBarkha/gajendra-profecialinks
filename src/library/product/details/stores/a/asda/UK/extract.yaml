@@ -47,7 +47,7 @@ fields:
     singleValue: true
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Features') or contains(text(),'Further Description') or contains(text(), 'Brand Marketing')]]//div[contains(@class,'content')]
+    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Features') or contains(text(),'Further Description') or contains(text(), 'Brand Marketing') or contains(text(), 'Product Information') and not(contains(text(), 'ASDA Product Information'))]]//div[contains(@class,'content')]
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Ingredients')]]//div[contains(@class,'content')]
