@@ -40,7 +40,17 @@ async function implementation (
       if (el.querySelector('.name')) {
         addHiddenDiv(el, 'brand', el.querySelector('.name').innerText.split(' ')[0])
       }
-      addHiddenDiv(el, 'rank', ind + 1)
+      addHiddenDiv(el, 'rank', ind + 1);
+
+      if (el.querySelector('iframe')) {
+        if (el.querySelector('iframe').contentWindow.document.querySelector('reevoo-score')) {
+          addHiddenDiv(el, 'rating', el.querySelector('iframe').contentWindow.document.querySelector('reevoo-score').getAttribute('data-score'));
+        }
+        if (el.querySelector('iframe').contentWindow.document.querySelector('.reevoo__section--number-of-reviews')) {
+          addHiddenDiv(el, 'reviews', el.querySelector('iframe').contentWindow.document.querySelector('.reevoo__section--number-of-reviews').innerText.trim().split(' ')[0]);
+        }
+      }
+
     });
     await stall(500);
 
