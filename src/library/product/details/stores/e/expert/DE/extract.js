@@ -89,7 +89,7 @@ module.exports = {
         xhr.open("GET", "https://service.loadbee.com/ean/5025155028155/de_DE?css=default&template=default&button=default");
 
         xhr.send();
-      // console.log(document.querySelector('div.loadbeeTabContent').querySelector('iframe').contentWindow.document);
+      console.log(document.querySelector('div.loadbeeTabContent').querySelector('iframe').contentWindow.document);
     });
 
     return await context.extract(productDetails, { transform: transformParam });
