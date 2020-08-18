@@ -30,9 +30,9 @@ const transform = (data) => {
       if (row.alternateImages) {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
-      // Adding | to description bullets and description bullet count
-      if (row.description) {
-        row.description.forEach(descItem => {
+      // Adding | to nameExtended bullets and nameExtended bullet count
+      if (row.nameExtended) {
+        row.nameExtended.forEach(descItem => {
           const numberOfBullets = descItem.text.match(/•/g).length;
           row.descriptionBullets = [{ text: numberOfBullets }];
           descItem.text = descItem.text.replace(/•/g, ' | ');

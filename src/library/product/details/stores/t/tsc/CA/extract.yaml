@@ -20,8 +20,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+    manualSelector: div[id="divProductTeaser"]
   - name: listPrice
     singleValue: false
     manualSelector: span[class="price-block"] span[id="lblWasPrice"]
