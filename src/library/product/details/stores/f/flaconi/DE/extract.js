@@ -1,12 +1,13 @@
-
+const { transform } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'flaconi',
-    transform: null,
+    transform,
     domain: 'flaconi.de',
   },
+  implementation,
   // implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
   //   await context.evaluate(async function () {
   //     function addElementToDocument (key, value) {
@@ -49,3 +50,49 @@ module.exports = {
   //   await context.extract(productDetails);
   // },
 };
+async function implementation (
+  // @ts-ignore
+  // @ts-ignore
+  // @ts-ignore
+  { parentInput },
+  parameters,
+  context,
+  dependencies,
+) {
+  // @ts-ignore
+  const { transform } = parameters;
+  // @ts-ignore
+  const { productDetails } = dependencies;
+  await context.evaluate(async (parentInput) => {
+
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+   let description = document.querySelector("div[class='description-content'] p");
+    // @ts-ignore
+    description = description ? description.innerText : '';
+    let descArr = [];
+    // @ts-ignore
+    if(description !== ''){
+      descArr.push(description);
+    }
+    let bulletsDescription = document.querySelectorAll("ul.product-properties-list li");
+    console.log('bulletsDescription: ', bulletsDescription);
+    let bulletCount = bulletsDescription.length;
+    addElementToDocument('bb_descriptionBulletsCount', bulletCount);
+    for (let index = 0; index < bulletsDescription.length; index++) {
+      let element = bulletsDescription[index];
+      // @ts-ignore
+      element = element ? element.innerText.replace(/(\s*[\r\n]\s*)+/g, ' ') : '';
+      descArr.push(element);
+    }
+    // @ts-ignore
+    descArr = descArr.join(' || ');
+    addElementToDocument('bb_descriptionBullets', descArr);
+    });
+    return await context.extract(productDetails, { transform });
+    }

@@ -1,105 +1,113 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock ']
   - name: shippingInfo
-    singleValue: true
-    xpath: (//div[@class='shipping-cost']/span)[1]
-  # - name: image
-  #   singleValue: true
-  #   xpath: //ul[contains(@class,'product-list') and contains(@class,'multiple-variants')]/li[1]/@data-small-image
-  # - name: imageAlt
-  #   singleValue: true
-  #   xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
-  # - name: alternateImages
-  #   singleValue: false
-  #   xpath: //div[@id='image-container']//div[contains(@class,'product-image-slider__slide') and contains(@class,'slick-slide') and not(contains(@class,'slick-active')) and not(contains(@class,'product-video'))]/img/@data-lazy
-  # - name: metaKeywords
-  #   singleValue: true
-  # - name: category
-  #   singleValue: true
-  #   xpath: //div[contains(@class, 'breadcrumbs')]/a[1]/span
-  # - name: nameExtended
-  #   singleValue: true
-  #   xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
-  # - name: list_price
-  #   singleValue: true
-  #   xpath: //span[@class='old-price']
-  # - name: price
-  #   singleValue: true
-  #   xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
-  # - name: description
-  #   singleValue: true
-  #   xpath: //div[@class='description-content']
-  # - name: descriptionBullets
-  #   singleValue: true
-  #   xpath: count(//ul[@class='product-properties-list']/li)
-  # - name: brandText
-  #   singleValue: true
-  #   xpath: //a[@class='brand']
-  # - name: manufacturer
-  #   singleValue: true
-  # - name: quantity
-  #   singleValue: true
-  #   xpath: //div[@class='size-box']/span[@class='amount']
+    singleValue: false
+    xpath: //div[@class='shipping-description'] | //div[@class='delivery-container']
+  - name: price
+    singleValue: false
+    xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='badge-container']
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"product-image-slider__slide slick-slide slick-current")]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='image-container']//div[contains(@class,'product-image-slider__slide') and contains(@class,'slick-slide') and not(contains(@class,'slick-active')) and not(contains(@class,'product-video'))]/img/@data-lazy
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class, 'breadcrumbs')]/a[position() > 1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class='old-price']
+  - name: gtin
+    singleValue: false
+    xpath: //meta[@itemprop='gtin13']/@content
+  - name: sku
+    singleValue: false
+    xpath: //meta[@itemprop='sku']/@content
+  - name: directions
+    singleValue: false
+    xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="standalone-bottomline"]//span[@class='sr-only']
+    regExp: (.*) star
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@class, "reviews-qa-label")]
+    regExp: (.*) Bewertungen
+    regExpReplace: $1
+  - name: description
+    singleValue: false
+    xpath: //div[@id="bb_descriptionBullets"]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id="bb_descriptionBulletsCount"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'product-brand-logo')]/a/meta[@itemprop="name"]/@content
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"lazyYoutube")]/a/@href 
+  - name: quantity
+    singleValue: false
+    xpath: concat(//span[@class="amount"] , //span[@class="unit"])
   # - name: weightNet
-  #   singleValue: true
+  #   singleValue: false
   # - name: weightGross
-  #   singleValue: true
-  # - name: gtin
-  #   singleValue: true
-  #   xpath: //meta[@itemprop='gtin13']/@content
-  # - name: sku
-  #   singleValue: true
-  #   xpath: //meta[@itemprop='sku']/@content
+  #   singleValue: false
   # - name: variantId
-  #   singleValue: true
-  # - name: warnings
-  #   singleValue: true
-  # - name: ratingCount
-  #   singleValue: true
-  #   xpath: //a[@class='text-m']/span
+  #   singleValue: false
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@class="ingredients-content"]
   # - name: aggregateRatingText
-  #   singleValue: true
-  # - name: aggregateRating
-  #   singleValue: true
-  #   xpath: //div[@class='bottom-line-items']/span[1]
+  #   singleValue: false
   # - name: shippingDimensions
-  #   singleValue: true
+  #   singleValue: false
   # - name: shippingWeight
-  #   singleValue: true
+  #   singleValue: false
   # - name: variantCount
-  #   singleValue: true
+  #   singleValue: false
   # - name: mpc
-  #   singleValue: true
+  #   singleValue: false
   # - name: packSize
-  #   singleValue: true
+  #   singleValue: false
   # - name: legalDisclaimer
-  #   singleValue: true
-  # - name: colour
-  #   singleValue: true
-  #   xpath: //span[@id='makeup-color-select']
-  # - name: colorCode
-  #   singleValue: true
-  #   xpath: //div[@id='fl_colorcode']
-  # - name: directions
-  #   singleValue: true
-  #   xpath: //div[@id='fl_directioninfo']
-  # - name: manufacturerDescription
-  #   singleValue: true
-  # - name: manufacturerImages
   #   singleValue: false
-  #   xpath: //div[@id='product-content-block']/img/@src
-  # - name: video
+  - name: color
+    singleValue: false
+    xpath: //span[@id='makeup-color-select']
+  - name: colorCode
+    singleValue: false
+    xpath: //div[@id='fl_colorcode']
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="product-content-block"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="product-content-block"]//img/@src
+  # - name: additionalDescBulletInfo
   #   singleValue: false
-  #   xpath: //div[@id='pd_video']/a/@href
-  # - name: name
-  #   singleValue: true
-  #   xpath: //div[@class='product-name']//span[@itemprop='name']
+  #   xpath: //div[@class='description-content']/ul/li
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-name']//span[@itemprop='name']
   # - name: url
-  #   singleValue: true
+  #   singleValue: false
   #   xpath: //meta[@property='og:url']/@content
