@@ -40,6 +40,10 @@ async function implementation (
       addHiddenDiv('primaryImage', primaryImg);
     }
 
+    if (document.querySelector('.productDetails__category')) {
+      addHiddenDiv('category', document.querySelector('.productDetails__category').innerText.trim());
+    }
+
     const videos = [];
     const alternateImages = [];
     document.querySelectorAll('.preview__img').forEach((el, ind) => {
@@ -74,6 +78,22 @@ async function implementation (
 
     if (document.querySelector('.productDetails__availability')) {
       addHiddenDiv('availabilityText', document.querySelector('.productDetails__availability').innerText.trim());
+    } else {
+      let deliver = false;
+      let inStore = false;
+      document.querySelectorAll('.button__title--iconTxt').forEach(el => {
+        if (el.innerText.includes('Aggiungi al carrello')) {
+          deliver = true;
+        }
+        if (el.innerText.includes('prenota e ritira')) {
+          inStore = true;
+        }
+      });
+      if (deliver) {
+        addHiddenDiv('availabilityText', "In Stock");
+      } else if (inStore) {
+        addHiddenDiv('availabilityText', "In Store Only");
+      }
     }
 
     let description = '';
