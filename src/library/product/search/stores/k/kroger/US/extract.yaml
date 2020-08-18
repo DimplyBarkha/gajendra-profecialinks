@@ -26,13 +26,15 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //a[@class='Color Link']/@href
+    # xpath: //a[@class='Color Link']/@href
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
     regExp: >-
       [0-9]{13}
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //a[@componentname='internal search']/@href
+    # xpath: //a[@componentname='internal search']/@href
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
     regExp: >-
        ^(.*)$
     regExpReplace:
@@ -40,7 +42,7 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //img[@class='ImageLoader-image']/@src
+    xpath: //img[@class='kds-Image-img']/@src
   - name: name
     singleValue: true
     description: The product name
@@ -48,15 +50,15 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //a[@class='Color Link']/@href
-    regExp: >-
-      [0-9]{13}
   - name: mpc
     singleValue: true
     description: The model code of the product
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    regExp: >-
+      [0-9]{13}
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -89,6 +91,10 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
