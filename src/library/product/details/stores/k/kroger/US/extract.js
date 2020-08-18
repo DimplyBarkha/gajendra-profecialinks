@@ -148,9 +148,15 @@ const implementation = async (
     price.classList.add('my-price');
     price.style.display = 'none';
 
+    const available = document.createElement('li');
+    available.classList.add('availability');
+    available.style.display = 'none';
+
     const pickupPrice = document.evaluate('//span[contains(@class,"PurchaseOptions--headingLabel") and contains(text(),"Pickup")]//parent::span//parent::div//parent::div/div[@class="mt-4 flex flex-col items-end"]/data', document, null, XPathResult.STRING_TYPE, null).stringValue;
 
-    if (pickupPrice !== undefined) {
+    if (pickupPrice !== '') {
+      available.textContent = 'In Stock';
+
       if (pickupPrice.includes('discount')) {
         const firstDIndex = pickupPrice.indexOf('d');
         price.textContent = pickupPrice.slice(0, firstDIndex);
@@ -164,28 +170,31 @@ const implementation = async (
         listPrice.textContent = pickupPrice;
       }
     } else {
-      price.textContent = 'Product Unavailable';
-      listPrice.textContent = 'Product Unavailable';
+      available.textContent = 'Out of Stock';
+      // price.textContent = 'Product Unavailable';
+      // listPrice.textContent = 'Product Unavailable';
     }
     document.body.append(price);
     document.body.append(listPrice);
-  });
-
-  await context.evaluate(() => {
-    const available = document.createElement('li');
-    available.classList.add('availability');
-    available.style.display = 'none';
-
-    const purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end');
-
-    if (purchaseOptions.length > 0) {
-      available.textContent = 'In Stock';
-    } else {
-      available.textContent = 'Out of Stock';
-    }
 
     document.body.append(available);
   });
+
+  // await context.evaluate(() => {
+  //   const available = document.createElement('li');
+  //   available.classList.add('availability');
+  //   available.style.display = 'none';
+
+  //   const purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end');
+
+  //   if (purchaseOptions.length > 0) {
+  //     available.textContent = 'In Stock';
+  //   } else {
+  //     available.textContent = 'Out of Stock';
+  //   }
+
+  //   document.body.append(available);
+  // });
 
   console.log('ready to extract');
 
