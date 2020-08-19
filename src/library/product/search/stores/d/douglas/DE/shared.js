@@ -23,6 +23,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       row.name[0].text = `${row.prodTitle ? row.prodTitle[0].text : ''} ${row.prodName ? row.prodName[0].text : ''} ${row.prodCategory ? row.prodCategory[0].text : ''} ${row.prodNameExtended ? row.prodNameExtended[0].text : ''}`;
+      row.name[0].text = row.name[0].text.trim()
       delete row.prodTitle;
       delete row.prodName;
       delete row.prodNameExtended;
