@@ -36,6 +36,9 @@ module.exports = {
           const storeID = storeIDSplit.length > 1 ? storeIDSplit[1] : '0';
           return storeID;
         });
+        if (storeID === '0') {
+          throw new Error('No store ID!');
+        }
         await context.waitForSelector('button[data-automation-id="flyout-close"]');
         await context.click('button[data-automation-id="flyout-close"]');
       }
