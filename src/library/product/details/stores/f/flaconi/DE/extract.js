@@ -72,7 +72,7 @@ async function implementation (
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
-   let description = document.querySelector("div[class='description-content'] p");
+   let description = document.querySelector("div[class='description-content']");
     // @ts-ignore
     description = description ? description.innerText : '';
     let descArr = [];

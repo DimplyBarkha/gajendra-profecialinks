@@ -41,7 +41,7 @@ fields:
     xpath: //meta[@itemprop='sku']/@content
   - name: directions
     singleValue: false
-    xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]
+    xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"]
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="standalone-bottomline"]//span[@class='sr-only']
@@ -102,9 +102,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="product-content-block"]//img/@src
-  # - name: additionalDescBulletInfo
-  #   singleValue: false
-  #   xpath: //div[@class='description-content']/ul/li
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class="product-properties-list"]/li
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//span[@itemprop='name']
