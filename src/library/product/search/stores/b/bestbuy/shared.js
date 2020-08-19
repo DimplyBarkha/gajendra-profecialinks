@@ -37,6 +37,13 @@ const transform = (data, context) => {
         row.thumbnail.forEach(item => {
           item.text= item.text.split(" ")[0];
         });
+      }
+      if (row.id) {
+        row.id.forEach(item => {
+          item.text= item.text.split('/');
+          let length = item.text.length;
+          item.text = item.text[length -1];
+        });
       } 
     }
   }
