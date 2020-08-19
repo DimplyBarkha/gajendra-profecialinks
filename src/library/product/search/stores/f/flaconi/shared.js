@@ -57,6 +57,15 @@ const transform = (data, context) => {
             let length = row.category.length;
             row.category= row.category[length-1]
         }
+        if (row.productUrl) {
+          row.productUrl.forEach(item => {
+            if(item.text.includes('https://www.flaconi.de')){
+              item.text = item.text;
+            }else{
+              item.text = 'https://www.flaconi.de'+item.text;
+            }
+        });
+      }
       }
     }
     return data;

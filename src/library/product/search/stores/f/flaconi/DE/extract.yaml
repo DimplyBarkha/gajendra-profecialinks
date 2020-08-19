@@ -45,6 +45,6 @@ fields:
     regExpReplace: $1
   - name: productUrl
     singleValue: false
-    xpath: //center/a/@href | concat(('https://www.flaconi.de'),'',(//div[@class='product-item-box']/a/@href))
+    xpath: //center/a/@href | //div[@class='product-item-box']/a/@href
 
 
