@@ -45,6 +45,20 @@ const transform = (data, context) => {
           }
         });
       }
+      if (row.variantId) {
+        if (row.variantId.length > 1) {
+          row.variantId.shift();
+        }
+      }
+      if (row.variantUrl) {
+        if (row.variantUrl.length > 1) {
+          row.variantUrl.shift();
+        }
+        else {row.variantUrl.forEach(variantUrl => {
+            variantUrl.text = variantUrl.text.replace('https://www.johnlewis.com', '');
+          });
+        }
+      }
       if (row.variantAsins) {
         let text = '';
         row.variantAsins.forEach(item => {
