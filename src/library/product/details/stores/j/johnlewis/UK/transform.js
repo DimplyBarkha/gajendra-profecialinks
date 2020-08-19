@@ -27,6 +27,11 @@ const transform = (data, context) => {
           category.text = category.text.replace('Homepage', '').replace(/\n/g, '').trim();
         });
       }
+      if (row.specifications) {
+        row.specifications.forEach(specifications => {
+          specifications.text = specifications.text.replace(/ \n \n/g, ':').replace(/\n \n/g, '|').trim();
+        });
+      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
@@ -53,8 +58,8 @@ const transform = (data, context) => {
       if (row.variantUrl) {
         if (row.variantUrl.length > 1) {
           row.variantUrl.shift();
-        }
-        else {row.variantUrl.forEach(variantUrl => {
+        } else {
+          row.variantUrl.forEach(variantUrl => {
             variantUrl.text = variantUrl.text.replace('https://www.johnlewis.com', '');
           });
         }
