@@ -1,132 +1,102 @@
+extends: ../../elcorteingles/ES/extract
 singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brandText
-    singleValue: true
-    description: The brand name
-    xpath: //h2[@class='brand']
-    example: Panasonic
-  - name: brandLink
-    xpath: //h2[@class='brand']/a/@href
-    regExp: (.*)
-    regExpReplace: elcorteingles.es$1
-    singleValue: true
-    description: Url that navigtes when the brand name is clicked
-  - name: size 
-    xpath: //ul[@id='talla-group']/li[position()=1]/a/text()
-    description: Available size of the item
-  - name : variantCount
-    xpath: count(//ul[@id='talla-group']/li/a/span[not(contains(@class, 'notavailable'))])
-  - name: color
-    xpath: //div[@class= 'option-disabled'] | //a[@id='color-value']
-  - name: category
-    singleValue: false
-    xpath: //ul[@id='breadcrumbs']/li/a
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
-  - name: subCategory
-    singleValue: false
-  - name: description
-    singleValue: false
-    xpath: //div[@class='description-container']
-  - name: availabilityText
-    singleValue: true
-    xpath: //div[@id='availability']
-  - name: additionalDescription
-    singleValue: true
-  - name: productUrl
-    singleValue: true
-    description: The URL for the product details page
-  - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
-  - name: name
-    singleValue: true
-    description: The product name
-    xpath: //h2[@class='title']
   - name: image
     singleValue: true
-    description: The product image
-    xpath: //meta[@property="og:image"]/@content
+    xpath : //div[@id='product_image']
   - name: imageAlt
     singleValue: true
-    description: The product image alternative text
-    xpath: //img[@itemprop="image"]/@alt
+    xpath: //meta[@name="twitter:title"]/@content
+  - name: imageAlt
+    singleValue: true
+    xpath: //meta[@name="twitter:title"]/@content   
   - name: alternateImages
+    singleValue: true
+    xpath: //link[@as="image"]/@href
+    regExp: ^(.*)(__)(\d+x\d+)(.jpg)$
+    regExpReplace: https:$1$21200x1200$4  
+  - name: category
     singleValue: false
-    description: The images that are other than main image
-    xpath: //ul[@class='alternate-images']/li/img/@data-zoom-src
-    regExp: (.+)
-    regExpReplace: https:$1
-  - name: secondaryImageTotal
-    singleValue: false
-    description: The count of images that are other than main image
-    xpath: count(//ul[@class='alternate-images']/li[position()>1])
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: //div[@class='BVRRSummaryContainer']/@data-bv-productid
-  - name: variantId
-    description: Unique Id of the product variant
-    xpath: //span[@id='sku-ref']/@data-sku
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    xpath: //meta[@itemprop='gtin13']/@content
-    regExp: (?:([\d\.]+)\s?)
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-  - name: reviewCount
-    singleValue: true
-    description: The number of reviews
-    xpath: //button[@id='num-reviews-button']
-    regExp: (?:([\d\.]+)\s?)
-  - name: price
-    singleValue: false
-    description: The offered price for the product
-    xpath: //div[@id='product-info']//div[@class='product-price ']/span[contains(@class, 'current')]
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-    xpath: //div[@id='shippingInfo']
-  - name: id
-    singleValue: true
-    description: Unique id (within this extractor)
+    xpath: //li[@itemprop="itemListElement"]
   - name: nameExtended
     singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath : //a[@class="product_detail-brand"]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@id='listPrice']
+  - name: price
+    singleValue: true
+    xpath : //div[@id='price']
+  - name: availabilityText
+    singleValue: true
+    xpath : //div[@id='availability']
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath : //div[@id="bulletDescription"]
+  - name: brandText
+    singleValue: true
+    xpath : //div[@id="brand"]
+  - name: quantity
+    singleValue: true
+    xpath: //div[@id="quantity"]
+  - name: gtin
+    singleValue: true
+    xpath: //span[@itemprop="sku"] | //span[@class="js-product-gtin-number"]
+  - name: asin
+    singleValue: true
+    xpath: //span[@itemprop="sku"] | //span[@class="js-product-gtin-number"]
+  - name: sku
+    singleValue: true
+    xpath: //div[@class="nav-logo _topbar"]/@id
+  - name: variantId
+    singleValue: true
+    xpath: //span[@class="js-product-reference-number"] | //div[@id="retailer_product_code"]
+  - name: directions
+    singleValue: true
+    xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
+  - name: videos
+    singleValue: false
+    xpath : //div[@class="image-layout-slides-group-item"]/img/@data-url
+  - name: name
+    singleValue: true
+    xpath : //meta[@name="twitter:title"]/@content
+  - name: ratingCount
+    singleValue: true
+    xpath: //button[@id="ratings-summary"]//meta[@itemprop="reviewCount"]/@content
+  - name: warranty
+    singleValue: true
+    xpath : //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
+  - name: storage
+    singleValue: true
+    xpath : 
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
+  - name: allergyAdvice
+    singleValue: true
+    xpath : 
+  - name: promotion
+    singleValue: true
+    xpath : //ul[contains(@class,"info_promotions")]/li[1]
+  - name: alcoholContent
+    singleValue: true
+    xpath : //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@id="variants_container"]//option/@medida | //div[@id="variants_container"]//option/@talla
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //button[contains(@class,'bv_avgRating')]
+    xpath: //button[contains(@class,'bv_avgRating')] | //div[contains(@class,'bv_avgRating')] 
+  - name: shippingInfo
+    singleValue: true
+    xpath: //li[@data-promotion-type="shipping"]
+  - name: energyEfficiency
+    singleValue: true
+    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
+  - name: imageZoomFeaturePresent
+    xpath: //img/@data-zoom 
