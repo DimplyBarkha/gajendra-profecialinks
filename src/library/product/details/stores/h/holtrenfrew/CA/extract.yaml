@@ -47,6 +47,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: (//input[@name="productCodePost"])[1]/@value
+  - name: variantId
+    singleValue: false
+    xpath: (//input[@name="productCodePost"])[1]/@value
   - name: mpc
     singleValue: false
     xpath: //p[@class="product-details__id"]
@@ -71,4 +74,18 @@ fields:
     xpath: //div[@class="product-details__descr"]//li[contains(text(), "Product dimensions")]
     regExp: .*?:\s*(.*)
     regExpReplace: $1
-
+  - name: nameExtended
+    singleValue: false
+    xpath: //html[not(@class="no-js")]//title
+    regExp: (.*?)\s*\|
+    regExpReplace: $1
+  - name: variants
+    singleValue: false
+    xpath: //a[contains(@class,"color-list__link ")]/@href
+  - name: variantInformation
+    singleValue: false
+    xpath: //a[contains(@class,"color-list__link ")]/@title
+  - name: firstVariant
+    singleValue: false
+    xpath: (//input[@name="productCodePost"])[1]/@value
+    
