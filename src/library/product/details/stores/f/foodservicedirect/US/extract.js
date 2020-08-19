@@ -18,12 +18,16 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
+      function getEleByXpath (xpath) {
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        console.log('Element' + element);
+        return element;
+      }
+
       function addAllergensList () {
-        const tabsNav = document.querySelectorAll('div.p-product-detail__product-features-table div.c-tab-box__tab-links');
-        for (let i = 0; i < tabsNav.length; i++) {
-          if (tabsNav[i].textContent.includes('Allergens')) {
-            tabsNav[i].click();
-          }
+        const allergenTab = getEleByXpath('//div[contains(@class, "p-product-detail__product-features-table")]// div[contains(@class, "c-tab-box__tab-links")][text()="Allergens"]');
+        if (allergenTab) {
+          allergenTab.click();
         }
 
         const allergensList = [];
@@ -40,70 +44,23 @@ module.exports = {
                 allergensList.push(element.querySelectorAll('div')[1].textContent);
               }
             }
+            break;
           }
         }
 
         addHiddenDiv('allergens', allergensList.join(', '));
-
-        if (tabsNav[0].textContent.includes('Product Specifications')) {
-          tabsNav[0].click();
-        }
-      }
-
-      function addShippingInfo () {
-        const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-        let shipText = '';
-        for (let i = 0; i < rowDiv.length; i++) {
-          const div = rowDiv[i];
-          if (div.textContent.includes('Properties')) {
-            const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (let i = 0; i < allList.length; i++) {
-              const element = allList[i];
-              if (element.textContent.includes('Shipping Type')) {
-                shipText = element.lastChild.textContent;
-              }
-            }
-          }
-        }
-
-        addHiddenDiv('shippingInfo', shipText);
-      }
-
-      function quantity () {
-        const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-        let soldAsText = '';
-        let unitQuantityText = '';
-        for (let i = 0; i < rowDiv.length; i++) {
-          const div = rowDiv[i];
-          if (div.textContent.includes('Product Specifications')) {
-            const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (let i = 0; i < allList.length; i++) {
-              const element = allList[i];
-              if (element.textContent.includes('Sold As')) {
-                soldAsText = element.children[1].textContent;
-              }
-              if (element.textContent.includes('Unit Quantity')) {
-                unitQuantityText = element.children[1].textContent;
-                break;
-              }
-            }
-          }
-          break;
-        }
-
-        addHiddenDiv('quantityInfo', unitQuantityText + ' ' + soldAsText);
+        const prodSpecTab = getEleByXpath('//div[contains(@class, "p-product-detail__product-features-table")]// div[contains(@class, "c-tab-box__tab-links")][text()="Product Specifications"]');
+        prodSpecTab.click();
       }
 
       function nurtitionInfo () {
-        const tabsNav = document.querySelectorAll('div.p-product-detail__product-features-table div.c-tab-box__tab-links');
-        for (let i = 0; i < tabsNav.length; i++) {
-          if (tabsNav[i].textContent.includes('Nutrition Facts')) {
-            tabsNav[i].click();
-          }
+        const nutritionTab = getEleByXpath('//div[contains(@class, "p-product-detail__product-features-table")]//div[contains(@class, "c-tab-box__tab-links")][text()="Nutrition Facts"]');
+        if (nutritionTab) {
+          nutritionTab.click();
         }
+
         const nutriObj = {
           serving: 'servingSize',
-          // 'serving size uom': 'servingSizeUom',
           calories: 'caloriesPerServing',
           'calories from fat': 'caloriesFromFatPerServing',
           'total fat': 'totalFatPerServing',
@@ -124,8 +81,6 @@ module.exports = {
           sodium: 'sodiumPerServing',
         };
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-        // let servingSizeExist = false;
-        // let servingSizeText = '';
         for (let i = 0; i < rowDiv.length; i++) {
           const div = rowDiv[i];
           if (div.textContent.includes('Nutrition Facts')) {
@@ -136,37 +91,17 @@ module.exports = {
               if (nurtiItem.length && nutriObj[nurtiItem]) {
                 addHiddenDiv(nutriObj[nurtiItem], element.children[1].textContent);
               }
-              // if (nurtiItem === 'serving size uom') {
-              //   servingSizeExist = true;
-              // }
-              // if (nurtiItem === 'serving') {
-              //   servingSizeText = element.children[1].textContent;
-              // }
             }
+            break;
           }
         }
 
-        // if (!servingSizeExist && servingSizeText.length) {
-        //   const re = /[a-zA-Z]+$/;
-        //   const regPhrase = /[a-zA-Z\s]+/;
-        //   if (servingSizeText.match(re) && servingSizeText.match(re)[0]) {
-        //     servingSizeText = servingSizeText.match(re)[0];
-        //   } else if (servingSizeText.match(regPhrase) && servingSizeText.match(regPhrase)[0]) {
-        //     servingSizeText = servingSizeText.match(regPhrase)[0];
-        //   } else {
-        //     servingSizeText = '';
-        //   }
-        //   addHiddenDiv('servingSizeUom', servingSizeText);
-        // }
-        if (tabsNav[0].textContent.includes('Product Specifications')) {
-          tabsNav[0].click();
-        }
+        const prodSpecTab = getEleByXpath('//div[contains(@class, "p-product-detail__product-features-table")]// div[contains(@class, "c-tab-box__tab-links")][text()="Product Specifications"]');
+        prodSpecTab.click();
       }
 
       addAllergensList();
       nurtitionInfo();
-      quantity();
-      addShippingInfo();
       addHiddenDiv('imageZoomFeaturePresent', document.querySelector('a.c-product-viewer__action-zoom') !== null ? 'Yes' : 'No');
     });
 

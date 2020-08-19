@@ -48,7 +48,7 @@ fields:
     singleValue: true
   - name: quantity
     singleValue: true
-    xpath: //div[@id="quantityInfo"]
+    xpath: concat(//div[contains(@class, "p-product-detail__product-features-table")]//*[contains(text(), "Unit Quantity")]/following-sibling::div, ' ', //div[contains(@class, "p-product-detail__product-features-table")]//*[contains(text(), "Sold As")]/following-sibling::div)
   - name: weightNet
     singleValue: true
   - name: weightGross
@@ -81,8 +81,8 @@ fields:
   - name: ratingCount
     singleValue: true
     defaultValue: 0
-    regExp: (\d+)    
-    xpath: (//span[contains(@class,"review-count")])[1]    
+    regExp: (\d+)
+    xpath: (//span[contains(@class,"review-count")])[1]
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
@@ -133,7 +133,6 @@ fields:
   - name: servingSizeUom
     singleValue: true
     xpath: //div[@id="servingSize"]
-    # xpath: //div[@id="servingSizeUom"]
     regExp: ([a-zA-Z\s*]+)
   - name: numberOfServingsInPackage
     singleValue: true
@@ -288,7 +287,6 @@ fields:
   - name: promotion
     singleValue: true
     xpath: //span[contains(@class,"c-product-shop-box__price-you-save")]
-    # ??????
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
