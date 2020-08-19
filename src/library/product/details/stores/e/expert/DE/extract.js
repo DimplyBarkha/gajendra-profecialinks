@@ -76,19 +76,7 @@ module.exports = {
           console.log(result);
         })
         .catch(error => console.log('error', error));
-
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-
-        xhr.addEventListener("readystatechange", function() {
-          if(this.readyState === 4) {
-            console.log(this.responseText);
-          }
-        });
-
-        xhr.open("GET", "https://service.loadbee.com/ean/5025155028155/de_DE?css=default&template=default&button=default");
-
-        xhr.send();
+        
       console.log(document.querySelector('div.loadbeeTabContent').querySelector('iframe').contentWindow.document);
     });
 
