@@ -1,0 +1,87 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"no_flag_picture")]/descendant::img[contains(@src,".jpg")]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"no_flag_picture")]/descendant::img[contains(@src,".jpg")]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"no_flag_picture")]/descendant::img[contains(@src,".png")]/@data-src
+  - name: category
+    singleValue: false
+    xpath: //div[@id="header-breadcrumb-zone"]/ul/descendant::a[text()]
+  - name: nameExtended
+    singleValue: false
+    xpath: //meta[@property="og:title"]/@content
+    regExp: (.*)?\s*\|
+    regExpReplace: $1
+  - name: listPrice
+    singleValue: false
+    manualSelector: div[id="listPrice"]
+  - name: price
+    singleValue: false
+    manualSelector: div.product_price > span
+  - name: availabilityText
+    singleValue: false
+    manualSelector: div[id="availability"]
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    manualSelector: div#product_description > div.product_bloc_content
+  - name: descriptionBullets
+    singleValue: false
+    type: NUMBER
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: weightNet
+    singleValue: false
+    xpath: //th[contains(text(),"Poids")]/following-sibling::td[@class="font-2-b"]
+  - name: gtin
+    singleValue: false
+    xpath: //meta[@itemprop="gtin13"]/@content
+  - name: sku
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: ratingCount
+    singleValue: false
+    manualSelector: div[id="rateCnt"]
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    manualSelector: div[id="rated"]
+  - name: shippingInfo
+    singleValue: false
+  - name: shippingDimensions
+    singleValue: false
+    manualSelector: div[id="shipDim"]
+  - name: color
+    singleValue: false
+    xpath: //th[contains(text(),"Couleur")]/following-sibling::td[@class="font-2-b"]
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"no_flag_picture")]/descendant::iframe/@src
+  - name: name
+    singleValue: false
+    manualSelector: span.product_name
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class="product-sale-actions"]/descendant::a[contains(text(),"Garantie")]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //th[contains(text(),"Origine de fabrication")]/following-sibling::td[@class="font-2-b"]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    manualSelector: div.strong-points > ul > li
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //a/descendant::*[contains(text(),"Télécharger la notice")]/parent::a/@href
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: Yes
