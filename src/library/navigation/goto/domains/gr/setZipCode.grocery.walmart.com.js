@@ -35,15 +35,29 @@ module.exports = {
           document.querySelector('div.ReactModalPortal').remove();
         }
       });
-      await context.waitForSelector('button[label="Change store"]');
-      // Using context.click for selector button[label="Change store"] is not working. Won't click on the button
-      await context.evaluate(async function () {
-        const button = document.querySelector('button[label="Change store"]');
-        if (button) {
-          button.click();
+      async function clickButton() {
+        await context.waitForSelector('button[label="Change store"]');
+        // Using context.click for selector button[label="Change store"] is not working. Won't click on the button
+        await context.evaluate(async function () {
+          const button = document.querySelector('button[label="Change store"]');
+          if (button) {
+            button.click();
+          }
+        });
+      }
+      clickButton();
+      try {
+        await context.waitForSelector('input[data-automation-id="zipSearchField"]', { timeout: 45000 });
+      } catch (error) {
+        await context.click('button[data-automation-id="zipSearchBtn"]');
+        if (document.querySelector('section[data-automation-id="closeableOverlay"]')) {
+          document.querySelector('section[data-automation-id="closeableOverlay"]').click();
         }
-      });
-      await context.waitForSelector('input[data-automation-id="zipSearchField"]');
+        clickButton();
+        // throw new Error('Fail to click on confirm button');
+      }
+
+      await context.waitForSelector('input[data-automation-id="zipSearchField"]', { timeout: 45000 });
       await context.setInputValue('input[data-automation-id="zipSearchField"]', zipcode);
       await context.click('button[data-automation-id="zipSearchBtn"]');
 
@@ -69,7 +83,8 @@ module.exports = {
         await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
         await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-        // await new Promise((resolve) => setTimeout(resolve, 15000));
+        // Seems like the timeout for waitForFunction is not working
+        await new Promise((resolve) => setTimeout(resolve, 10000));
         await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 45000 });
         try {
           await context.waitForFunction(function (sel, zipcodeStreetAddress) {
