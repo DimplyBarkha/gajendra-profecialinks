@@ -332,9 +332,6 @@ const transform = (data, context) => {
         }
         if (row.description) {
           // row.description = [{ text: row.description[0].text.replace(/\n \n/g, ' || ') }];
-          if (row.description[0].text.includes('Product description')) {
-
-          }
           const text = [''];
           // for (let i = 0; i < row.description.length; i++) {
           //   const item = row.description[i];
