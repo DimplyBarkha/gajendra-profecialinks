@@ -148,53 +148,40 @@ const implementation = async (
     price.classList.add('my-price');
     price.style.display = 'none';
 
+    const selectedPrice = document.evaluate('//input[@name="purchase-options-group" and @type="radio" and @checked]/parent::span/parent::div/parent::div/div[@class="mt-4 flex flex-col items-end"]/data', document, null, XPathResult.STRING_TYPE, null).stringValue;
+
+    if (selectedPrice !== '') {
+      if (selectedPrice.includes('discount')) {
+        const firstDIndex = selectedPrice.indexOf('d');
+        price.textContent = selectedPrice.slice(0, firstDIndex);
+
+        const mIndex = selectedPrice.indexOf('m');
+        listPrice.textContent = selectedPrice.slice(mIndex + 1);
+      } else {
+        price.textContent = selectedPrice;
+        listPrice.textContent = selectedPrice;
+      }
+    }
+
+    document.body.append(price);
+    document.body.append(listPrice);
+  });
+
+  await context.evaluate(() => {
     const available = document.createElement('li');
     available.classList.add('availability');
     available.style.display = 'none';
 
-    const pickupPrice = document.evaluate('//span[contains(@class,"PurchaseOptions--headingLabel") and contains(text(),"Pickup")]//parent::span//parent::div//parent::div/div[@class="mt-4 flex flex-col items-end"]/data', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    const purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end');
 
-    if (pickupPrice !== '') {
+    if (purchaseOptions.length > 0) {
       available.textContent = 'In Stock';
-
-      if (pickupPrice.includes('discount')) {
-        const firstDIndex = pickupPrice.indexOf('d');
-        price.textContent = pickupPrice.slice(0, firstDIndex);
-
-        const listPriceEl = document.querySelector('s.kds-Price-original');
-        if (listPriceEl && listPriceEl.textContent) {
-          listPrice.textContent = listPriceEl.textContent;
-        }
-      } else {
-        price.textContent = pickupPrice;
-        listPrice.textContent = pickupPrice;
-      }
     } else {
       available.textContent = 'Out of Stock';
-      // price.textContent = 'Product Unavailable';
-      // listPrice.textContent = 'Product Unavailable';
     }
-    document.body.append(price);
-    document.body.append(listPrice);
 
     document.body.append(available);
   });
-
-  // await context.evaluate(() => {
-  //   const available = document.createElement('li');
-  //   available.classList.add('availability');
-  //   available.style.display = 'none';
-
-  //   const purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end');
-
-  //   if (purchaseOptions.length > 0) {
-  //     available.textContent = 'In Stock';
-  //   } else {
-  //     available.textContent = 'Out of Stock';
-  //   }
-
-  //   document.body.append(available);
-  // });
 
   console.log('ready to extract');
 
