@@ -56,3 +56,19 @@ fields:
     singleValue: false
     defaultValue: no
     xpath: //img[@class="zoomImg"]
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class="product-details__descr"]//li[contains(text(), "Warranty")]
+    regExp: .*?-\s*(.*)
+    regExpReplace: $1
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class="product-details__descr"]//li[contains(text(), "Weight")]
+    regExp: .*?:\s*(.*)
+    regExpReplace: $1
+  - name: productDimensions
+    singleValue: false
+    xpath: //div[@class="product-details__descr"]//li[contains(text(), "Product dimensions")]
+    regExp: .*?:\s*(.*)
+    regExpReplace: $1
+
