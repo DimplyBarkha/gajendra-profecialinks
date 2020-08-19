@@ -50,7 +50,12 @@ const transform = (data) => {
         }
         if(row.alternateImages) {
           row.alternateImages.splice(0, 1);
+
           row.alternateImages = row.alternateImages.map(prefixImageWithDomain);
+          
+          const text = [];
+          text.push({ text: row.secondaryImageTotal.length });
+          row.secondaryImageTotal = text;          
         }
         if(row.image) {
           row.image = row.image.map(prefixImageWithDomain);
