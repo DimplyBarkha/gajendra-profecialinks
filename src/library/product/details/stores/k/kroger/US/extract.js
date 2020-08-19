@@ -148,18 +148,20 @@ const implementation = async (
     price.classList.add('my-price');
     price.style.display = 'none';
 
-    const selectedPrice = document.evaluate('//input[@name="purchase-options-group" and @type="radio" and @checked]/parent::span/parent::div/parent::div/div[@class="mt-4 flex flex-col items-end"]/data', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    const pickupPrice = document.getElementsByClassName('mt-4 flex flex-col items-end')[0];
 
-    if (selectedPrice !== '') {
-      if (selectedPrice.includes('discount')) {
-        const firstDIndex = selectedPrice.indexOf('d');
-        price.textContent = selectedPrice.slice(0, firstDIndex);
+    if (pickupPrice !== undefined) {
+      const pickupPriceText = pickupPrice.textContent;
 
-        const mIndex = selectedPrice.indexOf('m');
-        listPrice.textContent = selectedPrice.slice(mIndex + 1);
+      if (pickupPriceText.includes('discount')) {
+        const firstDIndex = pickupPriceText.indexOf('d');
+        price.textContent = pickupPriceText.slice(0, firstDIndex);
+
+        const mIndex = pickupPriceText.indexOf('m');
+        listPrice.textContent = pickupPriceText.slice(mIndex + 1);
       } else {
-        price.textContent = selectedPrice;
-        listPrice.textContent = selectedPrice;
+        price.textContent = pickupPriceText;
+        listPrice.textContent = pickupPriceText;
       }
     }
 

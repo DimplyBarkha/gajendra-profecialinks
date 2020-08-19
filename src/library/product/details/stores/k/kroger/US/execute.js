@@ -37,7 +37,7 @@ module.exports = {
     store: 'kroger',
     domain: 'kroger.com',
     loadedSelector: 'div.ProductCard-promoContainer',
-    noResultsXPath: "//p[@class='no-query-results heading-l font-medium mt-0']",
+    noResultsXPath: "//p[@class='no-query-results heading-l font-medium mt-0'] | //span[contains(text(),'Please come back later')]",
   },
   implementation,
 };
