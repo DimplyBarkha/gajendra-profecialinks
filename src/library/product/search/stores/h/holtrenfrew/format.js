@@ -3,7 +3,7 @@
 * @param {ImportIO.Group[]} data
 * @returns {ImportIO.Group[]}
 */
-const transform = (data) => {
+const transform = (data, context) => {
     const cleanUp = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
@@ -29,8 +29,23 @@ const transform = (data) => {
         return { ...product, text: productDomain + text };
     }
 
+    const state = context.getState();
+    let orgRankCounter = state.orgRankCounter || 0;
+    let rankCounter = state.rankCounter || 0;
+
     for (const { group } of data) {
       for (const row of group) {
+        
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        row.rank = [{ text: rankCounter }];
+        Object.keys(row).forEach(header => row[header].forEach(el => {
+          el.text = cleanUp(el.text);
+        }));
+        
         // Added code as brand is not available directly on the webpage
         if(row.productUrl) row.productUrl = row.productUrl.map(prefixProductUrlWithDomain);
 
