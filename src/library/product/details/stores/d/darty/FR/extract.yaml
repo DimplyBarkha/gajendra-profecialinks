@@ -63,6 +63,7 @@ fields:
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false
+    manualSelector: span.product-mkp-seller
   - name: shippingDimensions
     singleValue: false
     xpath: //tr[th[contains(text(),"Dimensions")]]//li
