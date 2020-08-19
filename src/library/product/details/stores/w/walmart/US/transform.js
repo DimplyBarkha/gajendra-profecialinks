@@ -116,10 +116,22 @@ const transform = (data, context) => {
           });
           row.variantInformation = [
             {
-              text: text.slice(0, -3),
+              text: text.replace(/"/g, '').slice(0, -3),
             },
           ];
         }
+
+        if(row.videos) {
+          let noDups = new Set();
+          row.videos.forEach(vid=>{
+            if(vid.text) {
+              noDups.add(vid.text);
+            }
+          });
+          let arr = Array.from(noDups);
+          row.videos = [{text: arr.join(" | ")}];
+        }
+
         if (row.firstVariant) {
           row.firstVariant = [{ text: row.firstVariant[0].text.replace('"primaryProductId":"', '').replace('","primary', '') }];
         }
