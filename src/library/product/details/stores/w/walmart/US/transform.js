@@ -121,15 +121,15 @@ const transform = (data, context) => {
           ];
         }
 
-        if(row.videos) {
-          let noDups = new Set();
-          row.videos.forEach(vid=>{
-            if(vid.text) {
+        if (row.videos) {
+          const noDups = new Set();
+          row.videos.forEach(vid => {
+            if (vid.text) {
               noDups.add(vid.text);
             }
           });
-          let arr = Array.from(noDups);
-          row.videos = [{text: arr.join(" | ")}];
+          const arr = Array.from(noDups);
+          row.videos = [{ text: arr.join(' | ') }];
         }
 
         if (row.firstVariant) {
