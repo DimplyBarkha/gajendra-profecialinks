@@ -20,3 +20,6 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@class, "price")]
+  - name: id
+    singleValue: false
+    xpath: //a[@class="js-product-image-link"]/@href

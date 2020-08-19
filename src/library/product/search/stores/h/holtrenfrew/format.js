@@ -33,6 +33,12 @@ const transform = (data, context) => {
     let orgRankCounter = state.orgRankCounter || 0;
     let rankCounter = state.rankCounter || 0;
 
+    const getProductId = (product) => {
+      const regex = /.*p\/(.*)/;
+      const { text } = product;
+      return { ...product, text: text.replace(regex,'$1') };
+    }
+
     for (const { group } of data) {
       for (const row of group) {
         
@@ -50,6 +56,8 @@ const transform = (data, context) => {
         if(row.productUrl) row.productUrl = row.productUrl.map(prefixProductUrlWithDomain);
 
         if(row.thumbnail) row.thumbnail = row.thumbnail.map(prefixImageWithDomain);
+
+        if(row.id) row.id = row.id.map(getProductId);
       }
     }
     return data;
