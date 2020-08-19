@@ -54,8 +54,8 @@ const transform = (data) => {
           row.alternateImages = row.alternateImages.map(prefixImageWithDomain);
           
           const text = [];
-          text.push({ text: row.secondaryImageTotal.length });
-          row.secondaryImageTotal = text;          
+          text.push({ text: row.alternateImages.length });
+          row.secondaryImageTotal = text;
         }
         if(row.image) {
           row.image = row.image.map(prefixImageWithDomain);
@@ -68,6 +68,25 @@ const transform = (data) => {
         if(row.variantUrl) row.variantUrl = row.variantUrl.map(prefixVariantWithDomain);
 
         if(row.variantId) row.variantId = row.variantId.map(getVariantId);
+
+        if(row.variantInformation) {
+          let str = [];
+          row.variantInformation.forEach((variantInfo) => {
+            str.push(variantInfo.text);
+          });
+          
+          row.variantInformation = [{text: str.join(' | ')}];
+        }
+
+        if(row.variants) {
+          let str = [];
+          row.variants = row.variants.map(getVariantId);
+          row.variants.forEach((variant) => {
+            str.push(variant.text);
+          });
+          
+          row.variants = [{text: str.join(' | ')}];
+        }
       }
     }
     return data;
