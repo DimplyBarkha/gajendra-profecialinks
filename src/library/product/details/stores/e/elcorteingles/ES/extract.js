@@ -115,11 +115,11 @@ module.exports = {
                   // Check for the sodium with given text if it is present get the value and add it to DOM
                   let sodium;
                   if (content[1].textContent.includes(text)) {
-                    sodium = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
+                    sodium = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+(\,\d+)?)\s(\w+\/\w+)(.+)/g, '$2');
                     addElementToDocument('sodium', sodium);
                     // If sodium has data get the unit
                     if (sodium) {
-                      const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+                      const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+(\,\d+)?)\s(\w+\/\w+)(.+)/g, '$4');
                       addElementToDocument('sodiumUnit', sodiumUnit);
                     }
                     // if sodium didn't match with given text then get the sodium value and append to DOM

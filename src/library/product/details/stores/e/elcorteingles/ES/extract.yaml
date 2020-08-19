@@ -46,7 +46,7 @@ fields:
     xpath: //span[@itemprop="sku"]
   - name: variantId
     singleValue: true
-    xpath: //div[@id="retailer_product_code"]
+    xpath: //div[@id="retailer_product_code"] | //div[@data-bv-show="rating_summary"]/@data-bv-product-id
   - name: directions
     singleValue: true
     xpath: //div[@class="info"][3]//ul[@class="info-list"]/li[last()]
@@ -117,9 +117,15 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: //div[@id="ratingCount"]
+  - name: videos
+    singleValue: true
+    xpath: //div[@class="info _video-wrapper"]/iframe/@src  
   - name: storage
     singleValue: false
     xpath: //h3[contains(text(),'Conservación y utilización')]/../ul/li[1]
+  - name: countryofOrigin
+    singleValue: false
+    xpath: //li[@class="info-item"]/span[contains(text(),"País de origen")]/following-sibling::text()  
   - name: saltPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
