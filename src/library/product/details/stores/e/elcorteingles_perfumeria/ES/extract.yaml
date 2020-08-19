@@ -10,6 +10,14 @@ fields:
   - name: imageAlt
     singleValue: true
     xpath: //meta[@name="twitter:title"]/@content
+  - name: imageAlt
+    singleValue: true
+    xpath: //meta[@name="twitter:title"]/@content   
+  - name: alternateImages
+    singleValue: true
+    xpath: //link[@as="image"]/@href
+    regExp: ^(.*)(__)(\d+x\d+)(.jpg)$
+    regExpReplace: https:$1$21200x1200$4  
   - name: category
     singleValue: false
     xpath: //li[@itemprop="itemListElement"]
@@ -41,9 +49,12 @@ fields:
   - name: asin
     singleValue: true
     xpath: //span[@itemprop="sku"] | //span[@class="js-product-gtin-number"]
+  - name: sku
+    singleValue: true
+    xpath: //div[@class="nav-logo _topbar"]/@id
   - name: variantId
     singleValue: true
-    xpath: //div[@id="retailer_product_code"]
+    xpath: //span[@class="js-product-reference-number"] | //div[@id="retailer_product_code"]
   - name: directions
     singleValue: true
     xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
@@ -56,6 +67,9 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: //button[@id="ratings-summary"]//meta[@itemprop="reviewCount"]/@content
+  - name: warranty
+    singleValue: true
+    xpath : //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
   - name: storage
     singleValue: true
     xpath : 
@@ -78,3 +92,11 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //button[contains(@class,'bv_avgRating')] | //div[contains(@class,'bv_avgRating')] 
+  - name: shippingInfo
+    singleValue: true
+    xpath: //li[@data-promotion-type="shipping"]
+  - name: energyEfficiency
+    singleValue: true
+    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
+  - name: imageZoomFeaturePresent
+    xpath: //img/@data-zoom 
