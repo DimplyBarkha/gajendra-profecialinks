@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'johnlewis',
     domain: 'johnlewis.com',
-    url: null,
+    url: 'https://www.johnlewis.com/search?search-term={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h1[@class="cms-no-results-heading"]',
     zipcode: '',
   },
 };

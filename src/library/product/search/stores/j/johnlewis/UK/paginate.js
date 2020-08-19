@@ -8,8 +8,10 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
-    openSearchDefinition: null,
+    noResultsXPath: '//h1[@class="cms-no-results-heading"]',
+    openSearchDefinition: {
+      template: 'https://www.johnlewis.com/search?search-term={searchTerms}&page={page}',
+    },
     domain: 'johnlewis.com',
     zipcode: '',
   },
