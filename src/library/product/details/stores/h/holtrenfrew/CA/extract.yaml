@@ -28,7 +28,7 @@ fields:
     xpath: //ul[@class="size-list no-padding"]/li/a[@class="size-list__link size-list__link--selected "]
   - name: price
     singleValue: false
-    xpath: //*[contains(@class, "price--sale")] | //*[@class="product-details__price"]/sapn
+    xpath: //*[contains(@class, "price--sale")] | //*[@class="product-details__price"]/sapn | //*[@class="product-details__price"]/span
   - name: listPrice
     singleValue: false
     xpath: //*[contains(@class, "price--old")]
