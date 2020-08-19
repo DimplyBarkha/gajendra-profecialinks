@@ -52,6 +52,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
+    manualSelector: span[itemprop*="gtin"]
   - name: sku
     singleValue: false
     manualSelector: span[itemprop="productID"]

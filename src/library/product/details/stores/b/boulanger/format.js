@@ -27,12 +27,13 @@ const transform = (data) => {
           }
         });
       }
-      if (!newAltImageArray.length) { row.alternateImages = undefined; }
-      else {
+      if (!newAltImageArray.length) {
+        row.alternateImages = undefined;
+      } else {
         row.alternateImages = newAltImageArray;
         if (row.alternateImages) {
           row.alternateImages.forEach(imageItem => {
-            imageItem.text = imageItem.text.replace(/.*url.*?(https.*)\".*/gm, '$1');
+            imageItem.text = imageItem.text.replace(/.*url.*?(https.*)".*/gm, '$1');
             imageItem.text = imageItem.text.replace(/60/gm, '1000');
           });
           row.image = row.alternateImages[0];
