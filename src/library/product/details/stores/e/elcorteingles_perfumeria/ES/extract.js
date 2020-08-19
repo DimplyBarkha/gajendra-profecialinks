@@ -216,9 +216,15 @@ module.exports = {
         addElementToDocument(attributeName, text);
       }
 
-      textContent(document.querySelector('div.pdp-info-container div.info'), 'bulletDescription');
+      let description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
+      if (description.length > 1) {
+        description.forEach(element => {
+          textContent(element, 'bulletDescription');
+        });
+      }
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });
+
     await context.extract(productDetails);
   },
 };
