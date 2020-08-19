@@ -33,6 +33,16 @@ const transform = (data) => {
       if (row.alternateImages) {
         row.alternateImages.shift();
       }
+      if (row.variantId) {
+        if (row.variantId.length > 1) {
+          row.variantId.shift();
+        }
+      }
+      if (row.variantUrl) {
+        if (row.variantUrl.length > 1) {
+          row.variantUrl.shift();
+        }
+      }
       if (row.category) {
         row.category.forEach(category => {
           category.text = category.text.replace('Home', '').replace(/\n/g, '').trim();
