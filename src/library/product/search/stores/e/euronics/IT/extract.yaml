@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="productCard__aux j-toggle "]
+recordXPath: //div[@class="productCard j-productCard j-comparisonItem "]
 #recordXPath: null
 fields:
   - name: id
@@ -15,22 +15,22 @@ fields:
     xpath: //h2[@class="productCard__name"]
   - name: productUrl
     singleValue: false
-    xpath: //h3[@class="name"]//a/@href
+    xpath: //a[@rel="nofollow"]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class='product-thumb']/@src
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[@class="rating"]
-  - name: reviewCount
-    singleValue: false
-    xpath: //div[@class="reviews"]
+    xpath: //img[@class='productCard__image  j-comparisonImg']/@src
+  #- name: aggregateRating2
+  #  singleValue: false
+  #  xpath: //div[@class="rating"]
+  #- name: reviewCount
+  #  singleValue: false
+  #  xpath: //div[@class="reviews"]
   - name: price
     singleValue: false
-    xpath: //div[@class="price"]
+    xpath: //span[@class="productCard__price"]
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class="brand"]
+    xpath: //span[@class="productCard__brand"]
   - name: soldBy
     singleValue: true
   - name: rank
