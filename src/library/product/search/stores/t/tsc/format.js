@@ -27,6 +27,11 @@ const transform = (data, context) => {
           urlItem.text = 'https://www.tsc.ca' + urlItem.text;
         });
       }
+      if (row.id) {
+        row.id.forEach(idItem => {
+          idItem.text = idItem.text.replace(/[^\d]/gm, '');
+        });
+      }
       if (row.reviewCount) {
         row.reviewCount.forEach(reviewItem => {
           reviewItem.text = reviewItem.text.replace(/(\d+).*/gm, '$1');

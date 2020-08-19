@@ -75,7 +75,7 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    description: Unique id (within this extractor)
+    xpath: //div[@class="itemNo"]
   - name: nameExtended
     singleValue: false
     xpath: //*[contains(@class, 'productDesc')]
