@@ -11,6 +11,12 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
     await context.click('input[aria-labelledby="GLUXZipUpdate-announce"]');
+    // if 'input[aria-labelledby="GLUXZipUpdate-announce"]' is not clicked, then using manual click
+    await context.evaluate(async function () {
+      if (document.querySelector('input[aria-labelledby="GLUXZipUpdate-announce"]')) {
+        document.querySelector('input[aria-labelledby="GLUXZipUpdate-announce"]').click();
+      }
+    });
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
     await context.click('button[name="glowDoneButton"]');
@@ -18,6 +24,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 
   try {
     await changeZip(zipcode);
+    await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "' + zipcode + '")]');
   } catch (exception) {
     throw new Error('Failed to update zipcode!');
   }

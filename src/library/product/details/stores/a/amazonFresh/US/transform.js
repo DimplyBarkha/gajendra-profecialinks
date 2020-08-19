@@ -332,11 +332,29 @@ const transform = (data, context) => {
         }
         if (row.description) {
           // row.description = [{ text: row.description[0].text.replace(/\n \n/g, ' || ') }];
+          if (row.description[0].text.includes('Product description')) {
+
+          }
           const text = [''];
+          // for (let i = 0; i < row.description.length; i++) {
+          //   const item = row.description[i];
+          //   if (item.text.includes('Product description')) {
+          //     break;
+          //   }
+          //   text.push(item.text);
+          // }
           row.description.forEach(item => {
             text.push(item.text);
           });
-          row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+          // console.log('row.description')
+          // console.log(text)
+          const index = text.indexOf('Product description');
+          let fullDescriptionArr = [];
+          if (index !== -1) {
+            fullDescriptionArr = text.splice(index);
+            fullDescriptionArr.shift();
+          }
+          row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') + ' ' + fullDescriptionArr.join(' ') }];
           // row.description[0].text = row.description[0].text.startsWith('|| ') ? row.description[0].text.slice(2) : row.description[0].text;
         }
         if (row.amazonChoice && row.amazonChoice[0]) {

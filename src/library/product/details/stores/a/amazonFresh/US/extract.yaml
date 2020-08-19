@@ -39,14 +39,15 @@ fields:
     xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
   - name: availabilityText
     singleValue: false
-    xpath: (//*[contains(@id,'availability')] | //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
+    xpath: (//*[contains(@id,'availability')] | //*[contains(@id,'vailability')]//*[contains(text(),'In Stock')])[1]
     regExp: (.+)
     regExpReplace: 'In stock'
     defaultValue: 'Out of Stock'
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/p/text()
+    xpath: //*[@id='feature-bullets']//ul/li[not(@id)]|//div[@id="productDescription_feature_div"]//h2|//div[@id="productDescription"]/p/text()
+    # xpath: //*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/p/text()
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])

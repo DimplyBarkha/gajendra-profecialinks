@@ -288,8 +288,8 @@ async function implementation (
   // @ts-ignore
 
   await new Promise(resolve => setTimeout(resolve, 5000));
-  await setLocale();
-  await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
+  // await setLocale();
+  // await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
   console.log('getting variants');
   // const allVariants = [...new Set(await getVariants())];
   // await new Promise(resolve => setTimeout(resolve, 5000));
