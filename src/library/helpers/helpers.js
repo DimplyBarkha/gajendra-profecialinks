@@ -65,7 +65,7 @@ module.exports.Helpers = class {
     await Promise.all([
       this.context.waitForNavigation({ timeout }),
       !input ? this.context.click(selector) : this.context.setInputValue(selector, input),
-    ]);
+    ]).catch(e => {});// do nothing if an error arise
   }
 
   // Function which checks a selecor

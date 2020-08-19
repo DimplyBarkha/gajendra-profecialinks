@@ -4,9 +4,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = async (data, context) => {
-  const hostName = await this.context.evaluate(() => window.location.hostname);
-  const websiteName = hostName.split('.').slice(1).join('.');
+const transform = (data, context) => {
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
@@ -21,6 +19,7 @@ const transform = async (data, context) => {
     .replace(/[\x00-\x1F]/g, '');
 
   const sg = item => item[0].text;
+  const joinArray = array => array.join(' | ').trim().replace(/\| \|/g, '|');
 
   const doubleRegexSearch = (regex1, regex2, item) => {
     const matchArray = sg(item).toString().match(regex1);
@@ -33,7 +32,7 @@ const transform = async (data, context) => {
     return match ? match[0] : def;
   };
 
-  const regexTestNReplace = (regex, item, { extraRegex, matchRegex }) => {
+  const regexTestNReplace = (regex, item, { extraRegex, matchRegex } = {}) => {
     if (regex.test(item)) {
       if (extraRegex) return item.toString().replace(regex, '').replace(extraRegex, '');
       if (matchRegex) return matchRegex(matchRegex, item.toString().replace(regex, ''));
@@ -43,34 +42,40 @@ const transform = async (data, context) => {
   };
 
   const regexTestNReplaceArray = (regex, item, extraRegex) => item.map(value => regexTestNReplace(regex, value.text, extraRegex));
-  const joinArray = array => array.join(' | ').trim().replace(/\| \|/g, '|');
 
-  const mappingObject = {
-    asin: item => matchRegex(/([A-Za-z0-9]{10,})/g, sg(item), ''),
-    warnings: item => sg(item).replace(/Safety Information/g, '').trim(),
-    weightGross: item => sg(item).trim(),
-    shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
-    grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
-    largeImageCount: item => {
-      const array = sg(item).toString().split('SL1500');
-      return array.length === 0 ? '0' : array.length - 1; // why minus 1???
-    },
-    alternateImages: array => joinArray(array.map(item => item.text)),
-    videos: item => doubleRegexSearch(/\"url\":\"([^"]+)/g, /(https.+mp4)/s, item),
-    videoLength: item => doubleRegexSearch(/\"durationTimestamp\":\"([^"]+)/g, /([0-9\:]{3,})/s, item),
-    brandLink: item => {
-      if (!sg(item).includes(hostName)) return `https://${hostName}${sg(item)}`;
-      return sg(item);
-    },
-    brandText: item => regexTestNReplace(/([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm, sg(item)),
-    name: item => regexTestNReplace(new RegExp(String.raw`(${websiteName.replace(/\./g, '\\.')}\s*:)`), sg(item)),
-    pricePerUnit: item => regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[\/].*$/g }),
-    pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^\/]+$)/g }),
-  };
+  const castToInt = (item, def = 0) => Number(item) || Number(item) === 0 ? parseInt(item) : def;
 
   for (const { group } of data) {
     for (const row of group) {
-      Object.values(mappingObject).forEach(([key, fct]) => {
+      const hostName = row.productUrl && row.productUrl[0] ? row.productUrl[0].text.split('/')[2] : '';
+      const websiteName = hostName.split('.').slice(1).join('.');
+      const mappingObject = {
+        asin: item => matchRegex(/([A-Za-z0-9]{10,})/g, sg(item), ''),
+        warnings: item => sg(item).replace(/Safety Information/g, '').trim(),
+        weightGross: item => sg(item).trim(),
+        shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
+        grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
+        largeImageCount: item => {
+          const array = sg(item).toString().split('SL1500');
+          return array.length === 0 ? 0 : array.length - 1; // why minus 1???
+        },
+        alternateImages: array => joinArray(array.map(item => item.text)),
+        videos: item => doubleRegexSearch(/\"url\":\"([^"]+)/g, /(https.+mp4)/s, item),
+        videoLength: item => doubleRegexSearch(/\"durationTimestamp\":\"([^"]+)/g, /([0-9\:]{3,})/s, item),
+        brandLink: item => {
+          if (!sg(item).includes(hostName)) return `https://${hostName}${sg(item)}`;
+          return sg(item);
+        },
+        brandText: item => regexTestNReplace(/([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm, sg(item)),
+        name: item => regexTestNReplace(new RegExp(String.raw`(${websiteName.replace(/\./g, '\\.')}\s*:)`), sg(item)),
+        pricePerUnit: item => regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[\/].*$/g }),
+        pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^\/]+$)/g }),
+        secondaryImageTotal: item => castToInt(sg(item)),
+        ratingCount: item => castToInt(sg(item)),
+        descriptionBullets: item => castToInt(sg(item)),
+      };
+
+      Object.entries(mappingObject).forEach(([key, fct]) => {
         if (row[key] && row[key].length > 0) {
           const result = fct(row[key]);
           if (Array.isArray(result)) row[key] = result;
@@ -87,7 +92,7 @@ const transform = async (data, context) => {
           row.quantity = [{ text: quantity[0].trim() }];
         }
 
-        if (quantity == null) {
+        if (quantity == null || !row.quantity) {
           row.quantity = [{ text: '' }];
         }
 
@@ -118,66 +123,60 @@ const transform = async (data, context) => {
               jsonStr = jsonStr.slice(0, -2);
               const jsonObj = JSON.parse(jsonStr);
               row.variantCount = [{ text: Object.keys(jsonObj).length }];
-            } else row.variantCount = [{ text: Number(sg(row.variantCount)) ? Number(sg(row.variantCount)) : 1 }];
-          } else row.variantCount = [{ text: 0 }];
+            } else {
+              row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
+            }
+          } else {
+            if (row.variantCount.length > 1) {
+              row.variantCount = [{ text: [...new Set(row.variantCount)].length - 1 }];
+            } else {
+              row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
+            }
+          }
+        } else {
+          row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
         }
       }
       if (row.variants) {
-        const asins = [];
-        row.variants.forEach(item => {
+        const asins = row.variants.reduce((acc, item) => {
           if (item.text) {
-            asins.push(item.text);
+            acc.push(item.text);
+            return acc;
           }
-        });
-        // @ts-ignore
-        const dedupeAsins = [...new Set(asins)];
-        row.variants = [{ text: dedupeAsins }];
+          return acc;
+        }, []);
+        row.variants = [{ text: [...new Set(asins)] }];
       }
       if (row.salesRankCategory) {
-        const rankCat = [];
-        row.salesRankCategory.forEach(item => {
+        row.salesRankCategory = row.salesRankCategory.map(item => {
           if (item.text.includes('#')) {
             const regex = /\#[0-9,]{1,} in (.+) \(/s;
             const rawCat = item.text.match(regex);
-            rankCat.push({ text: rawCat[1] });
-          } else {
-            rankCat.push({ text: item.text });
+            return { text: rawCat ? rawCat[1] : ''};
           }
+          return { text: item.text };
         });
-        row.salesRankCategory = rankCat;
       }
       if (row.salesRank) {
-        const rank = [];
-        row.salesRank.forEach(item => {
+        row.salesRank = row.salesRank.map(item => {
           if (item.text.includes('#')) {
             const regex = /([0-9,]{1,})/s;
             const rawCat = item.text.match(regex);
-            if (rawCat) {
-              rank.push({ text: rawCat[0] });
-            }
-          } else {
-            rank.push({ text: '' });
+            return { text: rawCat ? castToInt(rawCat[0].split(/[,.\s]/).join('')) : 0 };
           }
+          return { text: 0 };
         });
-        row.salesRank = rank;
       }
-      if (row.manufacturerDescription && row.manufacturerDescription) {
+      if (row.manufacturerDescription && row.manufacturerDescription[0]) {
         const description = [];
-        console.log('manufacturerDescription');
         row.manufacturerDescription.forEach(item => {
           const regexIgnoreText = /^(Read more)/;
-          // console.log(item.text);
           item.text = (item.text).toString().replace(regexIgnoreText, '');
-          // console.log(item.text);
           if (!regexIgnoreText.test(item.text)) {
             description.push(item.text);
           }
         });
-        row.manufacturerDescription = [
-          {
-            text: description.join(' ').trim(),
-          },
-        ];
+        row.manufacturerDescription = [{ text: description.join(' ').trim() }];
       }
       if (row.heroQuickPromoUrl && row.heroQuickPromoUrl[0]) {
         if (row.heroQuickPromoUrl[0].text.includes('http')) {
@@ -187,10 +186,7 @@ const transform = async (data, context) => {
         }
       }
       if (row.description) {
-        const text = [''];
-        row.description.forEach(item => {
-          text.push(item.text);
-        });
+        const text = row.description.map(item => item.text);
         row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
       }
       if (row.amazonChoice && row.amazonChoice[0]) {
@@ -246,7 +242,7 @@ const transform = async (data, context) => {
           }
         });
       }
-      if (row.availabilityText) {
+      if (row.availabilityText && row.availabilityText[0]) {
         row.availabilityText = [
           {
             text: /[Ii]n [Ss]tock/gm.test(row.availabilityText[0].text) ? 'In stock' : row.availabilityText[0].text,
@@ -254,37 +250,24 @@ const transform = async (data, context) => {
         ];
       }
       if (row.otherSellersShipping2) {
-        row.otherSellersShipping2.forEach(item => {
-          if (item.text.includes('ree') || item.text.includes('REE')) {
-            item.text = '0.00';
-          } else if (item.text.includes('+ $')) {
+        row.otherSellersShipping2 = row.otherSellersShipping2.map(item => {
+          if (item.text.includes('+ $')) {
             const regex = /\$([0-9\.]{3,})/s;
-            item.text = item.text.match(regex)[1];
-          } else {
-            item.text = '0.00';
+            const mtch = item.text.match(regex);
+            return { text: mtch && mtch[1] ? item.text.match(regex)[1] : '0.00' };
           }
+          return { text: '0.00' };
         });
       }
       if (row.featureBullets) {
-        const text = [];
-        row.featureBullets.forEach(item => {
-          text.push(`${item.text}`);
-        });
-        row.featureBullets = [
-          {
-            text: text.join(' || ').trim().replace(/\|\| \|/g, '|'),
-          },
-        ];
+        const text = row.featureBullets.map(item => `${item.text}`);
+        row.featureBullets = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
       }
       if (row.primeFlag) {
         row.primeFlag = [{ text: 'Yes' }];
       }
       if (row.ingredientsList) {
-        row.ingredientsList = [
-          {
-            text: row.ingredientsList.map(item => `${item.text}`).join(' '),
-          },
-        ];
+        row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

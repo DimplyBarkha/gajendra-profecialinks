@@ -1,4 +1,4 @@
-const { transform } = require('../../../../sharedAmazon/transform');
+const { transform } = require('../../../../sharedAmazon/transformNew');
 /**
  *
  * @param { { url?: string,  id?: string} } inputs
@@ -43,11 +43,11 @@ async function implementation (
           const priceText = parseFloat((price.innerText).slice(1));
           if (firstCheck.innerText !== 'Ships from and sold by Amazon.com.' && otherSellers) {
             otherSellers.forEach((seller) => {
-              const sellerPrice = seller.querySelector('span.a-offscreen').innerText;
+              const sellerPrice = seller.querySelector('span.a-offscreen') ? seller.querySelector('span.a-offscreen').innerText : '';
               const priceNum = parseFloat(sellerPrice.slice(1));
               const shipsFrom = seller.querySelector('div#aod-offer-shipsFrom div.a-column.a-span9.a-span-last');
               const soldBy = seller.querySelector('div#aod-offer-soldBy div.a-column.a-span9.a-span-last');
-              if (shipsFrom.innerText === 'Amazon.com' && soldBy.innerText === 'Amazon.com' && priceNum > priceText) {
+              if (shipsFrom && shipsFrom.innerText === 'Amazon.com' && soldBy && soldBy.innerText === 'Amazon.com' && priceNum > priceText) {
                 addHiddenDiv('ii_lbb', 'YES');
                 addHiddenDiv('ii_lbbPrice', `${priceNum}`);
               }
