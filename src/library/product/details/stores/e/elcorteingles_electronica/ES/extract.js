@@ -40,15 +40,20 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj(scriptSelector) {
-        try {
-          const xpath = `//script[contains(.,'${scriptSelector}')]`;
-          const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let jsonStr = element.textContent;
-          jsonStr = jsonStr.trim();
-          return JSON.parse(jsonStr);
-        } catch (error) {
-          console.log(error.message);
+      function findJsonObj(scriptSelector, video) {
+        if (video) {
+          var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          return result;
+        } else {
+          try {
+            const xpath = `//script[contains(.,'${scriptSelector}')]`;
+            const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+            let jsonStr = element.textContent;
+            jsonStr = jsonStr.trim();
+            return JSON.parse(jsonStr);
+          } catch (error) {
+            console.log(error.message);
+          }
         }
       }
 
@@ -57,6 +62,28 @@ module.exports = {
       if (imageData) {
         addElementToDocument('product_image', `https:${imageData.image.slice(-1)[0]}`);
         addElementToDocument('product_description', imageData.description);
+      }
+
+      // Get the video 
+      try {
+        let inputVideo = findJsonObj("", '//input[@class="flix-jw"]/@value');
+        let imagelayoutVideo = findJsonObj("", '//div[@class="image-layout-slides-group-item"]/img/@data-url');
+        if (inputVideo.snapshotLength > 0) {
+          for (let i = 0; i < inputVideo.snapshotLength; i++) {
+            addElementToDocument('video', JSON.parse(findJsonObj("", inputVideo).snapshotItem(0).value).playlist[0].file);
+          }
+        } else {
+          if (imagelayoutVideo.snapshotLength = 1) {
+            addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
+          } else {
+            for (let i = 0; i < imagelayoutVideo.snapshotLength; i++) {
+              addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
+
+            }
+          }
+        }
+      } catch (error) {
+        console.log(error.message);
       }
 
       // elements from data Layer object
@@ -83,9 +110,9 @@ module.exports = {
 
           // Check for  Price 
           if (dataObj[0].product.price.o_price) {
-            addElementToDocument('listPrice', dataObj[0].product.price.f_price);
+            addElementToDocument('price', dataObj[0].product.price.f_price);
           } else {
-            addElementToDocument('listPrice', dataObj[0].product.price.final);
+            addElementToDocument('price', dataObj[0].product.price.final);
           }
 
           // Check for the product id  and append to DOM
@@ -95,10 +122,7 @@ module.exports = {
               addElementToDocument('retailer_product_code', retailerProductCode);
             }
           }
-          // Check for the quantity  and append to DOM
-          if (dataObj[0].product.quantity) {
-            addElementToDocument('quantity', dataObj[0].product.quantity);
-          }
+
         }
       }
 
@@ -217,9 +241,15 @@ module.exports = {
         addElementToDocument(attributeName, text);
       }
 
-      textContent(document.querySelector('div.pdp-info-container div.info'), 'bulletDescription');
+      let description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
+      if (description.length > 1) {
+        description.forEach(element => {
+          textContent(element, 'bulletDescription');
+        });
+      }
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });
+
     await context.extract(productDetails);
   },
 };
