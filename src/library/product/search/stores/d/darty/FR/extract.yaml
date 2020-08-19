@@ -5,39 +5,31 @@ recordXPath: //div[contains(@class,"product_detail")]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,"product_detail")]/@data-codic
+    xpath: //div/../@data-codic
   - name: name
     singleValue: false
     manualSelector: span.prd-name
-  - name: brandText
-    singleValue: false
-    defaultValue: Dyson
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"product_detail")]/descendant::div[contains(@class,"prd-family")]/a/@href
+    xpath: //a[span[@class="prd-name"]]/@href
     regExp: (.*)
     regExpReplace: https://www.darty.com$1
   - name: thumbnail
     singleValue: false
-    xpath: //div/../div[@class="picture_container"]/descendant::img/@src
+    xpath: //div[@class="picture_container"]//img/@src
   - name: price
     singleValue: false
-    xpath: //div/../descendant::div[@class="sale_price"]/span[contains(@class,"darty_normal")]
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div/../descendant::div[@class="status_delivery"]/p[@class="delivery_date"]
+    manualSelector: div.sale_price>span.darty_normal
   - name: aggregateRating2
     singleValue: false
-    xpath: //div/../descendant::div[@class="rating"]/descendant::span[@class="rating_avis"]
+    manualSelector: div.rating span.rating_avis
     regExp: (.*)?\/
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    xpath: //div/../descendant::div[@class="rating"]/descendant::u
-    regExp: (.*)?\s
+    manualSelector: div.rating u
+    regExp: ^(\d+)
     regExpReplace: $1
-  - name: rank
-    singleValue: false
   - name: soldBy
     singleValue: false
-    xpath: //div/../descendant::span[@class="mkp_sold_by"]/b
+    manualSelector: span.mkp_sold_by > b
