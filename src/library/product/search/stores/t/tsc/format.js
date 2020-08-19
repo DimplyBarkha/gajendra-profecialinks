@@ -27,6 +27,14 @@ const transform = (data, context) => {
           urlItem.text = 'https://www.tsc.ca' + urlItem.text;
         });
       }
+      // Adding Yes or No if product has variants
+      if (row.hasVariant) {
+        row.hasVariant.forEach(variantItem => {
+          variantItem.text = 'Yes';
+        });
+      } else {
+        row.hasVariant = [{ text: 'No' }];
+      }
       if (row.id) {
         row.id.forEach(idItem => {
           idItem.text = idItem.text.replace(/[^\d]/gm, '');

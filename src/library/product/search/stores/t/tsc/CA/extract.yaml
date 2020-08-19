@@ -64,11 +64,9 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    type: NUMBER
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
@@ -82,4 +80,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+  - name: hasVariant
+    singleValue: false
+    xpath: //div[@class="moreStylesDiv"]//div
