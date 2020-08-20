@@ -65,7 +65,7 @@ fields:
   #  xpath: //div[@id="upcInfo"]
   - name: sku
     singleValue: true
-    xpath: //div[@class="product-code"]
+    xpath: //reevoo-reviewable-badge/@sku
   - name: mpc
     singleValue: true
     xpath: //div[@id="mpc"]
@@ -123,8 +123,9 @@ fields:
   #- name: storage
   #  singleValue: true
   #  xpath: //div[@id="storageInfo"]
-  #- name: countryOfOrigin
-  #  xpath: //div[@id="originInfo"]
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //div[@id="originInfo"]
   - name: promotion
     singleValue: true
     xpath: //div[@id="promotion"]

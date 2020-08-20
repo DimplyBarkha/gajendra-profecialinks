@@ -44,6 +44,7 @@ async function implementation (
     document.querySelector('button[data-read-more="Read more"]').click();
     let alternateImages = [];
     if (document.querySelector('.zoom-trap') && document.querySelector('.zoom-trap').querySelector('img')) {
+      console.log('hasImage');
       addHiddenDiv('primaryImage', document.querySelector('.zoom-trap').querySelector('img').getAttribute('src'));
       document.querySelectorAll('.zoom-trap').forEach((el, ind) => {
         if(el.querySelector('img') && ind > 0) {
@@ -113,8 +114,6 @@ async function implementation (
     addHiddenDiv('materials', materials.join(', '));
     addHiddenDiv('shippingDimensions', shippingDimensions.join(' x '));
 
-    let productInfoLink = null;
-
     document.querySelectorAll('.badges__image').forEach(e => {
       if (e.getAttribute('alt')) {
         if (e.getAttribute('alt').includes('Warranty') || e.getAttribute('alt').includes('Guarantee')) {
@@ -123,17 +122,8 @@ async function implementation (
         if (e.getAttribute('alt') === 'Product Manual') {
           addHiddenDiv('pdf', 'Yes');
         }
-        if (e.getAttribute('alt') === 'Product Data') {
-          productInfoLink = e.parentElement.getAttribute('href');
-        }
       }
     });
-    console.log('productInfoLink', productInfoLink)
-    if (productInfoLink) {
-      await fetch(productInfoLink)
-      .then(response => response.blob())
-      .then(blob => console.log(blob));
-    }
 
     let specificationsInd = -1;
     let  additionalInfoInd = -1;
@@ -158,6 +148,7 @@ async function implementation (
       addHiddenDiv('additionalInfo', '|| ' + additionalInfo.join(' || '));
     }
 
+    addHiddenDiv('originInfo', 'GBR');
     addHiddenDiv('privacy', 'Yes');
     addHiddenDiv('terms', 'Yes');
     addHiddenDiv('customerServiceAvailability', 'Yes');
