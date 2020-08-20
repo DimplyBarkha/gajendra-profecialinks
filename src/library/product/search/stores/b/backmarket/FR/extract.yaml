@@ -1,18 +1,49 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@data-test="product-thumb"]
 fields:
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
-    xpath: //div[@data-test="product-thumb"]//h2
+    xpath: //a/div[3]/h2
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id="thumbnail"]
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //a/@href
+  - name: id
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //@data-bmid
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //div[@data-qa="prices"]/div[@data-qa="priceCurrent"]
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //del[@data-qa="priceOriginal"]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //a/div[3]/h2
   # - name: paid
-  #   singleValue: true
+  #   singleValue: false
   #   description: Whether this is a sponsored/paid result
   #   type: BOOLEAN
   # - name: brand
-  #   singleValue: true
+  #   singleValue: false
   #   description: The brand name
   #   example: Panasonic
   # - name: category
@@ -24,68 +55,42 @@ fields:
   #     - Electric Toothbrushes & Accessories
   #     - Electric Toothbrushes
   #     - Rotating
-  # - name: productUrl
-  #   singleValue: true
-  #   description: The URL for the product details page
-  # - name: thumbnail
-  #   singleValue: true
-  #   description: The URL for the product thumbnail image
   # - name: sku
-  #   singleValue: true
+  #   singleValue: false
   #   description: The store-specific product identifier
   # - name: mpc
-  #   singleValue: true
+  #   singleValue: false
   #   description: The model code of the product
-  # - name: gtin
-  #   singleValue: true
-  #   description: GTIN code (includes UPC/EAN)
   # - name: aggregateRatingText
-  #   singleValue: true
+  #   singleValue: false
   #   description: The stated aggregate rating
   # - name: ratingCount
-  #   singleValue: true
+  #   singleValue: false
   #   description: The number of ratings
   # - name: reviewCount
-  #   singleValue: true
+  #   singleValue: false
   #   description: The number of reviews
-  # - name: price
-  #   singleValue: true
-  #   description: The offered price for the product
-  # - name: listPrice
-  #   singleValue: true
-  #   description: The stated undiscounted price for the product
   # - name: manufacturer
-  #   singleValue: true
+  #   singleValue: false
   #   description: Product manufacturer
   # - name: soldBy
-  #   singleValue: true
+  #   singleValue: false
   #   description: The name of the seller of the item (if available)
   # - name: endorsementText
-  #   singleValue: true
+  #   singleValue: false
   #   description: The text that signifies that a product is endorsed
   # - name: shippingInfo
-  #   singleValue: true
+  #   singleValue: false
   #   description: Shipping information for the product
-  # - name: rank
-  #   singleValue: true
-  #   description: search/listing rank
-  #   type: NUMBER
-  # - name: rankOrganic
-  #   singleValue: true
-  #   description: The position (rank) within the list excluding sponsored/paid results
   #   type: NUMBER
   # - name: sponsored
-  #   singleValue: true
+  #   singleValue: false
   #   description: Is sponsored/paid
   #   type: BOOLEAN
-  # - name: id
-  #   singleValue: true
+  # - name: gtin
+  #   singleValue: false
   #   description: Unique id (within this extractor)
-  # - name: nameExtended
-  #   singleValue: true
-  #   description: The product name, prefixing "${brand} - " if not included in "name"
-  #     and appending " - ${variantType}" if necessary (fixed per extractor)
   # - name: aggregateRating
-  #   singleValue: true
+  #   singleValue: false
   #   description: The stated aggregate rating normalized to be out of 5
   #   type: NUMBER
