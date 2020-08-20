@@ -1,4 +1,4 @@
-const { transform } = require('../transform');
+const { transform } = require('./shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -8,7 +8,7 @@ module.exports = {
     domain: 'shoppersdrugmart.ca',
     zipcode: '',
   },
-  implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     try {
       await context.waitForSelector('div#pr-reviewsnippet div.pr-snippet-rating-decimal');
     } catch (error) {
