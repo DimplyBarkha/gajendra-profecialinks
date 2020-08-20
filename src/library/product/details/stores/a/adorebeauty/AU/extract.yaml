@@ -1,0 +1,73 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+  - name: imageAlt
+    singleValue: true
+  - name: alternateImages
+    singleValue: false
+  - name: metaKeywords
+    singleValue: true
+  - name: category
+    singleValue: false
+  - name: nameExtended
+    singleValue: true
+  - name: listPrice
+    singleValue: true
+  - name: price
+    singleValue: true
+  - name: availabilityText
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+  - name: descriptionBullets
+    singleValue: true
+    type: NUMBER
+  - name: brandText
+    singleValue: true
+  - name: manufacturer
+    singleValue: true
+  - name: quantity
+    singleValue: true
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: true
+  - name: weightGross
+    singleValue: true
+  - name: sku
+    singleValue: true
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+  - name: directions
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: true
+    type: NUMBER
+  - name: shippingInfo
+    singleValue: true
+  - name: shippingDimensions
+    singleValue: true
+  - name: videos
+    singleValue: false
+  - name: name
+    singleValue: true
+  - name: secondaryImageTotal
+    singleValue: true
+    type: NUMBER
+  - name: imageZoomFeaturePresent
+    singleValue: true
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
