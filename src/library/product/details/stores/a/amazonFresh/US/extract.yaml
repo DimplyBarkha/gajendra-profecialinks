@@ -40,7 +40,7 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: (//*[contains(@id,'availability')] | //*[contains(@id,'vailability')]//*[contains(text(),'In Stock')])[1]
-    regExp: (.+)
+    regExp: ((.*?)\)
     regExpReplace: 'In stock'
     defaultValue: 'Out of Stock'
     # defaultValue: Out of Stock

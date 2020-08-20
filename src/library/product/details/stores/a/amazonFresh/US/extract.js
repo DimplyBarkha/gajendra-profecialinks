@@ -1,4 +1,5 @@
-const { transform } = require('../../../../sharedAmazon/transform');
+// const { transform } = require('../../../../sharedAmazon/transform');
+const { transform } = require('./transform');
 /**
  *
  * @param { { url?: string,  id?: string, parentInput?: string} } inputs
