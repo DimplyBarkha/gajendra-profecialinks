@@ -22,11 +22,11 @@ const transform = (data) => {
             item.text = item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim();
           });
         }
-        if (row.aggregateRating) {
-          row.aggregateRating.forEach(item => {
-            item.text = item.text.replace(',','.');
-          });
-        }
+        // if (row.aggregateRating) {
+        //   row.aggregateRating.forEach(item => {
+        //     item.text = item.text.replace(',','.');
+        //   });
+        // }
       }
     }
     return data;
