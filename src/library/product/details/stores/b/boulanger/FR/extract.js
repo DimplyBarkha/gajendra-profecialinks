@@ -63,10 +63,14 @@ async function implementation (
     // If images are present in description then add to manufacturerDescription else add to description
     const manufacturerImageFlag = document.evaluate('//div[@id="presentation"]//div[@itemprop="description"]//img/@src | //div[@id="presentation"]//div[@itemprop="description"]//video/@src', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     const descriptionSelector = document.querySelector('div[id="presentation"] div[itemprop="description"]');
-    const description = descriptionSelector ? descriptionSelector.innerText : '';
+    let description = descriptionSelector ? descriptionSelector.innerText : '';
+    const specDescriptionSelector = document.evaluate('//th[contains(text(), "Description")]/parent::tr/parent::thead/following-sibling::tbody[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    const specDescription = specDescriptionSelector ? specDescriptionSelector.innerText : '';
     if (manufacturerImageFlag) {
       addHiddenDiv('added-manufacturerDesc', description);
+      specDescription && addHiddenDiv('added-description', specDescription);
     } else {
+      description = description ? description + ' | ' + specDescription : specDescription;
       addHiddenDiv('added-description', description);
     }
   });

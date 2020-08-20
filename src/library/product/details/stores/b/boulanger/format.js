@@ -54,9 +54,7 @@ const transform = (data) => {
         });
       }
       if (row.specifications) {
-        row.specifications.forEach(item => {
-          item.text = cleanUp(item.text);
-        });
+        row.specifications[0].text = row.specifications[0].text.replace(/\.(\n\s*){6,}/g, ' || ').replace(/(\n\s*){6,}/g, ' : ').replace(/(\n\s*){4}/g, ' || ');
       }
       if (row.shippingDimensions) {
         row.shippingDimensions.forEach(item => {
