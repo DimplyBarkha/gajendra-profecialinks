@@ -6,72 +6,59 @@ fields:
   - name: image
     singleValue: false
     xpath: //li[@class="glide__slide glide__slide--active"]/div/div/span/img[1]/@src
-    regExp: 
-    regExpReplace: 
+    regExp: ([^\?]+)(\?.*)?
+    regExpReplace: $1
   - name: imageAlt
     singleValue: false
     xpath: //li[@class="glide__slide glide__slide--active"]/div/div/span/img[1]/@alt
   - name: alternateImages
     singleValue: false
-  - name: metaKeywords
-    singleValue: false
+    xpath: //div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/span/img/@src
+    regExp: ([^\?]+)(\?.*)?
+    regExpReplace: $1
   - name: category
     singleValue: false
-  - name: nameExtended
+    xpath: //ol[@class="vue-breadcrumb"]/li[position()>1 and position()<last()]/a/span
+  - name: name
     singleValue: false
-  - name: listPrice
-    singleValue: false
+    manualSelector: h1[itemprop="name"] 
   - name: price
     singleValue: false
+    xpath: //div[@class="price-box"]/span
   - name: availabilityText
     singleValue: false
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    manualSelector: strong[class="stock-message__info"]
   - name: description
     singleValue: false
+    xpath: //div[@itemprop="description"]
   - name: descriptionBullets
     singleValue: false
+    xpath: count(//div[@itemprop="description"]/ul/li)
     type: NUMBER
   - name: brandText
     singleValue: false
+    xpath: //a[@class="brand-logo"]/img/@title
   - name: manufacturer
-    singleValue: false
-  - name: quantity
-    singleValue: false
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
-  - name: weightNet
-    singleValue: false
-  - name: weightGross
-    singleValue: false
-  - name: sku
-    singleValue: false
-  - name: mpc
-    singleValue: false
-  - name: packSize
     singleValue: false
   - name: directions
     singleValue: false
+    xpath: //section[@class="product-tab"]/div[2]
   - name: ratingCount
     singleValue: false
     type: NUMBER
+    xpath: //div[@class="review-top-section"]//p[@class="review-summary__info"]/a
   - name: aggregateRating
     singleValue: false
-    type: NUMBER
+    xpath: //div[@class="review-top-section"]//p[@class="review-summary__info"]/span/strong
   - name: shippingInfo
     singleValue: false
-  - name: shippingDimensions
-    singleValue: false
+    xpath: //table[@class="delivery-results"]/tbody/tr/td/p
   - name: videos
-    singleValue: false
-  - name: name
     singleValue: false
   - name: secondaryImageTotal
     singleValue: false
+    xpath: count(//div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/span/img/@src)
     type: NUMBER
   - name: imageZoomFeaturePresent
     singleValue: false
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    
