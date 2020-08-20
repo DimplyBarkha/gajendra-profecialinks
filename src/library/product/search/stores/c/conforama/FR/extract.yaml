@@ -1,0 +1,103 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    manualSelector: div[class='detail-product'] h3
+  - name: brandText
+    singleValue: false
+    description: The brand name
+    xpath: //div[@class='detail-product']//h3/a[2]
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //div[@class='image-product']/a/@href
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class='image-product']//img/@src
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+    xpath: //span[@class='stars']/@data
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //span[@class='avisBaazar']/a
+    regExp: (.*) avis
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+    xpath: //span[@class='avisBaazar']/a
+    regExp: (.*) avis
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //div[@class='price-product']
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //div[@class='out-price']
+  - name: soldBy
+    singleValue: false
+    description: The name of the seller of the item (if available)
+    xpath: //div[@class='sold-by']
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[@class='detail-product']/h3/a[1]/@tcproductclick
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    manualSelector: div[class='detail-product'] h3
+  # - name: aggregateRating
+  #   singleValue: false
+  #   description: The stated aggregate rating normalized to be out of 5
+  #   type: NUMBER
+  # - name: name
+  #   singleValue: false
+  #   description: The product name
+  # - name: sku
+  #   singleValue: false
+  #   description: The store-specific product identifier
+  # - name: mpc
+  #   singleValue: false
+  #   description: The model code of the product
+  # - name: gtin
+  #   singleValue: false
+  #   description: GTIN code (includes UPC/EAN) 
+  # - name: sponsored
+  #   singleValue: false
+  #   description: Is sponsored/paid
+  #   type: BOOLEAN    
+  # - name: endorsementText
+  #   singleValue: false
+  #   description: The text that signifies that a product is endorsed
+  # - name: shippingInfo
+  #   singleValue: false
+  #   description: Shipping information for the product
+  # - name: manufacturer
+  #   singleValue: false
+  #   description: Product manufacturer
+  # - name: paid
+  #   singleValue: false
+  #   description: Whether this is a sponsored/paid result
+  #   type: BOOLEAN
