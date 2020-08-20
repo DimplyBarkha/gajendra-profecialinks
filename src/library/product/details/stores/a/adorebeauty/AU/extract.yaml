@@ -13,7 +13,7 @@ fields:
     xpath: //li[@class="glide__slide glide__slide--active"]/div/div/span/img[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/span/img/@src
+    xpath: //div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/span/img/@src | //div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/div/span/img/@src
     regExp: ([^\?]+)(\?.*)?
     regExpReplace: $1
   - name: category
@@ -55,10 +55,19 @@ fields:
     xpath: //table[@class="delivery-results"]/tbody/tr/td/p
   - name: videos
     singleValue: false
+    xpath: //div[@class="youtube-player"]/iframe/@src
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/span/img/@src)
     type: NUMBER
+  - name: nameExtended
+    singleValue: false
+    xpath: //html/head/title[string-length(text()) > 0]
+    regExp: (.*?)\s*\+
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //section[@class="product-main ssModified"]/meta[@itemprop="productID"]/@content
   - name: imageZoomFeaturePresent
     singleValue: false
     
