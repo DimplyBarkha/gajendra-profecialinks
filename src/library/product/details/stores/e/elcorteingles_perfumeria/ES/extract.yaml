@@ -1,4 +1,3 @@
-extends: ../../elcorteingles/ES/extract
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -79,9 +78,19 @@ fields:
   - name: allergyAdvice
     singleValue: true
     xpath : 
+  - name: pricePerUnit
+    singleValue: true
+    xpath : //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
+    regExp: \((.+)\s\/(.+)\)
+    regExpReplace: $1  
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
+    regExp: \((.+)\s\/(.+)\)
+    regExpReplace: $2  
   - name: promotion
     singleValue: true
-    xpath : //ul[contains(@class,"info_promotions")]/li[1]
+    xpath : //div[contains(@class,"js-sticky-control")]//p[@class="price _discount"]/span
   - name: alcoholContent
     singleValue: true
     xpath : //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
