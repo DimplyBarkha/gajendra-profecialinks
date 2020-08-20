@@ -36,23 +36,23 @@ fields:
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  # - name: availabilityText
-  #   singleValue: false
-  #   description: Availability as described on page for the selected variant. If
-  #     there is no availability but the product can be added to cart, this field
-  #     should be "In Stock"
-  #   regExp: (.+)
-  #   regExpReplace: In Stock
-  #   defaultValue: Out of Stock
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //*[@class="box-description cms"]
+    xpath: //div[@id="added-description"]
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,"box-description cms")]/ul/li)
+    xpath: count(//div[contains(@class,"box-description cms")]//li)
     description: Number of ul > li tags in the description
   - name: brandText
     singleValue: false
@@ -70,7 +70,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    description: Net weight as described on the page
+    xpath: //span[contains(text(), "Weight")]/parent::*/following-sibling::*
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -139,13 +139,15 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    description: The extended description of the product supplied by the lister
+    xpath: //div[@id="added-manufacturerDesc"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@class="box-description cms"]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //iframe[@id="flix-iframe0"]/@src
   - name: name
     singleValue: false
     xpath: //*[@class="product-name"]
@@ -158,7 +160,6 @@ fields:
     description: null
   - name: coupon
     singleValue: false
-    xpath: //*[@id="coupon_code"]
     description: Text of any coupon offer
   - name: amazonChoice
     singleValue: false
@@ -212,7 +213,6 @@ fields:
   - name: largeImageCount
     singleValue: false
     description: null
-
   - name: variantAsins
     singleValue: false
     description: null
@@ -406,7 +406,6 @@ fields:
     singleValue: false
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-
   - name: saltPerServingUom
     singleValue: false
     description: Unit of Measure Data for Salt
@@ -416,6 +415,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="productSpecs"]
   - name: warranty
     singleValue: false
     xpath: //*[@id="product-attribute-specs-table"]//th[contains(text(), "Manufacturers Express Warranty (months)")]/following-sibling::td
@@ -488,6 +488,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //*[@class="box-description cms"]//li
   - name: prop65Warning
     singleValue: false
     description: null
@@ -501,36 +502,12 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
-  - name: technicalInformationPdfPresent
-    singleValue: false
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
   - name: termsAndConditions
     singleValue: false
     xpath: //*[@id="terms-and-conditions"]
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
-  - name: privacyPolicy
-    singleValue: false
-    description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
-  - name: customerServiceAvailability
-    singleValue: false
-    description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
   - name: materials
     singleValue: false
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-  - name: Image360Present
-    singleValue: false
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
-  - name: imageZoomFeaturePresent
-    singleValue: false
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
