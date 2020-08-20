@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'UK',
-    domain: 'grocieries.asda.com',
+    domain: 'groceries.asda.com',
     store: 'asda',
     zipcode: '',
   },
