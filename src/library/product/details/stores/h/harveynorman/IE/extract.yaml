@@ -12,6 +12,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //a[@data-ca-image-id and contains(@class,'hidden')]/img[starts-with(@id,"det")]/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     manualSelector: ul.nav-breadcrumbs > li:first-child ~ li >a
@@ -35,12 +38,16 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
+    xpath: //script[@data-flix-brand]/@data-flix-brand
   - name: weightNet
     singleValue: false
+    xpath: //tr[th//*[contains(text(),'Weight')]]/td
   - name: gtin
     singleValue: false
+    xpath: //script[@data-flix-ean]/@data-flix-ean
   - name: sku
     singleValue: false
+    xpath: //script[@data-flix-sku]/@data-flix-sku
   - name: ratingCount
     singleValue: false
     manualSelector: div[id^="productid"] span[itemprop="reviewCount"]
@@ -51,18 +58,24 @@ fields:
     singleValue: false
   - name: shippingDimensions
     singleValue: false
+    xpath: //h5[text()="Dimensions"]/following-sibling::ul/li
   - name: color
     singleValue: false
+    xpath: //tr[th//*[contains(text(),'Colour')]]/td
   - name: videos
     singleValue: false
+    xpath: //div[@class="flex-video"]/iframe/@src
   - name: name
     singleValue: false
+    manualSelector: h1.product-title
   - name: warranty
     singleValue: false
+    xpath: //h6[contains(text(),'Warranty')]/following-sibling::table//tr
   - name: countryOfOrigin
     singleValue: false
   - name: additionalDescBulletInfo
     singleValue: false
+    manualSelector: div#content_description > div.product-tab-wrapper li
   - name: technicalInformationPdfPresent
     singleValue: false
     defaultValue: No
@@ -74,7 +87,10 @@ fields:
     xpath: //table[contains(@class,"table-product-features")]//tr[th]
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#content_description
+    manualSelector: div#content_description > div.product-tab-wrapper
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="content_description"]//img/@src
+  - name: variantId
+    singleValue: false
+    manualSelector: small.product-id
