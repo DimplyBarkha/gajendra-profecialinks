@@ -20,7 +20,6 @@ async function implementation (
   }
 
   while(true) {
-    await context.waitForXPath('//div[@class="product-item__details"]');
     await stall(5000);
     const hasNextButton = await context.evaluate(function() {
       return document.querySelector('.pagination__item--next') && document.querySelector('.pagination__item--next').querySelector('a');
@@ -37,8 +36,9 @@ async function implementation (
       document.querySelectorAll('.product-item__details').forEach(el => {
         if (resultArr.length >= 150) {
           el.remove();
+        } else {
+          resultArr.push(true);
         }
-        resultArr.push(true);
 
         let name = el.querySelector('h3').innerText;
         addHiddenDiv(el, 'name', name);

@@ -22,8 +22,8 @@ async function implementation (
   }
 
   const url = 'https://www.euronics.co.uk/search/?text=' + inputs.keywords || inputs.Keywords;
-  await dependencies.goto({ url }, {timeout: 20000});
-  await context.waitForXPath('//div[@class="yCmsContentSlot product-grid-right-result-slot"]');
+  await dependencies.goto({ url }, {timeout: 50000});
+  await context.waitForXPath('//div[@class="search-listing-section container"]', {timeout: 50000});
   await stall(2000);
   return context.evaluate(function () {
     return document.querySelectorAll('.product-listing__item').length > 0;
