@@ -3,9 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="productListe"]/div[@id and contains(@class, "product")]
 fields:
-  - name: _url
+  - name: searchUrl
     singleValue: false
-    xpath: //div[@id="added_search_url"]
+    xpath: ancestor::html//div[@id="added_search_url"]
   - name: paid
     singleValue: false
     description: Whether this is a sponsored/paid result
@@ -27,7 +27,7 @@ fields:
     xpath: //div[@class="designations"]//h2//a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="visuel"]//img/@src
+    xpath: //div[@class="visuel"]//img/@src | //div[@class="visuel"]//img/@data-lazy-src
   - name: name
     singleValue: false
     xpath: //div[@class="designations"]/h2
