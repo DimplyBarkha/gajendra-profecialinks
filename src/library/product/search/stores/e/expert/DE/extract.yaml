@@ -6,7 +6,8 @@ regionsSelector: null
 # recordSelector: 'div.referenced.list, div.widget-ArticlePPM--ppm-listentry'
 # recordSelector: div.referenced div[class^="widget-Grid--content"]
 # recordXPath: //div[contains(@class, "referenced list grid-col-xs-12")]//div[contains(@class, "widget-Container--subContent")]//a
-recordXPath: //div[contains(@class,"referenced list")]//div[contains(@class,"widget-Grid--content") and contains(@widget-child, "content")]
+# recordXPath: //div[contains(@class,"referenced list")]//div[contains(@class,"widget-Grid--content") and contains(@widget-child, "content")]
+recordXPath: //div[contains(@class,"referenced list")]
 fields:
   - name: paid
     singleValue: true

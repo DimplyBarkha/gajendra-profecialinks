@@ -5,7 +5,7 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-  await context.waitForSelector('.widget-Popup--container-outer---view-popup', { timeout: 20000 }); 
+  // await context.waitForSelector('.widget-Popup--container-outer---view-popup', { timeout: 20000 }); 
   await context.evaluate(async function () {
     if (document.querySelector('.widget-Popup--container-outer---view-popup')) {
       document.querySelector('.widget-Popup--container-outer---view-popup').click();
