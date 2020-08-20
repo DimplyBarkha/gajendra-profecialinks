@@ -36,10 +36,10 @@ const transform = (data, context) => {
   
         if (row.productUrl) {
           row.productUrl.forEach(item => {
-            if (item.text.includes('https://www.carrefour.fr')) {
+            if (item.text.includes('https://www.conforama.fr')) {
               item.text = item.text;
             } else {
-              item.text = 'https://www.carrefour.fr' + item.text;
+              item.text = 'https://www.conforama.fr' + item.text;
             }
           });
         }
