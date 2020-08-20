@@ -25,12 +25,9 @@ const implementation = async (
 
   console.log('Url if given:' + inputs.url);
 
-  if (!url) {
-    await context.evaluate(() => {
-      const firstItem = document.querySelector('div.ProductCard a');
-      firstItem.click();
-    });
-  }
+  // click first item if available
+  await context.click('div.ContainerGrid-header.m-0 div.ProductCard a')
+    .catch(() => console.log('URL given as input, no item to click'));
 
   await context.evaluate((url, id) => {
     function addHiddenDiv (id, content) {
