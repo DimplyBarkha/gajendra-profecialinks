@@ -1,7 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,"product_grid")]/li
+# recordXPath: //div[contains(@class, 'app__content-wrapper-below-fold__Th_zJ')]/div[1]//ul[contains(@class,"product_grid")]/li
+recordXPath: //div[contains(@class, 'app__content-wrapper-below-fold')]//div[contains(@class, 'index__root__ZX26z')]/following-sibling::div//ul/li
 fields:
   - name: rank
   - name: rankOrganic
