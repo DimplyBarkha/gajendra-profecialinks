@@ -5,12 +5,17 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
+    xpath: (//div[contains(@id, "Swatches")]//div[contains(@class, "thumbcell")]/div/@style)[1]
+    regExp: .*image:\s+url\("(.*?)wid.*?(&fmt.*?)".*
+    regExpReplace: $1wid=1000&hei=1000$2
   - name: imageAlt
     singleValue: false
     xpath: //img[@id="default-viewer-pp-picture"]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@id, "Swatches")]//div[contains(@class, "thumbcell")]/div/@style
+    regExp: .*image:\s+url\("(.*?)wid.*?(&fmt.*?)".*
+    regExpReplace: $1wid=1000&hei=1000$2
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content

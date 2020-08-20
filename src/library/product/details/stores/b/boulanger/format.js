@@ -18,46 +18,12 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      // Extracted alternateImages from data value and applied regex
-      const newAltImageArray = [];
       if (row.alternateImages) {
-        row.alternateImages.forEach(imageItem => {
-          if (imageItem.text.includes('url')) {
-            newAltImageArray.push(imageItem);
-          }
-        });
-      }
-      if (!newAltImageArray.length) {
-        row.alternateImages = undefined;
-      } else {
-        row.alternateImages = newAltImageArray;
-        if (row.alternateImages) {
-          row.alternateImages.forEach(imageItem => {
-            imageItem.text = imageItem.text.replace(/.*url.*?(https.*)".*/gm, '$1');
-            imageItem.text = imageItem.text.replace(/60/gm, '1000');
-          });
-          row.image = row.alternateImages[0];
-          row.alternateImages.shift();
-        }
-      }
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {
-          item.text = item.text.replace(/,/gm, '.');
-        });
+        row.alternateImages.shift();
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           item.text = item.text.replace(/[^\d]/gm, '');
-        });
-      }
-      if (row.price) {
-        row.price.forEach(item => {
-          item.text = item.text.replace(/,/gm, '.');
-        });
-      }
-      if (row.listPrice) {
-        row.listPrice.forEach(item => {
-          item.text = item.text.replace(/,/gm, '.');
         });
       }
       if (row.weightNet) {
@@ -101,7 +67,7 @@ const transform = (data) => {
       }
       if (row.videos) {
         row.videos.forEach(videoItem => {
-          videoItem.text = videoItem.text.replace(/.*url.*?(https.*)\".*/gm, '$1');
+          videoItem.text = videoItem.text.replace(/.*url.*?(https.*)".*/gm, '$1');
         });
       }
     }
