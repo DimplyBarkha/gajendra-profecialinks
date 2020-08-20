@@ -13,9 +13,12 @@ module.exports = {
     const defaultTimeOutInMS = 10000;
 
     await context.waitForNavigation({ timeout: defaultTimeOutInMS, waitUntil: 'networkidle0' });
+    await context.waitForSelector('input[data-test="fulfilment-search-stock-search-input"]', { timeout: defaultTimeOutInMS });
 
     try {
       await context.evaluate(async function (zip) {
+        const delay = t => new Promise(resolve => setTimeout(resolve, t));
+
         const injectElementToBody = (id, value, isHtmlContent) => {
           const elem = document.createElement('div');
 
@@ -47,15 +50,19 @@ module.exports = {
           return text.trim();
         };
 
-        const makeApiCall = async (url, headers) => {
+        const makeApiCall = async (url, options) => {
           try {
             console.log(`Making API call to => ${url}`);
-            if (!headers) {
-              headers = { headers: { 'Content-Type': 'application/json' } };
-              return await (await fetch(url, headers)).json();
+            if (!options) {
+              options = {
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' }
+              };
+
+              return await (await fetch(url, options)).json();
             }
 
-            return await (await fetch(url, headers)).text();
+            return await (await fetch(url, options)).text();
           } catch (err) {
             console.log('Error while making API call.', err);
           }
@@ -93,13 +100,6 @@ module.exports = {
 
         const sku = document.querySelector('span[itemprop="sku"]').getAttribute('content');
 
-        const url = `https://www.argos.co.uk/stores/api/orchestrator/v0/cis-locator/availability?maxDistance=50&maxResults=10&skuQty=${sku}_1&channel=web_pdp&timestamp=${new Date().getTime()}&postcode=${zip}`;
-        const response = await makeApiCall(url);
-        console.log('availability', response);
-
-        const availability = (response && response.stores && response.stores[0] && response.stores[0].messages && response.stores[0].messages[sku] && response.stores[0].messages[sku].messageKey) || '';
-        injectElementToBody('availability', availability);
-
         const aplusUrl = `https://ws.cnetcontent.com/d90c7492/script/86f5427d30?cpn=${sku}&lang=en_gb&market=UK&host=www.argos.co.uk&nld=1`;
         let aplusResponse = await makeApiCall(aplusUrl, {});
 
@@ -112,6 +112,15 @@ module.exports = {
 
           injectElementToBody('manufacturer-details', aplusHtml, true);
         }
+
+        // TODO: If this doesn't work, get rid of the delay.
+        await delay(5000);
+        const url = `https://www.argos.co.uk/stores/api/orchestrator/v0/cis-locator/availability?maxDistance=50&maxResults=10&skuQty=${sku}_1&channel=web_pdp&timestamp=${new Date().getTime()}&postcode=${zip}`;
+        const response = await makeApiCall(url);
+        console.log('availability', response);
+
+        const availability = (response && response.stores && response.stores[0] && response.stores[0].messages && response.stores[0].messages[sku] && response.stores[0].messages[sku].messageKey) || '';
+        injectElementToBody('availability', availability);
       }, parameters.zipcode);
     } catch (err) {
       console.log('Entering zip code for availability details failed.', err);
