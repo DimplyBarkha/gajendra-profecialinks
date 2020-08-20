@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="itemFromApi"]
+#recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="id"]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@class="rank"]
+  - name: name
+    singleValue: false
+    xpath: //div[@class="name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="url"]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="image"]
+  #- name: aggregateRating2
+  #  singleValue: false
+  #  xpath: //div[@class="rating"]
+  #- name: reviewCount
+  #  singleValue: false
+  #  xpath: //div[@class="reviews"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="brand"]
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: false
+    xpath: //div[@class="rank"]
+  - name: endorsementText
+    singleValue: false
+    xpath: //div[@class="endorsement"]
