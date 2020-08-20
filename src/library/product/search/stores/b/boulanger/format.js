@@ -40,12 +40,15 @@ const transform = (data, context) => {
       if (row.reviewCount) {
         row.reviewCount.forEach(reviewCountItem => {
           reviewCountItem.text = reviewCountItem.text.replace(/[^\d]/gm, '');
+          if (reviewCountItem.text === 0 || reviewCountItem.text === '0') {
+            reviewCountItem.text = '';
+          }
         });
       }
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(aggregateRatingItem => {
           aggregateRatingItem.text = aggregateRatingItem.text.replace(/[^\d]/gm, '');
-          aggregateRatingItem.text = aggregateRatingItem.text.slice(0, 1) + '.' + aggregateRatingItem.text.slice(1, 2);
+          aggregateRatingItem.text = aggregateRatingItem.text.slice(0, 1) + ',' + aggregateRatingItem.text.slice(1, 2);
         });
       }
       rankCounter += 1;

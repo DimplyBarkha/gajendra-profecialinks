@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="productListe"]/div[@id and contains(@class, "product")]
 fields:
+  - name: _url
+    singleValue: false
+    xpath: //div[@id="added_search_url"]
   - name: paid
     singleValue: false
     description: Whether this is a sponsored/paid result
