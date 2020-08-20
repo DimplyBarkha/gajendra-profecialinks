@@ -1,6 +1,14 @@
 robot: product/search
+proxy:
+  zone: DEU
+  type: DATA_CENTER
 parameters:
   country: DE
   domain: qvc.de
   store: qvc
   zipcode: ""
+meta:
+  branches:
+    dev:
+      extractor: bbd3d5c7-4e98-4069-8ebd-6830ff6b0bb8
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
