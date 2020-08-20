@@ -8,7 +8,7 @@ module.exports = {
     timeout: 100000,
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
-    await context.goto(url, { waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { timeout: parameters.timeout, waitUntil: 'load', checkBlocked: true });
     await context.evaluate(async () => {
       if (document.querySelector('[data-test="accept-all"]')) {
         document.querySelector('[data-test="accept-all"]').click();
