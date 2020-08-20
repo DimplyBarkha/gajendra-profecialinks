@@ -1,9 +1,12 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.referenced.list.grid-col-xs-12
+# recordSelector: null
+# recordSelector: 'div.referenced.list.grid-col-xs-12'
+# recordSelector: 'div.referenced.list div[widget-child="content"][class^="widget-Grid--content"]'
 # recordSelector: 'div.referenced.list, div.widget-ArticlePPM--ppm-listentry'
+# recordSelector: div.referenced div[class^="widget-Grid--content"]
 # recordXPath: //div[contains(@class, "referenced list grid-col-xs-12")]//div[contains(@class, "widget-Container--subContent")]//a
-# recordXPath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Container--subContent")]//div[contains(@class, "widget-Hyperlink")]//a
+recordXPath: //div[contains(@class,"referenced list")]//div[contains(@class,"widget-Grid--content") and contains(@widget-child, "content")]
 fields:
   - name: paid
     singleValue: true
@@ -24,13 +27,18 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: true
-    # xpath: //ancestor::html//div[@id='searchurl']
+    xpath: ancestor::html//div[@id='searchurl']
     description: The URL for the product details page
   - name: thumbnail
     singleValue: true
+    xpath: (//img/@data-src)[3]
+    # xpath: //img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
+    # xpath: //div[contains(@class, "widget widget-ArticleImage")]//img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
+    # xpath: //img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
     description: The URL for the product thumbnail image
   - name: name
     singleValue: true
+    xpath: //div[@widget-child="content"]//div[contains(@class, "widget-ArticleName")]//div
     description: The product name
   - name: sku
     singleValue: true
@@ -51,8 +59,8 @@ fields:
     singleValue: true
     description: The number of reviews
   - name: price
-    singleValue: true
-    xpath: //div[contains(@class, "widget-ArticlePrice--price")]
+    singleValue: false
+    xpath: //div[@widget-child="content"]//div[contains(@class, "widget-ArticlePrice--priceWrapper")]//text()
     description: The offered price for the product
   - name: listPrice
     singleValue: true
