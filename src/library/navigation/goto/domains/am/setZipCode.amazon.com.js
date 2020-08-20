@@ -4,6 +4,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const { zipcode } = inputs;
 
   const changeZip = async (wantedZip) => {
+    // await context.click('a.a-popover-trigger div#nav-packard-glow-loc-icon');
     await context.click('span#glow-ingress-line2.nav-line-2');
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
@@ -19,14 +20,26 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
+    // After clicking apply, check if error msg is present
+    await context.evaluate(() => {
+      const errorMsg = document.querySelector('#GLUXZipError[style="display: inline;"]');
+      if (errorMsg) {
+        throw new Error('Site claiming zip code is invalid');
+      }
+    });
+
     await context.click('button[name="glowDoneButton"]');
   };
 
   try {
     await changeZip(zipcode);
-    await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "' + zipcode + '")]');
+    // await changeZip(zipcode);
+    // await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "' + zipcode + '")]');
   } catch (exception) {
-    throw new Error('Failed to update zipcode!');
+    console.log(exception);
+    await changeZip(zipcode);
+    // await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "' + zipcode + '")]');
+    // throw new Error('Failed to update zipcode!');
   }
 };
 
