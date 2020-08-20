@@ -4,70 +4,72 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
+    xpath: //li[@class="glide__slide glide__slide--active"]/div/div/span/img[1]/@src
   - name: imageAlt
-    singleValue: true
+    singleValue: false
+    xpath: //li[@class="glide__slide glide__slide--active"]/div/div/span/img[1]/@alt
   - name: alternateImages
     singleValue: false
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
   - name: category
     singleValue: false
   - name: nameExtended
-    singleValue: true
+    singleValue: false
   - name: listPrice
-    singleValue: true
+    singleValue: false
   - name: price
-    singleValue: true
+    singleValue: false
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     type: NUMBER
   - name: brandText
-    singleValue: true
+    singleValue: false
   - name: manufacturer
-    singleValue: true
+    singleValue: false
   - name: quantity
-    singleValue: true
+    singleValue: false
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
   - name: weightGross
-    singleValue: true
+    singleValue: false
   - name: sku
-    singleValue: true
+    singleValue: false
   - name: mpc
-    singleValue: true
+    singleValue: false
   - name: packSize
-    singleValue: true
+    singleValue: false
   - name: directions
-    singleValue: true
+    singleValue: false
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     type: NUMBER
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     type: NUMBER
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
   - name: videos
     singleValue: false
   - name: name
-    singleValue: true
+    singleValue: false
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     type: NUMBER
   - name: imageZoomFeaturePresent
-    singleValue: true
+    singleValue: false
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
