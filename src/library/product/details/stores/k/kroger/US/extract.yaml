@@ -180,7 +180,7 @@ fields:
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingSize font-bold flex justify-between']/span[2]
     regExp: >-   
-      [^0-9,.]+
+      [^0-9,.,' ']+
   - name: numberOfServingsInPackage
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingsPerContainer']
