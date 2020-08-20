@@ -48,16 +48,6 @@ const transform = (data, context) => {
           aggregateRatingItem.text = aggregateRatingItem.text.slice(0, 1) + '.' + aggregateRatingItem.text.slice(1, 2);
         });
       }
-      if (row.price) {
-        row.price.forEach(priceItem => {
-          priceItem.text = priceItem.text.replace(/,/gm, '.');
-        });
-      }
-      if (row.listPrice) {
-        row.listPrice.forEach(listPriceItem => {
-          listPriceItem.text = listPriceItem.text.replace(/,/gm, '.');
-        });
-      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
