@@ -37,13 +37,13 @@ const transform = (data, context) => {
           skuItem.text = skuItem.text.replace(/[^\d]/gm, '');
         });
       }
-      if (row.ratingCount) {
-        row.ratingCount.forEach(ratingCountItem => {
-          ratingCountItem.text = ratingCountItem.text.replace(/[^\d]/gm, '');
+      if (row.reviewCount) {
+        row.reviewCount.forEach(reviewCountItem => {
+          reviewCountItem.text = reviewCountItem.text.replace(/[^\d]/gm, '');
         });
       }
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(aggregateRatingItem => {
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(aggregateRatingItem => {
           aggregateRatingItem.text = aggregateRatingItem.text.replace(/[^\d]/gm, '');
           aggregateRatingItem.text = aggregateRatingItem.text.slice(0, 1) + '.' + aggregateRatingItem.text.slice(1, 2);
         });
