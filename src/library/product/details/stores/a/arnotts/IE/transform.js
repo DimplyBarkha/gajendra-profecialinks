@@ -107,6 +107,16 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.variantId) {
+        row.variantId.forEach(variantId => {
+          if (variantId.text.includes('pid=')) {
+            variantId.text = variantId.text.split('pid=')[1];
+            if (variantId.text.includes('&dwvar')) {
+              variantId.text = variantId.text.split('&dwvar')[0];
+            }
+          }
+        });
+      }
     }
   }
   return data;
