@@ -153,9 +153,11 @@ module.exports = {
       }
 
       html.forEach(obj => {
-        let videoSrc = obj.sources[2]
-        if(videoSrc){
-          addHiddenDiv(`ii_video`, videoSrc.src);
+        if(obj.sources){
+          let videoSrc = obj.sources[2]
+          if(videoSrc){
+            addHiddenDiv(`ii_video`, videoSrc.src);
+          }
         }
       })
 
@@ -209,7 +211,7 @@ module.exports = {
         variantArr.forEach(info => {
           nameArray.push(info);
         })
-        let fullName = nameArray.join(" ")
+        let fullName = nameArray.join(" - ")
         addHiddenDiv(`ii_nameExtended`, fullName);
       }
 

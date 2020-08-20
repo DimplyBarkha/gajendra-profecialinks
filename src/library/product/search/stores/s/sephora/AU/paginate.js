@@ -14,4 +14,3 @@ module.exports = {
     zipcode: '',
   },
 };
-// loadedSelector: 'div.products-grid div.product-item',

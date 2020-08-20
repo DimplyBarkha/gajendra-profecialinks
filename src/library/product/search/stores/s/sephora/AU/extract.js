@@ -20,7 +20,9 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  
+  await context.evaluate(function() {
+    document.cookie = "locale=au;";
+  })
     
   await new Promise(resolve => setTimeout(resolve, 5000));
     
