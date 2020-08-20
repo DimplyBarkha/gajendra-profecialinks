@@ -25,10 +25,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class='product-hero__price-top']/div[1]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@class='product-hero__price-top']/div[1]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
