@@ -1,0 +1,80 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //a[@data-ca-image-id and not(contains(@class,'hidden'))]/img[starts-with(@id,"det")]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@data-ca-image-id and not(contains(@class,'hidden'))]/img[starts-with(@id,"det")]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //a[@data-ca-image-id and contains(@class,'hidden')]/img[starts-with(@id,"det")]/@src
+  - name: category
+    singleValue: false
+    manualSelector: ul.nav-breadcrumbs > li:first-child ~ li >a
+  - name: nameExtended
+    singleValue: false
+    manualSelector: html[data-cm-hook] title
+  - name: listPrice
+    singleValue: false
+  - name: price
+    singleValue: false
+    manualSelector: span[id^="line_discounted_price"]
+  - name: availabilityText
+    singleValue: false
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+  - name: descriptionBullets
+    singleValue: false
+    type: NUMBER
+  - name: brandText
+    singleValue: false
+  - name: weightNet
+    singleValue: false
+  - name: gtin
+    singleValue: false
+  - name: sku
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    manualSelector: div[id^="productid"] span[itemprop="reviewCount"]
+  - name: aggregateRating
+    singleValue: false
+    manualSelector: div[id^="productid"] span[itemprop="ratingValue"]
+  - name: shippingInfo
+    singleValue: false
+  - name: shippingDimensions
+    singleValue: false
+  - name: color
+    singleValue: false
+  - name: videos
+    singleValue: false
+  - name: name
+    singleValue: false
+  - name: warranty
+    singleValue: false
+  - name: countryOfOrigin
+    singleValue: false
+  - name: additionalDescBulletInfo
+    singleValue: false
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: Yes
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class,"table-product-features")]//tr[th]
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#content_description
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="content_description"]//img/@src
