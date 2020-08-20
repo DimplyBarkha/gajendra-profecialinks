@@ -59,6 +59,11 @@ const transform = (data) => {
           item.text = item.text.match(/(\d+)/) && item.text.match(/(\d+)/)[0] ? item.text.match(/(\d+)/)[0] : '';
         });
       }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace(/\./, ',');
+        });
+      }
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
           item.text = item.text.replace(/\n/gm, '').replace(/\s{2,}/gm, ' ').trim();

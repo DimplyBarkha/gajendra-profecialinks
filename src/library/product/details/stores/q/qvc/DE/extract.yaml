@@ -30,7 +30,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,'productDetailPrice')] | //span[@class='price priceSm']
+    xpath: //span[contains(@class,'productDetailPrice')] | //span[@class='price priceSm'] | //span[@class='price']
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -142,7 +142,7 @@ fields:
     description: Guarantee associated with the product
   - name: variantInformation
     singleValue: false
-    xpath: //ul[@aria-label='Auswahl']//li[not(contains(@state,'disabled'))]/@data-original-title
+    xpath: //span[@class='selectedColor']
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
