@@ -15,16 +15,29 @@ async function implementation (
     });
   }
 
-  await context.waitForXPath("//ul[@data-test-id='product-list']");
-
   const productId = await context.evaluate(function() {
     let splitUrl = window.location.href.split('=');
     return splitUrl[1];
   });
 
+  const currentUrl = await context.evaluate(function() {
+    return window.location.href;
+  });
+
+  await context.goto('https://mark.reevoo.com/reevoomark/en-GB/product?sku=' + productId + '&trkref=ERN');
+
+  await stall(3000);
+
+  const ratingContents = await context.evaluate(function() {
+    return document.body.innerHTML;
+  });
+
+  await context.goto(currentUrl);
+
+  await stall(3000);
+
   await context.click("a[data-test-id='product-item-link']");
-  await context.waitForXPath("//div[@class='stock-status__message']");
-  await context.evaluate(async function(productId) {
+  await context.evaluate(async function(productId, ratingContents) {
     function stall (ms) {
       return new Promise(resolve => {
         setTimeout(() => {
@@ -155,7 +168,14 @@ async function implementation (
     addHiddenDiv('zoomInfo', 'Yes');
     addHiddenDiv('rotateInfo', 'No');
 
-    await fetch('https://mark.reevoo.com/reevoomark/en-GB/product?sku=' + productId + '&trkref=ERN')
+    if (ratingContents) {
+      const wrapper = document.createElement('div');
+      wrapper.id = 'ratingContents';
+      wrapper.innerHTML = ratingContents;
+      document.body.appendChild(wrapper);
+    }
+
+    /*await fetch('https://mark.reevoo.com/reevoomark/en-GB/product?sku=' + productId + '&trkref=ERN')
     .then(async function (response) {
       const sometext = await response.text();
       const startText = '<body>';
@@ -170,7 +190,9 @@ async function implementation (
       wrapper.innerHTML = bodyContent;
       document.body.appendChild(wrapper);
       console.log('fetchFrame', bodyContent);
-    });
+    }).catch(err => {
+      console.log('error fetching');
+    });*/
 
     if (document.getElementById('ratingContents')) {
       if (document.querySelector('.filtered-count.summary')) {
@@ -182,7 +204,7 @@ async function implementation (
       }
     }
 
-  }, productId);
+  }, productId, ratingContents);
 
   return await context.extract(productDetails, { transform });
 }
