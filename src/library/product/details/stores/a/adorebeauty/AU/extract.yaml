@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -6,6 +6,8 @@ fields:
   - name: image
     singleValue: false
     xpath: //li[@class="glide__slide glide__slide--active"]/div/div/span/img[1]/@src
+    regExp: 
+    regExpReplace: 
   - name: imageAlt
     singleValue: false
     xpath: //li[@class="glide__slide glide__slide--active"]/div/div/span/img[1]/@alt
