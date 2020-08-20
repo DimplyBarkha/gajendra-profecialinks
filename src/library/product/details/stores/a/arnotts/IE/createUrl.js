@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'arnotts.ie',
     prefix: null,
-    url: null,
+    url: 'https://www.arnotts.ie/',
     country: 'IE',
     store: 'arnotts',
     zipcode: '',

@@ -5,8 +5,8 @@ module.exports = {
     country: 'IE',
     store: 'arnotts',
     domain: 'arnotts.ie',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-primary-image a',
+    noResultsXPath: '//p[@class="no-hits-content-results"]',
     zipcode: '',
   },
 };
