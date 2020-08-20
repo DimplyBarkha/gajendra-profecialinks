@@ -24,7 +24,7 @@ async function implementation (
   });
 
   await context.click('.img-link-block');
-  await stall(5000);
+  await stall(10000);
 
   await context.evaluate(function(price) {
 
@@ -68,7 +68,6 @@ async function implementation (
 
     let description = '';
     document.querySelector('#specificationTab').querySelectorAll('h3, p').forEach(el => {
-      console.log('tagName', el.tagName);
       if(el.tagName === 'H3') {
         description += ' || ' + el.innerText;
       } else {
@@ -87,7 +86,6 @@ async function implementation (
 
     const specifications = [];
     if (document.querySelector('#specificationTab').querySelector('table')) {
-      console.log('hasTable');
       document.querySelector('#specificationTab').querySelector('table').querySelectorAll('tr').forEach(tr => {
         if (tr.querySelectorAll('td')[0].innerText === 'Weight (kg)') {
           addHiddenDiv('weightNet', tr.querySelectorAll('td')[1].innerText);
@@ -116,7 +114,7 @@ async function implementation (
 
     const videos = [];
     document.querySelectorAll('iframe').forEach(el => {
-
+      console.log(el);
       if (el.getAttribute('src') && el.getAttribute('src').includes('youtube')) {
         videos.push(el.getAttribute('src'));
       }
@@ -132,6 +130,7 @@ async function implementation (
           addHiddenDiv('ratingCount', frame.querySelector('.reevoo__section--number-of-reviews').innerText.split(' ')[0]);
         }
       }
+
     });
 
     if (document.querySelector('.shippingFrom')) {
