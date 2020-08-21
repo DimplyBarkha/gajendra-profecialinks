@@ -11,7 +11,7 @@ fields:
     xpath: //button[contains(@class,'product-image')]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'slick-track')]//div[@class='product-carousel-item ']//img/@src
+    xpath: (//button[contains(@class,'product-image')]/img)[position()>1]/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -51,7 +51,7 @@ fields:
     singleValue: false
     xpath: //section[@class='product-specifications']//table//tr//td[contains(text(),'Quantity')][1]/following-sibling::td
   - name: weightNet
-    xpath:  //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight')]/parent::tr
+    xpath:  //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight (')]/parent::tr
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -100,11 +100,11 @@ fields:
     xpath: //div[@class="row product-delivery"]/div[position()>1]/descendant::h4|//div[@class="row product-delivery"]/div[position()>1]/descendant::span
   - name: shippingDimensions
     singleValue: false
-    xpath: //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Width') or contains(text(),'Height') or contains(text(),'Length') or contains(text(),'Depth')]/parent::tr
+    xpath: 
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: false
-    xpath: //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight')]/parent::tr
+    xpath: 
   - name: variantCount
     singleValue: false
     description: Number of variants listed
@@ -123,9 +123,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@id="product-gallery-modal"]/@data
-    regExp: webassets\/videos(.+)\.mp4
-    regExpReplace: https://da.lowes.ca/webassets/videos$1.mp4
+    xpath: //div[@id="pd_videos"]
   - name: name
     xpath: //h1[@class='product-name']
   - name: inStorePrice
@@ -412,7 +410,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    xpath: //div[@id='product-header']//div[@id="product-promo"]
+    xpath: //div[@id='product-header']//div[@id="product-promo"]//p
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information

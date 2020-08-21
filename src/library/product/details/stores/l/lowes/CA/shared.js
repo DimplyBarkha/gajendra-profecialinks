@@ -35,6 +35,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.shippingInfo) {
+        let text = '';
+        row.shippingInfo.forEach(item => {
+          text += `${item.text.trim()} `;
+        });
+        row.shippingInfo = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
       if (row.weightNet) {
         let text = '';
         row.weightNet.forEach(item => {
