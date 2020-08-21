@@ -45,9 +45,9 @@ async function implementation (
     const additionalBulletCount = additionalBullet.length + additionalBullet2.length;
     addHiddenDiv('ii_additionalBulletCount', additionalBulletCount);
     if (additionalBullet2Text.length > 0) {
-      addHiddenDiv('ii_additionalBullet', additionalBullet.join(' | ') + ' | ' + additionalBullet2Text.join(' | '));
+      addHiddenDiv('ii_additionalBullet', additionalBullet.join(' || ') + ' || ' + additionalBullet2Text.join(' || '));
     } else {
-      addHiddenDiv('ii_additionalBullet', additionalBullet.join(' | '));
+      addHiddenDiv('ii_additionalBullet', additionalBullet.join(' || '));
     }
   });
   return await context.extract(productDetails, { transform });

@@ -14,14 +14,14 @@ const transform = (data) => {
       }
       if (row.alternateImages) {
         for (const item of row.alternateImages) {
-          item.text = item.text.replace(/(.*)/, 'https://www.visions.ca$1').replace(/(_m_2)/, '_l_2');
+          item.text = item.text.replace(/(.*)/, 'https://www.visions.ca$1').replace(/_m_(\d)/, '_l_$1');
         }
       }
-      if (row.ratingCount) {
-        for (const item of row.ratingCount) {
-          item.text = item.text.replace(/([\d+]) .*/, '$1');
-        }
-      }
+      // if (row.ratingCount) {
+      //   for (const item of row.ratingCount) {
+      //     item.text = item.text.replace(/([\d+]) .*/, '$1');
+      //   }
+      // }
       if (row.sku) {
         for (const item of row.sku) {
           item.text = item.text.replace(/.*&sku=(.*)/, '$1').trim();
@@ -37,6 +37,18 @@ const transform = (data) => {
         for (const item of row.gtin) {
           const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
           item.text = (descJSON && descJSON.gtin12) ? descJSON.gtin12.trim() : '';
+        }
+      }
+      if (row.ratingCount) {
+        for (const item of row.ratingCount) {
+          const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
+          item.text = (descJSON && descJSON.aggregateRating && descJSON.aggregateRating.ratingCount) ? descJSON.aggregateRating.ratingCount.trim() : '';
+        }
+      }
+      if (row.aggregateRating) {
+        for (const item of row.aggregateRating) {
+          const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
+          item.text = (descJSON && descJSON.aggregateRating && descJSON.aggregateRating.ratingValue) ? descJSON.aggregateRating.ratingValue.trim() : '';
         }
       }
       if (row.manufacturerImages) {

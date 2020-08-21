@@ -64,7 +64,7 @@ fields:
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
-    xpath: //div[@id='productdetail-tabs-dimension']//td[contains(.,'Weight')]/following-sibling::td
+    # xpath: //div[@id='productdetail-tabs-dimension']//td[contains(.,'Weight')]/following-sibling::td
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
@@ -83,12 +83,14 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: ratingCount
     singleValue: true
-    xpath: //dd[@class="bv-rating-ratio-count"]/a
+    xpath: //script[@type='application/ld+json']
+    # xpath: //dd[@class="bv-rating-ratio-count"]/a
     # manualSelector: dd.bv-rating-ratio-count a
     description: The number of ratings
   - name: aggregateRating
     singleValue: true
-    xpath: //dd[@class='bv-rating-ratio-number']
+    xpath: //script[@type='application/ld+json']
+    # xpath: //dd[@class='bv-rating-ratio-number']
     # manualSelector: dd.bv-rating-ratio-number
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
@@ -96,11 +98,11 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[@id='productdetail-tabs-dimension']//tr[not(contains(.,'Weight'))]
+    # xpath: //div[@id='productdetail-tabs-dimension']//tr[not(contains(.,'Weight'))]
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
-    xpath: //div[@id='productdetail-tabs-dimension']//td[contains(.,'Weight')]/following-sibling::td
+    # xpath: //div[@id='productdetail-tabs-dimension']//td[contains(.,'Weight')]/following-sibling::td
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
@@ -139,7 +141,7 @@ fields:
     description: null
   - name: specifications
     singleValue: false
-    xpath: //div[@id='productdetail-tabs-warranty']//li | //div[@id='productdetail-tabs-dimension']//tr
+    xpath: //div[@id='productdetail-tabs-dimension']//tr
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
