@@ -28,7 +28,7 @@ fields:
     xpath: //div[@class="prdtBILDetails"]//a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="prdtBImg"]
+    xpath: //img[@class="prdtBImg"]/@src
   - name: name
     singleValue: false
     xpath: //div[@class="prdtBILDetails"]//a
@@ -71,11 +71,9 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    type: NUMBER
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
@@ -87,7 +85,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[@id="added_aggregate_rating"]

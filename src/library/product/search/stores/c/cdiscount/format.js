@@ -32,6 +32,25 @@ const transform = (data, context) => {
           reviewCountItem.text = reviewCountItem.text.replace(/[^\d]/gm, '');
         });
       }
+      /**
+       * aggregateRating2 and searchUrl coming multiple times as per page number (if page number is three then same value comes three times)
+       * Hence adding transform to keep it as a single object
+       */
+      if (row.aggregateRating2 && row.aggregateRating2.length > 1) {
+        row.aggregateRating2 = [row.aggregateRating2[0]];
+      }
+      if (row.searchUrl && row.searchUrl.length > 1) {
+        row.searchUrl = [row.searchUrl[0]];
+      }
+
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(aggregateRating2Item => {
+          if (aggregateRating2Item.text === 0 || aggregateRating2Item.text === '0') {
+            aggregateRating2Item.text = '';
+          }
+        });
+      }
+
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
