@@ -1,7 +1,8 @@
 module.exports = {
-  implements: 'navigation/goto/domains/am/amazon',
+  extends: 'navigation/goto/domains/am/amazon',
   parameterValues: {
     countryCode: 'US',
     addressRegExp: /address/i,
+    zipRegExp: /\b\d{5}\b/,
   },
 };

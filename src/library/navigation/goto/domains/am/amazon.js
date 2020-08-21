@@ -1,11 +1,11 @@
 /**
  *
- * @param { { url: string } } input
- * @param { { addressRegExp: RegExp, countryCode: string } } parameterValues
+ * @param { { url: string, zipcode: string? } } input
+ * @param { { addressRegExp: RegExp, zipRegExp: RegExp, countryCode: string, domain: string } } parameterValues
  * @param { ImportIO.IContext } context
  * @param { { } } dependencies
  */
-async function implementation (input, parameterValues, context, dependencies) {
+async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, countryCode, domain }, context, dependencies) {
   const MAX_CAPTCHAS = 3;
 
   // make sure CSS loading is off
@@ -51,7 +51,7 @@ async function implementation (input, parameterValues, context, dependencies) {
     return true;
   };
 
-  lastResponseData = await context.goto(input.url, {
+  lastResponseData = await context.goto(url, {
     waitUntil: 'load',
   });
 
@@ -89,7 +89,7 @@ async function implementation (input, parameterValues, context, dependencies) {
 
     console.log('Going back to desired page');
 
-    lastResponseData = await context.goto(input.url, {
+    lastResponseData = await context.goto(url, {
       waitUntil: 'load',
     });
     console.log('lastResponseData', lastResponseData);
@@ -116,62 +116,77 @@ async function implementation (input, parameterValues, context, dependencies) {
     return;
   }
 
-  const isCorrectCountry = () => {
-    /**
-     * @var HTMLElement
-     */
-    var addressElement = document.querySelector('#nav-global-location-slot #glow-ingress-line2');
-    if (!addressElement) {
-      throw new Error('Address element is not where we expect, cannot tell if this is the correct country or not');
+  const isCorrectLocation = async () => {
+    const addressText = await context.evaluate(() => {
+      /**
+       * @var HTMLElement
+       */
+      var addressElement = document.querySelector('#nav-global-location-slot #glow-ingress-line2');
+      if (!addressElement) {
+        throw new Error('Address element is not where we expect, cannot tell if this is the correct country or not');
+      }
+      // @ts-ignore Element cast here
+      return addressElement.innerText.trim();
+    });
+
+    const m = zipRegExp.exec(addressText.toString());
+    const zip = m && (m[1] || m[0]);
+
+    console.log('Zip code', zip);
+
+    const saysEnterYourAddress = addressRegExp.test(addressText.toString());
+
+    if (zipcode) {
+      return Boolean(zip && zip.toLowerCase() === zipcode.toLowerCase());
     }
-    // @ts-ignore Element cast here
-    var websiteLocation = addressElement.innerText.trim();
-    var postcode = /\d/.test(websiteLocation) ? websiteLocation : null;
-    return Boolean(postcode || parameterValues.addressRegExp.test(websiteLocation));
+
+    // either a zip or enter address is fine if not specified
+    return Boolean(zipcode || saysEnterYourAddress);
   };
 
-  if (isCorrectCountry()) {
+  if (await isCorrectLocation()) {
     return;
   }
 
-  const changedCountry = await context.evaluate(async (code) => {
-    const response = await fetch('https://www.amazon.co.uk/gp/delivery/ajax/address-change.html', {
+  const changeLocation = await context.evaluate(async (country, zip) => {
+
+    const body = zip
+      ? `locationType=LOCATION_INPUT&zipCode=${zip}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`
+      : `locationType=COUNTRY&district=${country}&countryCode=${country}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+
+    const response = await fetch('/gp/delivery/ajax/address-change.html', {
       headers: {
         accept: 'text/html,*/*',
         'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
         'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
         'x-requested-with': 'XMLHttpRequest',
       },
-      body: `locationType=COUNTRY&district=${code}&countryCode=${code}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`,
+      body,
       method: 'POST',
       mode: 'cors',
       credentials: 'include',
     });
-    return response.ok;
-  }, parameterValues.countryCode);
+    return response.status;
 
-  if (!changedCountry) {
-    throw new Error('Cannot change country');
+  }, countryCode, zipcode);
+
+  if (changeLocation !== 200) {
+    throw new Error(`Cannot change location (${changeLocation})`);
   }
 
-  lastResponseData = await context.goto(input.url, {
+  // reload the page to check that it worked ok
+  lastResponseData = await context.goto(url, {
     waitUntil: 'load',
   });
 
-  if (!isCorrectCountry()) {
-    throw Error('Changing country failed');
+  if (!await isCorrectLocation()) {
+    throw Error('Changing location failed');
   }
 }
 
 module.exports = {
   implements: 'navigation/goto',
-  parameterValues: {
-    country: 'US',
-    domain: 'amazon.us',
-    store: 'amazon',
-  },
   dependencies: {
-    setZipCode: 'action:navigation/goto/domains/am/amazon.js',
   },
   implementation,
 };
