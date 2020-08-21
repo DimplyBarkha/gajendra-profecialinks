@@ -20,7 +20,6 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    manualSelector: div[id="divProductTeaser"]
   - name: listPrice
     singleValue: false
     manualSelector: span[class="price-block"] span[id="lblWasPrice"]
@@ -359,7 +358,7 @@ fields:
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false
-    description: The country from which the product originates
+    manualSelector: div[id="infoTabContent"] div[id="tab0"]
   - name: allergyAdvice
     singleValue: false
     description: Allergy information associated with the product

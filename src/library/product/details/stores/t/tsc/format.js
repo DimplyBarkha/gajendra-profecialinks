@@ -57,8 +57,21 @@ const transform = (data) => {
       } else {
         row.imageZoomFeaturePresent = [{ text: 'NO' }];
       }
+      // Adding nameExtended
       if (row.name && row.brandText && row.variantInformation) {
         row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text + ' - ' + row.variantInformation[0].text }];
+      } else if (row.name && row.brandText) {
+        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+      }
+      if (row.countryOfOrigin) {
+        row.countryOfOrigin.forEach(countryOfOriginItem => {
+          countryOfOriginItem.text = cleanUp(countryOfOriginItem.text);
+          if (countryOfOriginItem.text.includes('Country of origin')) {
+            countryOfOriginItem.text = countryOfOriginItem.text.replace(/.*?Country of origin: ?(\w*).*/gm, '$1');
+          } else {
+            countryOfOriginItem.text = '';
+          }
+        });
       }
     }
   }
