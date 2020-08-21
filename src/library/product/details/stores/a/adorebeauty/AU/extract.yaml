@@ -34,7 +34,6 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@itemprop="description"]/ul/li)
-    type: NUMBER
   - name: brandText
     singleValue: false
     xpath: //a[@class="brand-logo"]/img/@title
@@ -45,24 +44,23 @@ fields:
     xpath: //section[@class="product-tab"]/div[2]
   - name: ratingCount
     singleValue: false
-    type: NUMBER
     xpath: //div[@class="review-top-section"]//p[@class="review-summary__info"]/a
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="review-top-section"]//p[@class="review-summary__info"]/span/strong
   - name: shippingInfo
     singleValue: false
-    xpath: //table[@class="delivery-results"]/tbody/tr/td/p
+    xpath: //table[@class="delivery-results"]/tbody
   - name: videos
     singleValue: false
-    xpath: //div[@class="youtube-player"]/iframe/@src
+    xpath: //div[@class="video-wrapper"]//img/@data-src
+    regExp: .*vi\/(.*)\/.*
+    regExpReplace: https://www.youtube.com/embed/$1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/span/img/@src)
-    type: NUMBER
   - name: nameExtended
     singleValue: false
-    xpath: //html/head/title[string-length(text()) > 0]
     regExp: (.*?)\s*\+
     regExpReplace: $1
   - name: sku
