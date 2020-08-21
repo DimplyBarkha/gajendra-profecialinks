@@ -48,6 +48,9 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@class, "dy-icon-info-promo-popup")]
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
