@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'shoppersdrugmart',
-    nextLinkSelector: 'div[class="plpProductNaviation"] button[class="pageDirect"] img[class="btnRight"]',
+    nextLinkSelector: 'div[class="plpProductNaviation"] button[class="pageDirect"] img[class="btnRight"],div[class="plp-bottom-navigation"] div[class="pagination-nav"] a[class~="icon-chevron-right"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'img[class="productTileImage"]',
+    loadedSelector: 'ul[class="plp-product-tiles"] li > a[class="product-img"]',
     noResultsXPath: '//div[@class="empty-search"]',
     openSearchDefinition: null,
     domain: 'shoppersdrugmart.ca',
