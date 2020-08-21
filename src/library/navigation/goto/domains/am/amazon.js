@@ -82,6 +82,7 @@ async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, coun
 
     if (!clickedOK) {
       console.log('Could not click a product, aborting... :/');
+      context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
       return;
     }
 
