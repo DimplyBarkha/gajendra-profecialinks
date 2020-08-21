@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'canadiantire',
-    nextLinkSelector: 'div[style*="block"]>a.search-results-grid__load-more-results__link',
-    mutationSelector: 'div[data-component="SearchResultsGrid"]',
+    nextLinkSelector: null,
+    mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[data-component="ProductTileSrp"]',
+    loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'canadiantire.ca',
