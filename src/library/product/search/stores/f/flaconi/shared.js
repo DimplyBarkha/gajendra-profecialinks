@@ -53,10 +53,20 @@ const transform = (data, context) => {
                 item.text = item.text.split('/')[1].trim();
             });
         }
-        if (row.category) {
-            let length = row.category.length;
-            row.category= row.category[length-1]
-        }
+        // if (row.category) {
+        //     let length = row.category.length;
+        //     row.category= row.category[length-1]
+        // }
+        if (row.thumbnail) {
+          row.thumbnail.forEach(item => {
+           item.text = item.text.replace('/215x/','/original/')
+        });
+       }
+       if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(item => {
+            item.text = item.text.replace('.',',');
+        });
+       }
         if (row.productUrl) {
           row.productUrl.forEach(item => {
             if(item.text.includes('https://www.flaconi.de')){
