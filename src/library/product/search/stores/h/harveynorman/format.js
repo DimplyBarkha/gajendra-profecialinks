@@ -24,6 +24,11 @@ const transform = (data, context) => {
       if (row.price) {
         row.price[0].text = row.price[0].text.replace('.', ',');
       }
+      if (!row.id && row.name) {
+        row.id = [{
+          text: row.name[0].text.replace(/.*?\|\s*([^\s]+).*/,'$1'),
+        }];
+      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;

@@ -5,9 +5,7 @@ recordXPath: //div[contains(@class,"hproduct-col product-col")]
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@class="product-title"]/@title 
-    regExp: .*?\|\s*([^\s]+).*
-    regExpReplace: $1
+    xpath: //a[@data-product-code]/@data-product-code
   - name: name
     singleValue: false
     xpath: //a[@class="product-title"]/@title
