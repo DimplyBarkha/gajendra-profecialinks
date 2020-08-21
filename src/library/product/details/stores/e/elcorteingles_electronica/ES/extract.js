@@ -57,6 +57,57 @@ module.exports = {
         }
       }
 
+      const makeApiCall = async (url, options) => {
+        try {
+          console.log(`Making API call to => ${url}`);
+          if (!options) {
+            options = {
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' }
+            };
+
+            return await (await fetch(url, options)).json();
+          }
+
+          return await (await fetch(url, options)).text();
+        } catch (err) {
+          console.log('Error while making API call.', err);
+        }
+      };
+
+
+      let productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json'
+      let passKey = "caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ";
+      let productID = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).code_a.trim("") : "";
+      let sku = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).variant.trim("") : "";
+      let store_id = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).store_id.trim("") : "";
+      //API
+      const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${store_id}&original_store=0`;
+      let apiDataResponse = await makeApiCall(productsData, {});
+      console.log("Great")
+      console.log(JSON.parse(apiDataResponse), "chec")
+      if (apiDataResponse) {
+        if (JSON.parse(apiDataResponse)._product_model) {
+          document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
+        }
+        addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
+        addElementToDocument('sku', JSON.parse(apiDataResponse).id);
+        addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
+        addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
+
+      }
+
+
+      // Number of reviews and rating
+      const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
+      let apiReviewResponse = await makeApiCall(reviewData, {});
+      let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : "";
+      let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
+        : "";
+      addElementToDocument('ratingCount', responseRatingCount);
+      addElementToDocument('aggregateRating', responseReviewRating === "NaN" ? 0 : responseReviewRating);
+
+
       const imageData = findJsonObj('image');
       // Check for the data and append to DOM
       if (imageData) {
@@ -68,6 +119,7 @@ module.exports = {
       try {
         let inputVideo = findJsonObj("", '//input[@class="flix-jw"]/@value');
         let imagelayoutVideo = findJsonObj("", '//div[@class="image-layout-slides-group-item"]/img/@data-url');
+        await context.waitForSelector('.flix-jw', { timeout: 90000 });
         if (inputVideo.snapshotLength > 0) {
           for (let i = 0; i < inputVideo.snapshotLength; i++) {
             addElementToDocument('video', JSON.parse(findJsonObj("", inputVideo).snapshotItem(0).value).playlist[0].file);
@@ -101,6 +153,21 @@ module.exports = {
             addElementToDocument('brand', dataObj[0].product.brand);
           }
 
+          // Check for the brand  and append to DOM
+          if (dataObj[0].product.gtin) {
+            addElementToDocument('gtin', dataObj[0].product.gtin);
+          }
+
+          // Check for the brand  and append to DOM
+          if (dataObj[0].product.brand) {
+            addElementToDocument('retailer_product_code', dataObj[0].product.id);
+          }
+
+          // Check for the brand  and append to DOM
+          if (dataObj[0].product.brand) {
+            addElementToDocument('sku', dataObj[0].product.code_a);
+          }
+
           // Check for List Price 
           if (dataObj[0].product.price.o_price) {
             addElementToDocument('listPrice', dataObj[0].product.price.o_price);
@@ -126,76 +193,16 @@ module.exports = {
         }
       }
 
-      // function to get the sodium, magnesium, calcium values
-      function ingredientContent(ingredientName, text) {
-        const content = document.querySelectorAll('div.pdp-info-container div.info');
-        // Check for length
-        if (content && content.length > 1) {
-          // Check for ingredientName
-          if (ingredientName) {
-            // Check for the content has text or not
-            if (content[1].textContent) {
-              if (content[1].textContent.includes(ingredientName)) {
-                let calcium;
-                // Check for calcium
-                if (ingredientName.toLowerCase() === 'calcio') {
-                  // Check for the calcium with given text if it is present get the value and add it to DOM
-                  if (content[1].textContent.includes(text)) {
-                    calcium = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
-                    addElementToDocument('calcium', calcium);
-                    // If calcium has data get the unit
-                    if (calcium) {
-                      const calciumUnit = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
-                      addElementToDocument('calciumUnit', calciumUnit);
-                    }
-                    // if calcium didn't match with given text then get the calcium value and append to DOM
-                  } else {
-                    calcium = content[1].textContent.replace(/(.+Calcio)\s(\d+,\d+)\s(.*)/g, '$2');
-                    addElementToDocument('calcium', calcium);
-                  }
-                  // Check for sodium
-                } else if (ingredientName.toLowerCase() === 'sodio') {
-                  // Check for the sodium with given text if it is present get the value and add it to DOM
-                  let sodium;
-                  if (content[1].textContent.includes(text)) {
-                    sodium = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
-                    addElementToDocument('sodium', sodium);
-                    // If sodium has data get the unit
-                    if (sodium) {
-                      const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
-                      addElementToDocument('sodiumUnit', sodiumUnit);
-                    }
-                    // if sodium didn't match with given text then get the sodium value and append to DOM
-                  } else {
-                    sodium = content[1].textContent.replace(/(.+Sodio)\s(\d+,\d+)[.\s](.*)/g, '$2');
-                    addElementToDocument('sodium', sodium);
-                  }
-                  // Check for magnesium
-                } else if (ingredientName.toLowerCase() === 'magnesio') {
-                  let magnesium;
-                  // Check for the magnesium with given text if it is present get the value and add it to DOM
-                  if (content[1].textContent.includes(text)) {
-                    magnesium = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
-                    addElementToDocument('magnesium', magnesium);
-                    // If magnesium has data get the unit
-                    if (magnesium) {
-                      const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
-                      addElementToDocument('magnesiumUnit', magnesiumUnit);
-                    }
-                    // if magnesium didn't match with given text then get the magnesium value and append to DOM
-                  } else {
-                    magnesium = content[1].textContent.replace(/(.+Magnesio)\s(\d+,\d+)\s(.*)/g, '$2');
-                    addElementToDocument('magnesium', magnesium);
-                  }
-                }
-              }
-            }
-          }
-        }
+
+      //zoom Image 
+
+      let ZoomImage = "//img/@data-zoom"
+      findJsonObj("", ZoomImage)
+      if (findJsonObj("", ZoomImage).snapshotLength > 0) {
+        addElementToDocument('imageZoomFeaturePresent', "Yes");
+      } else {
+        addElementToDocument('imageZoomFeaturePresent', "No");
       }
-      ingredientContent('Calcio', 'Calcio (');
-      ingredientContent('Magnesio', 'Magnesio (');
-      ingredientContent('Sodio', 'Sodio (');
 
       // Get the ratingCount
       const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
