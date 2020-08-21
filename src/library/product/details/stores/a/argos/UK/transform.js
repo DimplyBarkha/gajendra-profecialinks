@@ -11,7 +11,7 @@ const transform = (data) => {
         row.availabilityText.forEach(item => {
           if (item.text === 'COLLECTION_FROM_TOMORROW_AT_TIME') {
             text = 'In Stock';
-          } else if (item.text === "DELIVERY_1_MAN_FROM_TODAY") {
+          } else if (item.text === 'DELIVERY_1_MAN_FROM_TODAY') {
             text = 'In Stock';
           } else {
             console.log(`Unhandled case => ${item.text}`);
@@ -69,6 +69,6 @@ const transform = (data) => {
   }))));
 
   return data;
-}
+};
 
 module.exports = { transform };
