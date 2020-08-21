@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@id="category-grid"]//div[@class="product-item"]
 fields:
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="added_search_url"]
   - name: paid
     singleValue: false
     description: Whether this is a sponsored/paid result
@@ -27,7 +30,7 @@ fields:
     xpath: //div[contains(@class, "product-item")]//div[@class="photo-box"]//img/@src
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, "product-item")]//div[@class="photo-box"]//a
+    xpath: //div[contains(@class, "product-item")]//div[@class="info"]/a
   - name: sku
     singleValue: false
     xpath: //div[contains(@class, "product-item")]//div[contains(@class, "product-info")]/@data-pid
