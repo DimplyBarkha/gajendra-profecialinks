@@ -7,7 +7,19 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  // try{
+
+  // }catch(e => {
+
+  // })
+  // await context.waitForSelector('div.uc-btn-accept-wrapper>button.uc-btn-accept');
+  // await context.click('div.uc-btn-accept-wrapper>button.uc-btn-accept')
+
   await context.evaluate(async function () {
+    const cookieSelector = Boolean(document.querySelector('div.uc-btn-accept-wrapper>button.uc-btn-accept'));
+    if(cookieSelector){
+      document.querySelector('div.uc-btn-accept-wrapper>button.uc-btn-accept').click();
+    }
     document.querySelectorAll('div.rd__rating__result').forEach(rating => {
       const width = Number(rating.getAttribute('style').match(/\d+/)[0]);
       rating.parentElement.parentElement.innerText = (width / 20).toString();
@@ -36,8 +48,6 @@ async function implementation(
     });
   };
   await applyScroll(context);
-
-
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
