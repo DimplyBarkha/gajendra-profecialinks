@@ -24,6 +24,11 @@ const transform = (data) => {
           text: row.shippingDimensions.reduce((item, currItem) => `${item} | ${currItem.text.trim()}`, '').replace(/(\s?\n\s?)+/g, ' ').slice(3).trim(),
         }];
       };
+      if (row.name && !row.brandText) {
+        row.brandText = [{
+          text: row.name[0].text.replace(/^(\w+?)\s.*/, '$1'),
+        }];
+      };
       if (row.description) {
         if (row.description.length > 1) {
           const text = row.description[1].text.replace(/(\s*\n\s*)+/g, ' || ');
