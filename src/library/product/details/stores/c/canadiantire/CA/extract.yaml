@@ -21,8 +21,8 @@ fields:
     regExpReplace: $1wid=320&hei=497$2
   - name: videos
     singleValue: false 
-    xpath: //button[@class="pdp-image-carousel__item-video-thumbnail"]/@style
-    regExp: .*url\((.*)\)
+    xpath: //script[contains(text(),"VideoObject")]
+    regExp: contentUrl":"(.*?)"
     regExpReplace: $1
   - name: price
     singleValue: false

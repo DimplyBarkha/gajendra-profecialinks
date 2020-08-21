@@ -15,15 +15,13 @@ const transform = (data) => {
         row.price = [{
           text: row.listPrice[0].text.trim(),
         }];
+        row.listPrice = [{
+          text: '',
+        }];
       };
       if (row.shippingDimensions) {
         row.shippingDimensions = [{
           text: row.shippingDimensions.reduce((item, currItem) => `${item} | ${currItem.text.trim()}`, '').replace(/(\s?\n\s?)+/g, ' ').slice(3).trim(),
-        }];
-      };
-      if (row.additionalDescBulletInfo) {
-        row.additionalDescBulletInfo = [{
-          text: row.additionalDescBulletInfo.reduce((item, currItem) => `${item} | ${currItem.text.trim()}`, '').slice(1).trim(),
         }];
       };
       if (row.description) {
