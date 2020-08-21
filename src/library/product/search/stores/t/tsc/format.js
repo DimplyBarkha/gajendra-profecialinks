@@ -45,6 +45,11 @@ const transform = (data, context) => {
           reviewItem.text = reviewItem.text.replace(/(\d+).*/gm, '$1');
         });
       }
+      if (row.sku) {
+        row.sku.forEach(skuItem => {
+          skuItem.text = skuItem.text.replace(/[^\d]/gm, '');
+        });
+      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
