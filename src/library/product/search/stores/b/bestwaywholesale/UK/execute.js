@@ -4,7 +4,7 @@ module.exports = {
     country: 'UK',
     store: 'bestwaywholesale',
     domain: 'bestwaywholesale.co.uk',
-    url: 'https://www.bestwaywholesale.co.uk',
+    url: 'https://www.bestwaywholesale.co.uk?records_per_page=60',
     loadedSelector: '#shop-products',
     noResultsXPath: '//div[contains(@class,"no-search-results")]',
   },
@@ -18,7 +18,11 @@ module.exports = {
       const allowCookies = await context.evaluate((selector) => !!document.querySelector(selector), 'a.cc-primary-btn');
 
       if (allowCookies) {
-        await context.click('a.cc-primary-btn');
+        try {
+          await context.click('a.cc-primary-btn');
+        } catch (err) {
+          console.log('Error while clicking cookies button' + err);
+        }
       }
 
       const deliveryType = await context.evaluate((selector) => !!document.querySelector(selector), '#fulf-select-D');
@@ -36,7 +40,14 @@ module.exports = {
     await context.evaluate(function (inputs) {
       document.querySelector('input.textinput').value = inputs.keywords;
     }, inputs);
-    await context.clickAndWaitForNavigation('input.search', {}, { timeout: 30000 });
+
+    try {
+      await context.click('input.search');
+      await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
+    } catch (err) {
+      console.log('Error while waiting for the navigation' + err);
+    }
+
     await clickPopup(context);
     if (parameters.loadedSelector) {
       await context.waitForFunction(function (sel, xp) {

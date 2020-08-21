@@ -22,6 +22,7 @@ async function implementation (
   await context.evaluate(function () {
     document.forms[0].submit();
   });
+  await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
 }
 
 module.exports = {
