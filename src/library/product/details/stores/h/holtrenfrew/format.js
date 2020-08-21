@@ -43,10 +43,8 @@ const transform = (data) => {
             text.push({ text: row.descriptionBullets.length });
             row.descriptionBullets = text;
         }
-        if(row.description) {
-            const text = [];
-            text.push({ text: row.description[0].text.split('\n').join(" || "), xpath: row.description[0].xpath});
-            row.description = text;
+        if(row.description) {            
+            row.description[0].text = row.description[0].text.replace(/(\n\s*){2,}/g, ' || ');            
             row.description[0].text = cleanUp(row.description[0].text);
         }
         if(row.alternateImages) {
