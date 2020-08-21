@@ -89,7 +89,7 @@ module.exports = {
         // @ts-ignore
         netWeightTxt = element.nextSibling.innerText;
        }
-       if(elementTxt === 'Colour'){
+       if((elementTxt === 'Colour') || (elementTxt === 'Band Colour')){
         // @ts-ignore
         colorTxt = element.nextSibling.innerText;
        }
