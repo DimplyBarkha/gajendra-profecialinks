@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IE',
     store: 'harveynorman',
-    nextLinkSelector: 'a.next',
+    nextLinkSelector: 'li:not(.inactive) > a.next',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.hproduct-col.product-col',
