@@ -31,22 +31,22 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //div[@class='product-hero__price-top']/div[1]
-    regExp: ([^a-zA-Z]+)
+    regExp: ([^a-zA-Z:]{3,})
     regExpReplace: $1
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class='product-hero__price-top']/div[@data-product-price]
-  - name: availabilityText
+  - name: availabilityText #localedependent
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
+    regExp: (.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: //form//button[contains(text(),'basket')]
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'basket')]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -61,38 +61,45 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@id=added_brandText]
+    xpath: //div[@id='added_brandtext']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
     xpath: //title
     regExp: ([^\s]+)\s(.+)
     regExpReplace: $1
+    defaultValue: Dyson
   - name: quantity #missing
     singleValue: true
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
-  - name: weightNet
+  - name: weightNet #localedependent
     singleValue: true
     description: Net weight as described on the page
-    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[2]
-  - name: weightGross
+    regExp: ([0-9,\.]+.+)
+    regExpReplace: $1
+    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]]
+  - name: weightGross #localedependent
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[2]
+    regExp: ([0-9,\.]+.+)
+    regExpReplace: $1
+    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]]
   - name: gtin #missing
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-  - name: sku #process
+  - name: sku 
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[@id='added_sku']
   - name: variantId #missing
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-  - name: mpc #process
+  - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@id='added_sku']
   - name: packSize #missing
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -122,23 +129,25 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //span[@class='ratings__average-value--product-review']
-  - name: shippingInfo
+  - name: shippingInfo #localedependent
     singleValue: true
     description: Shipping information for the product
-    xpath: (//div[@class='reasons-to-buy__overlay-content-container js-content-2'])[1]
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery ')]])[1]
   - name: shippingDimensions #missing
     singleValue: true
     description: Stated shipping dimensions
   - name: shippingWeight #missing
     singleValue: true
     description: Stated shipping weight
-  - name: variantCount #missing
+  - name: variantCount
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-  - name: color #process
+    defaultValue: 1
+  - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@id='added_color']
   - name: colorCode #missing
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -150,9 +159,12 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src
-  - name: videos #missing#process
+  - name: videos #localedependent
     singleValue: false
     description: URLs of videos on page
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src
+    regExp: (.+)
+    regExpReplace: https://www.dyson.co.uk$1
   - name: name
     singleValue: true
     description: The product name
@@ -409,11 +421,11 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]//p
-  - name: warranty 
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul
+  - name: warranty #localedependent
     singleValue: true
     description: Guarantee associated with the product
-    xpath: (//div[@class='reasons-to-buy__overlay-content-container js-content-3'])[1]
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arranty ')] or .//*[contains(text(),'uarantee ')]])[1]
   - name: storage #missing
     singleValue: true
     description: Suggested storage location for product
@@ -426,12 +438,13 @@ fields:
   - name: recyclingInformation #missing
     singleValue: true
     description: Recycling information associated with the product
-  - name: productOtherInformation #todo
+  - name: productOtherInformation 
     singleValue: false
     description: Any other product information
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification ')]//li
   - name: packaging #missing
     singleValue: true
-    description: Packaging information
+    description: Packaging infoxrmation
   - name: additives #missing
     singleValue: true
     description: List of additives in the product
@@ -441,9 +454,10 @@ fields:
   - name: pricePerUnitUom #missing
     singleValue: true
     description: The unit of measurement used in price_per_unit
-  - name: promotion #todo
+  - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__savings ')]
   - name: alcoholContent #missing
     singleValue: true
     description: Alcohol content information
@@ -476,9 +490,10 @@ fields:
   - name: variants #missing
     singleValue: false
     description: null
-  - name: additionalDescBulletInfo #todo
+  - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' cq-dd-paragraph ')]
   - name: prop65Warning #missing
     singleValue: true
     description: null
@@ -492,22 +507,27 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
-  - name: technicalInformationPdfPresent #missing
+  - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
-  - name: termsAndConditions #todo
+    regExp: (.*)
+    xpath: //a[contains(concat(' ',normalize-space(@href),' '),'.pdf')]
+  - name: termsAndConditions #missing
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
-  - name: privacyPolicy #todo
+  - name: privacyPolicy #missing
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
     defaultValue: No
-  - name: customerServiceAvailability #todo
+  - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' talk-to-dyson ')]
+    regExp: (.*)
+    regExpReplace: Yes
     defaultValue: No
   - name: materials #missing
     singleValue: true
