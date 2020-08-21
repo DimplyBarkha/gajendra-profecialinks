@@ -4,10 +4,8 @@
 * @returns {ImportIO.Group[]}
 */
 const transform = (data) => {
-
   for (const { group } of data) {
     for (const row of group) {
-
       if (row.availabilityText) {
         let text = 'Out of Stock';
         row.availabilityText.forEach(item => {

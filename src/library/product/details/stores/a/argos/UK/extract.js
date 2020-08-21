@@ -9,7 +9,7 @@ module.exports = {
     domain: 'argos.co.uk',
     zipcode: 'SE19PD',
   },
-  implementation: async (inputs, parameters, context, dependencies, ) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
     const defaultTimeOutInMS = 10000;
 
     await context.waitForNavigation({ timeout: defaultTimeOutInMS, waitUntil: 'networkidle0' });
@@ -38,7 +38,7 @@ module.exports = {
 
       const buildDescription = () => {
         const description = document.querySelector('div[itemprop="description"]');
-        let subNodes = description.querySelectorAll('*');
+        const subNodes = description.querySelectorAll('*');
         let text = '';
         subNodes.forEach(subNode => {
           const listItems = subNode.querySelectorAll('li');
@@ -61,7 +61,7 @@ module.exports = {
             options = {
               mode: 'no-cors',
               credentials: 'same-origin',
-              headers: { 'Content-Type': 'application/json' }
+              headers: { 'Content-Type': 'application/json' },
             };
 
             return await (await fetch(url, options)).json();
@@ -73,7 +73,7 @@ module.exports = {
         }
       };
 
-      injectElementToBody(`description`, buildDescription());
+      injectElementToBody('description', buildDescription());
 
       // Gather product attributes
       const productInfo = (window.__data && window.__data.productStore && window.__data.productStore.data && window.__data.productStore.data) || {};
@@ -110,6 +110,7 @@ module.exports = {
 
       if (aplusResponse) {
         aplusResponse = 'window.ccs_cc_loadQueue = [];' + aplusResponse;
+        /* eslint no-eval: 0 */
         eval(aplusResponse);
         const clonedInfo = JSON.parse(JSON.stringify(window.ccs_cc_loadQueue));
         console.log('aplusResponse', clonedInfo);
@@ -130,7 +131,7 @@ module.exports = {
 
         const availability = (response && response.stores && response.stores[0] && response.stores[0].messages && response.stores[0].messages[sku] && response.stores[0].messages[sku].messageKey) || '';
         injectElementToBody('availability', availability);
-      }
+      };
 
       const retryAction = async (retryLimit = 5) => {
         let retryCount = 0;
@@ -150,7 +151,7 @@ module.exports = {
             }
           }
         }
-      }
+      };
 
       await retryAction();
     }, parameters.zipcode);
