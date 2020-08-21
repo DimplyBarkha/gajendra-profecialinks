@@ -5,5 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'douglas',
     domain: 'douglas.de',
+    loadedSelector: '//div[@class="rd__product-header__title__main"]',
+    noResultsXPath: '//main[@id="rd__not-found-page"]',
   },
 };

@@ -13,8 +13,7 @@ fields:
   - name: price
     xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__new-price")]/span[1]
   - name: availabilityText
-    singleValue: true
-    xpath: //*[contains(@id,"availability")]
+    xpath: //div[contains(@class,"rd__product-details__options__availability")]/span[contains(@class,'rd__copytext')][1]
   - name: description
     singleValue: false
     xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
@@ -34,13 +33,13 @@ fields:
   - name: quantity
     xpath: //div[@class='rd__product-details__options__price__item__quantity']/span[1]
   - name: upc
-    xpath: //*[contains(@id,"gtin13")]
+    xpath: //span[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: sku
     singleValue: true
     xpath: //div[contains(@data-bv-show,"reviews")]/@data-bv-product-id
   - name: variantId
     singleValue: true
-    xpath: //*[contains(@id,"productId")]
+    xpath: //script[contains(.,"customExactagConfig")]
   - name: directions
     singleValue: true
     xpath: //div[contains(.,"Anwendung")]/following-sibling::div[1]/span
