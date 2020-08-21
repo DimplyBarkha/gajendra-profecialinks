@@ -1,102 +1,113 @@
-extends: ../../elcorteingles/ES/extract
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="colors_content_mobile"]/ul/li
 fields:
   - name: image
     singleValue: true
-    xpath : //div[@id='product_image']
+    xpath : ancestor::html //div[@id='product_image']
   - name: imageAlt
     singleValue: true
-    xpath: //meta[@name="twitter:title"]/@content
+    xpath : ancestor::html //meta[@name="twitter:title"]/@content
   - name: imageAlt
     singleValue: true
-    xpath: //meta[@name="twitter:title"]/@content   
+    xpath : ancestor::html //meta[@name="twitter:title"]/@content   
   - name: alternateImages
     singleValue: true
-    xpath: //link[@as="image"]/@href
+    xpath : ancestor::html //link[@as="image"]/@href
     regExp: ^(.*)(__)(\d+x\d+)(.jpg)$
     regExpReplace: https:$1$21200x1200$4  
   - name: category
     singleValue: false
-    xpath: //li[@itemprop="itemListElement"]
+    xpath : ancestor::html //li[@itemprop="itemListElement"]
   - name: nameExtended
     singleValue: true
-    xpath : //a[@class="product_detail-brand"]
+    xpath : ancestor::html //h1[@id="js-product-detail-title"]
   - name: listPrice
     singleValue: true
-    xpath: //div[@id='listPrice']
+    xpath : ancestor::html //div[@id='listPrice']
   - name: price
     singleValue: true
-    xpath : //div[@id='price']
+    xpath : ancestor::html //div[@id='price']
   - name: availabilityText
     singleValue: true
-    xpath : //div[@id='availability']
+    xpath : ancestor::html //div[@id='availability']
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath : //div[@id="bulletDescription"]
+    xpath : ancestor::html //div[@id="bulletDescription"]
   - name: brandText
     singleValue: true
-    xpath : //div[@id="brand"]
+    xpath : ancestor::html //div[@id="brand"]
   - name: quantity
     singleValue: true
-    xpath: //div[@id="quantity"]
+    xpath : //div/@title
   - name: gtin
     singleValue: true
-    xpath: //span[@itemprop="sku"] | //span[@class="js-product-gtin-number"]
+    xpath : //div/@gtin
+  - name: eangtin
+    singleValue: true
+    xpath : //div/@gtin  
   - name: asin
     singleValue: true
-    xpath: //span[@itemprop="sku"] | //span[@class="js-product-gtin-number"]
+    xpath : ancestor::html //span[@itemprop="sku"] | ancestor::html //span[@class="js-product-gtin-number"]
   - name: sku
     singleValue: true
-    xpath: //div[@class="nav-logo _topbar"]/@id
+    xpath : //div/@sku
   - name: variantId
     singleValue: true
-    xpath: //span[@class="js-product-reference-number"] | //div[@id="retailer_product_code"]
+    xpath : //div/@retailer_product_code
   - name: directions
     singleValue: true
-    xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
+    xpath : ancestor::html //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd | ancestor::html//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
   - name: videos
     singleValue: false
-    xpath : //div[@class="image-layout-slides-group-item"]/img/@data-url
+    xpath : ancestor::html //div[@class="image-layout-slides-group-item"]/img/@data-url
   - name: name
     singleValue: true
-    xpath : //meta[@name="twitter:title"]/@content
+    xpath : ancestor::html //meta[@name="twitter:title"]/@content
   - name: ratingCount
     singleValue: true
-    xpath: //button[@id="ratings-summary"]//meta[@itemprop="reviewCount"]/@content
+    xpath : ancestor::html //div[@id="ratingCount"]
   - name: warranty
     singleValue: true
-    xpath : //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
+    xpath : ancestor::html //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
   - name: storage
     singleValue: true
-    xpath : 
+    xpath : ancestor::html 
   - name: countryOfOrigin
     singleValue: true
-    xpath: //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
+    xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
   - name: allergyAdvice
     singleValue: true
-    xpath : 
+    xpath : ancestor::html 
+  - name: pricePerUnit
+    singleValue: true
+    xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
+    regExp: \((.+)\s\/(.+)\)
+    regExpReplace: $1  
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
+    regExp: \((.+)\s\/(.+)\)
+    regExpReplace: $2  
   - name: promotion
     singleValue: true
-    xpath : //ul[contains(@class,"info_promotions")]/li[1]
+    xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//p[@class="price _discount"]/span
   - name: alcoholContent
     singleValue: true
-    xpath : //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
+    xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
   - name: variantInformation
     singleValue: true
-    xpath: //div[@id="variants_container"]//option/@medida | //div[@id="variants_container"]//option/@talla
+    xpath : //div/@color
   - name: aggregateRating
     singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    xpath: //button[contains(@class,'bv_avgRating')] | //div[contains(@class,'bv_avgRating')] 
+    xpath : ancestor::html //div[@id="aggregateRating"]
   - name: shippingInfo
     singleValue: true
-    xpath: //li[@data-promotion-type="shipping"]
+    xpath : ancestor::html //li[@data-promotion-type="shipping"]
   - name: energyEfficiency
     singleValue: true
-    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
+    xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
   - name: imageZoomFeaturePresent
-    xpath: //img/@data-zoom 
+    xpath : ancestor::html //img/@data-zoom 
