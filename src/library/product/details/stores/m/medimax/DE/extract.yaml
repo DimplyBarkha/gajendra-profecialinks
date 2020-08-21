@@ -17,9 +17,7 @@ fields:
     xpath: //div[@class="slick-list"]//div[@data-slick-index and not(contains(@class,'slick-current'))]//img/@src
   - name: videos
     singleValue: false 
-    xpath: //button[@class="pdp-image-carousel__item-video-thumbnail"]/@style
-    regExp: .*url\((.*)\)
-    regExpReplace: $1
+    xpath: //div[@data-video]/@data-video
   - name: price
     singleValue: false
     manualSelector: div.priceOfProduct

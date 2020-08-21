@@ -20,6 +20,10 @@ const transform = (data, context) => {
       if (row.manufacturerDescription) {
         row.manufacturerDescription[0].text = manufacturerDescription + row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
       }
+      if (row.videos) {
+        const videos = row.videos.map(({ text }) => text);
+        row.videos = Array.from(new Set(videos)).map(video => ({ text: video }));
+      }
       if (!manufacturerDescription) {
         if (row.manufacturerDescription2) {
           context.setState({ manufacturerDescription: row.manufacturerDescription2[0].text });
