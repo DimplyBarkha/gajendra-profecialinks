@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.hproduct-col.product-col
+recordXPath: //div[contains(@class,"hproduct-col product-col")]
+fields:
+  - name: id
+    singleValue: false
+    manualSelector: a.product-title
+    regExp: .*\|\s*(.*)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    manualSelector: a.product-title
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="product-title"]/@href
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class,"pict")][1]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: price
+    singleValue: false
+    manualSelector: span.price
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
