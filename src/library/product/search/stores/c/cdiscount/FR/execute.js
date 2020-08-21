@@ -5,9 +5,9 @@ module.exports = {
     country: 'FR',
     store: 'cdiscount',
     domain: 'cdiscount.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.cdiscount.com/search/10/{searchTerms}.html',
+    loadedSelector: 'ul[id="lpBloc"]',
+    noResultsXPath: '//*[@class="lrTryAgain"]',
     zipcode: '',
   },
 };
