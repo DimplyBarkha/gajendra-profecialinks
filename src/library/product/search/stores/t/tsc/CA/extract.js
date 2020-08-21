@@ -16,6 +16,25 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
+    function fetchIDFromScript () {
+      const scriptTagSelector = document.querySelector('script[type="application/ld+json"]');
+      const scriptTagData = scriptTagSelector ? scriptTagSelector.innerText : '';
+      let scriptTagJSON = '';
+      try {
+        scriptTagJSON = scriptTagData ? JSON.parse(scriptTagData) : '';
+      } catch (e) {
+        console.log('Error in converting text to JSON....');
+        scriptTagJSON = '';
+      }
+      const productList = scriptTagJSON ? scriptTagJSON.mainEntity ? scriptTagJSON.mainEntity[0] ? scriptTagJSON.mainEntity[0].itemListElement : '' : '' : '';
+      const skuArray = productList.map(productItem => productItem.item.sku);
+      return skuArray;
+    }
+
+    function feth
+    
+    fetchIDFromScript();
     // Adding search url to DOM
     const searchURL = window.location.href;
     addHiddenDiv('added_search_url', searchURL);
