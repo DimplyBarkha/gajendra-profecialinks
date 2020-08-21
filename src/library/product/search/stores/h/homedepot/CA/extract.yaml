@@ -18,9 +18,6 @@ fields:
     xpath: //a[contains(@class, "acl-product-card__title-link")]//span[contains(@class, "brand")]
   - name: endorsementText
     singleValue: false
-  - name: gtin
-    singleValue: false
-    xpath: //a[contains(@class, "acl-product-card__title-link")]/@href
     regExp: .*\/(.*)$
     regExpReplace: $1
   - name: id
@@ -48,6 +45,7 @@ fields:
     type: NUMBER
   - name: reviewCount
     singleValue: false
+    xpath: //acl-rating
     type: NUMBER
   - name: thumbnail
     singleValue: false
