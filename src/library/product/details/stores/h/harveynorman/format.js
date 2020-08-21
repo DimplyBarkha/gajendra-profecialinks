@@ -20,6 +20,15 @@ const transform = (data) => {
       if (row.warranty) {
         row.warranty[0].text = row.warranty[0].text.replace(/\n\s\n/g, ': ');
       }
+      if (row.listPrice) {
+        row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
+      }
+      if (row.price) {
+        row.price[0].text = row.price[0].text.replace('.', ',');
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
+      }
       if (row.specifications) {
         row.specifications = [{
           text: row.specifications.reduce((item, currentItem) => `${item} || ${currentItem.text.replace(/(\n\s\n)+/g, ': ')}`, '').slice(4).trim(),
