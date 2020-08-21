@@ -38,19 +38,10 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-      if (row.sku) {
-        row.sku.forEach(item => {
-          item.text = item.text.replace(/.*&sku=(.*)/, '$1');
+      if (row.id) {
+        row.id.forEach(item => {
+          item.text = decodeURIComponent(item.text) ? decodeURIComponent(item.text).replace(/.*&sku=(.*)/, '$1') : item.text.replace(/.*&sku=(.*)/, '$1');
         });
-        if (row.mpc) {
-          row.mpc = row.sku;
-        }
-        if (row.variantId) {
-          row.variantId = row.sku;
-        }
-        if (row.id) {
-          row.id = row.sku;
-        }
       }
       if (row.productUrl) {
         row.productUrl.forEach((item) => {

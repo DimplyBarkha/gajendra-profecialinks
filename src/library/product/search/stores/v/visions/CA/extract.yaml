@@ -35,18 +35,6 @@ fields:
     singleValue: true
     manualSelector: div.prodlist-title
     description: The product name
-  - name: sku
-    singleValue: true
-    xpath: //a[contains(@id,'lnkDecription')]/@href
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    xpath: //a[contains(@id,'lnkDecription')]/@href
-    description: The model code of the product
-  - name: variantId
-    singleValue: true
-    xpath: //a[contains(@id,'lnkDecription')]/@href
-    description: The model code of the product
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
