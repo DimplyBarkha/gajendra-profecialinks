@@ -6,7 +6,7 @@ module.exports.implementation = async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-
+  
   await context.evaluate(async function () {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
@@ -54,7 +54,7 @@ module.exports.implementation = async function implementation (
         while (index < words.length && !found) {
           const word = words[index];
           phrase.push(word);
-          console.log(phrase)
+          console.log(phrase);
           if (phrase.join(' ').toLowerCase().trim() !== 'dyson') {
             brand = phrase.join(' ') + tm;
             found = window.find(brand);
@@ -91,6 +91,8 @@ module.exports.implementation = async function implementation (
             Gd: 'Gold',
             Bk: 'Black',
             Nk: 'Nickel',
+            Wh: 'White',
+            Sv: 'Silver',
           };
           const shortColors = prodID.split(' ').slice(-1);
           if (shortColors.length > 0) {
@@ -110,6 +112,16 @@ module.exports.implementation = async function implementation (
     // count the additional info addeed bullets
     const addiDescrp = document.querySelectorAll('.product-specification ul>li');
     addElementToDocument('added_description', addiDescrp.length);
+
+    // count the number of variants
+    const variants = document.querySelectorAll('.product-hero .swatches img');
+    addElementToDocument('added_variantcount', variants.length || 1);
+
+    // add the type of info the variants are on
+    const varInfo = [...getSel('.product-hero .swatches > div', 'classList')] || [];
+    if (varInfo[0]) {
+      addElementToDocument('added_variantinformation', varInfo[0].replace('swatches__', ''));
+    }
   });
   return await context.extract(productDetails, { transform: parameters.transform });
 };
