@@ -1,10 +1,11 @@
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CA',
     store: 'hudsonsbay',
-    transform: null,
+    transform,
     domain: 'thebay.com',
     zipcode: '',
   },
@@ -13,6 +14,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
       if (document.querySelector('#consent-close')) {
@@ -34,6 +36,6 @@ module.exports = {
         addElementToDocument(doc, 'searchUrl', searchUrl);
       });
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
