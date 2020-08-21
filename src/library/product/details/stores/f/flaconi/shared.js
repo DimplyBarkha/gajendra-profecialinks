@@ -53,6 +53,15 @@ const transform = (data) => {
             item.text = item.text.replace(/\s+/g, " ").trim();
           });
         }
+        if (row.variantUrl) {
+          let length = row.variantUrl.length;
+          let firstEle = row.variantUrl[length -1].text;
+          console.log('firstEle: ', firstEle);
+          // row.variantUrl.forEach(item => {
+          // // @ts-ignore
+          // row.variantUrl = row.variantUrl+'#sku='+row.variantId[item].text;
+          // });
+        }
       }
     }
     return data;
