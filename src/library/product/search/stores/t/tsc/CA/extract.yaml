@@ -24,7 +24,7 @@ fields:
     xpath: //div[contains(@class, 'productItemWrap')]/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="productImg"]/@src
+    xpath: //img[@class="productImg"]/@data-src
   - name: name
     singleValue: false
     description: The product name
