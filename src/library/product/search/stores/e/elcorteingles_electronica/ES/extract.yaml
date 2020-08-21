@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@class="c12 products_list _four"]/li[@class="products_list-item"]
+recordXPath: //ul[contains(@class,"c12 products_list _four")]/li[@class="products_list-item"]
 fields:
   - name: id
     xpath: //li[@class="products_list-item"]/span/@data-json
@@ -18,16 +18,17 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.elcorteingles.es$1
   - name: thumbnail
-    xpath: //a[@class="product_link"]//img/@src
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: //a[@class="product_link"]//img/@data-src
+    regExp: (.+)(cdn|www)(.+)
+    regExpReplace: https://$2$3
   - name: aggregateRating2
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
-    regExp: .+(?=\sde)
+    regExp: (\d+).(\d)
+    regExpReplace: $1,$2
   - name: reviewCount
     xpath: //meta[@itemprop="reviewCount"]/@content
   - name: price
-    xpath: //div[@class="pricing js-preview-pricing"]/span[contains(@class,'price _big')]
+    xpath: //div[contains(@class,"pricing js-preview-pricing")]/span[contains(@class,'price _big')]
   - name: rank
   - name: rankOrganic
   - name: sponsored
