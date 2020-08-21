@@ -5,34 +5,35 @@ recordXPath: null
 fields:
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock ']
+    xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock'] | //*/form/following-sibling::div[@class="stock-container"]//div[@class="stock"]
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class='shipping-description'] | //div[@class='delivery-container']
+    # xpath: //div[@class='shipping-description'] | //div[@class='delivery-container']
+    xpath: //div[@class="shipping-info clearfix"]/div[1]
   - name: price
     singleValue: false
     xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
   - name: promotion
     singleValue: false
-    xpath: //div[@class='badge-container']
+    # xpath: //div[@class='badge-container']
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"product-image-slider__slide slick-slide slick-current")]/img/@src
-  - name: imageAlt
-    singleValue: false
-    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
+  # - name: imageAlt
+  #   singleValue: false
+  #   xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
   - name: alternateImages
     singleValue: false
     xpath: //div[@id='image-container']//div[contains(@class,'product-image-slider__slide') and contains(@class,'slick-slide') and not(contains(@class,'slick-active')) and not(contains(@class,'product-video'))]/img/@data-lazy
   - name: category
     singleValue: false
-    xpath: //div[contains(@class, 'breadcrumbs')]/a[position() > 1]
+    xpath: //div[contains(@class, 'breadcrumbs')]/a[@data-webtrekk-link-id="breadcrumb.1"] | //div[contains(@class, 'breadcrumbs')]/a[@data-webtrekk-link-id="breadcrumb.1"]/following-sibling::*
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
+    xpath: //div[@class="product-name"]/h1
   - name: listPrice
     singleValue: false
-    xpath: //span[@class='old-price']
+    xpath: //span[@class='old-price'] | (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
   - name: gtin
     singleValue: false
     xpath: //meta[@itemprop='gtin13']/@content
@@ -57,7 +58,8 @@ fields:
     xpath: //div[@id="bb_descriptionBullets"]
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@id="bb_descriptionBulletsCount"]
+    # xpath: //div[@id="bb_descriptionBulletsCount"]
+    xpath: count(//div[contains(@class,"product-description")]//ul//li)
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,'product-brand-logo')]/a/meta[@itemprop="name"]/@content
@@ -73,9 +75,9 @@ fields:
   #   singleValue: false
   # - name: variantId
   #   singleValue: false
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@class="ingredients-content"]
+  # - name: productOtherInformation
+  #   singleValue: false
+  #   xpath: //div[@class="ingredients-content"]
   # - name: aggregateRatingText
   #   singleValue: false
   # - name: shippingDimensions
@@ -95,7 +97,7 @@ fields:
     xpath: //span[@id='makeup-color-select']
   - name: colorCode
     singleValue: false
-    xpath: //div[@id='fl_colorcode']
+    xpath: //span[@id='makeup-color-select']
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="product-content-block"]
@@ -104,7 +106,8 @@ fields:
     xpath: //div[@id="product-content-block"]//img/@src
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //ul[@class="product-properties-list"]/li
+    # xpath: //ul[@class="product-properties-list"]/li
+    xpath: //div[contains(@class,"product-description")]//ul//li
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//span[@itemprop='name']

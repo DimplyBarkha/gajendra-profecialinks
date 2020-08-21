@@ -27,6 +27,32 @@ const transform = (data) => {
         //     item.text = item.text.replace(',','.');
         //   });
         // }
+
+        if (row.image) {
+          row.image.forEach(item => {
+            item.text = item.text.replace('/product/','/original/');
+          });
+        }
+        if (row.alternateImages) {
+          row.alternateImages.forEach(item => {
+            item.text = item.text.replace('/product/','/original/');
+          });
+        }
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace(',','').replace('.',',');
+          });
+        } 
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+            item.text = item.text.replace(',','').replace('.',',');
+          });
+        }
+        if (row.shippingInfo) {
+          row.shippingInfo.forEach(item => {
+            item.text = item.text.replace(/\s+/g, " ").trim();
+          });
+        }
       }
     }
     return data;
