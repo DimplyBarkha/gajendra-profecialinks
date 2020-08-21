@@ -90,10 +90,8 @@ async function implementation (
     await context.waitForSelector('button.kds-SolitarySearch-button', { timeout: 30000 });
 
     await context.click('button.kds-SolitarySearch-button');
-    // await context.waitForSelector('button[aria-label="In-Store [object Object]   Select Store"]', { timeout: 30000 });
     await context.waitForSelector('button[aria-label*="In-Store"]', { timeout: 30000 });
 
-    // await context.click('button[aria-label="In-Store [object Object]   Select Store"]');
     await context.click('button[aria-label*="In-Store"]');
     await context.waitForSelector('div.ModalitySelector--StoreSearchResult', { timeout: 30000 });
 
