@@ -47,6 +47,7 @@ const transform = (data) => {
             const text = [];
             text.push({ text: row.description[0].text.split('\n').join(" || "), xpath: row.description[0].xpath});
             row.description = text;
+            row.description[0].text = cleanUp(row.description[0].text);
         }
         if(row.alternateImages) {
           row.alternateImages.splice(0, 1);
@@ -86,6 +87,17 @@ const transform = (data) => {
           });
           
           row.variants = [{text: str.join(' | ')}];
+        }
+
+        if ((row.name && row.brandText)) {
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text + ' - ' + row.color[0].text}];
+        }
+        
+        if(row.weightNet) {
+          let [ text ] = row.weightNet;
+          text = text.text.match(/Weight:\s[0-9]+(\.[0-9]+)?(\s)?([a-zA-Z]+)/g)[0];
+          text = text.replace(/.*?:\s*(.*)/, '$1');
+          row.weightNet[0].text = text;
         }
       }
     }

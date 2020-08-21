@@ -67,13 +67,6 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //div[@class="product-details__descr"]//li[contains(text(), "Weight")]
-    regExp: .*?:\s*(.*)
-    regExpReplace: $1
-  - name: shippingDimensions
-    singleValue: false
-    xpath: //div[@class="product-details__descr"]//li[contains(text(), "Product dimensions")]
-    regExp: .*?:\s*(.*)
-    regExpReplace: $1
   - name: nameExtended
     singleValue: false
     xpath: //html[not(@class="no-js")]//title
