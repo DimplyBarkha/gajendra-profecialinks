@@ -20,7 +20,7 @@ module.exports = {
         }
       }
 
-      function getEleByXpath(xpath) {
+      function getEleByXpath (xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         console.log('Element' + element);
         const text = element ? element.textContent : null;
