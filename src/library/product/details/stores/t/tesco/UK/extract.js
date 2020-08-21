@@ -11,8 +11,8 @@ module.exports = {
     parameters,
     context,
     dependencies,
-  ) => {
-    await context.evaluate(async function () {
+  ) => {    
+    await context.evaluate(async function () {      
       // Get additional product info 2. Currently not retrieving.
       const productInfo2 = Array.from(document.querySelectorAll('[class^="product-info-block product-info-block--"]')).map(elm => {
         if (elm.querySelector('h3')) {
@@ -39,9 +39,11 @@ module.exports = {
 
       const details = document.querySelector(`script[type="application/ld+json"]`);
       if(details) {
-        let imageArr = JSON.parse(details.text)[2].image;  
-        let images = imageArr.slice(1).join('|');
-        document.body.setAttribute('additional_image', images);
+        if(JSON.parse(details.text)[2]){
+          let imageArr = JSON.parse(details.text)[2].image;  
+          let images = imageArr.slice(1).join('|');
+          document.body.setAttribute('additional_image', images);
+        }        
       }
     });
     

@@ -6,7 +6,7 @@ module.exports = {
     store: 'tesco',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
-    url = `${url}#[!opt!]{"force200": true}[/!opt!]`;
+    url = `${url}`;
     await context.goto(url);
   },
 };

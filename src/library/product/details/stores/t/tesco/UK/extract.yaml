@@ -8,7 +8,7 @@ fields:
     xpath: //img[@class="product-image product-image-visible"]/@src|//div[contains(@class,'product-image--wrapper')]/span//img/@src
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class="carousel__list"]/li//img[not(contains(@class,'selected'))]/@src[contains(.,'https')] | //body//@additional_image
+    xpath: //body//@additional_image
   - name: imageAlt
     singleValue: true
     xpath: //img[@class="product-image product-image-visible"]/@alt|//div[contains(@class,'product-image--wrapper')]/span//img/@alt
@@ -26,7 +26,7 @@ fields:
     xpath: //nav[@aria-label="breadcrumb"]/ol/li//a/span/span
   - name: description
     singleValue: true
-    xpath: concat(//div[contains(@id,'product-description')]//ul,//div[contains(@id,'product-marketing')]//ul,//div[contains(@id,'other-information')]//ul,//div[contains(@id,'features')]//ul,//div[contains(@id,'pack-size')]//ul)
+    xpath: concat(//div[contains(@id,'product-description')]//ul,' ',//div[contains(@id,'product-marketing')]//ul,' ',//div[contains(@id,'other-information')]//ul,' ',//div[contains(@id,'features')]//ul,' ',//div[contains(@id,'pack-size')]//ul)
   - name: price
     singleValue: true
     xpath: //div[@class="product-details-tile"]//div[contains(@class,"price-per-sellable-unit")]|(//div[@data-auto="product-controls"]//div[contains(@class,'price-details--wrapper')]/div//span[@data-auto="price-value"])[1]
@@ -190,14 +190,6 @@ fields:
   - name: caloriesPerServing
     singleValue: true
     xpath: concat(//td[contains(text(),"Energy")]/following-sibling::td[1],"/", //tr/following-sibling::td[contains(text(),"cal")]/following-sibling::td[1] | //td[contains(text(),"Energy")]/../following-sibling::tr[contains(.,'cal')]//td[2])
-  # - name: servingSize
-  #   singleValue: true
-  #   xpath: //table[@class="product__info-table"]//tr/th[2]
-  #   regExp: (\d+(\.\d+)?)
-  # - name: servingSizeUom
-  #   singleValue: false
-  #   xpath: //table[@class="product__info-table"]//tr/th[2]
-  #   regExp: '[^\d]+$'
   - name: productUrl
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
