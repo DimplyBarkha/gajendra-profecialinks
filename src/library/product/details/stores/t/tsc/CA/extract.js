@@ -44,6 +44,20 @@ async function implementation (
       variantCount = 1;
     }
     addHiddenDiv('added-variantCount', variantCount);
+
+    // Adding additional description bullet info by looping through description as li tags are not avaialble on webpage
+    const descriptionSelector = document.querySelector('div[id="infoTabContent"] div[id="tab0"]');
+    const description = descriptionSelector ? descriptionSelector.innerText : '';
+    const descriptionArray = description ? description.split('\n') : [];
+    const bulletInfoArray = [];
+    for (let i = 0; i < descriptionArray.length; i++) {
+      const descObj = descriptionArray[i];
+      if (descObj.includes('•')) {
+        bulletInfoArray.push(descObj.replace('•', '').trim());
+      }
+    }
+    const additionalDescBulletInfo = bulletInfoArray.join(' || ');
+    addHiddenDiv('added-additionalDescBulletInfo', additionalDescBulletInfo);
   });
 
   await new Promise(resolve => setTimeout(resolve, 20000));

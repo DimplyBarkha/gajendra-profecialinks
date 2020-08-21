@@ -57,6 +57,9 @@ const transform = (data) => {
       } else {
         row.imageZoomFeaturePresent = [{ text: 'NO' }];
       }
+      if (row.name && row.brandText && row.variantInformation) {
+        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text + ' - ' + row.variantInformation[0].text }];
+      }
     }
   }
   return data;
