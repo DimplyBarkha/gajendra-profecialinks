@@ -22,42 +22,27 @@ async function implementation (
   const { transform } = parameters;
   const { variants } = dependencies;
   await context.evaluate(async (parentInput) => {
-
-    function addElementToDocument1 (key, value) {
-      const catElement1 = document.createElement('ul[id="makeup-color-list"] li a div');
-      catElement1.id = key;
-      catElement1.textContent = value;
-      catElement1.style.display = 'none';
-      document.body.appendChild(catElement1);
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
     }
-    function addElementToDocument2 (key, value) {
-      const catElement2 = document.createElement('ul[class="product-list multiple-variants"] li');
-      catElement2.id = key;
-      catElement2.textContent = value;
-      catElement2.style.display = 'none';
-      document.body.appendChild(catElement2);
+    let skusList1 = document.querySelectorAll('ul[id="makeup-color-list"] li a');
+    let skusList2 = document.querySelectorAll('ul[class="product-list multiple-variants"] li');
+    let skus;
+    if(skusList1 && skusList1.length){
+      skus =  skusList1 ;
+    }else{
+      skus =  skusList2 ;
     }
-    let skuList1 = document.querySelectorAll('ul[id="makeup-color-list"] li a');
-    let skuList2 = document.querySelectorAll('ul[class="product-list multiple-variants"] li');
-    let sku = [];
-    if(skuList1.length !== 0){
+    let url = window.location.href;
+    for (let index = 0; index < skus.length; index++) {
       // @ts-ignore
-      sku = skuList1;
-      for (let index = 0; index < sku.length; index++) {
-        let element = sku[index];
-        // @ts-ignore
-        element = element ? element.getAttribute('data-sku') : '';
-        addElementToDocument1('fl_variantUrl1',element)
-      }
-    }else if(skuList2.length !== 0){
-      // @ts-ignore
-      sku = skuList2;
-      for (let index = 0; index < sku.length; index++) {
-        let element = sku[index];
-        // @ts-ignore
-        element = element ? element.getAttribute('data-sku') : '';
-        addElementToDocument2('fl_variantUrl2',element)
-      }
+      const element = skus[index].getAttribute('data-sku');
+      addElementToDocument('pd_variantid',element);
+      addElementToDocument('pd_variantUrl',url+'#sku='+element);
     }
     
   });
