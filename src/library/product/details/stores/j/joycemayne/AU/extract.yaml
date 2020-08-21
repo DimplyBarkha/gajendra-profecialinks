@@ -25,7 +25,6 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: //*[@class="product-name"]
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
@@ -111,7 +110,7 @@ fields:
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //dd[@class="bv-rating-ratio"]/@title
     regExp: (.*?) out of.*

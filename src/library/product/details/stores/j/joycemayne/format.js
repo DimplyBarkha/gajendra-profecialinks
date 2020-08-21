@@ -54,7 +54,10 @@ const transform = (data) => {
           additionalDescBulletInfoArray.push(additionalDescBulletInfoItem.text);
         });
       }
-      row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArray.join(' | ') }];
+      row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArray.join(' || ') }];
+      if (row.name && row.brandText) {
+        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+      }
     }
   }
   return data;
