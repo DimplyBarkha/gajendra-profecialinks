@@ -22,6 +22,11 @@ module.exports.AmazonHelp = class {
       } catch (e) {}
       await this.helpers.checkAndClick('input[aria-label="or enter a US zip code"]', 'css', 6000, wantedZip);
       await this.helpers.checkAndClick('input[aria-labelledby="GLUXZipUpdate-announce"]', 'css', 6000);
+      await this.context.evaluate(async function () {
+        if (document.querySelector('input[aria-labelledby="GLUXZipUpdate-announce"]')) {
+          document.querySelector('input[aria-labelledby="GLUXZipUpdate-announce"]').click();
+        }
+      });
       await this.helpers.checkAndClick('button[name="glowDoneButton"]', 'css', 6000);
     } catch (exception) {
       console.log('Failed to update zipcode!');
