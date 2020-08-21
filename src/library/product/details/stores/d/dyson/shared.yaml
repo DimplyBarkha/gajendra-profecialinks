@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class='breadcrumb']//li[last()]//a/span
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' breadcrumb ')])[1]//li//a/span
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -525,3 +525,7 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: enhancedContentHTML #todo
+    singleValue: true
+    defaultValue: No
+    
