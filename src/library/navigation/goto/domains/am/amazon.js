@@ -6,10 +6,12 @@
  * @param { { } } dependencies
  */
 async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, countryCode, domain }, context, dependencies) {
-  const MAX_CAPTCHAS = 3;
 
-  // make sure CSS loading is off
-  await context.setCssEnabled(false);
+  /*************************************************
+   * START VARIABLE AND FUNCTION DECLARATION
+   *************************************************/
+
+  const MAX_CAPTCHAS = 3;
 
   let captchas = 0;
 
@@ -51,22 +53,12 @@ async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, coun
     return true;
   };
 
-  lastResponseData = await context.goto(url, {
-    waitUntil: 'load',
-  });
-
-  if (lastResponseData.status === 404 || lastResponseData.status === 410) {
-    return;
-  }
-
-  console.log('lastResponseData', lastResponseData);
-
-  if (lastResponseData.status === 503) {
+  const handle503 = async () => {
     console.log('Clicking 503 image');
     await context.clickAndWaitForNavigation('a img[src*="503.png"], a[href*="ref=cs_503_link"]');
 
     if (!(await solveCaptchaIfNecessary())) {
-      return;
+      return false;
     }
 
     console.log('Go to some random page');
@@ -82,8 +74,7 @@ async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, coun
 
     if (!clickedOK) {
       console.log('Could not click a product, aborting... :/');
-      context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
-      return;
+      return false;
     }
 
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -94,28 +85,8 @@ async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, coun
       waitUntil: 'load',
     });
     console.log('lastResponseData', lastResponseData);
-  }
-
-  let status = lastResponseData.status;
-
-  if (status === 404 || status === 410) {
-    return;
-  }
-
-  if (status !== 200) {
-    return context.reportBlocked(status, 'Blocked: ' + status);
-  }
-
-  if (!(await solveCaptchaIfNecessary())) {
-    return;
-  }
-
-  // status can have changed now
-  status = lastResponseData.status;
-
-  if (status === 404 || status === 410) {
-    return;
-  }
+    return true;
+  };
 
   const isCorrectLocation = async () => {
     const addressText = await context.evaluate(() => {
@@ -145,11 +116,7 @@ async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, coun
     return Boolean(zipcode || saysEnterYourAddress);
   };
 
-  if (await isCorrectLocation()) {
-    return;
-  }
-
-  const changeLocation = await context.evaluate(async (country, zip) => {
+  const changeLocation = () => context.evaluate(async (country, zip) => {
 
     const body = zip
       ? `locationType=LOCATION_INPUT&zipCode=${zip}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`
@@ -171,7 +138,59 @@ async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, coun
 
   }, countryCode, zipcode);
 
-  if (changeLocation !== 200) {
+  /*************************************************
+   * START LOGIC
+   *************************************************/
+
+  // make sure CSS loading is off
+  await context.setCssEnabled(false);
+
+  // go to the page
+  lastResponseData = await context.goto(url, {
+    waitUntil: 'load',
+  });
+
+  // check if it's 404/410
+  if (lastResponseData.status === 404 || lastResponseData.status === 410) {
+    return;
+  }
+
+  console.log('lastResponseData', lastResponseData);
+
+  // handle 503 block
+  if (lastResponseData.status === 503) {
+    if (!await handle503()) {
+      context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+      return;
+    }
+  }
+
+  let status = lastResponseData.status;
+
+  if (status === 404 || status === 410) {
+    return;
+  }
+
+  if (status !== 200) {
+    return context.reportBlocked(status, 'Blocked: ' + status);
+  }
+
+  if (!(await solveCaptchaIfNecessary())) {
+    return;
+  }
+
+  // status can have changed now
+  status = lastResponseData.status;
+
+  if (status === 404 || status === 410) {
+    return;
+  }
+
+  if (await isCorrectLocation()) {
+    return;
+  }
+
+  if (await changeLocation() !== 200) {
     throw new Error(`Cannot change location (${changeLocation})`);
   }
 
