@@ -51,18 +51,17 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//p
-  - name: descriptionBullets #process
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]
+  - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: //div[@id='added_description']
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@data-title][contains(normalize-space(@data-title),'™ ')]/@data-title
-    regExp: (.+)™
-    regExpReplace: $1
+    xpath: //div[@id=added_brandText]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
