@@ -51,10 +51,11 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id="collapsible-details-1"]
+    xpath: //div[@id="collapsible-details-1"]/text()
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
+    xpath: count(//button[@aria-controls='collapsible-details-1'][contains(text(),'Details')]/following-sibling::*[1]//li)
     type: NUMBER
   - name: brandText
     singleValue: false
@@ -67,9 +68,7 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    manualSelector: script[type='application/ld+json']
-    regExp: dimensions:\s*(.*?)<|SIZE<.*(.*?)<
-    regExpReplace: $1
+    xpath: //b[contains(text(), 'SIZE')]/following-sibling::*[1] | //li[contains(text(), 'dimensions')] | //li[contains(text(), '"H')] | //li[contains(text(), ' x ')]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -145,7 +144,7 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //ul[@class='color-wrapper radio-group-list']/li[contains(@aria-checked, 'true')]/button/@data-adobelaunchproductcolor
+    xpath: //span[@class='attr-name adobelaunch__colorlink']
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -158,6 +157,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[@id='videos']
   - name: name
     singleValue: false
     description: The product name
@@ -229,6 +229,7 @@ fields:
   - name: variantAsins
     singleValue: false
     description: null
+    xpath: //ul[@class='color-wrapper radio-group-list']//button/@data-adobelaunchcolorproductid
   - name: primeFlag
     singleValue: false
     description: null
@@ -454,7 +455,7 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
-    manualSelector: div.rewards-message-section
+    xpath: //div[@class='col-12 rewards-message-section']/text() | //div[@class='col-12 rewards-message-section']/span[1]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
@@ -488,9 +489,11 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //ul[@class='color-wrapper radio-group-list']//button/@data-adobelaunchcolorproductid
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //button[@aria-controls='collapsible-details-1'][contains(text(),'Details')]/following-sibling::*[1]//li
   - name: prop65Warning
     singleValue: false
     description: null

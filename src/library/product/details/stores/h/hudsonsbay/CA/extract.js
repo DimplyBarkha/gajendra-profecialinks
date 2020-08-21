@@ -16,6 +16,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+0
     await context.evaluate(() => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -24,6 +25,9 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      const iframe = document.querySelector('#collapsible-details-1 iframe');
+      const src = iframe ? iframe.src : '';
+      addHiddenDiv('videos', src);
 
       const response = document.querySelector('script') ? JSON.parse(document.querySelector("script[type='application/ld+json']").innerText) : null;
       if (response) {

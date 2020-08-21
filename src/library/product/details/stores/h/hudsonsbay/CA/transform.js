@@ -19,14 +19,19 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.description) {
+      if (row.additionalDescBulletInfo) {
         let text = '';
-        row.description.forEach(item => {
-          text += item.text.replace(/\n/g, '||');
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
         });
+        let descriptionBottom = [];
+        if (row.description) {
+          descriptionBottom = row.description;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(text),
+            text: cleanUp(descriptionBottom.join(' | ')),
           },
         ];
       }
@@ -45,7 +50,22 @@ const transform = (data) => {
       }
       if (row.category) {
         row.category.forEach(category => {
-          category.text = category.text.replace('Home', '').replace(/\n/g, '').trim();
+          category.text = category.text.replace(/Home \n \n/g, '').replace(/\n \n/g, '>').trim();
+        });
+      }
+      if (row.quantity) {
+        row.quantity.forEach(quantity => {
+          quantity.text = quantity.text.replace('Product dimensions:', '').trim();
+        });
+      }
+      if (row.color) {
+        row.color.forEach(color => {
+          color.text = color.text.replace('Colour:', '').trim();
+        });
+      }
+      if (row.specifications) {
+        row.specifications.forEach(specifications => {
+          specifications.text = specifications.text.replace(/\n/g, '||').trim();
         });
       }
       if (row.variantCount) {
@@ -54,6 +74,50 @@ const transform = (data) => {
             variantCount.text = '1';
           }
         });
+      }
+      if (row.variantAsins) {
+        let text = '';
+        row.variantAsins.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variantAsins = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variants = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.promotion) {
+        let text = '';
+        row.promotion.forEach(item => {
+          text += `${item.text} `;
+        });
+        row.promotion = [
+          {
+            text: cleanUp(text.slice(0, -2)),
+          },
+        ];
+      }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `${item.text} || `;
+        });
+        row.additionalDescBulletInfo = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
       }
     }
   }
