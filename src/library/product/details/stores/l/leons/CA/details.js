@@ -5,6 +5,6 @@ module.exports = {
     country: 'CA',
     store: 'leons',
     domain: 'leons.ca',
-    zipcode: '',
+    zipcode: 'N8X0A7',
   },
 };

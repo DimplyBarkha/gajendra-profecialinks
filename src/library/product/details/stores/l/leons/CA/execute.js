@@ -7,6 +7,6 @@ module.exports = {
     domain: 'leons.ca',
     loadedSelector: 'div[data-section-id="product"]',
     noResultsXPath: '//div[contains(@class, "page-not-found")]',
-    zipcode: '',
+    zipcode: 'N8X0A7',
   },
 };

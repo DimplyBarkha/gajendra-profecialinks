@@ -7,6 +7,6 @@ module.exports = {
     url: null,
     country: 'CA',
     store: 'leons',
-    zipcode: '',
+    zipcode: 'N8X0A7',
   },
 };

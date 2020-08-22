@@ -3,9 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  #   singleValue: false
-  # - name: additionalDescBulletInfo
-  #   singleValue: false
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="desc_blk"]//span[@id="pdp-data-unique-features"]//ul
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"averageRating")]/h2
@@ -31,10 +31,7 @@ fields:
     xpath: //div[@class="desc_blk"]//div[@id="pdp-specifications"]//div[contains(@class,"features")]
   - name: description
     singleValue: false
-    xpath: //meta[@name="description"]/@content
-  # - name: descriptionBulletsPoints
-  #   singleValue: false
-  #   xpath: //div[@class="desc_blk"]//span[@id="pdp-data-unique-features"]//ul
+    xpath: //p[@id="pdp-data-description"]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="desc_blk"]//span[@id="pdp-data-unique-features"]//li)
@@ -49,7 +46,7 @@ fields:
     regExpReplace: https:$1  
   - name: imageAlt
     singleValue: false
-    xpath: //div[@id="carousel"]//li//a//img/@alt
+    xpath: //img[@class="abc"]/@alt
   - name: mpc
     singleValue: false
     xpath: //span[@id="pdp-data-mpn"]
@@ -71,7 +68,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"averageRating")]/p
     type: NUMBER
-  - name: shippingDimensions
+  - name: productDimensions
     singleValue: false
     xpath: //span[contains(@class, "dimentions-container")]
   - name: shippingInfo
@@ -90,41 +87,17 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,"product-specification")]//div[@id="pdp-specifications"]//div
-      # //div[contains(@class,"product-specification")]
-      # //div[contains(@class,"product-specification")]//div[@id="pdp-specifications"]//div
-  # - name: dimensionsSpecifications
-  #   singleValue: false
-  #   xpath: //product-specifications//h3[contains(text(), "Dimensions")]/following-sibling::dl[1]
-  # - name: detailsSpecifications
-  #   singleValue: false
-  #   xpath: //product-specifications//h3[contains(text(), "Details")]/following-sibling::dl[1]
-  # - name: warrantySpecifications
-  #   singleValue: false
-  #   xpath: //product-specifications//h3[contains(text(), "Warranty")]/following-sibling::div[1]
-  # - name: storage
-  #   singleValue: false
-  # - name: technicalInformationPdfPresent
-  #   xpath: //section[@id="productManual"]
-  #   singleValue: false
-  # - name: termsAndConditions
-  #   singleValue: false
-  # - name: variantCount
-  #   singleValue: false
   - name: variantId
     singleValue: false
     xpath: //div[@data-findify-event="view-page"]/@data-findify-variant-item-id
-  # - name: variantInformation
-  #   singleValue: false
-  # - name: variants
-  #   singleValue: false
-  # - name: warnings
-  #   singleValue: false
   - name: warranty
     singleValue: false
     xpath: //span[@id="pdp-data-warranty"]
-  - name: weightGross
+  - name: weightNetDesck
     singleValue: false
     xpath: //span[@id="pdp-data-product-details"]//li[contains(text(), "Weight")]
+    regExp: '.*: (.*)'
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
-    xpath: //span[@id="pdp-data-weight"]    
+    xpath: //span[@id="pdp-data-weight"]
