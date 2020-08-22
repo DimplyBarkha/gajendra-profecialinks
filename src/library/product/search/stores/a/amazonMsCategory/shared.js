@@ -6,11 +6,13 @@
 const transform = (data, context) => {
   const getPrice = function (price) {
     if (price.includes('EUR') || price.includes('€')) {
-      price = price.replace('.', '');
-      price = price.replace(',', '.');
+      price = price.replace(/\./g, '');
+      price = price.replace(/\,/g, '.');
     } else if (price.includes('￥')) {
       price = price.replace('￥', '');
-      price = price.replace(',', '');
+      price = price.replace(/\,/g, '');
+    } else if (price.includes('$')) {
+      price = price.replace(/\,/g, '');
     }
     price = price.replace(/€,EUR,£,CDN\$,$/g, '');
     price = price.match(/([\d,.]+[.,][\d]+)/g);
