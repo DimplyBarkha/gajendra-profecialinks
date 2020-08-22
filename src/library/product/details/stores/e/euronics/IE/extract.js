@@ -15,18 +15,9 @@ async function implementation (
     })
   }
 
-  await context.waitForXPath('//a[@class="img-link-block"]');
+  await stall(5000);
 
-  const price = await context.evaluate(function() {
-    if (document.querySelector('.normprice')) {
-      return document.querySelector('.normprice').innerText;
-    }
-  });
-
-  await context.click('.img-link-block');
-  await stall(10000);
-
-  await context.evaluate(function(price) {
+  await context.evaluate(function() {
 
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -45,16 +36,10 @@ async function implementation (
     addHiddenDiv('alternateImages', alternateImages.join(' | '));
     addHiddenDiv('pageTimeStamp', new Date());
     addHiddenDiv('url', window.location.href);
-    if (document.querySelector('.product-price.hide-for-small')) {
-      if (document.querySelector('.product-price.hide-for-small').querySelector('.oldprice')) {
-        addHiddenDiv('listPrice', document.querySelector('.product-price.hide-for-small').querySelector('.oldprice').innerText.split(' ')[1]);
-      } else {
-        addHiddenDiv('listPrice', document.querySelector('.product-price.hide-for-small').innerText.trim());
-      }
-    }
 
-    if (price) {
-      addHiddenDiv('price', price);
+    if (document.querySelector('.nosto_product')) {
+      addHiddenDiv('price', '€' + document.querySelector('.nosto_product').querySelector('.price').innerText);
+      addHiddenDiv('listPrice', '€' + document.querySelector('.nosto_product').querySelector('.list_price').innerText);
     }
 
     let availabilityText = "Out of Stock";
@@ -159,7 +144,7 @@ async function implementation (
       addHiddenDiv('rotateInfo', 'Yes');
     }
 
-  }, price);
+  });
   return await context.extract(productDetails, { transform });
 }
 

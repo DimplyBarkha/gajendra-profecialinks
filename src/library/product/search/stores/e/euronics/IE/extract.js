@@ -42,6 +42,10 @@ async function implementation (
       }
       addHiddenDiv(el, 'rank', ind + 1);
 
+      if (el.querySelector('.name')) {
+        addHiddenDiv(el, 'url', 'https://euronics.ie' + el.querySelector('.name').querySelector('a').getAttribute('href'));
+      }
+
       if (el.querySelector('iframe')) {
         if (el.querySelector('iframe').contentWindow.document.querySelector('reevoo-score')) {
           addHiddenDiv(el, 'rating', el.querySelector('iframe').contentWindow.document.querySelector('reevoo-score').getAttribute('data-score'));
