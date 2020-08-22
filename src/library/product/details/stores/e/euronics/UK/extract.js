@@ -16,15 +16,15 @@ async function implementation (
   }
 
   const productId = await context.evaluate(function() {
-    let splitUrl = window.location.href.split('=');
-    return splitUrl[1];
+    let splitUrl = window.location.href.split('/');
+    return splitUrl[splitUrl.length - 1];
   });
 
   const currentUrl = await context.evaluate(function() {
     return window.location.href;
   });
 
-  await context.goto('https://mark.reevoo.com/reevoomark/en-GB/product?sku=' + productId + '&trkref=ERN');
+  await context.goto('https://mark.reevoo.com/reevoomark/en-GB/product?sku=330V8ANIMAL&trkref=ERN');
 
   await stall(3000);
 
@@ -36,7 +36,6 @@ async function implementation (
 
   await stall(3000);
 
-  await context.click("a[data-test-id='product-item-link']");
   await context.evaluate(async function(productId, ratingContents) {
     function stall (ms) {
       return new Promise(resolve => {
