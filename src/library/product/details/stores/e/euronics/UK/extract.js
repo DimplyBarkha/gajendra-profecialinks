@@ -24,7 +24,7 @@ async function implementation (
     return window.location.href;
   });
 
-  await context.goto('https://mark.reevoo.com/reevoomark/en-GB/product?sku=330V8ANIMAL&trkref=ERN');
+  await context.goto('https://mark.reevoo.com/reevoomark/en-GB/product?sku=' + productId + '&trkref=ERN');
 
   await stall(3000);
 
