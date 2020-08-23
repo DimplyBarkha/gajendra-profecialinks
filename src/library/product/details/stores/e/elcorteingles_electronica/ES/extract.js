@@ -98,14 +98,14 @@ module.exports = {
       }
 
 
-      // Number of reviews and rating
-      const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
-      let apiReviewResponse = await makeApiCall(reviewData, {});
-      let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : "";
-      let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
-        : "";
-      addElementToDocument('ratingCount', responseRatingCount);
-      addElementToDocument('aggregateRating', responseReviewRating === "NaN" ? 0 : responseReviewRating);
+       // Number of reviews and rating
+       const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
+       let apiReviewResponse = await makeApiCall(reviewData, {});
+       let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
+       let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
+         : "";
+       addElementToDocument('ratingCount', responseRatingCount);
+       addElementToDocument('aggregateRating', responseReviewRating);
 
 
       const imageData = findJsonObj('image');
@@ -170,16 +170,16 @@ module.exports = {
 
           // Check for List Price 
           if (dataObj[0].product.price.o_price) {
-            addElementToDocument('listPrice', dataObj[0].product.price.o_price);
+            addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
           } else {
-            addElementToDocument('listPrice', dataObj[0].product.price.original);
+            addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
           }
 
           // Check for  Price 
           if (dataObj[0].product.price.o_price) {
-            addElementToDocument('price', dataObj[0].product.price.f_price);
+            addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ","));
           } else {
-            addElementToDocument('price', dataObj[0].product.price.final);
+            addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ","));
           }
 
           // Check for the product id  and append to DOM
@@ -205,26 +205,28 @@ module.exports = {
       }
 
       // Get the ratingCount
-      const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
-      let ratingCount;
-      if (reviewsCount) {
-        ratingCount = reviewsCount.textContent.trim().match(/[^\s]+(?=\sOpiniones)/);
-        if (ratingCount) {
-          addElementToDocument('ratingCount', ratingCount[0]);
-        }
-      } else if (document.querySelector('h4[itemprop="headline"]')) {
-        ratingCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
-
-        if (ratingCount) {
-          if (document.querySelector('li[itemprop="review"]')) {
-            ratingCount = parseInt(ratingCount[0]) + document.querySelectorAll('li[itemprop="review"]').length;
+      function ratingFromDOM() {
+        const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
+        let ratingCount;
+        if (reviewsCount) {
+          ratingCount = reviewsCount.textContent.trim().match(/[^\s]+(?=\sOpiniones)/);
+          if (ratingCount) {
+            return ratingCount[0];
           }
-          addElementToDocument('ratingCount', ratingCount);
-        }
-      } else if (document.querySelector('li[itemprop="review"]')) {
-        ratingCount = document.querySelectorAll('li[itemprop="review"]').length;
-        if (ratingCount) {
-          addElementToDocument('ratingCount', ratingCount);
+        } else if (document.querySelector('h4[itemprop="headline"]')) {
+          ratingCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
+
+          if (ratingCount) {
+            if (document.querySelector('li[itemprop="review"]')) {
+              ratingCount = parseInt(ratingCount[0]) + document.querySelectorAll('li[itemprop="review"]').length;
+            }
+            return ratingCount;
+          }
+        } else if (document.querySelector('li[itemprop="review"]')) {
+          ratingCount = document.querySelectorAll('li[itemprop="review"]').length;
+          if (ratingCount) {
+            return ratingCount;
+          }
         }
       }
 

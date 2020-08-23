@@ -89,7 +89,7 @@ fields:
     xpath : 
   - name: promotion
     singleValue: true
-    xpath : //ul[contains(@class,"info_promotions")]/li[1]
+    xpath : //div[contains(@class,"product_detail-aside")]//p[@class="price _discount"]
   - name: alcoholContent
     singleValue: true
     xpath : //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
