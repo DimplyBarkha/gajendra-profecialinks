@@ -5,5 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'elcorteingles',
     domain: 'elcorteingles.es',
+    loadedSelector: '.pdp-title a',
+    noResultsXPath: '//div[@class="sitemanager-data disabled"]',
   },
 };
