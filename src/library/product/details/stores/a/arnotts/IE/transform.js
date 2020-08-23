@@ -24,6 +24,13 @@ const transform = (data, context) => {
           alternateImages.text = alternateImages.text.replace('prodgrid_recommend', 'detail_zoom').trim();
         });
       }
+      if (row.nameExtended) {
+        row.nameExtended.forEach(nameExtended => {
+          if (row.brandText && row.color) {
+            nameExtended.text = row.brandText[0].text + ' - ' + nameExtended.text + ' - ' + row.color[0].text;
+          }
+        });
+      }
       if (row.category) {
         row.category.forEach(category => {
           category.text = category.text.replace('Home', '').replace(/\n\s/g, '').trim();
@@ -40,14 +47,19 @@ const transform = (data, context) => {
           },
         ];
       }
-      if (row.description) {
+      if (row.additionalDescBulletInfo) {
         let text = '';
-        row.description.forEach(item => {
-          text += item.text.replace(/\n \n/g, '||').replace(/\n/g, '');
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
         });
+        let descriptionBottom = [];
+        if (row.description) {
+          descriptionBottom = row.description;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(text),
+            text: cleanUp(descriptionBottom.join(' | ')),
           },
         ];
       }

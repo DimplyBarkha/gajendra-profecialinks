@@ -50,7 +50,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@itemprop='description']
+    xpath: //div[@itemprop='description']/text() | //div[@itemprop='description']/p
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -60,7 +60,7 @@ fields:
     singleValue: false
     description: Quantity as described on the page
     xpath: //li[contains(text(), 'Height')] | //li[contains(text(), 'Length')] | //li[contains(text(), 'Width')] | //li[contains(text(), 'Weight')]
-  - name: weightGross
+  - name: weightNet
     singleValue: false
     description: Gross weight as described on the page
     xpath: //li[contains(text(), 'Weight')]
@@ -95,7 +95,6 @@ fields:
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
-    xpath: //li[contains(text(), 'Weight')] | 
   - name: variantCount
     singleValue: false
     description: Number of variants listed
