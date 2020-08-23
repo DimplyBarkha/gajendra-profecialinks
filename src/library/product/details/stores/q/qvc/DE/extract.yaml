@@ -61,7 +61,7 @@ fields:
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
-    xpath: //h3[contains(.,'Gewicht')]/following-sibling::ul
+    # xpath: //h3[contains(.,'Gewicht')]/following-sibling::ul
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
@@ -93,11 +93,11 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
-    xpath: //h3[contains(.,'Maße')]/following-sibling::ul[1]/li[1]
+    # xpath: //h3[contains(.,'Maße')]/following-sibling::ul[1]/li[1]
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
-    xpath: //h3[contains(.,'Gewicht')]/following-sibling::ul
+    # xpath: //h3[contains(.,'Gewicht')]/following-sibling::ul
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
@@ -134,7 +134,7 @@ fields:
     description: Text of any coupon offer
   - name: specifications
     singleValue: false
-    xpath: //h3[contains(.,'Gewicht')] | //h3[contains(.,'Gewicht')]/following-sibling::ul[1]//li[1] | //h3[contains(.,'Maße')] |//h3[contains(.,'Maße')]/following-sibling::ul[1]/li[1] | //h3[contains(.,'Identifikationsnummer')]/following-sibling::ul[1]/li[1] | //h3[contains(.,'Garantie')] | //h3[contains(.,'Garantie')]/following-sibling::ul[1]/li[1]
+    xpath: //h3[contains(.,'Gewicht')] | //h3[contains(.,'Gewicht')]/following-sibling::ul[1]//li[1] | //h3[contains(.,'Maße')] |//h3[contains(.,'Maße')]/following-sibling::ul[1]/li[1]
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
