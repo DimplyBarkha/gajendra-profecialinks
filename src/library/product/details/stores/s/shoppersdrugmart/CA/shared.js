@@ -57,6 +57,24 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text.replace('See All', '')} || `;
+        });
+        row.description = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
+      }
+      if (row.variantCount) {
+        row.variantCount.forEach(variantCount => {
+          if (variantCount.text === '0') {
+            variantCount.text = '1';
+          }
+        });
+      }
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {

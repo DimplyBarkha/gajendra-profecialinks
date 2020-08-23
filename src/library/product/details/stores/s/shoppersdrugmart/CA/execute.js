@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'shoppersdrugmart',
     domain: 'shoppersdrugmart.ca',
-    loadedSelector: 'div[class="pdp-image"] picture',
+    loadedSelector: 'div[id="pr-reviewsnippet"] div[class~="pr-rating-stars"]',
     noResultsXPath: null,
     zipcode: '',
   },

@@ -14,6 +14,16 @@ module.exports = {
     } catch (error) {
       console.log('Ratings did not loaded');
     }
+    try {
+      await context.waitForSelector('div[id="pr-reviewsnippet"] div[class~="pr-rating-stars"]');
+    } catch (error) {
+      console.log('Ratings did not loaded');
+    }
+    try {
+      await context.waitForSelector('#scroll-slider-image ul:first-child li:first-child picture img');
+    } catch (error) {
+      console.log('image did not loaded');
+    }
     return await context.extract(productDetails, { transform });
   },
 };

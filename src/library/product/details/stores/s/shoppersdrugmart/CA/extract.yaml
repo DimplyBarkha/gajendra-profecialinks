@@ -45,8 +45,6 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[@class="about-product"]//p[@class="about-product-detail"]  | //div[@class="about-product-info"]//ul/li[contains(.,"FEATURES & BENEFITS")]
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -115,7 +113,7 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@class="about-product"]//p[@class="about-product-detail"] 
-    regExp: ;\s+Product dimensions\s+(.+)\.?;?
+    regExp: ;\s+Product dimensions\s+(.+)\.?\s\*
     regExpReplace: $1
   - name: shippingWeight
     singleValue: false
@@ -129,7 +127,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: false
-    xpath: //div[@class="swatches-group"]/ul/li[@class="active"]/a/@aria-label
+    xpath: //div[@class="swatches-group"]/ul/li[@class="active"]/a/@aria-label | //label[@class="single-variant-label"]/span[contains(@class,"selected-color-swatch")]/parent::label
     description: A textual description of the colour
   - name: colorCode
     singleValue: false
@@ -146,7 +144,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //h1[@class="item-brand-name"]/descendant::*
+    xpath: //p[@class="item-product-name"]
     description: The product name
   - name: inStorePrice
     singleValue: false
