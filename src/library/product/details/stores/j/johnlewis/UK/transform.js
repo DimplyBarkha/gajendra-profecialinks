@@ -24,7 +24,7 @@ const transform = (data, context) => {
       }
       if (row.category) {
         row.category.forEach(category => {
-          category.text = category.text.replace('Homepage', '').replace(/\n/g, '').trim();
+          category.text = category.text.replace('Homepage \n \n', '').replace(/\n \n/g, '>').trim();
         });
       }
       if (row.specifications) {
