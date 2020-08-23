@@ -52,7 +52,7 @@ fields:
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    xpath: count(//p/strong[contains(text(), 'Key features')]/parent::*[1]/following-sibling::*[1]/li)
+    xpath: count(//div[@class='product-detail__description']//ul/li)
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -64,11 +64,10 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    xpath: //*[contains(text(), 'Dimensions')]/following-sibling::*[1]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //*[contains(text(), 'Weight')]/following-sibling::*[1]
+    xpath: //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'kg')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'gm')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'Kg')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'Gm')]
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -118,11 +117,9 @@ fields:
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
-    xpath: //*[contains(text(), 'Dimensions')]/following-sibling::*[1]
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
-    xpath: //*[contains(text(), 'Weight')]/following-sibling::*[1]
   - name: variantCount
     singleValue: false
     description: Number of variants listed
@@ -144,6 +141,8 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //ul[@class='swiper-wrapper']/li[@data-carousel='productCarousel']/video/source/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: name
     singleValue: false
     description: The product name
@@ -415,6 +414,7 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
+    xpath: //*[contains(text(), 'Country of Origin')]/following-sibling::*[1]
   - name: allergyAdvice
     singleValue: false
     description: Allergy information associated with the product
@@ -457,6 +457,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
+    xpath: //ul[@class='swatch-list']/li
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
@@ -468,13 +469,14 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //div[@id='productId']
   - name: variants
     singleValue: false
     description: null
+    regExp: p\d+
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@class='product-detail__description']//ul/li
   - name: prop65Warning
     singleValue: false
     description: null
@@ -496,6 +498,9 @@ fields:
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
+    xpath: //*[contains(text(), 'Terms & conditions')]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
     singleValue: false

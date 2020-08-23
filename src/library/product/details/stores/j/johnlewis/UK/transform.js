@@ -32,14 +32,19 @@ const transform = (data, context) => {
           specifications.text = specifications.text.replace(/ \n \n/g, ':').replace(/\n \n/g, '|').trim();
         });
       }
-      if (row.description) {
+      if (row.additionalDescBulletInfo) {
         let text = '';
-        row.description.forEach(item => {
-          text += item.text.replace(/\n \n/g, '||').replace(/\n/g, '');
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
         });
+        let descriptionBottom = [];
+        if (row.description) {
+          descriptionBottom = row.description;
+        }
+        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(text),
+            text: cleanUp(descriptionBottom.join(' | ')),
           },
         ];
       }
@@ -49,6 +54,22 @@ const transform = (data, context) => {
             variantCount.text = '1';
           }
         });
+      }
+      if (row.color) {
+        row.color.forEach(color => {
+          color.text = color.text.replace('This is the current selected colour', '').trim();
+        });
+      }
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text += `Color: ${item.text.replace('This is the current selected colour', '').trim()} | `;
+        });
+        row.variantInformation = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
       }
       if (row.variantId) {
         if (row.variantId.length > 1) {
@@ -66,10 +87,24 @@ const transform = (data, context) => {
       }
       if (row.variantAsins) {
         let text = '';
+        if (row.variantAsins.length > 1) {
+          row.firstVariant = row.variantId;
+        }
         row.variantAsins.forEach(item => {
           text += `${item.text} | `;
         });
         row.variantAsins = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `${item.text} || `;
+        });
+        row.additionalDescBulletInfo = [
           {
             text: cleanUp(text.slice(0, -3)),
           },
