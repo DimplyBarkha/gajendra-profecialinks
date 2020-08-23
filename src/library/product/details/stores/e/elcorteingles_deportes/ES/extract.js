@@ -7,7 +7,7 @@ module.exports = {
     transform: null,
     domain: 'elcorteingles.es',
   },
-  
+
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
@@ -39,15 +39,44 @@ module.exports = {
         }
 
         // function to get the json data from the textContent
-        function findJsonObj(scriptSelector) {
+        function findJsonObj(scriptSelector, video) {
+          if (video) {
+            var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+            return result;
+          } else {
+            try {
+              const xpath = `//script[contains(.,'${scriptSelector}')]`;
+              const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+              let jsonStr = element.textContent;
+              jsonStr = jsonStr.trim();
+              return JSON.parse(jsonStr);
+            } catch (error) {
+              console.log(error.message);
+            }
+          }
+        }
+
+        const makeApiCall = async (url, options) => {
           try {
-            const xpath = `//script[contains(.,'${scriptSelector}')]`;
-            const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-            let jsonStr = element.textContent;
-            jsonStr = jsonStr.trim();
-            return JSON.parse(jsonStr);
-          } catch (error) {
-            console.log("Failed to find JSON Object ", error.message);
+            console.log(`Making API call to => ${url}`);
+            if (!options) {
+              options = {
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' }
+              };
+
+              return await (await fetch(url, options)).json();
+            }
+
+            return await (await fetch(url, options)).text();
+          } catch (err) {
+            console.log('Error while making API call.', err);
+          }
+        };
+
+        function setAttributes(el, attrs) {
+          for (var key in attrs) {
+            el.setAttribute(key, attrs[key]);
           }
         }
 
@@ -101,27 +130,43 @@ module.exports = {
           }
         }
 
-        // Get the ratingCount
-        const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
-        let ratingCount;
-        if (reviewsCount) {
-          ratingCount = reviewsCount.textContent.trim().match(/[^\s]+(?=\sOpiniones)/);
-          if (ratingCount) {
-            addElementToDocument('ratingCount', ratingCount[0]);
-          }
-        } else if (document.querySelector('h4[itemprop="headline"]')) {
-          ratingCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
 
-          if (ratingCount) {
-            if (document.querySelector('li[itemprop="review"]')) {
-              ratingCount = parseInt(ratingCount[0]) + document.querySelectorAll('li[itemprop="review"]').length;
+        // Number of reviews and rating
+        let passKey = "caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ";
+        let productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json'
+        let productID = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).code_a.trim("") : "";
+
+        const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
+        let apiReviewResponse = await makeApiCall(reviewData, {});
+        let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
+        let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
+          : "";
+        addElementToDocument('ratingCount', responseRatingCount);
+        addElementToDocument('aggregateRating', responseReviewRating);
+
+
+        function ratingFromDOM() {
+          const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
+          let ratingCount;
+          if (reviewsCount) {
+            ratingCount = reviewsCount.textContent.trim().match(/[^\s]+(?=\sOpiniones)/);
+            if (ratingCount) {
+              return ratingCount[0];
             }
-            addElementToDocument('ratingCount', ratingCount);
-          }
-        } else if (document.querySelector('li[itemprop="review"]')) {
-          ratingCount = document.querySelectorAll('li[itemprop="review"]').length;
-          if (ratingCount) {
-            addElementToDocument('ratingCount', ratingCount);
+          } else if (document.querySelector('h4[itemprop="headline"]')) {
+            ratingCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
+
+            if (ratingCount) {
+              if (document.querySelector('li[itemprop="review"]')) {
+                ratingCount = parseInt(ratingCount[0]) + document.querySelectorAll('li[itemprop="review"]').length;
+              }
+              return ratingCount;
+            }
+          } else if (document.querySelector('li[itemprop="review"]')) {
+            ratingCount = document.querySelectorAll('li[itemprop="review"]').length;
+            if (ratingCount) {
+              return ratingCount;
+            }
           }
         }
 
