@@ -54,9 +54,6 @@ fields:
     singleValue: false
   - name: firstVariant
     singleValue: false
-  - name: gtin
-    singleValue: false
-    xpath: //nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]
   - name: image
     singleValue: false
     xpath: //div[contains(@evtperfname,"product-gallery-container")]/hdca-carousel//div[contains(@class,"selected")]//img/@src
@@ -98,6 +95,7 @@ fields:
     singleValue: false
   - name: packSize
     singleValue: false
+    xpath: //dt[contains(text(), "Pack Size")]/following-sibling::dd[1]
   - name: price
     singleValue: false
     xpath: //div[contains(@evtperfname,"product-localized-price-component")]//p//span[1]
@@ -119,7 +117,6 @@ fields:
     xpath: //h3[text()="Dimensions"]/following-sibling::dl
   - name: shippingInfo
     singleValue: false
-    xpath: //p[contains(@data-qa,"wdio-standard-shipping-fulfillment-label")]
   - name: shippingWeight
     singleValue: false
     xpath: //dt[contains(text(), "Packaged Weight")]/following-sibling::dd[1]

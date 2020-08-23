@@ -97,6 +97,7 @@ const transform = (data) => {
             item.text = item.text.replace(/(\s?\n)+/g, ' || ').replace(/# ?/g, '').trim();
           });
         }
+        row.additionalDescBulletInfo = row.descriptionBulletsInfo
         row.description[0].text = row.description[0].text + ' || ' + row.descriptionBulletsInfo[0].text
       }
 
