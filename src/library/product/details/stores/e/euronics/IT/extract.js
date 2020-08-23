@@ -16,15 +16,7 @@ async function implementation (
   }
 
 
-  await context.waitForXPath('//div[@class="productCard__aux j-toggle "]');
-  await stall(2000);
-  let url = await context.evaluate(function() {
-    if (document.querySelector('.productCard') && document.querySelector('.productCard').querySelector('a[rel="nofollow"]')) {
-      return document.querySelector('.productCard').querySelector('a[rel="nofollow"]').getAttribute('href');
-    }
-  });
-  await context.goto(url, {timeout: 50000});
-  await context.waitForXPath('//div[@class="owl-stage-outer"]');
+  await stall(5000);
 
   await context.evaluate(function() {
 
