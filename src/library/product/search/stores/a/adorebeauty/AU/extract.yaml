@@ -5,11 +5,14 @@ recordXPath: //li[@class="ais-InfiniteHits-item m-2"]
 fields:
   - name: manufacturer
     singleValue: false
+    xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/h2
+    regExp: ^([\w\-]+)(.*)
+    regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/@href
-    regExp: 
-    regExpReplace: https://wwww.adorebeauty.com.us$1
+    regExp: ([/\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?
+    regExpReplace: https://wwww.adorebeauty.com.au$1
   - name: thumbnail
     singleValue: false
     xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/div/img/@src
@@ -17,7 +20,7 @@ fields:
     regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/div/
+    xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/h2
   - name: price
     singleValue: false
     xpath: //div[@class="px-6 py-4 mt-auto"]/div/span[@class="text-16 font-montserrat font-bold"]
@@ -25,6 +28,6 @@ fields:
     singleValue: false
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@title, "Star Rating")]
-    regExp: (\d+\.\d+)
+    xpath: //div[contains(@title, "Star Rating")]/@title
+    regExp: (\d+(\.\d+)?)
     regExpReplace: $1
