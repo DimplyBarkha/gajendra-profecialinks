@@ -33,6 +33,8 @@ fields:
     singleValue: false
     description: The URL for the product thumbnail image
     xpath: //div[@class='product-list-container']//section[@class='product-card']//img/@src
+    regExp: (.*)
+    regExpReplace: https:$1
   - name: name
     singleValue: false
     description: The product name
@@ -100,7 +102,7 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
     xpath: //span[@class='product-card__title-inner']
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     manualSelector: span.review-indicator-sprites
