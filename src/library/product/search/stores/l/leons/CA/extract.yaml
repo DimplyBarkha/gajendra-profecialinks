@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, "_column")]
+fields:
+  - name: _input
+    singleValue: false
+  - name: _pageTimestamp
+    singleValue: false
+  - name: _url
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: brandText
+    singleValue: false
+    xpath: //span[contains(@class, "title")]
+    regExp: ^([\w\-]+).*
+    regExpReplace: $1
+  - name: gtin
+    singleValue: false
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, "_column")]//a/@href
+    regExp: .*=([\w\-]+)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //span[contains(@class, "title")]
+  - name: price 
+    singleValue: false
+    xpath: //span[contains(@class, "price")]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class, "_column")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.leons.ca$1
+  - name: ratingCount
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, "_column")]//img/@src
