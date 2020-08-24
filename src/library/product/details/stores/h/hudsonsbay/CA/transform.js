@@ -49,9 +49,9 @@ const transform = (data) => {
         }
       }
       if (row.category) {
-        row.category.forEach(category => {
-          category.text = category.text.replace(/Home \n \n/g, '').replace(/\n \n/g, '>').trim();
-        });
+        if (row.category[0].text.includes('Home')) {
+          row.category.shift();
+        }
       }
       if (row.quantity) {
         row.quantity.forEach(quantity => {
