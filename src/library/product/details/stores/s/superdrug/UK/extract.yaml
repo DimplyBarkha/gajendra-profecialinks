@@ -5,47 +5,35 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.superdrug.com$1
   - name: nameExtended
-    singleValue: true
     xpath: //h1[@itemprop="name"]
   - name: url
-    singleValue: true
     xpath: //link[@rel="canonical"]/@href
   - name: productUrl
-    singleValue: true
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
     xpath: //div[@id="breadcrumb"]/a[position()>1 and position()<last()]
   - name: description
     singleValue: false
-    xpath: concat(//div[@id="pdp__details"]//p[@itemprop="description"],' ',//div[@id="pdp__details"]//h3[contains(.,"Features")]/parent::article,' ',//div[@id="pdp__details"]//h3[contains(.,"Benefits")]/parent::article)
+    xpath: //div[@id="pdp__details"]//p[@itemprop="description"] | //div[@id="pdp__details"]//h3[contains(.,"Features")]/parent::article | //div[@id="pdp__details"]//h3[contains(.,"Benefits")]/parent::article | //h2[contains(text(),"Product Information")]/following-sibling::p[@itemprop="description"]/following-sibling::li/text()[1] | //h2[contains(text(),"Product Information")]/following-sibling::p[@itemprop="description"]/following-sibling::p
   - name: price
-    singleValue: true
     xpath: concat(//span[@itemprop="priceCurrency"],//span[@itemprop="price"])
   - name: availabilityText
-    singleValue: true
-    xpath: //*[@itemprop="availability"]
-    regExp: inStock
-    regExpReplace: In Stock
-    defaultValue: Out Of Stock
+    xpath: //*[@itemprop="availability"]/@href
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::p[1][not(contains(.,"Size"))]|//strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]|//div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::p[2][not(contains(.,"Size"))][not(contains(.,"code"))]|//div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::text()[not(contains(.,"Size"))]|//div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/parent::article//table//td[1]
+    xpath: //div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::p[not(contains(.,"Size")) and not(contains(.,"Product code"))]|//strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]|//div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::p[2][not(contains(.,"Size"))][not(contains(.,"code"))]|//div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::text()[not(contains(.,"Size"))]|//div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/parent::article//table//td[1] | //div[@id="pdp__details"]//h3[contains(.,"Product Specification")]/following-sibling::div
   - name: brandText
-    singleValue: true
     xpath: //a[@itemprop="brand"]
   - name: sku
-    singleValue: true
     xpath: //p[@itemprop="sku"]
     regExp: (\d+)
     regExpReplace: $1
   - name: variantId
-    singleValue: true
     xpath: //p[@itemprop="sku"]
     regExp: (\d+)
     regExpReplace: $1
   - name: warnings
-    singleValue: true
     xpath: //h3[@class="pdp-details__sub-title"][contains(.,"Warnings")]/following-sibling::p|//p/text()[contains(.,"Warnings.")]/following::text()[1]
   - name: alternateImages
     singleValue: false
@@ -53,13 +41,10 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.superdrug.com$1
   - name: ratingCount
-    singleValue: true
-    xpath: (//span[@itemprop="reviewCount"])[1]
-    defaultValue: 0
+    xpath: /html/body/@rating-count
+    defaultValue: '0'
   - name: aggregateRating
-    singleValue: true
-    xpath: //span[@itemprop="ratingValue"]
-    defaultValue: 0
+    xpath: /html/body/@rating
   - name: shippingDimensions
     xpath: //p[contains(text(),"Size")][contains(text(),"Height")][contains(text(),"Width")][contains(text(),"Depth")]
     regExp: Height.+$
@@ -68,10 +53,8 @@ fields:
     regExp: (Size )(.+)(?=Height)
     regExpReplace: $2
   - name: allergyAdvice
-    singleValue: true
     xpath: //h3[contains(.,"Product Specification")]/following::p[@class="embedded"]/span
   - name: recyclingInformation
-    singleValue: true
     xpath: //h3[contains(.,"Recyclable")]/following-sibling::p
   - name: videos
     singleValue: false
@@ -89,7 +72,6 @@ fields:
     regExp: (.+\d+)(\w+)
     regExpReplace: $2
   - name: imageAlt
-    singleValue: true
     xpath: //div[@class="pdp-gallery__zoom"]//img/@alt
   - name: supplementaryImage
     singleValue: false
@@ -102,10 +84,8 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.superdrug.com$1
   - name: supplementaryImageTotal
-    singleValue: true
     xpath: count(//div[@class="pdp-gallery__zoom"]/@data-image)
   - name: listPrice
-    singleValue: true
     xpath: //span[@class="pricing__was"]
   - name: caloriesPerServing
     xpath: //td[normalize-space(text())="Energy"]/following-sibling::td[1]
@@ -166,11 +146,11 @@ fields:
   - name: directions
     xpath: //h3[contains(.,"Product Uses")]/following-sibling::p[1][not(contains(.,"Warnings"))]|//h3[contains(.,"Product Uses")]/following-sibling::li|//p/text()[contains(.,"Directions.")]/following::text()[position()<=3][not(contains(.,"Warnings"))]
   - name: descriptionBullets
-    xpath: count(//article//h3[contains(.,"Benefits") or contains(.,"Features")]/parent::article//li)
+    xpath: //p[@itemprop="description"]/following-sibling::article/p[br][1]/text()[starts-with(normalize-space(.),"-") or starts-with(normalize-space(.),"1.") or starts-with(normalize-space(.),"1 ") or starts-with(normalize-space(.),"2.") or starts-with(normalize-space(.),"2 ") or starts-with(normalize-space(.),"3.") or starts-with(normalize-space(.),"3 ") or starts-with(normalize-space(.),"4.") or starts-with(normalize-space(.),"4 ") or starts-with(normalize-space(.),"5.") or starts-with(normalize-space(.),"5 ") or  starts-with(normalize-space(.),"•")] | //p[@itemprop="description"]/following-sibling::p[1]/text()[starts-with(normalize-space(.),"-") or starts-with(normalize-space(.),"1.") or starts-with(normalize-space(.),"1 ") or starts-with(normalize-space(.),"2.") or starts-with(normalize-space(.),"2 ") or starts-with(normalize-space(.),"3.") or starts-with(normalize-space(.),"3 ") or starts-with(normalize-space(.),"4.") or starts-with(normalize-space(.),"4 ") or starts-with(normalize-space(.),"5.") or starts-with(normalize-space(.),"5 ")] | //p[@itemprop="description"]/following-sibling::article/li | //p[@itemprop="description"]/following-sibling::li/article/li | //p[@itemprop="description"]/following-sibling::article/p[br]/text()[starts-with(normalize-space(.),"-") or starts-with(normalize-space(.),"1.") or starts-with(normalize-space(.),"1 ") or starts-with(normalize-space(.),"2.") or starts-with(normalize-space(.),"2 ") or starts-with(normalize-space(.),"3.") or starts-with(normalize-space(.),"3 ") or starts-with(normalize-space(.),"4.") or starts-with(normalize-space(.),"4 ") or starts-with(normalize-space(.),"5.") or starts-with(normalize-space(.),"5 ")] | //article//h3[contains(.,"Benefits") or contains(.,"Features")]/parent::article//li | //h2[contains(text(),"Product Information")]/following-sibling::p[@itemprop="description"]/following-sibling::li[not(preceding-sibling::p[contains(text(),"Goes well with:")])] | //article//h3[contains(.,"Benefits") or contains(.,"Features")]/following-sibling::p[1]/text()[starts-with(normalize-space(.),"-") or starts-with(normalize-space(.),"1.") or starts-with(normalize-space(.),"1 ") or starts-with(normalize-space(.),"2.") or starts-with(normalize-space(.),"2 ") or starts-with(normalize-space(.),"3.") or starts-with(normalize-space(.),"3 ") or starts-with(normalize-space(.),"4.") or starts-with(normalize-space(.),"4 ") or starts-with(normalize-space(.),"5.") or starts-with(normalize-space(.),"5 ")] | //h2[contains(text(),"Product Information")]/following-sibling::p[@itemprop="description"]/text()[starts-with(normalize-space(.),"-") or starts-with(normalize-space(.),"1.") or starts-with(normalize-space(.),"1 ") or starts-with(normalize-space(.),"2.") or starts-with(normalize-space(.),"2 ") or starts-with(normalize-space(.),"3.") or starts-with(normalize-space(.),"3 ") or starts-with(normalize-space(.),"4.") or starts-with(normalize-space(.),"4 ") or starts-with(normalize-space(.),"5.") or starts-with(normalize-space(.),"5 ")]
   - name: quantity
-    xpath: //p[contains(text(),"Size")][contains(text(),"Height")][contains(text(),"Width")][contains(text(),"Depth")]
-    regExp: (Size )(.+)(?=Height)
-    regExpReplace: $2
+    xpath: //p[contains(text(),"Size")]
+    regExp: Size (\([^)]+\)[^)]+\))
+    regExpReplace: $1
   - name: secondaryImageTotal
     xpath: count(//ul[@id="thumbnails"]//li[position()>1])
     singleValue: false

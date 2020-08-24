@@ -5,5 +5,6 @@ module.exports = {
     country: 'UK',
     store: 'superdrug',
     domain: 'superdrug.com',
+    noResultsXPath: '//title[contains(.,"Access Denied")]',
   },
 };
