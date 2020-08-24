@@ -31,7 +31,7 @@ fields:
   - name: listPrice
     singleValue: true
   - name: price
-    xpath: //div[@id="product-view-price"]//span[contains(@id, "product-price")]
+    xpath: //div[@id="product-view-price"]//span[@class="price"]
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
@@ -110,7 +110,7 @@ fields:
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
     xpath: //dd[@class="bv-rating-ratio"]/@title
     regExp: (.*?) out of.*
@@ -146,7 +146,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //iframe[@id="flix-iframe0"]/@src
+    xpath: //iframe[@id="vimeo-iframe"]/@src
+    regExp: (.*)player\.(.*)video\/(.*)
+    regExpReplace: $1$2$3
   - name: name
     singleValue: false
     xpath: //*[@class="product-name"]
@@ -278,7 +280,6 @@ fields:
     description:
       Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-
   - name: totalFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Fat content
@@ -287,7 +288,6 @@ fields:
     description:
       Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-
   - name: saturatedFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Saturated Fat content
@@ -296,7 +296,6 @@ fields:
     description:
       Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-
   - name: transFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Trans Fat content
@@ -305,7 +304,6 @@ fields:
     description:
       Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-
   - name: cholesterolPerServingUom
     singleValue: false
     description: Unit of Measure Data for Cholesterol content
@@ -314,7 +312,6 @@ fields:
     description:
       Nutritional Information for Sodium content - Usually based on per
       100g serving
-
   - name: sodiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Sodium content
@@ -323,7 +320,6 @@ fields:
     description:
       Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-
   - name: totalCarbPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Carbohydrate content
@@ -332,7 +328,6 @@ fields:
     description:
       Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-
   - name: dietaryFibrePerServingUom
     singleValue: false
     description: Unit of Measure Data for Dietary Fibre content
@@ -341,7 +336,6 @@ fields:
     description:
       Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-
   - name: totalSugarsPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Sugar content
@@ -350,7 +344,6 @@ fields:
     description:
       Nutritional Information for Protein content - Usually based on per
       100g serving
-
   - name: proteinPerServingUom
     singleValue: false
     description: Unit of Measure Data for Protein
@@ -359,7 +352,6 @@ fields:
     description:
       Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-
   - name: vitaminAPerServingUom
     singleValue: false
     description: Unit of Measure Data for Vitamin A
@@ -368,7 +360,6 @@ fields:
     description:
       Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-
   - name: vitaminCPerServingUom
     singleValue: false
     description: Unit of Measure Data for Vitamin C
@@ -377,7 +368,6 @@ fields:
     description:
       Nutritional Information for Calcium content - Usually based on per
       100g serving
-
   - name: calciumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Calcium
@@ -385,7 +375,6 @@ fields:
     singleValue: false
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-
   - name: ironPerServingUom
     singleValue: false
     description: Unit of Measure Data for Iron
@@ -397,7 +386,6 @@ fields:
     description:
       Nutritional Information for Magnesium content - Usually based on
       per 100g serving
-
   - name: magnesiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Magnesium
@@ -417,7 +405,7 @@ fields:
     xpath: //div[@id="productSpecs"]
   - name: warranty
     singleValue: false
-    xpath: //*[@id="product-attribute-specs-table"]//th[contains(text(), "Manufacturers Express Warranty (months)")]/following-sibling::td
+    xpath: //*[@id="product-attribute-specs-table"]//th[contains(text(), "Manufacturers Express Warranty (months)")]/parent::tr
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
