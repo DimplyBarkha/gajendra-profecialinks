@@ -21,12 +21,15 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
     for (const row of group) {
-      if (row.price) {
-        row.price[0].text = row.price[0].text.replace('.', ',');
+      if (row.productUrl && !row.productUrl[0].text.startsWith('http')) {
+        row.productUrl[0].text = `https:${row.productUrl[0].text}`;
+      }
+      if (row.thumbnail && !row.thumbnail[0].text.startsWith('http')) {
+        row.thumbnail[0].text = `https:${row.thumbnail[0].text}`;
       }
       if (!row.id && row.name) {
         row.id = [{
-          text: row.name[0].text.replace(/.*?\|\s*([^\s]+).*/,'$1'),
+          text: row.name[0].text.replace(/.*?\|\s*([^\s]+).*/, '$1'),
         }];
       }
       rankCounter += 1;
