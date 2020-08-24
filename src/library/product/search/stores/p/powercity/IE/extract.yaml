@@ -9,8 +9,6 @@ fields:
   - name: name
     singleValue: false
     manualSelector: div.productname > a
-    # regExp: (.*?)\s*\...
-    # regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class,"productname")]/a/@href
