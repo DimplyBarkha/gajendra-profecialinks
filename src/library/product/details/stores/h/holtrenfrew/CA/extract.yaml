@@ -41,6 +41,12 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@class="product-details__descr"]/ul/li | //div[@class="product-details__descr"]/li
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="product-details__descr"]/ul/li | //div[@class="product-details__descr"]/li
+  - name: additionalDescBulletInfoCount
+    singleValue: false
+    xpath: count(//div[@class="product-details__descr"]/ul/li | //div[@class="product-details__descr"]/li)
   - name: brandText
     singleValue: false
     xpath: //h2[contains(@class,"product-details__brand text-uppercase")]/a
