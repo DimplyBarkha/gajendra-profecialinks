@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.group.product
+recordXPath: //div[@class="group product"]
+fields:
+  - name: id
+    singleValue: false
+    manualSelector: p#product-code
+  - name: name
+    singleValue: false
+    manualSelector: div.productname > a
+    # regExp: (.*?)\s*\...
+    # regExpReplace: $1
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"productname")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://powercity.ie$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"productimage")]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"productprice")]/text()
+    regExp: .*?\s*(.*)
+    regExpReplace: $1
