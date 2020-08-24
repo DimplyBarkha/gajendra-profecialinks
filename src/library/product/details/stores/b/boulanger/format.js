@@ -68,6 +68,9 @@ const transform = (data) => {
           videoItem.text = videoItem.text.replace(/.*url.*?(https.*)".*/gm, '$1');
         });
       }
+      if (row.name && row.brandText) {
+        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+      }
     }
   }
   return data;
