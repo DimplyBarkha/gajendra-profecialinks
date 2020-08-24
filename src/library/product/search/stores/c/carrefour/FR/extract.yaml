@@ -1,62 +1,27 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@class="product-grid"]/li/article
+recordXPath: //div[@class="pagination"]/following-sibling::ul[@id="data-plp_produits"][1]/li[@class="product-grid-item"]/article
 fields:
   - name: name
-    singleValue: true
-    # xpath: //div[@class='ds-product-card__shimzone--large']//h2
-    xpath: //a[contains(@class,'product-card-title')]/h2
-
-  - name: paid
     singleValue: false
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
+    xpath: //div[@class='ds-product-card__shimzone--large']/a/h2
   - name: brandText
     singleValue: false
     description: The brand name
-    xpath: //div[@class='detail-product']//h3/a[2]
-    example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+    xpath: //div[@class='ds-product-card__shimzone--large']/a/h2
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //a[@class='product-card-image']/@href
+    xpath: //div[@class='ds-product-card__shimzone--large']/a/@href
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
     xpath: //div[@class='ds-product-card--vertical-image']/a/img/@src
-  - name: name
-    singleValue: false
-    description: The product name
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
   - name: mpc
     singleValue: false
     description: The model code of the product
-  - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: false
-    description: The stated aggregate rating
-    xpath: //span[@class='stars']/@data
-  - name: ratingCount
-    singleValue: false
-    description: The number of ratings
-    xpath: //span[@class='avisBaazar']/a
-    regExp: (.*) avis
-    regExpReplace: $1
-  - name: reviewCount
-    singleValue: false
-    description: The number of reviews
-    xpath: //span[@class='avisBaazar']/a
-    regExp: (.*) avis
-    regExpReplace: $1
+    xpath: //@id
   - name: price
     singleValue: false
     description: The offered price for the product
@@ -64,21 +29,7 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[@class='out-price']
-  - name: manufacturer
-    singleValue: false
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: false
-    description: The name of the seller of the item (if available)
-    xpath: //div[@class='sold-by']
-  - name: endorsementText
-    singleValue: false
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
-    # xpath: //div[@class='sold-by']
+    xpath: //div[contains(@class, "product-card-price__crossed-out")]
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -96,12 +47,43 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //div[@class='detail-product']/h3/a[1]/@tcproductclick
+    xpath: //@id
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
-    manualSelector: h2[class='ds-title ds-title--medium ds-title--s']
-  - name: aggregateRating
-    singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER 
+    xpath: //div[@class="ds-product-card__shimzone--large"] | //div[@class="ds-product-card__shimzone--medium"]
+  # - name: aggregateRating
+  #   singleValue: false
+  #   description: The stated aggregate rating normalized to be out of 5
+  #   type: NUMBER 
+  # - name: gtin
+  #   singleValue: false
+  #   description: GTIN code (includes UPC/EAN)
+  # - name: aggregateRatingText
+  #   singleValue: false
+  #   description: The stated aggregate rating
+  # - name: sku
+  #   singleValue: false
+  #   description: The store-specific product identifier
+  # - name: manufacturer
+  #   singleValue: false
+  #   description: Product manufacturer
+  # - name: soldBy
+  #   singleValue: false
+  #   description: The name of the seller of the item (if available)
+  # - name: endorsementText
+  #   singleValue: false
+  #   description: The text that signifies that a product is endorsed
+  # - name: shippingInfo
+  #   singleValue: false
+  #   description: Shipping information for the product
+  # - name: ratingCount
+  #   singleValue: false
+  #   description: The number of ratings
+  #   regExp: (.*) avis
+  #   regExpReplace: $1
+  # - name: reviewCount
+  #   singleValue: false
+  #   description: The number of reviews
+  #   regExp: (.*) avis
+  #   regExpReplace: $1

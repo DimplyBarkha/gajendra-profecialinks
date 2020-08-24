@@ -34,8 +34,13 @@ const transform = (data, context) => {
           el.text = clean(el.text);
         }));
   
-        if (row.thumbnail) {
-          row.thumbnail.forEach(item => {
+        if (row.brandText) {
+          row.brandText.forEach(item => {
+            item.text = item.text.split(' ')[0];
+          });
+        }
+        if (row.productUrl) {
+          row.productUrl.forEach(item => {
             if (item.text.includes('https://www.carrefour.fr')) {
               item.text = item.text;
             } else {
