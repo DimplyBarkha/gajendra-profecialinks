@@ -1,0 +1,97 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: availabilityText
+    singleValue: false
+    xpath: //input[starts-with(@id,"button_cart")]/@value
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: image
+    singleValue: false
+    xpath: //a[@data-ca-image-id and not(contains(@class,'hidden'))]/img[starts-with(@id,"det")]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@data-ca-image-id and not(contains(@class,'hidden'))]/img[starts-with(@id,"det")]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //a[@data-ca-image-id and contains(@class,'hidden')]/img[starts-with(@id,"det")]/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: _url
+    singleValue: false
+  - name: category
+    singleValue: false
+    manualSelector: ul.nav-breadcrumbs > li:first-child ~ li >a
+  - name: nameExtended
+    singleValue: false
+    manualSelector: html[class] title
+    regExp: (.*?)\s*\|
+    regExpReplace: $1
+  - name: listPrice
+    singleValue: false
+    xpath: 
+  - name: price
+    singleValue: false
+    manualSelector: span[id^="line_discounted_price"]
+  - name: brandText
+    singleValue: false
+    xpath: //script[@data-flix-brand]/@data-flix-brand
+  - name: weightNet
+    singleValue: false
+    xpath: //tr[th//*[contains(text(),'Weight')]]/td
+  - name: gtin
+    singleValue: false
+    xpath: //script[@data-flix-ean]/@data-flix-ean
+  - name: sku
+    singleValue: false
+    xpath: //script[@data-flix-sku]/@data-flix-sku
+  - name: variantId
+    singleValue: false
+    manualSelector: small.product-id
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"bv-prs-container")]//dd[contains(@class, 'ratio-count')]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    manualSelector: a[aria-label*="out of"]
+    regExp: (^[^\s]+).*
+    regExpReplace: $1
+  - name: description
+    singleValue: false
+    xpath: //div[@id="content_description"]/div[@class="product-tab-wrapper"]/*[following-sibling::div[@id="flix-inpage"]]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    manualSelector: div#content_description > div.product-tab-wrapper li
+  - name: color
+    singleValue: false
+    xpath: //tr[th//*[contains(text(),'Colour')]]/td
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#flix-inpage
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="flix-inpage"]//img/@src
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"flix-videodiv")]//iframe/@src
+  - name: name
+    singleValue: false
+    manualSelector: h1.product-title
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class,"table-product-features")]//tr[th]
+  - name: warranty
+    singleValue: false
+    xpath: //h6[contains(text(),'Warranty')]/following-sibling::table//tr
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: No
+
+    
+  
