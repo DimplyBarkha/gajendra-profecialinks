@@ -28,6 +28,7 @@ fields:
     manualSelector: span[id^="line_discounted_price"]
   - name: availabilityText
     singleValue: false
+    manualSelector: input[id^="button_cart"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -81,7 +82,7 @@ fields:
     defaultValue: No
   - name: termsAndConditions
     singleValue: false
-    defaultValue: Yes
+    defaultValue: No
   - name: specifications
     singleValue: false
     xpath: //table[contains(@class,"table-product-features")]//tr[th]
