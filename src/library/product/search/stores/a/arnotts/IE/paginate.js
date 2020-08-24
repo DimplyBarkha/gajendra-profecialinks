@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '#product-search-result-items li',
+    loadedSelector: null,
     noResultsXPath: '//p[@class="no-hits-content-results"]',
     openSearchDefinition: {
       indexOffset: 0,
