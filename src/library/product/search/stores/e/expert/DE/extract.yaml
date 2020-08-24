@@ -54,7 +54,8 @@ fields:
     xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
     description: The model code of the product
   - name: gtin
-    singleValue: true
+    singleValue: false
+    # xpath: ancestor::html//script[contains(@class, "widget-ArticleStatus--script")]/text()
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
     singleValue: false
@@ -84,7 +85,10 @@ fields:
     singleValue: true
     description: The text that signifies that a product is endorsed
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
+    xpath: //img[contains(@data-src, "https://cdn.expert.de/fc/bf/04/35963f4d0bf25eb761a1e0f3e2c9cd1f3d/131234%20fms_expert_versandkostenfrei_samsung.png")]/@alt
+    regExp: "Artikel Aktions Symbol"
+    regExpReplace: Versand-kostenfrei
     description: Shipping information for the product
   - name: rank
     singleValue: false

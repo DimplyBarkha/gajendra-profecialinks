@@ -61,7 +61,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'expert',
-    nextLinkSelector: 'a.arrow',
+    nextLinkSelector: 'a.arrow > i.fa-angle-right',
     mutationSelector: null,
     spinnerSelector: 'div.btLoader-overlay',
     loadedSelector: 'div.widget-ArticlePPM, div.widget-Grid--content',
