@@ -24,12 +24,11 @@ module.exports.implementation = async function implementation (
 
     const getXpath = (xpath, prop) => {
       const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-      if (prop && elem && elem.singleNodeValue) return elem.singleNodeValue[prop];
-      return elem ? elem.singleNodeValue : '';
+      let result;
+      if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+      else result = elem ? elem.singleNodeValue : '';
+      return result && result.trim ? result.trim() : result;
     };
-
-    const description = document.querySelectorAll('.product-hero__text-wrapper ul>li');
-    addElementToDocument('added_description', description.length);
 
     // try to get the brand from multiple different sources
     const tm = '™';
@@ -115,13 +114,11 @@ module.exports.implementation = async function implementation (
       }
     }
 
-    // count the additional info addeed bullets
-    const addiDescrp = document.querySelectorAll('.product-specification ul>li');
-    addElementToDocument('added_description', addiDescrp.length);
-
-    // count the number of variants
-    const variants = document.querySelectorAll('.product-hero .swatches img');
-    addElementToDocument('added_variantcount', variants.length || 1);
+    // add the extended name
+    const name = getXpath("//h1[contains(concat(' ',normalize-space(@class),' '),' product-hero__line1 ')]", 'innerText');
+    const variant = getXpath("(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt");
+    const prefix = name && name.includes(brandText) ? '' : brandText;
+    addElementToDocument('added_nameExtended', `${prefix ? prefix + ' - ' : ''}${name}${variant ? ' - ' + variant : ''}`);
 
     // add the type of info the variants are on
     const varInfo = [...getSel('.product-hero .swatches > div', 'classList')] || [];
