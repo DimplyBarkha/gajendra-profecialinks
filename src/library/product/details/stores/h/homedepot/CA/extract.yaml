@@ -31,6 +31,7 @@ fields:
     xpath: //nav[@id="breadcrumbs"]//ol//li[1]/following-sibling::li/a
   - name: color
     singleValue: false
+    xpath: //dt[contains(text(), "Color") or contains(text(), "Colour")]/following-sibling::dd[1]
   - name: colorCode
     singleValue: false
   - name: countryOfOrigin
@@ -61,7 +62,7 @@ fields:
     singleValue: false
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@evtperfname,"product-gallery-container")]/hdca-carousel//div[contains(@class,"image-item")]//img/@alt
+    xpath: //meta[@property="og:image:alt"]/@content
   - name: lbb
     singleValue: false
   - name: lbbPrice
