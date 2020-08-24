@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' breadcrumb ')])[1]//li//a/span
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' breadcrumb ')])[1]//li[position()>1]//a/span
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -46,7 +46,7 @@ fields:
     regExp: (.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'basket')]
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'basket')]//text()
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -65,9 +65,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //title
-    regExp: ([^\s]+)\s(.+)
-    regExpReplace: $1
     defaultValue: Dyson
   - name: quantity #missing
     singleValue: true
@@ -80,12 +77,12 @@ fields:
     regExp: ([0-9,\.]+.+)
     regExpReplace: $1
     xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]]
-  - name: weightGross #localedependent
+  - name: weightGross #localedependent#missing
     singleValue: true
     description: Gross weight as described on the page
     regExp: ([0-9,\.]+.+)
     regExpReplace: $1
-    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]]
+    #xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]]
   - name: gtin #missing
     singleValue: true
     description: GTIN code (includes UPC/EAN)

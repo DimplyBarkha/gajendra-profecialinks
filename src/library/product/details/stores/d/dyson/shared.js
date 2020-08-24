@@ -45,8 +45,14 @@ module.exports.implementation = async function implementation (
     if (!brandText) {
       const imgAlt = getSel('.product-hero__motif-container img', 'alt');
       setBrand(imgAlt);
-      if (!brandText && imgAlt) {
-        const words = imgAlt.split(' ');
+      let imgSrc;
+      try {
+        imgSrc = getSel('.product-hero__motif-container img', 'src')
+        .split('/').slice(-1)[0].split('?')[0].split(/[-_]/).join(' ');
+      } catch (error) {} // can't use image source
+      if (!brandText && (imgAlt || imgSrc)) {
+        const newSrc = imgAlt || imgSrc;
+        const words = newSrc.split(' ');
         const phrase = [];
         let found = false;
         let index = 0;
@@ -76,7 +82,7 @@ module.exports.implementation = async function implementation (
     // add the sku
     if (window.dataLayer && window.dataLayer.primaryProduct) {
       const json = window.dataLayer.primaryProduct;
-      addElementToDocument('added_sku', json.globalProductSKU);
+      addElementToDocument('added_sku', json.globalProductSKU || json.localProductSKU);
       // get the colour as well
       if (json.color) addElementToDocument('added_color', json.color);
       else {
