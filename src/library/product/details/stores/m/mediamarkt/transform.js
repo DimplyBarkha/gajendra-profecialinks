@@ -42,6 +42,11 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          item.text = item.text.includes('http') ? item.text : 'https:' + item.text;
+        });
+      }
       if (row.gtin) {
         console.log('ffdfdfd')
         let jsonStr = row.gtin[0].text.split('var product');
@@ -54,6 +59,12 @@ const transform = (data, context) => {
             text: ean,
           },
         ];
+      }
+      if (row.variants) {
+        row.variants.forEach(item => {
+          item.text = item.text.match(/(?<=-)(.*?)(?=\.)/gm) ? item.text.match(/(?<=-)(.*?)(?=\.)/gm)[0] : '';
+          item.text = item.text.length ? (item.text.match(/[^-]+$/gm) ? item.text.match(/[^-]+$/gm)[0] : '') : '';
+        });
       }
     }
   }
