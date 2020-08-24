@@ -5,8 +5,8 @@ module.exports = {
     country: 'IE',
     store: 'powercity',
     domain: 'powercity.ie',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product.column1',
+    noResultsXPath: '//div[@class="site-error"]',
     zipcode: '',
   },
 };
