@@ -35,7 +35,7 @@ fields:
     manualSelector: div.product.price
   - name: availabilityText
     singleValue: false
-    manualSelector: a.buybutton
+    xpath: //a[@class="buybutton"]/@href
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -87,7 +87,7 @@ fields:
     regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //p[contains(text(),"Key")]/../ul/li | ul[@class="features"]/li
+    manualSelector: div.product.overview li, ul.features > li
   - name: termsAndConditions
     singleValue: false
     xpath: //*[contains(text(),"Terms & Disclaimer")]

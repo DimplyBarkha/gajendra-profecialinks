@@ -43,12 +43,24 @@ const transform = (data) => {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\s*\n*\s*)+/g, ' ');
       }
 
-      if (row.price) {
-        row.price[0].text = row.price[0].text.replace('.', ',');
+      if (row.image && !row.image[0].text.startsWith('http')) {
+        row.image[0].text = `https:${row.image[0].text}`;
       }
 
-      if (row.listPrice) {
-        row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
+      if (row.alternateImages) {
+        row.alternateImages.forEach(image => {
+          if (!image.text.startsWith('http')) {
+            image.text = `https:${image.text}`;
+          }
+        });
+      }
+
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(image => {
+          if (!image.text.startsWith('http')) {
+            image.text = `https:${image.text}`;
+          }
+        });
       }
     }
   }
