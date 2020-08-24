@@ -91,6 +91,9 @@ fields:
     xpath: //h6[contains(text(),'Warranty')]/following-sibling::table//tr
   - name: termsAndConditions
     singleValue: false
+    xpath: //div[@id="content_product_tab_30"]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
 
     
