@@ -27,8 +27,8 @@ const transform = (data, context) => {
           reviewItem.text = reviewItem.text.replace(/[^\d]/gm, '');
         });
       }
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(aggregateRatingItem => {
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(aggregateRatingItem => {
           aggregateRatingItem.text = aggregateRatingItem.text.replace(/(.*)out of.*/gm, '$1').trim();
         });
       }
