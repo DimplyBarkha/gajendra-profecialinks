@@ -32,6 +32,7 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
+    xpath: (//div[contains(@class, "price-old")])[1]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
@@ -81,6 +82,9 @@ fields:
     singleValue: true
     xpath: (//script[contains(text(), "var product")])[1]
     description: GTIN code (includes UPC/EAN)
+  - name: eangtin
+    singleValue: true
+    xpath: (//script[contains(text(), "var product")])[1]
   - name: sku
     singleValue: true
     xpath: //span[@itemprop="sku"]
@@ -109,6 +113,7 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
+    xpath: //span[@itemprop="reviewCount"]
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
@@ -152,6 +157,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
+    xpath: //div[@id='ii_videos']
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -259,9 +265,11 @@ fields:
     description: null
   - name: specifications
     singleValue: true
+    xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Breedte verpakking:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Breedte verpakking:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Hoogte verpakking:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Hoogte verpakking:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Diepte verpakking:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Diepte verpakking:")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Omtrek verpakking:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Omtrek verpakking:")]//following-sibling::dd)[1])
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Fabrieksgarantie:")]//following-sibling::dd)[1]
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -277,9 +285,15 @@ fields:
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
+    xpath: //div[@id="features"]//section//h2|//div[@id="features"]//section//dl
+    description: Any other product information
+  - name: specificationList
+    singleValue: false
+    xpath: //div[@id="features"]//section//h2|//div[@id="features"]//section//dl
     description: Any other product information
   - name: packaging
     singleValue: true
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Verpakkingsinhoud")]//following-sibling::dd)[1]
     description: Packaging information
   - name: additives
     singleValue: true
@@ -292,6 +306,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
+    xpath: //div[contains(@class, "be-ad")]
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
@@ -310,9 +325,11 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
+    xpath: //div[contains(@class, "product-attributes__color-item--active")]/@data-value
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
+    xpath: (//div[contains(@class, "product-attributes__color-item")]/@data-action-id)[1]
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -328,6 +345,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //div[@class="details"]//article//li
     description: null
   - name: prop65Warning
     singleValue: true
@@ -339,18 +357,22 @@ fields:
     example: 4 - 99 years
   - name: energyEfficiency
     singleValue: true
+    xpath: (//dl[contains(@class, "energy-efficiency")]//dt[contains(text(),"Energie-efficiëntieklasse")]//following-sibling::dd)[1]
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
-  # - name: technicalInformationPdfPresent
-  #   singleValue: true
-  #   description: If there is for example a manual in pdf format on the website. ['Yes','No']
-  #   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  #   defaultValue: No
-  # - name: termsAndConditions
-  #   singleValue: true
-  #   description: Terms and conditions information text ['Yes','No']
-  #   defaultValue: No
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    xpath: //footer//a[contains(text(), "Algemene voorwaarden")]
+    description: Terms and conditions information text ['Yes','No']
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
   # - name: privacyPolicy
   #   singleValue: true
   #   description: Privacy Policy information text ['Yes','No']
@@ -363,11 +385,11 @@ fields:
   #   singleValue: true
   #   description: Materials used to make the product
   #   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-  # - name: Image360Present
-  #   singleValue: true
-  #   description: If 360 image is present in the carousel ['Yes','No']
-  #   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  #   defaultValue: No
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
   # - name: imageZoomFeaturePresent
   #   singleValue: true
   #   description: If Zoom feature is available for Main image or images in the

@@ -48,7 +48,6 @@ const transform = (data, context) => {
         });
       }
       if (row.gtin) {
-        console.log('ffdfdfd')
         let jsonStr = row.gtin[0].text.split('var product');
         jsonStr = jsonStr.length === 2 ? jsonStr[1].split(' = ') : [];
         jsonStr = jsonStr.length === 2 ? jsonStr[1].slice(0, -1) : '';
@@ -59,9 +58,23 @@ const transform = (data, context) => {
             text: ean,
           },
         ];
+
+        if (row.eangtin) {
+          row.eangtin = [
+            {
+              text: ean,
+            },
+          ];
+        }
       }
       if (row.variants) {
         row.variants.forEach(item => {
+          item.text = item.text.match(/(?<=-)(.*?)(?=\.)/gm) ? item.text.match(/(?<=-)(.*?)(?=\.)/gm)[0] : '';
+          item.text = item.text.length ? (item.text.match(/[^-]+$/gm) ? item.text.match(/[^-]+$/gm)[0] : '') : '';
+        });
+      }
+      if (row.firstVariant) {
+        row.firstVariant.forEach(item => {
           item.text = item.text.match(/(?<=-)(.*?)(?=\.)/gm) ? item.text.match(/(?<=-)(.*?)(?=\.)/gm)[0] : '';
           item.text = item.text.length ? (item.text.match(/[^-]+$/gm) ? item.text.match(/[^-]+$/gm)[0] : '') : '';
         });
