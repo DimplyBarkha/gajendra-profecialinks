@@ -23,9 +23,9 @@ const transform = (data, context) => {
         row.alternateImages.shift();
       }
       if (row.category) {
-        row.category.forEach(category => {
-          category.text = category.text.replace('Homepage \n \n', '').replace(/\n \n/g, '>').trim();
-        });
+        if (row.category[0].text.includes('Homepage')) {
+          row.category.shift();
+        }
       }
       if (row.specifications) {
         row.specifications.forEach(specifications => {

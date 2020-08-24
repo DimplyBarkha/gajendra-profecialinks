@@ -23,7 +23,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    manualSelector: ul.breadcrumbs__list
+    xpath: //ul[@class='breadcrumbs__list']/li
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -76,7 +76,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //*[contains(text(), 'Model')]/following-sibling::*[1]
+    xpath: //div[@id='mpc']
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -88,7 +88,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@id='mpc']
+    xpath: //*[contains(text(), 'Model')]/following-sibling::*[1]
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
