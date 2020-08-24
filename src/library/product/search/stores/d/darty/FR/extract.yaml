@@ -16,7 +16,7 @@ fields:
     regExpReplace: https://www.darty.com$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="picture_container"]//img/@src
+    xpath: //div[@class="picture_container"]//img/@data-original
   - name: price
     singleValue: false
     manualSelector: div.sale_price>span.darty_normal
