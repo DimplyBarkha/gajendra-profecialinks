@@ -5,29 +5,31 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { url, zipcode } = inputs;
+  const { zipcode } = inputs;
   // const { country, domain, store } = parameters;
-  const zipSelector = 'button[data-tl-id="nd-zip"]';
-  if (zipSelector) {
-    const hasZipLink = await context.evaluate((selector) => !!document.querySelector(selector), zipSelector);
-    if (!hasZipLink) {
-      return;
-    }
+  const menuSelector = 'button[data-tl-id="header-Header-sparkButton"]';
+  const hasMenuLink = await context.evaluate((selector) => !!document.querySelector(selector), menuSelector);
+  if (hasMenuLink) {
+    await context.click(menuSelector);
   }
-  const currentZip = await context.waitForFunction((selector) => {
-    return document.querySelector(selector);
-  }, { timeout: 10000 }, zipSelector);
 
-  if (currentZip !== zipcode) {
+  const zipSelector = 'button[data-tl-id="header-GlobalHeaderSparkMenu-locationButton"]';
+  const hasZipLink = await context.evaluate((selector) => !!document.querySelector(selector), zipSelector);
+  if (!hasZipLink) {
+    return;
+  }
+
+  const currentZip = await context.evaluate((selector) => document.querySelector(selector) ? document.querySelector(selector).innerText : '', zipSelector);     
+   
+  console.log(`Current Location : ${currentZip}`);
+  if (currentZip && !currentZip.includes(zipcode)) {
     await context.click(zipSelector);
-    await context.waitForSelector('div[next-day-location-modal="location-form"]', { timeout: 15000 });
-    await context.setInputValue('div#next-day-location-modal input[data-tl-id="zipcode-form-input"]', zipcode);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    await context.waitForSelector('div#next-day-location-modal button[location-input="submit-button"]', { timeout: 15000 });
-    await context.click('div#next-day-location-modal button[location-input="submit-button"]');
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    await context.goto(url, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
-    console.log(`Selected zip code: ${zipcode}`);
+    await context.waitForSelector('div#vh-location-form', { timeout: 10000 });
+    await context.setInputValue('div#vh-location-form input[data-tl-id="zipcode-form-input"]', zipcode);
+    const updateLocationSelector = 'div#vh-location-form button[data-tl-id="zipcode-form-submit-button"]';
+    await context.waitForSelector(updateLocationSelector, { timeout: 10000 });   
+    await context.clickAndWaitForNavigation(updateLocationSelector, {}, { timeout: 20000 });
+    await context.click('body');    
   }
 }
 
