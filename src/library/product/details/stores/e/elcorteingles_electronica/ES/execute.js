@@ -5,8 +5,8 @@ module.exports = {
     country: 'ES',
     store: 'elcorteingles_electronica',
     domain: 'elcorteingles.es',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'a.product_detail-brand',
+    noResultsXPath: '//div[contains(@class,"artwork image")]',
     zipcode: '',
   },
 };
