@@ -109,7 +109,7 @@ module.exports = {
         await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
         // Seems like the timeout for waitForFunction is not working
-        await new Promise((resolve) => setTimeout(resolve, 10000));
+        await new Promise((resolve) => setTimeout(resolve, 6000));
         try {
           await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 45000 });
         } catch (error) {
