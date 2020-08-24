@@ -8,12 +8,12 @@ module.exports = {
     store: 'conforama',
     zipcode: '',
   },
-  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
-    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
-    await context.solveCaptcha({
-    type: 'RECAPTCHA',
-    inputElement: '.g-recaptcha'
-  }); 
-  
-  },
+  // implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+  //   await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+  //   await context.solveCaptcha({
+  //   type: 'RECAPTCHA',
+  //   inputElement: 'div.recaptcha-checkbox-borderAnimation'
+  // }); 
+  // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  // },
 };

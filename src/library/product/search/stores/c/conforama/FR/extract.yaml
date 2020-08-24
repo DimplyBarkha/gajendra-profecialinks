@@ -1,11 +1,12 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //section[@id="contentSegment"]/article
 fields:
   - name: name
     singleValue: false
-    manualSelector: div[class='detail-product'] h3
+    # manualSelector: div[class='detail-product'] h3
+    xpath: //div[@class='detail-product']/h3
   - name: brandText
     singleValue: false
     description: The brand name
