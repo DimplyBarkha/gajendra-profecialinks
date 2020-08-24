@@ -62,6 +62,10 @@ const transform = (data) => {
           }
         });
       }
+
+      if (row.videos && !row.videos[0].text.startsWith('http')) {
+        row.videos[0].text = `https:${row.videos[0].text}`;
+      }
     }
   }
   return data;
