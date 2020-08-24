@@ -93,6 +93,13 @@ async function implementation (
     // @ts-ignore
     descArr = descArr.join(' || ');
     addElementToDocument('bb_descriptionBullets', descArr);
+    let variantAmount = document.querySelector('ul.product-list.multiple-variants li.product-container.variant span.amount');
+    // @ts-ignore
+    variantAmount = variantAmount ? variantAmount.innerText : '';
+    let variantUnit = document.querySelector('ul.product-list.multiple-variants li.product-container.variant span.unit');
+    // @ts-ignore
+    variantUnit = variantUnit ? variantUnit.innerText : '';
+    addElementToDocument('ii_variantInfo', variantAmount+' '+variantUnit);
     });
     return await context.extract(productDetails, { transform });
     }
