@@ -1,1 +1,4 @@
-extends: ../shared 
+extends: ../shared
+fields:
+  - name: weightNet #localedependent
+    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Poids')]]
