@@ -476,7 +476,7 @@ fields:
     singleValue: true
     description: colour / scent / flavour / other
     xpath: //div[@id='added_variantinformation']
-  - name: firstVariant #todo
+  - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
@@ -487,6 +487,7 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt
   - name: variants
     singleValue: false
     description: null
@@ -527,6 +528,7 @@ fields:
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
     defaultValue: No
+    regExp: (.*)
     regExpReplace: Yes
     xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' footer__list--secondary ')]//li[.//*[contains(text(), 'Privacy')]]
   - name: customerServiceAvailability
