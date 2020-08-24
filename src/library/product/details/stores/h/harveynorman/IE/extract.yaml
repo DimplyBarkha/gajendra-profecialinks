@@ -28,7 +28,7 @@ fields:
     manualSelector: span[id^="line_discounted_price"]
   - name: availabilityText
     singleValue: false
-    manualSelector: input[id^="button_cart"]
+    xpath: //input[starts-with(@id,"button_cart")]/@value
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
