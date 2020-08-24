@@ -19,7 +19,7 @@ fields:
     xpath: //h1[@class="product-header__name"]
     singleValue: false
   - name: description
-    xpath: //p[contains(text(),"Datos del producto") or contains(text(), "Descripción") or contains(text(), "Información del producto")]/following-sibling::div | //div[contains(@class, "pdp-view__additional-info")]//p[contains(@class,"additional-info__titles")]/following-sibling::div
+    xpath: //p[contains(text(), "Descripción") or contains(text(), "Información del producto")]/following-sibling::div | //span[@class="nutrition-more-info__list-name" and contains(text(),"Denominación del alimento")]/following-sibling::span/text() | //div[p[contains(text(), "Información adicional del producto")]]/following-sibling::div
     singleValue: false
   - name: ingredientsList
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p[contains(@class,"ingredients__content")]
@@ -163,7 +163,7 @@ fields:
   - name: gtin
     xpath: //body/@gtin
   - name: promotion
-    xpath: //span[@class='badge__name']|//span[@class="badge__text-food"]
+    xpath: normalize-space(//li[@class="buybox__badge"])
     singleValue: true
   - name: listPrice
     xpath: //span[@class="buybox__price-strikethrough"]
