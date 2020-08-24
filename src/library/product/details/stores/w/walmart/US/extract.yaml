@@ -21,6 +21,10 @@ fields:
 - name: category
   singleValue: false
   xpath: //li[contains(@class,"breadcrumb")]//span[not(contains(@class,'separator'))] | (//div[contains(@class,'breadcrumb-container')])[1]//li[contains(@class,"breadcrumb")]//a
+- name: name
+  singleValue: true
+  # xpath: //h1[@class='prod-ProductTitle font-normal']
+  xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1]  
 - name: nameExtended
   singleValue: true
   xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1]  
@@ -152,9 +156,6 @@ fields:
   manualSelector: script[id='item'], script[id='product']
   regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
   regExpReplace: $2
-- name: name
-  singleValue: true
-  xpath: //h1[@class='prod-ProductTitle font-normal']
 - name: otherSellersName
   singleValue: false
   xpath: //div[@id='added-sellers']//*[@data-tl-id="ProductSellerCardSellerInfo-SellerName"]

@@ -86,10 +86,28 @@ const transform = (data, context) => {
           });
         }
         if (row.description) {
-          row.description = [{ text: row.description[0].text.replace(/\n \n/g, ' || ') }];
+          row.description = [{
+            text: row.description[0].text.replace(/^\s*[\r\n]/gm, ' || '),
+          }];
+
           if (row.description[0].text.includes('Specifications')) {
             row.Specifications = [{ text: row.description[0].text.split('Specifications')[1].replace(' || ', '') }];
           }
+        }
+
+        if (row.descriptionBullets && row.descriptionBullets[0].text === '0') {
+          row.descriptionBullets = [{ text: '' }];
+        }
+
+        if (row.promotion) {
+          const promotionsWithoutRollback = [];
+
+          row.promotion.forEach(promoText => {
+            if (promoText.text !== 'ROLLBACK') {
+              promotionsWithoutRollback.push(promoText.text);
+            }
+          });
+          row.promotion = [{ text: promotionsWithoutRollback }];
         }
 
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
