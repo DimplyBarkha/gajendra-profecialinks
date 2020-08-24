@@ -1,0 +1,747 @@
+input:
+  RPC: 1061376
+  _url: http://sainsburys.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=2db1ee38-a7a6-480e-b5f3-cfd700827bf8/task=f8941bc9-e52d-461a-96e0-ea09d73181c1/06a947f0-87f0-49e8-8173-4f9de565671d.html
+    extractionConfigId: product/details/stores/s/sainsburys/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://assets.sainsburys-groceries.co.uk/gol/1061376/1/640x640.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Sainsbury's Cheese & Onion Crisps 6x25g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Food cupboard
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]/li[1]
+              - text: Crisps, nuts & snacking fruit
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]/li[2]
+              - text: Multipack crisps
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]/li[3]
+              - text: All
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]/li[4]
+            nameExtended:
+              - text: Sainsbury's Cheese & Onion Crisps 6x25g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: 85p
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]
+            price:
+              - text: 85p
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/head[1]/script[10]
+            description:
+              - text: >-
+                  Description
+                   
+
+                   
+                  Cheese & Onion Flavour Potato Crisps
+                   
+
+                   
+
+                   
+
+                   
+                  Vegetarian
+                   
+
+                   
+
+                   
+                  Dietary Information
+                   
+
+                   
+                  Allergy Advice
+
+                  For allergens, see ingredients in bold
+                   
+
+                   
+                  Ingredients
+                   
+
+                   
+                  INGREDIENTS:
+
+                  Potato, High Oleic Sunflower Oil, Dried Onion, Salt, Yeast Extract, Sugar, Onion Powder, Whole Cows' Milk Powder, Flavourings, Garlic Powder, Sunflower Oil, Citric Acid, Colours:Curcumin, Paprika Extract.
+                   
+                  None
+                   
+
+                   
+                  Description: cheese & onion flavour
+                   
+
+                   
+                  Cheese & Onion Flavour Potato Crisps
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Nutrition: cheese & onion flavour
+                   
+                   
+                   
+                   Table of Nutritional Information 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  par 100g 
+
+                  per 25g pack 
+
+                  % based on RI for Average Adult
+                   
+
+                   
+
+                   
+
+                   
+                  Energy
+
+                  2282kJ
+
+                  570kJ
+
+                  -
+                   
+
+                   
+
+                   
+                  Energy
+
+                  548kcal
+
+                  137kcal
+
+                  7%
+                   
+
+                   
+
+                   
+                  Fat
+
+                  36.0g
+
+                  9.0g
+
+                  13%
+                   
+
+                   
+
+                   
+                  Saturates
+
+                  3.1g
+
+                  0.8g
+
+                  4%
+                   
+
+                   
+
+                   
+                  Mono-unsaturates
+
+                  28.5g
+
+                  7.1g
+
+                  -
+                   
+
+                   
+
+                   
+                  Polyunsaturates
+
+                  2.5g
+
+                  0.6g
+
+                  -
+                   
+
+                   
+
+                   
+                  Carbohydrate
+
+                  47.7g
+
+                  11.9g
+
+                  5%
+                   
+
+                   
+
+                   
+                  Sugars
+
+                  1.4g
+
+                  <0.5g
+
+                  -
+                   
+
+                   
+
+                   
+                  Starch
+
+                  46.3g
+
+                  11.6g
+
+                  -
+                   
+
+                   
+
+                   
+                  Fibre
+
+                  4.0g
+
+                  1.0g
+
+                  -
+                   
+
+                   
+
+                   
+                  Protein
+
+                  6.4g
+
+                  1.6g
+
+                  3%
+                   
+
+                   
+
+                   
+                  Salt
+
+                  1.22g
+
+                  0.31g
+
+                  5%
+                   
+
+                   
+
+                   
+
+                   
+                  Reference intake of an average adult (8400 kJ / 2000 kcal)
+                   
+                  This pack contains 1 servings
+                   
+
+                   
+
+                   
+                  Dietary Information: cheese & onion flavour
+                   
+
+                   
+                  Allergy Advice
+
+                  For allergens, see ingredients in bold
+                   
+
+                   
+                  Ingredients: cheese & onion flavour
+                   
+
+                   
+                  INGREDIENTS:Potato, High Oleic Sunflower Oil, Dried Onion, Salt, Yeast Extract, Sugar, Onion Powder, Whole Cows' Milk Powder, Flavourings, Garlic Powder, Sunflower Oil, Citric Acid, Colours:Curcumin, Paprika Extract.
+                   
+
+                   
+                  Country of Origin
+                   
+
+                   
+                  Produced in United Kingdom
+                   
+
+                   
+                  Size
+                   
+
+                   
+                  6 x 25g (150g)
+                   
+
+                   
+                  Storage
+                   
+
+                   
+                  Store in a cool, dry place away from strong light. For best before date: see front of pack. 
+                   
+
+                   
+                  Packaging
+                   
+
+                   
+                  Not Yet Recycled bag C&O
+                   
+                  Not Yet Recycled bag
+                   
+
+                   
+                  Manufacturer
+                   
+
+                   
+                  We are happy to replace this item if it is not satisfactory
+                   
+                  Sainsbury's Supermarkets Ltd.
+                   
+                  33 Holborn, London EC1N 2HT
+                   
+                  Customer services 0800 636262
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Description
+                   
+
+                   
+                  Cheese & Onion Flavour Potato Crisps
+                   
+
+                   
+
+                   
+
+                   
+                  Vegetarian
+                   
+
+                   
+
+                   
+                  Dietary Information
+                   
+
+                   
+                  Allergy Advice
+
+                  For allergens, see ingredients in bold
+                   
+
+                   
+                  Ingredients
+                   
+
+                   
+                  INGREDIENTS:
+
+                  Potato, High Oleic Sunflower Oil, Dried Onion, Salt, Yeast Extract, Sugar, Onion Powder, Whole Cows' Milk Powder, Flavourings, Garlic Powder, Sunflower Oil, Citric Acid, Colours:Curcumin, Paprika Extract.
+                   
+                  None
+                   
+
+                   
+                  Description: cheese & onion flavour
+                   
+
+                   
+                  Cheese & Onion Flavour Potato Crisps
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Nutrition: cheese & onion flavour
+                   
+                   
+                   
+                   Table of Nutritional Information 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  par 100g 
+
+                  per 25g pack 
+
+                  % based on RI for Average Adult
+                   
+
+                   
+
+                   
+
+                   
+                  Energy
+
+                  2282kJ
+
+                  570kJ
+
+                  -
+                   
+
+                   
+
+                   
+                  Energy
+
+                  548kcal
+
+                  137kcal
+
+                  7%
+                   
+
+                   
+
+                   
+                  Fat
+
+                  36.0g
+
+                  9.0g
+
+                  13%
+                   
+
+                   
+
+                   
+                  Saturates
+
+                  3.1g
+
+                  0.8g
+
+                  4%
+                   
+
+                   
+
+                   
+                  Mono-unsaturates
+
+                  28.5g
+
+                  7.1g
+
+                  -
+                   
+
+                   
+
+                   
+                  Polyunsaturates
+
+                  2.5g
+
+                  0.6g
+
+                  -
+                   
+
+                   
+
+                   
+                  Carbohydrate
+
+                  47.7g
+
+                  11.9g
+
+                  5%
+                   
+
+                   
+
+                   
+                  Sugars
+
+                  1.4g
+
+                  <0.5g
+
+                  -
+                   
+
+                   
+
+                   
+                  Starch
+
+                  46.3g
+
+                  11.6g
+
+                  -
+                   
+
+                   
+
+                   
+                  Fibre
+
+                  4.0g
+
+                  1.0g
+
+                  -
+                   
+
+                   
+
+                   
+                  Protein
+
+                  6.4g
+
+                  1.6g
+
+                  3%
+                   
+
+                   
+
+                   
+                  Salt
+
+                  1.22g
+
+                  0.31g
+
+                  5%
+                   
+
+                   
+
+                   
+
+                   
+                  Reference intake of an average adult (8400 kJ / 2000 kcal)
+                   
+                  This pack contains 1 servings
+                   
+
+                   
+
+                   
+                  Dietary Information: cheese & onion flavour
+                   
+
+                   
+                  Allergy Advice
+
+                  For allergens, see ingredients in bold
+                   
+
+                   
+                  Ingredients: cheese & onion flavour
+                   
+
+                   
+                  INGREDIENTS:Potato, High Oleic Sunflower Oil, Dried Onion, Salt, Yeast Extract, Sugar, Onion Powder, Whole Cows' Milk Powder, Flavourings, Garlic Powder, Sunflower Oil, Citric Acid, Colours:Curcumin, Paprika Extract.
+                   
+
+                   
+                  Country of Origin
+                   
+
+                   
+                  Produced in United Kingdom
+                   
+
+                   
+                  Size
+                   
+
+                   
+                  6 x 25g (150g)
+                   
+
+                   
+                  Storage
+                   
+
+                   
+                  Store in a cool, dry place away from strong light. For best before date: see front of pack. 
+                   
+
+                   
+                  Packaging
+                   
+
+                   
+                  Not Yet Recycled bag C&O
+                   
+                  Not Yet Recycled bag
+                   
+
+                   
+                  Manufacturer
+                   
+
+                   
+                  We are happy to replace this item if it is not satisfactory
+                   
+                  Sainsbury's Supermarkets Ltd.
+                   
+                  33 Holborn, London EC1N 2HT
+                   
+                  Customer services 0800 636262
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]
+            quantity:
+              - text: 6 x 25g (150g)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[9]
+            variantId:
+              - text: "1061376"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[3]/div[1]/p[1]/span[1]
+            sku:
+              - text: "1061376"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[3]/div[1]/p[1]/span[1]
+            ratingCount:
+              - text: "14"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            aggregateRating:
+              - text: "3.2857"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/a[2]/span[1]/@aria-label
+            ingredientsList:
+              - text: >-
+                  INGREDIENTS:
+
+                  Potato, High Oleic Sunflower Oil, Dried Onion, Salt, Yeast Extract, Sugar, Onion Powder, Whole Cows' Milk Powder, Flavourings, Garlic Powder, Sunflower Oil, Citric Acid, Colours:Curcumin, Paprika Extract.
+                   
+                  None
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[3]
+            servingSize:
+              - text: par 100g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]
+            totalFatPerServing:
+              - text: 36.0g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            saturatedFatPerServing:
+              - text: 3.1g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            dietaryFibrePerServing:
+              - text: 4.0g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[1]
+            saltPerServing:
+              - text: 1.22g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[12]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[12]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+            proteinPerServing:
+              - text: 6.4g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[1]
+            totalCarbPerServing:
+              - text: 47.7g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            pricePerUnit:
+              - text: "57p "
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/span[1]
+            pricePerUnitUom:
+              - text: " 100g"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/span[1]
+            gtin:
+              - text: "0000001061376"
+                xpath: /html/body/div[2]
+            eangtin:
+              - text: "0000001061376"
+                xpath: /html/body/div[2]
+            calciumPerServingUom:
+              - text: mg/l
+            magnesiumPerServingUom:
+              - text: mg/l
+            descriptionBullets:
+              - text: "2"
+            manufacturer:
+              - text: We are happy to replace this item if it is not satisfactory Sainsbury's
+                  Supermarkets Ltd. 33 Holborn, London EC1N 2HT Customer
+                  services 0800 636262
+            legalDisclaimer:
+              - text: The above details have been prepared to help you select suitable products.
+                  Products and their ingredients are liable to change.
+            allergyAdvice:
+              - text: Allergy AdviceFor allergens, see ingredients in bold
+            caloriesPerServing:
+              - text: 2282kJ/548kcal
+            totalSugarsPerServing:
+              - text: 1.4g
+            calciumPerServing:
+              - text: ""
+            dietaryInformation:
+              - text: Allergy AdviceFor allergens, see ingredients in bold
+            storage:
+              - text: "Store in a cool, dry place away from strong light. For best before date:
+                  see front of pack."
+            packaging:
+              - text: Not Yet Recycled bag C&O Not Yet Recycled bag
+            countryOfOrigin:
+              - text: Produced in United Kingdom
+            productOtherInformation:
+              - text: ""
+        xpath: /
+    timestamp: 1597758395166
