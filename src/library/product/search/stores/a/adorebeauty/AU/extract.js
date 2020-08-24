@@ -1,3 +1,5 @@
+const { transform } = require('../format');
+
 /**
  *
  * @param { { } } inputs
@@ -5,6 +7,7 @@
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
+
 async function implementation (
   inputs,
   parameters,
@@ -29,7 +32,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'adorebeauty',
-    transform: null,
+    transform,
     domain: 'adorebeauty.com.au',
     zipcode: '',
   },
