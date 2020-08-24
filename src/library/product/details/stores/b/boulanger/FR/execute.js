@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'boulanger',
     domain: 'boulanger.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[id="pp"]',
+    noResultsXPath: '//div[@class="blocListe"]',
     zipcode: '',
   },
 };

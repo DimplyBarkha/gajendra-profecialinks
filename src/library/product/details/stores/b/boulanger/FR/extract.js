@@ -16,8 +16,13 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  // Fetching brand from JSON and if not available then first word from the product name
-  await context.evaluate(async function () {
+  await context.evaluate(async function (url) {
+    // Website opens up listings page in case of some product URLs...Hence throwing error manually if listings page opens up
+    const productPageFlag = document.querySelector('div[class="blocListe"]');
+    if (productPageFlag) {
+      throw new Error('Details page cannot be loaded....Listings page appeared for the following URL...' + url);
+    }
+
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -73,7 +78,7 @@ async function implementation (
       description = description ? description + ' | ' + specDescription : specDescription;
       addHiddenDiv('added-description', description);
     }
-  });
+  }, [inputs.url]);
   await new Promise(resolve => setTimeout(resolve, 20000));
   return await context.extract(productDetails, { transform });
 }
