@@ -22,7 +22,7 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
-    xpath: //p[@class="product-name"]/a/@href
+    xpath: (//a[@class="product-img"]/@href)[1]
     regExp: (.+)
     regExpReplace: https://beauty.shoppersdrugmart.ca$1
     description: The URL for the product details page
