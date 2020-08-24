@@ -172,9 +172,22 @@ const implementation = async (
     available.style.display = 'none';
 
     const purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end');
+    const numOptions = purchaseOptions.length;
 
-    if (purchaseOptions.length > 0) {
-      available.textContent = 'In Stock';
+    // 45232 only
+    const shippingAvailable = document.evaluate('count(//span[contains(@class,"PurchaseOptions") and contains(text(),"Ship")]/parent::span/parent::div/following-sibling::div/data)>0', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
+    // end
+
+    if (numOptions > 0) {
+      // available.textContent = 'In Stock';
+
+      // 45232 only
+      if (numOptions === 3 || shippingAvailable) {
+        available.textContent = 'In Stock';
+      } else {
+        available.textContent = 'In Store Only';
+      }
+      // end
     } else {
       available.textContent = 'Out of Stock';
     }
