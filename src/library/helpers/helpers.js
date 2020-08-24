@@ -4,28 +4,40 @@ module.exports.Helpers = class {
     this.context = context;
   }
 
-  // Function which adds an element to the document, if the element is an array it adds it as a list
+  // Function which adds an element to the document
   async addItemToDocument (key, value, { parentID = '', type = 'div', clss = '' } = {}) {
     const inputs = { key, value, parentID, type, clss };
     await this.context.evaluate((inputs) => {
-      const addItemToDocument = ({ key, value, parentID, type, clss }) => {
-        const keyPrefix = '';
-        const id = `${keyPrefix}${key}`;
+      const addItemToDocument = ({ key: id, value, parentID, type, clss }) => {
         const htmlString = `<${type} id="${id}" ${clss ? `class="${clss}" ` : ''}></${type}>`;
         const root = parentID ? document.querySelector(parentID) : document.body;
         root.insertAdjacentHTML('beforeend', htmlString);
-        if (Array.isArray(value)) {
-          const innerHTML = value.reduce((acc, val) => {
+        // This allows to remove all potential HTML markers from the text
+        document.querySelector(`#${id}`).innerHTML = value;
+        document.querySelector(`#${id}`).textContent = document.querySelector(`#${id}`).innerText;
+      };
+      addItemToDocument(inputs);
+    }, inputs);
+  }
+
+  // Function which adds an array to the document as a list
+  async addArrayToDocument (key, values, { parentID = '', type = 'div', clss = '' } = {}) {
+    const inputs = { key, values, parentID, type, clss };
+    await this.context.evaluate((inputs) => {
+      const addArrayToDocument = ({ key: id, values, parentID, type, clss }) => {
+        const htmlString = `<${type} id="${id}" ${clss ? `class="${clss}" ` : ''}></${type}>`;
+        const root = parentID ? document.querySelector(parentID) : document.body;
+        root.insertAdjacentHTML('beforeend', htmlString);
+        if (Array.isArray(values)) {
+          const innerHTML = values.reduce((acc, val) => {
             return `${acc}<li>${val}</li>`;
           }, '<ul>') + '</ul>';
           document.querySelector(`#${id}`).innerHTML = innerHTML;
         } else {
-          // This allows to remove all potential HTML markers from the text
-          document.querySelector(`#${id}`).innerHTML = value;
-          document.querySelector(`#${id}`).textContent = document.querySelector(`#${id}`).innerText;
+          throw new Error('The provided values are not an array.');
         }
       };
-      addItemToDocument(inputs);
+      addArrayToDocument(inputs);
     }, inputs);
   }
 
@@ -65,7 +77,7 @@ module.exports.Helpers = class {
     await Promise.all([
       this.context.waitForNavigation({ timeout }),
       !input ? this.context.click(selector) : this.context.setInputValue(selector, input),
-    ]);
+    ]).catch(e => {});// do nothing if an error arise
   }
 
   // Function which checks a selecor
