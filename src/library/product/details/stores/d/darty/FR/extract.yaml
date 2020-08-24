@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture")]//img[contains(@src,".jpg")]/@src
+    xpath: //div[contains(@class,"no_flag_picture") and not(contains(@style,"none"))]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture")]//img[contains(@src,".jpg")]/@alt
+    xpath: //div[contains(@class,"no_flag_picture") and not(contains(@style,"none"))]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture")]//img[contains(@src,".png")]/@data-src
+    xpath: //div[contains(@class,"no_flag_picture") and contains(@style,"none")]//img/@data-src
   - name: category
     singleValue: false
     xpath: //div[@id="header-breadcrumb-zone"]/ul//a[text()]
@@ -72,7 +72,7 @@ fields:
     xpath: //tr[th[contains(text(),"Couleur")]]//li
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src
+    xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value
   - name: name
     singleValue: false
     manualSelector: span.product_name
@@ -88,10 +88,12 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //a[*[contains(text(),"Télécharger la notice")]]/@href
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
     singleValue: false
-    defaultValue: Yes
+    defaultValue: No
   - name: specifications
     singleValue: false
     manualSelector: div#product_caracteristics tr
