@@ -1,0 +1,201 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@class="pd__wrapper skipto-content__focus"]//img/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"pd__additional__container")]//img[not(contains(@class,"pd__additional__image__active"))]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[@class="pd__image"]/@alt
+  - name: _url
+    xpath: //script[@type = "application/ld+json"][contains(text(),"url")]
+    regExp: >-
+      url":\s*"([^"]+)
+    regExpReplace: $1
+  - name: category
+    singleValue: false
+    xpath: //nav//ol//li
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@data-test-id="pd-product-title"]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class="pd__cost"]/div
+  - name: price
+    singleValue: true
+    xpath: //div[@class="pd__cost"]/div
+    defaultValue: £
+  - name: availabilityText
+    xpath: //script[@type = "application/ld+json"][contains(text(),"https://schema.org/InStock")]
+    regExp: .+
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+  - name: description
+    xpath: //productcontent//htmlcontent | //div[contains(@class,"pd-details")]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@id="mainPart"][1]/div[1]//div | //div[@class="productText"][1]//p[contains(text()," ")])
+  - name: brandText
+    singleValue: true
+    xpath: //div[@id="brandValue"]
+  - name: manufacturer
+    singleValue: true
+    xpath: normalize-space(//h3[normalize-space(text())="Manufacturer"]/following-sibling::div[1])
+  - name: quantity
+    singleValue: true
+    xpath: //h3[contains(.,"Size")][@class="productDataItemHeader"]/following-sibling::div[@class="productText"][1]
+  - name: variantId
+    singleValue: true
+    xpath: //span[@id="productSKU"]
+  - name: sku
+    singleValue: true
+    xpath: //span[@id="productSKU"]
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: normalize-space(//div[contains(@class,"pd__disclaimer")]//p[position()>1])
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@data-test-id="review-count"]
+    regExp: \d+
+  - name: aggregateRating
+    singleValue: true
+    xpath: //a[@class="star-rating-link"][2]/span/@aria-label
+    defaultValue: '0.0'
+    regExp: >-
+      [^\s]+(?= stars)
+  - name: ingredientsList
+    singleValue: true
+    xpath:  //h3[contains(.,"Ingredients")]/following-sibling::div[1] | //ul[contains(@class,"productIngredients")]
+  - name: allergyAdvice
+    singleValue: false
+    xpath:  normalize-space(//h3[contains(text(),'Dietary Information')]/following-sibling::div[1])
+  - name: numberOfServingsInPackage
+    singleValue: true
+    xpath:
+  - name: caloriesPerServing
+    xpath: concat(//th[contains(text(),'Energy')]/following-sibling::td[1],'/',//th[contains(text(),'Energy')]/../../tr[2]/td[1][contains(.,'cal')] | //th[contains(text(),'Energy Kcal')]/following-sibling::td[1] | //th[contains(text(),'Energy (kcal)')]/following-sibling::td[1] | //th[contains(text(),'(kcal)')]/following-sibling::td[1]|//th[contains(text(),'Energy kcal')]/following-sibling::td[1]|//th[contains(text(),'Energy')]/../../tr[2]/td[1][contains(.,'KJ')])
+  - name: servingSize
+    singleValue: true
+    xpath: //table[contains(@class,"nutritionTable")]/thead/tr[1]//th[2]
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    xpath:
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //th[normalize-space(text())="Fat"]/following-sibling::td[1]|//th[contains(.,"Fat (g)")]/following-sibling::td[1]
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: //th[normalize-space(text())='Saturates']/following-sibling::td[1] | //th[normalize-space(text())='of which Saturates']/following-sibling::td[1] | //th[normalize-space(text())='(of which saturates)']/following-sibling::td[1] | //th[contains(text(),'of which Saturates')]/following-sibling::td[1] | //th[contains(text(),'of which saturates')]/following-sibling::td[1] | //th[contains(text(),'of which, saturates')]/following-sibling::td[1] | //th[contains(text(),'- Of which Saturates')]/following-sibling::td[1] | //th[contains(text(),"of which:")]/following-sibling::td[1]
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //th[normalize-space(text())="Saturates"]/following-sibling::td[1] | //th[normalize-space(text())="of which Saturates"]/following-sibling::td[1]
+    regExp: >-
+      [^\d]+$
+  - name: transFatPerServing
+    singleValue: true
+    xpath:
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //th[normalize-space(text())="Fibre"]/following-sibling::td[1]|//th[contains(.,"Fibre")]/following-sibling::td[1]
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //th[normalize-space(text())="Fibre"]/following-sibling::td[1]|//th[contains(.,"Fibre")]/following-sibling::td[1]
+    regExp: >-
+      [^\d]+$
+  - name: saltPerServing
+    singleValue: false
+    xpath: //th[normalize-space(text())="Salt"]/following-sibling::td[1]|//th[contains(.,"Salt")]/following-sibling::td[1]
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //th[normalize-space(text())="Salt"]/following-sibling::td[1]|//th[contains(.,"Salt")]/following-sibling::td[1]
+    regExp: >-
+      [^\d]+$
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //th[contains(text(),"Fat")]/following-sibling::td[1]
+    regExp: >-
+      [a-zA-Z]{1,2}$
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: normalize-space(//th[normalize-space(text())="Sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which sugars"]/following-sibling::td[1] | //th[normalize-space(text())="of which Sugars"]/following-sibling::td[1] | //th[contains(text(),'which sugars')]/following-sibling::td[1] | //th[contains(text(),'Sugars')]/following-sibling::td[1] | //th[contains(text(),'sugars*')]/following-sibling::td[1] | //th[contains(text(),'sugars')]/following-sibling::td[1])
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //th[contains(text(),"Sugars")]/following-sibling::td[1] | //th[contains(text(),"of which sugars")]/following-sibling::td[1]
+    regExp: >-
+      [^\d]+$
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //th[normalize-space(text())="Protein"]/following-sibling::td[1]|//th[contains(.,"Protein g") or contains(.,"Protein")]/following-sibling::td[1]
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //th[normalize-space(text())="Protein"]/following-sibling::td[1]|//th[contains(.,"Protein g") or contains(.,"Protein")]/following-sibling::td[1]
+    regExp: >-
+      [a-zA-Z]{1,2}$
+  - name: calciumPerServing
+    singleValue: true
+    xpath: //th[contains(.,"Calcium")]/following-sibling::td[1]|//th[normalize-space(text())="Calcium"]/following-sibling::td[1]
+  - name: calciumPerServingUom
+    defaultValue: mg/l
+  - name: dietaryInformation
+    singleValue: true
+    xpath: normalize-space(//h3[normalize-space(text())="Dietary Information"]/following-sibling::div[1])
+  - name: storage
+    singleValue: true
+    xpath: normalize-space(//h3[normalize-space(text())="Storage"]/following-sibling::div[1])
+  - name: packaging
+    singleValue: true
+    xpath: normalize-space(//h3[normalize-space(text())="Packaging"]/following-sibling::div[1])
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: normalize-space(//h3[normalize-space(text())="Country of Origin"]/following-sibling::div[1])
+  - name: alcoholContent
+    xpath: //h3[contains(text(),"Alcohol")]/following-sibling::div[1]/p
+    regExp: Alcohol\sby\svolume:\s(\d+\.?\d+?%)
+    regExpReplace: $1
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //th[contains(text(),"Carbohydrate")]/following-sibling::td[1]
+  - name: totalCarbPerServingUom
+    singleValue: true
+    xpath: //th[contains(text(),"Carbohydrate")]/following-sibling::td[1]
+    regExp: >-
+      [a-zA-Z]{1,2}$
+  - name: pricePerUnit2
+    xpath: //span[@class="pd__cost__per-unit"]
+    regExp: (.+)(/)(( \d+)?(each)?(\s)?)(\w{1,3})?
+    regExpReplace: $1$2$3
+  - name: pricePerUnitUom
+    xpath: //span[@class="pd__cost__per-unit"]
+    regExp: (.+)(/)(( \d+)?(each)?(\s)?)(\w{1,3})?
+    regExpReplace: $7
+  - name: directions
+    xpath: //h3[contains(text(),'Preparation and Safety')]/following-sibling::div[1] | //h3[contains(text(),'Preparation')]/following-sibling::div[1]
+  - name: warnings
+    xpath: //h3[contains(text(),'Safety Information')]/following-sibling::div | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Warning:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Caution:') or contains(.,"CAUTION")] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'WARNING:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Serving suggestion:')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Warnings')] | //h3[contains(text(),'Preparation')]/following-sibling::div/div/p[contains(text(),'Keep out of the reach of children.')]|//h3[contains(.,'Alcohol')]/following-sibling::div
+  - name: productOtherInformation
+    xpath: normalize-space(//h3[contains(text(),'Alcohol')]/following-sibling::div[1])
+  - name: gtin
+    xpath: //div[@id="eanValue"]
+  - name: eangtin
+    xpath: //div[@id="eanValue"]
+  - name: promotion
+    xpath: //li[@class="pd__promotion"]//div[@class="promotion-message"][1]
+    regExp: (.+):(.+)
+    regExpReplace: $2
+  - name: vitaminCPerServing
+    xpath: //th[contains(text(),'Vitamin C')]/following-sibling::td[1] | //th[contains(text(),'Vit C')]/following-sibling::td[1]
+  - name: sodiumPerServing
+    xpath: //th[contains(text(),'Sodium')]/following-sibling::td[1]
+  - name: ironPerServing
+    xpath: //th[contains(text(),'Iron')]/following-sibling::td[1]
+  - name: vitaminAPerServing
+    xpath: //th[contains(text(),'Vitamin A')]/following-sibling::td[1] | //th[contains(text(),'Vit A')]/following-sibling::td[1]
+  - name: magnesiumPerServing
+    xpath: //th[contains(text(),'Magnesium')]/following-sibling::td[1]
+  - name: magnesiumPerServingUom
+    defaultValue: mg/l

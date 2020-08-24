@@ -1,0 +1,921 @@
+input:
+  RPC: 1021080
+  _url: http://sainsburys.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=2db1ee38-a7a6-480e-b5f3-cfd700827bf8/task=89e4e594-8f5a-48d9-b038-7e063663ffff/4cf14305-b172-4e7f-9fd9-ad5eca9a458f.html
+    extractionConfigId: product/details/stores/s/sainsburys/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://assets.sainsburys-groceries.co.uk/gol/1021080/1/640x640.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Sainsbury's Lovetts Vanilla Flavour Soft Scoop 2L
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Frozen
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]/li[1]
+              - text: Ice cream & ice
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]/li[2]
+              - text: All ice creams
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/nav[1]/ol[1]/li[3]
+            nameExtended:
+              - text: Sainsbury's Lovetts Vanilla Flavour Soft Scoop 2L
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: £1.00
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]
+            price:
+              - text: £1.00
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/head[1]/script[10]
+            description:
+              - text: >-
+                  Description
+                   
+
+                   
+                  Vanilla flavour ice cream
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Nutrition
+                   
+
+                   
+
+                   
+                  per scoop (42g) Typical Values
+                   
+
+                   
+
+                   
+
+                   
+                  ENERGY
+                   
+                  232kJ
+                   
+                  55kcal
+                   
+
+                   
+
+                   
+                  3%
+                   
+
+                   
+                  white
+                   
+
+                   
+
+                   
+
+                   
+                  FAT
+                   
+                  2.2g
+                   
+
+                   
+
+                   
+                  3%
+                   
+
+                   
+                  amber
+                   
+
+                   
+
+                   
+
+                   
+                  SATURATES
+                   
+                  2.0g
+                   
+
+                   
+
+                   
+                  10%
+                   
+
+                   
+                  amber
+                   
+
+                   
+
+                   
+
+                   
+                  SUGARS
+                   
+                  7.5g
+                   
+
+                   
+
+                   
+                  8%
+                   
+
+                   
+                  amber
+                   
+
+                   
+
+                   
+
+                   
+                  SALT
+                   
+                  0.07g
+                   
+
+                   
+
+                   
+                  1%
+                   
+
+                   
+                  green
+                   
+
+                   
+
+                   
+
+                   
+                  % of the Reference Intakes
+                   
+                  Typical Values per 100g : Energy 549 kJ/131 kcal
+                   
+                  RI= Reference intake of an average adult (8400 kJ/2000 kcal)
+                   
+                   
+                   
+                   
+                   Table of Nutritional Information 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Typical Values
+
+                  per 100g 
+
+                  per scoop (42g) 
+
+                  % based on RI for Average Adult
+                   
+
+                   
+
+                   
+
+                   
+                  Energy
+
+                  549kJ
+
+                  232kJ
+
+                  -
+                   
+
+                   
+
+                   
+                  Energy
+
+                  131kcal
+
+                  55kcal
+
+                  3%
+                   
+
+                   
+
+                   
+                  Fat
+
+                  5.3g
+
+                  2.2g
+
+                  3%
+                   
+
+                   
+
+                   
+                  Saturates
+
+                  4.7g
+
+                  2.0g
+
+                  10%
+                   
+
+                   
+
+                   
+                  Mono-unsaturates
+
+                  0.2g
+
+                  <0.1g
+
+                  -
+                   
+
+                   
+
+                   
+                  Polyunsaturates
+
+                  <0.1g
+
+                  <0.1g
+
+                  -
+                   
+
+                   
+
+                   
+                  Carbohydrate
+
+                  17.8g
+
+                  7.5g
+
+                  3%
+                   
+
+                   
+
+                   
+                  Sugars
+
+                  17.8g
+
+                  7.5g
+
+                  8%
+                   
+
+                   
+
+                   
+                  Starch
+
+                  0g
+
+                  0g
+
+                  -
+                   
+
+                   
+
+                   
+                  Fibre
+
+                  1.2g
+
+                  0.5g
+
+                  -
+                   
+
+                   
+
+                   
+                  Protein
+
+                  2.5g
+
+                  1.0g
+
+                  2%
+                   
+
+                   
+
+                   
+                  Salt
+
+                  0.18g
+
+                  0.07g
+
+                  1%
+                   
+
+                   
+
+                   
+
+                   
+                  Reference intake of an average adult (8400 kJ / 2000 kcal)
+                   
+                  This pack contains 20 servings
+                   
+
+                   
+
+                   
+                  Dietary Information
+                   
+
+                   
+                  Allergy Advice
+
+                  For allergens, see ingredients in bold
+                   
+
+                   
+                  Ingredients
+                   
+
+                   
+                  INGREDIENTS: Reconstituted Skimmed Cows’ Milk Concentrate, Sugar, Glucose Syrup, Coconut Oil, Whey Powder (Cows' Milk), Water, Dextrose, Emulsifier: Mono- and Diglycerides of Fatty Acids; Flavourings, Stabilisers: Guar Gum, Sodium Alginate; Colour: Carotenes.
+                   
+
+                   
+                  Country of Origin
+                   
+
+                   
+                  Produced in United Kingdom
+                   
+
+                   
+                  Size
+                   
+
+                   
+                  2L e / 846g
+                   
+
+                   
+                  Storage
+                   
+
+                   
+                  How to store For best before end: see side of tub Keep frozen Do not re-freeze once defrosted Food freezer Until best before date (at -18°C) Star marked frozen food compartment {3 Stars} Until best before date (at -18°C) {2 Stars} 1 month (at -12°C) {1 Star} 1 week (at -6°C). 
+                   
+                  Keep frozen 
+                   
+
+                   
+                  Packaging
+                   
+
+                   
+                  Plastic - PS lid
+                   
+                  Plastic - PS tub
+                   
+                  Self Adhesive Plain Paper label
+                   
+
+                   
+                  Manufacturer
+                   
+
+                   
+                  We are happy to replace this item if it is not satisfactory
+                   
+                  Sainsbury's Supermarkets Ltd.
+                   
+                  33 Holborn, London EC1N 2HT
+                   
+                  Customer services 0800 636262
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Description
+                   
+
+                   
+                  Vanilla flavour ice cream
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Nutrition
+                   
+
+                   
+
+                   
+                  per scoop (42g) Typical Values
+                   
+
+                   
+
+                   
+
+                   
+                  ENERGY
+                   
+                  232kJ
+                   
+                  55kcal
+                   
+
+                   
+
+                   
+                  3%
+                   
+
+                   
+                  white
+                   
+
+                   
+
+                   
+
+                   
+                  FAT
+                   
+                  2.2g
+                   
+
+                   
+
+                   
+                  3%
+                   
+
+                   
+                  amber
+                   
+
+                   
+
+                   
+
+                   
+                  SATURATES
+                   
+                  2.0g
+                   
+
+                   
+
+                   
+                  10%
+                   
+
+                   
+                  amber
+                   
+
+                   
+
+                   
+
+                   
+                  SUGARS
+                   
+                  7.5g
+                   
+
+                   
+
+                   
+                  8%
+                   
+
+                   
+                  amber
+                   
+
+                   
+
+                   
+
+                   
+                  SALT
+                   
+                  0.07g
+                   
+
+                   
+
+                   
+                  1%
+                   
+
+                   
+                  green
+                   
+
+                   
+
+                   
+
+                   
+                  % of the Reference Intakes
+                   
+                  Typical Values per 100g : Energy 549 kJ/131 kcal
+                   
+                  RI= Reference intake of an average adult (8400 kJ/2000 kcal)
+                   
+                   
+                   
+                   
+                   Table of Nutritional Information 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Typical Values
+
+                  per 100g 
+
+                  per scoop (42g) 
+
+                  % based on RI for Average Adult
+                   
+
+                   
+
+                   
+
+                   
+                  Energy
+
+                  549kJ
+
+                  232kJ
+
+                  -
+                   
+
+                   
+
+                   
+                  Energy
+
+                  131kcal
+
+                  55kcal
+
+                  3%
+                   
+
+                   
+
+                   
+                  Fat
+
+                  5.3g
+
+                  2.2g
+
+                  3%
+                   
+
+                   
+
+                   
+                  Saturates
+
+                  4.7g
+
+                  2.0g
+
+                  10%
+                   
+
+                   
+
+                   
+                  Mono-unsaturates
+
+                  0.2g
+
+                  <0.1g
+
+                  -
+                   
+
+                   
+
+                   
+                  Polyunsaturates
+
+                  <0.1g
+
+                  <0.1g
+
+                  -
+                   
+
+                   
+
+                   
+                  Carbohydrate
+
+                  17.8g
+
+                  7.5g
+
+                  3%
+                   
+
+                   
+
+                   
+                  Sugars
+
+                  17.8g
+
+                  7.5g
+
+                  8%
+                   
+
+                   
+
+                   
+                  Starch
+
+                  0g
+
+                  0g
+
+                  -
+                   
+
+                   
+
+                   
+                  Fibre
+
+                  1.2g
+
+                  0.5g
+
+                  -
+                   
+
+                   
+
+                   
+                  Protein
+
+                  2.5g
+
+                  1.0g
+
+                  2%
+                   
+
+                   
+
+                   
+                  Salt
+
+                  0.18g
+
+                  0.07g
+
+                  1%
+                   
+
+                   
+
+                   
+
+                   
+                  Reference intake of an average adult (8400 kJ / 2000 kcal)
+                   
+                  This pack contains 20 servings
+                   
+
+                   
+
+                   
+                  Dietary Information
+                   
+
+                   
+                  Allergy Advice
+
+                  For allergens, see ingredients in bold
+                   
+
+                   
+                  Ingredients
+                   
+
+                   
+                  INGREDIENTS: Reconstituted Skimmed Cows’ Milk Concentrate, Sugar, Glucose Syrup, Coconut Oil, Whey Powder (Cows' Milk), Water, Dextrose, Emulsifier: Mono- and Diglycerides of Fatty Acids; Flavourings, Stabilisers: Guar Gum, Sodium Alginate; Colour: Carotenes.
+                   
+
+                   
+                  Country of Origin
+                   
+
+                   
+                  Produced in United Kingdom
+                   
+
+                   
+                  Size
+                   
+
+                   
+                  2L e / 846g
+                   
+
+                   
+                  Storage
+                   
+
+                   
+                  How to store For best before end: see side of tub Keep frozen Do not re-freeze once defrosted Food freezer Until best before date (at -18°C) Star marked frozen food compartment {3 Stars} Until best before date (at -18°C) {2 Stars} 1 month (at -12°C) {1 Star} 1 week (at -6°C). 
+                   
+                  Keep frozen 
+                   
+
+                   
+                  Packaging
+                   
+
+                   
+                  Plastic - PS lid
+                   
+                  Plastic - PS tub
+                   
+                  Self Adhesive Plain Paper label
+                   
+
+                   
+                  Manufacturer
+                   
+
+                   
+                  We are happy to replace this item if it is not satisfactory
+                   
+                  Sainsbury's Supermarkets Ltd.
+                   
+                  33 Holborn, London EC1N 2HT
+                   
+                  Customer services 0800 636262
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]
+            quantity:
+              - text: 2L e / 846g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[6]
+            variantId:
+              - text: "1021080"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[3]/div[1]/p[1]/span[1]
+            sku:
+              - text: "1021080"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[3]/div[1]/p[1]/span[1]
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            aggregateRating:
+              - text: "4.0833"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/a[2]/span[1]/@aria-label
+            ingredientsList:
+              - text: "INGREDIENTS: Reconstituted Skimmed Cows’ Milk Concentrate, Sugar, Glucose
+                  Syrup, Coconut Oil, Whey Powder (Cows' Milk), Water, Dextrose,
+                  Emulsifier: Mono- and Diglycerides of Fatty Acids;
+                  Flavourings, Stabilisers: Guar Gum, Sodium Alginate; Colour:
+                  Carotenes."
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[4]
+            servingSize:
+              - text: per 100g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/thead[1]/tr[1]/th[2]
+            totalFatPerServing:
+              - text: 5.3g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            saturatedFatPerServing:
+              - text: 4.7g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            dietaryFibrePerServing:
+              - text: 1.2g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[10]/td[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[10]/td[1]
+            saltPerServing:
+              - text: 0.18g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[12]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[12]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+            proteinPerServing:
+              - text: 2.5g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[11]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[11]/td[1]
+            totalCarbPerServing:
+              - text: 17.8g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/productcontent[1]/htmlcontent[1]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            pricePerUnit:
+              - text: "5p "
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/span[1]
+            pricePerUnitUom:
+              - text: " 100ml"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/span[1]
+            gtin:
+              - text: "0000000357708"
+                xpath: /html/body/div[2]
+            eangtin:
+              - text: "0000000357708"
+                xpath: /html/body/div[2]
+            calciumPerServingUom:
+              - text: mg/l
+            magnesiumPerServingUom:
+              - text: mg/l
+            descriptionBullets:
+              - text: "1"
+            manufacturer:
+              - text: We are happy to replace this item if it is not satisfactory Sainsbury's
+                  Supermarkets Ltd. 33 Holborn, London EC1N 2HT Customer
+                  services 0800 636262
+            legalDisclaimer:
+              - text: The above details have been prepared to help you select suitable products.
+                  Products and their ingredients are liable to change.
+            allergyAdvice:
+              - text: Allergy AdviceFor allergens, see ingredients in bold
+            caloriesPerServing:
+              - text: 549kJ/131kcal
+            totalSugarsPerServing:
+              - text: 17.8g
+            calciumPerServing:
+              - text: ""
+            dietaryInformation:
+              - text: Allergy AdviceFor allergens, see ingredients in bold
+            storage:
+              - text: "How to store For best before end: see side of tub Keep frozen Do not
+                  re-freeze once defrosted Food freezer Until best before date
+                  (at -18°C) Star marked frozen food compartment {3 Stars} Until
+                  best before date (at -18°C) {2 Stars} 1 month (at -12°C) {1
+                  Star} 1 week (at -6°C). Keep frozen"
+            packaging:
+              - text: Plastic - PS lid Plastic - PS tub Self Adhesive Plain Paper label
+            countryOfOrigin:
+              - text: Produced in United Kingdom
+            productOtherInformation:
+              - text: ""
+        xpath: /
+    timestamp: 1597758362638
