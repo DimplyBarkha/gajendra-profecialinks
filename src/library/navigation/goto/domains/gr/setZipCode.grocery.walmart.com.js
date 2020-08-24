@@ -40,6 +40,17 @@ module.exports = {
       return hasIt;
     }
 
+    async function changeStoreButton () {
+      await context.waitForSelector('button[label="Change store"]');
+      // Using context.click for selector button[label="Change store"] is not working. Won't click on the button
+      await context.evaluate(async function () {
+        const button = document.querySelector('button[label="Change store"]');
+        if (button) {
+          button.click();
+        }
+      });
+    }
+
     async function changeLocation (zipcode) {
       const closeModalButton = await hasCloseModalButton();
       if (closeModalButton) {
@@ -51,44 +62,21 @@ module.exports = {
           document.querySelector('div.ReactModalPortal').remove();
         }
       });
-      // async function clickButton() {
-      await context.waitForSelector('button[label="Change store"]');
-      // Using context.click for selector button[label="Change store"] is not working. Won't click on the button
-      await context.evaluate(async function () {
-        const button = document.querySelector('button[label="Change store"]');
-        if (button) {
-          button.click();
-        }
-      });
-      // }
-      // clickButton();
+
+      await changeStoreButton();
+
       try {
         await context.waitForSelector('input[data-automation-id="zipSearchField"]', { timeout: 45000 });
       } catch (error) {
-        // await context.click('section[data-automation-id="closeableOverlay"]');
+        // Using context.click for selector 'section[data-automation-id="closeableOverlay"]'
         if (document.querySelector('section[data-automation-id="closeableOverlay"]')) {
           document.querySelector('section[data-automation-id="closeableOverlay"]').click();
         }
-        await context.waitForSelector('button[label="Change store"]');
-        // Using context.click for selector button[label="Change store"] is not working. Won't click on the button
-        await context.evaluate(async function () {
-          const button = document.querySelector('button[label="Change store"]');
-          if (button) {
-            button.click();
-          }
-        });
-        // throw new Error('Fail to click on confirm button');
+        await changeStoreButton();
       }
 
       await context.waitForSelector('input[data-automation-id="zipSearchField"]', { timeout: 45000 });
-      // try {
-      //   await context.evaluate(async function () {
-      //     const button = document.querySelector('button[label="Change store"]');
-      //     if (button) {
-      //       button.click();
-      //     }
-      //   });
-      // }
+
       await context.setInputValue('input[data-automation-id="zipSearchField"]', zipcode);
       await context.click('button[data-automation-id="zipSearchBtn"]');
       await context.evaluate(async function () {
@@ -125,12 +113,9 @@ module.exports = {
         try {
           await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 45000 });
         } catch (error) {
-          return 'goto product page';
-          // await context.goto(mainUrl, { timeout, waitUntil, checkBlocked });
-          // if (!(changedLocationStreetAddress.includes(zipcodeStreetAddress))) {
-          //   throw new Error('Fail to click on confirm button');
-          // }
-          // await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 45000 });
+          console.log('goto product page !!!');
+          // 'goto product page'
+          return false;
         }
         try {
           await context.waitForFunction(function (sel, zipcodeStreetAddress) {
@@ -139,8 +124,6 @@ module.exports = {
         } catch (error) {
           throw new Error('Fail to click on confirm button');
         }
-
-        // await context.waitForXPath('//div[contains(@data-automation-id,"changeStoreFulfillmentBannerBtn")]//span[contains(@class,"AddressPanel__addressLine")]/text()[contains(., "' + zipcodeStreetAddress + '")]', { timeout: 55000 });
       }
       return true;
     }

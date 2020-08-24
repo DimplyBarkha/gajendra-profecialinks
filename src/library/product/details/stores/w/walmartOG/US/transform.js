@@ -108,6 +108,14 @@ const transform = (data, context) => {
           }
         }
 
+        if (row.servingSize && row.servingSize[0] && row.servingSize[0].text) {
+          row.servingSize[0].text = row.servingSize[0].text.trim();
+        }
+
+        if (row.servingSizeUom && row.servingSizeUom[0] && row.servingSizeUom[0].text) {
+          row.servingSizeUom[0].text = row.servingSizeUom[0].text.trim();
+        }
+
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));
