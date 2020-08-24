@@ -16,7 +16,7 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/div/img/@src
-    regExp: ([^\?]+)(\?.*)?
+    regExp: \/\/([^\?]+)(\?.*)?
     regExpReplace: $1
   - name: name
     singleValue: false
