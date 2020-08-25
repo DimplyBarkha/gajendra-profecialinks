@@ -115,11 +115,13 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //p[contains(concat(' ',normalize-space(@class),' '),' ratings__count--hasanimation ')]
+    xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href]//p[contains(concat(' ',normalize-space(@class),' '),'count')])[1]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //span[@class='ratings__average-value--product-review']
+    regExp: (^.{3,3})
+    regExpReplace: $1
+    xpath: (//a[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href])[1]/@aria-label
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
