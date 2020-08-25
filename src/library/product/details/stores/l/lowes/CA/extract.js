@@ -40,6 +40,11 @@ module.exports = {
       console.log('No Pop up was present');
     }
     try {
+      await context.waitForSelector('div[id="product-manufacturer-content"]:nth-child(2)');
+    } catch (error) {
+      console.log('No manufacturer description was present.');
+    }
+    try {
       await context.waitForXPath('//section[@class="product-specifications"]//table//tr');
     } catch (error) {
       console.log('specifications noy loaded.');

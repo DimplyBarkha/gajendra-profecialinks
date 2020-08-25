@@ -51,7 +51,7 @@ fields:
     singleValue: false
     xpath: //section[@class='product-specifications']//table//tr//td[contains(text(),'Quantity')][1]/following-sibling::td
   - name: weightNet
-    xpath:  //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight (')]/parent::tr
+    xpath: //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight (')]/parent::tr/td/span
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -379,7 +379,7 @@ fields:
     singleValue: false
     xpath: //section[@class='product-specifications']//table//tr
   - name: warranty
-    xpath: //section[@class='product-specifications']//table//tr//td[contains(text(),'Warranty')][1]/following-sibling::td
+    xpath:  //section[@class='product-specifications']//table//tr//td[contains(text(),'Warranty') and not(contains(., '('))][1]/following-sibling::td
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
