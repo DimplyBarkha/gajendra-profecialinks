@@ -49,11 +49,13 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
+    manualSelector: div[id="infoTabContent"] div[id="tab0"]
   - name: weightGross
     singleValue: false
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id="added_gtin"]
   - name: sku
     singleValue: false
     xpath: //*[@id="lblItemNo"]
@@ -89,7 +91,6 @@ fields:
     xpath: (//div[contains(@class, "pr-snippet-rating-decimal")])[1]
   - name: shippingInfo
     singleValue: false
-    manualSelector: h4[class="shipping"]
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
@@ -101,13 +102,13 @@ fields:
     xpath: //div[@id="added-variantCount"]
   - name: color
     singleValue: false
-    xpath: //label[@class="style-swatch-label style-selected"]/@title
+    xpath: //div[@id="added_color"]
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@id, "tab")]//h3[not(contains(text(), "About the"))]//parent::div
+    xpath: (//div[contains(@id, "tab")]//h3[not(contains(text(), "About the"))]//parent::div)[1]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@id, "tab")]//h3[not(contains(text(), "About the"))]//parent::div//img[not(contains(@src, 'gif'))]/@src
@@ -352,7 +353,7 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
-    xpath: (//*[contains(text(), 'Warranty')]/following-sibling::text())[1]
+    xpath: //*[contains(text(), 'Warranty Information')]/following-sibling::text()
   - name: storage
     singleValue: false
     description: Suggested storage location for product
