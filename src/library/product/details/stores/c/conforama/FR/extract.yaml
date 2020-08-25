@@ -1,0 +1,115 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@id="dynamic-visu1_container_inner"]/div/div/img[1]/@src
+    singleValue: false
+  - name: url
+    xpath: //meta[@property="og:url"]/@content
+    singleValue: false
+  - name: category
+    xpath: //nav[@class="breadcrumb"]/*[position() > 1 ]
+    singleValue: false
+  - name: nameExtended
+    xpath: //h1[@class="t-1"]
+    singleValue: false
+  - name: brandText
+    xpath: //li/span[contains(text() , "Marque")]//following-sibling::span
+    singleValue: false
+  - name: sku
+    xpath: //script/@data-flix-ean
+    singleValue: false
+  - name: alternateImages
+    xpath: //div[@class="product-swiper"]/ul/li[contains(@class , 'simpleImage')]/img/@src
+    singleValue: false
+  - name: videos
+    xpath: //div[@class="mfp-content"]/div[@class="mfp-iframe-scaler"]/iframe/@src
+    singleValue: false
+  - name: imageAlt
+    xpath: //div[@class="product-swiper"]/ul/li/img/@alt
+    singleValue: false
+  - name: secondaryImageTotal
+    xpath: count(//div[@class="product-swiper"]/ul/li/img/@src)
+    singleValue: false
+  - name: price
+    xpath: //p[@class="current-price"]
+    regExp: (.*) €
+    regExpReplace: $1 
+    singleValue: false
+  - name: ratingCount
+    xpath: //a[@id="product-rating-top"]
+    regExp: (.*) avis
+    regExpReplace: $1    
+    singleValue: false
+  - name: aggregateRating2
+    xpath: //a[@id="product-rating-top"]/@class
+    regExp: stars-(.*)
+    regExpReplace: $1  
+    singleValue: false
+  - name: availabilityText
+    xpath: //div[@class="availability"] | //div[@class="availability nomargin"]
+    singleValue: false
+  - name: gtin
+    xpath: //script/@data-flix-ean
+    singleValue: false
+  - name: listPrice
+    xpath: //p[@class="old-price"]
+    regExp: (.*) €Prix moyen marché
+    regExpReplace: $1
+    singleValue: false
+  - name: color
+    xpath: //li/span[contains(text() , "Couleur du produit")]//following-sibling::span
+    singleValue: false
+  - name: weightNet
+    xpath: //li/span[contains(text() , "Poids en kg")]//following-sibling::span
+    regExp: (.*) kg
+    regExpReplace: $1
+    singleValue: false
+  - name: weightGross
+    xpath: //li/span[contains(text() , "Dimensions colis 1")]//following-sibling::span
+    singleValue: false
+    regExp: Pds(.*) kg
+    regExpReplace: $1
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+    singleValue: false
+  - name: warranty
+    xpath: //li/span[contains(text() , "Garantie")]//following-sibling::span
+    singleValue: false
+    regExp: (.*) ans 
+    regExpReplace: $1
+  - name: quantity
+    xpath: //li/span[contains(text() , "Nombre de colis")]//following-sibling::span
+    singleValue: false
+  - name: shippingDimensions
+    xpath: //li/span[contains(text() , "Dimensions colis 1")]//following-sibling::span
+    singleValue: false
+  - name: shippingWeight
+    xpath: //li/span[contains(text() , "Dimensions colis 1")]//following-sibling::span
+    singleValue: false
+    regExp: Pds(.*) kg 
+    regExpReplace: $1
+  - name: additionalDescBulletInfo
+    xpath: //ul[@class="product-note-ul"]
+    singleValue: false
+  - name: descriptionBullets
+    xpath: count(//ul[@class="product-note-ul"])
+    singleValue: false
+  - name: shippingInfo
+    xpath: //div[@class="seller"]/p
+    singleValue: false
+  - name: description
+    xpath: //p/span[contains(text() , 'description')]/../following-sibling::*[not(self::div)]
+    singleValue: false
+  - name: manufacturerDescription
+    xpath: //div[contains(@id ,"inpage_container")]//div
+    singleValue: false
+  - name: manufacturerImages
+    xpath: //div[contains(@id ,"inpage_container")]//img/@srcset
+    singleValue: false
+  - name: specifications
+    xpath: //div[@class="table-heading-product"]/ul/*[position() > 1]
+    singleValue: false
+    
