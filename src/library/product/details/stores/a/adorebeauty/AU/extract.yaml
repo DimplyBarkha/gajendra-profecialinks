@@ -33,7 +33,7 @@ fields:
     xpath: //div[@itemprop="description"]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@itemprop="description"]/ul/li)
+    xpath: //div[@itemprop="description"]/div/ul/li | //div[@itemprop="description"]/ul/li
   - name: brandText
     singleValue: false
     xpath: //a[@class="brand-logo"]/img/@title
@@ -66,6 +66,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //section[@class="product-main ssModified"]/meta[@itemprop="productID"]/@content
-  - name: imageZoomFeaturePresent
+  - name: additionalDescBulletInfo
     singleValue: false
-    
+    xpath: //div[@itemprop="description"]/div/ul/li | //div[@itemprop="description"]/ul/li
+  - name: additionalDescBulletInfoCount
+    singleValue: false
+    xpath: //div[@itemprop="description"]/div/ul/li | //div[@itemprop="description"]/ul/li

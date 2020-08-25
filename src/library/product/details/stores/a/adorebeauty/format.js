@@ -24,6 +24,11 @@ const transform = (data) => {
           row.description[0].text = cleanUp(row.description[0].text);
         }
 
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfoCount = [{ text: row.additionalDescBulletInfo.length }];
+          row.descriptionBullets = [{ text: row.additionalDescBulletInfo.length }];
+        }
+
         if (row.name && row.brandText) {
             row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
         }
