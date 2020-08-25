@@ -10,7 +10,7 @@ const transform = (data) => {
         if (row.specifications) {
           let text = '';
           row.specifications.forEach(item => {
-            text += `${item.text.replace(/\n/g, ' : ')} || `;
+            text += `${item.text.replace(/\n \n/g, ' : ')} || `;
           });
           row.specifications = [
             {
@@ -35,24 +35,24 @@ const transform = (data) => {
             item.text = item.text ? item.text.replace(/[()]/g, '') : '';
           });
         }
-        if (row.manufacturerImages) {
-          row.manufacturerImages.forEach(item => {
-            if(item.text.includes('https:')){
-              item.text = item.text;
-            }else{
-              item.text = 'https:'+item.text;
-            } 
-          });
-        }
-        // if (row.availabilityText) {
-        //   row.availabilityText.forEach(item => {
-        //     if (item.text.includes('Disponible')) {
-        //       item.text = 'In Stock';
-        //     } else {
-        //       item.text = 'Out of Stock';
-        //     }
+        // if (row.manufacturerImages) {
+        //   row.manufacturerImages.forEach(item => {
+        //     if(item.text.includes('https:')){
+        //       item.text = item.text;
+        //     }else{
+        //       item.text = 'https:'+item.text;
+        //     } 
         //   });
         // }
+        if (row.availabilityText) {
+          row.availabilityText.forEach(item => {
+            if (item.text.includes('Ajouter au panier')) {
+              item.text = 'In Stock';
+            } else {
+              item.text = 'Out of Stock';
+            }
+          });
+        }
       
         // if (row.imageAlt) {
         //   row.imageAlt.forEach(item => {
@@ -91,6 +91,22 @@ const transform = (data) => {
             if (item.text) {
               item.text = item.text.replace('€', ',')
             }
+          });
+        }
+
+        if (row.brandText) {
+          row.brandText.forEach(item => {
+            item.text = item.text ? item.text.split(' ')[0] : '';
+          });
+        }
+
+         if (row.technicalInformationPdfPresent) {
+          row.technicalInformationPdfPresent.forEach(item => {
+            if(item.text.includes('https:')){
+              item.text = item.text;
+            }else{
+              item.text = 'https:'+item.text;
+            } 
           });
         }
         

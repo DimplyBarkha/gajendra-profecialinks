@@ -42,18 +42,19 @@ fields:
     xpath: //div[@id="tabs-1"]/ul/li
   - name: description
     singleValue: false
-    xpath: //div[@class="productInformationsArea"]/div/div[@id="tabs-1"]/ul/following-sibling::p
+    xpath: //div[@id="description"]
+    # xpath: //div[@class="productInformationsArea"]/div/div[@id="tabs-1"]/ul/following-sibling::p | //div[@id="tabs-1"]/ul/li
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
     xpath:  count(//div[@id="tabs-1"]/ul/li)
   - name: brandText
     singleValue: false
-    xpath: //div[@class='productTitle']/ul/li
-  - name: manufacturer
-    singleValue: false
-    description: Product manufacturer
-    xpath: //div[@class='productTitle']/ul/li
+    xpath: //div[@class='productTitle']/ul/li[1]
+  # - name: manufacturer
+  #   singleValue: false
+  #   description: Product manufacturer
+  #   xpath: //div[@class='productTitle']/ul/li
   - name: weightNet
     singleValue: false
     xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Poids")]//..//following-sibling::*
@@ -63,37 +64,41 @@ fields:
     xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin
   - name: sku
     singleValue: false
-    xpath: //span[@class='normal product-ref sous-pointFort']
+    xpath: //script[contains(text(), '"sku":')]
+    regExp: \"sku\"\:\s\"(.*)\"\,
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
     description: The number of ratings
     xpath: //div[@class='bv_numReviews_component_container']
     regExp: \((.*)\)
     regExpReplace: $1
-  - name: aggregateRating
+  - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath:  //div[@class="bv_avgRating_component_container notranslate"]
+    xpath: //div[@class="bv_avgRating_component_container notranslate"]
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class='mc-delivTop']
   - name: technicalInformationPdfPresent
     singleValue: false
-    xpath:  //div[@class='linkFiche']/a/@href
+    xpath: //div[@class='linkFiche']/a/@href
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[contains(@id , "cboxLoadedContent")]/object/@data
+    xpath: //img[@alt="video"]/parent::a/@onclick
+    regExp: afficherPopInVideo\(\'(.*)\'\)\;t
+    regExpReplace: $1
   - name: availabilityText
     singleValue: false
-    xpath:  //div[@class="mc-store inline"]
+    xpath: //button[contains(@class, "btnGreen")]/span[text()="Ajouter au panier"]
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div/table/tbody/tr[position() > 1]
+    xpath: //div/table/tbody/tr[position() > 1] | //div[@class="inpage_selector_specification"]//div/table/tbody/tr[position() > 1]/td
   - name: warranty
     singleValue: false
-    xpath: //div[@class="garantie-date"]/a
+    xpath: //div[@class="garantie-date"]/a | //td/strong[contains(text(),"Garantie")]/parent::td/parent::tr
   - name: color
     singleValue: false
     description: A textual description of the colour
