@@ -1,0 +1,81 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //a[@class='MagicZoom']/figure/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@class='MagicZoom']/figure/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='MagicToolboxSelectorsContainer']/div/a/@href
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product-name"]/h1
+  - name: price
+    singleValue: false
+    manualSelector: div.essentials-receipt p.current-price
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+    manualSelector: div.stock-info
+  - name: brandText
+    singleValue: false
+    xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Brand")]//parent::th//parent::tr/td
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="product-side-quantity"]//input/@value
+  - name: sku
+    singleValue: false
+    xpath: //div[@itemprop='sku']
+  - name: asin
+    singleValue: false
+    xpath: //div[@itemprop='sku']
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@itemprop='sku']
+  - name: color
+    singleValue: false
+    xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Colour")]//parent::th//parent::tr/td
+  - name: largeImageCount
+    singleValue: false
+    xpath: //div[@class='MagicToolboxSelectorsContainer']/div/a/@href
+  - name: weightNet
+    singleValue: false
+    xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Weight")]//parent::th//parent::tr/td
+  - name: warranty
+    singleValue: false
+    xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Warranty")]//parent::th//parent::tr/td
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-name"]/h1
+  - name: shippingWeight
+    singleValue: false
+    xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Weight")]//parent::th//parent::tr/td
+  - name: weightGross
+    singleValue: true
+    xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Weight")]//parent::th//parent::tr/td
+  - name: promotion
+    singleValue: false
+    xpath: (//span[@class="delivery-cost"]/span[@class="price"])[1]
+  - name: description
+    singleValue: false
+    xpath: //div[@id="panel-wrapper"]//div[@class="info-panel-content panel-product-overview"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="product-table"]//table//td[(normalize-space(.)!='') and not(@colspan)]//preceding-sibling::th | //div[@class="product-table"]//table//td[(normalize-space(.)!='') and not(@colspan)]
+  - name: manufacturer
+    singleValue: false
+    xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Brand")]//parent::th//parent::tr/td
+  - name: video
+    singleValue: false
+    xpath: //div[@id='panel-wrapper']//iframe/@src
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //p//strong[contains(text(), 'Terms applying to cancellation:')]//parent::p//following-sibling::p[contains(text(),'cancellation')]
