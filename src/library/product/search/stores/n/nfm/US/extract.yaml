@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //img[@class="img-responsive list space-bottom-medium"]/parent::*[1]/parent::*[1]/parent::*[1]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //p[@class="bold font16 two-line-ellipsis-product"]
+  - name: price
+    singleValue: false
+    xpath: //*[@id="AP_Price"]
+  - name: sku
+    singleValue: false
+    xpath: //*[@id="AP_SKU"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //*[@id="AP_PS_NumReviews"]
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="img-responsive list space-bottom-medium"]/@src
+  - name: brandText
+    singleValue: false
+    xpath: //p[@class="bold font16 two-line-ellipsis-product"]
+  - name: listPrice
+    singleValue: false
+    xpath: //*[@id="AP_Price_MSRP"]
+  - name: productUrl
+    singleValue: false
+    xpath: //*[@id="ListViewProducts"]//a/@href
+  - name: id
+    singleValue: false
+    xpath: //*[@id="AP_SKU"]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='added-searchurl']
+  - name: sponsored
+    singleValue: false
+    xpath: //*[@id="AP_Price_Savings_Block"]
