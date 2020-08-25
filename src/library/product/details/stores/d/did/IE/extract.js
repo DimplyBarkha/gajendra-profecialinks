@@ -1,12 +1,12 @@
-const { transform } = require("./format");
+const { transform } = require('./format');
 
 module.exports = {
-  implements: "product/details/extract",
+  implements: 'product/details/extract',
   parameterValues: {
-    country: "IE",
-    store: "did",
+    country: 'IE',
+    store: 'did',
     transform,
-    domain: "did.ie",
-    zipcode: "",
+    domain: 'did.ie',
+    zipcode: '',
   },
 };
