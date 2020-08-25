@@ -37,7 +37,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='product-hero__price-top']/div[@data-product-price]
+    xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
   - name: availabilityText #localedependent
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -442,7 +442,8 @@ fields:
   - name: productOtherInformation 
     singleValue: false
     description: Any other product information
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification ')]//li
+    xpath: //div[@id='added_productOtherInformation']
+    #xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification ')]//li
   - name: packaging #missing
     singleValue: true
     description: Packaging infoxrmation
