@@ -26,6 +26,7 @@ fields:
     xpath: //div[@class="px-6 py-4 mt-auto"]/div/span[@class="text-16 font-montserrat font-bold"]
   - name: id
     singleValue: false
+    xpath: //meta[@itemprop="productID"]/@content
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@title, "Star Rating")]/@title
