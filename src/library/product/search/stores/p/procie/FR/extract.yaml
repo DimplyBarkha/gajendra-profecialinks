@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath:  //div[contains(@class,'row frameProductList')]
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //a/@href
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'frameProductListMiddle')]/a/*
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'frameProductListMiddle')]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'frameProductListLeft')]/a/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'frameBrandAndPriceListProduct')]//span[contains(@class,'priceProductFinalPrice')]
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: false
