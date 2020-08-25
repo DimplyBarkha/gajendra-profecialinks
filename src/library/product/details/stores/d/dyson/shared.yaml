@@ -115,7 +115,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href]//p[contains(concat(' ',normalize-space(@class),' '),'count')])[1]
+    xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href]//p[contains(concat(' ',normalize-space(@class),' '),'count')][not(contains(concat(' ',normalize-space(@class),' '),'author'))])[1]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
