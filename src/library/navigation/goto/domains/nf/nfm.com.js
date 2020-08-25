@@ -1,20 +1,17 @@
 module.exports = {
-  implements: "navigation/goto",
+  implements: 'navigation/goto',
   parameterValues: {
-    domain: "nfm.com",
-    timeout: null,
-    country: "US",
-    store: "nfm",
-    zipcode: "",
+    domain: 'nfm.com',
+    timeout: 120000,
+    country: 'US',
+    store: 'nfm',
+    zipcode: '',
   },
-  implementation: async (inputs, parameters, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
     context.setBlockAds(false);
-    // context.goto(inputs.url, {
-    //   // anti_fingerprint: true,
-    //   waitUntil: "load",
-    //   checkBlocked: true,
-    // });
-    // context.setFirstRequestTimeout(60000);
+    const timeout = parameters.timeout ? parameters.timeout : 30000;
+    // context.goto(url, { first_request_timeout: 60000, anti_fingerprint: true, timeout, waitUntil: 'load', checkBlocked: true });
+    context.setFirstRequestTimeout(60000);
     context.setAntiFingerprint(true);
   },
 };
