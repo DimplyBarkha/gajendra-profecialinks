@@ -1,9 +1,9 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'euronics.it',
+    domain: 'euronics.de',
     prefix: null,
-    country: 'IT',
+    country: 'DE',
     store: 'euronics',
     url: '{url}',
   },

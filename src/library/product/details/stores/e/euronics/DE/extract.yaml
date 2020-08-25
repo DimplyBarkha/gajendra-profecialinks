@@ -1,0 +1,160 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@id="primaryImage"]
+  - name: alternateImages
+    singleValue: true
+    xpath: //div[@id="alternateImages"]
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="description"]/@content
+  - name: pageTimeStamp
+    singleValue: true
+    xpath: //div[@id="pageTimeStamp"]
+  - name: url
+    singleValue: true
+    xpath: //div[@id="url"]
+  - name: category
+    singleValue: false
+    xpath: //div[@class="category"]
+  - name: price
+    singleValue: true
+    xpath: //div[@id="price"]
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@itemprop="name"]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@id="price"]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id="availabilityText"]
+  - name: description
+    singleValue: true
+    xpath: //div[@id="description"]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: //div[@id="descriptionBullets"]
+  #- name: ingredientsList
+  #  singleValue: true
+  #  xpath: //div[@id="tabContent-tab-Labelinfo"]//div[@class="h-text-transform-caps"]
+  #- name: packaging
+  #  singleValue: false
+  #  xpath: //div[@class="packaging"]
+  - name: brandText
+    singleValue: true
+    xpath: //div[@id='brand']
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@id="manufacturer"]
+  - name: quantity
+    singleValue: true
+    xpath: //div[@id="quantityInfo"]
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@id="weightNet"]
+  #- name: weightGross
+  #  singleValue: true
+  #  xpath: //div[@data-test="estimatedShipWeight"]
+  - name: gtin
+    singleValue: true
+    xpath: //div[@id="gtin"]
+  - name: sku
+    singleValue: true
+    xpath: //div[@id="sku"]
+  - name: mpc
+    singleValue: true
+    xpath: //div[@id="mpc"]
+  #- name: packSize
+  #  singleValue: true
+  #  xpath: //div[@id="packSize"]|//div[@id="quantityInfo"]
+  #- name: disclaimer
+  #  singleValue: true
+  #  xpath: //div[@id="disclaimerInfo"]
+  #- name: warning
+  #  singleValue: true
+  #  xpath: //div[@data-test="chokingHazard"]|//div[@id='warningInfo']
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@class="rating--count"]
+  - name: aggregateRatingText
+    singleValue: true
+    xpath: //div[@id="aggregatedRatingText"]
+  - name: aggregateRating
+    singleValue: true
+    xpath: //meta[@itemprop="ratingValue"]/@content
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@id="shippingInfo"]
+# - name: shippingDimensions
+#   singleValue: true
+#   xpath: //div[@id="shippingDimensions"]
+# - name: shippingWeight
+#   singleValue: true
+#   xpath: //div[@data-test="estimatedShipWeight"]
+#  - name: variantCount
+#    singleValue: true
+#    xpath: //div[@id="variantCount"]
+  - name: color
+    singleValue: true
+    xpath: //div[@id="color"]
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //div[@id="manufacturerDescription"]
+  - name: manufacturerImages
+    singleValue: true
+    xpath: //div[@id="manufacturerImgs"]
+  - name: videos
+    singleValue: true
+    xpath: //div[@id="videos"]
+  - name: name
+    singleValue: true
+    xpath: //h1[@class="productDetails__name"]/text()
+  - name: specifications
+    singleValue: true
+    xpath: //div[@id="specifications"]
+  - name: warranty
+    singleValue: true
+    xpath: //div[@id="warranty"]
+  #- name: storage
+  #  singleValue: true
+  #  xpath: //div[@id="storageInfo"]
+  #- name: countryOfOrigin
+  #  xpath: //div[@id="originInfo"]
+  - name: promotion
+    singleValue: true
+    xpath: //div[@id="promotion"]
+  #- name: variants
+  #  singleValue: true
+  #  xpath: //div[@id="variants"]
+  - name: additionDescBulletInfo
+    singleValue: true
+    xpath: //div[@id="additionalInfo"]
+#  - name: ageSuitability
+#    singleValue: true
+#    xpath: //div[@id="ageInfo"]
+  - name: termsAndConditions
+    singleValue: true
+    xpath: //div[@id="terms"]
+  - name: privacyPolicy
+    singleValue: true
+    xpath: //div[@id="privacy"]
+  - name: customerServiceAvailability
+    singleValue: true
+    xpath: //div[@id="customerServiceAvailability"]
+  - name: materials
+    singleValue: true
+    xpath: //div[@id="materials"]
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    xpath: //div[@id="zoomInfo"]
+  - name:  360ImagePresent
+    singleValue: true
+    xpath: //div[@id="rotateInfo"]
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    xpath: //div[@id="pdf"]

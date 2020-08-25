@@ -128,7 +128,7 @@ async function implementation (
       addHiddenDiv('color', splitName[splitName.length - 1]);
     }
 
-    addHiddenDiv('termsAndConditions', 'Yes');
+    addHiddenDiv('terms', 'Yes');
     addHiddenDiv('privacy', 'Yes');
     addHiddenDiv('customerServiceAvailability', 'Yes');
     addHiddenDiv('zoomInfo', 'No');
