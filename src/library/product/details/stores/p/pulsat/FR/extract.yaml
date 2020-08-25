@@ -1,0 +1,77 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='item active']//a//img/@src | //div[@id='product_image']
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumbs']//li
+  - name: price
+    singleValue: false
+    xpath: //meta[@itemprop='price']/@content | //div[@id='price']
+  - name: availabilityText
+    singleValue: false
+    xpath: //button[@id='js-add-to-cart'] | //div[@id='product_avail']
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id='brand']
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='weightNet']
+  - name: sku
+    singleValue: false
+    xpath: //div[@id='sku']
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='item active']//a//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ol[@class='carousel-indicators']//li[@data-target='#carousel-product']//img/@src
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id='product_ean']
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id='product_id']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'netreviews-widget')]//b[contains(.,'/5')]
+  - name: color
+    singleValue: false
+    xpath: //td[contains(.,'Couleur')]/following-sibling::td
+  - name: name
+    singleValue: false
+    xpath: //div[@id='product_name']
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@id='product_name']
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='collapseWarranty']//ul[@class='list-2cols']/li
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //span[contains(text(),'Télécharger la fiche produit')]
+  - name: url
+    singleValue: true
+    xpath: //div[@id='product_url_page']
+  - name: videos
+    singleValue: true
+    xpath: //video/@src
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="wysiwyg"]//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class="wysiwyg"]
+  - name: specifications
+    singleValue: false
+    xpath: //tr[contains(.,'Dimensions')]/td | //tr[contains(.,'Poids')]/td | //tr[contains(.,'Largeur')]/td | //tr[contains(.,'Hauteur')]/td | //tr[contains(.,'Profondeur')]/td
+  - name: variantCount
+    singleValue: true
+    defaultValue: 1
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@id='listprice']
