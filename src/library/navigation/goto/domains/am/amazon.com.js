@@ -5,6 +5,10 @@ module.exports = {
     domain: 'amazon.us',
     store: 'amazon',
   },
+  dependencies: {
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
+  },
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
@@ -182,7 +186,12 @@ module.exports = {
     await run();
     console.log(zipcode);
     if (zipcode) {
-      await dependencies.setZipCode({ url, zipcode });
+      const { Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+
+      const helpers = new Helpers(context);
+      const amazonHelp = new AmazonHelp(context, helpers);
+      await amazonHelp.setLocale(zipcode);
+      await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "' + zipcode + '")]');
     }
   },
 };
