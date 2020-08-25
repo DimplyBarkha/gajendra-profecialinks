@@ -5,7 +5,13 @@
  */
 const transform = (data) => {
   for (const { group } of data) {
+    const variantDetails = [];
+    let row1 = {};
     for (const row of group) {
+      row.variantCount = [{
+        text: row.variantCount.length,
+      }];
+      row.variantDetails && variantDetails.push(...JSON.parse(row.variantDetails[0].text));
       if (row.specifications) {
         row.specifications = [{
           text: row.specifications.reduce((item, currItem) => `${item} || ${currItem.text.trim()}`, '').replace(/(\n\s?)+/g, '').slice(3).trim(),
@@ -47,7 +53,20 @@ const transform = (data) => {
           row.availabilityText[0].text = 'Out of Stock';
         }
       };
+      row1 = { ...row };
     }
+    variantDetails.forEach(variant => {
+      row1.price = [{
+        text: variant.Price,
+      }];
+      row1.variantId = [{
+        text: variant.Product,
+      }];
+      row1.sku = [{
+        text: variant.sku,
+      }];
+      group.push({ ...row1 });
+    });
   }
   return data;
 };

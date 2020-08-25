@@ -39,7 +39,7 @@ fields:
     xpath: count(//button[@class="pdp-image-carousel__item"]/img)
   - name: specifications
     singleValue: false
-    manualSelector: ul.pdp-details-specifications__items>li
+    manualSelector: section:not([style*="none"])>ul.pdp-details-specifications__items>li
   - name: availabilityText
     singleValue: false
     manualSelector: p.delivery-option__header_title, span.stock-status__info--instock
@@ -94,19 +94,36 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@data-bv-product-id]/@data-bv-product-id
+  - name: variants
+    singleValue: false
+    xpath: //select[@id="Size"]//option[not(contains(text(),'Select'))]
   - name: shippingDimensions
     singleValue: false
     xpath: //li[contains(@class,"pdp-details-specifications__item") and b[contains(text(),"Package")]]
   - name: name
     singleValue: false
     manualSelector: h1.pdp-header__product-name
+  - name: warranty
+    singleValue: false
+    manualSelector: div.pdp-info-component__warranty > div.pdp-info-component__subheading
   - name: additionalDescBulletInfo
     singleValue: false
     manualSelector: div#product-details div.pdp-details-features__items > ul > li
   - name: variantCount
     singleValue: false
+    xpath: //select[@id="Size"]//option[not(contains(text(),'Select'))]
     defaultValue: '1'
-  - name: gtin
+  - name: variantInformation
+    singleValue: false
+    xpath: //select[@id="Size"]
+    regExp: (.+)
+    regExpReplace: size
+  - name: color
+    singleValue: false
+    xpath: //li[contains(@class,"pdp-details-specifications__item") and b[contains(text(),"Colour")]]
+    regExp: .*?:(\s*\n\s*)*(.*)
+    regExpReplace: $2
+  - name: sku
     singleValue: false
     manualSelector: span.js-product-title-id
     regExp: ^#(.*)
@@ -117,3 +134,7 @@ fields:
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: Out of Stock
+  - name: variantDetails
+    singleValue: false
+    manualSelector: div#variantDetails
+    
