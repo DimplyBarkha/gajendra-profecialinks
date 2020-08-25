@@ -1,0 +1,277 @@
+input:
+  Keywords: acondicionador kerastase
+  _url: https://elcorteingles.es
+extractions:
+  - html: https://workbench.import.io/html/run=e7a22469-484a-4779-ae93-6eb51feb3330/task=b50d8dfc-2935-4681-ba58-d1d2051e90eb/f2584166-27d4-455c-a63a-9fe0753ab6ca.html
+    extractionConfigId: product/search/stores/e/elcorteingles_perfumeria/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A28731042-acondicionador-cicaflash-blond-absolu-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201903/28/00165521500416____5__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador Cicaflash Blond Absolu Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636692361"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 32,80 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521500416"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A33333604-acondicionador-genesis-fondant-renforcateur-200-ml-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202001/29/00165521101983____4__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador Genesis Fondant Renforçateur 200 ml Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636857883"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
+            price:
+              - text: 32,40 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A20185966-acondicionador-reparador-cabello-rebelde-discipline-fondant-fluidealiste-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201610/04/00165521100548____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador reparador cabello rebelde Discipline Fondant Fluidealiste
+                  Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636400201"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 32,40 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521101280"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A21815653-acondicionador-soin-fondamental-aura-botanica-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201702/22/00165521101462____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador Soin Fondamental Aura Botánica Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636471577"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/span[1]/@data-json
+            price:
+              - text: 32,40 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A20185876-acondicionador-cabello-seco-nutritive-fondant-magistral-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201610/04/00165521100027____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador cabello seco Nutritive Fondant Magistral Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636382446"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 32,40 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521100779"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A20185977-acondicionador-corporizante-cabello-fino-resistance-gelee-volumifique-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201610/04/00165521100613____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador corporizante cabello fino Résistance Gelée Volumifique
+                  Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474630545885"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 28,80 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521101132"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A27808306-crema-acondicionadora-le-fondant-elixir-ultime-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201810/05/00165521500259____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Crema Acondicionadora Le Fondant Elixir Ultime Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636614028"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/span[1]/@data-json
+            price:
+              - text: 35,30 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A26443422-acondicionador-fortificante-fondant-extentioniste-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201805/16/00165521101686____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador Fortificante Fondant Extentioniste Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636612918"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 32,40 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521101686"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A20185903-acondicionador-cabello-muy-danado-therapiste-soin-premier-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201610/04/00165521100175____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador cabello muy dañado Thérapiste Soin Premier Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636397976"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 32,40 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521100894"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A20185885-acondicionador-cabello-seco-nutritive-lait-vital-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201610/04/00165521100076____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador cabello seco Nutritive Lait Vital Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636382699"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 28,80 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521100761"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A20185912-acondicionador-ciment-anti-usure-200-ml-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201903/28/00165521100944____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador Ciment Anti-usure 200 ml Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636397884"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/span[1]/@data-json
+            price:
+              - text: 30,30 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A20185958-champu-acondicionador-cabello-rizado-discipline-cleansing-conditioner-curl-ideal-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201610/04/00165521100498____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Champú acondicionador cabello rizado Discipline Cleansing Conditioner Curl
+                  Idéal Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636349821"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/span[1]/@data-json
+            price:
+              - text: 32,40 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A22366098-acondicionador-cabello-coloreado-fondant-chromatique-reflection-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201704/26/00165521101512____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador Cabello Coloreado Fondant Chromatique Reflection Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636494811"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 28,80 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521101512"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/span[1]/@data-json
+        xpath: /html
+    timestamp: 1598335423722

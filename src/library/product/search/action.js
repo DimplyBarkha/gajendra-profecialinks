@@ -1,39 +1,37 @@
 module.exports = {
-  parameters: [
-    {
-      name: 'country',
-      description: '2 letter ISO code for the country',
-    },
-    {
-      name: 'store',
-      description: 'store name',
-    },
-    {
-      name: 'domain',
-      description: 'The top private domain of the website (e.g. amazon.com)',
-    },
-    {
-      name: 'zipcode',
-      description: 'to set location',
-      optional: true,
-    },
+  parameters: [{
+    name: 'country',
+    description: '2 letter ISO code for the country',
+  },
+  {
+    name: 'store',
+    description: 'store name',
+  },
+  {
+    name: 'domain',
+    description: 'The top private domain of the website (e.g. amazon.com)',
+  },
+  {
+    name: 'zipcode',
+    description: 'to set location',
+    optional: true,
+  },
   ],
-  inputs: [
-    {
-      name: 'keywords',
-      description: 'keywords to search for',
-      type: 'string',
-    },
-    {
-      name: 'Keywords',
-      description: 'keywords to search for',
-      type: 'string',
-    },
-    {
-      name: 'results',
-      description: 'the minimum number of results required',
-      type: 'number',
-    },
+  inputs: [{
+    name: 'keywords',
+    description: 'keywords to search for',
+    type: 'string',
+  },
+  {
+    name: 'Keywords',
+    description: 'keywords to search for',
+    type: 'string',
+  },
+  {
+    name: 'results',
+    description: 'the minimum number of results required',
+    type: 'number',
+  },
   ],
   dependencies: {
     execute: 'action:product/search/execute',
