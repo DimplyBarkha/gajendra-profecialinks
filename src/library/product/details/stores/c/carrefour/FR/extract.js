@@ -8,13 +8,19 @@ module.exports = {
     domain: 'carrefour.fr',
     zipcode: '',
   },
-  implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     await context.evaluate(async function () {
       let clickLoadMore = document.querySelector('button.paragraph-truncate__see-more');
       // @ts-ignore
       clickLoadMore = clickLoadMore ? clickLoadMore.click() : '';
     })
-    return await context.extract(productDetails, {transform});
+    return await context.extract(productDetails, { transform });
   }
 };
 
