@@ -1,0 +1,112 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: //img[@class="f-productVisuals-mainMedia js-ProductVisuals-imagePreview"]/@src
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: //img[@class="f-productVisuals-mainMedia js-ProductVisuals-imagePreview"]/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="f-productVisuals-thumbnail js-articleVisuals-item slick-slide slick-active"]//@src
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+    xpath: //meta[@name="description"]/@content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //li[@class="f-breadcrumb-item"]
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //span[@class="f-priceBox-price f-priceBox-price--old"]
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //span[@class="f-priceBox-price f-priceBox-price--reco checked"]
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[@class="f-buyBox-availability f-buyBox-availabilityStatus-available"]
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //p[@class="f-productSummary-paragraph"]
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    xpath: //div[@class="productStrate summaryStrate js-expand js-expand-active js-expand-opened"]
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //span[@class="f-productHeader-subTitleLabel"]
+  - name: weightNet
+    singleValue: false
+    description: Net weight as described on the page
+    xpath:  //dt[contains(text(), "Poids") or  contains(text(), "Poids du produit")]//following-sibling::*
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //span[@class="productStrate__altTitle"]
+    regExp: (\d*).*
+    regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class="customerReviewsRating productStrate__block"]
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+    xpath: //dd[@class="f-shopBox-MPProductInfoItem"]
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h1[@class="f-productHeader-Title"]
+  - name: warranty
+    singleValue: false
+    description: The product name
+    xpath: //li[@class="f-productReassurance-item js-articleFnacWarrantyPopin"]//span[@class="f-productReassurance-label"]
+  - name: storage
+    singleValue: false
+    description: The product name
+    xpath: //dt[contains(text(), "Capacité de stockage")]//following-sibling::*
+  - name: colour
+    singleValue: false
+    xpath: //span[@class="f-variantBox-selectedValue js-variantBox-valueHover"]
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@class="characteristicsStrate__item  characteristicsStrate__item--long "]//dt[contains(text(), "Mention Légale")]//following-sibling::*
+  - name: sku
+    singleValue: false
+    xpath: //div[@id="added_sku"]
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="added_gtin"]
+  - name: _url
+    singleValue: false  
+    xpath: //div[@id="added_url"]
+  - name: specifications
+    singleValue: false  
+    xpath: //dt[contains(text(), "Taille de l'écran")]//following-sibling::*
+  - name: shippingDimensions
+    singleValue: false  
+    xpath: //dt[contains(text(), "Dimensions")]//following-sibling::*
