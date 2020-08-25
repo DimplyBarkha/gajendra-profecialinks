@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { myTransform } = require('./transform');
 
 const implementation = async (
   inputs,
@@ -205,7 +205,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'kroger',
-    transform: cleanUp,
+    transform: myTransform,
     domain: 'kroger.com',
   },
   inputs: [
