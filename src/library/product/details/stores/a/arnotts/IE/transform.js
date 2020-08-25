@@ -33,7 +33,7 @@ const transform = (data, context) => {
       }
       if (row.weightNet) {
         row.weightNet.forEach(weightNet => {
-          weightNet.text = weightNet.text.replace('Weight', '').trim();
+          weightNet.text = weightNet.text.replace('Weight', '').replace(': ', '').trim();
         });
       }
       if (row.specifications) {
