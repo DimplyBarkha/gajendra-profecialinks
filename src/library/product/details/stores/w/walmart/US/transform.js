@@ -158,6 +158,10 @@ const transform = (data, context) => {
             if (!item.text.match('https://') && item.text.startsWith('//')) {
               item.text = `https:${item.text}`;
             }
+            if (item.text.includes('?')) {
+              const endIdx = item.text.indexOf('?');
+              item.text = item.text.slice(0, endIdx);
+            }
           });
         }
         if (row.nutritionInfo) {

@@ -86,8 +86,9 @@ fields:
   regExp: ("primaryProductId":")([^"]+)(","primary)
 - name: mpc
   singleValue: true
-  manualSelector: script[id='item'], script[id='product']
-  regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
+  xpath: //td[contains(text(),"Manufacturer Part Number")]/parent::tr/td/div
+  # manualSelector: script[id='item'], script[id='product']
+  # regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
   regExpReplace: $2
 - name: packSize
   singleValue: true
