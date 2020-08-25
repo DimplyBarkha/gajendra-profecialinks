@@ -4,11 +4,13 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'target',
-    openSearchDefinition: {
-      indexOffset: 0,
-      template: 'https://www.target.com/s?searchTerm={searchTerms}&Nao={startIndex}',
-    },
+    nextLinkSelector: 'a[data-test="next"]',
+    // mutationSelector: null,
+    // spinnerSelector: null,
     loadedSelector: 'div[data-test="productGridContainer"] li',
+    noResultsXPath: '//h1[contains(.,"no results found")]',
+    // openSearchDefinition: null,
     domain: 'target.com',
+    zipcode: '',
   },
 };

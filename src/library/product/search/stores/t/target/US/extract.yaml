@@ -2,11 +2,12 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //ul//li
-#recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="itemId"]
+    xpath: //a[@data-test="product-title"]/@href
+    regExp: (.+-)(\d+)
+    regExpReplace: $2
   - name: rankOrganic
     singleValue: false
     xpath: //div[@class="rank"]
@@ -16,14 +17,20 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a[@data-test="product-title"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.target.com$1
   - name: gtin
     singleValue: true
   - name: thumbnail
     singleValue: true
     xpath: //picture//source/@srcset
+    regExp: (.*)\?
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
+    regExp: (.+)( out.+)
+    regExpReplace: $1
   - name: reviewCount
     singleValue: false
     xpath: //span[@data-test="product-rating-count"]
