@@ -1,90 +1,65 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[@class='products-grid']/li
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
+    xpath: //h2[@class='product-name']/a/@href
+  - name: searchUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //div[@id='searchUrl']
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
+    xpath: //a[@class='product-image']/img/@src
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
+    xpath: //h2[@class='product-name']
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-  - name: reviewCount
-    singleValue: true
-    description: The number of reviews
+    manualSelector: p.sku
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the product
+    manualSelector: li.price-now
+    regExp: €\d+.\d+
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
+    manualSelector: li.price-was
+    regExp: €\d+.\d+
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
+    xpath: //li[@class='manufacturer']/child::*/following-sibling::*
+  - name: brand
+    singleValue: false
+    description: Product manufacturer
+    xpath: //li[@class='manufacturer']/child::*/following-sibling::*
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
+    xpath: //li[@class='item']/img[@class='sticker-label']/@src
     type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
     description: Unique id (within this extractor)
+    manualSelector: p.sku
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //h2[@class='product-name']
