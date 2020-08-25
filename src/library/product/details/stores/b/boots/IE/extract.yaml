@@ -12,6 +12,10 @@ fields:
   - name: imageAlt
     description: Alt text of the main product image
   - name: alternateImages
+    xpath: (//div[@class="s7thumb"]/@style)[position()>1]
+    regExp: url\("([^?])?
+    # Added custom height nd width values.
+    regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
@@ -116,6 +120,8 @@ fields:
   - name: manufacturerImages
     description: Images within the third party description
   - name: videos
+    xpath: /html/body/@video-links
+    regExp: '[^|]+'
     description: URLs of videos on page
   - name: name
     description: The product name
@@ -190,8 +196,9 @@ fields:
   - name: fastTrack
     description: null
   - name: ingredientsList
-    xpath: //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p | //*[@id="product_ingredients"]/following-sibling::ul/li
-    regExp: '[^,]+'
+    # xpath: //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p/br[following-sibling::br[position()=1]][not(preceding-sibling::br)]/preceding-sibling::span | //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p/br[following-sibling::br[position()=1]][not(preceding-sibling::br)]/preceding-sibling::text() | //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p[not(br)] | //*[@id="product_ingredients"]/following-sibling::ul/li
+    xpath: //*[@id="product_ingredients"]/following-sibling::ul | //*[@id="product_ingredients"]/following-sibling::p
+    html: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
@@ -340,8 +347,10 @@ fields:
   - name: dietaryInformation
     description: null
   - name: specifications
+    xpath: //p[@id="product_long_description"]/span[contains(text(),"Product Specifications")]/following-sibling::text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
+    xpath: //p[@id="product_long_description"]//span[contains(text(),"guarantee")] | //p[@id="product_long_description"]//span[contains(text(),"waranty")]
     description: Guarantee associated with the product
   - name: storage
     description: Suggested storage location for product

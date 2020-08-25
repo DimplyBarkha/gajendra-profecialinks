@@ -8,6 +8,9 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     xpath: //img[normalize-space(@class)="product_img"]/@src
+    regExp: '(^[^?]+)'
+    # Added custom height nd width values.
+    regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
     description: The URL for the product thumbnail image
   - name: name
     xpath: //div[@class="product_name"]/a/@title
@@ -39,7 +42,7 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    xpath: ./@data-productid
+    xpath: '@data-productid'
     description: Unique id (within this extractor)
   - name: aggregateRating
     xpath: //div[contains(@class,"product_rating")]/span/@title

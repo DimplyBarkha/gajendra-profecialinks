@@ -8,14 +8,16 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain }, context, dependencies) => {
-    await context.goto(url, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
+    await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    await context.waitForNavigation({ waitUntil: 'networkidle0' });
     const newUrl = await context.evaluate(function () {
       if (window.location.pathname.toLowerCase() === '/dyson') {
         return window.location.origin + '/dyson/dyson-shop-all';
       } else { return false; };
     });
+
     if (newUrl) {
-      await context.goto(newUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
+      await context.goto(newUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
     }
   },
 };
