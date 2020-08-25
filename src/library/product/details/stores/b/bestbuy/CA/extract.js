@@ -123,6 +123,7 @@ module.exports = {
       // @ts-ignore
       description = description ? description.innerText : '';
       let descArr = [];
+      let additionalBulletInfo = [];
       // @ts-ignore
       if(description !== ''){
         descArr.push(description);
@@ -130,20 +131,52 @@ module.exports = {
       let bulletsDescription = document.querySelectorAll('div.productDescription_ujYCD ul li');
       console.log('bulletsDescription: ', bulletsDescription);
       let bulletCount = bulletsDescription.length;
+      if(bulletsDescription.length !== 0){
+        bulletCount = bulletsDescription.length;
+        for (let index = 0; index < bulletsDescription.length; index++) {
+          let element = bulletsDescription[index];
+          // @ts-ignore
+          element = element ? element.innerText.replace(/•/, '') : '';
+          descArr.push(element);
+          additionalBulletInfo.push(element);
+        }
+        addElementToDocument('bb_descriptionBulletsCount', bulletCount);
+        // @ts-ignore
+      descArr = descArr.join(' || ');
+      addElementToDocument('bb_descriptionBullets', descArr);
+      addElementToDocument('bb_addDescriptionBulletsInfo', additionalBulletInfo.join(' | '));
+      }
+      let count = 0;
+
       if(bulletsDescription.length == 0){
         bulletsDescription = document.querySelectorAll('div.productDescription_ujYCD p');
         bulletCount = bulletsDescription.length;
-      }
-      addElementToDocument('bb_descriptionBulletsCount', bulletCount);
-      for (let index = 0; index < bulletsDescription.length; index++) {
-        let element = bulletsDescription[index];
-        // @ts-ignore
-        element = element ? element.innerText.replace(/•/, '') : '';
-        descArr.push(element);
-      }
+        // if(bulletsDescription.length == 1){
+        //   addElementToDocument('bb_descriptionBulletsCount', bulletsDescription);
+        // }
+        for (let index = 0; index < bulletsDescription.length; index++) {
+          let element = bulletsDescription[index];
+          // @ts-ignore
+          element = element ? element.innerText.replace(/•/, ' || ') : '';
+          // @ts-ignore
+          if(element.includes(' || ')){
+            additionalBulletInfo.push(element);
+           count++;
+          }
+          
+          descArr.push(element);
+        }
+
+      let desc = descArr.join(' ');
       // @ts-ignore
-      descArr = descArr.join(' || ');
+      descArr = descArr.join(' ');
       addElementToDocument('bb_descriptionBullets', descArr);
+
+      addElementToDocument('bb_descriptionBulletsCount', count);
+      addElementToDocument('bb_addDescriptionBulletsInfo', additionalBulletInfo.join(' | '));
+      console.log('count: ', count);
+      }
+      
     });
       //------------------------------------------------------------
       // await context.waitForSelector('img[class="middle_1qXv8"]');
@@ -189,29 +222,29 @@ module.exports = {
       console.log("whatsIncluded description not loaded");
      }
      //------------------------------------------------------------------------
-     await context.evaluate(async function () {
-     let otherInfoArr = [];
-     let otherInfo = document.querySelector('button#whatsIncluded');
-     // @ts-ignore
-     otherInfo = otherInfo ? otherInfo.click() : '';
-     let otherInfoTxt = document.querySelectorAll('div#whatsIncluded ul li');
-     for (let index = 0; index < otherInfoTxt.length; index++) {
-       // @ts-ignore
-       const element = otherInfoTxt[index].innerText;
-       otherInfoArr.push(" | "+element);
-     }
-     // @ts-ignore
-     otherInfoArr = otherInfoArr.join('');
-     addElementToDocument('bb_productOtherInformation', otherInfoArr);
+    //  await context.evaluate(async function () {
+    //  let otherInfoArr = [];
+    //  let otherInfo = document.querySelector('button#whatsIncluded');
+    //  // @ts-ignore
+    //  otherInfo = otherInfo ? otherInfo.click() : '';
+    //  let otherInfoTxt = document.querySelectorAll('div#whatsIncluded ul li');
+    //  for (let index = 0; index < otherInfoTxt.length; index++) {
+    //    // @ts-ignore
+    //    const element = otherInfoTxt[index].innerText;
+    //    otherInfoArr.push(" | "+element);
+    //  }
+    //  // @ts-ignore
+    //  otherInfoArr = otherInfoArr.join('');
+    //  addElementToDocument('bb_productOtherInformation', otherInfoArr);
      //------------------------------------------------------------------------------
-     function addElementToDocument (key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-   });
+  //    function addElementToDocument (key, value) {
+  //     const catElement = document.createElement('div');
+  //     catElement.id = key;
+  //     catElement.textContent = value;
+  //     catElement.style.display = 'none';
+  //     document.body.appendChild(catElement);
+  //   }
+  //  });
    
     return await context.extract(productDetails, { transform });
   },

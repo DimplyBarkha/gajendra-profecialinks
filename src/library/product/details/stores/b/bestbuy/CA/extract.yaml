@@ -18,15 +18,16 @@ fields:
   - name: weightNet
     singleValue: false
     manualSelector: div[id="bb_weightNet"]
-  - name: weightGross
-    singleValue: false
-    manualSelector: div[id="bb_weightNet"]
-  - name: shippingWeight
-    singleValue: false
-    manualSelector: div[id="bb_weightNet"]
+  # - name: weightGross
+  #   singleValue: false
+  #   manualSelector: div[id="bb_weightNet"]
+  # - name: shippingWeight
+  #   singleValue: false
+  #   manualSelector: div[id="bb_weightNet"]
   - name: image
     singleValue: false
-    xpath: //img[@class="productImage_AMBPT"]/@src
+    # xpath: //img[@class="productImage_AMBPT"]/@src
+    xpath: //div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[@data-index="0"]//img[@class="productImage_AMBPT"]/@src
   - name: description
     singleValue: false
     manualSelector: div[id="bb_descriptionBullets"]
@@ -38,7 +39,8 @@ fields:
     manualSelector: div[id="bb_descriptionBulletsCount"]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@data-index="0"]//div[@class="productImageContainer_1V2HD touchActionManipulation_31CMi productImage_AMBPT applyResponsiveSquareTrick_35RAF"]/div/div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT" and @alt="product image"]/@src | //div[@class="thumbnailItemContainer_3jIDQ"]//div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT"]/@src 
+    # xpath: //div[@data-index="0"]//div[@class="productImageContainer_1V2HD touchActionManipulation_31CMi productImage_AMBPT applyResponsiveSquareTrick_35RAF"]/div/div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT" and @alt="product image"]/@src | //div[@class="thumbnailItemContainer_3jIDQ"]//div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT"]/@src 
+    xpath: //div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[position() > 1]//img[@class="productImage_AMBPT"]/@src
   - name: promotion
     singleValue: false 
     # xpath: //div[@class="productPricingContainer_3gTS3"]/span[@class="productSaving_3YmNX top_3XDS1"]
@@ -68,7 +70,7 @@ fields:
   #   manualSelector: div[id="bb_productOtherInformation"]
   - name: additionalDescBulletInfo
     singleValue: false
-    manualSelector: div[id="bb_productOtherInformation"]
+    manualSelector: div[id="bb_addDescriptionBulletsInfo"]
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="modelDetailSection_2o3XX"]//span[@itemprop="ratingCount"]
@@ -83,9 +85,9 @@ fields:
   - name: color
     singleValue: false
     manualSelector: div[id="bb_colour"]
-  - name: shippingDimensions
-    singleValue: false
-    manualSelector: div[id="bb_dimension"]
+  # - name: shippingDimensions
+  #   singleValue: false
+  #   manualSelector: div[id="bb_dimension"]
   - name: countryOfOrigin
     singleValue: false
     manualSelector: div[id="bb_countryOfOrigin"]
