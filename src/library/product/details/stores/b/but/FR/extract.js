@@ -31,8 +31,10 @@ module.exports = {
     function findJsonData (scriptSelector, startString, endString) {
        
         const xpath = `//script[contains(.,'${scriptSelector}')]`;
-        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        return element.textContent;
+        let element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        // @ts-ignore
+       let elementTxt = (element !== null) ? element.textContent : ''
+        return elementTxt;
     };
     let videoContent = findJsonData ('reviewListStatistics',' var appData =','};')
     addHiddenDiv('videos', videoContent);
