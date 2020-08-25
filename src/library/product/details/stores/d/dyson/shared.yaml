@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -151,7 +151,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])]//*[contains(concat(' ',normalize-space(@class),' '),' h1 ') or contains(concat(' ',normalize-space(@class),' '),' h2 ') or contains(concat(' ',normalize-space(@class),' '),' h3 ') or contains(concat(' ',normalize-space(@class),' '),' h4 ') or contains(concat(' ',normalize-space(@class),' '),' h5 ') or contains(concat(' ',normalize-space(@class),' '),' h6 ') or contains(concat(' ',normalize-space(@class),' '),' body ') or contains(concat(' ',normalize-space(@class),' '),' js-text-body ') or contains(concat(' ',normalize-space(@class),' '),' typography-body ')]
+    xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])]//*[contains(concat(' ',normalize-space(@class),' '),' h1 ') or contains(concat(' ',normalize-space(@class),' '),' h2 ') or contains(concat(' ',normalize-space(@class),' '),' h3 ') or contains(concat(' ',normalize-space(@class),' '),' h4 ') or contains(concat(' ',normalize-space(@class),' '),' h5 ') or contains(concat(' ',normalize-space(@class),' '),' h6 ') or contains(concat(' ',normalize-space(@class),' '),' body ') or contains(concat(' ',normalize-space(@class),' '),' js-text-body ') or contains(concat(' ',normalize-space(@class),' '),' typography-body ')][not(contains(concat(' ',normalize-space(@class),' '),' typography-body--small '))]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description

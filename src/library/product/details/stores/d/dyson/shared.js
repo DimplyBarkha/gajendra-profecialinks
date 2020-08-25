@@ -102,13 +102,13 @@ module.exports.implementation = async function implementation (
           const shortColors = prodID.split(' ').slice(-1);
           if (shortColors.length > 0) {
             const colors = shortColors[0].split('/')
-              .map(col => {
-                if (col.length === 3 && col[0] === 'S') {
-                  return colorMapping[col.slice(1)] || col.slice(1);
-                }
-                return colorMapping[col] || col;
-              });
-            addElementToDocument('added_color', colors.join('-'));
+              .reduce((acc, col) => {
+                if (col.length === 3 && col[0] === 'S' && colorMapping[col.slice(1)]) {
+                  return [...acc, colorMapping[col.slice(1)]];
+                } else if (colorMapping[col]) return [...acc, colorMapping[col]];
+                return acc;
+              }, []);
+            addElementToDocument('added_color', colors.length > 0 ? colors.join('-') : '');
           }
         }
       }
