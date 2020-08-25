@@ -6,8 +6,7 @@ module.exports.implementation = async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-
-  await context.evaluate(async function () {
+  await context.evaluate(async () => {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;

@@ -520,19 +520,15 @@ fields:
     regExpReplace: Yes
     xpath: (//a[contains(concat(' ',normalize-space(@href),' '),'.pdf')])[1]
   - name: termsAndConditions #localedependent
-    singleValue: true
+    singleValue: false
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
-    regExp: (.*)
-    regExpReplace: Yes
-    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' footer__list--secondary ')]//li[.//*[contains(text(), 'Terms and Conditions')]])[1]
+    defaultValue: Yes
+    #xpath: ((//ul//li[.//*[contains(text(), 'Terms and Conditions')]])[1]//a)[1]/text()
   - name: privacyPolicy #localedependent
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
-    regExp: (.*)
-    regExpReplace: Yes
-    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' footer__list--secondary ')]//li[.//*[contains(text(), 'Privacy')]])[1]
+    defaultValue: Yes
+    #xpath: ((//ul[contains(concat(' ',normalize-space(@class),' '),' footer__list--secondary ')]//li[.//*[contains(text(), 'Privacy')]])[1]//a)[1]/text()
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
