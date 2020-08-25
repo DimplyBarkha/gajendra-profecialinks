@@ -3,113 +3,98 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
-    xpath: //div[@id="dynamic-visu1_container_inner"]/div/div/img[1]/@src
+  - name: name
     singleValue: false
+    description: URL of the main product image
+    xpath: //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
+  - name: image
+    singleValue: false
+    xpath: //div[@class="productPics"]/a/img[1]/@src
   - name: url
     xpath: //meta[@property="og:url"]/@content
     singleValue: false
-  - name: category
-    xpath: //nav[@class="breadcrumb"]/*[position() > 1 ]
-    singleValue: false
-  - name: nameExtended
-    xpath: //h1[@class="t-1"]
-    singleValue: false
-  - name: brandText
-    xpath: //li/span[contains(text() , "Marque")]//following-sibling::span
-    singleValue: false
-  - name: sku
-    xpath: //script/@data-flix-ean
-    singleValue: false
   - name: alternateImages
-    xpath: //div[@class="product-swiper"]/ul/li[contains(@class , 'simpleImage')]/img/@src
     singleValue: false
-  - name: videos
-    xpath: //div[@class="mfp-content"]/div[@class="mfp-iframe-scaler"]/iframe/@src
-    singleValue: false
-  - name: imageAlt
-    xpath: //div[@class="product-swiper"]/ul/li/img/@alt
-    singleValue: false
-  - name: secondaryImageTotal
-    xpath: count(//div[@class="product-swiper"]/ul/li/img/@src)
-    singleValue: false
-  - name: price
-    xpath: //p[@class="current-price"]
-    regExp: (.*) €
-    regExpReplace: $1 
-    singleValue: false
-  - name: ratingCount
-    xpath: //a[@id="product-rating-top"]
-    regExp: (.*) avis
-    regExpReplace: $1    
-    singleValue: false
-  - name: aggregateRating2
-    xpath: //a[@id="product-rating-top"]/@class
-    regExp: stars-(.*)
-    regExpReplace: $1  
-    singleValue: false
-  - name: availabilityText
-    xpath: //div[@class="availability"] | //div[@class="availability nomargin"]
-    singleValue: false
-  - name: gtin
-    xpath: //script/@data-flix-ean
-    singleValue: false
-  - name: listPrice
-    xpath: //p[@class="old-price"]
-    regExp: (.*) €Prix moyen marché
-    regExpReplace: $1
-    singleValue: false
-  - name: color
-    xpath: //li/span[contains(text() , "Couleur du produit")]//following-sibling::span
-    singleValue: false
-  - name: weightNet
-    xpath: //li/span[contains(text() , "Poids en kg")]//following-sibling::span
-    regExp: (.*) kg
-    regExpReplace: $1
-    singleValue: false
-  - name: weightGross
-    xpath: //li/span[contains(text() , "Dimensions colis 1")]//following-sibling::span
-    singleValue: false
-    regExp: Pds(.*) kg
-    regExpReplace: $1
+    description: Other product images (not in manufacturer description)
+    xpath: //ul[contains(@class,"sliderThumb")]/li[@class="pager"]//img/@src
+  # - name: secondaryImageTotal
+  #   xpath: count(//div[@class='sliderWithVideo']/div/div/ul/li/a/img/@src)
+  #   singleValue: false
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
     singleValue: false
-  - name: warranty
-    xpath: //li/span[contains(text() , "Garantie")]//following-sibling::span
+  - name: category
     singleValue: false
-    regExp: (.*) ans 
-    regExpReplace: $1
-  - name: quantity
-    xpath: //li/span[contains(text() , "Nombre de colis")]//following-sibling::span
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[contains(@class , "breadcrumb" )]/*[not(self::script)][position() > 2 ]
+  - name: nameExtended
     singleValue: false
-  - name: shippingDimensions
-    xpath: //li/span[contains(text() , "Dimensions colis 1")]//following-sibling::span
+    xpath: //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
+  - name: listPrice
     singleValue: false
-  - name: shippingWeight
-    xpath: //li/span[contains(text() , "Dimensions colis 1")]//following-sibling::span
+    description: The stated undiscounted price for the product
+    xpath: //span[@class='old-infos oldPrice']
+  - name: price
     singleValue: false
-    regExp: Pds(.*) kg 
-    regExpReplace: $1
+    xpath: //div[@class='currentPrice']
   - name: additionalDescBulletInfo
-    xpath: //ul[@class="product-note-ul"]
     singleValue: false
-  - name: descriptionBullets
-    xpath: count(//ul[@class="product-note-ul"])
-    singleValue: false
-  - name: shippingInfo
-    xpath: //div[@class="seller"]/p
-    singleValue: false
+    xpath: //div[@id="tabs-1"]/ul/li
   - name: description
-    xpath: //p/span[contains(text() , 'description')]/../following-sibling::*[not(self::div)]
     singleValue: false
-  - name: manufacturerDescription
-    xpath: //div[contains(@id ,"inpage_container")]//div
+    xpath: //div[@class="productInformationsArea"]/div/div[@id="tabs-1"]/ul/following-sibling::p
+  - name: descriptionBullets
     singleValue: false
-  - name: manufacturerImages
-    xpath: //div[contains(@id ,"inpage_container")]//img/@srcset
+    description: Number of ul > li tags in the description
+    xpath:  count(//div[@id="tabs-1"]/ul/li)
+  - name: brandText
     singleValue: false
+    xpath: //div[@class='productTitle']/ul/li
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+    xpath: //div[@class='productTitle']/ul/li
+  - name: weightNet
+    singleValue: false
+    xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Poids")]//..//following-sibling::*
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin
+  - name: sku
+    singleValue: false
+    xpath: //span[@class='normal product-ref sous-pointFort']
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //div[@class='bv_numReviews_component_container']
+    regExp: \((.*)\)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath:  //div[@class="bv_avgRating_component_container notranslate"]
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class='mc-delivTop']
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath:  //div[@class='linkFiche']/a/@href
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[contains(@id , "cboxLoadedContent")]/object/@data
+  - name: availabilityText
+    singleValue: false
+    xpath:  //div[@class="mc-store inline"]
   - name: specifications
-    xpath: //div[@class="table-heading-product"]/ul/*[position() > 1]
     singleValue: false
-    
+    description: The physical dimensions of the product including packaging.
+    xpath: //div/table/tbody/tr[position() > 1]
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class="garantie-date"]/a
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+    xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Couleur")]//..//following-sibling::*

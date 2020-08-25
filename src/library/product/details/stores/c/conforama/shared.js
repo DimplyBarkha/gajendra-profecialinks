@@ -29,17 +29,6 @@ const transform = (data) => {
             },
           ];
         }
-        if (row.additionalDescBulletInfo) {
-          let text = '';
-          row.additionalDescBulletInfo.forEach(item => {
-            text += `${item.text.replace(/\n \n/g, ' || ')} `;
-          });
-          row.additionalDescBulletInfo = [
-            {
-              text: text.slice(0, -4),
-            },
-          ];
-        }
   
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
@@ -55,25 +44,56 @@ const transform = (data) => {
             } 
           });
         }
-        if (row.availabilityText) {
-          row.availabilityText.forEach(item => {
-            if (item.text.includes('Disponible')) {
-              item.text = 'In Stock';
-            } else {
-              item.text = 'Out of Stock';
-            }
-          });
-        }
+        // if (row.availabilityText) {
+        //   row.availabilityText.forEach(item => {
+        //     if (item.text.includes('Disponible')) {
+        //       item.text = 'In Stock';
+        //     } else {
+        //       item.text = 'Out of Stock';
+        //     }
+        //   });
+        // }
       
-        if (row.imageAlt) {
-          row.imageAlt.forEach(item => {
+        // if (row.imageAlt) {
+        //   row.imageAlt.forEach(item => {
+        //     if (item.text) {
+        //       item.text = item.text;
+        //     } else {
+        //       item.text = 'metaTag';
+        //     }
+        //   });
+        // }
+
+        if (row.name) {
+          let text = '';
+          row.name.forEach(item => {
             if (item.text) {
-              item.text = item.text;
-            } else {
-              item.text = 'metaTag';
+              text += `${item.text}  `;
+            }
+          });
+          row.name = [
+            {
+              text: text,
+            },
+          ];
+        }
+
+        if (row.price) {
+          row.price.forEach(item => {
+            if (item.text) {
+              item.text = item.text.replace('€', ',')
             }
           });
         }
+
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+            if (item.text) {
+              item.text = item.text.replace('€', ',')
+            }
+          });
+        }
+        
       }
     }
     return data;

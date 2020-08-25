@@ -1,12 +1,13 @@
+
 const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FR',
-    store: 'but',
+    store: 'conforama',
     transform,
-    domain: 'but.fr',
+    domain: 'conforama.fr',
     zipcode: '',
   },
 };
