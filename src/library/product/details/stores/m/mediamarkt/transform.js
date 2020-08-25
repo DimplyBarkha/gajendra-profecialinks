@@ -79,6 +79,35 @@ const transform = (data, context) => {
           item.text = item.text.length ? (item.text.match(/[^-]+$/gm) ? item.text.match(/[^-]+$/gm)[0] : '') : '';
         });
       }
+
+      if (row.manufacturerDescription) {
+        let text = '';
+        console.log(row.manufacturerDescription)
+        row.manufacturerDescription.forEach(item => {
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.manufacturerDescription = [
+          {
+            text: text,
+          },
+        ];
+      }
+
+      if (row.videos) {
+        console.log(row.videos)
+        row.videos.forEach(item => {
+          item.text = (item.text.includes('http')) ? item.text : 'https:' + item.text;
+        });
+      }
+
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if (!(item.text === 'In Stock' || item.text === 'Out of Stock')) {
+            item.text = (item.text.includes('InStock')) ? 'In Stock' : 'Out of Stock';
+          }
+        });
+
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

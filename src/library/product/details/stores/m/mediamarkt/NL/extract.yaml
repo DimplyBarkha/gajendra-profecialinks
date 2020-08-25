@@ -15,7 +15,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //span[contains(@class, "fullscreen-gallery")]//following-sibling::ul//li[position()>1]//img/@src
+    xpath: //span[contains(@class, "fullscreen-gallery")]//following-sibling::ul//li[position()>1]//a/@data-magnifier
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
@@ -252,6 +252,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
+    xpath: count(//span[contains(@class, "fullscreen-gallery")]//following-sibling::ul//li[position()>1]//a/@data-magnifier)
     description: null
     type: NUMBER
   - name: news
@@ -347,14 +348,6 @@ fields:
     singleValue: false
     xpath: //div[@class="details"]//article//li
     description: null
-  - name: prop65Warning
-    singleValue: true
-    description: null
-  - name: ageSuitability
-    singleValue: true
-    description: Recommended age displayed on the product page.
-      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
-    example: 4 - 99 years
   - name: energyEfficiency
     singleValue: true
     xpath: (//dl[contains(@class, "energy-efficiency")]//dt[contains(text(),"Energie-efficiëntieklasse")]//following-sibling::dd)[1]
