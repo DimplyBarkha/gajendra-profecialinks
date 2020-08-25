@@ -130,7 +130,7 @@ fields:
   - name: shippingInfo #localedependent
     singleValue: true
     description: Shipping information for the product
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery ')]])[1]
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery')]])[1]
   - name: shippingDimensions #missing
     singleValue: true
     description: Stated shipping dimensions
@@ -164,8 +164,8 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src
-    regExp: (.+)
-    regExpReplace: https://www.dyson.co.uk$1
+    #regExp: (.+)
+    #regExpReplace: https://www.dyson.co.uk$1
   - name: name
     singleValue: true
     description: The product name
