@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -39,7 +39,7 @@ fields:
       clicks add to basket this is the price they would be charged
     xpath: //div[@class='product-hero__price-top']/div[@data-product-price]
   - name: availabilityText #localedependent
-    singleValue: true
+    singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -62,6 +62,7 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@id='added_brandtext']
+    defaultValue: Dyson
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
