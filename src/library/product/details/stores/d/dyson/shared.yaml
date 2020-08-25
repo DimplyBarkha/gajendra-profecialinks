@@ -121,12 +121,12 @@ fields:
     description: The stated aggregate rating
     regExp: (^.{3,3})
     regExpReplace: $1
-    xpath: (//a[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href])[1]/@aria-label
+    xpath: (//a[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'author'))][@href])[1]/@aria-label
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //span[@class='ratings__average-value--product-review']
+    xpath: (//a[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'-author-'))][@href])[1]/@aria-label
   - name: shippingInfo #localedependent
     singleValue: true
     description: Shipping information for the product
