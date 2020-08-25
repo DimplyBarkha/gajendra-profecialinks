@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: nameExtended
     singleValue: false
-    xpath: concat(//h1[@class='product-details-name'],'-',//meta[@name="description"]/@content)
+    xpath: concat(//div[@class="product-details-panel"]/@data-brandname,' - ',//h1[@class='product-details-name'])
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
@@ -20,9 +20,10 @@ fields:
     xpath: //div[@data-video]/@data-video
   - name: price
     singleValue: false
-    manualSelector: div.priceOfProduct
+    manualSelector: div.product-details-price > div.priceOfProduct
   - name: listPrice
     singleValue: false
+    manualSelector: div.rrp.product-price-panel-offer>div:last-child
   - name: promotion
     singleValue: false
   - name: secondaryImageTotal
@@ -37,11 +38,13 @@ fields:
     manualSelector: div.product-cart-delivery-availability
   - name: description
     singleValue: false
+    manualSelector: div#details-tab
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="product-images-main"]//img/@alt
   - name: aggregateRating
     singleValue: false
+    manualSelector: span._1x1fpq7
   - name: ratingCount
     singleValue: false
   - name: category
@@ -78,12 +81,15 @@ fields:
     defaultValue: '1'
   - name: gtin
     singleValue: false
+    xpath: //div[@class="product-flixdata"]/@data-ean
+  - name: sku
+    singleValue: false
+    xpath: //script[contains(text(),'sku')]
+    regExp: .*?sku":"(.*?)".*
+    regExpReplace: $1
   - name: manufacturerDescription
     singleValue: false
-    xpath: //body[div[@class="logo-wrapper"]]
-  - name: manufacturerDescription2
-    singleValue: false
-    manualSelector: div#details-tab
+    xpath: //body[div[@class="logo-wrapper"]] | //div[@id="flix-std-inpage"]
   - name: shippingWeight
     singleValue: false
     xpath: //div[div[contains(text(),'Logistikmaße mit Verpackung')]]//td[contains(text(),'Gewicht')]/following-sibling::td
@@ -94,4 +100,4 @@ fields:
     regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
-    xpath: //body[div[@class="logo-wrapper"]]//img/@src
+    xpath: //body[div[@class="logo-wrapper"]]//img/@src | //div[@id="flix-std-inpage"]//img/@srcset

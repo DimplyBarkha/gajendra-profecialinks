@@ -5,8 +5,6 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-  const state = context.getState();
-  const manufacturerDescription = state.manufacturerDescription || '';
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
@@ -18,19 +16,13 @@ const transform = (data, context) => {
         }];
       }
       if (row.manufacturerDescription) {
-        row.manufacturerDescription[0].text = manufacturerDescription + row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
+        row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
       }
       if (row.videos) {
         const videos = row.videos.map(({ text }) => text);
         row.videos = Array.from(new Set(videos)).map(video => ({ text: video }));
       }
-      if (!manufacturerDescription) {
-        if (row.manufacturerDescription2) {
-          context.setState({ manufacturerDescription: row.manufacturerDescription2[0].text });
-        }
-      } else {
-        row.manufacturerDescription[0].text = `${manufacturerDescription} ${row.manufacturerDescription[0].text}`;
-      }
+      row.category && row.category.splice(-1);
       if (row.availabilityText) {
         row.availabilityText[0].text = 'In Stock';
       } else {
@@ -40,6 +32,21 @@ const transform = (data, context) => {
       }
     }
   }
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 
