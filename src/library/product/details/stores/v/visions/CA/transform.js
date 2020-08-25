@@ -17,6 +17,16 @@ const transform = (data) => {
           item.text = item.text.replace(/(.*)/, 'https://www.visions.ca$1').replace(/_m_(\d)/, '_l_$1');
         }
       }
+      if (row.price) {
+        for (const item of row.price) {
+          item.text = item.text.replace(/,/, '');
+        }
+      }
+      if (row.listPrice) {
+        for (const item of row.listPrice) {
+          item.text = item.text.replace(/,/, '');
+        }
+      }
       // if (row.ratingCount) {
       //   for (const item of row.ratingCount) {
       //     item.text = item.text.replace(/([\d+]) .*/, '$1');
@@ -24,11 +34,8 @@ const transform = (data) => {
       // }
       if (row.sku) {
         for (const item of row.sku) {
-          item.text = item.text.replace(/.*&sku=(.*)/, '$1').trim();
+          item.text = decodeURIComponent(item.text) ? decodeURIComponent(item.text).replace(/.*&sku=(.*)/, '$1') : item.text.replace(/.*&sku=(.*)/, '$1');
         }
-      }
-      if (row.mpc && row.sku) {
-        row.mpc = row.sku;
       }
       if (row.variantId && row.sku) {
         row.variantId = row.sku;
@@ -37,6 +44,12 @@ const transform = (data) => {
         for (const item of row.gtin) {
           const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
           item.text = (descJSON && descJSON.gtin12) ? descJSON.gtin12.trim() : '';
+        }
+      }
+      if (row.mpc) {
+        for (const item of row.mpc) {
+          const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
+          item.text = (descJSON && descJSON.mpn) ? descJSON.mpn.trim() : '';
         }
       }
       if (row.ratingCount) {

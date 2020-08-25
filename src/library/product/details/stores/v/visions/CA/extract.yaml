@@ -79,7 +79,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
-    xpath: //link[@rel='canonical']/@href
+    xpath: //script[@type='application/ld+json']
     description: The manufacturer model code (unique) of the product
   - name: ratingCount
     singleValue: true
