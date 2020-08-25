@@ -44,6 +44,10 @@ module.exports = {
         }
         addHiddenDiv('description', desArrFinal.join(' || '));
         addHiddenDiv('descriptionBulletsCount', desBullets.length );
+        let enhancedContent = document.querySelector('div#flix-inpage');
+        // @ts-ignore
+        enhancedContent = enhancedContent ? enhancedContent.innerText.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
+        addHiddenDiv('enhancedContent', enhancedContent);
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

@@ -57,16 +57,19 @@ fields:
   #   xpath: //div[@class='productTitle']/ul/li
   - name: weightNet
     singleValue: false
-    xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Poids")]//..//following-sibling::*
+    # xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Poids")]//..//following-sibling::*
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
     xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin
   - name: sku
     singleValue: false
-    xpath: //script[contains(text(), '"sku":')]
-    regExp: \"sku\"\:\s\"(.*)\"\,
-    regExpReplace: $1
+    xpath: //span[@class='normal product-ref sous-pointFort']
+    # regExp: \"sku\"\:\s\"(.*)\"\,\s
+    # regExpReplace: $1
+    # xpath: //script[contains(text(), '"sku":')]
+    # regExp: \"sku\"\:\s\"(.*)\"\,\s
+    # regExpReplace: $1
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -103,3 +106,16 @@ fields:
     singleValue: false
     description: A textual description of the colour
     xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Couleur")]//..//following-sibling::*
+  - name: manufacturerDescription
+    xpath: //div[@id="enhancedContent"]
+    singleValue: false
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party descripti
+    xpath: //div[@class="flix-inpage"]//img/@src
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Dimension colis")]//..//following-sibling::*
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Poids total colis")]//..//following-sibling::*

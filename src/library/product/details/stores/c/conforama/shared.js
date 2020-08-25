@@ -35,15 +35,15 @@ const transform = (data) => {
             item.text = item.text ? item.text.replace(/[()]/g, '') : '';
           });
         }
-        // if (row.manufacturerImages) {
-        //   row.manufacturerImages.forEach(item => {
-        //     if(item.text.includes('https:')){
-        //       item.text = item.text;
-        //     }else{
-        //       item.text = 'https:'+item.text;
-        //     } 
-        //   });
-        // }
+        if (row.manufacturerImages) {
+          row.manufacturerImages.forEach(item => {
+            if(item.text.includes('https:')){
+              item.text = item.text;
+            }else{
+              item.text = 'https:'+item.text;
+            } 
+          });
+        }
         if (row.availabilityText) {
           row.availabilityText.forEach(item => {
             if (item.text.includes('Ajouter au panier')) {
@@ -54,15 +54,17 @@ const transform = (data) => {
           });
         }
       
-        // if (row.imageAlt) {
-        //   row.imageAlt.forEach(item => {
-        //     if (item.text) {
-        //       item.text = item.text;
-        //     } else {
-        //       item.text = 'metaTag';
-        //     }
-        //   });
-        // }
+        if (row.warranty) {
+          let text = '';
+          row.warranty.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ' ')} |`;
+          });
+          row.warranty = [
+            {
+              text: text,
+            },
+          ];
+        }
 
         if (row.name) {
           let text = '';
@@ -82,6 +84,14 @@ const transform = (data) => {
           row.price.forEach(item => {
             if (item.text) {
               item.text = item.text.replace('€', ',')
+            }
+          });
+        }
+
+        if (row.sku) {
+          row.sku.forEach(item => {
+            if (item.text) {
+              item.text = item.text.split(':')[1].trim();
             }
           });
         }
@@ -108,6 +118,19 @@ const transform = (data) => {
               item.text = 'https:'+item.text;
             } 
           });
+        }
+        if (row.nameExtended) {
+          let text = '';
+          row.nameExtended.forEach(item => {
+            if (item.text) {
+              text += `${item.text}  `;
+            }
+          });
+          row.nameExtended = [
+            {
+              text: text,
+            },
+          ];
         }
         
       }
