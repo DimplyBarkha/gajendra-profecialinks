@@ -85,7 +85,7 @@ module.exports.implementation = async function implementation (
         if (found) setBrand(brand);
       }
     } if (!brandText) {
-      const lastChance = getXpath("//div[@data-title][contains(normalize-space(@data-title),'™ ')]/@data-title");
+      const lastChance = getXpath("//div[@data-title][contains(normalize-space(@data-title),'™ ')]/@data-title", 'nodeValue');
       // Remove leading 'The'
       const cleaned = lastChance ? lastChance.split('The ') : [];
       if (cleaned.length > 0) setBrand(cleaned[1]);
@@ -132,7 +132,7 @@ module.exports.implementation = async function implementation (
 
     // add the extended name
     const name = getXpath("//h1[contains(concat(' ',normalize-space(@class),' '),' product-hero__line1 ')]", 'innerText');
-    const variant = getXpath("(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt");
+    const variant = getXpath("(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt", 'nodeValue');
     const prefix = name && name.includes(brandText) ? '' : brandText;
     addElementToDocument('added_nameExtended', `${prefix ? prefix + ' - ' : ''}${name}${variant ? ' - ' + variant : ''}`);
 
