@@ -31,9 +31,9 @@ const transform = (data, context) => {
           }
         });
       }
-      if (row.category) {
-        row.category.forEach(category => {
-          category.text = category.text.replace('Home', '').replace(/\n\s/g, '').trim();
+      if (row.weightNet) {
+        row.weightNet.forEach(weightNet => {
+          weightNet.text = weightNet.text.replace('Weight', '').trim();
         });
       }
       if (row.specifications) {
