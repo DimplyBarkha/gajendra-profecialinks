@@ -12,7 +12,7 @@ fields:
     description: Alt text of the main product image
     xpath: //li[@data-label="Main Image"]/img/@alt
   - name: alternateImages
-    singleValue: true
+    singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: (//ul[@class="product-media-gallery-zoom__wrapper js-product-media-gallery-zoom__wrapper"]//li//div[@class="product-media-gallery-zoom__container"]//img[not(@data-src)]/@src | //ul[@class="product-media-gallery-zoom__wrapper js-product-media-gallery-zoom__wrapper"]//li//div[@class="product-media-gallery-zoom__container"]//img[contains(@data-src,"")]/@data-src)[position()>1]
   - name: metaKeywords
@@ -23,19 +23,19 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //ol[contains(@class,"breadcrumbs")]//li
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1//span[contains(@class,"product-name")]
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
     xpath: (//span[contains(@class,"sales-price")]//*[contains(@class,"former-price")])[position()<2]
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[contains(@class,"sales-price")]//*[contains(@class,"current")]
+    xpath: (//span[contains(@class,"sales-price")]//*[contains(@class,"current")])[position()<2]
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -56,12 +56,10 @@ fields:
     xpath: count(//*[@id="product-information"]//div[contains(@class,"product-description-content")]//p)
     type: NUMBER
   - name: brandText
-    singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
-    xpath: (//script[contains(text(),"brand")])[@class=""][2]
-    regExp: \"brand\"\:([^]+)(.*)\"name"\:\s?\"(.*)\"
-    regExpReplace: $3
+    description: Product brand shown - this may actually NOT be just a brand name, e.g. "Visit the Gillette Store"
+    xpath: (//script[contains(text(),"brand")])[2]
+    regExp: name":\s"(\w+)"
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -69,33 +67,30 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath:
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
-    xpath:
+    xpath: //div[@class="product-specs"]//dl[@data-property-name="Gewicht"]//dd
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
-    xpath:
+    xpath: //div[@class="product-specs"]//dl[@data-property-name="Gewicht"]//dd
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath:
+    xpath: //main[@id="main-content"]/@data-product-id
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath:
+    xpath: //main[@id="main-content"]/@data-product-id
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath:
+    xpath: //main[@id="main-content"]/@data-product-id
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath:
+    xpath: //main[@id="main-content"]/@data-product-id
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -114,19 +109,22 @@ fields:
     description: Content under "warnings" header
     xpath:
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
-    xpath:
+    xpath: //div[@class="product-page--title-links"]//span[contains(@class,"review-rating__review")]/a
+    regExp: (.*)\((\d+)\s+?review[s]?\)
+    regExpReplace: $2
     type: NUMBER
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
-    xpath:
+    xpath: //div[@class="product-page--title-links"]//span[contains(@class,"review-rating__review")]/a
+    regExp: (\d+)\,(\d+)?\/(.*)
+    regExpReplace: $1.$2
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath:
-    type: NUMBER
+    xpath: //div[@class="product-page--title-links"]//span[contains(@class,"review-rating__score")]//meter/@value
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -138,16 +136,16 @@ fields:
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-    xpath:
+    xpath: 
   - name: variantCount
     singleValue: true
     description: Number of variants listed
     xpath:
     type: NUMBER
   - name: color
-    singleValue: true
+    singleValue: false
     description: A textual description of the colour
-    xpath:
+    xpath: //div[@class="product-specs"]//dl[@data-property-name="Kleur"]//dd
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -163,8 +161,9 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
+    xpath: //main[@id="main-content"]/h1/span[@class="js-product-name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -253,8 +252,9 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     description: null
+    xpath: count((//ul[@class="product-media-gallery-zoom__wrapper js-product-media-gallery-zoom__wrapper"]//li//div[@class="product-media-gallery-zoom__container"]//img[not(@data-src)]/@src | //ul[@class="product-media-gallery-zoom__wrapper js-product-media-gallery-zoom__wrapper"]//li//div[@class="product-media-gallery-zoom__container"]//img[contains(@data-src,"")]/@data-src)[position()>1])
     type: NUMBER
   - name: news
     singleValue: true
@@ -420,6 +420,9 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //a[@title="Meer informatie over garantie"]//div[@class]/strong[@class]
+    regExp: 
+    regExpReplace: 
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -504,29 +507,42 @@ fields:
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
   - name: termsAndConditions
-    singleValue: true
+    singleValue: false
+    # ISSUE - SHOULD BE FIXED WITH CLI UPDATE
     description: Terms and conditions information text ['Yes','No']
+    xpath: //ul[contains(@class,"inline-list")]//li//a[contains(@title,"Algemene voorwaarden")]
+    regExp: (.*)
+    regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
+    xpath: //ul[contains(@class,"inline-list")]//li//a[contains(@title,"privacy")]
+    regExp: (.*)
+    regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
-    singleValue: true
+    singleValue: false
+    # ISSUE - SHOULD BE FIXED WITH CLI UPDATE
     description: Information related to customer service availability (text), ['Yes','No']
+    xpath: //a[contains(@data-component,"Customer Service")]
+    regExp: (.*)
+    regExpReplace: Yes
     defaultValue: No
   - name: materials
-    singleValue: true
+    singleValue: false
     description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //div[@class="product-specs"]//dl[@data-property-name="Materiaal"]//dd
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: true
+    singleValue: false
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    # ISSUE - SHOULD BE FIXED WITH CLI UPDATE
+    xpath: //img[contains(@class,"zoom__image")]
+    regExp: (.*)
+    regExpReplace: Yes
     defaultValue: No
