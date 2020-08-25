@@ -106,8 +106,22 @@ const transform = (data, context) => {
             item.text = (item.text.includes('InStock')) ? 'In Stock' : 'Out of Stock';
           }
         });
-
       }
+
+      // if (row.termsAndConditions) {
+      //   console.log(row.termsAndConditions)
+      //   row.termsAndConditions.forEach(item => {
+      //     item.text = item.text == 'true' ? 'Yes' : 'No';
+      //   });
+      // }
+
+      // if (row.technicalInformationPdfPresent) {
+      //   row.technicalInformationPdfPresent.forEach(item => {
+      //     item.text = item.text == 'true' ? 'Yes' : 'No';
+      //   });
+      // }
+
+      
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

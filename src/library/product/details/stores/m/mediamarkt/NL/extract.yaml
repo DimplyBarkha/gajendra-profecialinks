@@ -41,7 +41,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //meta[@itemprop="availability"]/@content
+    xpath: (//meta[@itemprop="availability"]/@content)[1]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"

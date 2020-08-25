@@ -266,7 +266,7 @@ fields:
     description: null
   - name: specifications
     singleValue: true
-    xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Ancho del embalaje:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Ancho del embalaje:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Alto del embalaje:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Alto del embalaje:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Profundidad del embalaje::")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Profundidad del embalaje:")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Girth:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Girth:")]//following-sibling::dd)[1])
+    xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Ancho del embalaje:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Ancho del embalaje:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Alto del embalaje:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Alto del embalaje:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Profundidad del embalaje:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Profundidad del embalaje:")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Girth:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Girth:")]//following-sibling::dd)[1])
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
