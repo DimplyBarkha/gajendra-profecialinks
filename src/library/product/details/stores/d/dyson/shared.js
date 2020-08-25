@@ -6,14 +6,21 @@ module.exports.implementation = async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-  
+
   await context.evaluate(async function () {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
-      catElement.textContent = value;
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
+      if (Array.isArray(value)) {
+        const innerHTML = value.reduce((acc, val) => {
+          return `${acc}<li>${val}</li>`;
+        }, '<ul>') + '</ul>';
+        catElement.innerHTML = innerHTML;
+      } else {
+        catElement.textContent = value;
+      }
     }
 
     const getSel = (sel, prop) => {
@@ -28,6 +35,16 @@ module.exports.implementation = async function implementation (
       if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
       else result = elem ? elem.singleNodeValue : '';
       return result && result.trim ? result.trim() : result;
+    };
+
+    const getAllXpath = (xpath, prop) => {
+      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const result = [];
+      for (let index = 0; index < nodeSet.snapshotLength; index++) {
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
+      }
+      return result;
     };
 
     // try to get the brand from multiple different sources
@@ -47,7 +64,7 @@ module.exports.implementation = async function implementation (
       let imgSrc;
       try {
         imgSrc = getSel('.product-hero__motif-container img', 'src')
-        .split('/').slice(-1)[0].split('?')[0].split(/[-_]/).join(' ');
+          .split('/').slice(-1)[0].split('?')[0].split(/[-_]/).join(' ');
       } catch (error) {} // can't use image source
       if (!brandText && (imgAlt || imgSrc)) {
         const newSrc = imgAlt || imgSrc;
@@ -125,6 +142,12 @@ module.exports.implementation = async function implementation (
     if (varInfo[0]) {
       addElementToDocument('added_variantinformation', varInfo[0].replace('swatches__', ''));
     }
+
+    // Get the manufacturer description
+    const descr = "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])]//*[contains(concat(' ',normalize-space(@class),' '),' h1 ') or contains(concat(' ',normalize-space(@class),' '),' h2 ') or contains(concat(' ',normalize-space(@class),' '),' h3 ') or contains(concat(' ',normalize-space(@class),' '),' h4 ') or contains(concat(' ',normalize-space(@class),' '),' h5 ') or contains(concat(' ',normalize-space(@class),' '),' h6 ') or contains(concat(' ',normalize-space(@class),' '),' body ') or contains(concat(' ',normalize-space(@class),' '),' js-text-body ') or contains(concat(' ',normalize-space(@class),' '),' typography-body ')]";
+    const imgs = "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src";
+    addElementToDocument('added_manufacturerDescription', getAllXpath(descr, 'innerText'));
+    addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
   });
   return await context.extract(productDetails, { transform: parameters.transform });
 };

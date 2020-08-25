@@ -1,16 +1,16 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordxpath: null
 fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id]/@src
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id]/@alt
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@alt
   - name: alternateImages #missing
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -30,7 +30,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class='product-hero__price-top']/div[1]
+    xpath: (//div[@class='product-hero__price-top']/div[1])[1]
     regExp: ([^a-zA-Z:]{3,})
     regExpReplace: $1
   - name: price
@@ -77,7 +77,7 @@ fields:
     description: Net weight as described on the page
     regExp: ([0-9,\.]+.+)
     regExpReplace: $1
-    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]]
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]])[1]
   - name: weightGross #localedependent#missing
     singleValue: true
     description: Gross weight as described on the page
@@ -151,11 +151,13 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])]//*[contains(concat(' ',normalize-space(@class),' '),' h1 ') or contains(concat(' ',normalize-space(@class),' '),' h2 ') or contains(concat(' ',normalize-space(@class),' '),' h3 ') or contains(concat(' ',normalize-space(@class),' '),' h4 ') or contains(concat(' ',normalize-space(@class),' '),' h5 ') or contains(concat(' ',normalize-space(@class),' '),' h6 ') or contains(concat(' ',normalize-space(@class),' '),' body ') or contains(concat(' ',normalize-space(@class),' '),' js-text-body ') or contains(concat(' ',normalize-space(@class),' '),' typography-body ')][not(contains(concat(' ',normalize-space(@class),' '),' typography-body--small '))]
+    xpath: //div[@id='added_manufacturerDescription']//li
+    #xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])]//*[contains(concat(' ',normalize-space(@class),' '),' h1 ') or contains(concat(' ',normalize-space(@class),' '),' h2 ') or contains(concat(' ',normalize-space(@class),' '),' h3 ') or contains(concat(' ',normalize-space(@class),' '),' h4 ') or contains(concat(' ',normalize-space(@class),' '),' h5 ') or contains(concat(' ',normalize-space(@class),' '),' h6 ') or contains(concat(' ',normalize-space(@class),' '),' body ') or contains(concat(' ',normalize-space(@class),' '),' js-text-body ') or contains(concat(' ',normalize-space(@class),' '),' typography-body ')][not(contains(concat(' ',normalize-space(@class),' '),' typography-body--small '))]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src
+    xpath: //div[@id='added_manufacturerImages']//li
+    #xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src
   - name: videos #localedependent
     singleValue: false
     description: URLs of videos on page
@@ -514,25 +516,25 @@ fields:
     defaultValue: No
     regExp: (.*)
     regExpReplace: Yes
-    xpath: //a[contains(concat(' ',normalize-space(@href),' '),'.pdf')]
+    xpath: (//a[contains(concat(' ',normalize-space(@href),' '),'.pdf')])[1]
   - name: termsAndConditions #localedependent
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
     regExp: (.*)
     regExpReplace: Yes
-    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' footer__list--secondary ')]//li[.//*[contains(text(), 'Terms and Conditions')]]
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' footer__list--secondary ')]//li[.//*[contains(text(), 'Terms and Conditions')]])[1]
   - name: privacyPolicy #localedependent
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
     defaultValue: No
     regExp: (.*)
     regExpReplace: Yes
-    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' footer__list--secondary ')]//li[.//*[contains(text(), 'Privacy')]]
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' footer__list--secondary ')]//li[.//*[contains(text(), 'Privacy')]])[1]
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' talk-to-dyson ')]
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' talk-to-dyson ')])[1]
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
