@@ -17,6 +17,11 @@ const transform = (data) => {
           text: row.specifications.reduce((item, currItem) => `${item} || ${currItem.text.trim()}`, '').replace(/(\n\s?)+/g, '').slice(3).trim(),
         }];
       };
+      if (row.variants) {
+        row.variants = [{
+          text: row.variants.reduce((item, currItem) => `${item} | ${currItem.text.trim()}`, '').replace(/(\n\s?)+/g, '').slice(3).trim(),
+        }];
+      };
       if (row.listPrice && !row.price) {
         row.price = [{
           text: row.listPrice[0].text.trim(),
