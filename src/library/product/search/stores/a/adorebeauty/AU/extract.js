@@ -39,13 +39,9 @@ async function implementation (
     let recordSelector = document.querySelectorAll('li[class="ais-InfiniteHits-item m-2"]');
     
     for (const record of recordSelector) {
-      let btnView = record.querySelector('button.text-black');
-      btnView.click();
-      await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-      let productId = document.querySelector("meta[itemprop='productID']").content;
-      let modalClose = document.querySelector('div[class="dialog__close"]');
-      await modalClose.click();
-      addHiddenDiv("myProductId", productId, record);
+      let productIdentifierText = record.childNodes[0].getAttribute('href').split('/')[2].split('.')[0];
+      const productInfo = await fetch(`https://www.adorebeauty.com.au/api/product?identifier=${productIdentifierText}&locale=en-AU`).then(res => res.json());
+      addHiddenDiv("myProductId", productInfo.id.split('_')[0], record);
     }
   });
 
