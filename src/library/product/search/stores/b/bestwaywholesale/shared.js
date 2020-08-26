@@ -40,7 +40,7 @@ const transform = (data, context) => {
       }
 
       if (row.productUrl && !row.productUrl[0].text.match(/http/g)) {
-        row.productUrl = [{ text: `https://www.bestwaywholesale.co.uk/${row.productUrl[0].text}`}]
+        row.productUrl = [{ text: `https://www.bestwaywholesale.co.uk/${row.productUrl[0].text}` }];
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
