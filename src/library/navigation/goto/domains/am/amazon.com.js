@@ -2,10 +2,10 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     country: 'US',
-    domain: 'amazon.us',
+    domain: 'amazon.com',
     store: 'amazon',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -180,5 +180,10 @@ module.exports = {
       }
     };
     await run();
+
+    if (zipcode){
+      await dependencies.setZipCode({ url, zipcode });
+    }
+
   },
 };
