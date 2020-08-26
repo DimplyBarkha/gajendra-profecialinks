@@ -1,0 +1,109 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id="scene7Container0_container_inner"]//div[@class= 's7staticimage']//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id="scene7Container0_container_inner"]//div[@class= 's7staticimage']//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class= 's7staticimage']//img/@src
+  - name: metaKeywords
+    singleValue: false
+  - name: category
+    singleValue: false
+    manualSelector: div.Breadcrumb > ul > li > a:first-child ~ a
+  - name: nameExtended
+    singleValue: false
+    manualSelector: html[data-triggered] > head >title
+    regExp: (.*?)\s*\|
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="ProductPricingPanel"]//span[not(contains(@class,"Text--line-through"))]/text()
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="ProductPricingPanel"]//span[contains(@class,"Text--line-through")]/text()
+  - name: availabilityText
+    singleValue: false
+    manualSelector: button[aria-label="Add To Bag"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class="ProductDetail__productContent"]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    manualSelector: div.ProductDetail__productContent > ul > li
+  - name: brandText
+    singleValue: flase
+    manualSelector: div.ProductMainSection__brandName p
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#wc-power-page
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="wc-power-page"]//img/@src
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="ProductDetail__productContent"]//iframe/@src | //video/@src
+  - name: name
+    singleValue: false
+    xpath: //div[@class="ProductMainSection__productName"]//span
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@id="ShippingBanner"]//a 
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
+    regExp: .*\/(.*?)\?
+    regExpReplace: $1
+  - name: weightNet
+    singleValue: false
+    xpath: //tr[th[contains(@aria-label,"weight")]]/th[2]/@aria-label | //tr[th[contains(@aria-label,"weight")]]/td
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //tr[th[contains(@aria-label,"Dimensions")]]/th[2]/@aria-label | //tr[th[contains(@aria-label,"Dimensions")]]/td
+  - name: gtin
+    singleValue: false
+    xpath: //div[@data-gtin]/@data-gtin
+  - name: sku
+    singleValue: false
+    manualSelector: div.ProductMainSection__itemNumber
+    regExp: item\s*(.*)
+    regExpReplace: $1 
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+    regExp: .*?productId=(.*?)&?
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    manualSelector: section.ProductDetail__content div.RatingPanel__panel > label
+    # regExp: ^(.*?)\s+
+    # regExpReplace: $1 
+  - name: ratingCount
+    singleValue: false
+    manualSelector: span.pr-snippet-review-count
+    regExp: (\d+)
+    regExpReplace: $1 
+  - name: color
+    singleValue: false  
+    xpath: //meta[@property="product:color"]/@content
+  - name: variantInformation
+    singleValue: false  
+    xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/alt
+  - name: directions
+    singleValue: false  
+    manualSelector: div.ProductDetail__howToUse > div.Collapsible
+  - name: specifications
+    singleValue: false 
+    manualSelector: div.wc-specifications-responsive >  table > tbody > tr 
+    
+  
+    
