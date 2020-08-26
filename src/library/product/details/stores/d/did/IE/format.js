@@ -41,13 +41,13 @@ const transform = (data, context) => {
       if (row.termsAndConditions) {
         row.termsAndConditions = [
           {
-            text: true,
+            text: 'Yes',
           },
         ];
       } else {
         row.termsAndConditions = [
           {
-            text: false,
+            text: 'No',
           },
         ];
       }
