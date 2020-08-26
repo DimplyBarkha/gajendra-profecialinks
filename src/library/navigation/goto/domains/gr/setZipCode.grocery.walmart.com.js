@@ -118,6 +118,10 @@ module.exports = {
           return false;
         }
         try {
+          await context.waitForXPath('//div[@data-automation-id="changeStoreFulfillmentBannerBtn"]//span[contains(@class,"AddressPanel__addressLine") and contains(text(), "' + zipcodeStreetAddress + '")]', { timeout: 55000 });
+          // Seems like the timeout for waitForFunction is not working
+          await new Promise((resolve) => setTimeout(resolve, 6000));
+
           await context.waitForFunction(function (sel, zipcodeStreetAddress) {
             return Boolean(document.querySelector(sel).textContent === zipcodeStreetAddress);
           }, { timeout: 55000 }, 'div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', zipcodeStreetAddress);
