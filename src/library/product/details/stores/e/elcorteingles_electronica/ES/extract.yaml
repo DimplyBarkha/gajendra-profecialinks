@@ -80,7 +80,7 @@ fields:
     xpath : //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
   - name: storage
     singleValue: true
-    xpath : 
+    xpath : //div/@title
   - name: countryOfOrigin
     singleValue: true
     xpath: //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
@@ -110,3 +110,60 @@ fields:
     xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
   - name: imageZoomFeaturePresent
     xpath: //div[@id="imageZoomFeaturePresent"] 
+  - name: shippingDimensions
+    singleValue: true
+    xpath :  
+  - name: shippingWeight
+    singleValue: true
+    xpath : 
+  - name: variantCount
+    singleValue: true
+    xpath :  
+  - name: color
+    singleValue: true
+    xpath :  
+  - name: colorCode
+    singleValue: true
+    xpath :  
+  - name: manufacturerDescription
+    singleValue: true
+    xpath :      
+  - name: termsAndConditions
+    singleValue: true
+    xpath : 
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath :   
+  - name: specifications
+    singleValue: true
+    xpath :   
+  - name: recyclingInformation
+    singleValue: true
+    xpath :      
+  - name: productOtherInformation
+    singleValue: true
+    xpath :    
+  - name: packaging
+    singleValue: true
+    xpath :             
+  - name: directions
+    singleValue: true
+    xpath:
+  - name: warnings 
+    singleValue: true
+    xpath:   
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+    xpath: 
+  - name: legalDisclaimer
+    singleValue: true
+    xpath:  
+  - name : weightNet    
+    xpath : 
+  - name : weightGross    
+    xpath :           
+  - name: descriptionBullets
+    singleValue: false
+    xpath :      
