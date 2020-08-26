@@ -7,8 +7,9 @@ module.exports = {
     // nextLinkSelector: 'div[class="ctrl-navigation ctrl-next"] a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'section[class="main-section"]',
+    // loadedSelector: 'div.search-results-head__title', 
     noResultsXPath: '//section[@class="main-section emptySearch"]',
+    loadedSelector: 'section#contentSegment',
     openSearchDefinition: {
       template: 'https://www.carrefour.fr/s?q={searchTerms}&page={page}',
     },

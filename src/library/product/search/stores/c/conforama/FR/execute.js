@@ -6,8 +6,9 @@ module.exports = {
     store: 'conforama',
     domain: 'conforama.fr',
     url: 'https://www.conforama.fr/recherche-conforama/{searchTerms}',
-    loadedSelector: 'section[class="main-section"]',
+    // loadedSelector: 'section[class="main-section"]',
     noResultsXPath: '//section[@class="main-section emptySearch"]',
+    loadedSelector: 'section#contentSegment',
     zipcode: '',
   },
 };
