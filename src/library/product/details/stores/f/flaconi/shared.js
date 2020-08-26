@@ -22,32 +22,29 @@ const transform = (data) => {
             item.text = item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim();
           });
         }
+        if (row.variantCount) {
+          row.variantCount.forEach(item => {
+            if(item.text === '0'){
+              item.text = '1';
+            }
+          });
+        }
         // if (row.aggregateRating) {
         //   row.aggregateRating.forEach(item => {
         //     item.text = item.text.replace(',','.');
         //   });
         // }
 
-        if (row.image) {
-          row.image.forEach(item => {
-            item.text = item.text.replace('/product/','/original/');
-          });
-        }
-        if (row.alternateImages) {
-          row.alternateImages.forEach(item => {
-            item.text = item.text.replace('/product/','/original/');
-          });
-        }
-        if (row.price) {
-          row.price.forEach(item => {
-            item.text = item.text.replace(',','').replace('.',',');
-          });
-        } 
-        if (row.listPrice) {
-          row.listPrice.forEach(item => {
-            item.text = item.text.replace(',','').replace('.',',');
-          });
-        }
+        // if (row.image) {
+        //   row.image.forEach(item => {
+        //     item.text = item.text.replace('/product/','/original/');
+        //   });
+        // }
+        // if (row.alternateImages) {
+        //   row.alternateImages.forEach(item => {
+        //     item.text = item.text.replace('/product/','/original/');
+        //   });
+        // }
         if (row.shippingInfo) {
           row.shippingInfo.forEach(item => {
             item.text = item.text.replace(/\s+/g, " ").trim();
@@ -61,6 +58,14 @@ const transform = (data) => {
           // // @ts-ignore
           // row.variantUrl = row.variantUrl+'#sku='+row.variantId[item].text;
           // });
+        }
+        if (row.category) {
+          row.category.pop();
+        }
+        if (row.nameExtended) {
+          row.nameExtended.forEach(item => {
+            item.text = item.text.replace(/\n/g, "").trim();
+          });
         }
       }
     }

@@ -80,7 +80,8 @@ async function implementation (
     if(description !== ''){
       descArr.push(description);
     }
-    let bulletsDescription = document.querySelectorAll("div.product-description ul li");
+    // let bulletsDescription = document.querySelectorAll("div.product-description ul li");
+    let bulletsDescription = document.querySelectorAll("ul.product-properties-list li");
     console.log('bulletsDescription: ', bulletsDescription);
     let bulletCount = bulletsDescription.length;
     addElementToDocument('bb_descriptionBulletsCount', bulletCount);
