@@ -6,6 +6,7 @@ module.exports = {
     timeout: 900000,
     country: 'FR',
     store: 'conforama',
+    first_request_timeout: 90000,
     zipcode: '',
   },
 };

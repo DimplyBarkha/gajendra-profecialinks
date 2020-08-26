@@ -106,7 +106,7 @@ const transform = (data) => {
 
         if (row.brandText) {
           row.brandText.forEach(item => {
-            item.text = item.text ? item.text.split(' ')[0] : '';
+            item.text = item.text ? item.text.split(' ')[0] : ' ';
           });
         }
 
