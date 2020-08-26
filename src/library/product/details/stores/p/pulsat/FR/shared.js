@@ -23,20 +23,20 @@ const transform = (data) => {
           item.text = item.text.replace('.', ',') + '€';
         });
       }
-      if (row.weightNet) {
-        let text = '';
-        let xpath = '';
-        row.weightNet.forEach(item => {
-          text = item.text.replace('.', ',');
-          xpath = item.xpath;
-        });
-        row.weightNet = [
-          {
-            text: text,
-            xpath: xpath,
-          },
-        ];
-      }
+      // if (row.weightNet) {
+      //   let text = '';
+      //   let xpath = '';
+      //   row.weightNet.forEach(item => {
+      //     text = item.text.replace('.', ',');
+      //     xpath = item.xpath;
+      //   });
+      //   row.weightNet = [
+      //     {
+      //       text: text,
+      //       xpath: xpath,
+      //     },
+      //   ];
+      // }
 
       if (row.alternateImages) {
         for (let i = 0; i < row.alternateImages.length; i++) {
