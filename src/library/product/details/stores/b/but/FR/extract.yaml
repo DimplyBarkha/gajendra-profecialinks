@@ -17,7 +17,7 @@ fields:
     xpath: //h1[@class="t-1"]
     singleValue: false
   - name: brandText
-    xpath: //li/span[contains(text() , "Marque")]//following-sibling::span
+    xpath: //div[@class="product-visual-infos"]/h1 | //li/span[contains(text() , "Marque")]//following-sibling::span
     singleValue: false
   - name: sku
     xpath: //script/@data-flix-ean

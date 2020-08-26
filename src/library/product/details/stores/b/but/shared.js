@@ -51,6 +51,11 @@ const transform = (data) => {
             item.text = item.text ? item.text.replace(/[()]/g, '') : '';
           });
         }
+        if (row.brandText) {
+          row.brandText.forEach(item => {
+            item.text = item.text ? item.text.split(' ')[0] : '';
+          });
+        }
         if (row.manufacturerDescription) {
           row.manufacturerDescription.forEach(item => {
             item.text = item.text ? item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
