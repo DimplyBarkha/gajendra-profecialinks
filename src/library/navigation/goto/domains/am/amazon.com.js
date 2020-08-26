@@ -191,7 +191,17 @@ module.exports = {
       const helpers = new Helpers(context);
       const amazonHelp = new AmazonHelp(context, helpers);
       await amazonHelp.setLocale(zipcode);
-      await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "' + zipcode + '")]');
+      try {
+        await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "' + zipcode + '")]');
+      } catch (error) {
+        await context.evaluate(async function () {
+          if (document.querySelector('div.a-modal-scroller')) {
+            document.querySelector('div.a-modal-scroller').click();
+          }
+        });
+        await amazonHelp.setLocale(zipcode);
+        await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "' + zipcode + '")]');
+      }
     }
   },
 };

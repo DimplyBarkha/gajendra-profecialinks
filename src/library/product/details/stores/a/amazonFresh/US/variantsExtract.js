@@ -12,20 +12,24 @@ async function implementation (
   const amazonHelp = new AmazonHelp(context, helpers);
 
   await new Promise(resolve => setTimeout(resolve, 5000));
-  try {
-    await amazonHelp.setLocale('90210');
-    await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
-  } catch (error) {
-    await context.evaluate(async function () {
-      if (document.querySelector('div.a-modal-scroller')) {
-        document.querySelector('div.a-modal-scroller').click();
-      }
-    });
-    await amazonHelp.setLocale('90210');
-    await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
-  }
+  // try {
+  //   await amazonHelp.setLocale('90210');
+  //   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
+  // } catch (error) {
+  //   await context.evaluate(async function () {
+  //     if (document.querySelector('div.a-modal-scroller')) {
+  //       document.querySelector('div.a-modal-scroller').click();
+  //     }
+  //   });
+  //   await amazonHelp.setLocale('90210');
+  //   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
+  // }
 
-  await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
+  try {
+    await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
+  } catch (error) {
+    throw new Error('No product avail for this location');
+  }
   const link = await context.evaluate(async function () {
     const linkNode = document.querySelector('span[cel_widget_id="MAIN-SEARCH_RESULTS"] a.a-link-normal');
     const link = (linkNode !== null) ? linkNode.getAttribute('href') : null;
