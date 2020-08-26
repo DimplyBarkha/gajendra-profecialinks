@@ -98,14 +98,14 @@ module.exports = {
       }
 
 
-       // Number of reviews and rating
-       const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
-       let apiReviewResponse = await makeApiCall(reviewData, {});
-       let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
-       let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
-         : "";
-       addElementToDocument('ratingCount', responseRatingCount);
-       addElementToDocument('aggregateRating', responseReviewRating);
+      // Number of reviews and rating
+      const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
+      let apiReviewResponse = await makeApiCall(reviewData, {});
+      let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
+      let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
+        : "";
+      addElementToDocument('ratingCount', responseRatingCount);
+      addElementToDocument('aggregateRating', responseReviewRating);
 
 
       const imageData = findJsonObj('image');
@@ -119,13 +119,15 @@ module.exports = {
       try {
         let inputVideo = findJsonObj("", '//input[@class="flix-jw"]/@value');
         let imagelayoutVideo = findJsonObj("", '//div[@class="image-layout-slides-group-item"]/img/@data-url');
-        await context.waitForSelector('.flix-jw', { timeout: 90000 });
+        console.log("Weighting for Video");
         if (inputVideo.snapshotLength > 0) {
+          console.log("addig in Video");
           for (let i = 0; i < inputVideo.snapshotLength; i++) {
             addElementToDocument('video', JSON.parse(findJsonObj("", inputVideo).snapshotItem(0).value).playlist[0].file);
           }
         } else {
           if (imagelayoutVideo.snapshotLength = 1) {
+            console.log("addig Imag Video");
             addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
           } else {
             for (let i = 0; i < imagelayoutVideo.snapshotLength; i++) {
@@ -135,11 +137,20 @@ module.exports = {
           }
         }
       } catch (error) {
-        console.log(error.message);
+        console.log("eror in video");
       }
 
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
+
+
+      try {
+
+      } catch (e) {
+        console.log("eror in video");
+      }
+
+
       // Check for the data and append to DOM
       if (dataObj) {
         if (dataObj[0].product) {
@@ -163,8 +174,8 @@ module.exports = {
             addElementToDocument('retailer_product_code', dataObj[0].product.id);
           }
 
-          // Check for the brand  and append to DOM
-          if (dataObj[0].product.brand) {
+          // Check for the sku  and append to DOM
+          if (dataObj[0].product.code_a) {
             addElementToDocument('sku', dataObj[0].product.code_a);
           }
 
@@ -172,16 +183,25 @@ module.exports = {
           if (dataObj[0].product.price.o_price) {
             addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
           } else {
-            addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
-          }
 
+            if (dataObj[0].product.price.original) {
+              addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
+            } else {
+              addElementToDocument('listPrice', "");
+            }
+          }
           // Check for  Price 
           if (dataObj[0].product.price.o_price) {
             addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ","));
           } else {
-            addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ","));
-          }
 
+            if (dataObj[0].product.price.final) {
+              addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ","));
+            } else {
+              addElementToDocument('price', "");
+            }
+
+          }
           // Check for the product id  and append to DOM
           if (dataObj[0].product.id) {
             if (dataObj[0].product.id.match(/[0-9](.*)___/)) {
@@ -192,6 +212,21 @@ module.exports = {
 
         }
       }
+
+      // Secondry Image 
+      let alternateImages = []
+      document.querySelectorAll('link[as=image]').forEach(e => {
+        alternateImages.push(e.href);
+      });
+      addElementToDocument('alternateImages', alternateImages.join(' | ').replace(/210x210/gm, "1200x1200"));
+
+      // Specifications
+      let specifcations = [];
+      document.querySelectorAll('#tab-content-0 > div > dl > div').forEach(e => {
+        specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} || `)
+      });
+      addElementToDocument('specifications', specifcations);
+
 
 
       //zoom Image 
