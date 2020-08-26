@@ -29,7 +29,7 @@ fields:
     xpath: //div[@class='item active']//a//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //ol[@class='carousel-indicators']//li[@data-target='#carousel-product']//img/@src
+    xpath: //ol[@class='carousel-indicators']//li[@data-target='#carousel-product'][position()>1]//img/@src
   - name: gtin
     singleValue: false
     xpath: //div[@id='product_ean']

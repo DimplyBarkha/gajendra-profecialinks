@@ -56,14 +56,26 @@ async function implementation (
     // await scroll();
     // let ratingEle = document.querySelector("div[class*='netreviews-widget'] b").innerText;
     // console.log("Rating", ratingEle);
-    var element = (document.querySelectorAll('footer')) ? document.querySelectorAll('footer') : null;
-    if (element) {
-      element.forEach(async (node) => {
-        node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-        await new Promise((resolve) => {
-          setTimeout(resolve, 1000);
-        });
-      });
+    // var element = (document.querySelectorAll('footer')) ? document.querySelectorAll('footer') : null;
+    // if (element) {
+    //   element.forEach(async (node) => {
+    //     node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    //     await new Promise((resolve) => {
+    //       setTimeout(resolve, 1000);
+    //     });
+    //   });
+    // }
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
+      }
     }
     // Weight
     const weightHeadings = document.evaluate("//td[contains(.,'Poids')]", document, null, XPathResult.ANY_TYPE, null);
@@ -71,6 +83,7 @@ async function implementation (
     const regex = /\((.*?)\)/;
     const weightUnit = regex.exec(weightHeadings.iterateNext().textContent)[1];
     addHiddenDiv('weightNet', weight.iterateNext().textContent.trim() + weightUnit);
+    await infiniteScroll();
   });
   return await context.extract(productDetails, { transform });
 }
