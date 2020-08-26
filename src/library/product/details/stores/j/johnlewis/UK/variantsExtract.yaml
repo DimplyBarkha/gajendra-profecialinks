@@ -6,11 +6,11 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //li[@class='swatch-list-item']/a/@href | //meta[@name='og:url']/@content
+    xpath: //li[@class='swatch-list-item']/a/@href | //li[@class='size-small-item']/a/@href | //meta[@name='og:url']/@content
     regExp: p\d+
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //li[@class='swatch-list-item']/a/@href | //meta[@name='og:url']/@content
+    xpath: //li[@class='swatch-list-item']/a/@href | //li[@class='size-small-item']/a/@href | //meta[@name='og:url']/@content
     regExp: (.+)
     regExpReplace: https://www.johnlewis.com$1

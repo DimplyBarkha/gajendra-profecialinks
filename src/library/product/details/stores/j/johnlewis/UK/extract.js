@@ -24,6 +24,12 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      if (document.querySelector('div.product-detail__description-inner')) {
+        let desc = document.querySelector('div.product-detail__description-inner').innerHTML;
+        desc = desc.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').trim();
+        addHiddenDiv('desc', desc);
+      }
+
       if (document.querySelector('a.product-detail__brand-link')) {
         const brandLink = document.querySelector('a.product-detail__brand-link').href;
         addHiddenDiv('brandLink', brandLink);

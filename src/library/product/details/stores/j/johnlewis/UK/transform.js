@@ -29,24 +29,8 @@ const transform = (data, context) => {
       }
       if (row.specifications) {
         row.specifications.forEach(specifications => {
-          specifications.text = specifications.text.replace(/ \n \n/g, ':').replace(/\n \n/g, '|').trim();
+          specifications.text = specifications.text.replace(/ \n \n/g, ':').replace(/\n \n/g, ' || ').replace(/\n/g, '').trim();
         });
-      }
-      if (row.additionalDescBulletInfo) {
-        let text = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
-        });
-        let descriptionBottom = [];
-        if (row.description) {
-          descriptionBottom = row.description;
-        }
-        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
-        row.description = [
-          {
-            text: cleanUp(descriptionBottom.join(' | ')),
-          },
-        ];
       }
       if (row.variantCount) {
         row.variantCount.forEach(variantCount => {
@@ -56,14 +40,29 @@ const transform = (data, context) => {
         });
       }
       if (row.color) {
+        let text = '';
         row.color.forEach(color => {
-          color.text = color.text.replace('This is the current selected colour', '').trim();
+          text += `${color.text} | `;
+        });
+        row.color = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.quantity) {
+        row.quantity.forEach(quantity => {
+          quantity.text = quantity.text.replace(' \n \n', '|').replace(/This size is \w+/g, '').trim();
         });
       }
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {
-          text += `Color: ${item.text.replace('This is the current selected colour', '').trim()} | `;
+          if (item.text.includes('size')) {
+            text += `Size: ${item.text.replace('This is the current selected colour', '').trim()} | `;
+          } else {
+            text += `Color: ${item.text.replace('This is the current selected colour', '').trim()} | `;
+          }
         });
         row.variantInformation = [
           {
@@ -99,6 +98,20 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.variants) {
+        let text = '';
+        if (row.variants.length > 1) {
+          row.firstVariant = row.variantId;
+        }
+        row.variants.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variants = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
@@ -109,6 +122,11 @@ const transform = (data, context) => {
             text: cleanUp(text.slice(0, -3)),
           },
         ];
+        if (row.additionalDescBulletInfo.length == 1) {
+          if (row.additionalDescBulletInfo[0].text.includes('Click here')) {
+            row.additionalDescBulletInfo[0].text = '';
+          }
+        }
       }
     }
   }

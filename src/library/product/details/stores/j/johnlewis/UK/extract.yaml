@@ -42,7 +42,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[contains(@id,'button--add-to-basket-out-of-stock')]
+    xpath: //h2[@class='email-me-stock__header']
     regExp: (.+)
     regExpReplace: Out of Stock
     defaultValue: In Stock
@@ -50,7 +50,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    manualSelector: div.product-detail__description
+    xpath: //div[@id='desc']
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -66,17 +66,17 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
+    xpath: //*[contains(text(), 'Size')]/following-sibling::*[1]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'kg')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'gm')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'Kg')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'Gm')]
+    xpath: //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'kg')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'gm')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'Kg')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'Gm')] | //*[contains(text(), 'Weight')]/following-sibling::*[1][contains(text(), 'g')]
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id='mpc']
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -84,7 +84,8 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@id='productId']
+    manualSelector: p.product-code
+    regExp: \d+
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -93,6 +94,8 @@ fields:
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //h1[@class='product-header__title'][contains(text(), 'Pack of')]
+    regExp: \d+
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -127,11 +130,11 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    xpath: count(//ul[@class='swatch-list']/li)
+    xpath: count(//ul[@class='swatch-list']/li | //ul[@class='size-list']/li)
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //ul[@class='swatch-list']/li/a[@class='swatch swatch--current']
+    xpath: //ul[@class='swatch-list']/li/a/@title
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -216,7 +219,7 @@ fields:
   - name: variantAsins
     singleValue: false
     description: null
-    xpath: //li[@class='swatch-list-item']/a/@href
+    xpath: //li[@class='swatch-list-item']/a/@href | //li[@class='size-small-item']/a/@href
     regExp: p\d+
   - name: primeFlag
     singleValue: false
@@ -461,7 +464,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //ul[@class='swatch-list']/li
+    xpath: //ul[@class='swatch-list']/li | //ul[@class='size-list']/li
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
@@ -476,6 +479,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //li[@class='swatch-list-item']/a/@href | //li[@class='size-small-item']/a/@href
     regExp: p\d+
   - name: additionalDescBulletInfo
     singleValue: false
