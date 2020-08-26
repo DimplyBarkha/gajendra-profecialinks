@@ -48,6 +48,13 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
+      if (row.productUrl) {
+        row.productUrl.forEach((item) => {
+          if (!item.text.includes('https://www.pulsat.fr')) {
+            item.text = 'https://www.pulsat.fr/' + item.text;
+          }
+        });
+      }
     }
   }
   context.setState({ rankCounter });
