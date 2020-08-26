@@ -16,13 +16,15 @@ fields:
     regExp: (.+)
     regExpReplace: http://bol.com$1
   - name: thumbnail
-    xpath: //a[@class='product-image product-image--list px_list_page_product_click']//img/@src
+    xpath: //a[contains(@class, 'product-image product-image--list')]/img | //a[contains(@class, 'product-image product-image--list')]//div[contains(@class,'skeleton-image__container')]//img/@data-src | //a[contains(@class, 'product-image product-image--list')]//div[contains(@class,'skeleton-image__container')]//img/@src | //a[@class='product-image product-image--list px_list_page_product_click']/img/@src
     description: The URL for the product thumbnail image
   - name: aggregateRating2
     xpath: //div[@class='star-rating']/@title
     regExp: klantbeoordeling:\s(.*)\svan\sde\s5\ssterren
     regExpReplace: $1
   - name: ratingCount
+    xpath: //div[@class='star-rating']/@data-count
+  - name: reviewCount
     xpath: //div[@class='star-rating']/@data-count
   - name: price
     singleValue: false
@@ -38,5 +40,3 @@ fields:
     type: NUMBER
   - name: gtin
     xpath: //div[@class='u-show-block@phone-only']//wsp-wishlist-button/@global-id
-  - name: soldBy
-    xpath: //a[@data-test='party-link']
