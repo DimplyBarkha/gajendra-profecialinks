@@ -3,10 +3,10 @@ const { transform } = require('./format');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'AU',
+    country: 'NZ',
     store: 'sephora',
     transform,
-    domain: 'sephora.com.au',
+    domain: 'sephora.nz',
     zipcode: '',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
@@ -30,6 +30,7 @@ module.exports = {
       let names = '//div[@class="basic-information-section"]//div[contains(@class, "product-")]';
       var variantCheck = document.evaluate( variant, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var namesCheck = document.evaluate( names, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      debugger
       if(namesCheck.snapshotLength > 0){
         let checkName1 = namesCheck.snapshotItem(0);
         let checkName2 = namesCheck.snapshotItem(1);
@@ -46,6 +47,7 @@ module.exports = {
 
         let fullName = name.join(" - ")
         addHiddenDiv('ii_nameExtended', fullName);
+        debugger
       }
     
     })

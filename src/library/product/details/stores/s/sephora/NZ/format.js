@@ -48,13 +48,12 @@ const transform = (data, context) => {
             row.directions[0].text = bulletReplace
           }
 
-          // if(row.image){
-          //   let text = row.image[0].text;
-          //   if(!text.includes(".com")){
-          //     let splits = text.split("?");
-          //     row.image[0].text = `https://sephora.com.au${splits[0]}`
-          //   }
-          // }
+          if(row.image){
+            let text = row.image[0].text;
+            let splits = text.split("?");
+
+            row.image[0].text = `https://sephora.com.au${splits[0]}`
+          }
           
           if(row.alternateImages){
               let imageArray = [];
@@ -62,7 +61,7 @@ const transform = (data, context) => {
                 for(let i = 0; i < row.alternateImages.length; i++){
                   let text = row.alternateImages[i].text
                   let splits = text.split("?");
-                  imageArray.push(`${splits[0]}`);
+                  imageArray.push(`https://sephora.com.au${splits[0]}`);
                 }
                 let oneLess = imageArray.slice(1);
                 let joins = oneLess.join(" | ");
