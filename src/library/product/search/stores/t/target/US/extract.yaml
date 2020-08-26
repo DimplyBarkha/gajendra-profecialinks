@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class="rank"]
   - name: name
     singleValue: false
-    xpath: //div[@class="product-name"]
+    xpath: //a[@data-test="product-title"]
   - name: productUrl
     singleValue: false
     xpath: //a[@data-test="product-title"]/@href
@@ -23,7 +23,7 @@ fields:
     singleValue: true
   - name: thumbnail
     singleValue: true
-    xpath: //picture//source/@srcset
+    xpath: //div[@data-test="product-image"]//picture[1]//source[1]/@srcset
     regExp: (.*)\?
     regExpReplace: $1
   - name: aggregateRating
