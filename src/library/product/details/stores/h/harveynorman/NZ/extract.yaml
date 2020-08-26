@@ -64,7 +64,7 @@ fields:
     regExpReplace: $1
   - name: description
     singleValue: false
-    xpath: //div[@id="content_description"]/div[@class="product-tab-wrapper"]/*[following-sibling::div[@id="flix-inpage"]]
+    manualSelector: div#ii_description
   - name: additionalDescBulletInfo
     singleValue: false
     manualSelector: div#content_description > div.product-tab-wrapper li
