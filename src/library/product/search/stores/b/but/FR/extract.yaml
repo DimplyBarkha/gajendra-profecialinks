@@ -41,7 +41,7 @@ fields:
   - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating
-    xpath: //p[@class="product-rating note-5"]/@class
+    xpath: //p[@class="product-rating note-5"]/@class | //a[@id="product-rating-top"]/@class
     regExp: note-(.*)
     regExpReplace: $1
   - name: ratingCount
@@ -70,10 +70,10 @@ fields:
   # - name: soldBy
   #   singleValue: false
   #   description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: false
-    description: The text that signifies that a product is endorsed
-    xpath: //div[@class="exclu-web"]
+  # - name: endorsementText
+  #   singleValue: false
+  #   description: The text that signifies that a product is endorsed
+  #   xpath: //div[@class="exclu-web"]
 
   # - name: shippingInfo
   #   singleValue: false
