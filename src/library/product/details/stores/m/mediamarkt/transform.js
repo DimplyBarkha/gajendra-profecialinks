@@ -108,12 +108,26 @@ const transform = (data, context) => {
         });
       }
 
-      // if (row.termsAndConditions) {
-      //   console.log(row.termsAndConditions)
-      //   row.termsAndConditions.forEach(item => {
-      //     item.text = item.text == 'true' ? 'Yes' : 'No';
-      //   });
-      // }
+      if (row.legalDisclaimer) {
+        const text = [];
+        console.log(row.legalDisclaimer);
+        row.legalDisclaimer.forEach(item => {
+          text.push(item.text);
+        });
+        row.legalDisclaimer[0].text = text.join(' ');
+      }
+
+      if (row.uninterruptedPDP) {
+        const text = [];
+        row.uninterruptedPDP.forEach(item => {
+          text.push(item.text);
+        });
+        row.uninterruptedPDP[0].text = text.join(' ');
+      }
+
+      if (row.variantInformation) {
+        row.variantInformation[0].text = row.variantInformation[0].text.replace('Farbe: ', '');
+      }
 
       // if (row.technicalInformationPdfPresent) {
       //   row.technicalInformationPdfPresent.forEach(item => {
