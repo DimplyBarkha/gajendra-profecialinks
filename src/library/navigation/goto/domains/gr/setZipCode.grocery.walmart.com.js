@@ -108,7 +108,7 @@ module.exports = {
         await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
         await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-        // Seems like the timeout for waitForFunction is not working
+        // Seems like the timeout for waitForFunction is not working and handling context change
         await new Promise((resolve) => setTimeout(resolve, 6000));
         try {
           await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 45000 });
@@ -119,8 +119,6 @@ module.exports = {
         }
         try {
           await context.waitForXPath('//div[@data-automation-id="changeStoreFulfillmentBannerBtn"]//span[contains(@class,"AddressPanel__addressLine") and contains(text(), "' + zipcodeStreetAddress + '")]', { timeout: 55000 });
-          // Seems like the timeout for waitForFunction is not working
-          await new Promise((resolve) => setTimeout(resolve, 6000));
 
           await context.waitForFunction(function (sel, zipcodeStreetAddress) {
             return Boolean(document.querySelector(sel).textContent === zipcodeStreetAddress);
