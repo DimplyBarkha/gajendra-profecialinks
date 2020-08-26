@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     # xpath: //div[@id="dynamic-visu1_container_inner"]/div/div/img[1]/@src
-    xpath: //div[@id="image"]
+    xpath: //div[@id="image"] | //a/img[@id="image_zoom"]/@src
     singleValue: false
   - name: url
     xpath: //meta[@property="og:url"]/@content
@@ -32,7 +32,7 @@ fields:
     regExpReplace: $1 
     singleValue: false
   - name: imageAlt
-    xpath: //div[@class="product-swiper"]/ul/li[1]/img/@alt
+    xpath: //div[@class="product-swiper"]/ul/li[1]/img/@alt | //div[@class="product-swiper"]/ul/li[1]/a/img/@alt
     singleValue: false
   # - name: secondaryImageTotal
   #   xpath: count(//div[@class="product-swiper"]/ul/li/img/@src)
@@ -47,13 +47,14 @@ fields:
     regExp: (.*) avis
     regExpReplace: $1    
     singleValue: false
-  - name: aggregateRatingText
+  - name: aggregateRating
     xpath: //a[@id="product-rating-top"]/@class
     regExp: stars-(.*)
     regExpReplace: $1  
     singleValue: false
   - name: availabilityText
-    xpath: //div[@class="availability"] | //div[@class="availability nomargin"]
+    xpath: //div[@class="availability nomargin"]/div[@class="l-available"] | //div[@class="availability"]
+    # xpath: //div[@class="availability"] | //div[@class="availability nomargin"]
     singleValue: false
   - name: gtin
     xpath: //script/@data-flix-ean
