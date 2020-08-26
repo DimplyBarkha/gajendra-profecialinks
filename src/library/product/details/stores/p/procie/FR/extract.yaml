@@ -47,7 +47,7 @@ fields:
 
   - name: weightNet
     singleValue: false
-    xpath: //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé')) and not(contains(.,'carton'))]/td
+    xpath: //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé')) and not(contains(.,'carton')) and not(contains(.,"l'emballage"))]/td
 
   - name: warranty
     singleValue: false

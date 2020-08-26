@@ -11,8 +11,7 @@ const transform = (data) => {
       if (row.availabilityText) {
         let newText = '';
         row.availabilityText.forEach(item => {
-          if ((!item.text.includes('Out of Stock') && (!item.text.includes('DISPONIBLE')))) {
-            item.text = item.text.replace(/(.*)/, 'Yes');
+          if ((!item.text.includes('Out of Stock') && (!item.text.includes('Disponible')))) {
             newText = 'Out of Stock';
           } else {
             newText = 'In Stock';
