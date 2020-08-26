@@ -3,7 +3,9 @@ const transform = (data) => {
     for (const row of group) {
       if (row.technicalInformationPdfPresent) {
         row.technicalInformationPdfPresent.forEach(item => {
-          item.text = item.text.replace(/(.*)/, 'Yes');
+          if (item.text !== 'No') {
+            item.text = item.text.replace(/(.*)/, 'Yes');
+          }
         });
       }
       if (row.availabilityText) {
@@ -11,23 +13,25 @@ const transform = (data) => {
         row.availabilityText.forEach(item => {
           if ((!item.text.includes('Out of Stock') && (!item.text.includes('DISPONIBLE')))) {
             item.text = item.text.replace(/(.*)/, 'Yes');
-            newText = 'Out of Stock'
+            newText = 'Out of Stock';
+          } else {
+            newText = 'In Stock';
           }
-          else{
-            newText = 'In Stock'
-          }
-          item.text = newText
+          item.text = newText;
         });
       }
       if (row.image) {
         row.image.forEach(item => {
-          item.text = 'https://www.procie.com/' + item.text;
+          if (!item.text.includes('https://www.procie.com')) {
+            item.text = 'https://www.procie.com/' + item.text;
+          }
         });
       }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
-          item.text = 'https://www.procie.com/' + item.text.replace(/&size=.*/, '&size=400');
+          item.text = 'https://www.procie.com' + item.text.replace(/&size=.*/, '&size=400');
         });
+        row.alternateImages = row.alternateImages.splice(1);
       }
       if (row.videos) {
         row.videos.forEach(item => {
@@ -39,32 +43,75 @@ const transform = (data) => {
           item.text = item.text.replace(/(\r\n|\n|\r)/gm, '').replace(/\s{2,}/gm, ' ');
         });
       }
-      if (row.productOtherInformation) {
-        row.productOtherInformation.forEach(item => {
-          item.text = item.text.replace(/(\r\n|\n|\r)/gm, '').replace(/\s{2,}/gm, ' ');
-        });
-      }
       if (row.variantId) {
         row.variantId.forEach(item => {
           item.text = item.text.replace('/product?ProductId=', '');
         });
       }
-      if(row.color){
+      if (row.color) {
         row.color.forEach(item => {
-          item.text = item.text.replace('- Couleur:','');
+          item.text = item.text.replace('- Couleur:', '');
         });
       }
       if (row.specifications) {
-        row.specifications.forEach(item => {
-          item.text = item.text.replace('x','||');
+        let text = '';
+        row.specifications.forEach((item, index) => {
+          if (index % 2 === 0) {
+            text += (item.text + ' : ');
+          } else {
+            text += (item.text) + ' || ';
+          }
         });
+        row.specifications = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
       }
       if (row.productOtherInformation) {
-        const text = [];
-        for (const item of row.productOtherInformation) {
-          text.push(item.text.replace(/\n/gm, ' ').trim());
-        }
-        row.productOtherInformation = [{ text: text.join(' || ') }];
+        let text = '';
+        row.productOtherInformation.forEach((item, index) => {
+          if (index % 2 === 0) {
+            text += (item.text + ' : ');
+          } else {
+            text += (item.text) + ' | ';
+          }
+        });
+        row.productOtherInformation = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
+      }
+      if (row.weightNet) {
+        let text = '';
+        row.weightNet.forEach((item, index) => {
+          if (index % 2 === 0) {
+            text += (item.text + ' : ');
+          } else {
+            text += (item.text) + ' | ';
+          }
+        });
+        row.weightNet = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
+      }
+      if (row.weightGross) {
+        let text = '';
+        row.weightGross.forEach((item, index) => {
+          if (index % 2 === 0) {
+            text += (item.text + ' : ');
+          } else {
+            text += (item.text) + ' | ';
+          }
+        });
+        row.weightGross = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
       }
     }
   }

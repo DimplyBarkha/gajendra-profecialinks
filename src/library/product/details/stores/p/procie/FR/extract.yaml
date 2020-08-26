@@ -13,7 +13,7 @@ fields:
   
   - name: category
     singleValue: false
-    xpath : //ul[@class='ul_breadcrumb']//li[position() mod 2 = 1 and position() > 1]
+    xpath: //ul[@class='ul_breadcrumb']//li[position() mod 2 = 1 and position() > 1 and position() < last()]
   
   - name: price
     singleValue: false
@@ -26,7 +26,7 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath : //div[contains(@class,'Pdf')]/a/@href
-    # defaultValue: No
+    defaultValue: No
 
   - name: availabilityText
     singleValue: false
@@ -36,6 +36,10 @@ fields:
   - name: description
     singleValue: false
     xpath : //div[contains(@id,'frameDescProductContent')]
+  
+  - name: specifications
+    singleValue: false
+    xpath : //tr[contains(.,'Dimensions') and not(contains(.,'carton')) and not(contains(.,"l'emballage"))]/td | //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé')) and not(contains(.,'carton')) and not(contains(.,"l'emballage"))]/td
 
   - name: brandText
     singleValue: false
@@ -43,15 +47,15 @@ fields:
 
   - name: weightNet
     singleValue: false
-    xpath: //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé'))]/td[2] and not(contains(.,'Poids de l'emballage'))/td[2]
-  
-  - name: weightGross
+    xpath: //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé')) and not(contains(.,'carton'))]/td
+
+  - name: warranty
     singleValue: false
-    xpath: //tr[contains(.,'Poids du produit emballé')]/td[2] | //tr[contains(.,"Poids de l'emballage")]/td[2]
+    xpath: //tr[contains(.,'Garantie')]/td[2]
 
   - name: image
     singleValue: false
-    xpath: //div[@id='mainImgProduct']/img[@class='img-responsive ng-scope']/@src
+    xpath: //div[@id='mainImgProduct']/img/@src
 
   - name: alternateImages
     singleValue: false
@@ -59,7 +63,11 @@ fields:
 
   - name: shippingDimensions
     singleValue: false
-    xpath : //tr[contains(.,"Dimensions de l'emballage")]/td[2]
+    xpath: //tr[contains(.,"Dimensions") and contains(.,"l'emballage")]/td[2] | //tr[contains(.,'Dimensions') and (contains(.,'carton'))]/td[2]
+  
+  - name: shippingWeight
+    singleValue: false
+    xpath: //tr[contains(.,'Poids') and (contains(.,'carton') or contains(., "l'emballage"))]/td[2]
 
   - name: variantId
     singleValue: false
@@ -71,11 +79,16 @@ fields:
 
   - name: gtin
     singleValue: false
-    xpath : //div[contains(@class,'loadbeeTabContent')]/@data-loadbee-gtin
+    xpath : //script[@data-flix-language='fr']/@data-flix-ean
+  
+  - name: sku
+    singleValue: false
+    xpath : //script[@data-flix-language='fr']/@data-flix-sku
+    
 
   - name: productOtherInformation
     singleValue: false
-    xpath: //h3[contains(.,"CARACTÉRISTIQUES TECHNIQUES")] | //h3[contains(.,"Caractéristiques techniques")]  | //table
+    xpath: //div[@class='row']//table[contains(@class,'specificationsTable')]//td
 
   - name: nameExtended
     singleValue: false
@@ -93,6 +106,6 @@ fields:
     singleValue: false
     xpath : //ul[@class="characteristicsProduct"]/li[contains(.,"- Couleur")]
   
-  - name: specification
+  - name: energyEfficiency
     singleValue: false
-    xpath: //tr[contains(.,"Dimension de l'appareil") or contains(.,"Dimensions")]/td[2] |  //td[contains(.,"Poids")]/following-sibling::td[@class="td_specificationsValue"]
+    xpath: //div[@class='row']//table[contains(@class,'specificationsTable')]//tr[contains(.,"d'efficacité énergétique")]/td[2]

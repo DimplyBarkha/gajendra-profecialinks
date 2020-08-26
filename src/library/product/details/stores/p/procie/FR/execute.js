@@ -4,7 +4,7 @@ module.exports = {
     country: 'FR',
     store: 'procie',
     domain: 'procie.com',
-    loadedSelector: '#wrap',
+    loadedSelector: "div[id='mainImgProduct'] img",
     noResultsXPath: '//p[contains(text(),"Aucun résultat ne correspond à votre recherche")]',
     zipcode: '',
   },
