@@ -1,0 +1,173 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0] | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"]
+fields:
+  - name: image
+    singleValue: true
+    xpath : ancestor::html //div[@id='product_image']
+  - name: imageAlt
+    singleValue: true
+    xpath : ancestor::html //meta[@name="twitter:title"]/@content
+  - name: imageAlt
+    singleValue: true
+    xpath : ancestor::html //meta[@name="twitter:title"]/@content   
+  - name: alternateImages
+    singleValue: true
+    xpath : ancestor::html //link[@as="image"]/@href
+    regExp: ^(.*)(__)(\d+x\d+)(.jpg)$
+    regExpReplace: https:$1$21200x1200$4  
+  - name: category
+    singleValue: false
+    xpath : ancestor::html //li[@itemprop="itemListElement"]
+  - name: nameExtended
+    singleValue: true
+    xpath : ancestor::html //h1[@id="js-product-detail-title"]
+  - name: listPrice
+    singleValue: true
+    xpath : ancestor::html //div[@id='listPrice']
+  - name: price
+    singleValue: true
+    xpath : ancestor::html //div[@id='price']
+  - name: availabilityText
+    singleValue: true
+    xpath : ancestor::html //div[@id='availability']
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath : ancestor::html //div[@id="bulletDescription"]
+  - name: descriptionBullets
+    singleValue: false
+    xpath :    
+  - name: brandText
+    singleValue: true
+    xpath : ancestor::html //div[@id="brand"]
+  - name: quantity
+    singleValue: true
+    xpath : //div/@title
+  - name : weightNet    
+    xpath : 
+  - name : weightGross    
+    xpath :   
+  - name: gtin
+    singleValue: true
+    xpath : //div/@gtin
+  - name: eangtin
+    singleValue: true
+    xpath : //div/@gtin  
+  - name: asin
+    singleValue: true
+    xpath : ancestor::html //span[@itemprop="sku"] | ancestor::html //span[@class="js-product-gtin-number"]
+  - name: sku
+    singleValue: true
+    xpath : //div/@sku
+  - name: variantId
+    singleValue: true
+    xpath : //div/@retailer_product_code
+  - name: directions
+    singleValue: true
+    xpath:
+  - name: warnings 
+    singleValue: true
+    xpath:   
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+    xpath: 
+  - name: legalDisclaimer
+    singleValue: true
+    xpath:  
+  - name: manufacturer
+    singleValue: false
+    xpath : ancestor::html //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd | ancestor::html//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p   
+  - name: manufacturerImages
+    singleValue: false
+    xpath : ancestor::html //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd | ancestor::html//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
+  - name: videos
+    singleValue: false
+    xpath : ancestor::html //div[@class="image-layout-slides-group-item"]/img/@data-url
+  - name: name
+    singleValue: true
+    xpath : ancestor::html //meta[@name="twitter:title"]/@content
+  - name: ratingCount
+    singleValue: true
+    xpath : ancestor::html //div[@id="ratingCount"]
+  - name: warranty
+    singleValue: true
+    xpath : ancestor::html //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
+  - name: storage
+    singleValue: true
+    xpath : ancestor::html 
+  - name: specifications
+    singleValue: true
+    xpath :   
+  - name: recyclingInformation
+    singleValue: true
+    xpath :      
+  - name: productOtherInformation
+    singleValue: true
+    xpath :    
+  - name: packaging
+    singleValue: true
+    xpath :           
+  - name: countryOfOrigin
+    singleValue: true
+    xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
+  - name: allergyAdvice
+    singleValue: true
+    xpath : ancestor::html 
+  - name: pricePerUnit
+    singleValue: true
+    xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
+    regExp: \((.+)\s\/(.+)\)
+    regExpReplace: $1  
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
+    regExp: \((.+)\s\/(.+)\)
+    regExpReplace: $2  
+  - name: promotion
+    singleValue: true
+    xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//p[@class="price _discount"]/span
+  - name: alcoholContent
+    singleValue: true
+    xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
+  - name: variantInformation
+    singleValue: true
+    xpath : //div/@color
+  - name: aggregateRating
+    singleValue: true
+    xpath : ancestor::html //div[@id="aggregateRating"]
+  - name: shippingInfo
+    singleValue: true
+    xpath : ancestor::html //li[@data-promotion-type="shipping"]
+  - name: shippingDimensions
+    singleValue: true
+    xpath :  
+  - name: shippingWeight
+    singleValue: true
+    xpath : 
+  - name: variantCount
+    singleValue: true
+    xpath :  
+  - name: color
+    singleValue: true
+    xpath :  
+  - name: colorCode
+    singleValue: true
+    xpath :  
+  - name: manufacturerDescription
+    singleValue: true
+    xpath :      
+  - name: termsAndConditions
+    singleValue: true
+    xpath : 
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath :     
+  - name: energyEfficiency
+    singleValue: true
+    xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
+  - name: imageZoomFeaturePresent
+    xpath : ancestor::html //img/@data-zoom 

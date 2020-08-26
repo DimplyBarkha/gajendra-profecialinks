@@ -1,0 +1,169 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath : //div[@id='product_image']
+  - name: imageAlt
+    singleValue: true
+    xpath: //meta[@name="twitter:title"]/@content
+  - name: imageAlt
+    singleValue: true
+    xpath: //meta[@name="twitter:title"]/@content   
+  - name: alternateImages
+    singleValue: true
+    xpath: //div[@id="alternateImages"]
+    regExp: ^(.*)(__)(\d+x\d+)(.jpg)$
+    regExpReplace: $1$21200x1200$4  
+  - name: category
+    singleValue: false
+    xpath: //li[@itemprop="itemListElement"]
+  - name: nameExtended
+    singleValue: true
+    xpath : //h1[@id="js-product-detail-title"]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@id='listPrice']
+  - name: price
+    singleValue: true
+    xpath : //div[@id='price']
+  - name: availabilityText
+    singleValue: true
+    xpath : //div[@id='availability']
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath : //div[@id="bulletDescription"]
+  - name: brandText
+    singleValue: true
+    xpath : //div[@id="brand"]
+  - name: quantity
+    singleValue: true
+    xpath: //div[contains(@class,"product_detail-description-in-image")]
+    regExp: (.*),(.*),(.*),(.*)
+    regExpReplace: $3 
+  - name: gtin
+    singleValue: true
+    xpath: //div[@id="gtin"]
+  - name: eangtin
+    singleValue: true
+    xpath: //div[@id="gtin"]  
+  - name: asin
+    singleValue: true
+    xpath: //span[@itemprop="sku"] | //span[@class="js-product-gtin-number"]
+  - name: sku
+    singleValue: true
+    xpath: //div[@id="sku"]
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id="retailer_product_code"]
+  - name: mpc
+    singleValue: true
+    xpath: //div[@class="sku-model"]
+    regExp: \s(.*)$
+  - name: directions
+    singleValue: true
+    xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
+  - name: videos
+    singleValue: false
+    xpath : //div[@id="video"]
+  - name: name
+    singleValue: true
+    xpath : //meta[@name="twitter:title"]/@content
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@id="ratingCount"]
+  - name: warranty
+    singleValue: true
+    xpath : //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
+  - name: storage
+    singleValue: true
+    xpath : //div/@title
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
+  - name: allergyAdvice
+    singleValue: true
+    xpath : 
+  - name: promotion
+    singleValue: true
+    xpath : //div[contains(@class,"product_detail-aside")]//p[@class="price _discount"]
+  - name: alcoholContent
+    singleValue: true
+    xpath : //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@id="variants_container"]//option/@medida | //div[@id="variants_container"]//option/@talla
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@id="aggregateRating"]
+  - name: shippingInfo
+    singleValue: true
+    xpath: //li[@data-promotion-type="shipping"]
+  - name: shipping
+    singleValue: true
+    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1]     
+  - name: energyEfficiency
+    singleValue: true
+    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
+  - name: imageZoomFeaturePresent
+    xpath: //div[@id="imageZoomFeaturePresent"] 
+  - name: shippingDimensions
+    singleValue: true
+    xpath :  //dt[contains(text(),"Dimensiones")]/following-sibling::dd[1]
+  - name: shippingWeight
+    singleValue: true
+    xpath : 
+  - name: variantCount
+    singleValue: true
+    xpath :  
+  - name: color
+    singleValue: true
+    xpath : //dt[contains(text(),"Color")]/following-sibling::dd[1] | //*[contains(text(),"Color")]/following-sibling::span  
+  - name: colorCode
+    singleValue: true
+    xpath :  
+  - name: manufacturerDescription
+    singleValue: true
+    xpath :      
+  - name: termsAndConditions
+    singleValue: true
+    xpath : 
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath :   
+  - name: specifications
+    singleValue: true
+    xpath : //div[@id="specifications"]  
+  - name: recyclingInformation
+    singleValue: true
+    xpath :      
+  - name: productOtherInformation
+    singleValue: true
+    xpath :    
+  - name: packaging
+    singleValue: true
+    xpath :             
+  - name: directions
+    singleValue: true
+    xpath:
+  - name: warnings 
+    singleValue: true
+    xpath:   
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+    xpath: 
+  - name: legalDisclaimer
+    singleValue: true
+    xpath:  
+  - name : weightNet    
+    xpath : //dt[contains(text(),"Peso")]/following-sibling::dd[1]
+  - name : weightGross    
+    xpath :           
+  - name: descriptionBullets
+    singleValue: false
+    xpath :      

@@ -12,12 +12,20 @@ fields:
   - name: category
     singleValue: false
     xpath: //li[@class="breadcrumbs-item"]
+  - name: name
+    singleValue: true
+    xpath: //div[@class="js-pdp pdp dataholder js-product"]/@data-product-description    
   - name: nameExtended
     singleValue: true
     xpath: normalize-space(//div[contains(@class,"pdp-title")])
+  - name: listPrice
+    singleValue: true
+    xpath: normalize-space(//div[@class="prices pdp-prices"]/div/div[1])
+    regExp: (.+).(.+)  
   - name: price
     singleValue: true
     xpath: normalize-space(//div[@class="prices pdp-prices"]/div/div[1])
+    regExp: (.+).(.+)
   - name: availabilityText
     singleValue: true
     xpath: //div[@id='availability']
@@ -46,7 +54,8 @@ fields:
     xpath: //span[@itemprop="sku"]
   - name: variantId
     singleValue: true
-    xpath: //div[@id="retailer_product_code"]
+    xpath: //div[@id="retailer_product_code"] | //div[@data-bv-show="rating_summary"]/@data-bv-product-id
+    regExp: \d+
   - name: directions
     singleValue: true
     xpath: //div[@class="info"][3]//ul[@class="info-list"]/li[last()]
@@ -117,9 +126,15 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: //div[@id="ratingCount"]
+  - name: videos
+    singleValue: true
+    xpath: //div[@class="info _video-wrapper"]/iframe/@src  
   - name: storage
     singleValue: false
     xpath: //h3[contains(text(),'Conservación y utilización')]/../ul/li[1]
+  - name: countryofOrigin
+    singleValue: false
+    xpath: //li[@class="info-item"]/span[contains(text(),"País de origen")]/following-sibling::text()  
   - name: saltPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
@@ -133,13 +148,13 @@ fields:
   - name: pricePerUnit
     singleValue: false
     xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
-    regExp: \((.+)\s\/(.+)
-    regExpReplace: $1
+    regExp: (\d+)([\.\,])(\d+)(.*)\/(.+)(\))$
+    regExpReplace: $1,$3
   - name: pricePerUnitUom
     singleValue: false
     xpath: //div[@class="prices pdp-prices"]//div[@class="prices-price _pum"]
-    regExp: \(\d+\,\d+\s(.+)\)
-    regExpReplace: $1
+    regExp: (\d+)([\.\,])(\d+)(.*)\/(.+)(\))$
+    regExpReplace: $5
   - name: alcoholContent
     singleValue: false
     xpath: //span[contains(text(),'Porcentaje de alcohol:')]/../text()
