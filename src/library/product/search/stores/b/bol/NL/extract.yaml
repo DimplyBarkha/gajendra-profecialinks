@@ -16,7 +16,6 @@ fields:
     regExp: (.+)
     regExpReplace: http://bol.com$1
   - name: thumbnail
-    singleValue: false
     xpath: //a[@class='product-image product-image--list px_list_page_product_click']//img/@src
     description: The URL for the product thumbnail image
   - name: aggregateRating2
