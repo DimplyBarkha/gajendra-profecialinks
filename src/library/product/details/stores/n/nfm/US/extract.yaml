@@ -24,12 +24,12 @@ fields:
   - name: ratingCount
     singleValue: false
     manualSelector: a.pr-snippet-review-count
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //*[@id="DT_Features"]
   - name: description
     singleValue: false
     xpath: //*[@id="DT_Description"]
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //p[@id="DT_Description"]//li
   - name: availabilityText
     singleValue: false
     xpath: //*[@id="DT_InStock"]
@@ -38,7 +38,7 @@ fields:
     manualSelector: span#DT_NotInStockLocation
   - name: category
     singleValue: false
-    manualSelector: ul#breadCrumbContainer
+    xpath: //ul[@id="breadCrumbContainer"]//li
   - name: shippingDimensions
     singleValue: false
     manualSelector: span#DT_ProductDimensions
