@@ -1,260 +1,284 @@
 input:
-  Keywords: acido hialuronico
+  Keywords: acondicionador reparador
   _url: https://elcorteingles.es
 extractions:
-  - html: https://workbench.import.io/html/run=6b51b838-f561-4a4d-818d-ad098e722dff/task=30599a23-2a6c-4d82-854c-c82fa7225a81/cf30ec52-9d46-46ce-aa35-257252206b68.html
+  - html: https://workbench.import.io/html/run=6b51b838-f561-4a4d-818d-ad098e722dff/task=826d0302-e888-4ddc-881c-8a445d41c583/e9286e45-f379-43ea-b562-328ea40c06b8.html
     extractionConfigId: product/search/stores/e/elcorteingles_perfumeria/ES/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A34608351-8-ampollas-acido-hialuronico-biotherm-life-plankton-biotherm/
+              - text: https://www.elcorteingles.es/perfumeria/A28731042-acondicionador-cicaflash-blond-absolu-kerastase/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202002/11/00113514723520____1__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201903/28/00165521500416____5__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: 8 Ampollas Ácido hialurónico Biotherm Life Plankton Biotherm
+              - text: Acondicionador Cicaflash Blond Absolu Kérastase
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "3614272890497"
+              - text: "3474636692361"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
             ratingCount:
               - text: "5"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
             reviewCount:
-              - text: "2"
+              - text: "6"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
             price:
-              - text: 34,20 €
+              - text: 32,80 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
             id:
-              - text: "001013514723520"
+              - text: "001065521500416"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A20369158-contorno-de-ojos-acido-hialuronico-y-peptidos-ojos-perfectos-15-ml-collistar/
+              - text: https://www.elcorteingles.es/perfumeria/A20185966-acondicionador-reparador-cabello-rebelde-discipline-fondant-fluidealiste-kerastase/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201804/16/00113514906794____2__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201610/04/00165521100548____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Contorno De Ojos Acido Hialuronico Y Peptidos Ojos Perfectos 15 ml
-                  Collistar
+              - text: Acondicionador reparador cabello rebelde Discipline Fondant Fluidealiste
+                  Kérastase
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "8015150218269"
+              - text: "3474636400201"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
             price:
-              - text: 32,72 €
+              - text: 32,40 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521101280"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A26197841-mascarilla-micromagnetica-acido-hialuronico-collistar/
+              - text: https://www.elcorteingles.es/perfumeria/A28723245-acondicionador-extremeredken/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/06/00113514804940____1__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201903/21/00165316000234____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Mascarilla Micromagnética Ácido Hialurónico Collistar
+              - text: Acondicionador ExtremeRedken
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "8015150218429"
+              - text: "3474636484379"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/span[1]/@data-json
             price:
-              - text: 10,80 €
+              - text: 22,95 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A27717034-hidratante-duo-acido-hialuronico-avant-skincare/
+              - text: https://www.elcorteingles.es/perfumeria/A26852502-acondicionador-restauracion-extrema-shu-uemura/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201901/29/00113515109497____1__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/23/00165526000420____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Hidratante dúo ácido hialurónico Avant Skincare
+              - text: Acondicionador restauración extrema Shu Uemura
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "0647297413627"
+              - text: "3474636610198"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/span[1]/@data-json
             price:
-              - text: 115 €
+              - text: 47,15 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A27717010-crema-dia-iluminadora-acido-hialuronico-avant-skincare/
+              - text: https://www.elcorteingles.es/perfumeria/A26443422-acondicionador-fortificante-fondant-extentioniste-kerastase/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201901/29/00113515109471____2__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201805/16/00165521101686____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Crema día iluminadora ácido hialurónico Avant Skincare
+              - text: Acondicionador Fortificante Fondant Extentioniste Kérastase
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "0637665744248"
+              - text: "3474636612918"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
             price:
-              - text: 112 €
+              - text: 32,40 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521101686"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/span[1]/@data-json
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A27716979-crema-noche-cara-y-ojos-acido-hialuronico-deluxe-avant-skincare/
+              - text: https://www.elcorteingles.es/perfumeria/A20185903-acondicionador-cabello-muy-danado-therapiste-soin-premier-kerastase/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201901/29/00113515109448____3__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201610/04/00165521100175____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Crema noche cara y ojos ácido hialurónico deluxe Avant Skincare
+              - text: Acondicionador cabello muy dañado Thérapiste Soin Premier Kérastase
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "0647297413610"
+              - text: "3474636397976"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
             price:
-              - text: 112 €
+              - text: 32,40 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521100894"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/span[1]/@data-json
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A27716984-hidratante-duo-acido-hialuronico-antioxidante-avant-skincare/
+              - text: https://www.elcorteingles.es/perfumeria/A20185912-acondicionador-ciment-anti-usure-200-ml-kerastase/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201901/29/00113515109455____3__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201903/28/00165521100944____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Hidratante dúo ácido hialurónico antioxidante Avant Skincare
+              - text: Acondicionador Ciment Anti-usure 200 ml Kérastase
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "0637665744255"
+              - text: "3474636397884"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/span[1]/@data-json
             price:
-              - text: 115 €
+              - text: 30,30 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A27716985-contorno-de-ojos-con-acido-hialuronico-avant-skincare/
+              - text: https://www.elcorteingles.es/perfumeria/A26852442-acondicionador-reestructurante-shu-uemura/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201901/31/00113520500896____3__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/23/00165526000172____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Contorno de Ojos con Ácido Hialurónico Avant Skincare
+              - text: Acondicionador reestructurante Shu Uemura
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "0647297414099"
+              - text: "3474630146600"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/span[1]/@data-json
             price:
-              - text: 98 €
+              - text: 47,15 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A27716993-serum-facial-antioxidante-con-acido-hialuronico-avant-skincare/
+              - text: https://www.elcorteingles.es/perfumeria/A26852419-acondicionador-nutritivo-shu-uemura/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201901/29/00113514721805____3__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/23/00165526000073____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Sérum Facial Antioxidante con ácido hialurónico Avant Skincare
+              - text: Acondicionador nutritivo Shu Uemura
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "0647297417113"
+              - text: "3474636400348"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/span[1]/@data-json
             price:
-              - text: 102 €
+              - text: 47,15 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A16753655-aquagel-acido-hialuronico-collistar/
+              - text: https://www.elcorteingles.es/perfumeria/A28723103-acondicionador-all-soft-redken/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201804/16/00113514718249____2__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201903/21/00165316000085____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Aquagel Ácido Hialurónico Collistar
+              - text: Acondicionador All Soft Redken
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "8015150218184"
+              - text: "3474636484348"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/span[1]/@data-json
             price:
-              - text: 43,12 €
+              - text: 22,95 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A25718760-supradosis-acido-hilauronico-orlane/
+              - text: https://www.elcorteingles.es/perfumeria/A30639290-acondicionador-olive-fruit-oil-nourishing-conditioner-500-ml-kiehls/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201805/31/00113514721268____1__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202003/26/00165513700545____2__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Supradosis Acido Hilaurónico Orlane
+              - text: Acondicionador Olive Fruit Oil Nourishing Conditioner 500 ml Kiehl's
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "3359992200002"
+              - text: "3605975053739"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/span[1]/@data-json
             price:
               - text: 32 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A26197832-micro-gel-hidratante-concentrado-acido-hialuronico-3d-collistar/
+              - text: https://www.elcorteingles.es/perfumeria/A24449247-acondicionador-reparador-intenso-aromacologia-75-ml-loccitane-en-provence/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/06/00113514313611____1__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201810/05/00113520401392____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Micro Gel Hidratante Concentrado Ácido Hialurónico 3D Collistar
+              - text: Acondicionador Reparador Intenso Aromacología 75 ml L'Occitane en Provence
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "8015150211222"
+              - text: "3253581535332"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/span[1]/@data-json
             price:
-              - text: 24,72 €
+              - text: 7 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A20921456-mascarilla-repulp-acido-hialuronico-novexpert/
+              - text: https://www.elcorteingles.es/perfumeria/A30606822-acondicionador-naturescience-extreme-250-ml-redken/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201612/13/00165517600394____1__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201905/20/00165316001273____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Mascarilla Repulp Ácido Hialurónico Novexpert
+              - text: Acondicionador Nature+Science Extreme 250 ml Redken
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "3661467002050"
+              - text: "0884486400772"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/span[1]/@data-json
             price:
-              - text: 29,90 €
+              - text: 25,90 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A20921459-serum-instant-liftin-acido-hialuronico-novexpert/
+              - text: https://www.elcorteingles.es/perfumeria/A26742461-acondicionador-marine-moisture-marlies-moller/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201612/13/00165517600402____1__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201806/01/00113520400790____1__516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Serum Instant Liftin Ácido Hialurónico Novexpert
+              - text: Acondicionador Marine Moisture Marlies Möller
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "3661467002067"
+              - text: "9007867210680"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/span[1]/@data-json
             price:
-              - text: 39,95 €
+              - text: 24 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A19516444-gel-concentrado-de-acido-hialuronico-rosage-hyaluronic-15-ml-anne-moller/
+              - text: https://www.elcorteingles.es/perfumeria/MP_0013365_893239000947-acondicionador-russian-amber-conditioning-creme-178-ml-philip-b-isolee/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201904/30/00113514508418____2__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/089/323/900/089323900094700_WWW_516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Gel Concentrado de Ácido Hialurónico Rosâge hyaluronic 15 ml Anne Möller
+              - text: Acondicionador Russian Amber Conditioning Crème 178 ml Philip B (Isolée)
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "8423986001045"
+              - text: "0893239000947"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/span[1]/@data-json
             price:
-              - text: 29,66 €
+              - text: 204 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
           - productUrl:
-              - text: https://www.elcorteingles.es/perfumeria/A23065130-spray-molecular-acido-hialuronico-collistar/
+              - text: https://www.elcorteingles.es/perfumeria/MP_0013365_893239000930-acondicionador-russian-amber-conditioning-creme-60-ml-philip-b-isolee/
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201804/16/00113514720237____2__516x640.jpg
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/089/323/900/089323900093000_WWW_516x640.jpg
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
             name:
-              - text: Spray Molecular Ácido Hialurónico Collistar
+              - text: Acondicionador Russian Amber Conditioning Creme 60 ml Philip B (Isolée)
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
             gtin:
-              - text: "8015150218344"
+              - text: "0893239000930"
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/span[1]/@data-json
             price:
-              - text: 20,40 €
+              - text: 69 €
                 xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
         xpath: /html
-    timestamp: 1598343488813
+    timestamp: 1598343491919

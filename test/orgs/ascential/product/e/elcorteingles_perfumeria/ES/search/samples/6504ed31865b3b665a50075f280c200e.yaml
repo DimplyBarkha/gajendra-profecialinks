@@ -1,0 +1,141 @@
+input:
+  Keywords: aceite bronceador
+  _url: https://elcorteingles.es
+extractions:
+  - html: https://workbench.import.io/html/run=6b51b838-f561-4a4d-818d-ad098e722dff/task=600aa768-5119-455f-b4f6-4da281ef196c/fb9258ec-9afe-4024-80b3-380fb0894a0f.html
+    extractionConfigId: product/search/stores/e/elcorteingles_perfumeria/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A7260513-aceite-protector-solar-sun-beauty-body-satin-sheen-fast-tan-optimizer-spf-30-lancaster/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201905/13/00113583103695____6__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Aceite Protector solar Sun Beauty Body Satin Sheen Fast Tan Optimizer SPF
+                  30 Lancaster
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3607345808741"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
+            price:
+              - text: 18,90 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A14596623-aceite-protector-solar-sun-beauty-body-satin-sheen-fast-tan-optimizer-spf50-lancaster/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201905/13/00113583004117____3__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Aceite Protector solar Sun Beauty Body Satin Sheen Fast Tan Optimizer
+                  SPF50 Lancaster
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3607342970960"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 18,90 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001013583004117"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A29575989-aceite-bifasico-huile-sirene-proteccion-solar-150-ml-soleil-kerastase/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201906/27/00165521500440____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Aceite Bifásico Huile Sirene Proteccion Solar 150 ml Soleil Kérastase
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3474636695324"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 28,10 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001065521500440"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A29200667-aceite-en-bruma-solar-acabado-seco-alta-proteccion-uvauvb-spf-30-clarins/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201902/05/00113583105336____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Aceite En Bruma Solar Acabado Seco Alta Protección Uva/Uvb Spf 30 Clarins
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3380810305005"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 22,05 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001013583105336"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A29200666-gel-aceite-solar-invisible-alta-proteccion-uva-uvb-spf-30-clarins/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201902/05/00113583105328____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Gel-Aceite Solar Invisible Alta Protección Uva / Uvb Spf 30 Clarins
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3380810304978"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/span[1]/@data-json
+            price:
+              - text: 22,05 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A29202909-gel-aceite-solar-invisible-spf-30-50-ml-clarins/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201902/05/00113583004927____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Gel Aceite Solar Invisible Spf 30, 50 ml Clarins
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3380810304749"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/span[1]/@data-json
+            price:
+              - text: 20,65 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A18572001-aceite-corporal-soleil-blanc-tom-ford/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202002/03/00113513100928____2__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Aceite Corporal Soleil Blanc Tom Ford
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "0888066047784"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/span[1]/@data-json
+            price:
+              - text: 92 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+        xpath: /html
+    timestamp: 1598343546569

@@ -1,0 +1,157 @@
+input:
+  Keywords: acondicionador sin aclarado
+  _url: https://elcorteingles.es
+extractions:
+  - html: https://workbench.import.io/html/run=08b72dd6-32cc-4fc4-b117-5b307ae5b408/task=f5d6225e-801d-4673-949f-e9343ec4bc14/6a45e734-3733-40d2-88d2-3801a9822c28.html
+    extractionConfigId: product/search/stores/e/elcorteingles_perfumeria/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.elcorteingles.es/parafarmacia/A20545440-crema-sin-aclarado-karinga-rene-furterer/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201703/24/00126310318485____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Crema sin aclarado Karinga René Furterer
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3282770072594"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 20,90 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001026310318485"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria-general/A17248253-acondicionador-sin-aclarado-rizos-definidos-pro-v-pantene/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201806/28/00187040902550____3__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador sin aclarado Rizos definidos Pro-V Pantene
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "5410076528257"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            reviewCount:
+              - text: "130"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 3,75 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001087040902550"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/parafarmacia/A29474860-acondicionador-sin-aclarado-spray-brillo-120-ml-harkontroll/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201902/07/00126310321331____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador sin aclarado Spray Brillo 120 ml Harkontroll
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "7393471180085"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/span[1]/@data-json
+            price:
+              - text: 13,55 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/parafarmacia/A32194098-acondicionador-sin-aclarado-con-quinoa-200-ml-skinlove/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201911/08/00126312106896____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador Sin Aclarado con Quinoa 200 ml Skinlove
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "8414606528844"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/span[1]/@data-json
+            price:
+              - text: 11,20 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/parafarmacia/A22237094-crema-de-dia-sin-aclarado-a-la-granada-klorane/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201704/10/00126310310037____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Crema de día sin aclarado a la Granada Klorane
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3282779140881"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/span[1]/@data-json
+            price:
+              - text: 14,55 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/parafarmacia/A22054480-acondicionador-protector-color-sin-aclarado-girasol-and-miel-apivita/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201704/10/00126310319079____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Acondicionador Protector Color Sin Aclarado Girasol & Miel Apivita
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "5201279073282"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 14 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001026310319079"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/parafarmacia/A22237105-crema-de-dia-sin-aclarado-a-la-leche-de-papiro-klorane/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201704/10/00126310310953____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Crema de día sin aclarado a la leche de Papiro Klorane
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3282779193566"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/span[1]/@data-json
+            price:
+              - text: 14,25 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/parafarmacia/A22237148-crema-de-dia-sin-aclarado-al-datil-del-desierto-klorane/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201711/10/00126310315507____2__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Crema de día sin aclarado al Dátil del Desierto Klorane
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3282779384148"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/span[1]/@data-json
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/a[1]/@aria-label
+            price:
+              - text: 13,90 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            id:
+              - text: "001026310315507"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/span[1]/@data-json
+        xpath: /html
+    timestamp: 1598349367832

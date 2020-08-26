@@ -1,0 +1,501 @@
+input:
+  Keywords: antiesnat
+  _url: https://elcorteingles.es
+extractions:
+  - html: https://workbench.import.io/html/run=ddded8cc-ed51-4c0a-92a1-e15f42f89ff2/task=c25e2ec6-3644-4d90-8b39-d6dce5a01e25/9f6e3cb5-b30e-4584-95c2-1e02056a3f00.html
+    extractionConfigId: product/search/stores/e/elcorteingles_perfumeria/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385775998-a-treatise-of-antient-and-present-geography-together-with-a-sett-of-maps-both-of-an/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/577/9781385775998_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Treatise of Antient and Present Geography. Together With A Sett of Maps,
+                  Both of An
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385775998"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
+            price:
+              - text: 31,58 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385780428-a-catalogue-of-a-large-collection-of-antient-and-modern-coins-and-medals-in-gold-si/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/578/9781385780428_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Catalogue of a Large Collection of Antient and Modern Coins and Medals,
+                  in Gold, Si
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385780428"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
+            price:
+              - text: 25,03 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385782378-a-catalogue-of-the-genuine-collection-of-antient-and-modern-coins-and-medals-in-gold/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/578/9781385782378_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Catalogue of the Genuine Collection of Antient and Modern Coins &
+                  Medals, in Gold,
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385782378"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/span[1]/@data-json
+            price:
+              - text: 25,06 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385782385-a-catalogue-of-the-genuine-collection-of-antient-and-modern-coins-and-medals-in-silver/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/578/9781385782385_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Catalogue of the Genuine Collection of Antient and Modern Coins &
+                  Medals, in Silver
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385782385"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/span[1]/@data-json
+            price:
+              - text: 25,07 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385811061-the-antient-and-modern-history-of-the-famous-city-of-york-and-in-a-particular-manner/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/581/9781385811061_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: The Antient and Modern History of the Famous City of York, and in a
+                  Particular Manner
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385811061"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/span[1]/@data-json
+            price:
+              - text: 32,42 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385817827-a-new-and-authentic-system-of-universal-geography-antient-and-modern/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/581/9781385817827_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A new and Authentic System of Universal Geography, Antient and Modern
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385817827"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/span[1]/@data-json
+            price:
+              - text: 40,18 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385824931-a-catalogue-of-the-very-curious-and-valuable-musical-library-of-antient-and-modern-co/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/582/9781385824931_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Catalogue of the Very Curious and Valuable Musical Library of Antient
+                  and Modern Co
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385824931"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/span[1]/@data-json
+            price:
+              - text: 25,03 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385825891-a-new-and-exact-account-of-jamaica-wherein-the-antient-and-present-state-of-that-col/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/582/9781385825891_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A new and Exact Account of Jamaica. Wherein the Antient and Present State
+                  of That Col
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385825891"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/span[1]/@data-json
+            price:
+              - text: 34,20 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385829455-a-new-and-authentic-system-of-universal-geography-antient-and-modern/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/582/9781385829455_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A new and Authentic System of Universal Geography, Antient and Modern
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385829455"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/span[1]/@data-json
+            price:
+              - text: 38,39 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385832998-a-vindication-of-the-antient-general-assembly-from-the-false-imputations-of-the-russ/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/583/9781385832998_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Vindication of the Antient General Assembly, From the False Imputations
+                  of the Russ
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385832998"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/span[1]/@data-json
+            price:
+              - text: 27,95 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/undefined/MP_0012982_9781385834336-the-present-state-of-europe-compared-with-antient-prophecies-a-sermon-preached-at-t/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/583/9781385834336_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: The Present State of Europe Compared With Antient Prophecies, a Sermon,
+                  Preached at t
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385834336"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/span[1]/@data-json
+            price:
+              - text: 28,01 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385836514-a-compendious-way-of-teaching-antient-and-modern-languages-formerly-practised-by-the/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/583/9781385836514_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Compendious way of Teaching Antient and Modern Languages, Formerly
+                  Practised by the
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385836514"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/span[1]/@data-json
+            price:
+              - text: 32,52 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/undefined/MP_0012982_9781385842508-the-advantages-of-unity-considered-in-a-sermon-preachd-before-the-antient-and-honou/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/584/9781385842508_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: The Advantages of Unity Considered. In a Sermon Preachd Before the
+                  Antient, and Honou
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385842508"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/span[1]/@data-json
+            price:
+              - text: 25,06 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385852316-the-antient-history-and-description-of-the-city-of-exeter-also-a-curious-account-of/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/585/9781385852316_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: The Antient History and Description of the City of Exeter, Also a Curious
+                  Account of
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385852316"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/span[1]/@data-json
+            price:
+              - text: 33,26 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385864340-a-general-history-of-ireland-in-its-antient-and-modern-state-on-a-new-and-concise-p/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/586/9781385864340_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A General History of Ireland, in its Antient and Modern State. On a new
+                  and Concise P
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385864340"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/span[1]/@data-json
+            price:
+              - text: 32,36 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385864357-a-general-history-of-ireland-in-its-antient-and-modern-state-on-a-new-and-concise-p/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/586/9781385864357_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A General History of Ireland, in its Antient and Modern State. On a new
+                  and Concise P
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385864357"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/span[1]/@data-json
+            price:
+              - text: 31,51 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385864449-a-collection-of-the-dresses-of-different-nations-antient-and-modern-particularly-ol/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[17]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/586/9781385864449_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[17]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Collection of the Dresses of Different Nations, Antient and Modern.
+                  Particularly ol
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[17]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385864449"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[17]/span[1]/@data-json
+            price:
+              - text: 29,73 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[17]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385864456-a-collection-of-the-dresses-of-different-nations-antient-and-modern-particularly-ol/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[18]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/586/9781385864456_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[18]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Collection of the Dresses of Different Nations, Antient and Modern.
+                  Particularly ol
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[18]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385864456"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[18]/span[1]/@data-json
+            price:
+              - text: 29,77 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[18]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385864463-a-collection-of-the-dresses-of-different-nations-antient-and-modern-particularly-ol/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[19]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/586/9781385864463_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[19]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Collection of the Dresses of Different Nations, Antient and Modern.
+                  Particularly ol
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[19]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385864463"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[19]/span[1]/@data-json
+            price:
+              - text: 29,77 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[19]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385864470-a-collection-of-the-dresses-of-different-nations-antient-and-modern-particularly-ol/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[20]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/586/9781385864470_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[20]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Collection of the Dresses of Different Nations, Antient and Modern.
+                  Particularly ol
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385864470"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[20]/span[1]/@data-json
+            price:
+              - text: 29,75 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385871119-a-catalogue-of-a-collection-of-antient-and-modern-coins-and-medals-many-of-them-rare/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[21]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/587/9781385871119_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[21]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Catalogue of a Collection of Antient and Modern Coins and Medals. Many
+                  of Them Rare
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[21]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385871119"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[21]/span[1]/@data-json
+            price:
+              - text: 25,04 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[21]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385883280-modus-tenendi-parliamenta-in-hibernia-published-out-of-an-antient-record-by-the-right/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[22]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/588/9781385883280_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[22]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Modus Tenendi Parliamenta in Hibernia Published out of an Antient Record
+                  by the Right
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[22]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385883280"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[22]/span[1]/@data-json
+            price:
+              - text: 27,98 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[22]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385888049-a-select-collection-of-songs-sung-in-the-several-lodges-of-the-most-antient-and-nobl/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[23]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/588/9781385888049_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[23]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Select Collection of Songs, Sung in the Several Lodges of the Most
+                  Antient and Nobl
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[23]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385888049"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[23]/span[1]/@data-json
+            price:
+              - text: 25,03 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[23]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385896679-an-introduction-to-history-antient-and-modern-wherein-the-rise-and-fall-of-states-an/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[24]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/589/9781385896679_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[24]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: An Introduction to History Antient and Modern. Wherein the Rise and Fall
+                  of States an
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[24]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385896679"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[24]/span[1]/@data-json
+            price:
+              - text: 31,60 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[24]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+        xpath: /html
+    timestamp: 1598354948945
+  - html: https://workbench.import.io/html/run=ddded8cc-ed51-4c0a-92a1-e15f42f89ff2/task=c25e2ec6-3644-4d90-8b39-d6dce5a01e25/a4d3d0f3-a084-46e2-8531-b235c099cdd2.html
+    extractionConfigId: product/search/stores/e/elcorteingles_perfumeria/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385901083-prolusions-or-select-pieces-of-antient-poetry-compild-with-great-care-from-their/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/590/9781385901083_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Prolusions, or, Select Pieces of Antient Poetry, - Compild With Great Care
+                  From Their
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385901083"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
+            price:
+              - text: 32,44 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385910269-an-act-for-extinguishing-the-right-of-average-in-and-upon-all-the-antient-inclosures/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/591/9781385910269_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: An act for Extinguishing the Right of Average in and Upon all the Antient
+                  Inclosures
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385910269"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
+            price:
+              - text: 25,04 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385912348-a-candid-disquisition-of-the-principles-and-practices-of-the-most-antient-and-honoura/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/591/9781385912348_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Candid Disquisition of the Principles and Practices of the Most Antient
+                  and Honoura
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385912348"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/span[1]/@data-json
+            price:
+              - text: 32,42 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/libros/MP_0012982_9781385912461-a-treatise-of-antient-and-present-geography-together-with-a-sett-of-maps-both-of-an/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MARKET/978/138/591/9781385912461_00_640x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A Treatise of Antient and Present Geography. Together With a Sett of Maps,
+                  Both of An
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "9781385912461"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/span[1]/@data-json
+            price:
+              - text: 31,54 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/ebooks/tagus-4064066103903-an-essay-on-the-antient-and-modern-state-of-ireland-ebook/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imagessl.tagusbooks.com/a/l/t1/03/4064066103903.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: An Essay on the Antient and Modern State of Ireland (eBook)
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "4064066103903"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/span[1]/@data-json
+            price:
+              - text: 1,49 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/ebooks/tagus-cdlpg00019584-a-new-system-or-an-analysis-of-antient-mythology-vol-ii-ebook/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https:https://www.elcorteingles.es/sgfm/SGFM/contents/images/common/no-image.png
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: A New System; or, an Analysis of Antient Mythology. Vol. II (eBook)
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: cdlpg00019584
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[6]/span[1]/@data-json
+          - productUrl:
+              - text: https://www.elcorteingles.es/ebooks/tagus-cdlpg00027226-an-essay-on-the-antient-and-modern-state-of-ireland-ebook/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https:https://www.elcorteingles.es/sgfm/SGFM/contents/images/common/no-image.png
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: An Essay on the Antient and Modern State of Ireland (eBook)
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: cdlpg00027226
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[7]/span[1]/@data-json
+        xpath: /html
+    timestamp: 1598354948945

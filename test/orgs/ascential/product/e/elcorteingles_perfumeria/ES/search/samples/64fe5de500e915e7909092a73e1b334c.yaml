@@ -1,0 +1,57 @@
+input:
+  Keywords: autobronceador
+  _url: https://elcorteingles.es
+extractions:
+  - html: https://workbench.import.io/html/run=d604f6a9-007a-476a-a247-209625338a95/task=26ff5de5-30b2-46b8-93f0-06ac15e96217/f3df4580-9b43-49cd-82ba-0febf7f8c959.html
+    extractionConfigId: product/search/stores/e/elcorteingles_perfumeria/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A34950034-autobronceador-de-rostro-hidratante-super-soin-autobronzant-hydratant-visage-60-ml-sisley/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202003/24/00113583005254____2__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Autobronceador de rostro hidratante Super Soin Autobronzant Hydratant
+                  Visage 60 ml Sisley
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3473311680501"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
+            price:
+              - text: 109 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A34950036-autobronceador-de-cuerpo-hidratante-super-soin-autobronzant-hydratant-corps-150-ml-sisley/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202002/26/00113583105567____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Autobronceador de cuerpo hidratante Super Soin Autobronzant Hydratant
+                  Corps 150 ml Sisley
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3473311680556"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/span[1]/@data-json
+            price:
+              - text: 99 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A7260591-gel-autobronceador-rostro-self-sun-clinique/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA02/CONTENIDOS/201510/02/00113583301380____2__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: Gel Autobronceador rostro Self Sun Clinique
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "0020714353353"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/span[1]/@data-json
+            price:
+              - text: 30,50 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+        xpath: /html
+    timestamp: 1598347936173

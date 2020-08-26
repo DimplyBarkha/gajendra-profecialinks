@@ -1,0 +1,25 @@
+input:
+  Keywords: after sun
+  _url: https://elcorteingles.es
+extractions:
+  - html: https://workbench.import.io/html/run=12a4b3db-d80c-4ed4-9d19-04e60957a83d/task=0b07864e-3de3-42e3-9539-b1b484031e8a/beb6538a-1d8e-43f9-a2f6-b20765285eff.html
+    extractionConfigId: product/search/stores/e/elcorteingles_perfumeria/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.elcorteingles.es/perfumeria/A35370486-after-sun-light-blue-summer-gel-150-ml-dolce-and-gabbana/
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202006/03/00113512616288____1__516x640.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-src
+            name:
+              - text: After Sun Light Blue Summer Gel 150 ml Dolce & Gabbana
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h2[1]/a[1]/p[1]
+            gtin:
+              - text: "3423473110453"
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/span[1]/@data-json
+            price:
+              - text: 38 €
+                xpath: /html/body/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+        xpath: /html
+    timestamp: 1598383378088
