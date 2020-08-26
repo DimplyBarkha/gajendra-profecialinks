@@ -78,7 +78,7 @@ fields:
     singleValue: true
     description: Net weight as described on the page
     regExp: ([0-9,\.]+.+)
-    regExpReplace: $1
+    #regExpReplace: $1
     xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]])[1]
   - name: weightGross #localedependent#missing
     singleValue: true

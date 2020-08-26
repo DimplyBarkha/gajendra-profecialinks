@@ -131,8 +131,8 @@ module.exports.implementation = async function implementation (
     }
 
     // deal with the price
-    const listPrice = getAllXpath("(//div[@class='product-hero__price-top']/div[1])[1]", 'innerText');
-    const price = getAllXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
+    const listPrice = getXpath("(//div[@class='product-hero__price-top']/div[1])[1]", 'innerText');
+    const price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
     addElementToDocument('added_price', price);
     if (listPrice !== price) addElementToDocument('added_listPrice', listPrice);
 
