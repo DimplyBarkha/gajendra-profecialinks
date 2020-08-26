@@ -415,8 +415,9 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //h3[contains(.,'Fysieke eigenschappen')]/following-sibling::div//dl
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -506,7 +507,7 @@ fields:
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
-  - name: termsAndConditions
+  - name: termsAndConditions 
     singleValue: false
     # ISSUE - SHOULD BE FIXED WITH CLI UPDATE
     description: Terms and conditions information text ['Yes','No']
@@ -538,7 +539,7 @@ fields:
     description: If 360 image is present in the carousel ['Yes','No']
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: false
+    # singleValue: false
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     # ISSUE - SHOULD BE FIXED WITH CLI UPDATE
