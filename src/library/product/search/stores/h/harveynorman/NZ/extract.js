@@ -35,4 +35,5 @@ module.exports = {
     domain: 'harveynorman.co.nz',
     zipcode: '',
   },
+  implementation,
 };

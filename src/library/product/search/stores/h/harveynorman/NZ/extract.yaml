@@ -27,5 +27,14 @@ fields:
     singleValue: false
     xpath: //div[@class="bv-inline-rating-container"]/dl/dd/span
     regExp: (\d+)
+    regExpReplace: $1   
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="bv-inline-rating-container"]/dl/dd/span
+    regExp: (\d+)
     regExpReplace: $1 
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
+  
   
