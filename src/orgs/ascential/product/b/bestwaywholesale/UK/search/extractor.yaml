@@ -5,6 +5,12 @@ parameters:
   store: bestwaywholesale
   zipcode: ""
 authenticated: true
+policy:
+  numberRetries: 1
+  priority: MEDIUM
+  retryDelay: 30
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     bestwaywholesale_co_uk-product_search:
