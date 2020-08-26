@@ -50,7 +50,7 @@ fields:
     xpath:  count(//div[@id="tabs-1"]/ul/li)
   - name: brandText
     singleValue: false
-    xpath: //div[@class='productTitle']/ul/li[1]
+    xpath: //div[@class='productTitle']/ul/li[1] | //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
   # - name: manufacturer
   #   singleValue: false
   #   description: Product manufacturer
