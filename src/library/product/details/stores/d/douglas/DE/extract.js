@@ -8,7 +8,7 @@ module.exports = {
     transform,
     domain: 'douglas.de',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       const spanDescription = getEleByXpath('//div[@class="rd__product-details__description__collapsible"]/span');
       if (spanDescription) {
@@ -28,6 +28,6 @@ module.exports = {
       }
     });
 
-    return await context.extract(productDetails, { transform });
+    return await context.extract(productDetails, { transform: transformParam });
   },
 };
