@@ -38,6 +38,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
+    xpath: //div[@id="added_availability"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -138,6 +139,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
+    xpath: //*[@id="productDescription"]//img/@src | //span[contains(text(), "Description")]/parent::*/following-sibling::*//img/@src |  //div[contains(@class, "product-short-description short-description")]/p//img/@src
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -467,6 +469,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //*[@id="productDescription"] //li | //span[contains(text(), "Description")]/parent::*/following-sibling::*//li |  //div[contains(@class, "product-short-description short-description")]/p//li
     description: null
   - name: prop65Warning
     singleValue: false
