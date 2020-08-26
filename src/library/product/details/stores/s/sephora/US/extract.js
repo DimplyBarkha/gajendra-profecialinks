@@ -47,10 +47,10 @@ module.exports = {
         const link = videoClicks[i].getAttribute('src');
         if (!videos.includes(link)) { videos.push(link); }
       }
-      debugger
       return videos;
     });
 
+    var reqAccept = "application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk"
     if (videos && videos.length) {
       for (let i = 0; i < videos.length; i++) {   
       // Click a link on the page
@@ -64,19 +64,13 @@ module.exports = {
         console.log('finished waiting for page');
           const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
       //    const req = await context.searchForRequest('/productimages/*');
-          console.log('req', req);
-          const reqJSON = JSON.parse(req.responseBody.body);
+          if(req){
+            reqAccept = req[0].requestHeaders.Accept;
+          }
       }
     }
 
-
-
-
-
-
-
     const scrollFunc = await context.evaluate(function(){
-      debugger
       let scrollTop = 0;
       while (scrollTop !== 10000) {
         scrollTop += 1000;
@@ -94,19 +88,22 @@ module.exports = {
       let videoIdForUrl = [];
       if(videoEle){
         let videoObj = JSON.parse(videoEle.innerText);
-        let videoIds = videoObj[4].props.currentProduct.productVideos
-        if(videoIds){
-          videoIds.forEach(obj => {
-            videoIdForUrl.push(obj.videoUrl)
-          })
+        if(videoObj[4].props.currentProduct){
+          let videoIds = videoObj[4].props.currentProduct.productVideos
+          if(videoIds){
+            videoIds.forEach(obj => {
+              videoIdForUrl.push(obj.videoUrl)
+            })
+          }
         }
       }
       return videoIdForUrl
     })
 
     
-    const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl) {
+    const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl, acceptHeader) {
       let srcArray = [];
+      debugger
       async function fetchRetry(url, n) {
         function handleErrors(response) {
           if (response.status === 200){
@@ -119,7 +116,7 @@ module.exports = {
         }
         let fetched = fetch(url, {
           "headers": {
-            "accept": "application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk"
+            "accept": acceptHeader
           }
         }).then(handleErrors).then(response => response.text()).catch(error => {
             console.log("FETCH FAILED")
@@ -133,7 +130,7 @@ module.exports = {
         srcArray.push(JSON.parse(fetchTry));
       }
       return srcArray;
-    }, videoIdArray);
+    }, videoIdArray, reqAccept);
 
 
     const variantArray = await context.evaluate(function (parentInput, html) {
