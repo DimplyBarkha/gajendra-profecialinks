@@ -9,50 +9,48 @@ async function implementation(
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-  function addHiddenDiv (id, content) {
-    const newDiv = document.createElement('div');
-    newDiv.id = id;
-    newDiv.textContent = content;
-    newDiv.style.display = 'none';
-    document.body.appendChild(newDiv);
-
-  }
-  let description = document.querySelector('div#content_description > div.product-tab-wrapper')
-
- description = description?description.children: []
- let finalDescription = ''
- let flag = false
-  for (const element of description) {
-
-    if(element.id === 'flix-inpage')
-    {
-      console.log('khgjhkj')
-      break
+    function addHiddenDiv(id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
     }
-     if (element.nodeName === 'UL'){
-       flag = true
-       for(const li of element.children) {
-         finalDescription += ` || ${li.innerText}`
-       }
-     }
-     if (element.nodeName === 'LI'){
-       flag = true
-       finalDescription += ` || ${element.innerText}`
-     }
-     else{
-       if(flag){
-        finalDescription += ` | ${element.innerText}`
-       }
-       else{
-         flag = false
-        finalDescription += ` ${element.innerText}`
-       }
-     }
-  }
+    let description = document.querySelector('div#content_description > div.product-tab-wrapper');
 
-  addHiddenDiv('ii_description',finalDescription)
-
-})
+    description = description ? description.children : [];
+    console.log('///////////////............................',description.length);
+    let finalDescription = '';
+    let flag = false;
+    for (const element of description) {
+      if (element.id === 'flix-inpage') {
+        break;
+      };
+      console.log('aaaaaaaaaaaaaaaaaaaaaaaa',element.nodeName);
+      console.log('accccccccccccccccc',element.innerText);
+      if (!element.innerText) {
+        continue;
+      }
+      if (element.nodeName === 'UL') {
+        flag = true;
+        for (const li of element.children) {
+          finalDescription += ` || ${li.innerText}`;
+        }
+      } else if (element.nodeName === 'LI') {
+        flag = true;
+        finalDescription += ` || ${element.innerText}`;
+      } else {
+        if (flag) {
+          flag = false;
+          finalDescription += ` | ${element.innerText}`;
+        } else {
+          flag = false;
+          finalDescription += ` ${element.innerText}`;
+        }
+      }
+    }
+    addHiddenDiv('ii_description', finalDescription);
+  });
 
   return await context.extract(productDetails, { transform });
 }

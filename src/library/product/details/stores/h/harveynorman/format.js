@@ -41,12 +41,6 @@ const transform = (data) => {
         },
         ];
       }
-      if (row.description) {
-        row.description = [{
-          text: row.description.reduce((item, currentItem) => `${item} ${currentItem.text}`, '').trim(),
-        },
-        ];
-      }
 
       if (row.manufacturerDescription) {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
