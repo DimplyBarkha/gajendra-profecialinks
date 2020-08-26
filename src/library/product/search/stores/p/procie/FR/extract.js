@@ -7,16 +7,34 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  async function addUrl () {
+    await context.evaluate(() => {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      const url = window.location.href;
+      addHiddenDiv('added-searchurl', url);
+    });
+  }
   async function pagination () {
     if (await checkForPagination()) {
+      console.log('Pagination applicable');
       while (await checkForPagination()) {
+        console.log('Pagination is running');
+        await addUrl();
         await context.extract(productDetails, { transform }, { type: 'APPEND' });
-        context.click("li[class='pagination-next ng-scope'] a");
+        await context.click("li[class='pagination-next ng-scope'] a");
         await new Promise(resolve => setTimeout(resolve, 2000));
       }
-      return await context.extract(productDetails, { transform }, { type: 'APPEND' });
+      return await context.extract(productDetails, { transform });
     } else {
-      return await context.extract(productDetails, { transform }, { type: 'APPEND' });
+      console.log('Extracting Last Page');
+      await addUrl();
+      return await context.extract(productDetails, { transform });
     }
   }
   async function checkForPagination () {
@@ -24,8 +42,7 @@ async function implementation (
       return document.querySelector("li[class='pagination-next ng-scope'] a") ? true : false;
     });
   }
-  await pagination();
-  // console.log("OtherSel", await checkForPagination());
+  return await pagination();
 }
 module.exports = {
   implements: 'product/search/extract',

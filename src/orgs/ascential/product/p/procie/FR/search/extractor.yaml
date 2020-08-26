@@ -1,6 +1,14 @@
 robot: product/search
+proxy:
+  zone: FRA
+  type: DATA_CENTER
 parameters:
   country: FR
-  domain: procie.fr
+  domain: procie.com
   zipcode: ""
   store: procie
+meta:
+  branches:
+    dev:
+      extractor: a9a132a2-e554-49cd-999d-e94782bb5b1e
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b

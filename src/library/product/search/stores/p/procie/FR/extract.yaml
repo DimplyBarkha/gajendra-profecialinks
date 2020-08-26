@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath:  //div[contains(@class,'row frameProductList')]
+recordXPath: //div[contains(@class,'row frameProductList')]
 fields: 
   - name: id
-    singleValue: false
+    singleValue: true
     xpath: //a/@href
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,'frameProductListMiddle')]/a/*
+    xpath: //div[contains(@class,'hidden-xs frameProductListMiddle')]//h2[contains(@class,'titleListProduct ng-binding')]
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class,'frameProductListMiddle')]/a/@href
@@ -22,3 +22,6 @@ fields:
     singleValue: false
   - name: rankOrganic
     singleValue: false
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]

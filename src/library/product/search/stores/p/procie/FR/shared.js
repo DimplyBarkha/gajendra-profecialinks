@@ -37,6 +37,28 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
+      if (row.id) {
+        row.id.forEach((item) => {
+          item.text = item.text.replace(/.*?ProductId=(.*)/, '$1');
+        });
+      }
+      if (row.productUrl) {
+        row.productUrl.forEach((item) => {
+          item.text = item.text.replace(/(.*)/, 'https://www.procie.com$1');
+        });
+      }
+      if (row.price) {
+        row.price.forEach((item) => {
+          if (item.text.trim() === 'Voir prix en magasin') {
+            item.text = '';
+          }
+        });
+      }
+      if (row.thumbnail) {
+        row.thumbnail.forEach((item) => {
+          item.text = item.text.replace(/(.*)/, 'https://www.procie.com$1');
+        });
+      }
     }
   }
   context.setState({ rankCounter });
