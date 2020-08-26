@@ -1,0 +1,98 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //h1/@title
+  
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  
+  - name: category
+    singleValue: false
+    xpath : //ul[@class='ul_breadcrumb']//li[position() mod 2 = 1 and position() > 1]
+  
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,'lbl_priceProductFinalPrice')]
+  
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class,'lbl_priceProduct crossedPrice')]
+
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath : //div[contains(@class,'Pdf')]/a/@href
+    # defaultValue: No
+
+  - name: availabilityText
+    singleValue: false
+    xpath: //product-stock-label/span 
+    defaultValue: Out of Stock
+
+  - name: description
+    singleValue: false
+    xpath : //div[contains(@id,'frameDescProductContent')]
+
+  - name: brandText
+    singleValue: false
+    xpath : //div[@id='ficheProduitTopRightInfo']/span[contains(.,'Marque')]/following-sibling::p[@class='uppercase']
+
+  - name: weightNet
+    singleValue: false
+    xpath: //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé'))]/td[2] and not(contains(.,'Poids de l'emballage'))/td[2]
+  
+  - name: weightGross
+    singleValue: false
+    xpath: //tr[contains(.,'Poids du produit emballé')]/td[2] | //tr[contains(.,"Poids de l'emballage")]/td[2]
+
+  - name: image
+    singleValue: false
+    xpath: //div[@id='mainImgProduct']/img[@class='img-responsive ng-scope']/@src
+
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='carousel-inner']/div/img/@src[not(contains(.,'mp4'))]
+
+  - name: shippingDimensions
+    singleValue: false
+    xpath : //tr[contains(.,"Dimensions de l'emballage")]/td[2]
+
+  - name: variantId
+    singleValue: false
+    xpath : //form/@action
+
+  - name: videos
+    singleValue: false
+    xpath : //div[@class='carousel-inner']/div/img/@src[contains(.,'mp4')]
+
+  - name: gtin
+    singleValue: false
+    xpath : //div[contains(@class,'loadbeeTabContent')]/@data-loadbee-gtin
+
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //h3[contains(.,"CARACTÉRISTIQUES TECHNIQUES")] | //h3[contains(.,"Caractéristiques techniques")]  | //table
+
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1/@title
+
+  - name: variantCount
+    singleValue: false
+    defaultValue: 1
+ 
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='mainImgProduct']/img[@class='img-responsive ng-scope']/@alt
+  
+  - name: color
+    singleValue: false
+    xpath : //ul[@class="characteristicsProduct"]/li[contains(.,"- Couleur")]
+  
+  - name: specification
+    singleValue: false
+    xpath: //tr[contains(.,"Dimension de l'appareil") or contains(.,"Dimensions")]/td[2] |  //td[contains(.,"Poids")]/following-sibling::td[@class="td_specificationsValue"]
