@@ -16,18 +16,26 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    function addHiddenDivInProduct (id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll("article[class='row product-list']")[index];
+      originalDiv.appendChild(newDiv);
+    }
     const url = window.location.href;
     addHiddenDiv('added-searchurl', url);
-    // @ts-ignore
-    // eslint-disable-next-line no-undef
-    const listProducts = tc_vars;
-    addHiddenDiv('sku', listProducts.list_product_sku);
-
-    listProducts.list_product_ean && addHiddenDiv('product_ean', listProducts.list_product_ean);
-    listProducts.list_product_id && addHiddenDiv('product_id', listProducts.list_product_id);
-    listProducts.list_product_name && addHiddenDiv('product_name', listProducts.list_product_name);
+    const priceEle = document.querySelectorAll("div[class*='product-list-col'] article meta[itemprop='price']");
+    const priceArray = [];
+    for (let i = 0; i < priceEle.length; i++) {
+      const priceItem = priceEle[i].getAttribute('content');
+      addHiddenDivInProduct('ii_price', priceItem, i);
+      console.log(priceItem);
+      priceArray.push(priceItem, priceItem, i);
+    }
+    console.log(priceArray);
   });
-
   return await context.extract(productDetails, { transform });
 }
 
