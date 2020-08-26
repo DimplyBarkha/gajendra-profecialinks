@@ -31,6 +31,49 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
+    /**
+     * Function to fetch variants and count and add to DOM
+     * The id for the selected variant is not present in the variant block hence
+     * fetching it from product URL if variants are present on the website
+     */
+    function fetchVariants () {
+      const variantSelector = document.querySelectorAll('div[class="color-block"] div[class="owl-item"] a');
+      const variantIdArray = [];
+      const getVariantIdRegex = /.*ref\/(\d+)/gm;
+      if (variantSelector.length) {
+        const productURL = window.location.href;
+        const currentVariant = productURL.replace(getVariantIdRegex, '$1');
+        variantIdArray.push(currentVariant);
+      }
+      for (let i = 0; i < variantSelector.length; i++) {
+        const variantURL = variantSelector[i].href;
+        const variantId = variantURL.replace(getVariantIdRegex, '$1');
+        variantIdArray.push(variantId);
+      }
+
+      // Add to DOM if variants are present
+      if (variantSelector.length) {
+        addHiddenDiv('added_variant', variantIdArray.join(' | '));
+        addHiddenDiv('added_variantCount', variantIdArray.length);
+      }
+    }
+
+    /**
+     * Fetching availability text. If add to cart button appears on the website then it is in stock
+     */
+    function fetchAvailabilityText () {
+      // Added xpath for product not available 
+      const availabilityTextFlag = document.evaluate('//div[@class="informations"]//div[contains(@class, "off") and contains(@class, "onlinePurchase")]//*[contains(text(), "Ajouter au panier")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const availabilityText = availabilityTextFlag ? 'Out of stock' : 'In stock';
+      addHiddenDiv('added_availabilityText', availabilityText);
+    }
+
+    function fetchTechnicalInfo () {
+      const technicalInfoSelector = document.querySelector('div[id="about"]');
+      const technicalInfoFlag = technicalInfoSelector ? 'Yes' : 'No';
+      addHiddenDiv('added_technicalInfo', technicalInfoFlag);
+    }
+
     // Function to load alternate images on the DOM by clicking on the slider button
     const slideAndLoadAlternateImages = async function () {
       async function timeout (ms) {
@@ -64,6 +107,9 @@ async function implementation (
       }
     };
     await slideAndLoadAlternateImages();
+    fetchVariants();
+    fetchAvailabilityText();
+    fetchTechnicalInfo();
 
     // If images are present in description then add to manufacturerDescription else add to description
     const manufacturerImageFlag = document.evaluate('//div[@id="presentation"]//div[@itemprop="description"]//img/@src | //div[@id="presentation"]//div[@itemprop="description"]//video/@src', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -75,10 +121,15 @@ async function implementation (
       addHiddenDiv('added-manufacturerDesc', description);
       specDescription && addHiddenDiv('added-description', specDescription);
     } else {
-      description = description ? description + ' | ' + specDescription : specDescription;
+      if (description && specDescription) {
+        description = description + ' | ' + specDescription;
+      } else {
+        description = description + specDescription;
+      }
       addHiddenDiv('added-description', description);
     }
   }, [inputs.url]);
+
   await new Promise(resolve => setTimeout(resolve, 20000));
   return await context.extract(productDetails, { transform });
 }

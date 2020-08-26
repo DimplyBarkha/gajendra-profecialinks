@@ -26,13 +26,13 @@ fields:
     singleValue: false
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,"informations")]//span[@class="priceBarre"]
+    xpath: //div[contains(@class,"informations")]//span[@class="productStrikeoutPrice on"]
   - name: price
     singleValue: false
     manualSelector: div[class="informations"] p[class="fix-price"]
   - name: description
     singleValue: false
-    xpath: //div[@id="added-description"]
+    manualSelector: div[id="added-description"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -49,10 +49,14 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    xpath: //span[contains(text(), "Poids net")]/following-sibling::text()
+    xpath: //*[contains(text(), "Poids net")]/following-sibling::text() | //tr[@class="feature-line"]//*[contains(text(), "Poids")]/following-sibling::text()
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
+    xpath: //*[contains(text(), "Poids brut")]/following-sibling::text()
+  - name: availabilityText
+    singleValue: false
+    manualSelector: div[id="added_availabilityText"]
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -91,6 +95,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
+    xpath: //p[@class="sold-by"]
   - name: shippingDimensions
     singleValue: false
     xpath: (//*[contains(text(),"Dimensions")]/parent::tr/parent::thead/following-sibling::*)[1]
@@ -100,15 +105,16 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
+    manualSelector: div[id="added_variantCount"]
   - name: color
     singleValue: false
-    xpath: //span[contains(text(), "Coloris")]/following-sibling::text()
+    xpath: //span[contains(text(), "Coloris")]/following-sibling::text() | //div[@class="color-block"]//div[@class="owl-item" and not(.//descendant::a)]
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="added-manufacturerDesc"]
+    manualSelector: div[id="added-manufacturerDesc"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="presentation"]//div[@itemprop="description"]//img/@src | //div[@id="presentation"]//div[@itemprop="description"]//video/@src
@@ -353,7 +359,7 @@ fields:
     manualSelector: table[class="characteristic"]
   - name: warranty
     singleValue: false
-    manualSelector: div[class="warranty-service"]
+    xpath: //div[@class="warranty-service" or @class="warrantyDuration"]
   - name: storage
     singleValue: false
     description: Suggested storage location for product
@@ -383,7 +389,6 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    xpath: //div[@class="informations"]//span[contains(@class, "priceDiscount")]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
@@ -402,6 +407,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
+    xpath: //div[@class="color-block"]//div[@class="owl-item"]
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
@@ -413,9 +419,13 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    manualSelector: div[id="added_technicalInfo"]
   - name: variants
     singleValue: false
     description: null
+    manualSelector: div[id="added_variant"]
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
@@ -431,7 +441,7 @@ fields:
     singleValue: false
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B
+    xpath: //span[contains(text(), "énergétique")]/following-sibling::text()
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
