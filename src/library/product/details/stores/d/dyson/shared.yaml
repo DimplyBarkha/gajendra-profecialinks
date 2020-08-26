@@ -27,17 +27,19 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //div[@id="added_nameExtended"]
-  - name: listPrice #localedependent
+  - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: (//div[@class='product-hero__price-top']/div[1])[1]
+    #xpath: (//div[@class='product-hero__price-top']/div[1])[1]
+    xpath: //div[@id='added_listPrice']
     regExp: ([^a-zA-Z:\s]{3,})
     regExpReplace: $1
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
+    #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
+    xpath: //div[@id='added_price']
   - name: availabilityText #localedependent
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -115,18 +117,18 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href]//p[contains(concat(' ',normalize-space(@class),' '),'count')][not(contains(concat(' ',normalize-space(@class),' '),'author'))])[1]
+    xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')]//p[contains(concat(' ',normalize-space(@class),' '),'count')][not(contains(concat(' ',normalize-space(@class),' '),'author'))])[1]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
     regExp: (^.{3,3})
     regExpReplace: $1
-    xpath: (//a[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'author'))][@href])[1]/@aria-label
+    xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'author'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: (//a[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'-author-'))][@href])[1]/@aria-label
+    xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'-author-'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
   - name: shippingInfo #localedependent
     singleValue: true
     description: Shipping information for the product
@@ -141,7 +143,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-    defaultValue: 1
+    defaultValue: 0
     xpath: count(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)
   - name: color
     singleValue: true
