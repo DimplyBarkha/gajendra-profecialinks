@@ -50,7 +50,7 @@ const transform = (data) => {
           specificationsArray.push(specificationsItem.text);
         });
       }
-      row.specifications = [{ text: specificationsArray.join(" | ") }];
+      row.specifications = [{ text: specificationsArray.join(" || ") }];
 
       const additionalDescBulletInfoArray = [];
       if (row.additionalDescBulletInfo) {
