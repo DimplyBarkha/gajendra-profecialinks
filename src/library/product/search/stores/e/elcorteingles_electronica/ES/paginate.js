@@ -1,16 +1,10 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles_electronica',
-    mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: '#products-list  ul li img',
-    nextLinkSelector: '#pagination-next',
-    noResultsXPath: null,
-    openSearchDefinition: null,
+    nextLinkSelector: 'li#pagination-next>a',
+    loadedSelector: 'ul.c12.products_list._four',
     domain: 'elcorteingles.es',
-    zipcode: '',
   },
 };
