@@ -36,12 +36,19 @@ fields:
   - name: description
     singleValue: false
     xpath : ancestor::html //div[@id="bulletDescription"]
+  - name: descriptionBullets
+    singleValue: false
+    xpath :    
   - name: brandText
     singleValue: true
     xpath : ancestor::html //div[@id="brand"]
   - name: quantity
     singleValue: true
     xpath : //div/@title
+  - name : weightNet    
+    xpath : 
+  - name : weightGross    
+    xpath :   
   - name: gtin
     singleValue: true
     xpath : //div/@gtin
@@ -59,6 +66,23 @@ fields:
     xpath : //div/@retailer_product_code
   - name: directions
     singleValue: true
+    xpath:
+  - name: warnings 
+    singleValue: true
+    xpath:   
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+    xpath: 
+  - name: legalDisclaimer
+    singleValue: true
+    xpath:  
+  - name: manufacturer
+    singleValue: false
+    xpath : ancestor::html //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd | ancestor::html//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p   
+  - name: manufacturerImages
+    singleValue: false
     xpath : ancestor::html //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd | ancestor::html//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
   - name: videos
     singleValue: false
@@ -75,6 +99,18 @@ fields:
   - name: storage
     singleValue: true
     xpath : ancestor::html 
+  - name: specifications
+    singleValue: true
+    xpath :   
+  - name: recyclingInformation
+    singleValue: true
+    xpath :      
+  - name: productOtherInformation
+    singleValue: true
+    xpath :    
+  - name: packaging
+    singleValue: true
+    xpath :           
   - name: countryOfOrigin
     singleValue: true
     xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
@@ -106,6 +142,30 @@ fields:
   - name: shippingInfo
     singleValue: true
     xpath : ancestor::html //li[@data-promotion-type="shipping"]
+  - name: shippingDimensions
+    singleValue: true
+    xpath :  
+  - name: shippingWeight
+    singleValue: true
+    xpath : 
+  - name: variantCount
+    singleValue: true
+    xpath :  
+  - name: color
+    singleValue: true
+    xpath :  
+  - name: colorCode
+    singleValue: true
+    xpath :  
+  - name: manufacturerDescription
+    singleValue: true
+    xpath :      
+  - name: termsAndConditions
+    singleValue: true
+    xpath : 
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath :     
   - name: energyEfficiency
     singleValue: true
     xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
