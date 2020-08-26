@@ -69,11 +69,9 @@ const transform = (data) => {
           warrantyItem.text = warrantyItem.text.replace('Garantie', '');
         });
       }
-      // const specificationsArray = [];
       if (row.specifications) {
         row.specifications.forEach(specificationsItem => {
           specificationsItem.text = specificationsItem.text.replace(/.x/g, " ||");
-          // specificationsArray.push(specificationsItem.text);
         });
       }
     }
