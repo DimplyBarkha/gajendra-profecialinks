@@ -14,9 +14,9 @@ fields:
     xpath: //meta[@name="twitter:title"]/@content   
   - name: alternateImages
     singleValue: true
-    xpath: //link[@as="image"]/@href
+    xpath: //div[@id="alternateImages"]
     regExp: ^(.*)(__)(\d+x\d+)(.jpg)$
-    regExpReplace: https:$1$21200x1200$4  
+    regExpReplace: $1$21200x1200$4  
   - name: category
     singleValue: false
     xpath: //li[@itemprop="itemListElement"]
@@ -112,7 +112,7 @@ fields:
     xpath: //div[@id="imageZoomFeaturePresent"] 
   - name: shippingDimensions
     singleValue: true
-    xpath :  
+    xpath :  //dt[contains(text(),"Dimensiones")]/following-sibling::dd[1]
   - name: shippingWeight
     singleValue: true
     xpath : 
@@ -121,7 +121,7 @@ fields:
     xpath :  
   - name: color
     singleValue: true
-    xpath :  
+    xpath : //dt[contains(text(),"Color")]/following-sibling::dd[1] | //*[contains(text(),"Color")]/following-sibling::span  
   - name: colorCode
     singleValue: true
     xpath :  
@@ -136,7 +136,7 @@ fields:
     xpath :   
   - name: specifications
     singleValue: true
-    xpath :   
+    xpath : //div[@id="specifications"]  
   - name: recyclingInformation
     singleValue: true
     xpath :      
@@ -161,7 +161,7 @@ fields:
     singleValue: true
     xpath:  
   - name : weightNet    
-    xpath : 
+    xpath : //dt[contains(text(),"Peso")]/following-sibling::dd[1]
   - name : weightGross    
     xpath :           
   - name: descriptionBullets
