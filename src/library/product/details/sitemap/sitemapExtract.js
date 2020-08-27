@@ -6,6 +6,9 @@
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
+
+const { Helpers } = require('../../../helpers/helpers');
+
 async function implementation (
   inputs,
   parameters,
@@ -14,6 +17,9 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { sitemap } = dependencies;
+  const helpers = new Helpers(context);
+  await helpers.addURLtoDocument('prodURL');
+  
   return await context.extract(sitemap, { transform });
 }
 
