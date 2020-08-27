@@ -87,19 +87,19 @@ async function implementation (
     }, parentInput);
   }
 
-  await new Promise(resolve => setTimeout(resolve, 5000));
-  try {
-    await amazonHelp.setLocale('90210');
-    await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
-  } catch (error) {
-    await context.evaluate(async function () {
-      if (document.querySelector('div.a-modal-scroller')) {
-        document.querySelector('div.a-modal-scroller').click();
-      }
-    });
-    await amazonHelp.setLocale('90210');
-    await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
-  }
+  // await new Promise(resolve => setTimeout(resolve, 5000));
+  // try {
+  //   await amazonHelp.setLocale('90210');
+  //   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
+  // } catch (error) {
+  //   await context.evaluate(async function () {
+  //     if (document.querySelector('div.a-modal-scroller')) {
+  //       document.querySelector('div.a-modal-scroller').click();
+  //     }
+  //   });
+  //   await amazonHelp.setLocale('90210');
+  //   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
+  // }
 
   await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
   const link = await context.evaluate(async function () {
@@ -113,23 +113,25 @@ async function implementation (
       await context.goto('https://www.amazon.com/' + link, {
         timeout: 45000, waitUntil: 'load', checkBlocked: true,
       });
-
-      await loadAllResources();
-      addContent(parentInput);
-      console.log('autoscroll end');
-
-      return await context.extract(productDetails, { transform });
     } catch (err) {
-      // await context.goto('https://www.amazon.com/' + link, {
-      //   timeout: 45000, waitUntil: 'load', checkBlocked: true,
-      // });
-      // throw new Error('Can\'t go to link');
-      return;
+      try {
+        await context.goto('https://www.amazon.com/' + link, {
+          timeout: 45000, waitUntil: 'load', checkBlocked: true,
+        });
+      } catch (err) {
+        throw new Error('Can\'t go to link');
+      }
     }
   } else {
-    // throw new Error('Not found in Amazon Fresh');
-    return;
+    throw new Error('Not found in Amazon Fresh');
+    // return;
   }
+
+  await loadAllResources();
+  addContent(parentInput);
+  console.log('autoscroll end');
+
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {

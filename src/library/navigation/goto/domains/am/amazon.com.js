@@ -194,6 +194,7 @@ module.exports = {
       try {
         await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "' + zipcode + '")]');
       } catch (error) {
+        await context.click('div.a-modal-scroller');
         await context.evaluate(async function () {
           if (document.querySelector('div.a-modal-scroller')) {
             document.querySelector('div.a-modal-scroller').click();
