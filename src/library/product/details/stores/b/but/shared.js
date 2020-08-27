@@ -46,9 +46,21 @@ const transform = (data) => {
             item.text = item.text ? item.text.replace('-', '.') : '';
           });
         }
+        if (row.category) {
+          row.category.pop();
+        }
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
             item.text = item.text ? item.text.replace(/[()]/g, '') : '';
+          });
+        }
+        if (row.variantCount) {
+          row.variantCount.forEach(item => {
+            if(item.text > 1){
+             item.text = item.text
+            }else{
+              item.text = 1;
+            }
           });
         }
         if (row.brandText) {
