@@ -24,7 +24,7 @@ fields:
   - name: availabilityText
     singleValue: false
     defaultValue: Out of Stock
-    manualSelector: div.stock-info
+    xpath: //div[@class="stock-info" and normalize-space(.)!='']
   - name: brandText
     singleValue: false
     xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Brand")]//parent::th//parent::tr/td
@@ -55,12 +55,6 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="product-name"]/h1
-  - name: shippingWeight
-    singleValue: false
-    xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Weight")]//parent::th//parent::tr/td
-  - name: weightGross
-    singleValue: true
-    xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Weight")]//parent::th//parent::tr/td
   - name: promotion
     singleValue: false
     xpath: (//span[@class="delivery-cost"]/span[@class="price"])[1]
@@ -73,9 +67,12 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Brand")]//parent::th//parent::tr/td
-  - name: video
+  - name: videos
     singleValue: false
     xpath: //div[@id='panel-wrapper']//iframe/@src
   - name: termsAndConditions
     singleValue: false
     xpath: //p//strong[contains(text(), 'Terms applying to cancellation:')]//parent::p//following-sibling::p[contains(text(),'cancellation')]
+  - name: variantCount
+    singleValue: false
+    defaultValue: 1
