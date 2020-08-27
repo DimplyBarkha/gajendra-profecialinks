@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'laredoute',
     domain: 'laredoute.fr',
-    url: null,
+    url: 'https://www.laredoute.fr/psrch/psrch.aspx?kwrd={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
