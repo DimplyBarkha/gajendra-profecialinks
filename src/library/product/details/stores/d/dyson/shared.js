@@ -1,10 +1,18 @@
 
-module.exports.implementation = async function implementation (
+const { Helpers } = require('../../../../../helpers/helpers');
+
+module.exports.implementation = ({ productPageSelector }) => async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
+  const helpers = new Helpers(context);
+  // first check that the page is a valid product page
+  const isValidProductPage = await helpers.checkXpathSelector(productPageSelector);
+  if (!isValidProductPage && productPageSelector) return; // exit without extracting anything
+
+  prodURL
   const { productDetails } = dependencies;
   await context.evaluate(async () => {
     function addElementToDocument (key, value) {
