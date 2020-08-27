@@ -52,7 +52,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class, "main-container")]//div[contains(@slot,"content")] |//div[@id="bb_description"]
+    xpath: //div[contains(@class, "main-container")]//div[contains(@slot,"content")]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
