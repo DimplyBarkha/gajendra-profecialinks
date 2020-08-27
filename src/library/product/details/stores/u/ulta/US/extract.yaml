@@ -58,11 +58,11 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //div[@id="ShippingBanner"]//a 
-  # - name: variants
-  #   singleValue: false
-  #   xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
-  #   regExp: .*\/(.*?)\?
-  #   regExpReplace: $1
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
+    regExp: .*\/(.*?)\?
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
     xpath: //tr[th[contains(@aria-label,"weight")]]/th[2]/@aria-label | //tr[th[contains(@aria-label,"weight")]]/td

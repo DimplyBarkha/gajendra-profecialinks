@@ -8,6 +8,12 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.variants) {
+        row.variantCount = [{
+          text: row.variants.length,
+        }];
+        row.variantInformation = [{
+          text: 'color',
+        }];
         row.variants = [{
           text: row.variants.reduce((item, currentitem) => {
             return `${item} | ${currentitem.text.replace(/.*\/(.*)\?.*/, '$1')}`;
