@@ -31,6 +31,14 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
+
+      if (row.aggregateRating2) {
+        row.aggregateRating2 = [
+          {
+            text: Math.round(row.aggregateRating2[0].text * 10) / 10,
+          },
+        ];
+      }
     }
   }
   context.setState({ rankCounter });

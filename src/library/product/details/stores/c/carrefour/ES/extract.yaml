@@ -15,8 +15,11 @@ fields:
   - name: nameExtended
     xpath: //h1[@class="product-header__name"]
     singleValue: false
+  - name: name
+    xpath: //h1[@class="product-header__name"]
+    singleValue: false
   - name: description
-    xpath: //p[contains(text(),"Datos del producto")]/following-sibling::div
+    xpath: //p[contains(text(), "Descripción") or contains(text(), "Información del producto")]/following-sibling::div | //span[@class="nutrition-more-info__list-name" and contains(text(),"Denominación del alimento")]/following-sibling::span/text() | //div[p[contains(text(), "Información adicional del producto")]]/following-sibling::div
     singleValue: false
   - name: ingredientsList
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p[contains(@class,"ingredients__content")]
@@ -34,7 +37,7 @@ fields:
     regExpReplace: $2
     singleValue: true
   - name: directions
-    xpath: //p[contains(text(),"Modo de empleo")]/following-sibling::p[@class="info-txt"]
+    xpath: normalize-space(concat(//p[contains(text(),"Instrucciones")]/following-sibling::p[@class="info-txt"],' ', //p[contains(text(),"Modo de empleo")]/following-sibling::p[@class="info-txt"]))
     singleValue: true
   - name: warnings
     singleValue: true
@@ -60,7 +63,7 @@ fields:
     regExp: '^[^/]+'
     singleValue: false
   - name: pricePerUnitUom
-    xpath: //div[@class="buybox__price-per-unit"]/span
+    xpath: //div[@class="buybox__price-per-unit"]/span[last()]
     regExp: '[^/]+$'
     singleValue: false
   - name: imageAlt
@@ -121,7 +124,6 @@ fields:
     singleValue: false
   - name: price
     xpath: //span[@class="buybox__price"] | //span[@class="buybox__price--current"]
-    singleValue: true
   - name: ratingCount
     xpath: //span[@class="stars-rate-extended__reviews"]
     regExp: (\d+)
@@ -131,15 +133,15 @@ fields:
     singleValue: false
   - name: sodiumPerServing
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
-    regExp: sodio\s\(([^\s]+)
+    regExp: sodio\s\((\d+)(.+)
     regExpReplace: $1
   - name: sodiumPerServingUom
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
-    regExp: sodio\s\([^\s]+\s([^\)]+)
+    regExp: calcio\s\([^\s]+\s([^\)]+)
     regExpReplace: $1
   - name: magnesiumPerServing
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
-    regExp: magnesio\s\(([^\s]+)
+    regExp: magnesio\s\((\d+)(.+)
     regExpReplace: $1
   - name: magnesiumPerServingUom
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
@@ -147,7 +149,7 @@ fields:
     regExpReplace: $1
   - name: calciumPerServing
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
-    regExp: calcio\s\(([^\s]+)
+    regExp: calcio\s\((\d+)(.+)
     regExpReplace: $1
   - name: calciumPerServingUom
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
@@ -155,18 +157,21 @@ fields:
     regExpReplace: $1
   - name: availabilityText
     xpath: //button[@class="add-to-cart-button__full-button add-to-cart-button__button"]
-    regExp: Añadir
-    regExpReplace: In Stock
     defaultValue: Out of Stock
-    singleValue: true
   - name: caloriesPerServing
     xpath: //div[@class="nutrition-graph__text-graph"]/p[not(contains(@class,"nutrition-graph__energy-value"))]
-    singleValue: false
   - name: gtin
     xpath: //body/@gtin
-    singleValue: true
   - name: promotion
-    xpath: //span[@class='badge__name']|//span[@class="badge__text-food"]
+    xpath: normalize-space(//li[@class="buybox__badge"])
+    singleValue: true
   - name: listPrice
     xpath: //span[@class="buybox__price-strikethrough"]
-    singleValue: true
+  - name:  descriptionBullets
+    xpath: count(//p[contains(text(),'Descripción')]/following-sibling::div[@class="additional-info__description additional-info__text2"]/p)
+  - name: dietaryFibrePerServing
+    xpath: //p[contains(.,'Fibras')]
+    regExp: Fibras brutas:\s(\d+(?:,\d+)|\d)
+    regExpReplace: $1
+  - name: dietaryFibrePerServingUom
+    defaultValue: %
