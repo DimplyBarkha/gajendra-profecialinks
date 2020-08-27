@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[contains(@id, 'productList')]/li
 fields:
   - name: brand
     singleValue: false
@@ -35,7 +35,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    manualSelector: span.product-price
+    manualSelector: div.product-price-container span.product-price
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
