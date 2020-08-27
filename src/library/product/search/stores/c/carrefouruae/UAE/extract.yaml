@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@data-testid="scrollable-list-view"]/div[@class="css-cphitw"]//div[@class="css-jyyiad"]
+fields:
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class='css-cssveg']//a/img/@src
+  - name: brand
+    singleValue: false
+    description: The brand name
+    example: Panasonic
+    xpath: //div[@class='css-12fzzt2']/a
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //a[@data-testid="product_name"]
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //a[@data-testid="product_name"]
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //a[@data-testid="product_name"]/@href
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //div[@data-testid="product-card-original-price"]
+  # - name: quantity
+  #   singleValue: false
+  #   xpath: //p[@class='css-4yob99']
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@data-testid="product-card-discount-price"] 
+  - name: quantity
+    singleValue: false
+    xpath: //p[contains(text(),"Size:")]
+  - name: id
+    singleValue: false
+    xpath: //a[@data-testid="product_name"]/@href
