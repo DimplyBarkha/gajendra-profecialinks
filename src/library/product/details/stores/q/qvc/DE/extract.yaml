@@ -25,7 +25,7 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@class,'price priceSm strikeout')]
     description: The stated undiscounted price for the product
   - name: price
@@ -126,7 +126,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
-    xpath: //div[contains(@class,'pdShortDesc')]//h1s
+    xpath: //div[contains(@class,'pdShortDesc')]//h1
     description: The product name
   - name: coupon
     singleValue: false
@@ -138,7 +138,7 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
-    xpath: //h3[contains(.,'Garantie')]/following-sibling::ul[1]
+    # xpath: //h3[contains(.,'Garantie')]/following-sibling::ul[1]
     description: Guarantee associated with the product
   - name: variantInformation
     singleValue: false

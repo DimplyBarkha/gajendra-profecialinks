@@ -11,8 +11,8 @@ async function implementation (
     return (document.querySelectorAll("ul[aria-label='Auswahl'] li:not([state='disabled'])")) ? document.querySelectorAll("ul[aria-label='Auswahl'] li:not([state='disabled'])").length : 0;
   });
   console.log('Length', variantLength);
-  async function preparePage (index) {
-    await context.evaluate(async (index) => {
+  async function preparePage (index, variantLength) {
+    await context.evaluate(async (index, variantLength) => {
       console.log('index of variant', index);
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -21,6 +21,7 @@ async function implementation (
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      // Video API call
       var element = (document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']")) ? document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']") : null;
       const link = [];
       const promiseLink = [];
@@ -41,17 +42,18 @@ async function implementation (
       for (let i = 0; i < link.length; i++) {
         addHiddenDiv('ii_video', link[i]);
       }
+      // sku and variants
       // @ts-ignore
       let skuNumber = document.querySelector('script[type="application/ld+json"]') ? document.querySelector('script[type="application/ld+json"]').innerText : '';
       if (skuNumber) {
         skuNumber = (JSON.parse(skuNumber.replace(/\\"/gm, '"'))) ? JSON.parse(skuNumber.replace(/\\"/gm, '"')) : [];
-        index === 0 && skuNumber.offers && skuNumber.offers.forEach((item) => {
+        index === 0 && variantLength > 0 && skuNumber.offers && skuNumber.offers.forEach((item) => {
           item.sku && item.availability.includes('InStock') && addHiddenDiv('ii_variants', item.sku);
         });
         skuNumber = (skuNumber.offers && skuNumber.offers[index]) ? skuNumber.offers[index].sku : '';
         skuNumber && addHiddenDiv('ii_sku', skuNumber);
       }
-    }, index);
+    }, index, variantLength);
   }
   async function scrollToImg () {
     await context.evaluate(async () => {
@@ -71,7 +73,7 @@ async function implementation (
       if (index <= variantLength - 2) {
         console.log('Inside variants', index);
         await scrollToImg();
-        await preparePage(index);
+        await preparePage(index, variantLength);
         // console.log("Variant1", context.evaluate(() => { return document.querySelector("div[class*='easyzoom--with-thumbnails'] img").getAttribute("src")}));
         await context.extract(productDetails, { transform }, { type: 'APPEND' });
         // await new Promise((resolve) => { setTimeout(resolve, 10000); });
@@ -80,9 +82,9 @@ async function implementation (
   }
   await scrollToImg();
   if (variantLength) {
-    await preparePage(variantLength - 1);
+    await preparePage(variantLength - 1, variantLength);
   } else {
-    await preparePage(0);
+    await preparePage(0, 0);
   }
   return await context.extract(productDetails, { transform });
 }
