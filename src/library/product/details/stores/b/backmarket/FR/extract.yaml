@@ -24,6 +24,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //nav[@aria-label="Breadcrumb"]/ol/li[position() >1]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -51,6 +52,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@class, "main-container")]//div[contains(@slot,"content")] |//div[@id="bb_description"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -59,6 +61,7 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@id="bb_brand"]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -70,6 +73,7 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
+    xpath: //li//font[contains(text(),"Weight:")]/parent::font/parent::strong/following-sibling::font
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -115,6 +119,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
+    xpath: //div[contains(@class, "delivery-modal")]//div
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions

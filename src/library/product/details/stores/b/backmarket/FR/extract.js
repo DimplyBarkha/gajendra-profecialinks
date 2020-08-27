@@ -45,6 +45,11 @@ module.exports = {
       addHiddenDiv('bb_reviewCount', reviewCount);
       let image = JSONObj ? JSONObj.image : '';
       addHiddenDiv('bb_image', image);
+      let description = JSONObj ? JSONObj.description : '';
+      addHiddenDiv('bb_description', description);
+      let brand = JSONObj ? JSONObj.brand : '';
+      brand = brand ? brand.name : '';
+      addHiddenDiv('bb_brand', brand);
     });
     
     const { transform } = parameters;

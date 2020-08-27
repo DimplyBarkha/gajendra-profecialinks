@@ -17,6 +17,16 @@ const transform = (data) => {
             }
           });
         }
+
+        if (row.category) {
+          row.category.pop();
+        }
+
+        if (row.description) {
+          row.description.forEach(item => {
+          item.text = item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim();
+          });
+        }
       }
     }
     return data;
