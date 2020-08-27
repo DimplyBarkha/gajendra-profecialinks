@@ -12,7 +12,6 @@ module.exports.implementation = ({ productPageSelector }) => async function impl
   const isValidProductPage = await helpers.checkXpathSelector(productPageSelector);
   if (!isValidProductPage && productPageSelector) return; // exit without extracting anything
 
-  prodURL
   const { productDetails } = dependencies;
   await context.evaluate(async () => {
     function addElementToDocument (key, value) {
