@@ -43,6 +43,10 @@ const transform = (data, context) => {
         row.productUrl = [{ text: `https://www.bestwaywholesale.co.uk/${row.productUrl[0].text}` }];
       }
 
+      if (row.id && row.id[0].text.match(/search/g)) {
+        row.id = [{ text: `${row.id[0].text}`.replace('/search?w=', '') }];
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

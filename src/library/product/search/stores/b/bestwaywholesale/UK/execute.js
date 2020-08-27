@@ -5,7 +5,7 @@ module.exports = {
     store: 'bestwaywholesale',
     domain: 'bestwaywholesale.co.uk',
     url: 'https://www.bestwaywholesale.co.uk?records_per_page=60',
-    loadedSelector: '#shop-products',
+    loadedSelector: 'p.prodprice',
     noResultsXPath: '//div[contains(@class,"no-search-results")]',
   },
   implementation: async function (
