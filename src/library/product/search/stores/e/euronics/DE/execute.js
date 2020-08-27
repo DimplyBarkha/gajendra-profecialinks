@@ -20,8 +20,7 @@ async function implementation (
     });
   }
 
-
-  const DOMAIN = "https://www.euronics.de/";
+  //const DOMAIN = "https://www.euronics.de/";
 
   //Ratingen
   //const DOMAIN = "https://www.euronics.de/xxl-ratingen-johann-und-wittmer/";
@@ -36,7 +35,7 @@ async function implementation (
   //const DOMAIN = "https://www.euronics.de/xxl-muelheim-kaerlich/";
 
   //Neu-Ötting
-  //const DOMAIN = "https://www.euronics.de/neuoetting-brandhuber/";
+  //const DOMAIN = "https://www.euronics.de/ehg/";
 
   const url = DOMAIN + 'search?sSearch=' + (inputs.keywords || inputs.Keywords) + '&n=100';
   await dependencies.goto({ url });
