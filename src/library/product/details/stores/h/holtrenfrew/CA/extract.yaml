@@ -25,7 +25,7 @@ fields:
     xpath: //ol[@class="breadcrumb"]/li[1]/following-sibling::li[not(contains(@class, 'active')) and not(contains(@class, 'products'))]
   - name: size
     singleValue: false
-    xpath: //ul[@class="size-list no-padding"]/li/a[@class="size-list__link size-list__link--selected "]
+    xpath: //div[@class='pdp-variant js-pdp-variant']/ul/li/a | //div[@class="product-details__descr"]/li[contains(text(), 'Width') or contains(text(), 'Height') or contains(text(), 'Depth') or contains(text(), 'Length') or contains(text(), 'Bust') or contains(text(), 'Shoulder') or contains(text(), 'Sleeve') or contains(text(), 'Size') or contains(text(), 'size')]
   - name: price
     singleValue: false
     xpath: //*[contains(@class, "price--sale")] | //*[@class="product-details__price"]/sapn | //*[@class="product-details__price"]/span
@@ -68,8 +68,6 @@ fields:
   - name: warranty
     singleValue: false
     xpath: //div[@class="product-details__descr"]//li[contains(text(), "Warranty")]
-    regExp: .*?-\s*(.*)
-    regExpReplace: $1
   - name: weightNet
     singleValue: false
     xpath: //div[@class="product-details__descr"]//li[contains(text(), "Weight")]
@@ -86,5 +84,13 @@ fields:
     xpath: //a[contains(@class,"color-list__link ")]/@title
   - name: firstVariant
     singleValue: false
-    xpath: (//input[@name="productCodePost"])[1]/@value
+    xpath: (//ul[@class="color-list no-padding flex-no-wrap swiper-wrapper"]/li/a)[1]/@href
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@class="product-details__descr"]/li[contains(text(), 'Made in')]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="product-details__descr"]/li[contains(text(), 'dimensions')] | //div[@class="product-details__descr"]/ul/li[contains(text(), 'dimensions')]
+    regExp: .*?:\s*(.*)
+    regExpReplace: $1
     

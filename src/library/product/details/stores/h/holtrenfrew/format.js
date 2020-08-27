@@ -88,14 +88,26 @@ const transform = (data) => {
         }
 
         if ((row.name && row.brandText)) {
-          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text + ' - ' + row.color[0].text}];
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text + ' - ' + row.variantId[0].text}];
+        }
+
+        if(row.firstVariant) {
+          row.firstVariant = [{ text: row.firstVariant[0].text.split('/').pop(), xpath: row.firstVariant[0].xpath }];
         }
         
         if(row.weightNet) {
           let [ text ] = row.weightNet;
           text = text.text.match(/Weight:\s[0-9]+(\.[0-9]+)?(\s)?([a-zA-Z]+)/g)[0];
-          text = text.replace(/.*?:\s*(.*)/, '$1');
+          if(text) {
+            text = text.replace(/.*?:\s*(.*)/, '$1');
+          }
           row.weightNet[0].text = text;
+        }
+
+        if(row.countryOfOrigin) {
+          let [ text ] = row.countryOfOrigin;
+          text = text.text.split(' ').pop();
+          row.countryOfOrigin[0].text = text;
         }
       }
     }
