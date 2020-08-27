@@ -122,10 +122,12 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     });
     if (response.status !== 200) {
       throw new Error('Zipcode change failed');
+    } else {
+      window.location.reload();
     }
   }, zipcode);
 
-  await context.goto(url, { timeout: 20000, firstRequestTimeout: 20000, waitUntil: 'load' });
+  // await context.goto(url, { timeout: 20000, firstRequestTimeout: 20000, waitUntil: 'load' });
 };
 
 module.exports = {
