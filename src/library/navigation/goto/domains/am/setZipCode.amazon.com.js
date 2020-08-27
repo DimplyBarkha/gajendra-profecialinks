@@ -1,41 +1,28 @@
 
 const implementation = async (inputs, parameters, context, dependencies) => {
-  console.log('hit zip changer!!');
   const { zipcode } = inputs;
 
-  const changeZip = async (wantedZip) => {
-    await context.click('span#glow-ingress-line2.nav-line-2');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await context.evaluate(async (zipcode) => {
+    const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
 
-    await context.click('a[data-action=GLUXChangePostalCodeLinkAction]')
-        .catch(()=>console.log('Change not needed'))
-
-    await context.setInputValue('input[aria-label="or enter a US zip code"]', wantedZip);
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-
-    await context.click('input[aria-labelledby="GLUXZipUpdate-announce"]');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-
-    // After clicking apply, check if error msg is present
-    await context.evaluate(() => {
-      const errorMsg = document.querySelector('#GLUXZipError[style="display: inline;"]');
-      if (errorMsg) {
-        throw new Error('Site claiming zip code is invalid');
-      }
+    const response = await fetch('/gp/delivery/ajax/address-change.html', {
+      headers: {
+        accept: 'text/html,*/*',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+        'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'x-requested-with': 'XMLHttpRequest',
+      },
+      body,
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'include',
     });
-
-    await context.click('button[name="glowDoneButton"]');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-
-  };
-
-  try {
-    await changeZip(zipcode);
-  } catch (exception) {
-    // try one more time if it fails:
-    console.log(exception);
-    await changeZip(zipcode);
-  }
+    if (response.status !== 200) {
+      throw new Error('Zipcode change failed');
+    } else {
+      window.location.reload();
+    }
+  }, zipcode);
 };
 
 module.exports = {
