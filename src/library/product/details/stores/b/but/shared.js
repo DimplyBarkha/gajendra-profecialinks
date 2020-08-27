@@ -46,6 +46,13 @@ const transform = (data) => {
             item.text = item.text ? item.text.replace('-', '.') : '';
           });
         }
+        if (row.availabilityText) {
+          row.availabilityText.forEach(item => {
+            if((item.text.includes("Disponible")) || (item.text.includes("Ajouter au panier"))){
+              item.text = "Disponible";
+            }
+          });
+        }
         if (row.category) {
           row.category.pop();
         }

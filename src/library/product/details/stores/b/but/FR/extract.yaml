@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     # xpath: //div[@id="dynamic-visu1_container_inner"]/div/div/img[1]/@src
-    xpath: //div[@id="image"] | //a/img[@id="image_zoom"]/@src
+    xpath: //div[@id="image"] | //a/img[@id="image_zoom"]/@src | //div[@id="main-product-visu"]/a[@class="MagicZoom"]/@href
     singleValue: false
   - name: url
     xpath: //meta[@property="og:url"]/@content
@@ -104,7 +104,7 @@ fields:
     xpath: count(//div[@id="feature-product"]//p[@class="t-paragraph" and contains(text(), "Les")]/following-sibling::ul/li)
     singleValue: false
   - name: shippingInfo
-    xpath: //div[@class="seller"]/p
+    xpath: //div[@class="seller"]/p | //p[@class="vendor"]
     singleValue: false
   - name: description
     xpath: //p/span[contains(text() , 'description')]/../following-sibling::*[not(self::div)]
