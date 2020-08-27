@@ -1,5 +1,6 @@
+
 module.exports = {
-  implements: 'product/details/sitemap/sitemap',
+  implements: 'product/details/sitemap/sitemapExtract',
   parameterValues: {
     country: 'UK',
     store: 'dyson',

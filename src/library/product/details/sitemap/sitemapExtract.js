@@ -11,14 +11,26 @@ const { Helpers } = require('../../../helpers/helpers');
 
 async function implementation (
   inputs,
-  parameters,
+  parameters = {},
   context,
   dependencies,
 ) {
   const { transform } = parameters;
-  const { sitemap } = dependencies;
+  const { sitemap, goto } = dependencies;
   const helpers = new Helpers(context);
-  await helpers.addURLtoDocument('prodURL');
+
+  const urlSelector = '.line:first-child span.html-tag ~ :not(.html-tag)';
+
+  const urls = await context.evaluate((urlSelector) => [...document.querySelectorAll(urlSelector)].map(u => u.innerText), urlSelector);
+
+  for (let index = 0; index < urls.length; index++) {
+    const url = urls[index];
+    await goto({ url });
+    
+    
+  }
+
+  await helpers.addArrayToDocument('prodURL', urls);
   
   return await context.extract(sitemap, { transform });
 }
@@ -50,8 +62,8 @@ module.exports = {
     },
   ],
   dependencies: {
-    sitemap: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/sitemap',
+    sitemap: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/sitemapExtract',
+    goto: 'action:navigation/goto',
   },
-  path: '../stores/${store[0:1]}/${store}/${country}/sitemap',
   implementation,
 };
