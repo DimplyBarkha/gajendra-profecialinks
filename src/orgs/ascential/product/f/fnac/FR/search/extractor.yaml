@@ -1,6 +1,14 @@
 robot: product/search
+proxy:
+  zone: FRA
+  type: DATA_CENTER
 parameters:
   country: FR
   domain: fnac.com
   store: fnac
   zipcode: ""
+meta:
+  branches:
+    dev:
+      extractor: 6b9d62f3-59e0-4d30-8462-4ce46116a841
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
