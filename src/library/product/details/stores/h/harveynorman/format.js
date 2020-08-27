@@ -45,6 +45,13 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
       }
+
+      if (!row.brandText && row.name) {
+        row.brandText = [{
+          text: row.name[0].text.replace(/^([^\s]+).*/, '$1'),
+        }]
+      }
+      
       if (row.metaKeywords) {
         row.metaKeywords[0].text = row.metaKeywords[0].text.replace(/\s*\t\s*/g, ' ');
       }

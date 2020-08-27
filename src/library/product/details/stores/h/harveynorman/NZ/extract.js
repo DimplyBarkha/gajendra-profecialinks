@@ -19,15 +19,14 @@ async function implementation(
     let description = document.querySelector('div#content_description > div.product-tab-wrapper');
 
     description = description ? description.children : [];
-    console.log('///////////////............................',description.length);
+    
     let finalDescription = '';
     let flag = false;
     for (const element of description) {
       if (element.id === 'flix-inpage') {
         break;
       };
-      console.log('aaaaaaaaaaaaaaaaaaaaaaaa',element.nodeName);
-      console.log('accccccccccccccccc',element.innerText);
+      
       if (!element.innerText) {
         continue;
       }

@@ -28,12 +28,10 @@ fields:
     manualSelector: ul.nav-breadcrumbs > li:first-child ~ li >a
   - name: nameExtended
     singleValue: false
-    manualSelector: html[class] title
-    regExp: (.*?)\s*\|
-    regExpReplace: $1
+    manualSelector: h1.product-title
   - name: listPrice
     singleValue: false
-    xpath: 
+    manualSelector: span[id^="line_list_price"] > span.strike
   - name: price
     singleValue: false
     manualSelector: span[id^="line_discounted_price"]
@@ -42,16 +40,19 @@ fields:
     xpath: //script[@data-flix-brand]/@data-flix-brand
   - name: weightNet
     singleValue: false
-    xpath: //tr[th//*[contains(text(),'Weight')]]/td
+    xpath: //tr[th//*[contains(text(),'Weight')]]/td | //td[div/span[contains(text(),'Weight')]]/div[contains(@class,"flix-title")]
   - name: gtin
     singleValue: false
     xpath: //script[@data-flix-ean]/@data-flix-ean
   - name: sku
     singleValue: false
-    xpath: //script[@data-flix-sku]/@data-flix-sku
+    xpath: //script[@data-flix-sku]/@data-flix-sku | //small[contains(@class,"product-id")]
   - name: variantId
     singleValue: false
     manualSelector: small.product-id
+  - name: variantCount
+    singleValue: false
+    defaultValue: '1'
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,"bv-prs-container")]//dd[contains(@class, 'ratio-count')]
@@ -76,7 +77,7 @@ fields:
     manualSelector: div#flix-inpage
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="flix-inpage"]//img/@src
+    xpath: //div[@id="flix-inpage"]//img/@srcset
   - name: videos
     singleValue: false
     xpath: //div[contains(@class,"flix-videodiv")]//iframe/@src
