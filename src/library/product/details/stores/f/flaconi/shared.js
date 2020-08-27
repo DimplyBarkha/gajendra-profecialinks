@@ -35,16 +35,16 @@ const transform = (data) => {
         //   });
         // }
 
-        // if (row.image) {
-        //   row.image.forEach(item => {
-        //     item.text = item.text.replace('/product/','/original/');
-        //   });
-        // }
-        // if (row.alternateImages) {
-        //   row.alternateImages.forEach(item => {
-        //     item.text = item.text.replace('/product/','/original/');
-        //   });
-        // }
+        if (row.image) {
+          row.image.forEach(item => {
+            item.text = item.text.replace('/product/','/original/');
+          });
+        }
+        if (row.alternateImages) {
+          row.alternateImages.forEach(item => {
+            item.text = item.text.replace('/product/','/original/');
+          });
+        }
         if (row.shippingInfo) {
           row.shippingInfo.forEach(item => {
             item.text = item.text.replace(/\s+/g, " ").trim();
