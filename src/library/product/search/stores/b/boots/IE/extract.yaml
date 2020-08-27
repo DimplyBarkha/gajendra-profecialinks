@@ -42,7 +42,8 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    xpath: '@data-productid'
+    xpath: div/@data-productid
+    regExp: ^[^\.]+
     description: Unique id (within this extractor)
   - name: aggregateRating
     xpath: //div[contains(@class,"product_rating")]/span/@title
