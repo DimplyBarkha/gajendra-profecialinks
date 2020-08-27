@@ -53,7 +53,7 @@ const transform = (data, context) => {
       }
       if (row.availabilityText) {
         const availabilityText = row.availabilityText[0].text;
-        row.availabilityText[0].text = availabilityText.includes('Stock') || availabilityText.includes('Store') ? availabilityText : 'Out of Stock';
+        row.availabilityText[0].text = availabilityText.includes('In Stock') ? 'In Stock' : 'Out of Stock';
       }
     }
   }
