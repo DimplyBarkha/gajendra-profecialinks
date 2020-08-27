@@ -5,13 +5,10 @@ recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[con
 fields:
   - name: image
     singleValue: true
-    xpath : ancestor::html //div[@id='product_image']
+    xpath : (ancestor::html //div[@id='product_image'])[1]
   - name: imageAlt
     singleValue: true
     xpath : ancestor::html //meta[@name="twitter:title"]/@content
-  - name: imageAlt
-    singleValue: true
-    xpath : ancestor::html //meta[@name="twitter:title"]/@content   
   - name: alternateImages
     singleValue: true
     xpath : ancestor::html //link[@as="image"]/@href
@@ -97,8 +94,7 @@ fields:
     singleValue: true
     xpath : ancestor::html //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
   - name: storage
-    singleValue: true
-    xpath : ancestor::html 
+    singleValue: true    
   - name: specifications
     singleValue: true
     xpath :   
@@ -116,7 +112,7 @@ fields:
     xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
   - name: allergyAdvice
     singleValue: true
-    xpath : ancestor::html 
+    
   - name: pricePerUnit
     singleValue: true
     xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
@@ -156,18 +152,18 @@ fields:
     xpath :  
   - name: colorCode
     singleValue: true
-    xpath :  
+ 
   - name: manufacturerDescription
     singleValue: true
-    xpath :      
+    
   - name: termsAndConditions
     singleValue: true
-    xpath : 
+ 
   - name: additionalDescBulletInfo
     singleValue: true
-    xpath :     
+   
   - name: energyEfficiency
     singleValue: true
     xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
   - name: imageZoomFeaturePresent
-    xpath : ancestor::html //img/@data-zoom 
+    xpath : count(ancestor::html //img/@data-zoom )>0
