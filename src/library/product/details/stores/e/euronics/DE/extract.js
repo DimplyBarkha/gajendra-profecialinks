@@ -15,7 +15,6 @@ async function implementation (
     })
   }
 
-
   await stall(5000);
 
   await context.evaluate(async function() {

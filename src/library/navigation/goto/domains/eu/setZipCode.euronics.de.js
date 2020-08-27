@@ -11,9 +11,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-   const { url, zipcode } = inputs;
-   console.log('zipCodeIs',zipcode);
-   await context.click('li[@class="navigation--entry entry--geo"]');
+   //const { url, zipcode } = inputs;
   // const { country, domain, store } = parameters;
 
   // TODO: add your impl - must be self contained (no require/import/external functions)

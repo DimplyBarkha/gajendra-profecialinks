@@ -20,7 +20,25 @@ async function implementation (
     });
   }
 
-  const url = 'https://www.euronics.de/search?sSearch=' + (inputs.keywords || inputs.Keywords) + '&n=100';
+
+  const DOMAIN = "https://www.euronics.de/";
+
+  //Ratingen
+  //const DOMAIN = "https://www.euronics.de/xxl-ratingen-johann-und-wittmer/";
+
+  //Tettnang
+  //const DOMAIN = "https://www.euronics.de/xxl-tettnang/";
+
+  //Bensheim
+  //const DOMAIN = "https://www.euronics.de/xxl-bensheim/";
+
+  //Mühlheim-Kärlich
+  //const DOMAIN = "https://www.euronics.de/xxl-muelheim-kaerlich/";
+
+  //Neu-Ötting
+  //const DOMAIN = "https://www.euronics.de/neuoetting-brandhuber/";
+
+  const url = DOMAIN + 'search?sSearch=' + (inputs.keywords || inputs.Keywords) + '&n=100';
   await dependencies.goto({ url });
   return context.evaluate(function () {
     return document.querySelectorAll('.product--box').length > 0;
