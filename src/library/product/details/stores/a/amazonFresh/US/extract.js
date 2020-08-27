@@ -113,21 +113,23 @@ async function implementation (
       await context.goto('https://www.amazon.com/' + link, {
         timeout: 45000, waitUntil: 'load', checkBlocked: true,
       });
+
+      await loadAllResources();
+      addContent(parentInput);
+      console.log('autoscroll end');
+
+      return await context.extract(productDetails, { transform });
     } catch (err) {
       // await context.goto('https://www.amazon.com/' + link, {
       //   timeout: 45000, waitUntil: 'load', checkBlocked: true,
       // });
-      throw new Error('Can\'t go to link');
+      // throw new Error('Can\'t go to link');
+      return;
     }
   } else {
-    throw new Error('Not found in Amazon Fresh');
+    // throw new Error('Not found in Amazon Fresh');
+    return;
   }
-
-  await loadAllResources();
-  addContent(parentInput);
-  console.log('autoscroll end');
-
-  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
