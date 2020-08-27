@@ -6,13 +6,13 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (!row.manufacturerImages && !row.videos) {
-        row.description = row.manufacturerDescription;
-        delete row.manufacturerDescription;
-      }
-
       if (row.image && !row.image[0].text.startsWith('http')) {
         row.image[0].text = `https:${row.image[0].text}`;
+      }
+      if (!row.brandText && row.name) {
+        row.brandText = [{
+          text: row.name[0].text.replace(/^([^\s]+).*/, '$1'),
+        }];
       }
       if (row.alternateImages) {
         row.alternateImages.forEach(image => {
@@ -46,10 +46,6 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         row.descriptionBullets = [{
           text: row.additionalDescBulletInfo.length,
-        },
-        ];
-        row.additionalDescBulletInfo = [{
-          text: row.additionalDescBulletInfo.reduce((item, currentItem) => `${item} | ${currentItem.text}`, '').trim(),
         },
         ];
       }
