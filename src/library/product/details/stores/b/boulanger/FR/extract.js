@@ -40,11 +40,10 @@ async function implementation (
       const variantSelector = document.querySelectorAll('div[class="color-block"] div[class="owl-item"] a');
       const variantIdArray = [];
       const getVariantIdRegex = /.*ref\/(\d+)/gm;
-      if (variantSelector.length) {
-        const productURL = window.location.href;
-        const currentVariant = productURL.replace(getVariantIdRegex, '$1');
-        variantIdArray.push(currentVariant);
-      }
+
+      const productURL = window.location.href;
+      const currentVariant = productURL.replace(getVariantIdRegex, '$1');
+      variantIdArray.push(currentVariant);
       for (let i = 0; i < variantSelector.length; i++) {
         const variantURL = variantSelector[i].href;
         const variantId = variantURL.replace(getVariantIdRegex, '$1');
@@ -54,6 +53,9 @@ async function implementation (
       // Add to DOM if variants are present
       if (variantSelector.length) {
         addHiddenDiv('added_variant', variantIdArray.join(' | '));
+        addHiddenDiv('added_variantCount', variantIdArray.length);
+      } else {
+        addHiddenDiv('added_variant', variantIdArray[0]);
         addHiddenDiv('added_variantCount', variantIdArray.length);
       }
     }
