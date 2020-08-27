@@ -12,10 +12,7 @@ fields:
   - name: imageAlt
     description: Alt text of the main product image
   - name: alternateImages
-    xpath: (//div[@class="s7thumb"]/@style)[position()>1]
-    regExp: url\("([^?])?
-    # Added custom height nd width values.
-    regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
+    xpath: //div[@class="s7thumb"]/@style
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
@@ -24,7 +21,7 @@ fields:
     xpath: //div[@id="widget_breadcrumb"]/ul/li/a/@title[not(.="Home")]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    xpath: (//*[@itemprop="name"])[1]
+    xpath: //h1[@itemprop="name"]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -125,7 +122,7 @@ fields:
     description: URLs of videos on page
   - name: name
     description: The product name
-    xpath: (//*[@itemprop="name"])[1]
+    xpath: //h1[@itemprop="name"]
   - name: inStorePrice
     description: Price in the selected store
   - name: asin

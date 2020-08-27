@@ -49,6 +49,7 @@ const transform = (data, context) => {
         const list = clean(text.replace(/<[^>]+>/g, ' ')).split(/,+(?![^(]*\))/g).map(elm => ({ text: elm }));
         row.ingredientsList = list;
       }
+
       if (row.specifications) {
         const text = row.specifications.map(elm => elm.text).join(' ');
         row.specifications = [
@@ -57,6 +58,22 @@ const transform = (data, context) => {
           },
         ];
       }
+
+      if (row.alternateImages) {
+        const baseUrl = row.alternateImages[0].text.match(/url\("([^?]+)/)[1];
+        row.alternateImages = row.alternateImages.slice(1).map((elm, index) => {
+          elm.text = `${baseUrl}_${index + 1}?wid=1920&hei=1080&op_sharpen=1`;
+          return { text: elm.text };
+        });
+      }
+
+      row.secondaryImageTotal = [
+        {
+          text: row.alternateImages && row.alternateImages.length,
+          type: 'NUMBER',
+          value: row.alternateImages && row.alternateImages.length,
+        },
+      ];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
