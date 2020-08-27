@@ -10,13 +10,17 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(desc => {
-          if (desc.text.includes('Key Features')) {
+          if (desc.text.includes('Key Features') || desc.text.includes('Key features')) {
             let txt = '';
-            txt = desc.text.split('Key Features:');
+            if (desc.text.includes('Key features')) {
+              txt = desc.text.split('Key features:');
+            } else {
+              txt = desc.text.split('Key Features:');
+            }
             if (txt.length === 2) {
               text = text + ' | ' + txt[0].replace(/(\s*\n\s*)+/g, ' ') + ' Key Features:' + txt[1].replace(/(\s\n)+/g, ' ').replace(/(\n\s\n)+/g, ' ').replace(/\n/g, ' || ');
             }
-          } else if (desc.text.includes('Features')) {
+          } else if (desc.text.includes('Features:')) {
             text = text + ' | ' + desc.text.replace(/(\s*\n\s*)+/g, ' || ');
           } else {
             text = text + ' | ' + desc.text.replace(/(\s*\n\s*)+/g, ' ');
@@ -65,6 +69,19 @@ const transform = (data) => {
 
       if (row.videos && !row.videos[0].text.startsWith('http')) {
         row.videos[0].text = `https:${row.videos[0].text}`;
+      }
+
+      if (!row.brandText && row.name) {
+        row.brandText = [{
+          text: row.name[0].text.replace(/^([^\s]+).*/, '$1'),
+        }];
+      }
+
+      if (row.specifications) {
+        row.specifications = [{
+          text: row.specifications.reduce((item, currentItem) => `${item} || ${currentItem.text.replace(/(\s*\n\s*)+/g, ': ')}`, '').slice(4).trim(),
+        },
+        ];
       }
     }
   }

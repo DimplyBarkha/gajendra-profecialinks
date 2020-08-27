@@ -22,8 +22,8 @@ fields:
     xpath: //a[text()="HOME"]/following-sibling::a
   - name: nameExtended
     singleValue: false
-    xpath: //title
-    regExp: .*?-\s*(.*)
+    manualSelector: div.product.rightbar
+    regExp: (.*?)\s*\n\s*.*
     regExpReplace: $1
   - name: listPrice
     singleValue: false
@@ -54,13 +54,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //script[@data-flix-mpn]/@data-flix-mpn
-    regExp: (.*?)-
-    regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //script[@data-flix-mpn]/@data-flix-mpn
-    regExp: (.*?)-
-    regExpReplace: $1
+    xpath: //div[@class="product rightbar"]/p[span[contains(text(),"Product Code")]]/text() | //script[@data-flix-mpn]/@data-flix-mpn
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="inpage_container"]
@@ -69,7 +65,7 @@ fields:
     xpath: //div[@class="inpage_selector_feature"]//img/@srcset
   - name: videos
     singleValue: false
-    xpath: //input[@class="flix-jw"]/@value
+    xpath: //input[@class="flix-jw"]/@value | //video/source/@src
     regExp: file":"(.*?)"
     regExpReplace: $1
   - name: name
@@ -79,7 +75,7 @@ fields:
     regExpReplace: $1
   - name: specifications
     singleValue: false
-    xpath: //table[parent::div/preceding-sibling::div[text()="Specifications"]]
+    xpath: //table[parent::div/preceding-sibling::div[text()="Specifications"]]//td
   - name: warranty
     singleValue: false
     xpath: //p[*[contains(text(),"Warranty")]]
@@ -97,3 +93,8 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: '1'
+  - name: color
+    singleValue: false
+    xpath: //p[contains(text(),"colour") or contains(text(),"Colour")]
+    regExp: .*?:\s*(.*)
+    regExpReplace: $1
