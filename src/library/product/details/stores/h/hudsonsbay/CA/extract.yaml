@@ -51,7 +51,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id="collapsible-details-1"]/text()
+    xpath: //div[@id="collapsible-details-1"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -68,7 +68,7 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    xpath: //b[contains(text(), 'SIZE')]/following-sibling::*[1] | //li[contains(text(), 'dimensions')] | //li[contains(text(), '"H')] | //li[contains(text(), ' x ')]
+    xpath: //span[contains(@class, 'size non-input-label')]//span[@class='text2']
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page

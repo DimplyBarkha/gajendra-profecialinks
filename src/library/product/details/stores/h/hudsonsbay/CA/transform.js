@@ -19,19 +19,21 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.additionalDescBulletInfo) {
-        let text = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
+      if (row.nameExtended) {
+        row.nameExtended.forEach(nameExtended => {
+          if (row.brandText && row.color) {
+            nameExtended.text = row.brandText[0].text + ' - ' + nameExtended.text + ' - ' + row.color[0].text.replace('Colour:', '').trim();
+          }
         });
-        let descriptionBottom = [];
-        if (row.description) {
-          descriptionBottom = row.description;
-        }
-        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
+      }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = item.text.replace(/\n/, '').replace(/\n \n/, '').replace(/\n/g, ' || ').trim();
+        });
         row.description = [
           {
-            text: cleanUp(descriptionBottom.join(' | ')),
+            text: cleanUp(text),
           },
         ];
       }
@@ -100,22 +102,22 @@ const transform = (data) => {
       if (row.promotion) {
         let text = '';
         row.promotion.forEach(item => {
-          text += `${item.text} `;
+          text += `${item.text}`;
         });
         row.promotion = [
           {
-            text: cleanUp(text.slice(0, -2)),
+            text: cleanUp(text),
           },
         ];
       }
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
-          text += `${item.text} || `;
+          text += `|| ${item.text}`;
         });
         row.additionalDescBulletInfo = [
           {
-            text: cleanUp(text.slice(0, -3)),
+            text: cleanUp(text),
           },
         ];
       }
