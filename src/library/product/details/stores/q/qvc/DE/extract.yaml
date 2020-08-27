@@ -77,7 +77,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: warnings
     singleValue: true
-    xpath: //h3[contains(.,'Garantie')]/following-sibling::ul
+    # xpath: //h3[contains(.,'Garantie')]/following-sibling::ul
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
@@ -118,14 +118,14 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@data-component-type='LARGE_STATIC_IMAGE']//img[contains(@class,'largeDisplayImage')]/@src
+    # xpath: //div[@data-component-type='LARGE_STATIC_IMAGE']//img[contains(@class,'largeDisplayImage')]/@src
     description: Images within the third party description
   - name: videos
     singleValue: false
     xpath: //div[@id='ii_video']
     description: URLs of videos on page
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'pdShortDesc')]//h1
     description: The product name
   - name: coupon
@@ -138,7 +138,7 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
-    # xpath: //h3[contains(.,'Garantie')]/following-sibling::ul[1]
+    xpath: //h3[contains(.,'Garantie')]/following-sibling::ul[1]
     description: Guarantee associated with the product
   - name: variantInformation
     singleValue: false
