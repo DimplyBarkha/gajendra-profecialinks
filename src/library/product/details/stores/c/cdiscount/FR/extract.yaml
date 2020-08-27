@@ -32,7 +32,7 @@ fields:
     xpath: //*[@id="descContent"]//td[contains(text(), "Classe d'efficacité énergétique")]//following-sibling::*
   - name: warranty
     singleValue: false
-    xpath: //*[@id="descContent"]//td[contains(text(), "Garantie (²)")]//following-sibling::*
+    xpath: //*[@id="descContent"]//td[contains(text(), "Garantie")]//following-sibling::*
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class, "fpStrikedAfter")]/text()
@@ -74,7 +74,7 @@ fields:
     xpath: //div[@class="fpBulletPointReadMore"]//ul/li
   - name: description
     singleValue: false
-    xpath: //div[@id="presContent"] 
+    xpath: //div[@id="added-description"]
   - name: manufacturer
     singleValue: false
     xpath: //*[@id="descContent"]//td[contains(text(), "Marque")]//following-sibling::*
@@ -89,10 +89,10 @@ fields:
     xpath: //*[@id="descContent"]//td[text()="Poids (Expédition)"]/parent::tr
   - name: manufacturerDescription
     singleValue: false
-    xpath:  //div[@id="mc_ebp"]
+    xpath: //div[@id="added-manufacturerDesc"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="mc_ebp"]//img/@src
+    xpath: //div[@id="inpage_container"]//img
   - name: gtin
     singleValue: false
     xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product
