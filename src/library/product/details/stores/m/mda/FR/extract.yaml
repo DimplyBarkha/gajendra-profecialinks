@@ -1,0 +1,114 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,"product-addtocart")]/button[@data-article-id]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //meta[@itemprop="price"]/@content
+  - name: image
+    singleValue: false
+    xpath: //*[@id="product-carousel"]/div[1]/div[1]/figure/img/@src | (//img[@itemprop="image"]/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: //*[@id="product-carousel"]/div[1]/div[1]/figure/img/@alt | (//img[@itemprop="image"]/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //*[@id="product-carousel"]/div[2]/ol/li[position()>1]/img/@src
+    regExp: (.*)blank_carousel_thumb(.*)
+    regExpReplace: $1blank_product_main_image$2
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumb"]//li[position()>1 and a]
+  - name: shippingDimensions
+    singleValue: false
+  - name: shippingWeight
+    singleValue: false
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="product-title"]
+  - name: gtin
+    singleValue: false
+    xpath: //div[@itemprop="gtin13"]
+    regExp: (\d)+
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class, "characteristics-table")]/tbody/tr[td[not(contains(@class,'characteristics-title'))]]/td
+  - name: description
+    singleValue: false
+    xpath: //h1[@class="product-title"]//span[2]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//ul[@class="product-list"]/li)
+    type: NUMBER
+  - name: warranty
+    singleValue: false
+    xpath: //ul[@class="product-list"]/li[@itemscope]
+  - name: sku
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: color
+    singleValue: false
+    xpath: //td[contains(text(),"Couleur")]/following-sibling::td
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="product-title"]//span[2]
+  - name: brandText
+    singleValue: false
+    xpath: //span[@itemprop="brand"]//meta[@itemprop="name"]/@content
+  - name: weightNet
+    singleValue: false
+    xpath: //td[contains(text(),"Poids")]/following-sibling::td | //td[contains(text(),"Weight")]/following-sibling::td
+  - name: weightGross
+    singleValue: false
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //article[@class="product"]/section[2]/a/@href
+    regExp: (.+)
+    regExpReplace: YES
+    defaultValue: No
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //td[contains(text(),"Classe d'efficacité énergétique")]/following-sibling::td
+  - name: listPrice
+    singleValue: false
+    xpath: //meta[@itemprop="price"]/@content
+  - name: customerServiceAvailability
+    singleValue: false
+    xpath: (//ul[@class="product-list"]/li[not(@itemscope)])[1]
+    regExp: (.+)
+    regExpReplace: YES
+    defaultValue: No
+  - name: materials
+    singleValue: false
+    xpath: //td[contains(text(),"Matière")]/following-sibling::td
+  - name: productOtherInformation
+    singleValue: false
+  - name: brandLink
+    singleValue: false
+    xpath: //span[@itemprop="brand"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.mda-electromenager.com$1
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: No
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class="product-list"]/li
