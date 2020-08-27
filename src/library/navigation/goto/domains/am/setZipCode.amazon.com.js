@@ -1,37 +1,62 @@
 
-const implementation = async (inputs, parameters, context, dependencies) => {
-  console.log('hit zip changer!!');
-  const { zipcode } = inputs;
+// const implementation = async (inputs, parameters, context, dependencies) => {
+//   console.log('hit zip changer!!');
+//   const { zipcode,url } = inputs;
 
-  const changeZip = async (wantedZip) => {
-    await context.click('span#glow-ingress-line2.nav-line-2');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+//   const changeZip = async (wantedZip) => {
+//     throw new Error('breaking on purpose')
+//     await context.click('span#glow-ingress-line2.nav-line-2');
+//     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
-    await context.setInputValue('input[aria-label="or enter a US zip code"]', wantedZip);
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+//     await context.setInputValue('input[aria-label="or enter a US zip code"]', wantedZip);
+//     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
-    await context.click('input[aria-labelledby="GLUXZipUpdate-announce"]');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+//     await context.click('input[aria-labelledby="GLUXZipUpdate-announce"]');
+//     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
-    // After clicking apply, check if error msg is present
-    await context.evaluate(() => {
-      const errorMsg = document.querySelector('#GLUXZipError[style="display: inline;"]');
-      if (errorMsg) {
-        throw new Error('Site claiming zip code is invalid');
-      }
-    });
+//     // After clicking apply, check if error msg is present
+//     await context.evaluate(() => {
+//       const errorMsg = document.querySelector('#GLUXZipError[style="display: inline;"]');
+//       if (errorMsg) {
+//         throw new Error('Site claiming zip code is invalid');
+//       }
+//     });
 
-    await context.click('button[name="glowDoneButton"]');
-  };
+//     await context.click('button[name="glowDoneButton"]');
+//   };
 
-  try {
-    await changeZip(zipcode);
-  } catch (exception) {
-    // try one more time if it fails:
-    console.log(exception);
-    await changeZip(zipcode);
-  }
-};
+//   try {
+//     await changeZip(zipcode);
+//   } catch (exception) {
+//     // try one more time if it fails:
+//     // console.log(exception);
+//     // await changeZip(zipcode);
+
+//     //try with API if it fails:
+//     await context.evaluate(async()=>{
+//       const zipcode = '90210';
+//       const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`
+  
+//       const response = await fetch('/gp/delivery/ajax/address-change.html', {
+//         headers: {
+//           accept: 'text/html,*/*',
+//           'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+//           'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+//           'x-requested-with': 'XMLHttpRequest',
+//         },
+//         body,
+//         method: 'POST',
+//         mode: 'cors',
+//         credentials: 'include',
+//       });
+//       if (response.status !== 200){
+//         throw new Error('Zipcode change failed');
+//       }
+//     });
+
+//     await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
+//   }
+// };
 
 // const implementation = async (inputs, parameters, context, dependencies) => {
 //   const { zipcode } = inputs;
@@ -76,6 +101,32 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 //   clearPopup();
 
 // };
+
+const implementation = async (inputs, parameters, context, dependencies) => {
+  const { zipcode, url } = inputs;
+
+  await context.evaluate(async (zipcode) => {
+    const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`
+
+    const response = await fetch('/gp/delivery/ajax/address-change.html', {
+      headers: {
+        accept: 'text/html,*/*',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+        'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'x-requested-with': 'XMLHttpRequest',
+      },
+      body,
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'include',
+    });
+    if (response.status !== 200) {
+      throw new Error('Zipcode change failed');
+    }
+  },zipcode);
+
+  await context.goto(url, {timeout:20000, firstRequestTimeout:20000});
+}
 
 module.exports = {
   implements: 'navigation/goto/setZipCode',
