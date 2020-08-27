@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class='item active']//a//img/@src | //div[@id='product_image']
   - name: category
     singleValue: false
-    xpath: //ul[@class='breadcrumbs']//li
+    xpath: //ul[@class='breadcrumbs']//li[position()>1 and position()<last()]
   - name: price
     singleValue: false
     xpath: //meta[@itemprop='price']/@content | //div[@id='price']
@@ -75,3 +75,6 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[@id='listprice']
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='keywords']/@content
