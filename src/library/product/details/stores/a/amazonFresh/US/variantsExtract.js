@@ -11,7 +11,7 @@ async function implementation (
   const helpers = new Helpers(context);
   const amazonHelp = new AmazonHelp(context, helpers);
 
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  // await new Promise(resolve => setTimeout(resolve, 5000));
   // try {
   //   await amazonHelp.setLocale('90210');
   //   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
@@ -42,10 +42,13 @@ async function implementation (
         timeout: 45000, waitUntil: 'load', checkBlocked: true,
       });
     } catch (err) {
-      // await context.goto('https://www.amazon.com/' + link, {
-      //   timeout: 45000, waitUntil: 'load', checkBlocked: true,
-      // });
-      throw new Error('Can\'t go to link');
+      try {
+        await context.goto('https://www.amazon.com/' + link, {
+          timeout: 45000, waitUntil: 'load', checkBlocked: true,
+        });
+      } catch (err) {
+        throw new Error('Can\'t go to link');
+      }
     }
   } else {
     throw new Error('Not found in Amazon Fresh');
