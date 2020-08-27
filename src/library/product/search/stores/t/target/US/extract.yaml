@@ -21,7 +21,7 @@ fields:
     xpath: //div[@data-test="product-image"]//picture[1]//source[1]/@srcset
     regExp: (.*)\?
     regExpReplace: $1
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
     regExp: (.+)?( out.*|No rating.*)
     regExpReplace: $1

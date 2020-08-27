@@ -11,7 +11,7 @@ async function implementation (
   await context.evaluate(async function () {
     let scrollTop = 0;
     while (scrollTop <= 20000) {
-      await stall(1000);
+      await stall(1500);
       scrollTop += 900;
       window.scroll(0, scrollTop);
       if (scrollTop === 20000) {
@@ -24,7 +24,6 @@ async function implementation (
         setTimeout(() => {
           resolve();
         }, ms);
-
       });
     }
   });
