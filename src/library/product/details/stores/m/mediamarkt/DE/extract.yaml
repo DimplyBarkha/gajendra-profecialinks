@@ -84,11 +84,11 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
-    # xpath: 
+    xpath: //div[@id="ii_ean"]
     description: GTIN code (includes UPC/EAN)
   - name: eangtin
     singleValue: true
-    # xpath: 
+    xpath:  //div[@id="ii_ean"]
   - name: sku
     singleValue: true
     xpath: (//span[contains(@class, "DetailsHeader__")]//span)[1]
@@ -120,7 +120,7 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //span[@itemprop="reviewCount"]
+    xpath: //meta[@itemprop="ratingCount"]/@content
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText

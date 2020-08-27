@@ -45,7 +45,7 @@ module.exports = {
           videoButton.click();
           const vidLink = getEleByXpath('//iframe[contains(@src,"youtube")]/@src');
           videos.push(vidLink);
-          document.querySelector(".overlay-bg").click();
+          document.querySelector('.overlay-bg').click();
         });
         addHiddenDiv('ii_videos', videos.join(' || '));
       }

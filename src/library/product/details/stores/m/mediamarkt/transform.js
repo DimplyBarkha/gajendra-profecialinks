@@ -19,7 +19,7 @@ const transform = (data, context) => {
 
   for (const { group } of data) {
     for (const row of group) {
-        console.log('ffdewewewewfdfd')
+      console.log('ffdewewewewfdfd');
       if (row.shippingInfo) {
         const text = [];
         row.shippingInfo.forEach(item => {
@@ -48,23 +48,25 @@ const transform = (data, context) => {
         });
       }
       if (row.gtin) {
-        let jsonStr = row.gtin[0].text.split('var product');
-        jsonStr = jsonStr.length === 2 ? jsonStr[1].split(' = ') : [];
-        jsonStr = jsonStr.length === 2 ? jsonStr[1].slice(0, -1) : '';
-        const jsonObj = jsonStr.length ? JSON.parse(jsonStr) : '';
-        const ean = Object.keys(jsonObj).length ? (jsonObj.ean ? jsonObj.ean : '') : '';
-        row.gtin = [
-          {
-            text: ean,
-          },
-        ];
-
-        if (row.eangtin) {
-          row.eangtin = [
+        if (row.gtin[0].text.includes('var product')) {
+          let jsonStr = row.gtin[0].text.split('var product');
+          jsonStr = jsonStr.length === 2 ? jsonStr[1].split(' = ') : [];
+          jsonStr = jsonStr.length === 2 ? jsonStr[1].slice(0, -1) : '';
+          const jsonObj = jsonStr.length ? JSON.parse(jsonStr) : '';
+          const ean = Object.keys(jsonObj).length ? (jsonObj.ean ? jsonObj.ean : '') : '';
+          row.gtin = [
             {
               text: ean,
             },
           ];
+
+          if (row.eangtin) {
+            row.eangtin = [
+              {
+                text: ean,
+              },
+            ];
+          }
         }
       }
       if (row.variants) {
@@ -82,7 +84,7 @@ const transform = (data, context) => {
 
       if (row.manufacturerDescription) {
         let text = '';
-        console.log(row.manufacturerDescription)
+        console.log(row.manufacturerDescription);
         row.manufacturerDescription.forEach(item => {
           text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
         });
@@ -94,7 +96,7 @@ const transform = (data, context) => {
       }
 
       if (row.videos) {
-        console.log(row.videos)
+        console.log(row.videos);
         row.videos.forEach(item => {
           item.text = (item.text.includes('http')) ? item.text : 'https:' + item.text;
         });
@@ -134,8 +136,6 @@ const transform = (data, context) => {
       //     item.text = item.text == 'true' ? 'Yes' : 'No';
       //   });
       // }
-
-      
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
