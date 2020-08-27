@@ -11,17 +11,7 @@ const implementation = async (
 
   const { url, id } = inputs;
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
-  await context.evaluate(async function () {
-    const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
-
-    if (overlay !== undefined) {
-      overlay.click();
-    }
-  });
-
-  await context.waitForSelector('div.ProductCard a');
+  await context.waitForSelector('div.ProductCard a', { timeout: 5000 });
 
   console.log('Url if given:' + inputs.url);
 
@@ -37,7 +27,6 @@ const implementation = async (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-
     let skuCode;
     if (id) {
       skuCode = id;
@@ -45,13 +34,16 @@ const implementation = async (
       const urlLength = url.length;
       skuCode = url.slice(urlLength - 13, urlLength);
     }
-
     addHiddenDiv('my-sku', skuCode);
   }, url, id);
 
   await context.waitForSelector('div.ProductDetails-header');
 
-  await new Promise((resolve) => setTimeout(resolve, 9000));
+  // await new Promise((resolve) => setTimeout(resolve, 9000));
+
+  // wait and check for ratings/reviews, loads slow:
+  await context.waitForXPath('//div[@class="bv_avgRating_component_container notranslate"]', { timeout: 9000 })
+    .catch(() => console.log('No reviews/ratings for this item'));
 
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
@@ -61,6 +53,10 @@ const implementation = async (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
+    const myUrl = window.location.href;
+    const hashIdx = myUrl.indexOf('#');
+    addHiddenDiv('ii_url', hashIdx === -1 ? myUrl : myUrl.slice(0, hashIdx));
 
     const productDetailsButton = document.getElementsByClassName('kds-Tabs-tab')[0];
 
@@ -126,14 +122,6 @@ const implementation = async (
     } else {
       console.log('cannot read more');
     }
-  });
-
-  await context.evaluate(function () {
-    const myURL = document.createElement('li');
-    myURL.classList.add('ii_url');
-    myURL.textContent = window.location.href;
-    myURL.style.display = 'none';
-    document.body.append(myURL);
   });
 
   await context.evaluate(() => {
