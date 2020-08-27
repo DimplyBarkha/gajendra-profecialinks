@@ -15,7 +15,8 @@ async function implementation (
     const html = await response.text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
     const videoElements = Array.from(doc.querySelectorAll('[id^=isitetv_nav_item_nav_ul] > li > a'));
-    const videoLinks = videoElements.map(elm => elm.getAttribute('onclick').match(/log_action\(\d+,\d+,\d+,\d+,\d+,(\d+)/)[1]).map(elm => `http://flv.isitetv.com/media/video/1499/video_url_${elm}_1499.m4v`).join('|');
+    const videoLinks = videoElements.map(elm => elm.getAttribute('onclick').match(/log_action\(\d+,\d+,\d+,\d+,\d+,(\d+)/)[1])
+      .map(elm => `http://flv.isitetv.com/media/video/1499/video_url_${elm}_1499.m4v`).join('|');
     document.body.setAttribute('video-links', videoLinks);
     return videoLinks;
   }
