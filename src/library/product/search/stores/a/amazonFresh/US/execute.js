@@ -8,8 +8,6 @@ async function implementation (
 
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
 
-  // const url = parameters.url.replace(new RegExp('{searchTerms}', 'g'), encodeURIComponent(inputs.keywords)).replace(new RegExp('%20', 'g'), '+');
-
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -32,7 +30,6 @@ module.exports = {
     store: 'amazonFresh',
     domain: 'amazon.com',
     url: 'https://www.amazon.com/s?k={searchTerms}&i=amazonfresh&ref=nb_sb_noss_2',
-    // url: 'https://www.amazon.com/s/ref=sr_pg_1?rh=n%3A10329849011%2Ck%3A{searchTerms}&page=1&bbn=10329849011&keywords={searchTerms}',
     loadedSelector: 'div[data-asin]',
     noResultsXPath: 'count(//div[contains(@data-component-type,"s-search-result")])!=0',
   },

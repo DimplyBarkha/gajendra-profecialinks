@@ -36,7 +36,7 @@
 //     await context.evaluate(async()=>{
 //       const zipcode = '90210';
 //       const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`
-  
+
 //       const response = await fetch('/gp/delivery/ajax/address-change.html', {
 //         headers: {
 //           accept: 'text/html,*/*',
@@ -97,7 +97,7 @@
 //         el.click()
 //       }
 //     });
-//   } 
+//   }
 //   clearPopup();
 
 // };
@@ -106,7 +106,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const { zipcode, url } = inputs;
 
   await context.evaluate(async (zipcode) => {
-    const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`
+    const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
 
     const response = await fetch('/gp/delivery/ajax/address-change.html', {
       headers: {
@@ -123,10 +123,10 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     if (response.status !== 200) {
       throw new Error('Zipcode change failed');
     }
-  },zipcode);
+  }, zipcode);
 
-  await context.goto(url, {timeout:20000, firstRequestTimeout:20000});
-}
+  await context.goto(url, { timeout: 20000, firstRequestTimeout: 20000, waitUntil: 'load' });
+};
 
 module.exports = {
   implements: 'navigation/goto/setZipCode',
