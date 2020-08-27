@@ -1,0 +1,78 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id="slide0"]//a[(contains(@class,"produitSingleZoom"))]//img/@src
+  - name: alternateImages 
+    singleValue: false
+    xpath: (//div[@id="owl-single-product-thumbnails"]//div[@class="owl-wrapper-outer"]//div[@class="owl-wrapper"]//img)[position()>1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id="slide0"]//a[(contains(@class,"produitSingleZoom"))]//img/@alt[1]
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _pageTimestamp
+  - name: url
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="list-inline breadcrumb-ul"]//li [position()>1]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: concat(//div[@class="brand"]//h2,' ',//div[@class="brand"]//h1)
+  - name: name
+    singleValue: false
+    xpath: //div[@class="brand"]/h1
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='videos']/div/@data-videolink
+    regExp: \/\/(.+)
+    regExpReplace: $1
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="brand"]/h1
+    regExp: ^([^ \t]+).*
+    regExpReplace: $1
+  - name: availabilityText
+    singleValue: false
+    xpath: //a[@class="btn btn-warning modal-geoloc"]
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[contains(@class,"bloc-lien-pdf-external bloc-lien-pdf-external")]/a/@href
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'NO'
+  - name: specifications
+    singleValue: false
+    xpath: //ul[contains(@class,"tabled-data")]//li[not(contains(@class,"secteur"))]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price-single price-current "]
+    regExp: (.*)?.
+    regExpReplace: $1
+  - name: description
+    singleValue: false
+    xpath: //div[@id="marketing"]/p
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id="specs"]//ul//li//label[contains(text(), 'Poids')][not(contains(text(),"Poids (Expédition)"))]/following-sibling::*[1]/text()[1]
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id="specs"]//ul//li//label[contains(text(), 'Garantie') or contains(text(), 'Service et maintenance')]/following-sibling::*[1]/text()[1]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="pd_manufacturerImages"]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@id="specs"]//ul//li//label[contains(text(), 'Largeur (emballée)')] | //div[@id="specs"]//ul//li//label[contains(text(), 'Largeur (emballée)')]/following-sibling::*[1]/text()[1] | //div[@id="specs"]//ul//li//label[contains(text(), 'Profondeur (emballée)')] | //div[@id="specs"]//ul//li//label[contains(text(), 'Profondeur (emballée)')]/following-sibling::*[1]/text()[1] | //div[@id="specs"]//ul//li//label[contains(text(), 'Hauteur (Expédition)')]|//div[@id="specs"]//ul//li//label[contains(text(), 'Hauteur (Expédition)')]/following-sibling::*[1]/text()[1] | //div[@id="specs"]//ul//li//label[contains(text(), 'Poids (Expédition)')]|//div[@id="specs"]//ul//li//label[contains(text(), 'Poids (Expédition)')]/following-sibling::*[1]/text()[1]
+  - name: sku
+    singleValue: false
+    xpath: //ul[@class="list-inline breadcrumb-ul"]//li[not(a)]
+    
+
+ 
