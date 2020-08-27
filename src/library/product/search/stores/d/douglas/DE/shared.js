@@ -41,6 +41,23 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.thumbnail) {
+        const imgStr = row.thumbnail[0].text;
+        row.thumbnail = [
+          {
+            text: imgStr.substring(0, imgStr.lastIndexOf('?')),
+          },
+        ];
+      }
+
+      if (row.id) {
+        const idUrl = row.id[0].text;
+        row.id = [
+          {
+            text: idUrl.substring(idUrl.lastIndexOf('_')+1, idUrl.lastIndexOf('.')),
+          },
+        ];
+      }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

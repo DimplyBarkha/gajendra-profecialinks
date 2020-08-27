@@ -30,8 +30,7 @@ fields:
     xpath: //img[@class='rd__img rd__img--loaded']/@src
     description: The URL for the product thumbnail image
   - name: id
-    xpath: //img[@class='rd__img rd__img--loaded']/@src
-    regExp: https:\/\/media.douglas.de\/(\d+)\/(.+)
-    regExpReplace: $1
+    xpath: //a[@class='rd__link rd__product-tile']/@href
+
 
 
