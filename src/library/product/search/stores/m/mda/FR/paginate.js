@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//p[text()="Aucun résultat trouvé"]',
     openSearchDefinition: null,
     domain: 'mda-electromenager.com',
     zipcode: '',

@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="articles_resultats"]/div[@class="row"]/div
 fields:
   - name: paid
     singleValue: true
@@ -23,12 +23,23 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
+    xpath: //*[@id="articles_resultats"]//article//section[contains(@class,"article-name-grid")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.mda-electromenager.com$1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,"stock-state stock-available")]
+    defaultValue: Out of Stock
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
+    xpath: //*[@id="articles_resultats"]//article//img/@src
+    regExp: (.*)blank_product_list(.*)
+    regExpReplace: $1blank_product_main_image$2
   - name: name
     singleValue: true
     description: The product name
+    xpath: //*[@id="articles_resultats"]//article//section[contains(@class,"article-name-grid")]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -50,9 +61,11 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
+    xpath: //*[@id="articles_resultats"]//article//div[contains(@class,"article-price")]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //*[@id="articles_resultats"]//article//div[contains(@class,"article-price")]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -80,6 +93,7 @@ fields:
   - name: id
     singleValue: true
     description: Unique id (within this extractor)
+    xpath: //*[@id="articles_resultats"]//article//button/@data-article-id
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
