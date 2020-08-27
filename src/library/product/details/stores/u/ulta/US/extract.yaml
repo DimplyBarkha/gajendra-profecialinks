@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -36,10 +36,10 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="ProductDetail__productContent"]
+    manualSelector: div#ii_description
   - name: additionalDescBulletInfo
     singleValue: false
-    manualSelector: div.ProductDetail__productContent > ul > li
+    xpath: (//div[@class="ProductDetail__productContent"])[1]/ul/li
   - name: brandText
     singleValue: flase
     manualSelector: div.ProductMainSection__brandName p
@@ -58,35 +58,34 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //div[@id="ShippingBanner"]//a 
-  - name: variants
-    singleValue: false
-    xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
-    regExp: .*\/(.*?)\?
-    regExpReplace: $1
+  # - name: variants
+  #   singleValue: false
+  #   xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
+  #   regExp: .*\/(.*?)\?
+  #   regExpReplace: $1
   - name: weightNet
     singleValue: false
     xpath: //tr[th[contains(@aria-label,"weight")]]/th[2]/@aria-label | //tr[th[contains(@aria-label,"weight")]]/td
   - name: shippingDimensions
     singleValue: false
-    xpath: //tr[th[contains(@aria-label,"Dimensions")]]/th[2]/@aria-label | //tr[th[contains(@aria-label,"Dimensions")]]/td
+    # xpath: //tr[th[contains(@aria-label,"Dimensions")]]/th[2]/@aria-label | //tr[th[contains(@aria-label,"Dimensions")]]/td
   - name: gtin
     singleValue: false
     xpath: //div[@data-gtin]/@data-gtin
   - name: sku
     singleValue: false
     manualSelector: div.ProductMainSection__itemNumber
-    regExp: item\s*(.*)
+    regExp: Item\s*(.*)
     regExpReplace: $1 
   - name: variantId
     singleValue: false
     xpath: //meta[@property="og:url"]/@content
-    regExp: .*?productId=(.*?)&?
+    regExp: .*?productId=(.*?)&.*
     regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     manualSelector: section.ProductDetail__content div.RatingPanel__panel > label
-    # regExp: ^(.*?)\s+
-    # regExpReplace: $1 
+    type: NUMBER
   - name: ratingCount
     singleValue: false
     manualSelector: span.pr-snippet-review-count
