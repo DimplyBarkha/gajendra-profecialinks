@@ -1,0 +1,75 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[@class="hits"]/section/article
+fields:
+  - name: paid
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    description: The brand name
+    example: Panasonic
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: productUrl
+    xpath: ./@data-product-tile-url
+    regExp: (.+)
+    regExpReplace: https://www.unieuro.it$1
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //img[contains(@class,"product-img")]/@data-src
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //div[@class="title"]/a/text()
+    description: The product name
+  - name: sku
+    description: The store-specific product identifier
+  - name: mpc
+    description: The model code of the product
+  - name: gtin
+    xpath: ./@data-product-tile-sku
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+  - name: ratingCount
+    description: The number of ratings
+  - name: reviewCount
+    description: The number of reviews
+  - name: price
+    xpath: //div[@class="price"]
+    description: The offered price for the product
+  - name: listPrice
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    xpath: ./@data-product-tile-sku
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    xpath: //div[@class="title"]/a/text()
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
