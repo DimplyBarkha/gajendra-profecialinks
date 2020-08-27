@@ -49,7 +49,6 @@ fields:
 - name: description
   singleValue: false
   xpath: //*[@id="iio_productDescription"]
-  # xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeShortDescription"]|(//div[@data-automation-id="details"]/div[contains(@class, 'ProductAttribute__value')])
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//li)

@@ -10,9 +10,6 @@ module.exports = {
   },
 
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
-    // USING OPT TAGS > anti_fingerprint), to avoid blocking
-    // #[!opt!]{"anti_fingerprint":false}[/!opt!]
-
     if (zipcode) {
       await dependencies.setZipCode({ zipcode: zipcode });
     }

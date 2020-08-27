@@ -58,7 +58,6 @@ module.exports = {
         }
 
         console.log('waiting for api request....');
-        // Default storeId=5260: As customer has been using this storeID for search feed.
         const url = `https://www.walmart.com/grocery/v3/api/products/${id}?itemFields=all&storeId=${storeID}`;
         var refURL = window.location.href;
 
@@ -87,7 +86,6 @@ module.exports = {
             }
           } catch (err) {
             if (numberOfRetries === 1) {
-              // throw err;
               return {};
             }
 
@@ -132,7 +130,6 @@ module.exports = {
           const shortDescription = document.querySelector('div[data-automation-id="productAttributeShortDescription"]') ? document.querySelector('div[data-automation-id="productAttributeShortDescription"]').textContent : '';
           const productAttributeDescription = document.querySelector('div[data-automation-id="details"] > div[class^="ProductAttribute__value"][data-automation-id="productAttributeValue"]');
           const productAttributeDescriptionText = productAttributeDescription ? productAttributeDescription.innerHTML.replace(/<(li)[^>]+>/ig, '<$1>').replace(/<li>/g, ' || ').replace(/<[^>]*>/gm, '') : '';
-          // productAttributeDescriptionText = productAttributeDescriptionText.startsWith(' || ') ? productAttributeDescriptionText.slice(3) : productAttributeDescriptionText;
           const productDescription = shortDescription + ' ' + productAttributeDescriptionText;
 
           console.log(productDescription);

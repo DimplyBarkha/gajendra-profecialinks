@@ -89,7 +89,6 @@ module.exports = {
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]', { timeout: 45000 });
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]:first-child input');
       await context.evaluate(async function () {
-        // await new Promise((resolve) => setTimeout(resolve, 5000));
         const searchZipCode = document.querySelector('input[data-automation-id="selectFlyoutItemBtn"]:first-child');
         if (searchZipCode) {
           searchZipCode.click();
@@ -108,21 +107,15 @@ module.exports = {
         await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
         await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
         await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-        // Seems like the timeout for waitForFunction is not working and handling context change
-        await new Promise((resolve) => setTimeout(resolve, 6000));
+
         try {
           await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 45000 });
         } catch (error) {
           console.log('goto product page !!!');
-          // 'goto product page'
           return false;
         }
         try {
           await context.waitForXPath('//div[@data-automation-id="changeStoreFulfillmentBannerBtn"]//span[contains(@class,"AddressPanel__addressLine") and contains(text(), "' + zipcodeStreetAddress + '")]', { timeout: 55000 });
-
-          await context.waitForFunction(function (sel, zipcodeStreetAddress) {
-            return Boolean(document.querySelector(sel).textContent === zipcodeStreetAddress);
-          }, { timeout: 55000 }, 'div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', zipcodeStreetAddress);
         } catch (error) {
           throw new Error('Fail to click on confirm button');
         }

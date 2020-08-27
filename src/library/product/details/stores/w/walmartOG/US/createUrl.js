@@ -6,6 +6,5 @@ module.exports = {
     prefix: 'product',
     country: 'US',
     store: 'walmartOG',
-    // zipcode: '72758',
   },
 };
