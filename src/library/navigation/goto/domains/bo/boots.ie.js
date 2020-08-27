@@ -15,12 +15,10 @@ module.exports = {
         url
           .match(/https:\/\/www.boots.ie\/sitesearch\?searchTerm=(.+)/)[1]
           .toLowerCase();
-      if (
-        window.location.pathname.toLowerCase() === '/dyson' ||
-        (searchTerm &&
-          searchTerm.match(/\w+/) &&
-          searchTerm.match(/\w+/).length === 1 &&
-          searchTerm.match(/dyson/))
+      if (searchTerm &&
+          searchTerm.match(/\w+/g) &&
+          searchTerm.match(/\w+/g).length === 1 &&
+          searchTerm.match(/dyson/)
       ) {
         return 'https://www.boots.ie/dyson/dyson-shop-all';
       } else {
