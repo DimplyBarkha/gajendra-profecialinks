@@ -27,7 +27,7 @@ fields:
   - name: image
     singleValue: false
     # xpath: //img[@class="productImage_AMBPT"]/@src
-    xpath: //div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[@data-index="0"]//img[@class="productImage_AMBPT"]/@src
+    xpath: //div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[@data-index="0"]//img[@class="productImage_AMBPT"]/@src | //img[@alt="product image"]/@src
   - name: description
     singleValue: false
     manualSelector: div[id="bb_descriptionBullets"]

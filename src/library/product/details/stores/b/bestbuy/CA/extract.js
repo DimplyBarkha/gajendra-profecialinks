@@ -142,7 +142,7 @@ module.exports = {
         }
         addElementToDocument('bb_descriptionBulletsCount', bulletCount);
         // @ts-ignore
-      descArr = descArr.join(' || ');
+      descArr = descArr.join(' | ');
       addElementToDocument('bb_descriptionBullets', descArr);
       addElementToDocument('bb_addDescriptionBulletsInfo', additionalBulletInfo.join(' | '));
       }
@@ -157,9 +157,9 @@ module.exports = {
         for (let index = 0; index < bulletsDescription.length; index++) {
           let element = bulletsDescription[index];
           // @ts-ignore
-          element = element ? element.innerText.replace(/•/, ' || ') : '';
+          element = element ? element.innerText.replace(/•/, ' | ') : '';
           // @ts-ignore
-          if(element.includes(' || ')){
+          if(element.includes(' | ')){
             additionalBulletInfo.push(element);
            count++;
           }
@@ -210,17 +210,17 @@ module.exports = {
      addElementToDocument('bb_videos', videoLinkArr);
     });
      //------------------------------------------------------------------------------
-     await context.evaluate(async function () {
-      const buttonSelector2 = 'button#whatsIncluded';
-      let available = document.querySelector(buttonSelector2);
-      // @ts-ignore
-      available = available ? available.click() : '';
-     });
-     try {
-       await context.waitForSelector('div#whatsIncluded ul li');
-     } catch (error) {
-      console.log("whatsIncluded description not loaded");
-     }
+    //  await context.evaluate(async function () {
+    //   const buttonSelector2 = 'button#whatsIncluded';
+    //   let available = document.querySelector(buttonSelector2);
+    //   // @ts-ignore
+    //   available = available ? available.click() : '';
+    //  });
+    //  try {
+    //    await context.waitForSelector('div#whatsIncluded ul li');
+    //  } catch (error) {
+    //   console.log("whatsIncluded description not loaded");
+    //  }
      //------------------------------------------------------------------------
     //  await context.evaluate(async function () {
     //  let otherInfoArr = [];
