@@ -1,3 +1,5 @@
+const { transform } = require('../../../../shared');
+
 async function implementation (
   inputs,
   parameters,
@@ -6,6 +8,7 @@ async function implementation (
 ) {
   const { productDetails } = dependencies;
   await context.waitForSelector('button.gdpr-cookie-layer__btn--submit');
+  await context.click('button.gdpr-cookie-layer__btn--submit');
 
   await context.evaluate(async function () {
     if (document.querySelector('gdpr-cookie-layer--show') && document.querySelector('button.gdpr-cookie-layer__btn--submit')) {
@@ -20,7 +23,7 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'mediamarkt',
-    transform: null,
+    transform: transform,
     domain: 'mediamarkt.nl',
     zipcode: '',
   },
