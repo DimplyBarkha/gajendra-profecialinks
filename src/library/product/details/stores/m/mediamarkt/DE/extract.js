@@ -82,7 +82,20 @@ module.exports = {
 
     // console.log(addHiddenVidDiv);
 
+    const manufButton = await context.evaluate(async function () {
+      return !!document.querySelector('div[class^="RichProductDescription"] button');
+    });
+
+    if (manufButton) {
+      await context.click('div[class^="RichProductDescription"] button');
+      await context.waitForSelector('iframe#loadbeeTabContent');
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+      // await context.waitForSelector('iframe#loadbeeTabContent');
+    }
+
     await context.evaluate(async function () {
+      // console.log(document.querySelector('iframe#loadbeeTabContent').contentWindow.document.innerHTML);
+      // console.log(document.querySelector('iframe#loadbeeTabContent').contentWindow.document);
       function getEleByXpath (xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         console.log('Element' + element);
@@ -97,6 +110,8 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+
+      
 
       let productID = getEleByXpath('(//span[contains(@class, "DetailsHeader__")]//span)[1]');
       productID = productID.replace('| Art.-Nr. ', '').replace(' | ', '').trim();
