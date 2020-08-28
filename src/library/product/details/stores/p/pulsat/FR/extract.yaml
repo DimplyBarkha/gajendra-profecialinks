@@ -48,9 +48,6 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[@id='product_name']
-  - name: warranty
-    singleValue: false
-    xpath: //div[@id='collapseWarranty']//ul[@class='list-2cols']/li
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //span[contains(text(),'Télécharger la fiche produit')]
@@ -78,3 +75,19 @@ fields:
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name='keywords']/@content
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='collapseWarranty']//ul//li//div[not(contains(.,'GRATUIT'))] | //div[@class='wysiwyg']//li[1]
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //td[contains(.,'Classe énergétique')]/following-sibling::td
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@id='collapseDelivery']//ul/li/div[position() mod 2 = 1]    
+  - name: aggregateRating
+    singleValue: false
+    xpath: //p[contains(@class,'netreviews_note_generale')]
+    # xpath: //div[contains(@class,'netreviews-widget')]//b[contains(.,'/10')]
+  - name: ratingCount
+    singleValue: false
+    xpath: //p[contains(@class,'netreviews_subtitle') and contains(.,'Calculé à partir de') and contains(.,'client')]

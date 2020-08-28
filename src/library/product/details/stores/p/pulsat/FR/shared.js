@@ -85,7 +85,7 @@ const transform = (data) => {
       if (row.warranty) {
         let text = '';
         row.warranty.forEach(item => {
-          text = row.warranty.map(elm => elm.text).join(' | ');
+          text = row.warranty.map(elm => elm.text.trim()).join(' | ');
         });
         row.warranty = [
           {
@@ -94,12 +94,35 @@ const transform = (data) => {
         ];
       }
 
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace(/\/.*/, '').trim();
+        });
+      }
+
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          item.text = item.text.match(/[\d]+/) && item.text.match(/[\d]+/)[0] ? item.text.match(/[\d]+/)[0] : '';
+        });
+      }
+
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
           text = row.manufacturerDescription.map(elm => elm.text.replace(/\n/gm, ' ').replace(/\s{2,}/gm, ' ').trim()).join(' | ');
         });
         row.manufacturerDescription = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.shippingInfo) {
+        let text = '';
+        row.shippingInfo.forEach(item => {
+          text = row.shippingInfo.map(elm => elm.text.trim()).join(' | ');
+        });
+        row.shippingInfo = [
           {
             text: text,
           },
