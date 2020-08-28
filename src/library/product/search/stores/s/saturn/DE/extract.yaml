@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-test="mms-search-srp-productlist"]//div[@data-test="mms-search-srp-productlist-item"]
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a/@href
+    regExp: (.+)
+    regExpReplace: https://www.saturn.de$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@data-test='product-image']//img/@src
+    regExp: (.+)(mobile_200_200_png)
+    regExpReplace: $1fee_325_325_png
+  - name: name
+    description: The product name
+    xpath: //p[@data-test='product-title']/text()
+  - name: sku
+    description: The store-specific product identifier
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //div[@data-test='mms-customer-rating']/span
+    regExp: (\d+)
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //div[@data-test='mms-customer-rating']/span
+    regExp: (\d+)
+  - name: price
+    description: The offered price for the product
+    xpath: //div[contains(@class,'PriceDisplay')]/div[span]
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    defaultValue: false
+    type: BOOLEAN
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //a/@href
+    regExp: (\d+)(.html)
+    regExpReplace: $1
+  - name: aggregateRating2
+    xpath: //div[@data-test='mms-customer-rating']/parent::div/@aria-label
+    regExp: (Bewertung:\s)(.+)(\svon)(.+)
+    regExpReplace: $2
