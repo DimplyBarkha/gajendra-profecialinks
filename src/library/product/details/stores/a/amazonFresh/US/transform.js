@@ -27,9 +27,15 @@ const transform = (data, context) => {
           row.warnings = [{ text: row.warnings[0].text.replace(/Safety Information/g, '').trim() }];
         }
         if (row.weightGross && row.weightGross[0]) {
+          if (row.weightGross[0].text.includes(';')) {
+            row.weightGross[0].text = row.weightGross[0].text.split(';')[1];
+          }
           row.weightGross = [{ text: row.weightGross[0].text.trim() }];
         }
         if (row.shippingWeight && row.shippingWeight[0]) {
+          if (row.shippingWeight[0].text.includes(';')) {
+            row.shippingWeight[0].text = row.shippingWeight[0].text.split(';')[1];
+          }
           row.shippingWeight = [{ text: row.shippingWeight[0].text.replace(/\s\(/g, '').trim() }];
         }
         if (row.grossWeight && row.grossWeight[0]) {
@@ -475,14 +481,9 @@ const transform = (data, context) => {
             },
           ];
         }
-        if (row.shippingDimensions) {
+        if (row.shippingDimensions && row.shippingDimensions[0]) {
           if (row.shippingDimensions[0].text.includes(';')) {
             row.shippingDimensions[0].text = row.shippingDimensions[0].text.split(';')[0];
-          }
-        }
-        if (row.weightNet) {
-          if (row.weightNet[0].text.includes(';')) {
-            row.weightNet[0].text = row.weightNet[0].text.split(';')[1];
           }
         }
         Object.keys(row).forEach(header => row[header].forEach(el => {
