@@ -1,16 +1,16 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[@class="main-section"]
+recordXPath: //section[@id="contentSegment"]/article
 fields:
   - name: name
-    xpath: //div[contains(@class ,"detail-product")]/h3/a[1]
+    xpath: //div[contains(@class ,"detail-product")]/h3
     singleValue: false
   - name: nameExtended
-    xpath: //div[contains(@class ,"detail-product")]/h3/a[1]
+    xpath: //div[contains(@class ,"detail-product")]/h3
     singleValue: false
   - name: thumbnail
-    xpath: //div[@class="image-product"]/a/img/@src
+    xpath: //div[@class="image-product"]/a//img/@src
     singleValue: false
   - name: productUrl
     xpath: //div[@class="image-product"]/a/@href
@@ -31,8 +31,13 @@ fields:
     regExp: (.*) avis
     regExpReplace: $1
     singleValue: false
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //span[@class="stars"]/@data
+    singleValue: false
+  - name: reviewCount
+    xpath: //span[@class="avisBaazar"]
+    regExp: (.*) avis
+    regExpReplace: $1
     singleValue: false
 
  
