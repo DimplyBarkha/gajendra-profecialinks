@@ -44,12 +44,16 @@ async function implementation (
       }
     });
 
+    console.log('!!!!path')
+
+    console.log(path)
+
     if (path) {
       await dependencies.goto({ url: `https://${domain}${path}` });
 
       await context.waitForFunction(function (sel, xp) {
         return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-      }, { timeout: 10000 }, 'div#product', parameters.noResultsXPath);
+      }, { timeout: 10000 }, 'div#product, h1#productName', parameters.noResultsXPath);
 
       console.log('Checking no results', parameters.noResultsXPath);
       return await context.evaluate(function (xp) {

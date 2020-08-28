@@ -67,9 +67,9 @@ module.exports = {
     }
 
     if (manufacturerInfo.length !== 0) {
-      await context.waitForSelector('li#prodbv', { timeout: 55000 });
-      await context.waitForSelector('li#prodCollage', { timeout: 55000 });
-      // await new Promise(resolve => setTimeout(resolve, 15000));
+      // await context.waitForSelector('li#prodbv', { timeout: 55000 });
+      // await context.waitForSelector('li#prodCollage', { timeout: 55000 });
+      await new Promise(resolve => setTimeout(resolve, 15000));
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner', { timeout: 55000 });
       await context.waitForSelector('a.view-more-trigger');

@@ -5,7 +5,7 @@ module.exports = {
     domain: 'walgreens.com',
     country: 'US',
     store: 'walgreens',
-    timeout: 30000,
+    timeout: 45000,
   },
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
