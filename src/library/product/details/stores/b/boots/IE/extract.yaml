@@ -60,6 +60,8 @@ fields:
     regExp: '(^[^|]+)|'
     regExpReplace: $1
   - name: weightNet
+    xpath: //p[@id="product_long_description"]/text()[contains(.,"Weight")]
+    regExp: '[^\s]+$'
     description: Net weight as described on the page
   - name: weightGross
     description: Gross weight as described on the page
@@ -347,7 +349,7 @@ fields:
     xpath: //p[@id="product_long_description"]/span[contains(text(),"Product Specifications")]/following-sibling::text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    xpath: //p[@id="product_long_description"]//span[contains(text(),"guarantee")] | //p[@id="product_long_description"]//span[contains(text(),"waranty")]
+    xpath: //p[@id="product_long_description"]/text()[contains(.,"guarantee")] | //p[@id="product_long_description"]/text()[contains(.,"waranty")] | //p[@id="product_long_description"]//span[contains(text(),"guarantee")] | //p[@id="product_long_description"]//span[contains(text(),"waranty")]
     description: Guarantee associated with the product
   - name: storage
     description: Suggested storage location for product
