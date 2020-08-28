@@ -27,7 +27,7 @@ fields:
     regExpReplace: https://www.worten.es/$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//img//@src
+    xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//img//@data-src
     regExp: (.+)
     regExpReplace: https://www.worten.es/$1
   - name: name
@@ -89,7 +89,8 @@ fields:
   #   description: The product name, prefixing "${brand} - " if not included in "name"
   #     and appending " - ${variantType}" if necessary (fixed per extractor)
   #   xpath: //h3
-  - name: aggregateRating
+  - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //div//@aggregateRating
+    xpath: //div//@aggregaterating
+    # regExp: (.+)\.(.+)
+    # regExpReplace: $1,$2
