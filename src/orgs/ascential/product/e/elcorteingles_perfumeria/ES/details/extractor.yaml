@@ -6,7 +6,13 @@ parameters:
   zipcode: ""
 proxy:
   zone: ZES
-  type: DATA_CENTER  
+  type: DATA_CENTER
+policy:
+  numberRetries: 1
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     osm_elcorteingles_perfumeria:
