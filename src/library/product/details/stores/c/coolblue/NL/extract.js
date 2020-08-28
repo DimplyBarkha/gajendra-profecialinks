@@ -22,7 +22,7 @@ module.exports = {
         const value = elm.textContent.trim();
         return `${value}`;
       }).filter(elm => elm);
-      document.body.setAttribute('category', breacrumb.join('>'));
+      document.body.setAttribute('category', breacrumb.join('/'));
       console.log('category set');
       // checking if one of the not extracted xpath is loaded in time (wait for selector says its available)
       console.log(`THIS IS LOADED : ${document.querySelector('body > footer > div.grid-wrapper-xs--layout-wrapper.grid-wrapper-xs--padding.grid-wrapper-m--padding.grid-section-xs--gap-1.grid-section-m--gap-8 > ul > li:nth-child(3) > div.is-hidden-until-size-m > a > h5').textContent}`);

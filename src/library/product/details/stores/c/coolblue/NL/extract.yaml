@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //main[@id="main-content"]
+recordXPath: //div[contains(@class,"coolblue-content--product-page")]
 fields:
   - name: image
     singleValue: true
@@ -21,7 +21,11 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[contains(@class,"breadcrumbs")]//li
+    xpath: //ol[contains(@class,"breadcrumbs")]//li[1]
+  - name: subCategory
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: (//ol[contains(@class,"breadcrumbs")]//li)[position()>1]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -50,7 +54,17 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //*[@id="product-information"]//div[contains(@class,"product-description-content")]//p[1]
+  - name: additionalDescription
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //*[@id="product-information"]//div[contains(@class,"product-description-content")]//p[1]
   - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    xpath: count(//*[@id="product-information"]//div[contains(@class,"product-description-content")]//p)
+    type: NUMBER
+  - name: additionalDescriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     xpath: count(//*[@id="product-information"]//div[contains(@class,"product-description-content")]//p)
@@ -63,7 +77,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath:
+    xpath: 
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -78,15 +92,16 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //main[@id="main-content"]/@data-product-id
   - name: sku
     singleValue: true
     description: The store-specific product identifier
     xpath: //main[@id="main-content"]/@data-product-id
   - name: variantId
-    singleValue: true
+    singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //main[@id="main-content"]/@data-product-id
+    xpath: (//div[contains(@class,"selectable-card")]/input/@id)[position()<2]
+    regExp: collection-item-(\d+)
+    regExpReplace: $1
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -138,9 +153,9 @@ fields:
     description: Stated shipping weight
     xpath: 
   - name: variantCount
-    singleValue: true
+    singleValue: false
     description: Number of variants listed
-    xpath:
+    xpath: count((//div[contains(@class,"selectable-card")]/input/@id))
     type: NUMBER
   - name: color
     singleValue: false
@@ -483,6 +498,7 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //main[@id="main-content"]/@data-product-id
   - name: variants
     singleValue: false
     description: null
@@ -507,26 +523,24 @@ fields:
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
-  - name: termsAndConditions 
+  - name: termsAndConditions
     singleValue: false
-    # ISSUE - SHOULD BE FIXED WITH CLI UPDATE
     description: Terms and conditions information text ['Yes','No']
-    xpath: //ul[contains(@class,"inline-list")]//li//a[contains(@title,"Algemene voorwaarden")]
+    xpath: ancestor::html //ul[contains(@class,"inline-list")]//li//a[contains(@title,"Algemene voorwaarden")]
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    xpath: //ul[contains(@class,"inline-list")]//li//a[contains(@title,"privacy")]
+    xpath: ancestor::html //a[contains(@title,"privacy")]
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
-    singleValue: false
-    # ISSUE - SHOULD BE FIXED WITH CLI UPDATE
+    singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    xpath: //a[contains(@data-component,"Customer Service")]
+    xpath: ancestor::html //a[contains(@data-component,"Customer Service")]
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
@@ -539,11 +553,10 @@ fields:
     description: If 360 image is present in the carousel ['Yes','No']
     defaultValue: No
   - name: imageZoomFeaturePresent
-    # singleValue: false
+    singleValue: false
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
-    # ISSUE - SHOULD BE FIXED WITH CLI UPDATE
-    xpath: //img[contains(@class,"zoom__image")]
-    regExp: (.*)
+    xpath: (//img[contains(@class,"zoom__image")]/@class)[1]
+    regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
