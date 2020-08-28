@@ -5,7 +5,7 @@ module.exports = {
     country: 'AT',
     store: 'haarbedarf',
     domain: 'haarbedarf.at',
-    loadedSelector: body,
+    loadedSelector: 'body',
     noResultsXPath: null,
   },
 };

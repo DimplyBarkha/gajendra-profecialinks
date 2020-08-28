@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[contains(@class, 'wp-post-image')]
+    xpath: //img[contains(@class, 'wp-post-image')]/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ol/li/img
+    xpath: //ol/li/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -42,7 +42,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //p[contains(@class, "stock")]/font/font/text()
+    xpath: //p[contains(@class, "stock")]/text()
     regExp: (\b(?![0]\b)\d{1,5}\b)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -56,22 +56,28 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//div[contains(@id, "tab-description")]/ul/li)
   - name: brandText
     singleValue: true
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    defaultValue: Dyson
+    xpath: //td[contains(@class, "woocommerce-product-attributes-item__value")][2]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    defaultValue: Dyson
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
+    defaultValue: 1
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //td[contains(@class, "woocommerce-product-attributes-item__value")][1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -81,6 +87,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //span/span[contains(@class, "sku")]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -105,6 +112,8 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //a[contains(@href, "#tab-reviews")]/text()
+    regExp: (\b(\b)\d{1,5}\b)
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -115,6 +124,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //div[contains(@class, "summary entry-summary")]/p[contains(@class, "wc-gzd-additional-info delivery-time-info")]/text()
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -128,6 +138,8 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //h1[contains(@class, 'product_title')]
+    regExp: (\w+\/\w+)
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -143,9 +155,11 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[contains(@class, 'product_title')]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
+    xpath: //ins/span[contains(@class, "woocommerce-Price-amount amount")][1]
   - name: asin
     singleValue: true
     description: null
