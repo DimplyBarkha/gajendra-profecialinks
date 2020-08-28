@@ -60,11 +60,11 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace('See All', '')} || `;
+          text += `${item.text.replace('See All', '')} | `;
         });
         row.description = [
           {
-            text: cleanUp(text.slice(0, -4)),
+            text: cleanUp(text.slice(0, -3)),
           },
         ];
       }
