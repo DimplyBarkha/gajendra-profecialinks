@@ -1,0 +1,43 @@
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-lister-name="Search"]//ul//li
+fields:
+  - name: id
+    xpath: //@data-product-code
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: name
+    xpath: //div//h3//a
+  - name: productUrl
+    xpath: //div//h3//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.target.com.au$1
+  - name: reviewCount
+    xpath: //span[contains(@class,"bv-text-link")]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: thumbnail
+    xpath: //@data-primary-image
+    regExp: (.+)
+    regExpReplace: https://www.target.com.au$1?impolicy=desktop_hero
+  - name: ratingCount
+    xpath: //div//p//span[contains(@class,"rating-num-reviews")]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating2
+    xpath: //div//p//span[contains(@class,"Ratings-stars")]
+    regExp: (Rated )(.+)( out.+)
+    regExpReplace: $2
+  - name: price
+    xpath: //div[contains(@class,"price-info")]//span[contains(@class,"price-regular")]
+    regExp: ^[^ –]+
+  - name: gtin
+    xpath: //@data-primary-image
+    regExp: (.*/)(.+)(\..+)
+    regExpReplace: $2
+  - name: manufacturer
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
+  - name: endorsementText
+  - name: soldBy

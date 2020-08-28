@@ -1,0 +1,70 @@
+input:
+  keywords: don
+  _url: http://target.com.au
+extractions:
+  - html: https://workbench.import.io/html/run=d561be51-0246-48f6-ab04-4cf50147da71/task=3a4248cd-6571-4863-8480-e230d0642240/16a09bf4-2e6e-4bc1-bbf4-6e5703a165d2.html
+    extractionConfigId: product/search/stores/t/target/AU/extract
+    data:
+      - group:
+          - id:
+              - text: "62846868"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[1]/@data-product-code
+            name:
+              - text: Piranha's Don'T Eat Bananas - With Mask
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[1]/div[2]/div[1]/h3[1]/a[1]
+            productUrl:
+              - text: https://www.target.com.au/p/piranha-s-don-t-eat-bananas-with-mask/62846868
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[1]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.target.com.au/medias/static_content/product/images/grid/80/84/A1368084.jpg?impolicy=desktop_hero
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[1]/@data-primary-image
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[1]/div[2]/p[1]/span[2]
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[1]/div[2]/p[1]/span[1]/span[1]
+            price:
+              - text: $10
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[1]/div[2]/div[2]/span[1]
+            gtin:
+              - text: A1368084
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[1]/@data-primary-image
+          - id:
+              - text: "63912975"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[2]/@data-product-code
+            name:
+              - text: I Don’t Want To Be A Big Brother! - Heath Mckenzie
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[2]/div[2]/div[1]/h3[1]/a[1]
+            productUrl:
+              - text: https://www.target.com.au/p/i-don-t-want-to-be-a-big-brother-heath-mckenzie/63912975
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[2]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.target.com.au/medias/static_content/product/images/grid/87/61/A1518761.jpg?impolicy=desktop_hero
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[2]/@data-primary-image
+            price:
+              - text: $10
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[2]/div[2]/div[2]/span[1]
+            gtin:
+              - text: A1518761
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[2]/@data-primary-image
+          - id:
+              - text: "63912258"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[3]/@data-product-code
+            name:
+              - text: I Don’t Want To Be A Big Sister! - Heath Mckenzie
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[3]/div[2]/div[1]/h3[1]/a[1]
+            productUrl:
+              - text: https://www.target.com.au/p/i-don-t-want-to-be-a-big-sister-heath-mckenzie/63912258
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[3]/div[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.target.com.au/medias/static_content/product/images/grid/87/60/A1518760.jpg?impolicy=desktop_hero
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[3]/@data-primary-image
+            price:
+              - text: $10
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[3]/div[2]/div[2]/span[1]
+            gtin:
+              - text: A1518760
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[2]/div[3]/ul[1]/li[3]/@data-primary-image
+        xpath: /html
+    timestamp: 1598607632557
