@@ -73,6 +73,21 @@ fields:
   - name: sku
     singleValue: false
     xpath: //ul[@class="list-inline breadcrumb-ul"]//li[not(a)]
-    
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[@id="specs"]//ul//li//label[contains(text(), 'Poids (Expédition)')]/following-sibling::*
+  - name: weightGross
+    singleValue: false
+    xpath: //div[@id="specs"]//ul//li//label[contains(text(), 'Poids (Expédition)')]/following-sibling::*
+  - name: gtin
+    singleValue: false
+    xpath: //script[contains(text(),"var flixEan")]
+    regExp: flixEan\s?=\s?'(.+)'
+    regExpReplace: $1   
+  - name: mpc
+    singleValue: false
+    xpath: //ul[@class="list-inline breadcrumb-ul"]//li[not(a)]
+  - name: variantId
+    xpath: //ul[@class="list-inline breadcrumb-ul"]//li[not(a)]
 
  
