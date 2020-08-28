@@ -5,60 +5,71 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
+    xpath: //div[contains(@class,"swiper-container")]//a[img][contains(@class,"to-print")]/img/@src
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
+    xpath: //div[contains(@class,"swiper-container")]//a[img][contains(@class,"to-print")]/img/@alt
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
+    xpath: //div[contains(@class,"swiper-container")]//a[img]/img/@src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
+    xpath: //meta[@name="keywords"]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
+    xpath: //div[@class="breadcrumb"]//span[not(contains(text(), "›"))]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
+    xpath: //h1[contains(@class, "page-title")]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
+    xpath: //div[@id="product-actions"]/div[@class="amounts"]//div[span][contains(@class,"ProductPriceBlock__WasPrice")]/text()
+    regExp: £\d+(\.\d{2})?
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
+    xpath: //div[@id="product-actions"]/div[@class="amounts"]//span[span][contains(@class,"ProductPriceBlock__Price")]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
+    manualSelector: div#availability
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
-    singleValue: false
+    singleValue: true
+    manualSelector: div#description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
+    xpath: count(//div[@class="no-tablet"]//div[@class="main-desc"]//li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: true
+    manualSelector: div#brand
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
+    manualSelector: div#manufacturer
     description: Product manufacturer
   - name: quantity
     singleValue: true
+    xpath: //th[contains(text(), "Dimensions")]/following-sibling::td
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
+    xpath: //th[contains(text(), "Weight")]/following-sibling::td
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -68,9 +79,12 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
+    xpath: //p[@class="prd-code"]
+    regExp: \d+
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
+    manualSelector: div#productId
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
@@ -90,13 +104,17 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
+    xpath: //span[contains(@class,"reevoo-score")]/following-sibling::a[contains(@class,"reevoo-badge-lk")][1]
+    regExp: \d+
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
+    manualSelector: div#rating
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+    manualSelector: div#rating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -110,22 +128,27 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
+    xpath: count(//div[@class="no-tablet"]//ul[@class="dc-product-swatches-list"]/li)
     description: Number of variants listed
     type: NUMBER
   - name: color
     singleValue: true
+    xpath: //th[contains(text(), "Colour")]/following-sibling::td
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//div[contains(@class,"flix-media-flex") or contains(@class,"flix-background-image")]//img/@srcset
     description: Images within the third party description
   - name: videos
     singleValue: false
+    xpath: //div[@id="video"]//iframe/@src
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -133,12 +156,14 @@ fields:
     description: The product name
   - name: inStorePrice
     singleValue: true
+    xpath: //div[@id="product-actions"]/div[@class="amounts"]//span[span][contains(@class,"ProductPriceBlock__Price")]
     description: Price in the selected store
   - name: asin
     singleValue: true
     description: null
   - name: coupon
-    singleValue: true
+    singleValue: false
+    xpath: //a[contains(.,"Offers & deals")]/following-sibling::div//li[contains(@id,"product-deal") and contains(.,"nter code")]
     description: Text of any coupon offer
   - name: amazonChoice
     singleValue: true
@@ -382,9 +407,11 @@ fields:
     description: null
   - name: specifications
     singleValue: true
+    manualSelector: div#specification
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
+    xpath: concat(//th[contains(text(), "guarantee") or contains(text(),"warranty")]/following-sibling::td, " ", //th[contains(text(), "guarantee") or contains(text(),"warranty")])
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -414,7 +441,8 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
+    xpath: //a[contains(.,"Offers & deals")]/following-sibling::div//li[contains(@id,"product-deal")]
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
@@ -447,7 +475,9 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
-    description: null
+    xpath: //div[@class="no-tablet"]//li[contains(@class,"dc-product-swatch")]/a/@href
+    regExp: (\d+)\-pdt\.html
+    regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
