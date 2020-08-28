@@ -42,9 +42,6 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="product-images-main"]//img/@alt
-  - name: aggregateRating
-    singleValue: false
-    manualSelector: span._1x1fpq7
   - name: ratingCount
     singleValue: false
   - name: category
@@ -81,7 +78,7 @@ fields:
     defaultValue: '1'
   - name: gtin
     singleValue: false
-    xpath: //div[@class="product-flixdata"]/@data-ean
+    xpath: //div[@class="product-flixdata"]/@data-ean | //p[@id="product-ids"]
   - name: sku
     singleValue: false
     xpath: //script[contains(text(),'sku')]
@@ -100,4 +97,10 @@ fields:
     regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
-    xpath: //body[div[@class="logo-wrapper"]]//img/@src | //div[@id="flix-std-inpage"]//img/@srcset
+    xpath: //body[div[@class="logo-wrapper"]]//img/@src | //div[@id="flix-std-inpage"]//img/@srcset|//div[contains(@class,"product-picture")]/@style
+  - name: termsAndConditions
+    singleValue: false
+    manualSelector: button.download-button
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'

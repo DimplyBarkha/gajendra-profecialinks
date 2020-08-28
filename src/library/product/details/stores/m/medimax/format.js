@@ -22,6 +22,18 @@ const transform = (data, context) => {
         const videos = row.videos.map(({ text }) => text);
         row.videos = Array.from(new Set(videos)).map(video => ({ text: video }));
       }
+      if (row.gtin && row.gtin[0].text.match(/EAN/i)) {
+        row.gtin[0].text = row.gtin[0].text.replace(/.*EAN:\s*([^\s]+).*/i, '$1');
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(img => {
+          if (img.text.includes('background-image')) {
+            img.text = img.text.replace(/.*url\('(.*)'\).*/, '$1');
+          } else if (img.text.startsWith('http')) {
+            img.text = `https:${img.text}`;
+          }
+        });
+      }
       row.category && row.category.splice(-1);
       if (row.availabilityText) {
         row.availabilityText[0].text = 'In Stock';
