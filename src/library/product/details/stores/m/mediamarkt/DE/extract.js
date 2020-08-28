@@ -10,78 +10,77 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-    await context.waitForSelector('div[class^="slick-slide"]');
+    // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    // await context.waitForSelector('div[class^="slick-slide"]');
 
-    const videosTiles = await context.evaluate(async function () {
-      console.log('hiiiii');
-      const dataIndex = [];
-      if (document.querySelectorAll('div[class^="slick-slide"] div[data-test="mms-video-thumbnail"]').length) {
-        [...document.querySelectorAll('div[class^="slick-slide"] div[data-test="mms-video-thumbnail"]')].forEach((element) => {
-          if (element.parentNode && element.parentNode.parentNode && element.parentNode.parentNode.parentNode && element.parentNode.parentNode.parentNode.getAttribute('data-index')) {
-            dataIndex.push(element.parentNode.parentNode.parentNode.getAttribute('data-index'));
-          }
-        });
-        return dataIndex;
-      }
-      console.log(document.querySelectorAll('div[class^="slick-slide"] div[data-test="mms-video-thumbnail"]'));
-      return document.querySelectorAll('div[class^="slick-slide"] div[data-test="mms-video-thumbnail"]').length;
-    });
+    // const videosTiles = await context.evaluate(async function () {
+    //   const dataIndex = [];
+    //   if (document.querySelectorAll('div[class^="slick-slide"] div[data-test="mms-video-thumbnail"]').length) {
+    //     [...document.querySelectorAll('div[class^="slick-slide"] div[data-test="mms-video-thumbnail"]')].forEach((element) => {
+    //       if (element.parentNode && element.parentNode.parentNode && element.parentNode.parentNode.parentNode && element.parentNode.parentNode.parentNode.getAttribute('data-index')) {
+    //         dataIndex.push(element.parentNode.parentNode.parentNode.getAttribute('data-index'));
+    //       }
+    //     });
+    //     return dataIndex;
+    //   }
+    //   console.log(document.querySelectorAll('div[class^="slick-slide"] div[data-test="mms-video-thumbnail"]'));
+    //   return document.querySelectorAll('div[class^="slick-slide"] div[data-test="mms-video-thumbnail"]').length;
+    // });
 
-    const tiles = await context.evaluate(async function () {
-      return document.querySelectorAll('div[class^="slick-slide"]').length;
-    });
+    // const tiles = await context.evaluate(async function () {
+    //   return document.querySelectorAll('div[class^="slick-slide"]').length;
+    // });
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 
-    console.log('vide');
-    console.log(videosTiles);
-    console.log(tiles);
+    // console.log('vide');
+    // console.log(videosTiles);
+    // console.log(tiles);
 
-    async function grabVideoLinks (videosTiles) {
-      if (videosTiles) {
-        const videos = [];
-        for (let i = 0; i < videosTiles.length; i++) {
-          await context.click('div[class^="slick-slide"][data-index="' + videosTiles[i] + '"] div[data-test="mms-video-thumbnail"]');
-          await context.waitForSelector('div#playButton > div');
-          await context.click('div#playButton > div');
-          await context.evaluate(async function () {
-            document.querySelector('div#playButton > div').click();
-          });
-          await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-          const vid = await context.evaluate(async function () {
-            function getEleByXpath (xpath) {
-              const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-              console.log('Element' + element);
-              const text = element ? element.textContent : null;
-              return text;
-            }
-            const vidLink = getEleByXpath('//video/@src');
-            console.log(vidLink);
-            return vidLink;
-          });
-          videos.push(vid);
-        }
-        return videos;
-      }
-    }
+    // async function grabVideoLinks (videosTiles) {
+    //   if (videosTiles) {
+    //     const videos = [];
+    //     for (let i = 0; i < videosTiles.length; i++) {
+    //       await context.click('div[class^="slick-slide"][data-index="' + videosTiles[i] + '"] div[data-test="mms-video-thumbnail"]');
+    //       await context.waitForSelector('div#playButton > div');
+    //       await context.click('div#playButton > div');
+    //       await context.evaluate(async function () {
+    //         document.querySelector('div#playButton > div').click();
+    //       });
+    //       await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    //       const vid = await context.evaluate(async function () {
+    //         function getEleByXpath (xpath) {
+    //           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    //           console.log('Element' + element);
+    //           const text = element ? element.textContent : null;
+    //           return text;
+    //         }
+    //         const vidLink = getEleByXpath('//video/@src');
+    //         console.log(vidLink);
+    //         return vidLink;
+    //       });
+    //       videos.push(vid);
+    //     }
+    //     return videos;
+    //   }
+    // }
 
-    console.log('vide');
-    console.log(videosTiles);
+    // console.log('vide');
+    // console.log(videosTiles);
 
-    const vid = await grabVideoLinks(videosTiles);
+    // const vid = await grabVideoLinks(videosTiles);
 
-    const addHiddenVidDiv = await context.evaluate(async function (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }, 'ii_videos', vid.join(' || '));
+    // const addHiddenVidDiv = await context.evaluate(async function (id, content) {
+    //   const newDiv = document.createElement('div');
+    //   newDiv.id = id;
+    //   newDiv.textContent = content;
+    //   newDiv.style.display = 'none';
+    //   document.body.appendChild(newDiv);
+    // }, 'ii_videos', vid.join(' || '));
 
     // addHiddenVidDiv;
 
-    console.log(addHiddenVidDiv);
+    // console.log(addHiddenVidDiv);
 
     await context.evaluate(async function () {
       function getEleByXpath (xpath) {
@@ -114,8 +113,8 @@ module.exports = {
       }
     });
 
-    await context.click('section#description div[class^="RichProductDescription"] button');
-    await context.waitForSelector('iframe#loadbeeTabContent');
+    // await context.click('section#description div[class^="RichProductDescription"] button');
+    // await context.waitForSelector('iframe#loadbeeTabContent');
     // console.log(document.querySelector('iframe#loadbeeTabContent').contentWindow.document);
 
     // const modal = await selectorAvailable('gdpr-cookie-layer--show');
