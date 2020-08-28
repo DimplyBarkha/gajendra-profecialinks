@@ -10,12 +10,12 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await context.evaluate(async function () {
-      if (document.querySelector('gdpr-cookie-layer--show') && document.querySelector('button.gdpr-cookie-layer__btn--submit')) {
-        document.querySelector('button.gdpr-cookie-layer__btn--submit').click();
-      }
-    });
-    await context.extract(productDetails);
-  },
+  // implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  //   await context.evaluate(async function () {
+  //     if (document.querySelector('gdpr-cookie-layer--show') && document.querySelector('button.gdpr-cookie-layer__btn--submit')) {
+  //       document.querySelector('button.gdpr-cookie-layer__btn--submit').click();
+  //     }
+  //   });
+  //   await context.extract(productDetails);
+  // },
 };
