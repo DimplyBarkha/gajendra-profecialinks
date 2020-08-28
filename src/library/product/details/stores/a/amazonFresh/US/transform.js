@@ -480,9 +480,9 @@ const transform = (data, context) => {
             row.shippingDimensions[0].text = row.shippingDimensions[0].text.split(';')[0];
           }
         }
-        if (row.shippingWeight) {
-          if (row.shippingWeight[0].text.includes(';')) {
-            row.shippingWeight[0].text = row.shippingWeight[0].text.split(';')[1];
+        if (row.weightNet) {
+          if (row.weightNet[0].text.includes(';')) {
+            row.weightNet[0].text = row.weightNet[0].text.split(';')[1];
           }
         }
         Object.keys(row).forEach(header => row[header].forEach(el => {
