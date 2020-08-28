@@ -86,6 +86,11 @@ fields:
     xpath: //li[contains(@class,"pdp-details-specifications__item") and b[contains(text(),"Package Weight")]]
     regExp: .*?:(\s*\n\s*)*(.*)
     regExpReplace: $2
+  - name: packSize
+    singleValue: false
+    xpath: //li[contains(@class,"pdp-details-specifications__item") and b[contains(text(),"Pack Size")]]
+    regExp: .*?:(\s*\n\s*)*(.*)
+    regExpReplace: $2
   - name: mpc
     singleValue: false
     xpath: //li[contains(@class,"pdp-details-specifications__item") and b[contains(text(),"Product Model Number")]]
