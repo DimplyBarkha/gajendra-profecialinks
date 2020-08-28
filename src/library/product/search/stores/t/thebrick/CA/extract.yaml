@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="findify-product-outer-wrapper"]
+fields:
+  - name: _input
+    singleValue: false
+  - name: _pageTimestamp
+    singleValue: false
+  - name: _url
+    singleValue: false
+  - name: brandText
+    singleValue: false
+    xpath: //h5[contains(@class,"__title")]
+    regExp: ^([\w\-]+)
+    regExpReplace: $1
+  - name: id
+    singleValue: false
+    xpath: //div[@data-findify]/@data-findify
+  - name: name
+    singleValue: false
+    xpath: //h5[contains(@class,"__title")]
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,"__price")]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class, "--product")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.thebrick.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //acl-product-card-group[contains(@evtperfname,"acl-product-card-group")]//article//div[contains(@class, "acl-product-card__image")]//img/@src
