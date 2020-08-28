@@ -23,21 +23,24 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  const scrollFunc = await context.waitForFunction(async function () {
-    let scrollTop = 0;
-    while (scrollTop !== 20000) {
-      // await stall(2500);
-      // await new Promise(resolve => setTimeout(resolve, 5000));
+  let scrollTop = 0;
+  while (scrollTop !== 20000) {
+    try{
       scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      // await new Promise(resolve => setTimeout(resolve, 5000));
-      console.log("SCROLLING");
-      
-      if (scrollTop === 20000) {
-        break;
-      }
+      await context.waitForFunction(async function(scrollTop){
+        console.log("SCROLLING");
+        window.scroll(0, scrollTop);
+        let allProds = document.querySelectorAll('a[data-comp="ProductItem "]')
+        let prodsWithImg = document.querySelectorAll('a[data-comp="ProductItem "] img')
+      }, { timeout: 6000 }, scrollTop)
+    } catch(err) {
+      console.log("Failed")
     }
-  });
+    console.log('Checking selector');
+    if (scrollTop === 20000) {
+      break;
+    }
+  }
 
 
   const singleProdCheck = await context.evaluate(async function () {

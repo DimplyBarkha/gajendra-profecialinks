@@ -3,6 +3,9 @@ parameters:
   country: US
   domain: sephora.com
   store: sephora
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
 meta:
   branches:
     test:
@@ -11,3 +14,6 @@ meta:
     staging:
       extractor: 8721c209-5dba-4c16-a018-aee4f7d6b243
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    dalton:
+      extractor: e02917ae-feca-41a4-9d46-b8ff973495e2
+      legacyAccountId: 1e821eb9-04e2-4eb3-9503-5ea51441a19b

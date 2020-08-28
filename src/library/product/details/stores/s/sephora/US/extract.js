@@ -53,20 +53,31 @@ module.exports = {
     var reqAccept = "application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk"
     if (videos && videos.length) {
       for (let i = 0; i < videos.length; i++) {   
-      // Click a link on the page
-      await context.click(`img[src='${videos[i]}']`);
-      // await context.click('#tabItem_ogt_3_0 > button.css-snmyc5.e65zztl0[type="button"] > div.css-38q71r > div.css-5ix92y.e65zztl0 > div.css-16g8jcx.e65zztl0 > div.css-10aokas.e65zztl0 > div.css-1u6gbn2.e65zztl0 > svg.css-1a5s7yv.e65zztl0');
-        console.log(`img[src='${videos[i]}']`)
-        console.log('finished click');
-        // Clicking a link caused a page reload, this function waits for the page to finish loading.
-        // await context.waitForPage();
-      await new Promise(resolve => setTimeout(resolve, 5000));
-        console.log('finished waiting for page');
-          const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
-      //    const req = await context.searchForRequest('/productimages/*');
+        // Click a link on the page
+        var selectorCheck = await context.evaluate(function (videos, i){
+          let ticks = videos[i].replace(/'/g, '"')
+          let selectorVid = document.querySelector(`img[src='${ticks}']`)
+          if(selectorVid) {
+            return true;
+          } else {
+            return false
+          }
+        }, videos, i)
+        if(selectorCheck){
+          await context.click(`img[src='${videos[i]}']`);
+          // await context.click('#tabItem_ogt_3_0 > button.css-snmyc5.e65zztl0[type="button"] > div.css-38q71r > div.css-5ix92y.e65zztl0 > div.css-16g8jcx.e65zztl0 > div.css-10aokas.e65zztl0 > div.css-1u6gbn2.e65zztl0 > svg.css-1a5s7yv.e65zztl0');
+            console.log(`img[src='${videos[i]}']`)
+            console.log('finished click');
+            // Clicking a link caused a page reload, this function waits for the page to finish loading.
+            // await context.waitForPage();
+          await new Promise(resolve => setTimeout(resolve, 5000));
+            console.log('finished waiting for page');
+              const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
+          //    const req = await context.searchForRequest('/productimages/*');
           if(req){
             reqAccept = req[0].requestHeaders.Accept;
           }
+        }
       }
     }
 
@@ -103,7 +114,6 @@ module.exports = {
     
     const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl, acceptHeader) {
       let srcArray = [];
-      debugger
       async function fetchRetry(url, n) {
         function handleErrors(response) {
           if (response.status === 200){

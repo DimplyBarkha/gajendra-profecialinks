@@ -6,6 +6,6 @@ module.exports = {
     prefix: null,
     country: 'US',
     store: 'sephora',
-    url: 'https://www.sephora.com/search?keyword={id}',
+    url: 'https://www.sephora.com/search?keyword={id}&pageSize=150#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"proxy":{"use_relay_proxy":false},"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true,"cookies":[]}[/!opt!]',
   },
 };
