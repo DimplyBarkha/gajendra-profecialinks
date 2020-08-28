@@ -31,6 +31,15 @@ const transform = (data, context) => {
       if (row.aggregateRating2) {
         row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace('-', '.') }];
       }
+      if (row.id) {
+        if (row.id[0].text.match('.html')) {
+          const item = row.id[0];
+          item.text = item.text.match(/(?<=-)(.*?)(?=\.)/gm) ? item.text.match(/(?<=-)(.*?)(?=\.)/gm)[0] : '';
+          item.text = item.text.length ? (item.text.match(/[^-]+$/gm) ? item.text.match(/[^-]+$/gm)[0] : '') : '';
+          row.id = [{ text: item.text }];
+        }
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
