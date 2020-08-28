@@ -76,7 +76,7 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'UPC')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text() | //table[contains(@id,"product-specification-table")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text()|//li//span[contains(text(), "UPC")]/following-sibling::span
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., 'Item model number')]/following-sibling::td[1]/text()
+    xpath: (//div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., 'Item model number')]/following-sibling::td[1]/text()|//li//span[contains(text(), "Item model number")]/following-sibling::span)[1]
   - name: mpc
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(),'odel')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(text(),"odel")]/following-sibling::td[1]/text() | //div[contains(@id,"prodDetails")]//*[contains(text(),"odel")]/following-sibling::td[1]/text() | //table[@id="product-specification-table"]//th[contains(text(),  "Manufacturer") and contains(text(), "Number")]/following-sibling::td/text()
