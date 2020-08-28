@@ -1,0 +1,223 @@
+input:
+  _url: http://coolblue.nl
+  URL: https://www.coolblue.nl/product/866382
+extractions:
+  - html: https://workbench.import.io/html/run=bd4f1fc5-1cc7-4624-8e57-e66292bef86b/task=31a4e538-caf6-4424-988c-a488c34dda28/71f3b191-04d4-47e2-ab1e-c4bab6280c78.html
+    extractionConfigId: product/details/stores/c/coolblue/NL/extract
+    data:
+      - group:
+          - image:
+              - text: https://image.coolblue.nl/max/500x500/products/1462323
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V11 Absolute Extra + Dyson Extension Hose Main Image
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            category:
+              - text: Coolblue.nl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[1]
+            nameExtended:
+              - text: Dyson V11 Absolute Extra + Dyson Extension Hose
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            description:
+              - text: >-
+                  Dyson V11 Absolute Extra
+                   Met de Dyson V11 Absolute Extra heb je een krachtige draadloze steelstofzuiger in huis. Met een hoge zuigkracht is deze Dyson goed geschikt voor een grondige reiniging van je woning. Je gebruikt deze Dyson tot 60 minuten achter elkaar zonder dat je de accu tussendoor oplaadt. De torque vloerzuigmond maakt dat deze Dyson voor elk vloertype geschikt is. Omdat de accu van de V11 verwisselbaar is, gebruik je deze V11 Absolute ook voor de grotere huishoudelijke taken. Via het LCD scherm heb je real-time informatie over de status van de machine en accuduur, maar krijg je ook foutmeldingen te zien. Als de opvangbak van 0,76 liter vol zit, gaat de zuigkracht niet verloren.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            additionalDescription:
+              - text: >-
+                  Dyson V11 Absolute Extra
+                   Met de Dyson V11 Absolute Extra heb je een krachtige draadloze steelstofzuiger in huis. Met een hoge zuigkracht is deze Dyson goed geschikt voor een grondige reiniging van je woning. Je gebruikt deze Dyson tot 60 minuten achter elkaar zonder dat je de accu tussendoor oplaadt. De torque vloerzuigmond maakt dat deze Dyson voor elk vloertype geschikt is. Omdat de accu van de V11 verwisselbaar is, gebruik je deze V11 Absolute ook voor de grotere huishoudelijke taken. Via het LCD scherm heb je real-time informatie over de status van de machine en accuduur, maar krijg je ook foutmeldingen te zien. Als de opvangbak van 0,76 liter vol zit, gaat de zuigkracht niet verloren.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            weightNet:
+              - text: 3,09 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[1]/dd[1]
+            weightGross:
+              - text: 3,09 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[1]/dd[1]
+            sku:
+              - text: "866382"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            mpc:
+              - text: "866382"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            ratingCount:
+              - text: "328"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+                type: NUMBER
+                raw: "328"
+                locale: nl_NL
+                value: 328
+            aggregateRatingText:
+              - text: "9.0"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/div[1]/a[1]/div[1]/span[1]/meter[1]/@value
+            color:
+              - text: Blauw
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[7]/dd[1]
+            name:
+              - text: Dyson V11 Absolute Extra + Dyson Extension Hose
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            specifications:
+              - text: |-
+                  Gewicht 
+                   
+                   3,09 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[1]
+              - text: |-
+                  Materiaal 
+                   
+                   Kunststof, Metaal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[2]
+              - text: |-
+                  Materiaal wielen 
+                   
+                   n.v.t.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[3]
+              - text: |-
+                  Breedte 
+                   
+                   26,1 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[4]
+              - text: |-
+                  Diepte 
+                   
+                   25 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[5]
+              - text: |-
+                  Hoogte 
+                   
+                   126,8 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[6]
+              - text: |-
+                  Kleur 
+                   
+                   Blauw
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[7]
+            firstVariant:
+              - text: "866382"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            materials:
+              - text: Kunststof, Metaal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[2]/dd[1]
+            alternateImages:
+              - text: https://image.coolblue.nl/max/2048x1536/products/1411231
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1411867
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1413182
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410472
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1411868
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1464270
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410495
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1411869
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410506
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410505
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410507
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410497
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1411870
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410503
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410504
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[16]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1411872
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[17]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1411871
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[18]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410498
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[19]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410501
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[20]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1410500
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[21]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404463
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[22]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404464
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[23]/div[1]/img[1]/@data-src
+            subCategory:
+              - text: Stofzuigen
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[2]
+              - text: Stofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[3]
+              - text: Dyson stofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[4]
+              - text: Dyson steelstofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[5]
+              - text: |-
+                  Dyson V11
+                   Dyson V11
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[6]
+              - text: V11 Absolute Extra+ Dyson Extension Hose
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[7]
+            listPrice:
+              - text: 698,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/span[1]
+            price:
+              - text: 680,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/button[1]
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/button[1]
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            additionalDescriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/script[1]
+            variantId:
+              - text: "8585461735416746"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            variantCount:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: nl_NL
+                value: 4
+            secondaryImageTotal:
+              - text: "22"
+                type: NUMBER
+                raw: "22"
+                locale: nl_NL
+                value: 22
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[2]/a[1]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/footer[1]/div[3]/ul[1]/li[3]/div[1]/a[1]
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1598613525155

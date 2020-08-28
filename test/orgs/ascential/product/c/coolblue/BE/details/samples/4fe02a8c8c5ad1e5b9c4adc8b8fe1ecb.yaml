@@ -1,0 +1,137 @@
+input:
+  _url: http://coolblue.be
+  URL: https://www.coolblue.be/en/product/811915/dyson-pure-cool-tower-wit-2018.html
+extractions:
+  - html: https://workbench.import.io/html/run=f0f0c26a-3d22-4ee3-a8ed-d66b1847f06b/task=30a40833-b8c0-48b8-9c86-0c6e271c17bb/88cd8712-5ec9-4990-bbde-4851572447a7.html
+    extractionConfigId: product/details/stores/c/coolblue/BE/extract
+    data:
+      - group:
+          - image:
+              - text: https://image.coolblue.be/max/500x500/products/1445268
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Cool Tower Wit - 2018 Main Image
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            category:
+              - text: Coolblue.be
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[1]
+            nameExtended:
+              - text: Dyson Pure Cool Tower Wit - 2018
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            sku:
+              - text: "811915"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            mpc:
+              - text: "811915"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            ratingCount:
+              - text: "195"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+                type: NUMBER
+                raw: "195"
+                locale: en_US
+                value: 195
+            aggregateRatingText:
+              - text: "8.7"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/div[1]/a[1]/div[1]/span[1]/meter[1]/@value
+            name:
+              - text: Dyson Pure Cool Tower Wit - 2018
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            firstVariant:
+              - text: "811915"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            alternateImages:
+              - text: https://image.coolblue.be/max/2048x1536/products/1030630
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://image.coolblue.be/max/2048x1536/products/1030631
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1440620
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1450570
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1029694
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1464274
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1030629
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1030628
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1030637
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1030638
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/img[1]/@data-src
+            subCategory:
+              - text: Climate control
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[2]
+              - text: Air purifiers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[3]
+              - text: |-
+                  Dyson Pure Cool air purifiers
+                   Dyson Pure Cool air purifiers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[4]
+              - text: Pure Cool Tower Wit - 2018
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[5]
+            listPrice:
+              - text: 599,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/span[1]
+            price:
+              - text: 549,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/button[1]
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/button[1]
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en_US
+                value: 0
+            additionalDescriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en_US
+                value: 0
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/script[1]
+            variantId:
+              - text: "458722265594367"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            variantCount:
+              - text: "8"
+                type: NUMBER
+                raw: "8"
+                locale: en_US
+                value: 8
+            secondaryImageTotal:
+              - text: "10"
+                type: NUMBER
+                raw: "10"
+                locale: en_US
+                value: 10
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[2]/a[1]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/footer[1]/div[3]/ul[1]/li[3]/div[1]/a[1]
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1598619048330
