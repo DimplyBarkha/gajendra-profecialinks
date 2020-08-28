@@ -45,6 +45,11 @@ const transform = (data) => {
           weightNetItem.text = cleanUp(weightNetItem.text);
         });
       }
+      if (row.price) {
+        row.price.forEach((priceItem) => {
+          priceItem.text = priceItem.text.replace(/'/gm, ',').replace(/(.*)\..*/gm, '$1');
+        });
+      }
       if (row.sku) {
         row.sku.forEach((skuItem) => {
           skuItem.text = skuItem.text.replace(/[^\d]/gm, '');

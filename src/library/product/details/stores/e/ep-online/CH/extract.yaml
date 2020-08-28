@@ -20,7 +20,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //ul[@class="breadcrumb-list"]//li[@class="breadcrumb-link"] | //ul[@class="breadcrumb-list"]//li[@class="active breadcrumb-link"]
+    xpath: //ul[@class="breadcrumb-list"]//li[@class="breadcrumb-link"]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -46,7 +46,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //*[@id="details-tab"]
+    xpath: //div[@id="added-description"]
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
@@ -133,6 +133,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    xpath: //div[@id="added-manufacturerDesc"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -474,7 +475,7 @@ fields:
     example: 4 - 99 years
   - name: energyEfficiency
     singleValue: false
-    xpath: //div[@class="product-details-right"]//a[@class="content-overlay-link product-details-energy-label LEVEL3"]//font//font
+    xpath: (//a[contains(@data-content-id, "energy-efficiency")])[1]
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
