@@ -1,0 +1,109 @@
+input:
+  _url: http://electronic4you.at
+  URL: https://www.electronic4you.at/dyson-corrale-nickel-fuchsia-188337.html
+extractions:
+  - html: https://workbench.import.io/html/run=416ed287-8d82-4df9-900d-2d5b320ef5a8/task=4f78bfee-d395-4534-b8d9-60f0d3a39c94/dc1f6d0c-7b5a-4c18-8476-95075fbacf60.html
+    extractionConfigId: product/details/stores/e/electronic4you/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/478x/040ec09b1e35df139433887a97daa66f/1/8/188337.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/p[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Corrale nickel/fuchsia
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/p[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/188337-2.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/188337-3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/188337-4.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/188337-5.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/188337-6.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/188337-7.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/188337-8.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/188337-9.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/a[1]/@href
+            metaKeywords:
+              - text: DYSON CORRALE NICKEL/FUCHSIA
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Startseite
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Dyson Corrale nickel/fuchsia
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[2]/span[1]
+            nameExtended:
+              - text: Dyson Corrale nickel/fuchsia Haarglätter 322952-01
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            listPrice:
+              - text: € 499,–
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: € 499,–
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/head[1]/meta[16]/@content
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/meta[17]/@content
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[6]/div[1]/div[1]/div[1]/span[1]/img[1]/@alt
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[6]/div[1]/div[1]/input[1]/@value
+            gtin:
+              - text: "5025155046289"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "188337"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[2]/span[2]
+            mpc:
+              - text: 322952-01
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[1]
+            videos:
+              - text: https://www.youtube-nocookie.com/embed/D_0LhQD5WSQ?rel=0&autoplay=1
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            name:
+              - text: Dyson Corrale nickel/fuchsia Haarglätter 322952-01
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            description:
+              - text: "200 WattTemperaturstufen: 165, 185, 210 °COLED-DisplayMit und ohne Kabel
+                  verwendbar, Biegsame Heizplatte, Heizplatte aus
+                  Mangan-Kupfer-Legierung EAN-Code 5025155046289 max. Leistung
+                  200 Watt Anzahl der Heizstufen 3 Stufen Hersteller
+                  Artikelnummer 322952-01 Hersteller DYSON "
+            descriptionBullets:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            shippingInfo:
+              - text: "Sofort lieferbar Lieferfrist: 1-3 Werktage+ Versand € 0,00"
+            manufacturerDescription:
+              - text: " 2 Jahre Dyson GarantieDie Garantiezeit beginnt mit dem Tag des
+                  Verkaufes. Für Ihren Dyson Kundendienstanspruch benötigt Dyson
+                  den Original-Kaufbeleg auf dem das Kaufdatum ersichtlich ist,
+                  sowie die Seriennummer des Gerätes, welche Sie dem Typenschild
+                  entnehmen können. Dyson garantiert jedem Kunden eine
+                  Vollgarantie inklusive kostenlosen Abhol- und Lieferservice,
+                  soweit sich in dem entsprechenden Land eine Dyson
+                  Niederlassung befindet.Garantiezeiten: Bodenstaubsauger 5
+                  Jahre Kabellose Staubsauger 2 Jahre Raumklimageräte 2 Jahre
+                  Haarpflege 2 Jahre Leuchten 2 Jahre Zubehör & Ersatzteile 1
+                  Jahr Kauf auf RechnungNeben den Bezahloptionen
+                  eps-Überweisung, PayPal, Bezahlung per Kreditkarte usw., haben
+                  Sie die Möglichkeit, bequem per Rechnung zu zahlen. Nach
+                  Erhalt der Rechnung haben Sie 14 Tage Zeit diese zu
+                  begleichen.Die Zusendung der Rechnung erfolgt per E-Mail
+                  sobald die bestellte Ware versendet oder in einem unserer
+                  Shops abgeholt wurde."
+        xpath: /
+    timestamp: 1598610534471

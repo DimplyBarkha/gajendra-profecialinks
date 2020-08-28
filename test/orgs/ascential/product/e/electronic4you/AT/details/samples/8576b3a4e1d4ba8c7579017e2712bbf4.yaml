@@ -1,0 +1,188 @@
+input:
+  _url: http://electronic4you.at
+  URL: https://www.electronic4you.at/dyson-airblade-quiet-v-hu02-weiss-170710.html
+extractions:
+  - html: https://workbench.import.io/html/run=8159e8ad-a688-4ba4-abf3-6d607ca50726/task=cc2cac19-8505-410f-911b-3b5c374abc68/3e5ad13c-95d3-4ae6-9d0d-6da595e6f482.html
+    extractionConfigId: product/details/stores/e/electronic4you/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/478x/040ec09b1e35df139433887a97daa66f/1/7/170710.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/p[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Airblade Quiet V HU02 weiß
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/p[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/170710-2.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/170710-3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/170710-4.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/170710-5.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/170710-6.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/170710-7.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/a[1]/@href
+            metaKeywords:
+              - text: DYSON AIRBLADE QUIET V HU02 WEIß
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Startseite
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Dyson Airblade Quiet V HU02 weiß
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[2]/span[1]
+            nameExtended:
+              - text: Dyson Airblade Quiet V HU02 weiß Händetrockner
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            listPrice:
+              - text: € 899,–
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/p[1]/span[2]/span[1]
+            price:
+              - text: € 739,–
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/p[2]/span[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/head[1]/meta[16]/@content
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/meta[17]/@content
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[6]/div[1]/div[1]/div[1]/span[1]/img[1]/@alt
+            gtin:
+              - text: "5025155025710"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "170710"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[2]/span[2]
+            mpc:
+              - text: 307169-01
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            manufacturerImages:
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_01.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_02.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_03.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_04.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_05.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_06.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_07.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_08.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_09.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_10.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_11.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_12.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[10]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_13.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[10]/div[3]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_14.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[12]/div[3]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_15.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[12]/div[5]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_16.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_v_17.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_icon_schnell.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[17]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_icon_hygiene.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[17]/div[3]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_icon_euro.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[17]/div[4]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_icon_umwelt.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[17]/div[5]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_icon_5_jahre_garantie.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[17]/div[6]/img[1]/@src
+            name:
+              - text: Dyson Airblade Quiet V HU02 weiß Händetrockner
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            description:
+              - text: "Hochgeschwindigkeitsluftströme trocknen die Hände in 12 Sekunden.Der
+                  HEPA-Filter entfernt mehr als 99,9 % der Bakterien aus der
+                  Luft, bevor diese auf die Hände trifft.Ein antibakterieller
+                  Zusatz in der Farbe kann dabei helfen, Bakterienwachstum
+                  vorzubeugen.5 jahre Garantie auf alle Teile und 1 Jahr
+                  Garantie auf die Arbeitsleistung. EAN-Code 5025155025710
+                  Hersteller Artikelnummer 307169-01 Hersteller DYSON "
+            descriptionBullets:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            shippingInfo:
+              - text: "Sofort lieferbar Lieferfrist: 1-3 Werktage+ Versand € 0,00"
+            manufacturerDescription:
+              - text: Aerodynamisches MotorpaketDas neue Design des Ventilatorrads und des
+                  Diffusors ermöglicht einen akustisch optimierten
+                  Luftstrom.Präzise AustrittsöffnungenDie Verringerung der
+                  Schlitzbreite von 0,8 mm auf 0,55 mm ermöglicht ein
+                  niedrigeres Betriebsgeräusch bei gleichzeitiger
+                  Aufrechterhaltung des Luftstroms.Neu programmierter Dyson
+                  Digitaler Motor V4Durch die präzise Einstellung auf 1.000 W
+                  Leistung wird weniger Luft durch das Gerät geführt und somit
+                  die durch Turbulenzen verursachte Geräuschentwicklung
+                  verringert.Airblade™ Technologie ist anders. Pro Sekunde
+                  werden bis zu 20 Liter HEPA-gefilterte Luft angesaugt, die
+                  durch die bis zu 0,5 mm schmale Austrittsöffnungen strömen.
+                  Dadurch entsteht ein Luftstrom mit einer Geschwindigkeit von
+                  690 km/h, der Hände in nur 12 Sekunden hygienisch trocknet.Die
+                  Noise Abatement Society hat die Dezibel-Werte und die Akustik
+                  des Dyson Airblade V Händetrockners geprüft, zugelassen und
+                  mit dem Quiet Mark ausgezeichnet.LauterAndere Händetrockner
+                  können laut, unhygienisch, langsam und sperrig sein.LeiserDer
+                  neue Dyson Airblade V Händetrockner ist leise, hygienisch,
+                  schnell und kompakt.Dyson Airblade™ Händetrockner sind
+                  standardmäßig mit HEPA-Filtern ausgestattet. So werden die
+                  Hände mit sauberer und nicht mit unreiner Luft getrocknet.Der
+                  Dyson Airblade V Händetrockner verfügt über zwei HEPA-Filter
+                  an den Seiten des Geräts. Jeder Filter entfernt 99,95 % aller
+                  Partikel in Bakteriengröße aus der Waschraumluft.Der Dyson
+                  Airblade V Händetrockner trocknet Hände in nur 12 Sekunden.
+                  Dadurch verbringen die Nutzer weniger Zeit im Waschraum und
+                  Stoßzeiten können besser bewältigt werden.Der Dyson Digitale
+                  Motor V4 rotiert bis zu dreimal schneller als herkömmliche
+                  Motoren. Dadurch erreicht er die Leistungsfähigkeit, die für
+                  die Airblade™ Technologie benötigt wird.31 €Betriebskostenpro
+                  Jahr157 €Betriebskostenpro Jahr1.460 €Betriebskostenpro
+                  JahrEntdecken Sie, wie viel Sie durch einen Wechsel zur
+                  Airblade™ Technologie sparen können.Erfahren Sie mehr über die
+                  Kosten.Dyson Airblade™ Händetrockner erzeugen bis zu 79%
+                  weniger CO2 als andere Händetrockner und bis zu 76% weniger
+                  als Papierhandtücher.****Die Berechnungen der CO2-Emissionen
+                  wurden mithilfe der GaBi Software von PE International
+                  angefertigt. Sie basieren auf einer 5-jährigen Einsatzzeit des
+                  Geräts. Die Trocknungszeit wurde mit der Dyson Testmethode 769
+                  gemessen, die auf NSF P335 basiert und als Richtwert 0,1 g
+                  Restfeuchtigkeit verwendet.Dank seiner leicht montierbaren
+                  Rückwandplatte kann der Dyson Airblade V Händetrockner einfach
+                  montiert und gewartet werden.Dank seines schlanken, kompakten
+                  Profils ragt er nur 10 cm über die Wand hinaus. Für mehr Platz
+                  in Waschräumen.Abmessungen Dyson Airblade V
+                  HändetrocknerWeitere Informationen zu den Geräteabmessungen,
+                  Stromanschlüssen und Unterlagen für Bauprojekte finden Sie in
+                  den Technischen Daten.Installation des Dyson Airblade V
+                  HändetrocknersWeitere Informationen zur Montagehöhe,
+                  Sicherheitsabständen und anderen wichtigen Angaben zur
+                  Installation finden Sie in den Technischen Daten.Nur Dyson
+                  Airblade™ Händetrockner verfügen über all diese
+                  Vorteile SchnellDie Hände werden in 10-12 Sekunden
+                  getrocknet.HygienischSerienmäßig mit HEPA-Filter
+                  ausgestattet.Geringere BetriebskostenBis zu 80 % günstiger als
+                  andere Händetrockner.Besser für die UmweltGeringere
+                  CO2-Emissionen, kein Papiermüll.5 Jahre GarantieAuf die
+                  Teile. 
+        xpath: /
+    timestamp: 1598622384397

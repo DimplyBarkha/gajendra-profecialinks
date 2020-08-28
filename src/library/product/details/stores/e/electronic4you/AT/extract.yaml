@@ -1,0 +1,159 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //img[@id="image-main"]/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //img[@id="image-main"]/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: (//a[contains(@class,"cloud-zoom-gallery")]/@href)[position() < last()]
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="breadcrumbs"]//span[not(contains(@class, 'sep'))]
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[@class="product-name"]/h1
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //div[contains(@class,"product-primary-column ")]//div[@class="price-box"]/p[not(contains(@class, 'special'))]//span[@class="price"][span[@class="decimal"]]|//span[@class="regular-price"]/span
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[contains(@class,"product-primary-column ")]//div[@class="price-box"]/p[contains(@class, 'special')]//span[@class="price"][span[@class="decimal"]]|//span[@class="regular-price"]/span
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //meta[@property='product:availability'][@content='instock']/@content
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: concat(//div[@id='desc_bullets'], //div[@id='desc_techDetails'])
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    type: NUMBER
+    xpath: count(//div[@class="short-description"]//ul/li)
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //meta[@property="product:brand"]/@content
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //div[@id="product-manufacturer-move_view"]//img/@alt
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+    xpath: //th[text()='Gewicht in kg']/following-sibling::td
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //th[@class="label"][text()='EAN-Code']/following-sibling::td
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class="sku"]/span[@class='value']
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //th[@class="label"][text()='Hersteller Artikelnummer']/following-sibling::td
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    singleValue: true
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: true
+    description: Content under "directions" header
+  - name: warnings
+    singleValue: true
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    type: NUMBER
+    xpath: //span[@class="ts-stars-reviewCount"]
+    regExp: \((.+)\)
+    regExpReplace: $1
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //span[@class="ts-reviewSummary-ratingValue"]
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+    xpath: concat(//a[@title='Informationen zum Versand']/img/@alt, ' ', //div[contains(@class,"zblock-shipping_delivery_time")], //div[contains(@class,'product-primary-column')]//a[@title="Übersicht Versandkosten"])
+  - name: shippingDimensions
+    singleValue: true
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue: true
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    type: NUMBER
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+    xpath: concat(//div[@id='desc_manufacturer1'], //div[@id='desc_manufacturer2'])
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[@id="extended-description"]//img/@src|//div[@id="flix-inpage"]//img/@srcset
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //a[@class="fade-on-hover pu-trigger-responsive"]/@href
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class="product-name"]/h1
+  - name: inStorePrice
+    singleValue: true
+    description: Price in the selected store

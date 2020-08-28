@@ -1,0 +1,166 @@
+input:
+  _url: http://electronic4you.at
+  URL: https://www.electronic4you.at/dyson-airblade-9kj-184979.html
+extractions:
+  - html: https://workbench.import.io/html/run=8159e8ad-a688-4ba4-abf3-6d607ca50726/task=9a55aabf-2a2b-4165-af80-883cf42aa569/4cefbabf-f9dc-4f1f-b0e0-49d66442c2f2.html
+    extractionConfigId: product/details/stores/e/electronic4you/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/478x/040ec09b1e35df139433887a97daa66f/1/8/184979.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/p[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Airblade 9kJ
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/p[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/184979-2.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/184979-3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/184979-4.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/184979-5.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/184979-6.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/184979-7.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/8/184979-8.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/a[1]/@href
+            metaKeywords:
+              - text: DYSON AIRBLADE 9KJ
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Startseite
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Dyson Airblade 9kJ
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[2]/span[1]
+            nameExtended:
+              - text: Dyson Airblade 9kJ Händetrockner HU03
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            listPrice:
+              - text: € 1.319,–
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/p[1]/span[2]/span[1]
+            price:
+              - text: € 1.119,–
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/p[2]/span[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/head[1]/meta[16]/@content
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/meta[17]/@content
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[6]/div[1]/div[1]/div[1]/span[1]/img[1]/@alt
+            weightGross:
+              - text: 4,5 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[1]
+            gtin:
+              - text: "885609017686"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[1]
+            sku:
+              - text: "184979"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[2]/span[2]
+            mpc:
+              - text: 314696-01
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[8]/td[1]
+            manufacturerImages:
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_logo.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_01.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_02.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_03.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_04.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_05.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_06.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_07.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[2]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_08.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[3]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_09.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_10.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[8]/div[2]/img[1]/@src
+              - text: https://www.electronic4you.at/media/campaigns/dyson/dyson_airblade_9kj_11.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[9]/div[1]/img[1]/@src
+            name:
+              - text: Dyson Airblade 9kJ Händetrockner HU03
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            description:
+              - text: "Curved Blade™ DesignTrocknet hygienisch mit sauberer LuftUnser bislang
+                  leisester3 Dyson Airblade™ HändetrocknerSchnelles
+                  Händetrocknen in 10 Sekunden Geräteabmessungen (HxBxT) in cm
+                  12,9 x 52 x 61,6 cm Breite in cm 52 cm Höhe in cm 12,9 cm
+                  Tiefe in cm 61,6 cm Farbe edelstahl Gewicht in kg 4,5 kg
+                  EAN-Code 885609017686 Hersteller Artikelnummer 314696-01
+                  Hersteller DYSON "
+            descriptionBullets:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            shippingInfo:
+              - text: "Sofort lieferbar Lieferfrist: 1-3 Werktage+ Versand € 0,00"
+            manufacturerDescription:
+              - text: "Dyson Airblade™ 9kJ HändetrocknerDer schnellste und energiesparendste
+                  Händetrockner mit HEPA-Filter.1Energiesparend. Niedrige
+                  Betriebskosten.Der Dyson Airblade 9kJ Händetrockner verbraucht
+                  9,1 Kilojoule pro Anwendung und die Betriebskostet liegen bei
+                  nur 19 € pro Jahr2 bei Betrieb im
+                  Eco-Modus.Glasfaser-HEPA-Filter mit VliesschichtEntfernt 99,95
+                  % der Partikel4, einschließlich Bakterien und
+                  Viren.Verbesserte AkustikUnser leisester3 Dyson Airblade™
+                  Händetrockner verfügt über Geräuschdämpfer aus offenzelligem
+                  Schaumstoff und Lochscheiben. Dies führt zu einer geringeren
+                  Geräuschentwicklung, während die Luft durch den Motor
+                  strömt.Dyson Digitaler Motor V4Läuft mit 75.000 U/Min5 und
+                  sorgt für schnell und hygienisch getrocknete Hände.Curved
+                  Blade™ DesignZwei gekrümmte, 0,45 mm enge Schlitze erzeugen
+                  Luftströme von 624 km/h5, die den Konturen Ihrer Hände folgen
+                  und so Wasser schneller entfernen. Der passende Modus für
+                  Ihren WaschraumWählen Sie entweder den Max-Modus mit 900 W
+                  oder den Eco-Modus mit 650 W aus. Weniger PapierabfallDer
+                  Dyson Airblade™ 9kJ Händetrockner produziert bis zu 85 %
+                  weniger CO2 als Papierhandtücher6 und verursacht bis zu 99 %
+                  geringere Betriebskosten2. Für eine geringere Umweltbelastung
+                  innerhalb und außerhalb des Waschraums.Schnelles Händetrocknen
+                  in 10 SekundenUnser leistungsstarker Motor läuft mit 75.000
+                  U/Min und bewegt 23 Liter Luft pro Sekunde – für trockene
+                  Hände in 10 Sekunden7 im Max-Modus.Curved Blade™ DesignZwei
+                  gekrümmte, 0,45 mm enge Schlitze erzeugen Luftströme mit
+                  Geschwindigkeiten von 624 km/h5, die den Konturen Ihrer Hände
+                  folgen und so Wasser schneller entfernen.Trocknet hygienisch
+                  mit sauberer LuftIm Gegensatz zu einigen anderen
+                  Händetrocknern verfügen Dyson Airblade™ Händetrockner über
+                  HEPA-Filter, die 99,95 % der Partikel4, einschließlich
+                  Bakterien und Viren, entfernen.Unser bislang leisester3 Dyson
+                  Airblade™ HändetrocknerVerbesserte Akustik für eine geringere
+                  Geräuschentwicklung in Waschräumen.Garantierte Qualität für
+                  Ihren Waschraum5 Jahre ErsatzteilgarantieErsatzteile, falls
+                  während des Garantiezeitraums etwas nicht
+                  funktioniert.1Trocknungszeit und Energieverbrauch im Max-Modus
+                  berechnet. Die Trocknungszeit wurde mithilfe der Dyson
+                  Testmethode 769 auf Grundlage von NSF P335 bis zu einer
+                  Restfeuchtigkeit von 0,1 g bestimmt.2Durchschnittlicher
+                  Strompreis 0,1€/kWh (Stand: Dezember 2018). Berechnen Sie Ihr
+                  Einsparpotenzial auf www.dyson.at/calcs.3Durchschnittliche
+                  Lautstärke (in Sone gemessen) verglichen mit Dyson Airblade™
+                  Händetrocknern.4Gemessen im Max-Modus.5Die Umweltauswirkungen
+                  von Elektrogeräten und Papierhandtüchern wurden vom Carbon
+                  Trust gemessen. Die Berechnungen wurden mit der Software
+                  Footprint Expert Pro auf Grundlage einer Produktnutzung über 5
+                  Jahre und mit gewichteten Durchschnitten der einzelnen
+                  Einsatzländer erstellt. Die Trocknungszeiten wurden mithilfe
+                  der Dyson Testmethode 769 getestet.6Die Trocknungszeit wurde
+                  mithilfe der Dyson Testmethode 769 auf Grundlage von NSF P335
+                  bis zu einer Restfeuchtigkeit von 0,1g bestimmt."
+        xpath: /
+    timestamp: 1598622385363
