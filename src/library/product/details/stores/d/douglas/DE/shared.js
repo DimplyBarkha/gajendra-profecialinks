@@ -20,6 +20,10 @@ const transform = (data) => {
         const productData = JSON.parse(productInfo.substring((productInfo.indexOf(referenceText) + referenceText.length), productInfo.indexOf('}') + 1));
         row.variantId[0].text = productData.product_id;
       }
+      if (row.color) {
+        const color = row.color[0].text;
+        row.color[0].text = color.substring(color.lastIndexOf('-')+1).trim();
+      }
     }
   }
 
@@ -33,7 +37,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     .trim();

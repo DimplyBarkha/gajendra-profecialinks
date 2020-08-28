@@ -49,14 +49,12 @@ fields:
   - name: secondaryImageTotal
     xpath: count(//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]/parent::div/parent::div/following-sibling::div//img/@src)
   - name: imageAlt
-    singleValue: true
-    xpath: //div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]//img/@alt
+    xpath: //div[contains(@class,'rd__product-details-gallery__container is-active')]//img/@alt
   - name: promotion
     singleValue: true
     xpath: //span[contains(@class,"rd__eye-catcher rd__eye-catcher--sale")]
   - name: listPrice
-    singleValue: true
-    xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__old-price")]
+    xpath: //div[contains(@class,'rd__product-details__options__price__item__amount__old-price')]
   - name: name
     singleValue: true
     xpath: //div[contains(@class,"rd__product-header__title__main")]
@@ -67,3 +65,17 @@ fields:
     xpath: //span[contains(@class,"rd__product-header__title__brandname")]//a[1]/@href | //span[@class='rd__product-header__title__brand']
     regExp: (.*)
     regExpReplace: https://www.douglas.de$1
+  - name: Image360Present
+    defaultValue: 'No'
+  - name: legalDisclaimer
+    xpath: //section[contains(@class, 'rd__text-legal--common')]
+  - name: additionDescBulletInfo
+    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
+  - name: variantCount
+    xpath: count(//div[@class='rd__blob rd__product-details__picker__list__item'])
+  - name: color
+    xpath: //span[contains(., 'Farbe')]
+  - name: variants
+    xpath: //div[@id='variantId']/@title
+  - name: firstVariant
+    xpath: //div[@id='variantId'][1]/@title
