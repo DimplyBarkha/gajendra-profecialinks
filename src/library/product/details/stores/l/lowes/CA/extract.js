@@ -16,6 +16,19 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    try {
+      await context.click('button[aria-label="Close"]');
+    } catch (error) {
+      console.log('No Pop up was present');
+    }
+    await context.evaluate(async function () {
+      await new Promise(resolve => setTimeout(resolve, 2814));
+      const element = document.getElementById('product-manufacturer-content');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        await new Promise(resolve => setTimeout(resolve, 2197));
+      }
+    });
     await context.evaluate(() => {
       function addEleToDoc (key, value) {
         const prodEle = document.createElement('div');
@@ -35,19 +48,15 @@ module.exports = {
       }
     });
     try {
-      await context.click('button[aria-label="Close"]');
+      await context.waitForXPath('//li[@id="manufacturer-content-jump"]');
+      await context.waitForXPath('//div[@id="product-manufacturer-content"]');
     } catch (error) {
-      console.log('No Pop up was present');
-    }
-    try {
-      await context.waitForSelector('div[id="product-manufacturer-content"]:nth-child(2)');
-    } catch (error) {
-      console.log('No manufacturer description was present.');
+      console.log('specifications noy loaded.');
     }
     try {
       await context.waitForXPath('//section[@class="product-specifications"]//table//tr');
     } catch (error) {
-      console.log('specifications noy loaded.');
+      console.log('specifications not loaded.');
     }
     return await context.extract(productDetails, { transform });
   },
