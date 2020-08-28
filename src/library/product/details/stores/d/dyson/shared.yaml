@@ -48,7 +48,7 @@ fields:
     regExp: (.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'basket')]//text()
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'asket')]//text()
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from

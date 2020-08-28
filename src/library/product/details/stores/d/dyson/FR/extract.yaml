@@ -1,4 +1,10 @@
-extends: ../shared
+extends: ../shared 
 fields:
-  - name: weightNet #localedependent
-    xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Poids')]]
+  - name: availabilityText
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'panier')]//text()
+  - name: weightNet
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Poids')]])[1]
+  - name: shippingInfo
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'ivraison ')]])[1]
+  - name: warranty
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arantie ')]])[1]
