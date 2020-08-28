@@ -25,7 +25,7 @@ const transform = (data) => {
           });
           row.description = [
             {
-              text: text.slice(0, -4),
+              text: text,
             },
           ];
         }
@@ -112,6 +112,9 @@ const transform = (data) => {
               item.text = 'metaTag';
             }
           });
+        }
+        if (row.alternateImages) {
+          row.alternateImages.shift();
         }
       }
     }

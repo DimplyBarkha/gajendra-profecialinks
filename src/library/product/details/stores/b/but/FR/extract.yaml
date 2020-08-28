@@ -23,8 +23,11 @@ fields:
     xpath: //script/@data-flix-ean
     singleValue: false
   - name: alternateImages
-    xpath: //div[@class="product-swiper"]/ul/li[contains(@class , 'simpleImage')]/img/@src
+    xpath: //div[@class="product-swiper"]/ul/li[contains(@class , 'simpleImage')]/img/@onclick
+    # xpath: //div[@class="product-swiper"]/ul/li[contains(@class , 'simpleImage')]/img/@src
     singleValue: false
+    regExp: selectImage\(\'(.*)\'\)
+    regExpReplace: $1 
   - name: videos
     # xpath: //div[@class="mfp-content"]/div[@class="mfp-iframe-scaler"]/iframe/@src
     xpath: //div[@id="videos"]
