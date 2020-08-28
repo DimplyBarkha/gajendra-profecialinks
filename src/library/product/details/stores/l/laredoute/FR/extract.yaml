@@ -1,0 +1,95 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'item active')]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'item active')]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'thumbnails-content')]/img/@src
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: nameExtended
+    singleValue: false
+    xpath: //h2[contains(@class,"pdp-title")]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, "info-price-total")]//span[@class="price"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'discount-info')]//span[@class='price-info line-through' and normalize-space(.)!='']
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+    xpath: //span[contains(@class,"bold delivery") and (normalize-space(.)!='')]
+  - name: brandText
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
+    regExp: brand":{"@type":"[^"]+","name":"([^"]+)
+    regExpReplace: $1
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-description-attr')]//span[contains(@class,'pdp-description-attr-value') and contains(text(), 'Taille')]
+  - name: sku
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: asin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: firstVariant
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: color
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"color")]
+    regExp: color":"([^"]+)
+    regExpReplace: $1
+  - name: largeImageCount
+    singleValue: false
+    xpath: //div[contains(@class,'thumbnails-content')]/img/@src
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id='mainProductDescription']//dscpdp | //div[@id='mainProductDescription']//colis
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id='mainProductDescription']//dscpdp
+  - name: description
+    singleValue: false
+    xpath: //div[@id="mainProductDescription"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"product-rating-note-sum")]
+  - name: name
+    singleValue: false
+    xpath: //h2[contains(@class,"pdp-title")]
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //span[contains(@class,"product-rating-note-value")]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //img[contains(@class,"additional-img")]//@src
+  - name: brandLink
+    singleValue: true
+    xpath: //div[contains(@class,"pdp-title-zone")]/div/a/@href
+    regExp: ([^()]+)
+    regExpReplace: https://www.laredoute.fr$1
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@id,'playerCedemo')]//video/@src
