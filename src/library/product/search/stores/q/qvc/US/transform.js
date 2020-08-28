@@ -34,24 +34,27 @@ const transform = (data, context) => {
         console.log(`${row.id[0].text} : ${row.name[0].text}`);
         row.id = [{ text: '' }];
       }
+      if (row.id) {
+        row.id.forEach(item => {
+          item.text = item.text.replace(/.*\.product\.(.*)\.html/, '$1');
+        });
+      }
       if (row.thumbnail) {
-        row.thumbnail.forEach(item => {
-          item.text = 'https:' + item.text;
+        row.thumbnail.forEach((item) => {
+          item.text = item.text.replace(/(.*)/, 'https:$1').replace('aemprodgallery', 'largeImage');
         });
       }
       if (row.reviewCount) {
-        row.reviewCount.forEach(item => {
-          item.text = item.text.replace(/\(/, '').replace(/\)/, '');
+        row.reviewCount.forEach((item) => {
+          item.text = item.text.replace(/\(([\d]+).*/, '$1');
         });
+        if (row.ratingCount) {
+          row.ratingCount = row.reviewCount;
+        }
       }
-      if (row.ratingCount) {
-        row.ratingCount.forEach(item => {
-          item.text = item.text.replace(/\(/, '').replace(/\)/, '');
-        });
-      }
-      if (row.id) {
-        row.id.forEach(item => {
-          // do something to fetch exact id
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach((item) => {
+          item.text = item.text.trim().split(' ') ? item.text.trim().split(' ')[0] : '';
         });
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {

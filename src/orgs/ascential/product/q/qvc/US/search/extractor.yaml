@@ -1,6 +1,14 @@
 robot: product/search
+proxy:
+  zone: USA
+  type: DATA_CENTER
 parameters:
   country: US
   domain: qvc.com
   store: qvc
   zipcode: ""
+meta:
+  branches:
+    dev:
+      extractor: 38d35264-49a5-4e97-9ac7-535fe89fe92b
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
