@@ -13,17 +13,13 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.target.com.au$1
   - name: reviewCount
-    xpath: //span[contains(@class,"bv-text-link")]
+    xpath: //div//p//span[contains(@class,"rating-num-reviews")]
     regExp: (\d+)
     regExpReplace: $1
   - name: thumbnail
     xpath: //@data-primary-image
     regExp: (.+)
     regExpReplace: https://www.target.com.au$1?impolicy=desktop_hero
-  - name: ratingCount
-    xpath: //div//p//span[contains(@class,"rating-num-reviews")]
-    regExp: (\d+)
-    regExpReplace: $1
   - name: aggregateRating2
     xpath: //div//p//span[contains(@class,"Ratings-stars")]
     regExp: (Rated )(.+)( out.+)
