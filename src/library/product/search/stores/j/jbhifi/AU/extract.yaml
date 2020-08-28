@@ -1,0 +1,54 @@
+Search:
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+    xpath: //*[@class="ais-stats--nb-results"]/strong
+    description: Search Term
+  - name: productUrl
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//a[@class="ais-details-a product-tile"]/@href
+    description: The URL for the product details page
+    regExp: (.+)
+    regExpReplace: https://www.jbhifi.com.au$1
+  - name: thumbnail
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//div[@class="product-tile__image--aspect-ratio"]/img/@src
+    regExp: '(^.+_)(.+\.)(.+)'
+    regExpReplace: $11920x1080.$3
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//h4[@class="ais-hit--title product-tile__title"]
+    description: The product name
+  - name: manufacturer
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//*[@class="product-preamble"]/img/@alt
+    description: Product Manufacturer
+  - name: aggregateRating
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//span[@class="review-rating"]
+    description: The stated aggregate rating
+  - name: ratingCount
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//span[@class="review-count"]
+    regExp: '\d+'
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//span[@class="review-count"]
+    regExp: '\d+'
+    description: The number of reviews
+  - name: price
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//span[@class="ais-hit--price price"]
+    description: The offered price for the product
+  - name: listPrice
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//s[@class="ais-hit--price-striked"]
+    description: The stated undiscounted price for the product
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//a[@class="ais-details-a product-tile"]/@data-product-sku
+    description: Unique id (within this extractor)
