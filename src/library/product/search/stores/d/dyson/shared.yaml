@@ -1,0 +1,96 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paid #missing
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+    defaultValue: Dyson
+    xpath: //div[@id='added_row']/@added_brand
+  - name: category #missing
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+  - name: productUrl 
+    singleValue: true
+    description: The URL for the product details page
+    xpath: //div[@id='added_row']/@added_productUrl
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //div[@id='added_row']/@added_thumbnail
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@id='added_row']/@added_name
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@id='added_row']/@added_sku
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+    xpath: //div[@id='added_row']/@added_mpc
+  - name: gtin #missing
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText #missing
+    singleValue: true
+    description: The stated aggregate rating
+  - name: ratingCount #missing
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount #missing
+    singleValue: true
+    description: The number of reviews
+  - name: price 
+    singleValue: true
+    description: The offered price for the product
+    xpath: //div[@id='added_row']/@added_price
+  - name: listPrice 
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //div[@id='added_row']/@added_listPrice
+  - name: manufacturer 
+    singleValue: true
+    description: Product manufacturer
+    defaultValue: Dyson
+  - name: soldBy
+    defaultValue: Dyson
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText #missing
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo #missing
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored #missing
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id 
+    singleValue: true
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //div[@id='added_row']/@added_nameExtended
+  - name: aggregateRating #missing
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER

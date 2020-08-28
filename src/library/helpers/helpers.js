@@ -90,13 +90,22 @@ module.exports.Helpers = class {
   }
 
   // Function which checks if the provided object of selectors is there then navigate and click
-  async checkAndReturnProp (selector, type, property) {
+  async checkAndReturnProp (selector, type, property, allMatches) {
     if (!this.checkSelector(selector, type)) return;
-    return await this.context.evaluate(({ selector, property, type }) => {
+    return await this.context.evaluate(({ selector, property, type, allMatches }) => {
       let elem;
-      if (type === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-      else if (type === 'css') elem = document.querySelector(selector);
-      return elem[property];
-    }, { selector, property, type });
+      if (type === 'xpath') {
+        if (allMatches) {
+          const nodeSet = document.evaluate(selector, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          elem = [];
+          for (let index = 0; index < nodeSet.snapshotLength; index++) {
+            const element = nodeSet.snapshotItem(index);
+            if (element) elem.push(property && element[property] ? element[property] : (element.nodeValue || element));
+          }
+        } else elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      } else if (type === 'css') elem = document.querySelector(selector);
+      console.log(elem)
+      return elem && elem[property] && elem[property].trim ? elem[property].trim() : (elem[property] || elem);
+    }, { selector, property, type, allMatches });
   }
 };

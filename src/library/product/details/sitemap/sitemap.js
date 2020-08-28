@@ -13,10 +13,12 @@ async function implementation (
   dependencies,
 ) {
   const { URL, url } = inputs;
+  const { domain } = parameters;
   const { execute, extract } = dependencies;
-  await execute({ url: url || URL });
+  const address = url || URL || `https://${domain.includes('wwww') ? domain : 'wwww.' + domain }/sitemap.xml`;
+  await execute({ url: address });
 
-  await extract({ url: url || URL });
+  await extract({ url: address });
 }
 
 module.exports = {

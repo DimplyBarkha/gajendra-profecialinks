@@ -1,7 +1,8 @@
 
 const { Helpers } = require('../../../../../helpers/helpers');
+const defaultproductPageSelector = "//main//div[@class='par parsys']//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
 
-module.exports.implementation = ({ productPageSelector }) => async function implementation (
+module.exports.implementation = ({ productPageSelector = defaultproductPageSelector } = {}) => async function implementation (
   inputs,
   parameters,
   context,
