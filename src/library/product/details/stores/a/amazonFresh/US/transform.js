@@ -475,6 +475,16 @@ const transform = (data, context) => {
             },
           ];
         }
+        if (row.shippingDimensions) {
+          if (row.shippingDimensions[0].text.includes(';')) {
+            row.shippingDimensions[0].text = row.shippingDimensions[0].text.split(';')[0];
+          }
+        }
+        if (row.shippingWeight) {
+          if (row.shippingWeight[0].text.includes(';')) {
+            row.shippingWeight[0].text = row.shippingWeight[0].text.split(';')[1];
+          }
+        }
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));
