@@ -1,0 +1,46 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'productGallery')]//div[contains(@class,'galleryItem')]
+fields:
+  - name: productUrl
+    singleValue: true
+    xpath: //a/@href
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'productImg')]//img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //p[@class='productDesc']
+    description: The product name
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class='productNumberOfReviews']
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //span[@class='productNumberOfReviews']
+    singleValue: false
+    description: The number of reviews
+  - name: price
+    singleValue: false
+    xpath: //span[@class='priceSell']
+    description: The offered price for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: id
+    singleValue: false
+    xpath: //a/@href
+    description: Unique id (within this extractor)
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class='stars']/@title
+    description: The stated aggregate rating normalized to be out of 5
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
