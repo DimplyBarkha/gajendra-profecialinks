@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'qvc',
-    nextLinkSelector: '.pagination li a',
+    nextLinkSelector: "li a:not([class='disabled']) img[class='nxtPage']",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: "div[class*='productGallery'] div[class*='galleryItem']",
