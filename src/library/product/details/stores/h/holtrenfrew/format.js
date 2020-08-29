@@ -39,14 +39,16 @@ const transform = (data) => {
       for (const row of group) {
         // Added code as brand is not available directly on the webpage
         if (row.descriptionBullets) {
-            const text = [];
-            text.push({ text: row.descriptionBullets.length });
-            row.descriptionBullets = text;
+          const text = [];
+          text.push({ text: row.descriptionBullets.length });
+          row.descriptionBullets = text;
         }
-        if(row.description) {            
-            row.description[0].text = row.description[0].text.replace(/(\n\s*){2,}/g, ' || ');            
-            row.description[0].text = cleanUp(row.description[0].text);
+        
+        if(row.description) {
+          row.description[0].text = row.description[0].text.replace(/(\n\s*)/g, ' || ');
+          row.description[0].text = cleanUp(row.description[0].text);
         }
+
         if(row.alternateImages) {
           row.alternateImages.splice(0, 1);
 
@@ -56,6 +58,7 @@ const transform = (data) => {
           text.push({ text: row.alternateImages.length });
           row.secondaryImageTotal = text;
         }
+        
         if(row.image) {
           row.image = row.image.map(prefixImageWithDomain);
         }
@@ -88,7 +91,7 @@ const transform = (data) => {
         }
 
         if ((row.name && row.brandText)) {
-          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text + ' - ' + row.variantId[0].text}];
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
         }
 
         if(row.firstVariant) {
