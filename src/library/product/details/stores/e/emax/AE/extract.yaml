@@ -1,0 +1,60 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"fotorama__stage__shaft fotorama__grab")]//img/@src
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'page-title')]/span
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__nav__shaft')]//img/@src
+  - name: largeImageCount
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__nav__shaft')]//img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'price-box price-final_price')]/span
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'product attribute overview')]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class,'product attribute overview')]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'product attribute description')]
+  - name: specifications
+    singleValue: true
+    xpath: //table[@id="product-attribute-specs-table"]
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,'options-list nested')]
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'product attribute sku')]/div[1]
+  - name: asin
+    singleValue: false
+    xpath: //div[contains(@class,'product attribute sku')]/div[1]
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class,'product attibute sku')]
+  - name: brandText
+    singleValue: false
+    xpath: //h1[contains(@class,'page-title')]/span
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'page-title')]/span
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'product attribute sku')]/div[1]
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,'keywords')]/@content
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+    xpath: //div[contains(@class,'modal-content')]//ul[contains(@class,'links')]
