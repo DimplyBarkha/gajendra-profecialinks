@@ -51,7 +51,7 @@ fields:
     xpath: //div[@id="wc-power-page"]//img/@src
   - name: videos
     singleValue: false
-    xpath: //div[@class="ProductDetail__productContent"]//iframe/@src | //video/@src
+    xpath: //div[@class="ProductDetail__productContent"]//iframe/@src | //div[starts-with(@id,'video_')]
   - name: name
     singleValue: false
     xpath: //div[@class="ProductMainSection__productName"]//span
@@ -68,7 +68,6 @@ fields:
     xpath: //tr[th[contains(@aria-label,"weight")]]/th[2]/@aria-label | //tr[th[contains(@aria-label,"weight")]]/td
   - name: shippingDimensions
     singleValue: false
-    # xpath: //tr[th[contains(@aria-label,"Dimensions")]]/th[2]/@aria-label | //tr[th[contains(@aria-label,"Dimensions")]]/td
   - name: gtin
     singleValue: false
     xpath: //div[@data-gtin]/@data-gtin
