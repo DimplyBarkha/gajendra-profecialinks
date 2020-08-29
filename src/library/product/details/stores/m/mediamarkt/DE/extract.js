@@ -94,6 +94,65 @@ module.exports = {
     }
 
     await context.evaluate(async function () {
+      const makeApiCall = async (url, options) => {
+        try {
+          console.log(`Making API call to => ${url}`);
+          if (!options) {
+            options = {
+              mode: 'no-cors',
+              credentials: 'same-origin',
+              headers: { 'Content-Type': 'application/json' },
+            };
+
+            return await (await fetch(url, options)).json();
+          }
+
+          return await (await fetch(url, options)).text();
+        } catch (err) {
+          console.log('Error while making API call.', err);
+        }
+      };
+
+      // const url = 'https://service.loadbee.com/ean/5025155028155/de_DE?css=default&template=default&button=default#[!opt!]{"type":"json"}[/!opt!]';
+
+      // await fetch(url, {
+      //   headers: {
+      //     // "accept": "*/*",
+      //     // "accept-language": "en-US,en;q=0.9",
+      //     // "sec-fetch-dest": "empty",
+      //     'sec-fetch-mode': 'cors',
+      //     // 'set-mode': 'cors',
+      //     // "sec-fetch-site": "same-origin",
+      //     // "x-requested-with": "XMLHttpRequest"
+      //   },
+      //   // "referrer": refURL,
+      //   // "referrerPolicy": "no-referrer-when-downgrade",
+      //   body: null,
+      //   method: 'GET',
+      //   mode: 'cors',
+      // }).then(response => {
+      //   console.log(response);
+      //   return response.text();
+      // })
+      //   .then(result => {
+      //     console.log('result');
+      //     console.log(result.length);
+      //     console.log(result);
+      //   })
+      //   .catch(error => console.log('error', error));
+      var requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+      };
+      
+      fetch("https://service.loadbee.com/ean/5025155028155/de_DE?css=default&template=default&button=default", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+      console.log('whoawhoa');
+      // let aplusResponse = await makeApiCall('https://service.loadbee.com/ean/5025155038390/de_DE?css=default&template=mediamarkt&button=default&data=%7B%22shop%22%3A%22www.mediamarkt.de%22%2C%22source%22%3A%22inpage%22%2C%22api%22%3A%22n8EupZUeGxWPnfPk3bLkHwdVywL48DEw%22%7D#[!opt!]{"type":"json"}[/!opt!]', {});
+      // console.log(aplusResponse);
+
       // console.log(document.querySelector('iframe#loadbeeTabContent').contentWindow.document.innerHTML);
       // console.log(document.querySelector('iframe#loadbeeTabContent').contentWindow.document);
       function getEleByXpath (xpath) {
@@ -103,7 +162,7 @@ module.exports = {
         return text;
       }
 
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -111,19 +170,17 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
-      
-
       let productID = getEleByXpath('(//span[contains(@class, "DetailsHeader__")]//span)[1]');
       productID = productID.replace('| Art.-Nr. ', '').replace(' | ', '').trim();
       const graphQLCall = `GraphqlProduct:${productID}`;
       console.log(window.__PRELOADED_STATE__);
       console.log(window.__PRELOADED_STATE__.apolloState);
-      console.log(graphQLCall)
+      console.log(graphQLCall);
       console.log(window.__PRELOADED_STATE__.apolloState[graphQLCall]);
-      if (window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.apolloState && window.__PRELOADED_STATE__.apolloState[graphQLCall] && window.__PRELOADED_STATE__.apolloState[graphQLCall]['ean']) {
+      if (window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.apolloState && window.__PRELOADED_STATE__.apolloState[graphQLCall] && window.__PRELOADED_STATE__.apolloState[graphQLCall].ean) {
         console.log(window.__PRELOADED_STATE__.apolloState[graphQLCall]);
-        const ean = window.__PRELOADED_STATE__.apolloState[graphQLCall]['ean'];
-        console.log(ean)
+        const ean = window.__PRELOADED_STATE__.apolloState[graphQLCall].ean;
+        console.log(ean);
         addHiddenDiv('ii_ean', ean);
       }
     });
