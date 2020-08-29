@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    xpath: //div[contains(@class,'productSlot')]/@data-product-code
+    singleValue: false
+  - name: name
+    xpath: //div[contains(@class,'productSlot')]//div[contains(@class,'productDescription')]//h4[contains(@class,'name')]/a/@title
+    singleValue: false
+  - name: producturl
+    xpath: //div[contains(@class,'productSlot')]//div[contains(@class,'productDescription')]//h4[contains(@class,'name')]/a/@href
+    singleValue: false
+    regExp: (https:\/\/www.bigw.com.au)?(.+)
+    regExpReplace: https://www.bigw.com.au$2
+  - name: manufacturer
+    xpath: //div[contains(@class,'productSlot')]//div[contains(@class,'productThumbnail')]//div[contains(@class,'image')]//div[contains(@class,'quickViewContainer')]//a/@data-product-brand
+    singleValue: false    
+  - name: thumbnail
+    xpath: //div[contains(@class,'productSlot')]//div[contains(@class,'productThumbnail')]//div[contains(@class,'image')]//div[contains(@class,'quickViewContainer')]//a[contains(@class,'gtmListerTitleTracking trackRichRelClickUrl')]/img/@src
+    singleValue: false
+    regExp: (https:\/\/www.bigw.com.au)?(.+)
+    regExpReplace: https://www.bigw.com.au$2
+  - name: price
+    xpath: //div[@class='quickViewContainer']/button/@data-product-price
+    singleValue: true 
+  - name: rankOrganic
+    xpath: //div[@class='quickViewContainer']/button/@data-product-position
+    singleValue: true 
+  - name: aggregateRating  
+    singleValue: true
+    defaultValue: '0'
+  - name: reviewCount  
+    singleValue: true
+    defaultValue: '0'
+  - name: ratingCount  
+    singleValue: true
+    defaultValue: '0'
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
