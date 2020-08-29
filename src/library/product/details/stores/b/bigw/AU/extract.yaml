@@ -1,12 +1,10 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: null
 fields:
   - name: image
     singleValue: true
     description: Alt text of the main product image
     xpath: //div[contains(@class,'img-thumbnail')]//a[contains(@class,'MagicZoomPlus')]//img/@src
+    regExp: (.+)
+    regExpReplace: https://bigw.com.au$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -14,17 +12,21 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,"productImageGallery")]//div[contains(@class,"zeroPad")]//div[contains(@class,"carousel slickBoxSlider slick-initialized slick-slider")]//div[contains(@class,"slick-list draggable")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide slick-cloned")]//div[contains(@class,"slick-slide slick-cloned")]//a/@href
+    xpath: //div[contains(@class,"productImageGallery")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide slick-cloned")]//a[contains(@class,"mZoomSlickThumb MagicThumb-swap")]/img/@src
+    regExp: (.+)
+    regExpReplace: https://bigw.com.au$1
   - name: metaKeywords
     singleValue: true
-    description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class="breadcrumb hidden-xs hidden-is nvt-bdsm"]//li[position()>1]/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[@class="productDescription"]//h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -32,29 +34,26 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //span[@class="priceClass"]
   - name: availabilityText
     singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    xpath: //div[contains(@class,'addCartSection')]//button[contains(@class,'btn-orange')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    singleValue: true
+    xpath: //div[contains(@class,'contentList')]//span[contains(@itemprop,'description')]
   - name: descriptionBullets
     singleValue: true
-    description: Number of ul > li tags in the description
+    xpath: count(//div[contains(@class,'contentList')]//ul//li)
     type: NUMBER
   - name: brandText
     singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //ul[(@class='unstyled dividedList')]//li//div[contains(.,'Brand')]/following-sibling::div
   - name: manufacturer
     singleValue: true
-    description: Product manufacturer
+    xpath: //ul[(@class='unstyled dividedList')]//li//div[contains(.,'Brand')]/following-sibling::div
   - name: quantity
     singleValue: true
     description: Quantity as described on the page

@@ -4,7 +4,7 @@ module.exports = {
     country: 'AU',
     store: 'bigw',
     domain: 'bigw.com.au',
-    loadedSelector: 'div.ajaxProductDetailsPanel',
+    loadedSelector: 'head',
     noResultsXPath: '//div[@class="error-page__content"]',
     zipcode: '',
   },
