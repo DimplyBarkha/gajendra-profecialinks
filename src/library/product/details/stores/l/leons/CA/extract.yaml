@@ -17,12 +17,15 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="availability-flex"]//h5[text()="Delivery"]/following-sibling::p[2]
+  - name: notAvailable
+    singleValue: false
+    xpath: //div[contains(@class, "item-not-available")]
   - name: brandText
     singleValue: false
     xpath: //div[@data-findify-filter="brand"]/@data-findify-filter-value
   - name: category
     singleValue: false
-    xpath: //div[@id="breadcrumbContent"]//a
+    xpath: //div[@id="breadcrumbContent"]//a[position() > 1 and not(position() > last())]
   - name: countryOfOrigin
     singleValue: false
     xpath: //span[@id="pdp-data-origin"]
@@ -73,10 +76,10 @@ fields:
     xpath: //span[contains(@class, "dimentions-container")]
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="availability-flex"]//h5[text()="Delivery"]/following-sibling::p[2]/span[contains(text(), "Shipping")]
+    # xpath: //div[@class="availability-flex"]//h5[text()="Delivery"]/following-sibling::p[2]/span[contains(text(), "Shipping")]
   - name: deliveryInfo
     singleValue: false
-    xpath: //p[contains(@class, "free-local-delivery ")]
+    # xpath: //p[contains(@class, "free-local-delivery ")]
   - name: shippingWeight
     singleValue: false
   - name: sku
@@ -101,3 +104,6 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //span[@id="pdp-data-weight"]
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //span[@id="pdp-data-product-details"]

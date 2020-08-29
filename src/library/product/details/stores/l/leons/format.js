@@ -6,6 +6,16 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
+      if (row.availabilityText) {
+        row.availabilityText[0].text = row.availabilityText[0].text.includes('Shipping after') ? 'In Stock.' : row.availabilityText[0].text
+      }
+      if (row.notAvailable) {
+        if (row.availabilityText) {
+          row.availabilityText[0].text = row.notAvailable[0].text
+        } else {
+          row.availabilityText = row.notAvailable
+        }
+      }
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo.forEach(item => {
           item.text = item.text.replace(/(.*)\n \nRead More/, '$1 | ').replace(/(.*):\n \n(.*)/g, '$1: || $2').replace(/\n \n/g, '\n').replace(/\n/g, ' || ')
@@ -31,11 +41,7 @@ const transform = (data) => {
           row.shippingDimensions = row.productDimensions
         }
       }
-      if (!row.shippingInfo) {
-        if (row.deliveryInfo && row.deliveryInfo[0].text.includes('Ship')) {
-          row.shippingInfo = row.deliveryInfo
-        }
-      }
+      row.variantCount = [{ text: 1 }]
       if (row.specifications) {
         let specText = row.specifications.reduce((specText = '', item) => {
           specText += item.text.includes('Dimensions') ? item.text.replace(/([a-zA-z]+)(\d+.?\d*)\"/g, '$1: $2" || ').replace(/(.*) \|/, '$1').trim() + ' || ' : item.text.replace(/\n/g, ' || ') + ' || '
@@ -44,10 +50,13 @@ const transform = (data) => {
 
         row.specifications = [{ text: specText.replace(/( \|\| )$/, '') }]
       }
-      if (!row.weightNet) {
-        if (row.weightNetDesck) {
-          row.weightNet = row.weightNetDesck
-        }
+      if (row.weightNetDesck) {
+        row.weightNet = row.weightNetDesck
+      }
+      if (row.productOtherInformation) {
+        row.productOtherInformation.forEach(item => {
+          item.text = item.text.replace(/\n \n/g, '\n').replace(/\n/g, ' || ').trim()
+        })
       }
     }
   }
