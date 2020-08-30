@@ -8,10 +8,7 @@ fields:
     xpath : //div[@id='product_image']
   - name: imageAlt
     singleValue: true
-    xpath: //meta[@name="twitter:title"]/@content
-  - name: imageAlt
-    singleValue: true
-    xpath: //meta[@name="twitter:title"]/@content   
+    xpath:  
   - name: alternateImages
     singleValue: true
     xpath: //div[@id="alternateImages"]
@@ -101,7 +98,7 @@ fields:
     xpath: //div[@id="aggregateRating"]
   - name: shippingInfo
     singleValue: true
-    xpath: //li[@data-promotion-type="shipping"]
+    xpath: 
   - name: shipping
     singleValue: true
     xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1]     
@@ -127,7 +124,7 @@ fields:
     xpath :  
   - name: manufacturerDescription
     singleValue: true
-    xpath :      
+    xpath : //div[@id="flix-dyson-inpage"]     
   - name: termsAndConditions
     singleValue: true
     xpath : 
@@ -161,7 +158,7 @@ fields:
     singleValue: true
     xpath:  
   - name : weightNet    
-    xpath : //dt[contains(text(),"Peso")]/following-sibling::dd[1]
+    xpath : //dt[contains(text(),"Diagonal de la pantalla")]/following-sibling::dd[1] | //dt[contains(text(),"Velocidad de centrifugado")]/following-sibling::dd[1]
   - name : weightGross    
     xpath :           
   - name: descriptionBullets
