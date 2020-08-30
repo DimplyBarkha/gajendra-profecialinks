@@ -2,7 +2,7 @@ robot: product/search
 parameters:
   country: ES
   domain: elcorteingles.es
-  store: elcorteingles_electronica
+  store: elcorteingles_perfumeria
   zipcode: ""
 proxy:
   zone: ZES
@@ -12,9 +12,4 @@ policy:
   priority: MEDIUM
   retryDelay: 60
   backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 99  
-meta:
-  branches:
-    stagging:
-      extractor: 5cf77048-6314-40c4-9f86-cf5e989f8749
-      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+  retryWithResidentialProxyAfter: 99

@@ -5,8 +5,14 @@ parameters:
   domain: elcorteingles.es
   store: elcorteingles_deportes
 proxy:
-  zone: ESP
-  type: RESIDENTIAL
+  zone: ZES
+  type: DATA_CENTER
+policy:
+  numberRetries: 1
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     elcorteingles_deportes_es_search:

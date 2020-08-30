@@ -6,6 +6,12 @@ parameters:
 proxy:
   zone: ZES
   type: DATA_CENTER
+policy:
+  numberRetries: 1
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     elcorteingles-es-search:
