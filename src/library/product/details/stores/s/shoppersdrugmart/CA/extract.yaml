@@ -33,9 +33,10 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //div[@id='product-detail-wrapper']//div[@class='item-product-price']/span[contains(@class,"strikethrough")]
   - name: price
     singleValue: false
-    xpath: //div[@id='product-detail-wrapper']//div[@class='item-product-price']
+    xpath: //div[@id='product-detail-wrapper']//div[@class='item-product-price']/span[last()]
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="error-msg out-of-stock"]
@@ -70,6 +71,7 @@ fields:
     xpath: 
   - name: gtin
     singleValue: false
+    xpath: //div[@class="swatches-group"]/ul/li[@class="active"]/a/@data-upc
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
