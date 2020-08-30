@@ -6,6 +6,9 @@ fields:
   - name: image
     singleValue: true
     xpath: //div[@id="primaryImage"]
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@id="primaryImageAlt"]
   - name: alternateImages
     singleValue: true
     xpath: //div[@id="alternateImages"]
@@ -60,9 +63,9 @@ fields:
   #- name: weightGross
   #  singleValue: true
   #  xpath: //div[@data-test="estimatedShipWeight"]
-  #- name: gtin
-  #  singleValue: true
-  #  xpath: //div[@id="upcInfo"]
+  - name: gtin
+    singleValue: true
+    xpath: //div[@id="gtin"]
   - name: sku
     singleValue: true
     xpath: //div[@id="sku"]

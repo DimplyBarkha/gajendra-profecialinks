@@ -35,7 +35,7 @@ async function implementation (
   //const DOMAIN = "https://www.euronics.de/xxl-muelheim-kaerlich/";
 
   //Neu-Ötting
-  //const DOMAIN = "https://www.euronics.de/ehg/";
+  const DOMAIN = "https://www.euronics.de/ehg/";
 
   const url = DOMAIN + 'search?sSearch=' + (inputs.keywords || inputs.Keywords) + '&n=100';
   await dependencies.goto({ url });

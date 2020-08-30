@@ -28,8 +28,9 @@ async function implementation (
     }
 
     if (document.querySelector('.owl-stage-outer')) {
-      const primaryImg = document.querySelector('.owl-stage-outer').querySelector('img').getAttribute('src');
-      addHiddenDiv('primaryImage', primaryImg);
+      const primaryImg = document.querySelector('.owl-stage-outer').querySelector('img');
+      addHiddenDiv('primaryImage', primaryImg.getAttribute('src'));
+      addHiddenDiv('primaryImageAlt', primaryImg.getAttribute('alt'));
     }
 
     if (document.querySelector('.productDetails__category')) {
@@ -127,6 +128,18 @@ async function implementation (
       let splitName = document.querySelector('.productDetails__name').innerText.split('-');
       addHiddenDiv('color', splitName[splitName.length - 1]);
     }
+
+    const splitUrl = window.location.href.split('/');
+    const sku = splitUrl[splitUrl.length - 2];
+    addHiddenDiv('sku', sku);
+
+    document.querySelectorAll('script').forEach(el => {
+      const match = el.innerHTML.match(/\[\'upcean\'\, \'[0-9]+\'\]/);
+      if (match && match.length) {
+        addHiddenDiv('gtin', match[0].replace(/\D/g, ""));
+      }
+      console.log('match', match);
+    })
 
     addHiddenDiv('terms', 'Yes');
     addHiddenDiv('privacy', 'Yes');
