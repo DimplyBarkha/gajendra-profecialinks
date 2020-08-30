@@ -152,16 +152,12 @@ fields:
     xpath :  
   - name: colorCode
     singleValue: true
- 
   - name: manufacturerDescription
     singleValue: true
-    
   - name: termsAndConditions
     singleValue: true
- 
   - name: additionalDescBulletInfo
     singleValue: true
-   
   - name: energyEfficiency
     singleValue: true
     xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
