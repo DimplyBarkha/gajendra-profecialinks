@@ -24,33 +24,14 @@ const transform = (data) => {
   
     for (const { group } of data) {
       for (const row of group) {
-
-        if (row.specifications) {
-          let text = '';
-          row.specifications.forEach(item => {
-            text += `${item.text} ||`;
+        if (row.manufacturerImages) {
+          row.manufacturerImages.forEach(item => {
+             if(item.text.includes("https:")){
+               item.text = item.text;
+             }else{
+              item.text = 'https:'+item.text;
+             }
           });
-          row.specifications = [
-            {
-              text: text.slice(0, -4),
-            },
-          ];
-        }
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text = item.text ? item.text.split(' ')[0] : '';
-          });
-        }
-        if (row.productOtherInformation) {
-          let text = '';
-          row.productOtherInformation.forEach(item => {
-            text += item.text.replace(/\n/g, ' ').trim();
-          });
-          row.productOtherInformation = [
-            {
-              text: text,
-            },
-          ];
         }
         if (row.availabilityText) {
           let text = '';
@@ -62,6 +43,32 @@ const transform = (data) => {
             }
             
           });
+        }
+        if (row.description) {
+          row.description.forEach(item => {
+             item.text = item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim();
+          });
+        }
+        if (row.brandText) {
+          row.brandText.forEach(item => {
+             item.text = item.text.split(' ')[0];
+          });
+        }
+        if (row.manufacturerDescription) {
+          row.manufacturerDescription.forEach(item => {
+             item.text = item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim();
+          });
+        }
+        if (row.specifications) {
+          let text = '';
+          row.specifications.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ':')} || `;
+          });
+          row.specifications = [
+            {
+              text: text,
+            },
+          ];
         }
       }
     }

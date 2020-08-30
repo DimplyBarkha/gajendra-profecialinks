@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'carrefouruae.com',
     timeout: 90000,
-    country: 'UAE',
+    country: 'AE',
     store: 'carrefouruae',
     zipcode: '',
   },

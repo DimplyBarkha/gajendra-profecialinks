@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'UAE',
+    country: 'AE',
     store: 'carrefouruae',
     domain: 'carrefouruae.com',
     loadedSelector: 'div[id="js-productHeader"]',

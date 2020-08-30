@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    country: 'UAE',
+    country: 'AE',
     domain: 'carrefouruae.com',
     store: 'carrefouruae',
     zipcode: '',

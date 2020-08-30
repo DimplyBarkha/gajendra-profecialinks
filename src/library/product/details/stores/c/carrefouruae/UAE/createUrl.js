@@ -5,7 +5,7 @@ module.exports = {
     domain: 'carrefouruae.com',
     prefix: null,
     url: null,
-    country: 'UAE',
+    country: 'AE',
     store: 'carrefouruae',
     zipcode: '',
   },

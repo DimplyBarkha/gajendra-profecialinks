@@ -3,7 +3,7 @@ const { transform } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'UAE',
+    country: 'AE',
     store: 'carrefouruae',
     transform,
     domain: 'carrefouruae.com',
@@ -25,7 +25,9 @@ module.exports = {
       document.body.appendChild(newDiv);
       }
       let shippingArr = [];
+      let warrantyArr = [];
       let shippingFinal;
+      let warrantyFinal;
       let shippingInfo = document.querySelectorAll('div.productinfo__header div.productinfo-misc__box');
       for (let index = 0; index < shippingInfo.length; index++) {
         // @ts-ignore
@@ -33,9 +35,14 @@ module.exports = {
         if((element.includes('Sold by'))){
           shippingArr.push(element)
         }
+        if((element.includes('warranty')) || (element.includes('Warranty'))){
+          warrantyArr.push(element);
+        }
       }
       shippingFinal = shippingArr.join(' ');
       addHiddenDiv('cc_shippingInfo',shippingFinal);
+      warrantyFinal = warrantyArr.join(' ');
+      addHiddenDiv('cc_warranty',warrantyFinal);
     });
     return await context.extract(productDetails, { transform });
   },
