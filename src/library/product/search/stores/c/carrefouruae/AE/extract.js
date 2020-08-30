@@ -2,7 +2,7 @@ const { transform } = require('../shared')
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'UAE',
+    country: 'AE',
     store: 'carrefouruae',
     transform,
     domain: 'carrefouruae.com',

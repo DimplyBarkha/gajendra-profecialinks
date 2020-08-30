@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'UAE',
+    country: 'AE',
     store: 'carrefouruae',
     nextLinkSelector: 'div[class="css-1hbp62g"] button',
     mutationSelector: null,
