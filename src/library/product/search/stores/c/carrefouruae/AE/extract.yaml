@@ -38,7 +38,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@data-testid="product-card-discount-price"] 
+    xpath: //div[@data-testid="product-card-discount-price"] | //div[@data-testid="product-card-original-price"]
   - name: quantity
     singleValue: false
     xpath: //p[contains(text(),"Size:")]
