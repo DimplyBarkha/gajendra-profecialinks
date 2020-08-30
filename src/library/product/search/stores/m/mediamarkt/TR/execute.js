@@ -5,9 +5,9 @@ module.exports = {
     country: 'TR',
     store: 'mediamarkt',
     domain: 'mediamarkt.tr',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.mediamarkt.tr/tr/search.html?query={searchTerms}&searchProfile=onlineshop&channel=mmtrtr',
+    loadedSelector: 'div.product-wrapper',
+    noResultsXPath: '//div[@id="search_no_result-top"]',
     zipcode: '',
   },
 };

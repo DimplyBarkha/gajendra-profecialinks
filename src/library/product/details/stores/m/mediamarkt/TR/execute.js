@@ -5,7 +5,7 @@ module.exports = {
     country: 'TR',
     store: 'mediamarkt',
     domain: 'mediamarkt.tr',
-    loadedSelector: null,
+    loadedSelector: 'div#product-wrapper',
     noResultsXPath: null,
     zipcode: '',
   },
