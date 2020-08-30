@@ -23,7 +23,6 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-
       // function to get the json data from the string
       function findJsonData(scriptSelector, startString, endString) {
         try {
@@ -31,8 +30,15 @@ module.exports = {
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           const scriptContent = element.textContent;
           const startIdx = scriptContent.indexOf(startString);
-          const endIdx = scriptContent.indexOf(endString);
-          let jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
+          let endIdx = scriptContent.indexOf(endString);
+          let jsonStr = "";
+          if (Number(endIdx) < 800) {
+            endString = ';window';
+            endIdx = scriptContent.indexOf(endString);
+            jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
+          } else {
+            jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
+          }
           jsonStr = jsonStr.trim();
           return JSON.parse(jsonStr);
         } catch (error) {
@@ -126,14 +132,6 @@ module.exports = {
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
 
-
-      try {
-
-      } catch (e) {
-        console.log("eror in video");
-      }
-
-
       // Check for the data and append to DOM
       if (dataObj) {
         if (dataObj[0].product) {
@@ -163,16 +161,21 @@ module.exports = {
           }
 
           // Check for List Price 
-          if (dataObj[0].product.price.o_price) {
-            addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
+          if (Number(dataObj[0].product.price.o_price) === Number(dataObj[0].product.price.f_price)) {
+            addElementToDocument('listPrice', "");
           } else {
-
-            if (dataObj[0].product.price.original) {
-              addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
+            if (dataObj[0].product.price.o_price) {
+              addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
             } else {
-              addElementToDocument('listPrice', "");
+
+              if (dataObj[0].product.price.original) {
+                addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
+              } else {
+                addElementToDocument('listPrice', "");
+              }
             }
           }
+
           // Check for  Price 
           if (dataObj[0].product.price.o_price) {
             addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ","));

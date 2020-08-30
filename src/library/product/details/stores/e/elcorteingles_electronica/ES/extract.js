@@ -30,8 +30,15 @@ module.exports = {
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           const scriptContent = element.textContent;
           const startIdx = scriptContent.indexOf(startString);
-          const endIdx = scriptContent.indexOf(endString);
-          let jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
+          let endIdx = scriptContent.indexOf(endString);
+          let jsonStr = "";
+          if (Number(endIdx) < 800) {
+            endString = ';window';
+            endIdx = scriptContent.indexOf(endString);
+            jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
+          } else {
+            jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
+          }
           jsonStr = jsonStr.trim();
           return JSON.parse(jsonStr);
         } catch (error) {
@@ -81,11 +88,10 @@ module.exports = {
       let productID = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).code_a.trim("") : "";
       let sku = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).variant.trim("") : "";
       let store_id = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).store_id.trim("") : "";
+      
       //API
       const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${store_id}&original_store=0`;
       let apiDataResponse = await makeApiCall(productsData, {});
-      console.log("Great")
-      console.log(JSON.parse(apiDataResponse), "chec")
       if (apiDataResponse) {
         if (JSON.parse(apiDataResponse)._product_model) {
           document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
@@ -142,15 +148,6 @@ module.exports = {
 
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
-
-
-      try {
-
-      } catch (e) {
-        console.log("eror in video");
-      }
-
-
       // Check for the data and append to DOM
       if (dataObj) {
         if (dataObj[0].product) {
@@ -180,21 +177,25 @@ module.exports = {
           }
 
           // Check for List Price 
-          if (dataObj[0].product.price.o_price) {
-            addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
+          if (Number(dataObj[0].product.price.o_price) === Number(dataObj[0].product.price.f_price)) {
+            addElementToDocument('listPrice', "");
           } else {
-
-            if (dataObj[0].product.price.original) {
-              addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
+            if (dataObj[0].product.price.o_price) {
+              addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
             } else {
-              addElementToDocument('listPrice', "");
+
+              if (dataObj[0].product.price.original) {
+                addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
+              } else {
+                addElementToDocument('listPrice', "");
+              }
             }
           }
+
           // Check for  Price 
           if (dataObj[0].product.price.o_price) {
             addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ","));
           } else {
-
             if (dataObj[0].product.price.final) {
               addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ","));
             } else {
