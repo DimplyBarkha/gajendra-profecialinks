@@ -40,6 +40,24 @@ const transform = (data, context) => {
     item.text = item.text ? 'https://www.conforama.ch' + item.text : '';
     }
     )}
+     
+    if (row.name) {
+        let brandTxt;
+        row.name.forEach(item => {
+        brandTxt = item.text.split(' ')[0];
+        })
+        if(row.brandText){
+            row.brandText.forEach(item => {
+                if(item.text.includes('Brand')){
+                    item.text = brandTxt;
+                }
+            })
+        }
+    }
+
+
+
+
     }
     }
     return data;
