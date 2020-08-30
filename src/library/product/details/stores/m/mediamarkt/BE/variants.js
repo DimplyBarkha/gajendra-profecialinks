@@ -1,11 +1,9 @@
-const { transform } = require('../transform');
 
 module.exports = {
-  implements: 'product/search/extract',
+  implements: 'product/details/variants',
   parameterValues: {
     country: 'BE',
     store: 'mediamarkt',
-    transform: transform,
     domain: 'mediamarkt.be',
     zipcode: '',
   },

@@ -5,9 +5,9 @@ module.exports = {
     country: 'BE',
     store: 'mediamarkt',
     domain: 'mediamarkt.be',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.mediamarkt.be/nl/search.html?query={searchTerms}&searchProfile=onlineshop&channel=mmbenl',
+    loadedSelector: 'div.product-wrapper',
+    noResultsXPath: '//div[@id="search_no_result-top"]',
     zipcode: '',
   },
 };
