@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0] | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"]
+recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul[contains(@class,"colors_list")]/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"]
 fields:
   - name: image
     singleValue: true
