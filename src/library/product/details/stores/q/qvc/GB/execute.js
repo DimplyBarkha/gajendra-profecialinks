@@ -5,7 +5,7 @@ module.exports = {
     country: 'GB',
     store: 'qvc',
     domain: 'qvcuk.com',
-    loadedSelector: null,
+    loadedSelector: "div[aria-label='Video player'] , div[class*='easyzoom--with-thumbnails']",
     noResultsXPath: null,
     zipcode: '',
   },
