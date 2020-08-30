@@ -56,7 +56,7 @@ module.exports = {
     }
 
     // try gettings some search results
-    const pageOne = await extract({});
+    const pageOne = await extract({ keywords });
 
     let collected = length(pageOne);
 
