@@ -60,6 +60,11 @@ const transform = (data, context) => {
           item.text = item.text.split(' ') ? item.text.split(' ')[0].replace('.', ',') : '';
         });
       }
+      if (row.price) {
+        row.price.forEach((item) => {
+          item.text = item.text.replace('.', ',');
+        });
+      }
     }
   }
   context.setState({ rankCounter });
