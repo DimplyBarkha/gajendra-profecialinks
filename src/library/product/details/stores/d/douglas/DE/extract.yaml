@@ -9,7 +9,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"rd__breadcrumbs__item rd__breadcrumbs__item--back")]//following-sibling::a
   - name: nameExtended
-    xpath: concat(//span[@class='rd__copytext rd__copytext--90'], ' ', //span[@class='rd__product-header__title__name'], ' ', //div[@class='rd__product-details__picker-dropdown__collapse-title'])
+    xpath: concat(//h1//span[@class='rd__copytext rd__copytext--90'], ' ', //span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'], ' ', //div[contains(@class,'rd__product-details__picker-dropdown__collapse-title' ) or contains(@class, 'rd__product-details__options__price__item__quantity')]/span)
   - name: price
     xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__new-price")]/span[1]
   - name: availabilityText
@@ -28,11 +28,17 @@ fields:
     xpath: //span[contains(@class,"rd__product-header__title__brandname")]//a[1] | //span[@class='rd__product-header__title__brand']
   - name: ratingCount
     xpath: //meta[@itemprop='reviewCount']/@content
+  - name: reviewCount
+    xpath: //meta[@itemprop='reviewCount']/@content
   - name: aggregateRating2
-    xpath: //div[@itemprop='ratingValue']
+    xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
+  - name: aggregateRatingText
+    xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
+  - name: aggregateRating
+    xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: quantity
     xpath: //div[@class='rd__product-details__options__price__item__quantity']/span[1]
-  - name: upc
+  - name: gtin
     xpath: //span[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: sku
     singleValue: true
@@ -56,7 +62,6 @@ fields:
   - name: listPrice
     xpath: //div[contains(@class,'rd__product-details__options__price__item__amount__old-price')]
   - name: name
-    singleValue: true
     xpath: //div[contains(@class,"rd__product-header__title__main")]
   - name: variantInformation
     xpath: //div[@class='rd__product-details__picker-dropdown__collapse-title']//span[contains(@class, 'rd__copytext rd__copytext')]
@@ -79,3 +84,7 @@ fields:
     xpath: //div[@id='variantId']/@title
   - name: firstVariant
     xpath: //div[@id='variantId'][1]/@title
+  - name: promotion
+    xpath: //div[@class='rd__product-details-gallery__sale-badge']//span[@class='rd__eye-catcher__text']
+  - name: video
+    xpath: //video/source[@type='video/mp4']/@src

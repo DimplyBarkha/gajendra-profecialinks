@@ -10,9 +10,9 @@ const transform = (data) => {
         const availabilityText = row.availabilityText[0].text.trim() === 'Leider ausverkauft' ? 'Out of stock' : row.availabilityText[0].text.trim() === 'Auf Lager' ? 'In Stock' : '';
         row.availabilityText[0].text = availabilityText;
       }
-      if (row.upc) {
-        const upcObj = JSON.parse(row.upc[0].text);
-        row.upc[0].text = upcObj.gtin13;
+      if (row.gtin) {
+        const upcObj = JSON.parse(row.gtin[0].text);
+        row.gtin[0].text = upcObj.gtin13;
       }
       if (row.variantId) {
         const productInfo = row.variantId[0].text;
@@ -20,9 +20,20 @@ const transform = (data) => {
         const productData = JSON.parse(productInfo.substring((productInfo.indexOf(referenceText) + referenceText.length), productInfo.indexOf('}') + 1));
         row.variantId[0].text = productData.product_id;
       }
+     
+      if (row.aggregateRating) {
+        const aggregateRating2 = row.aggregateRating[0].text;
+        const ratingValue = JSON.parse(aggregateRating2);
+        if (ratingValue && ratingValue.aggregateRating && ratingValue.aggregateRating.ratingValue !== null) {
+          row.aggregateRating[0].text = JSON.parse(aggregateRating2).aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',')
+        }else {
+          delete row.aggregateRating;
+        }
+      }
+
       if (row.color) {
         const color = row.color[0].text;
-        row.color[0].text = color.substring(color.lastIndexOf('-')+1).trim();
+        row.color[0].text = color.substring(color.lastIndexOf('-') + 1).trim();
       }
     }
   }

@@ -19,6 +19,12 @@ module.exports = {
           descUl.appendChild(spanEle);
         }
 
+        let videoXpath = "//div[contains(@class, 'slick-slider rd__product-details-gallery__thumbnails slick-initialized')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-cloned'))]//span[contains(@data-wt-content,'Video.www.douglas.de')]";
+        let videoEle = document.evaluate(videoXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+        if (videoEle) {
+          videoEle.click();
+        }
+
         function addHiddenDiv(id, content) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
