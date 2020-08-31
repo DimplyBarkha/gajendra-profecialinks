@@ -57,7 +57,7 @@ const transform = (data) => {
         row.warranty[0].text = row.warranty[0].text.replace(/\n/g, ' | ');
       }
       if (row.availabilityText) {
-        row.availabilityText[0].text = row.availabilityText[0].text ? 'In Stock' : 'Out of Stock';
+        row.availabilityText = row.availabilityText.length ? [{ text: 'In Stock' }] : [{ text: 'Out of Stock' }];
       }
     }
   }
