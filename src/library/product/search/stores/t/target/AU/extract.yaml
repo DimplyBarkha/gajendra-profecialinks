@@ -29,7 +29,7 @@ fields:
     regExp: "[^– ]+$"
   - name: gtin
     xpath: //@data-primary-image
-    regExp: (.*/)(.+)(\..+)
+    regExp: (.+/)(.\d+)(-|.)(.+)
     regExpReplace: $2
   - name: manufacturer
   - name: rankOrganic
