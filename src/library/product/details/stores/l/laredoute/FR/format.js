@@ -15,6 +15,10 @@ const transform = (data) => {
           row.alternateImages.shift();
         }
       }
+      if (row.color) {
+        var colorText = row.color[0].text.split(',');
+        row.color[0].text = colorText[0];
+      }
       if (row.largeImageCount) {
         row.largeImageCount = [
           {
@@ -32,17 +36,15 @@ const transform = (data) => {
         }
         let desc = (rawText.split('\n')).filter(ele => ele !== ' ');
         desc = (desc.filter(s => /^[^a-z]/i.test(s))).map((ele) => ele.substring(3));
-        row.additionalDescBulletInfo = [
-          {
-            text: '|| ' + (desc.join(' || ')),
-          },
-        ];
-      }
-      if (row.price) {
-        row.price[0].text = row.price[0].text.replace(',', '.');
+        var bullets = [];
+        desc.forEach(element => {
+          var obj = {};
+          obj.text = element;
+          bullets.push(obj);
+        });
+        row.additionalDescBulletInfo = bullets;
       }
       if (row.listPrice) {
-        row.listPrice[0].text = row.listPrice[0].text.replace(',', '.');
         if (row.listPrice[0].text === row.price[0].text) {
           delete row.listPrice;
         }
@@ -51,7 +53,7 @@ const transform = (data) => {
         row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.nameExtended[0].text + ' - ' + row.color[0].text;
       }
       if (row.descriptionBullets) {
-        row.descriptionBullets[0].text = (row.additionalDescBulletInfo[0].text.split('||').length - 1);
+        row.descriptionBullets[0].text = row.additionalDescBulletInfo.length;
       }
       if (row.description) {
         row.description[0].text = row.description[0].text.replace(/\n/g, '');
@@ -66,8 +68,51 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.aggregateRatingText) {
-        row.aggregateRatingText[0].text = row.aggregateRatingText[0].text.replace(',', '.');
+      if (row.variantAsins) {
+        let text = '';
+        if (row.variantAsins.length > 1) {
+          row.variantAsins.forEach(item => {
+            text += `${item.text} | `;
+          });
+          row.variantAsins = [
+            {
+              text: text.slice(0, -3),
+            },
+          ];
+        } else {
+          delete row.variantAsins;
+          delete row.variants;
+          delete row.variantInformation;
+          row.variantCount = [
+            {
+              text: 1,
+            },
+          ];
+        }
+      }
+      if (row.variants && row.variantAsins) {
+        row.variants = [{
+          text: row.variantAsins[0].text,
+        }];
+      }
+      if (row.variantAsins && row.variantCount) {
+        row.variantCount = [
+          {
+            text: (row.variantAsins[0].text.split('|')).length,
+          },
+        ];
+      }
+      if (row.variants && row.variantInformation) {
+        let text = '';
+        const colors = row.variantInformation[0].text.split(',');
+        colors.forEach(ele => {
+          text += 'color: ' + ele + ' | ';
+        });
+        row.variantInformation = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
       }
     }
   }

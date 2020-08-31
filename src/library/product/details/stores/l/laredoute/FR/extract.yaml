@@ -93,3 +93,17 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[contains(@id,'playerCedemo')]//video/@src
+  - name: variants
+    singleValue: false
+    xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
+  - name: variantAsins
+    singleValue: false
+    xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
+  - name: variantCount
+    singleValue: false
+    xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
+  - name: variantInformation
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"color")]
+    regExp: color":"([^"]+)
+    regExpReplace: $1
