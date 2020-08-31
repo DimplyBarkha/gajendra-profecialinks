@@ -47,9 +47,9 @@ const transform = (data, context) => {
             row.price.forEach(item => {
                 if(item.text.includes('ab')){
                  item.text = item.text.split('€')[0];
-                 item.text = item.text.split(' ')[1]
+                 item.text = item.text.split(' ')[1].trim();
                 }else{
-                  item.text = item.text.split('€ /')[0];
+                  item.text = item.text.split('€ /')[0].trim();
                 }
                 
             });
