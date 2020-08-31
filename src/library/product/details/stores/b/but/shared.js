@@ -41,9 +41,9 @@ const transform = (data) => {
           ];
         }
   
-        if (row.aggregateRatingText) {
-          row.aggregateRatingText.forEach(item => {
-            item.text = item.text ? item.text.replace('-', '.') : '';
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = item.text ? item.text.replace('-', ',') : '';
           });
         }
         if (row.availabilityText) {
