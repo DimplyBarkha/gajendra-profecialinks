@@ -5,8 +5,8 @@ module.exports = {
     country: 'SE',
     store: 'elgiganten',
     domain: 'elgiganten.se',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#site-wrapper',
+    noResultsXPath: '//h2[contains(text(),"Tyvärr kunde vi inte hitta någonting som matchade din sökning")]',
     zipcode: '',
   },
 };
