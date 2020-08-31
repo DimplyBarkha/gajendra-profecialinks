@@ -232,11 +232,18 @@ const transform = (data, context) => {
           } else {
             row.variantCount = [
               {
-                text: '',
+                text: '1',
               },
             ];
           }
+        } else {
+          row.variantCount = [
+            {
+              text: '1',
+            },
+          ];
         }
+
         if (row.variants) {
           const asins = [];
           row.variants.forEach(item => {

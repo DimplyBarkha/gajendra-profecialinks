@@ -399,7 +399,7 @@ fields:
     xpath: //tr[contains(@id, 'almDetailPagePrice_buying_price')]//span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     singleValue: false
-    xpath: (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li
+    xpath: (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price"]
     # xpath: //div[contains(@id, "promotions_feature_div")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "promotions_feature_div")]//div[contains(@class, "content")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
