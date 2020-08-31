@@ -1,0 +1,62 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="category-products"]/ul/li
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[@class="product-image"]/@href
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //a[@class="product-image"]/img/@src
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: manufacturer
+    description: Product manufacturer
+    xpath: //div[@class="product-manufacturer"]//img/@alt
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+  - name: brandText
+    description: The brand name
+    example: Panasonic
+    xpath: //div[@class="product-manufacturer"]//img/@alt
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //p[@class="product-name"]/a/@title
+  - name: name
+    description: The product name
+    xpath: //p[@class="product-name"]/a/@title
+  - name: price
+    description: The offered price for the product
+    xpath: //span[@class='regular-price']/span[contains(@class,'price')] | 
+      //p[@class="special-price"]//span[contains(@class,"price")][span[@class="symbol"]]
+  - name: shippingInfo
+    description: Shipping information for the product
+    xpath: //div[@id="shippingInfo"]
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+  - name: ratingCount
+    description: The number of ratings
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: variantId
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    description: The manufacturer model code (unique) of the product
+  - name: quantity
+    description: Quantity as described on the page
+  - name: packSize
+    description: The number of packs in the product offer (if stated separately on the site to quantity)
