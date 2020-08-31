@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'elcorteingles_electronica',
     domain: 'elcorteingles.es',
-    loadedSelector: 'a.product_detail-brand',
+    loadedSelector: 'div.js-sticky-control',
     noResultsXPath: '//div[contains(@class,"artwork image")]',
     zipcode: '',
   },
