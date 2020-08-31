@@ -31,7 +31,7 @@ module.exports = {
       return document.querySelectorAll('div[class*="_column"]').length;
     });
     let oldLength = 0;
-    while (length && length !== oldLength && length <= 10) {
+    while (length && length !== oldLength && length <= 150) {
       oldLength = length;
       await paginate();
       length = await context.evaluate(async function () {
