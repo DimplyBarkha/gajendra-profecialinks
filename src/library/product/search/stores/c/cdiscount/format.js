@@ -45,6 +45,7 @@ const transform = (data, context) => {
 
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(aggregateRating2Item => {
+          aggregateRating2Item.text = aggregateRating2Item.text.replace(/\./gm, ',');
           if (aggregateRating2Item.text === 0 || aggregateRating2Item.text === '0') {
             aggregateRating2Item.text = '';
           }
