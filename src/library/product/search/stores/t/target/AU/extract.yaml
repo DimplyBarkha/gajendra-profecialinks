@@ -25,8 +25,8 @@ fields:
     regExp: (Rated )(.+)( out.+)
     regExpReplace: $2
   - name: price
-    xpath: //div[contains(@class,"price-info")]//span[contains(@class,"price-regular")]
-    regExp: ^[^ –]+
+    xpath: //div[contains(@class,"price-info")]//span[contains(@class,"price-regular")]|//div[contains(@class,"price-info")]//span[contains(@class,"price-reduced")]
+    regExp: "[^– ]+$"
   - name: gtin
     xpath: //@data-primary-image
     regExp: (.*/)(.+)(\..+)
