@@ -1,14 +1,17 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,"product-item-info")]/parent::*[1]
 fields:
   - name: name
     singleValue: false
     xpath: //div[contains(@class,'product details product-item-details')]//a[contains(@class,'product-item-link')]
   - name: price
     singleValue: false
-    xpath: //ol[@class='products list items product-items']/li/@data-price
+    xpath: //span[contains(@data-price-type,'finalPrice')]//span[contains(@class,'price')]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@data-price-type,'oldPrice')]//span[contains(@class,'price')]
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,'rating-result')]/span
