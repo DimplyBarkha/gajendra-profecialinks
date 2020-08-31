@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'elgiganten',
     domain: 'elgiganten.se',
-    url: 'https://www.elgiganten.se/search?SearchTerm={searchTerm}&search=&searchResultTab=',
+    url: 'https://www.elgiganten.se/search?SearchTerm={searchTerms}&search=&searchResultTab=',
     loadedSelector: 'div.mini-product',
     noResultsXPath: '//h2[contains(text(),"Tyvärr kunde vi inte hitta någonting som matchade din sökning")]',
     zipcode: '',

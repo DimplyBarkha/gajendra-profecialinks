@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: 'div.mini-product'
-recordXPath: '//div[@class="mini-product"]'
+recordSelector: div[data-index]
+recordXPath: //div[@data-index]
 fields: 
   - name: id
     singleValue: false
     manualSelector: div.sku
   - name: price
     singleValue: false
-    xpath: //div[@class="product-price"]/font
+    xpath: //div[@class="row-price"]
   - name: name
     singleValue: false
     xpath: //span[contains(@class,"table-cell")]
@@ -17,12 +17,10 @@ fields:
     xpath: //div[contains(@class,"mini-product-content")]/div/a/@href
   - name: thumbnail
     singleValue: false
-    manualSelector: a.product-image-link
+    xpath: //a[@class="product-image-link"]/img/@src
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="product-ratings"]//div[@class="product-ratings__avarage"]
-    regExp: (^[^\s]+)\s.*
-    regExpReplace: $1 
   - name: searchUrl
     singleValue: false
     xpath: 
