@@ -1,0 +1,173 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //img[contains(@class,'current-main-product')]/@src
+    regExp: (.+)
+    regExpReplace: https://www.appliancesonline.com.au$1
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[contains(@class,'current-main-product')]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-thumbnail-slider')]//div[contains(@class,'wrapper')]//li[contains(@class,'ng-star-inserted')]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.appliancesonline.com.au$1
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class, 'breadcrumb-list')]//li[position()>1 and position()<last()]
+  - name: nameExtended
+    singleValue: true
+    xpath: //aol-product-title//h1[contains(@class,"responsive")]
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath:
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,"aol-product-price")]
+  - name: availabilityText
+    xpath: //aol-add-to-cart-button//button[contains(@class,'button-green')]
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'product-description-full-width')]
+  - name: descriptionBullets
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[contains(@class, 'specification-item')]/aol-product-specifications-attribute-row)
+  - name: brandText
+    singleValue: true
+    xpath: //*[@class="specifications-panel ng-star-inserted"]//aol-product-specifications-attribute-row//a
+  - name: manufacturer
+    singleValue: true
+    xpath: //*[@class="specifications-panel ng-star-inserted"]//aol-product-specifications-attribute-row//a
+  - name: quantity
+    singleValue: true
+    xpath: //*[@class="swatch-text current ng-star-inserted"]//span
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: true
+    xpath: //span[contains(text(), 'Weight (kg)')]/following::div[1]
+  - name: weightGross
+    singleValue: true
+    xpath: //span[contains(text(), 'Package Weight (kg)')]/following::div[1]
+  - name: gtin
+    singleValue: true
+    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  - name: sku
+    singleValue: true
+    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  - name: variantId
+    singleValue: true
+    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  - name: mpc
+    singleValue: true
+    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  - name: packSize
+    singleValue: true
+    xpath: //span[contains(text(), 'Accessories included')]/following::div[1]
+  - name: productUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"w-video-wrapper")]/video/@src
+  - name: name
+    singleValue: true
+    xpath: //aol-product-title[contains(@class,"title")]/h1[contains(@class,"responsive")]/text()
+  - name: secondaryImageTotal
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[contains(@class,'product-thumbnail-slider')]//div[contains(@class,'wrapper')]//li[contains(@class,'ng-star-inserted')]/img/@src)
+  - name: specifications
+    singleValue: true
+    xpath: //span[contains(text(), 'Package Dimensions (H x W x D)')]/following::div[1]
+  - name: warranty
+    singleValue: true
+    xpath: //span[contains(text(), 'Manufacturer Warranty')]/following::div[1]
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //span[contains(text(), 'Package Dimensions (H x W x D)')]/following::div[1]
+  - name: shippingWeight
+    singleValue: true
+    xpath: //span[contains(text(), 'Package Weight (kg)')]/following::div[1]
+  - name: recyclingInformation
+    singleValue: true
+    xpath: //div[contains(@class, 'default-delivery ng-star-inserted')]/span
+  - name: variantCount
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[contains(@class, 'variant-title')]/following::div[contains(@class,'swatch')]/a)
+  - name: productOtherInformation
+    singleValue: true
+    xpath: //span[contains(text(), 'Features')]/following::div[1]
+  - name: color
+    singleValue: false
+    xpath: //span[contains(text(), 'Finish Colour')]/following::div[1]
+  - name: packaging
+    singleValue: false
+    xpath: //span[contains(text(), 'Package Dimensions (H x W x D)')]/following::div[1]
+  - name: promotion
+    singleValue: true
+    xpath: //aol-product-price-details[contains(@class,'cart-panel__details')]//div[contains(@class,'__discount')]/descendant::text()
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[contains(@class, 'review-count')]
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //span[contains(text(), 'Origin')]/following::div[1]
+  - name: energyEfficiency
+    singleValue: true
+    xpath: //span[contains(text(), 'Energy Star Rating')]/following::div[1]
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //span[contains(text(), 'Features')]/following::div[1]
+  - name: technicalInformationPdfPresent
+    xpath: //ul//li[contains(@class,'manual-item ng-star-inserted')]
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: Image360Present
+    xpath: boolean(//li//div[contains(@class,'svg-icon-360')])
+    singleValue: true
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //img[contains(@class,'feature-image')]/@src
+    regExp: (.+)
+    regExpReplace: https://www.appliancesonline.com.au$1
+  - name: upc
+    singleValue: true
+    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  - name: eangtin
+    singleValue: true
+    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  - name: listPrice
+    singleValue: true
+    xpath: //aol-product-price-details[contains(@class,'cart-panel__details')]//div[contains(@class,'__discount')]//span[contains(@class,'__discount-desc')]/descendant::text()
+  - name: colorCode
+    singleValue: true
+    xpath: //a[contains(@class,'swatch-color current')]/span/@style
+  - name: newDescription
+    singleValue: true
+    xpath: //div[contains(@class,'features')]
+  - name: lbbPrice
+    singleValue: true
+    xpath: 
+  - name: firstVariant
+    singleValue: false
+    xpath: //span[contains(text(), 'Finish Colour')]/following::div[1]
+  - name: variants
+    singleValue: false
+    xpath:
