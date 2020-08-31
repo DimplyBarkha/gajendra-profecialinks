@@ -5,7 +5,8 @@ recordXPath: null
 fields:
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock'] | //*/form/following-sibling::div[@class="stock-container"]//div[@class="stock"]
+    # xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock'] | //*/form/following-sibling::div[@class="stock-container"]//div[@class="stock"]
+    xpath: //div[@id="fl_availabilityText"]
   - name: shippingInfo
     singleValue: false
     # xpath: //div[@class='shipping-description'] | //div[@class='delivery-container']
@@ -19,9 +20,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"product-image-slider__slide slick-slide slick-current")]/img/@src
-  # - name: imageAlt
-  #   singleValue: false
-  #   xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"product-image-slider__slide slick-slide slick-current")]/img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[@id='image-container']//div[contains(@class,'product-image-slider__slide') and contains(@class,'slick-slide') and not(contains(@class,'slick-active')) and not(contains(@class,'product-video'))]/img/@data-lazy
@@ -37,7 +38,7 @@ fields:
   - name: directions
     singleValue: false
     xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"]
-  - name: aggregateRatingText
+  - name: aggregateRating
     singleValue: false
     xpath: //div[@class="standalone-bottomline"]//span[@class='sr-only']
     regExp: (.*) star
@@ -45,15 +46,15 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //span[contains(@class, "reviews-qa-label")]
-    regExp: (.*) Bewertungen
+    regExp: (.*) Bewertung
     regExpReplace: $1
   - name: description
     singleValue: false
     xpath: //div[@id="bb_descriptionBullets"]
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@id="bb_descriptionBulletsCount"]
-    # xpath: count(//div[contains(@class,"product-description")]//ul//li)
+    # xpath: //div[@id="bb_descriptionBulletsCount"]
+    xpath: count(//div[contains(@class,"product-description")]//ul//li)
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,'product-brand-logo')]/a/meta[@itemprop="name"]/@content
@@ -91,6 +92,8 @@ fields:
   - name: colorCode
     singleValue: false
     xpath: //span[@id='makeup-color-select']
+    regExp: (.*) -
+    regExpReplace: $1
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="product-content-block"]
@@ -110,16 +113,20 @@ fields:
 
   - name: gtin
     singleValue: false
-    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/meta[@itemprop="gtin13"]/@content | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/meta[@itemprop="gtin13"]/@content
+    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/meta[@itemprop="gtin13"]/@content | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/meta[@itemprop="gtin13"]/@content
+    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/meta[@itemprop="gtin13"]/@content | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/meta[@itemprop="gtin13"]/@content | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/meta[@itemprop="gtin13"]/@content | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/meta[@itemprop="gtin13"]/@content | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/meta[@itemprop="gtin13"]/@content
   - name: sku
     singleValue: false
-    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
+    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
+    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku 
   - name: variantId
     singleValue: false
-    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
+    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
+    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku 
   - name: asin
     singleValue: false
-    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
+    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
+    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku 
   - name: firstVariant
     singleValue: false
     xpath: //ul[@id="makeup-color-list"]/li[1]/a/@data-sku | //ul[@class="product-list multiple-variants"]/li[1]/@data-sku

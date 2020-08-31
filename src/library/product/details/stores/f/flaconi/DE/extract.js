@@ -63,6 +63,16 @@ async function implementation (
   const { transform } = parameters;
   // @ts-ignore
   const { productDetails } = dependencies;
+  try {
+    await context.waitForSelector('div[class="uc-banner-content"]');
+    await context.evaluate(async () => {
+      let acceptCookie = document.querySelector('#uc-btn-accept-banner')
+      // @ts-ignore
+      acceptCookie = acceptCookie ? acceptCookie.click() : '';
+    })
+  } catch (error) {
+    console.log('error: ', error);  
+  }
   await context.evaluate(async (parentInput) => {
 
     function addElementToDocument (key, value) {
@@ -72,19 +82,77 @@ async function implementation (
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
-   let description = document.querySelector("div[class='description-content']");
+   let url = window.location.href;
+   let sku = url ? url.split('=') : '';
+   let length = sku.length;
+   if(length > 1){
+    sku = sku[length -1];
+   }
+   let ulVariants = document.querySelectorAll('ul.product-list.multiple-variants li');
+   if(ulVariants){
+    for (let index = 0; index < ulVariants.length; index++) {
+      const element = ulVariants[index];
+      // @ts-ignore
+      let datasetSku = ulVariants[index].dataset.sku;
+      console.log('datasetSku: ', datasetSku);
+      if(sku === datasetSku){
+        console.log('sku: ', sku);
+        // element.classList.add("selected");
+        // @ts-ignore
+        element.click();
+      }
+    }
+   }
+   
+   let addToCartBtn = document.querySelectorAll('button');
+   let availability = 'Out of Stock';
+   for (let index = 0; index < addToCartBtn.length; index++) {
+     const element = addToCartBtn[index].innerText;
+     // @ts-ignore
+     let datasetSku = addToCartBtn[index].dataset.productSku;
+     if(sku === datasetSku){
+      if((element.includes('In den Warenkorb') || (element.includes('in den warenkorb')))){
+        availability = 'In Stock'
+      }
+     } 
+   }
+   addElementToDocument('fl_availabilityText', availability);
+   //---------------------------------------------
+  //  let description = document.querySelector("div[class='description-content']");
+  //   // @ts-ignore
+  //   description = description ? description.innerText : '';
+  //   let descArr = [];
+  //   // @ts-ignore
+  //   if(description !== ''){
+  //     descArr.push(description);
+  //   }
+  //   // let bulletsDescription = document.querySelectorAll("div.product-description ul li");
+  //   let bulletsDescription = document.querySelectorAll("ul.product-properties-list li");
+  //   console.log('bulletsDescription: ', bulletsDescription);
+  //   let bulletCount = bulletsDescription.length;
+  //   addElementToDocument('bb_descriptionBulletsCount', bulletCount);
+  //   for (let index = 0; index < bulletsDescription.length; index++) {
+  //     let element = bulletsDescription[index];
+  //     // @ts-ignore
+  //     element = element ? element.innerText.replace(/(\s*[\r\n]\s*)+/g, ' ') : '';
+  //     descArr.push(element);
+  //   }
+  //   // @ts-ignore
+  //   descArr = descArr.join(' || ');
+  //   addElementToDocument('bb_descriptionBullets', descArr);
+    //---------------------------------------------
+     let description = document.querySelector("div[class='description-content']");
     // @ts-ignore
-    description = description ? description.innerText : '';
+    description = description ? description.innerHTML : '';
     let descArr = [];
     // @ts-ignore
     if(description !== ''){
+      // @ts-ignore
+      description = description ? description.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/\s{2,}/, ' ').trim() : '';
       descArr.push(description);
     }
     // let bulletsDescription = document.querySelectorAll("div.product-description ul li");
     let bulletsDescription = document.querySelectorAll("ul.product-properties-list li");
-    console.log('bulletsDescription: ', bulletsDescription);
-    let bulletCount = bulletsDescription.length;
-    addElementToDocument('bb_descriptionBulletsCount', bulletCount);
     for (let index = 0; index < bulletsDescription.length; index++) {
       let element = bulletsDescription[index];
       // @ts-ignore
@@ -94,6 +162,8 @@ async function implementation (
     // @ts-ignore
     descArr = descArr.join(' || ');
     addElementToDocument('bb_descriptionBullets', descArr);
+
+    //------------------------------------------
     let variantAmount = document.querySelector('ul.product-list.multiple-variants li.product-container.variant span.amount');
     // @ts-ignore
     variantAmount = variantAmount ? variantAmount.innerText : '';
