@@ -71,6 +71,7 @@ async function implementation (
       el.querySelectorAll('.icon--star-half').forEach(() => {
         rating += .5;
       });
+      addHiddenDiv(el, 'itemId', el.getAttribute('data-ordernumber'));
       addHiddenDiv(el, 'rating', rating);
       addHiddenDiv(el, 'rank', ind + 1);
     });
