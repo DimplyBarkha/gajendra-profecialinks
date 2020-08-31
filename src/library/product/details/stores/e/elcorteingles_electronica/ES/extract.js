@@ -85,34 +85,39 @@ module.exports = {
 
       let productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json'
       let passKey = "caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ";
-      let productID = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).code_a.trim("") : "";
-      let sku = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).variant.trim("") : "";
-      let store_id = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).store_id.trim("") : "";
-      
-      //API
-      const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${store_id}&original_store=0`;
-      let apiDataResponse = await makeApiCall(productsData, {});
-      if (apiDataResponse) {
-        if (JSON.parse(apiDataResponse)._product_model) {
-          document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
-        }
-        addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-        addElementToDocument('sku', JSON.parse(apiDataResponse).id);
-        addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
-        addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
+      let availablity = findJsonObj("", productAvailablity);
 
+      let productID = JSON.parse(availablity.snapshotItem(0).value).code_a ? JSON.parse(availablity.snapshotItem(0).value).code_a.trim("") : "";
+      let sku = JSON.parse(availablity.snapshotItem(0).value).variant ? JSON.parse(availablity.snapshotItem(0).value).variant.trim("") : "";
+      let store_id = JSON.parse(availablity.snapshotItem(0).value).store_id ? JSON.parse(availablity.snapshotItem(0).value).store_id.trim("") : "";
+
+      if (productID) {
+        //API
+        const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${store_id}&original_store=0`;
+        let apiDataResponse = await makeApiCall(productsData, {});
+
+        if (apiDataResponse) {
+          if (JSON.parse(apiDataResponse)._product_model) {
+            document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
+          }
+          addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
+          addElementToDocument('sku', JSON.parse(apiDataResponse).id);
+          addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
+          addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
+        }
       }
 
+      if (productID) {
+        // Number of reviews and rating
+        const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
+        let apiReviewResponse = await makeApiCall(reviewData, {});
+        let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
+        let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
+          : "";
+        addElementToDocument('ratingCount', responseRatingCount);
+        addElementToDocument('aggregateRating', responseReviewRating);
 
-      // Number of reviews and rating
-      const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
-      let apiReviewResponse = await makeApiCall(reviewData, {});
-      let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
-      let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
-        : "";
-      addElementToDocument('ratingCount', responseRatingCount);
-      addElementToDocument('aggregateRating', responseReviewRating);
-
+      }
 
       const imageData = findJsonObj('image');
       // Check for the data and append to DOM
@@ -223,10 +228,18 @@ module.exports = {
 
       // Specifications
       let specifcations = [];
-      document.querySelectorAll('#tab-content-0 > div > dl > div').forEach(e => {
-        specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} || `)
-      });
-      addElementToDocument('specifications', specifcations);
+      let specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
+      if (specXpath.length > 1) {
+        specXpath.forEach(e => {
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} || `)
+        });
+        addElementToDocument('specifications', specifcations);
+      } else {
+        specXpath.forEach(e => {
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')}`)
+        });
+        addElementToDocument('specifications', specifcations);
+      }
 
 
 
