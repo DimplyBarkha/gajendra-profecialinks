@@ -1,5 +1,5 @@
 
-module.exports.Helpers = class {
+class Helpers {
   constructor (context) {
     this.context = context;
   }
@@ -108,4 +108,5 @@ module.exports.Helpers = class {
       return elem && elem[property] && elem[property].trim ? elem[property].trim() : (elem[property] || elem);
     }, { selector, property, type, allMatches });
   }
-};
+}
+module.exports = Helpers

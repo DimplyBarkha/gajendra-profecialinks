@@ -1,5 +1,4 @@
 
-const { Helpers } = require('../../../../../helpers/helpers');
 const defaultproductPageSelector = "//main//div[@class='par parsys']//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
 
 module.exports.implementation = ({ productPageSelector = defaultproductPageSelector } = {}) => async function implementation (
@@ -8,12 +7,12 @@ module.exports.implementation = ({ productPageSelector = defaultproductPageSelec
   context,
   dependencies,
 ) {
+  const { productDetails,Helpers } = dependencies;
   const helpers = new Helpers(context);
   // first check that the page is a valid product page
   const isValidProductPage = await helpers.checkXpathSelector(productPageSelector);
   if (!isValidProductPage && productPageSelector) return; // exit without extracting anything
 
-  const { productDetails } = dependencies;
   await context.evaluate(async () => {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');

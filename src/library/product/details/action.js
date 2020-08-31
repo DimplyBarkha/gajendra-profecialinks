@@ -13,7 +13,7 @@ async function implementation (
   dependencies,
 ) {
   const { URL, RPC, SKU } = inputs;
-  const { execute, extract } = dependencies;
+  const { execute, extract, Helpers } = dependencies;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
   await execute({ url, id, zipcode: parameters.zipcode });
@@ -70,6 +70,7 @@ module.exports = {
   dependencies: {
     execute: 'action:product/details/execute',
     extract: 'action:product/details/extract',
+    Helpers: 'module:helpers/helpers'
   },
   path: './details/stores/${store[0:1]}/${store}/${country}/details',
   implementation,
