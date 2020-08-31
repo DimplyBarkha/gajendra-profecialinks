@@ -1,0 +1,138 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //img[contains(@class,'slider-image')]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[contains(@class,'slider-image')]/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //span[contains(@class,'alternate_image_url')]
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content    
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class, 'breadcrumbs')]//ul[contains(@class, 'items')]//li[position()>1 and position()<last()]
+  - name: nameExtended
+    singleValue: true
+    xpath: //span[@data-ui-id="page-title-wrapper"]
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //span[@data-price-type="oldPrice"]//@data-price-amount
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //span[@data-price-type="finalPrice"]//@data-price-amount
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //button[@id="product-addtocart-button"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: In stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@itemprop="description"]
+  - name: brandText
+    singleValue: true
+    xpath: //div[contains(@class,'brand-logo')]//a//img/@alt
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //div[contains(@class,'brand-logo')]//a//img/@alt
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+    xpath: //table[@id="product-attribute-specs-table"]/tbody/tr[4]/td
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+    xpath: //*[@id="page-container"]/aol-product-page-container/aol-product-page/ul/li[3]/aol-product-page-content-middle/aol-product-navigation/div/aol-product-page-section[2]/section/div[3]/aol-product-specifications/div/div[2]/aol-specifications-panel[1]/div/aol-product-specifications-attribute-row[2]/div[2]
+  - name: gtin
+    singleValue: true    
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@itemprop="sku"]
+  - name: variantId
+    singleValue: true
+  - name: mpc
+    singleValue: true
+    xpath: //table[@id="product-attribute-specs-table"]/tbody/tr[3]/td
+  - name: packSize
+    singleValue: true
+  - name: productUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: videos
+    singleValue: false
+  - name: name
+    singleValue: true
+    xpath: //meta[@name="title"]/@content
+  - name: secondaryImageTotal
+    singleValue: true
+    type: NUMBER
+    xpath: count(//img[contains(@class,'thumb image')])
+  - name: specifications
+    singleValue: false
+    xpath: //table[@id="product-attribute-specs-table"]/tbody/tr
+    regExp: ^(?:.*?)(?:\s*–\s*|\s+)(.*?)(?:\s*–\s*|$)
+  - name: warranty
+    singleValue: true
+    description: Guarantee associated with the product
+    xpath: //table[contains(@class,'data table additional-attributes')][2]/tbody/tr/td
+  - name: recyclingInformation
+    singleValue: true
+    xpath: //div[@id="delivery.returns.tab"]
+  - name: variantCount
+    singleValue: true
+    type: NUMBER
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[contains(@class,'feature-data')]/ul/li
+  - name: color
+    singleValue: false 
+  - name: packaging
+    singleValue: false
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@class,'price-box price-final_price')]//span[contains(@class,'special-price')]
+  - name: ratingCount
+    singleValue: true
+    xpath: sum(//div[contains(@class,'bv-inline-histogram-ratings-bar')]//@data-bv-histogram-rating-count)
+  - name: countryOfOrigin
+    singleValue: true    
+  - name: energyEfficiency
+    singleValue: true
+    xpath: //p[contains(@class,'feature-icons')]//img//@src
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //table[contains(@class,'data table additional-attributes')]//tbody
+  - name: technicalInformationPdfPresent    
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: Image360Present    
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: "YES"
+    defaultValue: "NO"
