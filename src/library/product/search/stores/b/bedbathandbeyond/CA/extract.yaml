@@ -1,12 +1,12 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //section[contains(@class,'productSearch')]//div[contains(@class,"grid-container")]/div[contains(@class,"tealium-product-grid")]/div
 fields:
   - name: paid
     singleValue: true
     description: Whether this is a sponsored/paid result
-    type: BOOLEAN
+    xpath : 
   - name: brand
     singleValue: true
     description: The brand name
@@ -23,6 +23,7 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
+    xpath : //div[@data-locator="product_tile_title"]/a/@href
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
@@ -50,6 +51,7 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
+    xpath : //div[@data-locator="product_tile_price"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -82,8 +84,7 @@ fields:
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
+    description: //div[@data-locator="product_tile_title"]/a
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
