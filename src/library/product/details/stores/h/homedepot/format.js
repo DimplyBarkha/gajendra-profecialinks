@@ -19,6 +19,11 @@ const transform = (data) => {
           text: secondaryImages.length,
         }];
       }
+      if (row.additionalDescBulletInfo) {
+        row.descriptionBullets = [{
+          text: row.additionalDescBulletInfo.length,
+        }];
+      }
       if (row.specifications) {
         row.specifications.forEach(item => {
           item.text = item.text.replace(/(\n\s?){6,}/g, ' | ').replace(/(\n\s?){5}/g, ' ').replace(/(\n\s?){4}/g, ' | ').replace('Specifications', '').replace(/\n \n/g, ' : ').trim();

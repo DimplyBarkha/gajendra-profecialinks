@@ -86,6 +86,7 @@ fields:
     xpath: //h1[@class='product-title__title']|//h1[@class='product-details__title']
   - name: listPrice
     singleValue: false
+    manualSelector: div.buybox_pricing_saving > span.pStrikeThru
   - name: legalDisclaimer
     singleValue: false
   - name: mpc
@@ -105,9 +106,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //span[@itemprop="productID"]|//h2[@class="product-infobar__detail" and contains(text(),"Internet")]/text()[2]
-  - name: descriptionBullets
+  - name: additionalDescBulletInfo
     singleValue: false
-    xpath: count(//div[contains(@class,'main_description')]//li|//div[contains(@class,'product-description__main-description')]//li[not(span//img)])
+    xpath: //div[contains(@class,'main_description')]//li[not(center//img)]|//div[contains(@class,'product-description__main-description')]//li[not(span//img)]
   - name: packSize
     singleValue: false
   - name: promotion
