@@ -21,7 +21,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //ul[@id="breadcrumbs"]//li//a[not(contains(@title, "Home"))] | //ul[@id="breadcrumbs"]//li[@class="active last"]
+    xpath: //ul[@id="breadcrumbs"]//li//a[not(contains(@title, "Home"))]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -40,9 +40,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //span[contains(text(), "Add To Cart")]
   - name: description
     singleValue: false
     xpath: //div[@id="added-description"]
@@ -51,7 +49,7 @@ fields:
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,"box-description cms")]//li)
+    xpath: count(//*[@class="box-description cms"]//ul[not(@class="bonus-items")]//li)
     description: Number of ul > li tags in the description
   - name: brandText
     singleValue: false
@@ -69,7 +67,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    xpath: //span[contains(text(), "Weight")]/parent::*/following-sibling::*
+    xpath: //span[contains(text(), "Weight")]/parent::*/following-sibling::* | //th[contains(text(), "Weight")]/following-sibling::*
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -87,6 +85,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
+    xpath: (//*[contains(@class, "product-id")])[2]
   - name: packSize
     singleValue: false
     description:
@@ -103,7 +102,7 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    xpath: (//dd[contains(@class, "rating-ratio-count")]/@title)[1]
+    xpath: //div[contains(@class, "prs-container")]//dd[contains(@class, "rating-ratio-count")]/@title
     regExp: (\d*).*
     regExpReplace: $1
     description: The number of ratings
@@ -121,7 +120,6 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
-    xpath: //th[contains(text(), "Width")]/parent::tr | //th[contains(text(), "Depth")]/parent::tr | //th[contains(text(), "Height")]/parent::tr
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: false
@@ -438,6 +436,7 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
+    xpath: //div[@id="product-view-price"]//li[@class="offer-item"]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
@@ -469,13 +468,14 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: (//*[contains(@class, "product-id")])[1]
   - name: variants
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //*[@class="box-description cms"]//li
+    xpath: //*[@class="box-description cms"]//ul[not(@class="bonus-items")]//li
   - name: prop65Warning
     singleValue: false
     description: null
@@ -488,13 +488,18 @@ fields:
     singleValue: false
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B
+    xpath: (//*[@id="product-attribute-specs-table"]//th[contains(text(), "Energy Efficiency")]/following-sibling::td)[1]
   - name: termsAndConditions
     singleValue: false
     xpath: //*[@id="terms-and-conditions"]
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
   - name: materials
     singleValue: false
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //*[contains(text(), "Instruction Manual")]
+  - name: variantId
+    singleValue: false
+    xpath: (//*[contains(@class, "product-id")])[1]

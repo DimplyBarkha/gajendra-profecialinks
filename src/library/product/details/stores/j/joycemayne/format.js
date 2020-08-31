@@ -25,13 +25,35 @@ const transform = (data) => {
           descriptionItem.text = cleanUp(descriptionItem.text);
         });
       }
+
+      if (row.warranty) {
+        row.warranty.forEach((warrantyItem) => {
+          warrantyItem.text = warrantyItem.text.replace(/(\n\s*){2,}/g, ' : ');
+        });
+      }
+
+      if (row.technicalInformationPdfPresent) {
+        row.technicalInformationPdfPresent = [{ text: 'Yes' }];
+      } else {
+        row.technicalInformationPdfPresent = [{ text: 'No' }];
+      }
+
       if (row.termsAndConditions) {
-        row.termsAndConditions.forEach((termsAndConditionsItem) => {
-          if (termsAndConditionsItem.text) {
-            termsAndConditionsItem.text = 'Yes';
+        row.termsAndConditions = [{ text: 'Yes' }];
+      } else {
+        row.termsAndConditions = [{ text: 'No' }];
+      }
+
+      if (row.availabilityText) {
+        row.availabilityText.forEach((availabilityTextItem) => {
+          if (availabilityTextItem.text.toLowerCase().includes('add to cart')) {
+            availabilityTextItem.text = 'In Stock';
+          } else {
+            availabilityTextItem.text = 'Out Of Stock';
           }
         });
       }
+
       if (row.descriptionBullets) {
         row.descriptionBullets.forEach((descriptionBulletsItem) => {
           if (descriptionBulletsItem.text === 0 || descriptionBulletsItem.text === '0') {
@@ -39,9 +61,11 @@ const transform = (data) => {
           }
         });
       }
+
       if (row.specifications) {
         row.specifications[0].text = row.specifications[0].text.replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){2,}/g, ' : ');
       }
+
       const shippingDimensionsArray = [];
       if (row.shippingDimensions) {
         row.shippingDimensions.forEach((shippingDimensionsItem) => {
@@ -50,6 +74,7 @@ const transform = (data) => {
         });
       }
       row.shippingDimensions = [{ text: shippingDimensionsArray.join(' | ') }];
+
       const additionalDescBulletInfoArray = [];
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo.forEach((additionalDescBulletInfoItem) => {
@@ -57,9 +82,11 @@ const transform = (data) => {
         });
       }
       row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArray.join(' || ') }];
+
       if (row.name && row.brandText) {
         row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
       }
+
       if (row.imageAlt) {
         row.imageAlt.forEach((imageAltItem) => {
           if (imageAltItem.text === '.') {
