@@ -6,8 +6,8 @@ module.exports = {
     store: 'emax',
     domain: 'emaxme.com',
     url: 'https://www.emaxme.com/s001/catalogsearch/result/?q={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class*="wrapper grid"]',
+    noResultsXPath: '//div[contains(@class, "column main") and not(div[@class="search results"])]',
     zipcode: '',
   },
 };

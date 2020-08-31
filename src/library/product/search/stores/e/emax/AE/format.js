@@ -31,23 +31,6 @@ const transform = (data, context) => {
       row.rank = [{ text: rankCounter }];
       context.setState({ rankCounter });
       context.setState({ orgRankCounter });
-      Object.keys(row).forEach((header) =>
-        row[header].forEach((el) => {
-          el.text = clean(el.text);
-        }),
-      );
-      if (row.sponsored) {
-        row.sponsored[0].text = true;
-      } else {
-        row.sponsored = [
-          {
-            text: false,
-          },
-        ];
-      }
-      if (row.ratingCount) {
-        row.ratingCount[0].text = row.ratingCount[0].text.replace('%', '');
-      }
     }
   }
   return data;

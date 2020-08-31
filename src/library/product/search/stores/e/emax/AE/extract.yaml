@@ -1,32 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"product-item-info")]/parent::*[1]
+recordXPath: //li[contains(@class, "product-item")]
 fields:
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,'product details product-item-details')]//a[contains(@class,'product-item-link')]
+    xpath: //li[contains(@class, "product-item")]/@data-pname
   - name: price
     singleValue: false
-    xpath: //span[contains(@data-price-type,'finalPrice')]//span[contains(@class,'price')]
+    xpath: //div[contains(@data-role, "priceBox")]//span[@data-price-type="finalPrice"]
   - name: listPrice
     singleValue: false
-    xpath: //span[contains(@data-price-type,'oldPrice')]//span[contains(@class,'price')]
-  - name: ratingCount
-    singleValue: false
-    xpath: //div[contains(@class,'rating-result')]/span
+    xpath: //div[contains(@data-role, "priceBox")]//span[@data-price-type="oldPrice"]
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'product photo product-item-photo')]//img/@src
+    xpath: //div[contains(@class, "product-item-photo")]//img/@src
   - name: brandText
     singleValue: false
-    xpath: //ol[contains(@class,'products list items product-items')]/li/@data-brand
+    xpath: //li[contains(@class, "product-item")]/@data-brand
   - name: sku
     singleValue: false
-    xpath: //ol[contains(@class,'products list items product-items')]/li/@data-sku
+    xpath: //li[contains(@class, "product-item")]/@data-sku
   - name: variantId
     singleValue: false
-    xpath: //ol[contains(@class,'products list items product-items')]/li/@data-sku
+    xpath: //li[contains(@class, "product-item")]/@data-sku
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,'product photo product-item-photo')]/a/@href
+    xpath: //div[contains(@class,'product-item-photo')]/a/@href
