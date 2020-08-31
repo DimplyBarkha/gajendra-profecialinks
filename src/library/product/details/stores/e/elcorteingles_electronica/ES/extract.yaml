@@ -38,9 +38,7 @@ fields:
     xpath : //div[@id="brand"]
   - name: quantity
     singleValue: true
-    xpath: //div[contains(@class,"product_detail-description-in-image")]
-    regExp: (.*),(.*),(.*),(.*)
-    regExpReplace: $3 
+    xpath: //dt[contains(text(),"Velocidad de centrifugado")]/following-sibling::dd[1] | //dt[contains(text(),"Diagonal de la pantalla")]/following-sibling::dd[1] 
   - name: gtin
     singleValue: true
     xpath: //div[@id="gtin"]
