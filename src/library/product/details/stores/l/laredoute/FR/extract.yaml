@@ -107,3 +107,9 @@ fields:
     xpath: //script[@type="application/ld+json"][contains(text(),"color")]
     regExp: color":"([^"]+)
     regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
