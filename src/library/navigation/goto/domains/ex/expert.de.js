@@ -26,11 +26,10 @@ module.exports = {
     // })
     await context.setBlockAds(false);
     await context.goto(`${url}`, {
-      anti_fingerprint:true, 
-      discard_CSP_header:false,
+      anti_fingerprint: true,
+      discard_CSP_header: false,
       timeout: 100000,
       waitUntil: 'load',
-      embed_iframes: true,
     });
   },
 
