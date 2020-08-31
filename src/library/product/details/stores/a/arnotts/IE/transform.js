@@ -47,22 +47,6 @@ const transform = (data, context) => {
           },
         ];
       }
-      if (row.additionalDescBulletInfo) {
-        let text = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          text += `|| ${item.text.replace(/\n \n/g, ':')}`;
-        });
-        let descriptionBottom = [];
-        if (row.description) {
-          descriptionBottom = row.description;
-        }
-        descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
-        row.description = [
-          {
-            text: cleanUp(descriptionBottom.join(' | ')),
-          },
-        ];
-      }
       if (row.variantCount) {
         row.variantCount.forEach(variantCount => {
           if (variantCount.text == '0') {

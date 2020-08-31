@@ -32,6 +32,13 @@ module.exports = {
           addHiddenDiv('videoUrl', videoUrl);
         }
       }
+      if (document.querySelector('div.tab-content')) {
+        if (document.querySelector('div.tab-content').getAttribute('itemprop') == 'description') {
+          let desc = document.querySelector('div.tab-content').innerHTML;
+          desc = desc.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim();
+          addHiddenDiv('desc', desc);
+        }
+      }
     });
     return await context.extract(productDetails, { transform });
   },
