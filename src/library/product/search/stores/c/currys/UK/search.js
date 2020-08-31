@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'currys.co.uk',
-    timeout: 30000,
     country: 'UK',
     store: 'currys',
+    domain: 'currys.co.uk',
     zipcode: 'SE19QY',
   },
 };

@@ -22,7 +22,7 @@ const implementation = async (
         const inp = document.querySelector('input[name="search-field"]');
         inp.value = inpId;
     }, id);
-    await context.click('form#searchForm button');
+    await context.click('form[action*="search_keywords"] button');
     await context.waitForNavigation({ timeout, waitUntil: 'load' });
     try {
         await context.waitForSelector(loadedSelector, { timeout });

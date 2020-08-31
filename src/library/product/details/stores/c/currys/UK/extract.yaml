@@ -411,7 +411,7 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
-    xpath: concat(//th[contains(text(), "guarantee") or contains(text(),"warranty")]/following-sibling::td, " ", //th[contains(text(), "guarantee") or contains(text(),"warranty")])
+    xpath: //th[contains(text(), "guarantee") or contains(text(),"warranty")]/following-sibling::td
     description: Guarantee associated with the product
   - name: storage
     singleValue: true

@@ -1,0 +1,107 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    manualSelector: span[data-product="brand"]
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: productUrl
+    singleValue: true
+    xpath: //article[contains(@class,"result-prd")]//header[@class="productTitle"]/a/@href
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: true
+    xpath: //article[contains(@class,"result-prd")]//div[@class="product-images"]/img/@src | //article[contains(@class,"result-prd")]//div[@class="product-images"]/picture/@data-iesrc
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: true
+    xpath: //article[contains(@class,"result-prd")]//header[@class="productTitle"]/a
+    description: The product name
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    xpath: //article[contains(@class,"result-prd")]//span[contains(@class,"score-")]/@class | //article[contains(@class,"result-prd")]//div[@data-component="Rating"]/@data-score
+    regExp: \d{1,2}$
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: true
+    xpath: //a/div/div[contains(@class,"reevoo-placeholder")]
+    regExp: \((\d+)\)
+    regExpReplace: $1
+    description: The number of reviews
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,"main-amount")]//strong[@class="price"]
+    description: The offered price for the product
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,"past-amount")]
+    regExp: £\d+(\.\d{2})?
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    xpath: //article[@sponsored]/@sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: true
+    xpath: //div[@data-productid]/@data-productid
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    singleValue: true
+    xpath: //header[@class="productTitle"]/a
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    singleValue: true
+    xpath: //article[contains(@class,"result-prd")]//span[contains(@class,"score-")]/@class | //article[contains(@class,"result-prd")]//div[@data-component="Rating"]/@data-score
+    regExp: \d{1,2}$
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
