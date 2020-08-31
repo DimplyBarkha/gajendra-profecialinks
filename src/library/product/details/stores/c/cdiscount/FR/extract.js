@@ -58,10 +58,11 @@ async function implementation (
     }
     return manufArray;
   }
-  const htmlList = await collectManuf(['DYS5025155028155']);
+  // Hardcoded as sku as of now as trying to solve the loading issue for this
+  const htmlList = [];
+  // const htmlList = await collectManuf(['DYS5025155028155']);
 
   await context.evaluate(async function (url, htmlList) {
-
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -69,11 +70,10 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
+    // addHiddenDiv('added-htmlList', htmlList[0]);
+
     console.log('page is loaded successfully....executing scrolling code');
-
-    addHiddenDiv('added-htmlList', htmlList[0]);
-
-    /*
     // Scrolling till specifications as manufacturer images are loaded on website after scrolling down
     await new Promise(resolve => setTimeout(resolve, 10000));
     async function scrollToLoadAplusImages () {
@@ -89,7 +89,6 @@ async function implementation (
       }
     }
     await scrollToLoadAplusImages();
-    */
     console.log('scrolling code execution complete.....');
 
     // If images are present in description then add to manufacturerDescription else add to description

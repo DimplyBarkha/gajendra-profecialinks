@@ -27,9 +27,9 @@ const transform = (data) => {
         row.alternateImages.shift();
       }
 
-      if (row.sku) {
-        row.sku.forEach(skuItem => {
-          skuItem.text = skuItem.text.replace(/[^\d]/gm, '');
+      if (row.variantId) {
+        row.variantId.forEach(variantIdItem => {
+          variantIdItem.text = variantIdItem.text.toUpperCase();
         });
       }
 
@@ -45,12 +45,6 @@ const transform = (data) => {
 
       if (row.listPrice) {
         row.listPrice.forEach(item => {
-          item.text = item.text.replace('.', ',');
-        });
-      }
-
-      if (row.price) {
-        row.price.forEach(item => {
           item.text = item.text.replace('.', ',');
         });
       }
@@ -72,7 +66,7 @@ const transform = (data) => {
 
       if (row.availabilityText) {
         row.availabilityText.forEach(availabilityTextItem => {
-          if (availabilityTextItem.text.toLowerCase().includes('en stock')) {
+          if (availabilityTextItem.text.toLowerCase().includes('en stock') || availabilityTextItem.text.toLowerCase().includes('article disponible')) {
             availabilityTextItem.text = 'In Stock';
           } else {
             availabilityTextItem.text = 'Out Of Stock';
