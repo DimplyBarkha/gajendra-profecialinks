@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0] | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"]
+recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"]
 fields:
   - name: image
     singleValue: true
@@ -41,26 +41,26 @@ fields:
     xpath : ancestor::html //div[@id="brand"]
   - name: quantity
     singleValue: true
-    xpath : //div/@title
+    xpath : ancestor::html//div/@title
   - name : weightNet    
     xpath : 
   - name : weightGross    
     xpath :   
   - name: gtin
     singleValue: true
-    xpath : //div/@gtin
+    xpath : ancestor::html //div/@gtin
   - name: eangtin
     singleValue: true
-    xpath : //div/@gtin  
+    xpath : ancestor::html //div/@gtin  
   - name: asin
     singleValue: true
     xpath : ancestor::html //span[@itemprop="sku"] | ancestor::html //span[@class="js-product-gtin-number"]
   - name: sku
     singleValue: true
-    xpath : //div/@sku
+    xpath : ancestor::html //div/@sku
   - name: variantId
     singleValue: true
-    xpath : //div/@retailer_product_code
+    xpath : ancestor::html //div/@retailer_product_code
   - name: directions
     singleValue: true
     xpath:
@@ -112,7 +112,7 @@ fields:
     xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
   - name: allergyAdvice
     singleValue: true
-    
+    xpath :  
   - name: pricePerUnit
     singleValue: true
     xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
@@ -131,7 +131,7 @@ fields:
     xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
   - name: variantInformation
     singleValue: true
-    xpath : //div/@color
+    xpath : ancestor::html //div/@color
   - name: aggregateRating
     singleValue: true
     xpath : ancestor::html //div[@id="aggregateRating"]
@@ -152,16 +152,16 @@ fields:
     xpath :  
   - name: colorCode
     singleValue: true
- 
+    xpath : 
   - name: manufacturerDescription
     singleValue: true
-    
+    xpath :
   - name: termsAndConditions
     singleValue: true
- 
+    xpath :
   - name: additionalDescBulletInfo
     singleValue: true
-   
+    xpath : 
   - name: energyEfficiency
     singleValue: true
     xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
