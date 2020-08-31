@@ -1,0 +1,118 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+    singleValue: false
+  - name: _pageTimestamp
+    singleValue: false
+  - name: _url
+    singleValue: false
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(@class, "long-description-wrapper")]//ul[1]
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="averageRating"]//h2
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="carousel"]//div[@class="flex-viewport"]//a[not(contains(@class, "active"))]/@href
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id="delivery-messaging"]//span[contains(@class, "langEN")][1]
+  - name: brandText
+    singleValue: false
+    xpath: //ul[contains(@class,"hiddenTags")]//li[contains(text(), "brand")]
+    regExp: brand-(.*)
+    regExpReplace: $1
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class, "breadcrumb")]//li[not(contains(@class, "hidden"))]//span[contains(@class, "langEN")]
+  - name: color
+    singleValue: false
+    xpath: //ul[contains(@class,"hiddenTags")]//li[contains(text(), "colour")]
+    regExp: .*finish-(.*)
+    regExpReplace: $1
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, "product-description")]//strong[contains(text(), "Dimensions")]/parent::p/preceding-sibling::p
+    regExp: Product Description\n(.*)
+    regExpReplace: $1
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class, "long-description-wrapper")]//ul[1]//li)
+    type: NUMBER
+  - name: gtin
+    singleValue: false
+    xpath: //p[contains(text(), "GTIN")]/parent::td/following-sibling::td
+  - name: image
+    singleValue: false
+    xpath: //div[@id="carousel"]//div[@class="flex-viewport"]//a[contains(@class, "active")]/@href
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@data-slide-id="zoom"]/a[1]//img/@alt
+  - name: metaKeywords
+    singleValue: false
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class, "sku-wrapper") ]//span[contains(@class, "vsn")]
+    regExp: VSN:\s*(.*)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //span[@itemprop="name"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //span[@itemprop="name"]
+  - name: price
+    singleValue: false
+    xpath: //span[@id="productPrice"]//span[contains(@class, "langEN")]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="averageRating"]//p
+    type: NUMBER
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //h3[text()="Dimensions"]/following-sibling::dl
+  - name: shippingD
+    singleValue: false
+    xpath: //ul[contains(@class,"hiddenTags")]//li[contains(text(), "shipping-d")]
+    regExp: .*inches-(.*)
+    regExpReplace: $1
+  - name: shippingH
+    singleValue: false
+    xpath: //ul[contains(@class,"hiddenTags")]//li[contains(text(), "shipping-h")]
+    regExp: .*inches-(.*)
+    regExpReplace: $1
+  - name: shippingW
+    singleValue: false
+    xpath: //ul[contains(@class,"hiddenTags")]//li[contains(text(), "shipping-w")]
+    regExp: .*inches-(.*)
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
+    regExp: SKU:\s*(.*)
+    regExpReplace: $1
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class, "long-description-wrapper")]
+  - name: dimensionsSpecifications
+    singleValue: false
+    xpath: //div[contains(@class, "product-description")]//strong[contains(text(), "Dimensions")]/parent::p
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class, "sku-wrapper") ]//span[contains(@class, "vsn")]
+    regExp: VSN:\s*(.*)
+    regExpReplace: $1
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id="tab2"]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@itemscope]//ul//li[contains(text(), "weight")]
