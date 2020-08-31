@@ -12,7 +12,7 @@ module.exports = {
       block_ads: false,
       load_all_resources: true,
       images_enabled: true,
-      timeout: 100000,
+      timeout: 500000,
       waitUntil: 'load',
     });
   },
