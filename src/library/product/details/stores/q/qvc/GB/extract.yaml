@@ -138,7 +138,7 @@ fields:
     xpath: //div[contains(@class,'accLongDesc')]//div[@class='accordionContent']//li[not(.//a/@href[contains(.,'.pdf')])]
     description: null
   - name: technicalInformationPdfPresent
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'accLongDesc')]//div[@class='accordionContent']//li//a/@href[contains(.,'.pdf')]
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
