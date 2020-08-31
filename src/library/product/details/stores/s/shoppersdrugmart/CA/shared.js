@@ -31,7 +31,7 @@ const transform = (data) => {
         });
         row.directions = [
           {
-            text: cleanUp(text.slice(0, -3)),
+            text: cleanUp(text),
           },
         ];
       }

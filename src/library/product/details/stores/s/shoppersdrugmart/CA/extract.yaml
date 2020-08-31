@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: (//ul[@id="large-viewport-pdp-slides"]//li/img/@src)[1]
     regExp: (.+)(\/100\/)(.+)
-    regExpReplace: $1/400/$3
+    regExpReplace: $1/800/$3
     description: URL of the main product image
   - name: imageAlt
     singleValue: false
@@ -16,7 +16,7 @@ fields:
     singleValue: false
     xpath: //ul[@id="large-viewport-pdp-slides"]//li[position()>1]/img/@src
     regExp: (.+)(\/100\/)(.+)
-    regExpReplace: $1/400/$3
+    regExpReplace: $1/800/$3
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
