@@ -1,12 +1,12 @@
 robot: product/details
 parameters:
-  country: ES
+  country: PT
   domain: elcorteingles.es
   store: elcorteingles_electronica
   zipcode: ""
 proxy:
   zone: ZES
-  type: DATA_CENTER  
+  type: DATA_CENTER
 policy:
   numberRetries: 1
   priority: MEDIUM
@@ -15,6 +15,6 @@ policy:
   retryWithResidentialProxyAfter: 99  
 meta:
   branches:
-    osm_elcorteingles_electronica:
-      extractor: 5a77b60b-5e04-493f-8ab1-222dc2bc76aa
+    osm_elcorteingles_core:
+      extractor: 7ffc36e7-699f-46ad-817e-e40140f796a3
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

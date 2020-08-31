@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"]
+recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul[contains(@class,"colors_list")]/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"]
 fields:
   - name: image
     singleValue: true
@@ -152,6 +152,7 @@ fields:
     xpath :  
   - name: colorCode
     singleValue: true
+<<<<<<< HEAD
     xpath : 
   - name: manufacturerDescription
     singleValue: true
@@ -162,6 +163,14 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: true
     xpath : 
+=======
+  - name: manufacturerDescription
+    singleValue: true
+  - name: termsAndConditions
+    singleValue: true
+  - name: additionalDescBulletInfo
+    singleValue: true
+>>>>>>> 73b202c75abbbdab7f0933137fa316582db784f6
   - name: energyEfficiency
     singleValue: true
     xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 

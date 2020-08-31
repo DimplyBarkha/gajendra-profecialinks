@@ -6,9 +6,18 @@ parameters:
   zipcode: ""
 proxy:
   zone: ZES
-  type: DATA_CENTER  
+  type: DATA_CENTER
+policy:
+  numberRetries: 1
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     osm_elcorteingles_perfumeria:
       extractor: e2e5678f-1b5c-4421-b49e-c00dfa6eec58
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    osm_elcorteingles_core:
+      extractor: d5873c5c-c4fe-49b2-af79-7180b29c6dd9
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

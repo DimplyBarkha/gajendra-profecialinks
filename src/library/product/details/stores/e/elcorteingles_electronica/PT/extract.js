@@ -1,19 +1,20 @@
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'ES',
+    country: 'PT',
     store: 'elcorteingles_electronica',
     transform: null,
     domain: 'elcorteingles.es',
     zipcode: '',
   },
 
-
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
+
     await context.evaluate(async function () {
+
       // function to append the elements to DOM
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -22,7 +23,6 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-
       // function to get the json data from the string
       function findJsonData(scriptSelector, startString, endString) {
         try {
@@ -86,23 +86,6 @@ module.exports = {
       let productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json'
       let passKey = "caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ";
       let productID = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).code_a.trim("") : "";
-      let sku = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).variant.trim("") : "";
-      let store_id = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).store_id.trim("") : "";
-      
-      //API
-      const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${store_id}&original_store=0`;
-      let apiDataResponse = await makeApiCall(productsData, {});
-      if (apiDataResponse) {
-        if (JSON.parse(apiDataResponse)._product_model) {
-          document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
-        }
-        addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-        addElementToDocument('sku', JSON.parse(apiDataResponse).id);
-        addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
-        addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
-
-      }
-
 
       // Number of reviews and rating
       const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
@@ -148,6 +131,7 @@ module.exports = {
 
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
+
       // Check for the data and append to DOM
       if (dataObj) {
         if (dataObj[0].product) {
@@ -161,13 +145,13 @@ module.exports = {
             addElementToDocument('brand', dataObj[0].product.brand);
           }
 
-          // Check for the brand  and append to DOM
+          // Check for the gtin  and append to DOM
           if (dataObj[0].product.gtin) {
             addElementToDocument('gtin', dataObj[0].product.gtin);
           }
 
-          // Check for the brand  and append to DOM
-          if (dataObj[0].product.brand) {
+          // Check for the retailer_product_code  and append to DOM
+          if (dataObj[0].product.id) {
             addElementToDocument('retailer_product_code', dataObj[0].product.id);
           }
 
@@ -196,6 +180,7 @@ module.exports = {
           if (dataObj[0].product.price.o_price) {
             addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ","));
           } else {
+
             if (dataObj[0].product.price.final) {
               addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ","));
             } else {
