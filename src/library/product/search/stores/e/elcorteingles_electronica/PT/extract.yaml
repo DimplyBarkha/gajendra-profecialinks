@@ -1,2 +1,7 @@
 
 extends: ../ES/extract
+fields:
+  - name: productUrl
+    xpath: //a[@class="product_preview-title"]/@href
+    regExp: (.+)
+    regExpReplace: https://beta.elcorteingles.pt$1
