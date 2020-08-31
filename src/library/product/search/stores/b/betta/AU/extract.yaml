@@ -1,0 +1,52 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    xpath: //div[contains(@class,'product-item-info')]//a//@data-id
+    singleValue: true
+  - name: name
+    xpath: //div[contains(@class,'product-item-info')]//a//@data-name
+    singleValue: true
+  - name: producturl
+    xpath: //div[contains(@class,'product-item-info')]//a//@href
+    singleValue: true
+    regExp: (https:\/\/www.betta.com.au)?(.+)
+    regExpReplace: https://www.betta.com.au$2
+  - name: manufacturer
+    xpath: //div[contains(@class,'product-item-info')]//a//@data-brand
+    singleValue: true    
+  - name: thumbnail
+    xpath: //div[contains(@class,'product-item-info')]//img[contains(@class,'product-image-photo')]//@src
+    singleValue: false
+    regExp: (https:\/\/www.betta.com.au)?(.+)
+    regExpReplace: https://www.betta.com.au$2
+  - name: price
+    xpath: //div[contains(@class,'product-item-info')]//a//@data-price
+    singleValue: true 
+  - name: rankOrganic
+    singleValue: true 
+  - name: aggregateRating  
+    singleValue: true
+    xpath: //div[contains(@class,'product-item-info')]//a[@itemprop="aggregateRating"]
+    regExp: ([^()^\s]+)
+    defaultValue: '0'
+  - name: reviewCount  
+    singleValue: true
+    xpath: //div[contains(@class,'product-item-info')]//a[@itemprop="aggregateRating"]
+    regExp: \(([0-9]+?)\)
+    defaultValue: '0'
+    type: NUMBER
+  - name: ratingCount  
+    xpath: //div[contains(@class,'product-item-info')]//a[@itemprop="aggregateRating"]
+    singleValue: true
+    regExp: ([^()^\s]+)
+    defaultValue: '0'
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: search/listing rank

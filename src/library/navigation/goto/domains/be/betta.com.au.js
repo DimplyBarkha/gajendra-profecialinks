@@ -2,9 +2,10 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'bestwaywholesale.co.uk',
-    country: 'UK',
+    domain: 'betta.com.au',
     timeout: 500000,
-    store: 'bestwaywholesale',
+    country: 'AU',
+    store: 'betta',
+    zipcode: '',
   },
 };
