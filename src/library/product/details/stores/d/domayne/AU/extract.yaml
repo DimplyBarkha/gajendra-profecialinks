@@ -21,7 +21,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //ul[@id="breadcrumbs"]//li//a[not(contains(@title, "Home"))] | //ul[@id="breadcrumbs"]//li[@class="active last"]
+    xpath: //ul[@id="breadcrumbs"]//li//a[not(contains(@title, "Home")) or contains(@title, "Home Appliances")]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -53,7 +53,7 @@ fields:
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//*[@id="productDescription"] //li | //span[contains(text(), "Description")]/parent::*/following-sibling::*//li |  //div[contains(@class, "product-short-description short-description")]/p//li)
+    xpath: count(//*[@id="productDescription"]//li[not(@class="offer-item")] | //span[contains(text(), "Description")]/parent::*/following-sibling::*//li | //div[contains(@class, "product-short-description short-description")]/p//li)
     description: Number of ul > li tags in the description
   - name: brandText
     singleValue: false
@@ -72,6 +72,7 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
+    xpath: //th[contains(text(), "Weight")]/following-sibling::*
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -86,9 +87,11 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[contains(@id, "view-container")]/@data-pid
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
+    xpath: //*[@id="product-attribute-specs-table"]//th[contains(text(), "Barcode (GTIN)")]/following-sibling::td
   - name: packSize
     singleValue: false
     description:
@@ -106,15 +109,15 @@ fields:
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    xpath: (//dd[contains(@class, "rating-ratio-count")]/@title)[1]
+    xpath: //div[contains(@class, "page-header")]//dd[contains(@class, "rating-ratio-count")]/@title
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    xpath: //dd[@class="bv-rating-ratio"]/@title
-    regExp: (.*?) out of.*
-    regExpReplace: $1
+    xpath: //div[contains(@class, "page-header")]//dd[@class="bv-rating-ratio"]/@title
+    # regExp: (.*?) out of.*
+    # regExpReplace: $1
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
@@ -399,7 +402,7 @@ fields:
     description: null
   - name: specifications
     singleValue: false
-    xpath: //th[contains(text(), "Width")]/parent::tr | //th[contains(text(), "Depth")]/parent::tr | //th[contains(text(), "Height")]/parent::tr
+    xpath: //div[@id="productSpecs"]//table
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
@@ -435,6 +438,7 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
+    xpath: //div[@id="product-view-price"]//li[@class="offer-item"]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
@@ -468,11 +472,9 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
-    xpath: //fieldset[@class="product-options"]//select//option[position() > 1]/@value
-    description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //*[@id="productDescription"] //li | //span[contains(text(), "Description")]/parent::*/following-sibling::*//li |  //div[contains(@class, "product-short-description short-description")]/p//li
+    xpath: //*[@id="productDescription"]//li[not(@class="offer-item")] | //span[contains(text(), "Description")]/parent::*/following-sibling::*//li | //div[contains(@class, "product-short-description short-description")]/p//li
     description: null
   - name: prop65Warning
     singleValue: false

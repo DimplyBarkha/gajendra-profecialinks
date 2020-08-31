@@ -27,9 +27,9 @@ const transform = (data) => {
       }
 
       if (row.termsAndConditions) {
-        row.termsAndConditions.forEach((termsAndConditionsItem) => {
-          termsAndConditionsItem.text = cleanUp(termsAndConditionsItem.text);
-        });
+        row.termsAndConditions = [{ text: 'Yes' }];
+      } else {
+        row.termsAndConditions = [{ text: 'No' }];
       }
 
       if (row.descriptionBullets) {
@@ -40,14 +40,11 @@ const transform = (data) => {
         });
       }
 
-      const specificationsArray = [];
       if (row.specifications) {
         row.specifications.forEach((specificationsItem) => {
-          specificationsItem.text = specificationsItem.text.replace(/(\n\s*){2,}/g, ' : ');
-          specificationsArray.push(specificationsItem.text);
+          specificationsItem.text = specificationsItem.text.replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){2,}/g, ' : ');
         });
       }
-      row.specifications = [{ text: specificationsArray.join(' || ') }];
 
       const additionalDescBulletInfoArray = [];
       if (row.additionalDescBulletInfo) {
@@ -84,6 +81,16 @@ const transform = (data) => {
       if (row.ratingCount) {
         row.ratingCount.forEach((ratingCountItem) => {
           ratingCountItem.text = ratingCountItem.text.replace(/[^\d]/gm, '');
+        });
+      }
+
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach((aggregateRatingItem) => {
+          if (aggregateRatingItem.text.includes('no rating')) {
+            aggregateRatingItem.text = '';
+          } else {
+            aggregateRatingItem.text = aggregateRatingItem.text.replace(/(.*?) out of.*/gm, '$1')
+          }
         });
       }
     }

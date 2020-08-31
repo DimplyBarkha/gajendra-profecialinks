@@ -31,8 +31,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     // If images are present in description then add to manufacturerDescription else add to description
     const descriptionSelector = document.evaluate('//*[@id="productDescription"] | //span[contains(text(), "Description")]/parent::*/following-sibling::* |  //div[contains(@class, "product-short-description short-description")]/p', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     let description = descriptionSelector ? descriptionSelector.innerText : '';
-    description = description ? description.replace(/(\n\s*){1,}/g, ' || ') : '';
-    description = description ? description.replace(/\|\| Key Features/gm, 'Key Features') : '';
+    description = description ? description.replace(/(\n\s*){2,}/g, ' ').replace(/(\n\s*){1,}/g, ' || ') : '';
     const manufacturerImageFlag = document.querySelector('div[class="box-description cms"] img');
     if (manufacturerImageFlag) {
       addHiddenDiv('added-manufacturerDesc', description);
