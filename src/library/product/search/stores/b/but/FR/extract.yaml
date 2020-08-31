@@ -41,19 +41,19 @@ fields:
   - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating
-    xpath: //p[@class="product-rating note-5"]/@class | //a[@id="product-rating-top"]/@class
+    xpath: //p[@class="product-rating note-5"]/@class | //a[@id="product-rating-top"]/@class | //p[@title="avis-produit"]/@class
     regExp: note-(.*)
     regExpReplace: $1
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    xpath: //p[@class="product-rating note-5"]/span
+    xpath: //p[@class="product-rating note-5"]/span | //p[@title="avis-produit"]/span
     regExp: \((.*)\)
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
     description: The number of reviews
-    xpath : //p[@class="product-rating note-5"]/span
+    xpath : //p[@class="product-rating note-5"]/span | //p[@title="avis-produit"]/span
     regExp: \((.*)\)
     regExpReplace: $1
   - name: price
