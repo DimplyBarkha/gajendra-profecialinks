@@ -32,7 +32,7 @@ fields:
     singleValue: false
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class="product-title"]
+    xpath:
   - name: gtin
     singleValue: false
     xpath: //div[@itemprop="gtin13"]
@@ -42,7 +42,7 @@ fields:
     xpath: //table[contains(@class, "characteristics-table")]/tbody/tr[td[not(contains(@class,'characteristics-title'))]]/td
   - name: description
     singleValue: false
-    xpath: //h1[@class="product-title"]//span[2]
+    xpath: //ul[@class="product-list"]/li
   - name: descriptionBullets
     singleValue: false
     xpath: count(//ul[@class="product-list"]/li)
@@ -78,7 +78,7 @@ fields:
     xpath: //td[contains(text(),"Classe d'efficacité énergétique")]/following-sibling::td
   - name: listPrice
     singleValue: false
-    xpath: //meta[@itemprop="price"]/@content
+    xpath: 
   - name: customerServiceAvailability
     singleValue: false
     xpath: (//ul[@class="product-list"]/li[not(@itemscope)])[1]
@@ -112,3 +112,6 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@class="product-list"]/li
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
