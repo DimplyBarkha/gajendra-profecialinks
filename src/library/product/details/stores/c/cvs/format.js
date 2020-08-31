@@ -23,35 +23,34 @@ const transform = (data, context) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/\"/g, ' " ')
-    .replace(/&#(\d+);/g, function(match, dec) {
+    .replace(/&#(\d+);/g, function (match, dec) {
       return String.fromCharCode(dec);
     })
-    .replace(/\s{2,}/g, " ");
+    .replace(/\s{2,}/g, ' ');
 
   for (const { group } of data) {
-    for (let row of group) {
+    for (const row of group) {
       try {
         if (row.variants) {
-          if(row.variants.length < 2){
-
+          if (row.variants.length < 2) {
             row.variants = [];
           }
         }
 
         if (row.variantInformation) {
-          let variantsArray = [];
-          if(row.variantInformation.length > 1){
+          const variantsArray = [];
+          if (row.variantInformation.length > 1) {
             row.variantInformation.forEach(variant => {
-              variantsArray.push(variant.text)
-            })
-            let variantString = variantsArray.join(" | ")
+              variantsArray.push(variant.text);
+            });
+            const variantString = variantsArray.join(' | ');
             row.variantInformation = [{ text: variantString }];
           }
         }
 
         if (row.firstVariant || row.variantId) {
-          let text = row.firstVariant[0].text;
-          let split = text.split('-')
+          const text = row.firstVariant[0].text;
+          const split = text.split('-');
           row.variantId = [{ text: `${split[split.length - 1]}` }];
           row.firstVariant = [{ text: `${split[split.length - 1]}` }];
         }
@@ -74,46 +73,46 @@ const transform = (data, context) => {
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
-    
+
         if (row.description) {
-          let text = row.description[0].text
-          let splits = text.split(" ");
-          if(splits[splits.length - 1] === "||"){
-            let joins = splits.slice(0,splits.length - 1).join(" ")
-            row.description[0].text = joins
+          const text = row.description[0].text;
+          const splits = text.split(' ');
+          if (splits[splits.length - 1] === '||') {
+            const joins = splits.slice(0, splits.length - 1).join(' ');
+            row.description[0].text = joins;
           }
         }
 
         if (row.videos) {
-          let videoArray = [];
+          const videoArray = [];
           row.videos.forEach(video => {
-            if(!videoArray.includes(video.text)){
+            if (!videoArray.includes(video.text)) {
               videoArray.push(video.text);
             }
           });
-          row.videos = [{text: ""}]
-          let videoStr = videoArray.join(" | ");
+          row.videos = [{ text: '' }];
+          const videoStr = videoArray.join(' | ');
           row.videos[0].text = videoStr;
         }
 
         if (row.manufacturerImages) {
-          let manufImageArray = [];
+          const manufImageArray = [];
           row.manufacturerImages.forEach(manufImage => {
-            if(!manufImageArray.includes(manufImage.text)){
+            if (!manufImageArray.includes(manufImage.text)) {
               manufImageArray.push(manufImage.text);
             }
           });
-          row.manufacturerImages = [{text: ""}]
-          let manufImageStr = manufImageArray.join(" | ");
+          row.manufacturerImages = [{ text: '' }];
+          const manufImageStr = manufImageArray.join(' | ');
           row.manufacturerImages[0].text = manufImageStr;
         }
 
         if (row.directions) {
-          let text = row.directions[0].text
-          let splits = text.split(" ");
-          if(splits[splits.length - 1] === "||"){
-            let joins = splits.slice(0,splits.length - 1).join(" ")
-            row.directions[0].text = joins
+          const text = row.directions[0].text;
+          const splits = text.split(' ');
+          if (splits[splits.length - 1] === '||') {
+            const joins = splits.slice(0, splits.length - 1).join(' ');
+            row.directions[0].text = joins;
           }
         }
         // row = cleanUp(row);

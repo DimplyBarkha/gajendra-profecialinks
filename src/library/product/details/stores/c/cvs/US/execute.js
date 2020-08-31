@@ -6,7 +6,7 @@ module.exports = {
     store: 'cvs',
     domain: 'cvs.com',
     // loadedSelector: ['div.css-1dbjc4n.r-18u37iz.r-1oy2gb8 > div.css-901oao.r-vw2c0b', 'div.css-1dbjc4n.r-18u37iz.r-tzz3ar a', 'div.css-1dbjc4n.r-6koalj.r-156q2ks.r-y46g1k'],
-    noResultsXPath: ['//div[@class="css-1dbjc4n r-13awgt0"]//div[contains(.,"Check your spelling")]','.//*[contains(.,"Sorry, we")]', '//div[contains(@class,"css-1dbjc4n r-ymttw5")]/h4[contains(.,"Sorry")]'],
+    noResultsXPath: ['//div[@class="css-1dbjc4n r-13awgt0"]//div[contains(.,"Check your spelling")]', './/*[contains(.,"Sorry, we")]', '//div[contains(@class,"css-1dbjc4n r-ymttw5")]/h4[contains(.,"Sorry")]'],
   },
   parameters: [
     {

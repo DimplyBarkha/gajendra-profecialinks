@@ -73,7 +73,6 @@ module.exports = {
         const result = await getSellerInformation(sellerUrl);
         const sellerDiv = addHiddenDiv('added-sellers', '');
         sellerDiv.innerHTML = result;
-
       }, parentInput);
     };
 

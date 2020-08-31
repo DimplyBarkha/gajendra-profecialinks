@@ -129,10 +129,10 @@ const transform = (data, context) => {
           row.directions = [{ text: row.directions[0].text.replace(/\"/g, '') }];
         }
         if (row.ingredientsList && row.ingredientsList[0]) {
-          if(row.ingredientsList[0].text.includes("[{")) {
-            let list = JSON.parse(row.ingredientsList[0].text);
-            if(list && list.length > 0) {
-              row.ingredientsList = []
+          if (row.ingredientsList[0].text.includes('[{')) {
+            const list = JSON.parse(row.ingredientsList[0].text);
+            if (list && list.length > 0) {
+              row.ingredientsList = [];
               list.forEach(item => row.ingredientsList.push(`${item.name}: ${item.value}`));
             }
           }
