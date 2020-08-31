@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: 'div.mini-product'
+recordXPath: '//div[@class="mini-product"]'
+fields: 
+  - name: id
+    singleValue: false
+    manualSelector: div.sku
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-price"]/font
+  - name: name
+    singleValue: false
+    xpath: //span[contains(@class,"table-cell")]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"mini-product-content")]/div/a/@href
+  - name: thumbnail
+    singleValue: false
+    manualSelector: a.product-image-link
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="product-ratings"]//div[@class="product-ratings__avarage"]
+    regExp: (^[^\s]+)\s.*
+    regExpReplace: $1 
+  - name: searchUrl
+    singleValue: false
+    xpath: 
