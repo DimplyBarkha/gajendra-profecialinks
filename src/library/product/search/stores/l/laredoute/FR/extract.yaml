@@ -17,7 +17,7 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[@class='plp-product-picture']//img/@data-src
+    xpath: //div[@class='plp-product-picture']//img/@data-src | //div[@class='plp-product-picture']//img/@src 
   - name: name
     singleValue: false
     description: The product name
@@ -32,6 +32,7 @@ fields:
   - name: reviewCount
     singleValue: false
     description: The number of reviews
+    xpath: //div[contains(@class, 'rating-stars-wrapper')]/div/@data-review
   - name: price
     singleValue: false
     description: The offered price for the product

@@ -22,21 +22,6 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
     for (const row of group) {
-      if (row.aggregateRating2) {
-        row.aggregateRating2.forEach(aggregateRating2 => {
-          aggregateRating2.text = aggregateRating2.text.replace('.', '').replace(',', '.').trim();
-        });
-      }
-      if (row.price) {
-        row.price.forEach(price => {
-          price.text = price.text.replace('.', '').replace(',', '.').trim();
-        });
-      }
-      if (row.listPrice) {
-        row.listPrice.forEach(listPrice => {
-          listPrice.text = listPrice.text.replace('.', '').replace(',', '.').trim();
-        });
-      }
       rankCounter = rankCounter + 1;
       if (!row.sponsored) {
         orgRankCounter = orgRankCounter + 1;
