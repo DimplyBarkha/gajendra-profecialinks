@@ -59,9 +59,15 @@ const transform = (data) => {
       }
       if (row.alternateImages) {
         const newAlternateImages = row.alternateImages.map(item => {
-          return {
-            text: `${item.text.replace('/75/', '/640/').replace('75.jpg', '640.jpg')}`,
-          };
+          if (item.text.includes('75.jpg')) {
+            return {
+              text: `${item.text.replace('/75/', '/640/').replace('75.jpg', '640.jpg')}`,
+            };
+          } else {
+            return {
+              text: `${item.text}`,
+            };
+          }
         });
         row.alternateImages = newAlternateImages;
       }
