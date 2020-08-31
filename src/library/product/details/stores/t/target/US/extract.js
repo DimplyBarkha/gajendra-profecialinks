@@ -661,7 +661,6 @@ async function implementation (
         addHiddenDiv(newDiv, 'availability', 'Out of stock');
       }
 
-      // &pricing_store_id=1465&storeId=1465
       let priceSuccess = false;
       console.log('pricing');
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
