@@ -9,7 +9,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div[class="content"]',
     openSearchDefinition: {
-      template: 'https://www.flaconi.de/search/?q={searchTerms}',
+      template: 'https://www.flaconi.de/{searchTerms}/?page={page}',
     },
     domain: 'flaconi.de',
   },
