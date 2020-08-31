@@ -144,6 +144,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //iframe[@id="vimeo-iframe"]/@src
+    regExp: (.*)player\.(.*)video\/(.*)
+    regExpReplace: $1$2$3
   - name: name
     singleValue: false
     xpath: //span[contains(@class, "product-name")]
