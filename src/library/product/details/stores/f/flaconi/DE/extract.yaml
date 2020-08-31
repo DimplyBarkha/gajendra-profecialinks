@@ -34,7 +34,8 @@ fields:
     xpath: //div[@class="product-name"]/h1
   - name: listPrice
     singleValue: false
-    xpath: //span[@class='old-price'] | (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
+    # xpath: //span[@class='old-price'] | (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
+    xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
   - name: directions
     singleValue: false
     xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"]
