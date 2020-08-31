@@ -45,7 +45,13 @@ const transform = (data, context) => {
         }
         if (row.price) {
             row.price.forEach(item => {
-                item.text = item.text.split('/')[0].trim();
+                if(item.text.includes('ab')){
+                 item.text = item.text.split('€')[0];
+                 item.text = item.text.split(' ')[1]
+                }else{
+                  item.text = item.text.split('€ /')[0];
+                }
+                
             });
         }
         if (row.quantity) {
