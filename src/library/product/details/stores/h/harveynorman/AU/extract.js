@@ -7,7 +7,7 @@ module.exports = {
     country: 'AU',
     store: 'harveynorman',
     transform,
-    domain: 'harveynorman.com.au/',
+    domain: 'harveynorman.com.au',
     zipcode: '',
   },
 };

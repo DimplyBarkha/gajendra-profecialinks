@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'harveynorman',
-    domain: 'harveynorman.com.au/',
+    domain: 'harveynorman.com.au',
     zipcode: '',
   },
 };
