@@ -111,6 +111,9 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[contains(@class, "product-details")]//div[contains(@class, "stars-container")]/@data-rating
+    regExp: (^[0-9]*\.?[0-9][0-9]?).*
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -133,11 +136,12 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="added-manufacturerDesc"]
+    xpath: //div[@id="added-manufacturer-description"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[contains(@id, "added-manufacturer-images")]
   - name: videos
     singleValue: false
     description: URLs of videos on page

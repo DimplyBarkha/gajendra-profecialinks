@@ -5,8 +5,8 @@ module.exports = {
     country: 'CH',
     store: 'ep-online',
     domain: 'ep-online.ch',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[id="main-section"]',
+    noResultsXPath: '//*[@class="not-found-headline"]',
     zipcode: '',
   },
 };

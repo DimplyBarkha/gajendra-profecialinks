@@ -25,11 +25,13 @@ const transform = (data) => {
           descriptionItem.text = cleanUp(descriptionItem.text);
         });
       }
+
       if (row.termsAndConditions) {
         row.termsAndConditions.forEach((termsAndConditionsItem) => {
           termsAndConditionsItem.text = cleanUp(termsAndConditionsItem.text);
         });
       }
+
       if (row.descriptionBullets) {
         row.descriptionBullets.forEach((descriptionBulletsItem) => {
           if (
@@ -40,26 +42,29 @@ const transform = (data) => {
           }
         });
       }
+
       if (row.weightNet) {
         row.weightNet.forEach((weightNetItem) => {
           weightNetItem.text = cleanUp(weightNetItem.text);
         });
       }
+
       if (row.price) {
         row.price.forEach((priceItem) => {
           priceItem.text = priceItem.text.replace(/'/gm, ',').replace(/(.*)\..*/gm, '$1');
         });
       }
+
       if (row.sku) {
         row.sku.forEach((skuItem) => {
           skuItem.text = skuItem.text.replace(/[^\d]/gm, '');
         });
       }
+
       if (row.specifications) {
-        row.specifications[0].text = row.specifications[0].text
-          .replace(/(\n\s*){4,}/g, ' || ')
-          .replace(/(\n\s*){2,}/g, ' : ');
+        row.specifications[0].text = row.specifications[0].text.replace(/(\n\s*){8,}/g, ' || ').replace(/(\n\s*){6,}/g, ' || ').replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){2,}/g, '');
       }
+
       const shippingDimensionsArray = [];
       if (row.shippingDimensions) {
         row.shippingDimensions.forEach((shippingDimensionsItem) => {
@@ -67,6 +72,7 @@ const transform = (data) => {
           shippingDimensionsArray.push(shippingDimensionsItem.text);
         });
       }
+
       row.shippingDimensions = [{ text: shippingDimensionsArray.join(' | ') }];
 
       const additionalDescBulletInfoArray = [];
@@ -75,13 +81,21 @@ const transform = (data) => {
           additionalDescBulletInfoArray.push(additionalDescBulletInfoItem.text);
         });
       }
+
       row.additionalDescBulletInfo = [
         { text: additionalDescBulletInfoArray.join(' || ') },
       ];
+
       if (row.name && row.brandText) {
         row.nameExtended = [
           { text: row.brandText[0].text + ' - ' + row.name[0].text },
         ];
+      }
+
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription.forEach((manufacturerDescriptionItem) => {
+          manufacturerDescriptionItem.text = cleanUp(manufacturerDescriptionItem.text);
+        });
       }
     }
   }
