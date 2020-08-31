@@ -208,12 +208,18 @@ module.exports = {
 
       // Specifications
       let specifcations = [];
-      document.querySelectorAll('#tab-content-0 > div > dl > div').forEach(e => {
-        specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} || `)
-      });
-      addElementToDocument('specifications', specifcations);
-
-
+      let specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
+      if (specXpath.length > 1) {
+        specXpath.forEach(e => {
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} || `)
+        });
+        addElementToDocument('specifications', specifcations);
+      } else {
+        specXpath.forEach(e => {
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')}`)
+        });
+        addElementToDocument('specifications', specifcations);
+      }
 
       //zoom Image 
 
