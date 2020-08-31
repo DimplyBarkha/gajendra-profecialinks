@@ -400,7 +400,7 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
-    xpath: //*[@id="product-attribute-specs-table"]//th[contains(text(), "Warranty")]//following-sibling::td | //*[contains(text(), "Warranty")]//following-sibling::*//span
+    xpath: //*[@id="product-attribute-specs-table"]//th[contains(text(), "Warranty")]/parent::tr | //*[contains(text(), "Warranty")]//following-sibling::*//span
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
