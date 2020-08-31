@@ -18,6 +18,10 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[@class="product-name"]/h1
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //p[contains(@class, 'rrp')]/span
   - name: price
     singleValue: false
     manualSelector: div.essentials-receipt p.current-price
@@ -30,7 +34,6 @@ fields:
     xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Brand")]//parent::th//parent::tr/td
   - name: quantity
     singleValue: false
-    xpath: //div[@class="product-side-quantity"]//input/@value
   - name: sku
     singleValue: false
     xpath: //div[@itemprop='sku']
@@ -57,7 +60,7 @@ fields:
     xpath: //div[@class="product-name"]/h1
   - name: promotion
     singleValue: false
-    xpath: (//span[@class="delivery-cost"]/span[@class="price"])[1]
+    xpath: //*[contains(text(), 'Promotion')]/parent::*/following-sibling::*[1]
   - name: description
     singleValue: false
     xpath: //div[@id="panel-wrapper"]//div[@class="info-panel-content panel-product-overview"]
@@ -76,3 +79,9 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: 1
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: .inpage_selector_feature
+  - name: manufacturerImages
+    singleValue: false
+    manualSelector: img.flix-img-responsive
