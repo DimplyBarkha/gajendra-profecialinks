@@ -1,90 +1,51 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: '//div[contains(@class, "m-offerBox_content clearfix")]'
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class="m-offerBox_header"]//h2//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.mediamarkt.pl$1
     description: The URL for the product details page
   - name: thumbnail
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class,'m-offerBox_box')]//a//img/@data-target
+    regExp: (.+)
+    regExpReplace: https:$1
     description: The URL for the product thumbnail image
   - name: name
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class,'m-offerBox_header')]//h2[@class="m-offerBox_headline"]//a[contains(@class, "js-product-name")]
     description: The product name
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
   - name: ratingCount
-    singleValue: true
+    singleValue: false
+    # xpath: //a[contains(@class, "see-reviews")]
+    # regExp: (\d+)
     description: The number of ratings
   - name: reviewCount
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class,'m-offerBox_rating')]//a
+    regExp: (\d+)
     description: The number of reviews
   - name: price
-    singleValue: true
+    singleValue: false
+    xpath: //h2[contains(@class,'m-offerBox_headline')]//a/@data-offer-price
     description: The offered price for the product
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
   - name: rank
     singleValue: true
     description: search/listing rank
-    type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-  - name: sponsored
-    singleValue: true
-    description: Is sponsored/paid
-    type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
+    xpath: //h2[contains(@class,'m-offerBox_headline')]//a/@data-offer-id
     description: Unique id (within this extractor)
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: true
+  - name: aggregateRating2
+    singleValue: false
+    xpath: count(//div[contains(@class,'m-offerBox_rating')]//i[contains(@class, "icon-i_star is-active")])
+    # xpath: //footer//ul//div[contains(@class, "rating")]//div/@class
+    # regExp: (?<=\-)\s*(.*)
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER

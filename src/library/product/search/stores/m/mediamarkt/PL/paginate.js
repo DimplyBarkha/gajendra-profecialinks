@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'mediamarkt',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div.b-listing_toolBarPagination a.m-pagination_next',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div.spinner',
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
