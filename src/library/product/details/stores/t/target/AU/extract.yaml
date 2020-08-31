@@ -1,0 +1,85 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="GalleryItem-heroImage"]//img[2]/@src
+    regExp: (.+)
+    regExpReplace: https://www.target.com.au$1
+  - name: imageAlt
+    xpath: //div[@class="GalleryItem-heroImage"]//img[2]/@alt
+  - name: alternateImages
+    xpath: //div[contains(@class," is-tinted")]//img[1]/@src
+    regExp: (.+)(/thumb/)(.+)
+    regExpReplace: https://www.target.com.au$1/full/$3
+  - name: productUrl
+    xpath: //meta[@property="og:url"]/@content
+  - name: category
+    xpath: //ol[@typeof="BreadcrumbList"]//li[not(contains(@class,"active"))][position()>1]
+  - name: nameExtended
+    xpath: //h1[@itemprop="name"]
+  - name: listPrice
+  - name: price
+    xpath: //span[@class="price-regular"]
+    regExp: ^[^ –]+
+  - name: availabilityText
+    xpath: //button[contains(@class," AddCart-button")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //h5[contains(.,"Product Details")]/following-sibling::p[1]
+  - name: descriptionBullets
+    xpath: count(//ul[@class="ProductFeaturesPanel-list"]//li)
+  - name: brandText
+    xpath: //section[@itemprop="brand"]//span
+  - name: sku
+    xpath: //meta[@itemprop="productID"]/@content
+    regExp: (\d+)
+  - name: ratingCount
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    xpath: //div[@itemprop="ratingValue"]
+  - name: videos
+    xpath: //a[@class='appendedvideo']/@href
+  - name: name
+    xpath: //h1[@itemprop="name"]
+  - name: warnings
+    xpath: //h6[contains(.,"Care Instructions")]/following-sibling::ul|//b[contains(.,"Cautions:")]/following-sibling::text()[1] | //p[contains(.,"Caution")]/text()[1]
+  - name: directions
+    xpath: //b[contains(.,"HOW TO USE")]/following-sibling::ul | //p[contains(.,"Follow usage suggestions in How To Use")]
+  - name: shippingDimensions
+    xpath: //li[contains(.,"Dimensions:")]
+    regExp: (.+:)(.+)
+    regExpReplace: $2
+  - name: eangtin
+    xpath: //div[@class="GalleryItem-heroImage"]//img[2]/@src
+    regExp: /(\d+)
+    regExpReplace: $1
+  - name: gtin
+    xpath: //div[@class="GalleryItem-heroImage"]//img[2]/@src
+    regExp: /(\d+)
+    regExpReplace: $1
+  - name: firstVariant
+    xpath: //ul[@id="product-page-swatches"]//li//img[contains(@alt,'selected')]/@alt
+    regExp: selected\s(.+)
+    regExpReplace: $1
+  - name: variantId
+    xpath: //link[@rel="canonical"]/@href
+    regExp: /(\d+)
+    regExpReplace: $1
+  - name: variants
+    xpath: //a[@class='appendedvariantid']/@href
+  - name: variantCount
+    xpath: count(//a[@class='appendedvariantid']/@href)
+  - name: color
+    xpath: //img[contains(@alt,'selected')]/@alt
+    regExp: selected\s(.+)
+    regExpReplace: $1
+  - name: size
+    xpath: //span[contains(text(),'Size Info')]/following-sibling::ul
+  - name: coupon
+    xpath: //a[contains(text(),'Apply now')]/parent::div
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(text(),"Details & Care")]/following-sibling::ul/li
