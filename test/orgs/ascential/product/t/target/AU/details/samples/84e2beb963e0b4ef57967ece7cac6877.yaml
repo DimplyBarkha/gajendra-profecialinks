@@ -1,0 +1,91 @@
+input:
+  RPC: 64222080
+  _url: http://target.com.au
+extractions:
+  - html: https://workbench.import.io/html/run=ca9830e8-f86a-4ca8-9046-bc3c1c8ab977/task=2d337fb0-9daf-4ef0-8196-455e3ff39822/883f7fef-1199-4a04-a91b-f219e4eda3cb.html
+    extractionConfigId: product/details/stores/t/target/AU/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.target.com.au/medias/static_content/product/images/full/01/07/A1550107.jpg?impolicy=desktop_hero
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+            imageAlt:
+              - text: Casdon Dyson Cord-Free Toy Vacuum Cleaner
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@alt
+            alternateImages:
+              - text: https://www.target.com.au/medias/static_content/product/images/full/04/28/A1550428.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.target.com.au/medias/static_content/product/images/full/04/29/A1550429.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.target.com.au/medias/static_content/product/images/full/04/30/A1550430.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.target.com.au/medias/static_content/product/images/full/04/31/A1550431.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.target.com.au/medias/static_content/product/images/full/04/32/A1550432.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.target.com.au/medias/static_content/product/images/full/04/33/A1550433.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.target.com.au/medias/static_content/product/images/full/04/34/A1550434.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/img[1]/@src
+            productUrl:
+              - text: https://www.target.com.au/p/casdon-dyson-cord-free-toy-vacuum-cleaner/64222080
+                xpath: /html/head[1]/meta[17]/@content
+            category:
+              - text: Toys
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[1]/ol[1]/li[2]
+              - text: Pretend Play
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[1]/ol[1]/li[3]
+            nameExtended:
+              - text: Casdon Dyson Cord-Free Toy Vacuum Cleaner
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            description:
+              - text: >-
+                  This toy replica of the Dyson Cord-Free roleplay toy vacuum
+                  cleaner is a great pretend play item, based on the real Dyson
+                  cord free vacuum cleaners.
+
+                  It features working suction, simulated cyclone action, realistic sound and also come complete with different attachments, which encourages various ways to play.
+
+                  It will pick up bits of fluff and dust so your child can really help with the housework.
+
+                  Built into the vacuum is a handy dust compartment, which makes it easy to empty your rubbish into the bin.
+
+                  One hand easy removal system for changing nozzles.
+
+                  Suitable Ages: 3+ years.
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/p[1]
+            sku:
+              - text: "64222080"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/meta[2]/@content
+            name:
+              - text: Casdon Dyson Cord-Free Toy Vacuum Cleaner
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            warnings:
+              - text: Do not immerse in water.
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[3]
+            shippingDimensions:
+              - text: " 10cm (W) x 15cm(D) x 71cm(H) x 1kg approx"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[10]
+              - text: " 49cm(H) x 13cm(W) x 16cm(D) x 1.03kg approx"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[11]
+            eangtin:
+              - text: "01"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+              - text: "07"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+            gtin:
+              - text: "01"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+              - text: "07"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+            variantId:
+              - text: "64222080"
+                xpath: /html/head[1]/link[11]/@href
+            availabilityText:
+              - text: Out of Stock
+            descriptionBullets:
+              - text: "14"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1598893232402

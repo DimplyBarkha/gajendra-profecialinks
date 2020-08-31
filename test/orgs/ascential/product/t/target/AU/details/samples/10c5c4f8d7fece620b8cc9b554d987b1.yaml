@@ -1,0 +1,93 @@
+input:
+  RPC: W1326593
+  _url: http://target.com.au
+extractions:
+  - html: https://workbench.import.io/html/run=ca9830e8-f86a-4ca8-9046-bc3c1c8ab977/task=c226639a-2d3d-44bb-806d-68d67d1fc6ce/83d14771-d2b3-476e-94f7-d491bae6630a.html
+    extractionConfigId: product/details/stores/t/target/AU/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.target.com.au/medias/static_content/product/images/full/35/86/A1353586.jpg?impolicy=desktop_hero
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+            imageAlt:
+              - text: All Seasons Quilt - Medium Warmth Rating
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@alt
+            alternateImages:
+              - text: https://www.target.com.au/medias/static_content/product/images/full/92/25/A1349225.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.target.com.au/medias/static_content/product/images/full/45/04/A1494504.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.target.com.au/medias/static_content/product/images/full/93/69/A1459369.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.target.com.au/medias/static_content/product/images/full/84/88/A1428488.jpg
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+            productUrl:
+              - text: https://www.target.com.au/p/all-seasons-quilt-medium-warmth-rating/1326593_white
+                xpath: /html/head[1]/meta[17]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[1]/ol[1]/li[2]
+              - text: Bedroom
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[1]/ol[1]/li[3]
+              - text: Quilts
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[1]/ol[1]/li[4]
+            nameExtended:
+              - text: All Seasons Quilt - Medium Warmth Rating
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            description:
+              - text: >-
+                  Designed for year-round use, our All Seasons Quilt boasts a
+                  warmth rating of 2 and has a soft cotton casing for ultimate
+                  comfort.
+
+                  Natural cotton casing; soft to touch
+
+                  Polyester filling provides warmth and comfort throughout all seasons
+
+                  Warmth rating: 2
+
+                  Machine washable; easy to care for
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/p[1]
+            sku:
+              - text: "1326593"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/meta[2]/@content
+            ratingCount:
+              - text: "132"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/button[1]/div[3]/meta[1]/@content
+            aggregateRating:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/button[1]/div[2]
+            name:
+              - text: All Seasons Quilt - Medium Warmth Rating
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            warnings:
+              - text: >-
+                  Machine washable
+
+                  Larger sizes must be laundered in washing machines with capacity greater than 17kg
+
+                  Do not bleach or tumble dry
+
+                  Dry-cleanable ℗
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[2]
+            eangtin:
+              - text: "35"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+              - text: "86"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+            gtin:
+              - text: "35"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+              - text: "86"
+                xpath: /html/body/div[2]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2]/@src
+            variantId:
+              - text: "1326593"
+                xpath: /html/head[1]/link[11]/@href
+            availabilityText:
+              - text: Out of Stock
+            descriptionBullets:
+              - text: "6"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1598893294089

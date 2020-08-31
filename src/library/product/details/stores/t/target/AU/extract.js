@@ -15,15 +15,16 @@ module.exports = {
   ) => {
     const cssProduct = "h3[class='name-heading'] a";
     const cssProductDetails = 'h1[itemprop="name"]';
+    const isSelectorAvailable = async (cssSelector) => {
+      console.log(`Is selector available: ${cssSelector}`);
+      return await context.evaluate(function (selector) {
+        return !!document.querySelector(selector);
+      }, cssSelector);
+    };
 
-    if (cssProduct) {
-      const isSelectorAvailable = async (cssSelector) => {
-        console.log(`Is selector available: ${cssSelector}`);
-        return await context.evaluate(function (selector) {
-          return !!document.querySelector(selector);
-        }, cssSelector);
-      };
+    const isSearchPage = await isSelectorAvailable(cssProduct);
 
+    if (isSearchPage) {
       console.log('.....waiting......');
       await context.waitForSelector(cssProduct, { timeout: 10000 });
 
@@ -43,7 +44,7 @@ module.exports = {
       }
 
     } else {
-      console.log('Direct navigation complete!!');
+      const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
     }
     const { transform } = parameters;
     const { productDetails } = dependencies;
