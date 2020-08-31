@@ -94,7 +94,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    xpath: count(//option[contains(@value, 'https:')])-1
+    xpath: count(//option[contains(@value, 'https:')]/@data-lgimg)
   - name: color
     singleValue: false
     description: A textual description of the colour
