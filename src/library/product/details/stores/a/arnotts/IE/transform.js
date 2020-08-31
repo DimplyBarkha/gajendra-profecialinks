@@ -56,7 +56,7 @@ const transform = (data, context) => {
       }
       if (row.variantInformation) {
         row.variantInformation.forEach(variantInformation => {
-          variantInformation.text = variantInformation.text.replace(/"/g, '').replace('{url:{},', '').replace(/,/g, '|').replace(/}/g, '');
+          variantInformation.text = variantInformation.text.replace('You have selected:', '').trim();
         });
       }
       if (row.quantity) {

@@ -151,7 +151,7 @@ fields:
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
-    xpath: //*[contains(text(), 'Warranty')]
+    xpath: //*[contains(text(), 'Warranty')] | //*[contains(text(), 'guarantee')]
   - name: promotion
     singleValue: false
     description: promotion text on product page
@@ -159,7 +159,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //option[contains(@value, 'https:')]/@data-lgimg
+    xpath: //div[contains(@class, 'prod-feedback-txt')]
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
@@ -171,7 +171,7 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    manualSelector: span.product-collection
+    xpath: //a[contains(@class, 'product-actions-wishlist js-add-to-wishlist-link')]/@data-pid
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
