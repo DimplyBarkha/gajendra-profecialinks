@@ -83,10 +83,17 @@ async function implementation (
       document.body.appendChild(catElement);
     }
    let url = window.location.href;
-   let sku = url ? url.split('=') : '';
-   let length = sku.length;
+   let sku;
+   let sku1 = url ? url.split('=') : '';
+   let length = sku1.length;
    if(length > 1){
-    sku = sku[length -1];
+    sku = sku1[length -1];
+   }
+   let sku2List = document.querySelectorAll('meta[itemprop="sku"]');
+   let sku2;
+   if(sku2List){
+    // @ts-ignore
+    sku = sku2List[0].content;
    }
    let ulVariants = document.querySelectorAll('ul.product-list.multiple-variants li');
    if(ulVariants){

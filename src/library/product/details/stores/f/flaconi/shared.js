@@ -74,6 +74,11 @@ const transform = (data) => {
         }
         if (row.listPrice) {
           row.listPrice.forEach(item => {
+            item.text = item.text.replace('.','').replace(',','.');
+          });
+        }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
             item.text = item.text.replace('.',',');
           });
         }
