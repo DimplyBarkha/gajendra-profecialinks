@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'harveynorman',
     domain: 'harveynorman.com.au/',
-    loadedSelector: null,
+    loadedSelector: 'div#product-view-container',
     noResultsXPath: null,
     zipcode: '',
   },
