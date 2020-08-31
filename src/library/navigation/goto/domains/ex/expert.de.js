@@ -30,6 +30,7 @@ module.exports = {
       discard_CSP_header:false,
       timeout: 100000,
       waitUntil: 'load',
+      embed_iframes: true,
     });
   },
 
