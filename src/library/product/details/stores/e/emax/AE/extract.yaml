@@ -5,52 +5,48 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"fotorama__stage__shaft fotorama__grab")]//img/@src
+    xpath: //div[@data-fotorama-stage="fotorama__stage"]//div[contains(@class,"fotorama__active")]/@href
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class,'page-title')]/span
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'fotorama__nav__shaft')]//img/@src
-  - name: largeImageCount
-    singleValue: false
-    xpath: //div[contains(@class,'fotorama__nav__shaft')]//img/@src
+    xpath: //div[contains(@class,'fotorama__nav__shaft')]//div[contains(@class, "--thumb") and not(@data-active="true")]//img/@src
+    regExp: (.*)90x90(.*)
+    regExpReplace: $1700x700$2
+  # - name: largeImageCount
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'fotorama__nav__shaft')]//div[contains(@class, "--thumb") and not(@data-active="true")]//img/@src
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'price-box price-final_price')]/span
+    xpath: //div[@class="product-info-main"]//div[@data-role="priceBox"]
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,'product attribute overview')]
+    xpath: //div[@itemprop="description"]
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[contains(@class,'product attribute overview')]
+    xpath: count(//div[@itemprop="description"]//li)
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'product attribute description')]
+    xpath: //div[contains(@class,'description')]
   - name: specifications
     singleValue: true
     xpath: //table[@id="product-attribute-specs-table"]
   - name: warranty
     singleValue: false
-    xpath: //div[contains(@class,'options-list nested')]
+    xpath: //div[contains(@class,'options-list')]
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,'product attribute sku')]/div[1]
-  - name: asin
-    singleValue: false
-    xpath: //div[contains(@class,'product attribute sku')]/div[1]
-  - name: firstVariant
-    singleValue: false
-    xpath: //div[contains(@class,'product attibute sku')]
+    xpath: //div[@itemprop="sku"]
   - name: brandText
     singleValue: false
-    xpath: //h1[contains(@class,'page-title')]/span
+    xpath: //script[@data-flix-brand]/@data-flix-brand
   - name: name
     singleValue: false
     xpath: //h1[contains(@class,'page-title')]/span
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,'product attribute sku')]/div[1]
+    xpath: //div[@itemprop="sku"]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,'keywords')]/@content
@@ -58,3 +54,11 @@ fields:
     singleValue: false
     defaultValue: Out of Stock
     xpath: //div[@id='popup-mpdal-collect']//li
+  - name: weightNet
+    singleValue: false
+    xpath: //li[contains(text(), "Weight")]
+    regExp: 'Weight : (.*)'
+    regExpReplace: $1
+  - name: mpc
+    singleValue: false
+    xpath: //script[@data-flix-brand]/@data-flix-mpn

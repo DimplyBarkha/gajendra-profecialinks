@@ -5,8 +5,8 @@ module.exports = {
     country: 'AE',
     store: 'emax',
     domain: 'emaxme.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class*="column main"]',
+    noResultsXPath: '//h1//span[contains(text(), "404")]',
     zipcode: '',
   },
 };
