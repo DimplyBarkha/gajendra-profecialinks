@@ -46,7 +46,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: (//div[@class="product-order"]//form[contains(@class,"js-product-order-form")]//button[contains(@class,"add-to-cart-button")])[position()<2]
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
@@ -114,7 +114,7 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
-    xpath:
+    xpath: 
   - name: directions
     singleValue: true
     description: Content under "directions" header
@@ -527,21 +527,21 @@ fields:
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
     xpath: ancestor::html //ul[contains(@class,"inline-list")]//li//a[contains(@title,"terms and conditions")]
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
     xpath: ancestor::html //a[contains(@title,"privacy")]
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     xpath: ancestor::html //a[contains(@data-component,"Customer Service")]
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
   - name: materials
@@ -559,4 +559,4 @@ fields:
     xpath: (//img[contains(@class,"zoom__image")]/@class)[1]
     regExp: (.+)
     regExpReplace: Yes
-    defaultValue: No
+    defaultValue: Yes
