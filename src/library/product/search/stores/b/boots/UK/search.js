@@ -6,5 +6,6 @@ module.exports = {
     store: 'boots',
     domain: 'boots.com',
     zipcode: '',
+    defaultResults: 200,
   },
 };
