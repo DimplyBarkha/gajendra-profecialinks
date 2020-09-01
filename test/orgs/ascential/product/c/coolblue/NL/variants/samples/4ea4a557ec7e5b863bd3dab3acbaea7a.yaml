@@ -1,0 +1,34 @@
+input:
+  _url: http://coolblue.nl
+  URL: https://www.coolblue.nl/product/858549
+extractions:
+  - html: https://workbench.import.io/html/run=5d0e1c12-8f6b-430d-b077-893a790e60a9/task=a8043bca-c8c7-4f06-bb78-0b01c75a65e8/6e83eb17-62a6-41f1-bdfb-860e639ea0d3.html
+    extractionConfigId: product/details/stores/c/coolblue/NL/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "80735"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/807355/dyson-cyclone-v10-motorhead.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@value
+          - variantId:
+              - text: "80736"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/807362/dyson-cyclone-v10-absolute.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@value
+          - variantId:
+              - text: "85854"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/858549/dyson-v10-absolute-pro.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/input[1]/@value
+          - variantId:
+              - text: "86488"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[4]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/864889/dyson-v10-parquet.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[4]/div[1]/input[1]/@value
+        xpath: /html
+    timestamp: 1598964865252

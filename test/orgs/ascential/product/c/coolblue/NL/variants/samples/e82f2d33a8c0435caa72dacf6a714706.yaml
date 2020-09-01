@@ -1,0 +1,46 @@
+input:
+  _url: http://coolblue.nl
+  URL: https://www.coolblue.nl/product/828470
+extractions:
+  - html: https://workbench.import.io/html/run=b35cead2-3aa3-4393-a7a0-2b99840da3d2/task=f11e4d2a-d9cc-4a42-b6d2-05531bcac3e7/3a98b676-6b55-44e2-80fd-1b84bab95dd0.html
+    extractionConfigId: product/details/stores/c/coolblue/NL/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "85854"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/858546/dyson-v11-torque-drive-extra.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@value
+          - variantId:
+              - text: "82847"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/828470/dyson-v11-animal.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@value
+          - variantId:
+              - text: "85854"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/858547/dyson-v11-absolute-extra.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/input[1]/@value
+          - variantId:
+              - text: "85854"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[4]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/858548/dyson-v11-absolute-extra-pro.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[4]/div[1]/input[1]/@value
+          - variantId:
+              - text: "86638"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[5]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/866382/dyson-v11-absolute-extra-dyson-extension-hose.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[5]/div[1]/input[1]/@value
+          - variantId:
+              - text: "86796"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[6]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/867965/dyson-v11-parquet-extra.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[6]/div[1]/input[1]/@value
+        xpath: /html
+    timestamp: 1598964406851
