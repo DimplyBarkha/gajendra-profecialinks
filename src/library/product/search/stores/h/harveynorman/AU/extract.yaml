@@ -32,10 +32,8 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //dd[contains(@class, "bv-primarySummary-rating-container")]/@title
-    regExp: (\d+(\.\d+)?)
-    regExpReplace: $1
+    type: NUMBER
   - name: ratingCount
     singleValue: false
     xpath: //dd[contains(@class, "bv-rating-ratio-count")]/@title
-    regExp: (\d+(\.\d+)?)
-    regExpReplace: $1
+    type: NUMBER
