@@ -82,22 +82,22 @@ const transform = (data) => {
             item.text = item.text ? item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
           });
         }
-        // if (row.videos) {
-        //   row.videos.forEach(item => {
-        //     item.text = item.text ? item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
-        //   });
-        // }
-        if(row.video){
-          let textV;
-          row.video.forEach(item => {
-            textV += `${item.text} | `;
+        if (row.videos) {
+          row.videos.forEach(item => {
+            item.text = item.text ? item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim() : '';
           });
-          row.videos = [
-            {
-              text: textV,
-            },
-          ];
         }
+        // if(row.video){
+        //   let textV;
+        //   row.video.forEach(item => {
+        //     textV += `${item.text} | `;
+        //   });
+        //   row.videos = [
+        //     {
+        //       text: textV,
+        //     },
+        //   ];
+        // }
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
             if(item.text.includes('https:')){
