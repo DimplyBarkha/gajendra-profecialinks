@@ -1,0 +1,115 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    description: Name of product
+    xpath: //h1[contains(@class,'product-detail--title')]
+  - name: brandText
+    singleValue: true
+    description: Brand Text of product
+    xpath: //meta[@itemprop='brand']/@content
+  - name: price
+    singleValue: true
+    description: Price of product
+    xpath: //div[contains(@class,'product-price--main')]//span[@class='product-price--formattedValue']
+  - name: listPrice
+    singleValue: true
+    description: Undiscounted price of product
+    xpath: //div[contains(@class,'product-price--main')]//del[@class='product-price--oldPrice']
+  - name: aggregateRating
+    singleValue: true
+    description: Aggregate Rating of product
+    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content
+  - name: ratingCount
+    singleValue: true
+    description: Rating Count of product
+    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='reviewCount']/@content
+  - name: description
+    singleValue: true
+    description: Description of product
+    xpath: //div[contains(@class, 'product-aside--textBlock')]/p
+  - name: color
+    singleValue: true
+    description: Color of product
+    xpath: //div[contains(@class, 'inpage_selector_specification')]//table//tr[td[contains(translate(string(), 'COULEUR', 'couleur'), 'couleur')]]//td[contains(@class,'flix-d-p')]
+  - name: image
+    singleValue: true
+    description: Image of product
+    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content
+  - name: imageAlt
+    singleValue: true
+    description: Alternate text of product image
+    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@alt
+  - name: alternateImages
+    singleValue: true
+    description: Alternate images of product
+    xpath: (//div[contains(@class, 'product-image-container')]//a[contains(@class,'gallery-link')]//img/@src)[position()>1]
+  - name: videos 
+    singleValue: false
+    description: videos of product
+    xpath: //div[contains(@class,'inpage_selector_video')]//div[@id='fullPlaylist']//input/@value
+  - name: shippingInfo 
+    singleValue: false
+    description: Shipping Info of product
+    xpath: (//div[contains(@class, 'product-price--seller')]//span)[position()=1]
+  - name: weightNet 
+    singleValue: false
+    description: Weight of product
+    xpath: (//div[contains(@class,'product-aside--textBlock')]//ul[contains(@class, 'product-aside--list')]//li[contains(translate(string(), 'POIDS', 'poids'), 'poids')]//div//span)[position()=1]
+  - name: warranty 
+    singleValue: false
+    description: warranty of product
+    xpath: (//div[contains(@class,'product-tab--description')]//div[contains(@class,'product-tab--title')]//span[contains(@class, 'red-txt')])[position()=1]//text()
+  - name: variantId 
+    singleValue: false
+    description: selected variant of product
+    xpath: (//div[contains(@class, 'product-detail--reference')]//span/text())[position() = 1]
+    regExp: (.*)\:(.*)
+    regExpReplace: $2
+  - name: variantCount 
+    singleValue: false
+    description: variant count of product
+    xpath: count(//div[@id='onlineContent']//div[contains(@class, 'ui-variant--optionList')]//img)
+  - name: packSize 
+    singleValue: false
+    description: pack size of product
+    xpath: //ul[contains(@class, 'product-aside--list')]//li[contains(translate(string(), 'Quantité', 'Quantité'), 'Quantité')]//div
+  - name: legalDisclaimer 
+    singleValue: false
+    description: legal Disclaimer of product
+    xpath: //div[@id='footerAlcoholDisclaimer']
+  - name: _url 
+    singleValue: false
+    description: Product url
+    xpath: //meta[@property='og:url']/@content
+  - name: variants 
+    singleValue: false
+    description: Product variants
+    xpath: //div[@id='onlineContent']//div[contains(@class, 'ui-variant--optionList')]//img/@alt
+  - name: firstVariant 
+    singleValue: false
+    description: Product first variant
+    xpath: (//div[@id='onlineContent']//div[contains(@class, 'ui-variant--optionList')]//img/@alt)[position()=1]
+  - name: variantInformation 
+    singleValue: false
+    description: Product variant Information
+    xpath: (//div[@id='onlineContent']//div[contains(@class, 'ui-variant--title')]/text())[position()=1]
+  - name: category 
+    singleValue: false
+    description: Product Category
+    xpath: (//span[contains(@class, 'ui-breadcrumb--item')]//a)[position()>1 and string(text())]
+  - name: availabilityText 
+    singleValue: false
+    description: Product availability Text
+    xpath: //div[@id='custom-product-info-availablityText']/text()
+  - name: specifications 
+    singleValue: false
+    description: Product specifications
+    xpath: //table[contains(@class, 'flix-std-specs-table')]//tr/td/text()
+  - name: nameExtended
+    singleValue: true
+    description: Extended Name of product
+    xpath: //h1[contains(@class,'product-detail--title')]
