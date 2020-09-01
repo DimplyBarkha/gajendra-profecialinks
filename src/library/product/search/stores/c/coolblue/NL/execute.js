@@ -5,9 +5,9 @@ module.exports = {
     country: 'NL',
     store: 'coolblue',
     domain: 'coolblue.nl',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.coolblue.nl/zoeken?query={}',
+    loadedSelector: 'div#product-results',
+    noResultsXPath: '//h1[contains(text(),"Geen resultaten voor")]',
     zipcode: '',
   },
 };
