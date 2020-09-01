@@ -52,7 +52,7 @@ module.exports = {
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
   implementation: async ({ keywords, Keywords, Brands, results }, { country, store, domain, zipcode, defaultResults }, context, { execute, extract, paginate }) => {
-    results = defaultResults || 150;
+    results = results || defaultResults || 150;
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
