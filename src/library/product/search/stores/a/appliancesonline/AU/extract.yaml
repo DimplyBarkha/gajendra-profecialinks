@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'grid-container-flex')]/aol-product
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, 'product-name')]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, 'price')]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class, 'body-link')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.appliancesonline.com.au$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, 'main-image')]/@style
+    regExp: (?:\(['|"]?)(.*?\.(png|jpg|gif|jpeg|tiff){1})(?:['|"]?\))
+    regExpReplace: https://www.appliancesonline.com.au$1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div//a[contains(@class, 'rating-text ng-star')]
+    regExp: ^.{0,3}
+  - name: ratingCount
+    singleValue: false
+    xpath: //div//a[contains(@class, 'rating-text ng-star')]
+    regExp: ^.{0,3}
+  - name: reviewCount
+    singleValue: false
+    xpath: //div//a[contains(@class, 'rating-text ng-star')]/span
+    regExp: ([0-9]+)
