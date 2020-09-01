@@ -1,0 +1,179 @@
+input:
+  keywords: dyson
+  _url: http://placedestendances.com
+extractions:
+  - html: https://workbench.import.io/html/run=270f0f54-ef64-4d9c-93f7-fec2e2c10522/task=5ad81329-fe87-4634-8baf-ce0360083112/5a342303-11bb-4599-b170-f029b7a43de6.html
+    extractionConfigId: product/search/stores/p/placedestendances/FR/extract
+    data:
+      - group:
+          - category:
+              - text: Marques
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]/span[1]
+            sub_category:
+              - text: Dyson
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]/span[1]
+              - text: Printemps Beauté
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[4]/a[1]/span[1]
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+        xpath: /html/body
+      - group:
+          - sku_number:
+              - text: "4178292"
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[1]/@data-item-id
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+          - sku_number:
+              - text: "3942444"
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[2]/@data-item-id
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+          - sku_number:
+              - text: "4153279"
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[3]/@data-item-id
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+          - sku_number:
+              - text: "3942450"
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[4]/@data-item-id
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+          - sku_number:
+              - text: "3942447"
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[5]/@data-item-id
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+        xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]
+        htmlExtraction: https://crawl-assets.import.io/html/run=270f0f54-ef64-4d9c-93f7-fec2e2c10522/task=5ad81329-fe87-4634-8baf-ce0360083112/5a342303-11bb-4599-b170-f029b7a43de6.html
+      - group:
+          - product_image:
+              - text: https://medias-cache.placedestendances.com/image/38/9/2575389.png?func=fit&bg_color=f7f7f7&h=520&w=380
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson-dyson-supersonic-edition-speciale-fete-des-meres-4178292
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/@href
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+          - product_image:
+              - text: https://medias-cache.placedestendances.com/image/38/9/2575389.png?func=fit&bg_color=f7f7f7&h=520&w=380
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson-dyson-airwrap-complete-pour-tous-types-de-cheveux-3942444
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/a[1]/@href
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+          - product_image:
+              - text: https://medias-cache.placedestendances.com/image/38/9/2575389.png?func=fit&bg_color=f7f7f7&h=520&w=380
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson-dyson-corrale-4153279
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[3]/div[2]/div[1]/div[3]/div[1]/a[1]/@href
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+          - product_image:
+              - text: https://medias-cache.placedestendances.com/image/38/9/2575389.png?func=fit&bg_color=f7f7f7&h=520&w=380
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson-seche-cheveux-dyson-supersonic-black-nickel-3942450
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[4]/div[2]/div[1]/div[3]/div[1]/a[1]/@href
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+          - product_image:
+              - text: https://medias-cache.placedestendances.com/image/38/9/2575389.png?func=fit&bg_color=f7f7f7&h=520&w=380
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[5]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson-seche-cheveux-dyson-supersonic-gris-fuchsia-3942447
+                xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[3]/div[1]/a[1]/@href
+            search_term:
+              - text: Dyson
+            search_url:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson
+            online_price_currency:
+              - text: €
+            manufacturer:
+              - text: Dyson
+            brand:
+              - text: dyson
+        xpath: /html/body/div[5]/div[2]/div[1]/div[6]/div[3]/div[2]
+        htmlExtraction: https://crawl-assets.import.io/html/run=270f0f54-ef64-4d9c-93f7-fec2e2c10522/task=5ad81329-fe87-4634-8baf-ce0360083112/5a342303-11bb-4599-b170-f029b7a43de6.html
+    timestamp: 1598956579927

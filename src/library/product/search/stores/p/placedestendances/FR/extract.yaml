@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@id,'viewallElement')]//div[contains(@id,'viewallElement')]
 fields:
   - name: store
     singleValue: true
@@ -10,7 +10,7 @@ fields:
   - name: search_term
     defaultValue: Dyson
   - name: sku_number
-    xpath: //div[contains(@id,"viewallElement")]/@data-item-id
+    xpath: //@data-item-id
   - name: product_image 
     singleValue: true
     xpath: //*[contains(@id,"viewallElement")]/div[1]/div/div/div[5]/div/div/div/div[1]/div/div/a/img/@src
@@ -21,7 +21,7 @@ fields:
   - name: search_url
     defaultValue: https://beaute-printemps.placedestendances.com/fr/fr/dyson
   - name: online_price
-    xpath: //div[contains(@class,"viewallElementItemLabel")]/following-sibling::div[contains(@class,"viewallElementPrice")]//span[@class="viewallElementPriceAffiche"]
+    xpath: //div[contains(@class,"viewallElementItemLabel")]/following-sibling::div[contains(@class,"viewallElementPrice")]
   - name: online_price_currency
     singleValue: true
     defaultValue: €
@@ -30,9 +30,9 @@ fields:
     defaultValue: Dyson
   - name: category
     singleValue: true
-    xpath: //span[@itemprop="itemListElement"][position()=2]//span[@itemprop="name"]
+    xpath: ancestor::html//span[@itemprop="itemListElement"][position()=2]//span[@itemprop="name"]
   - name: sub_category
     singleValue: false
-    xpath: //span[@itemprop="itemListElement"][position()>2]//span[@itemprop="name"]
+    xpath: ancestor::html//span[@itemprop="itemListElement"][position()>2]//span[@itemprop="name"]
   - name: brand
     defaultValue: dyson
