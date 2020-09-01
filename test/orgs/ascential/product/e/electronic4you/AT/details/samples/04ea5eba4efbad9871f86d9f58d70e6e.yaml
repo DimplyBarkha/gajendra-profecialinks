@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-am07-turmventilator-144757.html
 extractions:
-  - html: https://workbench.import.io/html/run=c594e868-3251-4016-af2b-ec60e960c190/task=624d13c5-d399-4f6e-a654-effbe94cd7d3/5446fa81-fe9d-4a99-b334-67b711f99f8e.html
+  - html: https://workbench.import.io/html/run=7e7531d3-bace-43f6-8d47-c2cc1dd63d0c/task=f0755f98-553e-4e34-818c-d81dd05caf0d/7d687e60-72b5-4127-9f9a-3173a506554b.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -29,9 +29,6 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
               - text: Dyson AM07 Turmventilator
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[2]/span[1]
-            nameExtended:
-              - text: Dyson AM07 Turmventilator 300912-01 - Weiß/Silber
-                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
             listPrice:
               - text: € 399,–
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/p[1]/span[2]/span[1]
@@ -47,9 +44,6 @@ extractions:
             manufacturer:
               - text: DYSON
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[6]/div[1]/div[1]/div[1]/span[1]/img[1]/@alt
-            quantity:
-              - text: "1"
-                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[6]/div[1]/div[1]/input[1]/@value
             weightGross:
               - text: 2,9 kg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[1]
@@ -68,6 +62,30 @@ extractions:
             name:
               - text: Dyson AM07 Turmventilator 300912-01 - Weiß/Silber
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            specifications:
+              - text: 101 x 19 x 23 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            warranty:
+              - text: "2 Jahre Dyson Garantie Die Garantiezeit beginnt mit dem Tag des
+                  Verkaufes. Für Ihren Dyson Kundendienstanspruch benötigt Dyson
+                  den Original-Kaufbeleg auf dem das Kaufdatum ersichtlich ist,
+                  sowie die Seriennummer des Gerätes, welche Sie dem Typenschild
+                  entnehmen können. Dyson garantiert jedem Kunden eine
+                  Vollgarantie inklusive kostenlosen Abhol- und Lieferservice,
+                  soweit sich in dem entsprechenden Land eine Dyson
+                  Niederlassung befindet. Garantiezeiten: - Bodenstaubsauger 5
+                  Jahre - Kabellose Staubsauger 2 Jahre - Raumklimageräte 2
+                  Jahre - Haarpflege 2 Jahre - Leuchten 2 Jahre - Zubehör &
+                  Ersatzteile 1 Jahr"
+                xpath: /html/body/div[9]
+            promotion:
+              - text: "Sie sparen: € 50,– (12,53%)"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/p[1]
+            technicalInformationPdfPresent:
+              - text: "true"
+                xpath: /html/body/div[10]
+            nameExtended:
+              - text: Dyson AM07 Turmventilator 300912-01 -  Weiß/Silber - 144757
             description:
               - text: "Patentierte Air MultiplierTM TechnologieFernbedienungSleep-Timer Funktion
                   Geräteabmessungen (HxBxT) in cm 101 x 19 x 23 cm Garantie 2
@@ -103,4 +121,4 @@ extractions:
                   sobald die bestellte Ware versendet oder in einem unserer
                   Shops abgeholt wurde."
         xpath: /
-    timestamp: 1598613360375
+    timestamp: 1598965238182

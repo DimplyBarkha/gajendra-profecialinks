@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-airwrap-complete-multistyler-184998.html
 extractions:
-  - html: https://workbench.import.io/html/run=8cdaf182-d119-41c4-a2aa-f2e3e279865a/task=64d831b3-a086-4d57-bbea-958adad62e4c/0bbe9ecd-43a0-4a63-a84c-95820778030f.html
+  - html: https://workbench.import.io/html/run=7e7531d3-bace-43f6-8d47-c2cc1dd63d0c/task=28df101f-df0d-45e3-b3a5-710239231ca9/f0839db5-10aa-4c35-ac69-cde2e2c3b72a.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -31,9 +31,6 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
               - text: Dyson Airwrap Complete Multistyler
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[2]/span[1]
-            nameExtended:
-              - text: Dyson Airwrap Complete Multistyler
-                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
             listPrice:
               - text: € 499,–
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/span[1]/span[1]
@@ -76,10 +73,12 @@ extractions:
                   Jahre - Kabellose Staubsauger 2 Jahre - Raumklimageräte 2
                   Jahre - Haarpflege 2 Jahre - Leuchten 2 Jahre - Zubehör &
                   Ersatzteile 1 Jahr"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[7]
             technicalInformationPdfPresent:
               - text: "false"
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[8]
+            nameExtended:
+              - text: Dyson Airwrap Complete Multistyler  - 184998
             description:
               - text: "Haare anziehen und umwickeln, nur durch Luft Durch den Coanda-Effekt wird
                   das Haar zur Bürste gezogen und die Luft verteilt sich entlang
@@ -117,4 +116,4 @@ extractions:
                   sobald die bestellte Ware versendet oder in einem unserer
                   Shops abgeholt wurde."
         xpath: /
-    timestamp: 1598955390203
+    timestamp: 1598965230658

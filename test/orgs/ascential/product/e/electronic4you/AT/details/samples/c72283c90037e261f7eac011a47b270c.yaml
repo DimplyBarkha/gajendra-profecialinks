@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-airblade-9kj-184979.html
 extractions:
-  - html: https://workbench.import.io/html/run=8cdaf182-d119-41c4-a2aa-f2e3e279865a/task=38231ace-25c4-4f2b-9488-73791e263f97/9c5848a0-3173-40b1-936c-ede516ad1595.html
+  - html: https://workbench.import.io/html/run=7e7531d3-bace-43f6-8d47-c2cc1dd63d0c/task=dfe69a9f-af5d-4038-b2a6-927d40ac341f/4b1aede9-d765-46c0-89f2-3e678478cd85.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -35,9 +35,6 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
               - text: Dyson Airblade 9kJ
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[2]/span[1]
-            nameExtended:
-              - text: Dyson Airblade 9kJ Händetrockner HU03
-                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
             listPrice:
               - text: € 1.319,–
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/p[1]/span[2]/span[1]
@@ -101,7 +98,9 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/p[1]
             technicalInformationPdfPresent:
               - text: "true"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[7]
+            nameExtended:
+              - text: Dyson Airblade 9kJ Händetrockner HU03 - 184979
             description:
               - text: "Curved Blade™ DesignTrocknet hygienisch mit sauberer LuftUnser bislang
                   leisester3 Dyson Airblade™ HändetrocknerSchnelles
@@ -172,4 +171,4 @@ extractions:
                   mithilfe der Dyson Testmethode 769 auf Grundlage von NSF P335
                   bis zu einer Restfeuchtigkeit von 0,1g bestimmt."
         xpath: /
-    timestamp: 1598955393764
+    timestamp: 1598965232666
