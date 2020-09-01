@@ -96,7 +96,7 @@ fields:
     xpath: //div[@id="aggregateRating"]
   - name: shippingInfo
     singleValue: true
-    xpath: 
+    xpath: //div[@class="shipping_and_returns"]/div[@class="table"][1]
   - name: shipping
     singleValue: true
     xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1]     

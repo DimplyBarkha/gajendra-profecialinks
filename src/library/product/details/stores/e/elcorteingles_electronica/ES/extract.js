@@ -226,7 +226,7 @@ module.exports = {
       document.querySelectorAll('link[as=image]').forEach(e => {
         alternateImages.push(e.href);
       });
-      addElementToDocument('alternateImages', alternateImages.slice(0).join(' | ').replace(/210x210/gm, "1200x1200"));
+      addElementToDocument('alternateImages', alternateImages.slice(1).join(' | ').replace(/210x210/gm, "1200x1200"));
       // Specifications
       let specifcations = [];
       let specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
