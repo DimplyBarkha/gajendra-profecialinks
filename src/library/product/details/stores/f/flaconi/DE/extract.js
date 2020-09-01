@@ -112,7 +112,7 @@ async function implementation (
    }
    
    let addToCartBtn = document.querySelectorAll('button');
-   let availability = 'Out of Stock';
+   let availability = 'In Stock';
    for (let index = 0; index < addToCartBtn.length; index++) {
      const element = addToCartBtn[index].innerText;
      // @ts-ignore
@@ -120,6 +120,8 @@ async function implementation (
      if(sku === datasetSku){
       if((element.includes('In den Warenkorb') || (element.includes('in den warenkorb')))){
         availability = 'In Stock'
+      }else{
+        availability = 'Out of Stock'
       }
      } 
    }
