@@ -23,15 +23,20 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.nameExtended) {
+      if (row.name) {
         let specs = '';
-        row.nameExtended.forEach(item => {
-          specs += `${item.text} `;
+        row.name.forEach(item => {
+          specs += ` ${item.text.trim()}`;
         });
-        row.nameExtended = [
+        row.name = [
           {
-            text: specs,
+            text: specs.trim(),
           },
+        ];
+      }
+      if (row.name && row.brandText) {
+        row.nameExtended = [
+          { text: row.brandText[0].text + ' - ' + row.name[0].text },
         ];
       }
       if (row.description) {
@@ -92,6 +97,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.weightGross) {
+        let specs = '';
+        row.weightGross.forEach(item => {
+          specs += `${item.text.replace(':', '')}`;
+        });
+        row.weightGross = [
+          {
+            text: specs.trim(),
+          },
+        ];
+      }
       if (row.weightNet) {
         let specs = '';
         row.weightNet.forEach(item => {
@@ -125,71 +141,6 @@ const transform = (data) => {
           },
         ];
       }
-
-      // if (row.category) {
-      //     let text = '';
-      //     row.category.forEach(item => {
-      //         text += `${item.text.replace(/|/g, '')}`;
-      //     });
-      //     row.category = [
-      //         {
-      //             text: cleanUp(text),
-      //         },
-      //     ];
-      // }
-      // // if (row.weightNet) {
-      //     let text = '';
-      //     row.weightNet.forEach(item => {
-      //         text += `${item.text.replace(/\n \n/g, ':')}`;
-      //     });
-      //     row.weightNet = [
-      //         {
-      //             text: cleanUp(text),
-      //         },
-      //     ];
-      // }
-      // if (row.shippingDimensions) {
-      //     let text = '';
-      //     row.shippingDimensions.forEach(item => {
-      //         text += `${item.text.replace(/\n \n/g, ':')} | `;
-      //     });
-      //     row.shippingDimensions = [
-      //         {
-      //             text: cleanUp(text.slice(0, -3)),
-      //         },
-      //     ];
-      // }
-      // if (row.manufacturerDescription) {
-      //     let text = '';
-      //     row.manufacturerDescription.forEach(item => {
-      //         text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '');
-      //     });
-      //     row.manufacturerDescription = [
-      //         {
-      //             text: cleanUp(text),
-      //         },
-      //     ];
-      // }
-      // if (row.description || row.descriptionBulletsLiTags) {
-      //     const description = row.description;
-      //     let textOne = '';
-      //     description && description.length && description.forEach(item => {
-      //         textOne += `${item.text.replace(/\n \n/g, '')}`;
-      //     });
-      //     textOne = textOne.trim();
-      //     let textTwo = '';
-      //     const descriptionLiTags = row.descriptionBulletsLiTags;
-      //     descriptionLiTags && descriptionLiTags.length && descriptionLiTags.forEach(item => {
-      //         textTwo += ` || ${item.text.replace(/\n \n/g, '')}`;
-      //     });
-      //     textTwo = textTwo.trim();
-      //     const data = [textOne, textTwo];
-      //     row.description = [
-      //         {
-      //             text: cleanUp(data.join(' ')),
-      //         },
-      //     ];
-      // }
     }
   }
   return data;

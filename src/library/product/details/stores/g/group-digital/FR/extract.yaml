@@ -15,9 +15,12 @@ fields:
   - name: category
     singleValue: false
     xpath: (//div[@class="breadcrumbs"]//li/a/span)[position()>1]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"product-name")]/h1/*[not(name()='p')]
   - name: nameExtended
     singleValue: false
-    xpath: //*[@class="product-name"]/h1/div | //*[@class="h1 supplierref"]
+    xpath: 
   - name: listPrice
     singleValue: false
     xpath: (//*[@class="old-price"]/span[@class="price"])[1]
@@ -33,7 +36,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    xpath: //*[@class="services_included"]//li
+    xpath: 
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -48,7 +51,7 @@ fields:
     defaultValue: Out of Stock
   - name: brandText
     singleValue: false
-    xpath: (//*[@id="product_addtocart_form"]/div[1]/div[3]/div[1]/h1/span)[1]
+    xpath: //meta[contains(@itemprop,"brand")]/@content
   - name: brandLink
     singleValue: false
     xpath: //*[@id="product_addtocart_form"]/div[1]/div[3]/div[1]//a/@href
@@ -65,10 +68,20 @@ fields:
     regExp: \d+
   - name: shippingDimensions
     singleValue: false
-    xpath: //*[contains(text(),"Dimensions") and contains(text(),"emball")]/following::text()[1]
+    xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Dimensions") and contains(text(),"emball")]/following::text()[1]
   - name: weightNet
     singleValue: false
-    xpath: //*[contains(text(),"Poids ") and contains(text(),"produit") and not(contains(text(),"emball"))]/following::text()[1]
+    xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Poids ") and contains(text(),"produit") and not(contains(text(),"emball")) or contains(text(),"Poids de l'appareil")]/following::text()[1]
   - name: shippingWeight
     singleValue: false
-    xpath: //*[contains(text(),"Poids ") and contains(text(),"emball")]/following::text()[1]
+    xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Poids ") and contains(text(),"emball")]/following::text()[1]
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: warranty
+    singleValue: false
+    xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Garantie")]/following::text()[1]  
+  - name: weightGross
+    singleValue: false
+    xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Poids ") and contains(text(),"emball")]/following::text()[1]
+  
