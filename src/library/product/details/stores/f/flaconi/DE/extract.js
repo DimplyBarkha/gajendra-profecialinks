@@ -171,12 +171,43 @@ async function implementation (
     addElementToDocument('bb_descriptionBullets', descArr);
 
     //------------------------------------------
-    let variantAmount = document.querySelector('ul.product-list.multiple-variants li.product-container.variant span.amount');
+    let variantAmount = document.querySelector('ul.product-list.multiple-variants li.product-container.variant.selected span.amount');
+    if(variantAmount){
+      // @ts-ignore
+      variantAmount = variantAmount ? variantAmount.innerText : '';
+    }else{
+    variantAmount = document.querySelector('ul.product-list li.product-container.variant.visible span.amount');
     // @ts-ignore
     variantAmount = variantAmount ? variantAmount.innerText : '';
-    let variantUnit = document.querySelector('ul.product-list.multiple-variants li.product-container.variant span.unit');
+    if(!variantAmount){
+      variantAmount = document.querySelector('ul.product-list li.product-container.variant.active.visible span.amount');
+      // @ts-ignore
+      variantAmount = variantAmount ? variantAmount.innerText : '';
+    }else{
+      variantAmount = document.querySelector('ul.product-list.multiple-variants li.product-container.variant.selected span.amount');
+      // @ts-ignore
+      variantAmount = variantAmount ? variantAmount.innerText : '';
+    }
+    }
+    let variantUnit = document.querySelector('ul.product-list.multiple-variants li.product-container.variant.selected span.unit');
+    if(variantUnit){
     // @ts-ignore
     variantUnit = variantUnit ? variantUnit.innerText : '';
+    }else{
+      variantUnit = document.querySelector('ul.product-list li.product-container.variant.visible span.unit');
+      // @ts-ignore
+    variantUnit = variantUnit ? variantUnit.innerText : '';
+    if(!variantUnit){
+      variantUnit = document.querySelector('ul.product-list li.product-container.variant.active.visible span.unit');
+      // @ts-ignore
+      variantUnit = variantUnit ? variantUnit.innerText : '';
+    }else{
+      variantUnit = document.querySelector('ul.product-list.multiple-variants li.product-container.variant.selected span.unit');
+      // @ts-ignore
+      variantUnit = variantUnit ? variantUnit.innerText : '';
+    }
+    }
+    
     addElementToDocument('ii_variantInfo', variantAmount+' '+variantUnit);
     });
     return await context.extract(productDetails, { transform });

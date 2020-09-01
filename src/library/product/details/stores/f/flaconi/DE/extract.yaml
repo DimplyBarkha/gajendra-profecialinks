@@ -137,7 +137,7 @@ fields:
     defaultValue: 1
   - name: variantInformation
     singleValue: false
-    xpath: //span[@id="makeup-color-select"] | //div[@id="ii_variantInfo"]
+    xpath: //div[@id="ii_variantInfo"] | //span[@id="makeup-color-select"]
   - name: variants
     singleValue: false
     xpath: //ul[@id="makeup-color-list"]/li/a/@data-sku | //ul[@class="product-list multiple-variants"]/li/@data-sku
