@@ -56,7 +56,12 @@ const transform = (data) => {
       }
       if (row.weightNet) {
         row.weightNet.forEach(item => {
-          const val = item.text.split(';').filter((item) => {
+          let val = item.text.split(';').filter((item) => {
+            if (item.includes('weigh')) {
+              return item.trim();
+            }
+          });
+          val = val.join(',').split(',').filter((item) => {
             if (item.includes('weigh')) {
               return item.trim();
             }
