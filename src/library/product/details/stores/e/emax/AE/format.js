@@ -35,8 +35,11 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.price) {
+        row.price[0].text = row.price[0].text.replace(/,/g, '');
+      }
       if (row.description) {
-        row.description[0].text = row.description[0].text.replace(/\n \n/g, '').replace(/\n/, ' ');
+        row.description[0].text = row.description[0].text.replace(/\n \n/g, '').replace(/\n /g, ' ');
       }
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/\n \n/g, ' || ');
@@ -49,23 +52,23 @@ const transform = (data) => {
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
-          item.text = item.text.replace('More Information \n \n \n', '').replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ')
-        })
+          item.text = item.text.replace('More Information \n \n \n', '').replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ');
+        });
         // row.specifications[0].text = row.specifications[0].text.replace('More Information \n \n \n', '');
         // row.specifications[0].text = row.specifications[0].text.replace(/\n \n \n \n/g, ' || ');
         // row.specifications[0].text = row.specifications[0].text.replace(/\n \n/g, ' : ');
       }
       if (row.warranty) {
         row.warranty.forEach(item => {
-          item.text = item.text.replace(/\n/g, ' | ')
-        })
+          item.text = item.text.replace(/\n/g, ' | ');
+        });
         // row.warranty[0].text = row.warranty[0].text.replace('OEM Warrenty \n', '');
         // row.warranty[0].text = row.warranty[0].text.replace(/\n/g, ' | ');
       }
       if (row.availabilityText) {
         row.availabilityText = row.availabilityText.length ? [{ text: 'In Stock' }] : [{ text: 'Out of Stock' }];
       }
-      row.variantCount = [{ text: 1 }]
+      row.variantCount = [{ text: 1 }];
     }
   }
   return data;
