@@ -131,6 +131,10 @@ const transform = (data, context) => {
         row.variantInformation[0].text = row.variantInformation[0].text.replace('Farbe: ', '');
       }
 
+      if (row.specifications) {
+        row.specifications[0].text = row.specifications[0].text.trim();
+      }
+
       // if (row.technicalInformationPdfPresent) {
       //   row.technicalInformationPdfPresent.forEach(item => {
       //     item.text = item.text == 'true' ? 'Yes' : 'No';

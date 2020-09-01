@@ -5,17 +5,31 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'mediamarkt',
-    transform,
+    transform: transform,
     domain: 'mediamarkt.nl',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    // const selectorAvailable = async (cssSelector) => {
-    //   console.log(`Is selector available: ${cssSelector}`);
-    //   return await context.evaluate(function (selector) {
-    //     return !!document.querySelector(selector);
-    //   }, cssSelector);
-    // };
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    const selectorAvailable = async (cssSelector) => {
+      console.log(`Is selector available: ${cssSelector}`);
+      return await context.evaluate(function (selector) {
+        return !!document.querySelector(selector);
+      }, cssSelector);
+    };
+
+    async function closeModal() {
+      const modal = await selectorAvailable('gdpr-cookie-layer--show');
+      console.log('modal!');
+      if (modal) {
+        console.log('modal!');
+        const modalCloseButton = await selectorAvailable('button.gdpr-cookie-layer__btn--submit');
+        if (modalCloseButton) {
+          await context.click('button.gdpr-cookie-layer__btn--submit');
+        }
+      }
+    }
+
+    closeModal();
 
     await context.evaluate(async function () {
       function getEleByXpath (xpath) {
@@ -50,16 +64,7 @@ module.exports = {
         addHiddenDiv('ii_videos', videos.join(' || '));
       }
     });
-
-    // const modal = await selectorAvailable('gdpr-cookie-layer--show');
-    // console.log('midal!')
-    // if (modal) {
-    //   console.log('midal!')
-    //   const modalCloseButton = await selectorAvailable('button.gdpr-cookie-layer__btn--submit');
-    //   if (modalCloseButton) {
-    //     await context.click('button.gdpr-cookie-layer__btn--submit');
-    //   }
-    // }
+    closeModal();
     await context.extract(productDetails, { transform });
   },
 };

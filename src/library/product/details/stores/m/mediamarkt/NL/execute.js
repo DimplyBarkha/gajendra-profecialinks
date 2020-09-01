@@ -5,8 +5,9 @@ module.exports = {
     country: 'NL',
     store: 'mediamarkt',
     domain: 'mediamarkt.nl',
-    loadedSelector: null,
-    noResultsXPath: null,
+    timeout: 35000,
+    loadedSelector: 'aside#product-sidebar',
+    noResultsXPath: '//div[contains(@class, "ErrorPage")]',
     zipcode: '',
   },
 };

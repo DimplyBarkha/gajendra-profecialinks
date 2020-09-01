@@ -9,7 +9,7 @@ module.exports = {
     domain: 'mediamarkt.de',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const manufDescButton = await context.evaluate(async function () {
       return !!document.querySelector('div[class^="RichProductDescription"] button');
     });

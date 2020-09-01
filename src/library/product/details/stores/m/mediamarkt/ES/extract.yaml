@@ -156,7 +156,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="wrp_flixmedia"]//div[contains(@class, "wrapper_flixmedia")]//img/@srcset|//div[@id="wrp_loadbee"]//div[contains(@class, "wrapper_loadbee")]//img/@srcset
+    xpath: //div[@id="wrp_flixmedia"]//div[contains(@class, "wrapper_flixmedia")]//img/@srcset|//div[@id="wrp_flixmedia"]//div[contains(@class, "wrapper_flixmedia")]//div[@class="inpage_selector_comparison"]//img/@src|//div[@id="wrp_loadbee"]//div[contains(@class, "wrapper_loadbee")]//img/@srcset
     description: Images within the third party description
   - name: videos
     singleValue: false
