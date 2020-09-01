@@ -44,6 +44,12 @@ module.exports = {
       if (manufacturerDesc2) {
         addElementToDocument('desc_manufacturer2', manufacturerDesc2.replace(/\n|•/g, '').replace(/\s{2,}/g, ' '));
       }
+      const pdfPresent = document.querySelector('a[title="Produktdatenblatt anzeigen"]')
+        // @ts-ignore
+        ? document.querySelector('a[title="Produktdatenblatt anzeigen"]').getAttribute('href') : '';
+      if (pdfPresent) {
+        addElementToDocument('pdfPresent', true);
+      } else addElementToDocument('pdfPresent', false);
     });
     await context.extract(productDetails);
   },
