@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="category-products"]/ul/li
 fields:
+  - name: id
+    xpath: //div[@id="itemId"]
+    regEx: (\d+)
   - name: productUrl
     description: The URL for the product details page
     xpath: //a[@class="product-image"]/@href

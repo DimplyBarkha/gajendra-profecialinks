@@ -32,6 +32,11 @@ async function implementation (
         ? item.querySelector('span.shipping-price>a').innerText.replace(/[+]/g, '') : '';
       const shippingInfo = stockStatus + ',' + shippingPrice;
       addElementToDocument(item, 'shippingInfo', shippingInfo);
+      // @ts-ignore
+      const itemId = item && item.querySelector('div.art-nr')
+        // @ts-ignore
+        ? item.querySelector('div.art-nr').innerText.replace(/[\D]+/g, '') : '';
+      addElementToDocument(item, 'itemId', itemId);
     }
   });
 
