@@ -6,25 +6,45 @@ fields:
   - name: store
     singleValue: true
   - name: rank
-    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
   - name: search_term
     defaultValue: Dyson
-  - name: sku_number
+  - name: id
     xpath: //@data-item-id
-  - name: product_image 
+  - name: thumbnail 
     singleValue: true
     xpath: //*[contains(@id,"viewallElement")]/div[1]/div/div/div[5]/div/div/div/div[2]/div/div/a/img/@src
-  - name: download_time
-    description: By workbench
-  - name: url
+  - name: name
+    xpath: //div[contains(@class,"viewallElementItemLabel")]
+    description: The product name
+  - name: ratingCount
+    xpath: //span[@itemprop="ratingCount"]
+    description: The number of ratings
+  - name: aggregateRating
+    xpath: //span[@itemprop="ratingValue"]
+    regExp: ^[^\s]+
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: productUrl
     xpath: //div[@class="row viewallElementDescRow"]//a/@href
   - name: search_url
     defaultValue: https://beaute-printemps.placedestendances.com/fr/fr/dyson
-  - name: online_price
+  - name: price
     xpath: //div[contains(@class,"viewallElementItemLabel")]/following-sibling::div[contains(@class,"viewallElementPrice")]
-  - name: online_price_currency
+    regExp: ^[^\s]+
+  - name: listPrice
+    xpath: //div[contains(@class,"viewallElementItemLabel")]/following-sibling::div[contains(@class,"viewallElementPrice")]
+    regExp: ^[^\s]+
+  - name: priceCurrency
     singleValue: true
-    defaultValue: €
+    defaultValue: EUR
   - name:  manufacturer
     singleValue: true
     defaultValue: Dyson
