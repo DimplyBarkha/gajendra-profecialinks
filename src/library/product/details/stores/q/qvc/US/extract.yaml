@@ -1,0 +1,151 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@aria-label='Video player']/@poster | //div[contains(@class,'easyzoom--with-thumbnails')]//@src
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,'easyzoom--with-thumbnails')]//@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //a[contains(@class,'thumbcell') and not(contains(@class,'skuThumb'))][position()>1]/@href
+    description: Other product images (not in manufacturer description)
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,'breadcrumb pageBreadcrumb')]/li[position()>1]
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'pdShortDesc')]//h1
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class,'price') and contains(@class,'strikeout')]
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    xpath: //span[contains(@class,'productDetailPrice')] | //span[@class='price priceSm'] | //span[@class='price']
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[contains(@class,'buyBoxAvailibility')]//p[contains(@style,'block')]
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    manualSelector: div[class*='accLongDesc'] div[class*='accordionBox'] div[class*='accordionTextbox']
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class,'accLongDesc')]//div[@class='accordionContent']//li[not(.//a/@href[contains(.,'.pdf')])])
+    description: Number of ul > li tags in the description
+  - name: brandText
+    singleValue: false
+    xpath: //script[contains(@class,'utagData')]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: weightNet
+    singleValue: true
+    xpath: //div[contains(@class,"accordionText")]//ul//li[contains(text(),"weighs")]
+    description: Net weight as described on the page
+  # - name: sku
+  #   singleValue: true
+  #   xpath: //div[@id='ii_sku'][last()]
+  #   description: The store-specific product identifier
+  # - name: variantId
+  #   singleValue: true
+  #   xpath: //div[@id='ii_sku'][last()]
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    xpath: //script[contains(@type,'application/ld+json')]
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[contains(@class,'BVRRCount')]//span[contains(@class,'BVRRNumber')]
+    description: The number of ratings
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[contains(@class,'reviewsContainer')]//span[contains(@class,'BVRRNumber BVRRRatingNumber')]
+    description: The stated aggregate rating normalized to be out of 5
+  # - name: variantCount
+  #   singleValue: false
+  #   xpath: count(//ul[contains(@class,'buyBoxColorList')]//li)
+  #   description: Number of variants listed
+  # - name: color
+  #   singleValue: true
+  #   description: A textual description of the colour
+  # - name: colorCode
+  #   singleValue: true
+  #   description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //h2[contains(.,'About')]/following-sibling::div #//div[contains(@class,'accordionText')]
+    description: The extended description of the product supplied by the lister
+  # - name: videos
+  #   singleValue: false
+  #   description: URLs of videos on page
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'pdShortDesc')]//h1
+    description: The product name
+  # - name: coupon
+  #   singleValue: true
+  #   description: Text of any coupon offer
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"accordionText")]//ul//li[contains(text(),"weighs")]
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    singleValue: true
+    xpath: //div[contains(@class,"accordionText")]//ul//li[contains(text(),"Warranty")]
+    description: Guarantee associated with the product
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //h2[contains(.,'Important Information')]/following-sibling::div 
+    description: Any other product information
+  - name: packaging
+    singleValue: true
+    description: Packaging information
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@class,"mt-savings")]
+    description: promotion text on product page
+  # - name: variantInformation
+  #   singleValue: true
+  #   description: colour / scent / flavour / other
+  # - name: firstVariant
+  #   singleValue: true
+  #   description: Unique identifier for a collection of variants. For a subset of
+  #     core feeds (43) we have a column "first_variant" that is populated with a
+  #     common code to link all variants for a product. method 1 (Preferred) = use
+  #     common tag (Could be parent sku) that is same value for all variants of a
+  #     product. method 2 = first_variant method technique, Identify the first
+  #     varient in the sequence and use this rpc to populate "first_variant" for
+  #     all variants of a product, this rpc becomes the common link between other
+  #     variants. method 3 = apply some logic to determine link between variants,
+  #     this will need analysis
+  # - name: variants
+  #   singleValue: false
+  #   description: null
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'accLongDesc')]//div[@class='accordionContent']//li[not(.//a/@href[contains(.,'.pdf')])]
+    description: null
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[contains(@class,'accLongDesc')]//div[@class='accordionContent']//li//a/@href[contains(.,'.pdf')]
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  
