@@ -1,26 +1,26 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: li[class="ais-InfiniteHits-item m-2"]
-recordXPath: //li[@class="ais-InfiniteHits-item m-2"]
+recordSelector: li[class="ais-InfiniteHits-item"]
+recordXPath: //li[contains(@class,"ais-InfiniteHits-item")]
 fields:
   - name: manufacturer
     singleValue: false
-    xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/h2
+    xpath: //li[contains(@class,"ais-InfiniteHits-item")]/a/h2
     regExp: ^([\w\-]+)(.*)
     regExpReplace: $1
   - name: productUrl
     singleValue: false
-    xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/@href
+    xpath: //li[contains(@class,"ais-InfiniteHits-item")]/a/@href
     regExp: ([/\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?
     regExpReplace: https://www.adorebeauty.com.au$1
   - name: thumbnail
     singleValue: false
-    xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/div/img/@src
+    xpath: //li[contains(@class,"ais-InfiniteHits-item")]/a/div/img/@src
     regExp: \/\/([^\?]+)(\?.*)?
     regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //li[@class="ais-InfiniteHits-item m-2"]/a/h2
+    xpath: //li[contains(@class,"ais-InfiniteHits-item")]/a/h2
   - name: price
     singleValue: false
     xpath: //div[@class="px-6 py-4 mt-auto"]/div/span[@class="text-16 font-montserrat font-bold"]
