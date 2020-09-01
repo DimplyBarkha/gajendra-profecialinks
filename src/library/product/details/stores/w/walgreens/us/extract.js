@@ -324,7 +324,7 @@ module.exports = {
 
           const restrictedStatesList = () => {
             const states = [];
-            document.querySelectorAll('ul[class^="state-code-restricted"] > li').forEach((li) => states.push(li.textContent));
+            [...document.querySelectorAll('ul[class^="state-code-restricted"] > li')].forEach((li) => states.push(li.textContent));
             if (states.length === 1) {
               return states.join('');
             }
@@ -377,7 +377,7 @@ module.exports = {
             const mixMatch = 'Mix & match products';
             const notPromotionRe = /(donation)|[Rr]eward|[Pp]oint|[Pp]ts/ig;
             const isPromotionRe = /(rebate)|(Extra Savings)/ig;
-            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.linkText === mixMatch ? (u.title) : (u.linkText ? u.linkText : u.title)) : '') : '';
+            const promotion = details.OfferList ? details.OfferList.map(u => (!notPromotionRe.test(u.title) && !notPromotionRe.test(u.linkText)) ? (u.linkText === mixMatch ? (u.title) : (u.linkText ? u.linkText : u.title)) : []) : [];
             promotion.forEach((promo) => {
               if (isPromotionRe.test(promo)) {
                 promo = (price && price.rebateOffers && price.rebateOffers.rebateText) ? price.rebateOffers.rebateText : '';
