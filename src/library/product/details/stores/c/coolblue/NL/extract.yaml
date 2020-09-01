@@ -1,0 +1,192 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _pageTimestamp
+    singleValue: false
+  - name: availabilityText
+    singleValue: false
+    xpath: //script[contains(text(),"ecomm_availability")]/text()
+    regExp: \"ecomm_availability":"(([^,]+)")
+    regExpReplace: $2
+  - name: shippingInfo
+    singleValue: false
+    xpath: //span[@class='js-delivery-information-usp']
+  - name: price
+    singleValue: false
+    xpath: //script[contains(text(),"price")]/text()
+    regExp: \"price":\s"([\d,]+.*)"
+    regExpReplace: € $1
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,"flex-unit")]//div[@class="js-configurator-discount-element"]
+  - name: lbb
+    singleValue: false
+    xpath:
+  - name: lbbPrice
+    singleValue: false
+    xpath: 
+  - name: _input
+    singleValue: false
+    xpath:
+  - name: image
+    singleValue: false
+    xpath: //li[@data-label="Main Image"]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //li[@data-label="Main Image"]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"product-media-gallery-thumbnails")]//ul[@class="product-media-gallery-thumbnails__wrapper js-media-gallery__thumbnails"]//li//img/@src
+    regExp: (.*\D)\d+x\d+\/?(.*)
+    regExpReplace: $1$2
+  - name: metaKeywords
+    singleValue: false
+    xpath:
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: category
+    singleValue: false
+    xpath: //div[@class='grid-wrapper-xs--padding grid-wrapper-m--padding']//li[2]
+  - name: nameExtended
+    singleValue: false
+    xpath: //span[contains(@class,'js-product-name')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='js-desktop-order-block']//div//span[@class='sales-price__former-price']
+  - name: priceCurrency
+    singleValue: false
+    xpath: //script[contains(text(),"priceCurrency")]/text()
+    regExp: \"priceCurrency":\s\s"([\d,]+.*)"
+    regExpReplace: $2
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value
+    regExp: (\/product\/)(\d+)
+    regExpReplace: $2
+  - name: Image360Present
+    singleValue: false
+    xpath:
+  - name: weightNet
+    singleValue: false
+    xpath: //dl[contains(translate(string(), 'Gewicht', 'Gewicht'), 'Gewicht')]/dd
+  - name: weightGross
+    singleValue: false
+    xpath: 
+  - name: gtin
+    singleValue: false
+    xpath: 
+  - name: sku
+    singleValue: false
+    xpath: //script[contains(text(),"sku")]/text()
+    regExp: \"sku":\s"(\d+)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //dl[contains(translate(string(), 'Artikelnummer', 'Artikelnummer'), 'Artikelnummer')]/dd
+  - name: packSize
+    singleValue: false
+    xpath:
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: 
+  - name: directions
+    singleValue: false
+    xpath:
+  - name: warnings
+    singleValue: false
+    xpath: 
+  - name: ratingCount
+    singleValue: false
+    xpath: //script[contains(text(),"aggregateRating")]/text()
+    regExp: \"reviewCount":\s"(\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//div[@class='review-rating__extra-enhanced-score'])[1]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class='grid-section-xs--gap-1']//ul[@class='list']
+  - name: description
+    singleValue: false
+    xpath: (//div[contains(@class,'cms-content js-product-description-content')]//p)[1]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count((//div[contains(@class,'cms-content js-product-description-content')]//p)[1]//li[not(span//img)])
+  - name: brandText
+    singleValue: false
+    xpath: //dl[contains(translate(string(), 'Merk', 'Merk'), 'Merk')]/dd
+  - name: manufacturer
+    singleValue: false
+    xpath: //dl[contains(translate(string(), 'Merk', 'Merk'), 'Merk')]/dd
+  - name: quantity
+    singleValue: false
+    xpath: //script[contains(text(),"ecomm_quantity")]/text()
+    regExp: \"ecomm_quantity":(\d+)
+    regExpReplace: $1
+  - name: lbb
+    singleValue: false
+    xpath:
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //dl[contains(string(),'Hoogte') or contains(string(),'Breedte') or contains(string(),'Diepte')]/dd
+  - name: shippingWeight
+    singleValue: false
+    xpath:
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value)
+  - name: color
+    singleValue: false
+    xpath: //div[@class='flex-unit js-field-title-value']
+  - name: colorCode
+    singleValue: false
+    xpath: 
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //meta[contains(@name,"description")]/@content
+  - name: lbbPrice
+    singleValue: false
+  - name: energyEfficiency
+    singleValue: false
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: count((//ul[contains(@class,"bullet-list")]//li[@class="js-product-in-the-box--item"]//a/@href)[1])
+  - name: manufacturerImages
+    singleValue: false
+    xpath:
+  - name: videos
+    singleValue: false
+    xpath: //li[@data-label="video"]/@data-video
+  - name: name
+    singleValue: false
+    xpath: //span[@class="js-product-name"]
+  - name: coupon
+    singleValue: false  
+    xpath: 
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@id,"product-specifications")]//div[@class="js-specifications-content"]
+  - name: warranty
+    singleValue: false
+    xpath: (//dl[contains(translate(string(), 'Garantie', 'Garantie'), 'Garantie')]/dd)[1]
+  - name: storage
+    singleValue: false
+  - name: countryOfOrigin
+    singleValue: false
+  - name: recyclingInformation
+    singleValue: false
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@id="product-information"]
+  - name: packaging
+    singleValue: false
+    xpath:
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='flex-unit js-field-title-value']
+  - name: termsAndConditions
+    singleValue: false
+    xpath: (//ul[contains(@class,"bullet-list")]//li[@class="js-product-in-the-box--item"]//a/@href)[1]
