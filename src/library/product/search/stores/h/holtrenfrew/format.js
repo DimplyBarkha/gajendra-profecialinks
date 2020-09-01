@@ -60,6 +60,10 @@ const transform = (data, context) => {
         if(row.id) row.id = row.id.map(getProductId);
       }
     }
+
+    context.setState({ rankCounter });
+    context.setState({ orgRankCounter });
+
     return data;
   };
   module.exports = { transform };
