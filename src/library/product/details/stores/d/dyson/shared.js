@@ -1,7 +1,6 @@
 
-const defaultproductPageSelector = "//main//div[@class='par parsys']//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
-
-module.exports.implementation = ({ productPageSelector = defaultproductPageSelector } = {}) => async function implementation (
+// module.exports.implementation = ({ productPageSelector = defaultproductPageSelector } = {}) =>
+async function implementation (
   inputs,
   parameters,
   context,
@@ -9,6 +8,8 @@ module.exports.implementation = ({ productPageSelector = defaultproductPageSelec
 ) {
   const { productDetails,Helpers } = dependencies;
   const helpers = new Helpers(context);
+  const productPageSelector = "//main//div[@class='par parsys']//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
+
   // first check that the page is a valid product page
   const isValidProductPage = await helpers.checkXpathSelector(productPageSelector);
   if (!isValidProductPage && productPageSelector) return; // exit without extracting anything
@@ -166,3 +167,4 @@ module.exports.implementation = ({ productPageSelector = defaultproductPageSelec
   });
   return await context.extract(productDetails, { transform: parameters.transform });
 };
+module.exports = { implementation };

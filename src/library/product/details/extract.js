@@ -48,6 +48,7 @@ module.exports = {
   ],
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:helpers/helpers'
   },
   path: './stores/${store[0:1]}/${store}/${country}/extract',
   implementation,

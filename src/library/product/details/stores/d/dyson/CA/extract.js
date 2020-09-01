@@ -10,5 +10,5 @@ module.exports = {
     domain: 'dysoncanada.ca',
     zipcode: '',
   },
-  implementation: implementation(),
+  implementation,
 };
