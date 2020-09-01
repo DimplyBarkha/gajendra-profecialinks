@@ -9,7 +9,7 @@ fields:
     xpath: //div[contains(@class,"selectable-card")]//input/@id
     regExp: collection-item-(\d{5})
     regExpReplace: $1
-  - name: URL
+  - name: variantUrl
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
     xpath:  //div[contains(@class,"selectable-card")]//input/@value
