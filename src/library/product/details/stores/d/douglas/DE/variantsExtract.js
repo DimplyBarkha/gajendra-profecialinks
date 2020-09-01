@@ -16,6 +16,7 @@ async function implementation(
       return newDiv;
     }
     let url = window.location.href;
+    addHiddenDiv('variantUrl', url);
     const variantContainer = document.querySelector('div.rd__product-details__picker__list');
     if (variantContainer) {
       const variants = variantContainer.querySelectorAll('div.rd__product-details__picker__list__item');
