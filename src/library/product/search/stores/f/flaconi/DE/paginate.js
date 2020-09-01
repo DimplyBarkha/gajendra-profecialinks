@@ -4,13 +4,13 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'flaconi',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[class="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="content"]',
-    openSearchDefinition: {
-      template: 'https://www.flaconi.de/{searchTerms}/?page={page}',
-    },
+    // openSearchDefinition: {
+    //   template: 'https://www.flaconi.de/{searchTerms}/?page={page}',
+    // },
     domain: 'flaconi.de',
   },
 };
