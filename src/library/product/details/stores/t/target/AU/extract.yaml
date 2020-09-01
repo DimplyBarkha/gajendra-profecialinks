@@ -21,11 +21,12 @@ fields:
     xpath: //h1[@itemprop="name"]
   - name: listPrice
   - name: price
-    xpath: //span[@class="price-regular"]
-    regExp: ^[^ –]+
-  - name: availabilityText
-    xpath: //button[contains(@class," AddCart-button")]
+    xpath: //meta[@itemprop="price"]/@content
     regExp: (.+)
+    regExpReplace: $$$1
+  - name: availabilityText
+    xpath: //meta[@itemprop="availability"]/@content
+    regExp: (.+/)(InStock)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
@@ -33,7 +34,9 @@ fields:
   - name: descriptionBullets
     xpath: count(//ul[@class="ProductFeaturesPanel-list"]//li)
   - name: brandText
-    xpath: //section[@itemprop="brand"]//span
+    xpath: //script[contains(.,"BRAND_CODE")]
+    regExp: (.*)(var MVT_BRAND_CODE =)(.+)(; var TARGET_META_PRODUCT_NAME.+)
+    regExpReplace: $3
   - name: sku
     xpath: //meta[@itemprop="productID"]/@content
     regExp: (\d+)
@@ -46,40 +49,29 @@ fields:
   - name: name
     xpath: //h1[@itemprop="name"]
   - name: warnings
-    xpath: //h6[contains(.,"Care Instructions")]/following-sibling::ul|//b[contains(.,"Cautions:")]/following-sibling::text()[1] | //p[contains(.,"Caution")]/text()[1]
+    xpath: //b[contains(.,"WARNING")]|//b[contains(.,"Cautions:")]/following-sibling::text()[1] | //p[contains(.,"Caution")]/text()[1]
   - name: directions
     xpath: //b[contains(.,"HOW TO USE")]/following-sibling::ul | //p[contains(.,"Follow usage suggestions in How To Use")]
   - name: shippingDimensions
-    xpath: //li[contains(.,"Dimensions:")]
+    xpath: //li[contains(.,"Product Dimensions:")]
     regExp: (.+:)(.+)
     regExpReplace: $2
   - name: eangtin
     xpath: //div[@class="GalleryItem-heroImage"]//img[2]/@src
-    regExp: /(\d+)
-    regExpReplace: $1
+    regExp: (.+/)(.\d+)(-|.)(.+)
+    regExpReplace: $2
   - name: gtin
     xpath: //div[@class="GalleryItem-heroImage"]//img[2]/@src
-    regExp: /(\d+)
-    regExpReplace: $1
-  - name: firstVariant
-    xpath: //ul[@id="product-page-swatches"]//li//img[contains(@alt,'selected')]/@alt
-    regExp: selected\s(.+)
-    regExpReplace: $1
+    regExp: (.+/)(.\d+)(-|.)(.+)
+    regExpReplace: $2
+  - name: specifications
+    xpath: //p[contains(.,"Specifications")]/ul[2]
   - name: variantId
     xpath: //link[@rel="canonical"]/@href
     regExp: /(\d+)
     regExpReplace: $1
-  - name: variants
-    xpath: //a[@class='appendedvariantid']/@href
-  - name: variantCount
-    xpath: count(//a[@class='appendedvariantid']/@href)
-  - name: color
-    xpath: //img[contains(@alt,'selected')]/@alt
-    regExp: selected\s(.+)
-    regExpReplace: $1
-  - name: size
-    xpath: //span[contains(text(),'Size Info')]/following-sibling::ul
-  - name: coupon
-    xpath: //a[contains(text(),'Apply now')]/parent::div
-  - name: additionalDescBulletInfo
-    xpath: //div[contains(text(),"Details & Care")]/following-sibling::ul/li
+  - name:  technicalInformationPdfPresent
+    xpath: //a[@data-event-label="PDF-help-gogo-walker-important-info"]
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
