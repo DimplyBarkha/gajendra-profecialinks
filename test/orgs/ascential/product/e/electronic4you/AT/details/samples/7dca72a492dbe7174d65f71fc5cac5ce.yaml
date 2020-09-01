@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-airwrap-complete-multistyler-184998.html
 extractions:
-  - html: https://workbench.import.io/html/run=8159e8ad-a688-4ba4-abf3-6d607ca50726/task=dae98758-f37c-4be9-b91d-abecb6aae81d/175efa4b-3b1e-44d2-9c38-3682a735357a.html
+  - html: https://workbench.import.io/html/run=8cdaf182-d119-41c4-a2aa-f2e3e279865a/task=64d831b3-a086-4d57-bbea-958adad62e4c/0bbe9ecd-43a0-4a63-a84c-95820778030f.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -64,6 +64,22 @@ extractions:
             name:
               - text: Dyson Airwrap Complete Multistyler
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            warranty:
+              - text: "2 Jahre Dyson Garantie Die Garantiezeit beginnt mit dem Tag des
+                  Verkaufes. Für Ihren Dyson Kundendienstanspruch benötigt Dyson
+                  den Original-Kaufbeleg auf dem das Kaufdatum ersichtlich ist,
+                  sowie die Seriennummer des Gerätes, welche Sie dem Typenschild
+                  entnehmen können. Dyson garantiert jedem Kunden eine
+                  Vollgarantie inklusive kostenlosen Abhol- und Lieferservice,
+                  soweit sich in dem entsprechenden Land eine Dyson
+                  Niederlassung befindet. Garantiezeiten: - Bodenstaubsauger 5
+                  Jahre - Kabellose Staubsauger 2 Jahre - Raumklimageräte 2
+                  Jahre - Haarpflege 2 Jahre - Leuchten 2 Jahre - Zubehör &
+                  Ersatzteile 1 Jahr"
+                xpath: /html/body/div[9]
+            technicalInformationPdfPresent:
+              - text: "false"
+                xpath: /html/body/div[10]
             description:
               - text: "Haare anziehen und umwickeln, nur durch Luft Durch den Coanda-Effekt wird
                   das Haar zur Bürste gezogen und die Luft verteilt sich entlang
@@ -101,4 +117,4 @@ extractions:
                   sobald die bestellte Ware versendet oder in einem unserer
                   Shops abgeholt wurde."
         xpath: /
-    timestamp: 1598622382131
+    timestamp: 1598955390203

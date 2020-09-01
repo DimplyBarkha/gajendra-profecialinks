@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-airblade-quiet-v-hu02-weiss-170710.html
 extractions:
-  - html: https://workbench.import.io/html/run=8159e8ad-a688-4ba4-abf3-6d607ca50726/task=cc2cac19-8505-410f-911b-3b5c374abc68/3e5ad13c-95d3-4ae6-9d0d-6da595e6f482.html
+  - html: https://workbench.import.io/html/run=8cdaf182-d119-41c4-a2aa-f2e3e279865a/task=fe4f6110-aaaf-4e35-aa0f-f938fcfd4d9c/56e31a6f-67f9-483a-93c6-e683c0f86d56.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -108,6 +108,15 @@ extractions:
             name:
               - text: Dyson Airblade Quiet V HU02 weiß Händetrockner
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            warranty:
+              - text: 5 Jahre Garantie Auf die Teile.
+                xpath: /html/body/div[9]
+            promotion:
+              - text: "Sie sparen: € 160,– (17,8%)"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/p[1]
+            technicalInformationPdfPresent:
+              - text: "true"
+                xpath: /html/body/div[10]
             description:
               - text: "Hochgeschwindigkeitsluftströme trocknen die Hände in 12 Sekunden.Der
                   HEPA-Filter entfernt mehr als 99,9 % der Bakterien aus der
@@ -185,4 +194,4 @@ extractions:
                   CO2-Emissionen, kein Papiermüll.5 Jahre GarantieAuf die
                   Teile. 
         xpath: /
-    timestamp: 1598622384397
+    timestamp: 1598955392460

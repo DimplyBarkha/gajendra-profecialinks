@@ -44,6 +44,11 @@ module.exports = {
       if (manufacturerDesc2) {
         addElementToDocument('desc_manufacturer2', manufacturerDesc2.replace(/\n|•/g, '').replace(/\s{2,}/g, ' '));
       }
+      const warrantyXpath = document.evaluate("//h3[contains(text(), 'arantie')]/..",document, null, XPathResult.STRING_TYPE, null);
+      const warranty = warrantyXpath ? warrantyXpath.stringValue : '';
+      if (warranty) {
+        addElementToDocument('warranty', warranty.replace(/•/g, '-').replace(/\s{2,}|\n/g, ' '));
+      }
       const pdfPresent = document.querySelector('a[title="Produktdatenblatt anzeigen"]')
         // @ts-ignore
         ? document.querySelector('a[title="Produktdatenblatt anzeigen"]').getAttribute('href') : '';
