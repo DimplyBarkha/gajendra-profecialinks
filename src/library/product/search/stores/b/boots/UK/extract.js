@@ -4,7 +4,7 @@ const { implementation } = require('../IE/extract');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'GB',
+    country: 'UK',
     store: 'boots',
     transform,
     domain: 'boots.com',

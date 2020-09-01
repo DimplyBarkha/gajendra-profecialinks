@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'boots.ie',
     url: 'https://www.boots.com/ProductDisplay?productId={id}',
-    country: 'GB',
+    country: 'UK',
     store: 'boots',
     zipcode: '',
   },

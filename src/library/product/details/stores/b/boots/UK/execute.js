@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'GB',
+    country: 'UK',
     store: 'boots',
     domain: 'boots.com',
     loadedSelector: 'canvas',

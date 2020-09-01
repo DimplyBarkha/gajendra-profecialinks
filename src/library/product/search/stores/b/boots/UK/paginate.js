@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'GB',
+    country: 'UK',
     store: 'boots',
     nextLinkSelector: 'button[class="results-btn-viewmore"]',
     mutationSelector: 'ul[class="grid_mode grid"]',

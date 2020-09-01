@@ -1,8 +1,8 @@
 
 module.exports = {
-  implements: 'product/search',
+  implements: 'product/details',
   parameterValues: {
-    country: 'GB',
+    country: 'UK',
     store: 'boots',
     domain: 'boots.com',
     zipcode: '',

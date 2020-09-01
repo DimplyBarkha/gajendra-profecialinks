@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
-    country: 'GB',
+    country: 'UK',
     store: 'boots',
     domain: 'boots.com',
     url: 'https://www.boots.com/sitesearch?searchTerm={searchTerms}',
