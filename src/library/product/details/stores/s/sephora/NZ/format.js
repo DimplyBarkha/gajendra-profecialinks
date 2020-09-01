@@ -32,44 +32,44 @@ const transform = (data, context) => {
       for (let row of group) {
         try {
 
-          if(row.description){
-            let text = row.description[0].text;
-            let bulletReplace = text.replace(/ - /g, " || ")
-            row.description[0].text = bulletReplace
-          }
-          if(row.ingredientsList){
-            let text = row.ingredientsList[0].text;
-            let bulletReplace = text.replace(/ - /g, " || ")
-            row.ingredientsList[0].text = bulletReplace
-          }
-          if(row.directions){
-            let text = row.directions[0].text;
-            let bulletReplace = text.replace(/ - /g, " || ")
-            row.directions[0].text = bulletReplace
-          }
+          // if(row.description){
+          //   let text = row.description[0].text;
+          //   let bulletReplace = text.replace(/ - /g, " || ")
+          //   row.description[0].text = bulletReplace
+          // }
+          // if(row.ingredientsList){
+          //   let text = row.ingredientsList[0].text;
+          //   let bulletReplace = text.replace(/ - /g, " || ")
+          //   row.ingredientsList[0].text = bulletReplace
+          // }
+          // if(row.directions){
+          //   let text = row.directions[0].text;
+          //   let bulletReplace = text.replace(/ - /g, " || ")
+          //   row.directions[0].text = bulletReplace
+          // }
 
-          if(row.image){
-            let text = row.image[0].text;
-            let splits = text.split("?");
+          // if(row.image){
+          //   let text = row.image[0].text;
+          //   let splits = text.split("?");
 
-            row.image[0].text = `https://sephora.com.au${splits[0]}`
-          }
+          //   row.image[0].text = `https://sephora.nz${splits[0]}`
+          // }
           
           if(row.alternateImages){
-              let imageArray = [];
-              if(row.alternateImages.length > 1){
-                for(let i = 0; i < row.alternateImages.length; i++){
-                  let text = row.alternateImages[i].text
-                  let splits = text.split("?");
-                  imageArray.push(`https://sephora.com.au${splits[0]}`);
-                }
-                let oneLess = imageArray.slice(1);
-                let joins = oneLess.join(" | ");
-                row.alternateImages = [{text: joins}]
-              } else {
-                row.alternateImages = [{text: ""}]
+            let imageArray = [];
+            if(row.alternateImages.length > 1){
+              for(let i = 0; i < row.alternateImages.length; i++){
+                let text = row.alternateImages[i].text
+                let splits = text.split("?");
+                imageArray.push(`${splits[0]}`);
               }
-          }
+              let oneLess = imageArray.slice(1);
+              let joins = oneLess.join(" | ");
+              row.alternateImages = [{text: joins}]
+            } else {
+              row.alternateImages = [{text: ""}]
+            }
+        }
 
         //   if(row.aggregateRating){
         //       let text = row.aggregateRating[0].text;
@@ -77,15 +77,6 @@ const transform = (data, context) => {
         //     row.aggregateRating[0].text = splits[0];
         // }
 
-          if(row.nameExtended){
-            let newName = [];
-            let text = row.nameExtended.forEach(name => {
-                newName.push(name.text)
-                name.text = "";
-            })
-            let joins = newName.join(" ")
-            row.nameExtended = [{text: joins}]
-          }
 
           if(row.additionalDescBulletInfo){
             row.additionalDescBulletInfo.forEach(bullet => {

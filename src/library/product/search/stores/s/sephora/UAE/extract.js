@@ -9,6 +9,7 @@ module.exports = {
     domain: 'sephora.ae',
     zipcode: '',
   },
+  implementation
 };
 
 async function implementation (
@@ -28,7 +29,7 @@ async function implementation (
       // await new Promise(resolve => setTimeout(resolve, 5000));
       scrollTop += 1000;
       window.scroll(0, scrollTop);
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 5000));
 
       console.log("SCROLLING");
       if (scrollTop === 20000) {

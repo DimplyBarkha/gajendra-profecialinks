@@ -34,8 +34,19 @@ module.exports = {
       await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     }
 
+    const pageCheck = await context.evaluate(function() {
+      let pageLoaded = '//main[contains(@data-comp, "ProductPage")]'
+      var checkElement = document.evaluate( pageLoaded, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if( checkElement.snapshotLength > 0 ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
 
-
+    if(!pageCheck){
+      throw new Error("productPageNotLoaded");
+    }
 
 
     // await context.captureRequests();
@@ -75,7 +86,9 @@ module.exports = {
               const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
           //    const req = await context.searchForRequest('/productimages/*');
           if(req){
-            reqAccept = req[0].requestHeaders.Accept;
+            if(req[0]){
+              reqAccept = req[0].requestHeaders.Accept;
+            }
           }
         }
       }
@@ -109,7 +122,7 @@ module.exports = {
         }
       }
       return videoIdForUrl
-    })
+    });
 
     
     const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl, acceptHeader) {
@@ -136,8 +149,10 @@ module.exports = {
         return fetched;
       }
       for(let i = 0; i < videoIdForUrl.length; i++){
-        let fetchTry = await fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[i]}`, 10);
-        srcArray.push(JSON.parse(fetchTry));
+        let fetchTry = await fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[i]}`, 5);
+        if(fetchTry !== "Nothing Found"){
+          srcArray.push(JSON.parse(fetchTry));
+        }
       }
       return srcArray;
     }, videoIdArray, reqAccept);

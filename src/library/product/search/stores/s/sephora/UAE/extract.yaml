@@ -20,10 +20,10 @@ fields:
     singleValue: false
     description: The product name
     xpath: //a[contains(@class, 'product-tile-link')]//span
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-    xpath: //a[contains(@class, "top")]/@data-productid
+  # - name: sku
+  #   singleValue: false
+  #   description: The store-specific product identifier
+  #   xpath: //a[contains(@class, "top")]/@data-productid
   - name: mpc
     singleValue: false
     description: The model code of the product
@@ -43,10 +43,10 @@ fields:
     singleValue: false
     description: The offered price for the product
     xpath: //div[contains(@class, 'product-pricing')]//span[last()]
-  - name: listPrice
-    singleValue: false
-    description: The stated undiscounted price for the product
-    xpath: //div[contains(@class, 'product-pricing')]//span
+  # - name: listPrice
+  #   singleValue: false
+  #   description: The stated undiscounted price for the product
+  #   xpath: //div[contains(@class, 'product-pricing')]//span
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -76,11 +76,11 @@ fields:
     singleValue: false
     description: Unique id (within this extractor)
     xpath: //a[contains(@class, "top")]/@data-productid
-  - name: nameExtended
-    singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //a[contains(@class, 'product-tile-link')]//span
+  # - name: nameExtended
+  #   singleValue: false
+  #   description: The product name, prefixing "${brand} - " if not included in "name"
+  #     and appending " - ${variantType}" if necessary (fixed per extractor)
+  #   xpath: //a[contains(@class, 'product-tile-link')]//span
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5

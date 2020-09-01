@@ -32,21 +32,23 @@ const transform = (data, context) => {
       for (let row of group) {
         try {
 
-          if(row.description){
-            let text = row.description[0].text;
-            let bulletReplace = text.replace(/ - /g, " || ")
-            row.description[0].text = bulletReplace
-          }
-          if(row.ingredientsList){
-            let text = row.ingredientsList[0].text;
-            let bulletReplace = text.replace(/ - /g, " || ")
-            row.ingredientsList[0].text = bulletReplace
-          }
-          if(row.directions){
-            let text = row.directions[0].text;
-            let bulletReplace = text.replace(/ - /g, " || ")
-            row.directions[0].text = bulletReplace
-          }
+          // if(row.description){
+          //   let text = row.description[0].text;
+          //   let bulletReplace = text.replace(/ - /g, " || ")
+          //   row.description[0].text = bulletReplace
+          // }
+          // if(row.ingredientsList){
+          //   let text = row.ingredientsList[0].text;
+          //   let bulletReplace = text.replace(/ - /g, " || ")
+          //   row.ingredientsList[0].text = bulletReplace
+          // }
+          // if(row.directions){
+          //   let textLines = [];
+          //   row.directions.forEach(line => {
+          //     let bulletReplace = line.text.replace(/ - /g, " || ")
+          //     row.directions[0].text = bulletReplace
+          //   })
+          // }
 
           // if(row.image){
           //   let text = row.image[0].text;
@@ -77,6 +79,7 @@ const transform = (data, context) => {
         //       let splits = text.split(" /");
         //     row.aggregateRating[0].text = splits[0];
         // }
+
 
           if(row.nameExtended){
             let newName = [];

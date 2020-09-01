@@ -51,14 +51,14 @@ const transform = (data, context) => {
         }
       }
 
-      if(row.name){
-        let names = [];
-        row.name.forEach(n => {
-          names.push(n.text);
-        });
-        let nameJoin = names.join(" - ")
-        row.name = [{text: nameJoin}]
-      }
+      // if(row.name){
+      //   let names = [];
+      //   row.name.forEach(n => {
+      //     names.push(n.text);
+      //   });
+      //   let nameJoin = names.join(" - ")
+      //   row.name = [{text: nameJoin}]
+      // }
 
       if(row.aggregateRating2){
         let text = row.aggregateRating2[0].text;
@@ -113,40 +113,40 @@ const transform = (data, context) => {
         }
       }
 
-      if(row.productUrl){
-        let text = row.productUrl[0].text;
-        let splits = text.split(" ");
-        let joins;
-        if(splits[0]){
-          if(!splits[0].includes("sephora.com")){
-            joins = "https://www.sephora.com" + splits[0];
-            row.productUrl[0].text = joins;
-          }
-        } else {
-          joins = splits[0];
-          row.productUrl[0].text = joins;
-        }
-      }
+      // if(row.productUrl){
+      //   let text = row.productUrl[0].text;
+      //   let splits = text.split(" ");
+      //   let joins;
+      //   if(splits[0]){
+      //     if(!splits[0].includes("sephora.com")){
+      //       joins = "https://www.sephora.com" + splits[0];
+      //       row.productUrl[0].text = joins;
+      //     }
+      //   } else {
+      //     joins = splits[0];
+      //     row.productUrl[0].text = joins;
+      //   }
+      // }
 
-      if(row.id){
-        if(row.id[0].text){
-          let text = row.id[0].text
+      // if(row.id){
+      //   if(row.id[0].text){
+      //     let text = row.id[0].text
           
-          let sNum = text.match(/(s[0-9]+)/g);
+      //     let sNum = text.match(/(s[0-9]+)/g);
           
-          if(sNum){
-            console.log(sNum[0])
+      //     if(sNum){
+      //       console.log(sNum[0])
 
-            let num = sNum[0].match(/[0-9]+/g);
-            if(num[0]){
-              // console.log("TEXT HERE" + " " + num[0]);
-              // row.id[0].text = text
+      //       let num = sNum[0].match(/[0-9]+/g);
+      //       if(num[0]){
+      //         // console.log("TEXT HERE" + " " + num[0]);
+      //         // row.id[0].text = text
   
-              row.id[0].text = num[0];
-            }
-          }
-        }
-      }
+      //         row.id[0].text = num[0];
+      //       }
+      //     }
+      //   }
+      // }
 
 
       if (row.id && row.id[0]) {

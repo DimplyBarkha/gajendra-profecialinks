@@ -99,7 +99,7 @@ const transform = (data, context) => {
         let joins;
         if(splits[0]){
           if(!splits[0].includes(".com")){
-            joins = "https://www.sephora.com" + splits[0];
+            joins = "https://www.sephora.nz" + splits[0];
             row.productUrl[0].text = joins;
           }
         } else {

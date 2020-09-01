@@ -1,32 +1,37 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@data-comp, "ProductGrid")]//a
+recordXPath: //div[@id='ii_product']
 fields:
+  - name: manufacturer
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+    xpath: //div[@id='ii_brand']
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
     # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@href
-    xpath: //@href|//div[@id="ii_url"]
+    xpath: //div[@id="ii_productUrl"]
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src|//div[@id="ii_image"]
+    xpath: //div[@id="ii_image"]
   - name: name
     singleValue: false
     description: The product name
     # xpath: //span[contains(@data-at, "sku_item_name")]|//div[@id="ii_name"]
-    xpath: //div[@data-comp="ProductDisplayName "]//span|//div[@id="ii_name"]
+    xpath: //div[@id="ii_title"]
   - name: reviewCount
     singleValue: true
     description: The number of reviews
-    xpath: //span[contains(@data-comp, "ReviewCount")]/@aria-label|//div[@id="ii_review"]|//div[@id="ii_reviews"]
+    xpath: //div[@id="ii_reviews"]
     defaultValue: "0"
   - name: price
     singleValue: true
     description: The offered price for the product
     # xpath: div[@id="ii_price"]
-    xpath: //div[contains(., "$")]/span[not(contains(.,"value"))][last()]|//div[@id="ii_price"]
+    xpath: //div[@id="ii_price"]
     # xpath: //span[contains(@data-at, "sku_item_price_sale")]|//span[contains(@data-at, "sku_item_price_list")]|//div[@id="ii_price"]
   - name: rank
     singleValue: false
@@ -43,15 +48,9 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@data-uid
-    xpath: //div[contains(@data-comp, "ProductGrid")]//img/@src|//div[@id="ii_sku"]
-    # regExp: ([0-9]+$)
+    xpath: //div[@id="ii_id"]
   - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@id="ii_aggregateRating"]
-    # type: NUMBER
-    # xpath: //div[contains(@data-comp, "StarRating")]/@aria-label|//div[@id="ii_aggregateRating"]
-    defaultValue: "0"
-    # regExp: ([.0-9]+)
+    xpath: //div[@id="ii_rating"]
 
