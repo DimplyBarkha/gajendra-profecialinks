@@ -7,8 +7,6 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: //div[contains(@class,'img-thumbnail')]//a[contains(@class,'MagicZoomPlus')]//img/@src
-    regExp: ^(.+)$
-    regExpReplace: https://bigw.com.au$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
