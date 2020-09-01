@@ -123,7 +123,8 @@ module.exports = {
       const imageData = findJsonObj('image');
       // Check for the data and append to DOM
       if (imageData) {
-        addElementToDocument('product_image', `https:${imageData.image.slice(-1)[0]}`);
+        let checkImage = imageData.image.slice(-1)[0];
+        addElementToDocument('product_image', typeof (checkImage) == "string" && checkImage.includes("https://") ? checkImage : `https:${imageData.image.slice(-1)[0]}`);
         addElementToDocument('product_description', imageData.description);
       }
 
@@ -225,8 +226,7 @@ module.exports = {
       document.querySelectorAll('link[as=image]').forEach(e => {
         alternateImages.push(e.href);
       });
-      addElementToDocument('alternateImages', alternateImages.join(' | ').replace(/210x210/gm, "1200x1200"));
-
+      addElementToDocument('alternateImages', alternateImages.slice(0).join(' | ').replace(/210x210/gm, "1200x1200"));
       // Specifications
       let specifcations = [];
       let specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');

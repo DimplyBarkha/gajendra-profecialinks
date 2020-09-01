@@ -107,7 +107,7 @@ fields:
     xpath: //div[@id="imageZoomFeaturePresent"] 
   - name: shippingDimensions
     singleValue: true
-    xpath :  //dt[contains(text(),"Dimensiones")]/following-sibling::dd[1]
+    xpath : 
   - name: shippingWeight
     singleValue: true
     xpath : 
@@ -156,7 +156,8 @@ fields:
     singleValue: true
     xpath:  
   - name : weightNet    
-    xpath : //dt[contains(text(),"Diagonal de la pantalla")]/following-sibling::dd[1] | //dt[contains(text(),"Velocidad de centrifugado")]/following-sibling::dd[1]
+    xpath : //dt[contains(text(),"Diagonal de la pantalla")]/following-sibling::dd[1] | //dt[contains(text(),"Velocidad de centrifugado")]/following-sibling::dd[1] |
+//dt[contains(text(),"Peso")]/following-sibling::dd[1]
   - name : weightGross    
     xpath :           
   - name: descriptionBullets
