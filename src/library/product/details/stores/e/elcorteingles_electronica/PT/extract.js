@@ -1,9 +1,11 @@
+const { transform } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'PT',
     store: 'elcorteingles_electronica',
-    transform: null,
+    transform,
     domain: 'elcorteingles.es',
     zipcode: '',
   },
