@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'betta',
     domain: 'betta.com.au',
-    loadedSelector: "body",
+    loadedSelector: "html",
     noResultsXPath: null
   },
 };
