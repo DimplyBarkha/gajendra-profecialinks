@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'harveynorman',
-    nextLinkSelector: 'a.icn-next-page',
+    nextLinkSelector: 'div#toolbar-btm a.icn-next-page',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.product-item',

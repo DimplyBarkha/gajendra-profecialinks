@@ -18,17 +18,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="product-item"]/div/@data-pid
-  - name: rank
-    singleValue: false
-    xpath: //div[@class="product-item"]/@data-position
-  - name: absRank
-    singleValue: false
-    xpath: //div[@class="product-item"]/@data-position
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@class="product-item"]//div[@class="info"]/a
-    regExp: ^([\w\-]+)(.*)
-    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: //dd[contains(@class, "bv-primarySummary-rating-container")]/@title
