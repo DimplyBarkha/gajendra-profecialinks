@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -20,5 +20,47 @@ fields:
   - name: listPrice
     xpath: //del[@class='buy-block__list-price']
   - name: price
-    xpath: concat(//span[@class='promo-price']/text() , ',', //span[@class='promo-price']/sup)
-  - name:  
+    xpath: concat(normalize-space(//span[@class='promo-price']/text()) , ',', //span[@class='promo-price']/sup)
+  - name: priceSufix
+    xpath: //span[@class='promo-price']/sup
+  - name: availabilityText
+    xpath: //script[@type='application/ld+json' and contains(., '"@id":"https://www.bol.com/')]
+  - name: description
+    xpath: //div[@data-test='description']
+  - name: descriptionBulletCount
+    xpath: count(//div[@data-test='description']//ul/li)
+    defaultValue: 0
+  - name: brand
+    xpath: //div[@data-test = 'brand']/a
+  - name: grossWeight
+    xpath: //dt[contains(., 'Gewicht')]//following-sibling::dd[1]
+  - name: gtin
+    xpath: //script[@type='application/ld+json' and contains(., '"@id":"https://www.bol.com/')]
+  - name: eangtin
+    xpath: //dt[contains(., 'EAN')]//following-sibling::dd[1]
+  - name: sku
+    xpath: //dt[contains(.,'Artikelnummer')]//following-sibling::dd[1]
+  - name: variantId
+    xpath: //script[@type='application/ld+json' and contains(., '"@id":"https://www.bol.com/')]
+  - name: instructions
+    xpath: //doubt
+  - name: ratingCount
+    xpath: //div[contains(@class, 'rating-horizontal__total-reviews')]/strong
+  - name: aggregateRating
+    xpath: //div[contains(@class, 'rating-horizontal__average-score')]
+  - name: shippingInfo
+    xpath:  //div[contains(@class, 'product-seller product-seller--l')]
+  - name: shippingDimensions
+    xpath: //dt[contains(., 'Afmetingen verpakking')]//following-sibling::dd
+  - name: shippingDimensionsSplit
+    xpath: concat(//dt[contains(., 'Verpakking lengte')]/following-sibling::dd[1], 'x', //dt[contains(., 'Verpakking breedte')]/following-sibling::dd[1], 'x', //dt[contains(., 'Verpakking hoogte')]/following-sibling::dd[1])
+  - name: shippingWeight
+    xpath: //p[contains(., 'Gewicht verpakking')]
+    regExp: (.+):(.+)
+    regExpReplace: $2
+  - name: variantCount
+    xpath: count(//div[@class='feature-options']/a)
+  - name: color
+    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title
+  - name: name
+    xpath: //h1[@class='page-heading']

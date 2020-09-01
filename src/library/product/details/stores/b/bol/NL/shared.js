@@ -6,7 +6,53 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
+      if (row.priceSufix) {
+        const sufixVal = row.priceSufix[0].text;
+        if (sufixVal === '-') {
+          row.price[0].text = row.price[0].text.replace(',-', '');
+        }
+        delete row.priceSufix
+      }
 
+      if (row.availabilityText) {
+        const prodInfo = JSON.parse(row.availabilityText[0].text);
+        if (prodInfo && prodInfo.offers && prodInfo.offers.availability) {
+          row.availabilityText[0].text = prodInfo.offers.availability
+        } else {
+          delete row.availabilityText
+        }
+      }
+
+      if (row.gtin) {
+        const prodInfo = JSON.parse(row.gtin[0].text);
+        if (prodInfo && prodInfo.gtin13) {
+          row.gtin[0].text = prodInfo.gtin13
+        } else {
+          delete row.gtin
+        }
+      }
+
+      if (row.variantId) {
+        const prodInfo = JSON.parse(row.variantId[0].text);
+        if (prodInfo && prodInfo.productID) {
+          row.variantId[0].text = prodInfo.productID
+        } else {
+          delete row.variantId
+        }
+      }
+
+      if (row.aggregateRating) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',')
+      }
+
+      if (row.shippingInfo) {
+        row.shippingInfo[0].text = row.shippingInfo[0].text.replace('Verkoop door:', '')
+      }
+
+      if (!row.shippingDimensions && row.shippingDimensionsSplit) {
+        row.shippingDimensions = [{text: row.shippingDimensionsSplit[0].text}];
+        delete row.shippingDimensionsSplit;
+      }
 
     }
   }
