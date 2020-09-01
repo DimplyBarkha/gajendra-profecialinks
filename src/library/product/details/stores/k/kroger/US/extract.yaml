@@ -82,8 +82,9 @@ fields:
     xpath: //div[contains(@aria-label,'Perspective')]/div/div//div/img/@data-src
   - name: imageAlt
     singleValue: true
-    xpath: //div[@class="ProductDetails-header"]/h1
-    # xpath: concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])
+    # xpath: //div[@class="ProductDetails-header"]/h1
+    # for 45255 only:
+    xpath: concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])
   - name: name
     singleValue: true
     description: The product name

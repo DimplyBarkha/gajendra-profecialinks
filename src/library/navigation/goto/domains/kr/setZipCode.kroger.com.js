@@ -96,6 +96,11 @@ async function implementation (
     } else {
       await findClosestStore();
     }
+
+    await context.waitForSelector('div.ProductCard a', { timeout: 6000 })
+      .catch(() => {
+        console.log('');
+      });
   };
 
   try {
