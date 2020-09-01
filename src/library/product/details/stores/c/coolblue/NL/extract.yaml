@@ -46,19 +46,19 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: (//div[@class="product-order"]//form[contains(@class,"js-product-order-form")]//button[contains(@class,"add-to-cart-button")])[position()<2]
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[@id="product-information"]//div[contains(@class,"product-description-content")]//p[1]
+    xpath: //*[@id="product-information"]//div[contains(@class,"product-description-content")]//p
   - name: additionalDescription
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[@id="product-information"]//div[contains(@class,"product-description-content")]//p[1]
+    xpath: //*[@id="product-information"]//div[contains(@class,"product-description-content")]//p
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -527,7 +527,7 @@ fields:
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
     xpath: ancestor::html //ul[contains(@class,"inline-list")]//li//a[contains(@title,"Algemene voorwaarden")]
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
@@ -559,4 +559,4 @@ fields:
     xpath: (//img[contains(@class,"zoom__image")]/@class)[1]
     regExp: (.+)
     regExpReplace: Yes
-    defaultValue: No
+    defaultValue: Yes
