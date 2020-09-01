@@ -88,3 +88,9 @@ fields:
     xpath: //div[@class='rd__product-details-gallery__sale-badge']//span[@class='rd__eye-catcher__text']
   - name: video
     xpath: //video/source[@type='video/mp4']/@src
+  - name: manufacturerDescription
+    xpath: //div[contains(@class, 'intro')] | //div[contains(@class, 'boxed')]//div[contains(@class, 'text-box')]//*[not(contains(@class,'number-circle'))]
+  - name: manufacturerImages
+    xpath: //div[contains(@class, 'boxed')]//div[contains(@class, 'image-container')]//div[@class='image']/@style
+    regExp: background-image:url\('(.+)'\)
+    regExpReplace: $1

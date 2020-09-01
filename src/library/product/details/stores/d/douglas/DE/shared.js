@@ -20,15 +20,33 @@ const transform = (data) => {
         const productData = JSON.parse(productInfo.substring((productInfo.indexOf(referenceText) + referenceText.length), productInfo.indexOf('}') + 1));
         row.variantId[0].text = productData.product_id;
       }
-     
+
       if (row.aggregateRating) {
         const aggregateRating2 = row.aggregateRating[0].text;
         const ratingValue = JSON.parse(aggregateRating2);
         if (ratingValue && ratingValue.aggregateRating && ratingValue.aggregateRating.ratingValue !== null) {
           row.aggregateRating[0].text = JSON.parse(aggregateRating2).aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',')
-        }else {
+        } else {
           delete row.aggregateRating;
         }
+      }
+
+      if (row.aggregateRating2) {
+        const aggregateRating2 = row.aggregateRating2[0].text;
+        const ratingValue = JSON.parse(aggregateRating2);
+        if (ratingValue && ratingValue.aggregateRating && ratingValue.aggregateRating.ratingValue !== null) {
+          row.aggregateRating2[0].text = JSON.parse(aggregateRating2).aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',')
+        } else {
+          delete row.aggregateRating2;
+        }
+      }
+
+      if (row.manufacturerDescription) {
+        var finalDescription = ''
+        for (const description of row.manufacturerDescription) {
+          finalDescription += ' ' + description.text;
+        }
+        row.manufacturerDescription = [{text: finalDescription.trim()}];
       }
 
       if (row.color) {
