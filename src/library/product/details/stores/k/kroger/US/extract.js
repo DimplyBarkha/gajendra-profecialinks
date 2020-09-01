@@ -31,18 +31,11 @@ const implementation = async (
       document.body.appendChild(newDiv);
     }
 
-    let skuCode;
-    if (id) {
-      skuCode = id;
-    } else {
-      const urlLength = url.length;
-      skuCode = url.slice(urlLength - 13, urlLength);
-    }
+    const skuCode = id || url.slice(-13);
     addHiddenDiv('my-sku', skuCode);
 
     const myUrl = window.location.href;
-    const hashIdx = myUrl.indexOf('#');
-    addHiddenDiv('ii_url', hashIdx === -1 ? myUrl : myUrl.slice(0, hashIdx));
+    addHiddenDiv('ii_url', myUrl.split('#')[0]);
 
     const productDetailsButton = document.getElementsByClassName('kds-Tabs-tab')[0];
 
@@ -66,24 +59,26 @@ const implementation = async (
       const bullets = descriptionItem.querySelectorAll('ul li');
       let bulletCount;
       let bulletInfo = '';
+
       if (bullets && bullets.length > 0) {
         bulletCount = bullets.length;
 
-        bullets.forEach((bullet, index) => {
+        bullets.forEach((bullet) => {
           if (bullet.textContent) {
-            descriptionText += ' || ' + bullet.textContent;
             bulletInfo += ' || ' + bullet.textContent;
           }
         });
       } else {
         bulletCount = '';
       }
+      descriptionText += bulletInfo;
+
       addHiddenDiv('bullet-info', bulletInfo);
       addHiddenDiv('bulletCount', bulletCount);
       addHiddenDiv('description', descriptionText);
     }
 
-    const nutritionButton = document.evaluate('//span[@class="kds-Text--m" and contains(text(),"Nutrition Info")]', document, null, XPathResult.ANY_TYPE, null).iterateNext();
+    const nutritionButton = document.evaluate('//span[@class="kds-Text--m" and contains(text(),"Nutrition Info")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
     if (nutritionButton) {
       nutritionButton.click();
     }
@@ -102,8 +97,6 @@ const implementation = async (
 
     if (readMore) {
       readMore.click();
-    } else {
-      console.log('cannot read more');
     }
   }, url, id);
 
@@ -148,7 +141,6 @@ const implementation = async (
     const shippingAvailable = document.evaluate('count(//span[contains(@class,"PurchaseOptions") and contains(text(),"Ship")]/parent::span/parent::div/following-sibling::div/data)>0', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
 
     if (numOptions > 0) {
-      console.log(`Given zip:${zipcode}`);
       // Different requirements for 45232 only
       if (numOptions === 3 || shippingAvailable || zipcode !== '45232') {
         available.textContent = 'In Stock';
@@ -161,8 +153,6 @@ const implementation = async (
 
     document.body.append(available);
   }, zipcode);
-
-  console.log('ready to extract');
 
   return await context.extract(productDetails, { transform });
 };
