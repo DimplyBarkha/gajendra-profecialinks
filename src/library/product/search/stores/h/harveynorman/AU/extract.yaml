@@ -24,3 +24,18 @@ fields:
   - name: absRank
     singleValue: false
     xpath: //div[@class="product-item"]/@data-position
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="product-item"]//div[@class="info"]/a
+    regExp: ^([\w\-]+)(.*)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //dd[contains(@class, "bv-primarySummary-rating-container")]/@title
+    regExp: (\d+(\.\d+)?)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //dd[contains(@class, "bv-rating-ratio-count")]/@title
+    regExp: (\d+(\.\d+)?)
+    regExpReplace: $1
