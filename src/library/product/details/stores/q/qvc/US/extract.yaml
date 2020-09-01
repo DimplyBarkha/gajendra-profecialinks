@@ -27,7 +27,7 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: false
-    xpath: //span[contains(@class,'price') and contains(@class,'strikeout')]
+    xpath: //span[contains(@class,'price') and contains(@class,'strikeout')] | //p[contains(@class,'rvPrice')]/span
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
@@ -84,7 +84,7 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//ul[contains(@class,'buyBoxColorList')]//li)
-    defaultValue: 1
+    # defaultValue: 1
   - name: color
     singleValue: false
     xpath: //div[@id='ii_color'][last()]
@@ -95,8 +95,11 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //h2[contains(.,'About')]/following-sibling::div #//div[contains(@class,'accordionText')]
+    xpath: //div[@id='ii_manufacture'] #//div[contains(@class,'accordionText')]
     description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='ii_manufactureImg']
   - name: videos
     singleValue: false
     xpath: //div[contains(@id,'ii_video')]
@@ -115,7 +118,7 @@ fields:
     description: Guarantee associated with the product
   - name: productOtherInformation
     singleValue: false
-    xpath: //h2[contains(.,'Important Information')]/following-sibling::div 
+    xpath: //div[@id='ii_productInfo']
     description: Any other product information
   - name: promotion
     singleValue: false

@@ -22,6 +22,11 @@ const transform = (data) => {
           item.text = item.text.replace(/(.*)/, 'https:$1');
         });
       }
+      if (row.videos) {
+        row.videos.forEach(item => {
+          item.text = item.text.replace(/(.*)/, 'https:$1');
+        });
+      }
       if (row.image) {
         row.image.forEach(item => {
           item.text = item.text.replace(/(.*)/, 'https:$1');
@@ -29,7 +34,7 @@ const transform = (data) => {
       }
       if (row.mpc) {
         row.mpc.forEach(item => {
-          item.text = item.text.replace(/.*"mpn":\["(.*?)"\].*/gm, '$1').trim();
+          item.text = item.text.replace(/.*"mpn":"(.*?)".*/gm, '$1').trim();
         });
       }
       if (row.description) {
@@ -39,7 +44,7 @@ const transform = (data) => {
         if (row.additionalDescBulletInfo) {
           for (const bullet of row.additionalDescBulletInfo) {
             for (const item of row.description) {
-              item.text = item.text.replace(bullet.text, `|| ${bullet.text}`);
+              item.text = item.text.replace(bullet.text, ` || ${bullet.text}`).replace(/\s{2,}/gm, ' ');
             }
           }
         }
@@ -47,6 +52,16 @@ const transform = (data) => {
       if (row.brandText) {
         row.brandText.forEach(item => {
           item.text = item.text.replace(/.*"brand_name":\["(.*?)"\].*/gm, '$1').trim();
+        });
+      }
+      if (row.weightNet) {
+        row.weightNet.forEach(item => {
+          const val = item.text.split(';').filter((item) => {
+            if (item.includes('weigh')) {
+              return item.trim();
+            }
+          });
+          item.text = val.join(' | ').trim();
         });
       }
       if (row.manufacturerDescription) {

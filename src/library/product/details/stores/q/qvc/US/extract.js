@@ -1,6 +1,7 @@
 const { transform } = require('./shared');
 async function implementation (
   // @ts-ignore
+  // @ts-ignore
   inputs,
   parameters,
   context,
@@ -37,27 +38,19 @@ async function implementation (
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      async function videoAPI () {
-        var element = (document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']")) ? document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']") : null;
-        const link = [];
-        const promiseLink = [];
-        for (let i = 0; i < element.length; i++) {
-          const id = element[i].getAttribute('data-video-id').trim();
-          const url = 'https://d2q1b32gh59m9o.cloudfront.net/player/config?callback=qvcuk33914189&client=qvcuk&type=vod&apiKey=7Bg5Js6Qy2Pi6Hx6Vd6Ey9Ai4Si2Hw&videoId=' + id + '&format=jsonp&callback=qvcuk33914189';
-          const value = fetch(url).then(response => {
-            return response.text();
-          });
-          promiseLink.push(value);
+      async function video () {
+        // @ts-ignore
+        var element = (document.querySelector("script[id*='mediaJSON']")) ? document.querySelector("script[id*='mediaJSON']").innerText : [];
+        console.log('video', element);
+        if (element) {
+          element = (JSON.parse(element) && JSON.parse(element).video) ? JSON.parse(element).video : [];
         }
-        await Promise.all(promiseLink).then((value) => {
-          value.forEach((value) => {
-            value.match(/"mp4":"(.*?)"/) && value.match(/"mp4":"(.*?)"/)[1] && link.push(value.match(/"mp4":"(.*?)"/)[1].replace(/\\/gm, ''));
-          });
-        });
-        console.log('links', link, link.length);
-        for (let i = 0; i < link.length; i++) {
-          if (!document.querySelector(`div[id="ii_video_${i}"]`)) {
-            addHiddenDiv('ii_video_' + i, link[i]);
+        for (let i = 0; i < element.length; i++) {
+          const videoArr = (element[i].encodings) ? element[i].encodings : [];
+          for (const link of videoArr) {
+            if (link.platformCode && link.platformCode.includes('HttpLiveStreaming') && !document.querySelector(`div[id='ii_video_${i}']`)) {
+              addHiddenDiv('ii_video_' + i, link.url);
+            }
           }
         }
       }
@@ -112,9 +105,41 @@ async function implementation (
           variants[index] && variants[index].getAttribute('data-id') && addHiddenDiv('ii_colorCode', variants[index].getAttribute('data-id'));
         }
       }
+      async function addFetchContent () {
+        // To fetch manufacture Content
+        var content = document.evaluate("//h2[contains(.,'About')]/a", document, null, XPathResult.ANY_TYPE, null);
+        var thisNode = content.iterateNext();
+        // @ts-ignore
+        var manufactureUrl = (thisNode) ? thisNode.getAttribute('data-content-url') : '';
+        if (manufactureUrl) {
+          const manufacture = await fetch(manufactureUrl).then((response) => {
+            return response.text();
+          });
+          const img = manufacture.match(/<img.*src="(.*?)".*/) && manufacture.match(/<img.*src="(.*?)".*/)[1] ? manufacture.match(/<img.*src="(.*?)".*/)[1] : '';
+          console.log('img', img);
+          const val = manufacture.replace(/<.*?>/gm, ' ').replace(/-->/gm, '').replace(/\n|\t|\r/gm, '').replace(/\s{2,}/gm, ' ').trim();
+          console.log('val', val);
+          val && addHiddenDiv('ii_manufacture', val);
+          img && addHiddenDiv('ii_manufactureImg', img);
+        }
+        content = document.evaluate("//h2[contains(.,'Important')]/a", document, null, XPathResult.ANY_TYPE, null);
+        thisNode = content.iterateNext();
+        // @ts-ignore
+        const productInfo = (thisNode) ? thisNode.getAttribute('data-content-url') : '';
+        if (productInfo) {
+          const productInfoContent = await fetch(productInfo).then((response) => {
+            return response.text();
+          });
+          const val = productInfoContent.replace(/<.*?>/gm, ' ').replace(/-->/gm, '').replace(/\n|\t|\r/gm, '').replace(/\s{2,}/gm, ' ').trim();
+          console.log('product info', val);
+          val && addHiddenDiv('ii_productInfo', val);
+        }
+        // To fetch productOtherInfo Content
+      }
       await addSKU(index);
       await addFields(index);
-      // await videoAPI();
+      index === 0 && await addFetchContent();
+      index === 0 && await video();
     }, index, variants);
   }
   for (let index = 0; index < variants - 1; index++) {
