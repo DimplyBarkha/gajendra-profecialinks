@@ -34,6 +34,9 @@ fields:
     regExp: appData\.videoUrl\s=\s\'(.*)'\;\sappData.view3D
     regExpReplace: $1 
     singleValue: false
+  # - name: video
+  #   xpath: //div[@class="flix-videodiv"]/iframe/@src
+  #   singleValue: false
   - name: imageAlt
     xpath: //div[@class="product-swiper"]/ul/li[1]/img/@alt | //div[@class="product-swiper"]/ul/li[1]/a/img/@alt | //img[@id="visualProduct"]/@alt
     singleValue: false
