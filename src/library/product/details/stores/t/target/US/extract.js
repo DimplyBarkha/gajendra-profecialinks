@@ -702,9 +702,9 @@ async function implementation (
         .then(data => data.json())
         .then(variantData => {
           if (variantData.price) {
-            priceSuccess = true;
             if (variantData.price.current_retail) {
               addHiddenDiv(newDiv, 'price', variantData.price.current_retail);
+              priceSuccess = true;
             }
             if (variantData.price.reg_retail) {
               addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
