@@ -65,6 +65,11 @@ module.exports = {
       // // @ts-ignore
       // videoArr = videoArr.join(' | ');
       // addHiddenDiv('videos', videoArr);
+
+      let description = document.querySelector('div[class="product-part toscroll"]');
+      let descriptionHTML = description ? description.innerHTML : '';
+      descriptionHTML = descriptionHTML ? descriptionHTML.replace(/<h2(.*)h2>/gm, '').replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace('Les plus produit','').replace('description produit','').trim() : '';
+      addHiddenDiv('descriptionHTML', descriptionHTML);
     });
     return await context.extract(productDetails, { transform });
   },

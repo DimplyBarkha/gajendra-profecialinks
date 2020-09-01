@@ -18,17 +18,17 @@ const transform = (data) => {
             },
           ];
         }
-        if (row.description) {
-          let text = '';
-          row.description.forEach(item => {
-            text += `${item.text.replace(/\n/g, ' ')} `;
-          });
-          row.description = [
-            {
-              text: text,
-            },
-          ];
-        }
+        // if (row.description) {
+        //   let text = '';
+        //   row.description.forEach(item => {
+        //     text += `${item.text.replace(/•/gm, ' ||').replace(/\n/g, ' ')} `;
+        //   });
+        //   row.description = [
+        //     {
+        //       text: text,
+        //     },
+        //   ];
+        // }
         if (row.additionalDescBulletInfo) {
           let text = '';
           row.additionalDescBulletInfo.forEach(item => {
@@ -36,7 +36,7 @@ const transform = (data) => {
           });
           row.additionalDescBulletInfo = [
             {
-              text: text.slice(0, -4),
+              text: text,
             },
           ];
         }
@@ -49,7 +49,9 @@ const transform = (data) => {
         if (row.availabilityText) {
           row.availabilityText.forEach(item => {
             if((item.text.includes("Disponible")) || (item.text.includes("Ajouter au panier"))){
-              item.text = "Disponible";
+              item.text = "In Stock";
+            }else{
+              item.text = "Out of Stock";
             }
           });
         }

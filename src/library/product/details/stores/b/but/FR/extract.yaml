@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     # xpath: //div[@id="dynamic-visu1_container_inner"]/div/div/img[1]/@src
-    xpath: //div[@id="image"] | //a/img[@id="image_zoom"]/@src | //div[@id="main-product-visu"]/a[@class="MagicZoom"]/@href
+    xpath: //div[@id="image"] | //a/img[@id="image_zoom"]/@src | //div[@id="main-product-visu"]/a[@class="MagicZoom"]/@href | //div[@class="s7staticimage"]/img/@src
     singleValue: false
   - name: url
     xpath: //meta[@property="og:url"]/@content
@@ -35,7 +35,7 @@ fields:
     regExpReplace: $1 
     singleValue: false
   - name: imageAlt
-    xpath: //div[@class="product-swiper"]/ul/li[1]/img/@alt | //div[@class="product-swiper"]/ul/li[1]/a/img/@alt
+    xpath: //div[@class="product-swiper"]/ul/li[1]/img/@alt | //div[@class="product-swiper"]/ul/li[1]/a/img/@alt | //img[@id="visualProduct"]/@alt
     singleValue: false
   # - name: secondaryImageTotal
   #   xpath: count(//div[@class="product-swiper"]/ul/li/img/@src)
@@ -84,12 +84,12 @@ fields:
     xpath: //meta[@name="keywords"]/@content
     singleValue: false
   - name: warranty
-    xpath: //li/span[contains(text() , "Garantie")]//following-sibling::span
+    xpath: //li/span[contains(text() , "Garantie")]//following-sibling::span | //a[@title="Garantie"]
     singleValue: false
     # regExp: (.*) ans 
     # regExpReplace: $1
   - name: quantity
-    xpath: //li/span[contains(text() , "Nombre de colis")]//following-sibling::span
+    xpath: //li/span[contains(text() , "Nombre de colis")]//following-sibling::span | //li/span[contains(text() , "Nombre de pièces")]//following-sibling::span
     singleValue: false
   - name: shippingDimensions
     xpath: //li/span[contains(text() , "Dimensions colis 1")]//following-sibling::span
@@ -110,7 +110,8 @@ fields:
     xpath: //div[@class="seller"]/p | //p[@class="vendor"]
     singleValue: false
   - name: description
-    xpath: //p/span[contains(text() , 'description')]/../following-sibling::*[not(self::div)]
+    xpath:  //div[@id="descriptionHTML"]
+    # xpath: //p/span[contains(text() , 'description')]/../following-sibling::*[not(self::div)]
     singleValue: false
   - name: manufacturerDescription
     xpath: //div[contains(@id ,"inpage_container")]//div
