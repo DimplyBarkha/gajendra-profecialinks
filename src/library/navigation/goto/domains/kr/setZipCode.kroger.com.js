@@ -3,16 +3,6 @@ async function implementation (
 ) {
   const { url, zipcode } = inputs;
 
-  const getCurrentZip = async () => {
-    return await context.evaluate(async function () {
-      const element = document.querySelector('span[data-testid="CurrentModality-vanityName"]');
-      if (element) {
-        return element.textContent;
-      }
-      return null;
-    });
-  };
-
   const findClosestStore = async () => {
     const indexToClick = await context.evaluate(async function () {
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
@@ -58,15 +48,10 @@ async function implementation (
 
   const changeZip = async (wantedZip) => {
     await context.click('button.CurrentModality-button');
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    await context.waitForSelector('input[data-testid="PostalCodeSearchBox-input"]', { timeout: 6000 });
 
     const refreshRequested = await context.evaluate(() => {
-      const refreshMsg = document.querySelector('p.kds-Paragraph.kds-Paragraph--m.kds-GlobalMessage-body.max-w-full.mb-0 span');
-      if (refreshMsg) {
-        return true;
-      } else {
-        return false;
-      }
+      return Boolean(document.querySelector('p.kds-Paragraph.kds-Paragraph--m.kds-GlobalMessage-body.max-w-full.mb-0 span'));
     });
 
     const hasZipBtn = await context.evaluate(() => {
@@ -79,9 +64,10 @@ async function implementation (
       await context.goto('about:blank');
       await context.goto(url, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
       await context.click('button.CurrentModality-button');
-      await new Promise((resolve) => setTimeout(resolve, 6000));
+      await context.waitForSelector('input[data-testid="PostalCodeSearchBox-input"]', { timeout: 6000 });
     }
 
+    await new Promise(resolve => setTimeout(resolve, 5000));
     await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip)
       .catch(async function () {
         await context.click('button.CurrentModality-button');
@@ -112,30 +98,22 @@ async function implementation (
     }
   };
 
-  const currentZip = await getCurrentZip();
-  console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
-
   try {
-    if (currentZip !== zipcode) {
-      console.log('Trying to change zip');
-      await changeZip(zipcode);
-    }
+    console.log(`Trying to change zip to ${zipcode}`);
+    await changeZip(zipcode);
   } catch (exception) {
-    try {
-      console.log('retry zip change');
-      await changeZip(zipcode);
-    } catch (exception) {
-      throw new Error('Failed to change zip with retry');
-    }
+    console.log('Retrying zip change');
+    await changeZip(zipcode)
+      .catch(() => {
+        throw new Error('Failed to change zip with retry');
+      });
   }
   await context.evaluate(() => {
     const overlay = document.querySelector('.ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers');
-
     if (overlay) {
       overlay.click();
     }
   });
-  await new Promise((resolve) => setTimeout(resolve, 2000));
 }
 
 module.exports = {

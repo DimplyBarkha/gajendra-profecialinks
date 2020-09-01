@@ -13,6 +13,7 @@ async function implementation (
   dependencies,
 ) {
   const { URL, RPC, SKU } = inputs;
+  const { zipcode } = parameters;
   const { execute, extract } = dependencies;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
@@ -23,7 +24,7 @@ async function implementation (
     return;
   }
 
-  await extract({ url, id });
+  await extract({ url, id, zipcode });
 }
 
 module.exports = {

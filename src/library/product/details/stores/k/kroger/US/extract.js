@@ -9,17 +9,20 @@ const implementation = async (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  const { url, id } = inputs;
+  const { url, id, zipcode } = inputs;
 
   await context.waitForSelector('div.ProductCard a', { timeout: 5000 });
 
-  console.log('Url if given:' + inputs.url);
-
-  // click first item if available
   await context.click('div.ContainerGrid-header.m-0 div.ProductCard a')
     .catch(() => console.log('URL given as input, no item to click'));
 
-  await context.evaluate((url, id) => {
+  await context.waitForSelector('div.ProductDetails-header');
+
+  // wait and check for ratings/reviews, loads slowly:
+  await context.waitForXPath('//div[@class="bv_avgRating_component_container notranslate"]', { timeout: 9000 })
+    .catch(() => console.log('No reviews/ratings for this item'));
+
+  await context.evaluate(async function (url, id) {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -27,6 +30,7 @@ const implementation = async (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
     let skuCode;
     if (id) {
       skuCode = id;
@@ -35,24 +39,6 @@ const implementation = async (
       skuCode = url.slice(urlLength - 13, urlLength);
     }
     addHiddenDiv('my-sku', skuCode);
-  }, url, id);
-
-  await context.waitForSelector('div.ProductDetails-header');
-
-  // await new Promise((resolve) => setTimeout(resolve, 9000));
-
-  // wait and check for ratings/reviews, loads slow:
-  await context.waitForXPath('//div[@class="bv_avgRating_component_container notranslate"]', { timeout: 9000 })
-    .catch(() => console.log('No reviews/ratings for this item'));
-
-  await context.evaluate(async function () {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
 
     const myUrl = window.location.href;
     const hashIdx = myUrl.indexOf('#');
@@ -94,15 +80,12 @@ const implementation = async (
       }
       addHiddenDiv('bullet-info', bulletInfo);
       addHiddenDiv('bulletCount', bulletCount);
-
       addHiddenDiv('description', descriptionText);
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 8000));
-    const button = document.getElementsByClassName('kds-Tabs-tab')[1];
-
-    if (button && button.textContent === 'Nutrition Info') {
-      button.click();
+    const nutritionButton = document.evaluate('//span[@class="kds-Text--m" and contains(text(),"Nutrition Info")]', document, null, XPathResult.ANY_TYPE, null).iterateNext();
+    if (nutritionButton) {
+      nutritionButton.click();
     }
 
     const totalCalEl = document.querySelector('div.NutritionLabel-Calories.font-bold.flex.justify-between > span:nth-child(2)');
@@ -122,7 +105,7 @@ const implementation = async (
     } else {
       console.log('cannot read more');
     }
-  });
+  }, url, id);
 
   await context.evaluate(() => {
     const listPrice = document.createElement('li');
@@ -154,7 +137,7 @@ const implementation = async (
     document.body.append(listPrice);
   });
 
-  await context.evaluate(() => {
+  await context.evaluate((zipcode) => {
     const available = document.createElement('li');
     available.classList.add('availability');
     available.style.display = 'none';
@@ -162,26 +145,22 @@ const implementation = async (
     const purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end');
     const numOptions = purchaseOptions.length;
 
-    // 45232 only
     const shippingAvailable = document.evaluate('count(//span[contains(@class,"PurchaseOptions") and contains(text(),"Ship")]/parent::span/parent::div/following-sibling::div/data)>0', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
-    // end
 
     if (numOptions > 0) {
-      // available.textContent = 'In Stock';
-
-      // 45232 only
-      if (numOptions === 3 || shippingAvailable) {
+      console.log(`Given zip:${zipcode}`);
+      // Different requirements for 45232 only
+      if (numOptions === 3 || shippingAvailable || zipcode !== '45232') {
         available.textContent = 'In Stock';
       } else {
         available.textContent = 'In Store Only';
       }
-      // end
     } else {
       available.textContent = 'Out of Stock';
     }
 
     document.body.append(available);
-  });
+  }, zipcode);
 
   console.log('ready to extract');
 
