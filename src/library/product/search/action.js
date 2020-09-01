@@ -17,6 +17,11 @@ module.exports = {
       description: 'to set location',
       optional: true,
     },
+    {
+      name: 'defaultResults',
+      description: 'default results value.',
+      optional: true,
+    },
   ],
   inputs: [
     {
@@ -41,7 +46,8 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async ({ keywords, Keywords, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+  implementation: async ({ keywords, Keywords, results }, { country, store, domain, zipcode, defaultResults }, context, { execute, extract, paginate }) => {
+    results = defaultResults || 150;
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
