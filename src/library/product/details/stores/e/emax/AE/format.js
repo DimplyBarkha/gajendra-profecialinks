@@ -35,9 +35,6 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.price) {
-        row.price[0].text = row.price[0].text.replace(/,/g, '');
-      }
       if (row.description) {
         row.description[0].text = row.description[0].text.replace(/\n \n/g, '').replace(/\n /g, ' ');
       }
