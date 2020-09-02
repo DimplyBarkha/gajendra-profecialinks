@@ -22,6 +22,13 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
     for (const row of group) {
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(aggregateRating2 => {
+          if (aggregateRating2.text === '0') {
+            aggregateRating2.text = aggregateRating2.text.replace('0', '');
+          }
+        });
+      }
       rankCounter = rankCounter + 1;
       if (!row.sponsored) {
         orgRankCounter = orgRankCounter + 1;
