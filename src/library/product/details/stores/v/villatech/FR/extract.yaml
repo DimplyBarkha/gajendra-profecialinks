@@ -45,7 +45,7 @@ fields:
     xpath: //td[contains(.,'Couleur')]/following-sibling::td
 
   - name: price
-    singleValue: false
+    singleValue: true
     xpath: //meta[@itemprop='price']/@content | //div[@id='price']
 
   - name: category
