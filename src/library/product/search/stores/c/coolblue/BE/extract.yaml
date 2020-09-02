@@ -6,6 +6,8 @@ fields:
   - name: productUrl
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
     singleValue: false
+    regExp: (.+)
+    regExpReplace: https://www.coolblue.be$1
   - name: thumbnail
     singleValue: false
     xpath: //figure[@class="fitted-product-image-box"]//picture[@class="picture"]//img[@class="picture__image"]/@src
