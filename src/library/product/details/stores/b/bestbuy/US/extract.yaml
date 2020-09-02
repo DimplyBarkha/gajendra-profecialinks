@@ -45,10 +45,13 @@ fields:
     xpath: //div[@class="shop-product-variations"]//a[contains(@class,"carousel-anchor")]
   - name: weightNet
     singleValue: false
-    xpath: //li[div[contains(@class,"title-container")]//span[contains(text(),"Product Weight")]]/div[contains(@class,"row-value")]
+    xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Product Weight")]]/div[contains(@class,"row-value")]
   - name: sku
     singleValue: false
     manualSelector: div.sku.product-data>span.product-data-value
+  - name: gtin
+    singleValue: false
+    xpath: //li[div[contains(@class,"title-container")]/div[contains(., "UPC")]]/div[contains(@class,"row-value")]
   - name: variantId
     singleValue: false
     manualSelector: div.sku.product-data>span.product-data-value
@@ -58,6 +61,53 @@ fields:
   - name: ratingCount
     singleValue: false
     manualSelector: span.popover-wrapper span.c-total-reviews
+    regExp: .*?(\d[^\s]+).*
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     manualSelector: span.popover-wrapper span.c-review-average
+  - name: additionalDescBulletInfo
+    singleValue: false
+    manualSelector: div.overview-accordion-content-wrapper li
+  - name: description
+    singleValue: false
+    manualSelector: div#ii_description
+  - name: brandText
+    singleValue: false
+    manualSelector: a.btn-brand-link
+  - name: color
+    singleValue: false
+    manualSelector: div.hover-name
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#wc-power-page
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="wc-power-page"]//img/@src
+  - name: videos
+    singleValue: false
+    manualSelector: div[id^="ii_video_"]
+  - name: name
+    singleValue: false
+    manualSelector: div.sku-title
+  - name: specifications
+    singleValue: false
+    manualSelector: div.spec-categories ul > li 
+  - name: warranty
+    singleValue: false
+    xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Warranty")]] 
+  - name: variantInformation
+    singleValue: false
+    manualSelector: label#Small_Appliances_Color
+    regExp: '(.+):'
+    regExpReplace: $1 
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    manualSelector: div.shop-product-documentation a[href*='pdf']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    manualSelector: div#roundimg
+    defaultValue: No
