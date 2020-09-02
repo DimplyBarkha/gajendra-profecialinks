@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //input[@name="productId"]/@value
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[@class="product-image-link"]/@href
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //a[@class="product-image-link"]/img/@src
+  - name: name
+    description: The product name
+    xpath: //h3[@class="ld-sg-heading--product-tile"]
+  - name: manufacturer
+    description: Product Manufacturer
+    xpath: //p[@class="brand"]
+  - name: aggregateRating2
+    description: The stated aggregate rating
+    xpath: //span[@class="bv-off-screen"]
+    regExp: (^\d\.?\d)
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //span[@class="bv-rating-label"]
+    regExp: (\d+)
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //span[@class="bv-rating-label"]
+    regExp: (\d+)
+  - name: price
+    description: The offered price for the product
+    xpath: //li[contains(@class, "markdown-price")]
+  - name: listPrice
+    description: The stated undiscounted price for the products
+    xpath: //li[contains(@class, "original-price")]
+    regExp: (\$\d+\.\d+)
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
