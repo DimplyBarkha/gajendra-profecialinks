@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,"big-image-container")]/div[1]/a/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,"big-image-container")]/div[1]/a/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"big-image-container")]/div/a/img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class, 'nav-breadcrumbs')]//li[position()>1 and position()<=last()]//a//span
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@class,"product-title")]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,"price-box")]//span[contains(@class,"skin-obsolete")]
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,"price-box")]//span[1]
+  - name: availabilityText
+    xpath: //button[contains(@class,"btn-cart")]
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'product-description')]
