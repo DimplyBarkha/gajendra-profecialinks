@@ -45,7 +45,7 @@ module.exports = {
     const result = await checkExistance(captchaSelector);
     const isCaptchaFramePresent = await checkExistance(captchaFrame);
 
-    if (result) {
+    if (isCaptchaFramePresent) {
       console.log("isCaptcha", true);
 
       await context.solveCaptcha({
