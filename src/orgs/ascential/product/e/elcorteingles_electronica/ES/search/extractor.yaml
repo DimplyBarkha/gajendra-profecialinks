@@ -4,8 +4,18 @@ parameters:
   domain: elcorteingles.es
   store: elcorteingles_electronica
   zipcode: ""
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
 meta:
   branches:
     elcorteingles_electronica-product_search:
       extractor: f11a274b-20be-4a74-ab50-db7fb41b25ea
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    staging:
+      extractor: 57bf6274-f436-450f-8cf5-32ce2a4f04cc
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    test:
+      extractor: dedf4134-be64-42de-8560-0db4a01ec873
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
