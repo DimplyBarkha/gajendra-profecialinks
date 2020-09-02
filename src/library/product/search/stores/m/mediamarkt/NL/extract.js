@@ -6,6 +6,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { productDetails } = dependencies;
   // await context.waitForSelector('button.gdpr-cookie-layer__btn--submit');
   // await context.click('button.gdpr-cookie-layer__btn--submit');
