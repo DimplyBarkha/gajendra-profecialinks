@@ -3,9 +3,7 @@ recordSelector: null
 recordXPath: //div[contains(@class,"product-listing")]//ul//li
 fields:
   - name: id
-    xpath: //@data-product-code
-    regExp: (\d+)
-    regExpReplace: $1
+    xpath: //@data-current-product
   - name: name
     xpath: //div//h3//a
   - name: productUrl
