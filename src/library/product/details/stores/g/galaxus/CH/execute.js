@@ -5,8 +5,8 @@ module.exports = {
     country: 'CH',
     store: 'galaxus',
     domain: 'galaxus.ch',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'picture.mediaPicture img',
+    noResultsXPath: "//h2[contains(@class, 'ZZ5g')] = 'Nothing found for'",
     zipcode: '',
   },
 };
