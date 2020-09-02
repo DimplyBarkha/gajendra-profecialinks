@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class='productList']
+fields: 
+  - name: manufacturer
+    xpath: //ul[@class='productList']/li/div[contains(@class, "product")]//a[@class="productManufacturerFilter"]
+    singleValue: false
+  - name: name
+    xpath: //ul[@class='productList']/li/div[contains(@class, "product")]//span[@class='productList__itemTitle']
+    singleValue: false
+  - name: price
+    xpath: //ul[@class='productList']/li/div[contains(@class, "product")]//div[@class='productList__priceCartWrap']
+    singleValue: false
+  - name: ratingCount
+    xpath: //ul[@class='productList']/li/div[contains(@class, "product")]//span[@class='rating']
+    singleValue: false
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: variantId
+    xpath: //ul[@class='productList']/li/@data-sku
+    singleValue: false
+  - name: productUrl
+    xpath: //ul[@class='productList']/li/div[contains(@class, "product")]//a[contains(@class, "product__overlayLink")]/@href
+    singleValue: false
+    regExp: >-
+      ^(.*)$
+    regExpReplace: >-
+      https://www.brack.ch$1
+  - name: thumbnail
+    xpath: //ul[@class='productList']/li/div[contains(@class, "product")]//div[contains(@class, "productList__item-image-container")]/img/@src
+    singleValue: false
+    
