@@ -23,10 +23,10 @@ fields:
     xpath: //div[@id="opbox-listing--base"]//section//article//div//span[contains(@class,"1svub")]
   - name: rankOrganic
     singleValue: false
-    xpath: 
+    xpath: //article[not(@data-analytics-view-label="showSponsoredItems")]/@data-analytics-view-custom-index0
   - name: shippingInfo
     singleValue: false
-    xpath: //article//div[1]//div[1]//div[2]//div[1]//div[3]//div[4]
+    xpath: //article/@data-analytics-view-custom-deliverylabel
   - name: endorsmentText
     xpath: //div[@id="opbox-listing--base"]//section//article//i[contains(@class, '9c44d_2U')]
   - name: rank
@@ -34,8 +34,8 @@ fields:
     xpath: //div[@id="opbox-listing--base"]//section//article/@data-analytics-view-custom-index0   
   - name: soldBy
     singleValue: false
-    xpath: //div[@id="opbox-listing--base"]//section//article//div/div/div/div[contains(.//text(), ' z Allegr')]
-    regExp: (z Allegr)(.*)
+    xpath: //div[@id="opbox-listing--base"]//section//article//div/div/div/div[contains(.//text(), ' od')]
+    regExp: (od)(.*?)(,)
     regExpReplace: $2
   - name: variantId
     singleValue: false
