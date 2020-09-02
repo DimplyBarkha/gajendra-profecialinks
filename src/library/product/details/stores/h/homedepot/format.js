@@ -24,6 +24,16 @@ const transform = (data) => {
           text: row.additionalDescBulletInfo.length,
         }];
       }
+      if (row.specificationsflag) {
+        row.specifications.forEach(item => {
+          let text = item.text.replace(/(\s*\n\s*)*See Similar Items(\s*\n\s*)*/g, ' || ').replace(/(\s*\n\s*)+/g, ': ')
+          if(text.endsWith('||')){
+            item.text = text.slice(0,-3)
+          } else {
+            item.text = text
+          }
+        });
+      }
       if (row.specifications) {
         row.specifications.forEach(item => {
           item.text = item.text.replace(/(\n\s?){6,}/g, ' | ').replace(/(\n\s?){5}/g, ' ').replace(/(\n\s?){4}/g, ' | ').replace('Specifications', '').replace(/\n \n/g, ' : ').trim();
@@ -76,6 +86,21 @@ const transform = (data) => {
       }
     }
   }
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 

@@ -21,7 +21,7 @@ fields:
     xpath: //meta[@itemprop="name"]/@content
   - name: price
     singleValue: false
-    xpath: concat(//span[@id="ajaxPrice"]/span[@class="price__currency"],//span[@id="ajaxPrice"]/@content,//script[@type="application/ld+json" and contains(text(),'Product')])
+    xpath: concat(//span[@id="ajaxPrice"]/span[@class="price__currency"],//span[@id="ajaxPrice"]/@content,//script[@type="application/ld+json" and contains(text(),'Product')], //div[@class="price__casePriceWrapper"]/span[@id="ajaxPrice"])
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="custom_availability_text"]
@@ -46,7 +46,7 @@ fields:
     xpath: //a[@class='prop65-warning__link u__default-link'][1]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="thumbnails"]//img/@src|Y|//div[starts-with(@id,"altImage")]
+    xpath: //div[@id="thumbnails"]//img/@src|//div[starts-with(@id,"altImage")]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="product_description"]//img[@class="stretchy"]/@src|//div[@data-component="description"]//img/@src
@@ -59,7 +59,10 @@ fields:
     xpath: //div[@id="specsContainer"]//div[h4[contains(text(),"Dimensions")]]/following-sibling::div[@class="specs__table"][1]|//h4[contains(text(),"Dimensions")]/following-sibling::div
   - name: specifications
     singleValue: false
-    xpath: //div[@id="specsContainer"]
+    xpath: //div[@id="specsContainer"] | //div[@class="kpf__container"]
+  - name: specificationsflag
+    singleValue: false
+    xpath: //div[@class="kpf__container"]
   - name: shippingWeight
     singleValue: false
     xpath: //div[@itemprop="weight"]
@@ -79,7 +82,7 @@ fields:
     singleValue: false
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id="itemRating"]//div[contains(@class,"ratings")]/@title
+    xpath: //div[@id="itemRating"]//div[contains(@class,"ratings")]/@title | //a[contains(@class,"product-details__rating-container")]/@title
     type: NUMBER
   - name: name
     singleValue: false
@@ -113,3 +116,8 @@ fields:
     singleValue: false
   - name: promotion
     xpath: normalize-space(//div[@id="savingsText"]/p)
+  - name: Image360Present
+    xpath: //span[contains(@class, 'threesixty-icon')]/@class
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No' 

@@ -137,6 +137,9 @@ module.exports = {
             const videoId = img.getAttribute('src').replace(/.*videoId=(.*$)/, '$1');
             await addVideoUrl(videoId);
           };
+          for (const [index, img] of document.querySelectorAll('div[class="overlay__side-content__product-images"] img').entries()) {
+            addHiddenDiv(`altImage${index}`, img.src);
+          };
         });
       } catch (error) {
         console.log('Error');
