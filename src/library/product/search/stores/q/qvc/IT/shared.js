@@ -33,7 +33,7 @@ const transform = (data, context) => {
       }));
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach((item) => {
-          item.text = (item.text * 5) / 100;
+          item.text = (item.text * 5) / 100 + '';
           item.text = item.text.replace(/\./, ',');
         });
       }
