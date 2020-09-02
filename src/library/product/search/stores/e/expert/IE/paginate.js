@@ -7,9 +7,11 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
-    noResultsXPath: null,
-    openSearchDefinition: null,
+    loadedSelector: 'div.product-item-info',
+    noResultsXPath: '//*[contains(text(), "no results")]',
+    openSearchDefinition: {
+      template: 'https://www.expert.ie/catalogsearch/result/index/?p={page}&q={searchTerms}'
+    },
     domain: 'expert.ie',
     zipcode: '',
   },

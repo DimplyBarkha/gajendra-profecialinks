@@ -1,14 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[contains(@class, "product-item")]
 fields:
   - name: paid
     singleValue: true
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
   - name: brand
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class, "brand")]//a//img/@title
     description: The brand name
     example: Panasonic
   - name: category
@@ -21,37 +22,55 @@ fields:
       - Electric Toothbrushes
       - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class, "product-item-info")]//a[contains(@class, "product photo")]/@href
+    # regExp: >- 
+    #   ^(.*)$
+    # regExpReplace: >-
+    #   https://www.expert.de$1
     description: The URL for the product details page
   - name: thumbnail
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class, "product-item-info")]//a[contains(@class, "product photo")]//img/@src
+    # xpath: (//img/@data-src)[3]
+    # xpath: //img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
+    # xpath: //div[contains(@class, "widget widget-ArticleImage")]//img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
+    # xpath: //img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
     description: The URL for the product thumbnail image
   - name: name
-    singleValue: true
+    singleValue: false
+    xpath: //a[@class="product-item-link"]//text()
     description: The product name
   - name: sku
-    singleValue: true
+    singleValue: false
+    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
     description: The store-specific product identifier
   - name: mpc
-    singleValue: true
+    singleValue: false
+    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
     description: The model code of the product
   - name: gtin
-    singleValue: true
+    singleValue: false
+    # xpath: ancestor::html//script[contains(@class, "widget-ArticleStatus--script")]/text()
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating
   - name: ratingCount
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//meta[@itemprop="reviewCount"]/@content
     description: The number of ratings
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     description: The number of reviews
   - name: price
-    singleValue: true
+    singleValue: false
+    xpath: //span[@data-price-type="finalPrice"]/@data-price-amount
     description: The offered price for the product
   - name: listPrice
     singleValue: true
+    xpath: //span[@data-price-type="oldPrice"]/@data-price-amount
     description: The stated undiscounted price for the product
   - name: manufacturer
     singleValue: true
@@ -63,14 +82,17 @@ fields:
     singleValue: true
     description: The text that signifies that a product is endorsed
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
+    xpath: //img[contains(@data-src, "https://cdn.expert.de/fc/bf/04/35963f4d0bf25eb761a1e0f3e2c9cd1f3d/131234%20fms_expert_versandkostenfrei_samsung.png")]/@alt
+    regExp: "Artikel Aktions Symbol"
+    regExpReplace: Versand-kostenfrei
     description: Shipping information for the product
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
@@ -81,10 +103,25 @@ fields:
     singleValue: true
     description: Unique id (within this extractor)
   - name: nameExtended
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    # type: NUMBER
+    regExp: >-
+      ^.{0,3}
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
+    description: The stated aggregate rating normalized to be out of 5
+    # type: NUMBER
+    regExp: >-
+      ^.{0,3}
+
+
+
+
