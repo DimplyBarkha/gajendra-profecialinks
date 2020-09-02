@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: '//div[@id="product-results"]'
+fields: 
+  - name: productUrl
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //figure[@class="fitted-product-image-box"]//picture[@class="picture"]//img[@class="picture__image"]/@src
+  - name: name
+    singleValue: false
+    xpath: //div[@id="product-results"]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[@class="product-card__title"]//h3[contains(@class,"text-color--link")]
+  - name: price
+    singleValue: false
+    xpath: //div[@id="product-results"]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//span[contains(@class,"sales-price")]
+    regExp: ([\d,]+.*)
+    regExpReplace: $1
+  - name: shippingInfo
+    singleValue: false
+    xpath: 
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@data-component
+    regExp: (position:)\s(\d+)
+    regExpReplace: $2
+  - name: aggregateRating
+    singleValue: false
+    xpath: //meter[@class="review-rating__score-meter"]/@value
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="review-rating"]//span[contains(@class,"review-rating__reviews")]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="review-rating"]//span[contains(@class,"review-rating__reviews")]
+  - name: soldBy
+    singleValue: false
+    xpath: 
+  - name: rank
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@data-component
+    regExp: (position:)\s(\d+)
+    regExpReplace: $2
+  - name: endorsementText
+    singleValue: false
+    xpath: //div[@class="product-label__promo-icon"]//div[@class="coolblues-choice-label"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
+    regExp: (\/product\/)(\d+)
+    regExpReplace: $2
+  - name: mpc
+    singleValue: false
+    xpath:
+  - name: variantType
+    singleValue: false
+    xpath:
+  - name: quantity
+    singleValue: false
+    xpath:
+  - name: packSize
+    singleValue: false
+    xpath: 
