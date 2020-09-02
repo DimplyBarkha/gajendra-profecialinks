@@ -16,6 +16,8 @@ fields:
     type: BOOLEAN
   - name: search_term
     defaultValue: Dyson
+  - name: soldBy
+    defaultValue: placedestendances
   - name: id
     xpath: //@data-item-id
   - name: thumbnail 
@@ -25,13 +27,15 @@ fields:
     xpath: //div[contains(@class,"viewallElementItemLabel")]
     description: The product name
   - name: ratingCount
-    xpath: //span[@itemprop="ratingCount"]
+    xpath: ancestor::html//span[@itemprop="ratingCount"]
+    description: The number of ratings
+  - name: reviewCount
+    xpath: ancestor::html//span[@itemprop="ratingCount"]
     description: The number of ratings
   - name: aggregateRating
-    xpath: //span[@itemprop="ratingValue"]
+    xpath: ancestor::html//span[@itemprop="ratingValue"]
     regExp: ^[^\s]+
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
   - name: productUrl
     xpath: //div[@class="row viewallElementDescRow"]//a/@href
   - name: search_url
