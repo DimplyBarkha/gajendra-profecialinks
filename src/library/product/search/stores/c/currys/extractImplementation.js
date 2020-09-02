@@ -14,10 +14,10 @@ const implementation = async (
         const article = document.querySelectorAll('div[data-component="sponsored-products"] article');
 
         article.forEach(el => {
-            el.setAttribute('sponsored', 'true')
+            el.setAttribute('sponsored', 'true');
         });
     });
     return await context.extract(productDetails, { transform });
-}
+};
 
 module.exports = { implementation };
