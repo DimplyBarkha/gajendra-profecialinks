@@ -15,8 +15,8 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id="product-results"]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//span[contains(@class,"sales-price")]
-    regExp: ([\d,]+.*)
-    regExpReplace: $1
+    regExp: (\d+)((\,?)(\d+))
+    regExpReplace: $1$2
   - name: shippingInfo
     singleValue: false
     xpath: 
