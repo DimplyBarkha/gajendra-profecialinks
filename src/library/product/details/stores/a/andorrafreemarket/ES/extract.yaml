@@ -49,9 +49,7 @@ fields:
     xpath: //meta[contains(@itemprop, "description")]/@content
   - name: brandText
     singleValue: true
-    xpath: //script[contains(@type,"text/javascript") and contains(text(),"params")]//text()
-    regExp: \"brandPicture":(.*)
-    regExpReplace: $1
+    xpath: //meta[contains(@itemprop,"brand")]/@content
   - name: quantity
     singleValue: true
     xpath: //div[contains(@class,'qty-wrapper')]//input[@id='qty']//@value
