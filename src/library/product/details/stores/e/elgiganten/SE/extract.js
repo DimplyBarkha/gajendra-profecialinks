@@ -1,6 +1,6 @@
-const { transform } = require('../format')
+const { transform } = require('../format');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -10,51 +10,45 @@ async function implementation(
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addHiddenDiv(id, content) {
+    function addHiddenDiv (vidurl, content) {
       const newDiv = document.createElement('div');
-      newDiv.id = id;
+      newDiv.setAttribute('data-vidurl', vidurl);
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    let description = document.querySelector('div#content_description > div.product-tab-wrapper');
 
-    description = description ? description.children : [];
-    
-    let finalDescription = '';
-    let flag = false;
-    for (const element of description) {
-      if (element.id === 'flix-inpage') {
-        break;
-      };
-      
-      if (!element.innerText) {
-        continue;
-      }
-      if (element.nodeName === 'UL') {
-        flag = true;
-        for (const li of element.children) {
-          finalDescription += ` || ${li.innerText}`;
-        }
-      } else if (element.nodeName === 'LI') {
-        flag = true;
-        finalDescription += ` || ${element.innerText}`;
-      } else {
-        if (flag) {
-          flag = false;
-          finalDescription += ` | ${element.innerText}`;
-        } else {
-          flag = false;
-          finalDescription += ` ${element.innerText}`;
-        }
-      }
+    if (document.querySelector('div.product-more-info')) {
+      document.querySelector('li#tab-specs').click();
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    } else if (document.querySelector('div.tab-specs-row')) {
+      document.querySelector('li#tab-more-info').click();
+      await new Promise(resolve => setTimeout(resolve, 1000));
     }
-    addHiddenDiv('ii_description', finalDescription);
+
+    const sku = document.querySelector('p[data-product-sku]').getAttribute('data-product-sku');
+    const name = document.querySelector('h1.product-title').innerText;
+    const vidApiUrl = `https://dapi.videoly.co/1/videos/0/407/?SKU=${sku}&productTitle=${name}&hn=www.elgiganten.se`;
+    const videoApi = await fetch(vidApiUrl,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        method: 'GET',
+      },
+    ).then(x => x.json());
+
+    const video = videoApi.items;
+    let videoUrl;
+    video.forEach(vid => {
+      videoUrl = `https://www.youtube.com/watch?v=${vid.videoId}&feature=youtu.be`;
+      addHiddenDiv('vidURL', videoUrl);
+    });
   });
 
   return await context.extract(productDetails, { transform });
 }
-
 
 module.exports = {
   implements: 'product/details/extract',
