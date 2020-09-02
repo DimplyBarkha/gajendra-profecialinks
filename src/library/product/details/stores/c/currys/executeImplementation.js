@@ -5,7 +5,7 @@ const implementation = async (
   dependencies,
 ) => {
   const timeout = 30000;
-  // await context.setBlockAds(false);
+  await context.setBlockAds(false);
   await context.setLoadAllResources(true);
   await context.setLoadImages(true);
   await context.setJavaScriptEnabled(true);
@@ -28,7 +28,7 @@ const implementation = async (
   };
 
   if (url) {
-    await context.goto(domain, { timeout, waitUntil: 'networkidle0' });
+    await context.goto(url, { timeout, waitUntil: 'networkidle0' });
     await acceptCookies();
     await waitForSelectorLoad();
   } else if (id) {

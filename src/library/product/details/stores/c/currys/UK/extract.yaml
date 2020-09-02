@@ -144,7 +144,9 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//div[contains(@class,"flix-media-flex") or contains(@class,"flix-background-image")]//img/@srcset
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//div[contains(@class,"flix-media-flex") or contains(@class,"flix-background-image")]//img/@srcset | //img[@data-flixsrcset]/@data-flixsrcset
+    regExp: ^(.+)\s200w
+    regExpReplace: https:$1
     description: Images within the third party description
   - name: videos
     singleValue: false
