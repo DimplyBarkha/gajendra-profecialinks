@@ -6,6 +6,6 @@ module.exports = {
     domain: 'lowes.com',
     url: 'https://www.lowes.com/search?searchTerm={searchTerms}',
     loadedSelector: 'div.pl,#main-section',
-    noResultsXPath: '//h1[@data-test="noresult-page-heading"]',
+    noResultsXPath: '//h1[contains(@data-selector,"splp-noresult-page-heading")]',
   },
 };

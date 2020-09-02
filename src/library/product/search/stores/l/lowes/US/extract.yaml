@@ -1,50 +1,50 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-test="product-list-pl"]//article[@data-test="product-tile"] | //section[@id="main"]
+recordXPath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col] | //section[@id="main"]
 fields:
   - name: id
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//div[@data-test="product-tile-image"]/@id | //input[@name="productId"]/@value
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//div[contains(@data-selector,"splp-prd-tl-img")]/@id | //input[@name="productId"]/@value
   - name: price
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//div[@data-test="product-actual-price"]/@aria-label | //div[@class="offerWrapper"]/div[1]
-    regExp: Actual (Price|price) ((was)*)(\s*)(.*)
-    regExpReplace: $5
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//div[contains(@data-selector,"splp-prd-act-$")]/@aria-label | //span[@class="finalPrice" ]/span[@class="aPrice large"]
+    regExp: ((Actual Price)*)(.*)
+    regExpReplace: $3
   - name: productUrl
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//div[@data-test="product-tile-image"]//a/@href | //meta[@property="og:url" and @data-react-helmet]/@content
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//div[contains(@data-selector,"splp-prd-tl-img")]//a/@href | //meta[@property="og:url" and @data-react-helmet]/@content
     regExp: (.*)(pd)(.*)
     regExpReplace: https://www.lowes.com/$2$3
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//img[contains(@class,'product-image')]/@src | (//div[@id="main-section"]//div[@class="tile"]/img/@src)[1]
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//img[contains(@data-selector,"splp-prd-img-org")]/@src | (//div[@id="main-section"]//div[@class="tile"]/img/@src)[1]
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//div[@aria-label="product details"]//a//@aria-label | //h1/@aria-label
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//div[contains(@data-selector,"splp-prd-tl-img")]//a/@aria-label | //h1/@aria-label
   - name: aggregateRating
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//div[contains(@aria-label,"product details")]//div[contains(@role,"link")]/@aria-label | //div[contains(@class,"fsReviewLinkDefault")]/div/@aria-label
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//div[contains(@data-selector,"splp-prd-ttl-rtgs")]//div[contains(@role,"link")]/@aria-label | //div[contains(@class,"fsReviewLinkDefault")]/div/@aria-label
     regExp: (.+)(\sout.+)
     regExpReplace: $1
   - name: ratingCount
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//div[contains(@aria-label,"product details")]//div[contains(@role,"link")] | (//span[contains(@class, "total")])[1]
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//div[contains(@data-selector,"splp-prd-ttl-rtgs")]//div[contains(@role,"link")] | (//span[contains(@class, "total")])[1]
     regExp: \d+
   - name: reviewCount
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//div[contains(@aria-label,"product details")]//div[contains(@role,"link")] | (//span[contains(@class, "total")])[1]
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//div[contains(@data-selector,"splp-prd-ttl-rtgs")]//div[contains(@role,"link")] | (//span[contains(@class, "total")])[1]
     regExp: \d+
   - name: gtin
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//img[@data-test="product-image-original"]/@src | (//div[@id="main-section"]//div[@class="tile"]/img/@src)[1]
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//img[contains(@data-selector,"splp-prd-img-org")]/@src | (//div[@id="main-section"]//div[@class="tile"]/img/@src)[1]
     regExp: (.+)/(\d+).jpg(.+)
     regExpReplace: $2
   - name: mpc
     singleValue: false
-    xpath: //article[@data-test="product-tile"]//div[@data-test="product-static-info"]//span[@data-tooltipname] | //div[@class="modelNo"]//span[2]
+    xpath: //div[contains(@data-selector,"splp-prd-lst-plpo")]/div[@data-col]//div[contains(@data-selector,"splp-prd-stac-info")]//span[@data-tooltipname] | //div[@class="modelNo"]//span[2]
     regExp: (Model\s\#)(.+)
     regExpReplace: $2
   - name: rank
@@ -53,3 +53,5 @@ fields:
   - name: rankOrganic
     singleValue: false
     type: NUMBER
+
+
