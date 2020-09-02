@@ -58,6 +58,25 @@ const transform = (data) => {
           item.text = item.text.replace(/ /g, '')
         })
       }
+      if (row.weightNet) {
+        row.weightNet.forEach(item => {
+          item.text = item.text.replace(/-/g, '.')
+        })
+      }
+      if (!row.gtin) {
+        if (row.upc) {
+          row.gtin = row.upc
+        }
+      }
+      if (row.description) {
+        row.description = row.description.length === 2 ? row.description.slice(1) : row.description
+        row.description.forEach(item => {
+          item.text = item.text.replace(/Product Description\n/, '')
+        })
+      }
+      if (!row.brandText) {
+        row.brandText = row.brandAlt
+      }
       row.variantCount = [{ text: 1 }]
     }
   }

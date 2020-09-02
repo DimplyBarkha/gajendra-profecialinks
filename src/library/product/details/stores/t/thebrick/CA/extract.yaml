@@ -39,8 +39,6 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "product-description")]//strong[contains(text(), "Dimensions")]/parent::p/preceding-sibling::p
-    regExp: Product Description\n(.*)
-    regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class, "long-description-wrapper")]//ul[1]//li)
@@ -115,4 +113,16 @@ fields:
     xpath: //div[@id="tab2"]
   - name: weightNet
     singleValue: false
-    xpath: //div[@itemscope]//ul//li[contains(text(), "weight")]
+    xpath: //ul[contains(@class,"hiddenTags")]//li[contains(text(), "weight")]
+    regExp: weight-(.*)
+    regExpReplace: $1
+  - name: upc
+    singleValue: false
+    xpath: //ul[contains(@class,"hiddenTags")]//li[contains(text(), "upc")]
+    regExp: upc-(.*)
+    regExpReplace: $1
+  - name: brandAlt
+    singleValue: false
+    xpath: //span[@itemprop="name"]
+    regExp: ^([\w\-]+)
+    regExpReplace: $1
