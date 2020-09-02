@@ -26,19 +26,9 @@ fields:
   - name: name
     xpath: //div[contains(@class,"viewallElementItemLabel")]
     description: The product name
-  - name: ratingCount
-    xpath: ancestor::html//span[@itemprop="ratingCount"]
-    description: The number of ratings
-  - name: reviewCount
-    xpath: ancestor::html//span[@itemprop="ratingCount"]
-    description: The number of ratings
-  - name: aggregateRating
-    xpath: ancestor::html//span[@itemprop="ratingValue"]
-    regExp: ^[^\s]+
-    description: The stated aggregate rating normalized to be out of 5
   - name: productUrl
     xpath: //div[@class="row viewallElementDescRow"]//a/@href
-  - name: search_url
+  - name: searchUrl
     defaultValue: https://beaute-printemps.placedestendances.com/fr/fr/dyson
   - name: price
     xpath: //div[contains(@class,"viewallElementItemLabel")]/following-sibling::div[contains(@class,"viewallElementPrice")]
