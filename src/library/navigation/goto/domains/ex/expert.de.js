@@ -6,6 +6,7 @@ module.exports = {
     timeout: 35000,
     country: 'DE',
     store: 'expert',
+    // suffix: '/ahlen',
     zipcode: '',
   },
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
@@ -24,8 +25,17 @@ module.exports = {
     //       timeout: 100000,
     //       waitUntil: 'load',
     // })
+    let location = '';
+
+    const ahlen = 'ahlen';
+    const saarwellingen = 'saarwellingen';
+    const mannheim = 'Mannheim1';
+    const nuernberg = 'nuernberg1';
+    const loerrach = 'loerrach';
+    location = `/${ahlen}`;
+
     await context.setBlockAds(false);
-    await context.goto(`${url}`, {
+    await context.goto(`${url}${location}`, {
       anti_fingerprint: true,
       discard_CSP_header: false,
       timeout: 100000,
