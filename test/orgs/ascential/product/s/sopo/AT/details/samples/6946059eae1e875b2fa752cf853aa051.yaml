@@ -1,0 +1,87 @@
+input:
+  _url: http://sopo.at
+  URL: https://www.sopo.at/detail/index/sArticle/44362
+extractions:
+  - html: https://workbench.import.io/html/run=905e84ee-7b6f-4fe2-afa4-19e48b1d8846/task=1b8f55f9-1f57-4915-bf8d-a5a523f7d87f/5bfa1272-1446-4de3-893e-021f921b844d.html
+    extractionConfigId: product/details/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.sopo.at/media/image/6b/83/f5/14178416_8672_600x600.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]/img[1]/@srcset
+            imageAlt:
+              - text: Dyson Allergy Kit (916130-07) Zubehör
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]/img[1]/@alt
+            metaKeywords:
+              - text: Dyson;Allergy;Kit;(916130-07);;Zubehör
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Haushaltsgeräte
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Staubsaugerzubehör
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: Dyson Allergy Kit (916130-07) Zubehör
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            listPrice:
+              - text: € 49,86
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            price:
+              - text: € 49,86
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+            description:
+              - text: |-
+                  Merkmale
+                  Produktfarbe: Grau
+                  Material: Kunststoff
+                  Kompatibilität: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/head[1]/meta[13]/@content
+            gtin:
+              - text: "5025155008362"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: "5025155008362"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            mpc:
+              - text: 916130-07
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            shippingInfo:
+              - text: Versandbereit in 5 Werktagen
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[5]/p[1]
+            color:
+              - text: "Produktfarbe: Grau"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]
+            name:
+              - text: Dyson Allergy Kit (916130-07) Zubehör
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: € 49,86
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            quantity:
+              - text: "1"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+        xpath: /
+    timestamp: 1599041896660

@@ -1,0 +1,131 @@
+input:
+  _url: http://sopo.at
+  URL: https://www.sopo.at/detail/index/sArticle/44332
+extractions:
+  - html: https://workbench.import.io/html/run=905e84ee-7b6f-4fe2-afa4-19e48b1d8846/task=4a6b9d25-f7e8-4b49-a621-bbb60da894c0/e198f5a5-e162-4e3f-bb1e-db17bd69de72.html
+    extractionConfigId: product/details/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.sopo.at/media/image/5d/73/54/65106541_4520369681_600x600.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]/span[1]/img[1]/@srcset
+            imageAlt:
+              - text: Dyson Glass Hepa & Inner Carbon Filter (969048-03) Raumklima-Zubehör
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]/span[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.sopo.at/media/image/76/b0/ed/65106541_7523965797.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[2]/@href
+              - text: https://www.sopo.at/media/image/8b/81/94/65106541_2897495856.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[3]/@href
+              - text: https://www.sopo.at/media/image/5b/37/9b/65106541_4715929435.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[4]/@href
+            metaKeywords:
+              - text: Dyson;Glass;Hepa;&;Inner;Carbon;Filter;(969048-03);;Raumklima-Zubehör
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Küchengeräte Klein
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Filterkaffeemaschinen
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: Dyson Glass Hepa & Inner Carbon Filter (969048-03) Raumklima-Zubehör
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            listPrice:
+              - text: € 61,90
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            price:
+              - text: € 61,90
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+            description:
+              - text: >-
+                  Kurzbeschreibung
+
+                  360° versiegelte Filtration
+                   Entfernt Gase und Feinstaub. Das komplett versiegelte System kombiniert einen Aktivkohlefilter zum Entfernen von Gasen mit einem HEPA-Filter, der 99,95% der mikroskopisch kleinen Allergene und Schadstoffe von einer Größe bis zu 0,1 Mikron aus der Luft filtert.* 
+                  360° versiegelte Filtration
+                   Entfernt Gase und Feinstaub. Das komplett versiegelte System kombiniert einen Aktivkohlefilter zum Entfernen von Gasen mit einem HEPA-Filter, der 99,95% der mikroskopisch kleinen Allergene und Schadstoffe von einer Größe bis zu 0,1 Mikron aus der Luft filtert.* 
+                  Aktivkohlefilter
+                   Tris-imprägnierte Aktivkohlegranulate entfernen Gase wie Formaldehyd, Benzol und Stickstoffdioxid aus der Luft. 
+                  Filterwechsel
+                   Ein Mal pro Jahr**. Filterwechsel wird auf Display angezeigt.
+                  Technische Details
+
+                  Produkttyp: Luftreinigerfilter
+
+                  Markenkompatibilität: Dyson
+
+                  Effizienz: 99,95%
+
+                  Produktfarbe: Mehrfarben
+
+                  Filtertyp: HEPA/Karbon
+
+                  Anzahl: 1
+
+                  Kompatibilität: 310130-01n310129-01n310156-01n310155-01nTP04nHP04nDP04
+
+                  Gewicht und Abmessungen
+
+                  Breite: 235 mm
+
+                  Tiefe: 235 mm
+
+                  Höhe: 240 mm
+
+                  Verpackungsdaten
+
+                  Paketgewicht: 1,35 kg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/head[1]/meta[13]/@content
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[6]
+            gtin:
+              - text: "5025155036723"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: "5025155036723"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            mpc:
+              - text: 969048-03
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            shippingInfo:
+              - text: Versandbereit in 5 Werktagen
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[5]/p[1]
+            shippingWeight:
+              - text: 1,35 kg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[4]/ul[1]/li[1]
+            color:
+              - text: "Produktfarbe: Mehrfarben"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]
+            name:
+              - text: Dyson Glass Hepa & Inner Carbon Filter (969048-03) Raumklima-Zubehör
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: € 61,90
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "11"
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+        xpath: /
+    timestamp: 1599041896218

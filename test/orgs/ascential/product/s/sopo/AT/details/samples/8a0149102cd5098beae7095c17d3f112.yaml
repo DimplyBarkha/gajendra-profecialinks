@@ -1,0 +1,143 @@
+input:
+  _url: http://sopo.at
+  URL: https://www.sopo.at/detail/index/sArticle/44090
+extractions:
+  - html: https://workbench.import.io/html/run=905e84ee-7b6f-4fe2-afa4-19e48b1d8846/task=2c9c4fc9-9b0d-4438-8b07-2da9c271d2bc/3b935a1a-6b77-4a6b-92d8-1773f0093124.html
+    extractionConfigId: product/details/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.sopo.at/media/image/e4/4a/7b/69679049_8734377992_600x600.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]/span[1]/img[1]/@srcset
+            imageAlt:
+              - text: Dyson V7 Motorhead Origin blau nickel (227613-01) Akkusauger Stick
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]/span[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.sopo.at/media/image/4e/b0/78/69679049_1436139316.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[2]/@href
+              - text: https://www.sopo.at/media/image/8b/8a/09/69679049_8143792997.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[3]/@href
+              - text: https://www.sopo.at/media/image/d1/f9/ca/69679049_4370312700.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[4]/@href
+              - text: https://www.sopo.at/media/image/5c/0e/de/69679049_8307904790.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[5]/@href
+              - text: https://www.sopo.at/media/image/eb/cc/d1/69679049_1907848106.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[6]/@href
+            metaKeywords:
+              - text: Dyson;V7;Motorhead;Origin;blau;nickel;(227613-01);;Akkusauger;Stick
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Haushaltsgeräte
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Hand & Akkustaubsauger
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: Dyson V7 Motorhead Origin blau nickel (227613-01) Akkusauger Stick
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            listPrice:
+              - text: € 364,94
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            price:
+              - text: € 364,94
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+            description:
+              - text: |-
+                  Leistungen
+                  Reinigungsart: Trocken
+                  Schmutztrennungsmethode: Zyklonal
+                  Leistungskontrolle: Auto
+                  Filtersystem: Ja
+                  Geräuschpegel: 87 dB
+                  Design
+                  Staubbehälter Typ: Beutellos
+                  Schmutzaufnahmekapazität (Trockenanwendung): 0,4 l
+                  Produktfarbe: Blau, Nickel
+                  Ergonomie
+                  Waschbarer Filter: Ja
+                  Leistung
+                  Energiequelle: Akku
+                  Laufzeit: 30 min
+                  Ladezeit: 3,5 h
+                  Batteriespannung: 21,6 V
+                  Laufzeit mit motorisierter Bürste (hohe Drehzahl): 6 min
+                  Batterietechnologie: Lithium-Ion (Li-Ion)
+                  Max. Leistung: 350 W
+                  Saugenergie: 100 AW
+                  Anzahl Batteriezellen: 6
+                  Stromverbrauch (Standby): 25 W
+                  Gewicht und Abmessungen
+                  Gewicht: 2,04 kg
+                  Breite: 208 mm
+                  Tiefe: 211 mm
+                  Höhe: 1180 mm
+                  Verpackungsdaten
+                  Verpackungsbreite: 271 mm
+                  Verpackungstiefe: 741 mm
+                  Verpackungshöhe: 156 mm
+                  Paketgewicht: 3,61 kg
+                  Lieferumfang
+                  Staubsauger-Stabmontage: Ja
+                  Teleskopstab: Nein
+                  Ladestation: Ja
+                  Motorisierte Bürste: Ja
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/head[1]/meta[13]/@content
+            quantity:
+              - text: "6"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[4]/ul[1]/li[9]
+            weightNet:
+              - text: 2,04 kg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[5]/ul[1]/li[1]
+            gtin:
+              - text: "5025155028155"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: "5025155028155"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            mpc:
+              - text: 227613-01
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            shippingInfo:
+              - text: Versandbereit in 5 Werktagen
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[5]/p[1]
+            shippingDimensions:
+              - text: "Verpackungsbreite: 271 mm,Verpackungstiefe: 741 mm,Verpackungshöhe: 156
+                  mm"
+                xpath: /html/body/div[5]
+            shippingWeight:
+              - text: 3,61 kg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[6]/ul[1]/li[4]
+            color:
+              - text: "Produktfarbe: Blau, Nickel"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]
+            name:
+              - text: Dyson V7 Motorhead Origin blau nickel (227613-01) Akkusauger Stick
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: € 364,94
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "31"
+                type: NUMBER
+                raw: "31"
+                locale: de_DE
+                value: 31
+        xpath: /
+    timestamp: 1599041898934
