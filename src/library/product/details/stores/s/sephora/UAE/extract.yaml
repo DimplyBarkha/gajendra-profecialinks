@@ -8,34 +8,39 @@ fields:
     xpath: //div[@id='ii_parentInput']
   - name: productUrl
     xpath: //div[@id='ii_url']
+  - name: manufacturerDescription 
+    singleValue: false
+    xpath: //div[contains(@class, "brand-content-block")]//text()
+  - name: manufacturerImages
+    singleValue: false
+    # xpath: //div[contains(@class, "brand-content-block")]//img/@src
+    xpath: //div[@id='ii_manufImage']
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
     xpath: (//a[contains(@name, "product_detail_image")]//img)[1]/@src
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //div[contains(@itemprop, "ratingValue")]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
     xpath: //span[contains(@class,"brand-name")]
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
     type: NUMBER
     xpath: //meta[contains(@itemprop,"reviewCount")]/@content
-  - name: videos
+  - name: videos !!!!!!!!!!!!!!!!!!
     singleValue: false
     description: URLs of videos on page
   - name: nameExtended
     singleValue: false
     description: The product name
     xpath: //div[@id='ii_nameExtended']
-  - name: quantity
-    singleValue: true
-  - name: category
+  - name: category !!!!!!!!!!!!!!!!!!!!!
     xpath: //div[@class='breadcrumb-element']/a
   - name: warnings
     singleValue: false
@@ -43,32 +48,32 @@ fields:
     singleValue: false
     xpath: //div[@class="accordion"]//div[contains(., 'Ingredients')]/div
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"product-cart")]//span[contains(@class, 'price')]
   - name: description
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@id,"descriptionText")]
   - name: brandText
     singleValue: false
     xpath: //span[contains(@class,"brand-name")]
   - name: directions
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="accordion"]//div[contains(., 'How to')]/div
   - name: alternateImages
     singleValue: false
     xpath: //a[contains(@name, "product_detail_image")]//img/@src
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@class, 'availability-status')]
     defaultValue: "In Stock"
   - name: promotion
     regExp: (.*)
     regExpReplace: Sale
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"product-cart")]//span[contains(@class, 'price')]
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
     xpath: (//img[contains(@class, "productthumbnail")])[1]/@alt
   - name: additionalDescBulletInfo

@@ -10,6 +10,21 @@ module.exports = {
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
 
+
+    const scrollFunc = await context.evaluate(async function(){
+      let scrollTop = 0;
+      while (scrollTop !== 12000) {
+        scrollTop += 2000;
+        window.scroll(0, scrollTop);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        console.log("SCROLLING")
+        if (scrollTop === 90000) {
+          break;
+        }
+      }
+    });
+
     const nameExtended = await context.evaluate(function(parentInput) {
 
       function addHiddenDiv (id, content) {
@@ -20,10 +35,13 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       addHiddenDiv(`ii_parentInput`, parentInput);
+      addHiddenDiv(`ii_url`, window.location.href);
 
       let variant = '//span[contains(@class, "selected-value-name")]';
       let brandName = '//span[contains(@class,"brand-name")]';
       let prodName = '//span[contains(@class, "product-name")]';
+      let manufImages = '//div[contains(@class, "brand-content-block")]//img/@src';
+      var manufImageCheck = document.evaluate( manufImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var variantCheck = document.evaluate( variant, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var brandNameCheck = document.evaluate( brandName, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var prodNameCheck = document.evaluate( prodName, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -47,6 +65,15 @@ module.exports = {
 
         addHiddenDiv('ii_nameExtended', fullName);
       }
+
+      if(manufImageCheck.snapshotLength > 0){
+        for(let i = 0; i < manufImageCheck.snapshotLength; i++){
+          let image = manufImageCheck.snapshotItem(i).textContent;
+          addHiddenDiv('ii_manufImage', image);
+        }
+      }
+
+
     }, parentInput);
       return await context.extract(productDetails, { transform: transformParam });
   },
