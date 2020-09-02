@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value
+    regExp: (\/product\/)(\d+)
+    regExpReplace: $2
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value
