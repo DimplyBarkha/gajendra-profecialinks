@@ -18,11 +18,11 @@ async function implementation (
   const { productDetails } = dependencies;
   
   await context.evaluate(async () => {
-    let loadMore = document.querySelector('button[class="flex items-center mx-auto text-center uppercase text-white bg-black my-4 px-4 py-3 rounded-sm"]');
+    let loadMore = document.querySelector('div.ais-InfiniteHits > button');
     while(loadMore && loadMore.getAttribute('disabled') !== "disabled"){
       await loadMore.click();
       await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-      loadMore = document.querySelector('button[class="flex items-center mx-auto text-center uppercase text-white bg-black my-4 px-4 py-3 rounded-sm"]');
+      loadMore = document.querySelector('div.ais-InfiniteHits > button');
     }
   });
 
@@ -36,7 +36,7 @@ async function implementation (
       parent.appendChild(newDiv);
     }
 
-    let recordSelector = document.querySelectorAll('li[class="ais-InfiniteHits-item m-2"]');
+    let recordSelector = document.querySelectorAll('li.ais-InfiniteHits-item');
     
     for (const record of recordSelector) {
       let productIdentifierText = record.childNodes[0].getAttribute('href').split('/')[2].split('.')[0];

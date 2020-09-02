@@ -1,13 +1,8 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: li[class="ais-InfiniteHits-item"]
+recordSelector: li.ais-InfiniteHits-item
 recordXPath: //li[contains(@class,"ais-InfiniteHits-item")]
 fields:
-  - name: manufacturer
-    singleValue: false
-    xpath: //li[contains(@class,"ais-InfiniteHits-item")]/a/h2
-    regExp: ^([\w\-]+)(.*)
-    regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //li[contains(@class,"ais-InfiniteHits-item")]/a/@href
