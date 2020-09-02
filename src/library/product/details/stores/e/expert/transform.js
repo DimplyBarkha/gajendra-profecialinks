@@ -92,6 +92,17 @@ const transform = (data, context) => {
           }
         }
 
+        if (row.alternateImages) {
+          const pictureSrc = [];
+          let mainPictureSrc = row.alternateImages[0].text.split('product/cache/');
+          mainPictureSrc = mainPictureSrc.length === 2 ? mainPictureSrc[1] : '';
+          mainPictureSrc = mainPictureSrc.length ? mainPictureSrc.split('/')[0] : '';
+          row.alternateImages = row.alternateImages.slice(1);
+          row.alternateImages.forEach(item => {
+            item.text = item.text.replace(/(?<=product\/cache\/)(.*)(?=\/)/gm, mainPictureSrc);
+          });
+        }
+
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));

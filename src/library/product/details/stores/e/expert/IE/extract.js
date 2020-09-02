@@ -1,12 +1,11 @@
-const { transform } = require('../transform');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'DE',
+    country: 'IE',
     store: 'expert',
-    transform: transform,
-    domain: 'expert.de',
+    transform: null,
+    domain: 'expert.ie',
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
@@ -28,16 +27,17 @@ module.exports = {
     });
 
     const apiManufCall = await context.evaluate(async function () {
-      return document.querySelector('iframe#loadbeeTabContent') ? document.querySelector('iframe#loadbeeTabContent').getAttribute('src') : null;
+      if (document.querySelector('iframe#loadbeeTabContent')) {
+        return document.querySelector('iframe#loadbeeTabContent').getAttribute('src');
+      } else if (document.querySelector('iframe#eky-dyson-iframe')) {
+        return document.querySelector('iframe#eky-dyson-iframe').getAttribute('src');
+      }
+
+      return null;
     });
 
     if (apiManufCall) {
       await context.goto(apiManufCall);
-      // The code snippet below will be executed in the website's scope.
-      await context.evaluate(async function () {
-        console.log('hiiii');
-        console.log(document.querySelector('h1.next-chapter'));
-      });
       const text = await context.evaluate(async function () {
         return document.querySelector('body').innerText;
       });
