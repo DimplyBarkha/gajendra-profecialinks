@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -17,31 +17,31 @@ fields:
     xpath: //div[contains(@class,"slick-current")]/img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //img[@class="product-image"]/@alt
+    xpath: //div[contains(@class,"slick-current")]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //ul/li/img/@src
+    xpath: //div[@class="slick-slide"]/img/@data-lazy
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
-  - name: category #----
+  - name: category
     singleValue: false
-    manualSelector: ol.breadcrumbs > li:first-child ~ li > a
+    xpath: //ol[contains(@class,"breadcrumbs")]//a[@href and @title]
   - name: nameExtended
     singleValue: false
-    xpath: //html/head/title[1]
+    manualSelector: h1.product-title
   - name: price
     singleValue: false
     xpath: //div[@class="product-price-container"]//span
   - name: manufacturerDescription
     singleValue: false
-    xpath: //section[contains(@class,"article-page")] 
+    xpath: //section[contains(@class,"article-page")]
   - name: manufacturerImages 
     singleValue: false
     xpath: //div[contains(@class,"article-text")]/img/@src
-  - name: video #---
+  - name: videos
     singleValue: false
-    xpath: //div[contains(@class,"product-video")]//@src
+    xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"]
   - name: weightNet 
     singleValue: false
     xpath: //dl[dt/span[text()="Mått & vikt"]]/dd//td[contains(text(),"Vikt")]/following-sibling::td
@@ -50,45 +50,41 @@ fields:
     xpath: //dl[dt/span[text()="EAN"]]/dd//td[contains(text(),"EAN-kod")]/following-sibling::td
   - name: sku
     singleValue: false
-    manualSelector: p[data-product-sku]
-    regExp: Varukod:\s*(.*)
-    regExpReplace: $1
+    xpath: //p/@data-product-sku
   - name: variantId
     singleValue: false
-    manualSelector: p[data-product-sku]
-    regExp: Varukod:\s*(.*)
-    regExpReplace: $1
+    xpath: //p/@data-product-sku
   - name: variantCount 
     singleValue: false
     defaultValue: '1'
-  - name: description #short descp
+  - name: description
     singleValue: false
-    xpath: //p[@class="short-description"]
-  - name: additionalDescBulletInfo #check
+    manualSelector: p.short-description, div.product-more-info p
+  - name: additionalDescBulletInfo
     singleValue: false 
     xpath: //div[@id="misc-info"]/ul[@class="specs"]/li
   - name: color 
     singleValue: false
-    xpath: //dl[dt/span[text()="Design, form och placering"]]/dd//td[contains(text(),"Färg ")]/following-sibling::td
+    xpath: //dl[dt/span[text()="Modellbeskrivning"]]/dd//td[contains(text(),"Färg")]/following-sibling::td
   - name: aggregateRating 
     singleValue: false
-    manualSelector: button#ratings-summary[aria-label*="out of"]
-    regExp: (^[^\s]+).*
-    regExpReplace: $1
+    manualSelector: div.bv_avgRating_component_container
   - name: ratingCount
     singleValue: false
-    xpath: //div[contains(@class,"bv_numReviews_component_container")]
+    manualSelector: div.bv_numReviews_component_container
     regExp: (\d+)
     regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //html/head/title[1]
+    manualSelector: h1.product-title
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@class,"spec-table")]//tr[td]
-  - name: storage #--------------- check
+    manualSelector: table.spec-table tr
+  - name: warranty
     singleValue: false
-    xpath: //span[@class="checkout-spacing"]
-  - name: technicalInformationPdfPresent #--------------- check
+    xpath: //strong[contains(text(),"garanti")]
+  - name: technicalInformationPdfPresent
     singleValue: false
-    xpath: 
+    xpath: //*[contains(text(),"Användarmanual")]/following-sibling::a/@href
+    regExp: (.+)
+    regExpReplace: https://www.elgiganten.se$1
