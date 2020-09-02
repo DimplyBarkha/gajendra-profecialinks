@@ -16,6 +16,11 @@ const transform = (data, context) => {
                 text: row.warranty.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/(\s*\n\s*)+/, ': ')}` : currItem.text.replace(/(\s*\n\s*)+/, ': '), ''),
               }];
         }
+        if (row.variants) {
+            row.variants = [{
+                text: row.variants.reduce((item, currItem) => item ? `${item} | ${currItem.text}` : currItem.text, '')+ ' | ' + row.sku[0].text,
+              }];
+        }
         if (row.manufacturerDescription) {
           row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\s*\n\s*)+/g, ' ');
         }

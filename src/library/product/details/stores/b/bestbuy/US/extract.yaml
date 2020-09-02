@@ -42,7 +42,9 @@ fields:
     manualSelector: div[class="pricing-price__regular-price"]
   - name: variants
     singleValue: false
-    xpath: //div[@class="shop-product-variations"]//a[contains(@class,"carousel-anchor")]
+    xpath: //div[@class="shop-product-variations"]//a[contains(@class,"carousel-anchor")]/@href
+    regExp: .*skuId=(.*)
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
     xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Product Weight")]]/div[contains(@class,"row-value")]

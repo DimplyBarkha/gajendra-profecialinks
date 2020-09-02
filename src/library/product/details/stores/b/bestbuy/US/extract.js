@@ -16,11 +16,19 @@ async function implementation(
   const { productDetails } = dependencies;
   try {
     await context.captureRequests();
+    try{
     await context.waitForSelector('button[data-track*="From the Manufacturer"]')
     await context.click('button[data-track*="From the Manufacturer"]')
     await context.waitForSelector('iframe.manufacturer-content-iframe')
-    await context.click('li.video-thumbnail')
-    await context.waitForSelector('div.video-thumbnail-wrapper')
+    } catch (error){
+      console.log('Manufacturer contents are not loaded')
+    }
+    try {
+      await context.click('li.video-thumbnail')
+      await context.waitForSelector('div.video-thumbnail-wrapper')
+    } catch (error) {
+      console.log('there are no videos');
+    }
     await context.evaluate(async function () {
       for (const element of document.querySelectorAll('div.video-thumbnail-wrapper li button')) {
         element.click()
@@ -44,9 +52,9 @@ async function implementation(
       const descContent = (document.querySelector('div.overview-accordion-content-wrapper')) ? document.querySelector('div.overview-accordion-content-wrapper').innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
       descContent && addHiddenDiv('ii_description', descContent);
       const iframe = document.querySelector('iframe.manufacturer-content-iframe')
-      iframe.scrollIntoView({behavior: "smooth"})
-      await new Promise(resolve => setTimeout(resolve, 5000))
       if (iframe) {
+        iframe.scrollIntoView({behavior: "smooth"})
+        await new Promise(resolve => setTimeout(resolve, 5000))
         try {
           let container = document.querySelector('div.shop-manufacturer-content');
         const manufaturerContents = iframe.contentDocument.documentElement.innerHTML
