@@ -5,7 +5,8 @@ module.exports = {
     country: 'US',
     store: 'lowes',
     nextLinkSelector: 'li:last-child a.arrow',
-    loadedSelector: 'a > span > article > span',
+    loadedSelector: 'div.pl,#main-section',
+    noResultsXPath: '//h1[@data-test="noresult-page-heading"]',
     domain: 'lowes.com',
   },
 };
