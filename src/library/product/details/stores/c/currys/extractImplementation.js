@@ -24,6 +24,7 @@ const implementation = async (
   }
 
   await context.evaluate(async function (zip, country) {
+    // eslint-disable-next-line
     const basicDetails = JSON.parse(document.evaluate(`//script[contains(.,'"@type": "Product"')]`, document).iterateNext().textContent);
     const productDigitalData = JSON.parse(document.querySelector('script[id="app.digitalData"]').textContent).product[0];
 
