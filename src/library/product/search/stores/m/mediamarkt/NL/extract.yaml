@@ -50,3 +50,9 @@ fields:
     xpath: //a[contains(@class, "rating")]//div/@class
     regExp: (?<=\-)\s*(.*)
     description: The stated aggregate rating normalized to be out of 5
+  - name: aggregateRating
+    singleValue: false
+    xpath: //a[contains(@class, "rating")]//div/@class
+    regExp: (?<=\-)\s*(.*)
+    description: The stated aggregate rating normalized to be out of 5
+    

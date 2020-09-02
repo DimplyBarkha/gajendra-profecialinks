@@ -31,6 +31,9 @@ const transform = (data, context) => {
       if (row.aggregateRating2) {
         row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace('-', '.') }];
       }
+      if (row.aggregateRating) {
+        row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('-', '.') }];
+      }
       if (row.id) {
         if (row.id[0].text.match('.html')) {
           const item = row.id[0];
