@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'bigw',
-      domain: 'bigw.com.au',
-      transform,
+    domain: 'bigw.com.au',
+    transform,
     zipcode: '',
   },
 };
