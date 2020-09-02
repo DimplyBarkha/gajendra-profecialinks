@@ -16,9 +16,9 @@ module.exports = {
           .match(/https:\/\/www.boots.com\/sitesearch\?searchTerm=(.+)/)[1]
           .toLowerCase();
       if (searchTerm &&
-          searchTerm.match(/\w+/g) &&
-          searchTerm.match(/\w+/g).length === 1 &&
-          searchTerm.match(/dyson/)
+          searchTerm.match(/[a-zA-Z]+/g) &&
+          searchTerm.match(/[a-zA-Z]+/g).length === 1 &&
+          searchTerm.match(/dyson/i)
       ) {
         return 'https://www.boots.com/dyson/dyson-shop-all';
       } else {

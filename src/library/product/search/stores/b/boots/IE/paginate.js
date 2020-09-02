@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IE',
     store: 'boots',
-    nextLinkSelector: 'button[class="results-btn-viewmore"]',
+    nextLinkSelector: 'button.results-btn-viewmore:not([disabled])',
     mutationSelector: 'ul[class="grid_mode grid"]',
     domain: 'boots.ie',
     zipcode: '',
