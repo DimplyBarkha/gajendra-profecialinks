@@ -1,5 +1,35 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@class="la-article zc-parent clearfix" or @class="la-article zc-parent clearfix has-avis"]
+fields:
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored  
+  - name: id
+    xpath: //div[@class="lai-zone-texte"]/h2/a/@href
+    regExp: .+--(\d+).+
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //span[@class="titre-ligne"]
+  - name: price
+    singleValue: false
+    xpath: //div[@id="main-liste-articles"]//span[@class="uba-prix"]/span[1]/span
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="lai-zone-texte"]/h2/a/@href
+    regExp: ([\w-\/=+&#.]+)
+    regExpReplace: https://www.ubaldi.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id="main-liste-articles"]//div[@class="img-placeholder img-defer img-ratio-cc la-img"]//img/@src
+    regExp: ([\w-\/=+&#.]+)
+    regExpReplace: https://www.ubaldi.com$1
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@id="main-liste-articles"]//span[@class="pr-nb-avis"]
+    regExp: \d+
+    
+
+
