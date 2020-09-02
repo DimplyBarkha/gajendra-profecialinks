@@ -13,7 +13,7 @@ module.exports = {
 
     const scrollFunc = await context.evaluate(async function(){
       let scrollTop = 0;
-      while (scrollTop !== 12000) {
+      while (scrollTop !== 20000) {
         scrollTop += 2000;
         window.scroll(0, scrollTop);
         await new Promise(resolve => setTimeout(resolve, 5000));
@@ -24,6 +24,7 @@ module.exports = {
         }
       }
     });
+    await new Promise(resolve => setTimeout(resolve, 10000));
 
     const nameExtended = await context.evaluate(function(parentInput) {
 
