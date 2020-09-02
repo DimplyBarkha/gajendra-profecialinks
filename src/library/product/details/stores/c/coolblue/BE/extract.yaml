@@ -15,7 +15,7 @@ fields:
     singleValue: false
     xpath: //script[contains(text(),"price")]/text()
     regExp: \"price":\s"([\d,]+.*)"
-    regExpReplace: € $1
+    regExpReplace: $1
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,"flex-unit")]//div[@class="js-configurator-discount-element"]
