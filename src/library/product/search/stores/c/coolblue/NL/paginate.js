@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'coolblue',
-    nextLinkSelector: 'div[class="pagination-wrapper"] li[class="pagination__item pagination__item--arrow"]',
-    mutationSelector: 'div[class="filtered-search__result-info"] span[class="filtered-search__result-count"]',
-    spinnerSelector: 'span[class="spinner-animation"]',
+    nextLinkSelector: 'li.pagination__item.pagination__item--arrow',
+    mutationSelector: 'li.inline-list__item.js-inline-list-item span.filtered-search__result-count',
+    spinnerSelector: null,
     loadedSelector: 'div#product-results',
     noResultsXPath: '//h1[contains(text(),"Geen resultaten voor")]',
     openSearchDefinition: null,

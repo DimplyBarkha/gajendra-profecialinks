@@ -3,9 +3,14 @@ regionsSelector: null
 recordSelector: null
 recordXPath: '//div[@id="product-results"]'
 fields: 
+  - name: _url
+    xpath: //div[@data-component]//input[@name="returnUrl"]/@value
+    singleValue: false
   - name: productUrl
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
     singleValue: false
+    regExp: ^(.*)$
+    regExpReplace: https://www.coolblue.nl$1
   - name: thumbnail
     singleValue: false
     xpath: //figure[@class="fitted-product-image-box"]//picture[@class="picture"]//img[@class="picture__image"]/@src
@@ -63,4 +68,4 @@ fields:
     xpath:
   - name: packSize
     singleValue: false
-    xpath: 
+    xpath:

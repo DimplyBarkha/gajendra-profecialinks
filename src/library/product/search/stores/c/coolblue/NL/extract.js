@@ -9,6 +9,12 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+    const policyAcceptPopup = await context.evaluate(function () {
+      return !!document.evaluate('//button[@name="accept_cookie"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    });
+    if (policyAcceptPopup) {
+      await context.click('button[name="accept_cookie"]');
+    }
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
