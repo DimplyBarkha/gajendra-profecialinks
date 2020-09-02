@@ -53,8 +53,8 @@ module.exports = {
         // @ts-ignore
         ? document.querySelector('a[title="Produktdatenblatt anzeigen"]').getAttribute('href') : '';
       if (pdfPresent) {
-        addElementToDocument('pdfPresent', true);
-      } else addElementToDocument('pdfPresent', false);
+        addElementToDocument('pdfPresent', 'Yes');
+      } else addElementToDocument('pdfPresent', 'No');
     });
     await context.extract(productDetails);
   },
