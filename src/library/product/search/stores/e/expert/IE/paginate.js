@@ -12,20 +12,21 @@ async function implementation (
     if (!hasNextLink) {
       return false;
     }
-  } else {
-    const foundNextButton = await context.evaluate(function () {
-      const hiddenNextButton = document.querySelector('li.pages-item-next a[title="Next"]');
-      if (hiddenNextButton) {
-        hiddenNextButton.click();
-        return true;
-      }
-    });
-
-    if (foundNextButton) {
-      return true;
-    }
-    return false;
   }
+  // else {
+  //   const foundNextButton = await context.evaluate(function () {
+  //     const hiddenNextButton = document.querySelector('li.pages-item-next a[title="Next"]');
+  //     if (hiddenNextButton) {
+  //       hiddenNextButton.click();
+  //       return true;
+  //     }
+  //   });
+
+  //   if (foundNextButton) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   const { pager } = dependencies;
   const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
@@ -47,6 +48,20 @@ async function implementation (
       .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
+
+    const currentButton = await context.evaluate(function () {
+      return document.querySelector('li.current span:last-child') ? document.querySelector('li.current span:last-child').textContent : null;
+    });
+    if (currentButton) {
+      const currentPage = (page + (openSearchDefinition.pageOffset || 0));
+      console.log('currentPage');
+      console.log(openSearchDefinition.pageOffset)
+      console.log(page);
+      console.log(currentPage-1);
+      if (parseInt(currentButton) !== (currentPage - 1)) {
+        return false;
+      }
+    }
   }
 
   if (!url) {
@@ -80,9 +95,9 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div.product-item-info',
     noResultsXPath: '//*[contains(text(), "no results")]',
-    // openSearchDefinition: {
-    //   template: 'https://www.expert.ie/catalogsearch/result/index/?p={page}&q={searchTerms}'
-    // },
+    openSearchDefinition: {
+      template: 'https://www.expert.ie/catalogsearch/result/index/?p={page}&q={searchTerms}',
+    },
     domain: 'expert.ie',
     zipcode: '',
   },

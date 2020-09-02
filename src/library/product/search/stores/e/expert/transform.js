@@ -33,17 +33,22 @@ const transform = (data, context) => {
         const rank = parseInt(row.rankOrganic[0].text) - 1;
         if (row.gtin[rank] && row.gtin[rank].text) {
           let jsText = row.gtin[rank].text;
-          jsText = jsText.split('window.emos3.send({\'ec_Event\':');
-        //   console.log(jsText);
-          jsText = jsText.length === 2 ? jsText[1] : [];
-        //   console.log(jsText);
-          jsText = jsText.length ? jsText.split(',\'siteid\':') : [];
-        //   console.log(jsText);
-          jsText = jsText.length ? jsText[0].replace(/\'/gm, '"') : '';
+          if (jsText.includes('window.emos3.send({\'ec_Event\':')) {
+            jsText = jsText.split('window.emos3.send({\'ec_Event\':');
+            //   console.log(jsText);
+            jsText = jsText.length === 2 ? jsText[1] : [];
+            //   console.log(jsText);
+            jsText = jsText.length ? jsText.split(',\'siteid\':') : [];
+            //   console.log(jsText);
+            jsText = jsText.length ? jsText[0].replace(/\'/gm, '"') : '';
 
-          const jsonProduct = jsText.length ? JSON.parse(jsText)[0] : {};
-          row.gtin = [{ text: (Object.keys(jsonProduct).length ? ((jsonProduct.pid !== null) ? jsonProduct.pid : '') : '') }];
+            const jsonProduct = jsText.length ? JSON.parse(jsText)[0] : {};
+            row.gtin = [{ text: (Object.keys(jsonProduct).length ? ((jsonProduct.pid !== null) ? jsonProduct.pid : '') : '') }];
+          }
         }
+      }
+      if (row.sku) {
+        row.sku = [{ text: row.sku[0].text.replace('| ', '') }];
       }
       counter += 1;
       Object.keys(row).forEach(header => row[header].forEach(el => {
