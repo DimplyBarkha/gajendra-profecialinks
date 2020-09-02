@@ -634,17 +634,19 @@ async function implementation (
       }
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
 
+      let inStore = false;
+      let deliver = false;
+      let availabilitySuccess = false;
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
       .then(data => data.json())
       .then(availabilityData => {
-        let inStore = false;
-        let deliver = false;
         if (availabilityData &&
         availabilityData.data &&
         availabilityData.data.product &&
         availabilityData.data.product.fulfillment) {
           if (availabilityData.data.product.fulfillment.store_options &&
               availabilityData.data.product.fulfillment.store_options.length) {
+                availabilitySuccess = true;
                 availabilityData.data.product.fulfillment.store_options.forEach(store => {
                   if(store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
                     inStore = true;
@@ -652,10 +654,42 @@ async function implementation (
                 });
           }
 
+          if (availabilityData.data.product.fulfillment.shipping_options) {
+            availabilitySuccess = true;
+          }
+
           if (availabilityData.data.product.fulfillment.shipping_options &&
               (availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK' || availabilityData.data.product.fulfillment.shipping_options.availability_status.includes('LIMITED_STOCK'))) {
             deliver = true;
           }
+        }
+
+      });
+
+      if (availabilitySuccess) {
+        if (deliver) {
+          addHiddenDiv(newDiv, 'availability', 'In Stock');
+        } else if (inStore) {
+          addHiddenDiv(newDiv, 'availability', 'In Store Only');
+        }
+        if (!deliver && !inStore) {
+          addHiddenDiv(newDiv, 'availability', 'Out of stock');
+        }
+      } else {
+        
+        const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
+        if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+          inStore = true;
+        }
+
+        const orderMessage = document.querySelector('div[data-test="deliverToZipCodeMessage"]');
+        if (orderMessage && (orderMessage.querySelector('.h-text-greenDark.h-text-bold') || orderMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+          deliver = true;
+        }
+
+        const scheduledDelivery = document.querySelector('div[data-test="scheduledDeliveryBlock"]');
+        if (scheduledDelivery && (scheduledDelivery.querySelector('.h-text-greenDark.h-text-bold') || scheduledDelivery.querySelector('.h-text-orangeDark.h-text-bold'))) {
+          deliver = true;
         }
 
         if (deliver) {
@@ -666,34 +700,7 @@ async function implementation (
         if (!deliver && !inStore) {
           addHiddenDiv(newDiv, 'availability', 'Out of stock');
         }
-      });
-
-      /*let inStore = false;
-      let deliver = false;
-
-      const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
-      if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
-        inStore = true;
       }
-
-      const orderMessage = document.querySelector('div[data-test="deliverToZipCodeMessage"]');
-      if (orderMessage && (orderMessage.querySelector('.h-text-greenDark.h-text-bold') || orderMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
-        deliver = true;
-      }
-
-      const scheduledDelivery = document.querySelector('div[data-test="scheduledDeliveryBlock"]');
-      if (scheduledDelivery && (scheduledDelivery.querySelector('.h-text-greenDark.h-text-bold') || scheduledDelivery.querySelector('.h-text-orangeDark.h-text-bold'))) {
-        deliver = true;
-      }
-
-      if (deliver) {
-        addHiddenDiv(newDiv, 'availability', 'In Stock');
-      } else if (inStore) {
-        addHiddenDiv(newDiv, 'availability', 'In Store Only');
-      }
-      if (!deliver && !inStore) {
-        addHiddenDiv(newDiv, 'availability', 'Out of stock');
-      }*/
 
       // &pricing_store_id=1465&storeId=1465
       let priceSuccess = false;
@@ -702,8 +709,8 @@ async function implementation (
         .then(data => data.json())
         .then(variantData => {
           if (variantData.price) {
-            if (variantData.price.current_retail) {
-              addHiddenDiv(newDiv, 'price', variantData.price.current_retail);
+            if (variantData.price.current_retail || variantData.price.formatted_current_price) {
+              addHiddenDiv(newDiv, 'price', variantData.price.current_retail || variantData.price.formatted_current_price);
               priceSuccess = true;
             }
             if (variantData.price.reg_retail) {
