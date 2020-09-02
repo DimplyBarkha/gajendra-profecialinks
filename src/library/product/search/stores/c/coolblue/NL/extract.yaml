@@ -5,6 +5,8 @@ recordXPath: '//div[@id="product-results"]'
 fields: 
   - name: productUrl
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.coolblue.be$1
     singleValue: false
   - name: thumbnail
     singleValue: false
