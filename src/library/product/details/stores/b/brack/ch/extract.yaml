@@ -1,0 +1,190 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _pageTimestamp
+    singleValue: false
+  - name: availabilityText
+    singleValue: false
+    xpath: //em[@class='js-quantity']
+    regExp: (^[1-9]+[0-9]*$)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@class='productStage__delivery-time']
+  - name: price
+    singleValue: true
+    xpath: //span[@class='price']
+  - name: promotion
+    singleValue: true
+    xpath: //span[@class='js-pdpDiscountPercentage gallery__discountPercentage']
+  - name: lbb
+    singleValue: true
+  - name: lbbPrice
+    singleValue: true
+  - name: _input
+    singleValue: true
+  - name: image
+    singleValue: true
+    xpath: //meta[@property="og:image"]/@content
+  - name: imageAlt
+    singleValue: true
+    xpath: //a[@class='swiper-slide js-lightbox-picture-top swiper-slide-active is-selected']//img[@class='swiper-slide__big-image swiper-lazy swiper-lazy-loaded']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[@class="swiper-wrapper"]//img/@src)
+    regExp: (.*_)
+    regExpReplace: $1xxl3.jpg
+  - name: metaKeywords
+    singleValue: true
+  - name: _url
+    singleValue: true
+    xpath: //meta[@property="og:url"]/@content
+  - name: category
+    singleValue: true
+    xpath: //div[@class='topBar container wrapper js-storelist']//span[2]
+  - name: subCategory
+    singleValue: true
+    xpath: concat(//div[@class='topBar container wrapper js-storelist']//span[2],' > ',//div[@class='topBar container wrapper js-storelist']//span[3],' > ',//div[@class='topBar container wrapper js-storelist']//span[4],' > ',//div[@class='topBar container wrapper js-storelist']//span[5])
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(text(),'Duvet Bellatola Medium Karo-Duvet, 160 x 210 cm')]
+  - name: listPrice
+    singleValue: false
+    xpath: concat(//span[@class='regularPrice']//font//font[contains(text(),'CHF')],//span[@class='js-basePrice'])
+  - name: variants
+    singleValue: false
+    xpath: //div[@class='variant__itemWrap']//a/@href
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: Image360Present
+    singleValue: true
+    xpath: //div[@class='gallery']//button[@class='show360Viewer js-show360Viewer']//@data-tracking-click
+    regExp: (360_image)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: weightNet
+    singleValue: true
+    xpath: //tr[th[contains(translate(string(), 'Size', 'SIZE'), 'Size')]]/td
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
+    regExp: gtin8":\s"([^"]+)
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":\s"([^"]+)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":\s"([^"]+)
+    regExpReplace: $1
+  - name: packSize
+    singleValue: true
+  - name: legalDisclaimer
+    singleValue: true
+  - name: directions
+    singleValue: true
+  - name: warnings
+    singleValue: true
+    xpath: //div[@class='productInfoBox']
+  - name: ratingCount
+    singleValue: true
+    defaultValue: 0
+    xpath: //a[@class='ratingStars js-smoothScrolling']//span[@class='rating__count']
+    regExp: (\d+)
+  - name: aggregateRating
+    singleValue: true
+    defaultValue: 0
+    xpath: //span[@class='total__rating']
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: count(//div[@class='productStage__infoText']//li)
+  - name: description
+    singleValue: true
+    xpath: //meta[contains(@name, "description")]/@content
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class='productStage__infoText']//li)
+  - name: brandText
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
+    regExp: brand":\s"([^"]+)
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: true
+    xpath: //span[@class='productStage__itemManufacturer']
+  - name: quantity
+    singleValue: true
+    xpath: //tr[th[contains(translate(string(), 'Package size', 'Package size'), 'Package size')]]/td
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //tr[th[contains(translate(string(), 'Size', 'Size'), 'Size')]]/td
+  - name: shippingWeight
+    singleValue: true
+    xpath: //tr[th[contains(translate(string(), 'Filling weight', 'Filling weight'), 'Filling weight')]]/td
+  - name: variantCount
+    singleValue: true
+    xpath: count(//div[@class='variant__itemWrap']//a)
+  - name: color
+    singleValue: true
+    xpath: //div[@class='productStage__variants productStage__variants--color']//p//span
+  - name: colorCode
+    singleValue: true
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //meta[contains(@name, "description")]/@content
+  - name: lbbPrice
+    singleValue: true
+  - name: energyEfficiency
+    singleValue: true
+    xpath: //tr[th[contains(translate(string(), 'Energy efficiency class', 'Energy efficiency class'), 'Energy efficiency class')]]/td
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //a[contains(@href, '.pdf')]
+    regExp: ([^]+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: manufacturerImages
+    singleValue: false
+  - name: videos
+    singleValue: true
+    xpath: //div[@class='embed-responsive embed-responsive--16by9 js-readMore__fullyVisible']//iframe/@src
+  - name: name
+    singleValue: true
+    xpath: //meta[@property="og:title"]/@content
+  - name: coupon
+    singleValue: true
+  - name: specifications
+    singleValue: true
+    xpath: //table[@class='technicalDetails']
+  - name: warranty
+    singleValue: true
+    xpath: //tr[th[contains(translate(string(), 'Manufacturer guarantee', 'Manufacturer guarantee'), 'Manufacturer guarantee')]]/td
+  - name: storage
+    singleValue: true
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //tr[th[contains(translate(string(), 'Country of production', 'Country of production'), 'Country of production')]]/td
+  - name: recyclingInformation
+    singleValue: true
+  - name: productOtherInformation
+    singleValue: true
+  - name: packaging
+    singleValue: true
+  - name: newDescription
+    singleValue: true
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class='productStage__variants productStage__variants--color']//p//span
+  - name: firstVariant
+    singleValue: true 
+  - name: termsAndConditions
+    singleValue: true
+    xpath: //div[@class='bottom__links mt-3']//font[contains(text(),'Terms and Conditions')]
