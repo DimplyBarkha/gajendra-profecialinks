@@ -3,88 +3,87 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
+  - name: searchUrl
+    singleValue: false
   - name: brand
-    singleValue: true
+    singleValue: false
     description: The brand name
     example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
+    xpath: //article[contains(@class, 'panelProduct')]//a[contains(@class, 'styled__StyledLink-sc-5q25ol-0')]/@href
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
+    manualSelector: .productName
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The model code of the product
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
+    xpath: //*[contains(@class, 'rating')]/following-sibling::*
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     description: The number of reviews
+    xpath: //*[contains(@class, 'rating')]/following-sibling::*
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the product
+    manualSelector: .ZZg2
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
+    manualSelector: .appendix
+    regExp: /\d+.–/
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: soldBy
-    singleValue: true
+    singleValue: false
     description: The name of the seller of the item (if available)
   - name: endorsementText
-    singleValue: true
+    singleValue: false
     description: The text that signifies that a product is endorsed
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
     description: Unique id (within this extractor)
+    xpath: //*[contains(@class, 'styled__StyledLink-sc-5q25ol-0')]/@href
+    regExp: \d+
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
+    manualSelector: .productName
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
