@@ -31,19 +31,13 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, "price-total")]  
+    xpath: //div[contains(@class, "product-detail-infos")]//div[contains(@class, "price-total")]
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //div[contains(@class, "add-to-cart ember-view")]
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@class, "accordion__text")]  
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -52,6 +46,7 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    manualSelector: div[id="added_brandText"]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -63,22 +58,31 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //dt[contains(text(), "netto")]/following-sibling::*
+    xpath: //dt[contains(text(), "netto") and contains(text(), "Gewicht")]/following-sibling::*
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
+    xpath: //*[contains(@class, "infos__manufacturer-code")]
+    regExp: .* (.*)
+    regExpReplace: $1
   - name: sku
     singleValue: false
     description: The store-specific product identifier
+    xpath: (//*[contains(@class, "detail-infos__code")])[1]
+    regExp: .* (.*)
+    regExpReplace: $1
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
+    xpath: //*[contains(@class, "infos__manufacturer-code")]
+    regExp: .* (.*)
+    regExpReplace: $1
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -119,6 +123,7 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
+    xpath: //dt[contains(text(), "Farbe")]/following-sibling::*
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -387,9 +392,11 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //div[contains(@data-accordion, "product-specifications")]//div[contains(@class, "item-content")]
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
+    xpath: //dt[contains(text(), "Garantie")]/following-sibling::*
   - name: storage
     singleValue: false
     description: Suggested storage location for product
@@ -471,8 +478,7 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    xpath: //b[contains(text(), "Technische Daten")]
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']

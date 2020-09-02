@@ -26,10 +26,32 @@ const transform = (data) => {
         });
       }
 
+      if (row.specifications) {
+        row.specifications.forEach((specificationsItem) => {
+          specificationsItem.text = specificationsItem.text.replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){3,}/g, ' : ');
+        });
+      }
+
       if (row.alternateImages) {
         row.alternateImages.forEach((alternateImagesItem) => {
           alternateImagesItem.text = alternateImagesItem.text.replace(/\/\/(.*)XX(.*)/gm, '$1$2');
         });
+      }
+
+      if (row.description) {
+        row.description.forEach((descriptionItem) => {
+          descriptionItem.text = cleanUp(descriptionItem.text);
+        });
+      }
+
+      if (row.technicalInformationPdfPresent) {
+        row.technicalInformationPdfPresent.forEach((technicalInformationPdfPresentItem) => {
+          if (technicalInformationPdfPresentItem.text.toLowerCase().includes('technische daten')) {
+            technicalInformationPdfPresentItem.text = 'Yes';
+          }
+        });
+      } else {
+        row.technicalInformationPdfPresent = [{ text: 'No' }];
       }
     }
   }
