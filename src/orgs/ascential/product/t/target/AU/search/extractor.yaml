@@ -7,6 +7,10 @@ parameters:
 proxy:
   zone: USA
   type: DATA_CENTER
+policy:
+  numberRetries: 1
+  priority: MEDIUM
+  retryDelay: 60
 meta:
   branches:
     target-AU-search:
