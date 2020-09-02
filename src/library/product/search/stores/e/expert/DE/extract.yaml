@@ -1,0 +1,126 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, "widget-Hyperlink")]
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//img[contains(@class, "widget-ArticleBrand--articleBrandLogo")]/@title
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: productUrl
+    singleValue: false
+    xpath: //a/@href
+    regExp: >- 
+      ^(.*)$
+    regExpReplace: >-
+      https://www.expert.de$1
+
+    # xpath: ancestor::html//div[@id='searchurl']
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleImage")]//div[contains(@class, "widget-ArticleImage--articleImageContainer")]//div[contains(@class, "widget-ArticleImage--imageContainer")]//img/@data-src
+    # xpath: (//img/@data-src)[3]
+    # xpath: //img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
+    # xpath: //div[contains(@class, "widget widget-ArticleImage")]//img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
+    # xpath: //img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    # xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]/@data-subwidget-id
+    #//div[contains(@class, "widget-ArticleName---view-article-name")]/@data-widget-id
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()
+    description: The product name
+  - name: sku
+    singleValue: false
+    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: false
+    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
+    description: The model code of the product
+  - name: gtin
+    singleValue: false
+    # xpath: ancestor::html//script[contains(@class, "widget-ArticleStatus--script")]/text()
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//meta[@itemprop="reviewCount"]/@content
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice--priceWrapper")]//div[contains(@class, "widget-ArticlePrice--price")]
+    description: The offered price for the product
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: false
+    xpath: //img[contains(@data-src, "https://cdn.expert.de/fc/bf/04/35963f4d0bf25eb761a1e0f3e2c9cd1f3d/131234%20fms_expert_versandkostenfrei_samsung.png")]/@alt
+    regExp: "Artikel Aktions Symbol"
+    regExpReplace: Versand-kostenfrei
+    description: Shipping information for the product
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
+    description: The stated aggregate rating normalized to be out of 5
+    # type: NUMBER
+    regExp: >-
+      ^.{0,3}
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
+    description: The stated aggregate rating normalized to be out of 5
+    # type: NUMBER
+    regExp: >-
+      ^.{0,3}
