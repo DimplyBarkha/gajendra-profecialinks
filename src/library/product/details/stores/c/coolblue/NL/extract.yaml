@@ -34,12 +34,15 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: (//span[contains(@class,"sales-price")]//*[contains(@class,"former-price")])[position()<2]
+    xpath: (//span[contains(@class,"sales-price")]//*[contains(@class,"current")])[position()<2]
+    regExp: (\d+)((\,?)(\d+))
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: (//span[contains(@class,"sales-price")]//*[contains(@class,"current")])[position()<2]
+    regExp: (\d+)((\,?)(\d+))
+    regExpReplace: $1$2
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
