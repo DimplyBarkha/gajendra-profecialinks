@@ -1,0 +1,38 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="a-typo is-primary"]
+  - name: category
+    singleValue: false
+    xpath: //li[@class="c-breadcrumb_item"][1]//span[@class="c-breadcrumb_text"]
+  - name: image
+    singleValue: false
+    xpath: //div[@class="is-carouselContainer"]/div/div[1]/div[@class="c-offerBox_galleryItem"]/div[@data-component="magnifier modal"]/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class="c-modal_container"]//div[@class="a-price clearfix2"]/div[@class="a-price_new  is-big  "]
+  - name: description
+    singleValue: false
+    xpath: //div[@class="lap_gaming_content"]/div[2]//div[@class="prawa"]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="is-carouselContainer"]//div[position()>1]/div[@class="c-offerBox_galleryItem"]/div[@data-component="magnifier modal"]/img/@src
+  - name: color
+    singleValue: false
+    xpath: //div[@class="c-offerBox_variants is-displayPhoto"]/p/span
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="c-reviews-general_summaryCount"]
+  - name: manufacture
+    singleValue: false
+    xpath: //*[contains(text(),"Nazwa producenta/importera")]//ancestor::div[contains(@class,"c-accordion_item")]
+  - name: warranty
+    singleValue: false
+    xpath: //*[contains(text(),"Parametry")]//ancestor::div[contains(@class,"c-accordion_item")]
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="is-carouselContainer"]/div/div[1]/div[@class="c-offerBox_galleryItem"]/div[@data-component="magnifier modal"]/img/@alt
