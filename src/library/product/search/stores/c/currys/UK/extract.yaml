@@ -9,7 +9,7 @@ fields:
     type: BOOLEAN
   - name: brand
     singleValue: true
-    manualSelector: span[data-product="brand"]
+    xpath: //article[contains(@class,"result-prd")]//span[@data-product="brand"]
     description: The brand name
     example: Panasonic
   - name: category
@@ -45,14 +45,15 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     xpath: //article[contains(@class,"result-prd")]//span[contains(@class,"score-")]/@class | //article[contains(@class,"result-prd")]//div[@data-component="Rating"]/@data-score
-    regExp: \d{1,2}$
+    regExp: score-(\d+)
+    regExpReplace: $1
     description: The stated aggregate rating
   - name: ratingCount
     singleValue: true
     description: The number of ratings
   - name: reviewCount
     singleValue: true
-    xpath: //a/div/div[contains(@class,"reevoo-placeholder")]
+    xpath: //article[contains(@class,"result-prd")]//a/div/div[contains(@class,"reevoo-placeholder")]
     regExp: \((\d+)\)
     regExpReplace: $1
     description: The number of reviews
@@ -92,7 +93,7 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: true
-    xpath: //div[@data-productid]/@data-productid
+    xpath: //article[contains(@class,"result-prd")]//div[@data-productid]/@data-productid
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: true
@@ -102,6 +103,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //article[contains(@class,"result-prd")]//span[contains(@class,"score-")]/@class | //article[contains(@class,"result-prd")]//div[@data-component="Rating"]/@data-score
-    regExp: \d{1,2}$
+    regExp: score-(\d+)
+    regExpReplace: $1
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER

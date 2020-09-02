@@ -128,7 +128,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
-    xpath: count(//div[@class="no-tablet"]//ul[@class="dc-product-swatches-list"]/li)
+    xpath: count(//div[@class="no-tablet"]//ul[@class="dc-product-swatches-list"]/li) - 1
     description: Number of variants listed
     type: NUMBER
   - name: color

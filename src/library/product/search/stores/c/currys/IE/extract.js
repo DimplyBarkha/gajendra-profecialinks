@@ -1,15 +1,14 @@
-
 const { transform } = require('../transform');
 const { implementation } = require('../extractImplementation');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'UK',
+    country: 'IE',
     store: 'currys',
     transform,
-    domain: 'currys.co.uk',
-    zipcode: 'SE19QY',
+    domain: 'currys.ie',
+    zipcode: 'D02TX94',
   },
   implementation,
 };

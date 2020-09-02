@@ -30,6 +30,12 @@ const transform = (data) => {
         ];
       }
 
+      if (row.variantCount) {
+        row.variantCount.forEach(item => {
+          if (item.text === '-1') item.text = '0';
+        });
+      }
+
       if (row.category && row.category.length) {
         row.category = row.category.slice(1);
       }
