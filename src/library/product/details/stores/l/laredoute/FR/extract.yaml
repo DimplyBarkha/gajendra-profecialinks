@@ -5,16 +5,16 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'item active')]/img/@src
+    xpath: //img[contains(@class, 'default-prod img-block')]/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,'item active')]/img/@alt
+    xpath: //img[contains(@class, 'default-prod img-block')]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,'thumbnails-content')]/img/@src
-  - name: _url
+  - name: category
     singleValue: false
-    xpath: //link[@rel='canonical']/@href
+    xpath: //ol[contains(@class, 'breadcrumb')]/li[1]/following-sibling::*
   - name: nameExtended
     singleValue: false
     xpath: //h2[contains(@class,"pdp-title")]
@@ -75,13 +75,19 @@ fields:
     xpath: //div[@id="mainProductDescription"]
   - name: ratingCount
     singleValue: false
-    xpath: //div[contains(@class,"product-rating-note-sum")]
+    xpath: //span[contains(@id, 'nbReview')]
+    regExp: \d+
   - name: name
     singleValue: false
     xpath: //h2[contains(@class,"pdp-title")]
   - name: aggregateRatingText
     singleValue: false
     xpath: //span[contains(@class,"product-rating-note-value")]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@class, 'enable-stars')]/@class
+    regExp: rating-(.*)
+    regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
     xpath: //img[contains(@class,"additional-img")]//@src
@@ -101,7 +107,7 @@ fields:
     xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
   - name: variantCount
     singleValue: false
-    xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
+    xpath: count(//button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor)
   - name: variantInformation
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"color")]

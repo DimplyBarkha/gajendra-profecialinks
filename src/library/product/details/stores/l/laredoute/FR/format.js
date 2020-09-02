@@ -4,11 +4,23 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const cleanUp = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+  // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
       if (row.alternateImages) {
         row.alternateImages = row.alternateImages.map((ele) => {
-          ele.text = ele.text.replace('72by72', '680by680');
+          ele.text = ele.text.replace('72by72', '641by641');
           return ele;
         });
         if (row.alternateImages[0].text === row.image[0].text) {
@@ -42,6 +54,7 @@ const transform = (data) => {
           obj.text = element;
           bullets.push(obj);
         });
+        row.description[0].text = row.description[0].text.replace(/•/g, '||');
         row.additionalDescBulletInfo = bullets;
       }
       if (row.listPrice) {
@@ -58,62 +71,52 @@ const transform = (data) => {
       if (row.description) {
         row.description[0].text = row.description[0].text.replace(/\n/g, '');
       }
-      if (row.ratingCount) {
-        let pr = row.ratingCount[0].text;
-        pr = pr.replace(/^\((.+)\)$/, '$1');
-        row.ratingCount = [
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(aggregateRating => {
+          aggregateRating.text = aggregateRating.text.replace('_', '.').trim();
+        });
+      }
+      if (row.variantCount) {
+        row.variantCount.forEach(variantCount => {
+          if (variantCount.text == '0') {
+            variantCount.text = '1';
+          }
+        });
+      }
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variants = [
           {
-            text: pr,
-            xpath: row.ratingCount[0].xpath,
+            text: cleanUp(text.slice(0, -3)),
           },
         ];
       }
       if (row.variantAsins) {
         let text = '';
-        if (row.variantAsins.length > 1) {
-          row.variantAsins.forEach(item => {
-            text += `${item.text} | `;
-          });
-          row.variantAsins = [
-            {
-              text: text.slice(0, -3),
-            },
-          ];
-        } else {
-          delete row.variantAsins;
-          delete row.variants;
-          delete row.variantInformation;
-          row.variantCount = [
-            {
-              text: 1,
-            },
-          ];
-        }
-      }
-      if (row.variants && row.variantAsins) {
-        row.variants = [{
-          text: row.variantAsins[0].text,
-        }];
-      }
-      if (row.variantAsins && row.variantCount) {
-        row.variantCount = [
-          {
-            text: (row.variantAsins[0].text.split('|')).length,
-          },
-        ];
-      }
-      if (row.variants && row.variantInformation) {
-        let text = '';
-        const colors = row.variantInformation[0].text.split(',');
-        colors.forEach(ele => {
-          text += 'color: ' + ele + ' | ';
+        row.variantAsins.forEach(item => {
+          text += `${item.text} | `;
         });
-        row.variantInformation = [
+        row.variantAsins = [
           {
-            text: text.slice(0, -3),
+            text: cleanUp(text.slice(0, -3)),
           },
         ];
       }
+      // if (row.variants && row.variantInformation) {
+      //   let text = '';
+      //   const colors = row.variantInformation[0].text.split(',');
+      //   colors.forEach(ele => {
+      //     text += 'color: ' + ele + ' | ';
+      //   });
+      //   row.variantInformation = [
+      //     {
+      //       text: text.slice(0, -3),
+      //     },
+      //   ];
+      // }
     }
   }
   return data;
