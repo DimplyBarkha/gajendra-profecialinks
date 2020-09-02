@@ -121,10 +121,10 @@ fields:
     xpath: count((//div[contains(@class,'cms-content js-product-description-content')]//p)[1]//li[not(span//img)])
   - name: brandText
     singleValue: false
-    xpath: //dl[contains(translate(string(), 'Merk', 'Merk'), 'Merk')]/dd
+    xpath: //dl[contains(translate(string(), 'Brand', 'Brand'), 'Brand')]/dd
   - name: manufacturer
     singleValue: false
-    xpath: //dl[contains(translate(string(), 'Merk', 'Merk'), 'Merk')]/dd
+    xpath: //dl[contains(translate(string(), 'Brand', 'Brand'), 'Brand')]/dd
   - name: quantity
     singleValue: false
     xpath: //script[contains(text(),"ecomm_quantity")]/text()
@@ -178,7 +178,7 @@ fields:
     xpath: //div[contains(@id,"product-specifications")]//div[@class="js-specifications-content"]
   - name: warranty
     singleValue: false
-    xpath: (//dl[contains(translate(string(), 'Garantie', 'Garantie'), 'Garantie')]/dd)[1]
+    xpath: (//dl[contains(translate(string(), 'Warranty', 'Warranty'), 'Warranty')]/dd)[1]
   - name: storage
     singleValue: false
   - name: countryOfOrigin
