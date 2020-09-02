@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[@class="thumb image-t active"]/div[@data-test="thumb-carousel"]/@style | //div[@id="bb_image"]
+    xpath: //div[@class="thumb image-t active"]/div[@data-test="thumb-carousel"]/@style
     regExp: background\-image\:url\(\'(.*)\'\)\;
     regExpReplace: $1
   - name: imageAlt
@@ -33,7 +33,7 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //del[@data-qa="priceOriginal"
+    xpath: //del[@data-qa="priceOriginal"]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -106,9 +106,9 @@ fields:
     singleValue: false
     description: The number of ratings
     xpath: //div[@id="bb_reviewCount"]
-  - name: aggregateRatingText
-    singleValue: false
-    description: The stated aggregate rating
+  # - name: aggregateRatingText
+  #   singleValue: false
+  #   description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
@@ -116,10 +116,10 @@ fields:
     # xpath: //div[@data-test="product-page-rating-icons-desktop"]/@title
     # regExp: (.*)\/
     # regExpReplace: $1
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
-    xpath: //div[contains(@class, "delivery-modal")]//div
+  # - name: shippingInfo
+  #   singleValue: false
+  #   description: Shipping information for the product
+  #   xpath: //div[contains(@class, "delivery-modal")]//div
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
