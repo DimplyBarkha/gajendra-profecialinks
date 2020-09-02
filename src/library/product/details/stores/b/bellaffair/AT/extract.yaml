@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class="thumbs clear"]//a[@class="fb-gallery"]/@href)[position() >1]
+    xpath: (//div[@class="thumbs clear"]//a[@class="fb-gallery"]/@href)[position() > 1]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -49,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="description"]//div[@class="left"]
+    xpath: //div[@id="description"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -115,11 +115,11 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //meta[@itemprop="ratingValue"]/@content
+    xpath: //div[@id='aggregateRating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[@class="block third-block"][p[contains(text(),'Versandkosten')]]
+    xpath: //div[@id='shippingInfo']
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -139,7 +139,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@itemprop="description"]
+    xpath: //div[@id="manufacturerDescription"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
