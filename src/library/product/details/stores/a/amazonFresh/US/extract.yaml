@@ -155,9 +155,9 @@ fields:
   - name: productUrl
     singleValue: true
     xpath: //div[@id='added-url']
-  - name: baseUrl
-    singleValue: true
-    xpath: //div[@id='added-url']
+  # - name: baseUrl
+  #   singleValue: true
+  #   xpath: //div[@id='added-url']
   - name: asin
     singleValue: true
     xpath: (//div[@id='added-asin']|//div[contains(@id, "averageCustomerReviews")]/@data-asin)[1]
