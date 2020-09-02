@@ -11,19 +11,19 @@ fields:
     xpath: //h1//span[@class="brand"]
   - name: image
     singleValue: false
-    xpath: (//div[@class="galleryWrapper"]//ul//li//img/@src)[1]
+    xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@src)[1]
   - name: imageAlt
     singleValue: false
-    xpath: (//div[@class="galleryWrapper"]//ul//li//img/@alt)[1]
+    xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: //a[@class='alternateImages'][position()>1]/@href
+    xpath: //a[@class="alternateImages"]/@href
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //nav[@class="breadcrumb-container"]//ul//li//a
+    xpath: //nav[@class="breadcrumb-container"]//ul//li[position()>1]//a
   - name: listPrice
     singleValue: false
     xpath: //span[@class="was"]
@@ -42,15 +42,16 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="content"]//div[@class="specs"]//ul//li)
-  - name: sku 
+  - name: sku
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
     regExp: (\/)(\d+)
     regExpReplace: $2
   - name: variantId
     singleValue: false
-    xpath: //div[@class="modelNo"]//span[1]
-    regExp: \d+
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (\/)(\d+)
+    regExpReplace: $2
   - name: mpc
     singleValue: false
     xpath: //div[@class="modelNo"]//span[2]
@@ -61,26 +62,25 @@ fields:
     xpath: (//span[contains(@class, "total")])[1]
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,"rating")]//a/@aria-label
+    xpath: //div[contains(@class,"fsReviewLinkDefault")]/div/@aria-label
     regExp: (.+) out of(.)
     regExpReplace: $1
   - name: specifications
     singleValue: false
-    xpath: (//div[@id="specifications-id"]//div[contains(@class,'content')])[1]
+    xpath: //div[@id="Specifications-section"]//div[contains(@class,"tr")]
   - name: warranty
     singleValue: false
     xpath: (//div[contains(.,"Warranty")]/following-sibling::div[@class="value"])[1]
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@class, 'pvsLabel')]//h3
     description: colour / scent / flavour / other
   - name: promotion
     singleValue: false
-    xpath: concat(//span[@class="offer"]//div[1], //span[@class="offer"]//div[2])
+    xpath: //span[@class="offer"]//div[1]
   - name: secondaryImageTotal
     singleValue: false
-    xpath: //a[@class='alternateImagesCount']/@href
-  - name: warnings 
+    xpath: count(//a[@class="alternateImages"]/@href)
+  - name: warnings
     singleValue: false
     xpath: //div[contains(@class, 'props65')]//span[contains(@class, 'title')]
   - name: url
@@ -88,11 +88,16 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: videos
     singleValue: false
-    xpath: //a[@class='videoUrls']/@href
+    xpath: //a[@class="videoUrls"]/@href
     description: URLs of videos on page
   - name: nameExtended
     singleValue: false
     xpath: //h1/@aria-label
+  - name: manufacturer
+    singleValue: false
+    xpath: (//span[@class="wc-powered-by-webcollage-text"]/img/@src)[1]
+    regExp: (.*)(\/)(.*).svg(.*)
+    regExpReplace: $3
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="wc-power-page"]//h1 | //h1[contains(text(),'From the Manufacturer')]/following-sibling::div//div[@class="wc-rich-content-description"]
@@ -106,15 +111,21 @@ fields:
     regExpReplace: $2
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@aria-label="List of product variants"]//a |//div[contains(@data-automation-id, "dropdownitem")])
   - name: color
     singleValue: false
-    xpath: //div[contains(@class, 'pvsLabel')]//h3
-    description: colour / scent / flavour / other 
+    xpath: (//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]
   - name: Image360Present
     singleValue: false
-    xpath: //button[@data-thumbtypeindex="main0"]//img//@data-met-type
-    regExp: (spin|3DImage)
+    defaultValue: No
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Weight")]/following-sibling::div
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,"product-info")]//ul/li/p
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //div[@aria-label="Protection Plans"]
+    regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
-    
