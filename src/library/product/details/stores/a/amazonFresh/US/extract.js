@@ -84,6 +84,7 @@ async function implementation (
       if (parentInput) {
         addHiddenDiv('added-parentInput', parentInput);
       }
+      addHiddenDiv('added-url', window.location.href);
     }, parentInput);
   }
 
