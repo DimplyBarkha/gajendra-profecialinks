@@ -26,6 +26,11 @@ const transform = (data, context) => {
             }
           });
         }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = item.text.replace('.',',');
+          });
+        }
       }
     }
     return data;
