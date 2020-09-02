@@ -31,7 +31,8 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, "price-box")]
+    xpath: ancestor::li//script[contains(text(),"var product")]//text()
+    # xpath: //div[contains(@class, "price-box")]
     description: The offered price for the product
   - name: rank
     singleValue: true

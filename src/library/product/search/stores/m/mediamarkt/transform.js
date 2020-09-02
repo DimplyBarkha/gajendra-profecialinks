@@ -34,7 +34,17 @@ const transform = (data, context) => {
       if (row.aggregateRating) {
         row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('-', '.') }];
       }
-      if (row.id) {
+      console.log('dsdsdsdsds')
+      console.log(row.price)
+      if (row.price && row.price[0]) {
+        console.log(row.price)
+        let jsonData = row.price[0].text.split(' = ');
+        jsonData = jsonData.length === 2 ? jsonData[1].replace(';', '') : '';
+        jsonData = jsonData.length ? JSON.parse(jsonData) : {};
+        const price = Object.keys(jsonData).length ? (jsonData.price ? jsonData.price : '') : '';
+        row.price = [{ text: price }];
+      }
+      if (row.id && row.id[0]) {
         if (row.id[0].text.match('.html')) {
           const item = row.id[0];
           item.text = item.text.match(/(?<=-)(.*?)(?=\.)/gm) ? item.text.match(/(?<=-)(.*?)(?=\.)/gm)[0] : '';
