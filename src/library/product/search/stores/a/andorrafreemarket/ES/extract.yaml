@@ -2,6 +2,26 @@ singleRecord: false
 regionsSelector: null
 recordXPath: //div[@class="category-products"]//ul
 fields:
+  - name: url
+    singleValue: true
+    xpath: //ul[contains(@class,'searchindex-results')]//li[1]//a/@href[position()>0] 
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="category-products"]//ul/li//a[@class="product-image"]
+    xpath: //div[@class="category-products"]//ul/li//a[@class="product-image"] 
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li//div[1]//img/@title
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li//h2[@class="product-name"]
+  - name: name
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li//h2[@class="product-name"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li//div[@class="price-box"]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li//p[1]
+    regExp: (AFM.*?):\s(\d.*)
+    regExpReplace: $2

@@ -6,8 +6,8 @@ module.exports = {
     store: 'andorrafreemarket',
     domain: 'andorrafreemarket.com',
     url: 'https://andorrafreemarket.com/catalogsearch/result/?q={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="category-products"]',
+    noResultsXPath: '//p[contains(@class,"empty-catalog")]',
     zipcode: '',
   },
-};
+}; 
