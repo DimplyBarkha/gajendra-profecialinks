@@ -42,8 +42,8 @@ fields:
       should be "In Stock"
     xpath: //button[@id="product-addtocart-button"]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: In stock
+    regExpReplace: 'In Stock'
+    defaultValue: 'Out of Stock'
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -137,9 +137,7 @@ fields:
     defaultValue: 'NO'
   - name: Image360Present    
     singleValue: true
-    regExp: (.+)
-    regExpReplace: "YES"
-    defaultValue: "NO"
+    xpath: count(//div[contains(@class,'thumb-inner')])
   - name: termsAndConditions    
     singleValue: true
-    xpath: boolean(//a[(@href="https://www.betta.com.au/terms-and-conditions/")])
+    xpath: count(//a[(@href="https://www.betta.com.au/terms-and-conditions/")])

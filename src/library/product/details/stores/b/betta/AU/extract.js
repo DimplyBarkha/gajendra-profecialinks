@@ -1,11 +1,11 @@
-const transform = require("../../../w/walmart/US/transform");
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'AU',
     store: 'betta',
-    transform: null,
+    transform,
     domain: 'betta.com.au'
   },
 };
