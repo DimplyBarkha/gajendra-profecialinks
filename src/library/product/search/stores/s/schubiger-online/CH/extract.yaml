@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, "c-product-grid__item-wrapper")]//div[contains(@class, "grid__item")]
+recordXPath: //div[contains(@class, "c-product-grid__item-wrapper")]//div[contains(@class, "grid__item") and not(contains(@class, "placeholder"))]
 fields:
   - name: searchUrl
     singleValue: false
