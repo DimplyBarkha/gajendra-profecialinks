@@ -29,7 +29,31 @@ const transform = (data) => {
         }
         if (row.aggregateRating) {
           row.aggregateRating.forEach(item => {
-          item.text = item.text.replace(',', ',');
+          item.text = item.text.replace('.', ',');
+          });
+        }
+        if (row.weightNet) {
+          row.weightNet.forEach(item => {
+          item.text = item.text.trim();
+          });
+        }
+        if (row.brandText) {
+          row.brandText.forEach(item => {
+          item.text = item.text.trim();
+          });
+        }
+        if (row.image) {
+          row.image.forEach(item => {
+          item.text = item.text.split('(')[1];
+          item.text = item.text.split(')')[0];
+          item.text = item.text.replace('"','').replace("'",'').replace(/\"/,'');
+          });
+        }
+        if (row.alternateImages) {
+          row.alternateImages.forEach(item => {
+          item.text = item.text.split('(')[1];
+          item.text = item.text.split(')')[0];
+          item.text = item.text.replace('"','').replace("'",'').replace(/\"/,'');
           });
         }
       }

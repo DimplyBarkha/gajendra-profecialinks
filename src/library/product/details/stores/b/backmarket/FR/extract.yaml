@@ -7,8 +7,8 @@ fields:
     singleValue: false
     description: URL of the main product image
     xpath: //div[@class="thumb image-t active"]/div[@data-test="thumb-carousel"]/@style
-    regExp: background\-image\:url\(\'(.*)\'\)\;
-    regExpReplace: $1
+    # regExp: background\-image\:url\(\'(.*)\'\)\;
+    # regExpReplace: $1
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -16,8 +16,8 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[@class="thumb image-t"]/div[@data-test="thumb-carousel"]/@style
-    regExp: background\-image\:url\(\'(.*)\'\)\;
-    regExpReplace: $1
+    # regExp: background\-image\:url\(\'(.*)\'\)\;
+    # regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -45,6 +45,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //button[@data-qa="product-page-buy-button-bottom-var-1"]
+    defaultValue: Out of Stock
     # xpath: //div[@id="bb_availability"]
     # regExp: \"availability\"\:\s\"http\:\/\/schema\.org\/(.*)\"
     # regExpReplace: $1
@@ -73,7 +74,9 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //li//font[contains(text(),"Weight:")]/parent::font/parent::strong/following-sibling::font
+    xpath: //*/strong[contains(text(),"Poids")]/parent::li | //li//font[contains(text(),"Weight:")]/parent::font/parent::strong/following-sibling::font
+    regExp: \:(.*)
+    regExpReplace: $1
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -133,6 +136,9 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
+    xpath: //*/strong[contains(text(),"Couleur")]/parent::li
+    regExp: \:(.*)
+    regExpReplace: $1
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
