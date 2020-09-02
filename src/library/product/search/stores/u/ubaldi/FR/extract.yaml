@@ -5,26 +5,30 @@ recordXPath: //div[@class="la-article zc-parent clearfix" or @class="la-article 
 fields:
   - name: rank
   - name: rankOrganic
-  - name: sponsored  
+  - name: sponsored
   - name: id
     xpath: //div[@class="lai-zone-texte"]/h2/a/@href
     regExp: .+--(\d+).+
     regExpReplace: $1
+  - name: brand
+    xpath: //span[@class="marque"]
   - name: name
     singleValue: false
     xpath: //span[@class="titre-ligne"]
   - name: price
     singleValue: false
     xpath: //div[@id="main-liste-articles"]//span[@class="uba-prix"]/span[1]/span
+    regExp: (\d+)(\D)(\d+)
+    regExpReplace: $2$1 
   - name: productUrl
     singleValue: false
     xpath: //div[@class="lai-zone-texte"]/h2/a/@href
-    regExp: ([\w-\/=+&#.]+)
+    regExp: (.+)
     regExpReplace: https://www.ubaldi.com$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@id="main-liste-articles"]//div[@class="img-placeholder img-defer img-ratio-cc la-img"]//img/@src
-    regExp: ([\w-\/=+&#.]+)
+    regExp: (.+)
     regExpReplace: https://www.ubaldi.com$1
   - name: ratingCount
     singleValue: false
