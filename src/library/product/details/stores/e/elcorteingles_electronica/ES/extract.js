@@ -1,16 +1,17 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles_electronica',
-    transform: null,
+    transform: cleanUp,
     domain: 'elcorteingles.es',
     zipcode: '',
   },
 
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain }, context, { productDetails, transform }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     await context.evaluate(async function () {
@@ -98,14 +99,14 @@ module.exports = {
       }
 
 
-       // Number of reviews and rating
-       const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
-       let apiReviewResponse = await makeApiCall(reviewData, {});
-       let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
-       let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
-         : "";
-       addElementToDocument('ratingCount', responseRatingCount);
-       addElementToDocument('aggregateRating', responseReviewRating);
+      // Number of reviews and rating
+      const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
+      let apiReviewResponse = await makeApiCall(reviewData, {});
+      let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
+      let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
+        : "";
+      addElementToDocument('ratingCount', responseRatingCount);
+      addElementToDocument('aggregateRating', responseReviewRating);
 
 
       const imageData = findJsonObj('image');
@@ -259,6 +260,6 @@ module.exports = {
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });
 
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };
