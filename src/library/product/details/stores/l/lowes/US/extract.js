@@ -12,6 +12,24 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    await new Promise(resolve => setTimeout(resolve, 10000));
+    await context.evaluate(async function () {
+      let scrollSelector = document.querySelector('div#footerApp');
+      let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      let yPos = 0;
+      while (scrollLimit && yPos < scrollLimit) {
+        yPos = yPos + 350;
+        window.scrollTo(0, yPos);
+        scrollSelector = document.querySelector('div#footerApp');
+        scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+        await new Promise(resolve => setTimeout(resolve, 3500));
+      }
+    });
+    try {
+      await context.waitForSelector('div#wc-aplus');
+    } catch (error) {
+      console.log('Manufacturer content not loaded');
+    }
     await context.evaluate(async function () {
       const images = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent &&
         document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/"additionalImages":([^\]]+])/) &&

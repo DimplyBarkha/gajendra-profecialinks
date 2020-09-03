@@ -118,6 +118,9 @@ fields:
     xpath: (//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]
   - name: Image360Present
     singleValue: false
+    xpath: //button[@data-thumbtypeindex="main0"]//img//@data-met-type
+    regExp: (spin|3DImage)
+    regExpReplace: Yes
     defaultValue: No
   - name: weightNet
     singleValue: false
