@@ -11,7 +11,7 @@ async function implementation (
 if(inputs.id){
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-}
+
   const productUrl = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -35,9 +35,11 @@ if(inputs.id){
     }
   });
 
-  await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
 
-  const manufacturerCTA = await context.waitForFunction(async function () {
+  await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
+}
+
+  const manufacturerCTA = await context.evaluate(async function () {
     let scrollTop = 750;
     while (true) {
       window.scroll(0, scrollTop);
@@ -54,7 +56,8 @@ if(inputs.id){
 
     window.scroll(0, 1000);
     return Boolean(document.querySelector('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]'));
-  }, { timeout: 30000 });
+
+  });
 
   if (manufacturerCTA) {
     console.log('hastheCTA');
