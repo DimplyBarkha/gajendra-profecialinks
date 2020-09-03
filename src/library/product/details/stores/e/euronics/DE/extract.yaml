@@ -66,6 +66,9 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[@id="sku"]
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id="variantId"]
   - name: mpc
     singleValue: true
     xpath: //div[@id="mpc"]
@@ -104,16 +107,16 @@ fields:
     xpath: //div[@id="color"]
   - name: manufacturerDescription
     singleValue: true
-    xpath: //div[@id="manufacturerDescription"]
+    xpath: //div[@id="enhancedContent"]
   - name: manufacturerImages
     singleValue: true
-    xpath: //div[@id="manufacturerImgs"]
+    xpath: //div[@id="manufacturerImages"]
   - name: videos
     singleValue: true
     xpath: //div[@id="videos"]
   - name: name
     singleValue: true
-    xpath: //h1[@class="productDetails__name"]/text()
+    xpath: //h1[@itemprop="name"]
   - name: specifications
     singleValue: true
     xpath: //div[@id="specifications"]
@@ -133,7 +136,7 @@ fields:
   #  xpath: //div[@id="variants"]
   - name: additionDescBulletInfo
     singleValue: true
-    xpath: //div[@id="additionalInfo"]
+    xpath: //div[@id="additionalDescBulletInfo"]
 #  - name: ageSuitability
 #    singleValue: true
 #    xpath: //div[@id="ageInfo"]

@@ -15,9 +15,72 @@ async function implementation (
     })
   }
 
+
   await stall(5000);
 
-  await context.evaluate(async function() {
+  const gtin  = await context.evaluate(function() {
+    let gtin = null;
+    document.querySelectorAll('.margin-10-0').forEach(el => {
+      if (el.innerText.includes('EAN:')) {
+        gtin = el.innerText.replace('EAN:', '').trim();
+      }
+    });
+    return gtin;
+  })
+
+  const currentUrl = await context.evaluate(function(){
+    return window.location.href;
+  });
+
+  let enhancedContent = '';
+  let manufacturerImages = '';
+  let videos = '';
+  if (gtin) {
+    await context.goto('https://service.loadbee.com/ean/' + gtin + '/de_DE?css=default&template=default&data=%7B%22shop%22%3A%22www.euronics.de%22%2C%22source%22%3A%22inpage%22%2C%22api%22%3A%22fGy5uftNFDeUaTCCGbzAfZhpZZH5xnbC%22%7D');
+    enhancedContent = await context.evaluate(function() {
+      if (document.querySelector('.logo-wrapper')) {
+        return document.body.innerText;
+      }
+    });
+
+    manufacturerImages = await context.evaluate(function() {
+      if (document.querySelector('.legal')) {
+        document.querySelector('.legal').remove();
+      }
+      if (document.querySelector('.logo-wrapper')) {
+        let imgs = [];
+        document.querySelectorAll('img').forEach(img => {
+          if (img.parentElement && !img.parentElement.classList.contains('logo-wrapper')) {
+            imgs.push((img.getAttribute('src').includes('https:') ? '' : 'https:') + img.getAttribute('src'));
+          }
+        });
+        return imgs.join(' | ');
+      }
+    });
+
+    videos = await context.evaluate(function() {
+      if (document.querySelector('.logo-wrapper')) {
+        let videos = [];
+        document.querySelectorAll('video').forEach(video => {
+          if (video.querySelector('source')) {
+            videos.push(video.querySelector('source').getAttribute('src'));
+          }
+        });
+        document.querySelectorAll('.play-btn').forEach(btn => {
+          if (!videos.includes(btn.getAttribute('data-video'))) {
+            videos.push(btn.getAttribute('data-video'));
+          }
+        });
+        return videos.join(' | ');
+      }
+    });
+
+    await context.goto(currentUrl);
+    await stall(5000);
+
+  }
+
+  await context.evaluate(async function(enhancedContent, manufacturerImages, videos) {
 
     function stall(ms) {
       return new Promise(resolve => {
@@ -41,12 +104,16 @@ async function implementation (
       document.body.appendChild(div);
     }
 
+    addHiddenDiv('enhancedContent', enhancedContent);
+    addHiddenDiv('manufacturerImages', manufacturerImages);
+    addHiddenDiv('videos', videos);
+
     const alternateImages = [];
     document.querySelectorAll('.image--box').forEach((el, ind) => {
       if (ind === 0) {
-        addHiddenDiv('primaryImage', 'https://euronics.de' + el.querySelector('span').getAttribute('data-img-large'));
+        addHiddenDiv('primaryImage', 'https:' + el.querySelector('span').getAttribute('data-img-large'));
       } else {
-        alternateImages.push('https://euronics.de' + el.querySelector('span').getAttribute('data-img-large'));
+        alternateImages.push('https:' + el.querySelector('span').getAttribute('data-img-large'));
       }
     });
 
@@ -60,7 +127,7 @@ async function implementation (
       addHiddenDivWithClass('category', category);
     });
 
-    addHiddenDiv('price', '€' + document.querySelector('meta[itemprop="price"]').getAttribute('content'));
+    addHiddenDiv('price', '€' + document.querySelector('meta[itemprop="price"]').getAttribute('content').replace('.', ','));
 
     let inStore = false;
     let delivery = false;
@@ -73,20 +140,28 @@ async function implementation (
     }
 
     let description = '';
+    let additionalDescBulletInfo = '';
     let bulletCount = 0;
     if (document.querySelector('.product-highlights--block')) {
       document.querySelector('.product-highlights--block').querySelectorAll('li').forEach(el => {
         description += '|| ' + el.innerText + ' ';
+        additionalDescBulletInfo += '|| ' + el.innerText + ' ';
         bulletCount++;
       });
     }
-    if (document.querySelector('.product--description') && document.querySelector('.product--description').querySelector('b')) {
-      description += document.querySelector('.product--description').querySelector('b').innerText;
+    if (document.querySelector('.product--description') && document.querySelector('.product--description')) {
+      description += '|| ' + document.querySelector('.product--description').innerText;
     }
     addHiddenDiv('description', description);
+    addHiddenDiv('additionalDescBulletInfo', additionalDescBulletInfo);
     addHiddenDiv('descriptionBullets', bulletCount);
 
-    addHiddenDiv('brand', document.querySelector('.product--supplier-link').querySelector('img').getAttribute('alt'));
+    document.querySelectorAll('script').forEach(el => {
+      const match = el.innerHTML.match(/\"productBrand\"\: \'[0-9a-zA-Z]+\'/);
+      if (match && match.length) {
+        addHiddenDiv('brand', match[0].replace(/\"productBrand\"/g, '').replace(": '",'').replace("'", ''));
+      }
+    })
 
     if (delivery) {
       addHiddenDiv('availabilityText', 'In Stock');
@@ -105,6 +180,7 @@ async function implementation (
     document.querySelectorAll('.margin-10-0').forEach(el => {
       if (el.innerText.includes('Artikelnummer:')) {
         addHiddenDiv('sku', el.innerText.replace('Artikelnummer:', '').trim());
+        addHiddenDiv('variantId', el.innerText.replace('Artikelnummer:', '').trim());
       }
       if (el.innerText.includes('EAN:')) {
         addHiddenDiv('gtin', el.innerText.replace('EAN:', '').trim());
@@ -147,7 +223,7 @@ async function implementation (
     addHiddenDiv('zoomInfo', 'Yes');
     addHiddenDiv('pdf', 'No');
 
-  });
+  }, enhancedContent, manufacturerImages, videos);
 
 
   return await context.extract(productDetails, { transform });
