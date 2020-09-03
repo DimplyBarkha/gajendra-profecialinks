@@ -2,10 +2,10 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'visions.ca',
-    timeout: 10000,
-    country: 'CA',
-    store: 'visions',
+    domain: 'villatech.fr',
+    timeout: 50000,
+    country: 'FR',
+    store: 'villatech',
     zipcode: '',
   },
 };
