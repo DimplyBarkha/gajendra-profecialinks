@@ -63,7 +63,7 @@ fields:
     xpath: //*[contains(text(), 'Promotion')]/parent::*/following-sibling::*[1]
   - name: description
     singleValue: false
-    xpath: //div[@id="panel-wrapper"]//div[@class="info-panel-content panel-product-overview"]
+    xpath: //div[contains(@class, 'short-description list-ticked')] | //div[@id="panel-wrapper"]//div[@class="info-panel-content panel-product-overview"]
   - name: specifications
     singleValue: false
     xpath: //div[@class="product-table"]//table//td[(normalize-space(.)!='') and not(@colspan)]//preceding-sibling::th | //div[@class="product-table"]//table//td[(normalize-space(.)!='') and not(@colspan)]
