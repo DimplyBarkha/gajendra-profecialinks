@@ -38,6 +38,12 @@ const transform = (data) => {
         });
       }
 
+      if (row.price) {
+        row.price.forEach((priceItem) => {
+          priceItem.text = priceItem.text.replace(/'/gm, '');
+        });
+      }
+
       if (row.description) {
         row.description.forEach((descriptionItem) => {
           descriptionItem.text = cleanUp(descriptionItem.text);
@@ -52,6 +58,10 @@ const transform = (data) => {
         });
       } else {
         row.technicalInformationPdfPresent = [{ text: 'No' }];
+      }
+
+      if (row.name && row.brandText) {
+        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
       }
     }
   }

@@ -34,7 +34,7 @@ fields:
     xpath: //div[contains(@class, "product-detail-infos")]//div[contains(@class, "price-total")]
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class, "add-to-cart ember-view")]
+    manualSelector: div[id="added_availabilityText"]
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "accordion__text")]  
@@ -62,6 +62,7 @@ fields:
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
+    xpath: //*[contains(text(), "Produktdaten")]//following-sibling::text()[contains(., "Bruttogewicht")]
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -113,6 +114,7 @@ fields:
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
+    xpath: //*[contains(text(), "Produktdaten")]//following-sibling::text()[contains(., "Box-Abmessungen")]
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
@@ -486,11 +488,9 @@ fields:
   - name: privacyPolicy
     singleValue: false
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
   - name: materials
     singleValue: false
     description: Materials used to make the product
@@ -499,10 +499,8 @@ fields:
     singleValue: false
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: false
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
