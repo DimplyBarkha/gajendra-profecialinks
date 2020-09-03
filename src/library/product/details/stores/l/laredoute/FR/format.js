@@ -73,7 +73,10 @@ const transform = (data) => {
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(aggregateRating => {
-          aggregateRating.text = aggregateRating.text.replace('_', '.').trim();
+          aggregateRating.text = aggregateRating.text.replace('_', ',').trim();
+          if (aggregateRating.text === '0') {
+            aggregateRating.text = aggregateRating.text.replace('0', '');
+          }
         });
       }
       if (row.variantCount) {
