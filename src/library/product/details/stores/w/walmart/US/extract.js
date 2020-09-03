@@ -76,6 +76,12 @@ module.exports = {
       }, parentInput);
     };
 
+    await context.waitForXPath("//meta[@property='og:image']/@content", { timeout: 5000 })
+      .catch(() => console.log('no product image available'));
+
+    await context.waitForXPath("//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div", { timeout: 5000 })
+      .catch(()=>console.log('no desc for item'));
+
     await addAdditionalContent();
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
   },

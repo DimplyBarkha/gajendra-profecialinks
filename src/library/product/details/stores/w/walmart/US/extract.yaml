@@ -14,7 +14,8 @@ fields:
   xpath: //*[contains(@class,'slider')]//div[@data-tl-id='ProductPage-alt-image0']/img/@alt
 - name: alternateImages
   singleValue: false
-  xpath: //div[@id='product-overview']//li[@class='slider-slide']//img/@src
+  xpath: (//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1]
+  # xpath: //div[@id='product-overview']//li[@class='slider-slide']//img/@src
 - name: metaKeywords
   singleValue: true
   xpath: //meta[@name="keywords"]/@content
@@ -177,8 +178,8 @@ fields:
 - name: lbbPrice
   singleValue: true  
 - name: additionalDescBulletInfo
-  singleValue: false  
-  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li
+  singleValue: false 
+  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li | //div[contains(text(),'•')]
 - name: promotion
   singleValue: false
   xpath: //div[@class='container-flags']//span[@class='flag-angle__content']

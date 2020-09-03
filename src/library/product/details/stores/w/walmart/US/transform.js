@@ -87,7 +87,7 @@ const transform = (data, context) => {
         }
         if (row.description) {
           row.description = [{
-            text: row.description[0].text.replace(/^\s*[\r\n]/gm, ' || '),
+            text: row.description[0].text.replace(/^\s*[\r\n]/gm, ' || ').replace('•', '').split('%3C')[0],
           }];
 
           if (row.description[0].text.includes('Specifications')) {
