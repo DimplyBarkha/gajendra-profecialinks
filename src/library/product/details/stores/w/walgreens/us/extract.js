@@ -67,9 +67,9 @@ module.exports = {
     }
 
     if (manufacturerInfo.length !== 0) {
-      // await context.waitForSelector('li#prodbv', { timeout: 55000 });
-      // await context.waitForSelector('li#prodCollage', { timeout: 55000 });
-      await new Promise(resolve => setTimeout(resolve, 15000));
+      await context.waitForSelector('li#prodbv', { timeout: 55000 });
+      await context.waitForSelector('li#prodCollage', { timeout: 55000 });
+      // await new Promise(resolve => setTimeout(resolve, 15000));
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner', { timeout: 55000 });
       await context.waitForSelector('a.view-more-trigger');
@@ -561,7 +561,12 @@ module.exports = {
 
         await context.extract(productDetails, { transform: transformParam, type: 'APPEND' });
       };
-      if (variants.length === 0) return await extract();
+      if (variants.length === 0) {
+        return await extract();
+      } else {
+        await extract();
+      }
+
       for (let index = 0; index < variants.length; index++) {
         await new Promise(resolve => setTimeout(resolve, 5000));
         await extract(variants[index]);
