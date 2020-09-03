@@ -1,67 +1,11 @@
-/**
- *
- * @param { { keywords: string } } inputs
- * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
- * @param { ImportIO.IContext } context
- * @param { { goto: ImportIO.Action} } dependencies
- */
-
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  function stall (ms) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, ms);
-    });
-  }
-
-  const url = 'https://target.com/s?searchTerm=' + inputs.keywords || inputs.Keywords;
-  await dependencies.goto({ url });
-  await context.waitForXPath('//ul//li');
-  await stall(2000);
-  await context.setInputValue('input#search', inputs.keywords || inputs.Keywords);
-  await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    let isCategoryPage = false;
-    document.querySelectorAll('h2').forEach(e => {
-      if (e.innerHTML === 'Shop by category') {
-        isCategoryPage = true;
-      }
-    });
-    if (isCategoryPage) {
-      document.getElementById('search').focus();
-      await stall(2000);
-      const link = document.querySelector('.TypeaheadItemLink-sc-125kxr2-0');
-      if (link != null) {
-        link.click();
-      }
-    }
-  });
-  return context.evaluate(function () {
-    return document.querySelectorAll('li').length > 0;
-  });
-}
-
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'US',
     store: 'target',
     domain: 'target.com',
-    url: 'https://www.target.com/s?searchTerm={searchTerms}',
-    loadedSelector: 'div[data-test="productGridContainer"] li',
+    url: 'https://redsky.target.com/v2/plp/search/?keyword={searchTerms}&channel=web&count=12&default_purchasability_filter=true&facet_recovery=false&fulfillment_test_mode=grocery_opu_team_member_test&isDLP=false&offset=0&pricing_store_id=1465&store_ids=1465%2C872%2C896%2C611%2C354&visitorId=01722EF48EF50201B636E4B69E84817D&include_sponsored_search_v2=true&ppatok=AOxT33a&platform=desktop&useragent=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_14_6%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F83.0.4103.116+Safari%2F537.36&excludes=available_to_promise_qualitative%2Cavailable_to_promise_location_qualitative&key=eb2551e4accc14f38cc42d32fbc2b2ea#[!opt!]{"type":"json"}[/!opt!]',
+    loadedSelector: 'body',
     noResultsXPath: '//h1[contains(.,"no results found")]',
   },
-  implementation,
 };

@@ -1,3 +1,4 @@
+
 async function implementation (
   inputs,
   parameters,
@@ -7,8 +8,10 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await context.waitForXPath("//a[@class='Link-sc-1khjl8b-0 kTulu h-display-block']");
-  await context.evaluate(async function () {
+  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+
+  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+  const productUrl = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -16,315 +19,782 @@ async function implementation (
         }, ms);
       });
     }
-    await stall(1000);
-    const link = document.querySelector('.Link-sc-1khjl8b-0.kTulu.h-display-block');
-    if (link != null) {
-      link.click();
-    }
-  });
-
-  await context.waitForXPath("//h1[@class='Heading__StyledHeading-sc-1m9kw5a-0 kWcXUA h-margin-b-none h-margin-b-tiny h-text-bold']");
-  await context.evaluate(async function () {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-
-    addHiddenDiv('dateStamp', new Date());
-    addHiddenDiv('urlInfo', window.location.href);
-    addHiddenDiv('productName', document.querySelector('h1[data-test="product-title"]').innerText.split('-')[0]);
-
-    const alternateImages = [];
-    document.querySelectorAll('.styles__ThumbnailImage-beej2j-11').forEach(e => {
-      alternateImages.push(e.src);
-    });
-    addHiddenDiv('alternateImages', alternateImages.join(' | '));
-
-    const subCategories = [];
-    const categoryDiv = document.querySelector('.h-text-sm.h-padding-v-tiny');
-    categoryDiv.querySelectorAll('a').forEach(e => {
-      subCategories.push(e.getAttribute('aria-label'));
-    });
-    addHiddenDiv('subCategories', subCategories.join(' > '));
-
-    const materials = [];
-    let quantity = 1;
-    if (document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default')) {
-      document.querySelector('.Col-favj32-0.fVmltG.h-padding-h-default').children.forEach(e => {
-        if (e.innerText.indexOf('UPC') > -1) {
-          addHiddenDiv('upcInfo', e.innerText.replace('UPC: ', ''));
-        }
-        if (e.innerText.indexOf('TCIN') > -1) {
-          addHiddenDiv('skuInfo', e.innerText.replace('TCIN: ', ''));
-        }
-        if (e.innerText.indexOf('Weight:') > -1 || e.innerText.indexOf('Net weight:') > -1) {
-          addHiddenDiv('weightInfo', e.innerText.split(':')[1]);
-        }
-        if (e.innerText.indexOf('Warranty') > -1) {
-          addHiddenDiv('warrantyInfo', e.innerText.split(':')[1]);
-        }
-        if (e.innerText.indexOf('Store:') > -1) {
-          addHiddenDiv('storageInfo', e.innerText.split(':')[1]);
-        }
-        if (e.innerText.indexOf('Dimensions') > -1) {
-          addHiddenDiv('dimensionsInfo', e.innerText.split(':')[1]);
-        }
-        if (e.innerText.indexOf('p65warning') > -1) {
-          addHiddenDiv('p65Info', e.innerText.split(':')[1]);
-        }
-        if (e.innerText.indexOf('Quantity:') > -1) {
-          quantity = e.innerText.split(':')[1];
-        }
-        if (e.innerText.indexOf('Number of') > -1) {
-          addHiddenDiv('packSize', e.innerText.split(':')[1]);
-        }
-        if (e.innerText.indexOf('Suggested Age:') > -1) {
-          addHiddenDiv('ageInfo', e.innerText.replace('Suggested Age: ', ''));
-        }
-        if (e.innerText.indexOf('Origin:') > -1) {
-          addHiddenDiv('originInfo', e.innerText.split(':')[1]);
-        }
-        if (e.innerText.indexOf('Alcohol content:') > -1) {
-          addHiddenDiv('alcoholInfo', e.innerText.replace('Alcohol content: ', ''));
-        }
-        if (e.innerText.indexOf('Material:') > -1 || e.innerText.indexOf('material:') > -1) {
-          const split = e.innerText.split(':');
-          materials.push(split[split.length - 1]);
-        }
-        if (e.innerText.indexOf('Net weight:') > -1) {
-          addHiddenDiv('weightInfo', e.innerText.replace('Net weight: ', ''));
-        }
-        if (e.innerText.indexOf('WARNING:') > -1 || e.innerText.indexOf('warning') > -1) {
-          addHiddenDiv('warningInfo', e.innerText.split(':')[1]);
-        }
-        if (e.innerText.indexOf('Disclaimer:') > -1) {
-          addHiddenDiv('disclaimerInfo', e.innerText.split(':')[1]);
-        }
-      });
-    }
-    if (materials.length) {
-      addHiddenDiv('materialInfo', materials.join(', '));
-    }
-    addHiddenDiv('quantityInfo', quantity);
-
-    const bulletCount = document.querySelectorAll('div[data-test="wellnessBadgeAndDescription"]').length;
-    addHiddenDiv('bulletCount', bulletCount);
-
-    const additionalInfo = [];
-    document.querySelectorAll('.Col-favj32-0.RDgXb.h-padding-t-tight.h-padding-r-default').forEach(e => {
-      additionalInfo.push(e.innerText);
-    });
-    addHiddenDiv('additionalInfo', additionalInfo.join(', '));
-  });
-
-  await context.evaluate(function () {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-    const button = document.querySelector('#tab-ShippingReturns');
-    if (button != null) {
-      button.click();
-      if (document.querySelector('div[data-test="shippingOptionsMessage"]')) {
-        addHiddenDiv('shippingInfo', document.querySelector('div[data-test="shippingOptionsMessage"]').innerText);
+    await stall(100);
+    const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
+    if (link !== null) {
+      const href = link.getAttribute('href');
+      if (href.indexOf('preselect=') > -1) {
+        let productId = href.split('preselect=')[1];
+        productId = productId.split('#')[0];
+        const splitUrl = href.split('-');
+        splitUrl[splitUrl.length - 1] = productId;
+        return splitUrl.join('-');
       }
+      return href;
     }
   });
 
-  await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
+  await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
 
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-
-    const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC');
-    if (zoom) {
-      addHiddenDiv('zoomInfo', 'Yes');
-    } else {
-      addHiddenDiv('zoomInfo', 'No');
-    }
-
-    const rotate = document.querySelector('button[data-test="button-model-viewer"]');
-    if (rotate) {
-      addHiddenDiv('rotateInfo', 'Yes');
-    } else {
-      addHiddenDiv('rotateInfo', 'No');
-    }
-
-    const button = document.querySelector("a[href='#tabContent-tab-Labelinfo']");
-    if (button != null) {
-      button.click();
-      await stall(1000);
-      document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
-        if (e.innerText.indexOf('Ingredients:') > -1) {
-          addHiddenDiv('ingredientsInfo', e.innerText.replace('Ingredients: ', ''));
-        }
-      });
-      document.querySelectorAll('p').forEach(e => {
-        if (e.innerText.indexOf('Serving Size:') > -1) {
-          addHiddenDiv('servingSizeInfo', e.innerText.replace('Serving Size: ', ''));
-          const splitInfo = document.getElementById('servingSizeInfo').innerHTML.split(' ');
-          addHiddenDiv('servingSizeUomInfo', splitInfo[splitInfo.length - 1]);
-        }
-        if (e.innerText.indexOf('Serving Per Container:') > -1) {
-          addHiddenDiv('servingPerContainerInfo', e.innerText.replace('Serving Per Container: ', ''));
-        }
-      });
-      document.querySelectorAll('.h-padding-l-default').forEach(e => {
-        if (e.innerText.indexOf('Calories:') > -1) {
-          addHiddenDiv('caloriesInfo', e.innerText.replace('Calories: ', ''));
-        }
-      });
-      document.querySelectorAll('.h-margin-t-tight').forEach(e => {
-        if (e.innerText.indexOf('Total Fat') > -1) {
-          addHiddenDiv('totalFatInfo', e.querySelector('span').innerText.replace('Total Fat', ''));
-          addHiddenDiv('totalFatUomInfo', document.getElementById('totalFatInfo').innerHTML.replace('Total Fat', '').replace(/\*/g, '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Saturated Fat') > -1) {
-          addHiddenDiv('saturatedFatInfo', e.querySelector('span').innerText.replace('Saturated Fat', ''));
-          addHiddenDiv('saturatedFatUomInfo', e.querySelector('span').innerText.replace('Saturated Fat', '').replace('.', '').replace(/\*/g, '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Trans Fat') > -1) {
-          addHiddenDiv('transFatInfo', e.querySelector('span').innerText.replace('Trans Fat', ''));
-          addHiddenDiv('transFatUomInfo', e.querySelector('span').innerText.replace('Trans Fat', '').replace('.', '').replace(/\*/g, '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Cholesterol') > -1) {
-          addHiddenDiv('cholesterolInfo', e.querySelector('span').innerText.replace('Cholesterol', ''));
-          addHiddenDiv('cholesterolUomInfo', e.querySelector('span').innerText.replace('Cholesterol', '').replace('.', '').replace(/\*/g, '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Sodium') > -1) {
-          addHiddenDiv('sodiumInfo', e.querySelector('span').innerText.replace('Sodium ', ''));
-          addHiddenDiv('sodiumUomInfo', e.querySelector('span').innerText.replace('Sodium', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Total Carbohydrate') > -1) {
-          addHiddenDiv('totalCarbInfo', e.querySelector('span').innerText.replace('Total Carbohydrate', ''));
-          addHiddenDiv('totalCarbUomInfo', e.querySelector('span').innerText.replace('Total Carbohydrate', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Dietary Fiber') > -1) {
-          addHiddenDiv('dietaryFiberInfo', e.querySelector('span').innerText.replace('Dietary Fiber', ''));
-          addHiddenDiv('dietaryFiberUomInfo', e.querySelector('span').innerText.replace('Dietary Fiber', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Total Sugars') > -1) {
-          addHiddenDiv('totalSugarInfo', e.querySelector('span').innerText.replace('Total Sugars', ''));
-          addHiddenDiv('totalSugarUomInfo', e.querySelector('span').innerText.replace('Total Sugars', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Protein') > -1) {
-          addHiddenDiv('proteinInfo', e.querySelector('span').innerText.replace('Protein', ''));
-          addHiddenDiv('proteinUomInfo', e.querySelector('span').innerText.replace('Protein', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Vitamin A') > -1) {
-          addHiddenDiv('vitaminAInfo', e.querySelector('span').innerText.replace('Vitamin A', ''));
-          addHiddenDiv('vitaminAUomInfo', e.querySelector('span').innerText.replace('Vitamin A', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Vitamin C') > -1) {
-          addHiddenDiv('vitaminCInfo', e.querySelector('span').innerText.replace('Vitamin C', ''));
-          addHiddenDiv('vitaminCUomInfo', e.querySelector('span').innerText.replace('Vitamin C', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Calcium') > -1) {
-          addHiddenDiv('calciumInfo', e.querySelector('span').innerText.replace('Calcium', ''));
-          addHiddenDiv('calciumUomInfo', e.querySelector('span').innerText.replace('Calcium', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Iron') > -1) {
-          addHiddenDiv('ironInfo', e.querySelector('span').innerText.replace('Iron', ''));
-          addHiddenDiv('ironUomInfo', e.querySelector('span').innerText.replace('Iron', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-        if (e.innerText.indexOf('Magnesium') > -1) {
-          addHiddenDiv('magInfo', e.querySelector('span').innerText.replace('Magnesium', ''));
-          addHiddenDiv('magUomInfo', e.querySelector('span').innerText.replace('Magnesium', '').replace('.', '').replace(/[0-9]/g, ''));
-        }
-      });
-    }
-
-    document.querySelectorAll('.h-margin-t-default.h-padding-h-default').forEach(e => {
-      if (e.innerText.indexOf('Allergens & Warnings:') > -1) {
-        addHiddenDiv('allergyAdviceInfo', e.innerText.replace('Allergens & Warnings:', ''));
-      }
-    });
-
-    let terms = 'No';
-    if (document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
-      terms = 'Yes';
-    }
-    addHiddenDiv('terms', terms);
-
-    let privacy = 'No';
-    if (document.querySelector('a[href="/c/target-privacy-policy/-/N-4sr7p"]')) {
-      privacy = 'Yes';
-    }
-    addHiddenDiv('privacy', privacy);
-    addHiddenDiv('customerServiceAvailability', 'Yes');
-
-    let scrollTop = 500;
+  const manufacturerCTA = await context.waitForFunction(async function () {
+    let scrollTop = 750;
     while (true) {
       window.scroll(0, scrollTop);
-      await stall(1000);
-      scrollTop += 500;
-      if (scrollTop === 10000) {
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 750);
+      });
+      scrollTop += 750;
+      if (scrollTop === 15000) {
         break;
       }
     }
 
-    const variationNum = document.querySelectorAll('.VariationButton__StyledButtonWrapper-sc-1hf3dzx-0.gcwqAn').length;
-    addHiddenDiv('variantCount', variationNum);
+    window.scroll(0, 1000);
+    return Boolean(document.querySelector('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]'));
+  }, { timeout: 30000 });
 
-    const similarItems = document.querySelector('a[href="#tabContent-Similaritems1"]');
-    if (similarItems) {
-      similarItems.click();
-      await stall(1000);
-      const variants = [];
-      document.getElementById('tabContent-Similaritems1').querySelectorAll('a').forEach(e => {
-        const split = e.getAttribute('href').split('/');
-        variants.push(split[split.length - 1]);
+  if (manufacturerCTA) {
+    console.log('hastheCTA');
+    await context.click('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]');
+  }
+
+  await context.waitForXPath("//h1[@data-test='product-title']");
+
+  await context.evaluate(async function () {
+    let parentData = {};
+    let origData = {};
+
+    function addHiddenDiv (el, className, content) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('class', className);
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      el.appendChild(newDiv);
+    }
+
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
       });
-      addHiddenDiv('variants', variants.join(' | '));
     }
 
-    if (document.querySelector('div[data-test="orderPickupMessage"]')) {
-      addHiddenDiv('availability', 'In stock');
+    function createListItem () {
+      const newDiv = document.createElement('li');
+      newDiv.setAttribute('class', 'productInfo');
+      newDiv.textContent = '';
+      newDiv.style.display = 'none';
+      document.getElementById('mainContainer').appendChild(newDiv);
+      return newDiv;
     }
 
-    const video = document.querySelector('img[type="video"]');
-    if (video) {
-      video.click();
+    function decodeHtml (html) {
+      const txt = document.createElement('textarea');
+      txt.innerHTML = html;
+      return txt.value;
     }
 
-    const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.fWPETf.h-padding-t-tight');
-    if (manufacturerCTA) {
-      manufacturerCTA.click();
+    async function getProductInfo (variant, productName, variantCount = null) {
+      await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + variant.tcin + '/index.html')
+        .then(async function (response) {
+          const sometext = await response.text();
+          const startText = '<body>';
+          const endText = '</body>';
+          const startIx = sometext.indexOf(startText);
+          const endIx = sometext.indexOf(endText, startIx);
+          console.log('start: ' + startIx);
+          console.log('end: ' + endIx);
+          const bodyContent = sometext.substring(startIx + startText.length, endIx);
+          const wrapper = document.createElement('div');
+          wrapper.id = 'frameContents' + variant.tcin;
+          wrapper.innerHTML = bodyContent;
+          document.body.appendChild(wrapper);
+          console.log('fetchFrame', variant.tcin, bodyContent);
+        });
+
+      document.getElementById('mainContainer').querySelectorAll('li').forEach(e => {
+        if (e.querySelector('.sku') && e.querySelector('.sku').innerText === variant.tcin) {
+          e.remove();
+        }
+      });
+
+      const newDiv = createListItem();
+
+      addHiddenDiv(newDiv, 'productName', decodeHtml(productName));
+
+      const secondaryImages = [];
+      if (variant.enrichment && variant.enrichment.images && variant.enrichment.images.length) {
+        addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
+      }
+
+      let videos = [];
+      if (parentData.product &&
+        parentData.product.item.enrichment &&
+        parentData.product.item.enrichment.videos &&
+        parentData.product.item.enrichment.videos.length) {
+        videos = parentData.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
+          'https:' + video.video_files[0].video_url,
+        );
+      }
+
+      if (!videos.length &&
+        variant.enrichment.videos &&
+        variant.enrichment.videos.length) {
+        videos = variant.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
+          'https:' + video.video_files[0].video_url,
+        );
+      }
+
+      const productTitle = document.querySelector('h1[data-test="product-title"]') && document.querySelector('h1[data-test="product-title"]').innerText;
+      if (variant.variation_info && variant.variation_info.themes) {
+        addHiddenDiv(newDiv, 'imageAlt', productTitle + ' ' + variant.variation_info.themes.map(theme => theme.value).join(' '));
+      } else {
+        addHiddenDiv(newDiv, 'imageAlt', productTitle);
+      }
+
+      if (productTitle && variant.variation_info && variant.variation_info.themes) {
+        addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
+      } else {
+        addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
+      }
+
+      if (variant.product_description && variant.product_description.title) {
+        addHiddenDiv(newDiv, 'keywords', decodeHtml(variant.product_description.title));
+      }
+
+      addHiddenDiv(newDiv, 'timeStamp', new Date());
+
+      const splitUrl = window.location.href.split('-');
+      splitUrl[splitUrl.length - 1] = variant.tcin;
+      addHiddenDiv(newDiv, 'productUrl', splitUrl.join('-'));
+
+      let description = '';
+      if (variant.product_description && variant.product_description.soft_bullets && variant.product_description.soft_bullets.bullets && variant.product_description.soft_bullets.bullets.length) {
+        description = '|| ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')) + ' ';
+        addHiddenDiv(newDiv, 'descriptionBullets', variant.product_description.soft_bullets.bullets.length);
+        addHiddenDiv(newDiv, 'additionalDesc', ' || ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')));
+      }
+
+      if (description.length || (variant.product_description && variant.product_description.downstream_description)) {
+        addHiddenDiv(newDiv, 'description', description + (variant.product_description.downstream_description ? decodeHtml(variant.product_description.downstream_description.replace('<br />', ' ').replace(/(<([^>]+)>)/ig, ' ')) : ''));
+      }
+
+      if (variant.wellness_merchandise_attributes) {
+        addHiddenDiv(newDiv, 'additionalDescBulletInfo', variant.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
+      } else if (parentData.product && parentData.product.item.wellness_merchandise_attributes) {
+        addHiddenDiv(newDiv, 'additionalDescBulletInfo', parentData.product.item.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
+      } else if (origData.product && origData.product.item.wellness_merchandise_attributes) {
+        addHiddenDiv(newDiv, 'additionalDescBulletInfo', origData.product.item.wellness_merchandise_attributes.map(desc => desc.wellness_description).join(' | '));
+      }
+
+      const ingredients = [];
+      if (variant.enrichment && variant.enrichment.nutrition_facts && variant.enrichment.nutrition_facts.ingredients) {
+        ingredients.push(variant.enrichment.nutrition_facts.ingredients);
+      } else if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.ingredients) {
+        ingredients.push(variant.enrichment.drug_facts.ingredients);
+      } else if (variant.enrichment && variant.enrichment.drug_facts && variant.enrichment.drug_facts.inactive_ingredients) {
+        ingredients.push(variant.enrichment.drug_facts.inactive_ingredients.join(' '));
+      }
+
+      if (ingredients.length) {
+        addHiddenDiv(newDiv, 'ingredients', ingredients.join(' '));
+      }
+
+      if (variant.product_brand && variant.product_brand.brand) {
+        addHiddenDiv(newDiv, 'brand', variant.product_brand.brand);
+      }
+
+      if (variant.variation && variant.variation.size) {
+        addHiddenDiv(newDiv, 'size', variant.variation.size);
+      }
+
+      if (variant.variation && variant.variation.color) {
+        addHiddenDiv(newDiv, 'color', variant.variation.color);
+      }
+
+      let hasSpecifications = false;
+      let storage = '';
+      if (variant.product_description && variant.product_description.bullet_description) {
+        const materials = [];
+        variant.product_description.bullet_description.forEach(e => {
+          if (e.includes('<B>Weight:</B>') || e.includes('<B>Net weight:</B>')) {
+            addHiddenDiv(newDiv, 'netWeight', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Number of') || e.includes('Quantity:')) {
+            addHiddenDiv(newDiv, 'packSize', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Dimensions')) {
+            hasSpecifications = true;
+            addHiddenDiv(newDiv, 'specifications', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Warranty')) {
+            addHiddenDiv(newDiv, 'warranty', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Storage Instructions:')) {
+            storage = e.split('</B>')[1].trim();
+          }
+          if (e.includes('Contains:')) {
+            addHiddenDiv(newDiv, 'allergyAdvice', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Model #:')) {
+            addHiddenDiv(newDiv, 'mpc', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Package type:')) {
+            addHiddenDiv(newDiv, 'packaging', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Alcohol content:')) {
+            addHiddenDiv(newDiv, 'alcoholContent', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Hazard Warnings')) {
+            addHiddenDiv(newDiv, 'warnings', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Suggested Age:')) {
+            addHiddenDiv(newDiv, 'ageSuitability', e.split('</B>')[1].trim());
+          }
+          if (e.includes('Material:') || e.includes('material:')) {
+            materials.push(e.split('</B>')[1].trim());
+          }
+        });
+        if (materials.length) {
+          addHiddenDiv(newDiv, 'materials', materials.join(', '));
+        }
+      }
+
+      if (storage.length) {
+        addHiddenDiv(newDiv, 'storage', storage);
+      }
+
+      if (variant.package_dimensions) {
+        if (variant.package_dimensions.weight && variant.package_dimensions.weight_unit_of_measure) {
+          addHiddenDiv(newDiv, 'shipWeight', variant.package_dimensions.weight + ' ' + variant.package_dimensions.weight_unit_of_measure.toLowerCase() + 's');
+        }
+        addHiddenDiv(newDiv, 'shippingDimensions', variant.package_dimensions.depth + ' inches length x ' + variant.package_dimensions.width + ' inches width x ' + variant.package_dimensions.height + ' inches height');
+        if (!hasSpecifications) {
+          addHiddenDiv(newDiv, 'specifications', variant.package_dimensions.depth + ' inches length x ' + variant.package_dimensions.width + ' inches width x ' + variant.package_dimensions.height + ' inches height');
+        }
+      }
+
+      if (variant.upc) {
+        addHiddenDiv(newDiv, 'upc', variant.upc.toString());
+      }
+
+      if (variant.tcin) {
+        addHiddenDiv(newDiv, 'sku', variant.tcin);
+      }
+
+      if (variant.dpci) {
+        addHiddenDiv(newDiv, 'variantId', variant.dpci);
+      }
+
+      if (variant.disclaimer && variant.disclaimer.description) {
+        addHiddenDiv(newDiv, 'disclaimer', variant.disclaimer.description);
+      }
+
+      if (variant.country_of_origin) {
+        addHiddenDiv(newDiv, 'countryOfOrigin', variant.country_of_origin);
+      } else if (parentData.product && parentData.product.item.country_of_origin) {
+        addHiddenDiv(newDiv, 'countryOfOrigin', parentData.product.item.country_of_origin);
+      } else if (origData.product && origData.product.item.country_of_origin) {
+        addHiddenDiv(newDiv, 'countryOfOrigin', origData.product.item.country_of_origin);
+      }
+
+      if (variant.enrichment && variant.enrichment.drug_facts) {
+        if (variant.enrichment.drug_facts.direction && variant.enrichment.drug_facts.direction.general_directions && variant.enrichment.drug_facts.direction.general_directions.length) {
+          addHiddenDiv(newDiv, 'directions', variant.enrichment.drug_facts.direction.general_directions[0]);
+        }
+        if (variant.enrichment.drug_facts.warning && variant.enrichment.drug_facts.warning.text) {
+          addHiddenDiv(newDiv, 'warnings', variant.enrichment.drug_facts.warning.text);
+        }
+      }
+
+      if (variant.enrichment && variant.enrichment.nutrition_facts) {
+        if (variant.enrichment.nutrition_facts.warning) {
+          addHiddenDiv(newDiv, 'warnings', variant.enrichment.nutrition_facts.warning);
+        }
+      }
+
+      document.querySelectorAll('.h-padding-l-tight').forEach(e => {
+        if (e && (e.innerText.indexOf('WARNING:') > -1 || e.innerText.indexOf('warning') > -1)) {
+          addHiddenDiv(newDiv, 'warnings', e.parentElement.innerText.split(':')[1]);
+        }
+      });
+
+      document.querySelectorAll('.h-padding-l-default').forEach(e => {
+        if (e && (e.innerText.indexOf('Warning:') > -1) && e.querySelector('h3') && e.querySelector('h3').innerText === 'Description') {
+          addHiddenDiv(newDiv, 'warnings', e.innerText.split('Warning:')[1]);
+        }
+      });
+
+      if (variantCount) {
+        addHiddenDiv(newDiv, 'variantCount', variantCount);
+      }
+
+      if (variant.proposition_65_warning_text) {
+        addHiddenDiv(newDiv, 'prop65Warning', variant.proposition_65_warning_text);
+      }
+
+      if (variant.enrichment &&
+        variant.enrichment.nutrition_facts &&
+        variant.enrichment.nutrition_facts.value_prepared_list &&
+        variant.enrichment.nutrition_facts.value_prepared_list.length &&
+        variant.enrichment.nutrition_facts.value_prepared_list[0]) {
+        if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size) {
+          const servingSize = variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size;
+          addHiddenDiv(newDiv, 'servingSize', !variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement ? servingSize : servingSize.split(' ')[0]);
+          if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement) {
+            addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement);
+          }
+          addHiddenDiv(newDiv, 'servingsPerContainer', variant.enrichment.nutrition_facts.value_prepared_list[0].servings_per_container);
+        }
+
+        if (variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients) {
+          variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients.forEach(e => {
+            if (!e) {
+              return;
+            }
+            const val = e.quantity || e.percentage || '0';
+            if (e.name === 'Calories') {
+              addHiddenDiv(newDiv, 'caloriesPerServing', val);
+            }
+            if (e.name === 'Calories From Fat' || e.name === 'Calories from Fat') {
+              addHiddenDiv(newDiv, 'caloriesFromFat', val);
+            }
+            if (e.name === 'Total Fat') {
+              addHiddenDiv(newDiv, 'totalFatPerServing', val);
+              addHiddenDiv(newDiv, 'totalFatPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Saturated Fat') {
+              addHiddenDiv(newDiv, 'saturatedFatPerServing', val);
+              addHiddenDiv(newDiv, 'saturatedFatPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Trans Fat') {
+              addHiddenDiv(newDiv, 'transFatPerServing', val);
+              addHiddenDiv(newDiv, 'transFatPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Cholesterol') {
+              addHiddenDiv(newDiv, 'cholesterolPerServing', val);
+              addHiddenDiv(newDiv, 'cholesterolPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Sodium') {
+              addHiddenDiv(newDiv, 'sodiumPerServing', val);
+              addHiddenDiv(newDiv, 'sodiumPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Total Carb.' || e.name === 'Total Carbohydrate') {
+              addHiddenDiv(newDiv, 'totalCarbPerServing', val);
+              addHiddenDiv(newDiv, 'totalCarbPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Dietary Fiber') {
+              addHiddenDiv(newDiv, 'dietaryFibrePerServing', val);
+              addHiddenDiv(newDiv, 'dietaryFibrePerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Sugars' || e.name === 'Total Sugars') {
+              addHiddenDiv(newDiv, 'totalSugarsPerServing', val);
+              addHiddenDiv(newDiv, 'totalSugarsPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Protein') {
+              addHiddenDiv(newDiv, 'proteinPerServing', val);
+              addHiddenDiv(newDiv, 'proteinPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Vitamin A') {
+              addHiddenDiv(newDiv, 'vitaminAPerServing', val);
+              addHiddenDiv(newDiv, 'vitaminAPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Vitamin C') {
+              addHiddenDiv(newDiv, 'vitaminCPerServing', val);
+              addHiddenDiv(newDiv, 'vitaminCPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Calcium' || e.name.toLowerCase().indexOf('calcium') > -1) {
+              addHiddenDiv(newDiv, 'calciumPerServing', val);
+              addHiddenDiv(newDiv, 'calciumPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Iron' || e.name.toLowerCase().indexOf('iron') > -1) {
+              addHiddenDiv(newDiv, 'ironPerServing', val);
+              addHiddenDiv(newDiv, 'ironPerServingUom', e.unit_of_measurement || '%');
+            }
+            if (e.name === 'Magnesium' || e.name.toLowerCase().indexOf('magnesium') > -1) {
+              addHiddenDiv(newDiv, 'magnesiumPerServing', val);
+              addHiddenDiv(newDiv, 'magnesiumPerServingUom', e.unit_of_measurement || '%');
+            }
+          });
+        }
+      }
+
+      if (parentData.product && parentData.product.item && parentData.product.item.child_items) {
+        const variants = [];
+        parentData.product.item.child_items.forEach(e => {
+          variants.push(e.tcin);
+        });
+        addHiddenDiv(newDiv, 'firstVariant', variants[0]);
+        addHiddenDiv(newDiv, 'variants', variants.join(' | '));
+      }
+
+      if (variant.variation && variant.variation.flexible_themes) {
+        const variationInfo = [];
+        for (const key in variant.variation.flexible_themes) {
+          variationInfo.push(variant.variation.flexible_themes[key]);
+        }
+        addHiddenDiv(newDiv, 'variationInfo', variationInfo.join(' '));
+      }
+
+      document.querySelector('div[data-test="breadcrumb"]').querySelectorAll('span[itemprop="name"]').forEach((e, ind) => {
+        if (ind > 0) {
+          addHiddenDiv(newDiv, 'category', e.innerText);
+        }
+      });
+
+      let terms = 'No';
+      if (document && document.querySelector('a[href="/c/terms-conditions/-/N-4sr7l"]')) {
+        terms = 'Yes';
+      }
+      addHiddenDiv(newDiv, 'terms', terms);
+
+      let privacy = 'No';
+      if (document && document.querySelector('a[href="/c/target-privacy-policy/-/N-4sr7p"]')) {
+        privacy = 'Yes';
+      }
+      addHiddenDiv(newDiv, 'privacy', privacy);
+      addHiddenDiv(newDiv, 'customerServiceAvailability', 'Yes');
+
+      const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC') || document.querySelector('.TapToZoomText-r290sk-0');
+      if (zoom) {
+        addHiddenDiv(newDiv, 'zoom', 'Yes');
+      } else {
+        addHiddenDiv(newDiv, 'zoom', 'No');
+      }
+
+      let rotate = document.querySelector('button[data-test="button-model-viewer"]');
+      if (!rotate) {
+        document.querySelectorAll('.wc-demoted').forEach(e => {
+          console.log('h3', e.innerText);
+          if (e && e.innerText && e.innerText === '360° View') {
+            rotate = true;
+          }
+        });
+      }
+      if (rotate) {
+        addHiddenDiv(newDiv, 'rotate', 'Yes');
+      } else {
+        addHiddenDiv(newDiv, 'rotate', 'No');
+      }
+
+      const moreImageBtn = document.querySelector('.styles__LegendGridButtonOverlay-beej2j-13');
+      if (moreImageBtn) {
+        moreImageBtn.click();
+        await stall(100);
+        const slideDeck = document.querySelector('.ZoomedSlideDeck__SlideList-sc-1nqe9sx-0');
+        if (slideDeck) {
+          console.log('has slide deck!');
+          slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
+            if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
+              e.click();
+              await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  resolve();
+                }, 1000);
+              });
+              if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
+                videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
+              }
+            } else if (ind > 0) {
+              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
+            }
+          });
+        }
+      } else {
+        const sideImages = document.querySelectorAll('.styles__ThumbnailImage-beej2j-11');
+        if (sideImages) {
+          sideImages.forEach(async (e, ind) => {
+            if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
+              e.click();
+              await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  resolve();
+                }, 1000);
+              });
+              if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
+                videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
+              }
+            } else if (ind > 0) {
+              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
+            }
+          });
+        }
+      }
+
+      addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
+      if (secondaryImages.length) {
+        addHiddenDiv(newDiv, 'secondaryImageTotal', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).length);
+      } else {
+        addHiddenDiv(newDiv, 'secondaryImageTotal', '0');
+      }
+
+      const shipbutton = document.querySelector('#tab-ShippingReturns');
+      if (shipbutton != null) {
+        shipbutton.click();
+        await stall(100);
+        if (document && document.querySelector('div[data-test="productDetailsTabs-shippingReturnsTab-shippingDetails"]')) {
+          addHiddenDiv(newDiv, 'shippingInfo', document.querySelector('div[data-test="productDetailsTabs-shippingReturnsTab-shippingDetails"]').innerText.replace('Shipping details ', ''));
+        }
+      }
+
+      let hasTechnicalInfoPDF = 'No';
+      let manufacturerDesc = '';
       const manufacturerImgs = [];
-      document.querySelectorAll('img.wc-media.wc-image').forEach(e => {
-        manufacturerImgs.push(e.src);
+      const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
+      const frameContents = document.getElementById('frameContents' + variant.tcin);
+      if (frameContents && frameContents.querySelector('#salsify-content')) {
+        await stall(2000);
+        manufacturerDesc = frameContents.innerText;
+        frameContents.querySelectorAll('img').forEach(e => {
+          manufacturerImgs.push(e.getAttribute('src'));
+        });
+        frameContents.querySelectorAll('video').forEach(e => {
+          videos.push(e.src);
+        });
+      } else if (manufacturerCTA) {
+        if (document.getElementById('wc-power-page')) {
+          if (document.getElementById('wc-power-page').querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
+            hasTechnicalInfoPDF = 'Yes';
+          }
+
+          console.log('haswcpowerpage');
+          const manufacturerDescArr = [];
+          document.querySelectorAll('.wc-fragment').forEach(e => {
+            if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
+              return;
+            }
+
+            if (e.querySelector('.wc-pct-data')) {
+              e.querySelectorAll('tr').forEach(tr => {
+                if (tr && tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
+                  manufacturerDescArr.push(tr.innerText);
+                }
+              });
+            } else {
+              manufacturerDescArr.push(e.innerText);
+            }
+          });
+          document.getElementById('wc-power-page').querySelectorAll('iframe').forEach(e => {
+            console.log('hasframehere');
+            const frameContents = e.contentWindow.document.body;
+            frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
+              if (!e.getAttribute('class') || (e.getAttribute('class') && !e.getAttribute('class').includes('vjs'))) {
+                manufacturerDescArr.push(e.innerText);
+              }
+            });
+            frameContents.querySelectorAll('img').forEach(e => {
+              manufacturerImgs.push(e.src);
+            });
+            frameContents.querySelectorAll('video').forEach(e => {
+              videos.push(e.src);
+            });
+            frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
+              setTimeout(() => {
+                if (e.querySelector('button')) {
+                  e.querySelector('img').click();
+                  if (frameContents.querySelector('.wc-video-container')) {
+                    videos.push(frameContents.querySelector('.wc-video-container').querySelector('video').src);
+                  }
+                }
+              }, (ind * 500) + 500);
+            });
+          });
+          manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
+          if (!manufacturerDescArr.length) {
+            manufacturerDesc = document.getElementById('wc-power-page').innerText;
+          }
+          document.getElementById('wc-power-page').querySelectorAll('img').forEach(e => {
+            console.log('wcimagehere', e.src);
+            manufacturerImgs.push(e.src);
+          });
+          document.getElementById('wc-power-page').querySelectorAll('video').forEach(e => {
+            videos.push(e.src);
+          });
+        }
+      }
+
+      addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
+
+      function onlyUnique (value, index, self) {
+        return self.indexOf(value) === index;
+      }
+
+      if (manufacturerDesc && manufacturerDesc !== 'Loading, please wait...') {
+        addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
+      }
+      addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('/assets/') && !img.includes('/resources/')).filter(onlyUnique).join('|'));
+      console.log('manufacturimgs', manufacturerImgs);
+
+      console.log('continuing...');
+      if (videos.length) {
+        await stall(5000);
+      }
+      addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
+
+      let inStore = false;
+      let deliver = false;
+      let availabilitySuccess = false;
+      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
+      .then(data => data.json())
+      .then(availabilityData => {
+        if (availabilityData &&
+        availabilityData.data &&
+        availabilityData.data.product &&
+        availabilityData.data.product.fulfillment) {
+          if (availabilityData.data.product.fulfillment.store_options &&
+              availabilityData.data.product.fulfillment.store_options.length) {
+                availabilitySuccess = true;
+                availabilityData.data.product.fulfillment.store_options.forEach(store => {
+                  if(store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
+                    inStore = true;
+                  }
+                });
+          }
+
+          if (availabilityData.data.product.fulfillment.shipping_options) {
+            availabilitySuccess = true;
+          }
+
+          if (availabilityData.data.product.fulfillment.shipping_options &&
+              (availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK' || availabilityData.data.product.fulfillment.shipping_options.availability_status.includes('LIMITED_STOCK'))) {
+            deliver = true;
+          }
+        }
+
       });
-      addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
-      await stall(1000);
+
+      if (availabilitySuccess) {
+        if (deliver) {
+          addHiddenDiv(newDiv, 'availability', 'In Stock');
+        } else if (inStore) {
+          addHiddenDiv(newDiv, 'availability', 'In Store Only');
+        }
+        if (!deliver && !inStore) {
+          addHiddenDiv(newDiv, 'availability', 'Out of stock');
+        }
+      } else {
+        
+        const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
+        if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+          inStore = true;
+        }
+
+        const orderMessage = document.querySelector('div[data-test="deliverToZipCodeMessage"]');
+        if (orderMessage && (orderMessage.querySelector('.h-text-greenDark.h-text-bold') || orderMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
+          deliver = true;
+        }
+
+        const scheduledDelivery = document.querySelector('div[data-test="scheduledDeliveryBlock"]');
+        if (scheduledDelivery && (scheduledDelivery.querySelector('.h-text-greenDark.h-text-bold') || scheduledDelivery.querySelector('.h-text-orangeDark.h-text-bold'))) {
+          deliver = true;
+        }
+
+        if (deliver) {
+          addHiddenDiv(newDiv, 'availability', 'In Stock');
+        } else if (inStore) {
+          addHiddenDiv(newDiv, 'availability', 'In Store Only');
+        }
+        if (!deliver && !inStore) {
+          addHiddenDiv(newDiv, 'availability', 'Out of stock');
+        }
+      }
+
+      let priceSuccess = false;
+      console.log('pricing');
+      await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
+        .then(data => data.json())
+        .then(variantData => {
+          if (variantData.price) {
+            if (variantData.price.current_retail || variantData.price.formatted_current_price) {
+              addHiddenDiv(newDiv, 'price', variantData.price.current_retail || variantData.price.formatted_current_price);
+              priceSuccess = true;
+            }
+            if (variantData.price.reg_retail) {
+              addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
+            }
+            if (variantData.price.save_dollar) {
+              addHiddenDiv(newDiv, 'promotion', 'Save $' + variantData.price.save_dollar.toFixed(2) + ' ' + variantData.price.save_percent + '%' + ' off');
+            }
+          }
+        });
+
+      if (!priceSuccess) {
+        if (document.querySelector('span[data-test="product-savings"]') && document.querySelector('span[data-test="product-savings"]').innerText) {
+          addHiddenDiv(newDiv, 'regPrice', document.querySelector('span[data-test="product-savings"]').innerText.split(' ')[1]);
+        } else if (document.querySelector('div[data-test="product-price"]')) {
+          addHiddenDiv(newDiv, 'regPrice', document.querySelector('div[data-test="product-price"]').innerText);
+        }
+        addHiddenDiv(newDiv, 'price', document.querySelector('div[data-test="product-price"]').innerText.split(' ')[0]);
+        if (document.querySelector('span[data-test="product-savings"]') && document.querySelector('span[data-test="product-savings"]').innerText) {
+          addHiddenDiv(newDiv, 'promotion', 'Save ' + document.querySelector('span[data-test="product-savings"]').innerText.split('Save')[1]);
+        }
+      }
+
+      if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
+        const averageRating = document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText;
+        addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
+        addHiddenDiv(newDiv, 'aggregateRatingText', (Math.round(averageRating * 10) / 10) + ' out of 5');
+      } else {
+        addHiddenDiv(newDiv, 'aggregateRating', '0');
+      }
+
+      if (document.querySelector('span[data-test="ratingCount"]')) {
+        addHiddenDiv(newDiv, 'ratingCount', document.querySelector('span[data-test="ratingCount"]').innerText);
+      }
     }
+
+    const newDiv = document.createElement('ul');
+    newDiv.setAttribute('id', 'mainContainer');
+    newDiv.style.display = 'none';
+    document.body.appendChild(newDiv);
+
+    const splitUrl = window.location.href.split('-');
+    const fUrl = 'https://redsky.target.com/v3/pdp/tcin/';
+    const urlVars = '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test';
+    const fullUrl = fUrl + splitUrl[splitUrl.length - 1].split('#')[0] + urlVars;
+    let parentId;
+    await fetch(`${fullUrl}`)
+      .then(data => data.json())
+      .then(async function (res) {
+        parentData = res;
+        origData = res;
+        if (res && res.product && res.product.item && res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
+          parentId = res.product.item.parent_items;
+          getProductInfo(res.product.item, res.product.item.product_description.title);
+          await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
+            .then(data => data.json())
+            .then(async function (parentRes) {
+              parentData = parentRes;
+              parentRes.product.item.child_items.forEach(async (variant) => {
+                await getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
+              });
+            });
+        } else if (res && res.product && res.product.item && res.product.item.child_items) {
+          for (const variant of res.product.item.child_items) {
+            await getProductInfo(variant, res.product.item.product_description.title, res.product.item.child_items.length);
+          }
+        } else if (res && res.product && res.product.item) {
+          console.log('noVariants');
+          await getProductInfo(res.product.item, res.product.item.product_description.title);
+        }
+      });
+
+    await stall(12000);
   });
-  return await context.extract(productDetails, { transform });
+
+  await context.extract(productDetails, { transform });
 }
 
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'target',
-    transform: null,
+    transform: transform,
     domain: 'target.com',
   },
   implementation,

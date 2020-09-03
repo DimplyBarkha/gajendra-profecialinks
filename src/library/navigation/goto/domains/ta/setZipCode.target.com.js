@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'US',
     domain: 'target.com',
     store: 'target',
-    timeout: 60000,
   },
 };

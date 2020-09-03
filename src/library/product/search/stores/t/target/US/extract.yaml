@@ -1,43 +1,40 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //ul//li
-#recordXPath: null
+recordSelector: .productInfo
+#recordXPath: //ul[@id="mainContainer"]//li[@class="productInfo"]
+recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="itemId"]
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@class="rank"]
+    xpath: .//div[@class="productId"]
   - name: name
     singleValue: false
-    xpath: //div[@class="product-name"]
+    xpath: .//div[@class="productName"]
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    selector: div.sponsored
   - name: productUrl
     singleValue: false
-    xpath: //a[@data-test="product-title"]/@href
+    xpath: .//div[@class="productUrl"]
   - name: gtin
-    singleValue: true
-  - name: thumbnail
-    singleValue: true
-    xpath: //picture//source/@srcset
-  - name: aggregateRating
     singleValue: false
-    xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
+    xpath: .//div[@class="gtin"]
+  - name: thumbnail
+    singleValue: false
+    xpath: .//div[@class="thumbnail"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: .//div[@class="averageRating"]
   - name: reviewCount
     singleValue: false
-    xpath: //span[@data-test="product-rating-count"]
+    xpath: .//div[@class="reviewCount"]
   - name: price
     singleValue: false
-    xpath: //span[@data-test="product-price"]
+    xpath: .//div[@class="price"]
   - name: manufacturer
     singleValue: false
-    xpath: //a[@data-test="itemDetail-brand"]
+    xpath: .//div[@class="brand"]
   - name: soldBy
     singleValue: true
-  - name: rank
-    singleValue: false
-    xpath: //div[@class="rank"]
-  - name: endorsementText
-    singleValue: false
-    xpath: //div[@class="endorsement"]
