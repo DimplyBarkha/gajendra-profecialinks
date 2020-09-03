@@ -27,3 +27,6 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class,'product-item-photo')]/a/@href
+  - name: id
+    singleValue: false
+    xpath: //li[contains(@class, "product-item")]/@data-sku
