@@ -18,17 +18,17 @@ const transform = (data) => {
             },
           ];
         }
-        // if (row.description) {
-        //   let text = '';
-        //   row.description.forEach(item => {
-        //     text += `${item.text.replace(/•/gm, ' ||').replace(/\n/g, ' ')} `;
-        //   });
-        //   row.description = [
-        //     {
-        //       text: text,
-        //     },
-        //   ];
-        // }
+        if (row.description) {
+          let text ='';
+          row.description.forEach(item => {
+            item.text = item.text.replace(/(\|\|\s){2,}/gm,'|| ').split('La marque vous informe')[0].split('<!--')[0];
+          });
+          row.description = [
+            {
+              text: row.description[0].text.slice(0, -1),
+            },
+          ];
+        }
         if (row.additionalDescBulletInfo) {
           let text = '';
           row.additionalDescBulletInfo.forEach(item => {

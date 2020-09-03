@@ -66,9 +66,9 @@ module.exports = {
       // videoArr = videoArr.join(' | ');
       // addHiddenDiv('videos', videoArr);
 
-      let description = document.querySelector('div[class="product-part toscroll"]');
+      let description = document.querySelector('div[id="feature-product"]');
       let descriptionHTML = description ? description.innerHTML : '';
-      descriptionHTML = descriptionHTML ? descriptionHTML.replace(/<h2(.*)h2>/gm, '').replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace('Les plus produit','').replace('description produit','').trim() : '';
+      descriptionHTML = descriptionHTML ? descriptionHTML.replace(/(.*)\<div\sid="flix-inpage"/gm,'$1').replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/\s{2,}/, ' ').replace('Les plus produit','').replace('description produit','').replace('Caractéristiques','').trim() : '';
       addHiddenDiv('descriptionHTML', descriptionHTML);
     });
     return await context.extract(productDetails, { transform });
