@@ -74,6 +74,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
+    xpath: concat(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")],":",//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)
   - name: promotion
     singleValue: false
     xpath: //span[@class="offer"]//div[1]
@@ -100,7 +101,7 @@ fields:
     regExpReplace: $3
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="wc-power-page"]//h1 | //h1[contains(text(),'From the Manufacturer')]/following-sibling::div//div[@class="wc-rich-content-description"]
+    manualSelector: div#wc-aplus
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,"wc-media-inner-wrap") or contains(@class,"wc-rf-banner-image-container")]//img/@src
@@ -111,6 +112,7 @@ fields:
     regExpReplace: $2
   - name: variantCount
     singleValue: false
+    defaultValue: 1
   - name: color
     singleValue: false
     xpath: (//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]

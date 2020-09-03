@@ -15,7 +15,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
@@ -35,25 +35,18 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.description) {
+      if (row.description && row.additionalDescBulletInfo) {
         let text = '';
+        let additionaldesc = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim()} | `;
+          text += `${item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, '||').trim()} | `;
+        });
+        row.additionalDescBulletInfo.forEach(item => {
+          additionaldesc += `${item.text.replace(/\s{2,}/g, ' ').trim()} || `;
         });
         row.description = [
           {
-            text: text.slice(0, -3),
-          },
-        ];
-      }
-      if (row.manufacturerDescription) {
-        let text = '';
-        row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
-        });
-        row.manufacturerDescription = [
-          {
-            text: text,
+            text: text.slice(0, -3) + additionaldesc.slice(0, -3),
           },
         ];
       }

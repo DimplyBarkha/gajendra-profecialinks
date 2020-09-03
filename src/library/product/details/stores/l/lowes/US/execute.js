@@ -4,6 +4,6 @@ module.exports = {
     country: 'US',
     store: 'lowes',
     domain: 'lowes.com',
-    loadedSelector: null,
+    loadedSelector: 'div[id="main-section"] div[class="tile"] img',
   },
 };
