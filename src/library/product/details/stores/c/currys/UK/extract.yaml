@@ -51,7 +51,7 @@ fields:
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@class="no-tablet"]//div[@class="main-desc"]//li)
+    xpath: count(//div[@class="no-tablet"]//div[@class="main-desc"]//ul[not(contains(@class,"product-offers"))]/li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -84,10 +84,12 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
-    manualSelector: div#productId
+    xpath: //p[@class="prd-code"]
+    regExp: \d+
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
+    xpath: //th[contains(text(), "odel number")]/following-sibling::td
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -481,7 +483,8 @@ fields:
     regExp: (\d+)\-pdt\.html
     regExpReplace: $1
   - name: additionalDescBulletInfo
-    singleValue: false
+    singleValue: true
+    xpath: //div[@class="no-tablet"]//div[@class="main-desc"]//ul[not(contains(@class,"product-offers"))]/li
     description: null
   - name: prop65Warning
     singleValue: true
