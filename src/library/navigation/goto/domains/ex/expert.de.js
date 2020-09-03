@@ -25,17 +25,17 @@ module.exports = {
     //       timeout: 100000,
     //       waitUntil: 'load',
     // })
-    let location = '';
+    // let location = '';
 
-    const ahlen = 'ahlen';
-    const saarwellingen = 'saarwellingen';
-    const mannheim = 'Mannheim1';
-    const nuernberg = 'nuernberg1';
-    const loerrach = 'loerrach';
-    location = `/${ahlen}`;
+    // const ahlen = 'ahlen';
+    // const saarwellingen = 'saarwellingen';
+    // const mannheim = 'Mannheim1';
+    // const nuernberg = 'nuernberg1';
+    // const loerrach = 'loerrach';
+    // location = `/${ahlen}`;
 
     await context.setBlockAds(false);
-    await context.goto(`${url}${location}`, {
+    await context.goto(`${url}`, {
       anti_fingerprint: true,
       discard_CSP_header: false,
       timeout: 100000,
