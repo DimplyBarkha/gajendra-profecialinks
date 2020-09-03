@@ -23,16 +23,6 @@ async function implementation (
       const item = document.querySelectorAll('div.category-products>ul>li')
         ? document.querySelectorAll('div.category-products>ul>li')[i] : [];
       // @ts-ignore
-      const stockStatus = item && item.querySelector('a[title="Informationen zum Versand"]>span')
-        // @ts-ignore
-        ? item.querySelector('a[title="Informationen zum Versand"]>span').innerText : '';
-      // @ts-ignore
-      const shippingPrice = item && item.querySelector('span.shipping-price>a')
-        // @ts-ignore
-        ? item.querySelector('span.shipping-price>a').innerText.replace(/[+]/g, '') : '';
-      const shippingInfo = stockStatus + ',' + shippingPrice;
-      addElementToDocument(item, 'shippingInfo', shippingInfo);
-      // @ts-ignore
       const itemId = item && item.querySelector('div.art-nr')
         // @ts-ignore
         ? item.querySelector('div.art-nr').innerText.replace(/[\D]+/g, '') : '';
