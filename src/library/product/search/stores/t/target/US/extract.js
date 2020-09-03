@@ -12,7 +12,7 @@ async function implementation (
     let scrollTop = 0;
     while (scrollTop <= 20000) {
       await stall(1500);
-      scrollTop += 900;
+      scrollTop += 600;
       window.scroll(0, scrollTop);
       if (scrollTop === 20000) {
         await stall(10000);
