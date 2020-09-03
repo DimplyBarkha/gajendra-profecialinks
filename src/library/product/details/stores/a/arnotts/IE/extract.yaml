@@ -59,7 +59,9 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    xpath: //li[contains(text(), 'Height')] | //li[contains(text(), 'Length')] | //li[contains(text(), 'Width')]
+    xpath: //div[contains(@class, 'product-variations')]/@data-attributes
+    regExp: displayValue":"(.*?)"
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
     description: Gross weight as described on the page
@@ -83,7 +85,6 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    manualSelector: li.product-delivery-details-item
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
@@ -179,3 +180,9 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@itemprop='description']//li)
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#flix-inpage
+  - name: manufacturerImages  
+    singleValue: false
+    manualSelector: div#flix-inpage img
