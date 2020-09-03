@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //aside[@id="product-sidebar"]//div[contains(@class, "preview")]//img/@src
+    xpath: (//aside[@id="product-sidebar"]//div[contains(@class, "preview")]//a[@class="zoom"]/@href|//aside[@id="product-sidebar"]//div[contains(@class, "preview")]//img/@src)[1]
     regExp: (.+)
     regExpReplace: https:$1
     description: URL of the main product image
@@ -23,7 +23,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //nav[@class="breadcrumbs-nav"]//ul[@class="breadcrumbs"]//li[position()>1]
+    xpath: //nav[@class="breadcrumbs-nav"]//ul[@class="breadcrumbs"]//li[position()>1 and position()<last()]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
@@ -36,7 +36,10 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //meta[@property="product:price:amount"]/@content
+    # xpath: //meta[@property="product:price:amount"]/@content
+    # regExp: (.*)
+    # regExpReplace: €$1
+    xpath: //div[@class="price-details"]//div[contains(@class, "price big")]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -50,12 +53,12 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="details"]//article
+    xpath: //div[@class="details"]//article/*[not(self::h2)]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@class="details"]//article//li)
+    xpath: count(//div[@class="details"]//article/*[not(self::div[contains(@class, "product-promobox")]//li)]//li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -124,10 +127,10 @@ fields:
     singleValue: true
     xpath: //span[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    # type: NUMBER
   - name: shippingInfo
     singleValue: false
-    xpath: //ul[contains(@class, "usp_price_sidebar")]//li
+    # xpath: //ul[contains(@class, "usp_price_sidebar")]//li
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -294,7 +297,7 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: true
-    xpath: (//dl[@class="specification"]//dt[contains(text(),"Verpakkingsinhoud")]//following-sibling::dd)[1]
+    # xpath: (//dl[@class="specification"]//dt[contains(text(),"Verpakkingsinhoud")]//following-sibling::dd)[1]
     description: Packaging information
   - name: additives
     singleValue: true
@@ -346,7 +349,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class="details"]//article//li
+    xpath: //div[@class="details"]//article/*[not(self::div[contains(@class, "product-promobox")]//li)]//li
     description: null
   - name: energyEfficiency
     singleValue: true
@@ -361,7 +364,7 @@ fields:
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
-    xpath: //footer//a[contains(text(), "Algemene voorwaarden")]
+    xpath: //footer//a[contains(text(), "Algemene voorwaarden")]//text()
     description: Terms and conditions information text ['Yes','No']
     regExp: (.*)
     regExpReplace: Yes

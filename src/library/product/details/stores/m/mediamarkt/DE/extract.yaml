@@ -37,7 +37,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //meta[@itemprop="price"]/@content
+    xpath: (//div[contains(@class, "PriceRow")]//span[contains(@font-family, "price")]|//meta[@itemprop="price"]/@content)[1]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -69,6 +69,7 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
+    xpath: //img[contains(@class, "ManufacturerImage")]/@title
     description: Product manufacturer
   - name: quantity
     singleValue: true
@@ -130,6 +131,8 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //span[@itemprop="ratingValue"]
+    regExp: (\d).?(\d)?
+    regExpReplace: $1.$2
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
@@ -145,7 +148,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
-    xpath: count (//div[contains(@class,"ProductVariantsstyled")]//a)
+    xpath: count (//div[contains(@class,"ProductVariantsstyled")]//a|//div[contains(@class,"ProductVariantsstyled")]//li)
     description: Number of variants listed
     type: NUMBER
   - name: color
@@ -328,7 +331,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
-    xpath: //div[contains(@class,"ProductVariantsstyled")]//label
+    xpath: (//div[contains(@class,"ProductVariantsstyled__StyledProductVariantsColors")]//label|//div[contains(@class,"ProductVariantsstyled")]//span[contains(@class,"StyledInfo")])
     # regExp: (Farbe:\s{1})(.*)
     # regExpReplace: $2
     description: colour / scent / flavour / other

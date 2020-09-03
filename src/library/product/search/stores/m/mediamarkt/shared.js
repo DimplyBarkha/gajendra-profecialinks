@@ -29,20 +29,31 @@ const transform = (data, context) => {
       }
       row.rank = [{ text: rankCounter }];
       if (row.aggregateRating2) {
+        // let text = '';
+        // row.aggregateRating2.forEach(item => {
+        //   text = item.text.replace('-', '.');
+        // });
+        // row.specifications = [
+        //   {
+        //     text: text.slice(0, -4),
+        //   },
+        // ];
         row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace('-', '.') }];
       }
       if (row.aggregateRating) {
-        row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('-', '.') }];
+        row.aggregateRating = [{ text: parseFloat(row.aggregateRating[0].text.replace('-', '.')) }];
       }
       console.log('dsdsdsdsds')
       console.log(row.price)
       if (row.price && row.price[0]) {
         console.log(row.price)
-        let jsonData = row.price[0].text.split(' = ');
-        jsonData = jsonData.length === 2 ? jsonData[1].replace(';', '') : '';
-        jsonData = jsonData.length ? JSON.parse(jsonData) : {};
-        const price = Object.keys(jsonData).length ? (jsonData.price ? jsonData.price : '') : '';
-        row.price = [{ text: price }];
+        if (row.price[0].text.includes(' = ')) {
+          let jsonData = row.price[0].text.split(' = ');
+          jsonData = jsonData.length === 2 ? jsonData[1].replace(';', '') : '';
+          jsonData = jsonData.length ? JSON.parse(jsonData) : {};
+          const price = Object.keys(jsonData).length ? (jsonData.price ? jsonData.price : '') : '';
+          row.price = [{ text: price }];
+        }
       }
       if (row.id && row.id[0]) {
         if (row.id[0].text.match('.html')) {

@@ -134,6 +134,20 @@ const transform = (data, context) => {
       if (row.specifications) {
         row.specifications[0].text = row.specifications[0].text.trim();
       }
+      if (row.productOtherInformation) {
+        let text = '';
+        row.productOtherInformation.forEach(item => {
+          text = row.productOtherInformation.map(elm => elm.text).join(' | ');
+        });
+        row.productOtherInformation = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating[0].text = parseFloat(row.aggregateRating[0].text);
+      }
 
       // if (row.technicalInformationPdfPresent) {
       //   row.technicalInformationPdfPresent.forEach(item => {
