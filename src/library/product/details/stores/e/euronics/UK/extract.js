@@ -83,7 +83,6 @@ async function implementation (
 
     if (document.querySelector('.tab-details')) {
       addHiddenDiv('description', document.querySelector('.tab-details').innerText);
-      addHiddenDiv('descriptionBullets', document.querySelector('.tab-details').querySelectorAll('h2').length);
     }
 
     document.querySelector('.tabs__heading--specs').click();
@@ -158,8 +157,26 @@ async function implementation (
       document.querySelectorAll('.product-features__list')[additionalInfoInd].querySelectorAll('span').forEach(e => {
         additionalInfo.push(e.innerText);
       })
+      addHiddenDiv('descriptionBullets', additionalInfo.length);
       addHiddenDiv('additionalInfo', '|| ' + additionalInfo.join(' || '));
     }
+
+    let enhancedContent = '';
+    let manufacturerImages = [];
+    let videos = [];
+    document.querySelectorAll('.yCmsComponent.productDetailsPageSection4-component').forEach(e => {
+      enhancedContent += e.innerText + ' ';
+      e.querySelectorAll('img').forEach(img => {
+        manufacturerImages.push('https://euronics.co.uk/' + img.getAttribute('src'));
+      });
+      if (e.querySelector('iframe') && e.querySelector('iframe').getAttribute('src') && e.querySelector('iframe').getAttribute('src').includes('vimeo')) {
+        videos.push(e.querySelector('iframe').getAttribute('src'));
+      }
+    });
+
+    addHiddenDiv('enhancedContent', enhancedContent);
+    addHiddenDiv('manufacturerImages', manufacturerImages.join(' | '));
+    addHiddenDiv('videos', videos.join(' | '));
 
     addHiddenDiv('originInfo', 'GBR');
     addHiddenDiv('privacy', 'Yes');

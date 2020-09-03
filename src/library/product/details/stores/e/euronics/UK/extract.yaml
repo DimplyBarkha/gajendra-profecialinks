@@ -105,15 +105,15 @@ fields:
   - name: color
     singleValue: true
     xpath: //div[@id="color"]
-#  - name: manufacturerDescription
-#    singleValue: true
-#    xpath: //div[@class="wc-rich-content-description"]
-#  - name: manufacturerImages
-#    singleValue: true
-#    xpath: //div[@id="manufacturerImgs"]
-#  - name: videos
-#    singleValue: true
-#    xpath: //video//source/@src
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //div[@id="enhancedContent"]
+  - name: manufacturerImages
+    singleValue: true
+    xpath: //div[@id="manufacturerImages"]
+  - name: videos
+    singleValue: true
+    xpath: //div[@id="videos"]
   - name: name
     singleValue: true
     xpath: //div[@class="product-detail__heading-wrap "]//h1[@class="product-name product-detail__heading"]/text()
@@ -135,7 +135,7 @@ fields:
   #- name: variants
   #  singleValue: true
   #  xpath: //div[@id="variants"]
-  - name: additionDescBulletInfo
+  - name: additionalDescBulletInfo
     singleValue: true
     xpath: //div[@id="additionalInfo"]
 #  - name: ageSuitability
