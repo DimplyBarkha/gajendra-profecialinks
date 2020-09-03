@@ -4,8 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: false
-    xpath: //img[@class='fotorama__img']/@src
+    singleValue: true
+    xpath: //meta[@property="og:image"]/@content
   - name: imageAlt
     singleValue: true
     xpath: //meta[@property="og:image:alt"]/@content
@@ -52,7 +52,7 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin14")]
-    regExp: gtin14":"([^"]+)
+    regExp: '"gtin14": "([^"]+)"'
     regExpReplace: $1
   - name: sku
     singleValue: false
