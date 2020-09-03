@@ -36,7 +36,7 @@ async function implementation (
 
   await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
 
-  const manufacturerCTA = await context.waitForFunction(async function () {
+  const manufacturerCTA = await context.evaluate(async function () {
     let scrollTop = 750;
     while (true) {
       window.scroll(0, scrollTop);
@@ -53,7 +53,7 @@ async function implementation (
 
     window.scroll(0, 1000);
     return Boolean(document.querySelector('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]'));
-  }, { timeout: 30000 });
+  });
 
   if (manufacturerCTA) {
     console.log('hastheCTA');
@@ -676,7 +676,7 @@ async function implementation (
           addHiddenDiv(newDiv, 'availability', 'Out of stock');
         }
       } else {
-        
+
         const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
         if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
           inStore = true;
