@@ -130,6 +130,27 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturerImages) {
+        let specs = '';
+        row.manufacturerImages.forEach(item => {
+          if (!item.text.includes('gif')) {
+            specs += `https:${item.text} | `;
+          }
+        });
+        row.manufacturerImages = [
+          {
+            text: specs.slice(0, -3),
+          },
+        ];
+      }
+      if (row.productOtherInformation) {
+        const newAlternateImages = row.productOtherInformation.map(item => {
+          return {
+            text: `${item.text.replace('\n \n', ' ')}`,
+          };
+        });
+        row.productOtherInformation = newAlternateImages;
+      }
       if (row.shippingDimensions) {
         let specs = '';
         row.shippingDimensions.forEach(item => {

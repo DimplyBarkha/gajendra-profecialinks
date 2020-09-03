@@ -17,7 +17,7 @@ fields:
     xpath: (//div[@class="breadcrumbs"]//li/a/span)[position()>1]
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"product-name")]/h1/*[not(name()='p')]
+    xpath: //div[contains(@class,"product-name")]/h1/div[contains(@class,"model-name")]
   - name: nameExtended
     singleValue: false
     xpath: 
@@ -37,11 +37,16 @@ fields:
     singleValue: false
     description: Shipping information for the product
     xpath: 
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#flix-inpage
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="flix-inpage"]//img/@src
   - name: videos
     singleValue: false
-    description: URLs of videos on page
-    xpath: //*[@class="video-container"]/a/@href
-    regExp: \/\/(.+)
+    xpath: //*[@class="video-container"]/a/@href | //div[@id="flix-inpage"]//iframe/@src
+    regExp: \/?\/?(.+)
     regExpReplace: $1
   - name: availabilityText
     singleValue: false
@@ -84,4 +89,9 @@ fields:
   - name: weightGross
     singleValue: false
     xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Poids ") and contains(text(),"emball")]/following::text()[1]
-  
+  - name: gtin
+    singleValue: false
+    xpath: //script/@data-flix-ean 
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //*[@id="product-attribute-specs-table"]/tbody/tr
