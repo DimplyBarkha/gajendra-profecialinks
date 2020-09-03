@@ -1,0 +1,96 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@class='fotorama__img']/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //meta[@property="og:image:alt"]/@content
+  - name: alternateImages
+    singleValue: false
+    xpath: //span[@class='alternate_image_url']
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //meta[@property="product:category"]/@content
+  - name: nameExtended
+    singleValue: true
+    xpath: //span[@class='base']
+  - name: listPrice
+    singleValue: true
+    xpath: //span[@id='product-price-25049']
+  - name: price
+    singleValue: true
+    xpath: //span[@id='old-price-25660']
+  - name: availabilityText
+    singleValue: false
+    xpath: //meta[@property="product:availability"]/@content
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class='product attribute description']//div[@class='value']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class='product attribute description']//div[@class='value']//li)
+  - name: brandText
+    singleValue: true
+    xpath: //span[@class='cs-buybox__brand-name']
+  - name: manufacturer
+    singleValue: false
+    xpath: //span[@class='manufacturer']
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@class='swatch-option text']
+  - name: weightGross
+    singleValue: true
+    xpath: //div[@class='swatch-option text']
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin14")]
+    regExp: gtin14":"([^"]+)
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //div[@itemprop='sku']
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class='review_count']
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //p[@class='cs-review__content']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class='rating_value']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class='cs-custom-modal__content']//p
+  - name: shippingDimensions
+    singleValue: true
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue: true
+    description: Stated shipping weight
+  - name: variantId
+    singleValue: false
+    xpath: //span[@class='variation_id']
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //iframe[@id='widget2']
+  - name: videos
+    singleValue: false
+    xpath: //div[@class='product-video']
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //span[@itemprop='name']
