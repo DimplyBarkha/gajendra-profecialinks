@@ -8,9 +8,10 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+if(inputs.id){
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-
   await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+}
   const productUrl = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -676,7 +677,7 @@ async function implementation (
           addHiddenDiv(newDiv, 'availability', 'Out of stock');
         }
       } else {
-        
+
         const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
         if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
           inStore = true;
