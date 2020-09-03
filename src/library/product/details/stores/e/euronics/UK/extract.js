@@ -106,9 +106,6 @@ async function implementation (
       if (tr.querySelector('td').innerText === 'Colour') {
         addHiddenDiv('color', rowText.replace('Colour', ''));
       }
-      if (tr.querySelector('td').innerText === 'Product Model') {
-        addHiddenDiv('mpc', rowText.replace('Product Model', ''));
-      }
       if (tr.querySelector('td').innerText === 'Shipping Height') {
         shippingDimensions.push(rowText.replace('Shipping Height', '') + ' height');
       }
@@ -122,6 +119,10 @@ async function implementation (
         materials.push(tr.querySelectorAll('td')[1].innerText);
       }
     });
+
+    if (document.querySelector('.product-detail').querySelector('.product-code')) {
+      addHiddenDiv('mpc', document.querySelector('.product-detail').querySelector('.product-code').innerText);
+    }
 
     addHiddenDiv('materials', materials.join(', '));
     addHiddenDiv('shippingDimensions', shippingDimensions.join(' x '));
