@@ -36,6 +36,8 @@ fields:
   - name: reviewCount
     xpath: //div[@class='liste-articles']//div[contains(@class,"la-article")]//div[contains(@class,"la-visuel")]//span[contains(@class,"pr-nb-avis")]
     singleValue: false
+    regExp: (\d+)
+    regExpReplace: $1
   - name: rank
     xpath: //div[@class='liste-articles']//div[contains(@class,"la-article")]//div[contains(@class,"la-infos")]//h2/a/@href
     singleValue: false
