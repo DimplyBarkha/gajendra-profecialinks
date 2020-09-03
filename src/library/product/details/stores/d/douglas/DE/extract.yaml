@@ -18,7 +18,7 @@ fields:
     singleValue: false
     xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
   - name: descriptionBullets
-    xpath: count(//ul[contains(@class,'rd__list rd__list--disc')]/li)
+    xpath: count(//div[@class='rd__product-details__description__collapsible']//ul/li[not(@type='non-bullet')])
   - name: ingredientsList
     xpath: //span[contains(.,"Inhaltsstoffe")]/parent::div//following-sibling::div[1]
     singleValue: true
@@ -31,8 +31,6 @@ fields:
   - name: reviewCount
     xpath: //meta[@itemprop='reviewCount']/@content
   - name: aggregateRating2
-    xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
-  - name: aggregateRatingText
     xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: aggregateRating
     xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
@@ -55,7 +53,7 @@ fields:
   - name: secondaryImageTotal
     xpath: count(//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]/parent::div/parent::div/following-sibling::div//img/@src)
   - name: imageAlt
-    xpath: //div[contains(@class,'rd__product-details-gallery__container is-active')]//img/@alt
+    xpath: //div[@id='img-alt']
   - name: promotion
     singleValue: true
     xpath: //span[contains(@class,"rd__eye-catcher rd__eye-catcher--sale")]
@@ -74,12 +72,12 @@ fields:
     defaultValue: 'No'
   - name: legalDisclaimer
     xpath: //section[contains(@class, 'rd__text-legal--common')]
-  - name: additionDescBulletInfo
-    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
+  - name: additionalDescBulletInfo
+    xpath: //div[@class='rd__product-details__description__collapsible']//ul/li[not(@type="non-bullet")]
   - name: variantCount
-    xpath: count(//div[@class='rd__blob rd__product-details__picker__list__item'])
+    xpath: count(//div[contains(@class, 'rd__product-details__picker__list__item')])
   - name: color
-    xpath: //span[contains(., 'Farbe')]
+    xpath: //li//span[contains(., 'Farbe')]
   - name: variants
     xpath: //div[@id='variantId']/@title
   - name: firstVariant
@@ -94,3 +92,9 @@ fields:
     xpath: //div[contains(@class, 'boxed')]//div[contains(@class, 'image-container')]//div[@class='image']/@style
     regExp: background-image:url\('(.+)'\)
     regExpReplace: $1
+  - name: weightNet
+    xpath: //*[contains(.,'Mehr zu diesem Produkt') or contains(., 'Artikeldetails')]/following-sibling::ul/li[contains(.,'Nettogewicht') or contains(., 'Gewicht mit Kabel') or contains(., 'Gewicht in')]
+    regExp: (.+):(.+)
+    regExpReplace: $2
+  - name: warranty
+    xpath: //div[contains(@class, 'rd__product-details__description__collapsible')]//li[contains(., 'garantie') and not(contains(@type,'non-bullet'))] | //div[contains(@class, 'rd__product-details__description__collapsible')]//div[contains(., 'garantie')]

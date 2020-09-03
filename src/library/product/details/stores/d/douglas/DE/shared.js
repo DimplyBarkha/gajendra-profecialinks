@@ -51,7 +51,7 @@ const transform = (data) => {
 
       if (row.color) {
         const color = row.color[0].text;
-        row.color[0].text = color.substring(color.lastIndexOf('-') + 1).trim();
+        row.color[0].text = color.substring(color.lastIndexOf(':') + 1).trim();
       }
     }
   }

@@ -15,11 +15,18 @@ module.exports = {
         const descUl = document.evaluate('//ul[contains(@class,"rd__list rd__list--disc")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (descUl) {
           const spanEle = document.createElement('li');
+          spanEle.type = 'non-bullet'
           spanEle.textContent = spanDescription;
           descUl.appendChild(spanEle);
         }
-
-        let videoXpath = "//div[contains(@class, 'slick-slider rd__product-details-gallery__thumbnails slick-initialized')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-cloned'))]//span[contains(@data-wt-content,'Video.www.douglas.de')]";
+        let activeImageXpath = "//div[contains(@class,'rd__product-details-gallery__container is-active')]";
+        let activeImage = document.evaluate(activeImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+        if (activeImage) {
+          const imgAlternate = document.querySelector("div.rd__product-details-gallery__container.is-active img").getAttribute('alt')
+          addHiddenDiv('img-alt', imgAlternate)
+        }
+        
+        let videoXpath = "//span[contains(@data-wt-content, 'Video.www.douglas.de')]";
         let videoEle = document.evaluate(videoXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
         if (videoEle) {
           videoEle.click();
