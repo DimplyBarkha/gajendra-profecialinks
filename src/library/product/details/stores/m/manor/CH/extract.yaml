@@ -1,0 +1,59 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //span[@class='js-productprice']
+  - name: image
+    singleValue: false
+    xpath: (//div[@class="slick-track"]//img[1]/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@class="slick-track"]//img[1]/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="slick-track"]//img/@src    
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']
+  - name: _url
+    singleValue: false
+    xpath: //link[@hreflang='x-default']/@href
+  - name: category
+    singleValue: false
+    xpath: //div[@data-t-name='Breadcrumb']
+  - name: description
+    singleValue: false
+    xpath: //div[@class='m-productdescription__description js-desc']
+  - name: color
+    singleValue: false
+    xpath: //span[@class='m-productcolorselect-v-2__selector-title']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='m-pickupinstore-list-item__store__location inStock']
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop='reviewCount']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop='ratingValue']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //img[@class="m-productdescription__logo lazy"]/@src
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@class="m-productdescription__url"]/@href
+  - name: sku
+    singleValue: false
+    xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class='m-productfacts_single_values']//span[contains(text(),'Garantie')]
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href  
+  - name: manufacturer
+    singleValue: false
+    xpath: (//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"]//h2)[0]
