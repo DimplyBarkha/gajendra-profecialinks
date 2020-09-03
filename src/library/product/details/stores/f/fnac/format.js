@@ -33,12 +33,12 @@ const transform = (data) => {
       }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
-          item.text = item.text.replace('€', ',');
+          item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
         });
       }
       if (row.price) {
         row.price.forEach(item => {
-          item.text = item.text.replace('€', ',');
+          item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
         });
       }
       if (row.additionalDescBulletInfo) {
@@ -66,13 +66,13 @@ const transform = (data) => {
       }
       if (row.warranty) {
         row.warranty.forEach(warrantyItem => {
-          warrantyItem.text = warrantyItem.text.replace('Garantie', '');
+          warrantyItem.text = warrantyItem.text.replace('Garantie', '').trim();
         });
       }
       if (row.specifications) {
-        row.specifications.forEach(specificationsItem => {
-          specificationsItem.text = specificationsItem.text.replace(/.x/g, " ||");
-        });
+        row.specifications[0].text = row.specifications[0].text
+          .replace(/(\n\s*){4,}/g, ' || ')
+          .replace(/(\n\s*){2,}/g, ' : ');
       }
     }
   }

@@ -95,17 +95,15 @@ fields:
     xpath: //div[@id="added_url"]
   - name: specifications
     singleValue: false  
-    xpath: //dt[contains(text(), "Dimensions")]//following-sibling::*
+    xpath: //div[contains(@class, "productStrate characteristicsStrate")]
   - name: shippingDimensions
     singleValue: false  
-    xpath: //dt[contains(text(), "Hauteur du produit")]//following-sibling::*
+    xpath: //dt[contains(text(), "Dimensions")]//following-sibling::*
   - name: manufacturer
-    singleValue: false  
-    xpath: //span[@class="f-productHeader-subTitleLabel"]
+    singleValue: false
   - name: promotion
-    singleValue: false  
-    xpath: //div[@class="f-productOffer-commercialOperation"]
+    singleValue: false
   - name: videos
     singleValue: false  
-    xpath: //div[contains(@class, "videoContainer")]/video[contains(@id, "view34-video")]/@src
+    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
   
