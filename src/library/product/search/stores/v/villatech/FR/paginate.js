@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'villatech',
-    nextLinkSelector: 'a[title="Page suivante"]',
+    nextLinkSelector: 'a[title="Page suivante"] , a[title="Suivant"] ',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'section.products-list div.product-list-col',
