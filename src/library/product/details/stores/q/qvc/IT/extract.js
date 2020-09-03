@@ -29,11 +29,10 @@ async function implementation (
       const productVariable = JSON.parse(document.querySelector("meta[name='data-product-details']").getAttribute('content'));
 
       addHiddenDiv('sku', productVariable.sku[index].sku);
-      addHiddenDiv('price', productVariable.price[0].value);
       addHiddenDiv('availabilityText', productVariable.sku[index].inventory.stockPhase);
       addHiddenDiv('ratingCount', productVariable.summaryReview.totalReviews);
       addHiddenDiv('aggregateRating', productVariable.summaryReview.summaryRating);
-
+      addHiddenDiv('variantCount', productVariable.sku.length);
       const account = document.querySelectorAll('a[data-account-id]:not([data-account-id=""])');
 
       productVariable.assets.forEach(element => {
@@ -45,13 +44,21 @@ async function implementation (
         }
       });
 
-      if (productVariable.sku.length > 1) {
-        addHiddenDiv('ii_sku', productVariable.sku[0].sku);
-        addHiddenDiv('variantCount', productVariable.sku.length);
-        addHiddenDiv('ii_variants', productVariable.sku[index].sku);
+      if (productVariable.sku.length > 1 && index == 0) {
+        productVariable.sku.forEach(element => {
+          addHiddenDiv('ii_variants', element.sku);
+        });
+        productVariable.assets.forEach(element => {
+          if (element.type == 'image') {
+            addHiddenDiv('ii_secondary_image', element.url);
+          }
+        });
       }
 
-      // eslint-disable-next-line eqeqeq
+      if (productVariable.sku.length > 1) { // done
+        addHiddenDiv('ii_sku', productVariable.sku[0].sku);
+      }
+
       if (productVariable.sku.length == 1) {
         for (let i = 0; i < productVariable.assets.length; i++) {
           if (productVariable.assets[i].sequence == 0 && productVariable.assets[i].type == 'image') {
@@ -63,16 +70,15 @@ async function implementation (
       }
 
       function addFields (index) {
-        addHiddenDiv('description', productVariable.description);
         addHiddenDiv('brandText', productVariable.brand.name);
         if (productVariable.sku.length > 1) {
           addHiddenDiv('ii_color', productVariable.sku[index].variantAxis[0].variantName);
           addHiddenDiv('ii_colorCode', productVariable.sku[index].variantAxis[0].variantCode);
           for (let i = 0; i < productVariable.assets.length; i++) {
-            if (productVariable.sku[index].variantAxis[0].variantCode == productVariable.assets[i].tags[0] && productVariable.assets[i].sequence == 0 && productVariable.assets[i].type == 'image') {
-              addHiddenDiv('primary_image', productVariable.assets[i].url);
-            } else if (productVariable.sku[index].variantAxis[0].variantCode == productVariable.assets[i].tags[0] && productVariable.assets[i].type == 'image') {
-              addHiddenDiv('ii_secondary_image', productVariable.assets[i].url);
+            if (productVariable.assets[i].type == 'image') {
+              if (productVariable.sku[index].variantAxis[0].variantCode == productVariable.assets[i].tags[0] && productVariable.assets[i].sequence == 0) {
+                addHiddenDiv('primary_image', productVariable.assets[i].url);
+              }
             }
           }
         }

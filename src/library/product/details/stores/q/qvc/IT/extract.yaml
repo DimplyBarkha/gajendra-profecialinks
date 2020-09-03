@@ -14,15 +14,18 @@ fields:
     xpath: //div[@id='ii_secondary_image']
   - name: price
     singleValue: false
-    xpath: //div[@id='price']
+    xpath: //p[contains(@class,'price-qvc')]//span[@class='price']
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id='availabilityText']
+    xpath: //div[@id='availabilityText'][last()]
   - name: weightNet
     singleValue: false
     xpath: //div[contains(@class,'product-detail-page')]//li[contains(.,'peso:')]
   - name: sku
     singleValue: false
+    xpath: //div[@id='sku'][last()]
+  - name: variantId
+    singleValue: true
     xpath: //div[@id='sku'][last()]
   - name: ratingCount
     singleValue: true
@@ -38,7 +41,7 @@ fields:
     xpath: //div[@class='tab-pane-title' and contains(.,'Descrizione')]/following-sibling::div[@class='tab-pane-content']
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class='product-detail-page page']//p[1]
+    xpath: //div[@class='tab-pane-title' and contains(.,'Marca')]/following-sibling::div[@class='tab-pane-content']
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class='panel-ctr-title' ]//span[2]
@@ -67,9 +70,6 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[@id='ii_color'][last()]
-  - name: variantId
-    singleValue: false
-    xpath: //div[@id='sku'][last()]
   - name: color
     singleValue: false
     xpath: //div[@id='ii_color'][last()]

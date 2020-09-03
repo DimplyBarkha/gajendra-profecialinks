@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 
 /**
  *
@@ -11,7 +12,7 @@ const transform = (data) => {
         let text = '';
         let xpath = '';
         row.price.forEach(item => {
-          text = item.text.replace('.', ',') + ' €';
+          text = item.text.replace('.', ',');
           xpath = item.xpath;
         });
         row.price = [
@@ -53,25 +54,15 @@ const transform = (data) => {
         ];
       }
 
-      if (row.manufacturerDescription) {
-        row.manufacturerDescription = [
-          {
-            text: row.manufacturerDescription[1].text,
-            xpath: row.manufacturerDescription[1].xpath,
-          },
-        ];
+      if (row.description) {
+        if (row.additionalDescBulletInfo) {
+          for (const bullet of row.additionalDescBulletInfo) {
+            for (const item of row.description) {
+              item.text = item.text.replace(bullet.text, `|| ${bullet.text}`);
+            }
+          }
+        }
       }
-
-      // if (row.description) {
-      //   let text = '';
-      //   let xpath = '';
-      //   row.description = [
-      //     {
-      //       text: row.description[0].text,
-      //       xpath: row.description[0].xpath
-      //     },
-      //   ];
-      // }
 
       if (row.specifications) {
         let text = '';
@@ -85,10 +76,26 @@ const transform = (data) => {
         ];
       }
 
+      if (row.alternateImages && row.image) {
+        const alternateImagesArray = [];
+        row.alternateImages.forEach((item, index) => {
+          if (item.text != row.image[0].text) {
+            alternateImagesArray.push(item.text);
+          }
+        });
+        row.alternateImages = [];
+        alternateImagesArray.forEach(element => {
+          const temp = {
+            text: element,
+          };
+          row.alternateImages.push(temp);
+        });
+      }
+
       if (row.availabilityText) {
         let newText = 'Out Of Stock';
         row.availabilityText.forEach(item => {
-          if (item.text.trim() === 'InStock') {
+          if (item.text.trim() == 'InStock') {
             newText = 'In Stock';
           }
         });
@@ -118,18 +125,6 @@ const transform = (data) => {
           },
         ];
       }
-
-      // if (row.additionalDescBulletInfo) {
-      //   let text = '';
-      //   row.additionalDescBulletInfo.forEach(item => {
-      //     text = row.additionalDescBulletInfo.map(elm => elm.text).join(' | ');
-      //   });
-      //   row.additionalDescBulletInfo = [
-      //     {
-      //       text: text,
-      //     },
-      //   ];
-      // }
     }
   }
 
