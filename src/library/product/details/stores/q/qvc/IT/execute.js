@@ -5,8 +5,8 @@ module.exports = {
     country: 'IT',
     store: 'qvc',
     domain: 'qvc.it',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class*="product-gallery"] img',
+    noResultsXPath: '//div[@class="title-header"]//h3[contains(text(),"Login")]',
     zipcode: '',
   },
 };
