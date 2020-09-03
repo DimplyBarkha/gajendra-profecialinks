@@ -1,0 +1,60 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='infoProduct-title']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class='description-tech']
+  - name: price
+    singleValue: false
+    xpath: //p[@class='price']
+  - name: image
+    singleValue: false
+    xpath: //div[@class='active item']/img[@class='img-responsive']/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='item']/img[@class='img-responsive']/@src
+  - name: weightNet
+    singleValue: false
+    xpath: //*[@id="more_product_info"]/div/div[2]/ul/li[14]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //*[@id="BVRRContainer"]/div/div/div/div/div[1]/div[3]/div/div/div[2]/div[2]/div/span[2]
+  - name: storage
+    singleValue: false
+    xpath: //*[@id="more_product_info"]/div/div[2]/ul/li[2]
+  - name: category
+    singleValue: false
+    xpath: //section[@class='listadoCategoriasHead']/div[@class='wrap']/div[@class='breadcrumb']/span/a[3]
+  - name: varient
+    singleValue: false
+    xpath: //h1[@class='infoProduct-title']
+  - name: ratingCount
+    singleValue: false
+    xpath: //dd[@class="bv-rating-ratio-count"]/a[@class='bv-rating-label bv-text-link bv-focusable']
+  - name: description
+    singleValue: false
+    xpath: //*[@id="more_product_info"]/div/div[3]/p
+  - name: manufacturer
+    singleValue: false
+    xpath: //section[@class='dataProduct']/div[2]/div[@class='info-title']/div[@class='brand-image']/a[@class='marca']/img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //*[@id="more_product_info"]/div/div[3]/p
+  - name: specifications
+    singleValue: false
+    xpath: //*[@id="inpage_container"]/div[4]/div[2]/div
+  - name: color
+    singleValue: false
+    xpath: //*[@id="more_product_info"]/div/div[2]/ul/li[5]/span[2]/strong
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //*[@id="inpage_container"]/div[2]/div/div/div/div[2]/div/img/@srcset
+    
