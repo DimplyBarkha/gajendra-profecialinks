@@ -21,20 +21,26 @@ module.exports = {
       checkBlocked: true,
     });
 
-    let keyword = url.split("=")[3];
-    keyword = keyword.toLowerCase();
-    if (keyword == "dyson") {
-      await context.click("#learnMoreBTN");
-      await context.waitForFunction(
-        () => {
-          return document.querySelector(
-            ".ld-sg-button.ld-sg-button--secondary.ld-sg-button--secondary-flex.js-load-more__btn.load-more__btn.hide"
-          );
-        },
-        { timeout }
-      );
-    }
+    const searchPageSelector = "section.search-result-options";
+    const searchPage = await context.evaluate(async (searchPageSelector) => {
+      return Boolean(document.querySelector(searchPageSelector));
+    }, searchPageSelector);
 
+    if (searchPage) {
+      let keyword = url.split("=")[3];
+      keyword = keyword.toLowerCase();
+      if (keyword == "dyson") {
+        await context.click("#learnMoreBTN");
+        await context.waitForFunction(
+          () => {
+            return document.querySelector(
+              ".ld-sg-button.ld-sg-button--secondary.ld-sg-button--secondary-flex.js-load-more__btn.load-more__btn.hide"
+            );
+          },
+          { timeout }
+        );
+      }
+    }
     const captchaFrame = 'iframe[_src*="https://geo.captcha"]';
     let captchaSelector = ".g-recaptcha";
     const checkExistance = async (selector) => {
