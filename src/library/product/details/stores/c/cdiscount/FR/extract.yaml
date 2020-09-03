@@ -40,7 +40,7 @@ fields:
     xpath: count(//div[contains(@class,"fpBulletPointReadMore")]//li)
   - name: color
     singleValue: false
-    xpath: //*[@id="descContent"]//td[contains(text(), "Couleur")]//following-sibling::*
+    xpath: //*[@id="descContent"]//td[contains(text(), "Couleur")]//following-sibling::* | //div[@id="presContent"]//text()[contains(., "Couleur:")]
   - name: alternateImages
     singleValue: false
     xpath: //ul[@class="smallPic"]//li[contains(@class, "fpZoomPic")]//img//@src
@@ -75,10 +75,9 @@ fields:
     xpath: //div[@id="added-description"]
   - name: manufacturer
     singleValue: false
-    xpath: //*[@id="descContent"]//td[contains(text(), "Marque")]//following-sibling::*
   - name: specifications
     singleValue: false
-    xpath: //*[@id="descContent"]//td[text()="Largeur"]/parent::tr | //*[@id="descContent"]//td[text()="Hauteur"]/parent::tr | //*[@id="descContent"]//td[text() ="Profondeur"]/parent::tr
+    xpath: //table[contains(@class, "fpDescTb")]//tr[not(.//descendant::th)]
   - name: storage
     singleValue: false
     xpath: //div[@id="presContent"]/font/font

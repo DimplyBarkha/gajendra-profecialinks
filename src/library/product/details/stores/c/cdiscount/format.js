@@ -72,6 +72,8 @@ const transform = (data) => {
             availabilityTextItem.text = 'Out Of Stock';
           }
         });
+      } else {
+        row.availabilityText = [{ text: 'Out Of Stock' }];
       }
 
       if (row.descriptionBullets) {
@@ -85,7 +87,7 @@ const transform = (data) => {
       const specificationsArray = [];
       if (row.specifications) {
         row.specifications.forEach((specificationsItem) => {
-          specificationsItem.text = specificationsItem.text.replace(/(^\w+)\s(.*)/g, '$1 : $2');
+          specificationsItem.text = specificationsItem.text.replace(/(\n\s*){1,}/g, ' : ');
           specificationsArray.push(specificationsItem.text);
         });
       }
