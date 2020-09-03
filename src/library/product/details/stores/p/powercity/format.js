@@ -58,17 +58,39 @@ const transform = (data) => {
           }
         });
       }
-
+      if (row.variantId && !row.sku) {
+        row.sku = [{
+          text: row.variantId[0].text
+        }];
+      }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(image => {
-          if (!image.text.startsWith('http')) {
-            image.text = `https:${image.text}`;
+          let allImages = image.text.split(', ').map(img=>img.trim())
+          let mainImage;
+          if(allImages.length){
+            mainImage = allImages.find(x=>/desktop/i.test(x))
+            if(!mainImage) {
+              mainImage=allImages[0].replace(/(.*?)\s.*/,'$1').trim()
+            }else{
+              mainImage = mainImage.replace(/(.*?)\s.*/,'$1')
+            }
           }
+          if (mainImage && !mainImage.startsWith('http')) {
+            mainImage = `https:${mainImage}`;
+          }
+          image.text = mainImage;
         });
       }
-
-      if (row.videos && !row.videos[0].text.startsWith('http')) {
-        row.videos[0].text = `https:${row.videos[0].text}`;
+      
+      if (row.videos) {
+        row.videos.forEach(video => {
+          if(video.text.includes('file":"')){
+            video.text = video.text.replace(/.*?file":"(.*?)".*/,'$1')
+          }
+          if(!video.text.startsWith('http')){
+            video.text = `https:${video.text}`;
+          }
+        });
       }
 
       if (!row.brandText && row.name) {

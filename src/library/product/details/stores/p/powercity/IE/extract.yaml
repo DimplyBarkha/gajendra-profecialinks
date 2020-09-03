@@ -22,9 +22,7 @@ fields:
     xpath: //a[text()="HOME"]/following-sibling::a
   - name: nameExtended
     singleValue: false
-    manualSelector: div.product.rightbar
-    regExp: (.*?)\s*\n\s*.*
-    regExpReplace: $1
+    manualSelector: div.producttitle
   - name: listPrice
     singleValue: false
     manualSelector: div#rrp
@@ -62,17 +60,13 @@ fields:
     xpath: //div[@id="inpage_container"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="inpage_selector_feature"]//img/@srcset
+    xpath: //div[@class="inpage_selector_feature"]//img/@data-flixsrcset
   - name: videos
     singleValue: false
     xpath: //input[@class="flix-jw"]/@value | //video/source/@src
-    regExp: file":"(.*?)"
-    regExpReplace: $1
   - name: name
     singleValue: false
-    manualSelector: div.product.rightbar
-    regExp: (.*?)\s*\n\s*.*
-    regExpReplace: $1
+    manualSelector: div.producttitle
   - name: specifications
     singleValue: false
     xpath: //table[parent::div/preceding-sibling::div[text()="Specifications"]]//td
