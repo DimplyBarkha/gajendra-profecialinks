@@ -7,30 +7,23 @@ fields:
     singleValue: false
     xpath: //div[@id='product_image']
   - name: imageAlt
-    singleValue: true
     xpath: //div[contains(@class,'elements_slider-slide')]/img/@alt
   - name: category
     singleValue: false
     xpath: //li[@class="breadcrumbs-item"]
   - name: name
-    singleValue: true
     xpath: //div[@class="js-pdp pdp dataholder js-product"]/@data-product-description    
   - name: nameExtended
-    singleValue: true
     xpath: normalize-space(//div[contains(@class,"pdp-title")])
   - name: listPrice
-    singleValue: true
     xpath: normalize-space(//div[@class="prices pdp-prices"]/div/div[1])
     regExp: (.+).(.+)  
   - name: price
-    singleValue: true
     xpath: normalize-space(//div[@class="prices pdp-prices"]/div/div[1])
     regExp: (.+).(.+)
   - name: availabilityText
-    singleValue: true
     xpath: //div[@id='availability']
   - name: description
-    singleValue: true
     xpath: //div[@id="bulletDescription"]
   - name: brandLink
     singleValue: false
@@ -38,29 +31,20 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.elcorteingles.es$1
   - name: ingredientsList
-    singleValue: true
     xpath: //div[@id="ingredient"]
   - name: brandText
-    singleValue: true
     xpath: //div[@id="brand"]
   - name: quantity
-    singleValue: true
     xpath: //div[@id="quantity"]
   - name: gtin
-    singleValue: true
     xpath: //span[@itemprop="sku"]
   - name: asin
-    singleValue: true
-    xpath: //span[@itemprop="sku"]
   - name: variantId
-    singleValue: true
     xpath: //div[@id="retailer_product_code"] | //div[@data-bv-show="rating_summary"]/@data-bv-product-id
     regExp: \d+
   - name: directions
-    singleValue: true
-    xpath: //div[@class="info"][3]//ul[@class="info-list"]/li[last()]
+    xpath: //span[contains(text(),"Modo de empleo:")]/parent::li
   - name: servingSize
-    singleValue: true
     xpath: //div[@class="info _nutrients"]//table//tr[1]//th[last()]
     regExp: (\d+)
   - name: servingSizeUom
@@ -69,7 +53,6 @@ fields:
     regExp: \s(.+)
     regExpReplace: $1
   - name: caloriesPerServing
-    singleValue: true
     xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])[1]
   - name: totalFatPerServing
     singleValue: false
@@ -124,10 +107,14 @@ fields:
     regExp: \s(.+)
     regExpReplace: $1
   - name: ratingCount
-    singleValue: true
-    xpath: //div[@id="ratingCount"]
+    xpath: /html/body/@rating-count
+  - name: reviewCount
+    xpath: /html/body/@review-count
+  - name: aggregateRating
+    xpath: /html/body/@rating-value
+  - name: aggregateRatingText
+    xpath: /html/body/@rating-value
   - name: videos
-    singleValue: true
     xpath: //div[@class="info _video-wrapper"]/iframe/@src  
   - name: storage
     singleValue: false
@@ -181,3 +168,7 @@ fields:
     xpath: //div[@id="bulletDescription"]
     regExp: (.+Cantidad Neta)\:\s(\d+\s\w)(.*)
     regExpReplace: $2
+  - name: promotion
+    xpath: //div[@class="product_tile-offer offer _pdp"]//div[@class="offer-right"]
+  - name: allergyAdvice
+    xpath: //h3[normalize-space(text())="Ingredientes y alérgenos"]/following-sibling::ul[1]/li/b

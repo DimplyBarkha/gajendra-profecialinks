@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -156,18 +156,37 @@ module.exports = {
       ingredientContent('Sodio', 'Sodio (');
 
       // Get the ratingCount
-      const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
-      let ratingCount;
-      if (reviewsCount) {
-        ratingCount = reviewsCount.textContent.trim().match(/[^\s]+(?=\sOpiniones)/);
-        if (ratingCount) {
-          addElementToDocument('ratingCount', ratingCount[2]);
+      async function getRatings () {
+        const passkey = 'caUNHRYNaaEpio9tsasDler7d1kTrqmaNQQzskkyRX6mQ';
+        const locale = 'es_ES';
+        const productId = document.querySelector('[itemtype="http://schema.org/Product"] > div[data-product-id]').getAttribute('data-product-id');
+        const API = `https://api.bazaarvoice.com/data/statistics.json?apiversion=5.4&passkey=${passkey}&stats=Reviews&filter=ContentLocale:${locale}&filter=ProductId:${productId}`;
+        const response = await fetch(API);
+        const data = await response.json();
+        const ratingCount = data.Results[0].ProductStatistics.ReviewStatistics.TotalReviewCount;
+        let ratingValue = data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating || 0;
+        ratingValue = Math.round(ratingValue * 10) / 10;
+        let reviewCount = 0;
+        if (ratingCount > 0) {
+          const ratingOnlyElm = Array.from(document.querySelectorAll('[itemprop="headline"]')).find(elm => elm.textContent.includes('valoraciones sin reseña'));
+          let ratingOnlyCount = 0;
+          if (ratingOnlyElm) {
+            ratingOnlyCount = (ratingOnlyElm.textContent.trim().replace(/,/g, '').match(/^\d+/) && Number(ratingOnlyElm.textContent.trim().replace(/,/g, '').match(/^\d+/)[0])) || 0;
+          }
+          reviewCount = ratingCount - ratingOnlyCount;
         }
-      } else if (document.querySelector('h4[itemprop="headline"]')) {
-        ratingCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
-        if (ratingCount) {
-          addElementToDocument('ratingCount', ratingCount[0]);
-        }
+        return { ratingCount, ratingValue, reviewCount };
+      }
+      const ratings = await getRatings();
+      document.body.setAttribute('rating-count', ratings.ratingCount);
+      document.body.setAttribute('rating-value', ratings.ratingValue.toFixed(1));
+      document.body.setAttribute('review-count', ratings.reviewCount.toString());
+
+      // Get quantity
+      const quantityArray = document.querySelector('[itemprop="description"]').textContent.trim().split('\n');
+      if (quantityArray.length > 3) {
+        const quantity = quantityArray[2] + ' ' + quantityArray[3];
+        addElementToDocument('quantity', quantity);
       }
 
       // Function to remove the `\n` from the textContent
@@ -183,6 +202,6 @@ module.exports = {
       textContent(document.querySelector('div.pdp-info-container div.info'), 'bulletDescription');
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };
