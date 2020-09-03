@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    xpath: //div[contains(@class,'laberProductGrid')]//article//@data-id-product
+    singleValue: true
+  - name: name
+    xpath: //div[contains(@class,'laberProductList')]//h2//a
+    singleValue: true
+  - name: producturl
+    xpath: //div[contains(@class,'laberProductGrid')]//h2//a//@href
+    singleValue: true
+  - name: manufacturer
+    singleValue: true    
+    xpath: //div[contains(@class,'laberProductList')]//img[contains(@class,'cstm-brand-logo')]//@alt
+  - name: thumbnail
+    xpath: //div[contains(@class,'laberProductGrid')]//a//img//@src
+    singleValue: false
+  - name: price
+    xpath: //div[contains(@class,'laberProductGrid')]//span[@itemprop="price"]
+    singleValue: true 
+  - name: rankOrganic
+    singleValue: true 
+  - name: aggregateRating  
+    singleValue: true
+    defaultValue: '0'
+  - name: reviewCount  
+    singleValue: true
+    defaultValue: '0'
+    type: NUMBER
+  - name: ratingCount  
+    singleValue: true
+    defaultValue: '0'
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
