@@ -7,10 +7,12 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
-    noResultsXPath: null,
-    openSearchDefinition: null,
-    domain: 'bestbuy.com',
+    loadedSelector: 'div[class="product-line-item-line"]',
+    noResultsXPath: '//p[@class="plp-no-results"]',
+    openSearchDefinition: {
+      template: 'https://www.bestbuy.com.mx/c/buscar-best-buy/buscar?query={searchTerms}&page={page}',
+    },
+    domain: 'bestbuy.com.mx',
     zipcode: '',
   },
 };

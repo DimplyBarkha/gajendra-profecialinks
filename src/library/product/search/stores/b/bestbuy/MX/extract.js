@@ -1,11 +1,11 @@
-
+const { transform } = require('../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'MX',
     store: 'bestbuy',
-    transform: null,
-    domain: 'bestbuy.com',
+    transform,
+    domain: 'bestbuy.com.mx',
     zipcode: '',
   },
 };

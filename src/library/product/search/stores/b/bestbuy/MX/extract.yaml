@@ -1,90 +1,53 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="product-line-item-line"]
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
+  - name: brandText
+    singleValue: false
     description: The brand name
     example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
-  - name: productUrl
-    singleValue: true
-    description: The URL for the product details page
-  - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
+    xpath: //div[@class="product-title"]
   - name: name
-    singleValue: true
-    description: The product name
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-  - name: reviewCount
-    singleValue: true
-    description: The number of reviews
-  - name: price
-    singleValue: true
-    description: The offered price for the product
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-  - name: rank
-    singleValue: true
-    description: search/listing rank
-    type: NUMBER
-  - name: rankOrganic
-    singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-  - name: sponsored
-    singleValue: true
-    description: Is sponsored/paid
-    type: BOOLEAN
-  - name: id
-    singleValue: true
-    description: Unique id (within this extractor)
+    singleValue: false
+    description: The brand name
+    example: Panasonic
+    xpath: //div[@class="product-title"]
   - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    singleValue: false
+    description: The brand name
+    example: Panasonic
+    xpath: //div[@class="product-title"]
+  - name: id
+    singleValue: false
+    xpath: //ul/li[@class="product-skuId"]/span[@class="sku-value"] 
+    #skuID
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-title"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //a/img[@class="product-image"]/@src
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[@class="c-review-average"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //span/span[@class="c-total-reviews"]
+    regExp: \((.*)\sreseña
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-price"]
+  - name: variantId
+    singleValue: false
+    xpath: //ul/li[@class="product-skuId"]/span[@class="sku-value"]
+  - name: mpc
+    singleValue: false
+    xpath: //li[@class="product-modelNumber"]/span[2]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span/span[@class="c-total-reviews"]
+    regExp: \((.*)\sreseña
+    regExpReplace: $1
+  
