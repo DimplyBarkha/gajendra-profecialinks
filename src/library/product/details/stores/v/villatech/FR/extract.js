@@ -81,8 +81,12 @@ async function implementation (
     const weightHeadings = document.evaluate("//td[contains(.,'Poids')]", document, null, XPathResult.ANY_TYPE, null);
     const weight = document.evaluate("//td[contains(.,'Poids')]/following-sibling::td", document, null, XPathResult.ANY_TYPE, null);
     const regex = /\((.*?)\)/;
-    const weightUnit = regex.exec(weightHeadings.iterateNext().textContent)[1];
-    addHiddenDiv('weightNet', weight.iterateNext().textContent.trim() + weightUnit);
+    const weightHeadingsNode = weightHeadings.iterateNext();
+    const weightNode = weight.iterateNext();
+    if (weightHeadingsNode && weightNode) {
+      const weightUnit = regex.exec(weightHeadingsNode.textContent)[1];
+      weightUnit && addHiddenDiv('weightNet', weightNode.textContent.trim() + weightUnit);
+    }
     await infiniteScroll();
   });
   return await context.extract(productDetails, { transform });
