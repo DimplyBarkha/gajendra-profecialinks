@@ -39,7 +39,7 @@ module.exports.implementation = async function implementation (
 
     const fetchURL = `https://api.${domain}/apiman-gateway/dyson/search/1.0/${apiCoutryCodeMapping(country,'cc')}/?query=${encodeURIComponent(keywords)}::documentType:range:documentType:ACCESSORIES:isLegacy:false:hideInOnsiteSearch:true&currentPage=0&pageSize=20&fields=DEFAULT&lang=${apiCoutryCodeMapping(country,'lang')}`;
     const referrer = `https://www.${domain}/search-results.html?searchText=${encodeURIComponent(keywords)}&from=product`;
-
+  
     const searchResults = await fetch(fetchURL, {
       credentials: 'omit',
       headers: { Accept: '*/*' },
@@ -61,7 +61,7 @@ module.exports.implementation = async function implementation (
           const isDiscontinued = product.discontinued;
           const name = product.webName || '';
           const prefix = name && name.includes(brand) ? '' : brand;
-          row.setAttribute('added_productURL', `https://${domain}${product.productURL}`);
+          row.setAttribute('added_productURL', `${domain}${product.productURL}`);
           row.setAttribute('added_brand', brand);
           row.setAttribute('added_thumbnail', img);
           row.setAttribute('added_sku', product.code || '');
@@ -74,7 +74,7 @@ module.exports.implementation = async function implementation (
       } else {
         const row = addElementToDocument('added_row', '');
         const name = category.name || '';
-        row.setAttribute('added_productURL', `https://${domain}${category.url}`);
+        row.setAttribute('added_productURL', `${domain}${category.url}`);
         row.setAttribute('added_brand', brand);
         row.setAttribute('added_thumbnail', img);
         row.setAttribute('added_name', name);
