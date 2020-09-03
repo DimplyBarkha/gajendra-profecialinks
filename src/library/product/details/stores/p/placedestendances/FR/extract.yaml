@@ -94,8 +94,7 @@ fields:
     singleValue: true
     xpath: //span[@itemprop="ratingValue"]
   - name: aggregateRating
-    singleValue: true
-    xpath: normalize-space(//span[@itemprop="ratingValue"])
+    xpath: //span[@itemprop="ratingValue"]
   - name: shippingInfo
     singleValue: true
     xpath: 
