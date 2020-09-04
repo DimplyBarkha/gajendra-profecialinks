@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-hook="review"]
+recordXPath: //*[@data-hook="review"]
 fields:
   - name: comments
     singleValue: false
@@ -46,7 +46,7 @@ fields:
     singleValue: false
     description: The review  rating
     type: NUMBER
-    xpath: .//*[@data-hook="review-star-rating"]
+    xpath: .//*[contains(@data-hook,"review-star-rating")]
     regExp: '^[^\s]+'
   - name: source
     singleValue: true
