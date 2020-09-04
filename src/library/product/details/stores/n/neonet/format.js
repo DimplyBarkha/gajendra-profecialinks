@@ -25,7 +25,7 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
       }
-
+      // aggregateRating
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           const val = item.value;
