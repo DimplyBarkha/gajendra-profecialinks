@@ -36,6 +36,8 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //span[@class="prix rebours-prix rebours-inited"]
+    regExp: (\d+)(\D)(\d+)
+    regExpReplace: $2$1
   - name: price
     singleValue: true
     xpath: //span[@class="prix rebours-prix rebours-inited"]
