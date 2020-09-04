@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //ul[@id="thumbnails"]//a/@data-featherlight
+    xpath: //div[@id="primaryImage"]
   - name: alternateImages
     singleValue: true
     xpath: //div[@id="alternateImages"]
@@ -20,7 +20,7 @@ fields:
     xpath: //div[@id="url"]
   - name: category
     singleValue: false
-    xpath: //ul[@class="breadcrumbs"]//a[position()!=0]/text()
+    xpath: //div[@class="category"]
   - name: price
     singleValue: true
     xpath: //div[@id="price"]

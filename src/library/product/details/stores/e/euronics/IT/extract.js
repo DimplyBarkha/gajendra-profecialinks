@@ -70,31 +70,32 @@ async function implementation (
     }
 
     if (document.querySelector('.productDetails__availability')) {
-      addHiddenDiv('availabilityText', document.querySelector('.productDetails__availability').innerText.trim());
-    } else {
-      let deliver = false;
-      let inStore = false;
-      document.querySelectorAll('.button__title--iconTxt').forEach(el => {
-        if (el.innerText.includes('Aggiungi al carrello')) {
-          deliver = true;
-        }
-        if (el.innerText.includes('prenota e ritira')) {
-          inStore = true;
-        }
-      });
-      if (deliver) {
-        addHiddenDiv('availabilityText', "In Stock");
-      } else if (inStore) {
-        addHiddenDiv('availabilityText', "In Store Only");
-      }
+      addHiddenDiv('promotion', document.querySelector('.productDetails__availability').innerText.trim());
     }
 
-    let description = '';
-    document.querySelectorAll('.specifications__item').forEach(el => {
-      description += '|| ' + el.innerText + ' ';
+    let deliver = false;
+    let inStore = false;
+    document.querySelectorAll('.button__title--iconTxt').forEach(el => {
+      if (el.innerText.includes('Aggiungi al carrello')) {
+        deliver = true;
+      }
+      if (el.innerText.includes('prenota e ritira')) {
+        inStore = true;
+      }
     });
-    if (description.length) {
-      addHiddenDiv('description', description);
+    if (deliver) {
+      addHiddenDiv('availabilityText', "In Stock");
+    } else if (inStore) {
+      addHiddenDiv('availabilityText', "In Store Only");
+    }
+
+
+    let additionalDescBulletInfo = '';
+    document.querySelectorAll('.specifications__item').forEach(el => {
+      additionalDescBulletInfo  += '|| ' + el.innerText + ' ';
+    });
+    if (additionalDescBulletInfo.length) {
+      addHiddenDiv('additionalDescBulletInfo', additionalDescBulletInfo );
     }
     addHiddenDiv('descriptionBullets', document.querySelectorAll('.specifications__item').length);
 
@@ -103,8 +104,9 @@ async function implementation (
       if (el.querySelector('.product__specificationItemLabel').innerText.includes('Composizione confezione-pz')) {
         addHiddenDiv('quantityInfo', el.querySelector('.product__specificationItemDetail').innerText.trim());
       }
-      if (el.querySelector('.product__specificationItemLabel').innerText.includes('Peso-gr')) {
-        addHiddenDiv('weightNet', el.querySelector('.product__specificationItemDetail').innerText.trim());
+      if (el.querySelector('.product__specificationItemLabel').innerText.includes('Peso-')) {
+        const unit = el.querySelector('.product__specificationItemLabel').innerText.split('-')[1];
+        addHiddenDiv('weightNet', el.querySelector('.product__specificationItemDetail').innerText.trim() + unit);
       }
       if (el.querySelector('.product__specificationItemLabel').innerText.includes('Altezza-mm')) {
         specifications.push(el.querySelector('.product__specificationItemDetail').innerText.trim() + 'mm');
@@ -120,8 +122,13 @@ async function implementation (
       addHiddenDiv('specifications', specifications.join(' x '));
     }
 
+
     if (document.querySelector('.content__abstractText')) {
-      addHiddenDiv('additionalInfo', '|| ' + document.querySelector('.content__abstractText').innerText.trim().replace(/-/g, ' || '));
+      addHiddenDiv('description', document.querySelector('.content__abstractText').innerText.trim().replace(/-/g, ' || '));
+      const warrantyMatch = document.querySelector('.content__abstractText').innerText.match(/[0-9]+ ANNI DI GARANZIA/);
+      if (warrantyMatch && warrantyMatch.length) {
+        addHiddenDiv('warranty', warrantyMatch[0]);
+      }
     }
 
     if (document.querySelector('.productDetails__name')) {
@@ -132,6 +139,16 @@ async function implementation (
     const splitUrl = window.location.href.split('/');
     const sku = splitUrl[splitUrl.length - 2];
     addHiddenDiv('sku', sku);
+
+    if (document.querySelector('#flix-inpage')) {
+      console.log('enhancedContent', document.querySelector('#flix-inpage').innerText);
+      addHiddenDiv('manufacturerDescription', document.querySelector('#flix-inpage').innerText);
+      const manufacturerImgs = [];
+      document.querySelector('#flix-inpage').querySelectorAll('img').forEach(el => {
+        manufacturerImgs.push(el.getAttribute('src'));
+      });
+      addHiddenDiv('manufacturerImages', manufacturerImgs);
+    }
 
     document.querySelectorAll('script').forEach(el => {
       const match = el.innerHTML.match(/\[\'upcean\'\, \'[0-9]+\'\]/);
