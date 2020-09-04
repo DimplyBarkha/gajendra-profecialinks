@@ -35,7 +35,7 @@ module.exports = {
     store: 'walmart',
     domain: 'walmart.com',
     loadedSelector: 'body',
-    noResultsXPath: '//div[@class="error-page__content"]',
+    noResultsXPath: '//div[@class="error-page__content"] | //div[@class="error-page-content"]',
   },
   implementation,
 };
