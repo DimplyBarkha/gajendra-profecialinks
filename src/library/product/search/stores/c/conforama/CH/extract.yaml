@@ -36,7 +36,7 @@ fields:
     xpath: //span[@class="stars"]/@data | //div[@itemprop="ratingValue"]
     singleValue: false
   - name: reviewCount
-    xpath: //span[@class="avisBaazar"] | | //div[@id="cc_ratingCount"]
+    xpath: //span[@class="avisBaazar"] | //div[@id="cc_ratingCount"]
     regExp: (.*) avis
     regExpReplace: $1
     singleValue: false
