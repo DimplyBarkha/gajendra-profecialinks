@@ -31,7 +31,7 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[@id="product-actions"]/div[@class="amounts"]//div[span][contains(@class,"ProductPriceBlock__WasPrice")]/text()
-    regExp: £\d+(\.\d{2})?
+    regExp: (£|€)\d+(\.\d{2})?
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
