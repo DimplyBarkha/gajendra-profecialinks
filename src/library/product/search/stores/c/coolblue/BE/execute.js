@@ -7,7 +7,7 @@ module.exports = {
     domain: 'coolblue.be',
     url: 'https://www.coolblue.be/zoeken?query={searchTerms}',
     loadedSelector: 'div#product-results',
-    noResultsXPath: '//h1[contains(text(),"Geen resultaten voor")]',
+    noResultsXPath: '//h1[contains(text(),"Geen resultaten voor")] | //h1[contains(text(),"Alles over Dyson producten")]',
     zipcode: '',
   },
 };
