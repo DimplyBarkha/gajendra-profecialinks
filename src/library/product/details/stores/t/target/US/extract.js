@@ -636,7 +636,7 @@ async function implementation (
       let inStore = false;
       let deliver = false;
       let availabilitySuccess = false;
-      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
+      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=ff457966e64d5e877fdbad070f276d18ecec4a01&tcin=' + variant.tcin + '&store_id=281&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=281&fulfillment_test_mode=grocery_opu_team_member_test')
       .then(data => data.json())
       .then(availabilityData => {
         if (availabilityData &&
@@ -665,7 +665,7 @@ async function implementation (
 
       });
 
-      if (availabilitySuccess) {
+      if (availabilitySuccess && (deliver || inStore)) {
         if (deliver) {
           addHiddenDiv(newDiv, 'availability', 'In Stock');
         } else if (inStore) {
