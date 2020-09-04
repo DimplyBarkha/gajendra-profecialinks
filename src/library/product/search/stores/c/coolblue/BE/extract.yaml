@@ -54,6 +54,11 @@ fields:
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
     regExp: (\/product\/)(\d+)
     regExpReplace: $2
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
+    regExp: (\/product\/)(\d+)
+    regExpReplace: $2
   - name: mpc
     singleValue: false
     xpath:
