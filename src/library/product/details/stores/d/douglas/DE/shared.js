@@ -46,12 +46,37 @@ const transform = (data) => {
         for (const description of row.manufacturerDescription) {
           finalDescription += ' ' + description.text;
         }
-        row.manufacturerDescription = [{text: finalDescription.trim()}];
+        row.manufacturerDescription = [{ text: finalDescription.trim() }];
       }
 
       if (row.color) {
         const color = row.color[0].text;
         row.color[0].text = color.substring(color.lastIndexOf(':') + 1).trim();
+      }
+
+      if (row.descriptionChunck) {
+        let text = '';
+        row.descriptionChunck.forEach(item => {
+          text += `${item.text} `;
+        });
+        row.descriptionChunck = [
+          {
+            text: text.trim()
+          },
+        ];
+      }
+
+      if (row.description) {
+        let text = '';
+        row.description[0].text = `|| ${row.description[0].text}`;
+
+        if (row.descriptionChunck) {
+          row.description[row.description.length - 1].text = `${row.description[1].text} ${row.descriptionChunck[0].text}`
+        }
+
+        if (row.descriptionliChunck) {
+          row.description = row.description.concat(row.descriptionliChunck);
+        }
       }
     }
   }

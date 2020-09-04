@@ -10,22 +10,20 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      const spanDescription = getEleByXpath('//div[@class="rd__product-details__description__collapsible"]/span');
-      if (spanDescription) {
-        const descUl = document.evaluate('//ul[contains(@class,"rd__list rd__list--disc")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        if (descUl) {
-          const spanEle = document.createElement('li');
-          spanEle.type = 'non-bullet'
-          spanEle.textContent = spanDescription;
-          descUl.appendChild(spanEle);
-        }
+
         let activeImageXpath = "//div[contains(@class,'rd__product-details-gallery__container is-active')]";
         let activeImage = document.evaluate(activeImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
         if (activeImage) {
           const imgAlternate = document.querySelector("div.rd__product-details-gallery__container.is-active img").getAttribute('alt')
           addHiddenDiv('img-alt', imgAlternate)
         }
-        
+        let mainImageXpath = "//div[contains(@class, 'rd__product-details-gallery--horizontal')]//img | //div[contains(@class,'rd__product-details-gallery__container') and contains(@class, 'is-active')]//img";
+        let mainImage = document.evaluate(mainImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+        if (mainImage) { 
+          const imgSrc = mainImage.getAttribute('src')
+          addHiddenDiv('product_main_image', imgSrc)
+        }
+
         let videoXpath = "//span[contains(@data-wt-content, 'Video.www.douglas.de')]";
         let videoEle = document.evaluate(videoXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
         if (videoEle) {
@@ -44,13 +42,12 @@ module.exports = {
         let url = window.location.href;
         const variantContainer = document.querySelector('div.rd__product-details__picker__list');
         if (variantContainer) {
-          const variants = variantContainer.querySelectorAll('div[class="rd__blob rd__product-details__picker__list__item"]');
+          const variants = variantContainer.querySelectorAll('div.rd__product-details__picker__list__item');
           for (var i = 0; i < variants.length; i++) {
             variants[i].click();
             addHiddenDiv('variantId', window.location.href)
           }
         }
-      }
 
       function getEleByXpath(xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;

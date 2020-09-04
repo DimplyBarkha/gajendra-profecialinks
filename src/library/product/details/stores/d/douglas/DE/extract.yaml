@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //div[contains(@class, 'rd__product-details-gallery--horizontal')]//img/@src | //div[contains(@class,'rd__product-details-gallery__container') and contains(@class, 'is-active')]//img/@src
+    xpath: //div[@id='product_main_image']
   - name: category
     singleValue: false
     xpath: //div[contains(@class,"rd__breadcrumbs__item rd__breadcrumbs__item--back")]//following-sibling::a
@@ -17,6 +17,10 @@ fields:
   - name: description
     singleValue: false
     xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
+  - name: descriptionChunck
+    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/h2 | //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/text()
+  - name: descriptionliChunck
+    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/ul/li   
   - name: descriptionBullets
     xpath: count(//div[@class='rd__product-details__description__collapsible']//ul/li[not(@type='non-bullet')])
   - name: ingredientsList
@@ -48,10 +52,9 @@ fields:
     singleValue: true
     xpath: //div[contains(.,"Anwendung")]/following-sibling::div[1]/span
   - name: alternateImages
-    singleValue: false
-    xpath: //html//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]/parent::div/parent::div/following-sibling::div//img/@src
+    xpath: //html//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container")]/parent::div/parent::div/following-sibling::div//img/@src
   - name: secondaryImageTotal
-    xpath: count(//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]/parent::div/parent::div/following-sibling::div//img/@src)
+    xpath: count(//html//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container")]/parent::div/parent::div/following-sibling::div//img/@src)
   - name: imageAlt
     xpath: //div[@id='img-alt']
   - name: promotion
@@ -71,11 +74,11 @@ fields:
   - name: Image360Present
     defaultValue: 'No'
   - name: legalDisclaimer
-    xpath: //section[contains(@class, 'rd__text-legal--common')]
+    xpath: //section[contains(@class, 'rd__text-legal--common')]//span[1]
   - name: additionalDescBulletInfo
     xpath: //div[@class='rd__product-details__description__collapsible']//ul/li[not(@type="non-bullet")]
   - name: variantCount
-    xpath: count(//div[contains(@class, 'rd__product-details__picker__list__item')])
+    xpath: count(//div[contains(@class, 'rd__product-details__picker__list')]//div[contains(@class, 'rd__product-details__picker__list__item')])
   - name: color
     xpath: //li//span[contains(., 'Farbe')]
   - name: variants
@@ -84,7 +87,7 @@ fields:
     xpath: //div[@id='variantId'][1]/@title
   - name: promotion
     xpath: //div[@class='rd__product-details-gallery__sale-badge']//span[@class='rd__eye-catcher__text']
-  - name: video
+  - name: videos
     xpath: //video/source[@type='video/mp4']/@src
   - name: manufacturerDescription
     xpath: //div[contains(@class, 'intro')] | //div[contains(@class, 'boxed')]//div[contains(@class, 'text-box')]//*[not(contains(@class,'number-circle'))]
