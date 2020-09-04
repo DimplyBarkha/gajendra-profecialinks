@@ -4,10 +4,10 @@ const { implementation } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'NL',
+    country: 'NZ',
     store: 'dyson',
     transform,
-    domain: 'dyson.nl',
+    domain: 'dyson.co.nz',
     zipcode: '',
   },
   implementation,
