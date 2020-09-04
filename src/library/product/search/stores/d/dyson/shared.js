@@ -5,7 +5,6 @@ module.exports.implementation = async function implementation (
   context,
   dependencies,
 ) {
-  
   const { productDetails } = dependencies;
   const { domain, country } = parameters;
   const { keywords } = inputs;
@@ -29,17 +28,21 @@ module.exports.implementation = async function implementation (
 
     const apiCoutryCodeMapping = (country, type) => {
       const map = {
-            UK: {cc: 'gb', lang: 'en'},
-            US: {lang: 'en'},
-            CA: {lang: 'en'},
-            IE: {lang: 'en'}
-      }
-      return map[country] && map[country][type] ? map[country][type]: country.toLowerCase();
+        UK: { cc: 'gb', lang: 'en' },
+        US: { lang: 'en' },
+        CA: { lang: 'en' },
+        IE: { lang: 'en' },
+        DK: { lang: 'da' },
+        BE: { lang: 'nl' },
+        CH: { lang: 'de' },
+        AT: { lang: 'de' },
+      };
+      return map[country] && map[country][type] ? map[country][type] : country.toLowerCase();
     };
 
-    const fetchURL = `https://api.${domain}/apiman-gateway/dyson/search/1.0/${apiCoutryCodeMapping(country,'cc')}/?query=${encodeURIComponent(keywords)}::documentType:range:documentType:ACCESSORIES:isLegacy:false:hideInOnsiteSearch:true&currentPage=0&pageSize=20&fields=DEFAULT&lang=${apiCoutryCodeMapping(country,'lang')}`;
+    const fetchURL = `https://api.${domain}/apiman-gateway/dyson/search/1.0/${apiCoutryCodeMapping(country, 'cc')}/?query=${encodeURIComponent(keywords)}::documentType:range:documentType:ACCESSORIES:isLegacy:false:hideInOnsiteSearch:true&currentPage=0&pageSize=20&fields=DEFAULT&lang=${apiCoutryCodeMapping(country, 'lang')}`;
     const referrer = `https://www.${domain}/search-results.html?searchText=${encodeURIComponent(keywords)}&from=product`;
-  
+
     const searchResults = await fetch(fetchURL, {
       credentials: 'omit',
       headers: { Accept: '*/*' },
@@ -48,7 +51,7 @@ module.exports.implementation = async function implementation (
       mode: 'cors',
     }).then(r => r.json());
 
-    if(!searchResults.products) return;
+    if (!searchResults.products) return;
 
     searchResults.products.forEach((category) => {
       const brand = category.name ? category.name.split('™')[0] : '';
