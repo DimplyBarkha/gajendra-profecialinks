@@ -31,7 +31,7 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.elcorteingles.es$1
   - name: ingredientsList
-    xpath: //div[@id="ingredient"]
+    xpath: //*[contains(text(),"Ingredientes y alérgenos")]/following-sibling::*[@class="info-list"]
   - name: brandText
     xpath: //div[@id="brand"]
   - name: quantity
