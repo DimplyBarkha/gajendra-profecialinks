@@ -35,7 +35,7 @@ async function implementation(
         await new Promise(resolve => setTimeout(resolve, 1000))
       }
     })
-    const request = await context.searchAllRequests('videos');
+    const request = await context.searchAllRequests('videos') || [];
     const videos = new Set(request.map(({url})=>url));
     await new Promise(resolve => setTimeout(resolve, 2000))
     await context.evaluate(async function (videos) {
@@ -49,7 +49,7 @@ async function implementation(
       for (const [index, video] of videos.entries()) {
         addHiddenDiv(`ii_video_${index}`, video)
       }
-      const descContent = (document.querySelector('div.overview-accordion-content-wrapper')) ? document.querySelector('div.overview-accordion-content-wrapper').innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+      const descContent = (document.querySelector('div.overview-accordion-content-wrapper')) ? document.querySelector('div.overview-accordion-content-wrapper').innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
       descContent && addHiddenDiv('ii_description', descContent);
       const iframe = document.querySelector('iframe.manufacturer-content-iframe')
       if (iframe) {
@@ -58,7 +58,7 @@ async function implementation(
         try {
           let container = document.querySelector('div.shop-manufacturer-content');
         const manufaturerContents = iframe.contentDocument.documentElement.innerHTML
-        if(/360-view/.test(manufaturerContents)){
+        if(/360-view/i.test(manufaturerContents)){
           addHiddenDiv('roundimg','Yes')
         }
         container.innerHTML = manufaturerContents

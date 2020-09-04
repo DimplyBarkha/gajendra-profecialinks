@@ -17,9 +17,16 @@ const transform = (data, context) => {
               }];
         }
         if (row.variants) {
-            row.variants = [{
-                text: row.variants.reduce((item, currItem) => item ? `${item} | ${currItem.text}` : currItem.text, '')+ ' | ' + row.sku[0].text,
-              }];
+          row.variantCount = [{
+            text: row.variants.length + 1
+          }]
+          row.variants = [{
+              text: row.variants.reduce((item, currItem) => item ? `${item} | ${currItem.text}` : currItem.text, '')+ ' | ' + row.sku[0].text,
+          }];
+        } else {
+          row.variantCount = [{
+            text: 1
+          }]
         }
         if (row.manufacturerDescription) {
           row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\s*\n\s*)+/g, ' ');

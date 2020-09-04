@@ -19,7 +19,7 @@ fields:
     defaultValue: Out of Stock
   - name: price
     singleValue: false
-    manualSelector: div.price-box div.priceView-customer-price > span[aria-hidden]
+    manualSelector: div.priceView-layout-large div.priceView-customer-price > span[aria-hidden]
   - name: promotion
     singleValue: false
     manualSelector: div.pricing-price__savings
@@ -88,7 +88,7 @@ fields:
     xpath: //div[@id="wc-power-page"]//img/@src
   - name: videos
     singleValue: false
-    manualSelector: div[id^="ii_video_"]
+    xpath: //div[starts-with(@id,"ii_video_")] | //img[contains(@class,"wc-video")]/@wcobj
   - name: name
     singleValue: false
     manualSelector: div.sku-title
@@ -100,7 +100,7 @@ fields:
     xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Warranty")]] 
   - name: variantInformation
     singleValue: false
-    manualSelector: label#Small_Appliances_Color
+    manualSelector: label[id*=Small_Appliances_Color]
     regExp: '(.+):'
     regExpReplace: $1 
   - name: technicalInformationPdfPresent
