@@ -12,11 +12,11 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,'fotorama__nav__shaft')]//div[contains(@class, "--thumb") and not(@data-active="true")]//img/@src
-    regExp: (.*)90x90(.*)
-    regExpReplace: $1700x700$2
-  # - name: largeImageCount
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'fotorama__nav__shaft')]//div[contains(@class, "--thumb") and not(@data-active="true")]//img/@src
+  - name: alternateImagesEnlargePath
+    singleValue: false
+    xpath: //div[@data-fotorama-stage="fotorama__stage"]//div[contains(@class,"fotorama__active")]/@href
+    regExp: (.*\/)(.*)\/(.*)\/(.*)
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[@class="product-info-main"]//div[@data-role="priceBox"]
