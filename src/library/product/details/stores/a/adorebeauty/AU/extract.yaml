@@ -89,4 +89,4 @@ fields:
     regExpReplace: $1
   - name: warranty
     singleValue: false
-    xpath: //div[@itemprop="description"]/p[contains(text(), "guarantee") or contains(text(), "warranty")]
+    xpath: //div[@itemprop="description"]/p[contains(text(), "guarantee") or contains(text(), "warranty")] | //div[@itemprop="description"]/ul/li[contains(text(), "guarantee") or contains(text(), "warranty")]
