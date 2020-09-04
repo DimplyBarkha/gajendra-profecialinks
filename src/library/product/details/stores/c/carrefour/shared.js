@@ -32,11 +32,25 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = row.description.map(elm => elm.text).join(' ').replace(/●/g, '||');
+          text = row.description.map(elm => elm.text).join(' ').replace(/●/g, '|| ');
         });
-        row.description = [{ text }];
+        row.description = [
+          {
+            text: text,
+          },
+        ];
       }
-
+      if (row.promotion) {
+        let text = '';
+        row.promotion.forEach(item => {
+          text += `${item.text.replace(/\n/g, '')} `;
+        });
+        row.promotion = [
+          {
+            text: text.trim(),
+          },
+        ];
+      }
       if (row.availabilityText) {
         let newText = 'Out Of Stock';
         row.availabilityText.forEach(item => {
