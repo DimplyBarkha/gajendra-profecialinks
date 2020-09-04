@@ -50,6 +50,7 @@ async function implementation (
         }
 
         if (el.querySelector('iframe')) {
+          console.log('hasIframe');
           if (el.querySelector('iframe').contentWindow.document.querySelector('reevoo-stars')) {
             addHiddenDiv(el, 'rating', el.querySelector('iframe').contentWindow.document.querySelector('reevoo-stars').getAttribute('data-score'));
           }
