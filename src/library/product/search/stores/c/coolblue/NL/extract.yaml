@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@id="product-results"]/div/div'
+recordXPath: '//div[@id="product-results"]/div//div'
 fields: 
   - name: productUrl
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
@@ -16,7 +16,7 @@ fields:
     xpath: //div[@id="product-results"]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[@class="product-card__title"]//h3[contains(@class,"text-color--link")]
   - name: price
     singleValue: false
-    xpath: //div[@id="product-results"]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//span[contains(@class,"sales-price")]
+    xpath: //div[@id="product-results"]/div/div//strong[@class="sales-price__current"]
     regExp: (\d+)((\,?)(\d+))
     regExpReplace: $1$2 
   - name: rank
