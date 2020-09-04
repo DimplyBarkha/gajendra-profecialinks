@@ -1,0 +1,91 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //meta[@property="og:image"]/@content
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[@id='image_grande']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //span[contains(@class,'gv-vignette')]//img/@src
+    regExp: (.*)(v_)(.*)
+    regExpReplace: $1$3
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='keywords']/@content
+  - name: price
+    singleValue: true
+    xpath: //span[contains(@class,'prix')]
+  - name: sku
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
+    regExp: reviewCount":(\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
+    regExp: aggregateRating":{"@context":"[^"]+","@type":"[^"]+","reviewCount":(\d+),"ratingValue":([\d+])(\.)(\d*)
+    regExpReplace: $2$3$4
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1
+  - name: brandText
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
+    regExp: brand":{"@context":"[^"]+","@type":"[^"]+","name":"([^"]+)
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
+    regExp: brand":{"@context":"[^"]+","@type":"[^"]+","name":"([^"]+)
+    regExpReplace: $1
+  - name: availabilityText
+    singleValue: true
+    xpath: //script[@type="application/ld+json"][contains(text(),"availability")]
+    regExp: InStock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[contains(@class,'fa-vendu-par')]
+  - name: nameExtended
+    singleValue: false
+    xpath: //title
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'fa-titre-article')]
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@class='p-l p-b']//a/@href
+    defaultValue: No
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,'fa-infos-prix')]//span[contains(@class,'prix-origine')]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class,'fa-fiche-bloc points-forts')]//li)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'fa-fiche-bloc points-forts')]//li
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'liste-specs full-width')]//div[contains(@class,'ls-ligne clearfix')]
+  - name: warranty
+    singleValue: false
+    xpath: concat(//div[contains(@class,'uba-icone-avantage')]//span/font[1],' ',//div[contains(@class,'uba-icone-avantage')]/font[1])
