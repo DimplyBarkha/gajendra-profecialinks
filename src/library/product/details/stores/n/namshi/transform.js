@@ -10,7 +10,7 @@ const transform = (data) => {
             if (row.specifications) {
                 row.specifications.forEach(item => {
                     item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
-                    item.text = item.text.replace(/\n\s*\n\s*/g, ' ').trim();
+                    item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
                 });
             }
             if (row.description) {
@@ -39,7 +39,7 @@ const transform = (data) => {
                 }else{
                     delete row.variantInformation;
                 }
-            }        
+            }
             if (row.variants) {
                 let variations = [];
                 let color = null;
@@ -61,6 +61,16 @@ const transform = (data) => {
                     row.variants = [{"text": variations.join(' | '), "xpath": row.variants[0]["xpath"]}];
                 }else{
                     delete row.variants;
+                }
+                if (row.ratingCount) {
+                    row.ratingCount.forEach(item => {
+                        item.text = parseInt(item.text);
+                    });
+                }
+                if (row.aggregateRating) {
+                    row.aggregateRating.forEach(item => {
+                        item.text = parseFloat(item.text);
+                    });
                 }
             }
         }
