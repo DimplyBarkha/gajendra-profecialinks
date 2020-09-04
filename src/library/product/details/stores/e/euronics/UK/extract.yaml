@@ -66,6 +66,9 @@ fields:
   #- name: gtin
   #  singleValue: true
   #  xpath: //div[@id="upcInfo"]
+  - name: variantId
+    singleValue: true
+    xpath: //reevoo-reviewable-badge/@sku
   - name: sku
     singleValue: true
     xpath: //reevoo-reviewable-badge/@sku

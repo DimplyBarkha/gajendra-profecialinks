@@ -158,13 +158,22 @@ async function implementation (
         additionalInfo.push(e.innerText);
       })
       addHiddenDiv('descriptionBullets', additionalInfo.length);
-      addHiddenDiv('additionalInfo', '|| ' + additionalInfo.join(' || '));
+      addHiddenDiv('additionalInfo', additionalInfo.join(' || '));
     }
 
     let enhancedContent = '';
     let manufacturerImages = [];
     let videos = [];
-    document.querySelectorAll('.yCmsComponent.productDetailsPageSection4-component').forEach(e => {
+    document.querySelectorAll('.yCmsComponent.productDetailsPageSection4-component, .yCmsComponent.productDetailsPageSectionUpSelling-component').forEach(e => {
+      let skip = false;
+      e.querySelectorAll('span').forEach(span => {
+        if(span.innerText.includes('You may also like...')) {
+          skip = true;
+        }
+      });
+      if (skip) {
+        return;
+      }
       enhancedContent += e.innerText + ' ';
       e.querySelectorAll('img').forEach(img => {
         manufacturerImages.push('https://euronics.co.uk/' + img.getAttribute('src'));
@@ -180,7 +189,7 @@ async function implementation (
 
     addHiddenDiv('originInfo', 'GBR');
     addHiddenDiv('privacy', 'Yes');
-    addHiddenDiv('terms', 'Yes');
+    addHiddenDiv('terms', 'No');
     addHiddenDiv('customerServiceAvailability', 'Yes');
     addHiddenDiv('zoomInfo', 'Yes');
     addHiddenDiv('rotateInfo', 'No');
