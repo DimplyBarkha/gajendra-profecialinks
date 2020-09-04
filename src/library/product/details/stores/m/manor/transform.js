@@ -63,7 +63,17 @@ const transform = (data) => {
             item.text = item.text.replace(/\n\s*\n\s*\n\s*/g, ' || ').trim();
             item.text = item.text.replace(/\n\s*/g, ':').trim();
           });
-        }       
+        }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
+            item.text = parseInt(item.text);
+          });
+        }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = parseInt(item.text);
+          });
+        }        
       }
     }
     return data;
