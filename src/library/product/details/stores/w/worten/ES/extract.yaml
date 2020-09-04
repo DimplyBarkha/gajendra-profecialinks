@@ -9,7 +9,7 @@ fields:
     regExpReplace: https://www.worten.es$1
   - name: category 
     description: The categories (e.g. from breadcrumbs)
-    xpath: //section[@data-module-template="breadcrumbs"]//li[position()>1]
+    xpath: //section[@data-module-template="breadcrumbs"]//li
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
@@ -43,6 +43,8 @@ fields:
   - name: gtin
     description: GTIN code (includes UPC/EAN)
     xpath: //ul//li//span[contains(text(),'EAN')]/../span[position()>last()-1]
+  - name: eangtin
+    xpath: //ul//li//span[contains(text(),'EAN')]/../span[position()>last()-1]
   - name: sku
     description: The store-specific product identifier
     xpath: //ul//li//span[contains(text(),'Referencia')]/../span[position()>last()-1]
@@ -51,7 +53,7 @@ fields:
     xpath: //ul//li//span[contains(text(),'Referencia')]/../span[position()>last()-1]
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
-    xpath: //div[contains(@class,"product__legal-disclaimer")]//p
+    xpath: //div[contains(@class,"product__legal-disclaimer")]
   - name: ratingCount
     description: The number of ratings
     xpath: //script[@type="application/ld+json"][1][contains(text(),"reviewCount")]
@@ -79,7 +81,7 @@ fields:
     xpath: //div[@class="w-section__wrapper"]//ul//li//span[contains(text(),'Garantía')]/../span[position()>last()-1]
   - name: productOtherInformation
     description: Any other product information
-    xpath: //ul//li//span[contains(text(),'Más información')]/../span[position()>last()-1]
+    xpath: //p[contains(text(),'Más información')]/following-sibling::ul[1]/li/span
   - name: energyEfficiency
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14

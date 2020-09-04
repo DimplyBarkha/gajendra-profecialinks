@@ -53,6 +53,13 @@ const transform = (data) => {
           });
           row.specifications = [{ text }];
         }
+        if (row.productOtherInformation) {
+          let text = '';
+          row.productOtherInformation.forEach(item => {
+            text = row.productOtherInformation.map(elm => elm.text).join(' ').replace(/●/g, '||');
+          });
+          row.productOtherInformation = [{ text }];
+        }
       }
     }
     return data;
