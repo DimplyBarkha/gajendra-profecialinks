@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-airwrap-complete-multistyler-184998.html
 extractions:
-  - html: https://workbench.import.io/html/run=8a54430a-b35e-44d8-ac22-b267d86dbb88/task=a0852260-5a39-401f-8a05-370861778696/de86c3de-5453-43aa-828c-86261bfc0c8f.html
+  - html: https://workbench.import.io/html/run=4c2f980d-19f7-407e-a39c-d5ddc7b5f1a9/task=361244e3-ab70-48d5-a31c-7b7ca15ce4c0/74c755a7-633f-41f0-8eca-0dc44251220b.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -47,6 +47,9 @@ extractions:
               - text: DYSON
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[6]/div[1]/div[1]/div[1]/span[1]/img[1]/@alt
             gtin:
+              - text: "5025155038390"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            eangtin:
               - text: "5025155038390"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
@@ -120,4 +123,4 @@ extractions:
                   sobald die bestellte Ware versendet oder in einem unserer
                   Shops abgeholt wurde."
         xpath: /
-    timestamp: 1599135357098
+    timestamp: 1599213715173

@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-airblade-quiet-v-hu02-nickel-170709.html
 extractions:
-  - html: https://workbench.import.io/html/run=8a54430a-b35e-44d8-ac22-b267d86dbb88/task=a4f3afbf-715d-427b-ae2e-28bd0783faf8/4e0b8f4f-b2ac-45da-8eb4-805f4252bdde.html
+  - html: https://workbench.import.io/html/run=4c2f980d-19f7-407e-a39c-d5ddc7b5f1a9/task=02747119-02ac-419d-9760-2a4647328a8e/1230ad77-d0ce-483c-9b65-e33aff81e3f0.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -47,6 +47,9 @@ extractions:
               - text: DYSON
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[6]/div[1]/div[1]/div[1]/span[1]/img[1]/@alt
             gtin:
+              - text: "5025155025796"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            eangtin:
               - text: "5025155025796"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
             sku:
@@ -195,4 +198,4 @@ extractions:
                   CO2-Emissionen, kein Papiermüll.5 Jahre GarantieAuf die
                   Teile. 
         xpath: /
-    timestamp: 1599135431559
+    timestamp: 1599213720197

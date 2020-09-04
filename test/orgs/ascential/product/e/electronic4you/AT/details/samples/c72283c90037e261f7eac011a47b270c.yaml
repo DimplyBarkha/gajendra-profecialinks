@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-airblade-9kj-184979.html
 extractions:
-  - html: https://workbench.import.io/html/run=8a54430a-b35e-44d8-ac22-b267d86dbb88/task=6f8d5a9c-91a0-4a0a-972c-d57e3718c90d/df17410d-a83f-4616-afdd-0595c2d645e3.html
+  - html: https://workbench.import.io/html/run=4c2f980d-19f7-407e-a39c-d5ddc7b5f1a9/task=84bfec17-7876-4a67-a1bc-eab24bf7cde4/869500bf-1c22-4f3f-8347-11f544ab695f.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -54,6 +54,9 @@ extractions:
               - text: 4,5 kg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[1]
             gtin:
+              - text: "885609017686"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[1]
+            eangtin:
               - text: "885609017686"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[1]
             sku:
@@ -175,4 +178,4 @@ extractions:
                   mithilfe der Dyson Testmethode 769 auf Grundlage von NSF P335
                   bis zu einer Restfeuchtigkeit von 0,1g bestimmt."
         xpath: /
-    timestamp: 1599135358569
+    timestamp: 1599213714271

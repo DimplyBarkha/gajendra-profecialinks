@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-cyclone-v10-motorhead-175618.html
 extractions:
-  - html: https://workbench.import.io/html/run=8a54430a-b35e-44d8-ac22-b267d86dbb88/task=845881d8-6fb3-41ea-be60-47409f07e1a9/dfa9c88c-631e-405d-b65a-c397d754b964.html
+  - html: https://workbench.import.io/html/run=4c2f980d-19f7-407e-a39c-d5ddc7b5f1a9/task=3fbe5b17-a40f-4bd6-acc4-62b247413525/dc0d1c6c-8c46-4454-a7e1-d0493dbde0be.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -50,6 +50,9 @@ extractions:
               - text: 2,5 kg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
             gtin:
+              - text: "5025155034811"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[13]/td[1]
+            eangtin:
               - text: "5025155034811"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[13]/td[1]
             sku:
@@ -127,4 +130,4 @@ extractions:
                   Behälterentleerung landet der Schmutz mit nur einem Handgriff
                   ganz einfach in Ihrem Mülleimer."
         xpath: /
-    timestamp: 1599135357639
+    timestamp: 1599213718372
