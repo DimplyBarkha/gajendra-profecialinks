@@ -36,18 +36,18 @@ module.exports = {
         // @ts-ignore
         ? document.querySelector('div.features-list-product-page').innerText : '';
       if (manufacturerDesc1) {
-        addElementToDocument('desc_manufacturer1', manufacturerDesc1.replace(/\n|•/g, '').replace(/\s{2,}/g, ' '));
+        addElementToDocument('desc_manufacturer1', manufacturerDesc1.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
       const manufacturerDesc2 = document.querySelector('div.dyson-content')
         // @ts-ignore
         ? document.querySelector('div.dyson-content').innerText : '';
       if (manufacturerDesc2) {
-        addElementToDocument('desc_manufacturer2', manufacturerDesc2.replace(/\n|•/g, '').replace(/\s{2,}/g, ' '));
+        addElementToDocument('desc_manufacturer2', manufacturerDesc2.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
       const warrantyXpath = document.evaluate("//h3[contains(text(), 'arantie')]/..",document, null, XPathResult.STRING_TYPE, null);
       const warranty = warrantyXpath ? warrantyXpath.stringValue : '';
       if (warranty) {
-        addElementToDocument('warranty', warranty.replace(/•/g, '-').replace(/\s{2,}|\n/g, ' '));
+        addElementToDocument('warranty', warranty.replace(/•/g, '||').replace(/\s{2,}|\n/g, ' '));
       }
       const pdfPresent = document.querySelector('a[title="Produktdatenblatt anzeigen"]')
         // @ts-ignore
