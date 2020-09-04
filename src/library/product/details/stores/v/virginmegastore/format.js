@@ -26,7 +26,7 @@ const transform = (data) => {
       }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n/g, ' | ').replace(/\n \n/g, ':') : '|';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n/g, ' | ').replace(/\n \n \n \n/g, ' | ').replace(/\n \n/g, ':') : '|';
         });
         row.specifications = [{ text: specificationsArr.join('|'), xpath: row.specifications[0].xpath }];
       }

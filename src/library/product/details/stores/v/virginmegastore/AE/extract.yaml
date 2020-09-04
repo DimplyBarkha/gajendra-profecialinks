@@ -16,7 +16,7 @@ fields:
     xpath: //div[@class='price__container price__container--column d-flex justify--space-between']//div[@class='price__value']
   - name: promotion
     singleValue: false
-    xpath: 
+    xpath: //div[contains(@id,"cboxLoadedContent")]
   - name: lbb
     singleValue: false
     xpath:
@@ -59,8 +59,6 @@ fields:
   - name: priceCurrency
     singleValue: false
     xpath: //div[@class='price__container price__container--column d-flex justify--space-between']//span[@class='price__currency']
-    regExp: 
-    regExpReplace: 
   - name: variants
     singleValue: false
     xpath: //div[@class='select-group']//select//option[not(contains(@disabled,"disabled"))]/@value
@@ -81,8 +79,6 @@ fields:
   - name: sku
     singleValue: false
     xpath: 
-    regExp: 
-    regExpReplace: 
   - name: variantId
     singleValue: false
     xpath: //script[contains(text(),"products")]/text()
@@ -126,8 +122,6 @@ fields:
   - name: quantity
     singleValue: false
     xpath: 
-    regExp: 
-    regExpReplace: 
   - name: lbb
     singleValue: false
     xpath:
@@ -142,13 +136,15 @@ fields:
     xpath: count(//div[@class='select-group']//select//option[not(contains(@disabled,"disabled"))]/@value)
   - name: color
     singleValue: false
-    xpath: 
+    xpath: //p[@class="longDesc"]
+    regExp: (Product colour:)\s([^*]+)
+    regExpReplace: $2
   - name: colorCode
     singleValue: false
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: 
+    xpath: (//meta[contains(@name,"description")]/@content)[1]
   - name: lbbPrice
     singleValue: false
   - name: energyEfficiency
