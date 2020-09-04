@@ -57,7 +57,7 @@ module.exports = {
         nextLinkSelector: null,
         mutationSelector: null,
         spinnerSelector: null,
-        loadedSelector: null,
+        loadedSelector: '#main-liste-articles',
         noResultsXPath: '//div[@class="recherche-vide"]',
         openSearchDefinition: null,
         domain: 'ubaldi.com',
