@@ -1,0 +1,88 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: availabilityText
+    singleValue: false
+    xpath: (//*[@itemprop="availability"]/@href | //div[contains(@class, "price-wrp")]//p/@id)
+    regExp: (.*?\/\/)\w.*?\/(.*\w)
+    regExpReplace: $2
+  - name: shippingInfo
+    singleValue: false 
+    xpath: //span[@class="sold-by"]/b
+  - name: price
+    singleValue: false
+    xpath: concat(//span[@class="total--sale-price"]/@data-sale-price,' ', //meta[@itemprop="priceCurrency"]/@content)
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class, 'pdp--price-wrp')]//div[@class="dg-privilege-exclusive"]//div[@class="content"]/p/text()
+  - name: image
+    singleValue: false
+    xpath: //div[@class="slick-track"]//div[@data-slick-index="0"]//img[@itemprop="image"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="slick-track"]//div[@data-slick-index="0"]//img[@itemprop="image"]/@alt
+  - name: alternativeImages
+    singleValue: false
+    xpath: //div[contains(@class,"mainproduct-slider")]//div[@class="slick-track"]//div[@data-slick-index !="0"]//img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: _url
+    singleValue: false
+    xpath: //head/meta[@property="og:url"]/@content
+  - name: category
+    singleValue: false
+    xpath: //meta[@property="product:category"]/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product-title"]/h1[@itemprop="name"]
+  - name: listPrice
+    singleValue: false
+    xpath: //meta[@property="product:original_price:amount"]/@content
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="product-addcart"]//div[attribute::*[(local-name() ='data-product-id')]]/@data-product-id
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="product-title"]//div[@class="sku-wrap"]//div[contains(., 'SKU')]//span
+  - name: weightNet
+    singleValue: false
+    xpath: ((//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Net Content Weight')]]//td)[2] |(//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Weight')]]//td)[2])[1]
+  - name: packSize
+    singleValue: false
+    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Content Count')]]//td)[2]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="rating-circle"]//span[@class="votes"]
+    regExp: (\d.*?)(\s)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="rating-circle"]//div[@class="rating-stars"]/@ratings
+  - name: shippingDimensions
+    singleValue: false
+    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Dimensions')]]//td)[2]
+  - name: 
+  - name: warranty
+    singleValue: false
+    xpath: //span[contains(text(), 'Warranty')]/text()
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Country of Origin')]]//td)[2]
+  - name: color
+    singleValue: false
+    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Color')]]//td)[2]
+  - name: brandText
+    singleValue: false
+    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Brand')]]//td)[2]  
+  - name: packaging
+    singleValue: false
+    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Packaging')]]//td)[2]
+  - name: quantity
+    singleValue: false
+    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Quantity')]]//td)[2]
+  - name: varaintTypes
+    xpath: //div[contains(@class, "alternative-slider")]//div[@class="slick-track"]//div[contains(@class,"slick-slide")]/a/@href 
+ 
