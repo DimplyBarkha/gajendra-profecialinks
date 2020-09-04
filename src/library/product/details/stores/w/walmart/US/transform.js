@@ -114,7 +114,7 @@ const transform = (data, context) => {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
 
-        if (row.scriptPrice && row.scriptPrice[0].text === '0' && row.unavailableMsg || (row.availabilityMessage && row.availabilityMessage[0].text === 'Not available')) {
+        if ((row.scriptPrice && row.scriptPrice[0].text === '0' && row.unavailableMsg) || (row.availabilityMessage && row.availabilityMessage[0].text === 'Not available')) {
           row.availabilityText = [{ text: 'Out of Stock' }];
         } else {
           row.availabilityText = [{ text: 'In Stock' }];
