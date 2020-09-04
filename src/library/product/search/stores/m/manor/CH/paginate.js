@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'CH',
     store: 'manor',
-    nextLinkSelector: null,
+    nextLinkSelector: 'li.pagination-next a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div#epoq_resultrows',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'manor.ch',
