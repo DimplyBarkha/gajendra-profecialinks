@@ -10,8 +10,9 @@ module.exports = {
     zipcode: '',
   },
 
-  //   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
 
+      await new Promise((resolve, reject) => setTimeout(resolve, 15000));
   //     await context.waitForSelector('div#wrp_loadbee div#content_loadbee div.loadbee-page');
   //     await context.waitForSelector('div#wrp_flixmedia div.wrapper_flixmedia div.flix-inpage');
 
@@ -92,6 +93,6 @@ module.exports = {
 
   //     // await context.click('button#more_flixmedia');
 
-//     await context.extract(productDetails, { transform });
-//   },
+    await context.extract(productDetails, { transform });
+  },
 };

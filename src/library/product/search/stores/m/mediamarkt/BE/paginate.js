@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'li.pagination-next a[rel="next"]',
     mutationSelector: null,
     spinnerSelector: 'div.spinner',
-    loadedSelector: null,
+    loadedSelector: 'ul.products-list',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'mediamarkt.be',

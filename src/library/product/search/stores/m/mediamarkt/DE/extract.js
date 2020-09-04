@@ -28,6 +28,7 @@ async function implementation (
     });
   }
   autoScroll();
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
