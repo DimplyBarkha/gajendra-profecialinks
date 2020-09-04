@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mediaworld.it',
     prefix: null,
-    url: 'https://www.mediaworld.it/product/{id}',
+    url: null,
     zipcode: '',
     store: 'mediaworld',
     country: 'it',

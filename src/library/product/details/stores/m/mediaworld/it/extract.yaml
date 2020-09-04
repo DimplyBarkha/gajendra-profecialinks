@@ -3,6 +3,11 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: price
+    description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
+    xpath: //div[@class="product-detail-main-container"]/@data-gtm-price
+    regExp: (\d+)(.)(\d+)
+    regExpReplace: $1,$3
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -27,13 +32,10 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[@class="product-name"]
   - name: listPrice
-    singleValue: true
     description: The stated undiscounted price for the product
     xpath: //div[@class="product-detail-main-container"]/@data-gtm-price-full
-  - name: price
-    singleValue: true
-    description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
-    xpath: //div[@class="product-detail-main-container"]/@data-gtm-price
+    regExp: (\d+)(.)(\d+)
+    regExpReplace: $1,$3
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If there is no availability but the product can be added to cart, this field should be "In Stock"
@@ -127,6 +129,7 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@class="product-detail-main-container"]/@data-gtm-ranking
     regExp: (\d+)(.)(\d{0,1})
+    regExpReplace: $1,$3
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -154,7 +157,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@data-target="description"]//img/@src
+    xpath: //div[@id="inpage_container"]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
