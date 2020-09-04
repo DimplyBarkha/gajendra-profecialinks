@@ -1,0 +1,78 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[contains(@class,'product clearfix')]
+fields:
+  - name: paid
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    xpath: //article[contains(@class,"product clearfix p-list-ff")]//@data-gtm-brand
+    description: The brand name
+    example: Panasonic
+  - name: productUrl
+    xpath: //article[contains(@class,"product clearfix")]//h3[contains(@class,"product-name")]/a/@href
+    description: The URL for the product details page
+    regExp: (.+)
+    regExpReplace: https://www.mediaworld.it$1
+  - name: thumbnail
+    xpath: //article[contains(@class,"product clearfix")]//div[@class="product-image_cont"]//a//img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //article[contains(@class,"product clearfix")]//h3[contains(@class,"product-name")]
+    description: The product name
+  - name: mpc
+    description: The model code of the product
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+  - name: ratingCount
+    xpath: //article[contains(@class,"product clearfix")]//span[@class="rating-num"]
+    regExp: (\d+)
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //article[contains(@class,"product clearfix")]//span[@class="rating-num"]
+    regExp: (\d+)
+    description: The number of reviews
+  - name: price
+    xpath: //article[contains(@class,"product clearfix")]//@data-gtm-price
+    description: The offered price for the product
+    regExp: (\d+)(.)(\d+)
+    regExpReplace: $1,$3
+  - name: listPrice
+    xpath: //article[contains(@class,"product clearfix")]//@data-gtm-price-full
+    description: The stated undiscounted price for the product
+    regExp: (\d+)(.)(\d+)
+    regExpReplace: $1,$3
+  - name: manufacturer
+    xpath: //article[contains(@class,"product clearfix")]//@data-gtm-brand
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+
+  #  Should these be source specific formulas or in the extractor?
+  - name: id
+    xpath: //article[contains(@class,"product clearfix")]/@data-pcode
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //article[contains(@class,"product clearfix")]//h3[contains(@class,"product-name")]
+  - name: aggregateRating2
+    xpath: //article[contains(@class,"product clearfix")]//span[contains(@class,"star-wrapper star-rating")]/@data-rating
+    description: The stated aggregate rating normalized to be out of 5
+    regExp: (\d+)(.)(\d+)
+    regExpReplace: $1,$3;
