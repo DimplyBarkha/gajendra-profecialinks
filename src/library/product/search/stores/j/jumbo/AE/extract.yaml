@@ -1,0 +1,52 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="search-result-items"]//li
+fields:
+  - name: _input
+    singleValue: false
+  - name: _pageTimestamp
+    singleValue: false
+  - name: _url
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class, "testfreaks")]/@title
+    regExp: (.*) \/.*
+    regExpReplace: $1
+  - name: brandText
+    singleValue: false
+    xpath: //span[contains(@class, "variant-title")]
+    regExp: ^([\w\-]+)
+    regExpReplace: $1
+  - name: id
+    singleValue: false
+    xpath: //span[contains(@class, "variant-title")]//a/@href
+    regExp: .*=(.*)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //span[contains(@class, "variant-title")]
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class, "variant-final-price")]
+    regExp: (AED)(.*)
+    regExpReplace: $1 $2
+  - name: productUrl
+    singleValue: false
+    xpath: //span[contains(@class, "variant-title")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.jumbo.ae$1
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class, "tf-count")]
+    regExp: \((.*)\)
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class, "tf-count")]
+    regExp: \((.*)\)
+    regExpReplace: $1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, "variant-image")]//img/@src
