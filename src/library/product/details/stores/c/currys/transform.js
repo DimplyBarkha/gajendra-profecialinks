@@ -23,11 +23,7 @@ const transform = (data) => {
         row.coupon.forEach(item => {
           text += text ? ` || ${item.text}` : item.text;
         });
-        row.coupon = [
-          {
-            text: text,
-          },
-        ];
+        row.coupon = [{ text }];
       }
 
       if (row.variantCount) {
@@ -38,6 +34,7 @@ const transform = (data) => {
 
       if (row.category && row.category.length) {
         row.category = row.category.slice(1);
+        row.category.pop();
       }
 
       if (row.alternateImages && row.alternateImages.length) {
