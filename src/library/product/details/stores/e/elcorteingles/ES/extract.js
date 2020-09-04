@@ -186,7 +186,7 @@ module.exports = {
       const quantityArray = document.querySelector('[itemprop="description"]').textContent.trim().split('\n');
       if (quantityArray.length > 3) {
         const quantity = quantityArray[2] + ' ' + quantityArray[3];
-        addElementToDocument('quantity', quantity);
+        addElementToDocument('quantity', quantity.trim());
       }
 
       // Function to remove the `\n` from the textContent
