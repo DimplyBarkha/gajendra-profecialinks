@@ -28,18 +28,20 @@ fields:
     xpath:
   - name: image
     singleValue: false
-    xpath: 
+    xpath: //div[contains(@class,'swiper-slide swiper-slide-active')]//div[contains(@style,'main.jpg')]/@style
+    regExp: ((\/.*)')
+    regExpReplace: https://www.virginmegastore.ae$2
   - name: imageAlt
     singleValue: false
     xpath: 
   - name: alternateImages
     singleValue: false
-    xpath: 
-    regExp: 
-    regExpReplace: 
+    xpath: //div[contains(@class,'swiper-slide')]//div/@style
+    regExp: ((\/.*)')
+    regExpReplace: https://www.virginmegastore.ae$2 
   - name: metaKeywords
     singleValue: false
-    xpath:
+    xpath: //meta[@name="keywords"]/@content
   - name: url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
@@ -50,10 +52,10 @@ fields:
     regExpReplace: $2
   - name: nameExtended
     singleValue: false
-    xpath: 
+    xpath: //h1[contains(@class,'name')]
   - name: listPrice
     singleValue: false
-    xpath: 
+    xpath: //div[contains(@class,"price__container")]//div[@class='price__value price__value--original']
   - name: priceCurrency
     singleValue: false
     xpath: //div[@class='price__container price__container--column d-flex justify--space-between']//span[@class='price__currency']
@@ -61,9 +63,9 @@ fields:
     regExpReplace: 
   - name: variants
     singleValue: false
-    xpath: 
-    regExp: 
-    regExpReplace: 
+    xpath: //div[@class='select-group']//select//option[not(contains(@disabled,"disabled"))]/@value
+    regExp: (\d+)
+    regExpReplace: $1
   - name: Image360Present
     singleValue: false
     xpath:
@@ -83,13 +85,15 @@ fields:
     regExpReplace: 
   - name: variantId
     singleValue: false
-    xpath: 
+    xpath: //script[contains(text(),"products")]/text()
+    regExp: \'id':\s\s\s\s\s\s\s'([\d,]+.*)'
+    regExpReplace: $1
   - name: packSize
     singleValue: false
     xpath:
   - name: legalDisclaimer
     singleValue: false
-    xpath: 
+    xpath: //font[@size="2"]
   - name: directions
     singleValue: false
     xpath:
@@ -118,7 +122,7 @@ fields:
     xpath: //meta[contains(@itemprop,"brand")]/@content
   - name: manufacturer
     singleValue: false
-    xpath: 
+    xpath: //meta[contains(@itemprop,"brand")]/@content
   - name: quantity
     singleValue: false
     xpath: 
@@ -135,7 +139,7 @@ fields:
     xpath:
   - name: variantCount
     singleValue: false
-    xpath: 
+    xpath: count(//div[@class='select-group']//select//option[not(contains(@disabled,"disabled"))]/@value)
   - name: color
     singleValue: false
     xpath: 
@@ -166,7 +170,7 @@ fields:
     xpath: 
   - name: specifications
     singleValue: false
-    xpath: 
+    xpath: //div[@class="product-classifications"]
   - name: warranty
     singleValue: false
     xpath: 

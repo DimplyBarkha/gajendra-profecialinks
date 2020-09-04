@@ -14,10 +14,27 @@ const transform = (data) => {
       }
       if (row.availabilityText) {
         const availabilityTextArr = row.availabilityText.map((item) => {
-          console.log('row.availabilityText =>' + row.availabilityText);
           return (typeof (item.text) === 'string') && (item.text.trim() === 'Add to bag') ? 'In Stock' : 'Out of Stock';
         });
         row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
+      }
+      if (row.productOtherInformation) {
+        const productOtherInformationArr = row.productOtherInformation.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '| ') : '|';
+        });
+        row.productOtherInformation = [{ text: productOtherInformationArr.join('|'), xpath: row.productOtherInformation[0].xpath }];
+      }
+      if (row.specifications) {
+        const specificationsArr = row.specifications.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n/g, ' | ').replace(/\n \n/g, ':') : '|';
+        });
+        row.specifications = [{ text: specificationsArr.join('|'), xpath: row.specifications[0].xpath }];
+      }
+      if (row.legalDisclaimer) {
+        const legalDisclaimerArr = row.legalDisclaimer.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '| ') : '|';
+        });
+        row.legalDisclaimer = [{ text: legalDisclaimerArr.join('|'), xpath: row.legalDisclaimer[0].xpath }];
       }
     }
   }

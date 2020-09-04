@@ -5,7 +5,7 @@ module.exports = {
     country: 'AE',
     store: 'virginmegastore',
     domain: 'virginmegastore.ae',
-    loadedSelector: null,
+    loadedSelector: 'div.swiper-slide.swiper-slide-active',
     noResultsXPath: null,
     zipcode: '',
   },
