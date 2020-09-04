@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'davidjones',
-    nextLinkSelector: 'div.sli_infinite_wrapper > button.sli_load_more_button',    
+    nextLinkSelector: 'button[data-tb-sid="st_infinite-button"]',    
     loadedSelector: '#page-content',
     domain: 'davidjones.com',
     zipcode: '',
