@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@id="product-results"]'
+recordXPath: '//div[@id="product-results"]/div/div'
 fields: 
   - name: productUrl
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
@@ -18,15 +18,17 @@ fields:
     singleValue: false
     xpath: //div[@id="product-results"]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//span[contains(@class,"sales-price")]
     regExp: (\d+)((\,?)(\d+))
-    regExpReplace: $1$2
-  - name: shippingInfo
+    regExpReplace: $1$2 
+  - name: rank
     singleValue: false
-    xpath: 
+    description: search/listing rank
+    type: NUMBER
   - name: rankOrganic
-    singleValue: false
-    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@data-component
-    regExp: (position:)\s(\d+)
-    regExpReplace: $2
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    defaultValue: false
   - name: aggregateRating
     singleValue: false
     xpath: //meter[@class="review-rating__score-meter"]/@value
@@ -38,36 +40,11 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="review-rating"]//span[contains(@class,"review-rating__reviews")]
-  - name: soldBy
-    singleValue: false
-    xpath: 
-  - name: rank
-    singleValue: false
-    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@data-component
-    regExp: (position:)\s(\d+)
-    regExpReplace: $2
   - name: endorsementText
     singleValue: false
     xpath: //div[@class="product-label__promo-icon"]//div[@class="coolblues-choice-label"]
-  - name: variantId
+  - name: id
     singleValue: false
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
     regExp: (\/product\/)(\d+)
     regExpReplace: $2
-  - name: sku
-    singleValue: false
-    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
-    regExp: (\/product\/)(\d+)
-    regExpReplace: $2
-  - name: mpc
-    singleValue: false
-    xpath:
-  - name: variantType
-    singleValue: false
-    xpath:
-  - name: quantity
-    singleValue: false
-    xpath:
-  - name: packSize
-    singleValue: false
-    xpath:
