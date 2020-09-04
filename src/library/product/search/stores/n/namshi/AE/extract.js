@@ -1,11 +1,12 @@
 const {transform} = require('../transform')
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'AE',
-    store: 'noon',
+    store: 'namshi',
     transform,
-    domain: 'noon.com',
+    domain: 'namshi.com',
     zipcode: "''",
   },
 };

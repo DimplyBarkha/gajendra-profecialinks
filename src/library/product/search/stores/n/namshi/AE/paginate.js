@@ -3,14 +3,14 @@ module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'AE',
-    store: 'noon',
+    store: 'namshi',
     nextLinkSelector: 'a#next_page',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.site_width_container',
-    noResultsXPath: null,
+    loadedSelector: 'section#catalog_container',
+    noResultsXPath: '//div[@id="section_404_container"]',
     openSearchDefinition: null,
-    domain: 'noon.com',
+    domain: 'namshi.com',
     zipcode: "''",
   },
 };
