@@ -1,0 +1,99 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _url
+    singleValue: false    
+    xpath: //link[@rel='canonical']/@href
+  - name: image
+    singleValue: false    
+    xpath: //a[@class='cloudZoom']/@href
+  - name: imageAlt
+    singleValue: false
+    xpath: //ul[@class='bxslides']//li//a[@class='cloud-zoom-gallery']/@alt
+  - name: alternateImages
+    singleValue: false    
+    xpath: //ul[@class='bxslides']//li//a[@class='cloud-zoom-gallery']/@href
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: category
+    singleValue: false    
+    xpath: //div[@class='breadcrumbs']//ul
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='price-box']//div[@class='old-price']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-box']//div[@class='regular-price' or @class='special-price']
+  - name: description
+    singleValue: false    
+    xpath: //div[@id='full-desc']  
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='product_logo mbot12']//a
+    regExp: See all products from\s*(.+)
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='product_logo mbot12']//a
+    regExp: See all products from\s*(.+)
+    regExpReplace: $1  
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='full-desc']
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[@id='full-desc']  
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
+    regExp: (.*)\/.+
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
+    regExp: (.*)\/.+
+    regExpReplace: $1
+    type: NUMBER
+  - name: shippingInfo
+    singleValue: false
+    xpath: //ul[@class='countdown mtop20']
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@id='full-desc']          
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class='product_logo mbot12']//a//img/@src
+  - name: name
+    singleValue: false    
+    xpath: //div[@class='product-name']//h1/text()  
+  - name: brandLink
+    singleValue: false
+    xpath: //div[@class='product_logo mbot12']//a/@href  
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[@class='desc_divider']//ul 
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='full-desc']//iframe/@src
+  - name: variantInformation
+    singleValue: false
+    xpath: //select[@id='attribute211']/option[preceding::option]/text()  
+  - name: imageZoomFeaturePresent
+    singleValue: false    
+    defaultValue: Yes
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
+  - name: available
+    singleValue: false
+    xpath: //span[contains(@class,'prod-no-stock')]
+    defaultValue: true
+  - name: availabilityText
+    singleValue: false    
+    defaultValue: 'In Stock'
+  - name: variantCount
+    singleValue: false    
+    defaultValue: 0
