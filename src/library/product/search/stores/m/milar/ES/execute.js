@@ -13,12 +13,13 @@ async function implementation (
   dependencies,
 ) {
   console.log('params', parameters, inputs);
+
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  await context.evaluate(function (inputs) {
-    document.querySelector('input#txtBuscador').value = inputs.keywords;
-    document.querySelector('form.form-search').submit();
-  }, inputs);
+
+  await context.waitForSelector('input[name=buscador]');
+    await context.setInputValue('input[name=buscador]',inputs.keywords);
+    await context.click('input[name=buscador]');
   context.waitForNavigation();
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
@@ -45,7 +46,7 @@ module.exports = {
     domain: 'milar.es',
     url: 'https://www.milar.es',
     loadedSelector: 'div#df-results__dfclassic',
-    noResultsXPath: '//p[contains(text(),"No Records")]',
+    noResultsXPath: '//p[contains(text()\,"No Records")]',
     zipcode: '',
   },
   implementation,

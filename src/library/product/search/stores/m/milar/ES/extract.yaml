@@ -5,5 +5,13 @@ recordXPath: //*[@id="df-results__content__dfclassic"]/div/a
 fields:
   - name: name
     singleValue: false
-    xpath: //link[@rel='canonical']/@href
+    xpath: //*[@id="df-results__content__dfclassic"]/div/a/div[2]/div[1]
+  - name: price
+    singleValue: false
+    xpath: //*[@id="df-results__content__dfclassic"]/div/a/div[2]/div[3]/div
+  - name: image
+    singleValue: false
+    xpath: //*[@id="df-results__content__dfclassic"]/div/a/figure/img/@src
+ 
+
     
