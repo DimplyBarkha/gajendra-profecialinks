@@ -62,6 +62,7 @@ module.exports = {
           document.querySelector('.overlay-bg').click();
         });
         addHiddenDiv('ii_videos', videos.join(' || '));
+        // addHiddenDiv('ii_rating', document.querySelector('span[itemprop="ratingValue"]') ? document.querySelector('span[itemprop="ratingValue"]').textContent : '');
       }
     });
     closeModal();

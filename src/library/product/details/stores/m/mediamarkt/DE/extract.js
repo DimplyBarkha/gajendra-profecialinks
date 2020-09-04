@@ -32,30 +32,34 @@ module.exports = {
       let content = null;
       let image = null;
       await context.click('div[class^="RichProductDescription"] button');
-      await context.waitForSelector('iframe#loadbeeTabContent');
-      const iframeURLLink = await context.evaluate(async function () {
-        return document.querySelector('iframe#loadbeeTabContent').getAttribute('src');
-      });
-      await context.goto(iframeURLLink);
-
-      const text = await context.evaluate(async function () {
-        return document.querySelector('body').innerText;
-      });
-      content = text;
-      const images = await context.evaluate(async function () {
-        const images = document.querySelectorAll('body img');
-        const imagesSrc = [];
-        [...images].forEach((element) => {
-          if (element.getAttribute('data-src')) {
-            imagesSrc.push(element.getAttribute('data-src'));
-          }
+      try {
+        await context.waitForSelector('iframe#loadbeeTabContent', { timeout: 55000 });
+        const iframeURLLink = await context.evaluate(async function () {
+          return document.querySelector('iframe#loadbeeTabContent').getAttribute('src');
         });
-        return imagesSrc.join(' || ');
-      });
-      image = images;
-      await context.goto(link);
-      addHiddenInfo('manufContent', content);
-      addHiddenInfo('manufImg', image);
+        await context.goto(iframeURLLink);
+
+        const text = await context.evaluate(async function () {
+          return document.querySelector('body').innerText;
+        });
+        content = text;
+        const images = await context.evaluate(async function () {
+          const images = document.querySelectorAll('body img');
+          const imagesSrc = [];
+          [...images].forEach((element) => {
+            if (element.getAttribute('data-src')) {
+              imagesSrc.push(element.getAttribute('data-src'));
+            }
+          });
+          return imagesSrc.join(' || ');
+        });
+        image = images;
+        await context.goto(link);
+        addHiddenInfo('manufContent', content);
+        addHiddenInfo('manufImg', image);
+      } catch (err) {
+        console.log('Looks like the website may not have manufacturer content');
+      }
     }
 
     await context.evaluate(async function () {

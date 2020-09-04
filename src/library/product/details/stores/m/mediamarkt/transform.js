@@ -146,7 +146,16 @@ const transform = (data, context) => {
         ];
       }
       if (row.aggregateRating) {
-        row.aggregateRating[0].text = parseFloat(row.aggregateRating[0].text);
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
+      }
+      // if (row.aggregateRatingText) {
+      //   row.aggregateRatingText[0].text = row.aggregateRatingText[0].text.replace('.', ',');
+      // }
+      if (row.price) {
+        row.price[0].text = row.price[0].text.replace('.', ',');
+      }
+      if (row.listPrice) {
+        row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
       }
 
       // if (row.technicalInformationPdfPresent) {

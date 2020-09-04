@@ -51,12 +51,13 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'product-wrapper')]//a[contains(@class, "rating")]//div/@class
     regExp: (?<=\-)\s*(.*)
-    type: NUMBER
+    # type: NUMBER
     description: The stated aggregate rating normalized to be out of 5
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,'product-wrapper')]//a[contains(@class, "rating")]//div/@class
-    regExp: (\d)-?(\d)?
-    regExpReplace: $1.$2
+    regExp: (?<=\-)\s*(.*)
+    # regExp: (\d)-?(\d)?
+    # regExpReplace: $1.$2
     description: The stated aggregate rating normalized to be out of 5
     

@@ -38,10 +38,10 @@ const transform = (data, context) => {
         //     text: text.slice(0, -4),
         //   },
         // ];
-        row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace('-', '.') }];
+        row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace('-', ',').replace('.', ',') }];
       }
       if (row.aggregateRating) {
-        row.aggregateRating = [{ text: parseFloat(row.aggregateRating[0].text.replace('-', '.')) }];
+        row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('-', ',').replace('.', ',') }];
       }
       console.log('dsdsdsdsds')
       console.log(row.price)
@@ -52,8 +52,9 @@ const transform = (data, context) => {
           jsonData = jsonData.length === 2 ? jsonData[1].replace(';', '') : '';
           jsonData = jsonData.length ? JSON.parse(jsonData) : {};
           const price = Object.keys(jsonData).length ? (jsonData.price ? jsonData.price : '') : '';
-          row.price = [{ text: price }];
+          row.price = [{ text: price.replace('.', ',') }];
         }
+        row.price = [{ text: row.price[0].text.replace('.', ',') }];
       }
       if (row.id && row.id[0]) {
         if (row.id[0].text.match('.html')) {
