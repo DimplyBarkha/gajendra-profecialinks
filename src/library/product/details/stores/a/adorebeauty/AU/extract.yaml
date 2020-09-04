@@ -72,3 +72,21 @@ fields:
   - name: additionalDescBulletInfoCount
     singleValue: false
     xpath: //div[@itemprop="description"]/div/ul/li | //div[@itemprop="description"]/ul/li
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@itemprop="description"]/p[contains(text(), "Box dimensions")]
+    regExp: \w+:(.*)
+    regExpReplace: $1
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[@itemprop="description"]/p[contains(text(), "Box weight")]
+    regExp: \w+:(.*)
+    regExpReplace: $1
+  - name: grossWeight
+    singleValue: false
+    xpath: //div[@itemprop="description"]/p[contains(text(), "Box weight")]
+    regExp: \w+:(.*)
+    regExpReplace: $1
+  - name: warranty
+    singleValue: false
+    xpath: //div[@itemprop="description"]/p[contains(text(), "guarantee") or contains(text(), "warranty")]
