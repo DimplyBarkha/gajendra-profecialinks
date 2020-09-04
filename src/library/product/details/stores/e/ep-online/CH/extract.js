@@ -28,13 +28,15 @@ async function implementation (inputs, parameters, context, dependencies) {
 
       const manufacturerDescription = document.body.innerText;
       const manufacturerImageArray = [];
-      const manufacturerImagesListy = getListOfImagesByXPath('//div[contains(@class, "img")] | //p[contains(@class, "img")]');
-      let imgNode = manufacturerImagesListy.iterateNext();
+      const manufacturerImagesList = getListOfImagesByXPath('//div[contains(@class, "img")] | //p[contains(@class, "img")]');
+      let imgNode = manufacturerImagesList.iterateNext();
       while (imgNode) {
         const imgUrlRegex = /.*url.*(http.*?)"?\).*/gm;
-        const imgUrl = imgNode.getAttribute('style') ? imgNode.getAttribute('style').replace(imgUrlRegex, '$1') : '';
-        imgUrl && manufacturerImageArray.push(imgUrl);
-        imgNode = manufacturerImagesListy.iterateNext();
+        if (imgNode.getAttribute('style') && imgUrlRegex.test(imgNode.getAttribute('style'))) {
+          const imgUrl = imgNode.getAttribute('style').replace(imgUrlRegex, '$1');
+          imgUrl && manufacturerImageArray.push(imgUrl);
+        }
+        imgNode = manufacturerImagesList.iterateNext();
       }
       return { manufacturerImageArray, manufacturerDescription };
     });
