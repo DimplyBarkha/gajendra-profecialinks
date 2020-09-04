@@ -28,8 +28,8 @@ const transform = (data, context) => {
         });
       }
       if (row.price) {
-        row.price.forEach(priceItem => {
-          priceItem.text = priceItem.text.replace('€', ',');
+        row.price.forEach(item => {
+          item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
         });
       }
       if (row.ratingCount) {
