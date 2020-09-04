@@ -5,8 +5,8 @@ module.exports = {
     country: 'ES',
     store: 'andorrafreemarket',
     domain: 'andorrafreemarket.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="product-view"]',
+    noResultsXPath: '//div[contains(@class,"block_category_above_empty_collection")]',
     zipcode: '',
   },
 };
