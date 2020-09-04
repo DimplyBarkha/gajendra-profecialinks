@@ -11,13 +11,10 @@ fields:
     xpath: //img[contains(@class,"f-productVisuals-mainMedia")]/@alt
   - name: alternateImages
     singleValue: false
-    
-  - name: metaKeywords
-    singleValue: false
-    description: The <meta> keywords content
+    xpath: //div[contains(@class, "js-productVisuals-thumbnails")]//div[@data-type="image"]/img/@src
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class="f-breadcrumb"]/li[position() > 1]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -27,13 +24,10 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    xpath: //div[contains(@class,"f-productOffer-priceBox")]/div/span[contains(@class, "checked")]
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    xpath: //span[@class="f-buyBox-availabilityStatus-available"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -59,13 +53,13 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    description: Net weight as described on the page
+    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Peso')]//parent::div/dd/p
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    description: GTIN code (includes UPC/EAN)
+    xpath: //div[contains(@class,"f-productPage")]/@data-ean13
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -90,21 +84,21 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    description: The number of ratings
+    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-productHeader-reviewLabel")]
     type: NUMBER
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-star--large")]
     type: NUMBER
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
-    description: Stated shipping dimensions
+    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Dimensiones')] | //div[@class="characteristicsStrate__item"]/dt//font[contains(text(),'Dimensions')]//parent::font/following::dd/p//font
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
@@ -114,7 +108,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: false
-    description: A textual description of the colour
+    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Color')]//parent::div/dd/p | //div[@class="characteristicsStrate__item"]/dt//font[contains(text(),'Color')]//parent::font/following::dd/p//font
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -126,10 +120,10 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    description: URLs of videos on page
+    xpath: //meta[@itemprop="contentURL"]/@content
   - name: name
     singleValue: false
-    description: The product name
+    manualSelector: h1.f-productHeader-Title
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
