@@ -1,0 +1,190 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _pageTimestamp
+    singleValue: false
+  - name: availabilityText
+    singleValue: false
+    xpath: //form[@id="addToCartForm"]//button
+  - name: shippingInfo
+    singleValue: false
+    xpath: 
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price__container price__container--column d-flex justify--space-between']//div[@class='price__value']
+  - name: promotion
+    singleValue: false
+    xpath: 
+  - name: lbb
+    singleValue: false
+    xpath:
+  - name: lbbPrice
+    singleValue: false
+    xpath: 
+  - name: _input
+    singleValue: false
+    xpath:
+  - name: image
+    singleValue: false
+    xpath: 
+  - name: imageAlt
+    singleValue: false
+    xpath: 
+  - name: alternateImages
+    singleValue: false
+    xpath: 
+    regExp: 
+    regExpReplace: 
+  - name: metaKeywords
+    singleValue: false
+    xpath:
+  - name: url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: category
+    singleValue: false
+    xpath: //script[contains(text(),"products")]/text()
+    regExp: \'category':\s'(([^,]+)')
+    regExpReplace: $2
+  - name: nameExtended
+    singleValue: false
+    xpath: 
+  - name: listPrice
+    singleValue: false
+    xpath: 
+  - name: priceCurrency
+    singleValue: false
+    xpath: //div[@class='price__container price__container--column d-flex justify--space-between']//span[@class='price__currency']
+    regExp: 
+    regExpReplace: 
+  - name: variants
+    singleValue: false
+    xpath: 
+    regExp: 
+    regExpReplace: 
+  - name: Image360Present
+    singleValue: false
+    xpath:
+  - name: weightNet
+    singleValue: false
+    xpath: 
+  - name: weightGross
+    singleValue: false
+    xpath: 
+  - name: gtin
+    singleValue: false
+    xpath: 
+  - name: sku
+    singleValue: false
+    xpath: 
+    regExp: 
+    regExpReplace: 
+  - name: variantId
+    singleValue: false
+    xpath: 
+  - name: packSize
+    singleValue: false
+    xpath:
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: 
+  - name: directions
+    singleValue: false
+    xpath:
+  - name: warnings
+    singleValue: false
+    xpath: 
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@itemprop='reviewCount']
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop='ratingValue']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: 
+  - name: description
+    singleValue: false
+    xpath: (//meta[contains(@name,"description")]/@content)[1]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: 
+  - name: brandText
+    singleValue: false
+    xpath: //meta[contains(@itemprop,"brand")]/@content
+  - name: manufacturer
+    singleValue: false
+    xpath: 
+  - name: quantity
+    singleValue: false
+    xpath: 
+    regExp: 
+    regExpReplace: 
+  - name: lbb
+    singleValue: false
+    xpath:
+  - name: shippingDimensions
+    singleValue: false
+    xpath: 
+  - name: shippingWeight
+    singleValue: false
+    xpath:
+  - name: variantCount
+    singleValue: false
+    xpath: 
+  - name: color
+    singleValue: false
+    xpath: 
+  - name: colorCode
+    singleValue: false
+    xpath: 
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: 
+  - name: lbbPrice
+    singleValue: false
+  - name: energyEfficiency
+    singleValue: false
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: 
+  - name: manufacturerImages
+    singleValue: false
+    xpath:
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="tab-details"]//iframe/@src
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="name"]
+  - name: coupon
+    singleValue: false  
+    xpath: 
+  - name: specifications
+    singleValue: false
+    xpath: 
+  - name: warranty
+    singleValue: false
+    xpath: 
+  - name: storage
+    singleValue: false
+  - name: countryOfOrigin
+    singleValue: false
+  - name: recyclingInformation
+    singleValue: false
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //p[@class="longDesc"]
+  - name: packaging
+    singleValue: false
+    xpath:
+  - name: variantInformation
+    singleValue: false
+    xpath: 
+  - name: termsAndConditions
+    singleValue: false
+    xpath: 
