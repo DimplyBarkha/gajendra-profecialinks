@@ -39,7 +39,7 @@ fields:
   
   - name: specifications
     singleValue: false
-    xpath : //tr[contains(.,'Dimensions') and not(contains(.,'carton')) and not(contains(.,"l'emballage"))]/td | //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé')) and not(contains(.,'carton')) and not(contains(.,"l'emballage"))]/td
+    xpath : //tr[contains(.,'Dimension') and not(contains(.,'carton')) and not(contains(.,"l'emballage")) and not(contains(.,"emballé"))]/td | //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé')) and not(contains(.,'carton')) and not(contains(.,"l'emballage"))]/td | //div[@class='row']//table[contains(@class,'specificationsTable')]//td
 
   - name: brandText
     singleValue: false
@@ -49,9 +49,13 @@ fields:
     singleValue: false
     xpath: //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé')) and not(contains(.,'carton')) and not(contains(.,"l'emballage"))]/td
 
+  - name: weightGross
+    singleValue: false
+    xpath: //tr[contains(.,'Poids') and (contains(.,'carton') or contains(., "l'emballage")  or contains(., "emballé"))]/td[2]
+  
   - name: warranty
     singleValue: false
-    xpath: //tr[contains(.,'Garantie')]/td[2]
+    xpath: //tr[contains(.,'Garantie')]/td[2] | //div[contains(@id,'frameDescProductContent')]//p[contains(.,'Garantie')]
 
   - name: image
     singleValue: false
@@ -63,11 +67,11 @@ fields:
 
   - name: shippingDimensions
     singleValue: false
-    xpath: //tr[contains(.,"Dimensions") and contains(.,"l'emballage")]/td[2] | //tr[contains(.,'Dimensions') and (contains(.,'carton'))]/td[2]
+    xpath: //tr[contains(.,"Dimension") and contains(.,"l'emballage")]/td[2] | //tr[contains(.,'Dimension') and (contains(.,'carton'))]/td[2] | //tr[contains(.,"Dimension") and contains(.,"emballé")]/td[2]
   
   - name: shippingWeight
     singleValue: false
-    xpath: //tr[contains(.,'Poids') and (contains(.,'carton') or contains(., "l'emballage"))]/td[2]
+    xpath: //tr[contains(.,'Poids') and (contains(.,'carton') or contains(., "l'emballage")  or contains(., "emballé"))]/td[2]
 
   - name: variantId
     singleValue: false
@@ -80,15 +84,19 @@ fields:
   - name: gtin
     singleValue: false
     xpath : //script[@data-flix-language='fr']/@data-flix-ean
+
+  - name: mpc
+    singleValue: false
+    xpath : //script[@data-flix-language='fr']/@data-flix-mpn
   
   - name: sku
     singleValue: false
     xpath : //script[@data-flix-language='fr']/@data-flix-sku
     
 
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@class='row']//table[contains(@class,'specificationsTable')]//td
+  # - name: productOtherInformation
+  #   singleValue: false
+  #   xpath: //div[@class='row']//table[contains(@class,'specificationsTable')]//td
 
   - name: nameExtended
     singleValue: false

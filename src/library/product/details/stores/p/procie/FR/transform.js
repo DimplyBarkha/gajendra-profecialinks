@@ -34,7 +34,7 @@ const transform = (data) => {
       }
       if (row.videos) {
         row.videos.forEach(item => {
-          item.text = 'https://www.procie.com/' + item.text;
+          item.text = item.text.replace(/.*%2Fproduits%2F(.*).mp4.*/, 'https://www.procie.com/datas/products-pictures/produits/$1.mp4');
         });
       }
       if (row.description) {
@@ -63,7 +63,7 @@ const transform = (data) => {
         });
         row.specifications = [
           {
-            text: text.slice(0, -3),
+            text: text.slice(0, -4),
           },
         ];
       }
