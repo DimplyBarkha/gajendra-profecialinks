@@ -55,7 +55,7 @@ fields:
   
   - name: warranty
     singleValue: false
-    xpath: //tr[contains(.,'Garantie')]/td[2] | //div[contains(@id,'frameDescProductContent')]//p[contains(.,'Garantie')]
+    xpath: //div[contains(@id,'frameDescProductContent')]//p[contains(.,'Garantie')]
 
   - name: image
     singleValue: false

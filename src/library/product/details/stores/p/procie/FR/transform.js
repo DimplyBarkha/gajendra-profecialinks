@@ -52,6 +52,13 @@ const transform = (data) => {
           item.text = item.text.replace('- Couleur:', '');
         });
       }
+      if (row.warranty) {
+        row.warranty.forEach(item => {
+          if (item.text.length > 100) {
+            item.text = '';
+          }
+        });
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach((item, index) => {
