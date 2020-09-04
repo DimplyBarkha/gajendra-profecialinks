@@ -5,7 +5,7 @@ async function implementation(
     dependencies,
 ) {
     console.log('params', parameters);
-    const inputKeyWord = inputs.keywords.replace(' ', '-');
+    const inputKeyWord = inputs.keywords.replace(/ /g, '-');
     const url = parameters.url.replace('{searchTerms}', inputKeyWord);
     await dependencies.goto({ url, zipcode: inputs.zipcode });
     if (parameters.loadedSelector) {
