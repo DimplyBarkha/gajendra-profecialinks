@@ -1,0 +1,18 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'products-grid')]/li
+fields: 
+  - name: ProdcutUrl
+    SingleValue: false
+    xpath: //div[@class='prodGrid text-center']//h2//a/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class='prodGrid text-center']//a//img//@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class='prodGrid text-center']//h2//a
+  - name: price
+    SingleValue: false
+    xpath: //div[@class='prodGrid text-center']//div[@class='itemsmain']//div[@class='special-price' or @class='regular-price']
+
