@@ -19,7 +19,7 @@ fields:
     singleValue: false
     description: Date the review  was made
     type: DATETIME
-    xpath: .//span[contains(@data-hook,"review-date")]
+    xpath: .//*[contains(@data-hook,"review-date")]
   - name: domain
     singleValue: false
     description: The URL of the page
@@ -29,24 +29,24 @@ fields:
     singleValue: false
     description: The text of  the review
     type: TEXT
-    xpath: .//span[@data-hook="review-body"]
+    xpath: .//*[@data-hook="review-body"]
   - name: review_id
     singleValue: false
     description: A direct link to the review
     type: TEXT
-    xpath: .//a[@data-hook="review-title"]/@href
+    xpath: .//*[@data-hook="review-title"]/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.com$1
   - name: review_title
     singleValue: false
     description: The title of  the review
     type: TEXT
-    xpath: .//a[@data-hook="review-title"]
+    xpath: .//*[@data-hook="review-title"]
   - name: rating
     singleValue: false
     description: The review  rating
     type: NUMBER
-    xpath: .//i[@data-hook="review-star-rating"]
+    xpath: .//*[@data-hook="review-star-rating"]
     regExp: '^[^\s]+'
   - name: source
     singleValue: true
