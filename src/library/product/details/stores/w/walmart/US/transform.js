@@ -113,18 +113,13 @@ const transform = (data, context) => {
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
           row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         }
-        if (row.availabilityText) {
-          row.availabilityText = [{ text: row.availabilityText[0].text.replace('InStock', 'In Stock').replace('OutOfStock', 'Out of stock').replace('//schema.org/', '') }];
-          if (row.availabilityMessage && row.availabilityMessage[0].text.includes('in-store purchase only')) {
-            row.availabilityText = [{ text: 'In stores only' }];
-          }
-        } else if (row.availabilityMessage) {
-          if (row.availabilityMessage && row.availabilityMessage.includes('Price for in-store purchase only')) {
-            row.availabilityText = [{ text: 'In stores only' }];
-          } else {
-            row.availabilityText = [{ text: row.availabilityText[0].text }];
-          }
+
+        if (row.scriptPrice && row.scriptPrice[0].text === '0' && row.unavailableMsg) {
+          row.availabilityText = [{ text: 'Out of Stock' }];
+        } else {
+          row.availabilityText = [{ text: 'In Stock' }];
         }
+
         if (row.variantInformation) {
           let text = '';
           row.variantInformation.forEach(item => {

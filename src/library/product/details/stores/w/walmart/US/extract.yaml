@@ -38,9 +38,9 @@ fields:
 - name: shippingPrice
   singleValue: true
   xpath: //div[@id='added-sprice']  
-- name: availabilityText
-  singleValue: true
-  xpath: //link[@itemprop="availability"]/@href | //div[contains(@class,'Price-OOS')]
+# - name: availabilityText
+#   singleValue: true
+#   xpath: //link[@itemprop="availability"]/@href | //div[contains(@class,'Price-OOS')]
 - name: availabilityMessage
   singleValue: true
   xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')] |//h2[contains(@class,'prod-InvalidPromptMsg')]
@@ -140,6 +140,12 @@ fields:
   manualSelector: script[id='item'], script[id='product']
   regExp: ("productId":")(\w+)(","usItem)
   regExpReplace: $2
+- name: scriptPrice
+  manualSelector: script[id='item']
+  regExp: ("price":)([\d+,.]+)(,"pre)
+  regExpReplace: $2
+- name: unavailableMsg
+  manualSelector: 'h2[class*="Price--unavailable"]'
 - name: color
   singleValue: true 
   manualSelector: script[id='item'], script[id='product']
