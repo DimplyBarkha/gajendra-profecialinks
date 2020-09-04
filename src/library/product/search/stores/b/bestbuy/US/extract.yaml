@@ -30,7 +30,7 @@ fields:
   - name: reviewCount
     singleValue: false
     manualSelector: span.c-total-reviews
-    regExp: (\d+)
+    regExp: \((.*?)\)
     regExpReplace: $1
   - name: manufacturer
     singleValue: false
