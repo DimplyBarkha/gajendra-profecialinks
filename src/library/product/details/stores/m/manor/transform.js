@@ -57,7 +57,13 @@ const transform = (data) => {
             info.push(item.text.replace(/(.+\/)/g, '').trim());
           });
           row.variants = [{'text':info.join(' | '),'xpath':row.variants[0].xpath}];        
-        }        
+        }
+        if (row.specifications) {
+          row.specifications.forEach(item => {
+            item.text = item.text.replace(/\n\s*\n\s*\n\s*/g, ' || ').trim();
+            item.text = item.text.replace(/\n\s*/g, ':').trim();
+          });
+        }       
       }
     }
     return data;
