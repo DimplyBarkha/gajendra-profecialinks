@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'jbhifi',
     domain: 'jbhifi.com.au',
-    url: null,
+    url: 'https://www.jbhifi.com.au/?q={searchTerms}&hPP=150',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
