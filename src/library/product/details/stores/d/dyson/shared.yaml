@@ -127,7 +127,8 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    #type: NUMBER
+    regExp: (^.{3,3})
     xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'-author-'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
   - name: shippingInfo #localedependent
     singleValue: true
@@ -165,7 +166,8 @@ fields:
   - name: videos #localedependent
     singleValue: false
     description: URLs of videos on page
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src
+    xpath: //div[@id='added_videos']//li
+    #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src
     #regExp: (.+)
     #regExpReplace: https://www.dyson.co.uk$1
   - name: name

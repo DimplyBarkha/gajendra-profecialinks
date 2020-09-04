@@ -164,6 +164,10 @@ async function implementation (
     addElementToDocument('added_productOtherInformation', getAllXpath(otherDescription, 'innerText').join(' '));
     addElementToDocument('added_manufacturerDescription', getAllXpath(descr, 'innerText').join(' '));
     addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
+
+    // get the videos
+    const videos = " (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src";
+    addElementToDocument('added_videos', getAllXpath(videos, 'nodeValue').map(v => `${window.location.hostname}${v}`));
   });
   return await context.extract(productDetails, { transform: parameters.transform });
 };
