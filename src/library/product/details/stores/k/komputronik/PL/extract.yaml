@@ -1,0 +1,128 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: listprice
+    singleValue: false
+    xpath: //*[@id="p-inner-prices"]/div[1]/span
+
+  - name: category
+    singleValue: false
+    xpath: //*[@id="p-inner-breadcrumb"]/div
+
+  - name: name
+    singleValue: false 
+    xpath: //h1[@ng-if='!$ctrl.changeBaseData']
+
+  - name: nameExtended
+    singleValue: false 
+    xpath: //h1[@ng-if='!$ctrl.changeBaseData']
+
+  - name: description
+    singleValue: false
+    xpath: //section[@id='p-content-specification']
+
+  - name: coupon
+    singleValue: false 
+    xpath: //span[@class='head']
+
+  - name: variants
+    singleValue: false 
+    xpath: //*[@id="p-inner-features"]/ktr-product-main-attributes/div/div
+
+  - name: promotion
+    singleValue: false 
+    xpath: //*[@id="top-labels-animation"]/ul
+
+  - name: image
+    singleValue: false 
+    xpath: //div[@class='original']//img/@src
+
+  - name: imageAlt
+    singleValue: false 
+    xpath: //div[@class='original']//img/@src
+
+  - name: alternateImages
+    singleValue: false 
+    xpath: //div[@class='wrap']//img/@ng-src
+
+  - name: sku
+    singleValue: false 
+    xpath: //div[@class='codes']/ul/li[2]
+
+  - name: gtin
+    singleValue: false 
+    xpath: //div[@class='codes']/ul/li[3]
+
+  - name: variantinformation
+    singleValue: false 
+    xpath: //div[@class='codes']/ul/li[2]
+
+  - name: shippingInfo
+    singleValue: false 
+    xpath: //*[@id="p-inner-delivery"]/div
+
+  - name: brandText
+    singleValue: false 
+    xpath: //*[@id="p-inner-producer-logo"]/a/img/@src
+
+  - name: manufacturer 
+    singleValue: false 
+    xpath: //*[@id="p-content-specification"]/div[2]/div/div[1]/table/tbody/tr[1]/td
+
+  - name: manufacturer image 
+    singleValue: false 
+    xpath: //*[@id="p-inner-producer-logo"]/a/img/@src
+
+  - name: specifications 
+    singleValue: false 
+    xpath: //*[@id="p-content-specification"]
+
+  - name: warranty 
+    singleValue: false 
+    xpath: //*[@id="p-content-specification"]/div[2]/div/div[1]/table/tbody/tr[2]/td
+
+  - name: storage 
+    singleValue: false 
+    xpath: //*[@id="p-content-specification"]/div[2]/div/div[4]/table/tbody/tr/td
+
+  - name: energyEfficiency 
+    singleValue: false 
+    xpath: //*[@id="p-content-specification"]/div[2]/div/div[8]/table/tbody/tr[1]/td
+
+  - name: productOtherInformation 
+    singleValue: false 
+    xpath: //*[@id="p-content-specification"]/div[2]/div/div[10]
+
+  - name: manufacturerDescription
+    singleValue: false 
+    xpath: //*[@id="p-content-producer-desc"]
+
+  - name: color
+    singleValue: false 
+    xpath: //*[@id="p-inner-features"]/ktr-product-main-attributes/div/div/ul/li[7]/strong
+
+  - name: lbb
+    singleValue: false 
+    xpath: //*[@id="content-wrapper"]/ktr-product/div/ktr-transclude/div[3]/div[4]/div/div
+
+  - name: ratingcount
+    singleValue: false 
+    xpath: //*[@id="comments-animation"]/ktr-product-comments/div/ng-transclude/div[1]/div[1]/font/font
+
+
+
+
+ 
+
+
+
+
+    
+
+
+
+  
+ 
+ 
