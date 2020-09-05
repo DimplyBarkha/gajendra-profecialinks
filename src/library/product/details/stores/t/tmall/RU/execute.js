@@ -5,8 +5,8 @@ module.exports = {
     country: 'RU',
     store: 'tmall',
     domain: 'tmall.ru',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-main',
+    noResultsXPath: '//div[@class="page-not-found"]',
     zipcode: "''",
   },
 };

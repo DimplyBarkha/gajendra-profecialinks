@@ -1,42 +1,41 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
+recordSelector: 'div.product-main'
+recordXPath: '//div[@class="product-main"]'
 fields:
-  - name: name
-    singledValue: false
-    xpath: //h1[@class="product-title-text"]
   - name: image
     singleValue: false
     xpath: //div[@class="image-view-magnifier-wrap"]/img[@class="magnifier-image"]/@src
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="images-view-item"]/img/@src
+  - name: name
+    singledValue: false
+    xpath: //h1[@class="product-title-text"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="product-reviewer-reviews black-link"]
   - name: price
     singleValue: false
     xpath: //div[@class="product-price-current"]/span[@class="product-price-value"]
-  - name: description
-    singleValue: false
-    description: //div[@class="detail-desc-decorate-richtext"]/p
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="product-quantity-tip"]
   - name: quantity
     singleValue: false
     xpath: //span[@class="next-input next-medium next-input-group-auto-width"]/input/@aria-valuemax
-  - name: aggregateRating
-    singleValue: false
-    xpath: //div[@itemprop="aggregateRating"]/span[@class="overview-rating-average"]
-  - name: ratingCount
-    singleValue: false
-    xpath: //span[@class="product-reviewer-reviews black-link"]
-  - name: variantId
-    singleValue: false
-    xpath: //div[@class="sku-property-image"]/img/@data-spm-anchor-id
-  - name: coupon
-    singleValue: false
-    xpath: //div[@class="coupon-new-price bold line-limit-length"]
   - name: internationalShipping
     singleValue: false
     xpath: //div[@class="product-shipping"]
-  
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//span[@class="overview-rating-average"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="sku-property-image"]/img/@src
+  - name: coupon
+    singleValue: false
+    xpath: //div[@class="coupon-mark-new"]
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
