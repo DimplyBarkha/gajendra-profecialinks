@@ -9,7 +9,8 @@ fields:
 
   - name: availabilityText
     singleValue: false
-    xpath: //button[@id='js-add-to-cart'] | //div[@id='product_avail']
+    xpath: //li[contains(@class,'stock-state')] | //div[@id='product_avail'] | //button[@id='js-add-to-cart']
+    defaultValue: Out of Stock
 
   - name: sku
     singleValue: false

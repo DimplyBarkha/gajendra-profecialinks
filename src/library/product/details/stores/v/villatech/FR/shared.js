@@ -23,6 +23,11 @@ const transform = (data) => {
           item.text = item.text.replace('.', ',') + '€';
         });
       }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace('.', ',');
+        });
+      }
 
       if (row.alternateImages) {
         for (let i = 0; i < row.alternateImages.length; i++) {
@@ -39,10 +44,12 @@ const transform = (data) => {
       }
 
       if (row.availabilityText) {
-        let newText = 'Out Of Stock';
-        row.availabilityText.forEach(item => {
-          if (item.text.trim() === 'Acheter maintenant' || item.text >= 1) {
+        let newText = '';
+        row.availabilityText.forEach((item, index) => {
+          if (index === 0 && (item.text.trim() === 'Acheter maintenant' || item.text >= 1)) {
             newText = 'In Stock';
+          } else if (index === 0) {
+            newText = item.text.trim();
           }
         });
         row.availabilityText = [{ text: newText }];
