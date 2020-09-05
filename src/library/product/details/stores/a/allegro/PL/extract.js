@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 7000));
     const policyAcceptPopup = await context.evaluate(function () {
       return !!document.evaluate('//button[@data-role="accept-consent"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     });

@@ -1,5 +1,3 @@
-const { CLIEngine } = require('eslint');
-
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -14,6 +12,12 @@ const transform = (data) => {
         });
         row.variants = [{ text: variantArray.join('|') }];
       }
+      if (row.shippingInfo) {
+        const shippingInfoArray = row.shippingInfo.map((item) => {
+          return item.text.replace(/\n/g, '');
+        });
+        row.shippingInfo = [{ text: shippingInfoArray.join('||') }];
+      }
       if (row.productOtherInformation) {
         const otherInformation = row.productOtherInformation.map((item) => {
           return item.text.replace('\n', '');
@@ -21,10 +25,9 @@ const transform = (data) => {
         row.productOtherInformation = [{ text: otherInformation.join('||'), xpath: row.productOtherInformation[0].xpath }];
       }
       if (row.specifications) {
-        const specifications = row.specifications.map((item) => {
-          return item.text;
-        });
-        row.specifications = [{ text: specifications.join('||') }];
+        if (row.specifications) {
+          row.specifications = [{ text: row.specifications.map((item) => item.text.replace(/:\n/g, ': ').replace(/\n/g, ' || ')).join(' || ') }];
+        }
       }
       if (row.shippingDimensions) {
         const shippingDimensions = row.shippingDimensions.map((item) => {
@@ -37,6 +40,32 @@ const transform = (data) => {
           return item.text;
         });
         row.additionalDescBulletInfo = [{ text: additionalDescBulletInfo.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
+      }
+      if (row.brandText) {
+        const brandTextArray = row.brandText.map((item) => {
+          return item.text.replace('\n', '').match(/(.*?:)(.*)/)[2];
+        });
+        if (brandTextArray) {
+          row.brandText = [{ text: brandTextArray.join('') }];
+        }
+      }
+      if (row.color) {
+        const colorArray = row.color.map((item) => {
+          return item.text.replace(/u002F/g, '');
+        });
+        if (colorArray) {
+          row.color = [{ text: colorArray.join('') }];
+        }
+      }
+      if (row.category) {
+        row.category.shift();
+        const categoryArray = row.category.map((item) => {
+          return item.text;
+        });
+        const uniqueItems = Array.from(new Set(categoryArray));
+        if (uniqueItems) {
+          row.category = [{ text: uniqueItems.join(' > ') }];
+        }
       }
       if (row.description) {
         const rowData = row.description.map((item) => {
@@ -53,7 +82,7 @@ const transform = (data) => {
                     const firstOccuranceIndex = element.content.search(/<h1>/) + 1;
                     description += element.content.substr(0, firstOccuranceIndex).replace(/<h1>/, '') + element.content.slice(firstOccuranceIndex).replace(/<h1>/, '|').replace(/li/, '||').replace(/(<([^>]+)>)/ig, '');
                   } else {
-                    description += element.content.replace(/<h1>/, '|').replace(/li/, '||').replace(/(<([^>]+)>)/ig, '');
+                    description += element.content.replace(/<h1>/, '|').replace(/li/, '||').replace(/(<([^>]+)>)/ig, '').replace(/\n/g, '');
                   }
                 }
               });

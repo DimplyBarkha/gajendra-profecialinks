@@ -11,7 +11,7 @@ fields:
     xpath: //div[@data-box-name="About seller"]//div[@data-role="app-container"]//section
   - name: promotion
     singleValue: false
-    xpath: (//div[@data-role="app-container"]//div[@class="_9a071_3b3ty"]//div)[1]
+    xpath: (//div[@data-role="app-container"]//div[@class="_9a071_3b3ty"]//div[@class=''])[1]
   - name: product_image
     singleValue: false
     xpath: //meta[@property="og:image"]/@content
@@ -36,7 +36,7 @@ fields:
     xpath: //div[@data-role="app-container"]//s
   - name: price
     singleValue: false
-    xpath: concat(//div[@itemprop="offers"]//meta[@itemprop="price"]/@content, ' ', //div[@itemprop="offers"]//meta[@itemprop="priceCurrency"]/@content)
+    xpath: concat(//div[@itemprop="offers"]//meta[@itemprop="price"]/@content, ' zł')
   - name: variants
     singleValue: false
     xpath: //div[@data-analytics-view-label="offerVariants"]//a//@href
@@ -75,9 +75,7 @@ fields:
     xpath: count(//div[@data-box-name="Container Description"]//li)
   - name: brandText
     singleValue: false
-    xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Marka')]
-    regExp: (:)(.*)
-    regExpReplace: $2
+    xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Marka')]/div
   - name: manufacturer
     singleValue: false
     xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Producent')] | //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Marka')]
@@ -114,7 +112,7 @@ fields:
     xpath: //meta[@property="og:title"]/@content
   - name: specifications
     singleValue: false
-    xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Szerokość produktu')] | //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Wysokość produktu')] | //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Głębokość produktu')]
+    xpath: (//div[@data-box-name="Parameters"]//ul//li)[1]
   - name: warranty
     singleValue: false
     xpath: //div[@data-type="warranty"]//div[contains(.//text(), 'period')]
@@ -125,9 +123,6 @@ fields:
     xpath: //div[@data-box-name="Description"]//p[contains(.//text(), 'Przechowywanie')]
     regExp: (:)(.*)
     regExpReplace: $2
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@data-role="opbox-offers-list"]//div[contains(@class, "carousel-item")]
   - name: variantInformation
     singleValue: false
     xpath: //div[@data-analytics-view-label="offerVariants"]
@@ -136,3 +131,9 @@ fields:
     xpath: (//div[@data-analytics-view-label="offerVariants"]//a//@href)[1]
     regExp: (.*)-(\d+)
     regExpReplace: $2  
+  - name: mpc
+    singleValue: false
+    xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Kod producenta')]
+  - name: category
+    singleValue: false
+    xpath: //div[@data-role="breadcrumbs-list"]//div[@data-role="breadcrumb-item"]
