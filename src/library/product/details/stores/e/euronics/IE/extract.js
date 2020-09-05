@@ -59,8 +59,10 @@ async function implementation (
 
     const alternateImages = [];
     if (document.querySelector('.thumb-box')) {
-      document.querySelector('.thumb-box').querySelectorAll('img').forEach(e => {
+      document.querySelector('.thumb-box').querySelectorAll('img').forEach((e, ind) => {
+        if (ind > 0) {
           alternateImages.push('https://euronics.ie/' + e.getAttribute('data-zoom'));
+        }
       });
     }
     addHiddenDiv('alternateImages', alternateImages.join(' | '));
@@ -91,8 +93,8 @@ async function implementation (
     addHiddenDiv('availabilityText', availabilityText);
 
     let description = '';
-    document.querySelector('#specificationTab').querySelectorAll('h3, p').forEach(el => {
-      if(el.tagName === 'H3') {
+    document.querySelector('#specificationTab').querySelectorAll('h3, h4, p').forEach(el => {
+      if(el.tagName === 'H3' || el.tagName === 'H4') {
         description += ' || ' + el.innerText;
       } else {
         description += el.innerText;
@@ -100,7 +102,6 @@ async function implementation (
     });
     if (description.length) {
       addHiddenDiv('description', description);
-      addHiddenDiv('descriptionBullets', document.querySelector('#specificationTab').querySelectorAll('h3').length);
     }
 
     if (document.querySelector('.sku-man.hide-for-small')) {
@@ -113,6 +114,7 @@ async function implementation (
     const videos = [];
     if (document.getElementById('flix-inpage')) {
       enhancedContent = document.getElementById('flix-inpage').innerText;
+      console.log('hasFlix', enhancedContent);
       document.getElementById('flix-inpage').querySelectorAll('img').forEach(img => {
         manufacturerImages.push(img.getAttribute('src'));
       });
@@ -181,17 +183,6 @@ async function implementation (
       videos.push(video.getAttribute('src'));
     });
     addHiddenDiv('videos', videos.join(' | '));
-
-    if (document.querySelector('#flix-inpage')) {
-      console.log('enhancedContent', document.querySelector('#flix-inpage').innerText);
-      addHiddenDiv('manufacturerDescription', document.querySelector('#flix-inpage').innerText);
-      const manufacturerImgs = [];
-      document.querySelector('#flix-inpage').querySelectorAll('img').forEach(el => {
-        manufacturerImgs.push(el.getAttribute('src'));
-      });
-      addHiddenDiv('manufacturerImages', manufacturerImgs);
-    }
-
     addHiddenDiv('terms', 'Yes');
     addHiddenDiv('privacy', 'Yes');
     addHiddenDiv('customerServiceAvailability', 'Yes');

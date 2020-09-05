@@ -112,6 +112,7 @@ async function implementation (
     document.querySelectorAll('.image--box').forEach((el, ind) => {
       if (ind === 0) {
         addHiddenDiv('primaryImage', 'https:' + el.querySelector('span').getAttribute('data-img-large'));
+        addHiddenDiv('imageAlt', el.querySelector('img').getAttribute('alt'));
       } else {
         alternateImages.push('https:' + el.querySelector('span').getAttribute('data-img-large'));
       }

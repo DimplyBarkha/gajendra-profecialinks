@@ -65,7 +65,7 @@ async function implementation (
     } else {
       addHiddenDiv('listPrice', document.querySelector('.productDetails__price.pdpPrice').innerText.trim());
     }
-    if (document.querySelector('.productDetails__discount') && document.querySelector('.productDetails__discount').innerText) {
+    if (document.querySelector('.productDetails__originalPrice') && document.querySelector('.productDetails__originalPrice').innerText && document.querySelector('.productDetails__discount') && document.querySelector('.productDetails__discount').innerText) {
       addHiddenDiv('promotion', document.querySelector('.productDetails__discount').innerText.trim());
     }
 
@@ -95,7 +95,7 @@ async function implementation (
       additionalDescBulletInfo  += '|| ' + el.innerText + ' ';
     });
     if (additionalDescBulletInfo.length) {
-      addHiddenDiv('additionalDescBulletInfo', additionalDescBulletInfo );
+      addHiddenDiv('additionalDescBulletInfo', additionalDescBulletInfo);
     }
     addHiddenDiv('descriptionBullets', document.querySelectorAll('.specifications__item').length);
 
@@ -106,7 +106,7 @@ async function implementation (
       }
       if (el.querySelector('.product__specificationItemLabel').innerText.includes('Peso-')) {
         const unit = el.querySelector('.product__specificationItemLabel').innerText.split('-')[1];
-        addHiddenDiv('weightNet', el.querySelector('.product__specificationItemDetail').innerText.trim() + unit);
+        addHiddenDiv('weightNet', el.querySelector('.product__specificationItemDetail').innerText.trim().replace(',', '.') + unit);
       }
       if (el.querySelector('.product__specificationItemLabel').innerText.includes('Altezza-mm')) {
         specifications.push(el.querySelector('.product__specificationItemDetail').innerText.trim() + 'mm');
@@ -124,7 +124,7 @@ async function implementation (
 
 
     if (document.querySelector('.content__abstractText')) {
-      addHiddenDiv('description', document.querySelector('.content__abstractText').innerText.trim().replace(/-/g, ' || '));
+      addHiddenDiv('description', document.querySelector('.content__abstractText').innerText.trim());
       const warrantyMatch = document.querySelector('.content__abstractText').innerText.match(/[0-9]+ ANNI DI GARANZIA/);
       if (warrantyMatch && warrantyMatch.length) {
         addHiddenDiv('warranty', warrantyMatch[0]);
