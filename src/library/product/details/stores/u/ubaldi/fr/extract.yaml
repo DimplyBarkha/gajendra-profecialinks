@@ -6,6 +6,10 @@ fields:
   - name: image
     singleValue: true
     xpath: //meta[@property="og:image"]/@content
+    regExp: >-
+      ^(.*)$
+    regExpReplace: >-
+      https:$1
   - name: imageAlt
     singleValue: true
     xpath: //img[@id='image_grande']/@alt
@@ -13,13 +17,15 @@ fields:
     singleValue: false
     xpath: //span[contains(@class,'gv-vignette')]//img/@src
     regExp: (.*)(v_)(.*)
-    regExpReplace: $1$3
+    regExpReplace: https:$1$3
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name='keywords']/@content
   - name: price
     singleValue: true
     xpath: //span[contains(@class,'prix')]
+    regExp: (\d+)(€)(\d+)
+    regExpReplace: $1 $2 $3
   - name: sku
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
@@ -27,9 +33,7 @@ fields:
     regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    regExp: sku":"([^"]+)
-    regExpReplace: $1
+    xpath: //div[@id='wc-power-page']/@data-product-id
   - name: ratingCount
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
@@ -77,15 +81,49 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[contains(@class,'fa-infos-prix')]//span[contains(@class,'prix-origine')]
+    regExp: (\d+)(€)(\d+)
+    regExpReplace: $1 $2 $3
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,'fa-fiche-bloc points-forts')]//li)
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,'fa-fiche-bloc points-forts')]//li
+    xpath: //div[contains(@class,'fa-article-infos-bottom')]//ul[contains(@class,'fa-liste-points-forts')]
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,'liste-specs full-width')]//div[contains(@class,'ls-ligne clearfix')]
+    xpath: normalize-space(//div[contains(@class,'fa-bloc-main')]//div[contains(@class,'liste-specs')])
   - name: warranty
     singleValue: false
-    xpath: concat(//div[contains(@class,'uba-icone-avantage')]//span/font[1],' ',//div[contains(@class,'uba-icone-avantage')]/font[1])
+    xpath: (//div[contains(@class,'fa-avantage')]//div[contains(@class,'uba-icone-avantage uba-icone-avantage-texte')])[1]
+  - name: colorCode
+    singleValue: false
+    xpath: //div[@id='fl_colorcode']
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'fa-article-infos-bottom')]//div[contains(@class,'fa-description')]
+  - name: termsAndConditions
+    singleValue: true
+    xpath: //span[contains(text(),'Conditions générales de la Marketplace')]
+    regExp: .*
+    regExpReplace: Yes
+    defaultValue: No
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'flixstdcarousel-wrapper')]//div[contains(@class,'flixstdcarousel')]//li//div//div//img/@srcset
+  - name: video
+    singleValue: false
+    xpath: //iframe[@id='flix-iframe0']/@src
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,'fa-liste-decli')]//a/@href
+    regExp: (\d+)(?!.*\d)
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class,'fa-liste-decli')]//a/@href)
+  - name: category
+    singleValue: false
+    xpath: (//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')])[2]
+  - name: subCategory
+    singleValue: false
+    xpath: concat(//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][2],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][3],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][4],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][5]) 
