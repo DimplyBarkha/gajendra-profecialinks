@@ -14,8 +14,9 @@ const transform = (data) => {
       }
       if (row.sub_category) {
         row.sub_category.shift();
+        // eslint-disable-next-line camelcase
         const sub_categoryArray = row.sub_category.map((item) => {
-          return item.text;
+          return item.text.replace(/\n /g, '');
         });
         row.sub_category = [{ text: sub_categoryArray.join(' > '), xpath: row.sub_category[0].xpath }];
       }
