@@ -24,6 +24,12 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
+      if (row.promotion) {
+        const promotionArr = row.promotion.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n /g, '') : '';
+        });
+        row.promotion = [{ text: promotionArr.join('|'), xpath: row.promotion[0].xpath }];
+      }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n /gm, '| ').replace(/\n \n /gm, ': ').replace(/\n/g, '') : '';

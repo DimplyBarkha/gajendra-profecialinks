@@ -43,13 +43,16 @@ fields:
     regExpReplace: $1$2
   - name: metaKeywords
     singleValue: false
-    xpath:
-  - name: _url
+    xpath: //meta[@name="keywords"]/@content
+  - name: url
     singleValue: false
-    xpath: //link[@rel='canonical']/@href
+    xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
-    xpath: //div[@class='grid-wrapper-xs--padding grid-wrapper-m--padding']//li[2]
+    xpath: (//li[@class="top-navigation--item"]//a[contains(@class,'top-navigation--action')])[1]
+  - name: sub_category
+    singleValue: false
+    xpath: (//li[@class="top-navigation--item"]//a[contains(@class,'top-navigation--action')])[2]
   - name: nameExtended
     singleValue: false
     xpath: //span[contains(@class,'js-product-name')]
@@ -71,10 +74,10 @@ fields:
     xpath:
   - name: weightNet
     singleValue: false
-    xpath: //dl[contains(translate(string(), 'Gewicht', 'Gewicht'), 'Gewicht')]/dd
+    xpath: 
   - name: weightGross
     singleValue: false
-    xpath: 
+    xpath: //dl[contains(translate(string(), 'Gewicht', 'Gewicht'), 'Gewicht')]/dd
   - name: gtin
     singleValue: false
     xpath: 
@@ -111,7 +114,7 @@ fields:
     xpath: //div[@class='grid-section-xs--gap-1']//ul[@class='list']
   - name: description
     singleValue: false
-    xpath: (//div[contains(@class,'cms-content js-product-description-content')]//p)[1]
+    xpath: //div[contains(@class,"cms-content")]
   - name: descriptionBullets
     singleValue: false
     xpath: count((//div[contains(@class,'cms-content js-product-description-content')]//p)[1]//li[not(span//img)])
@@ -146,7 +149,7 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //meta[contains(@name,"description")]/@content
+    xpath: //div[contains(@class,"cms-content")]
   - name: lbbPrice
     singleValue: false
   - name: energyEfficiency
@@ -174,6 +177,7 @@ fields:
     xpath: (//dl[contains(translate(string(), 'Garantie', 'Garantie'), 'Garantie')]/dd)[1]
   - name: storage
     singleValue: false
+    xpath: //div[contains(@class,"js-appointment-form-main-content-container")]//div[@class="js-appointment-form-main-content-store"]//div[@class="selectable-card"]//label
   - name: countryOfOrigin
     singleValue: false
   - name: recyclingInformation
