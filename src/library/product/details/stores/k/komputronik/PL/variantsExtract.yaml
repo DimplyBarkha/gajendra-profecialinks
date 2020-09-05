@@ -5,8 +5,9 @@ recordXPath: null
 fields:
   - name: varienturl
     singleValue: false
-    xpath: //*[@id="p-inner-prices"]/div[1]/span
+    xpath: //div[@class="features__actions-wrapper"]//img/@src
 
   - name: varientid
     singleValue: false
-    xpath: //*[@id="p-inner-breadcrumb"]/div
+    xpath: //div[@class="features__actions-wrapper"]//img/@alt
+
