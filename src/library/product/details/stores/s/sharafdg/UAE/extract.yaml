@@ -64,7 +64,6 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Dimensions')]]//td)[2]
-  - name: 
   - name: warranty
     singleValue: false
     xpath: //span[contains(text(), 'Warranty')]/text()
@@ -85,4 +84,19 @@ fields:
     xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Quantity')]]//td)[2]
   - name: varaintTypes
     xpath: //div[contains(@class, "alternative-slider")]//div[@class="slick-track"]//div[contains(@class,"slick-slide")]/a/@href 
- 
+  - name: name
+    xpath: //div[@class="product-title"]/h1[@itemprop="name"]
+  - name: descriptionBullets
+    xpath: count(//div[@class="product-tab"]//ul/li)
+  - name: additionalDescBulletInfo
+    xpath: //div[@class="product-tab"]//ul/li
+  - name: termsAndConditions
+    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Terms and Conditions')]]//td)[2]
+  - name: directions
+    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Recommended for')]]//td)[2]  
+  - name: videos
+    xpath: //div[@class="short-desc"]//iframe[contains(@data-src, 'youtube')]/@src
+  - name: specifications
+    xpath: //div[@class="detailspecbox"]//table//tr[td[contains(@class, 'specs-heading')]]//td
+  - name: description
+    xpath: //div[@class="product-tab"]//div[not(contains(@class,'short-desc'))]
