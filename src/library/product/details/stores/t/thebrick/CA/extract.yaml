@@ -99,15 +99,16 @@ fields:
     regExpReplace: $1
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class, "long-description-wrapper")]
+    xpath: //div[contains(@class, "long-description-wrapper")]//b[contains(text(), "Specifications:")]/parent::p/following-sibling::ul[1]
   - name: dimensionsSpecifications
     singleValue: false
     xpath: //div[contains(@class, "product-description")]//strong[contains(text(), "Dimensions")]/parent::p
+  - name: extendedDescritption
+    singleValue: false
+    xpath: //div[contains(@class, "long-description-wrapper")]
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class, "sku-wrapper") ]//span[contains(@class, "vsn")]
-    regExp: VSN:\s*(.*)
-    regExpReplace: $1
+    xpath: //select[contains(@class,"product-variants")]//option[@selected="selected"]/@value
   - name: warranty
     singleValue: false
     xpath: //div[@id="tab2"]
@@ -126,3 +127,6 @@ fields:
     xpath: //span[@itemprop="name"]
     regExp: ^([\w\-]+)
     regExpReplace: $1
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //a[contains(text(), "terms and conditions")]

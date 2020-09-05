@@ -8,7 +8,7 @@ const transform = (data) => {
     for (const row of group) {
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          item.text = item.text.includes('not available.') ? item.text : 'In Stock.'
+          item.text = item.text.includes('not available.') ? 'Out Of Stock.' : 'In Stock.'
         })
       }
       if (row.dimensionsSpecifications) {
@@ -46,12 +46,26 @@ const transform = (data) => {
           item.text = item.text.replace(/\n \n/g, ' || ')
         })
       }
-      if (row.specifications) {
-        row.specifications.forEach(item => {
+      if (row.description) {
+        row.description = row.description.length === 2 ? row.description.slice(1) : row.description
+        row.description.forEach(item => {
+          item.text = item.text.replace(/Product Description\n/, '')
+        })
+      }
+      if (row.extendedDescritption) {
+        row.extendedDescritption.forEach(item => {
           item.text = item.text.replace(/\n \n \n \n \n \n \n \n \n/g, ' || ').replace(/\n \n \n \n \n \n \n/g, ' || ').replace(/\n \n \n \n \n/g, ' || ').replace(/\n \n \n \n/g, ' : ').replace(/\n \n/g, ' || ').replace(/\n/g, ' ').replace(/\s+/g, ' ')
         })
-        row.specifications[0].text = row.dimensionsSpecifications ? row.dimensionsSpecifications[0].text + ' ' + row.specifications[0].text :
-          row.specifications[0].text
+        row.description[0].text += row.dimensionsSpecifications ? ' | ' + row.dimensionsSpecifications[0].text + ' ' + row.extendedDescritption[0].text :
+          ' | ' + row.extendedDescritption[0].text
+      }
+      if (row.specifications) {
+        row.specifications.forEach(item => {
+          item.text = item.text.replace(/\n \n/g, ' || ')
+        })
+      }
+      if (row.termsAndConditions) {
+        row.termsAndConditions[0].text = 'Yes'
       }
       if (row.price) {
         row.price.forEach(item => {
@@ -67,12 +81,6 @@ const transform = (data) => {
         if (row.upc) {
           row.gtin = row.upc
         }
-      }
-      if (row.description) {
-        row.description = row.description.length === 2 ? row.description.slice(1) : row.description
-        row.description.forEach(item => {
-          item.text = item.text.replace(/Product Description\n/, '')
-        })
       }
       if (!row.brandText) {
         row.brandText = row.brandAlt
