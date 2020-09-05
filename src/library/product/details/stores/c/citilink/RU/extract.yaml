@@ -26,6 +26,9 @@ fields:
   - name: color
     singleValue: false
     xpath: //table[@class = "product_features"]//span[contains(text(), "Цвет")]/parent::th/following-sibling::td
+  - name: coupon
+    singleValue: false
+    xpath: //a[contains(@class, "promo-href-js")]//span
   - name: countryOfOrigin
     singleValue: false
     xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
@@ -40,7 +43,7 @@ fields:
     xpath: //div[@class="image_gallery"]/div[@class="full_content"]/img/@alt
   - name: listPrice
     singleValue: false
-    xpath: //span[@itemprop = "priceCurrency"]/@content | //span[@itemprop = "price"]/@content
+    xpath: //div[contains(@class,"price_break")]
   - name: manufacturer
     singleValue: false
     xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
@@ -50,6 +53,9 @@ fields:
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
+  - name: mpc
+    singleValue: false
+    xpath: (//input[@name = "productId"]/@value)[1]
   - name: name
     singleValue: false
     xpath: //div[@class = "product_header"]/h1/text()
@@ -61,7 +67,7 @@ fields:
     xpath: //table[@class = "product_features"]//span[contains(text(), "Объем")]/parent::th/following-sibling::td
   - name: price
     singleValue: false
-    xpath: //span[@itemprop = "priceCurrency"]/@content | //div[contains(@class,"price_break")]/ins[@class = "num"]
+    xpath: //div[contains(@class,"price_break")]
   - name: productOtherInformation
     singleValue: false
     xpath: //p[@class = "short_description"]
@@ -74,9 +80,6 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: //table[@class = "product_features"]//span[contains(text(), "Размеры")]/parent::th/following-sibling::td
-  - name: shippingInfo
-    singleValue: false
-    xpath: //section[contains(@class, "js--product-in-stock-vertical")]/p
   - name: sku
     singleValue: false
     xpath: //span[@itemprop = "sku"]/@content
