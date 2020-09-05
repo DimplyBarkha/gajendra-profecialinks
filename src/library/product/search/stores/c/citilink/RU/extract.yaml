@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+    singleValue: false
+    xpath: //input[@id = "global_search"]/@value
+  - name: _url
+    singleValue: false
+    xpath: //div[contains(@class, "main_content_wrapper")]//h2//a/@href
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="import_average_rating"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id="import_product_brandName"]
+  - name: id
+    singleValue: false
+    xpath: //div[@id="import_product_id"]
+  - name: name
+    singleValue: false
+    xpath: //div[@id="import_product_name"]
+  - name: price
+    singleValue: false
+    xpath: //div[@id="import_product_price"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="import_product_url"]
+  - name: rank
+    singleValue: false
+    xpath: //div[@id="import_product_rank"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@id="import_product_reviews"]
+  - name: soldBy
+    singleValue: false
+    xpath: //div[@id="import_product_brandName"]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id="import_product_thumbnail"]
