@@ -1,0 +1,94 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop = "aggregateRating"]//span[@itemprop = "ratingValue"]//@content
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="preview_list_container"]//li[not(contains(@class, "selected"))]//img/@src
+    regExp: (.*)_.(.*)
+    regExpReplace: $1_b$2
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id="import_availability_text"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id = "flix-inpage"]/@data-flix-brand
+  - name: category
+    singleValue: false
+    xpath: //span[contains(@class, "navigation_item") and position() > 2]/@data-breadcrumb-name
+  - name: color
+    singleValue: false
+    xpath: //table[@class = "product_features"]//span[contains(text(), "Цвет")]/parent::th/following-sibling::td
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
+  - name: description
+    singleValue: false
+    xpath: //div[@class = "specification_view product_view"]//h2[position() = 2]/following-sibling::div[position() = 1]/p
+  - name: image
+    singleValue: false
+    xpath: //div[@class="image_gallery"]/div[@class="full_content"]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="image_gallery"]/div[@class="full_content"]/img/@alt
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@itemprop = "priceCurrency"]/@content | //span[@itemprop = "price"]/@content
+  - name: manufacturer
+    singleValue: false
+    xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: name
+    singleValue: false
+    xpath: //div[@class = "product_header"]/h1/text()
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class = "product_header"]/h1/text()
+  - name: packSize
+    singleValue: false
+    xpath: //table[@class = "product_features"]//span[contains(text(), "Объем")]/parent::th/following-sibling::td
+  - name: price
+    singleValue: false
+    xpath: //span[@itemprop = "priceCurrency"]/@content | //div[contains(@class,"price_break")]/ins[@class = "num"]
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //p[@class = "short_description"]
+  - name: promotion
+    singleValue: false
+    xpath: //blockquote/p
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@itemprop = "aggregateRating"]//span[@itemprop = "ratingCount"]//@content
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //table[@class = "product_features"]//span[contains(text(), "Размеры")]/parent::th/following-sibling::td
+  - name: shippingInfo
+    singleValue: false
+    xpath: //section[contains(@class, "js--product-in-stock-vertical")]/p
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop = "sku"]/@content
+  - name: specifications
+    singleValue: false
+    xpath: //table[@class = "product_features"]//tr[not(@class = "header_row")]//text()
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@id="import_document_pdf"]
+  - name: warranty
+    singleValue: false
+    xpath: //ul[@class = "cardif-services__list"]//li
+  - name: weightNet
+    singleValue: false
+    xpath: //table[@class = "product_features"]//span[contains(text(), "Вес")]/parent::th/following-sibling::td
