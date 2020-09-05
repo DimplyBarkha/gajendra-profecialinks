@@ -1,0 +1,112 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class, "product--description")]//li
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop = "aggregateRating"]//meta[@itemprop = "ratingValue"]//@content
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class, "image-slider--thumbnails-slide")]//a/@href
+  - name: availabilityText
+    singleValue: false
+    xpath: //link[@itemprop = "availability"]//@href
+    regExp: http:\/\/schema\.org\/(.*)
+    regExpReplace: $1
+  - name: brandText
+    singleValue: false
+    xpath: //span[contains(@class, "supplier--name")]//h2
+  - name: category
+    singleValue: false
+    xpath: //ul[@class = "breadcrumb--list"]//span[@class = "breadcrumb--title"]
+  - name: color
+    singleValue: false
+    xpath: //td[contains(@class, "product--properties-label")]//h4[contains(text(), "Farben:")]//parent::td//following-sibling::td//a
+  - name: coupon
+    singleValue: false
+    xpath: //a[@class = "navigation--link" and contains(@title, "Coupons")]/@href
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, "product--description")]//p
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class, "product--description")]//li
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class, "variant--option") and contains(@class, "is--active")]//input//@title
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class, "product--image-container")]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class, "product--image-container")]//img/@alt
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //a[@class = "navigation--link" and contains(@title, "Disclaimer")]/@href
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class, "price--line-through")]
+  - name: manufacturer
+    singleValue: false
+    xpath: //span[contains(@class, "supplier--name")]//h2
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name = "keywords"]/@content
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop = "name"]/text()
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop = "name"]/text()
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class, "price--content")]/.
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //table[contains(@class, "product--properties-table")]//tr[@class = "product--properties-row"]
+  - name: promotion
+    singleValue: false
+    xpath: //span[@class = "content--discount"]
+  - name: quantity
+    singleValue: false
+    xpath: //select[@id = "sQuantity"]/option[position() = 1]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class = "rating--count"]
+  - name: reviewsCount
+    singleValue: false
+    xpath: //a[@data-tabname = "rating"]//span
+  - name: shippingInfo
+    singleValue: false
+    xpath: //p[@class = "delivery--information"]
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop = "sku"]
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class, "product--properties-table")]//tr[@class = "product--properties-row"]
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //a[@title = "Shipping and payment terms"]//@href
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class, "variant--option")])
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop = "productID"]/@content
+  - name: variantInformation
+    singleValue: false
+    xpath: //p[@class = "configurator--label"]
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class, "variant--option")]
+  - name: videos
+    singleValue: false
+    xpath: //iframe[contains(@src, "youtube")]/@src
