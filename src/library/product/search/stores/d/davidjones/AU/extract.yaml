@@ -18,7 +18,7 @@ fields:
   - name: thumbnail
     xpath: //div[contains(@class,'item sli_wrapper sli_col3 isUpdated')]/div/figure/a/img/@src
     singleValue: false
-    regExp: (https:\/\/www.bigw.com.au)?(.+)
+    regExp: (.+)
     regExpReplace: https://www.davidjones.com$2
   - name: price
     xpath: //div[@class='pricing']//span[contains(@class,'price-display')]

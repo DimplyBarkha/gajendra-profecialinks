@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
@@ -6,7 +5,7 @@ module.exports = {
     store: 'davidjones',
     domain: 'davidjones.com',
     url: 'https://search.www.davidjones.com/search?w={searchTerms}',
-    loadedSelector: '#page-content',
+    loadedSelector: 'div#sli_content_wrapper',
     noResultsXPath: 'div.sli_no_results_text',
     zipcode: '',
   },
