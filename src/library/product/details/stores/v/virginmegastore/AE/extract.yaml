@@ -69,7 +69,9 @@ fields:
     xpath:
   - name: weightNet
     singleValue: false
-    xpath: 
+    xpath: //p[@class='longDesc']
+    regExp: (?=.*?(Weight:(.*kg)))
+    regExpReplace: $2
   - name: weightGross
     singleValue: false
     xpath: 
@@ -127,10 +129,14 @@ fields:
     xpath:
   - name: shippingDimensions
     singleValue: false
-    xpath: 
+    xpath: //p[@class='longDesc']
+    regExp: (Dimensions:(.*\)))
+    regExpReplace: $2
   - name: shippingWeight
     singleValue: false
-    xpath:
+    xpath: //p[@class='longDesc']
+    regExp: (?=.*?(Weight:(.*kg)))
+    regExpReplace: $2
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class='select-group']//select//option[not(contains(@disabled,"disabled"))]/@value)
@@ -166,7 +172,9 @@ fields:
     xpath: 
   - name: specifications
     singleValue: false
-    xpath: //div[@class="product-classifications"]
+    xpath: //p[@class="longDesc"]
+    regExp: (.*(Specifications.*))
+    regExpReplace: $2
   - name: warranty
     singleValue: false
     xpath: 
