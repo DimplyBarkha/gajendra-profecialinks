@@ -1,1539 +1,254 @@
 [
   {
-    "mergeOptions": {
-      "transform": "(data, context) => {\r\n  const clean = text => text.toString()\r\n    .replace(/\\r\\n|\\r|\\n/g, ' ')\r\n    .replace(/&amp;nbsp;/g, ' ')\r\n    .replace(/&amp;#160/g, ' ')\r\n    .replace(/\\u00A0/g, ' ')\r\n    .replace(/\\s{2,}/g, ' ')\r\n    .replace(/\"\\s{1,}/g, '\"')\r\n    .replace(/\\s{1,}\"/g, '\"')\r\n    .replace(/^ +| +$|( )+/g, ' ')\r\n    // eslint-disable-next-line no-control-regex\r\n    .replace(/[\\x00-\\x1F]/g, '')\r\n    .replace(/[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]/g, ' ');\r\n  const state = context.getState();\r\n  let orgRankCounter = state.orgRankCounter || 0;\r\n  let rankCounter = state.rankCounter || 0;\r\n  const productCodes = state.productCodes || [];\r\n  for (const { group } of data) {\r\n    for (const row of group) {\r\n      rankCounter += 1;\r\n      if (!row.sponsored) {\r\n        orgRankCounter += 1;\r\n        row.rankOrganic = [{ text: orgRankCounter }];\r\n      }\r\n      row.rank = [{ text: rankCounter }];\r\n      Object.keys(row).forEach(header => row[header].forEach(el => {\r\n        el.text = clean(el.text);\r\n      }));\r\n    }\r\n  }\r\n  context.setState({ rankCounter });\r\n  context.setState({ orgRankCounter });\r\n  context.setState({ productCodes });\r\n  console.log(productCodes);\r\n  return data;\r\n}"
-    },
-    "extractionConfig": "product/search/stores/m/mediaworld/it/extract",
+    "mergeOptions": {},
+    "extractionConfig": "product/details/stores/m/mediaworld/it/extract",
     "data": [
       {
         "group": [
           {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-986967/dyson-airwrap",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/98/69/986967_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Airwrap",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "3",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "3",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/div[2]/p[2]/span[2]"
-              }
-            ],
             "price": [
               {
-                "text": "499,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/@data-gtm-price"
+                "text": "383,00",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/@data-gtm-price"
               }
             ],
-            "listPrice": [
+            "image": [
               {
-                "text": "499,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/@data-gtm-price-full"
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794.jpg",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/img[1]/@src"
               }
             ],
-            "manufacturer": [
+            "imageAlt": [
               {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/@data-gtm-brand"
+                "text": "DYSON Supersonic Fucsia - MediaWorld.it",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt"
               }
             ],
-            "id": [
-              {
-                "text": "p-986967",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Airwrap",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "3,3000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[1]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-728794/dyson-supersonic-fucsia",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
+            "alternateImages": [
               {
                 "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/div[1]/div[2]/a[1]/img[1]/@src"
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src"
+              },
+              {
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794_1.jpg",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src"
+              },
+              {
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794_2.jpg",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src"
+              },
+              {
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794_3.jpg",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/img[1]/@src"
+              },
+              {
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794_4.jpg",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/img[1]/@src"
+              },
+              {
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794.jpg",
+                "xpath": "/html/body/div[7]/div[1]/div[1]/div[3]/div[1]/div[1]/img[1]/@src"
+              },
+              {
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794_1.jpg",
+                "xpath": "/html/body/div[7]/div[1]/div[1]/div[3]/div[1]/div[2]/img[1]/@src"
+              },
+              {
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794_2.jpg",
+                "xpath": "/html/body/div[7]/div[1]/div[1]/div[3]/div[1]/div[3]/img[1]/@src"
+              },
+              {
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794_3.jpg",
+                "xpath": "/html/body/div[7]/div[1]/div[1]/div[3]/div[1]/div[4]/img[1]/@src"
+              },
+              {
+                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/87/728794_4.jpg",
+                "xpath": "/html/body/div[7]/div[1]/div[1]/div[3]/div[1]/div[5]/img[1]/@src"
               }
             ],
-            "name": [
+            "category": [
+              {
+                "text": "Piccoli Elettrodomestici",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]"
+              },
+              {
+                "text": "Cura dei Capelli",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]"
+              },
+              {
+                "text": "Phon",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]"
+              }
+            ],
+            "nameExtended": [
               {
                 "text": "DYSON Supersonic Fucsia",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "89",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "89",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "383,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/@data-gtm-price"
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]"
               }
             ],
             "listPrice": [
               {
-                "text": "383,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/@data-gtm-price-full"
+                "text": "363,00",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/@data-gtm-price-full"
+              }
+            ],
+            "availabilityText": [
+              {
+                "text": "In stock",
+                "xpath": "/html/body/div[6]/@availability"
+              }
+            ],
+            "description": [
+              {
+                "text": "Asciugacapelli - Funzione ionica\n3 impostazioni flusso - 4 impostazioni temperature\nMotore digitale Dyson V9 - Silenzioso - Tecnologia\nAir Multiplier - Beccuccio lisciante - Concentratore",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/h2[1]"
+              }
+            ],
+            "brandText": [
+              {
+                "text": "DYSON",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/@data-gtm-brand"
               }
             ],
             "manufacturer": [
               {
                 "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/@data-gtm-brand"
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/@data-gtm-brand"
               }
             ],
-            "id": [
+            "weightNet": [
+              {
+                "text": "0,63",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[4]/div[1]/ul[1]/li[8]/ul[1]/li[2]/div[2]/p[1]"
+              }
+            ],
+            "privacyPolicy": [
+              {
+                "text": "Yes",
+                "xpath": "/html/body/div[3]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/a[4]"
+              }
+            ],
+            "termsAndConditions": [
+              {
+                "text": "Yes",
+                "xpath": "/html/body/div[3]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/a[6]"
+              }
+            ],
+            "customerServiceAvailability": [
+              {
+                "text": "Yes",
+                "xpath": "/html/body/div[3]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/a[5]"
+              }
+            ],
+            "sku": [
+              {
+                "text": "1478542",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[3]/div[1]/div[3]/@data-product-sku"
+              }
+            ],
+            "variantId": [
               {
                 "text": "p-728794",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/@data-pcode"
+                "xpath": "/html/head[1]/meta[14]/@content"
               }
             ],
-            "nameExtended": [
+            "mpc": [
+              {
+                "text": "p-728794",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/@data-pcode-gtm"
+              }
+            ],
+            "legalDisclaimer": [
+              {
+                "text": "Garanzia legale\n \n Ai sensi del D.Lgs. 206/2005 (\"Codice del Consumo\") tutti i prodotti in vendita nei punti vendita Media World sono coperti dalla Garanzia Legale di 24 mesi.\n \n In base alla Garanzia Legale di 24 mesi Media World è responsabile nei confronti del consumatore (la persona fisica che agisce per scopi estranei all'attività imprenditoriale, commerciale, artigianale o professionale eventualmente svolta) per i difetti di conformità non riscontrabili al momento dell'acquisto. Il difetto di conformità sussiste quando il prodotto non è idoneo all'uso al quale deve servire abitualmente, non è conforme alla descrizione o non possiede le qualità promesse dal venditore, non offre le qualità e le prestazioni abituali di un bene dello stesso tipo, non è idoneo all'uso particolare voluto dal consumatore se portato a conoscenza del venditore al momento dell'acquisto ed accettato dal venditore (art. 129 del Codice del Consumo).\n \n Il difetto di conformità che si manifesti entro 24 mesi dalla data di acquisto del bene deve essere denunciato entro i 2 mesi successivi dalla data della scoperta del difetto. \n Salvo prova contraria, si presume che i difetti di conformità che si manifestino entro 6 mesi dalla consegna del bene esistessero già a tale data. In caso di difetto di conformità il consumatore ha diritto al ripristino, senza spese, della conformità del bene mediante riparazione o sostituzione (art. 130 del Codice del Consumo). Il consumatore può chiedere, a sua scelta, al venditore di riparare il bene o di sostituirlo, senza spese in entrambi i casi, salvo che il rimedio richiesto sia oggettivamente impossibile o eccessivamente oneroso rispetto all'altro. Le riparazioni o le sostituzioni devono essere effettuate entro un congruo termine dalla richiesta del Consumatore; il tempo medio di riconsegna al Consumatore del prodotto è di 24 giorni. Se entro il termine massimo di 60 giorni Media World non fosse in grado di restituire il prodotto riparato, il consumatore potrà richiedere uno dei rimedi alternativi (sostituzione, risoluzione del contratto, riduzione del prezzo).\n Media World provvederà ad inviare il prodotto per le eventuali riparazioni presso il Centro Assistenza tecnica autorizzato dal Produttore.\n \n \n Tempi e modalità di esercizio della Garanzia Legale\n \n Il Cliente dovrà: \n - inviare una comunicazione scritta a Media World (per comodità potrà essere usata anche la sezione del \"Supporto Clienti\" sotto la voce \"Contattaci\") oppure contattare Media World telefonicamente al numero verde 800-882288, indicando il vizio del prodotto;\n - attendere il Numero di Autorizzazione al Rientro (NAR) identificativo della pratica che sarà comunicato da Media World;\n - preparare il prodotto per la spedizione imballandolo accuratamente ed accludendo ogni accessorio, il manuale di istruzione e tutto quanto contenuto in origine nell'imballo del prodotto;\n - indicare sull'imballo il Numero di Autorizzazione al Rientro (NAR) attribuito da Media World.\n \n Il trasportatore contatterà il Cliente per concordare il ritiro del prodotto (l'irreperibilità telefonica del Cliente ritarderà il ritiro del prodotto).\n Media World provvederà ad inviare il prodotto per le eventuali riparazioni presso il Centro Assistenza Tecnico autorizzato dal produttore stesso (CAT). \n \n \n Diritto di recesso\n \n Le vendite di prodotti via Internet sono disciplinate dagli articoli dal 45 al 67 del D.Lgs. 206/2005 (Codice del Consumo). Tale normativa prevede a favore del consumatore il diritto di recedere dai contratti o dalle proposte contrattuali, garantendogli il diritto di restituire il prodotto acquistato e di ottenere il rimborso della spesa sostenuta. Il diritto di recesso non si applica ai prodotti audiovisivi e ai prodotti software informatici sigillati aperti dal consumatore, né per i beni sigillati che non si prestano ad essere restituiti per motivi igienici o connessi alla protezione della salute e sono stati aperti dopo la consegna.\n \n Il Cliente è responsabile della diminuzione del valore dei beni risultante da una manipolazione diversa da quella necessaria per stabilire la natura, le caratteristiche e il funzionamento dei prodotti, ovvero:\n - in mancanza dell'imballo originale;\n - in assenza di elementi integranti del prodotto (accessori, cavi, manuali d.istruzione, etc).\n Il diritto di recesso è riservato esclusivamente ai consumatori (persone fisiche che acquistano i beni non per scopi legati alla propria attività professionale, commerciale o imprenditoriale), quindi non può essere esercitato dalle persone giuridiche e dalle persone fisiche che agiscono per scopi riferibili all'attività professionale eventualmente svolta.\n Le spese di restituzione del prodotto sono a carico del Cliente.\n \n Per modalità e tempi di esercizio del diritto di recesso, rimborso e esercizio del diritto di recesso in caso di acquisto effettuato con finanziamento, consultare il Supporto Clienti.",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[5]/div[1]/article[1]/div[1]/div[1]"
+              }
+            ],
+            "ratingCount": [
+              {
+                "text": "89",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]",
+                "type": "NUMBER",
+                "raw": "89",
+                "locale": "it",
+                "value": 89
+              }
+            ],
+            "aggregateRating": [
+              {
+                "text": "5,0",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/@data-gtm-ranking"
+              }
+            ],
+            "shippingInfo": [
+              {
+                "text": "A casa tua entro giovedì 10 settembre\nConsegna Standard € 2.99",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[3]/div[1]/p[1]"
+              }
+            ],
+            "manufacturerDescription": [
+              {
+                "text": "Dyson supersonic Fucsia\nMotore digitale Dyson V9\nMotore potente e leggero. Raggiunge fino a 110.000 giri al minuto, con un diametro di soli 27 mm e un peso di soli 49 grammi.\nPosizionato per la prima volta nell’impugnatura e non nella testa dell’asciugacapelli.\nSilenzioso\nComposto da una ventola assiale all’interno del motore, che semplifica il percorso dell’aria, riducendone turbini e vortici.\nLa ventola è dotata di 13 pale invece che 11, come di consueto. Il motore è circondato da ammortizzatori acustici per ridurne ulteriormente la rumorosità.\nTermistore incapsulato in vetro\nMisura 20 volte al secondo la temperatura dell’aria emessa e la comunica direttamente al microprocessore.\nTecnologia Air Multiplier\nNessuna pala. Grazie alla tecnologia Air Multiplier il volume dell’aria aspirata nel motore viene triplicato, producendo un getto ad alta pressione ed elevata velocità. Permette di proiettare un flusso d’aria ininterrotto e a lungo raggio.\nAccessori\nTre accessori magnetici, che rimangono freddi al tatto. Utilizzando la tecnologia Heat Shield, l’aria calda rimane contenuta fra due strati di aria fredda, impedendo il surriscaldamento degli accessori.\nBeccuccio lisciante Dyson\nAsciuga i capelli con delicatezza, emettendo un flusso d’aria dolce e ampio, per asciugare mettere in piega allo stesso tempo.\nConcentratore Dyson\nUn flusso d’aria concentrato esattamente dove serve.\nDiffusore Dyson\nDiffonde un flusso d’aria uniforme su ogni singolo riccio; simulando un’asciugatura naturale, aiuta a ridurre l’effetto crespo e migliora la definizione dei ricci.",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[3]/div[1]/div[2]/div[1]"
+              }
+            ],
+            "videos": [
+              {
+                "text": "https://www.youtube.com/embed/videoseries?list=PL43zuvvPzPlGB2bP8J1ojr1CBwlhkDvYX",
+                "xpath": "/html/body/div[9]/@lnk"
+              }
+            ],
+            "name": [
               {
                 "text": "DYSON Supersonic Fucsia",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/div[2]/h3[1]"
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]"
               }
             ],
-            "aggregateRating2": [
+            "specifications": [
               {
-                "text": "5,0000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[2]/div[2]/p[2]/span[1]/@data-rating"
+                "text": "24,5x9,7x2,7 cm",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[4]/div[1]/ul[1]/li[8]/ul[1]/li[1]/div[2]/p[1]"
               }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-993590/dyson-v10-animal",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/99/35/993590_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON V10 Animal",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "1788",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "1788",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "399,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "399,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-993590",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON V10 Animal",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "4,6000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[3]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[4]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-125704/dyson-v11-absolute-extra",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[4]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/12/57/125704_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[4]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON V11 Absolute Extra",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[4]/div[2]/h3[1]"
-              }
-            ],
-            "price": [
-              {
-                "text": "649,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[4]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "649,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[4]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[4]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-125704",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[4]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON V11 Absolute Extra",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[4]/div[2]/h3[1]"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-751813/dyson-v10-motorhead",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/75/18/751813_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON V10 Motorhead",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "1788",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "1788",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "399,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "399,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-751813",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON V10 Motorhead",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "4,6000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[5]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[6]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-125709/dyson-v11-torque-drive-extra",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[6]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/12/57/125709_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[6]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON V11 Torque Drive Extra",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[6]/div[2]/h3[1]"
-              }
-            ],
-            "price": [
-              {
-                "text": "599,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[6]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "599,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[6]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[6]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-125709",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[6]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON V11 Torque Drive Extra",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[6]/div[2]/h3[1]"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-751810/dyson-v10-absolute",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/75/18/751810_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON V10 Absolute",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "1788",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "1788",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "499,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "499,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-751810",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON V10 Absolute",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "4,6000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[7]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[8]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-125702/dyson-corrale",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[8]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/12/57/125702_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[8]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Corrale",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[8]/div[2]/h3[1]"
-              }
-            ],
-            "price": [
-              {
-                "text": "499,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[8]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "499,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[8]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[8]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-125702",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[8]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Corrale",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[8]/div[2]/h3[1]"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-119042/dyson-v7-motorhead-origin",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/11/90/119042_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON V7 Motorhead Origin",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "3",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "3",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "399,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "399,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-119042",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON V7 Motorhead Origin",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "3,5000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[9]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-989216/dyson-v8-animal",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/98/92/989216_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON V8 ANIMAL +",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "3",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "3",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "349,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "349,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-989216",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON V8 ANIMAL +",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "5,0000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[10]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-125703/dyson-v11-absolute-extra-pro",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/12/57/125703_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON V11 Absolute Extra Pro",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "2",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "2",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "799,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "799,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-125703",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON V11 Absolute Extra Pro",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "4,0000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[11]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-989497/dyson-pure-hotcool",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/98/94/989497_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Pure Hot+Cool",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "2",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "2",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "649,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "649,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-989497",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Pure Hot+Cool",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "2,5000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[12]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[13]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-129523/dyson-airwrap-volumeshape",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[13]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/12/95/129523_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[13]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Airwrap Volume&Shape",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[13]/div[2]/h3[1]"
-              }
-            ],
-            "price": [
-              {
-                "text": "449,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[13]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "449,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[13]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[13]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-129523",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[13]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Airwrap Volume&Shape",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[13]/div[2]/h3[1]"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[14]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-753967/dyson-pure-cool-tower-biancoargento",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[14]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/75/39/753967_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[14]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Pure Cool Tower Bianco/Argento",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[14]/div[2]/h3[1]"
-              }
-            ],
-            "price": [
-              {
-                "text": "599,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[14]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "599,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[14]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[14]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-753967",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[14]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Pure Cool Tower Bianco/Argento",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[14]/div[2]/h3[1]"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[15]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-114976/dyson-v11-floor-dok",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[15]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/11/49/114976_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[15]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON V11 Floor Dok",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[15]/div[2]/h3[1]"
-              }
-            ],
-            "price": [
-              {
-                "text": "120,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[15]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "120,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[15]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[15]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-114976",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[15]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON V11 Floor Dok",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[15]/div[2]/h3[1]"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-992547/dyson-pure-cool-me",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/99/25/992547_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Pure Cool Me",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "41",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "41",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "349,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "349,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-992547",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Pure Cool Me",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "4,5000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[16]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-986954/dyson-supersonic-black",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/98/69/986954_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Supersonic Black",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "2999",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "2999",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "399,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "399,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-986954",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Supersonic Black",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "4,6000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[17]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[18]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-125801/dyson-filtro-pure",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[18]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/12/58/125801_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[18]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Filtro Pure",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[18]/div[2]/h3[1]"
-              }
-            ],
-            "price": [
-              {
-                "text": "60,99",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[18]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "60,99",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[18]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[18]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-125801",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[18]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Filtro Pure",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[18]/div[2]/h3[1]"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-993544/dyson-lightcycle",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/99/35/993544_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Lightcycle",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "2",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "2",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "499,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "499,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-993544",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Lightcycle",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "4,0000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[19]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "VIDEO DELTA",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[20]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/mp-7898324755316/tiso-wagner-cenas-brasileiras-cd",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[20]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/789/8324/75/7898324755316_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[20]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "TISO, WAGNER - CENAS BRASILEIRAS - CD",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[20]/div[2]/h3[1]"
-              }
-            ],
-            "price": [
-              {
-                "text": "4,99",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[20]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "4,99",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[20]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "VIDEO DELTA",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[20]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "mp-7898324755316",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[20]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "TISO, WAGNER - CENAS BRASILEIRAS - CD",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[20]/div[2]/h3[1]"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-753955/dyson-pure-cool-tavolo-biancoargento",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/75/39/753955_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "DYSON Pure Cool Tavolo Bianco/Argento",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/div[2]/h3[1]"
-              }
-            ],
-            "ratingCount": [
-              {
-                "text": "1",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "reviewCount": [
-              {
-                "text": "1",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/div[2]/p[2]/span[2]"
-              }
-            ],
-            "price": [
-              {
-                "text": "549,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "549,0",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "DYSON",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-753955",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "DYSON Pure Cool Tavolo Bianco/Argento",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/div[2]/h3[1]"
-              }
-            ],
-            "aggregateRating2": [
-              {
-                "text": "5,0000;",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[21]/div[2]/p[2]/span[1]/@data-rating"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "ARDES",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[22]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/p-722505/ardes-tizzo",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[22]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/25/722505_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[22]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
-            ],
-            "name": [
-              {
-                "text": "ARDES Tizzo",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[22]/div[2]/h3[1]"
-              }
-            ],
-            "price": [
-              {
-                "text": "35,99",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[22]/@data-gtm-price"
-              }
-            ],
-            "listPrice": [
-              {
-                "text": "39,99",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[22]/@data-gtm-price-full"
-              }
-            ],
-            "manufacturer": [
-              {
-                "text": "ARDES",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[22]/@data-gtm-brand"
-              }
-            ],
-            "id": [
-              {
-                "text": "p-722505",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[22]/@data-pcode"
-              }
-            ],
-            "nameExtended": [
-              {
-                "text": "ARDES Tizzo",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/article[22]/div[2]/h3[1]"
-              }
-            ]
-          },
-          {
-            "brand": [
-              {
-                "text": "ARDES",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[3]/article[1]/@data-gtm-brand"
-              }
-            ],
-            "productUrl": [
-              {
-                "text": "https://www.mediaworld.it/product/z-30511480/ardes-tizzo-prmg-grading-oobn-sconto-1500",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[3]/article[1]/div[2]/h3[1]/a[1]/@href"
-              }
-            ],
-            "thumbnail": [
-              {
-                "text": "https://asset.mediaw.it/wcsstore/MMCatalogAssetStore/asset/images/72/25/722505_thumb.jpg",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[3]/article[1]/div[1]/div[2]/a[1]/img[1]/@src"
-              }
             ],
-            "name": [
+            "warranty": [
               {
-                "text": "ARDES Tizzo - PRMG GRADING OOBN - SCONTO 15,00%",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[3]/article[1]/div[2]/h3[1]"
+                "text": "24 mesi.",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[5]/div[1]/article[1]/div[1]/div[1]/p[1]/text()[4]"
               }
             ],
-            "price": [
+            "product_id": [
               {
-                "text": "30,59",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[3]/article[1]/@data-gtm-price"
+                "text": "p-728794",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/@data-pcode-gtm"
               }
             ],
-            "listPrice": [
+            "shipping_Information": [
               {
-                "text": "35,99",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[3]/article[1]/@data-gtm-price-full"
+                "text": "A casa tua entro giovedì 10 settembre\nConsegna Standard € 2.99",
+                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[3]/div[1]/p[1]"
               }
             ],
-            "manufacturer": [
+            "technicalInformationPdfPresent": [
               {
-                "text": "ARDES",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[3]/article[1]/@data-gtm-brand"
+                "text": "No"
               }
             ],
-            "id": [
+            "Image360Present": [
               {
-                "text": "z-30511480",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[3]/article[1]/@data-pcode"
+                "text": "No"
               }
             ],
-            "nameExtended": [
+            "imageZoomFeaturePresent": [
               {
-                "text": "ARDES Tizzo - PRMG GRADING OOBN - SCONTO 15,00%",
-                "xpath": "/html/body/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[3]/article[1]/div[2]/h3[1]"
+                "text": "No"
               }
             ]
           }
         ],
-        "xpath": "/html"
+        "xpath": "/"
       }
     ],
-    "url": "https://www.mediaworld.it/search/dyson",
-    "timestamp": "2020-09-04T08:10:26.634Z"
+    "url": "https://www.mediaworld.it/product/p-728794/dyson-supersonic-fucsia",
+    "timestamp": "2020-09-04T23:43:54.290Z"
   }
 ]
