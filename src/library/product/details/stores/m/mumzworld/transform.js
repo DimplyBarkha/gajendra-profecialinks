@@ -83,17 +83,14 @@ const transform = (data) => {
                 }
             });
         }
-        if (row.available) {
-          row.available.forEach(item => {                            
-              if (item.text != true) {
-                item.text = false
+        if (row.availabilityText) {
+          row.availabilityText.forEach(item => {                            
+              if (item.text != 'In Stock') {
+                item.text = 'Out of Stock'
                 row.quantity.forEach(item => { 
                   item.text = 0
-                });
-                row.availabilityText.forEach(item => { 
-                  item.text = 'Out of Stock'
-                });
-              }              
+                });                
+              }
           });
         }        
       }
