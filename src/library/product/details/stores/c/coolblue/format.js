@@ -12,6 +12,13 @@ const transform = (data) => {
         });
         row.variants = [{ text: variantArray.join('|'), xpath: row.variants[0].xpath }];
       }
+      if (row.sub_category) {
+        row.sub_category.shift();
+        const sub_categoryArray = row.sub_category.map((item) => {
+          return item.text;
+        });
+        row.sub_category = [{ text: sub_categoryArray.join(' > '), xpath: row.sub_category[0].xpath }];
+      }
       if (row.shippingDimensions) {
         const shippingDimensionsArray = row.shippingDimensions.map((item) => {
           return item.text;

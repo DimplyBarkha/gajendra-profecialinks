@@ -49,10 +49,10 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
-    xpath: (//li[@class="top-navigation--item"]//a[contains(@class,'top-navigation--action')])[1]
+    xpath: //div[@class='grid-wrapper-xs--padding grid-wrapper-m--padding']//li[2]
   - name: sub_category
     singleValue: false
-    xpath: (//li[@class="top-navigation--item"]//a[contains(@class,'top-navigation--action')])[2]
+    xpath: //div[@class='grid-wrapper-xs--padding grid-wrapper-m--padding']//li
   - name: nameExtended
     singleValue: false
     xpath: //span[contains(@class,'js-product-name')]
