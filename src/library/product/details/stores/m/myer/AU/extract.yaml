@@ -1,0 +1,187 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[contains(@class,'css-2rkizr')]//div[contains(@class,'css-14ae9o2')]//ol//li[1]//div//a//img/@src
+    
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[contains(@class,'css-2rkizr')]//div[contains(@class,'css-14ae9o2')]//ol//li[1]//a//img/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@class,'css-2rkizr')]//div[contains(@class,'css-14ae9o2')]//ol//li//div//a//img/@src
+  
+  - name: metaKeywords
+    singleValue: true    
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[contains(@class,'css-13o7eu2')]//nav[contains(@class,'css-12hed02')]//div[contains(@class,'container')]//ol//li
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[contains(@class,'css-gh4o5n')]//div[contains(@class,'css-841znr')]//h1
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[contains(@class,'css-j12b3k')]//p[2]//span
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class,'css-1brxp6w')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: true
+    xpath: //div[contains(@class,'description')]//div[contains(@class,'css-i3pbo')]//ul
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class='container css-zkg6nm']/div[@class='css-1iqvlww']/div[@id='combined-product-description']/div/ul/li)
+    type: NUMBER  
+  - name: brandText
+    singleValue: true
+    xpath: //span[contains(@class,'underline')]//span[2]
+  - name: manufacturer
+    singleValue: true
+    xpath: //span[contains(@class,'underline')]//span[2]
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+    xpath: //div[@id='itemQuantity_205098891']/div[@class='form-group']/input/@value
+    defaultValue : "1"
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+    xpath : //h1[@class='css-1nb9gtf']/div/span[1]
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //h1[@class='css-1nb9gtf']/div/span[1]
+  - name: sku
+    singleValue: true
+    xpath: //div[@class='css-fy5x41']/div[@id='combined-product-description']/p
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class='css-fy5x41']/div[@id='combined-product-description']/p
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //div[@class='css-fy5x41']/div[@id='combined-product-description']/p
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath : //div[@class='css-upho4v']/div[@class='css-1mgncdh']
+  - name: productUrl
+    singleValue: true
+    description: Content under "legal disclaimer" header
+    xpath: //link[@rel="canonical"]/@href
+  - name: name
+    singleValue: true
+    xpath: //div/h1[@class='css-1nb9gtf']/div/span[2]
+  - name: secondaryImageTotal
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[contains(@class,"productImageGallery")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide slick-cloned")]//a[contains(@class,"mZoomSlickThumb MagicThumb-swap")]/img/@src)
+  - name: coupon
+    singleValue: true
+    description: Text of any coupon offer
+    xpath : //div[@class='css-1efj9ct']/div/div[@class='css-1efj9ct']/span
+  - name: specifications
+    singleValue: true
+    description: The physical dimensions of the product including packaging.
+    xpath  : //div[@class='css-i3pbo']/ul/li[@class='css-vktjwr'][1]
+  - name: warranty
+    singleValue: true
+    description: Guarantee associated with the product
+    xpath : //div[@class='css-kkq4y9']/div[@id='combined-product-description']/div/p[3]    
+  - name: shippingDimensions
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: recyclingInformation
+    singleValue: true
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+    xpath : //div[@class='bv-secondary-rating-summary-stars bv-table-row']/span[@class='bv-secondary-rating-summary-rating bv-table-cell']
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath : //div[@class='bv_avgRating_component_container notranslate']
+    type: NUMBER
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed, if no variants on the page, should be 0
+    xpath : count(//div[@class='dy-wrapper dy-no-lead']/div[@class='dy-recommendations__slider-conatiner']/div/div/a)
+    type: NUMBER
+  - name: productOtherInformation
+    singleValue: true
+    xpath: //div[@class='css-fy5x41']
+  - name: color
+    singleValue: true
+    xpath : //div[@class='css-1i2mwr2']/span
+  - name: packaging
+    singleValue: true
+  - name: promotion
+    singleValue: true
+    xpath: boolean(//div[@class='css-1efj9ct']/span)
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    xpath : div[@class='bv-secondary-rating-summary-stars bv-table-row']/span[@class='bv-secondary-rating-summary-rating bv-table-cell']
+    type: NUMBER
+  - name: countryOfOrigin
+    singleValue: true
+  - name: energyEfficiency
+    singleValue: true
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: Image360Present
+    xpath: boolean(//div[@class='css-h8xsao']/img[@class='css-d3fz50']/@src)
+    singleValue: true
+  - name: manufacturerImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class='inpage_ftgridimg']/img/@src
+    regExp: (.+)
+    regExpReplace: https://bigw.com.au$1
+  - name: upc
+    singleValue: true    
+  - name: eangtin
+    singleValue: true
+    xpath: //div[@class='css-fy5x41']/div[@id='combined-product-description']/p
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,'css-j12b3k')]//p[1]//span
+  - name: colorCode
+    singleValue: true
+    xpath : //div[@class='css-1i2mwr2']/span
+  - name: newDescription
+    singleValue: true
+    xpath: //div[@class='description']/div[@class='css-i3pbo']/ul/li[@class='css-vktjwr']
+  - name: lbbPrice
+    singleValue: true
+    xpath:
+  - name: firstVariant
+    singleValue: false
+  - name: variants
+    singleValue: false
+    xpath:
