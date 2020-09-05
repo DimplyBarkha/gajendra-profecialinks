@@ -37,14 +37,52 @@ const transform = (data) => {
             let text = '';
             row.reviewCount.forEach(item => {
               text += `${item.text
-                .replace(/.+(\|)/g, '')}  `;
+                .replace(/.+(\|)/g, '')
+                }  `;
             });
             row.reviewCount = [
+              {
+                text: text.slice(0,-8),
+              },
+            ];
+          }
+          if (row.shippingInfo) {
+            let text = '';
+            row.shippingInfo.forEach(item => {
+              text += `${item.text
+                .replace(/\s\n/g, '')}  `;
+            });
+            row.shippingInfo = [
               {
                 text: text.slice(0, -4),
               },
             ];
           }
+          if (row.name) {
+            let text = '';
+            row.name.forEach(item => {
+              text += `${item.text
+                .replace(/\s\n/g, '')}  `;
+            });
+            row.name = [
+              {
+                text: text.slice(),
+              },
+            ];
+          }
+          if (row.price) {
+            let text = '';
+            row.price.forEach(item => {
+              text += `${item.text
+                .replace(/\s\n/g, '')}  `;
+            });
+            row.price = [
+              {
+                text: text.slice(),
+              },
+            ];
+          }
+          
            
           
           
