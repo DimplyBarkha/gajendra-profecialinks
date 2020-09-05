@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="image-view-magnifier-wrap"]/img[@class="magnifier-image"]/@src
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="images-view-item"]/img/@src
+    xpath: //li[position()>1]/div[@class="images-view-item"]/img/@src
   - name: name
     singledValue: false
     xpath: //h1[@class="product-title-text"]
