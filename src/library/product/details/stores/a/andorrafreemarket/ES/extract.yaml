@@ -16,14 +16,14 @@ fields:
     singleValue: true
     xpath: //p[contains(@class,'product-image')]//div[@id='wrap']//a/@href
   - name: alternateImages
-    singleValue: true
+    singleValue: false
     xpath: (//div[contains(@class,"product-img-column")]//div[contains(@class,'viewport')]//ul//li//a/@href)[position()>1]
   - name: metaKeywords
-    singleValue: true
+    singleValue: true 
     xpath: //meta[contains(@name, "keywords")]/@content
   - name: category
-    singleValue: true
-    xpath: //div[contains(@class,'breadcrumbs')]//ul/li[2]//text() 
+    singleValue: false
+    xpath: //div[contains(@class,'breadcrumbs')]//ul/li[position()>1] 
   - name: listPrice
     singleValue: true
     xpath: //div[contains(@class,'price-box')]//span[contains(@class,'regular-price')]//span[contains(@class,'price')]//text()
@@ -33,7 +33,7 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //div[contains(@class,'product-name')]//h1//text()
-  - name: gtin
+  - name: eangtin
     singleValue: true
     xpath: //meta[contains(@itemprop, "description")]/@content
   - name: sku
@@ -48,6 +48,9 @@ fields:
     singleValue: false
     xpath: //meta[contains(@itemprop, "description")]/@content
   - name: brandText
+    singleValue: true
+    xpath: //meta[contains(@itemprop,"brand")]/@content
+  - name: manufacturer
     singleValue: true
     xpath: //meta[contains(@itemprop,"brand")]/@content
   - name: quantity

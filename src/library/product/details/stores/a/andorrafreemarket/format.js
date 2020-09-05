@@ -7,6 +7,39 @@ const transform = (data) => {
     for (const { group } of data) {
       for (let row of group) {
         try {
+          if (row.alternateImages) {
+            let text = '';
+            row.alternateImages.forEach(item => {
+                text += `${item.text} | `
+            });
+            row.alternateImages = [
+              {
+                text: text.slice(0,-3)
+              },
+            ];
+          }
+          if (row.category) {
+            let text = '';
+            row.category.forEach(item => {
+                text += `${item.text} > `
+            });
+            row.category = [
+              {
+                text: text.slice(0,-3)
+              },
+            ];
+          }
+          if (row.warranty) {
+            let text = '';
+            row.warranty.forEach(item => {
+                text += `${item.text.split('.')[0]}`
+            });
+            row.warranty = [
+              {
+                text: text
+              },
+            ];
+          }
           if (row.weightNet) {
             let text = '';
             row.weightNet.forEach(item => {
@@ -24,12 +57,12 @@ const transform = (data) => {
                 },
             ];
           }
-          if (row.gtin) {
+          if (row.eangtin) {
             let text = '';
-            row.gtin.forEach(item => {
+            row.eangtin.forEach(item => {
                 text += `${item.text.slice(item.text.indexOf('EAN')+4, item.text.length).split('.')[0].trim()}`;
             });
-            row.gtin = [
+            row.eangtin = [
                 {
                   text: text 
                 },
@@ -46,17 +79,7 @@ const transform = (data) => {
               },
             ];
           }
-          if (row.brandText) {
-            let text = '';
-            row.brandText.forEach(item => {
-              text += `${item.text.replace(/\"/g, '').replace(/,/g, '')}  `;
-            });
-            row.brandText = [
-              {
-                text: text.trim()
-              },
-            ];
-          }
+
           if (row.url) {
             let text = '';
             row.url.forEach(item => {
