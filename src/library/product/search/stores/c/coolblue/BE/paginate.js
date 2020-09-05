@@ -2,15 +2,15 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'BE',
+    country: 'NL',
     store: 'coolblue',
-    nextLinkSelector: null,
+    nextLinkSelector: 'li.pagination__item.pagination__item--arrow',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#product-results',
+    noResultsXPath: '//h1[contains(text(),"Geen resultaten voor")]',
     openSearchDefinition: null,
-    domain: 'coolblue.BE',
+    domain: 'coolblue.nl',
     zipcode: '',
   },
 };

@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: '//div[@id="product-results"]'
 fields: 
-  - name: _url
+  - name: url
     xpath: //div[@data-component]//input[@name="returnUrl"]/@value
     singleValue: false
   - name: productUrl
@@ -41,6 +41,8 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="review-rating"]//span[contains(@class,"review-rating__reviews")]
+    regExp: (\d+)
+    regExpReplace: $1
   - name: soldBy
     singleValue: false
     xpath: 

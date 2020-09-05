@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'BE',
     store: 'coolblue',
-    domain: 'coolblue.BE',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: '',
+    domain: 'coolblue.be',
+    url: 'https://www.coolblue.be/nl/zoeken?query={searchTerms}',
+    loadedSelector: 'div#product-results',
+    noResultsXPath: '//h1[contains(text(),"Geen resultaten voor")]',
+    zipcode: "''",
   },
 };
