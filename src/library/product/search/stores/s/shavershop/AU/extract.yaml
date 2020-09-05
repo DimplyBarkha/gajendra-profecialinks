@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+
+  - name: id
+    xpath: //div/@data-product-id
+    singleValue: true
+  - name: name
+    xpath: //div[@class='product-name']/a[@class='name-link gtm-product-click']/span[@class='desktop-only']
+    singleValue: true
+  - name: producturl
+    xpath: //div[@class='product-image']/a[@class='thumb-link gtm-product-click']/@href
+    singleValue: true
+  - name: manufacturer
+    xpath: //div[@class='product-name']/div[@class='brand-name']/a
+    singleValue: true    
+  - name: thumbnail
+    xpath: //div[@class='product-image']/a[@class='thumb-link gtm-product-click']/img/@src
+    singleValue: true
+  - name: price
+    xpath: //div[@class='product-pricing']/span[@class='product-sales-price charcoal']
+    singleValue: true 
+  - name: rankOrganic
+    singleValue: true 
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class='bv-inline-rating-container']/dl[@class='bv-stars-container']/dd[@class='bv-rating-ratio-number']/span[@class='bv-rating']/span
+    defaultValue: '0'
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[@class='bv-inline-rating-container']/dl[@class='bv-stars-container']/dd[@class='bv-rating-ratio-count']/span[@class='bv-rating-label']
+    defaultValue: '0'
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@class='bv-inline-rating-container']/dl[@class='bv-stars-container']/dd[@class='bv-rating-ratio-count']/span[@class='bv-rating-label']
+    defaultValue: '0'
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: search/listing rank
