@@ -14,7 +14,7 @@ fields:
     xpath: //div[@class="product-item"]//div[@class="info"]/a
   - name: price
     singleValue: false
-    xpath: //div[@class="product-item"]//div[contains(@class,"price-device")]/span
+    xpath: //div[@class="product-item"]//span[@class="price"]
   - name: id
     singleValue: false
     xpath: //div[@class="product-item"]/div/@data-pid
