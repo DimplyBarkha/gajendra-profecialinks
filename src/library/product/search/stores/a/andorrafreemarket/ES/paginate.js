@@ -9,7 +9,9 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div[class="category-products"]',
     noResultsXPath: '//p[contains(@class,"empty-catalog")]',
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.andorrafreemarket.com/catalogsearch/result/index/?cat=0&p={page}&q={searchTerms}',
+    },
     domain: 'andorrafreemarket.com',
     zipcode: '',
   },
