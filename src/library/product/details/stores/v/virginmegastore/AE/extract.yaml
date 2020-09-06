@@ -47,9 +47,6 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
-    xpath: //div[@class='container hidden-m breadcrumb-list__wrapper']//div[@class="breadcrumb-list"]//div[@class="breadcrumb-list__item d-inline-block"][2]
-  - name: sub_category
-    singleValue: false
     xpath: //div[@class='container hidden-m breadcrumb-list__wrapper']//div[@class="breadcrumb-list"]//div[@class="breadcrumb-list__item d-inline-block"]
   - name: nameExtended
     singleValue: false
@@ -81,11 +78,13 @@ fields:
     xpath: 
   - name: sku
     singleValue: false
-    xpath: 
+    xpath: //script[contains(text(),"products")]/text()
+    regExp: \'id.*'(\d+)'
+    regExpReplace: $1
   - name: variantId
     singleValue: false
     xpath: //script[contains(text(),"products")]/text()
-    regExp: \'id':\s\s\s\s\s\s\s'([\d,]+.*)'
+    regExp: \'id.*'(\d+)'
     regExpReplace: $1
   - name: packSize
     singleValue: false
