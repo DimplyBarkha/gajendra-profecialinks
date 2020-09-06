@@ -1,44 +1,48 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='indexGoods__item']
+recordXPath: //div[@class="indexGoods__item"]
 fields:
   - name: id
-    singleValue: true
-    xpath: //div[@id='pd_id']
+    singleValue: false
+    xpath: //span[@class="indexGoods__item__fastView js__ajaxExchange ic__set ic__set__viewed"]/@data-itemid
   - name: rankOrganic
     singleValue: true
     xpath: //div[@id='pd_rank']
   - name: name
-    singleValue: true
-    xpath: //a[@class="indexGoods__item__name"]/@title
+    singleValue: false
+    xpath: //div[@class="indexGoods__item__descriptionCover"]/a
   - name: productUrl
-    singleValue: true
-    xpath: 
+    singleValue: false
+    xpath: //a[@class="indexGoods__item__name"]/@href
   - name: gtin
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class="indexGoods__item__fastView js__ajaxExchange ic__set ic__set__viewed"]/@data-itemid
   - name: thumbnail
-    singleValue: true
+    singleValue: false
+    xpath: //a[@class="indexGoods__item__image"]/img/@src
   - name: url
-    singleValue: true
+    singleValue: false
   - name: aggregateRating
-    singleValue: true
-    xpath: //div[@id='pd_aggregateRating']
+    singleValue: false
+    xpath: //div[contains(@class, "starsSVG")]/@title
+    regExp: (^[0-9])
   - name: reviewCount
-    singleValue: true
-    xpath: //div[@id='pd_reviewCount'] 
+    singleValue: false
+    xpath: //div[contains(@class, "indexGoods__item__stars")]/a
   - name: ratingCount
-    singleValue: true
-    xpath: //div[@id='pd_reviewCount'] 
+    singleValue: false
+    xpath: //span[@class="seo-review-count"]
   - name: price
-    singleValue: true
-    xpath: //div[@id='pd_price']
+    singleValue: false
+    xpath: //span[@class="price regular"]
   - name: manufacturer
-    singleValue: true
-    xpath: //div[@id='pd_manufacturer']
+    singleValue: false
+    xpath: //div[@class="indexGoods__item__storeCode__line"][2]/text()
   - name: soldBy
     singleValue: true
   - name: rank
     singleValue: true
+    xpath: //div[@id='pd_rank']
   - name: endorsementText
-    singleValue: true
+    singleValue: false

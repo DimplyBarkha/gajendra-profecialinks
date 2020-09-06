@@ -6,8 +6,8 @@ module.exports = {
     store: 'onlinetrade',
     domain: 'onlinetrade.ru',
     url: 'https://www.onlinetrade.ru/sitesearch.html?query={searchTerms}',
-    loadedSelector: 'div.goods__items minilisting searchlisting',
-    noResultsXPath: '//div[@class="note note__pink"]/@xpath',
+    loadedSelector: 'div.indexGoods__item',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
