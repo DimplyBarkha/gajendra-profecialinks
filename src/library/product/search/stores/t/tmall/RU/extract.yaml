@@ -1,5 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: '//li[contains(@class,"list-item")]'
+fields:
+    - name: name
+      singleValue: false
+      xpath: //a[contains(@class,"history-item")]
+    - name: productUrl
+      singleValue: false
+      xpath: //h3/a[contains(@class,"history-item")]/@href
+    - name: thumbnail
+      singleValue: false
+      xpath: //a[contains(@class,"history-item")]/img/@src
+    - name: price
+      singleValue: false
+      xpath: //div[@class="price price-m"]
+    - name: aggregateRating
+      singleValue: false
+      xpath: //div[@class="rate-history"]/span/@title
+    - name: ratingCount
+      singleValue: false
+      xpath: //div[@class="rate-history"]/a
+    - name: soldBy
+      singleValue: false
+      xpath: //div[@class="store-name util-clearfix"]/a

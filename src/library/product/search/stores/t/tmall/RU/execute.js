@@ -5,9 +5,9 @@ module.exports = {
     country: 'RU',
     store: 'tmall',
     domain: 'tmall.ru',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://tmall.ru/wholesale?SearchText={searchTerms}',
+    loadedSelector: 'ul#hs-below-list-items',
+    noResultsXPath: '//div[@id="main-wrap" and contains(@class,"main-wrap")]/p',
     zipcode: "''",
   },
 };
