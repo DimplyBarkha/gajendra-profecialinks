@@ -1,0 +1,150 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _pageTimestamp
+    singleValue: false
+    xpath: //div[@id="page-timestamp")]
+  - name: _url
+    singleValue: false
+    xpath: //div[@id="current-page-url")]
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"galleryimage__image--loaded")][1]/picture/img/@src
+  - name: imageAlt
+    singleValue: false
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"galleryimage__image--loaded")][position() > 1]/picture/img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,"keyword")]/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,"breadcrumb")]/li[position() > 1 and position() < last()]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,"pdp__title")]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"priceblock--DiscountBadge")]/span[contains(@class,"priceblock__price--listprice")]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"priceblock--DiscountBadge")]/span[contains(@class,"priceblock__price--salesprice")]
+  - name: availabilityText
+    singleValue: false
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //div[contains(@class, "productoffer__availability")]
+  - name: description
+    singleValue: false
+    xpath: //section[contains(@class, "productdescription")]/h3|//ul[contains(@class,"USPList")]//li/font/font
+  - name: descriptionBullets
+    singleValue: false
+    type: NUMBER
+    xpath: count(//section[contains(@class, "productdescription")]/h3|//ul[contains(@class,"USPList")]//li/font/font)
+  - name: brandText
+    singleValue: false
+    xpath: //table[contains(@class,"productspecifications")]//th[contains(@class, "productspecifications__spec-name") and text()="Merk"]/following-sibling::td
+  - name: manufacturer
+    singleValue: false
+    xpath: //table[contains(@class,"productspecifications")]//th[contains(@class, "productspecifications__spec-name") and text()="Merk"]/following-sibling::td
+  - name: quantity
+    singleValue: false
+  - name: weightNet
+    singleValue: false
+    xpath: //table[contains(@class,"productspecifications")]//th[contains(@class, "productspecifications__spec-name") and text()="Gewicht"]/following-sibling::td
+  - name: weightGross
+    singleValue: false
+  - name: gtin
+    singleValue: false
+    xpath: //table[contains(@class,"productspecifications")]//th[contains(@class, "productspecifications__spec-name") and text()="EAN"]/following-sibling::td
+  - name: sku
+    singleValue: false
+    xpath: //div[@data-product-id]/@data-product-id
+  - name: variantId
+    singleValue: false
+    xpath: //div[@data-product-id]/@data-product-id
+  - name: mpc
+    singleValue: false
+  - name: packSize
+    singleValue: false
+  - name: legalDisclaimer
+    singleValue: false
+  - name: directions
+    singleValue: false
+    xpath: //ul[@class="USPList USPList--ProductMessage"]
+  - name: warnings
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //div[contains(@class,"bv_avgRating_component_container")]/button
+  - name: aggregateRating
+    singleValue: false
+    type: NUMBER
+    xpath: //div[contains(@class,"bv_avgRating_component_container")]/button
+  - name: shippingInfo
+    singleValue: false
+    xpath: //li[contains(@class, "USPList__USP")]/font/font[contains(text(), "delivered")]
+  - name: variantCount
+    singleValue: false
+    type: NUMBER
+    xpath: count(//div[contains(@class, "ProductVariants__GroupName")])
+  - name: color
+    singleValue: false
+    xpath: //table[contains(@class,"productspecifications")]//th[contains(@class, "productspecifications__spec-name") and text()="Kleur van het product"]/following-sibling::td
+  - name: colorCode
+    singleValue: false
+  - name: manufacturerDescription
+    singleValue: false
+  - name: manufacturerImages
+    singleValue: false
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"gallerybar__thumbnails")]/a[contains(@class, "gallerybar__video")]/@data-videourl
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,"pdp__title")]
+  - name: inStorePrice
+    singleValue: false
+  - name: coupon
+    singleValue: false
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class, "productspecifications")]//tbody//tr[contains(@class, "productspecifications__spec")]
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //section[contains(@class, "productdescription")]/p
+  - name: warranty
+    singleValue: false
+    xpath: //li[contains(@class, "USPList__USP")]/font/font[contains(text(), "garantie") or contains(text(), "warranty")]
+  - name: storage
+    singleValue: false
+  - name: packaging
+    singleValue: false
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,"priceblock--DiscountBadge")]/div[contains(@class,"priceblock__discount")]//font/font|//section[@id="promotions"]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class, "ProductVariants__GroupName")]
+  - name: firstVariant
+    singleValue: false
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class, "ProductVariants__GroupName")]
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[contains(@class, "pdp__energy-review-container")]//span[contains(@class, "EnergyLabel")]
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: No

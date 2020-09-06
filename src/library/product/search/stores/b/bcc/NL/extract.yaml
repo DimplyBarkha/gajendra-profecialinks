@@ -1,0 +1,63 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _url
+    singleValue: false
+    xpath: //div[contains(@class, "productlist")]/div[contains(@class, "lister-product")]/div[contains(@id, "ii-search-url")]
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, "productlist")]/div[contains(@class, "lister-product")]/@id
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"productlist")]//a[contains(@class,"lister-product__visual")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.bcc.nl$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"productlist")]//a[contains(@class,"lister-product__visual")]/img[1]/@src
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"lister-product__info")]/a[contains(@class,"lister-product__titlelink")]
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class, "productlist")]/div[contains(@class, "lister-product")]/@id
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class, "productlist")]/div[contains(@class, "lister-product")]/@id
+  - name: mpc
+    singleValue: false
+  - name: gtin
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+    defaultValue: 0
+    xpath: //div[contains(@class, "rating")]/@style
+  - name: aggregateRatingText
+    singleValue: false
+    defaultValue: 0
+    xpath: //div[contains(@class, "rating")]/@style  
+  - name: ratingCount
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class, "lister-product__info")]//div[contains(@class, "rating__container")]/span[contains(@class, "review__text")]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"priceblock")]/span[contains(@class,"priceblock__price--salesprice")]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"priceblock")]/span[contains(@class,"priceblock__price--listprice")]
+  - name: rank
+    singleValue: false
+    xpath: //div[contains(@class, "productlist")]/div[contains(@class, "lister-product")]/div[contains(@id, "ii-item-rank")]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[contains(@class, "productlist")]/div[contains(@class, "lister-product")]/div[contains(@id, "ii-item-rank")]
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,"lister-product__info")]/a[contains(@class,"lister-product__titlelink")]
