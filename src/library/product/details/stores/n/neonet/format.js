@@ -13,19 +13,38 @@ const transform = (data) => {
       }
 
       const categs = [];
+      let idx = 0;
       if (row.category) {
+        let catText = '';
         row.category.forEach(item => {
-          if (item.text.indexOf('Neonet.pl') < 0) categs.push(item);
+          categs[0] = item;
+          if (idx === 1) {
+            catText = item.text;
+          }
+          if (idx > 1 && idx < row.category.length) {
+            catText = catText + '>' + item.text;
+          }
+          idx++;
+        });
+        categs.forEach(item => {
+          item.text = catText;
         });
         row.category = categs;
       }
 
       if (row.additionalDescBulletInfo) {
+        let desc = '';
         row.additionalDescBulletInfo.forEach(item => {
-          item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
+          item.text = item.text.replace(/(\s?\n)+/g, ' | ').trim();
+          desc = desc + '||' + item.text;
         });
+        if (row.description) {
+          row.description.forEach(item => {
+            item.text = item.text + desc;
+          });
+        }
       }
-      // aggregateRating
+
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           const val = item.value;
@@ -59,6 +78,14 @@ const transform = (data) => {
         });
       }
 
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          if (item.text.indexOf('PLN') > -1) {
+            item.text = item.text.replace('PLN', '');
+            item.text = item.text + 'zl';
+          }
+        });
+      }
       if (row.technicalInformationPdfPresent) {
         row.technicalInformationPdfPresent.forEach(item => {
           if (item.text.length > 0) item.text = 'Yes';

@@ -35,7 +35,11 @@ fields:
     xpath: concat(//div[@class="productShopCss-sp__integer-1z1"], '.', normalize-space(//div[@class="productShopCss-sp__formatter-XUK"]))
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id="productShop"]//div[contains(@class, "inStore")]//span/text()|//div[@class="productShopCss-cart__title-1Aq cart__title"]//text()
+    xpath: //link[@itemprop="availability"]/@href
+    #  //*[@id="productShop"]//div[contains(@class, "inStore")]//span/text()|//div[@class="productShopCss-cart__title-1Aq cart__title"]//text()
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock    
   - name: description
     singleValue: false
     xpath: //meta[@property="og:description"]/@content
@@ -45,7 +49,8 @@ fields:
     xpath: count(//div[@id="productData"]//div[@class="productFullDetailDesktopCss-details__content-3BZ"]//ul//li)
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@itemprop="description"]/div[1]
+    xpath: //div[@id="productData"]//div[@class="productFullDetailDesktopCss-details__content-3BZ"]//ul//li
+    #  //div[@itemprop="description"]/div[1]//ul
   - name: sku
     singleValue: false
     xpath: //div[@class="pageContainer-root-1fe"]//span[@itemprop="sku"]
@@ -95,6 +100,12 @@ fields:
   - name: aggregateRating
     singleValue: false
     type: NUMBER
+    xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
+    #xpath: //div[@id="productData"]//div[@class="productRatingCss-ratings-8MD"]
+    regExp: (.*width:)(.\d+)(%)
+    regExpReplace: $2    
+  - name: aggregateRatingText  
+    singleValue: false
     xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
     regExp: (.*width:)(.\d+)(%)
     regExpReplace: $2    

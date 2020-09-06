@@ -7,6 +7,6 @@ module.exports = {
     domain: 'neonet.pl',
     loadedSelector: null,
     noResultsXPath: null,
-    zipcode: "''",
+    zipcode: '',
   },
 };
