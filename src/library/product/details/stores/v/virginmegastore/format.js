@@ -28,9 +28,15 @@ const transform = (data) => {
       }
       if (row.productOtherInformation) {
         const productOtherInformationArr = row.productOtherInformation.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '| ') : '|';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n/g, ' | ').replace(/\n \n \n \n/g, ' | ').replace(/\n \n/g, ':').replace(/\n/g, '| ') : '|';
         });
         row.productOtherInformation = [{ text: productOtherInformationArr.join('|'), xpath: row.productOtherInformation[0].xpath }];
+      }
+      if (row.description) {
+        const descriptionArr = row.description.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n/g, ' | ').replace(/\n \n \n \n/g, ' | ').replace(/\n \n/g, ':').replace(/\n/g, ' | ') : '|';
+        });
+        row.description = [{ text: descriptionArr.join('|'), xpath: row.description[0].xpath }];
       }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
