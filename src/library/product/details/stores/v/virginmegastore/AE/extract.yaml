@@ -47,16 +47,17 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
-    xpath: //script[contains(text(),"products")]/text()
-    regExp: \'category':\s'(([^,]+)')
-    regExpReplace: $2
+    xpath: //div[@class='container hidden-m breadcrumb-list__wrapper']//div[@class="breadcrumb-list"]//div[@class="breadcrumb-list__item d-inline-block"][2]
+  - name: sub_category
+    singleValue: false
+    xpath: //div[@class='container hidden-m breadcrumb-list__wrapper']//div[@class="breadcrumb-list"]//div[@class="breadcrumb-list__item d-inline-block"]
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class,'name')]
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,"price__container")]//div[@class='price__value price__value--original']
-  - name: priceCurrency
+  - name:   
     singleValue: false
     xpath: //div[@class='price__container price__container--column d-flex justify--space-between']//span[@class='price__currency']
   - name: variants
@@ -111,7 +112,7 @@ fields:
     xpath: 
   - name: description
     singleValue: false
-    xpath: (//meta[contains(@name,"description")]/@content)[1]
+    xpath: //p[@class='longDesc']
   - name: descriptionBullets
     singleValue: false
     xpath: 
@@ -172,9 +173,7 @@ fields:
     xpath: 
   - name: specifications
     singleValue: false
-    xpath: //p[@class="longDesc"]
-    regExp: (.*(Specifications.*))
-    regExpReplace: $2
+    xpath: //div[@class='product-classifications']
   - name: warranty
     singleValue: false
     xpath: 

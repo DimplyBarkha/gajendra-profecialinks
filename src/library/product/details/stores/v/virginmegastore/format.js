@@ -12,6 +12,14 @@ const transform = (data) => {
         });
         row.variants = [{ text: variantArray.join('|'), xpath: row.variants[0].xpath }];
       }
+      if (row.sub_category) {
+        row.sub_category.shift();
+        // eslint-disable-next-line camelcase
+        const sub_categoryArray = row.sub_category.map((item) => {
+          return item.text.replace(/\n /g, '');
+        });
+        row.sub_category = [{ text: sub_categoryArray.join(' > '), xpath: row.sub_category[0].xpath }];
+      }
       if (row.availabilityText) {
         const availabilityTextArr = row.availabilityText.map((item) => {
           return (typeof (item.text) === 'string') && (item.text.trim() === 'Add to bag') ? 'In Stock' : 'Out of Stock';
