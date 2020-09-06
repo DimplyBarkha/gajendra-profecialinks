@@ -29,7 +29,14 @@ const transform = (data) => {
           row.brandLink.forEach(item => {
             item.text = 'https://www.manor.ch'+item.text
           });
-        }        
+        }
+        if (row.category) {          
+          let info = [];
+          row.category.forEach(item => {            
+            info.push(item.text.trim());
+          });
+          row.category = [{'text':info.join(' > '),'xpath':row.category[0].xpath}];        
+        }   
         if (row.alternateImages) {
             row.alternateImages.forEach(item => {
               item.text = 'https://www.manor.ch'+item.text
