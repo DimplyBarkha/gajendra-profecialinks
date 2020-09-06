@@ -112,8 +112,12 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[contains(@class,'main_description')]//li[not(center//img)]|//div[contains(@class,'product-description__main-description')]//li[not(span//img)]
+  - name: bulletsTop
+    singleValue: false
+    xpath: //div[contains(@class,'buybox__salient-points')]//ul/li
   - name: packSize
     singleValue: false
+    xpath: //div[@id="specsContainer"]//div[contains(text(),'Pack Size')]/following-sibling::div
   - name: promotion
     xpath: normalize-space(//div[@id="savingsText"]/p)
   - name: Image360Present

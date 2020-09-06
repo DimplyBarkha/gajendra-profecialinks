@@ -19,6 +19,13 @@ const transform = (data) => {
           text: secondaryImages.length,
         }];
       }
+      if (row.bulletsTop) {
+        if(row.additionalDescBulletInfo){
+          row.additionalDescBulletInfo = [...row.bulletsTop, ...row.additionalDescBulletInfo]
+        }else{
+          row.additionalDescBulletInfo = [...row.bulletsTop]
+        }
+      }
       if (row.additionalDescBulletInfo) {
         row.descriptionBullets = [{
           text: row.additionalDescBulletInfo.length,
@@ -60,6 +67,10 @@ const transform = (data) => {
         row.description.forEach(item => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
+        if(row.bulletsTop){
+            const text = row.bulletsTop.reduce((item, currItem) => `${item} || ${currItem.text}`, '').trim()
+            row.description[0].text = `${text} | ${row.description[0].text}`
+        }
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item => {
