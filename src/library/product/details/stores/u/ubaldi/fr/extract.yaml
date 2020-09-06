@@ -97,10 +97,12 @@ fields:
     xpath: (//div[contains(@class,'fa-avantage')]//div[contains(@class,'uba-icone-avantage uba-icone-avantage-texte')])[1]
   - name: colorCode
     singleValue: false
-    xpath: //div[@id='fl_colorcode']
+    xpath: //span[@class='fa-couleur current']/@style
+    regExp: (#(.*\d+))
+    regExpReplace: $2
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,'fa-article-infos-bottom')]//div[contains(@class,'fa-description')]
+    xpath: //div[@class='fa-fiche-bloc points-forts']//div[@class='fa-description']
   - name: termsAndConditions
     singleValue: true
     xpath: //span[contains(text(),'Conditions générales de la Marketplace')]
@@ -127,3 +129,18 @@ fields:
   - name: subCategory
     singleValue: false
     xpath: concat(//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][2],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][3],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][4],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][5]) 
+  - name: description
+    singleValue: false
+    xpath: //div[@class='fa-fiche-bloc points-forts']//div[@class='fa-description']
+  - name: weightNet
+    singleValue: false
+    xpath: normalize-space(//div[span[contains(text(), 'Poids net')]]//span[2])
+  - name: shippingDimensions
+    singleValue: false
+    xpath: normalize-space(//div[span[contains(text(), 'Dimensions')]]//span[2])
+  - name: color
+    singleValue: false
+    xpath: normalize-space(//div[span[contains(text(), 'Coloris :')]]//span[2])
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: normalize-space(//div[span[contains(text(), 'Origine')]]//span[2])

@@ -13,16 +13,22 @@ const transform = (data) => {
         row.variants = [{ text: variantArray.join('|'), xpath: row.variants[0].xpath }];
       }
       if (row.additionalDescBulletInfo) {
-        const additionalDescBulletInfoArray = row.additionalDescBulletInfo.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '| ') : '|';
-        });
-        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArray.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
-      }
-      if (row.specifications) {
-        const specificationsArray = row.specifications.map((item) => {
+        const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '| ') : '';
         });
-        row.specifications = [{ text: specificationsArray.join('|'), xpath: row.specifications[0].xpath }];
+        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
+      }
+      if (row.description) {
+        const descriptionArr = row.description.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' ') : '';
+        });
+        row.description = [{ text: descriptionArr.join('|'), xpath: row.description[0].xpath }];
+      }
+      if (row.manufacturerDescription) {
+        const manufacturerDescriptionArr = row.manufacturerDescription.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' ') : '';
+        });
+        row.manufacturerDescription = [{ text: manufacturerDescriptionArr.join('|'), xpath: row.manufacturerDescription[0].xpath }];
       }
     }
   }
