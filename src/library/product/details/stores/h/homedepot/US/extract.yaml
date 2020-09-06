@@ -39,6 +39,7 @@ fields:
     singleValue: false
   - name: quantity
     singleValue: false
+    xpath: //div[@id="specsContainer"]//div[contains(text(),'Package Quantity')]/following-sibling::div
   - name: directions
     singleValue: false
   - name: warnings
@@ -118,7 +119,7 @@ fields:
     xpath: //div[contains(@class,'buybox__salient-points')]//ul/li
   - name: packSize
     singleValue: false
-    xpath: //div[@id="specsContainer"]//div[contains(text(),'Pack Size')]/following-sibling::div
+    xpath: //div[@id="specsContainer"]//div[contains(text(),'Pack Size') or contains(text(),'Package Size')]/following-sibling::div
   - name: promotion
     xpath: normalize-space(//div[@id="savingsText"]/p)
   - name: Image360Present
