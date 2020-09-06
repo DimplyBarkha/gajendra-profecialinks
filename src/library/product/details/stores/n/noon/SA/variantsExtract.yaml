@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //ul[contains(@class,'thumbnails')]//img/@alt
+  - name: variantUrl
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
