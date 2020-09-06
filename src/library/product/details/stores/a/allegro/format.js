@@ -10,7 +10,9 @@ const transform = (data) => {
         const variantArray = row.variants.map((item) => {
           return item.text;
         });
-        row.variants = [{ text: variantArray.join('|') }];
+        const uniqueVariants = Array.from(new Set(variantArray));
+        row.variants = [{ text: uniqueVariants.join('|') }];
+        row.varaintCount = [{ text: uniqueVariants.length }];
       }
       if (row.shippingInfo) {
         const shippingInfoArray = row.shippingInfo.map((item) => {
