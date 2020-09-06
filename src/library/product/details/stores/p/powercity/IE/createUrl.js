@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'powercity.ie',
     prefix: null,
-    url: null,
+    url: 'https://powercity.ie/product/{id}',
     country: 'IE',
     store: 'powercity',
     zipcode: '',

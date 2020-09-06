@@ -22,7 +22,7 @@ fields:
     xpath: //a[text()="HOME"]/following-sibling::a
   - name: nameExtended
     singleValue: false
-    manualSelector: div.producttitle
+    xpath: //div[contains(@class, "product rightbar")]/text()[string-length() > 1] | //div[@class="producttitle"]
   - name: listPrice
     singleValue: false
     manualSelector: div#rrp, div.productrrp
@@ -66,7 +66,7 @@ fields:
     xpath: //input[@class="flix-jw"]/@value | //video/source/@src
   - name: name
     singleValue: false
-    manualSelector: div.producttitle
+    xpath: //div[contains(@class, "product rightbar")]/text()[string-length() > 1] | //div[@class="producttitle"]
   - name: specifications
     singleValue: false
     xpath: //table[parent::div/preceding-sibling::div[text()="Specifications"]]//td
