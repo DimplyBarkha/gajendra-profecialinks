@@ -32,6 +32,7 @@ fields:
     xpath: //span[@class='m-productcolorselect-v-2__selector-title']
   - name: availabilityText
     singleValue: false
+    defaultValue: 'In Stock'
     xpath: //div[@class='m-pickupinstore-list-item__store__location inStock']
   - name: ratingCount
     singleValue: false
@@ -60,5 +61,12 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[@class='m-productfactslist']
-  
-
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    defaultValue: 'No'
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
