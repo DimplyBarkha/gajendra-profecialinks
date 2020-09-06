@@ -7,7 +7,7 @@ fields:
     xpath: //ul[contains(@class,'searchindex-results')]//li[1]//a/@href[position()>0] 
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="category-products"]//ul/li//a[@class="product-image"] 
+    xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/img/@src
   - name: brandText
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li//div[1]//img/@title
@@ -21,6 +21,23 @@ fields:
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li//div[@class="price-box"]
   - name: sku
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li//p[1]
+    regExp: (AFM.*?):\s(\d.*)
+    regExpReplace: $2
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/a/@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/img/@alt
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/img/@alt
+  - name: id
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li//p[1]
     regExp: (AFM.*?):\s(\d.*)
