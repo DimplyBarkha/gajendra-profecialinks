@@ -38,6 +38,10 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[contains(@class, "product-price")]//meta[contains(@itemprop, "price")]/@content
+  - name: price
+    singleValue: true
+    description: Currency value of the price listed on the page.
+    xpath: //div[contains(@class, "product-price")]//meta[contains(@itemprop, "priceCurrency")]/@content
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -137,7 +141,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //dl[4]/dd/table/tbody/tr[1]/td[2]/font/font
+    xpath: //td/span[contains(text(), "Väri")]/following::td[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -178,6 +182,11 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //div[contains(@class, "brand-logo")]/a/@href
+  - name: productUrl
+    singleValue: true
+    description: null
+    xpath: //meta[contains(@property, "og:url")]/@content
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -415,6 +424,8 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //div[contains(@class, "tab-slot")]//p//strong[contains(text(), "Myyntipakkaus")]/following-sibling::text()
+    regExp: (.+\W)\W*$
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -434,6 +445,8 @@ fields:
   - name: packaging
     singleValue: true
     description: Packaging information
+    xpath: //div[contains(@class, "tab-slot")]//p//strong[contains(text(), "Myyntipakkaus")]/following-sibling::text()
+    regExp: (.+\W)+\W.+
   - name: additives
     singleValue: true
     description: List of additives in the product
@@ -494,6 +507,7 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: //td/span[contains(text(), "Energialuokka")]/following::td[1]
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
