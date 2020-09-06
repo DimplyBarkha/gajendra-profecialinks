@@ -32,11 +32,11 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: false
-    xpath: //div[contains(@class,"summaryStrate__raw")]/p | //div[contains(@class,"summaryStrate__raw")]/ul
+    singleValue: true
+    xpath: //div[contains(@class,"summaryStrate__raw")]//p | //div[contains(@class,"summaryStrate__raw")]//ul
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,"summaryStrate__raw")add]/ul/li)
+    xpath: count(//div[contains(@class,"summaryStrate__raw")]//ul/li)
     type: NUMBER
   - name: brandText
     singleValue: false
@@ -97,7 +97,7 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Dimensiones')] | //div[@class="characteristicsStrate__item"]/dt//font[contains(text(),'Dimensions')]//parent::font/following::dd/p//font
+    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Dimensiones')]//parent::div/dd/p
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
@@ -107,7 +107,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: false
-    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Color')]//parent::div/dd/p | //div[@class="characteristicsStrate__item"]/dt//font[contains(text(),'Color')]//parent::font/following::dd/p//font
+    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Color')]//parent::div/dd/p
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -373,8 +373,8 @@ fields:
     singleValue: false
     description: null
   - name: specifications
-    singleValue: false
-    description: The physical dimensions of the product including packaging.
+    singleValue: true
+    xpath: //section[@id="Characteristics"]//div[@class="characteristicsStrate__item"]/*
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
@@ -442,18 +442,10 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,"summaryStrate__raw")]/ul/li
+    xpath: //div[contains(@class,"summaryStrate__raw")]//ul/li
   - name: additionalDescBulletInfoCount
     singleValue: false
-    xpath: count(//div[contains(@class,"summaryStrate__raw")]/ul/li)
-  - name: prop65Warning
-    singleValue: false
-    description: null
-  - name: ageSuitability
-    singleValue: false
-    description: Recommended age displayed on the product page.
-      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
-    example: 4 - 99 years
+    xpath: count(//div[contains(@class,"summaryStrate__raw")]//ul/li)
   - name: energyEfficiency
     singleValue: false
     description: Energy rating of a product.
