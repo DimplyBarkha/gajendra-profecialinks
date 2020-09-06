@@ -71,7 +71,7 @@ const transform = (data) => {
           if (row.description) {
             let text = '';
             row.description.forEach(item => {
-              text += `${item.text.replace(/\n/g, '||')}  `;
+              text += `${item.text.replace(/\n/g, ' || ')}  `;
             });
             row.description = [
               {
