@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="ii_variant"]
+    regExp: (.*)\/(\d.*)
+    regExpReplace: $2
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[@class="ii_variant"]
+    regExp: (.+)
+    regExpReplace: https://www.bcc.nl$1
+  
