@@ -25,5 +25,4 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@title, "Star Rating")]/@title
-    regExp: (\d+(\.\d+)?)
-    regExpReplace: $1
+    type: NUMBER
