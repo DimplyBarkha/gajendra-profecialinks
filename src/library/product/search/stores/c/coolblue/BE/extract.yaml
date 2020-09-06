@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@id="product-results"]'
+recordXPath: '//div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]'
 fields: 
   - name: url
     xpath: //div[@data-component]//input[@name="returnUrl"]/@value
