@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'slide ')]//div[contains(@class,'carousel-details')]//a/@title
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'slide ')]//div[contains(@class,'carousel-details')]//a/@href
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'product-price')]//div[@class='price']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'rating')]//div[@itemprop='aggregateRating']//span//text()
