@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/variants',
   parameterValues: {
-    domain: 'virginmegastore.sa',
-    timeout: 100000,
     country: 'SA',
     store: 'virginmegastore',
+    domain: 'virginmegastore.sa',
     zipcode: '',
   },
 };
