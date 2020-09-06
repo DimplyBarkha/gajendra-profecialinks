@@ -21,7 +21,11 @@ const transform = (data) => {
             }            
             if (row.category) {
                 row.category.forEach(item => {
-                    item.text = item.text.replace(/\s*\>/g, '').trim();
+                    var category = item.text.replace(/\s*\n\s*\n\s*/g, '').trim();
+                    var category_arr = category.split(" >");
+                    category_arr.splice(0,1);
+                    category_arr.splice(category_arr.length-1,1);
+                    item.text = category_arr.join(" > ");
                 });
             }
             if (row.alternateImages) {
