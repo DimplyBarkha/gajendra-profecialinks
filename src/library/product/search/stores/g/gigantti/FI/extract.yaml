@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    xpath: //div[contains(@class, "col-infos")]/div[contains(@class, "product-number sku rsNoDrag")]
+    singleValue: true
+  - name: name
+    xpath: //a[contains(@class, "product-name")]//span//span
+    singleValue: true
+  - name: producturl
+    xpath: //a[contains(@class, "product-image-link")]/@href
+    singleValue: true
+  - name: manufacturer
+    xpath: //a[contains(@class, "product-name")]//span//span
+    regExp: ^([\s]*[\S]+)
+    singleValue: true    
+  - name: thumbnail
+    xpath: //a[contains(@class, "product-image-link")]/img/@src
+    singleValue: false
+    regExp: ^(.+)$
+    regExpReplace: https://www.gigantti.fi$1
+  - name: price
+    xpath: //div[contains(@class, "row-price")]/div[contains(@class, "row-price-container")]/div[contains(@class, "product-price")]
+    singleValue: true 
+  - name: rankOrganic
+    singleValue: true 
+  - name: aggregateRating  
+    singleValue: true
+    xpath: //div[contains(@class, "product-ratings")]/div[contains(@class, "product-ratings__average")]
+    defaultValue: '0'
+  - name: reviewCount  
+    singleValue: true
+    xpath: //div[contains(@class, "product-ratings")]/div[contains(@class, "product-ratings__count")]
+    defaultValue: '0'
+    type: NUMBER
+  - name: ratingCount  
+    xpath: //div[contains(@class, "product-ratings")]/div[contains(@class, "product-ratings__count")]
+    singleValue: true
+    defaultValue: '0'
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: search/listing rank
