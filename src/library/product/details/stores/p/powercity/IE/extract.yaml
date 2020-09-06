@@ -25,7 +25,7 @@ fields:
     manualSelector: div.producttitle
   - name: listPrice
     singleValue: false
-    manualSelector: div#rrp
+    manualSelector: div#rrp, div.productrrp
     regExp: .*?:\s*(.*)
     regExpReplace: $1
   - name: price
