@@ -5,7 +5,7 @@ module.exports = {
     country: 'UAE',
     store: 'sharafdg',
     nextLinkSelector: null,
-    mutationSelector: 'div[class="search-results"] div div[class="search-text"]',
+    mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="search-results"]',
     noResultsXPath: 'div[id="no-results-message"]',
