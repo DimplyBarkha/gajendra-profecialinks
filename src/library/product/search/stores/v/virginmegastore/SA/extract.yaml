@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,"product-listing product-list__item-wrapper")]
+recordXPath: //ul[contains(@class,"product-listing product-list__item-wrapper")]//li
 fields: 
   - name: productUrl
     xpath: //ul[contains(@class,"product-listing")]//li[contains(@class,"product-list__item")]//a[contains(@class,"product-list__thumb")]/@href
