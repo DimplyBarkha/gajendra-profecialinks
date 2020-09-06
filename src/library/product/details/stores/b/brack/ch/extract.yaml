@@ -36,7 +36,7 @@ fields:
     singleValue: false
     xpath: (//div[@class="swiper-wrapper"]//img/@src)
     regExp: (.*_)
-    regExpReplace: $1xxl3.jpg
+    regExpReplace: https:$1xxl3.jpg
   - name: metaKeywords
     singleValue: true
   - name: _url
@@ -50,10 +50,12 @@ fields:
     xpath: concat(//div[@class='topBar container wrapper js-storelist']//span[2],' > ',//div[@class='topBar container wrapper js-storelist']//span[3],' > ',//div[@class='topBar container wrapper js-storelist']//span[4],' > ',//div[@class='topBar container wrapper js-storelist']//span[5])
   - name: nameExtended
     singleValue: true
-    xpath: //h1[contains(text(),'Duvet Bellatola Medium Karo-Duvet, 160 x 210 cm')]
+    xpath: //form[@id='AddToCartForm']//div//h1//font//font
   - name: listPrice
-    singleValue: false
-    xpath: concat(//span[@class='regularPrice']//font//font[contains(text(),'CHF')],//span[@class='js-basePrice'])
+    singleValue: true
+    xpath: //span[@class='js-basePrice']
+    regExp: (.*)
+    regExpReplace: CHF $1
   - name: variants
     singleValue: false
     xpath: //div[@class='variant__itemWrap']//a/@href
@@ -67,9 +69,12 @@ fields:
     defaultValue: No
   - name: weightNet
     singleValue: true
-    xpath: //tr[th[contains(translate(string(), 'Size', 'SIZE'), 'Size')]]/td
+    xpath: //tr[th[contains(text(), 'Gewicht')]]/td
   - name: weightGross
     singleValue: true
+  - name: mpc
+    singleValue: true
+    xpath: //tr[th[contains(text(), 'Herstellernummer')]]/td
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
@@ -87,6 +92,7 @@ fields:
     regExpReplace: $1
   - name: packSize
     singleValue: true
+    xpath: //tr[th[contains(text(), 'Packungsgrösse')]]/td
   - name: legalDisclaimer
     singleValue: true
   - name: directions
@@ -104,8 +110,8 @@ fields:
     defaultValue: 0
     xpath: //span[@class='total__rating']
   - name: additionalDescBulletInfo
-    singleValue: true
-    xpath: count(//div[@class='productStage__infoText']//li)
+    singleValue: false
+    xpath: //div[@class='productStage__infoText']//li
   - name: description
     singleValue: true
     xpath: //meta[contains(@name, "description")]/@content
@@ -114,21 +120,19 @@ fields:
     xpath: count(//div[@class='productStage__infoText']//li)
   - name: brandText
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
-    regExp: brand":\s"([^"]+)
-    regExpReplace: $1
+    xpath: //span[@class='productStage__itemManufacturer']
   - name: manufacturer
     singleValue: true
     xpath: //span[@class='productStage__itemManufacturer']
   - name: quantity
     singleValue: true
-    xpath: //tr[th[contains(translate(string(), 'Package size', 'Package size'), 'Package size')]]/td
+    xpath: //tr[th[contains(text(), 'Packungsgrösse')]]/td
   - name: shippingDimensions
-    singleValue: true
-    xpath: //tr[th[contains(translate(string(), 'Size', 'Size'), 'Size')]]/td
+    singleValue: false
+    xpath: //tr[th[contains(text(), 'Breite')]]/td|//tr[th[contains(text(), 'Höhe')]]/td|//tr[th[contains(text(), 'Tiefe')]]/td
   - name: shippingWeight
     singleValue: true
-    xpath: //tr[th[contains(translate(string(), 'Filling weight', 'Filling weight'), 'Filling weight')]]/td
+    xpath: //tr[th[contains(text(), 'Gewicht')]]/td
   - name: variantCount
     singleValue: true
     xpath: count(//div[@class='variant__itemWrap']//a)
@@ -144,9 +148,9 @@ fields:
     singleValue: true
   - name: energyEfficiency
     singleValue: true
-    xpath: //tr[th[contains(translate(string(), 'Energy efficiency class', 'Energy efficiency class'), 'Energy efficiency class')]]/td
+    xpath: //tr[th[contains(text(), 'Energieeffizienzklasse')]]/td
   - name: technicalInformationPdfPresent
-    singleValue: false
+    singleValue: true
     xpath: //a[contains(@href, '.pdf')]
     regExp: ([^]+)
     regExpReplace: Yes
@@ -166,12 +170,12 @@ fields:
     xpath: //table[@class='technicalDetails']
   - name: warranty
     singleValue: true
-    xpath: //tr[th[contains(translate(string(), 'Manufacturer guarantee', 'Manufacturer guarantee'), 'Manufacturer guarantee')]]/td
+    xpath: //tr[th[contains(text(), 'Herstellergarantie')]]/td
   - name: storage
     singleValue: true
   - name: countryOfOrigin
     singleValue: true
-    xpath: //tr[th[contains(translate(string(), 'Country of production', 'Country of production'), 'Country of production')]]/td
+    xpath: //tr[th[contains(text(), 'Produktionsland')]]/td
   - name: recyclingInformation
     singleValue: true
   - name: productOtherInformation
@@ -187,4 +191,7 @@ fields:
     singleValue: true 
   - name: termsAndConditions
     singleValue: true
-    xpath: //div[@class='bottom__links mt-3']//font[contains(text(),'Terms and Conditions')]
+    xpath: (//div[contains(@class,'bottom__links mt-3')]//a)[1]
+    regExp: .*
+    regExpReplace: Yes
+    defaultValue: No

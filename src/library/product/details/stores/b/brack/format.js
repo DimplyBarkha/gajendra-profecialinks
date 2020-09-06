@@ -24,6 +24,18 @@ const transform = (data) => {
         });
         row.specifications = [{ text: specificationsArr.join('|'), xpath: row.specifications[0].xpath }];
       }
+      if (row.additionalDescBulletInfo) {
+        const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '| ') : '';
+        });
+        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
+      }
+      if (row.shippingDimensions) {
+        const shippingDimensionsArray = row.shippingDimensions.map((item) => {
+          return item.text;
+        });
+        row.shippingDimensions = [{ text: shippingDimensionsArray.join(' x '), xpath: row.shippingDimensions[0].xpath }];
+      }
     }
   }
 
