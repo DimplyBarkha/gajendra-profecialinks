@@ -32,12 +32,12 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.alternativeImages) {
+      if (row.alternateImages) {
         let text = '';
-        row.alternativeImages.forEach(item => {
+        row.alternateImages.forEach(item => {
           text += `${item.text} | `;
         });
-        row.alternativeImages = [
+        row.alternateImages = [
           {
             text: text.trim()
           },
