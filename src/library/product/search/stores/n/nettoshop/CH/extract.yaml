@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="c-product-grid__item"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="sc-channel-container-channels"]/@id
+  - name: rankOrganic
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //div[@class='c-product-grid-item__title']//a
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='c-product-grid-item__product']//a/@href
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="c-media-container ember-view"]/picture/img/@src
+  - name: url
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='c-product-grid-item__rating']//div/@title
+    egExp: (.)\/(\d)
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@class='c-product-grid-item__price-total']
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='c-product-grid-item__brand']/img/@title
+  - name: rank
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+    xpath: //div[@class='c-delivery-state__state']
