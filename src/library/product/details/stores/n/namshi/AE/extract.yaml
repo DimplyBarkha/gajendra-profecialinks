@@ -38,6 +38,7 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //span[@class="ratings-stat__total-ratings"]
+    defaultValue: 0
     regExp: (\d+)(\s* تقييمات)
     regExpReplace: $1    
   - name: aggregateRating
@@ -62,3 +63,18 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[@id="sizeSelector"]//ul[@id="product_size"]/li
+  - name: imageZoomFeaturePresent
+    singleValue: false    
+    defaultValue: Yes
+  - name: quantity
+    singleValue: false
+    defaultValue: 1  
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    defaultValue: No
