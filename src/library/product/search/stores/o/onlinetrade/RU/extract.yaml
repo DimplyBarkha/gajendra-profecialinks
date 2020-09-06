@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="indexGoods__item"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //span[@class="indexGoods__item__fastView js__ajaxExchange ic__set ic__set__viewed"]/@data-itemid
+  - name: rankOrganic
+    singleValue: true
+    xpath: //div[@id='pd_rank']
+  - name: name
+    singleValue: false
+    xpath: //div[@class="indexGoods__item__descriptionCover"]/a
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="indexGoods__item__name"]/@href
+  - name: gtin
+    singleValue: false
+    xpath: //span[@class="indexGoods__item__fastView js__ajaxExchange ic__set ic__set__viewed"]/@data-itemid
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="indexGoods__item__image"]/img/@src
+  - name: url
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class, "starsSVG")]/@title
+    regExp: (^[0-9])
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class, "indexGoods__item__stars")]/a
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="seo-review-count"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price regular"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="indexGoods__item__storeCode__line"][2]/text()
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+    xpath: //div[@id='pd_rank']
+  - name: endorsementText
+    singleValue: false
