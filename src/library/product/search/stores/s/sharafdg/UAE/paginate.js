@@ -9,7 +9,9 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div[class="search-results"]',
     noResultsXPath: 'div[id="no-results-message"]',
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://uae.sharafdg.com/?q={searchTerms}&post_type=product&page={page}',
+    },
     domain: 'sharafdg.com',
     zipcode: '',
   },
