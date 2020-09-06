@@ -7,12 +7,12 @@ fields:
     xpath: //ul[contains(@class,"product-listing")]//li[contains(@class,"product-list__item")]//a[contains(@class,"product-list__thumb")]/@href
     singleValue: false
     regExp: (\/.*)
-    regExpReplace: https://www.virginmegastore.ae$1
+    regExpReplace: https://www.virginmegastore.sa$1
   - name: thumbnail
     singleValue: false
     xpath: //img[@itemprop='image']/@src
     regExp: (\/.*)
-    regExpReplace: https://www.virginmegastore.ae$1
+    regExpReplace: https://www.virginmegastore.sa$1
   - name: name
     singleValue: false
     xpath: //ul[contains(@class,"product-listing")]//li[contains(@class,"product-list__item")]//div[contains(@class,"product-list__details")]//a[contains(@class,"product-list__name")]
