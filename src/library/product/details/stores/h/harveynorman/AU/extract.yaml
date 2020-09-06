@@ -17,7 +17,7 @@ fields:
     xpath: //div[@class="breadcrumb_container"]/div/ul/li[position() > 2 and position() < last()]/a
   - name: price
     singleValue: false
-    manualSelector: span#product-price-324635 > span
+    xpath: //div[@id="product-view-price"]//div//span/span[@class="price"]
   - name: availabilityText
     singleValue: false
     manualSelector: button#btn-add-to-cart
@@ -26,7 +26,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="product-short-description short-description"]
+    xpath: //div[@class="product-short-description short-description"]  
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="product-short-description short-description"]/ul/li)
@@ -109,3 +109,7 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: 1
+  - name: mpc
+    singleValue: false
+    xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Model")]/following-sibling::td
+    
