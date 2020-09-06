@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'mediaexpert',
-    nextLinkSelector: 'span.is-next',
+    nextLinkSelector: 'div.c-toolbar is-bottom a.is-nextLink',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.is-lazyLoadContainer',
