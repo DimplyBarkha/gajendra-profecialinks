@@ -3,13 +3,16 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: variant
+    singleValue: true
+    xpath: //div[@class='select-group']//select//option[not(contains(@selected,"selected"))]
   - name: variantId
-    singleValue: false
-    xpath: //div[@class='select-group']//select//option/@value
+    singleValue: true
+    xpath: //div[@class='select-group']//select//option[not(contains(@selected,"selected"))]/@value
     regExp: (\d+)
     regExpReplace: $1
   - name: variantUrl
-    singleValue: false
-    xpath: //div[@class='select-group']//select//option/@value
-    regExp: (.*)
+    singleValue: true
+    xpath: //div[@class='select-group']//select//option[not(contains(@selected,"selected"))]/@value
+    regExp: (\/.*)
     regExpReplace: https://www.virginmegastore.ae$1
