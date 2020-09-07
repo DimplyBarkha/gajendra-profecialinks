@@ -6,6 +6,9 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
+      if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo = [{ text: row.additionalDescBulletInfo.map(item => item.text = item.text).join(" | ") }];
+      }
       if (row.description) {
         row.description.map(item => {
           item.text = item.text.replace(/\n/gm, " | ");
