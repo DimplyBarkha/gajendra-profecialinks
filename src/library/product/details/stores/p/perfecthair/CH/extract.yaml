@@ -46,7 +46,7 @@ fields:
     xpath: //div[contains(@class, "product--image-container")]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class, "product--image-container")]//img/@alt
+    xpath: (//div[contains(@class, "product--image-container")]//img)[1]/@alt
   - name: legalDisclaimer
     singleValue: false
     xpath: //a[@class = "navigation--link" and contains(@title, "Disclaimer")]/@href
@@ -83,9 +83,6 @@ fields:
   - name: reviewsCount
     singleValue: false
     xpath: //a[@data-tabname = "rating"]//span
-  - name: shippingInfo
-    singleValue: false
-    xpath: //p[@class = "delivery--information"]
   - name: sku
     singleValue: false
     xpath: //span[@itemprop = "sku"]
