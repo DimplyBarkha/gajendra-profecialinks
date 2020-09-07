@@ -39,10 +39,12 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#flix-inpage
+    manualSelector: div#inpage_container
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="flix-inpage"]//img/@src
+    xpath: //div[contains(@id,"inpage_container")]//img/@srcset
+    regExp: \/?\/?(.+)
+    regExpReplace: $1
   - name: videos
     singleValue: false
     xpath: //*[@class="video-container"]/a/@href | //div[@id="flix-inpage"]//iframe/@src
@@ -76,7 +78,7 @@ fields:
     xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Dimensions") and contains(text(),"emball")]/following::text()[1]
   - name: weightNet
     singleValue: false
-    xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Poids ") and contains(text(),"produit") and not(contains(text(),"emball")) or contains(text(),"Poids de l'appareil")]/following::text()[1]
+    xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Poids ") and contains(text(),"produit") and not(contains(text(),"emball")) or contains(text(),"Poids de l'appareil")]/following::text()[1] | //table[@id="product-attribute-specs-table"]//tr//th[contains(text(),'Poids net')]/following-sibling::td
   - name: shippingWeight
     singleValue: false
     xpath: //dl[contains(@id,"collateral-tabs")]//*[contains(text(),"Poids ") and contains(text(),"emball")]/following::text()[1]

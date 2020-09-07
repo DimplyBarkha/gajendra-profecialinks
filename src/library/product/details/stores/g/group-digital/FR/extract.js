@@ -14,7 +14,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    // Scrolling till specifications as manufacturer images are loaded on website after scrolling down
+    // Scrolling till footer as manufacturer images are loaded on website after scrolling down
     await new Promise(resolve => setTimeout(resolve, 10000));
     await context.evaluate(async function () {
       let scrollSelector = document.querySelector('div[class~="footer-container"]');
