@@ -33,6 +33,12 @@ const transform = (data) => {
         });
       }
 
+      if (row.videos) {
+        row.videos.forEach(videosItem => {
+          videosItem.text = videosItem.text.replace(/.*?((?:https?:\/\/)?(?:www\.youtube\.com|youtu\.?be).*?) ?'.*/gm, '$1');
+        });
+      }
+
       if (row.shippingInfo) {
         row.shippingInfo.forEach(item => {
           item.text = cleanUp(item.text);
@@ -120,6 +126,13 @@ const transform = (data) => {
         });
       }
 
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach((manufacturerImagesItem) => {
+          if (!manufacturerImagesItem.text.toLowerCase().includes('http')) {
+            manufacturerImagesItem.text = 'https:' + manufacturerImagesItem.text;
+          }
+        });
+      }
     }
   }
   return data;
