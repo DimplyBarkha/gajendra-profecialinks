@@ -14,29 +14,24 @@ const transform = (data) => {
         ];
       }
 
-      if (row.image && !row.image[0].text.startsWith('http')) {
-        row.image[0].text = `https://www.elgiganten.se${row.image[0].text}`;
-      }
-
-      if (row.alternateImages) {
-        row.alternateImages.forEach(image => {
-          if (!image.text.startsWith('http')) {
-            image.text = `https://www.elgiganten.se${image.text}`;
-          }
-        });
-      }
-
-      if (row.description) {
+      if (row.description || row.descriptionTop) {
         let text = '';
-        text = row.description[0].text.replace(/\n/g, ' ');
+        if(row.descriptionTop) {
+          text = row.descriptionTop[0].text.replace(/\n/g, ' ');
+        }
         if (row.additionalDescBulletInfo) {
           row.additionalDescBulletInfo.forEach(bullet => {
             text = text + ' || ' + bullet.text;
           });
         }
-        if (row.description[1]) {
+        if (row.description) {
           for (let i = 1; i < row.description.length; i++) {
             text = text + ' | ' + row.description[i].text.replace(/\n/g, ' ');
+          }
+          if(text) {
+            text = `${text} | ${row.description[0].text}`
+          } else {
+            text = row.description[0].text
           }
         }
         row.description = [{
@@ -44,13 +39,6 @@ const transform = (data) => {
         }];
       }
 
-      if (row.manufacturerImages) {
-        row.manufacturerImages.forEach(image => {
-          if (!image.text.startsWith('http')) {
-            image.text = `https://www.elgiganten.se${image.text}`;
-          }
-        });
-      }
 
       if (row.videos) {
         row.videos.forEach(video => {
@@ -58,6 +46,11 @@ const transform = (data) => {
             video.text = `https://www.elgiganten.se${video.text}`;
           }
         });
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating = [{
+          text: row.aggregateRating[0].text.replace('.',',')
+        }]
       }
 
       if (row.specifications) {
@@ -75,7 +68,21 @@ const transform = (data) => {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\n*\s\n)+/g, ' ');
       }
     }
-
+    const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
     return data;
   };
 };

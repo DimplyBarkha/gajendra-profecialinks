@@ -5,7 +5,6 @@ recordXPath: null
 fields:
   - name: shippingInfo 
     singleValue: false
-    xpath: //span[contains(@data-smdn,"Ekonomi")]
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="product-price-button-wrap"]
@@ -15,12 +14,16 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"slick-current")]/img/@src
+    regExp: (.+)\?.*
+    regExpReplace: https://www.elgiganten.se$1
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,"slick-current")]/img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="slick-slide"]/img/@data-lazy
+    regExp: (.+)\?.*
+    regExpReplace: https://www.elgiganten.se$1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -39,33 +42,41 @@ fields:
   - name: manufacturerImages 
     singleValue: false
     xpath: //div[contains(@class,"article-text")]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.elgiganten.se$1
   - name: videos
     singleValue: false
     xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"]
   - name: weightNet 
     singleValue: false
-    xpath: //dl[dt/span[text()="Mått & vikt"]]/dd//td[contains(text(),"Vikt")]/following-sibling::td
+    xpath: //td[contains(text(),"Vikt")]/following-sibling::td
   - name: gtin 
     singleValue: false
-    xpath: //dl[dt/span[text()="EAN"]]/dd//td[contains(text(),"EAN-kod")]/following-sibling::td
+    xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td | //meta[@itemprop="gtin8"]/@content
   - name: sku
     singleValue: false
-    xpath: //p/@data-product-sku
+    xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
   - name: variantId
     singleValue: false
-    xpath: //p/@data-product-sku
+    xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
+  - name: brandText
+    singleValue: false
+    xpath: //span[@itemprop="brand"]/meta/@content
   - name: variantCount 
     singleValue: false
     defaultValue: '1'
   - name: description
     singleValue: false
-    manualSelector: p.short-description, div.product-more-info p
+    manualSelector: div.product-more-info p
+  - name: descriptionTop
+    singleValue: false
+    manualSelector: p.short-description
   - name: additionalDescBulletInfo
     singleValue: false 
     xpath: //div[@id="misc-info"]/ul[@class="specs"]/li
   - name: color 
     singleValue: false
-    xpath: //dl[dt/span[text()="Modellbeskrivning"]]/dd//td[contains(text(),"Färg")]/following-sibling::td
+    xpath: //td[contains(text(),"Färg")]/following-sibling::td
   - name: aggregateRating 
     singleValue: false
     manualSelector: div.bv_avgRating_component_container

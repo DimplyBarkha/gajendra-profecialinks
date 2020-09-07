@@ -8,7 +8,12 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  try {
+    await context.waitForSelector('div#coiOverlay:not([style*="none"])')
+    await context.click('div#coiOverlay:not([style*="none"]) button.coi-banner__accept[aria-label*="JAG"]')
+  } catch (error) {
+    console.log('cookie pop up not loded', error);
+  }
   await context.evaluate(async () => {
     function addHiddenDiv (vidurl, content) {
       const newDiv = document.createElement('div');
@@ -42,7 +47,7 @@ async function implementation (
     const video = videoApi.items;
     let videoUrl;
     video.forEach(vid => {
-      videoUrl = `https://www.youtube.com/watch?v=${vid.videoId}&feature=youtu.be`;
+      videoUrl = `https://www.youtube.com/watch?v=${vid.getAttribute('data-videoid')}&feature=youtu.be`;
       addHiddenDiv('vidURL', videoUrl);
     });
   });
