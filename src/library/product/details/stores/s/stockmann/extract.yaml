@@ -93,10 +93,13 @@ fields:
     singleValue: false
     xpath:
   - name: color
-    singleValue: false
+    singleValue: true
     description: A textual description of the colour
-    xpath: //div[contains(@class, "form-group-color")]//ul//li
+    xpath: //div[contains(@class, "form-group-color")]//ul//li[contains(@class, "selected")]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
     xpath:
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@class, "marketing-texts")]
