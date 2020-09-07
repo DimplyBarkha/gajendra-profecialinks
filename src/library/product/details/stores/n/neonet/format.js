@@ -80,7 +80,7 @@ const transform = (data) => {
 
       if (row.listPrice) {
         row.listPrice.forEach(item => {
-          if (item.text.indexOf('PLN') > -1) {
+          if (item.text && item.text.indexOf('PLN') > -1) {
             item.text = item.text.replace('PLN', '');
             item.text = item.text + 'zl';
           }
@@ -88,8 +88,11 @@ const transform = (data) => {
       }
       if (row.technicalInformationPdfPresent) {
         row.technicalInformationPdfPresent.forEach(item => {
-          if (item.text.length > 0) item.text = 'Yes';
-          else item.text = 'No';
+          if (item.text && item.text.length > 0) {
+            item.text = 'Yes';
+          } else {
+            item.text = 'No';
+          }
         });
       }
     }
