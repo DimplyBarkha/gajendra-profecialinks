@@ -3,109 +3,57 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: listprice
+  - name: listPrice
     singleValue: false
-    xpath: //*[@id="p-inner-prices"]/div[1]/span
+    xpath: //tm-listing-auction/tg-box2/p[2]/strong
 
   - name: category
     singleValue: false
-    xpath: //*[@id="p-inner-breadcrumb"]/div
+    xpath: //div/tm-breadcrumbs/ol
 
   - name: name
     singleValue: false 
-    xpath: //h1[@ng-if='!$ctrl.changeBaseData']
+    xpath: //div/tg-row[1]/tg-col[2]/tm-buyer-options/h1
 
   - name: nameExtended
     singleValue: false 
-    xpath: //h1[@ng-if='!$ctrl.changeBaseData']
+    xpath: //div/tg-row[1]/tg-col[2]/tm-buyer-options/h1
 
   - name: description
     singleValue: false
-    xpath: //section[@id='p-content-specification']
+    xpath: //div[@class="tm-markdown"]
 
-  - name: coupon
+  - name: price
     singleValue: false 
-    xpath: //span[@class='head']
+    xpath: //tm-buy-now-box/tg-box2/div/div/p[2]/strong
 
-  - name: variants
+  - name: pageTimestamp
     singleValue: false 
-    xpath: //*[@id="p-inner-features"]/ktr-product-main-attributes/div/div
-
-  - name: promotion
-    singleValue: false 
-    xpath: //*[@id="top-labels-animation"]/ul
+    xpath: //tm-mini-summary/tg-rack/tg-rack-item[1]/div/div/tg-rack-item-primary/div
 
   - name: image
     singleValue: false 
-    xpath: //div[@class='original']//img/@src
-
-  - name: imageAlt
-    singleValue: false 
-    xpath: //div[@class='original']//img/@src
+    xpath: //tg-image-viewer2/div/div/tg-image-viewer-item[1]/tg-aspect-ratio/@style
 
   - name: alternateImages
     singleValue: false 
-    xpath: //div[@class='wrap']//img/@ng-src
-
-  - name: sku
-    singleValue: false 
-    xpath: //div[@class='codes']/ul/li[2]
-
-  - name: gtin
-    singleValue: false 
-    xpath: //div[@class='codes']/ul/li[3]
-
-  - name: variantinformation
-    singleValue: false 
-    xpath: //div[@class='codes']/ul/li[2]
+    xpath: //tg-content-slider2-item/tg-aspect-ratio/@style
 
   - name: shippingInfo
     singleValue: false 
-    xpath: //*[@id="p-inner-delivery"]/div
-
-  - name: brandText
-    singleValue: false 
-    xpath: //*[@id="p-inner-producer-logo"]/a/img/@src
+    xpath: //*[@id="shipping-options"]/tg-row/tg-col[2]/tm-listing-shipping-details/table/tbody
 
   - name: manufacturer 
     singleValue: false 
-    xpath: //*[@id="p-content-specification"]/div[2]/div/div[1]/table/tbody/tr[1]/td
-
-  - name: manufacturer image 
-    singleValue: false 
-    xpath: //*[@id="p-inner-producer-logo"]/a/img/@src
+    xpath: //tm-member-summary/section/div[2]/h3
 
   - name: specifications 
     singleValue: false 
-    xpath: //*[@id="p-content-specification"]
-
-  - name: warranty 
-    singleValue: false 
-    xpath: //*[@id="p-content-specification"]/div[2]/div/div[1]/table/tbody/tr[2]/td
-
-  - name: storage 
-    singleValue: false 
-    xpath: //*[@id="p-content-specification"]/div[2]/div/div[4]/table/tbody/tr/td
-
-  - name: energyEfficiency 
-    singleValue: false 
-    xpath: //*[@id="p-content-specification"]/div[2]/div/div[8]/table/tbody/tr[1]/td
-
-  - name: productOtherInformation 
-    singleValue: false 
-    xpath: //*[@id="p-content-specification"]/div[2]/div/div[10]
-
-  - name: manufacturerDescription
-    singleValue: false 
-    xpath: //*[@id="p-content-producer-desc"]
+    xpath: //tm-marketplace-listing-body/div/div[2]/tg-row/tg-col[2]/tm-listing-attributes/div/table/tbody
 
   - name: color
     singleValue: false 
-    xpath: //*[@id="p-inner-features"]/ktr-product-main-attributes/div/div/ul/li[7]/strong
-
-  - name: lbb
-    singleValue: false 
-    xpath: //*[@id="content-wrapper"]/ktr-product/div/ktr-transclude/div[3]/div[4]/div/div
+    xpath: //tm-listing-attributes/div/table/tbody/tr[2]/td[2]/text()
 
   - name: ratingcount
     singleValue: false 
