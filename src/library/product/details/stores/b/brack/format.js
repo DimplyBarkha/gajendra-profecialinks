@@ -18,6 +18,12 @@ const transform = (data) => {
         });
         row.shippingInfo = [{ text: shippingInfoArray.join('|'), xpath: row.shippingInfo[0].xpath }];
       }
+      if (row.description) {
+        const descriptionArray = row.description.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '| ') : '';
+        });
+        row.description = [{ text: descriptionArray.join('|'), xpath: row.description[0].xpath }];
+      }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' : ') : '|';
@@ -26,9 +32,9 @@ const transform = (data) => {
       }
       if (row.additionalDescBulletInfo) {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '| ') : '';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '| ') : ' ';
         });
-        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join('| '), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.shippingDimensions) {
         const shippingDimensionsArray = row.shippingDimensions.map((item) => {
