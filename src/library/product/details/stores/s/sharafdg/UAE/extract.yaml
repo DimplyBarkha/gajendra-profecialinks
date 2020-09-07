@@ -23,7 +23,7 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="slick-track"]//div[@data-slick-index="0"]//img[@itemprop="image"]/@alt
-  - name: alternativeImages
+  - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,"mainproduct-slider")]//div[@class="slick-track"]//div[@data-slick-index !="0"]//img/@src
   - name: metaKeywords
@@ -81,10 +81,11 @@ fields:
     xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Packaging')]]//td)[2]
   - name: quantity
     singleValue: false
-    xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Quantity')]]//td)[2]
+    xpath: //div[contains(@class,"product-addcart")]//div[contains(@class,'quantity')]//input[@title='Qty']/@value
   - name: varaintTypes
     xpath: //div[contains(@class, "alternative-slider")]//div[@class="slick-track"]//div[contains(@class,"slick-slide")]/a/@href 
   - name: name
+    singleValue: false
     xpath: //div[@class="product-title"]/h1[@itemprop="name"]
   - name: descriptionBullets
     xpath: count(//div[@class="product-tab"]//ul/li)
@@ -99,4 +100,4 @@ fields:
   - name: specifications
     xpath: //div[@class="detailspecbox"]//table//tr[td[contains(@class, 'specs-heading')]]//td
   - name: description
-    xpath: //div[@class="product-tab"]//div[not(contains(@class,'short-desc'))]
+    xpath: //div[@class="product-tab"][1]//div[1]

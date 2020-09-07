@@ -23,6 +23,28 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{ text: additionalDescBulletInfo.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text} || `;
+        });
+        row.description = [
+          {
+            text: text.trim()
+          },
+        ];
+      }
+      if (row.alternateImages) {
+        let text = '';
+        row.alternateImages.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.alternateImages = [
+          {
+            text: text.trim()
+          },
+        ];
+      }
     }
   }
 
