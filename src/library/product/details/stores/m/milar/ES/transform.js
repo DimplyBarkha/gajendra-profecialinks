@@ -7,7 +7,6 @@ const transform = (data) => {
             if (row.pageTimestamp) {
                 var d = new Date();
                 row.pageTimestamp = d.toISOString();
-                console.log(row.pageTimestamp,"ppppppp")
             }
 
             if (row.technicalInformationPdfPresent) {
