@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, context) => {
   let rankCounter = 0;
   for (const { group } of data) {
     for (const row of group) {
@@ -19,6 +19,7 @@ const transform = (data) => {
       row.rank = [{ text: rankCounter }];
     }
   }
+  context.setState({ rankCounter });
   return data;
 };
 
