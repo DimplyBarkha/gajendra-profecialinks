@@ -80,6 +80,14 @@ const transform = (data) => {
           row.aggregateRating.forEach(item => {
             item.text = parseInt(item.text);
           });
+        }
+
+        if (row.alternateImages) {
+          var imag_arr = [];
+          row.alternateImages.forEach(item => {
+            imag_arr.push(item.text);
+          });
+          row.alternateImages = [{"text": imag_arr.join(' | '), "xpath": row.alternateImages[0]["xpath"]}];
         }        
       }
     }
