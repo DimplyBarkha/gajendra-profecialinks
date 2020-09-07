@@ -1,0 +1,82 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description:
+    xpath: //div[contains(@class, 'fotorama__loaded--img') and @data-active='true']/@href
+  - name: imageAlt
+    singleValue: true
+    description:
+    xpath: //div[contains(@class, 'fotorama__loaded--img') and @data-active='true']//img[@aria-hidden="false"]/@alt
+  - name: name
+    singleValue: true
+    description:
+    xpath: //h1[contains(@class, 'page-title')]
+  - name: sku
+    singleValue: true
+    description:
+    xpath: //td[@data-th='رمز المنتج']
+  - name: brandText
+    singleValue: true
+    description:
+    xpath: //td[@data-th='الماركة']
+  - name: description
+    singleValue: true
+    description:
+    xpath: (//div[contains(@class,'description')]//div[contains(@class,'value')]/text())[1]
+  - name: category
+    singleValue: false
+    description:
+    xpath: (//ul[contains(@class,'breadcrumb')]//li/a/text())[position()>2]
+  - name: color
+    singleValue: true
+    description:
+    xpath: (//script[@type='application/ld+json'])[1]
+  - name: availabilityText
+    singleValue: true
+    description:
+    xpath: (//script[@type='application/ld+json'])[1]
+  - name: price
+    singleValue: true
+    description:
+    xpath: //span[@data-price-type='finalPrice']
+  - name: listPrice
+    singleValue: true
+    description:
+    xpath: //span[@data-price-type='oldPrice']
+  - name: promotion
+    singleValue: true
+    description:
+    xpath: //meta[@name='description']/@content
+  - name: metaKeywords
+    singleValue: true
+    description:
+    xpath: //meta[@name='keywords']/@content
+  - name: nameExtended
+    singleValue: true
+    description:
+    xpath: //meta[@name='description']/@content
+  - name: alternateImages
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,'fotorama__loaded--img') and @aria-hidden="true"]//img/@src
+  - name: videos
+    singleValue: false
+    description:
+    xpath: //iframe[contains(@allow, 'autoplay')]//@src
+  - name: packSize
+    singleValue: true
+    description:
+    xpath: //td[@data-th='الحجم/العمر']
+  - name: promotion
+    singleValue: true
+    description:
+    xpath: //div[@id= 'stock-threshold-block']
+  - name: variantId
+    singleValue: true
+    description:
+    xpath: //td[@data-th='رمز المنتج']
+  
