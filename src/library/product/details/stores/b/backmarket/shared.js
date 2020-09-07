@@ -41,7 +41,20 @@ const transform = (data) => {
           row.brandText.forEach(item => {
           item.text = item.text.trim();
           });
+        }else{
+          let text = '';
+          if(row.name){
+            row.name.forEach(item => {
+              text = item.text.split(' ')[0];
+            });
+          }
+          row.brandText = [
+            {
+              text: text,
+            },
+          ];
         }
+
         if (row.image) {
           row.image.forEach(item => {
           item.text = item.text.split('(')[1];

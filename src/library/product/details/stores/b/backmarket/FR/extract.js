@@ -13,8 +13,12 @@ module.exports = {
     context,
     dependencies,
   ) => {
-   
+    
     await context.evaluate(async function () {
+      let notLoaded = document.evaluate('//h3[contains(text(), "pas été trouvée. ")] | //h3[contains(text(), "- Ce lien n’a pas encore été reconditionné")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if(notLoaded){
+       throw "PAGE NOT FOUND!";
+      }
       function findJsonData (scriptSelector, startString, endString) { 
         const xpath = `//script[contains(.,'${scriptSelector}')]`;
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
