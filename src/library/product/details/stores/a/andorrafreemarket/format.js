@@ -63,11 +63,11 @@ const transform = (data) => {
           if (row.eangtin) {
             let text = '';
             row.eangtin.forEach(item => {
-                text += `${item.text.slice(item.text.indexOf('EAN')+4, item.text.length).split('.')[0].trim()}`;
+                text += item.text.indexOf('EAN') > 0 ? `${item.text.slice(item.text.indexOf('EAN')+4, item.text.length).split('.')[0].trim()}`: "";
             });
             row.eangtin = [
                 {
-                  text: text 
+                  text: text
                 },
             ];
           }
