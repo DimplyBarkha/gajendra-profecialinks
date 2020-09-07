@@ -117,10 +117,10 @@ fields:
     xpath: 
   - name: brandText
     singleValue: false
-    xpath: //meta[contains(@itemprop,"brand")]/@content
+    xpath: //p[@class='brand']//a
   - name: manufacturer
     singleValue: false
-    xpath: //meta[contains(@itemprop,"brand")]/@content
+    xpath: //p[@class='brand']//a
   - name: quantity
     singleValue: false
     xpath: 
