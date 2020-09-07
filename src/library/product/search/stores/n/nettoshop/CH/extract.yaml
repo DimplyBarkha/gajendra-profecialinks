@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class='c-product-grid-item__title']//a
   - name: productUrl
     singleValue: false
-    xpath: //div[@class='c-product-grid-item__product']//a/@href
+    xpath: concat("https://www.nettoshop.ch/",//div[@class='c-product-grid-item__product']//a/@href)
   - name: gtin
     singleValue: true
   - name: thumbnail
@@ -24,8 +24,9 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='c-product-grid-item__rating']//div/@title
-    egExp: (.)\/(\d)
-    regExpReplace: $1
+    #type: NUMBER
+    regExp: (^[0-9])
+    #regExpReplace: $1
   - name: reviewCount
     singleValue: false
   - name: ratingCount
