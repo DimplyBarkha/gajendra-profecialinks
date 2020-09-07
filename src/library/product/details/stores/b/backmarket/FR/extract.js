@@ -34,8 +34,8 @@ module.exports = {
       // addHiddenDiv('bb_availability', availability);
       // @ts-ignorelea
       // let aggregateRatingObj = JSON.parse(JSONStr);
-      let JSONObj = JSON.parse(JSONStr);
-      let aggregateRatingObj = JSON.parse(JSONStr);
+      let JSONObj = JSONStr ? JSON.parse(JSONStr) : '';
+      let aggregateRatingObj =  JSONStr ? JSON.parse(JSONStr) : '';
       // @ts-ignore
       aggregateRatingObj = aggregateRatingObj ? aggregateRatingObj.aggregateRating : '';
       // @ts-ignore
@@ -43,8 +43,8 @@ module.exports = {
       addHiddenDiv('bb_rating', rating);
       let reviewCount = aggregateRatingObj ? aggregateRatingObj.reviewCount : '';
       addHiddenDiv('bb_reviewCount', reviewCount);
-      let image = JSONObj ? JSONObj.image : '';
-      addHiddenDiv('bb_image', image);
+      // let image = JSONObj ? JSONObj.image : '';
+      // addHiddenDiv('bb_image', image);
       // let description = JSONObj ? JSONObj.description : '';
       // addHiddenDiv('bb_description', description);
       let brand = JSONObj ? JSONObj.brand : '';
