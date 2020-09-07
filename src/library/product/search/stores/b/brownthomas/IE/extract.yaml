@@ -14,14 +14,13 @@ fields:
   - name: name
     xpath: //div[contains(@class,"product-tile")]//span[contains(@class,"product-name")]
   - name: gtin
-    xpath:
   - name: aggregateRating2
     xpath: //div[contains(@class,"product-tile")]/@data-component-product-tile
-    regExp: (.*")(.+)( star rating)(.*)
-    regExpReplace: $2
+    regExp: (.+)(>)(.+)( star rating<)(.+)
+    regExpReplace: $3
   - name: reviewCount
     xpath: //div[contains(@class,"product-tile")]/@data-component-product-tile
-    regExp: (.*)(>)(.+)( Review)(.*)
+    regExp: (.*)(>)(.+)( star rating<)(.*)
     regExpReplace: $3
   - name: price
     xpath: //div[contains(@class,"product-tile")]//span[contains(@class,"product-sales-price")]

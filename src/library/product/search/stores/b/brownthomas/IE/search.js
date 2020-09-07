@@ -6,5 +6,6 @@ module.exports = {
     store: 'brownthomas',
     domain: 'brownthomas.com',
     zipcode: '',
-  },
+  }
 };
+
