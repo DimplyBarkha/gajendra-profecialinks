@@ -10,9 +10,12 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    const sectionsDiv = 'h1[itemprop="description"]';
+    await context.waitForSelector(sectionsDiv, { timeout: 20000 });
+
     await context.evaluate(async function () {
       // function to append the elements to DOM
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -21,7 +24,7 @@ module.exports = {
       }
 
       // function to get the json data from the string
-      function findJsonData (scriptSelector, startString, endString) {
+      function findJsonData(scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -37,7 +40,7 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj (scriptSelector) {
+      function findJsonObj(scriptSelector) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -85,7 +88,7 @@ module.exports = {
       }
 
       // function to get the sodium, magnesium, calcium values
-      function ingredientContent (ingredientName, text) {
+      function ingredientContent(ingredientName, text) {
         const content = document.querySelectorAll('div.pdp-info-container div.info');
         // Check for length
         if (content && content.length > 1) {
@@ -156,7 +159,7 @@ module.exports = {
       ingredientContent('Sodio', 'Sodio (');
 
       // Get the ratingCount
-      async function getRatings () {
+      async function getRatings() {
         const passkey = 'caUNHRYNaaEpio9tsasDler7d1kTrqmaNQQzskkyRX6mQ';
         const locale = 'es_ES';
         const productId = document.querySelector('[itemtype="http://schema.org/Product"] > div[data-product-id]').getAttribute('data-product-id');
@@ -190,7 +193,7 @@ module.exports = {
       }
 
       // Function to remove the `\n` from the textContent
-      function textContent (element, attributeName) {
+      function textContent(element, attributeName) {
         const text = (element && element.textContent.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
