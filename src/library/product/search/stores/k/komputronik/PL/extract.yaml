@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null 
+recordXPath: //ul[@class="product-entry2-wrap"]/li
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="pe2-head"]/a/@href
+
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="pe2-img"]/a/img/@src
+    
+  - name: name
+    SingleValue: false
+    xpath: //div[@class='tm-marketplace-search-card__title']
+
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="prices"]
+
+  - name: shippingInfo
+    SingleValue: false
+    xpath: //div[@class="pe2-abilities"]
+
+  - name: aggregateRating 
+    SingleValue: false
+    xpath: //span[@class="btn2 btn2-transparent btn2-inline btn2-auto btn2-s0 btn2-p0 rating"]
+
+  - name: reviewCount
+    SingleValue: false
+    xpath: //span[@class="btn2 btn2-transparent btn2-inline btn2-auto btn2-s0 btn2-p0 rating"]
+
+  - name: ratingCount
+    SingleValue: false
+    xpath: //span[@class="btn2 btn2-transparent btn2-inline btn2-auto btn2-s0 btn2-p0 rating"]
+    
+  - name: mpc
+    SingleValue: false
+    xpath: //div[@class="pe2-codes"]
+
+
