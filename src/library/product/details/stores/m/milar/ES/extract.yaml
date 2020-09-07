@@ -3,15 +3,27 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: url
+  - name: pageTimestamp
     singleValue: false
-    xpath: //link[@rel='canonical']/@href
+    xpath: //*[@class='link no-disponible']/p[1]/span
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //*[@class='link no-disponible']/p[1]/span
+  - name: Image360Present
+    singleValue: false
+    xpath: //*[@class='link no-disponible']/p[1]/span
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //*[@class="flix-feature-image"]/img/@srcset
   - name: name
     singleValue: false
     xpath: //h1[@class='infoProduct-title']
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@class='description-tech']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //ul[@class='description-tech']/li
   - name: price
     singleValue: false
     xpath: //p[@class='price']
@@ -23,13 +35,13 @@ fields:
     xpath: //div[@class='item']/img[@class='img-responsive']/@src
   - name: weightNet
     singleValue: false
-    xpath: //*[@id="more_product_info"]/div/div[2]/ul/li[14]
+    xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']/ul/li[14]/span[2]/strong
   - name: aggregateRating
     singleValue: false
     xpath: //*[@class='bv-secondary-rating-summary-stars bv-table-row']/span[2]
   - name: storage
     singleValue: false
-    xpath: //*[@id="more_product_info"]/div/div[2]/ul/li[2]
+    xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']/ul/li[2]/span[2]/strong
   - name: category
     singleValue: false
     xpath: //section[@class='listadoCategoriasHead']/div[@class='wrap']/div[@class='breadcrumb']/span/a[3]
@@ -54,7 +66,8 @@ fields:
   - name: color
     singleValue: false
     xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']/ul/li[5]/span[2]/strong
-  - name: manufacturerImages
+  - name: url
     singleValue: false
-    xpath: //*[@class="flix-feature-image"]/img/@srcset
+    xpath: //*[@rel='canonical']/@href
+   
     
