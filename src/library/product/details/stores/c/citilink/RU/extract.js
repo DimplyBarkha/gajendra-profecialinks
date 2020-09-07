@@ -25,10 +25,9 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       try {
-        const isAvailable = document.evaluate('//div[contains(text(), "шт.")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
         const pdfDocument = document.evaluate('//div[contains(@class, "documents")]//a/@href', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE).singleNodeValue;
-        isAvailable && addHiddenDiv('import_availability_text', 'In Stock');
-        pdfDocument && addHiddenDiv('import_document_pdf', pdfDocument.baseURI);
+        addHiddenDiv('import_availability_text', 'In Stock');
+        pdfDocument && addHiddenDiv('import_document_pdf', pdfDocument.nodeValue);
       } catch (error) {
         console.log('Error: ', error);
       }
