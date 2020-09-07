@@ -21,9 +21,9 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
-      let ratingCountSelector = document.querySelector('div[itemprop="ratingValue"]');
+      let ratingCountSelector = document.querySelector('span[class="avisBaazar"]');
       // @ts-ignore
-      let ratingCount = ratingCountSelector ? ratingCountSelector.innerText+'  avis' : '';
+      let ratingCount = ratingCountSelector ? ratingCountSelector.innerText : '';
       addHiddenDiv('cc_ratingCount',ratingCount);
     });
     return await context.extract(productDetails, { transform });
