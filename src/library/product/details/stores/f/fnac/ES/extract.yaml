@@ -28,8 +28,8 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: true
-    xpath: //div[contains(@class,"summaryStrate__raw")]//p | //div[contains(@class,"summaryStrate__raw")]//ul
+    singleValue: false
+    xpath: //div[contains(@class,"summaryStrate__raw")]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,"summaryStrate__raw")]//ul/li)

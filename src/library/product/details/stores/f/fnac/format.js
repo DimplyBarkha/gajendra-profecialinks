@@ -19,10 +19,24 @@ const transform = (data) => {
   
     for (const { group } of data) {
       for (const row of group) {
+        
+        if (row.description) {
+            row.description[0].text = row.description[0].text.replace(/(\n\s*){3,}/g, '').replace(/(\n\s*){2,}/g, '').replace(/(\n\s*){1,}/g, ' || ');
+        }
+        
         if (row.specifications) {
             row.specifications = row.specifications.map((specification) => {
-                specification.text.replace(/(\n\s*){3,}/g, ' : ');
+               return { text: specification.text.replace(/(\n\s*){3,}/g, ' : ').replace(/(\n\s*){1,}/g, ' : ')};
             });
+        }
+        if (row.imageZoomFeaturePresent) {
+            row.imageZoomFeaturePresent[0].text = "Yes"
+        } else {
+            row.imageZoomFeaturePresent[0].text = "No"
+        }
+
+        if(row.aggregateRating) {
+            row.aggregateRating[0].text = Number(row.aggregateRating[0].text).toFixed(1);
         }
       }
     }
