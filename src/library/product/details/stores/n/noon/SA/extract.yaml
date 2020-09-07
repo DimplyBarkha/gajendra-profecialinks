@@ -6,6 +6,9 @@ fields:
     - name: category
       singleValue: false
       xpath: //span[contains(@class,'crumb')]
+    - name: url
+      singleValue: false
+      xpath: //link[contains(@rel,'canonical')]//@href
     - name: image
       singleValue: false
       xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
