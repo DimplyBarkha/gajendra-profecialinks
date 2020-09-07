@@ -12,6 +12,16 @@ const transform = (data) => {
                   p_count = parseInt(p_count) + 1;
                   item.text = p_count
               });
+          }
+          if (row.productUrl) {
+            row.productUrl.forEach(item => {
+                var arr = item.text.split('/');
+                var url_len = arr.length
+                var item_id = arr[url_len-1]
+                row.id.forEach(item => { 
+                    item.text = item_id
+                });
+            });
           }            
       }
   }
