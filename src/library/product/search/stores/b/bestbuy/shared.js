@@ -39,6 +39,11 @@ const transform = (data, context) => {
           item.text = item.text ? item.text.replace('¡Nuevo!','').trim().split(' ')[0] : '';
         });
       }
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(item => {
+          item.text = item.text.replace('.',',');
+        });
+      }
     }
     }
     return data;
