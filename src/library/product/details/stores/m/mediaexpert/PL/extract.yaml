@@ -36,3 +36,6 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="is-carouselContainer"]/div/div[1]/div[@class="c-offerBox_galleryItem"]/div[@data-component="magnifier modal"]/img/@alt
+  - name: brandText
+    singleValue: false
+    xpath: //*[contains(text(),"Nazwa producenta/importera")]//ancestor::div[contains(@class,"c-accordion_item")]

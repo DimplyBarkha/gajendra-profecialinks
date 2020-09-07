@@ -30,6 +30,19 @@ const transform = (data) => {
             }
           });
         }
+
+        if (row.brandText) {
+          row.brandText.forEach(item => {
+            var myRegexp = /producenta\/importera\s+\n(.+?)\s*\n/g;
+            var match = myRegexp.exec(item.text);
+            if(match.length){
+                item.text = match[1].trim();
+            }else{
+                item.text = "";
+            }
+          });
+        }
+
         if (row.warranty) {
           row.warranty.forEach(item => {
             var myRegexp = /Gwarancja\s+\n\s*(.+)/g;
