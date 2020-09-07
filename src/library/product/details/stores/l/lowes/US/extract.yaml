@@ -38,10 +38,12 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //div[@class="content"]//div[@class="romance"] | //div[@class="content"]//div[@class="specs"]//ul
+    xpath: //div[@class="content"]//div[@class="romance"] | //div[@class="content"]//div[@class="specs"]//ul/li
+  - name: desc1
+    xpath: //div[contains(@class,"product-info")]//ul/li
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@class="content"]//div[@class="specs"]//ul//li)
+    xpath: count(//div[contains(@class,"product-info")]//ul/li | //div[@class="content"]//div[@class="specs"]//ul/li)
   - name: sku
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
@@ -74,7 +76,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: concat(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")],":",//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)
+    xpath: concat((//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1],",",(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[2])
   - name: promotion
     singleValue: false
     xpath: //span[@class="offer"]//div[1]
@@ -83,7 +85,6 @@ fields:
     xpath: count(//a[@class="alternateImages"]/@href)
   - name: warnings
     singleValue: false
-    xpath: //div[contains(@class, 'props65')]//span[contains(@class, 'title')]
   - name: url
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
@@ -115,7 +116,7 @@ fields:
     defaultValue: 1
   - name: color
     singleValue: false
-    xpath: (//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]
+    xpath: concat((//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1],",",(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[2])
   - name: Image360Present
     singleValue: false
     xpath: //button[@data-thumbtypeindex="main0"]//img//@data-met-type
@@ -127,10 +128,16 @@ fields:
     xpath: //div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Weight")]/following-sibling::div
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,"product-info")]//ul/li/p
+    xpath: //div[contains(@class,"specs")]//ul/li/p
   - name: termsAndConditions
     singleValue: false
-    xpath: //div[@aria-label="Protection Plans"]
+    xpath: //div[@id="Protection Plans-section"]//a[contains(text(),"Terms & Conditions")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath:  //div[@class="guides"]//div[@class="info"]/a[contains(text(),"Operating")]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No

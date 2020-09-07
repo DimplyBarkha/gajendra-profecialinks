@@ -35,18 +35,18 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.description && row.additionalDescBulletInfo) {
+      if (row.description && row.desc1) {
         let text = '';
-        let additionaldesc = '';
+        let descInfo = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, '||').trim()} | `;
+          text += `${item.text.replace(/\s{2,}/g, ' ').trim()}||`;
         });
-        row.additionalDescBulletInfo.forEach(item => {
-          additionaldesc += `${item.text.replace(/\s{2,}/g, ' ').trim()} || `;
+        row.desc1.forEach(item => {
+          descInfo += `${item.text.replace(/\s{2,}/g, ' ').trim()}||`;
         });
         row.description = [
           {
-            text: text.slice(0, -3) + additionaldesc.slice(0, -3),
+            text: descInfo + '|' + text.slice(0, -3),
           },
         ];
       }
