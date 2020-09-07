@@ -30,6 +30,7 @@ fields:
   - name: ratingCount
     singleValue: flase
     xpath: //div[@class="c-star-rating"]//span[@class="c-link c-link_pseudo c-link_gray20 sel-product-tile-review"]
+    defaultValue: 0
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="o-product-gallary__carousel"]//div[@class="c-carousel__item-wrapper"]//img[@class="c-carousel__img"]/@src
@@ -51,3 +52,12 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class="c-delivery o-container__element sel-pdp-delivery-courier"]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    defaultValue: No
