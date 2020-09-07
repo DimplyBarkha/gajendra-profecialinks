@@ -37,7 +37,7 @@ const transform = (data, context) => {
 
       if (row.specifications) {
         const text = row.specifications.map(elm => elm.text.trim().replace(/\n/, ' - ')).join(', ');
-        row.shippingDimensions = [{ text }];
+        row.specifications = [{ text }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
