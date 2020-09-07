@@ -5,11 +5,11 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'citilink',
-    transform: null,
+    transform,
     domain: 'citilink.ru',
     zipcode: '',
   },
-  implementation: async (inputs, parameters, context, { productDetails: data }) => {
+  implementation: async (inputs, { transform }, context, { productDetails: data }) => {
     await context.clickAndWaitForNavigation(".for_attachments_view")
       .then(async () => {
         await context.clickAndWaitForNavigation(".for_specification_view")
