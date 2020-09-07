@@ -142,9 +142,7 @@ fields:
     xpath: count(//div[@class='select-group']//select//option[not(contains(@disabled,"disabled"))]/@value)
   - name: color
     singleValue: false
-    xpath: //p[@class="longDesc"]
-    regExp: (Product colour:)\s([^*]+)
-    regExpReplace: $2
+    xpath: (//tr[contains(translate(string(), 'Colour', 'Colour'), 'Colour')]/td)[2]
   - name: colorCode
     singleValue: false
     xpath: 
