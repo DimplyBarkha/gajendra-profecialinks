@@ -12,6 +12,7 @@ const transform = (data, context) => {
       row.rank = [{ text: rankCounter }];
     }
   }
+  context.setState({ rankCounter });
   return data;
 };
 module.exports = { transform };
