@@ -1,0 +1,172 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class='bp9cbjyn j83agx80 buofh1pr taijpn5t ni8dbmo4 stjgntxs k4urcfbm du4w35lb']//img/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz rq0escxv nhd2j8a9 nc684nl6 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of lzcic4wl l9j0dhe7 abiwlrkh p8dawk7l']//div/img/@src 
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //meta[@name='description']/@content
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    type: NUMBER
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: shippingDimensions
+    singleValue: true
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue: true
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    type: NUMBER
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+  - name: name
+    singleValue: true
+    description: The product name
+  - name: inStorePrice
+    singleValue: true
+    description: Price in the selected store
+  - name: asin
+    singleValue: true
+    description: null
+  - name: coupon
+    singleValue: true
+    description: Text of any coupon offer
+  - name: amazonChoice
+    singleValue: true
+    description: YES or Blank
+  - name: amazonChoiceCategory
+    singleValue: true
+    description: Text of link next to Amazon choice graphic
+  - name: brandLink
+    singleValue: true
+    description: null
+  - name: internationalShipping
+    singleValue: true
+    description: Text next to bullet point
+  - name: salesRank
+    singleValue: false
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: salesRankCategory
+    singleValue: false
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: subscriptionPrice
+    singleValue: true
+    description: Subscribe and save price
+  - name: subscribeAndSave
+    singleValue: true
+    description: YES/NO
+  - name: heroQuickPromoHeadline
+    singleValue: true
+    description: See image - top section hero area
+  - name: heroQuickPromoImageUrl
+    singleValue: true
+    description: null
+  - name: url
+    singleValue: true
+    xpath: //meta[@name='application-url']/@content 
+    description: null
+  
