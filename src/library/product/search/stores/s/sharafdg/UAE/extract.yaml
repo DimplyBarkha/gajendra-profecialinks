@@ -8,7 +8,9 @@ fields:
     xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'slide ')]//div[contains(@class,'carousel-details')]//a/@title
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'slide ')]//div[contains(@class,'carousel-details')]//a/@href
+    xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'slide ')]//img[contains(@class, "main-image")]/@src
+    regExp: ^(.+)$
+    regExpReplace: https:$1
   - name: price
     singleValue: false
     xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'product-price')]//div[@class='price']
@@ -18,3 +20,8 @@ fields:
   - name: rank
     singleValue: false
     xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'slide ')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//a[@class="ratio-box"]/@href
+    regExp: ^(.+)$
+    regExpReplace: https:$1
