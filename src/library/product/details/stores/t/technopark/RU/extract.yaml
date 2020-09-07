@@ -1,0 +1,188 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue:  false
+    xpath: //head/meta[contains(@property,"og:image")]/@content
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue:  false
+    xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img/@title
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img/@data-src
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue:  false
+    xpath: //head/meta[contains(@name,"keyword")]/@content
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    #xpath: normalize-space(//div[@class='header-menu js-header-menu']//div[4]//div[2]//ul[1]//li[5])
+    #xpath: //a[@class='product-card__back-link']/@title
+    xpath: //ul[@class='footer-breadcrumbs__element']
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue:  false
+    xpath: //h1[@class='product-card__pseudo-name']
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue:  false
+    xpath: //span[@class='price product-card__price']/text()
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue:  false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue:  false
+    xpath: //div[contains(@class,'product-card__availability')]/text()
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //head/meta[contains(@property,"og:description")]/@content
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    singleValue:  false
+    xpath: count(//section[@class='product__specs js-content-block-specifications is-visible']//div)
+    description: Number of ul > li tags in the description
+  - name: brandText
+    singleValue:  false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    singleValue:  false
+    xpath: //body/section[@class='product']/div/meta[1]/@content
+    description: Product manufacturer
+  - name: quantity
+    singleValue:  false
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue:  false
+    xpath: //p[contains(text(),"Вес")]/following-sibling::p[contains(@class,"product__spec__text")]
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue:  false
+    xpath: //div[contains(@class,"product__specification-text")]
+    regExp:   упаковке:\n([^;]+)
+    regExpReplace: $1
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue:  false
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue:  false
+    xpath: //body/section[@class='product']/meta[1]/@content
+    description: The store-specific product identifie
+  - name: variantId
+    singleValue:  false
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    singleValue:  false
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    singleValue:  false
+    xpath: //p[contains(text(), 'Пищевая ценность в 100 г продукта:')]//text()
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: ratingCount
+    singleValue:  false
+    xpath: //section[@class='product']//a[contains(text(), 'Отзывы')]//span/text()
+    description: The number of ratings
+    #type: NUMBER
+  - name: aggregateRating
+    singleValue:  false
+    xpath: //body/section[@class='product']/div/meta[contains(@itemprop,"ratingValue")]/@content
+    regExp:   ([0-9])
+    regExpReplace: $1
+    description: The stated aggregate rating normalized to be out of 5
+    #type: NUMBER
+  - name: shippingInfo
+    singleValue:  false
+    description: Shipping information for the product
+  - name: shippingDimensions
+    singleValue:  false
+    xpath: //div[contains(@class,"product__specification-text")]
+    regExp:   упаковке:\n([^"]+)
+    regExpReplace: $1 
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue:  false
+    xpath: //div[contains(@class,"product__specification-text")]
+    regExp:   упаковке:\n([^;]+)
+    regExpReplace: $1 
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue:  false
+    description: Number of variants listed
+    type: NUMBER
+  - name: color
+    singleValue:  false
+    xpath: //p[contains(text(),"Материал корпуса")]/following-sibling::p[contains(@class,"product__spec__text")]
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue:  false
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    xpath: //iframe[@id='js-product-gallery-video-0']/@src | //div//iframe[@itemprop='url']/@src
+    description: URLs of videos on page
+  - name: name
+    singleValue:  false
+    xpath: //head/meta[contains(@property,"og:title")]/@content
+    description: The product name
+  - name: specifications
+    singleValue:  false
+    xpath: //p[contains(text(),"Высота")]/following-sibling::p[contains(@class,"product__spec__text")] | //div[@class='product__spec__row']//p[contains(text(),'Ширина')]//following-sibling::p | //p[contains(text(),"Глубина")]/following-sibling::p[contains(@class,"product__spec__text")]
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    singleValue:  false
+    xpath: //div[contains(@class,"product__specification-text")]
+    regExp: арантия —([^"]+)
+    regExpReplace: $1  
+    description: Guarantee associated with the product
+  - name: countryOfOrigin
+    singleValue:  false
+    xpath: //div[contains(@class,"product__specification-text")]
+    regExp:   Страна производитель:\n([^"]+)
+    regExpReplace: $1
+    description: The country from which the product originates
+  - name: promotion
+    singleValue:  false
+    xpath: //div[@class='product-card__main-info-bonuses']//div
+    description: promotion text on product page
+  - name: energyEfficiency   
+    singleValue:  false
+    xpath: //p[contains(text(),"энергопотребления")]/following-sibling::p[contains(@class,"product__spec__text")]
+  - name: technicalInformationPdfPresent
+    singleValue:  false
+    xpath: //div[contains(@class,"product__specification-text")]/a/@href
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: materials
+    singleValue:  false
+    xpath: //p[contains(text(),"Материал корпуса")]/following-sibling::p[contains(@class,"product__spec__text")]
+    description: Materials used to make the product
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img/@data-src
+  
