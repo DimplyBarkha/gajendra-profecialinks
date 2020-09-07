@@ -239,7 +239,7 @@ fields:
     description: null
   - name: featureBullets
     singleValue: false
-    description: null
+    xpath: //div[@class="no-tablet"]//div[@class="main-desc"]//ul[not(contains(@class,"product-offers"))]/li
   - name: otherSellersName
     singleValue: false
     description: null
@@ -485,9 +485,8 @@ fields:
     regExp: (\d+)\-pdt\.html
     regExpReplace: $1
   - name: additionalDescBulletInfo
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="no-tablet"]//div[@class="main-desc"]//ul[not(contains(@class,"product-offers"))]/li
-    description: null
   - name: prop65Warning
     singleValue: true
     description: null
