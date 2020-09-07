@@ -1,3 +1,4 @@
+const { transform } = require('../format');
 
 async function implementation (
   inputs,
@@ -39,7 +40,7 @@ module.exports = {
   parameterValues: {
     country: 'CH',
     store: 'nettoshop',
-    transform: null,
+    transform: transform,
     domain: 'nettoshop.ch',
     zipcode: '',
   },
