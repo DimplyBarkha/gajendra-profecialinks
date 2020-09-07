@@ -39,7 +39,7 @@ fields:
     xpath: count(//div[@class='product attribute description']//div[@class='value']//li)
   - name: brandText
     singleValue: true
-    xpath: //span[@class='cs-buybox__brand-name']
+    xpath: //span[@itemprop='brand']
   - name: manufacturer
     singleValue: false
     xpath: //span[@class='manufacturer']
