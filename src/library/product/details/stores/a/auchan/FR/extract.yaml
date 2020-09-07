@@ -108,7 +108,7 @@ fields:
   - name: specifications 
     singleValue: false
     description: Product specifications
-    xpath: //table[contains(@class, 'flix-std-specs-table')]//tr/td/text()
+    xpath: //main[contains(@class, 'product-aside--container')]//ul[contains(@class, 'product-aside--list')]/li
   - name: nameExtended
     singleValue: true
     description: Extended Name of product
