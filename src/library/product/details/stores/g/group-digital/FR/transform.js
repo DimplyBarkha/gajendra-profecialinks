@@ -130,6 +130,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturerDescription) {
+        let specs = '';
+        row.manufacturerDescription.forEach(item => {
+          specs += item.text;
+        });
+        row.manufacturerDescription = [
+          {
+            text: cleanUp(specs),
+          },
+        ];
+      }
       if (row.manufacturerImages) {
         let specs = '';
         row.manufacturerImages.forEach(item => {
