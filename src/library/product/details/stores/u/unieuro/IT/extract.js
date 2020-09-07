@@ -1,4 +1,7 @@
 const { transform } = require('./transform');
+/*
+Note: Enhanced content not loading currently. This code will be used if issue is solved.
+***
 async function implementation (
   inputs,
   parameters,
@@ -23,7 +26,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });
-}
+} */
 
 module.exports = {
   implements: 'product/details/extract',
