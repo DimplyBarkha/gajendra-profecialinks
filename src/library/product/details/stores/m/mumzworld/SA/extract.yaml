@@ -20,7 +20,7 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: category
     singleValue: false    
-    xpath: //div[@class='breadcrumbs']//ul
+    xpath: //div[@class='breadcrumbs']//ul//li[contains(@class,'category')]
   - name: listPrice
     singleValue: false
     xpath: //div[@class='price-box']//div[@class='old-price']
@@ -93,4 +93,10 @@ fields:
     defaultValue: 'In Stock'
   - name: variantCount
     singleValue: false    
-    defaultValue: 0
+    defaultValue: 0   
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    defaultValue: No  

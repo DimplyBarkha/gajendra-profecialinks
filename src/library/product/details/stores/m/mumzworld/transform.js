@@ -27,7 +27,7 @@ const transform = (data) => {
         }
         if (row.category) {
           row.category.forEach(item => {
-            item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
+            item.text = item.text.replace(/(\s*\n\s*)+/g, ' > ').trim();
           });
         }
         if (row.featureBullets) {
