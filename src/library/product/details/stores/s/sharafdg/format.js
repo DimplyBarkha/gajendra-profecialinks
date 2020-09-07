@@ -45,6 +45,15 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.variantInformation) {
+        const variantText = row.variantInformation.map((item) => {
+          if (item.text === 'Alternatives') {
+            return 'Colors';
+          }
+          return item.text;
+        });
+        row.variantInformation = [{ text: variantText.join(',') }];
+      }
     }
   }
 
