@@ -3,9 +3,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'manor.ch',
-    timeout: 1000000,
+    timeout: null,
     country: 'CH',
     store: 'manor',
-    zipcode: "''",
+    zipcode: '',
   },
 };
