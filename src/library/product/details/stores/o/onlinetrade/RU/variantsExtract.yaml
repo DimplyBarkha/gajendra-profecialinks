@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //select[@id='modelModeSelector_page']/option/@value  
+    regExp: ([0-9]+)
+    regExpReplace: $1  
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: concat("https://www.onlinetrae.ru",//select[@id='modelModeSelector_page']/option/@value)
