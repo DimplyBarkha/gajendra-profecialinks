@@ -15,33 +15,12 @@ fields:
     singleValue: false
     xpath: concat('https://www.technopark.ru',//article/div/a/@href)
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     xpath: concat('https://cdn1.technopark.ru/technopark/photos_resized/product/248_248/', //article/@data-product-id, '/1_', //article/@data-product-id, '.jpg')
     # //div[@class="card-listing__image js-analytics-card--image"]/img/@data-src
   - name: price
     singleValue: false
     xpath: //div[@class="card-listing__price"]//span    
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@class="rank"]
-  - name: gtin
-    singleValue: true
-  - name: aggregateRating
-    singleValue: false
-    xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
-  - name: reviewCount
-    singleValue: false
-    xpath: //span[@data-test="product-rating-count"]
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="card-listing__image js-analytics-card--image"]/img/@alt
-    # //div[@class="card-listing__name"]
-  - name: soldBy
-    singleValue: true
-  - name: rank
-    singleValue: false
-    xpath: //div[@class="rank"]
-  - name: endorsementText
-    singleValue: false
-    xpath: //div[@class="endorsement"]
-
