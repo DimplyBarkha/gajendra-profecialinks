@@ -1,12 +1,11 @@
 const { transform } = require('../formatVariantsAE');
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'AE',
     store: 'noon',
+    transform,
     domain: 'noon.com',
-    loadedSelector: null,
-    noResultsXPath: null,
     zipcode: '',
   },
 };
