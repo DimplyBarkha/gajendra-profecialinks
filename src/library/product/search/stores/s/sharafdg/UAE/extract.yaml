@@ -25,3 +25,8 @@ fields:
     xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//a[@class="ratio-box"]/@href
     regExp: ^(.+)$
     regExpReplace: https:$1
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'search-results')]//div[contains(@class,'product-container')]//div[contains(@class,'product-items')]//div[contains(@class,'slide ')]//img[contains(@class, "main-image")]/@src
+    regExp: (.*)\/(.*?)_
+    regExpReplace: $2
