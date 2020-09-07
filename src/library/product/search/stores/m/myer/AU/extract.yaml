@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    xpath: //div[contains(@class,'css-1d7sco1')]/ul[contains(@class,'css-1w5tqa5')]/li/@id
+    singleValue: false
+  - name: name
+    xpath: //ul[contains(@class,'css-1w5tqa5')]/li/div[contains(@class,'css-m4cs32')]/h3[contains(@class,'h5 css-uj8e7k')]/a/div[contains(@class,'css-bcaxqk')]/span[contains(@class,'css-w11pbw')]
+    singleValue: false
+  - name: producturl
+    xpath: //div[contains(@class,'css-1d7sco1')]/ul[contains(@class,'css-1w5tqa5')]/li/div[contains(@class,'css-m4cs32')]/h3[contains(@class,'h5 css-uj8e7k')]/a/@href
+    singleValue: false
+    regExp: (//https://www.myer.com.au)?(.+)
+    regExpReplace: //https://www.myer.com.au/$2
+  - name: manufacturer
+    xpath: //div[@class='css-1d7sco1']/ul[@class='css-1w5tqa5']/li/div[@class='css-m4cs32']/h3[@class='h5 css-uj8e7k']/a/div[@class='css-bcaxqk']/span[@class='css-w11pbw']
+    singleValue: false    
+  - name: thumbnail
+    xpath: //ul[@class='css-1w5tqa5']/li/div[@class='css-m4cs32']/h3[@class='h5 css-uj8e7k']/a/div[@class='css-1i15wb8']/img[@class='css-ys4vis']/@src
+    singleValue: false
+    regExp: (//https://www.myer.com.au)?(.+)
+    regExpReplace: //https://www.myer.com.au$2
+  - name: price
+    xpath: //ul[@class='css-1w5tqa5']/li/div[@class='css-m4cs32']/div[@class='h5 css-1fglnfk']/p[@class='css-15ro776 css-13veri3']/span[2]
+    singleValue: true 
+  - name: rankOrganic
+    singleValue: true 
+  - name: aggregateRating  
+    singleValue: true
+    defaultValue: '0'
+  - name: reviewCount  
+    singleValue: true
+    defaultValue: '0'
+  - name: ratingCount  
+    singleValue: true
+    defaultValue: '0'
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: search/listing rank
+
+    
