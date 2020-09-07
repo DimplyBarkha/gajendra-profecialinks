@@ -20,7 +20,7 @@ const transform = (data) => {
       }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '| ') : '';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' : ') : '|';
         });
         row.specifications = [{ text: specificationsArr.join('|'), xpath: row.specifications[0].xpath }];
       }

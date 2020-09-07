@@ -11,12 +11,14 @@ fields:
     regExp: (^[1-9]+[0-9]*$)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
-  - name: shippingInfo
-    singleValue: true
-    xpath: //div[@class='productStage__delivery-time']
   - name: price
     singleValue: true
     xpath: //span[@class='price']
+  - name: priceCurrency
+    singleValue: false
+    xpath: //span[@class='price']
+    regExp: ^([\w\-]+)
+    regExpReplace: $1
   - name: promotion
     singleValue: true
     xpath: //span[@class='js-pdpDiscountPercentage gallery__discountPercentage']
@@ -29,6 +31,8 @@ fields:
   - name: image
     singleValue: true
     xpath: //meta[@property="og:image"]/@content
+    regExp: (.*_)
+    regExpReplace: $1xxl3.jpg
   - name: imageAlt
     singleValue: true
     xpath: //a[@class='swiper-slide js-lightbox-picture-top swiper-slide-active is-selected']//img[@class='swiper-slide__big-image swiper-lazy swiper-lazy-loaded']/@alt
@@ -39,13 +43,10 @@ fields:
     regExpReplace: https:$1xxl3.jpg
   - name: metaKeywords
     singleValue: true
-  - name: _url
+  - name: url
     singleValue: true
     xpath: //meta[@property="og:url"]/@content
   - name: category
-    singleValue: true
-    xpath: //div[@class='topBar container wrapper js-storelist']//span[2]
-  - name: subCategory
     singleValue: true
     xpath: concat(//div[@class='topBar container wrapper js-storelist']//span[2],' > ',//div[@class='topBar container wrapper js-storelist']//span[3],' > ',//div[@class='topBar container wrapper js-storelist']//span[4],' > ',//div[@class='topBar container wrapper js-storelist']//span[5])
   - name: nameExtended
@@ -111,10 +112,10 @@ fields:
     xpath: //span[@class='total__rating']
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class='productStage__infoText']//li
+    xpath: //div[@class='productStage__infoText']//ul//text()
   - name: description
     singleValue: true
-    xpath: //meta[contains(@name, "description")]/@content
+    xpath: //div[@id='description-block']//div[@class='pdp__contentSection-leftSide']
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class='productStage__infoText']//li)
@@ -166,8 +167,8 @@ fields:
   - name: coupon
     singleValue: true
   - name: specifications
-    singleValue: true
-    xpath: //table[@class='technicalDetails']
+    singleValue: false
+    xpath: //tr[@class='technicalDetails__row']
   - name: warranty
     singleValue: true
     xpath: //tr[th[contains(text(), 'Herstellergarantie')]]/td
@@ -189,9 +190,3 @@ fields:
     xpath: //div[@class='productStage__variants productStage__variants--color']//p//span
   - name: firstVariant
     singleValue: true 
-  - name: termsAndConditions
-    singleValue: true
-    xpath: (//div[contains(@class,'bottom__links mt-3')]//a)[1]
-    regExp: .*
-    regExpReplace: Yes
-    defaultValue: No
