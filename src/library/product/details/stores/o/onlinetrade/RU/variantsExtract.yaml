@@ -3,6 +3,10 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: variant
+    singleValue: false
+    description: variant Url
+    xpath: //span[contains(@class,'p__displayedItem__setType__label gray')]/label
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
@@ -12,4 +16,4 @@ fields:
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: concat("https://www.onlinetrae.ru",//select[@id='modelModeSelector_page']/option/@value)
+    xpath: concat("https://www.onlinetrade.ru",//select[@id='modelModeSelector_page']/option/@value)

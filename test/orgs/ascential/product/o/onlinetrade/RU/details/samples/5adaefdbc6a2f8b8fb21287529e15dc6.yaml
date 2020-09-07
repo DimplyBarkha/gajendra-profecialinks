@@ -1,0 +1,92 @@
+input:
+  _url: http://onlinetrade.ru
+  URL: https://www.onlinetrade.ru/catalogue/vypryamiteli_volos-c1991/dyson/vypryamitel_dlya_volos_dyson_corrale_322952_01-2147388.html
+extractions:
+  - html: https://workbench.import.io/html/run=19099ae9-17fd-4493-93fd-6ba0d56f1176/task=a1b99fd8-3204-4f05-873f-8f4de2ffef9a/eec6950f-f036-47e2-8f55-f11c516e7381.html
+    extractionConfigId: product/details/stores/o/onlinetrade/RU/extract
+    data:
+      - group:
+          - name:
+              - text: Выпрямитель для волос Dyson Corrale
+                xpath: /html/head[1]/meta[18]/@content
+            image:
+              - text: https://static.onlinetrade.ru/img/items/m/vypryamitel_dlya_volos_dyson_corrale_1356377_1.png
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[4]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Выпрямитель для волос Dyson Corrale - купить в интернет магазине с
+                  доставкой, цены, описание, характеристики, отзывы
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[4]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static.onlinetrade.ru/img/items/m/vypryamitel_dlya_volos_dyson_corrale_1356377_1.png
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/a[1]/@href
+              - text: https://static.onlinetrade.ru/img/items/m/vypryamitel_dlya_volos_dyson_corrale_1356377_2.jpg
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/a[1]/@href
+              - text: https://static.onlinetrade.ru/img/items/m/vypryamitel_dlya_volos_dyson_corrale_1356377_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[3]/a[1]/@href
+              - text: https://static.onlinetrade.ru/img/items/m/vypryamitel_dlya_volos_dyson_corrale_1356377_4.jpg
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[4]/a[1]/@href
+              - text: https://static.onlinetrade.ru/img/items/m/vypryamitel_dlya_volos_dyson_corrale_1356377_5.jpg
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[5]/a[1]/@href
+            metaKeywords:
+              - text: Купить Выпрямитель для волос Dyson Corrale
+                xpath: /html/head[1]/meta[9]/@content
+            nameExtended:
+              - text: Выпрямитель для волос Dyson Corrale
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/h1[1]/text()[1]
+            price:
+              - text: 39 990 ₽
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]
+            description:
+              - text: Тип:Выпрямитель
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[2]/div[2]/ul[1]/li[1]
+              - text: Покрытие раб. поверхности:марганцево-медный сплав
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[2]/div[2]/ul[1]/li[2]
+              - text: Температура нагрева пластин (до):210 °C
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[2]/div[2]/ul[1]/li[3]
+              - text: Ионизация:нет
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[2]/div[2]/ul[1]/li[4]
+              - text: Дисплей/индикация температуры:есть
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[2]/div[2]/ul[1]/li[5]
+            brandText:
+              - text: DYSON
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[5]/div[1]/div[3]/div[1]/div[2]/meta[1]/@content
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[5]/div[1]/div[3]/div[1]/div[2]/meta[1]/@content
+            quantity:
+              - text: "> 10 шт."
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[5]/div[1]/div[2]/div[2]/span[2]
+            sku:
+              - text: 322952-01
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[5]/div[1]/div[2]/meta[2]/@content
+            directions:
+              - text: Технические характеристики товара могут отличаться от указанных на сайте,
+                  уточняйте технические характеристики товара на момент покупки
+                  и оплаты. Вся информация на сайте о товарах носит справочный
+                  характер и не является публичной офертой в соответствии с
+                  пунктом 2 статьи 437 ГК РФ. Убедительно просим Вас при покупке
+                  проверять наличие желаемых функций и характеристик.
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[2]/div[2]/p[1]
+            aggregateRatingText:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/text()[1]
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/text()[1]
+            warranty:
+              - text: 2 года с/ц
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[2]/span[2]/a[1]/text()[1]
+            promotion:
+              - text: "Начислим ON-бонусов:"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[5]/div[1]/div[2]/div[4]/text()[1]
+            mpc:
+              - text: "2147388"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "0"
+            availabilityText:
+              - text: Available
+        xpath: /html
+    timestamp: 1599500224986
