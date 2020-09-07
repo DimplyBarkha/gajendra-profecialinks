@@ -5,8 +5,8 @@ module.exports = {
     country: 'NZ',
     store: 'noelleeming',
     domain: 'noelleeming.co.nz',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.slick-slide a img',
+    noResultsXPath: "//div[contains(@class, 'center-max-width')]/h1[contains(text(), 'Page not found')]",
     zipcode: '',
   },
 };
