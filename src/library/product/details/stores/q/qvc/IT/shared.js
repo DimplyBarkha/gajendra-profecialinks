@@ -27,8 +27,7 @@ const transform = (data) => {
         let text = '';
         let xpath = '';
         row.weightNet.forEach(item => {
-          text = item.text.replace('.', ',');
-          text = text.replace('peso: ', '');
+          text = item.text.replace('peso: ', '');
           xpath = item.xpath;
         });
         row.weightNet = [
@@ -43,8 +42,10 @@ const transform = (data) => {
         let text = '';
         let xpath = '';
         row.aggregateRating.forEach(item => {
-          text = item.text.replace('.', ',');
-          xpath = item.xpath;
+          if (item.text != '0') {
+            text = item.text.replace('.', ',');
+            xpath = item.xpath;
+          }
         });
         row.aggregateRating = [
           {
@@ -54,15 +55,15 @@ const transform = (data) => {
         ];
       }
 
-      if (row.description) {
-        if (row.additionalDescBulletInfo) {
-          for (const bullet of row.additionalDescBulletInfo) {
-            for (const item of row.description) {
-              item.text = item.text.replace(bullet.text, `|| ${bullet.text}`);
-            }
-          }
-        }
-      }
+      // if (row.description) {
+      //   if (row.additionalDescBulletInfo) {
+      //     for (const bullet of row.additionalDescBulletInfo) {
+      //       for (const item of row.description) {
+      //         item.text = item.text.replace(bullet.text, `|| ${bullet.text}`);
+      //       }
+      //     }
+      //   }
+      // }
 
       if (row.specifications) {
         let text = '';
@@ -92,15 +93,15 @@ const transform = (data) => {
         });
       }
 
-      if (row.availabilityText) {
-        let newText = 'Out Of Stock';
-        row.availabilityText.forEach(item => {
-          if (item.text.trim() == 'InStock') {
-            newText = 'In Stock';
-          }
-        });
-        row.availabilityText = [{ text: newText }];
-      }
+      // if (row.availabilityText) {
+      //   let newText = 'Out Of Stock';
+      //   row.availabilityText.forEach(item => {
+      //     if (item.text.trim() == 'InStock') {
+      //       newText = 'In Stock';
+      //     }
+      //   });
+      //   row.availabilityText = [{ text: newText }];
+      // }
 
       if (row.category) {
         let text = '';

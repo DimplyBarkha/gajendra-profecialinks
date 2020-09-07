@@ -38,13 +38,13 @@ fields:
     xpath: //div[@class='tab-pane-title' and contains(.,'Descrizione')]/following-sibling::div[@class='tab-pane-content']//p[contains(.,'Misure') or contains(.,'MISURE') or contains(.,'Specifiche tecniche')]/following-sibling::ul//li
   - name: description
     singleValue: false
-    xpath: //div[@class='tab-pane-title' and contains(.,'Descrizione')]/following-sibling::div[@class='tab-pane-content']
+    xpath: //div[@id='ii_desc']
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class='tab-pane-title' and contains(.,'Marca')]/following-sibling::div[@class='tab-pane-content']
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class='panel-ctr-title' ]//span[2]
+    xpath: //h1[@class='panel-ctr-title']
   - name: name
     singleValue: false
     xpath: //h1[@class='panel-ctr-title' ]//span[2]
@@ -81,4 +81,4 @@ fields:
     xpath: //div[@id='video']
   - name: listPrice
     singleValue: false
-    xpath: //div[@class='panel panel-product']//p[contains(@class,'old-price')]//span[@class='price']
+    xpath: //div[@class='panel panel-product']//p[contains(@class,'old-price') and not(contains(@style, 'none'))]//span[@class='price']

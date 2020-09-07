@@ -17,7 +17,8 @@ async function implementation (
   });
   console.log('Length', variants);
   async function preparePage (index, variants) {
-    await context.evaluate(async (index) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await context.evaluate(async (index, variants) => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -25,11 +26,29 @@ async function implementation (
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-
+      var descNode = document.evaluate("//div[@class='tab-pane-title' and contains(.,'Descrizione')]/following-sibling::div[@class='tab-pane-content']", document, null, XPathResult.ANY_TYPE, null);
+      var descEle = descNode.iterateNext();
+      if (index == 0 && descEle) {
+        // @ts-ignore
+        const description = descEle.innerHTML.replace(/<li.*?>/gm, '|| ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/&nbsp;/gm, '').replace(/\s{2,}/gm, ' ').trim();
+        description && addHiddenDiv('ii_desc', description);
+      }
       const productVariable = JSON.parse(document.querySelector("meta[name='data-product-details']").getAttribute('content'));
-
+      if (variants > 1) {
+        let newText = 'Out Of Stock';
+        const currentAvail = productVariable.sku[index].inventory.stockPhase;
+        if (currentAvail.trim() == 'InStock') {
+          newText = 'In Stock';
+        }
+        addHiddenDiv('availabilityText', newText);
+      } else {
+        var availNode = document.evaluate("//div[contains(@class,'inventory') and not(contains(@class,'hide'))]/span", document, null, XPathResult.ANY_TYPE, null);
+        const descEle = availNode.iterateNext();
+        if (descEle) {
+          addHiddenDiv('availabilityText', descEle.textContent);
+        }
+      }
       addHiddenDiv('sku', productVariable.sku[index].sku);
-      addHiddenDiv('availabilityText', productVariable.sku[index].inventory.stockPhase);
       addHiddenDiv('ratingCount', productVariable.summaryReview.totalReviews);
       addHiddenDiv('aggregateRating', productVariable.summaryReview.summaryRating);
       addHiddenDiv('variantCount', productVariable.sku.length);
@@ -87,11 +106,11 @@ async function implementation (
     }, index, variants);
   }
   for (let index = 0; index < variants - 1; index++) {
-    await preparePage(index);
+    await preparePage(index, variants);
     await context.extract(productDetails, { transform }, { type: 'APPEND' });
   }
-  variants <= 1 && await preparePage(0);
-  variants > 1 && await preparePage(variants - 1);
+  variants <= 1 && await preparePage(0, variants);
+  variants > 1 && await preparePage(variants - 1, variants);
   return await context.extract(productDetails, { transform });
 }
 
