@@ -1,13 +1,16 @@
+const { transform } = require('../format');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FR',
     store: 'auchan',
-    transform: null,
+    transform: transform,
     domain: 'auchan.fr',
     zipcode: '',
   },
   implementation: async (inputs, parameters, context, { productDetails: data }) => {
+    const { transform } = parameters;
     await context.evaluate(async function () {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -23,6 +26,6 @@ module.exports = {
         console.log('Error: ', error);
       }
     })
-    return await context.extract(data, {});
+    return await context.extract(data, {transform});
   }
 };
