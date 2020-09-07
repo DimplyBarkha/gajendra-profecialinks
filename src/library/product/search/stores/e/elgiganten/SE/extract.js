@@ -1,5 +1,46 @@
 
 const { transform } = require('../format')
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  try {
+    await context.waitForSelector('div#coiOverlay:not([style*="none"])')
+    await context.click('div#coiOverlay:not([style*="none"]) button.coi-banner__accept[aria-label*="JAG"]')
+  } catch (error) {
+    console.log('cookie pop up not loded', error);
+  }
+  async function paginate () {
+    try {
+      await context.evaluate(() =>{ 
+        document.querySelector('footer.master-foot').scrollIntoView()
+      });
+        await context.waitForFunction(() => {
+          console.log('#endlessLoader', document.querySelector('#endlessLoader'));
+          return !document.querySelector('#endlessLoader');
+        }, { timeout: 20000 });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  let length = await context.evaluate(async function () {
+    return document.querySelectorAll('div.mini-product').length;
+  });
+  let oldLength = 0;
+  while (length && length !== oldLength && length <= 150) {
+    oldLength = length;
+    await paginate();
+    length = await context.evaluate(async function () {
+      return document.querySelectorAll('div.mini-product').length;
+    });
+  }
+  return await context.extract(productDetails, { transform });
+}
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -9,4 +50,5 @@ module.exports = {
     domain: 'elgiganten.se',
     zipcode: '',
   },
+  implementation,
 };

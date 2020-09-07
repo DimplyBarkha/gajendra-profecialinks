@@ -11,16 +11,18 @@ fields:
     xpath: //div[@class="row-price"]
   - name: name
     singleValue: false
-    xpath: //span[contains(@class,"table-cell")]
+    manualSelector: a.product-name span.table-cell
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"mini-product-content")]/div/a/@href
+    xpath: //a[contains(@class,"product-name")]/@href
   - name: thumbnail
     singleValue: false
     xpath: //a[@class="product-image-link"]/img/@src
+    regExp: (.+)\?.*
+    regExpReplace: https://www.elgiganten.se/$1
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="product-ratings"]//div[@class="product-ratings__avarage"]
-  - name: searchUrl
+    manualSelector: div.product-ratings__avarage
+  - name: reviewCount
     singleValue: false
-    xpath: 
+    manualSelector: div.product-ratings__count
