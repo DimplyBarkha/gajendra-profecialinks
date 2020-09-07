@@ -19,7 +19,7 @@ fields:
     xpath: //div[@id="import_availability_text"]
   - name: brandText
     singleValue: false
-    xpath: //div[@id = "flix-inpage"]/@data-flix-brand
+    xpath: //span[@itemprop = "brand"]/@content
   - name: category
     singleValue: false
     xpath: //span[contains(@class, "navigation_item") and position() > 2]/@data-breadcrumb-name
