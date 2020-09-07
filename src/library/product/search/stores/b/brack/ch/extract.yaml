@@ -2,7 +2,10 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //ul[@class='productList']
-fields: 
+fields:
+  - name: id
+    xpath: //ul[@class='productList']/li/@data-sku
+    singleValue: false
   - name: manufacturer
     xpath: //ul[@class='productList']/li/div[contains(@class, "product")]//a[@class="productManufacturerFilter"]
     singleValue: false
@@ -30,4 +33,7 @@ fields:
   - name: thumbnail
     xpath: //ul[@class='productList']/li/div[contains(@class, "product")]//div[contains(@class, "productList__item-image-container")]/img/@src
     singleValue: false
-    
+    regExp: >-
+      ^(.*)$
+    regExpReplace: >-
+      https:$1
