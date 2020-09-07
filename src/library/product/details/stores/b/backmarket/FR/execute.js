@@ -6,7 +6,7 @@ module.exports = {
     store: 'backmarket',
     domain: 'backmarket.fr',
     loadedSelector: 'div[id="main_container"]',
-    noResultsXPath: '//h3[contains(text(), "pas été trouvée. ")]',
+    noResultsXPath: '//h3[contains(text(), "pas été trouvée. ")] | //h3[contains(text(), "- Ce lien n’a pas encore été reconditionné")]',
     zipcode: '',
   },
 };
