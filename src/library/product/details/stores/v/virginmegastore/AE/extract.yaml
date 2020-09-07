@@ -28,7 +28,7 @@ fields:
     xpath:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'swiper-slide swiper-slide-active')]//div[contains(@style,'main.jpg')]/@style
+    xpath: //div[contains(@class,'swiper-slide swiper-slide-active')]//div[contains(@style,'.jpg')]/@style
     regExp: ((\/.*)')
     regExpReplace: https://www.virginmegastore.ae$2
   - name: imageAlt
