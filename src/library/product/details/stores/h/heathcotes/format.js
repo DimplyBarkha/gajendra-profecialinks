@@ -18,9 +18,34 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      if (row.aggregateRating2) {
-        row.aggregateRating2.forEach(aggregateRating2 => {
-          aggregateRating2.text = aggregateRating2.text.replace('/', '.');
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(aggregateRating => {
+          aggregateRating.text = aggregateRating.text.replace('/', '.');
+        });
+      }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(ratingCountItem => {
+          ratingCountItem.text = ratingCountItem.text.replace(/[^\d]/gm, '');
+        });
+      }
+      if (row.warranty) {
+        row.warranty.forEach(warrantyItem => {
+          warrantyItem.text = warrantyItem.text.replace(/[^\d]/gm, '');
+        });
+      }
+      if (row.availabilityText) {
+        row.availabilityText.forEach(availabilityTextItem => {
+          const availability = availabilityTextItem.text.replace(/.*availability": ?"(.*?)".*/gs, '$1');
+          if (availability && availability.toLowerCase().includes('instock')) {
+            availabilityTextItem.text = 'In stock';
+          } else {
+            availabilityTextItem.text = 'Out of stock';
+          }
+        });
+      }
+      if (row.alternateImages) {
+        row.alternateImages.forEach(alternateImagesItem => {
+          alternateImagesItem.text = alternateImagesItem.text.replace(/mini/gm, 'large');
         });
       }
       if (row.description) {
@@ -45,15 +70,7 @@ const transform = (data) => {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n\s*){1,}/g, ' || ');
         row.additionalDescBulletInfo[0].text = cleanUp(row.additionalDescBulletInfo[0].text);
       }
-      if (row.availabilityText) {
-        row.availabilityText.forEach(availabilityTextItem => {
-          if (availabilityTextItem.text.toLowerCase().includes('en stock')) {
-            availabilityTextItem.text = 'In Stock';
-          } else {
-            availabilityTextItem.text = 'Out Of Stock';
-          }
-        });
-      }
+
       if (row.descriptionBullets) {
         row.descriptionBullets.forEach((descriptionBulletsItem) => {
           if (
@@ -64,11 +81,7 @@ const transform = (data) => {
           }
         });
       }
-      if (row.warranty) {
-        row.warranty.forEach(warrantyItem => {
-          warrantyItem.text = warrantyItem.text.replace('Garantie', '').trim();
-        });
-      }
+
       if (row.specifications) {
         row.specifications[0].text = row.specifications[0].text
           .replace(/(\n\s*){4,}/g, ' || ')
