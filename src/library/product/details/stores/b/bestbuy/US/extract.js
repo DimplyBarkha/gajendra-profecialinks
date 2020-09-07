@@ -57,11 +57,11 @@ async function implementation(
         await new Promise(resolve => setTimeout(resolve, 5000))
         try {
           let container = document.querySelector('div.shop-manufacturer-content');
-        const manufaturerContents = iframe.contentDocument.documentElement.innerHTML
-        if(/360-view/i.test(manufaturerContents)){
-          addHiddenDiv('roundimg','Yes')
-        }
-        container.innerHTML = manufaturerContents
+          const manufaturerContents = iframe.contentDocument.documentElement.innerHTML.replace(/<div\s*class="wc-json-data".*?<\/div>/g, ' ');
+          if(/360-view/i.test(manufaturerContents)){
+            addHiddenDiv('roundimg','Yes')
+          }
+          container.innerHTML = manufaturerContents
         } catch (error) {
           console.log(error);
         }
