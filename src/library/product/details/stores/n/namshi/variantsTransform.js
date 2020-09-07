@@ -14,9 +14,11 @@ const transform = (data) => {
                         v_data['variations'].forEach(variation => {
                             let tmp_variations = {};
                             tmp_variations["variantId"] = [];
-                            tmp_variations["variantUrl"] = [];                            
+                            tmp_variations["variantUrl"] = [];
+                            tmp_variations["variant"] = [];
                             tmp_variations["variantId"].push({"text": variation['sku'], "xpath": item["xpath"]});
                             tmp_variations["variantUrl"].push({"text": "https://en-ae.namshi.com/" + variation['link'], "xpath": item["xpath"]});
+                            tmp_variations["variant"].push({"text": variation['color'], "xpath": item["xpath"]});
                             variations.push(tmp_variations);
                         });
                     }
