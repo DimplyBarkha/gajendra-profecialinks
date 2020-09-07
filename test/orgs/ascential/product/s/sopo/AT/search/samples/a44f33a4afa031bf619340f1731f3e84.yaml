@@ -1,0 +1,863 @@
+input:
+  keywords: dyson
+  _url: http://sopo.at
+extractions:
+  - html: https://workbench.import.io/html/run=89c002fd-c036-4ce4-af28-32880e004f0d/task=d2eac06b-b686-4796-9136-e1bc5c1f158e/bbddc6e3-ee2d-4dcb-9742-80a6d74d21d3.html
+    extractionConfigId: product/search/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - id:
+              - text: "5025155027561"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@data-ordernumber
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@count
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            name:
+              - text: Dyson Cinetic Big Ball Animalpro 2 grau (228409-01) Bodenstaubsauger
+                  beutellos
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/detail/index/sArticle/44065
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155027561"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/8e/89/f8/38236255_6669855699_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 432,97
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155040850"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/@data-ordernumber
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/@count
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+            name:
+              - text: Dyson Pure Cool Me weiß silber (275910-01) Luftreiniger
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/detail/index/sArticle/44089
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155040850"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/c1/27/5e/69962119_6852999541_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 419,00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155028155"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/@data-ordernumber
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/@count
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+            name:
+              - text: Dyson V7 Motorhead Origin blau nickel (227613-01) Akkusauger Stick
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/detail/index/sArticle/44090
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155028155"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/7b/0f/65/69679049_8734377992_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 364,94
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155036723"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/@data-ordernumber
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/@count
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            name:
+              - text: Dyson Glass Hepa & Inner Carbon Filter (969048-03) Raumklima-Zubehör
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/detail/index/sArticle/44332
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155036723"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/98/91/c9/65106541_4520369681_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 61,90
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155008362"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/@data-ordernumber
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/@count
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+            name:
+              - text: Dyson Allergy Kit (916130-07) Zubehör
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/detail/index/sArticle/44362
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155008362"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/dc/69/77/14178416_8672_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 49,86
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155050200"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/@data-ordernumber
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/@count
+                type: NUMBER
+                raw: "6"
+                locale: de_DE
+                value: 6
+            name:
+              - text: Dyson LED Fugendüse (970466-01) Bodenpflege-Zubehör V7, V8, V10, V11
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/detail/index/sArticle/44714
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155050200"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/3b/cc/52/1001_d8ff42db43a6414081c7eecee4911bff_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 80,28
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155046821"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/@data-ordernumber
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/@count
+                type: NUMBER
+                raw: "7"
+                locale: de_DE
+                value: 7
+            name:
+              - text: Dyson V11 Absolute Extra Pro Akkuhandstaubsauger 2-in-1
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/detail/index/sArticle/44827
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155046821"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/93/f0/49/77857732_1219648354_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 998,96
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155038635"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/@data-ordernumber
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/@count
+                type: NUMBER
+                raw: "8"
+                locale: de_DE
+                value: 8
+            name:
+              - text: Dyson Pure Hot+Cool Luftreiniger, Heizlüfter & Ventilator
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/detail/index/sArticle/44842
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155038635"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/8c/22/27/65330019_3400157210_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 811,43
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155024997"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/@data-ordernumber
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/@count
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+            name:
+              - text: Dyson Supersonic fuchsia-iron Haartrockner
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/detail/index/sArticle/44882
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155024997"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/3d/52/12/33239734_7494806960_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 498,86
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155013861"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/@data-ordernumber
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/@count
+                type: NUMBER
+                raw: "10"
+                locale: de_DE
+                value: 10
+            name:
+              - text: Dyon Zubehörset Clean und Tidy kit, Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/staubsaugerzubehoer/1329/dyon-zubehoerset-clean-und-tidy-kit-dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155013861"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/a9/fa/2d/temp5250_0_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 24,22
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/div[2]/div[1]/span[2]
+            manufacturer:
+              - text: Dyon
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155004357"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/@data-ordernumber
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/@count
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+            name:
+              - text: Dyson Stubborn dirt
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/staubsaugerzubehoer/1940/dyson-stubborn-dirt
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155004357"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/81/b0/a3/temp0_5025155004357_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 17,87
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155005460"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/@data-ordernumber
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/@count
+                type: NUMBER
+                raw: "12"
+                locale: de_DE
+                value: 12
+            name:
+              - text: Dyson 911566-04 Staubsauger Zubehör-Zusatz
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/staubsaugerzubehoer/2070/dyson-911566-04-staubsauger-zubehoer-zusatz
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155005460"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/e9/91/8a/temp0_5025155005460_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 97,35
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/a[2]/@title
+        xpath: /html
+    timestamp: 1599498280095
+  - html: https://workbench.import.io/html/run=89c002fd-c036-4ce4-af28-32880e004f0d/task=d2eac06b-b686-4796-9136-e1bc5c1f158e/86c1d9f1-15d6-4ec1-9fd1-51789cd7e80b.html
+    extractionConfigId: product/search/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - id:
+              - text: "5025155009550"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@data-ordernumber
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@count
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            name:
+              - text: Dyson 919648-02 Staubsauger Zubehör-Zusatz
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/staubsaugerzubehoer/2141/dyson-919648-02-staubsauger-zubehoer-zusatz
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155009550"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/80/a5/e0/temp0_5025155009550_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 18,65
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155017838"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/@data-ordernumber
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/@count
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+            name:
+              - text: Dyson AM07 65W Silber, Weiß
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/klima-heizen/6062/dyson-am07-65w-silber-weiss
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155017838"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/ce/81/d6/temp0_5025155017838_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 642,03
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155020364"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/@data-ordernumber
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/@count
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+            name:
+              - text: Dyson v6 Up Top Beutellos Rot, Silber, Violett
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/hand-akkustaubsauger/7047/dyson-v6-up-top-beutellos-rot-silber-violett
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155020364"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/8e/e0/df/temp0_5025155020364_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 401,38
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155028100"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/@data-ordernumber
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/@count
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            name:
+              - text: Dyson Big Ball Parquet 2 Zylinder-Vakuum 1.5l 600W A Violett
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/bodenstaubsauger/7523/dyson-big-ball-parquet-2-zylinder-vakuum-1.5l-600w-a-violett
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155028100"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/50/fc/7c/temp0_5025155028100_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 324,91
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155024645"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/@data-ordernumber
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/@count
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+            name:
+              - text: Dyson Akkusauger, V6 Fluffy,
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/hand-akkustaubsauger/8272/dyson-akkusauger-v6-fluffy
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155024645"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/d7/cc/03/temp0_5025155024645_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 501,40
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155024492"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/@data-ordernumber
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/@count
+                type: NUMBER
+                raw: "6"
+                locale: de_DE
+                value: 6
+            name:
+              - text: Dyson Luftreiniger, Pure Cool Link, Tower weiß
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/klima-heizen/8327/dyson-luftreiniger-pure-cool-link-tower-weiss
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155024492"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/d3/d4/b2/temp0_5025155024492_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 469,99
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155027882"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/@data-ordernumber
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/@count
+                type: NUMBER
+                raw: "7"
+                locale: de_DE
+                value: 7
+            name:
+              - text: Dyson Cinetic Big Ball Absolute 2 Zylinder-Vakuum 0.8l 700W A Rot
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/bodenstaubsauger/9356/dyson-cinetic-big-ball-absolute-2-zylinder-vakuum-0.8l-700w-a-rot
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155027882"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/eb/07/c0/temp0_5025155027882_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 523,80
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/div[2]/div[1]/span[2]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155024881"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/@data-ordernumber
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/@count
+                type: NUMBER
+                raw: "8"
+                locale: de_DE
+                value: 8
+            name:
+              - text: Dyson Big Ball Up top Zylinder-Vakuum 1.6l A Blau, Silber
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/household/bodenstaubsauger/9357/dyson-big-ball-up-top-zylinder-vakuum-1.6l-a-blau-silber
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155024881"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/0f/8f/4c/temp0_5025155024881_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 435,27
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[8]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155028032"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/@data-ordernumber
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/@count
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+            name:
+              - text: Dyson V7 Fluffy Beutellos 0.54l Blau, Nickel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/household/akkustaubsauger/9509/dyson-v7-fluffy-beutellos-0.54l-blau-nickel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155028032"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/98/f4/00/temp0_5025155028032_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 594,07
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[9]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155028070"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/@data-ordernumber
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/@count
+                type: NUMBER
+                raw: "10"
+                locale: de_DE
+                value: 10
+            name:
+              - text: Dyson Akkusauger V7 Animal Extra Sticksauger
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/hand-akkustaubsauger/9513/dyson-akkusauger-v7-animal-extra-sticksauger
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155028070"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/2c/ae/80/temp0_5025155028070_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 526,42
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[10]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155028117"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/@data-ordernumber
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/@count
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+            name:
+              - text: Dyson V7 Motorhead Pro Beutellos 0.54l 350W Nickel, Pink
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/hand-akkustaubsauger/9555/dyson-v7-motorhead-pro-beutellos-0.54l-350w-nickel-pink
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155028117"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/aa/d9/e1/temp0_5025155028117_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 431,65
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[11]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155031520"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/@data-ordernumber
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/@count
+                type: NUMBER
+                raw: "12"
+                locale: de_DE
+                value: 12
+            name:
+              - text: Dyson v8 Absolute Extra Staubbeutel Grau, Rot Handstaubsauger
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/hand-akkustaubsauger/12529/dyson-v8-absolute-extra-staubbeutel-grau-rot-handstaubsauger
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155031520"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/ab/bb/e4/temp0_5025155031520_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 684,22
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/a[2]/@title
+        xpath: /html
+    timestamp: 1599498280095
+  - html: https://workbench.import.io/html/run=89c002fd-c036-4ce4-af28-32880e004f0d/task=d2eac06b-b686-4796-9136-e1bc5c1f158e/18334a94-0a4e-4aac-bd04-b138a8103fd9.html
+    extractionConfigId: product/search/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - id:
+              - text: "5025155027523"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@data-ordernumber
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@count
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            name:
+              - text: Dyson CINETIC BIGBALL MULT BODENSTAUBSAUGER FLOOR 2 700W
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/bodenstaubsauger/24158/dyson-cinetic-bigball-mult-bodenstaubsauger-floor-2-700w
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155027523"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/a9/df/0c/temp0_5025155027523_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 509,30
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155014158"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/@data-ordernumber
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/@count
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+            name:
+              - text: Dyson Tangle-free Mini Turbinendüse
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/staubsaugerzubehoer/27848/dyson-tangle-free-mini-turbinenduese
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155014158"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/ab/cd/c5/18402002-7188_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 75,90
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155010921"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/@data-ordernumber
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/@count
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+            name:
+              - text: Dyson Groom Hundebürste
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/staubsaugerzubehoer/27932/dyson-groom-hundebuerste
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155010921"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/38/2c/3a/8940582_4100_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 55,81
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[3]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155034316"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/@data-ordernumber
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/@count
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            name:
+              - text: Dyson Pure Cool Turm-Luftreiniger
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/klima-heizen/28428/dyson-pure-cool-turm-luftreiniger
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155034316"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/ff/c6/8d/55171811_2108345082_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 689,91
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[4]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155033838"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/@data-ordernumber
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/@count
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+            name:
+              - text: Dyson V8 Animal +
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/hand-akkustaubsauger/28430/dyson-v8-animal
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155033838"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/d0/c0/bb/60034843_0028596557_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 396,90
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/span[2]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[5]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5025155031926"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/@data-ordernumber
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/@count
+                type: NUMBER
+                raw: "6"
+                locale: de_DE
+                value: 6
+            name:
+              - text: Dyson Zubehör, 968334-01, Dyson für V7 V8
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/staubsaugerzubehoer/29181/dyson-zubehoer-968334-01-dyson-fuer-v7-v8
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5025155031926"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/6c/cd/5a/5025155031926_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 92,56
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[2]/@title
+        xpath: /html
+    timestamp: 1599498280095
