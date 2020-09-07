@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //ul[@id="catalog_listings"]/li
 fields:
+  - name: id
+    SingleValue: false
+    xpath: //li/@data-sku  
   - name: productUrl
     SingleValue: false
     xpath: //li/a/@href
