@@ -12,29 +12,31 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out Of Stock
   - name: price
-    singleValue: true
-    xpath: //span[@class='price']
+    singleValue: false
+    xpath: //script[@type="application/ld+json"]/@content
+    regExp: (\d+.*)
+    regExpReplace: CHF $1
   - name: priceCurrency
     singleValue: false
-    xpath: //span[@class='price']
-    regExp: ^([\w\-]+)
+    xpath: //script[@type="application/ld+json"]
+    regExp: priceCurrency":\s"([^"]+)
     regExpReplace: $1
   - name: promotion
-    singleValue: true
+    singleValue: false
     xpath: //span[@class='js-pdpDiscountPercentage gallery__discountPercentage']
   - name: lbb
-    singleValue: true
+    singleValue: false
   - name: lbbPrice
-    singleValue: true
+    singleValue: false
   - name: _input
-    singleValue: true
+    singleValue: false
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //meta[@property="og:image"]/@content
     regExp: (.*_)
     regExpReplace: $1xxl3.jpg
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: //a[@class='swiper-slide js-lightbox-picture-top swiper-slide-active is-selected']//img[@class='swiper-slide__big-image swiper-lazy swiper-lazy-loaded']/@alt
   - name: alternateImages
     singleValue: false
@@ -42,20 +44,20 @@ fields:
     regExp: (.*_)
     regExpReplace: https:$1xxl3.jpg
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
   - name: url
-    singleValue: true
+    singleValue: false
     xpath: //meta[@property="og:url"]/@content
   - name: category
-    singleValue: true
+    singleValue: false
     xpath: concat(//div[@class='topBar container wrapper js-storelist']//span[2],' > ',//div[@class='topBar container wrapper js-storelist']//span[3],' > ',//div[@class='topBar container wrapper js-storelist']//span[4],' > ',//div[@class='topBar container wrapper js-storelist']//span[5])
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //form[@id='AddToCartForm']//div//h1//font//font
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //span[@class='js-basePrice']
-    regExp: (.*)
+    regExp: (\d+.*)
     regExpReplace: CHF $1
   - name: variants
     singleValue: false
@@ -63,19 +65,19 @@ fields:
     regExp: (\d+)
     regExpReplace: $1
   - name: Image360Present
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='gallery']//button[@class='show360Viewer js-show360Viewer']//@data-tracking-click
     regExp: (360_image)
     regExpReplace: Yes
     defaultValue: No
   - name: weightNet
-    singleValue: true
+    singleValue: false
     xpath: //tr[th[contains(text(), 'Gewicht')]]/td
   - name: weightGross
-    singleValue: true
+    singleValue: false
   - name: mpc
-    singleValue: true
-    xpath: //tr[th[contains(text(), 'Herstellernummer')]]/td
+    singleValue: false
+    xpath: (//tr[th[contains(text(), 'Herstellernummer')]]/td)[1]
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
@@ -92,101 +94,101 @@ fields:
     regExp: sku":\s"([^"]+)
     regExpReplace: $1
   - name: packSize
-    singleValue: true
+    singleValue: false
     xpath: //tr[th[contains(text(), 'Packungsgrösse')]]/td
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
   - name: directions
-    singleValue: true
+    singleValue: false
   - name: warnings
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='productInfoBox']
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     defaultValue: 0
     xpath: //a[@class='ratingStars js-smoothScrolling']//span[@class='rating__count']
     regExp: (\d+)
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     defaultValue: 0
     xpath: //span[@class='total__rating']
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class='productStage__infoText']//ul//text()
+    xpath: //div[@class='productStage__infoText']//ul
   - name: description
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='pdp__contentSection-leftSide']
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: count(//div[@class='productStage__infoText']//li)
   - name: brandText
     singleValue: false
     xpath: //span[@class='productStage__itemManufacturer']
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //span[@class='productStage__itemManufacturer']
   - name: quantity
-    singleValue: true
+    singleValue: false
     xpath: //tr[th[contains(text(), 'Packungsgrösse')]]/td
   - name: shippingDimensions
     singleValue: false
     xpath: //tr[th[contains(text(), 'Breite')]]/td|//tr[th[contains(text(), 'Höhe')]]/td|//tr[th[contains(text(), 'Tiefe')]]/td
   - name: shippingWeight
-    singleValue: true
+    singleValue: false
     xpath: //tr[th[contains(text(), 'Gewicht')]]/td
   - name: variantCount
-    singleValue: true
+    singleValue: false
     xpath: count(//div[@class='variant__itemWrap']//a)
   - name: color
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='productStage__variants productStage__variants--color']//p//span
   - name: colorCode
-    singleValue: true
+    singleValue: false
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
     xpath: //meta[contains(@name, "description")]/@content
   - name: lbbPrice
-    singleValue: true
+    singleValue: false
   - name: energyEfficiency
-    singleValue: true
+    singleValue: false
     xpath: //tr[th[contains(text(), 'Energieeffizienzklasse')]]/td
   - name: technicalInformationPdfPresent
-    singleValue: true
-    xpath: //a[contains(@href, '.pdf')]
+    singleValue: false
+    xpath: (//a[contains(@href, '.pdf')])[1]
     regExp: ([^]+)
     regExpReplace: Yes
     defaultValue: No
   - name: manufacturerImages
     singleValue: false
   - name: videos
-    singleValue: true
-    xpath: //div[@class='embed-responsive embed-responsive--16by9 js-readMore__fullyVisible']//iframe/@src
+    singleValue: false
+    xpath: //div[contains(@class,'embed-responsive')]//iframe/@src
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //meta[@property="og:title"]/@content
   - name: coupon
-    singleValue: true
+    singleValue: false
   - name: specifications
     singleValue: false
     xpath: //tr[@class='technicalDetails__row']
   - name: warranty
-    singleValue: true
+    singleValue: false
     xpath: //tr[th[contains(text(), 'Herstellergarantie')]]/td
   - name: storage
-    singleValue: true
+    singleValue: false
   - name: countryOfOrigin
-    singleValue: true
+    singleValue: false
     xpath: //tr[th[contains(text(), 'Produktionsland')]]/td
   - name: recyclingInformation
-    singleValue: true
+    singleValue: false
   - name: productOtherInformation
-    singleValue: true
+    singleValue: false
   - name: packaging
-    singleValue: true
+    singleValue: false
   - name: newDescription
-    singleValue: true
+    singleValue: false
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='productStage__variants productStage__variants--color']//p//span
   - name: firstVariant
-    singleValue: true 
+    singleValue: false 
