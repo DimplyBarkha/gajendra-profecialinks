@@ -1,12 +1,10 @@
 
 module.exports = {
-  implements: 'product/details/createUrl',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'komputronik.pl',
-    prefix: null,
-    url: null,
     country: 'PL',
     store: 'komputronik',
+    domain: 'komputronik.pl',
     zipcode: "''",
   },
 };
