@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //div[@class="category-products"]//ul
+recordXPath: //div[@class="category-products"]//ul//li
 fields:
   - name: url
     singleValue: true
@@ -10,7 +10,7 @@ fields:
     xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/img/@src
   - name: brandText
     singleValue: false
-    xpath: //div[@class="category-products"]//ul/li//div[1]//img/@title
+    xpath: //div[@class="category-products"]//ul/li//div[1]//img[@title]/@title
   - name: nameExtended
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li//h2[@class="product-name"]
