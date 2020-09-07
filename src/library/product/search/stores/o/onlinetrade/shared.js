@@ -4,7 +4,8 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-  let rankCounter = 0;
+  const state = context.getState();
+  let rankCounter = state.rankCounter || 0;
 
   for (const { group } of data) {
     for (const row of group) {
