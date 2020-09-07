@@ -108,18 +108,17 @@ const transform = (data) => {
           },
         ];
       }
-      // if (row.variants && row.variantInformation) {
-      //   let text = '';
-      //   const colors = row.variantInformation[0].text.split(',');
-      //   colors.forEach(ele => {
-      //     text += 'color: ' + ele + ' | ';
-      //   });
-      //   row.variantInformation = [
-      //     {
-      //       text: text.slice(0, -3),
-      //     },
-      //   ];
-      // }
+      if (row.shippingInfo) {
+        let text = '';
+        row.shippingInfo.forEach(item => {
+          text += `${item.text}`;
+        });
+        row.shippingInfo = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
     }
   }
   return data;
