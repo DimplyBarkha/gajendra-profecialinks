@@ -3,6 +3,15 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: pageTimestamp
+    singleValue: false
+    xpath: //*[@class='buybox--annotation']/span/span
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //*[@class='buybox--annotation']/span/span
+  - name: Image360Present
+    singleValue: false
+    xpath: //*[@class='buybox--annotation']/span/span
   - name: availabilityText
     singleValue: false
     xpath: //*[@class='buybox--annotation']/span/span
