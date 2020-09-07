@@ -20,9 +20,12 @@ const transform = (data) => {
           }
           if (row.category) {
             let text = '';
+            row.category.length > 1 ? 
             row.category.forEach(item => {
                 text += `${item.text} > `
-            });
+            })
+            :
+            text = "";
             row.category = [
               {
                 text: text.slice(0,-3)
