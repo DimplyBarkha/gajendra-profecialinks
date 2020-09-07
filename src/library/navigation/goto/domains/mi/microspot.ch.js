@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'microspot.ch',
-    timeout: null,
+    timeout: 50000,
     country: 'CH',
     store: 'microspot',
     zipcode: '',

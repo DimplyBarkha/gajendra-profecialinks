@@ -5,7 +5,7 @@ module.exports = {
     country: 'CH',
     store: 'microspot',
     domain: 'microspot.ch',
-    loadedSelector: null,
+    loadedSelector: 'div[class=demoup-container]',
     noResultsXPath: null,
     zipcode: '',
   },
