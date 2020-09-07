@@ -30,7 +30,7 @@ const transform = (data) => {
         });
         row.description = [
           {
-            text: text.trim()
+            text: text.trim(),
           },
         ];
       }
@@ -41,7 +41,7 @@ const transform = (data) => {
         });
         row.alternateImages = [
           {
-            text: text.trim()
+            text: text.trim(),
           },
         ];
       }
