@@ -15,10 +15,9 @@ const transform = (data) => {
             }
             if (row.description) {
                 row.description.forEach(item => {
-                    item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
-                    item.text = item.text.replace(/\n\s*\n\s*/g, ' ').trim();
+                    item.text = item.text.replace(/\n/g, ' || ').trim();
                 });
-            }            
+            }
             if (row.category) {
                 row.category.forEach(item => {
                     var category = item.text.replace(/\s*\n\s*\n\s*/g, '').trim();
@@ -29,9 +28,11 @@ const transform = (data) => {
                 });
             }
             if (row.alternateImages) {
+                var imag_arr = [];
                 row.alternateImages.forEach(item => {
-                    item.text = item.text.replace(/cart\./g, 'zoom-desktop.').trim();
+                    imag_arr.push(item.text.replace(/cart\./g, 'zoom-desktop.').trim());
                 });
+                row.alternateImages = [{"text": imag_arr.join(' | '), "xpath": row.alternateImages[0]["xpath"]}];
             }
             if (row.variantInformation) {
                 let info = [];

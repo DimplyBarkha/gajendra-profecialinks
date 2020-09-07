@@ -39,14 +39,14 @@ fields:
     singleValue: false
     xpath: //span[@class="ratings-stat__total-ratings"]
     defaultValue: 0
-    regExp: (\d+)(\s* تقييمات)
+    regExp: (\d+)(\s*.*)
     regExpReplace: $1    
   - name: aggregateRating
     singleValue: false
     xpath: //span[@class="ratings-stat__avg-rating"]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product_description")]//div[@class="toggle_section"][2]
+    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]
   - name: brandText
     singleValue: false
     xpath: //div[@class="follow-brand__title"]
