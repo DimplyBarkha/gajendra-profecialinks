@@ -26,7 +26,7 @@ fields:
     xpath: //*[@id="more_product_info"]/div/div[2]/ul/li[14]
   - name: aggregateRating
     singleValue: false
-    xpath: //*[@id="BVRRContainer"]/div/div/div/div/div[1]/div[3]/div/div/div[2]/div[2]/div/span[2]
+    xpath: //*[@class='bv-secondary-rating-summary-stars bv-table-row']/span[2]
   - name: storage
     singleValue: false
     xpath: //*[@id="more_product_info"]/div/div[2]/ul/li[2]
@@ -44,7 +44,7 @@ fields:
     xpath: //*[@id="more_product_info"]/div/div[3]/p
   - name: manufacturer
     singleValue: false
-    xpath: //section[@class='dataProduct']/div[2]/div[@class='info-title']/div[@class='brand-image']/a[@class='marca']/img/@src
+    xpath: //*[@class='brand-image']/a[@class='marca']/img/@src
   - name: manufacturerDescription
     singleValue: false
     xpath: //*[@id="more_product_info"]/div/div[3]/p
@@ -53,8 +53,8 @@ fields:
     xpath: //*[@id="inpage_container"]/div[4]/div[2]/div
   - name: color
     singleValue: false
-    xpath: //*[@id="more_product_info"]/div/div[2]/ul/li[5]/span[2]/strong
+    xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']/ul/li[5]/span[2]/strong
   - name: manufacturerImages
     singleValue: false
-    xpath: //*[@id="inpage_container"]/div[2]/div/div/div/div[2]/div/img/@srcset
+    xpath: //*[@class="flix-feature-image"]/img/@srcset
     
