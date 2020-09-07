@@ -7,6 +7,6 @@ module.exports = {
     domain: 'elcorteingles.es',
     url: 'https://www.elcorteingles.es/supermercado/buscar/?term={searchTerms}&search=text',
     loadedSelector: 'div.product_tile-prices',
-    noResultsXPath: '//h5[@class="grid-coincidences"]/span[1][contains(text(), "0")]',
+    noResultsXPath: '//div[@class="composition _none_sc"]',
   },
 };
