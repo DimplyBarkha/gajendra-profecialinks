@@ -80,11 +80,11 @@ async function implementation (
     for (let i = 0; i < descriptionArray.length; i++) {
       const descObj = descriptionArray[i];
       if (descObj.includes('•')) {
-        bulletInfoArray.push(descObj.replace('•', ' || ').trim());
+        bulletInfoArray.push(descObj.replace('•', ' || '));
       }
     }
     const additionalDescBulletInfo = bulletInfoArray.join('');
-    addHiddenDiv('added-additionalDescBulletInfo', additionalDescBulletInfo);
+    addHiddenDiv('added-additionalDescBulletInfo', additionalDescBulletInfo.replace(/^ ?\|\|/gm, '').trim());
     fetchGtinFromScript();
     fetchColor();
   });
