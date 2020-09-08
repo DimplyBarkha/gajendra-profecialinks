@@ -27,11 +27,11 @@ const transform = (data) => {
           item.text = item.text.replace(/\n/gm, ' ').replace(/\s{2,}/gm, ' ').trim();
         });
       }
-      // if (row.manufacturerImages) {
-      //   row.manufacturerImages.forEach(item => {
-      //     item.text = item.text.replace(/(.*)/gm, 'https:$1');
-      //   });
-      // }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          item.text = item.text.replace(/(.*)/, 'https:$1');
+        });
+      }
       if (row.brandText) {
         row.brandText.forEach(item => {
           item.text = item.text.split(' ') ? item.text.split(' ')[0] : '';
