@@ -45,6 +45,10 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
+    xpath: //div[@class='grid-wrapper-xs--padding grid-wrapper-m--padding']//li[2]
+  - name: subCategory
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
     xpath: (//ol[contains(@class,"breadcrumbs")]//li)[position()>2]
   - name: nameExtended
     singleValue: false
@@ -114,7 +118,7 @@ fields:
     xpath: (//div[contains(@class,'cms-content js-product-description-content')]//p)[1]
   - name: descriptionBullets
     singleValue: false
-    xpath: count((//div[contains(@class,'cms-content js-product-description-content')]//p)[1]//li[not(span//img)])
+    xpath: count(//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li)
   - name: brandText
     singleValue: false
     xpath: //dl[contains(translate(string(), 'Merk', 'Merk'), 'Merk')]/dd
@@ -213,3 +217,9 @@ fields:
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
+  - name: customerServiceAvailability 
+    singleValue: true
+    xpath: //h5//font[contains(text(),"Customer service")]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: Yes
