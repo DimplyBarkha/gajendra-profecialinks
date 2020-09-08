@@ -19,6 +19,10 @@ module.exports = {
       return document.querySelector('li#prodCollage') ? (document.querySelector('li#prodCollage').innerText.match('Loading manufacturer content') !== null) : false;
     });
 
+    const noManufacturerContent = await context.evaluate(function () {
+      return document.querySelector('li#prodCollage') ? (document.querySelector('li#prodCollage').innerText.match('Could not get manufacturer content') !== null) : false;
+    });
+
     const loadCustomerRatingsReviews = await context.evaluate(function () {
       return !!document.querySelector('#BVRRSummaryContainer');
     });
@@ -72,9 +76,16 @@ module.exports = {
       await new Promise(resolve => setTimeout(resolve, 8000));
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner', { timeout: 55000 });
-      await context.waitForSelector('li#prodCollage a.view-more-trigger');
-      await context.waitForSelector('div#wc-aplus', { timeout: 55000 });
-      if (loadMoreManufacturer) {
+      try {
+        await context.waitForSelector('li#prodCollage a.view-more-trigger');
+      } catch (error) {
+        if (noManufacturerContent) {
+          console.log('No manufacturer content loading');
+        }
+      }
+
+      if (!noManufacturerContent && loadMoreManufacturer) {
+        await context.waitForSelector('div#wc-aplus', { timeout: 55000 });
         await context.waitForSelector('div.wc-fragment');
       }
     }
