@@ -1,0 +1,81 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //a[contains(@class,'fancy fb-gallery')]/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //a[contains(@class,'fancy fb-gallery')]/img/@alt
+  - name: description
+    singleValue: true
+    xpath: //*[contains(@class,'detailEntryText')]
+  - name: brandText
+    singleValue: true
+    xpath: //ul[contains(@class,'attributes')]/li[contains(@id,'js-attr-brand-item')]
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category 
+    singleValue: false
+    xpath: //div[contains(@id,'breadCrumb')]//li[position()>1 and position()<3]
+  - name: subCategory 
+    singleValue: false
+    xpath: //div[contains(@id,'breadCrumb')]//li[position()>2]
+  - name: price
+    singleValue: true
+    xpath: //meta[@itemprop="price"]/@content
+  - name: listprice
+    singleValue: true
+    xpath: //meta[@itemprop="price"]/@content
+  - name: availabilityText
+    singleValue: true
+    xpath: //ul[contains(@id,'js-check-listing')]//li[contains(@class,'delivery-state green')]
+  - name: productUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[contains(@class, 'detailEntryText')]/ul/li)
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,'js-title')]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='thumbs clear']//a[@class='fb-gallery']/img/@src
+  - name: sku
+    singleValue: true
+    xpath: //meta[@itemprop='sku']/@content
+  - name: gtin
+    singleValue: true
+    xpath: //meta[@itemprop='gtin13']/@content
+  - name: variantId
+    singleValue: true
+    xpath: //meta[@itemprop='sku']/@content
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="brandlogo"]//img/@src
+  - name: aggregateRating
+    singleValue: true
+    xpath: //meta[@itemprop='ratingCount']/@content
+  - name: manufacturer
+    singleValue: true
+    xpath:  //ul[contains(@class,'attributes')]/li[contains(@id,'js-attr-brand-item')]
+  - name: mpc
+    singleValue: true
+    xpath: //meta[@itemprop='sku']/@content
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@class,'js-title')]
+  - name: ratingCount
+    singleValue: true
+    xpath: //meta[@itemprop="ratingCount"]/@content
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="detailVideo"]//iframe//@src
+  - name: price_currency
+    singleValue: false
+    xpath: //meta[@itemprop="priceCurrency"]/@content
+    
