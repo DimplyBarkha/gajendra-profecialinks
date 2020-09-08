@@ -9,7 +9,7 @@ fields:
   - name: name
     xpath: //div[contains(@class,'product-item-info')]//a//@data-name
     singleValue: true
-  - name: producturl
+  - name: productUrl
     xpath: //div[contains(@class,'product-item-info')]//a//@href
     singleValue: true
     regExp: (https:\/\/www.betta.com.au)?(.+)
