@@ -21,9 +21,7 @@ module.exports = {
       console.log('no variant drop down');
     }
     await context.evaluate(async function () {
-      // @ts-ignore
-      const productCode = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products;
-      const productKey = Object.keys(productCode)[0];
+      const productKey = window.location.href.replace(/(.*)--p(\d+)/gm, '$2');
       // @ts-ignore
       const ean = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products[productKey].ean;
       if (ean) {

@@ -106,9 +106,6 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class="_3i5pck _3iEEhx"]/div | //div[@class="_3KumkR"]/div)
-    regExp: (\d+)
-    regExpReplace: $1
-    defaultValue: 1
   - name: color
     singleValue: false
     xpath: (//div[contains(@class,"_1k-W7f") and .//h3[contains(text(),"Allgemein")]])[1]//tr/th[contains(text(),"Farbe")]/following-sibling::td

@@ -60,6 +60,9 @@ const transform = (data) => {
           text: 'Out of Stock',
         }];
       }
+      row.variantCount = [{
+        text: row.variantCount[0].text === '0' ? 1 : row.variantCount[0].text,
+      }];
     }
   }
 

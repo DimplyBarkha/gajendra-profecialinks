@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'microspot.ch',
     prefix: null,
-    url: null,
+    url: 'https://www.microspot.ch/de/--p{id}',
     country: 'CH',
     store: 'microspot',
     zipcode: '',
