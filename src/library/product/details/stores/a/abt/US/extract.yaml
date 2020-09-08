@@ -72,10 +72,10 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //u[contains(text(),'Weight')]/../../following-sibling::ul//li[strong[contains(text(),'Unit')]]/text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //u[contains(text(),'Weight')]/../../following-sibling::ul//li[strong[contains(text(),'Unit')]]/text()    
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -157,7 +157,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id='iframe']
+    xpath: //div[@id='video']
   - name: name
     singleValue: true
     description: The product name

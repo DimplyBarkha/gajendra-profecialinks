@@ -10,6 +10,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    await new Promise(resolve => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -45,6 +46,16 @@ module.exports = {
         addElementToDocument('color', specColor);
       } else {
         addElementToDocument('color', descColor);
+      }
+      const manufacturerContent = document.querySelector('a#from_manufacturer');
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      if (manufacturerContent) manufacturerContent.click();
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      const iframes = document.querySelectorAll('iframe[title="Product Videos"]');
+      if (iframes) {
+        let videos = [];
+        iframes.forEach(el => videos.push(el.contentDocument.querySelector('video').getAttribute('src')));
+        addElementToDocument('video', videos);
       }
     });
     await context.extract(productDetails);
