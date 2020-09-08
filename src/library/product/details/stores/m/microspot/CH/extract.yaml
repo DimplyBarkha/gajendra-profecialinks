@@ -26,11 +26,11 @@ fields:
     xpath: //div[@class="s-AGc2"]//ol//li[position()>1]//a
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="container-productdetailPrice"]
+    xpath: //div[@id="container-productdetailPrice"]/span[2]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: //div[@id="container-productdetailPrice"]
+    xpath: //div[@id="container-productdetailPrice"]/span[2]
   - name: availabilityText
     singleValue: false
     xpath: (//div[contains(@class,"_3jMYnB")])[2]/ul/li[2]
@@ -104,7 +104,9 @@ fields:
     singleValue: false
   - name: variantCount
     singleValue: false
-    xpath: count(//div[contains(@class,"_3i5pck _3iEEhx")]/div)
+    xpath: count(//div[@class="_3i5pck _3iEEhx"]/div | //div[@class="_3KumkR"]/div)
+    regExp: (\d+)
+    regExpReplace: $1
     defaultValue: 1
   - name: color
     singleValue: false
