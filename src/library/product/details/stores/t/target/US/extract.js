@@ -636,28 +636,27 @@ async function implementation (
       let inStore = false;
       let deliver = false;
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=ff457966e64d5e877fdbad070f276d18ecec4a01&tcin=' + variant.tcin + '&store_id=281&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=281&fulfillment_test_mode=grocery_opu_team_member_test')
-      .then(data => data.json())
-      .then(availabilityData => {
-        if (availabilityData &&
+        .then(data => data.json())
+        .then(availabilityData => {
+          if (availabilityData &&
         availabilityData.data &&
         availabilityData.data.product &&
         availabilityData.data.product.fulfillment) {
-          if (availabilityData.data.product.fulfillment.store_options &&
+            if (availabilityData.data.product.fulfillment.store_options &&
               availabilityData.data.product.fulfillment.store_options.length) {
-                availabilityData.data.product.fulfillment.store_options.forEach(store => {
-                  if(store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
-                    inStore = true;
-                  }
-                });
-          }
+              availabilityData.data.product.fulfillment.store_options.forEach(store => {
+                if (store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
+                  inStore = true;
+                }
+              });
+            }
 
-          if (availabilityData.data.product.fulfillment.shipping_options &&
+            if (availabilityData.data.product.fulfillment.shipping_options &&
               (availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK' || availabilityData.data.product.fulfillment.shipping_options.availability_status.includes('LIMITED_STOCK'))) {
-            deliver = true;
+              deliver = true;
+            }
           }
-        }
-
-      });
+        });
 
       if (deliver || inStore) {
         if (deliver) {
@@ -666,7 +665,6 @@ async function implementation (
           addHiddenDiv(newDiv, 'availability', 'In Store Only');
         }
       } else {
-
         const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
         if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
           inStore = true;
@@ -691,7 +689,6 @@ async function implementation (
           addHiddenDiv(newDiv, 'availability', 'Out of stock');
         }
       }
-
 
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
         .then(data => data.json())
