@@ -122,9 +122,11 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //dl[contains(translate(string(), 'Brand', 'Brand'), 'Brand')]/dd
+    defaultValue: Dyson
   - name: manufacturer
     singleValue: false
     xpath: //dl[contains(translate(string(), 'Brand', 'Brand'), 'Brand')]/dd
+    defaultValue: Dyson
   - name: quantity
     singleValue: false
     xpath: //script[contains(text(),"ecomm_quantity")]/text()
