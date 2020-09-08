@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: ul.productlist__list > li
+recordXPath: //ul[contains(@class,"productlist__list")]/li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="lister-productitem__wrapper"]/a/@name
+    regExp: goto_id_(.+)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    manualSelector: p.description
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="lister-productitem__wrapper"]/a/@href
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: price
+    singleValue: false
+    manualSelector: span.price--primary
