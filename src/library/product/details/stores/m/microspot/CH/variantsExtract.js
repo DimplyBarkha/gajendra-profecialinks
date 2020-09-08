@@ -6,8 +6,10 @@ async function implementation (
 ) {
   const { variants } = dependencies;
   await context.evaluate(async function () {
+    // @ts-ignore
     const variant = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products;
     const productKey = Object.keys(variant)[0];
+    // @ts-ignore
     const variantUrls = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products[productKey].productVariants[0].options;
     function addEleToDoc (key, value) {
       const prodEle = document.createElement('div');
