@@ -98,10 +98,13 @@ fields:
     xpath: //div[@class="product-tab"][1]//div[1]
   - name: variantCount
     xpath: count(//*[@class="variant"] | //*[@class="variant active"] | //div[contains(@class, "alternative-slider")]//div[@class="slick-track"]//div[contains(@class,"slick-slide")]/a/@href )
-  - name: variantId
+  - name: variants
     singleValue: false
     xpath: //div[contains(@class, "variants")]//a[@class="variant"]/@href | //div[contains(@class, "alternative-slider")]//div[@class="slick-track"]//div[contains(@class,"slick-slide")]/a/@href 
     regExp: (.*)\/(.*?)\/
     regExpReplace: $2
   - name: variantInformation
     xpath: //div[@class="product-title"]//div[contains(@class, "variants")]//p | //div[contains(@class, "alternative")]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product-title"]//div[@class="sku-wrap"]//div[contains(., 'SKU')]//span
