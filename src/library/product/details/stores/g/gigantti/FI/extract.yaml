@@ -76,9 +76,9 @@ fields:
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
-    xpath: //td[contains(text(), "Paino")]/following::td[1]
+    xpath: //td[contains(text(), "Paino")]/following::td[1] | //td[contains(text(), "Paino")]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -141,7 +141,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //td/span[contains(text(), "Väri")]/following::td[1]
+    xpath: //td[contains(text(), "Väri")]/following::td[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -149,17 +149,13 @@ fields:
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    singleValue: false
+    singleValue: true
     description: Images within the third party description
     xpath: //div[contains(@class, "brand-logo")]/a/img/@src
-    regExp: (.+)
-    regExpReplace: https://www.gigantti.fi$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
     xpath: //video/@src
-    regExp: (.+)
-    regExpReplace: https://www.gigantti.fi$1
   - name: name
     singleValue: true
     description: The product name
@@ -419,8 +415,9 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //td[contains(text(), "Korkeus")]//following::td[1] | //td[contains(text(), "Korkeus")] | //td[contains(text(), "Leveys")]//following::td[1]  | //td[contains(text(), "Leveys")] | //td[contains(text(), "Syvyys")]//following::td[1] | //td[contains(text(), "Syvyys")]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -443,10 +440,9 @@ fields:
     description: Any other product information
     xpath: //div[contains(@class, "tab-slot")]//p
   - name: packaging
-    singleValue: true
+    singleValue: false
     description: Packaging information
-    xpath: //div[contains(@class, "tab-slot")]//p//strong[contains(text(), "Myyntipakkaus")]/following-sibling::text()
-    regExp: (.+\W)+\W.+
+    xpath: //div[contains(@class, "tab-slot")]//p//strong[contains(text(), "Myyntipakkaus")] | //div[contains(@class, "tab-slot")]//p//strong[contains(text(), "Myyntipakkaus")]/following-sibling::text()
   - name: additives
     singleValue: true
     description: List of additives in the product
@@ -459,6 +455,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //span[contains(@class, "sales-point")]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -494,6 +491,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //ul[contains(@class, "specs")]
   - name: prop65Warning
     singleValue: true
     description: null
@@ -512,6 +510,7 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //div[contains(@class, "tab-slot")]/a[contains(@href, ".pdf")]/@href
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
