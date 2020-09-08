@@ -27,13 +27,16 @@ fields:
     regExpReplace: https://www.ubaldi.com$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@id="main-liste-articles"]//div[@class="img-placeholder img-defer img-ratio-cc la-img"]//img/@src
+    xpath: //a[@class='zc-target']/img/@data-src
     regExp: (.+)
     regExpReplace: https://www.ubaldi.com$1
   - name: ratingCount
     singleValue: false
     xpath: //div[@id="main-liste-articles"]//span[@class="pr-nb-avis"]
     regExp: \d+
-    
-
+  - name: reviewCount
+    xpath: //span[@class="pr-nb-avis"]
+    regExp: \d+
+  - name: aggregateRating
+    xpath: //span[contains(@class,"pr-snippet-rating-decimal")]
 
