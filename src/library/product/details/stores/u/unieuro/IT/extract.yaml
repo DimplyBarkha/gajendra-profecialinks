@@ -99,7 +99,6 @@ fields:
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     xpath: translate(//*[@class="total-vote"], '.', ',')
-    type: NUMBER
   - name: shippingInfo
     xpath: (//span[@class="ship"])[1]
     description: Shipping information for the product

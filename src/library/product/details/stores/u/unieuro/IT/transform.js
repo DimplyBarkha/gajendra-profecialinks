@@ -22,12 +22,7 @@ const transform = (data, context) => {
       if (row.jsonData) {
         const json = JSON.parse(row.jsonData[0].text);
         const brand = (json && json.brand && json.brand.name) || '';
-        // const ratingCount = (json && json.aggregateRating && json.aggregateRating.ratingCount) || 0;
-        // const rating = (json && json.aggregateRating && json.aggregateRating.ratingValue) || 0;
         row.brandText = [{ text: brand }];
-        // row.ratingCount = [{ text: ratingCount }];
-        // row.aggregateRatingText = [{ text: rating }];
-        // row.aggregateRating = [{ text: rating }];
       }
 
       if (row.shippingDimensions) {
