@@ -9,7 +9,7 @@ module.exports = {
     domain: 'elcorteingles.es',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       // function to append the elements to DOM
       function addElementToDocument (key, value) {
