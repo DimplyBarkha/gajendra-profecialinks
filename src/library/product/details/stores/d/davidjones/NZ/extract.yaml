@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="slick-track"]//li[not(contains(@class, "slick-cloned")) and not(@data-slick-index="0")]//img/@src
+    xpath: //div[contains(@class,"slick-track")]//li[not(contains(@class, "slick-cloned")) and not(@data-slick-index="0") and not(contains(@class,'video'))]//img/@src
     regExp: (.+)
     regExpReplace: https://www.davidjones.com$1
   - name: availabilityText
@@ -26,7 +26,7 @@ fields:
     xpath: //div[contains(@class,'content long-description')]
   - name: image
     singleValue: false
-    xpath: //div[@class="slick-track"]//li[not(contains(@class, "slick-cloned")) and contains(@class, "slick-current")]//img/@src
+    xpath: //div[contains(@class,"slick-track")]//li[not(contains(@class, "slick-cloned")) and contains(@class, "slick-current")]//img/@src
     regExp: (.+)
     regExpReplace: https://www.davidjones.com$1
   - name: imageAlt
@@ -60,12 +60,13 @@ fields:
     xpath: //article[@id='page-content']//div[@itemtype="http://schema.org/Product"]/@data-pdid
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'info-container')]//iframe/@src
-    regExp: //(.*)
-    regExpReplace: $1
+    xpath: //div[contains(@class,'info-container')]//iframe/@src | //li[contains(@class,'video') and not(contains(@class,'slick-cloned'))]/a/@href
   - name: warranty
     singleValue: false
     xpath: //div[contains(@class,'content long-description')]/p[contains(text(),'guarantee')] | //div[contains(@class, "long-description")]//strong[contains(text(), "Warranty")]//following-sibling::span[1] | p
+  - name: warranty1
+    singleValue: false
+    xpath: //div[contains(@class,'content long-description')]
   # - name: _input
   #   singleValue: false
   # - name: _pageTimestamp
