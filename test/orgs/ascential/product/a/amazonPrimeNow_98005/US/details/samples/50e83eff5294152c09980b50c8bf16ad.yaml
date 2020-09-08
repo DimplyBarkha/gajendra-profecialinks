@@ -1,0 +1,83 @@
+input:
+  _url: https://primenow.amazon.com
+  URL: https://primenow.amazon.com/dp/B0016LWMBM?qid=1592337178&m=A2QJ4VT1YF51GV&sr=1-1&ref_=pn_sr_sg_1_img_A2QJ4VT1YF51GV
+extractions:
+  - html: https://workbench.import.io/html/run=cf6bd9ad-9bd6-4204-93fe-507e16d9c904/task=bc716c9f-c1ef-442a-9f28-edf31f0c8c6c/eb1ca549-a60f-427d-ba95-5861887b49c9.html
+    extractionConfigId: product/details/stores/a/amazonPrimeNow_98005/US/extract
+    data:
+      - group:
+          - metaKeywords:
+              - text: New Belgium Fat Tire, 12 pk, 12 oz bottles, 5.2% ABV,New Belgium
+                  Brewing,dinirao
+                xpath: /html/head[1]/meta[5]/@content
+            nameExtended:
+              - text: "Named in honor of our founder Jeff's bike trip through Belgium, Fat Tire
+                  Amber Ale marks a turning point in the young electrical
+                  engineer's home brewing. Belgian beers use a far broader
+                  palette of ingredients (fruits, spices, esoteric yeast
+                  strains) than German or English styles. Jeff found the Belgian
+                  approach freeing. Upon his return, Jeff created Fat Tire and
+                  Abbey Belgian Ale, (assuming Abbey would be his big gun). He
+                  and his wife, Kim traveled around sampling their homebrews to
+                  the public. Fat Tire's appeal quickly became evident. People
+                  liked everything about it. Except the name. Fat Tire won fans
+                  with its sense of balance: toasty, biscuit-like malt flavors
+                  coasting in equilibrium with hoppy freshness."
+                xpath: /html/body/div[2]/div[1]/div[2]/div[9]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]
+            price:
+              - text: $15.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[5]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            availability:
+              - text: In Stock.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[6]/div[1]
+            description:
+              - text: The taste is exceptionally smooth and tastes of citrusy hops and chocolate
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[2]
+              - text: Its malt flavors are well played and well balanced
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[3]
+              - text: Overall the brew gives the drinker a medium-light body mouthfeel with a
+                  smooth clean finish
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[4]
+            brandText:
+              - text: New Belgium
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[2]
+            weightNet:
+              - text: 15.27 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            weightGross:
+              - text: 15.27 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[3]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/div[1]/span[1]/span[1]/@title
+            name:
+              - text: New Belgium Fat Tire, 12 pk, 12 oz bottles, 5.2% ABV
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/h1[1]
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/81utyQIq1iL._SX679_PIbundle-12,TopRight,0,0_SX679SY579SH20_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: New Belgium Fat Tire, 12 pk, 12 oz bottles, 5.2% ABV
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "3"
+            shippingDimensions:
+              - text: 8 x 10 x 9.5 inches; 15.3 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[1]/text()[1]
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "1"
+            amazonChoice:
+              - text: No
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+        xpath: /html
+    timestamp: 1592822301136

@@ -1,0 +1,84 @@
+input:
+  _url: https://primenow.amazon.com
+  URL: https://primenow.amazon.com/dp/B0016H74UK?qid=1592340969&m=A2QJ4VT1YF51GV&sr=1-1&ref_=pn_sr_sg_1_img_A2QJ4VT1YF51GV
+extractions:
+  - html: https://workbench.import.io/html/run=cf6bd9ad-9bd6-4204-93fe-507e16d9c904/task=6d0850ff-72b2-432c-9207-9f8f54284494/50b41879-4cbc-4d37-8005-815480ac1610.html
+    extractionConfigId: product/details/stores/a/amazonPrimeNow_98005/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/51I80ZRF2%2BL._AC_SR38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51psgR8ljML._AC_SR38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51ltOOZaz%2BL._AC_SR38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Clos Du Bois, Pinot Noir, 750mL,Clos Du Bois,86643
+                xpath: /html/head[1]/meta[5]/@content
+            nameExtended:
+              - text: Clos du Bois Winery farms almost 800 acres in the vibrantly diverse wine
+                  regions of Sonoma County and Coastal California. Working with
+                  a family of trusted growers from some of the best vineyards,
+                  each vintage is crafted to achieve balance, intensity, and
+                  true varietal character. This Clos du Bois Pinot Noir displays
+                  aromas of cherry, dried roses, and nutmeg. In the mouth,
+                  flavors of sweet cherry and cranberry, with a rich, silky, and
+                  lush texture balanced with light toasty oak. This red wine
+                  pairs well with slow-roasted pork shoulder, ribs, or any dish
+                  made with bacon.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[9]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]
+            price:
+              - text: $9.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[5]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            availability:
+              - text: In Stock.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[6]/div[1]
+            description:
+              - text: "Origin: Italy"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[2]
+              - text: "Type of Wine: Red"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[3]
+            brandText:
+              - text: Clos Du Bois
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[2]
+            weightNet:
+              - text: 2.64 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            weightGross:
+              - text: 2.64 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[3]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[1]/div[1]/span[1]/span[1]/@title
+            name:
+              - text: Clos Du Bois, Pinot Noir, 750mL
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/h1[1]
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/612KJMpBg4L._AC_SY679_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Clos Du Bois, Pinot Noir, 750mL
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "2"
+            shippingDimensions:
+              - text: 3.5 x 3.6 x 12.1 inches; 2.65 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/text()[1]
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "4"
+            amazonChoice:
+              - text: No
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+        xpath: /html
+    timestamp: 1592822299330

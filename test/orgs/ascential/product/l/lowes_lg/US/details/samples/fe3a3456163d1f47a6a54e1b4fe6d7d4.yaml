@@ -1,0 +1,300 @@
+input:
+  _url: https://lowes.com
+  URL: https://www.lowes.com/pd/Whirlpool-24-7-cu-ft-3-Door-Standard-Depth-French-Door-Refrigerator-with-Single-Ice-Maker-Fingerprint-Resistant-Stainless-Steel-ENERGY-STAR/1000092933
+extractions:
+  - html: https://workbench.import.io/html/run=863f4d8a-7a83-4629-a160-3987a7a8e893/task=57588b22-1723-4c5b-8a03-7eb5da639255/b05db0d7-ca66-42b0-b745-9293f097df21.html
+    extractionConfigId: product/details/stores/l/lowesLG/US/extract
+    data:
+      - group:
+          - name:
+              - text: Whirlpool 24.7-cu ft French Door Refrigerator with Ice Maker
+                  (Fingerprint-Resistant Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            brandText:
+              - text: Whirlpool
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/span[1]
+            image:
+              - text: http://mobileimages.lowes.com/product/converted/883049/883049409238.jpg?size=pdhi
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "Whirlpool French Door Refrigerators #WRF555SDFZ"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: http://images.lowes.com/product/converted/883049/883049409238_05480269lg.jpg
+                xpath: /html/body/a[2]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049409238_05480270lg.jpg
+                xpath: /html/body/a[3]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049409238_07741530lg.jpg
+                xpath: /html/body/a[4]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049409238_08155972lg.jpg
+                xpath: /html/body/a[5]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049409238_08856500lg.jpg
+                xpath: /html/body/a[6]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049409238_08155970lg.jpg
+                xpath: /html/body/a[7]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049409238_08886822lg.jpg
+                xpath: /html/body/a[8]/@href
+              - text: http://images.lowes.com/product/converted/883049/883049409238_08886821lg.jpg
+                xpath: /html/body/a[9]/@href
+            category:
+              - text: Appliances
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]
+              - text: Refrigerators
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]
+              - text: French Door Refrigerators
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]
+            listPrice:
+              - text: $2,199.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $1,979.00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/form[1]/div[2]
+            description:
+              - text: Organize foods for your family in this Whirlpool® french door refrigerator
+                  available in fingerprint-resistant stainless steel. A
+                  humidity-controlled double crisper and two-tier freezer
+                  storage provide plenty of room. Spillproof shelves help
+                  contain spills and for filtered water right at hand, this
+                  refrigerator features an exterior water dispenser with
+                  EveryDrop® ice and water filtration.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]
+              - text: >-
+                  Access fresh filtered water and ice without ever opening the
+                  refrigerator door
+
+                  Simplify cleanup with spillproof glass shelves
+
+                  A humidity-controlled double crisper keeps produce fresh
+
+                  Two-tier freezer storage makes organization easy
+
+                  Fingerprint resistant - resists fingerprint and smudges with steel that easily wipes clean
+
+                  Adjustable gallon door bins - move these adjustable bins anywhere in the door for increased loading flexibility when and where you need it
+
+                  LED lighting makes it easy to view the refrigerator’s contents
+
+                  Tap touch controls - clean these controls as easily as you use them
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]
+            sku:
+              - text: "1000092933"
+                xpath: /html/head[1]/link[5]/@href
+            variantId:
+              - text: "714644"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]
+            mpc:
+              - text: WRF555SDFZ
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/div[1]/span[2]
+            ratingCount:
+              - text: "3238"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/ol[1]/span[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[3]/div[1]/button[1]/div[1]/div[1]/a[1]/@aria-label
+            specifications:
+              - text: |-
+                  Series Name
+                  N/A
+                  Sub-Brand
+                  N/A
+                  Appliance Color/Finish
+                  Stainless steel
+                  Manufacturer Color/Finish
+                  Fingerprint Resistant Stainless Steel
+                  Cabinet Color
+                  Gray
+                  Fingerprint-Resistant
+                  Toe Grille Color
+                  Gray
+                  Common Width (Inches)
+                  36
+                  Actual Width (Inches)
+                  35.625
+                  Depth Type
+                  Standard-Depth
+                  Depth (Including Handles) (Inches)
+                  35.25
+                  Depth (Excluding Handles) (Inches)
+                  32.88
+                  Depth (Less Door) (Inches)
+                  29
+                  Depth with Door Open (Inches)
+                  48
+                  Height to Top of Case (Inches)
+                  68.625
+                  Height to Top of Door (Inches)
+                  70.125
+                  Height to Top of Door Hinge (Inches)
+                  70.125
+                  Refrigerator Interior Lighting
+                  LED
+                  Overall Capacity (Cu. Feet)
+                  24.7
+                  Refrigerator Capacity (Cu. Feet)
+                  18
+                  Freezer Capacity (Cu. Feet)
+                  6.7
+                  Number of Doors
+                  3
+                  Door within Door
+                  Door Alarm
+                  Door Shelves
+                  6
+                  Door Style
+                  Contoured
+                  Door Texture
+                  Smooth
+                  Air Filtration
+                  Built-In
+                  Child Safety Locks
+                  Dispenser Light
+                  Dispenser Options
+                  Filtered water and cubed/crushed ice
+                  Ice Maker
+                  Single
+                  Space-Saving In-Door Ice
+                  Dual Evaporator Cooling System
+                  Freezer Light
+                  Freezer Baskets
+                  1
+                  Freezer Door Bins
+                  0
+                  Freezer Door Style
+                  Pull-out drawer
+                  Freezer Drawers
+                  1
+                  Freezer Shelves
+                  0
+                  Frost-Free
+                  Gallon Door Storage
+                  Handle Type
+                  Standard
+                  Hidden Hinge
+                  Humidity-Controlled Crispers
+                  2
+                  Electronic Temperature Control
+                  Shelf Options
+                  Adjustable spillproof glass shelves
+                  Water Filter Indicator
+                  Water Filtration
+                  Pantry Drawer
+                  Temperature-controlled
+                  Snack/Deli Drawer
+                  Temperature Controlled Drawer
+                  App Compatibility
+                  Bluetooth Compatibility
+                  Wi-Fi Compatibility
+                  Hub Required
+                  Voice Controlled
+                  Works with Amazon Alexa
+                  Works with Android
+                  Works with Apple HomeKit
+                  Works with SmartThings
+                  Works with iOS
+                  Works with the Google Assistant
+                  Matching Air Filter (Model #)
+                  N/A
+                  Matching Replacement Water Filter Model
+                  EDR4RXD1
+                  Custom Door Kit Compatible
+                  ADA Compliant
+                  CEE Tier Qualified
+                  CEE Tier I
+                  ENERGY STAR Certified
+                  Lowe's Exclusive
+                  Handle Color
+                  Stainless steel
+                  See-Thru Door
+                  Model
+                  WRF555SDFZ
+                  Approved for Outdoor Use
+                  Warranty
+                  1-year limited
+                  Weight (lbs.)
+                  328
+                  Safety Listing
+                  UL safety listing
+                  CA Residents: Prop 65 Warning(s)
+                   Prop 65 WARNING(S)
+                  UNSPSC
+                  52141500
+                  Refrigerator Size
+                  Medium (33 - 36-in)
+                  Smart Compatible
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]
+            warranty:
+              - text: 1-year limited
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[35]/div[2]
+            variantInformation:
+              - text: Fingerprint Resistant Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            secondaryImageTotal:
+              - text: "9"
+                xpath: /html/body/a[10]/@href
+            warnings:
+              - text: Prop 65 Warning(s)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]
+            url:
+              - text: https://www.lowes.com/pd/Whirlpool-24-7-cu-ft-French-Door-Refrigerator-with-Ice-Maker-Fingerprint-Resistant-Stainless-Steel-ENERGY-STAR/1000092933
+                xpath: /html/head[1]/link[5]/@href
+            videos:
+              - text: https://lda.lowes.com/is/content/Lowes/883049409238_video_01
+                xpath: /html/body/a[11]/@href
+            nameExtended:
+              - text: Whirlpool 24.7-cu ft French Door Refrigerator with Ice Maker
+                  (Fingerprint-Resistant Stainless Steel) ENERGY STAR
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[1]/div[2]/h1[1]/@aria-label
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered by
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/h1[1]
+              - text: Organize foods for your family in this Whirlpool® french door refrigerator
+                  available in fingerprint-resistant stainless steel. A
+                  humidity-controlled double crisper and two-tier freezer
+                  storage provide plenty of room. Spillproof shelves help
+                  contain spills and for filtered water right at hand, this
+                  refrigerator features an exteriorwater dispenser with
+                  EveryDrop® ice and water filtration.
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: >-
+                  Exterior Ice and Water Dispenser with EveryDrop™ Filtration -
+                  Access fresh filtered water and ice without ever opening the
+                  refrigerator door.
+                   
+                   Spillproof Shelves - Simplify cleanup with glass shelves that help contain spills and prevent liquids from leaking below.
+                   
+                   Humidity-Controlled Double Crisper - Get the room you need to store fruits and vegetables in their ideal environment.
+                   
+                   Two-Tier Freezer Storage - Easily organize frozen favorites with two-tier freezer storage, including two sliding bins.
+                   
+                   Fingerprint Resistant - Resist fingerprints and smudges with steel that easily wipes clean.
+                   
+                   ENERGY STAR® Certified - ENERGY STAR® certified models exceed government standards to help save money on your utility bills.
+                   
+                   Adjustable Gallon Door Bins - Move these adjustable bins anywhere in the door for increased loading flexibility when and where you need it.
+                   
+                   Tap Touch Controls - Clean these controls as easily as you use them.
+                   
+                   25 Cu. Ft. Capacity 
+                   
+                   Dispenser Control Lock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/live/whirlpool-20200330132035/module/whirlpool/access.whirlpool.com/mr/WRF555SDFZ/AB-DefaultZoom_550X550_HO.jpg.w480.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            gtin:
+              - text: "883049409238"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+            color:
+              - text: Fingerprint Resistant Stainless Steel
+                xpath: /html/body/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/h3[1]
+            descriptionBullets:
+              - text: "8"
+            promotion:
+              - text: Save 10% Offer ends on Jul 8
+            variantCount:
+              - text: "4"
+        xpath: /
+    timestamp: 1593423820885

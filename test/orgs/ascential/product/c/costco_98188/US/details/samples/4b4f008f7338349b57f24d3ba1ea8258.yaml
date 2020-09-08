@@ -1,0 +1,72 @@
+input:
+  _url: https://costco.com
+  URL: https://www.costco.com/bai-antioxidant-infusion,-sunrise-variety-pack,-18-fl-oz,-15-count.product.100378997.html
+extractions:
+  - html: https://workbench.import.io/html/run=7891af6c-033d-4c62-a9a7-154ec9dfe2ca/task=af9b69da-7708-4053-84ca-6fe7f97e3646/a708c709-b204-4973-83b8-c3a8471fa387.html
+    extractionConfigId: product/details/stores/c/costco_98188/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=936242-847&recipeName=680
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1105108&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[2]/img[1]/@src
+              - text: https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1119057&recipeId=735
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+            category:
+              - text: Food, Household & Pet
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[2]/a[1]/span[1]
+              - text: Water & Beverages
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[3]/a[1]/span[1]
+              - text: Juice
+                xpath: /html/body/div[4]/div[3]/div[2]/div[2]/ol[1]/li[4]/a[1]/span[1]
+              - text: 404 - Product Not Found
+                xpath: /html/body/div[4]/div[4]/div[1]/div[1]/ol[1]/li[2]/span[1]
+            nameExtended:
+              - text: Bai Antioxidant Infusion, Sunrise Variety Pack, 18 fl oz, 15-count
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: "22.99"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]
+            price:
+              - text: "22.99"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]
+            availability:
+              - text: instock
+                xpath: /html/head[1]/meta[20]/@content
+            availabilityText:
+              - text: instock
+                xpath: /html/head[1]/meta[20]/@content
+            brandText:
+              - text: Bai
+                xpath: /html/body/div[4]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            variantId:
+              - text: "936242"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[1]/div[4]/div[1]/span[1]/span[1]
+            name:
+              - text: Bai Antioxidant Infusion, Sunrise Variety Pack, 18 fl oz, 15-count
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
+            inStorePrice:
+              - text: "22.99"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]
+            sku:
+              - text: "936242"
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[1]/div[4]/div[1]/span[1]/span[1]
+            pricePerUnit:
+              - text: $-.- -
+                xpath: /html/body/div[4]/div[3]/div[3]/div[1]/div[3]/div[3]/span[2]
+            productUrl:
+              - text: https://www.costco.com/bai-antioxidant-infusion%2c-sunrise-variety-pack%2c-18-fl-oz%2c-15-count.product.100378997.html
+                xpath: /html/head[1]/link[3]/@href
+            description:
+              - text: 5 Calories Per Serving No Artificial Sweeteners Antioxidant Infused 270
+                  fl. oz. Total
+            descriptionBullets:
+              - text: "4"
+            specifications:
+              - text: Brand Bai
+            secondaryImageTotal:
+              - text: "2"
+        xpath: /html
+    timestamp: 1593081657517

@@ -1,0 +1,123 @@
+input:
+  keywords: inverter air conditioner
+  _url: https://lowes.com
+extractions:
+  - html: https://workbench.import.io/html/run=53f06bd3-7930-4d4c-bcb4-473bd3370fd7/task=7c623ee6-80b7-4de6-97b0-e28cbca512f9/012859f4-ae1c-4a8a-8bad-d37a25e2415a.html
+    extractionConfigId: product/search/stores/l/loweslg/US/extract
+    data:
+      - group:
+          - id:
+              - text: "4129082"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-productid
+            price:
+              - text: $465.00
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.lowes.com/pd/Grape-Solar-0-4-kW-Off-Grid-Solar-Electric-Power-Kit/4129082
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://mobileimages.lowes.com/product/converted/817732/817732012290.jpg?size=lg
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Grape Solar 0.4-kW Off-Grid Solar Electric Power Kit
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[1]/div[2]/div[2]/a[1]/p[1]
+          - id:
+              - text: "1000545267"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-productid
+            price:
+              - text: $799.00
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.lowes.com/pd/Generac-GP-8125-Watt-Gasoline-Portable-Generator/1000545267
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://mobileimages.lowes.com/product/converted/696471/696471073829.jpg?size=lg
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Generac GP 8125-Watt Gasoline Portable Generator
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[3]/div[2]/div[2]/a[1]/p[1]
+            aggregateRating:
+              - text: "4.5000"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[3]/div[2]/div[2]/div[3]/a[1]/span[1]/i[1]/@data-rating
+            ratingCount:
+              - text: "130"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[3]/div[2]/div[2]/div[3]/a[1]/small[1]
+            reviewCount:
+              - text: "130"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[3]/div[2]/div[2]/div[3]/a[1]/small[1]
+          - id:
+              - text: "1000562595"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-productid
+            price:
+              - text: $649.00
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[5]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.lowes.com/pd/CRAFTSMAN-CMXGGAS030731-6250-Watt-Gasoline-Portable-Generator-with-Briggs-Stratton-Engine/1000562595
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://mobileimages.lowes.com/product/converted/011675/011675307318.jpg?size=lg
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-src
+            name:
+              - text: CRAFTSMAN CMXGGAS030731 6250-Watt Gasoline Portable Generator with Briggs
+                  & Stratton Engine
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[5]/div[2]/div[2]/a[1]/p[1]
+            aggregateRating:
+              - text: "4.0625"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[5]/div[2]/div[2]/div[3]/a[1]/span[1]/i[1]/@data-rating
+            ratingCount:
+              - text: "80"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[5]/div[2]/div[2]/div[3]/a[1]/small[1]
+            reviewCount:
+              - text: "80"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[5]/div[2]/div[2]/div[3]/a[1]/small[1]
+          - id:
+              - text: "1000584911"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-productid
+            price:
+              - text: $1,129.00
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[7]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.lowes.com/pd/Generac-GP-Series-10000-Watt-Gasoline-Portable-Generator/1000584911
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://mobileimages.lowes.com/product/converted/696471/696471074550.jpg?size=lg
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Generac GP Series 10000-Watt Gasoline Portable Generator
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[7]/div[2]/div[2]/a[1]/p[1]
+            aggregateRating:
+              - text: "4.4400"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[7]/div[2]/div[2]/div[3]/a[1]/span[1]/i[1]/@data-rating
+            ratingCount:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[7]/div[2]/div[2]/div[3]/a[1]/small[1]
+            reviewCount:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[7]/div[2]/div[2]/div[3]/a[1]/small[1]
+          - id:
+              - text: "1000492153"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-productid
+            price:
+              - text: $5,047.00
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[9]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.lowes.com/pd/Generac-Guardian-Series-WIFI-Enabled-22000-Watt-LP-19500-Watt-NG-Standby-Generator-with-Automatic-Transfer-Switch/1000492153
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://mobileimages.lowes.com/product/converted/696471/696471074215.jpg?size=lg
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-src
+            name:
+              - text: Generac Guardian Series WIFI Enabled 22000-Watt (LP) / 19500-Watt (NG)
+                  Standby Generator with Automatic Transfer Switch
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[9]/div[2]/div[2]/a[1]/p[1]
+            aggregateRating:
+              - text: "4.8577"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[9]/div[2]/div[2]/div[3]/a[1]/span[1]/i[1]/@data-rating
+            ratingCount:
+              - text: "1673"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[9]/div[2]/div[2]/div[3]/a[1]/small[1]
+            reviewCount:
+              - text: "1673"
+                xpath: /html/body/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/ul[1]/li[9]/div[2]/div[2]/div[3]/a[1]/small[1]
+        xpath: /html
+    timestamp: 1593192974790
