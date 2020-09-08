@@ -95,6 +95,8 @@ fields:
     xpath: //div[contains(@class, 'boxed')]//div[contains(@class, 'image-container')]//div[@class='image']/@style
     regExp: background-image:url\('(.+)'\)
     regExpReplace: $1
+  - name: manufacturer
+    xpath: //span/text()[preceding-sibling::b[contains(.,'Informationen zum Hersteller:')]][1]
   - name: weightNet
     xpath: //*[contains(.,'Mehr zu diesem Produkt') or contains(., 'Artikeldetails')]/following-sibling::ul/li[contains(.,'Nettogewicht') or contains(., 'Gewicht mit Kabel') or contains(., 'Gewicht in')]
     regExp: (.+):(.+)

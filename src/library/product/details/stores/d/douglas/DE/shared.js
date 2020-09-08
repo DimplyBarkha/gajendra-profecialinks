@@ -71,7 +71,7 @@ const transform = (data) => {
         row.description[0].text = `|| ${row.description[0].text}`;
 
         if (row.descriptionChunck) {
-          row.description[row.description.length - 1].text = `${row.description[1].text} ${row.descriptionChunck[0].text}`
+          row.description[row.description.length - 1].text = `${row.description[row.description.length - 1].text} ${row.descriptionChunck[0].text}`
         }
 
         if (row.descriptionliChunck) {
