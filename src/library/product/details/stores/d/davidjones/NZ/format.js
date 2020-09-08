@@ -20,6 +20,9 @@ const transform = (data) => {
           item.text = item.text.replace(/productthumb/, 'magnify');
         });
       }
+      if (row.image) {
+        row.image[0].text = row.image[0].text.replace(/productthumb/, 'magnify');
+      }
       row.variantCount = [{ text: 1 }];
     }
   }
