@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@id,"container-productlist")]/div
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div/a/@href
+    regExp: (.*)--p(\d+)
+    regExpReplace: $2
+  - name: price
+    singleValue: false
+    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//div[@class="_28doBv"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div/a/@href
+    regExp: (.*)
+    regExpReplace: https://www.microspot.ch/$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//img[@itemprop="contentUrl"]/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//img[@itemprop="contentUrl"]/@alt
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"wQ1zdx _14LFJJ _1ryioq")]//div[contains(@class,"_3Xsu6q")]//*[local-name() = 'svg']//*[local-name() = 'path']/@d
+  - name: ratingCount
+    singleValue: false
+    xpath:
+    regExp: \d+
+  - name: reviewCount
+    singleValue: false
+    xpath:
+    regExp: \d+
+  - name: mpc
+    singleValue: false
+    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div/a/@href
+    regExp: (.*)--p(\d+)
+    regExpReplace: $2
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
