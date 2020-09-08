@@ -5,8 +5,8 @@ module.exports = {
     country: 'NZ',
     store: 'davidjones',
     domain: 'davidjones.com',
-    loadedSelector: 'div[class*="product product-top type-electrical"]',
-    noResultsXPath: '//p[class*="lead"]',
+    loadedSelector: 'div[itemtype*="http://schema.org/Product"]',
+    noResultsXPath: '//h1[contains(text(), "Invalid Request")] | //h1[contains(text(), "Page not found")]',
     zipcode: '',
   },
 };
