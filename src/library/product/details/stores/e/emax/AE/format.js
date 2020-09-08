@@ -6,7 +6,7 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.brandText) {
+      if (!row.brandText && row.nameExtended) {
         let firstWord = row.nameExtended[0].text;
         firstWord = firstWord.split(' ');
         row.brandText = [
@@ -22,7 +22,7 @@ const transform = (data) => {
         });
       }
       if (row.description) {
-        row.description[0].text = row.description[0].text.replace(/\n \n/g, '').replace(/\n /g, ' ');
+        row.description[0].text = row.description[0].text.replace(/\n \n/g, ' || ').replace(/\n /g, ' ');
       }
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/\n \n/g, ' || ');
