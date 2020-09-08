@@ -28,8 +28,8 @@ fields:
     singleValue: false
     xpath: //div[@class='price-box']//div[@class='regular-price' or @class='special-price']
   - name: description
-    singleValue: false    
-    xpath: //div[@id='full-desc']  
+    singleValue: false
+    xpath: //div[@id='full-desc']//strong[contains(text(),'Description:')]/following-sibling::text()
   - name: brandText
     singleValue: false
     xpath: //div[@class='product_logo mbot12']//a
@@ -55,8 +55,7 @@ fields:
     singleValue: false
     xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
     regExp: (.*)\/.+
-    regExpReplace: $1
-    type: NUMBER
+    regExpReplace: $1    
   - name: shippingInfo
     singleValue: false
     xpath: //ul[@class='countdown mtop20']
@@ -80,10 +79,7 @@ fields:
     xpath: //div[@id='full-desc']//iframe/@src
   - name: variantInformation
     singleValue: false
-    xpath: //select[@id='attribute211']/option[preceding::option]/text()  
-  - name: imageZoomFeaturePresent
-    singleValue: false    
-    defaultValue: Yes
+    xpath: //select[@id='attribute211']/option[preceding::option]/text()    
   - name: quantity
     singleValue: false
     defaultValue: 1  
@@ -93,10 +89,13 @@ fields:
     defaultValue: 'In Stock'
   - name: variantCount
     singleValue: false    
-    defaultValue: 0   
-  - name: technicalInformationPdfPresent
+    defaultValue: 0
+  - name: specifications
     singleValue: false
-    defaultValue: No
-  - name: Image360Present
+    xpath: //div[@id='full-desc']//strong[contains(text(),'Overview:')]/parent::*
+  - name: additionalDescBulletInfo
     singleValue: false
-    defaultValue: No  
+    xpath: //div[@id='full-desc']//div[@class='desc_divider']//ul//li
+  - name: descriptionBullets
+    singleValue: false
+    defaultValue: 0
