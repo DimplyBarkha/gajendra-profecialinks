@@ -2,6 +2,8 @@ fields:
   - name: image
     singleValue: false
     xpath: (//div[@data-auto-id="image"]//img)[1]/@src
+    regExp: (.+)(\?.+)
+    regExpReplace : $1
   - name: metaKeywords
     singleValue: true
   - name: _pageTimestamp
@@ -20,10 +22,10 @@ fields:
     singleValue: true
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@class,'pdp-main-details__title')]
-  - name: onlinePrice
-    singleValue: true
-    manualSelector: div.pdp-main-details__price-container strong.pdp-main-details__price
+    xpath: concat(//h1[@class="pdp-main-details__title"],' ',//div[@class="pdp-main-details__weight"])
+  - name: name
+    singleValue: false
+    xpath: concat(//h1[@class="pdp-main-details__title"],' ',//div[@class="pdp-main-details__weight"])
   - name: price
     singleValue: true
     manualSelector: div.pdp-main-details__price-container strong.pdp-main-details__price
@@ -45,20 +47,19 @@ fields:
     singleValue: true
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Features') or contains(text(),'Product Information') or contains(text(),'Further Description')]]//div[contains(@class,'content')]
+    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Features') or contains(text(),'Product Information') or contains(text(),'Further Description') or contains(text(), 'Brand Marketing')]]//div[contains(@class,'content')]
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Ingredients')]]//div[contains(@class,'content')]
   - name: brandText
     singleValue: false
-    manualSelector: h1.pdp-main-details__title
-    regExp: ^[^\s]+
+    manualSelector: div#brandName
   - name: manufacturer
     singleValue: false
     xpath: //div[contains(.,"Manufacturer Address")][@class="pdp-description-reviews__product-details-title"]/following-sibling::div[1]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Manufacturer Address')]]//div[contains(@class,'content')]//text()
+    xpath: //div[@id="wc-power-page"]/div[@id="wc-aplus"]//div[contains(@class,"wc-text-wrap")]
   - name: quantity
     singleValue: false
     manualSelector: .pdp-main-details__weight
@@ -67,7 +68,8 @@ fields:
   - name: weightGross
     singleValue: true
   - name: manufacturerImages
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class,"wc-media-wrap") or contains(@class,"wc-rf-banner-image-container")]//img/@src
   - name: upc
     singleValue: false
     xpath: //*[@id='s7viewer_container_inner']//div[contains(@class,'s7staticimage')]//img[1]/@src
@@ -95,7 +97,7 @@ fields:
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Safety Warning')]]//div[contains(@class,'content')]
   - name: servingSize
     singleValue: false
-    xpath: //div[contains(@class,'pdp-description')]/div[contains(text(),'Typical values') and contains(@class,'title')]/following-sibling::div[contains(text(),'Per Pack') and contains(@class,'title')]
+    xpath: (//div[contains(@class,'pdp-description')]/div[contains(text(),'Typical values') and contains(@class,'title')]/following-sibling::div[contains(text(),'per 100 g') and contains(@class,'title') or contains(text(),'Per Pack') and contains(@class,'title') or contains(text(),'Per 100g') and contains(@class,'title') or contains(text(),'100') or contains(text(),'Analytical')][1])[1]
   - name: servingSizeUom
     singleValue: true
   - name: numberOfServingsInPackage
@@ -106,34 +108,37 @@ fields:
     regExp: (.+)?( stars.*|No rating.*)
     regExpReplace: $1
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class="co-product__rating"]/div/@aria-label
+    regExp: (.+)?( stars.*|No rating.*)
+    regExpReplace: $1
   - name: caloriesPerServing
     singleValue: false
-    xpath: concat((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/following-sibling::div)[1],'',((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/parent::div/following-sibling::div)[1]/div[contains(@class,'nutrition-cell--grouped')])[2])
+    xpath: concat((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/following-sibling::div)[1],'/',((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/parent::div/following-sibling::div[contains(.,"Energy")])[1]/div[contains(@class,'nutrition-cell--grouped') or contains(@class,"pdp-description-reviews__nutrition-cell--details")])[2],'',((//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Energy')]/parent::div/following-sibling::div)[1]/div[contains(@class,'nutrition-cell--grouped')])[2],'',//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'(kcal)')]/following-sibling::div[1])
   - name: caloriesFromFatPerServing
     singleValue: true
   - name: totalFatPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fat')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fat')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
-    regExpReplace: $2$3
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
+    regExpReplace: $3
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which saturates') or contains(text(),'of which Saturates')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
+    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which saturates') or contains(text(),'of which Saturates') or contains(text(),' saturates')]/following-sibling::div)[1]
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     #regExp: (.+)
     regExpReplace: $1
   - name: saturatedFatPerServingUom
     singleValue: false
-    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which saturates') or contains(text(),'of which Saturates')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
+    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which saturates') or contains(text(),'of which Saturates') or contains(text(),' saturates')]/following-sibling::div)[1]
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     #regExp: (.+)
-    regExpReplace: $2$3
+    regExpReplace: $3
   - name: transFatPerServing
     singleValue: true
   - name: transFatPerServingUom
@@ -144,54 +149,54 @@ fields:
     singleValue: true
   - name: sodiumPerServing
     singleValue: false
-    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'= Sodium')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
+    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'= Sodium') or contains(.,"Sodium") or contains(.,"sodium")]/following-sibling::div)[1]
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: sodiumPerServingUom
     singleValue: false
-    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'= Sodium')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2
+    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'= Sodium') or contains(.,"Sodium") or contains(.,"sodium")]/following-sibling::div)[1]
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
+    regExpReplace: $3
   - name: totalCarbPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Carbohydrate')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Carbohydrate')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
+    regExpReplace: $3
   - name: dietaryFibrePerServing
     singleValue: false
-    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fibre')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
+    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fibre') or contains(text(),'fibre')]/following-sibling::div)[1]
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: dietaryFibrePerServingUom
     singleValue: false
-    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fibre')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2
+    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Fibre') or contains(text(),'fibre')]/following-sibling::div)[1]
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
+    regExpReplace: $3
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which sugars')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
+    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which sugars') or contains(text(),' sugars') or contains(text(),' Sugars')]/following-sibling::div)[1]
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which sugars')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2
+    xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'of which sugars') or contains(text(),' sugars') or contains(text(),' Sugars')]/following-sibling::div)[1]
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
+    regExpReplace: $3
   - name: proteinPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Protein')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Protein')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
+    regExpReplace: $3
   - name: vitaminAPerServing
     singleValue: true
   - name: vitaminAPerServingUom
@@ -203,13 +208,13 @@ fields:
   - name: calciumPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Calcium')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: calciumPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Calcium')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
+    regExpReplace: $3
   - name: ironPerServing
     singleValue: true
   - name: ironPerServingUom
@@ -219,16 +224,11 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //*[@id='s7viewer_swatches']//div[contains(@class,'s7thumbcell')][@aria-selected='false']/div[contains(@class,'s7thumb')]/@style
-    regExp: (")(.*)(")
+    regExp: (")(.+)(\?.+)(")
     regExpReplace: $2
-  - name: numberOfCustomerReviews
-    singleValue: false
-    manualSelector: div.asda-tab-list button[aria-label*='Reviews']
-    regExp: (\d+)
-    regExpReplace: $1
   - name: ratingCount
     singleValue: false
-    manualSelector: div.asda-tab-list button[aria-label*='Reviews']
+    xpath: //div[@class="asda-tab-list"]//button[last()]/@aria-label
     regExp: (\d+)
     regExpReplace: $1
   - name: aplusImages
@@ -266,13 +266,13 @@ fields:
   - name: saltPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Salt')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: saltPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Salt')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+)\s?(?:\((.+)\))?)
-    regExpReplace: $2$3
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
+    regExpReplace: $3
   - name: servingSize2
     singleValue: true
   - name: servingSize2Uom
@@ -284,6 +284,7 @@ fields:
     singleValue: true
   - name: packaging
     singleValue: true
+    manualSelector: div#packInfo
   - name: additives
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Additives')]]//div[contains(@class,'content')]
@@ -315,23 +316,23 @@ fields:
     singleValue: true
   - name: harvestedPrice
     singleValue: true
-  - name: pricePerUnit
+  - name: pricePerUnit2
     singleValue: false
-    manualSelector: span.co-product__price-per-uom
-    regExp: (\()(.+)(/)(\d+)(.+)(\))
-    regExpReplace: $2
+    manualSelector: div.pdp-main-details span.co-product__price-per-uom
+    regExp: (\()(.+)(/)(\d+)?(each)?(\w{1,2})?(\))
+    regExpReplace: $2$3$4
   - name: pricePerUnitUom
     singleValue: false
-    manualSelector: span.co-product__price-per-uom
-    regExp: (\()(.+)(/)(\d+)(.+)(\))
-    regExpReplace: $5
+    manualSelector: div.pdp-main-details span.co-product__price-per-uom
+    regExp: (\()(.+)(/)(\d+)?(each)?(\w{1,2})?(\))
+    regExpReplace: $6
   - name: scrapeCode
     singleValue: true
   - name: imageAlt
     singleValue: true
   - name: promotion
     singleValue: false
-    manualSelector: div.pdp-main-details__promo-cntr a[data-auto-id='linkPromo']
+    xpath: //div[@class="pdp-main-details__promo-cntr"]
   - name: harvestedReviewRating
     singleValue: true
   - name: extendedProductDescription
@@ -402,10 +403,10 @@ fields:
     singleValue: true
   - name: listPrice
     singleValue: false
-    manualSelector: div.pdp-main-details__price-container strong.pdp-main-details__price
+    xpath: //div[contains(@class,"pdp-main-details__price-container")]/*[1]
   - name: alcoholContent
     singleValue: false
-    xpath: //table[@data-auto-id='alcoholTable']//td[contains(@class,'alcohol-cell')][contains(text(),'Alcohol By Volume')]/following-sibling::td
+    xpath: //table[@data-auto-id='alcoholTable']//td[contains(@class,'alcohol-cell')][contains(text(),'Alcohol By Volume') or contains(text(),'Serving Suggestion')]/following-sibling::td
   - name: stockNumber
     singleValue: true
   - name: salesVolumePerMonth
@@ -449,13 +450,13 @@ fields:
   - name: magnesiumPerServing
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Magnesium')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: magnesiumPerServingUom
     singleValue: false
     xpath: (//div[@data-auto-id="nutritionTable"]/div[contains(@class,'nutrition-row')]/div[contains(@class,'nutrition-cell')][contains(text(),'Magnesium')]/following-sibling::div)[1]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
+    regExpReplace: $3
   - name: amazonChoice
     singleValue: true
   - name: amazonChoiceCategory
