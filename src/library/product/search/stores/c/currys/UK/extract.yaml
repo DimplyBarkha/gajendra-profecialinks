@@ -54,8 +54,6 @@ fields:
   - name: reviewCount
     singleValue: true
     xpath: //article[contains(@class,"result-prd")]//a/div/div[contains(@class,"reevoo-placeholder")]
-    regExp: \((\d+)\)
-    regExpReplace: $1
     description: The number of reviews
   - name: price
     singleValue: true

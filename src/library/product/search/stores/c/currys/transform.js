@@ -38,6 +38,12 @@ const transform = (data, context) => {
         });
       }
 
+      if (row.reviewCount) {
+        row.reviewCount.forEach(item => {
+          if (item.text.match(/\d+/)) item.text = item.text.match(/\d+/)[0];
+        });
+      }
+
       row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
