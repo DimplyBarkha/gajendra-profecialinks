@@ -1,4 +1,4 @@
-const {variantsTransform} = require('./variantsTransform');
+const { variantsTransform } = require('./variantsTransform');
 
 async function implementation (
   inputs,
@@ -39,7 +39,7 @@ async function implementation (
       }
     }
   }, createUrl);
-  return await context.extract(variants, { transform } );
+  return await context.extract(variants, { transform });
 }
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
