@@ -29,9 +29,6 @@ fields:
     type: NUMBER
   - name: sponsored
     defaultValue: false
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //meter[@class="review-rating__score-meter"]/@value
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="review-rating"]//span[contains(@class,"review-rating__reviews")]
@@ -48,3 +45,8 @@ fields:
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
     regExp: (\/product\/)(\d+)
     regExpReplace: $2
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //meter[@class="review-rating__score-meter"]/@value
+    regExp: (\d+)(\.)?(\d+)?
+    regExpReplace: $1,$3
