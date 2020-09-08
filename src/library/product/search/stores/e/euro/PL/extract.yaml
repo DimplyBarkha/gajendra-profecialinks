@@ -11,7 +11,7 @@ fields:
     xpath: //div[@id='pd_rank']
   - name: name
     singleValue: false
-    xpath: //div[@class='product-item-box']/a/img/@title
+    xpath: //div[@class='product-row']//div//h2/a[@class="js-save-keyword"]
   - name: productUrl
     singleValue: false
     xpath: concat(('https://www.euro.com.pl'),'',(//div[@class="product-tile js-UA-product "]/@data-product-href))
@@ -19,18 +19,24 @@ fields:
     singleValue: true
   - name: thumbnail
     singleValue: false
-    xpath: concat('https://www.euro.com.pl','',//div[@class="product-photo"]/a/@href)
+    #xpath: concat('https://www.euro.com.pl','',//div[@class="product-photo"]/a/@href)
+    xpath: concat('https://www.euro.com.pl',//div[@class='product-row']//div//h2/a[@class='js-save-keyword']/@href)
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@class="product-row"]//a[@class='js-save-keyword js-scroll-by-hash']
-    re
+    xpath: //div[@class="product-row"]//a[@class='js-save-keyword js-scroll-by-hash']/@title  
+    regExp: ([0-9]) .*
+    regExpReplace: $1
   - name: reviewCount
     singleValue: true
+    xpath: //div[@class="product-row"]//a[@class="js-save-keyword js-scroll-by-hash"]//following-sibling::a
+    regExp: ([0-9]+) 
+    regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //span[@class='price']
+    xpath: (//div[@class="product-main"]//div[@class="price-normal selenium-price-normal"])/text()
   - name: manufacturer
     singleValue: true
+    xpath: //div[@class="product-row"]//a[@class="product-brand"]/text()
   - name: soldBy
     singleValue: true
   - name: rank
