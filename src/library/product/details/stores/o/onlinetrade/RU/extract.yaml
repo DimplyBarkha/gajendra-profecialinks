@@ -18,13 +18,13 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'swiper-slide')]/a/@href
     description: Other product images (not in manufacturer description)
-  - name: metaKeywords
+  - name: metaKeywords  
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //li//span[contains(text(), 'Размер:')]/../text()
+    xpath: //meta[@itemprop='description']/@content
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
