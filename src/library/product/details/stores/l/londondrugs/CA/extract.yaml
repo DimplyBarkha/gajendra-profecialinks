@@ -39,6 +39,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //p[contains(@class,"in-stock availability")]
+    defaultValue: Out of Stock
   - name: description
     description:
       Product description supplied by website - may be concatenanted from
@@ -60,7 +61,7 @@ fields:
     xpath: //p[contains(@class,"hide")]
   - name: weightNet
     description: Net weight as described on the page
-    xpath: //h3[contains(text(), 'Weight')]/following-sibling::p
+    xpath: //h3[contains(text(), 'Weight')]/following-sibling::p | //td[contains(text(), 'Weight')]/following-sibling::td
   - name: weightGross
     description: Gross weight as described on the page
   - name: gtin
@@ -71,9 +72,6 @@ fields:
     xpath: //span[@itemprop="productID"]
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //a[@class="swatch selected"]/img/@src
-    regExp: (L\d+)(-)
-    regExpReplace: $1
   - name: mpc
     description: The manufacturer model code (unique) of the product
     xpath: //h3[contains(text(), 'Model')]/following-sibling::p
@@ -101,7 +99,7 @@ fields:
     xpath: //div[contains(@class, "delivery-info-row-home")]//div[@class="delivery-method__description"]
   - name: shippingDimensions
     description: Stated shipping dimensions
-    xpath: //h3[contains(text(), 'Dimensions')]/following-sibling::p
+    xpath: //h3[contains(text(), 'Dimensions')]/following-sibling::p | //*[contains(text(),"Width")]/following-sibling::* | //*[contains(text(),"Depth")]/following-sibling::* | //*[contains(text(),"Height")]/following-sibling::*
   - name: shippingWeight
     description: Stated shipping weight
   - name: variantCount
@@ -110,11 +108,12 @@ fields:
     xpath: count(//a[contains(@class,"swatch")]/img/@src)
   - name: color
     description: A textual description of the colour
+    xpath: //*[contains(text(), "Colour")]//following-sibling::*
   - name: colorCode
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="wc-power-page"]//ul/li/div[1]/following-sibling::*
+    xpath: //div[@id="wc-power-page"]//ul/li/div[1]/following-sibling::*/text()
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[@id="wc-power-page"]//img/@src
@@ -124,8 +123,7 @@ fields:
   - name: name
     description: The product name
     xpath: //h1[@itemprop="name"]
-    regExp: (.+)(-.+)?(- \d+-)(\d+)
-    regExpReplace: $1
+    regExp: ^[A-Z + a-z]*(\d+)?[A-Z + a-z]*
   - name: inStorePrice
     description: Price in the selected store
     xpath: //h3[contains(@class,"price-sales")]
@@ -327,9 +325,10 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="ccs-ext-spec"]/ul/li
+    xpath: //div[@id="ccs-ext-spec"]
   - name: warranty
     description: Guarantee associated with the product
+    xpath: //*[contains(@aria-label,"Warranty")]/following-sibling::* | //*[contains(text(),"Warranty")]/following-sibling::* | //span[contains(text(),"warranty")]
   - name: storage
     description: Suggested storage location for product
   - name: countryOfOrigin
@@ -350,6 +349,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     description: promotion text on product page
+    xapth: //div[@class="ld-sg-promo__wrapper"]/a/preceding-sibling::p[1]
   - name: alcoholContent
     description: Alcohol content information
   - name: newVersion
@@ -366,8 +366,6 @@ fields:
   - name: variantInformation
     description: colour / scent / flavour / other
     xpath: //a[contains(@class,"swatch")]/img/@alt
-    regExp: (.+)
-    regExpReplace: Color- $1
   - name: firstVariant
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
@@ -424,4 +422,5 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //body/@zoom
     defaultValue: No

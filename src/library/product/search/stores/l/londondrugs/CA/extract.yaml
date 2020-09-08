@@ -21,7 +21,7 @@ fields:
   - name: aggregateRating2
     description: The stated aggregate rating
     xpath: //span[@class="bv-off-screen"]
-    regExp: (^\d\.?\d)
+    regExp: (^[0-9\.]+)
   - name: ratingCount
     description: The number of ratings
     xpath: //span[@class="bv-rating-label"]
