@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -10,13 +10,13 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
 
     await context.evaluate(async function () {
       // function to append the elements to DOM
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -25,7 +25,7 @@ module.exports = {
       }
 
       // function to get the json data from the string
-      function findJsonData (scriptSelector, startString, endString) {
+      function findJsonData(scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -41,7 +41,7 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj (scriptSelector, video) {
+      function findJsonObj(scriptSelector, video) {
         if (video) {
           var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           return result;
@@ -76,7 +76,7 @@ module.exports = {
         }
       };
 
-      function setAttributes (el, attrs) {
+      function setAttributes(el, attrs) {
         for (var key in attrs) {
           el.setAttribute(key, attrs[key]);
         }
@@ -131,25 +131,31 @@ module.exports = {
             if (dataObj[0].product.brand) {
               addElementToDocument('brand', dataObj[0].product.brand);
             }
-            // Price
-            if (dataObj[0].product.price) {
-              // Check for List Price
+            
+            // Check for List Price
+            if (Number(dataObj[0].product.price.o_price) === Number(dataObj[0].product.price.f_price)) {
+              addElementToDocument('listPrice', '');
+            } else {
               if (dataObj[0].product.price.o_price) {
                 addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ','));
+              } else {
+                if (dataObj[0].product.price.original) {
+                  addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
+                } else {
+                  addElementToDocument('listPrice', '');
+                }
               }
-              if (dataObj[0].product.price.original) {
-                addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
-              }
-              // Check for  Price
+            }
 
-              if (dataObj[0].product.price.f_price) {
-                addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ','));
-              }
+            // Check for  Price
+            if (dataObj[0].product.price.o_price) {
+              addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ','));
+            } else {
               if (dataObj[0].product.price.final) {
                 addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ','));
+              } else {
+                addElementToDocument('price', '');
               }
-            } else {
-              addElementToDocument('price', '');
             }
 
             // Check for  Brand
@@ -173,7 +179,7 @@ module.exports = {
       addElementToDocument('ratingCount', responseRatingCount);
       addElementToDocument('aggregateRating', responseReviewRating);
 
-      function ratingFromDOM () {
+      function ratingFromDOM() {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
@@ -199,7 +205,6 @@ module.exports = {
       }
 
       // zoom Image
-
       const ZoomImage = '//img/@data-zoom';
       findJsonObj('', ZoomImage);
       if (findJsonObj('', ZoomImage).snapshotLength > 0) {
@@ -208,7 +213,7 @@ module.exports = {
         addElementToDocument('imageZoomFeaturePresent', 'No');
       }
 
-      function allergyAdvice () {
+      function allergyAdvice() {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
@@ -219,13 +224,26 @@ module.exports = {
       } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
-      function textContent (element, attributeName) {
-        const text = (element && element.textContent.trim()
-          .split(/[\n]/)
-          .filter((ele) => ele)
+      function textContent(element, attributeName) {
+        const text = (element && element.textContent.trim().split(/[\n]/).filter((ele) => ele)
           .join(' ')) ||
           '';
         addElementToDocument(attributeName, text);
+      }
+
+      // Specifications
+      const specifcations = [];
+      const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
+      if (specXpath.length > 1) {
+        specXpath.forEach(e => {
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} | `);
+        });
+        addElementToDocument('specifications', specifcations);
+      } else {
+        specXpath.forEach(e => {
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')}`);
+        });
+        addElementToDocument('specifications', specifcations);
       }
 
       const description = document.querySelectorAll('.product_detail-description-in-image, .product_information');

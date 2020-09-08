@@ -11,9 +11,11 @@ fields:
     xpath : ancestor::html //meta[@name="twitter:title"]/@content
   - name: alternateImages
     singleValue: true
-    xpath : ancestor::html //link[@as="image"]/@href
+    xpath : ancestor::html //link[@as="image"][position() > 1]/@href
     regExp: ^(.*)(__)(\d+x\d+)(.jpg)$
-    regExpReplace: https:$1$21200x1200$4  
+    regExpReplace: https:$1$21200x1200$4 
+  - name: secondaryImageTotal
+    xpath: count(//link[@as="image"][position() > 1]/@href)    
   - name: category
     singleValue: false
     xpath : ancestor::html //li[@itemprop="itemListElement"]
@@ -41,26 +43,26 @@ fields:
     xpath : ancestor::html //div[@id="brand"]
   - name: quantity
     singleValue: true
-    xpath : ancestor::html//div/@title
+    xpath : //div/@title
   - name : weightNet    
     xpath : 
   - name : weightGross    
     xpath :   
   - name: gtin
     singleValue: true
-    xpath : ancestor::html //div/@gtin
+    xpath : //div/@gtin
   - name: eangtin
     singleValue: true
-    xpath : ancestor::html //div/@gtin  
+    xpath :  //div/@gtin  
   - name: asin
     singleValue: true
     xpath : ancestor::html //span[@itemprop="sku"] | ancestor::html //span[@class="js-product-gtin-number"]
   - name: sku
     singleValue: true
-    xpath : ancestor::html //div/@sku
+    xpath : //div/@sku
   - name: variantId
     singleValue: true
-    xpath : ancestor::html //div/@retailer_product_code
+    xpath : //div/@retailer_product_code
   - name: directions
     singleValue: true
     xpath:
@@ -97,7 +99,7 @@ fields:
     singleValue: true    
   - name: specifications
     singleValue: true
-    xpath :   
+    xpath : ancestor::html  //div[@id="specifications"] 
   - name: recyclingInformation
     singleValue: true
     xpath :      
@@ -152,25 +154,14 @@ fields:
     xpath :  
   - name: colorCode
     singleValue: true
-<<<<<<< HEAD
-    xpath : 
-  - name: manufacturerDescription
-    singleValue: true
-    xpath :
-  - name: termsAndConditions
-    singleValue: true
-    xpath :
-  - name: additionalDescBulletInfo
-    singleValue: true
-    xpath : 
-=======
   - name: manufacturerDescription
     singleValue: true
   - name: termsAndConditions
     singleValue: true
+  - name: specifications
+    xpath : ancestor::html //div[@id="specifications"]      
   - name: additionalDescBulletInfo
     singleValue: true
->>>>>>> 73b202c75abbbdab7f0933137fa316582db784f6
   - name: energyEfficiency
     singleValue: true
     xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 

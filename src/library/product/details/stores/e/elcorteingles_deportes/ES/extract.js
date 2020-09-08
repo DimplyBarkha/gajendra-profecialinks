@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -9,13 +9,13 @@ module.exports = {
     domain: 'elcorteingles.es',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain,transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     try {
       await context.evaluate(async function () {
         // function to append the elements to DOM
-        function addElementToDocument (key, value) {
+        function addElementToDocument(key, value) {
           const catElement = document.createElement('div');
           catElement.id = key;
           catElement.textContent = value;
@@ -24,7 +24,7 @@ module.exports = {
         }
 
         // function to get the json data from the string
-        function findJsonData (scriptSelector, startString, endString) {
+        function findJsonData(scriptSelector, startString, endString) {
           try {
             const xpath = `//script[contains(.,'${scriptSelector}')]`;
             const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -40,7 +40,7 @@ module.exports = {
         }
 
         // function to get the json data from the textContent
-        function findJsonObj (scriptSelector, video) {
+        function findJsonObj(scriptSelector, video) {
           if (video) {
             var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
             return result;
@@ -106,17 +106,29 @@ module.exports = {
             }
 
             // Check for List Price
-            if (dataObj[0].product.price.o_price) {
-              addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ','));
+            if (Number(dataObj[0].product.price.o_price) === Number(dataObj[0].product.price.f_price)) {
+              addElementToDocument('listPrice', '');
             } else {
-              addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
+              if (dataObj[0].product.price.o_price) {
+                addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ','));
+              } else {
+                if (dataObj[0].product.price.original) {
+                  addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
+                } else {
+                  addElementToDocument('listPrice', '');
+                }
+              }
             }
 
             // Check for  Price
             if (dataObj[0].product.price.o_price) {
               addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ','));
             } else {
-              addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ','));
+              if (dataObj[0].product.price.final) {
+                addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ','));
+              } else {
+                addElementToDocument('price', '');
+              }
             }
 
             // Check for the product id  and append to DOM
@@ -146,7 +158,7 @@ module.exports = {
         addElementToDocument('ratingCount', responseRatingCount);
         addElementToDocument('aggregateRating', responseReviewRating);
 
-        function ratingFromDOM () {
+        function ratingFromDOM() {
           const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
           let ratingCount;
           if (reviewsCount) {
@@ -171,7 +183,7 @@ module.exports = {
           }
         }
 
-        function allergyAdvice () {
+        function allergyAdvice() {
           const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           if (element) {
@@ -182,13 +194,28 @@ module.exports = {
         } allergyAdvice();
 
         // Function to remove the `\n` from the textContent
-        function textContent (element, attributeName) {
+        function textContent(element, attributeName) {
           const text = (element && element.textContent.trim()
             .split(/[\n]/)
             .filter((ele) => ele)
             .join(' ')) ||
             '';
           addElementToDocument(attributeName, text);
+        }
+
+        // Specifications
+        const specifcations = [];
+        const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
+        if (specXpath.length > 1) {
+          specXpath.forEach(e => {
+            specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} | `);
+          });
+          addElementToDocument('specifications', specifcations);
+        } else {
+          specXpath.forEach(e => {
+            specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')}`);
+          });
+          addElementToDocument('specifications', specifcations);
         }
 
         const description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
