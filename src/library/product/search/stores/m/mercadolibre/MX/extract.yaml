@@ -1,90 +1,54 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ol/li[@class="ui-search-layout__item"]
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
-  - name: productUrl
-    singleValue: true
-    description: The URL for the product details page
-  - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
   - name: name
-    singleValue: true
-    description: The product name
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-  - name: reviewCount
-    singleValue: true
-    description: The number of reviews
-  - name: price
-    singleValue: true
-    description: The offered price for the product
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
+    singleValue: false
+    description: Whether this is a sponsored/paid result
+    xpath: //h2[contains(@class , 'ui-search-item__title')]
+  - name: brandText
+    singleValue: false
+    description: The brand name
+    xpath: //h2[contains(@class , 'ui-search-item__title')]
   - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
+    singleValue: false
+    xpath: //p[contains(@class , 'ui-search-official-store-label')]
   - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-  - name: rank
-    singleValue: true
-    description: search/listing rank
-    type: NUMBER
-  - name: rankOrganic
-    singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-  - name: sponsored
-    singleValue: true
-    description: Is sponsored/paid
-    type: BOOLEAN
-  - name: id
-    singleValue: true
-    description: Unique id (within this extractor)
+    singleValue: false
+    xpath: //p[contains(@class , 'ui-search-official-store-label')]
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="slick-slide slick-active"]/img/@src
   - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    singleValue: false
+    description: The product name
+    xpath: //h2[contains(@class , 'ui-search-item__title')]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class , 'ui-search-price--size-medium')]//span[@class="price-tag ui-search-price__part"] | //div[contains(@class , 'ui-search-color--black')]
+  - name: reviewCount
+    singleValue: false
+    description: The model code of the product
+    xpath: //span[@class="ui-search-reviews__amount"]
+  - name: ratingCount
+    singleValue: false
+    description: The model code of the product
+    xpath: //span[@class="ui-search-reviews__amount"]
+  - name: aggregateRating2
+    singleValue: false
+    description: The model code of the product
+    xpath: //div[@id="bb_aggregateRating"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="ui-search-result__image"]/a/@href
+  - name: id
+    singleValue: false
+    xpath: //div[@class="slick-slide slick-active"]/img/@src
+    regExp: D_NQ_NP_(.*)-
+    regExpReplace: $1
+  - name: variantType
+    singleValue: false
+    xpath: //p[@class="ui-search-variations-picker__label"]
+

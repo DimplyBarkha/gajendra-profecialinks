@@ -5,9 +5,9 @@ module.exports = {
     country: 'MX',
     store: 'mercadolibre',
     domain: 'mercadolibre.com.mx',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://listado.mercadolibre.com.mx/{searchTerms}',
+    loadedSelector: 'section[class="ui-search-results"] , div[class="ui-search-main"]',
+    noResultsXPath: '//div[contains(@class , "ui-search-rescue")]',
     zipcode: '',
   },
 };
