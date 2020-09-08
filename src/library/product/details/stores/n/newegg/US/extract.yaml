@@ -5,12 +5,16 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //span[@class="mainSlide"]/img/@src
+    xpath: //span[contains(@class,"mainSlide")]/img/@src
     regExp: ([^()]+)
     regExpReplace: https:$1
   - name: imageAlt
     singleValue: false
-    xpath: (//img[@id="mainSlide_00NW-00AC-00043"])[1]/@alt
+    xpath: //span[contains(@class,"mainSlide")]/img/@alt
+  - name: Image360Present
+    singleValue: false
+    defaultValue: 'No'
+    manualSelector: div.wc-fragment > h2
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="objImages"]//ul/li/a[contains(@class, "noLine")]//img/@src
@@ -31,6 +35,9 @@ fields:
   - name: price
     singleValue: false
     manualSelector: ul.price-main-product li.price-current
+  - name: listPrice
+    singleValue: false
+    manualSelector: ul.price-main-product li.price-was
   - name: availabilityText
     singleValue: false
     defaultValue: Out of Stock
@@ -38,9 +45,6 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: (//div[@class="featured-seller"]//span)[1] | (//div[@class="featured-seller"]//span)[4]
-  - name: quantity 
-    singleValue: false
-    xpath: (//div[@id='Specs']//dd)[3]
   - name: sku
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
@@ -63,10 +67,10 @@ fields:
     regExpReplace: $1
   - name: color
     singleValue: false
-    xpath: (//div[@id='Specs']//dd)[2]
+    xpath: //div[@id='Specs']//dt[contains(text(),'Color')]/following-sibling::dd
   - name: weightNet
     singleValue: false
-    xpath: (//div[@id='Specs']//dd)[3]
+    xpath: //div[@id='Specs']//dt[contains(text(),'Weight')]/following-sibling::dd
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@class='itemColumn']
@@ -93,9 +97,6 @@ fields:
   - name: brandLink
     singleValue: false
     xpath: (//div[@class="featured-seller"]/div/a/@href)[1]
-  - name: shippingWeight
-    singleValue: false
-    xpath: (//div[@id='Specs']//dd)[3]
   - name: specifications
     singleValue: false
     xpath: //div[@id='detailSpecContent']//dt | //div[@id='detailSpecContent']//dd
@@ -107,3 +108,19 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@id="landingpage-topshipping"]//span
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'grpRating')]//i/@title
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,'grpRating')]//span[3]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'wc-reset')]//li//img/@src
+  - name: manufacturerDescription
+    singleeValue: false
+    xpath: //div[contains(@class,'wc-reset')]//li
+  - name: variantId
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1

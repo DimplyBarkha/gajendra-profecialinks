@@ -8,7 +8,7 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.category) {
-        if (row.category[0].text == 'Home') {
+        if (row.category[0].text === 'Home') {
           row.category.shift();
         }
       }
@@ -60,16 +60,39 @@ const transform = (data) => {
         }];
       }
       if (row.shippingInfo) {
-        var text = '';
-        text = row.shippingInfo[0].text + row.shippingInfo[1].text;
+        var shipText = '';
+        shipText = row.shippingInfo[0].text + row.shippingInfo[1].text;
         row.shippingInfo = [
           {
-            text: text.trim(),
+            text: shipText.trim(),
           },
         ];
       }
       if (row.nameExtended) {
-        row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.nameExtended[0].text + ' - ' + row.color[0].text;
+        var name = '';
+        name = row.brandText ? row.brandText[0].text + ' - ' + row.nameExtended[0].text : row.nameExtended[0].text;
+        name = row.color ? name + ' - ' + row.color[0].text : text;
+        row.nameExtended[0].text = name.trim();
+      }
+      if (row.Image360Present) {
+        var imagesVal = row.Image360Present[0].text === 'No' ? row.Image360Present[0].text : 'Yes';
+        row.Image360Present = [
+          {
+            text: imagesVal,
+          },
+        ];
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating[0].text = (row.aggregateRating[0].text.split('out'))[0];
+      }
+      if (row.availabilityText) {
+        row.availabilityText[0].text = row.availabilityText[0].text.includes('In stock') ? 'In Stock' : row.availabilityText[0].text;
+      }
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription = row.manufacturerDescription.map((ele) => {
+          ele.text = ele.text.replace(/\n/g, '');
+          return ele;
+        });
       }
     }
   }
