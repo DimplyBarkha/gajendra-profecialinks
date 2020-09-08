@@ -5,10 +5,13 @@ recordXPath: //div[contains(@class,"sel-product-tile")]
 fields:
   - name: prodcutUrl
     SingleValue: false
-    xpath: //div[contains(@class,"sel-product-tile")]//a/@href
+    xpath: //div[contains(@class,"sel-product-tile")]//div[contains(@class,"c-product-tile-picture__holder")]//a/@href
   - name: price
     SingleValue: false
     xpath: //div[contains(@class,"c-pdp-price__current")]
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"sel-product-tile")]//div[contains(@class,"c-product-tile-picture__holder")]//a/@href
   - name: name
     SingleValue: false
     xpath: //a[contains(@class,"sel-product-tile-title")]
