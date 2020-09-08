@@ -5,9 +5,9 @@ module.exports = {
     country: 'NZ',
     store: 'noelleeming',
     domain: 'noelleeming.co.nz',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.noelleeming.co.nz/search.html?q={searchTerms}',
+    loadedSelector: '.inner.product-list__item img',
+    noResultsXPath: "//h1[contains(@class, 'category-title')]/span[contains(text(), 'No Results')]",
     zipcode: '',
   },
 };

@@ -1,90 +1,86 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[contains(@class, 'block product-list')]
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-  - name: category
+  - name: searchUrl
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
+    xpath: //div[@id='searchUrl']
+  - name: brand
+    singleValue: false
+    description: The brand name
+    xpath: //div[contains(@class, 'inner product-list__item')]/@data-product-info
+    regExp: brand":"(.*?)"
+    regExpReplace: $1
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
+    xpath: //a[contains(@class, 'product-list__cover-link')]/@href
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
+    xpath: //img[contains(@class, 'media__productImg')]/@src
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
+    manualSelector: h1.product-list__name
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
+    xpath: //div[contains(@class, 'inner product-list__item')]/@data-product-info
+    regExp: skuCode":"(.*?)"
+    regExpReplace: $1
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
+    xpath: //h2[contains(@class, 'product-list__model')]
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
+    xpath: //div[contains(@class, 'testfreaks')]/@title
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
+    xpath: //div[contains(@class, 'tf-count')]
+    regExp: \d+
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     description: The number of reviews
+    xpath: //div[contains(@class, 'tf-count')]
+    regExp: \d+
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the product
+    xpath: //span[contains(@class, 'price-lockup__pricing-fullprice-wrap')]
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
     description: Unique id (within this extractor)
+    xpath: //div[contains(@class, 'inner product-list__item')]/@data-product-info
+    regExp: skuCode":"(.*?)"
+    regExpReplace: $1
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: true
+    manualSelector: h1.product-list__name
+  - name: aggregateRating2
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[contains(@class, 'testfreaks')]/@title
+    regExp: (.*?) /
+    regExpReplace: $1
