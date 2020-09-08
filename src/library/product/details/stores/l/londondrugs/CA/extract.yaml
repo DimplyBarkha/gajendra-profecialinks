@@ -113,7 +113,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="wc-power-page"]//ul/li/div[1]/following-sibling::*/text()
+    xpath: //*[@class="wc-rich-content-description"] | //*[@class="wc-rich-content-description"]/preceding-sibling::h3
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[@id="wc-power-page"]//img/@src
@@ -328,7 +328,7 @@ fields:
     xpath: //div[@id="ccs-ext-spec"]
   - name: warranty
     description: Guarantee associated with the product
-    xpath: //*[contains(@aria-label,"Warranty")]/following-sibling::* | //*[contains(text(),"Warranty")]/following-sibling::* | //span[contains(text(),"warranty")]
+    xpath: //*[contains(@aria-label,"Warranty")]/following-sibling::* | //*[contains(text(),"Warranty")]/following-sibling::* | //span[contains(text(),"warranty")] | //div[@class="wc-reset"][2]//li[1]//img/@src
   - name: storage
     description: Suggested storage location for product
   - name: countryOfOrigin
