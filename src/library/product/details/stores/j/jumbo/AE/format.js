@@ -12,9 +12,7 @@ const transform = (data) => {
         }
       }
       if (row.description) {
-        row.description.forEach(item => {
-          item.text = item.text.replace(/\n/g, '');
-        });
+        row.description[0].text = row.description[0].text.replace(/\n \n/g, ' || ').replace(/\n/g, ' ');
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
