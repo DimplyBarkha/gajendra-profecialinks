@@ -522,6 +522,7 @@ module.exports = {
             videoLength: videos() && videos().length > 0 ? videosDurations().filter(duration => (duration !== undefined)) : '',
             secondaryImageTotal: infos.filmStripUrl ? infos.filmStripUrl.length : 0,
             ingredientsList: hasIngrList ? ingrList() : '',
+            // eslint-disable-next-line no-useless-escape
             servingSize: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/(\d+[\/\d. ]*|\d)/)[0] !== null) ? nutrition[0].servingSize.match(/(\d+[\/\d. ]*|\d)/)[0] : '',
             servingSizeUom: nutrition && nutrition[0] && nutrition[0].servingSize && (nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] !== null) ? nutrition[0].servingSize.match(/([a-zA-Z\s]+)/)[0] : '',
             numberOfServingsInPackage: nutrition && nutrition[0] && nutrition[0].servingPerContainer ? nutrition[0].servingPerContainer : '',

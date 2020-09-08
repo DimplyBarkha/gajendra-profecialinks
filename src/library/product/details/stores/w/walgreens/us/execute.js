@@ -44,9 +44,9 @@ async function implementation (
       }
     });
 
-    console.log('!!!!path')
+    console.log('!!!!path');
 
-    console.log(path)
+    console.log(path);
 
     if (path) {
       await dependencies.goto({ url: `https://${domain}${path}` });
