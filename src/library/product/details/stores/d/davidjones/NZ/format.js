@@ -23,6 +23,9 @@ const transform = (data) => {
       if (row.image) {
         row.image[0].text = row.image[0].text.replace(/productthumb/, 'magnify');
       }
+      if (row.warranty) {
+        row.warranty[0].text = row.warranty[0].text.replace(/:/, '');
+      }
       row.variantCount = [{ text: 1 }];
     }
   }
