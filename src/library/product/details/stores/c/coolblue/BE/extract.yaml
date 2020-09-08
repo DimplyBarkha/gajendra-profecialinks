@@ -45,11 +45,8 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
-    xpath: //div[@class='grid-wrapper-xs--padding grid-wrapper-m--padding']//li[2]
-  - name: subCategory
-    singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//ol[contains(@class,"breadcrumbs")]//li)[position()>2]
+    xpath: (//ol[contains(@class,"breadcrumbs")]//li)[position()>1]
   - name: nameExtended
     singleValue: false
     xpath: //span[contains(@class,'js-product-name')]
@@ -86,6 +83,11 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //dl[contains(translate(string(), 'Artikelnummer', 'Artikelnummer'), 'Artikelnummer')]/dd
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value)[1]
+    regExp: (\/product\/)(\d+)
+    regExpReplace: $2
   - name: packSize
     singleValue: false
     xpath:
