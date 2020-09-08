@@ -62,6 +62,9 @@ module.exports = {
           document.querySelector('.overlay-bg').click();
         });
         addHiddenDiv('ii_videos', videos.join(' || '));
+        const availText = document.querySelector('meta[itemprop="availability"') ? (document.querySelector('meta[itemprop="availability"').getAttribute('content') === 'InStock' ? 'In Stock' : 'Out of Stock') : 'Out of Stock';
+
+        addHiddenDiv('ii_avail', availText);
         // addHiddenDiv('ii_rating', document.querySelector('span[itemprop="ratingValue"]') ? document.querySelector('span[itemprop="ratingValue"]').textContent : '');
       }
     });

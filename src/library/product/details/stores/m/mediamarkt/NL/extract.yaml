@@ -44,13 +44,14 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: (//meta[@itemprop="availability"]/@content)[1]
+    xpath: //*[@id='ii_avail']
+    # xpath: (//meta[@itemprop="availability"]/@content)[1]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: InStock
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: InStock
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@class="details"]//article/*[not(self::h2)]
@@ -310,7 +311,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
-    xpath: //div[contains(@class, "be-ad")]
+    xpath: (//div[contains(@class, "be-ad")]|//div[contains(@class, "price-old-you-save")])[1]
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
