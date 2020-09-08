@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[contains(@class,'ebx-grid-item ebx-result')]
+fields:
+  - name: productUrl
+    xpath: //a[1]/@href
+    singleValue: false
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //a[1]//section//img/@src
+    singleValue: false
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //a[2]//h1
+    singleValue: false
+    description: The product name
+  - name: price
+    xpath: //p[1]
+    singleValue: false
+    description: The offered price for the product
+  - name: id
+    xpath: //article[contains(@class,'ebx-grid-item ebx-result')]/@data-scroll-id
+    singleValue: false
+  - name: soldBy
+    xpath: //div//section[contains(@class,'ebx-result__descriptions')]//span[contains(.,'Vendido por')]
+    singleValue: false
+  - name: rank
+  - name: rankOrganic
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@class='my-search-url']
