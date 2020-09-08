@@ -13,7 +13,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    const cssProduct = "div.w-cookies-popup__footer__primary-button button.w-button-primary";
+    const cssProduct = 'div.w-cookies-popup__footer__primary-button button.w-button-primary';
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
       return await context.evaluate(function (selector) {
