@@ -1,3 +1,5 @@
+const {variantsTransform} = require('./variantsTransform');
+
 async function implementation (
   inputs,
   parameters,
@@ -5,6 +7,7 @@ async function implementation (
   dependencies,
 ) {
   const { createUrl, variants } = dependencies;
+  const { transform } = parameters;
   await context.evaluate(function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -17,7 +20,7 @@ async function implementation (
     let url = window.location.href;
     const splits = url ? url.split('?')[0].split('/') : [];
     url = (splits.length > 1) ? splits[splits.length - 2] : '';
-    addHiddenDiv('ii_variant', url);
+    // addHiddenDiv('ii_variant', url);
     const node = document.querySelector("script[id='item']");
     if (node && node.textContent) {
       const jsonObj = node.textContent.startsWith('{"item":') ? JSON.parse(node.textContent) : null;
@@ -28,21 +31,22 @@ async function implementation (
           for (let i = 0; i < elements.length; i++) {
             const id = elements[i].usItemId;
             if (id) {
-              addHiddenDiv('ii_variant', id);
+              addHiddenDiv('ii_variant_name', url);
+              addHiddenDiv('ii_variant_id', id);
             }
           }
         }
       }
     }
   }, createUrl);
-  return await context.extract(variants);
+  return await context.extract(variants, { transform } );
 }
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'US',
     store: 'walmart',
-    transform: null,
+    transform: variantsTransform,
     domain: 'walmart.com',
     zipcode: '',
   },
