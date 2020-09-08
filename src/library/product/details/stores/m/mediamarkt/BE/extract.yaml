@@ -36,7 +36,8 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //meta[@property="product:price:amount"]/@content
+    xpath: (//div[contains(@class, "price big")])[1]
+    # xpath: //meta[@property="product:price:amount"]/@content
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -76,7 +77,8 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
-    xpath: (//dl[@class="specification"]//dt[contains(text(),"Gewicht")]//following-sibling::dd)[1]
+    xpath: (//dl[@class="specification"]//dt[(text()="Gewicht:")]//following-sibling::dd)[1]
+    # xpath: (//dl[@class="specification"]//dt[contains(text(),"Gewicht")]//following-sibling::dd)[1]
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -129,7 +131,7 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="price-sidebar"]//div[contains(@class, "infobox availability")]//ul//li[not(a)]
+    xpath: //div[@class="price-sidebar"]//div[contains(@class, "infobox availability")]//ul//li//div[contains(text(), "Gratis levering")]|//div[@class="price-sidebar"]//div[contains(@class, "infobox availability")]//ul//li//div[contains(@class, "delvrmsg")]
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
