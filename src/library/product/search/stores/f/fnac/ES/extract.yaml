@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: 'div.Article-itemInfo'
-recordXPath: //div[contains(@class,"Article-itemInfo")]
+recordSelector: 'div.Article-item[id]'
+recordXPath: //div[contains(@class,"Article-item") and @id]
 fields:
   - name: brand
     singleValue: false
@@ -33,7 +33,7 @@ fields:
     xpath: //div[contains(@class, "bigPricerFA")]/div/a/strong
   - name: id
     singleValue: false
-    xpath: //div[@class="Article-itemAction"]//div/@data-prid
+    xpath: //div[@class="js-ProductBuy"]/@data-product-id
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a

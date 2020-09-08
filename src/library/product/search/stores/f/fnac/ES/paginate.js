@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'li.nextLevel1',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.Article-itemInfo',
+    loadedSelector: 'div.Article-item[id]',
     noResultsXPath: '//div[contains(@class, "noResults")]',
     openSearchDefinition: null,
     domain: 'fnac.es',
