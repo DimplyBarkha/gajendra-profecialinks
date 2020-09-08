@@ -6,6 +6,6 @@ module.exports = {
     store: 'elcorteingles',
     domain: 'elcorteingles.es',
     loadedSelector: '.pdp-title a',
-    noResultsXPath: '//div[@class="sitemanager-data disabled"]',
+    noResultsXPath: '//div[@class="sitemanager-data disabled"] | //div[contains(@class,"inplace_notification")]',
   },
 };
