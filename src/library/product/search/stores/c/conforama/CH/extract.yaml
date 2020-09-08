@@ -10,7 +10,8 @@ fields:
     xpath: //div[contains(@class ,"detail-product")]/h3 | //div[@class="name"]/h1
     singleValue: false
   - name: thumbnail
-    xpath: //div[@class="image-product"]/a//img/@src | //div[@class="productPics"]/a/img[1]/@src
+    xpath: //div[@id="pd_productImg"] | //div[@class="image-product"]/a//img/@src | //div[@class="productPics"]/a/img[1]/@src
+    # xpath: //div[@class="image-product"]/a//img/@src | //div[@class="productPics"]/a/img[1]/@src
     singleValue: false
   - name: productUrl
     xpath: //div[@class="image-product"]/a/@href | //link[@rel="canonical"]/@href
@@ -29,9 +30,9 @@ fields:
     singleValue: false
   - name: ratingCount
     xpath: //span[@class="avisBaazar"] | //div[@id="cc_ratingCount"]
+    singleValue: false
     regExp: (.*) avis
     regExpReplace: $1
-    singleValue: false
   - name: aggregateRating2
     xpath: //span[@class="stars"]/@data | //div[@itemprop="ratingValue"]
     singleValue: false
