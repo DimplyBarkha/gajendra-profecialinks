@@ -12,10 +12,10 @@ fields:
     singleValue: false
     xpath: //span[@class='js-delivery-information-usp']
   - name: price
-    singleValue: false
-    xpath: //script[contains(text(),"price")]/text()
-    regExp: \"price":\s"([\d,]+.*)"
-    regExpReplace: € $1
+    singleValue: true
+    xpath: //div[@class="product-order"]//strong[contains(@class,"sales-price__current")][1]
+    regExp: (\d+)(\,)?(\d+)?
+    regExpReplace: € $1$2$3
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,"flex-unit")]//div[@class="js-configurator-discount-element"]
@@ -53,6 +53,8 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@class='js-desktop-order-block']//div//span[@class='sales-price__former-price']
+    regExp: (\d+)(\,)?(\d+)?
+    regExpReplace: € $1$2$3
   - name: priceCurrency
     singleValue: false
     xpath: //script[contains(text(),"priceCurrency")]/text()
