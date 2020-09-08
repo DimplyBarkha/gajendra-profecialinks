@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variant
+    singleValue: false
+    xpath: //div[@class="c-offerBox_variantsContent"]//div[contains(@class,"c-offerBox")]/@data-label
+  - name: variantId
+    singleValue: true
+    xpath: //div[@class="c-offerBox_variantsContent"]//div[@class="c-offerBox_photo"]/@data-offer-id
+  - name: variantUrl
+    singleValue: true
+    xpath: //div[@class="c-offerBox_variantsContent"]//div[@class="c-offerBox_photo"]/a/@href
