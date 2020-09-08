@@ -1,8 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='DlNoVpsv8MABrtE8wLdel col-xl-3 col-sm-4']/a
 fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='DlNoVpsv8MABrtE8wLdel col-xl-3 col-sm-4']/a/@href
   - name: name
     singleValue: false
     xpath: //*[@class='CviArNXcgaayiFE1m9PyD']/p
@@ -18,4 +21,6 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="msrc-widget"]/span/span[1]
- 
+  - name: id
+    singleValue: false
+    xpath: //*[@class='_1ylr7ZqaNStFKeyroKYurg']
