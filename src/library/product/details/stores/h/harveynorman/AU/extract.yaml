@@ -64,6 +64,15 @@ fields:
     xpath: //div[@class="hn-carousel-embed-container"]/iframe/@src
     regExp: (\d+)
     regExpReplace: https://vimeo.com/$1
+  - name: videos1
+    singleValue: false
+    xpath: //div[contains(@id, "added-manufacturer-videos")]
+  - name: manufacturerImages1
+    singleValue: false
+    xpath: //div[contains(@id, "added-manufacturer-images")]
+  - name: manufacturerDescription1
+    singleValue: false
+    xpath: //div[@id="added-manufacturer-description"]
   - name: name
     singleValue: false
     manualSelector: h1.product-name-with-option > span.product-name
@@ -82,9 +91,6 @@ fields:
     xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Warranty")]/following-sibling::td
     regExp: (.+)
     regExpReplace: $1 Months
-  - name: productOtherInformation
-    singleValue: false
-    description: Any other product information
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[contains(@class="product-short-description")]/ul/li
