@@ -47,15 +47,6 @@ const transform = (data, context) => {
       if (row.aggregateRating2) {
         row.aggregateRating2[0].text = (row.aggregateRating2[0].text.split('-'))[1];
       }
-      if (row.sponsored) {
-        row.sponsored[0].text = true;
-      } else {
-        row.sponsored = [
-          {
-            text: false,
-          },
-        ];
-      }
     }
   }
   return data;
