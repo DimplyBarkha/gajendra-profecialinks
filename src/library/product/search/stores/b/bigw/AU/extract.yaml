@@ -9,7 +9,7 @@ fields:
   - name: name
     xpath: //div[contains(@class,'productSlot')]//div[contains(@class,'productDescription')]//h4[contains(@class,'name')]/a/@title
     singleValue: false
-  - name: producturl
+  - name: productUrl
     xpath: //div[contains(@class,'productSlot')]//div[contains(@class,'productDescription')]//h4[contains(@class,'name')]/a/@href
     singleValue: false
     regExp: (https:\/\/www.bigw.com.au)?(.+)
