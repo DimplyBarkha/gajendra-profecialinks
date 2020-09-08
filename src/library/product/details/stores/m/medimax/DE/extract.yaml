@@ -78,7 +78,7 @@ fields:
     defaultValue: '1'
   - name: gtin
     singleValue: false
-    xpath: //div[@class="product-flixdata"]/@data-ean | //p[@id="product-ids"]
+    xpath: //div[@class="product-flixdata"]/@data-ean | //p[@id="product-ids"] | //iframe[@id="loadbeeTabContent"]/@src
   - name: sku
     singleValue: false
     xpath: //script[contains(text(),'sku')]

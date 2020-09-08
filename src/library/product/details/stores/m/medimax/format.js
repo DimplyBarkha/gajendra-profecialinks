@@ -22,6 +22,9 @@ const transform = (data, context) => {
         const videos = row.videos.map(({ text }) => text);
         row.videos = Array.from(new Set(videos)).map(video => ({ text: video }));
       }
+      if (row.gtin && row.gtin[0].text.length > 50) {
+        row.gtin[0].text = row.gtin[0].text.replace(/.*?ean\/(.*?)\/.*/i,'$1');
+      }
       if (row.gtin && row.gtin[0].text.match(/EAN/i)) {
         row.gtin[0].text = row.gtin[0].text.replace(/.*EAN:\s*([^\s]+).*/i, '$1');
       }
