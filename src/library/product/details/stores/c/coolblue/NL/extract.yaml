@@ -53,8 +53,8 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@class='js-desktop-order-block']//div//span[@class='sales-price__former-price']
-    regExp: (\d+)(\,)?(\d+)?
-    regExpReplace: € $1$2$3
+    regExp: (\d+)(\,?\.?)?(\d+)?(\,-?)?
+    regExpReplace: € $1,$3
   - name: priceCurrency
     singleValue: false
     xpath: //script[contains(text(),"priceCurrency")]/text()
