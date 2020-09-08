@@ -13,9 +13,9 @@ fields:
     defaultValue: Out of Stock
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"slick-current")]/img/@src
+    xpath: //div[contains(@class,"slick-current")]/img/@src | //img[@class="first-product-image"]/@src
     regExp: (.+)\?.*
-    regExpReplace: https://www.elgiganten.se$1
+    regExpReplace: https://www.elgiganten.se$1?$fullsize$
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,"slick-current")]/img/@alt
@@ -23,7 +23,7 @@ fields:
     singleValue: false
     xpath: //div[@class="slick-slide"]/img/@data-lazy
     regExp: (.+)\?.*
-    regExpReplace: https://www.elgiganten.se$1
+    regExpReplace: https://www.elgiganten.se$1?$fullsize$
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -35,7 +35,7 @@ fields:
     manualSelector: h1.product-title
   - name: price
     singleValue: false
-    xpath: //div[@class="product-price-container"]//span
+    manualSelector: div.product-price-container > span, div.product-price > span
   - name: manufacturerDescription
     singleValue: false
     xpath: //section[contains(@class,"article-page")]
@@ -98,4 +98,4 @@ fields:
     singleValue: false
     xpath: //*[contains(text(),"Användarmanual")]/following-sibling::a/@href
     regExp: (.+)
-    regExpReplace: https://www.elgiganten.se$1
+    regExpReplace: 'Yes'
