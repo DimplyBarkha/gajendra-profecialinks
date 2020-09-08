@@ -635,7 +635,6 @@ async function implementation (
 
       let inStore = false;
       let deliver = false;
-      let availabilitySuccess = false;
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=ff457966e64d5e877fdbad070f276d18ecec4a01&tcin=' + variant.tcin + '&store_id=281&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=281&fulfillment_test_mode=grocery_opu_team_member_test')
       .then(data => data.json())
       .then(availabilityData => {
@@ -645,16 +644,11 @@ async function implementation (
         availabilityData.data.product.fulfillment) {
           if (availabilityData.data.product.fulfillment.store_options &&
               availabilityData.data.product.fulfillment.store_options.length) {
-                availabilitySuccess = true;
                 availabilityData.data.product.fulfillment.store_options.forEach(store => {
                   if(store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
                     inStore = true;
                   }
                 });
-          }
-
-          if (availabilityData.data.product.fulfillment.shipping_options) {
-            availabilitySuccess = true;
           }
 
           if (availabilityData.data.product.fulfillment.shipping_options &&
@@ -665,14 +659,11 @@ async function implementation (
 
       });
 
-      if (availabilitySuccess && (deliver || inStore)) {
+      if (deliver || inStore) {
         if (deliver) {
           addHiddenDiv(newDiv, 'availability', 'In Stock');
         } else if (inStore) {
           addHiddenDiv(newDiv, 'availability', 'In Store Only');
-        }
-        if (!deliver && !inStore) {
-          addHiddenDiv(newDiv, 'availability', 'Out of stock');
         }
       } else {
 
@@ -701,15 +692,13 @@ async function implementation (
         }
       }
 
-      let priceSuccess = false;
-      console.log('pricing');
+
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
         .then(data => data.json())
         .then(variantData => {
           if (variantData.price) {
             if (variantData.price.current_retail || variantData.price.formatted_current_price) {
               addHiddenDiv(newDiv, 'price', variantData.price.current_retail || variantData.price.formatted_current_price);
-              priceSuccess = true;
             }
             if (variantData.price.reg_retail) {
               addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
@@ -720,7 +709,7 @@ async function implementation (
           }
         });
 
-      if (!priceSuccess) {
+      if (!document.getElementById('price') || !document.getElementById('price').innerText.length) {
         if (document.querySelector('span[data-test="product-savings"]') && document.querySelector('span[data-test="product-savings"]').innerText) {
           addHiddenDiv(newDiv, 'regPrice', document.querySelector('span[data-test="product-savings"]').innerText.split(' ')[1]);
         } else if (document.querySelector('div[data-test="product-price"]')) {
