@@ -6,8 +6,9 @@ async function implementation (
 ) {
   const { keywords, page, offset } = inputs;
   const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
-
+  
   if (nextLinkSelector) {
+
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
     if (!hasNextLink) {
       return false;
@@ -47,7 +48,7 @@ async function implementation (
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    }, { timeout: 20000 }, loadedSelector, noResultsXPath);
   }
   console.log('Checking no results', noResultsXPath);
   return await context.evaluate(function (xp) {
@@ -65,7 +66,7 @@ module.exports = {
     country: 'AU',
     store: 'appliancesonline',
     domain: 'appliancesonline.com.au',
-    nextLinkSelector: '#page-container > aol-search-results-filter-page > aol-filter-page > div > div.filter-page-content-container.ng-star-inserted > section.main-content > aol-search-results-product-listing > aol-product-listing-grid > div:nth-child(3) > div.pagination > pagination-template > ul > li:nth-child(3)',
+    nextLinkSelector: 'div.pagination > pagination-template > ul > li',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.grid-container-flex',
