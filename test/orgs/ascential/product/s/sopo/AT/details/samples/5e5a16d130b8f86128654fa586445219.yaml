@@ -2,7 +2,7 @@ input:
   _url: http://sopo.at
   URL: https://www.sopo.at/detail/index/sArticle/44065
 extractions:
-  - html: https://workbench.import.io/html/run=cb4fc177-1b91-472f-95f5-216c0dcf9a7f/task=e3bedd23-146f-4b3f-a8cc-444e6184d44a/b5613c48-21de-4b72-89a4-11b190c53db8.html
+  - html: https://workbench.import.io/html/run=7567765d-f000-4226-afe2-3d2ae4dea531/task=b685c629-ffa2-4fa0-9d09-984e849148a8/838aca17-3266-4571-b998-66b2e2b8b5d9.html
     extractionConfigId: product/details/stores/s/sopo/AT/extract
     data:
       - group:
@@ -157,6 +157,9 @@ extractions:
 
                   Betriebsanleitung: Ja
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/meta[13]/@content
             manufacturer:
               - text: Dyson
                 xpath: /html/head[1]/meta[13]/@content
@@ -213,4 +216,4 @@ extractions:
                 locale: de_DE
                 value: 36
         xpath: /
-    timestamp: 1599558061977
+    timestamp: 1599570713749

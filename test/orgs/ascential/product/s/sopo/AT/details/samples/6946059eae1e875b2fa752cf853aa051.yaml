@@ -2,7 +2,7 @@ input:
   _url: http://sopo.at
   URL: https://www.sopo.at/detail/index/sArticle/44362
 extractions:
-  - html: https://workbench.import.io/html/run=cb4fc177-1b91-472f-95f5-216c0dcf9a7f/task=dfadf9f8-2add-4e33-9ded-ebc101793c39/50fa03c6-4c5c-403a-a40e-ff4558675d70.html
+  - html: https://workbench.import.io/html/run=7567765d-f000-4226-afe2-3d2ae4dea531/task=99f67948-cb3b-4287-8293-fd4e2d95d086/fc5ed1c2-c83c-456c-a3ae-d39d2aa5d683.html
     extractionConfigId: product/details/stores/s/sopo/AT/extract
     data:
       - group:
@@ -39,6 +39,9 @@ extractions:
                   Material: Kunststoff
                   Kompatibilität: Dyson
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/meta[13]/@content
             manufacturer:
               - text: Dyson
                 xpath: /html/head[1]/meta[13]/@content
@@ -84,4 +87,4 @@ extractions:
                 locale: de_DE
                 value: 3
         xpath: /
-    timestamp: 1599558063247
+    timestamp: 1599570717818

@@ -2,7 +2,7 @@ input:
   _url: http://sopo.at
   URL: https://www.sopo.at/detail/index/sArticle/44332
 extractions:
-  - html: https://workbench.import.io/html/run=cb4fc177-1b91-472f-95f5-216c0dcf9a7f/task=23ac9479-00b9-4b5b-abae-bdfa262ecf2e/3bc77108-96a9-4163-acf7-ad875d4c296d.html
+  - html: https://workbench.import.io/html/run=7567765d-f000-4226-afe2-3d2ae4dea531/task=1edd1ab0-0ac4-4d93-a027-3f94a092970f/ce329545-4194-447b-9c88-ef5e39a8137f.html
     extractionConfigId: product/details/stores/s/sopo/AT/extract
     data:
       - group:
@@ -79,6 +79,9 @@ extractions:
 
                   Paketgewicht: 1,35 kg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/meta[13]/@content
             manufacturer:
               - text: Dyson
                 xpath: /html/head[1]/meta[13]/@content
@@ -127,4 +130,4 @@ extractions:
                 locale: de_DE
                 value: 11
         xpath: /
-    timestamp: 1599558061736
+    timestamp: 1599570717910

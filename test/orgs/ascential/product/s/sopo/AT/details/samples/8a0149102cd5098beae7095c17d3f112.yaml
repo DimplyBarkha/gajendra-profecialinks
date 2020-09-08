@@ -2,7 +2,7 @@ input:
   _url: http://sopo.at
   URL: https://www.sopo.at/detail/index/sArticle/44090
 extractions:
-  - html: https://workbench.import.io/html/run=cb4fc177-1b91-472f-95f5-216c0dcf9a7f/task=0a9103af-9d9b-477a-b73a-04ec47a97d63/a30b3a6c-a717-4bef-8bf6-b520bef1feee.html
+  - html: https://workbench.import.io/html/run=7567765d-f000-4226-afe2-3d2ae4dea531/task=69fa7012-432d-4e47-827b-355e300af1c6/a4a59ab1-b6e6-417e-99c1-f6888f3525fe.html
     extractionConfigId: product/details/stores/s/sopo/AT/extract
     data:
       - group:
@@ -84,6 +84,9 @@ extractions:
                   Ladestation: Ja
                   Motorisierte Bürste: Ja
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/meta[13]/@content
             manufacturer:
               - text: Dyson
                 xpath: /html/head[1]/meta[13]/@content
@@ -139,4 +142,4 @@ extractions:
                 locale: de_DE
                 value: 31
         xpath: /
-    timestamp: 1599558061568
+    timestamp: 1599570718404
