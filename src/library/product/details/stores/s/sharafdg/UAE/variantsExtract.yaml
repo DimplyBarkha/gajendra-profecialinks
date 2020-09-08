@@ -3,16 +3,16 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: variants
-    singleValue: false
-    xpath: //div[@class="product-title"]//div[contains(@class, "variants")]//p
+  # - name: variants
+  #   singleValue: false
+  #   xpath: //div[@class="product-title"]//div[contains(@class, "variants")]//p
   - name: variantUrl;
     singleValue: false
     xpath: //div[contains(@class, "variants")]//a[@class="variant"]/@href | //div[contains(@class, "alternative-slider")]//div[@class="slick-track"]//div[contains(@class,"slick-slide")]/a/@href 
-    regExp: (.*)
-    regExpReplace: https:$
+    regExp: ^(.+)$
+    regExpReplace: https:$1
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class, "variants")]//a[@class="variant"]/@href | //div[contains(@class, "alternative-slider")]//div[@class="slick-track"]//div[contains(@class,"slick-slide")]/a/@href 
-    regExp: (.*)\/(.*?)_
+    regExp: (.*)\/(.*?)
     regExpReplace: $2
