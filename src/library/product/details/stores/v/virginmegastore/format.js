@@ -20,6 +20,9 @@ const transform = (data) => {
         });
         row.category = [{ text: categoryArray.join(' > '), xpath: row.category[0].xpath }];
       }
+      if (row.alternateImages) {
+        row.alternateImages.shift();
+      }
       if (row.availabilityText) {
         const availabilityTextArr = row.availabilityText.map((item) => {
           return (typeof (item.text) === 'string') && (item.text.trim() === 'Add to bag') ? 'In Stock' : 'Out of Stock';
