@@ -77,10 +77,12 @@ module.exports = {
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner', { timeout: 55000 });
       try {
-        await context.waitForSelector('li#prodCollage a.view-more-trigger');
+        await context.waitForSelector('li#prodCollage a.view-more-trigger', { timeout: 55000 });
       } catch (error) {
         if (noManufacturerContent) {
           console.log('No manufacturer content loading');
+        } else {
+          throw new Error('Manufacturer content loading issue');
         }
       }
 
