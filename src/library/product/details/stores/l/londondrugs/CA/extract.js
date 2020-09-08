@@ -1,6 +1,6 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -60,7 +60,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       }, iframeSelector);
     }
 
-    const zoomContainer = ".zoomContainer";
+    const zoomContainer = '.zoomContainer';
     const zoomFeature = await context.evaluate((zoom) => {
       return Boolean(document.querySelector(zoom));
     }, zoomContainer);

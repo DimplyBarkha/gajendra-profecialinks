@@ -1,6 +1,6 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { variants } = dependencies;
 
@@ -12,7 +12,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   if (result) {
     await context.evaluate(async (selector) => {
       const sku = document.querySelector(selector).innerText;
-      const isVariantAvailable = document.querySelector(".product-variations");
+      const isVariantAvailable = document.querySelector('.product-variations');
       if (!isVariantAvailable && sku) {
         const body = document.querySelector('body');
         body.setAttribute('variants', sku);

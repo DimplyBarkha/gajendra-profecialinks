@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     domain: 'londondrugs.com',
     timeout: 50000,
-    country: "CA",
+    country: 'CA',
     store: 'londondrugs',
     zipcode: '',
   },
@@ -35,7 +35,7 @@ module.exports = {
           () => {
             return document.querySelector('.ld-sg-button.ld-sg-button--secondary.ld-sg-button--secondary-flex.js-load-more__btn.load-more__btn.hide');
           },
-          { timeout, }
+          { timeout },
         );
       }
     }

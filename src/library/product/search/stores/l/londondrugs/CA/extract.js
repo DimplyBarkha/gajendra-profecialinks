@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const timeout = parameters.timeout ? parameters.timeout : 10000;
@@ -8,7 +8,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     () => {
       return document.querySelector('.bv-off-screen');
     },
-    { timeout, }
+    { timeout },
   );
   return await context.extract(productDetails, { transform });
 }
