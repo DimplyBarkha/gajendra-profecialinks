@@ -64,8 +64,10 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'appliancesonline',
-    domain: 'appliancesonline.com.au',    
-    nextLinkSelector: 'div.pagination > pagination-template > ul > li.ng-star-inserted:not([class*="active"]):last-child > a.ng-star-inserted',
+    domain: 'appliancesonline.com.au',
+    nextLinkSelector: '#page-container > aol-search-results-filter-page > aol-filter-page > div > div.filter-page-content-container.ng-star-inserted > section.main-content > aol-search-results-product-listing > aol-product-listing-grid > div:nth-child(3) > div.pagination > pagination-template > ul > li:nth-child(3)',
+    mutationSelector: null,
+    spinnerSelector: null,
     loadedSelector: 'div.grid-container-flex',
     openSearchDefinition: {
       template: 'https://www.appliancesonline.com.au/search/{searchTerms}?currentpage={page}&sortkey=highestrated',
