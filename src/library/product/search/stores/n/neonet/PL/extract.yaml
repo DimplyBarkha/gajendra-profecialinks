@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="listingItemCss-item-6Lu listingItemCss-list-1T1"]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //h2[@class="listingItemCss-name-3RF"]/@title
+  - name: productUrl
+    singleValue: false
+    xpath: concat('https://www.neonet.pl/',//a[@class="listingItemCss-nameLink-1rv"]/@href)
+  - name: manufacturer
+    singleValue: true
+    xpath: //a[@id="manufacturerLogo"]/img/@alt
+    #//div[@class="listingItemCss-manufacturer-3SU"]/a[@aria-label]    
+  - name: id
+    singleValue: false
+    xpath: //div[@class="rotatorCss-track-2Fz"]//a[1]/img/@src
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="rotatorCss-track-2Fz"]//a[1]/img/@src
+  - name: url
+    singleValue: false
+  - name: aggregateRating
+    type: NUMBER
+    singleValue: false
+    xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
+    regExp: (.*width:)(.\d+)(%)
+    regExpReplace: $2   
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="productRatingCss-ratings-8MD"]/text()
+    regExp: (.*opinie:)(.\d+)
+    regExpReplace: $2   
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="productRatingCss-ratings-8MD"]/text()
+    regExp: (.*opinie:)(.\d+)
+    regExpReplace: $2      
+  - name: price
+    singleValue: false
+    xpath: concat(normalize-space(//div[@class="listingItemCss-sp__integer-3NZ"]), '.', normalize-space(//div[@class="listingItemCss-sp__formatter-1Pf"]))
+  - name: shippingInfo
+    singleValue: false    
+    xath: //span[@class="productAvailabilityDesktopCss-product__available-37U"]/span
+  - name: rank
+    singleValue: false
