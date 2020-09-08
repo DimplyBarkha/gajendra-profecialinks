@@ -27,5 +27,24 @@ fields:
     xpath: //div[@class='b1u9']//span[contains(@class,'b1v1')]
   - name: description
     singleValue: false    
-    xpath: //div[@class='b0v1 b0v4']
-    
+    xpath: //div[contains(@class,'b0v1')]
+  - name: brandText
+    singleValue: false
+    xpath: //ol[@class='b6z4']//li[last()]//span    
+  - name: manufacturer
+    singleValue: false
+    xpath: //ol[@class='b6z4']//li[last()]//span
+  - name: reviewCount
+    singleValue: false
+    xpath: //a[@class='b8w7']
+    regExp: (.*)\s*отзыва
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='b8w6 a1y6 a1z']/@title
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='b8w6 a1y6 a1z']/@title
+  - name: soldBy
+    singleValue: false
+    xpath: //a[@class='b2l6']
