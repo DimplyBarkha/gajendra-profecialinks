@@ -16,11 +16,9 @@ fields:
   - name: _pageTimestamp
   - name: _url
   - name: category
-    xpath: //span[@itemprop="itemListElement"]//span[@itemprop="name"]
+    xpath: //span[@itemprop="itemListElement"][position() > 1]//span[@itemprop="name"]
   - name: nameExtended
     xpath: //span[@class="product-label-span"]
-  - name: listPriceCurrency
-    defaultValue: EUR
   - name: listPrice 
     singleValue: true
     xpath: //div[contains(@class,'product-price')]/span
@@ -35,7 +33,6 @@ fields:
     regExp:
     regExpReplace:
   - name: price
-    singleValue: true
     xpath: //div[contains(@class,'product-price')]/span
   - name: availabilityText
     singleValue: true
@@ -47,7 +44,7 @@ fields:
     singleValue: true
     xpath: normalize-space(//li[@class="item_description"])
   - name: descriptionBullets
-    xpath: //div[@class='bulletsdescription']//li/@value
+    xpath: count(//div[@class='bulletsdescription']//li)
   - name: brandText
     singleValue: true
     xpath: //span[@class="product-brand"]
@@ -91,10 +88,13 @@ fields:
     singleValue: true
     xpath: //span[@itemprop="ratingCount"]
   - name: aggregateRatingText
-    singleValue: true
     xpath: //span[@itemprop="ratingValue"]
+    regExp: (.*)\.(.*)
+    regExpReplace: $1,$2
   - name: aggregateRating
     xpath: //span[@itemprop="ratingValue"]
+    regExp: (.*)\.(.*)
+    regExpReplace: $1,$2
   - name: shippingInfo
     singleValue: true
     xpath: 
@@ -111,14 +111,13 @@ fields:
   - name: internationalShipping
   - name: name 
     xpath: //div[contains(@class,'name-produit')]/span
-  - name: priceCurrency
-    defaultValue: EUR
   - name: largeImageCount
     singleValue: true
     xpath: count(//div[@class="zoom-target"]/img)
   - name: featureBullets
     xpath: //div[@class='bulletsdescription']//li//@valueaccessories
   - name: specifications
+    singleValue: false
     xpath: //div[@class='bulletsdescription']//li//@valuefeatures
   - name: warranty
     xpath: //@warranty
@@ -134,13 +133,10 @@ fields:
   - name: recyclingInformation 
   - name: productOtherInformation
   - name: secondaryImageTotal
-    singleValue: true
     xpath: count(//div[@class="zoom-target"]/img)
   - name: additionalDescBulletInfo
-    singleValue: true
-    xpath: 
-    regExp:
-    regExpReplace:
+    singleValue : false
+    xpath: //div[@class='bulletsdescription']//li/@value
   - name: p_region
     singleValue: true
     xpath: 
@@ -197,8 +193,8 @@ fields:
     xpath: 
     regExp:
     regExpReplace:
-  - name: imageZoomFeaturePresent 
-    singleValue: true
+  - name: imageZoomFeaturePresent
+    singleValue: true 
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     xpath: //div[@class="zoom-target"]/img/@src

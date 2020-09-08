@@ -1,0 +1,119 @@
+input:
+  _url: http://placedestendances.com/fr/fr
+  URL: https://beaute-printemps.placedestendances.com/fr/fr/dyson-dyson-corrale-4153279
+extractions:
+  - html: https://workbench.import.io/html/run=bb2c8a1c-b142-47a4-a1ce-d63763fa3a24/task=98415c81-9661-458d-bf19-2da674afc5bb/fbd75cd9-63bf-40d4-be83-07c01d56f5ba.html
+    extractionConfigId: product/details/stores/p/placedestendances/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-corrale-no-color/image/09/9/2559099.jpg?func=fit&bg_color=white&w=533&h=730
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: DYSON Dyson Corrale
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-corrale-no-color/image/10/0/2559100.jpg?func=fit&bg_color=white&w=125&h=172
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[2]/img[1]/@src
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-corrale-no-color/image/10/1/2559101.jpg?func=fit&bg_color=white&w=125&h=172
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[3]/img[1]/@src
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-corrale-no-color/image/10/2/2559102.jpg?func=fit&bg_color=white&w=125&h=172
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[4]/img[1]/@src
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-corrale-no-color/image/10/3/2559103.jpg?func=fit&bg_color=white&w=125&h=172
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[5]/img[1]/@src
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-corrale-no-color/image/09/9/2559099.jpg?func=fit&bg_color=white&w=125&h=172
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[6]/img[1]/@src
+            category:
+              - text: Marques
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]/span[1]
+              - text: Dyson
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]/span[1]
+              - text: Printemps Beauté
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[4]/a[1]/span[1]
+              - text: Dyson Corrale
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[5]/a[1]/span[1]
+            nameExtended:
+              - text: Dyson Corrale
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]/div[1]/span[1]
+            listPrice:
+              - text: 499,00 €
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
+            price:
+              - text: 499,00 €
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[5]/div[1]/a[1]
+            brandText:
+              - text: DYSON
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            gtin:
+              - text: "2771252"
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/input[6]/@value
+            sku:
+              - text: "4153279"
+                xpath: /html/body/div[5]/@data-product
+            mpc:
+              - text: "4153278"
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/input[1]/@value
+            ratingCount:
+              - text: "15823"
+                xpath: /html/body/div[6]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/a[1]/span[1]/span[3]
+            aggregateRating:
+              - text: 4,75
+                xpath: /html/body/div[6]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/a[1]/span[1]/span[1]
+            videos:
+              - text: https://youtu.be/ggXlF3aFTmQ
+                xpath: /html/body/@video
+            name:
+              - text: Dyson Corrale
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]/div[1]/span[1]
+            warranty:
+              - text: "Dyson 2 ans : pièces, main d’œuvre et transport"
+                xpath: /html/body/@warranty
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            productUrl:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson-dyson-corrale-4153279
+                xpath: /html/head[1]/link[1]/@href
+            Image360Present:
+              - text: No
+            description:
+              - text: "Lisseur Dyson Corrale(TM) Moins de chaleur, moitié moins de dommages Les
+                  plaques souples rassemblent les cheveux pour plus de contrôle,
+                  vous pouvez ainsi vous coiffer avec moins de chaleur et 50% de
+                  casses en moins1. S'utilise avec ou sans fil Jusqu'à 30
+                  minutes2 d'autonomie sans fil. Ou vous pouvez brancher le
+                  câble si vous avez besoin de vous coiffer plus longtemps.
+                  Conçu pour tous types de cheveux 3 réglages de températures
+                  pour garantir un coiffage efficace pour tous type et toutes
+                  les longueurs de cheveux. Prêt pour le voyage Un voltage
+                  universel et un mode avion pour vous permettre de voyager à
+                  l'étranger avec votre lisseur. Pochette thermorésistante
+                  Rangez votre lisseur en toute sécurité, avec une protection
+                  séparée pour la languette mode avion. Tranquillité d'esprit
+                  Arrêt automatique au bout de 10 minutes sans utilisation et
+                  verrou de sécurité pour un rangement immédiat après
+                  utilisation 1. Les dommages thermiques sont mesurés par la
+                  résistance des cheveux lors de la réalisation d'une coiffure
+                  équivalente. Testé sur des plaques souples vs. des plaques
+                  rigides. Conçu pour être équilibré. Le poids est réparti dans
+                  la main pour permettre un maximum de contrôle pendant le
+                  coiffage. 2. L'autonomie dépend du type de cheveux et de la
+                  façon de coiffer. Garantie Dyson 2 ans : pièces, main d’œuvre
+                  et transport"
+            descriptionBullets:
+              - text: "0"
+            legalDisclaimer:
+              - text: En changeant de pays, certains articles peuvent être retirés de votre
+                  panier et votre sélection
+            largeImageCount:
+              - text: "5"
+            secondaryImageTotal:
+              - text: "5"
+        xpath: /
+    timestamp: 1599566197534

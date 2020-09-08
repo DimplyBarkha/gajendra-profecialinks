@@ -1,0 +1,148 @@
+input:
+  _url: http://placedestendances.com/fr/fr
+  URL: https://beaute-printemps.placedestendances.com/fr/fr/dyson-dyson-supersonic-edition-speciale-fete-des-meres-4178292
+extractions:
+  - html: https://workbench.import.io/html/run=bb2c8a1c-b142-47a4-a1ce-d63763fa3a24/task=77fb99fd-14e9-45ae-a4cc-0918df34157f/ae6b7493-0def-4990-9be8-55d819f573ba.html
+    extractionConfigId: product/details/stores/p/placedestendances/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-supersonic-edition-speciale-fete-des-meres-no-color/image/20/4/2585204.jpg?func=fit&bg_color=white&w=533&h=730
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: DYSON Dyson Supersonic - Edition spéciale Fête des Mères
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-supersonic-edition-speciale-fete-des-meres-no-color/image/47/1/2578471.jpg?func=fit&bg_color=white&w=125&h=172
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[2]/img[1]/@src
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-supersonic-edition-speciale-fete-des-meres-no-color/image/47/2/2578472.jpg?func=fit&bg_color=white&w=125&h=172
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[3]/img[1]/@src
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-supersonic-edition-speciale-fete-des-meres-no-color/image/47/3/2578473.jpg?func=fit&bg_color=white&w=125&h=172
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[4]/img[1]/@src
+              - text: https://medias-cache.placedestendances.com/fr/dyson-dyson-supersonic-edition-speciale-fete-des-meres-no-color/image/47/4/2578474.jpg?func=fit&bg_color=white&w=125&h=172
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[5]/img[1]/@src
+            category:
+              - text: Marques
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]/span[1]
+              - text: Dyson
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]/span[1]
+              - text: Printemps Beauté
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[4]/a[1]/span[1]
+              - text: Dyson Supersonic - Edition spéciale Fête des Mères
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[5]/a[1]/span[1]
+            nameExtended:
+              - text: Dyson Supersonic - Edition spéciale Fête des Mères
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]/div[1]/span[1]
+            listPrice:
+              - text: 399,00 €
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
+            price:
+              - text: 399,00 €
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[5]/div[1]/a[1]
+            brandText:
+              - text: DYSON
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            gtin:
+              - text: "2788470"
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/input[6]/@value
+            sku:
+              - text: "4178292"
+                xpath: /html/body/div[5]/@data-product
+            mpc:
+              - text: "4178291"
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/input[1]/@value
+            ratingCount:
+              - text: "15823"
+                xpath: /html/body/div[6]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/a[1]/span[1]/span[3]
+            aggregateRating:
+              - text: 4,75
+                xpath: /html/body/div[6]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/a[1]/span[1]/span[1]
+            color:
+              - text: Gris/Fuchsia
+                xpath: /html/body/@color
+            name:
+              - text: Dyson Supersonic - Edition spéciale Fête des Mères
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/h1[1]/div[1]/span[1]
+            warranty:
+              - text: 2 ans
+                xpath: /html/body/@warranty
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            productUrl:
+              - text: https://beaute-printemps.placedestendances.com/fr/fr/dyson-dyson-supersonic-edition-speciale-fete-des-meres-4178292
+                xpath: /html/head[1]/link[1]/@href
+            Image360Present:
+              - text: No
+            description:
+              - text: "Sèche cheveux Dyson Supersonic Fuchsia avec son kit de coiffage offert Le
+                  sèche-cheveux repensé ! Contrôle intelligent de la chaleur
+                  pour des cheveux brillants. Moteur numérique puissant. Conçu
+                  pour être équilibré : Avec un moteur numérique V9 placé dans
+                  le manche (petit, rapide et ultra-léger), Dyson a totalement
+                  rééquilibré le poids et la forme du sèche-cheveux. Bien plus
+                  qu'un sèche-cheveux classique, ce sèche-cheveux professionnel,
+                  au moteur professionnel, est doté d'une bonne prise en main et
+                  d'un bon équilibre. Ergonomique et maniable, il vous satisfera
+                  pleinement. Une acoustique optimisée : Le Dyson Supersonic est
+                  plus silencieux grâce à son moteur numérique qui tourne avec
+                  une fréquence inaudible et est isolé pour réduire les
+                  vibrations Moteur ultra-puissant et niveau sonore maîtrisé :
+                  la combinaison parfaite. Séchage rapide : La technologie Air
+                  Multiplier(TM) associée à un moteur puissant produit un jet
+                  d'air à haute pression et grande vitesse permettant un séchage
+                  rapide. Protection intelligente cheveux brillants : Supersonic
+                  vous offre une protection contre les dégâts causés par une
+                  chaleur excessive afin de préserver la brillance naturelle de
+                  vos cheveux. La température de l'air est de ce fait mesurée 20
+                  fois par seconde et régulée par un microprocesseur ce qui
+                  permet de la contrôler en permanence de manière intelligente.
+                  Commandé par seulement 4 boutons : Vous disposez de 3 réglages
+                  de vitesse précis : séchage rapide, séchage normal et
+                  brushing. Et de 4 niveaux de température précis : 100°C
+                  (séchage rapide et brushing), 80°C (séchage normal), 60°C
+                  (séchage doux) et 28°C (froid constant ou air froid). Brushing
+                  simplifié : Grâce à ses accessoires magnétiques, le réglage
+                  est rapide et aisé. Les accessoires se fixent et s'orientent
+                  facilement. Froid au toucher : Grâce à la technologie Heat
+                  Shield, la surface des accessoires reste froide, même lors
+                  d'un brushing de précision Embout lissant : L'embout lissant
+                  sèche et coiffe en même temps. Il sèche les cheveux tout en
+                  douceur grâce à son flux d'air large et homogène.
+                  Concentrateur pour brushing : Le concentrateur offre un flux
+                  d'air précis vers l'endroit exact désiré. Il vous permet de
+                  coiffer vos cheveux mèche par mèche sans craindre de décoiffer
+                  le reste de votre chevelure. Il assure un séchage naturel et
+                  accéléré en dispersant l'air uniformément pour bien définir
+                  vos boucles et réduire les frisottis. Cheveux longs, cheveux
+                  lisses, cheveux frisés, cheveux bouclés : grâce à la
+                  technologie Dyson le sèche-cheveux Dyson respecte tous les
+                  types de cheveux. Caractéristiques : o Technologies Air
+                  Multiplier : Contrôle intelligent de la chaleur pour des
+                  cheveux brillants o Moteur : Numérique Dyson V9 o Réglages de
+                  vitesse : 3 o Réglages de chaleur : 4 (28°C à 100°C) o
+                  Puissance : 1600W o Flux d'air : 41 l/s o Acoustique optimisée
+                  o Ions négatifs : contribuent à réduire l'électricité statique
+                  o Longueur de câble : 2,7m Tous les accessoires et embouts
+                  inclus dans la boîte : o Embout lissant o Concentrateur pour
+                  brushing o Diffuseur-Crochet de rangement o Tapis antidérapant
+                  Couleur Gris/Fuchsia Dimensions : H24,5 x L7,8 x P9,7 cm /
+                  Poids : 630 g Garantie 2 ans - pièces, main d'oeuvre et
+                  transport"
+            descriptionBullets:
+              - text: "0"
+            legalDisclaimer:
+              - text: En changeant de pays, certains articles peuvent être retirés de votre
+                  panier et votre sélection
+            largeImageCount:
+              - text: "5"
+            secondaryImageTotal:
+              - text: "5"
+        xpath: /
+    timestamp: 1599566195810
