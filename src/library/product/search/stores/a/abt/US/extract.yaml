@@ -1,0 +1,53 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="category_results_list"]/li
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div[@class="cl_title"]/a/text()
+    regExp: .+\-\s(.+)$
+    regExpReplace: $1
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: name
+    description: The product name
+    xpath: //div[@class="cl_title"]/a/text()
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[@class="category_image_container"]/a[@class="productPageLink"]/@href
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="category_image_container"]/a/img[1]/@src
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@class="abt-tt-rating "]/span[@class="sr-only"]
+    regExp: ^\d+(\.\d+)?
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+    xpath: //span[@class="abt-tt-num-reviews"]
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //span[@class="abt-tt-num-reviews"]
+  - name: price
+    description: The offered price for the product
+    xpath: //div[contains(@class,"pricing-item-price")]/span
+    regExp: .+\:\s(.+)
+    regExpReplace: $1
+  - name: manufacturer
+    description: Product manufacturer
+    xpath: //div[@class="category_image_container"]/a/img[1]/@alt
+    regExp: (^\D+)\s\-.*
+    regExpReplace: $1
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+    defaultValue: abt.com
+  - name: rank
+    description: search/listing rank
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
