@@ -12,7 +12,7 @@ const transform = (data) => {
           row.thumbnail.forEach(item => {
             text += `${item.text
               .match(/\(([^)]+)\)/)[1]
-              .replace(/\//g, '')}  `;
+              }  `;
           });
           row.thumbnail = [
             {
