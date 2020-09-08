@@ -7,12 +7,12 @@ fields:
     description: The URL for the product details page
     xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//div[@class="w-product__wrapper"]/a//@href
     regExp: (.+)
-    regExpReplace: https://www.worten.es/$1
+    regExpReplace: https://www.worten.pt$1
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//img//@data-src
     regExp: (.+)
-    regExpReplace: https://www.worten.es/$1
+    regExpReplace: https://www.worten.pt/$1
   - name: name
     description: The product name
     xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//h3

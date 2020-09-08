@@ -14,7 +14,7 @@ async function implementation(
     await timeout(5000);
     const id = window.location.href.match('[^=]$')[0];
     const searchTerm = window.location.href.replace(new RegExp('(.+query=)(.+)(&so.+)', 'g'), '$2');
-    const response = await fetch("https://www.worten.es/api/search/0/products/_search", {
+    const response = await fetch("https://www.worten.pt/api/search/0/products/_search", {
       "headers": {
         "accept": "application/json, text/plain, */*",
         "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
@@ -23,12 +23,13 @@ async function implementation(
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-origin"
       },
-      "referrer": `https://www.worten.es/search?query=${searchTerm}&sortBy=relevance&hitsPerPage=24&page=${id}`,
+      "referrer": `https://www.worten.pt/search?query=${searchTerm}&sortBy=relevance&hitsPerPage=24&page=${id}`,
       "referrerPolicy": "no-referrer-when-downgrade",
       "body": `{\"requests\":[{\"indexName\":\"search-prd-wes-products_rank1\",\"params\":\"query=${searchTerm}&attributesToHighlight=%5B%5D&attributesToRetrieve=%5B%22*%22%2C%22-facets%22%5D&clickAnalytics=true&facets=price_range%2Ccategory_tree_lbls.level2%2Cbrand&hitsPerPage=24&page=${id - 1}\"},{\"indexName\":\"search-prd-wes-products_rank1\",\"params\":\"query=%20black%20game&attributesToHighlight=%5B%5D&attributesToRetrieve=%5B%22*%22%2C%22-facets%22%5D&facets=price_range%2Ccategory_tree_lbls.level2%2Cbrand&hitsPerPage=0&page=0\"}]}`,
       "method": "POST",
       "mode": "cors",
       "credentials": "include"
+
     });
     const json = await response.json();
     const arr = json.results;
@@ -50,10 +51,10 @@ async function implementation(
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'ES',
+    country: 'PT',
     store: 'worten',
     transform,
-    domain: 'worten.es',
+    domain: 'worten.pt',
     zipcode: '',
   },
   implementation,
