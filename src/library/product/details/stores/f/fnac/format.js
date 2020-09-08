@@ -18,9 +18,9 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      if (row.aggregateRating2) {
-        row.aggregateRating2.forEach(aggregateRating2 => {
-          aggregateRating2.text = aggregateRating2.text.replace('/', '.');
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(aggregateRatingItem => {
+          aggregateRatingItem.text = aggregateRatingItem.text.replace('/', '.');
         });
       }
       if (row.description) {
