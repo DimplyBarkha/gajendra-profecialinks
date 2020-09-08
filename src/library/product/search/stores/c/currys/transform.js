@@ -38,6 +38,16 @@ const transform = (data, context) => {
         });
       }
 
+      if (!row.aggregateRating && row.aggregateRatingText) {
+        row.aggregateRating = [];
+        row.aggregateRatingText.forEach(item => {
+          const num = Number(item.text);
+          const normalizedRating = num / 2;
+          item.text = normalizedRating;
+          row.aggregateRating.push(item);
+        });
+      }
+
       if (row.reviewCount) {
         row.reviewCount.forEach(item => {
           if (item.text.match(/\d+/)) item.text = item.text.match(/\d+/)[0];

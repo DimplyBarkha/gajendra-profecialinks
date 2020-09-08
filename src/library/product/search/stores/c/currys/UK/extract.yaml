@@ -57,12 +57,12 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: true
-    xpath: //div[contains(@class,"main-amount")]//strong[@class="price"]
+    xpath: //div[contains(@class,"main-amount")]//strong[@class="price"] | //article[contains(@class,"result-prd")]//span[span][contains(@class,"ProductPriceBlock__Price")]
     description: The offered price for the product
   - name: listPrice
     singleValue: true
     xpath: //div[contains(@class,"past-amount")]
-    regExp: £\d+(\.\d{2})?
+    regExp: (£|€)\d+(\.\d{2})?
     description: The stated undiscounted price for the product
   - name: manufacturer
     singleValue: true
