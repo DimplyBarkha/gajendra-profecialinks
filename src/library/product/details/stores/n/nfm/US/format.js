@@ -67,6 +67,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.storage) {
+        let text = '';
+        row.storage.forEach(item => {
+          text += `${item.text} `;
+        });
+        row.storage = [
+          {
+            text: (text.slice(0, -1)),
+          },
+        ];
+      }
     }
   }
   return data;

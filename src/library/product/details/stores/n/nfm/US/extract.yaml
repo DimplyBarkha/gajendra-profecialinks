@@ -3,6 +3,11 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: brandText
+    singleValue: false
+    xpath: //script[contains(@id, 'ccsContainer')]
+    regExp: brand":"(.*?)"
+    regExpReplace: $1
   - name: nameExtended
     singleValue: false
     manualSelector: h1#DT_BrandProductName
@@ -35,7 +40,7 @@ fields:
     xpath: //*[@id="DT_InStock"]
   - name: storage
     singleValue: false
-    manualSelector: span#DT_NotInStockLocation
+    xpath: //span[contains(@id, 'DT_NotOnDisplayLocation')]/preceding-sibling::*[1] | //span[contains(@id, 'DT_NotOnDisplayLocation')] | //span[contains(@id, 'DT_NotOnDisplayLocation')]/following-sibling::*[1]
   - name: category
     singleValue: false
     xpath: //ul[@id="breadCrumbContainer"]//li
@@ -45,9 +50,13 @@ fields:
   - name: image
     singleValue: false
     xpath: //img[@id="Product_Main_Image_0"]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="mainImageContainer"]//div[@class="slick-track"]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: asin
     singleValue: false
     manualSelector: span#DT_Overview_ProductId
@@ -69,3 +78,9 @@ fields:
   - name: color
     singleValue: false
     xpath: //*[@id="ClubSwatch1"]//img[@id="Product_Image_Swatch_1"]/@alt
+  - name: warranty
+    singleValue: false
+    xpath: //h3[contains(text(), 'warranty')]
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='videosExtracted']
