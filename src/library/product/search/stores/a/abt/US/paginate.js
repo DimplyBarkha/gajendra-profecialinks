@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'abt',
-    nextLinkSelector: 'div#hawkbottompager span.hawk-pageActive+a',
+    nextLinkSelector: 'div#hawkbottompager a.hawk-arrowRight',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div#category_results',
+    loadedSelector: 'ul#category_results_list',
     noResultsXPath: '//h2[@class="nopagetext"]',
     openSearchDefinition: null,
     domain: 'abt.com',

@@ -1,4 +1,5 @@
 const { transform } = require('../../../../shared');
+
 async function implementation (
   inputs,
   parameters,
@@ -6,8 +7,10 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   return await context.extract(productDetails);
 }
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
