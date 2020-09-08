@@ -1,0 +1,163 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //a[@id='big-photo']//img/@src
+    description: URL of the main product image
+  - name: _url
+    singleValue: false 
+    xpath: //meta[contains(@property,"og:url")]/@content
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='product-photos']//li/a/@href
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name,"keyword")]/@content
+    description: The <meta> keywords content
+  - name: description
+    singleValue: false
+    #xpath: //meta[contains(@property,"description")]/@content
+    xapth: //table[@class='description-tech-details js-tech-details']//tbody//tr[not(@class="group-name")]
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: gtin
+    singleValue: true
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin13")]
+    regExp: gtin13":\s"([^"]+)
+    regExpReplace: $1
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":\s"([^"]+)
+    regExpReplace: $1
+    description: The store-specific product identifier
+  - name: ratingCount
+    singleValue: true
+    xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
+    regExp: reviewCount":\s"([^"]+)
+    regExpReplace: $1
+    description: The number of ratings
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: true
+    xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
+    regExp: ratingValue":\s"([^"]+)
+    regExpReplace: $1
+    description: The stated aggregate rating normalized to be out of 5
+    #type: NUMBER
+  - name: imageAlt
+    singleValue: true
+    xpath: //a[@id='big-photo']//img//@alt
+    description: Alt text of the main product image
+  - name: category
+    singleValue: false
+    xpath: //li[@class='home']//a[@itemprop ="item"] | //li[@class= 'selenium-last-breadcrumb']
+    regExp: category":\s"([^"]+)
+    regExpReplace: $1
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: true
+    xpath: //div//script[@type="text/javascript"][contains(text(),"name")][1]
+    regExp: name":\s"([^"]+)
+    regExpReplace: $1
+  - name: listPrice
+    singleValue: true
+    xpath: //script[@type="text/javascript"][contains(text(),"price")]
+    regExp: price":\s"([^"]+)
+    regExpReplace: $1
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    xpath: //script[@type="application/ld+json"][contains(text(),"price")]
+    regExp: price":\s"([^"]+)
+    regExpReplace: $1
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: true
+    xpath: //script[@type="application/ld+json"][contains(text(),"availability")]
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[contains(@class,'about-desc')]//ul/li)
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    singleValue: true
+    xpath: //script[1][@type="text/javascript"][contains(text(),"brand")]
+    regExp: brand":\s"([^"]+)
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: true
+    xpath: //script[1][@type="text/javascript"][contains(text(),"brand")]
+    regExp: brand":\s"([^"]+)
+    regExpReplace: $1
+    description: Product manufacturer
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+    xpath: normalize-space(//td[contains(text(),'Waga')]//following-sibling::td)
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: shippingDimensions
+    singleValue: true
+    xpath: normalize-space(//td[contains(text(),'Wymiary opakowania')]//following-sibling::td)
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    xpath: normalize-space(//td[contains(text(),'Waga z opakowaniem')]//following-sibling::td)
+    singleValue: true
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    type: NUMBER
+  - name: color
+    singleValue: true
+    xpath: normalized space(//div[@class='product-tab product-tab-opis']//tr//td[contains(text(),'Kolor')]//following-sibling::td)
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(),'producenta / importera')]//following-sibling::td)
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: name
+    singleValue: true
+    xpath: //meta[contains(@property,"og:title")]/@content
+    description: The product name
+  - name: specifications
+    singleValue: true
+    xpath: normalize-space(//td[contains(text(),'Wymiary')]//following-sibling::td)
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    singleValue: true
+    xpath: //td[contains(text(),'Gwarancja')][1]//following-sibling::td/text()
+    description: Guarantee associated with the product
+  - name: countryOfOrigin
+    singleValue: true
+    description: The country from which the product originates
+  - name: energyEfficiency
+    singleValue: true
+    xpath: normalize-space(//a[contains(text(),'Klasa energetyczna')]//..//following-sibling::td)
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: videos
+    singleValue: 
+    xpath: //button[@class='video-preview js-video-preview']/@data-src
+    description: URLs of videos on page

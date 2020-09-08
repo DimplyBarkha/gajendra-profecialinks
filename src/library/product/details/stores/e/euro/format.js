@@ -1,0 +1,42 @@
+/**
+ *
+ * @param {ImportIO.Group[]} data
+ * @returns {ImportIO.Group[]}
+ */
+const transform = (data) => {
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.shippingDimensions) {
+        row.shippingDimensions.forEach(item => {
+          const locText = item.text;
+          if (locText.indexOf('###') > 0) {
+            item.text = locText.substring(0, locText.indexOf('###'));
+          } else if (locText.indexOf('###') === 0) {
+            item.text = locText.replace('###', '');
+          }
+          console.log(item.text);
+        });
+      }
+      if (row.description) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.description.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + '||';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        console.log(newDesc);
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.description = nDesc;
+      }
+    }
+  }
+  return data;
+};
+module.exports = { transform };
