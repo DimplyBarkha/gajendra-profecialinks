@@ -13,6 +13,25 @@ const transform = (data) => {
             item.text=tmpURL;
           });
         }
+
+        if(row.ratingCount){
+          row.ratingCount.forEach(item => {
+            var ratingCountArr=item.text.split(" ");
+            item.text=parseInt(ratingCountArr[0]);
+          });
+        }
+
+        if(row.quantity){
+          row.quantity.forEach(item => {
+            item.text=parseInt(item.text);
+          });
+        }
+
+        if(row.aggregateRating){
+          row.aggregateRating.forEach(item => {
+            item.text=parseFloat(item.text);
+          });
+        }
       }
     }
     return data;
