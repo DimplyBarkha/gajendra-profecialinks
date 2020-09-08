@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, 'products')]//div[contains(@class, 'v-card__title title')]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, 'products')]//div[contains(@class, 'after-price')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class, 'products')]//a[contains(@class, 'product-card')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.bilka.dk$1
