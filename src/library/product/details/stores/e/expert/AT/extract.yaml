@@ -23,7 +23,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //li[@itemprop="itemListElement"][position()>1]
+    xpath: //li[@itemprop="itemListElement"][position()>1 and position()<last()]
     # xpath: //script[contains(text(), "window.dataLayer")]/text()
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
