@@ -4,6 +4,12 @@ recordSelector: null
 recordXPath: null
 fields:
   
+  - name: sku
+    singleValue: false    
+    xpath: //span[@data-widget='detailSKU']
+  - name: name
+    singleValue: false    
+    xpath: //div[@data-widget='webProductHeading']//h1
   - name: image
     singleValue: false    
     xpath: //div[@class='magnifier-container' or @class='a8n3']//img/@src
@@ -25,19 +31,28 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class='b1u9']//span[contains(@class,'b1v1')]
+  - name: promotion
+    singleValue: false
+    xpath: //span[@title='Скидка']
   - name: description
     singleValue: false    
-    xpath: //div[contains(@class,'b0v1')]
+    xpath: //script[@type='application/ld+json']
   - name: brandText
     singleValue: false
     xpath: //ol[@class='b6z4']//li[last()]//span    
   - name: manufacturer
     singleValue: false
     xpath: //ol[@class='b6z4']//li[last()]//span
+  - name: brandLink
+    singleValue: false
+    xpath: //a[contains(@class,'b1c3')]/@href
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //a[contains(@class,'b1c3')]//img[contains(@class,'b1c4')]/@src
   - name: reviewCount
     singleValue: false
     xpath: //a[@class='b8w7']
-    regExp: (.*)\s*отзыва
+    regExp: (.*)\s*(отзыва|отзывов)
     regExpReplace: $1
   - name: ratingCount
     singleValue: false
@@ -48,3 +63,34 @@ fields:
   - name: soldBy
     singleValue: false
     xpath: //a[@class='b2l6']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@data-widget='webTrustFactors']//div[@class='a1e7']//span[@class='a1f']
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[@class='b0r3 b2r7']//span[contains(text(),'Нет в наличии')]
+    defaultValue: 'In Stock'
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@data-widget='webCharacteristics']//span[contains(text(),'Вес в упаковке')]/parent::*/parent::*/dd
+  - name: color
+    singleValue: false
+    xpath: //span[@class='b0r3']//span[contains(text(),'Цвет:')]//following-sibling::span
+  - name: specifications
+    singleValue: false
+    xpath: //div[@data-widget='webCharacteristics']//dl[contains(@class,'b0s8')]
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@data-widget='webCharacteristics']//dl[contains(@class,'b0s1')]
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+  - name: variantInformation
+    singleValue: false
+    defaultValue: '|'
+  - name: variants
+    singleValue: false
+    xpath: //script[contains(@id,'state-webAspects-')]/text()
