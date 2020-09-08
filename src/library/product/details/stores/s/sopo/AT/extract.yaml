@@ -69,8 +69,6 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //li[contains(text(), 'Anzahl')]
-    regExp: (\d+)
     defaultValue: "1"
   - name: weightNet
     singleValue: true
@@ -95,7 +93,7 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //h1[@class='product--title']
-    regExp: ([\d\-]{2,})
+    regExp: ([\d\-]{5,})
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
