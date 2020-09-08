@@ -8,7 +8,11 @@ async function implementation (
   await context.evaluate(async function () {
     const productKey = window.location.href.replace(/(.*)--p(\d+)/gm, '$2');
     // @ts-ignore
-    const variantUrls = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products[productKey].productVariants[0].options;
+    const variant = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products[productKey];
+    let variantUrls = [];
+    if (variant.productVariants) {
+      variantUrls = variant.productVariants[0].options;
+    }
     function addEleToDoc (key, value) {
       const prodEle = document.createElement('div');
       prodEle.id = key;
