@@ -9,7 +9,7 @@ fields:
     regExpReplace: https://www.tesco.com$1
     description: The URL for the product details page
   - name: thumbnail
-    xpath: //img[@class="product-image"]/@src
+    xpath: //@thumbnail
     description: The URL for the product thumbnail image
   - name: name
     singleValue: true
@@ -35,3 +35,8 @@ fields:
   - name: sponsored
     singleValue: true
     defaultValue: false
+  - name: gtin
+    xpath: //@thumbnail
+    singleValue: true
+    regExp: (\d+)\/[^\/]+$
+    regExpReplace: $1

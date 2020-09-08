@@ -1,24 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@class="product-list 4"]/li
+recordXPath: //div[@id="products-list"]/ul/li
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[contains(@class,"product-name")]//a[contains(@data-event,"product_click")]/@href
+    xpath: //a[contains(@data-event,"product_click")]/@href
     regExp: ^(.+)$
     regExpReplace: https://www.elcorteingles.es$1
   - name: thumbnail
     description: The URL for the product thumbnail image
     regExp: ^(.+)$
     regExpReplace: https:$1    
-    xpath: //img[contains(@id,"image")]/@src
+    xpath: //img/@data-src
   - name: name
     xpath: //div[contains(@class,"product-name")]//a[contains(@data-event,"product_click")]
   - name: gtin
-    singleValue: true
+    regExp: gtin":"([^"]+)
+    regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
-    xpath: //a[@data-product-ean]/@data-product-ean
+    xpath: //span[@data-json]/@data-json
   - name: aggregateRatingText
     description: The stated aggregate rating
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
@@ -32,15 +33,15 @@ fields:
   - name: reviewCount
     description: The number of reviews
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
-    regExp: (.+)\.(.+) (.+)
-    regExpReplace: $2    
+    regExp: \d+(?=\sreseñas)
   - name: price
     description: The offered price for the product
-    xpath: //div[contains(@class,"product-price")]/span[1]
+    xpath: //span[@class="price _big"] | //span[@class="price _big _sale"]
   - name: id
-    singleValue: true
     description: Unique id (within this extractor)
-    xpath: //a[@data-product-sku]/@data-product-sku
+    xpath: //span[@data-json]/@data-json
+    regExp: \"id":"([^"]+)
+    regExpReplace: $1
   - name: rank
   - name: rankOrganic
   - name: sponsored

@@ -5,9 +5,9 @@ module.exports = {
     country: 'ES',
     store: 'elcorteingles_deportes',
     domain: 'elcorteingles.es',
-    url: 'https://www.elcorteingles.es/deportes/search/?s={searchTerms}',
-    loadedSelector: 'ul.product-list>li',
-    noResultsXPath: '//div[@class="no-results"]',
+    url: 'https://beta.elcorteingles.es/deportes/search/?v=Deportes&s={searchTerms}&stype=text_box',
+    loadedSelector: 'img.js_preview_image.lazyloaded',
+    noResultsXPath: '//div[@class="products_list-container _no_products vp"] | //html[not(//div[@id="products-list"]/ul/li)]',
     zipcode: '',
   },
 };

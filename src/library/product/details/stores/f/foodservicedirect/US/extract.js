@@ -22,7 +22,7 @@ module.exports = {
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
         for (let i = 0; i < rowDiv.length; i++) {
           const div = rowDiv[i];
-          if (div.textContent.includes('Allergens')) {
+          if (div.textContent && div.textContent.includes('Allergens')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item-value');
             for (let i = 0; i < allList.length; i++) {
               const element = allList[i];
@@ -129,32 +129,44 @@ module.exports = {
           'sodium uom': 'sodiumPerServingUom',
         };
         const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
+        let servingSizeExist = false;
+        let servingSizeText = '';
         for (let i = 0; i < rowDiv.length; i++) {
           const div = rowDiv[i];
           if (div.textContent.includes('Nutrition Facts')) {
             const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
             for (let i = 0; i < allList.length; i++) {
               const element = allList[i];
-              const nurtiItem = (element.children[0].textContent).toLowerCase();
-              if (nutriObj[nurtiItem]) {
+              const nurtiItem = (element.children[0] && element.children[0].textContent) ? (element.children[0].textContent).toLowerCase() : '';
+              if (nurtiItem.length && nutriObj[nurtiItem]) {
                 addHiddenDiv(nutriObj[nurtiItem], element.children[1].textContent);
+              }
+              if (nurtiItem === 'serving size uom') {
+                servingSizeExist = true;
+              }
+              if (nurtiItem === 'serving') {
+                servingSizeText = element.children[1].textContent;
               }
             }
           }
         }
-      }
 
-      function hasZoomFeature () {
-        const content = document.querySelector('.c-product-viewer__image-wrapper');
-
-        if (content !== null && content.querySelector('div').hasAttribute('data-zoom')) {
-          addHiddenDiv('imageZoomFeaturePresent', 'Yes');
+        if (!servingSizeExist && servingSizeText.length) {
+          const re = /[a-zA-Z]+$/;
+          const regPhrase = /[a-zA-Z\s]+/;
+          if (servingSizeText.match(re) && servingSizeText.match(re)[0]) {
+            servingSizeText = servingSizeText.match(re)[0];
+          } else if (servingSizeText.match(regPhrase) && servingSizeText.match(regPhrase)[0]) {
+            servingSizeText = servingSizeText.match(regPhrase)[0];
+          } else {
+            servingSizeText = '';
+          }
+          addHiddenDiv('servingSizeUom', servingSizeText);
         }
       }
 
       addAllergensList();
       nurtitionInfo();
-      hasZoomFeature();
       quantity();
       addShippingInfo();
     });
