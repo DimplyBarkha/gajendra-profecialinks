@@ -19,25 +19,40 @@ const transform = (data) => {
               },
             ];
           }
-          if (row.image) {
+          if (row.description) {
             let text = '';
-            row.image.forEach(item => {
+            row.description.forEach(item => {
               text += `${item.text
-                .match(/\(([^)]+)\)/)[1]
-                .replace(/\//g, '')}  `;
+                .replace(/\n\s*\n\s*\n\s*\n\s*/g, '||')
+                .replace(/\n\s*\n\s*/g, ' ')
+              }  `;
             });
-            row.image = [
+            row.description = [
               {
                 text: text.slice(),
               },
             ];
           }
+          if (row.image) {
+            let text = '';
+            row.image.forEach(item => {
+              text += `${item.text
+                .match(/\(([^)]+)\)/)[1]
+                }  `;
+            });
+            row.image = [
+              {
+                text: text.slice(1,-3),
+              },
+            ];
+          }
+         
           if (row.alternateImages) {
             let text = '';
             row.alternateImages.forEach(item => {
               text += `${item.text
                 .match(/\(([^)]+)\)/)[1]
-                .replace(/\//g, '')}  `;
+                }  `;
             });
             row.alternateImages = [
               {
@@ -53,7 +68,7 @@ const transform = (data) => {
             });
             row.specifications = [
               {
-                text: text.slice(0, -8),
+                text: text.slice(),
               },
             ];
           }
@@ -65,6 +80,17 @@ const transform = (data) => {
             row.category = [
               {
                 text: text.slice(19, -1),
+              },
+            ];
+          }
+          if (row.sku) {
+            let text = '';
+            row.sku.forEach(item => {
+              text += `${item.text.match(/[^#]*$/g)}  `;
+            });
+            row.sku = [
+              {
+                text: text.slice(0,-4),
               },
             ];
           }
