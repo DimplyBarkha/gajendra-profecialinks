@@ -117,8 +117,8 @@ fields:
     singleValue: false
     xpath: (//div[contains(@class,'cms-content js-product-description-content')]//p)[1]
   - name: descriptionBullets
-    singleValue: false
-    xpath: count((//div[contains(@class,'cms-content js-product-description-content')]//p)[1]//li[not(span//img)])
+    singleValue: true
+    xpath: count(//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li)
   - name: brandText
     singleValue: false
     xpath: //dl[contains(translate(string(), 'Brand', 'Brand'), 'Brand')]/dd
@@ -217,3 +217,9 @@ fields:
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
+  - name: customerServiceAvailability 
+    singleValue: true
+    xpath: //h5//font[contains(text(),"Customer service")]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: Yes
