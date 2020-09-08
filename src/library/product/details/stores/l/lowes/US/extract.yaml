@@ -37,10 +37,12 @@ fields:
     regExp: Add to Cart
     regExpReplace: In Stock
     defaultValue: Out of Stock
-  - name: description
-    xpath: //div[@class="content"]//div[@class="romance"] | //div[@class="content"]//div[@class="specs"]//ul/li
-  - name: desc1
+  - name: descTop
     xpath: //div[contains(@class,"product-info")]//ul/li
+  - name: descMiddle
+    xpath: //div[@class="content"]//div[@class="romance"]   
+  - name: description
+    xpath: //div[@class="content"]//div[@class="specs"]//ul/li
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,"product-info")]//ul/li | //div[@class="content"]//div[@class="specs"]//ul/li)
@@ -102,7 +104,7 @@ fields:
     regExpReplace: $3
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#wc-aplus
+    xpath: //div[contains(@id,"wc-aplus")]/descendant::*[not(contains(@style,"none")) and not(name()='style')]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,"wc-media-inner-wrap") or contains(@class,"wc-rf-banner-image-container")]//img/@src

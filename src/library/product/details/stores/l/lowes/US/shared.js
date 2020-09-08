@@ -24,6 +24,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text += item.text;
+        });
+        row.manufacturerDescription = [
+          {
+            text: clean(text),
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -35,18 +46,27 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.description && row.desc1) {
+      if (row.description) {
         let text = '';
-        let descInfo = '';
+        let descTop = '';
+        let descInfoMiddle = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\s{2,}/g, ' ').trim()}||`;
+          text += ` || ${item.text.replace(/\s{2,}/g, ' ').trim()}`;
         });
-        row.desc1.forEach(item => {
-          descInfo += `${item.text.replace(/\s{2,}/g, ' ').trim()}||`;
-        });
+        if (row.descTop) {
+          row.descTop.forEach(item => {
+            descTop += ` || ${item.text.replace(/\s{2,}/g, ' ').trim()}`;
+          });
+        }
+        if (row.descMiddle) {
+          row.descMiddle.forEach(item => {
+            descInfoMiddle += `${item.text.replace(/\s{2,}/g, ' ').trim()}`;
+          });
+        }
+        descInfoMiddle = descInfoMiddle ? ` | ${descInfoMiddle} ` : '';
         row.description = [
           {
-            text: descInfo + '|' + text.slice(0, -3),
+            text: clean(`${descTop}${descInfoMiddle}${text}`.trim()),
           },
         ];
       }
