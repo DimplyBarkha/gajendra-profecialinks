@@ -1,0 +1,160 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  # - name: _input
+  #   singleValue: false
+  # - name: _pageTimestamp
+  #   singleValue: false
+  # - name: _url
+  #   singleValue: false
+  # - name: additionalDescBulletInfo
+  #   singleValue: false
+  # - name: aggregateRatingText
+  #   singleValue: false
+  # - name: aggregateRating
+  #   singleValue: false
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="slick-track"]//li[not(contains(@class, "slick-cloned")) and not(@data-slick-index="0")]//img/@src
+    regExp: (.*)/productimages(.*)
+    regExpReplace: $1https://www.davidjones.com/productimages$2
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+    xpath: //div[contains(@class,'availability')]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@itemprop='brand']
+  - name: category
+    singleValue: false
+    xpath: //li[@itemprop='child']
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'selected')]/span[contains(@class,'colour-label')]
+  # - name: colorCode
+  #   singleValue: false
+  # - name: countryOfOrigin
+  #   singleValue: false
+  # - name: coupon
+  #   singleValue: false
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'content long-description')]
+  # - name: descriptionBulletsInfo
+  #   singleValue: false
+  # - name: descriptionBullets
+  #   singleValue: false
+  #   type: NUMBER
+  # - name: directions
+  #   singleValue: false
+  # - name: energyEfficiency
+  #   singleValue: false
+  # - name: firstVariant
+  #   singleValue: false
+  # - name: gtin
+  #   singleValue: false
+  - name: image
+    singleValue: false
+    xpath: //div[@class="slick-track"]//li[not(contains(@class, "slick-cloned")) and contains(@class, "slick-current")]//img/@src
+    regExp: (.*)/productimages(.*)
+    regExpReplace: $1https://www.davidjones.com/productimages$2
+  # - name: Image360Present
+  #   singleValue: false
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@itemprop='image']/@alt
+  # - name: lbb
+  #   singleValue: false
+  # - name: lbbPrice
+  #   singleValue: false
+  # - name: legalDisclaimer
+  #   singleValue: false
+  - name: listPrice
+    singleValue: false
+    xpath: //p[contains(@class,'price was')]/span[contains(@class,'price-display')]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@itemprop='brand']
+  # - name: manufacturerDescription
+  #   singleValue: false
+  # - name: manufacturerImages
+  #   singleValue: false
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,'keywords')]/@content
+  # - name: mpc
+  #   singleValue: false
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop='name']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop='name']
+  # - name: newDescription
+  #   singleValue: false
+  # - name: packaging
+  #   singleValue: false
+  # - name: packSize
+  #   singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //p[@class='price' or contains(@class,'price now')]/span[contains(@class,'price-display')]
+  # - name: productOtherInformation
+  #   singleValue: false
+  # - name: promotion
+  #   singleValue: false
+  # - name: quantity
+  #   singleValue: false
+  # - name: ratingCount
+  #   singleValue: false
+  #   type: NUMBER
+  # - name: recyclingInformation
+  #   singleValue: false
+  # - name: shippingDimensions
+  #   singleValue: false
+  # - name: shippingInfo
+  #   singleValue: false
+  # - name: shippingWeight
+  #   singleValue: false
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'product product-top type-electrical')]/@data-product-sku
+  # - name: specifications
+  #   singleValue: false
+  # - name: dimensionsSpecifications
+  #   singleValue: false
+  # - name: detailsSpecifications
+  #   singleValue: false
+  # - name: warrantySpecifications
+  #   singleValue: false
+  # - name: storage
+  #   singleValue: false
+  # - name: technicalInformationPdfPresent
+  #   singleValue: false
+  # - name: termsAndConditions
+  #   singleValue: false
+  - name: variantCount
+    singleValue: false
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'product product-top type-electrical')]/@data-product-sku
+  # - name: variantInformation
+  #   singleValue: false
+  # - name: variants
+  #   singleValue: false
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,'info-container')]//iframe/@src
+    regExp: //(.*)
+    regExpReplace: $1
+  # - name: warnings
+  #   singleValue: false
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,'content long-description')]/p[contains(text(),'guarantee')] | //div[contains(@class, "long-description")]//strong[contains(text(), "Warranty")]//following-sibling::span[1]
+  # - name: weightGross
+  #   singleValue: false
+  # - name: weightNet
+  #   singleValue: false
