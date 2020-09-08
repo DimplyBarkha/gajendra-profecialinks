@@ -2,7 +2,7 @@ input:
   keywords: dyson
   _url: http://sopo.at
 extractions:
-  - html: https://workbench.import.io/html/run=89c002fd-c036-4ce4-af28-32880e004f0d/task=d2eac06b-b686-4796-9136-e1bc5c1f158e/bbddc6e3-ee2d-4dcb-9742-80a6d74d21d3.html
+  - html: https://workbench.import.io/html/run=8461337e-07a0-43a8-ba38-47e7402ab141/task=dc2ab889-46db-4816-84ff-e8d224624911/682cdfb6-5ad4-475d-9675-6e1e83a2b5ae.html
     extractionConfigId: product/search/stores/s/sopo/AT/extract
     data:
       - group:
@@ -344,8 +344,8 @@ extractions:
               - text: Dyson
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/a[2]/@title
         xpath: /html
-    timestamp: 1599498280095
-  - html: https://workbench.import.io/html/run=89c002fd-c036-4ce4-af28-32880e004f0d/task=d2eac06b-b686-4796-9136-e1bc5c1f158e/86c1d9f1-15d6-4ec1-9fd1-51789cd7e80b.html
+    timestamp: 1599558292832
+  - html: https://workbench.import.io/html/run=8461337e-07a0-43a8-ba38-47e7402ab141/task=dc2ab889-46db-4816-84ff-e8d224624911/3d568c98-4d5d-4343-82c9-2b892e8b9a6a.html
     extractionConfigId: product/search/stores/s/sopo/AT/extract
     data:
       - group:
@@ -686,8 +686,8 @@ extractions:
               - text: Dyson
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[12]/div[1]/div[2]/a[2]/@title
         xpath: /html
-    timestamp: 1599498280095
-  - html: https://workbench.import.io/html/run=89c002fd-c036-4ce4-af28-32880e004f0d/task=d2eac06b-b686-4796-9136-e1bc5c1f158e/18334a94-0a4e-4aac-bd04-b138a8103fd9.html
+    timestamp: 1599558292832
+  - html: https://workbench.import.io/html/run=8461337e-07a0-43a8-ba38-47e7402ab141/task=dc2ab889-46db-4816-84ff-e8d224624911/f198be86-0230-461e-9c68-ca67cd84efc0.html
     extractionConfigId: product/search/stores/s/sopo/AT/extract
     data:
       - group:
@@ -859,5 +859,33 @@ extractions:
             manufacturer:
               - text: Dyson
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[6]/div[1]/div[2]/a[2]/@title
+          - id:
+              - text: "5412810310456"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/@data-ordernumber
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/@count
+                type: NUMBER
+                raw: "7"
+                locale: de_DE
+                value: 7
+            name:
+              - text: Nedis Motorvorfilter VCAD400, fÃ¼r Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/a[2]/@title
+            productUrl:
+              - text: https://www.sopo.at/haushaltsgeraete/staubsaugerzubehoer/33872/nedis-motorvorfilter-vcad400-fa-r-dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/div[3]/a[1]/@href
+            gtin:
+              - text: "5412810310456"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/@data-ordernumber
+            thumbnail:
+              - text: https://www.sopo.at/media/image/60/59/c5/5412810310456_200x200.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/a[1]/span[1]/span[1]/img[1]/@srcset
+            price:
+              - text: € 6,86
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: Nedis
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[7]/div[1]/div[2]/a[2]/@title
         xpath: /html
-    timestamp: 1599498280095
+    timestamp: 1599558292832
