@@ -6,6 +6,6 @@ module.exports = {
     store: 'appliancesonline',
     domain: 'appliancesonline.com.au',
     loadedSelector: 'body',
-    noResultsXPath: '//div[@class="error-page__content"]',
+    noResultsXPath: '//div[@class="heading"]/div[@class="text"]',
   },
 };
