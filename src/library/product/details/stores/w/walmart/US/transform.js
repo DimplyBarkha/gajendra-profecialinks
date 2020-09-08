@@ -116,6 +116,8 @@ const transform = (data, context) => {
 
         if ((row.scriptPrice && row.scriptPrice[0].text === '0') || (!row.scriptPrice) || (row.unavailableMsg) || (row.availabilityMessage && row.availabilityMessage[0].text === 'Not available')) {
           row.availabilityText = [{ text: 'Out of Stock' }];
+        } else if (row.availabilityMessage && row.availabilityMessage[0].text.includes('in-store')) {
+          row.availabilityText = [{ text: 'In Store Only' }];
         } else {
           row.availabilityText = [{ text: 'In Stock' }];
         }

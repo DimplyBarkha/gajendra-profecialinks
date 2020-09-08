@@ -34,7 +34,7 @@ module.exports = {
     country: 'US',
     store: 'walmart',
     domain: 'walmart.com',
-    loadedSelector: 'body',
+    loadedSelector: '#hf-home-link',
     noResultsXPath: '//div[@class="error-page__content"] | //div[@class="error-page-content"]',
   },
   implementation,
