@@ -12,10 +12,10 @@ fields:
     singleValue: false
     xpath: //span[@class='js-delivery-information-usp']
   - name: price
-    singleValue: false
-    xpath: //script[contains(text(),"price")]/text()
-    regExp: \"price":\s"([\d,]+.*)"
-    regExpReplace: € $1
+    singleValue: true
+    xpath: //div[@class="product-order"]//strong[contains(@class,"sales-price__current")][1]
+    regExp: (\d+)(\,)?(\d+)?
+    regExpReplace: € $1$2$3
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,"flex-unit")]//div[@class="js-configurator-discount-element"]
@@ -112,6 +112,8 @@ fields:
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@class="product-page--title-links"]//span[contains(@class,"review-rating__score")]//meter/@value
+    regExp: (.)\.(.)
+    regExpReplace: $1,$2
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@class='grid-section-xs--gap-1']//ul[@class='list']
@@ -205,7 +207,7 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: false
+    singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     xpath: (//img[contains(@class,"zoom__image")]/@class)[1]
