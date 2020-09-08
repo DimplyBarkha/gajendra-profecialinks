@@ -1,4 +1,4 @@
-const { transform } = require("../../../../shared");
+const { transform } = require('../../../../shared');
 
 async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
@@ -6,22 +6,22 @@ async function implementation(inputs, parameters, context, dependencies) {
   const timeout = parameters.timeout ? parameters.timeout : 10000;
   await context.waitForFunction(
     () => {
-      return document.querySelector(".bv-off-screen");
+      return document.querySelector('.bv-off-screen');
     },
-    { timeout }
+    { timeout, }
   );
   return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
-  implements: "product/search/extract",
+  implements: 'product/search/extract',
   parameterValues: {
-    country: "CA",
-    store: "londondrugs",
+    country: 'CA',
+    store: 'londondrugs',
     transform,
     timeout: 40000,
-    domain: "londondrugs.com",
-    zipcode: "",
+    domain: 'londondrugs.com',
+    zipcode: '',
   },
   implementation,
 };

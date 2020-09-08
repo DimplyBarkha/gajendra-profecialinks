@@ -1,4 +1,4 @@
-const { cleanUp } = require("../../../../shared");
+const { cleanUp } = require('../../../../shared');
 
 async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
@@ -23,72 +23,68 @@ async function implementation(inputs, parameters, context, dependencies) {
           data.BatchedResults.q1.Results[0].ProductStatistics.ReviewStatistics
             .TotalReviewCount;
         document.body.setAttribute(
-          "rating",
-          (Math.round(rating * 10) / 10).toString()
+          'rating',
+          (Math.round(rating * 10) / 10).toString(),
         );
-        document.body.setAttribute("rating-count", ratingCount);
+        document.body.setAttribute('rating-count', ratingCount);
       } catch (err) {
         console.log(err);
       }
     }, inputs);
 
     let iframeSelector = "[title='Product Videos']";
-    let result = await context.evaluate(async (iframeSelector) => {
+    const result = await context.evaluate(async (iframeSelector) => {
       return await Boolean(document.querySelector(iframeSelector));
     }, iframeSelector);
 
     if (result) {
       await context.evaluate(async (iframeSelector) => {
-        let mainBody = document.querySelector("body");
-        let iframe = await document.querySelector(iframeSelector);
-        let iframeDoc = iframe.contentDocument;
-        let video = await iframeDoc.querySelector("video");
-        let videoSrc = video.getAttribute("src");
-        mainBody.setAttribute("class", videoSrc);
+        const mainBody = document.querySelector('body');
+        const iframe = await document.querySelector(iframeSelector);
+        const iframeDoc = iframe.contentDocument;
+        const video = await iframeDoc.querySelector('video');
+        const videoSrc = video.getAttribute('src');
+        mainBody.setAttribute('class', videoSrc);
       }, iframeSelector);
     }
 
-    iframeSelector = "[title='Product Views']";
-    let result1 = await context.evaluate(async (iframeSelector) => {
+    iframeSelector = '[title="Product Views"]';
+    const result1 = await context.evaluate(async (iframeSelector) => {
       return await Boolean(document.querySelector(iframeSelector));
     }, iframeSelector);
 
     if (result1) {
       await context.evaluate(async (iframeSelector) => {
-        let mainBody = document.querySelector("body");
-        let iframe = await document.querySelector(iframeSelector);
-        let iframeDoc = iframe.contentDocument;
-        let img360 = await iframeDoc.querySelector(".wc-image-wrapper>img");
-        // let img360Src = img360.getAttribute("src");
-        mainBody.setAttribute("id", "Yes");
+        const mainBody = document.querySelector('body');
+        mainBody.setAttribute('id', 'Yes');
       }, iframeSelector);
     }
 
-    let zoomContainer = ".zoomContainer";
-    let zoomFeature = await context.evaluate((zoom) => {
+    const zoomContainer = ".zoomContainer";
+    const zoomFeature = await context.evaluate((zoom) => {
       return Boolean(document.querySelector(zoom));
     }, zoomContainer);
     if (zoomFeature) {
       await context.evaluate(() => {
-        let body = document.querySelector("body");
-        body.setAttribute("zoom", "Yes");
+        const body = document.querySelector('body');
+        body.setAttribute('zoom', 'Yes');
       });
     }
 
     return await context.extract(productDetails, { transform });
   } else {
-    throw new Error("Product name not found.");
+    throw new Error('Product name not found.');
   }
 }
 
 module.exports = {
-  implements: "product/details/extract",
+  implements: 'product/details/extract',
   parameterValues: {
-    country: "CA",
-    store: "londondrugs",
+    country: 'CA',
+    store: 'londondrugs',
     transform: cleanUp,
-    domain: "londondrugs.com",
-    zipcode: "",
+    domain: 'londondrugs.com',
+    zipcode: '',
   },
   implementation,
 };
