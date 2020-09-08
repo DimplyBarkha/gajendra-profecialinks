@@ -6,6 +6,6 @@ fields:
     singleValue: false
     description: A direct link to the review
     type: TEXT
-    xpath: .//a[@data-hook="review-title"]/@href
+    xpath: ./@id
     regExp: (.+)
-    regExpReplace: https://www.amazon.it$1
+    regExpReplace: https://www.amazon.it/gp/customer-reviews/$1
