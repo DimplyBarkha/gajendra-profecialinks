@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'NZ',
     store: 'trademe',
-    nextLinkSelector: null,
-    mutationSelector: null,
+    nextLinkSelector: 'li#o-pagination__nav-item ng-star-inserted',
+    mutationSelector: 'h3#tm-search-header-result-count__heading ng-star-inserted',
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,

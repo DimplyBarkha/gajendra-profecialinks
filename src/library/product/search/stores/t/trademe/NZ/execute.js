@@ -5,7 +5,7 @@ module.exports = {
     country: 'NZ',
     store: 'trademe',
     domain: 'trademe.co.nz',
-    url: null,
+    url: 'https://www.trademe.co.nz/a/search?auto_category_jump=false&search_string={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: "''",

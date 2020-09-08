@@ -1,5 +1,24 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
-fields: null
+recordSelector: null 
+recordXPath: /html/body/trade-me/div[1]/main/div/ng-component/div/div
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="o-card"]/a/@href
+
+  - name: thumbnail
+    SingleValue: false
+    xpath: //tm-image-container/tg-aspect-ratio/@style
+    
+  - name: name
+    SingleValue: false
+    xpath: //*[@id="-title"]
+
+  - name: listprice
+    SingleValue: false
+    xpath: //*[@id="-price"]/div[2]
+
+  - name: price
+    SingleValue: false
+    xpath: //*[@id="-buy-now"]/div[2]
