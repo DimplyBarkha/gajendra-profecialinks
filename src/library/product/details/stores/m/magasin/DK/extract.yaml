@@ -1,0 +1,151 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //img[contains(@class,'zoomImg')]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='pdpGallery-owl-carousel owl-carousel owl-carousel--white-nav owl-loaded']//a[contains(@class,'pdp-item-link')]//img[contains(@class,'')]//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='producttop']//div[@class='productpage']//div[@class='pictureside']//div[@class='pictureside-inner']//div[@class='pdp-nav-container']//div[@id='pdpNavCarousel']//div[@class='owl-stage-outer']//div[@class='owl-stage']//div[@class='owl-item active selected']//a//img//@src
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //div[@class='maincontentcontainer']/div[@id='main']/div[@id='secondary']/div[@class='navigation']/div[@class='navgroup Produkter']/div[@class='navcontainer']/ul/li[5]/a[@class='refinement-link']
+  - name: nameExtended
+    singleValue: true
+    xpath: //meta[@name='description']/@content
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //div[@class='productpricecontainer']/div[@class='productprice']/div[@class='beforeprice']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='productpricecontainer']//div[@class='productprice']//meta[@itemprop="lowPrice"]/@content
+  - name: availabilityText
+    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productAvailability']
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class='infotext infotext--truncated']
+  - name: descriptionBullets
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[@class='materialtable']//div[@class='materialrow'])
+  - name: brandText
+    singleValue: true
+    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productBrand']
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class='producttop']/div[@class='productpage']/div[@class='textside']/div[@class='productarea']/div[@class='contenttop']/div[@class='headline']/h1/a
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class='producttop']/div[@class='productpage']//select[@class='valid']//option[1]
+    #regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    #regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: true
+    #xpath: //div[@class='materialrow'][1]//div[@class='materialcell ftbMaterialValue']
+  - name: weightGross
+    singleValue: true
+    #xpath: //div[@class='materialrow'][1]//div[@class='materialcell ftbMaterialValue']
+  - name: gtin
+    singleValue: true
+    xpath: //div[@class='materialtable']//div[@class='materialrow'][4]//div[@class='materialcell ftbMaterialValue']
+  - name: sku
+    singleValue: true
+    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productid']
+  - name: variantId
+    singleValue: true
+    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productid']
+  - name: mpc
+    singleValue: true
+    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productid']
+  - name: packSize
+    singleValue: true
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@class='image small']//a[@class='product-list-link' and @data-id='VA04831359-00000001_061']/@href
+  - name: videos
+    singleValue: false
+  - name: name
+    singleValue: true
+    xpath: //div[@class='productarea']//h3[@itemprop='name']
+  - name: secondaryImageTotal
+    singleValue: true
+    type: NUMBER
+  - name: specifications
+    singleValue: true
+    xpath: //div[@class='materialtable']
+  - name: warranty
+    singleValue: true
+  - name: shippingDimensions
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: recyclingInformation
+    singleValue: true
+  - name: variantCount
+    singleValue: true
+    type: NUMBER
+  - name: productOtherInformation
+    singleValue: true
+    xpath: //div[@class='materialtable']
+  - name: color
+    singleValue: false
+    xpath: //div[@class='materialtable']/div[@class='materialrow'][7]/div[@class='materialcell ftbMaterialValue']
+  - name: packaging
+    singleValue: false
+  - name: promotion
+    singleValue: true
+    xpath: //div[@class='producttop']/div[@class='productpage']/div[@class='textside']/div[@class='productbadge']
+  - name: ratingCount
+    singleValue: true
+  - name: countryOfOrigin
+    singleValue: true
+  - name: energyEfficiency
+    singleValue: true
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //div[@class='materialtable']
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    xpath: 
+    #regExp: (.+)
+    #regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: Image360Present
+    singleValue: true
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class='owl-item active']//div[@class='image-fixed-aspect']//a[@class='pdp-item-link']//img[contains(@role,'presentation')]/@src
+  - name: upc
+    singleValue: true
+    xpath: //div[@class='materialtable']/div[@class='materialrow'][4]/div[@class='materialcell ftbMaterialValue']
+  - name: eangtin
+    singleValue: true
+    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class='productpricecontainer']/div[@class='productprice']/div[@class='beforeprice']
+  - name: colorCode
+    singleValue: true
+  - name: newDescription
+    singleValue: true
+  - name: lbbPrice
+    singleValue: true
+    xpath: 
+  - name: firstVariant
+    singleValue: false
+  - name: variants
+    singleValue: false
+    xpath:
