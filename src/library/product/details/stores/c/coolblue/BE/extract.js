@@ -1,10 +1,10 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'BE',
     store: 'coolblue',
-    transform: null,
+    transform: transform,
     zipcode: '',
     domain: 'coolblue.be',
   },
