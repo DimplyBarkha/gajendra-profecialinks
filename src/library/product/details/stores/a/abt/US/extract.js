@@ -24,6 +24,12 @@ module.exports = {
       if (description) {
         addElementToDocument('description', description.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
+      const shippingInfo = document.querySelector('div#product_shipping_container')
+      // @ts-ignore
+        ? document.querySelector('div#product_shipping_container').innerText : '';
+      if (shippingInfo) {
+        addElementToDocument('shippingInfo', shippingInfo.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
+      }
 
       const variants = document.querySelector('div.display-group-color');
       const variantColor = variants && document.querySelector('div.display-group-color strong')
