@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/121684/Dyson-Pure-Cool-White-Air-Purifier-Tower-31012401.html
 extractions:
-  - html: https://workbench.import.io/html/run=a74020ce-8c4b-429d-ab5c-6e9e385b4adc/task=a3bdc4e1-d6eb-41a2-bd37-89110bbc83f2/2522f4b5-4956-4e5d-bff7-82f03d1e1889.html
+  - html: https://workbench.import.io/html/run=740d4499-d460-48c1-aaad-9f36e7d65e88/task=157e635c-7204-4df4-9ddb-ce4782e07f80/9422684c-d7d6-43b7-86eb-0a1a2445dd9e.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -101,7 +101,7 @@ extractions:
                   Warranty Information: Manufacturer Warranty (authorized online
                   retailer): Two Years Parts and Labor California customers:
                   Proposition 65 WARNING SHOW MORE"
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[14]
             brandText:
               - text: Dyson
                 xpath: /html/head[1]/script[5]/@data-flix-brand
@@ -111,15 +111,9 @@ extractions:
             quantity:
               - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/input[7]/@value
-            weightGross:
+            weightNet:
               - text: 10.98 lbs
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[6]/li[1]/text()[1]
-            gtin:
-              - text: "00885609014159"
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/@data-gtin
-            eangtin:
-              - text: "00885609014159"
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/@data-gtin
             sku:
               - text: 310124-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/meta[7]/@content
@@ -144,34 +138,14 @@ extractions:
                 locale: en
                 value: 4.5
             shippingInfo:
-              - text: FREE SHIPPING & FREE RETURNS Estimated delivery date Sep 14th This item
-                  ships UPS and a signature is required.
-                xpath: /html/body/div[16]
+              - text: This item ships UPS and a signature is required.
+                xpath: /html/body/div[15]
             shippingWeight:
               - text: 16 lbs
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[6]/li[2]/text()[1]
             color:
               - text: White
-                xpath: /html/body/div[17]
-            manufacturerDescription:
-              - text: >-
-                  From the Manufacturer|Powered by 
-                   Thank You Is the information in this section helpful? Yes / No 
-                  Dyson Pure Cool Tower TP04 Product Demo
-
-                  Smokebox Demo
-
-                  Dyson Pure Cool Tower TP04 Overview
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]
-            manufacturerImages:
-              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus/_cp/products/1523994362811/tab-47fdf6ff-e834-4f38-ad4e-565a4e30dcf3/392a8168-0896-4ce7-88ce-fb1796725cee.jpg.w1920.jpg
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
-              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus/_cp/products/1523994362811/tab-47fdf6ff-e834-4f38-ad4e-565a4e30dcf3/6db2a58e-5df1-417a-835d-cfc702074a2b.jpg.w1920.jpg
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
-              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus/_cp/products/1523994362811/tab-47fdf6ff-e834-4f38-ad4e-565a4e30dcf3/7ce6ef4d-b087-4b57-be72-701776b0e426.jpg.w1920.jpg
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
-              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus/_cp/products/1523994362811/tab-47fdf6ff-e834-4f38-ad4e-565a4e30dcf3/955f5e12-5eef-4d45-8cc4-f68bc128e4fd.jpg.w1920.jpg
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[16]
             name:
               - text: Dyson Pure+Cool White Air Purifier Tower
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]/span[1]
@@ -208,4 +182,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1599558680915
+    timestamp: 1599581527993

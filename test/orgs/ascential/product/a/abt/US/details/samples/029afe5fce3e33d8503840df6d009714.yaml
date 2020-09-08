@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/113556/Dyson-Supersonic-Fuchsia-Hair-Dryer-30600201.html
 extractions:
-  - html: https://workbench.import.io/html/run=a74020ce-8c4b-429d-ab5c-6e9e385b4adc/task=a3af9b29-9e34-43d6-b253-7341dead61d5/83681edf-0d9f-4611-82ea-145027cd2aff.html
+  - html: https://workbench.import.io/html/run=740d4499-d460-48c1-aaad-9f36e7d65e88/task=ede96423-1659-48e7-9793-78b1a0411bcd/a14066df-823c-4e46-884f-9d8ddf04dbb6.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -132,12 +132,12 @@ extractions:
               - text: 306002-01
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/meta[8]/@content
             ratingCount:
-              - text: "1066"
+              - text: "1069"
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]
                 type: NUMBER
-                raw: "1066"
+                raw: "1069"
                 locale: en
-                value: 1066
+                value: 1069
             aggregateRatingText:
               - text: 4.8 out of 5 stars
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]
@@ -149,7 +149,8 @@ extractions:
                 locale: en
                 value: 4.8
             shippingInfo:
-              - text: FREE SHIPPING & FREE RETURNS Estimated delivery date Sep 11th
+              - text: FREE SHIPPING & FREE RETURNS Estimated delivery date Sep 10th When you
+                  order in the next 2 hours, 48 mins
                 xpath: /html/body/div[16]
             shippingWeight:
               - text: 5 lbs
@@ -526,6 +527,9 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1576084501132_b091efef-45e5-4ecd-a864-eee0fea483b1/module/dysonus/_cp/products/1472657171739/tab-79cb7db8-f478-42d9-8e2c-cd4e9d258888/885ab06d-d1a3-4f73-892c-365b346e61ac.jpg.w1920.jpg
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+            videos:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1576084501132_b091efef-45e5-4ecd-a864-eee0fea483b1/module/dysonus//_cp/products/1472657171739/tab-cb41a674-dd4b-4de5-b839-9f0fe4046a6a/facbd35c-77d0-4700-902f-4e983af98985.mp4.mp4full.mp4
+                xpath: /html/body/div[18]
             name:
               - text: Dyson Supersonic Fuchsia Hair Dryer
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[1]/div[1]/h1[1]/span[1]
@@ -572,4 +576,4 @@ extractions:
                 locale: en
                 value: 3
         xpath: /
-    timestamp: 1599558682707
+    timestamp: 1599581528941

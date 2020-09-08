@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/133866/Dyson-V11-Torque-Drive-Nickel-And-Blue-Cordless-Vacuum-26873101.html
 extractions:
-  - html: https://workbench.import.io/html/run=a74020ce-8c4b-429d-ab5c-6e9e385b4adc/task=c42607eb-136b-4d63-92af-8dd8847a7bda/7795a10f-55c5-4bd0-99c3-86a36fa99c38.html
+  - html: https://workbench.import.io/html/run=740d4499-d460-48c1-aaad-9f36e7d65e88/task=bfb8f7b9-8179-44ee-9aef-abd704b83354/0bc16ba1-e5e5-42ab-8f78-49fd27d44e37.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -110,7 +110,7 @@ extractions:
             quantity:
               - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/input[7]/@value
-            weightGross:
+            weightNet:
               - text: 6.68 lbs
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[6]/li[1]/text()[1]
             gtin:
@@ -143,8 +143,9 @@ extractions:
                 locale: en
                 value: 4.7
             shippingInfo:
-              - text: FREE SHIPPING & FREE RETURNS Estimated delivery date Sep 11th This item
-                  ships UPS and a signature is required.
+              - text: FREE SHIPPING & FREE RETURNS Estimated delivery date Sep 10th When you
+                  order in the next 2 hours, 48 mins This item ships UPS and a
+                  signature is required.
                 xpath: /html/body/div[16]
             shippingWeight:
               - text: 12.63 lbs
@@ -715,6 +716,10 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[10]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[1]/img[1]/@src
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1588961537326_775b2c8b-f854-4248-a368-5ac501e6d29b/module/dysonus/_cp/products/1552515224667/tab-8b6ab937-e240-4cc3-be43-2339484f7102/09c03a17b17d4f5d86bc2935896e2441.jpg.w480.jpg
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[10]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/img[1]/@src
+            videos:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1588961537326_775b2c8b-f854-4248-a368-5ac501e6d29b/module/dysonus//_cp/products/1552515224667/tab-e83a720c-1e70-47de-8147-c2a2ea70553e/e0ec5a087c2d45f9b5c1911ea3d34708.mp4.mp4full.mp4;
+                  https://smedia.webcollage.net/rwvfp/wc/cp/1588961537326_775b2c8b-f854-4248-a368-5ac501e6d29b/module/dysonus//_cp/products/1552515224667/tab-70093ba6-98e8-456f-9057-983afd8f17de/d67f375c1d934baf9431dd865f3212ab.mp4.mp4full.mp4
+                xpath: /html/body/div[19]
             name:
               - text: Dyson V11 Torque Drive Nickel And Blue Cordless Vacuum
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]/span[1]
@@ -731,7 +736,8 @@ extractions:
                   Labor"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[7]
             technicalInformationPdfPresent:
-              - text: No
+              - text: Yes
+                xpath: /html/body/div[18]
             termsAndConditions:
               - text: No
             Image360Present:
@@ -751,4 +757,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1599558681256
+    timestamp: 1599581526747

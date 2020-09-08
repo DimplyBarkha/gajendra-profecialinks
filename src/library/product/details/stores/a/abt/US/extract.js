@@ -47,15 +47,19 @@ module.exports = {
       } else {
         addElementToDocument('color', descColor);
       }
+      const pdfExist = document.querySelector('div#documents_content ul li');
+      if (pdfExist) addElementToDocument('pdfExist', 'Yes');
       const manufacturerContent = document.querySelector('a#from_manufacturer');
       await new Promise(resolve => setTimeout(resolve, 3000));
       if (manufacturerContent) manufacturerContent.click();
       await new Promise(resolve => setTimeout(resolve, 3000));
       const iframes = document.querySelectorAll('iframe[title="Product Videos"]');
       if (iframes) {
+        // eslint-disable-next-line prefer-const
         let videos = [];
         iframes.forEach(el => videos.push(el.contentDocument.querySelector('video').getAttribute('src')));
-        addElementToDocument('video', videos);
+        var video = videos.join('; ');
+        addElementToDocument('video', `${video}`);
       }
     });
     await context.extract(productDetails);
