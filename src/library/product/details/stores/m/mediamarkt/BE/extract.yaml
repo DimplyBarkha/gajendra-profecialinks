@@ -64,7 +64,7 @@ fields:
     xpath: //div[contains(@class, "dy-icon-info-promo-popup")]
   - name: brandText
     singleValue: true
-    xpath: //div[@class="logo"]//a//img/@alt
+    xpath: (//div[@class="logo"]//a//img/@alt|//div[@class="logo"]//img/@alt)[1]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -99,8 +99,8 @@ fields:
     xpath: //div[@id="product-wrapper"]/@data-modelnumber
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    singleValue: true
-    xpath: (//dl[@class="specification"]//dt[contains(text(),"Manufacturer Part Number (MPN):")]//following-sibling::dd)[1]
+    singleValue: false
+    xpath: ((//dl[@class="specification"]//dt[contains(text(),"Manufacturer Part Number (MPN):")]//following-sibling::dd)[1])|//title
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -273,6 +273,7 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Garantie")]//following-sibling::dd)[1]
     description: Guarantee associated with the product
   - name: storage
     singleValue: true

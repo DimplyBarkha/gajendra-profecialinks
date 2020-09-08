@@ -158,6 +158,18 @@ const transform = (data, context) => {
         row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
       }
 
+      if (row.mpc) {
+        console.log(row.mpc);
+        console.log(row.mpc.length);
+        if (row.mpc.length === 2) {
+          row.mpc = row.mpc.slice(1);
+          // row.mpc[0].text = row.mpc[1].text;
+        } else if (row.mpc.length === 1 && row.mpc[0].text.includes('(') && row.mpc[0].text.includes(')')) {
+          const item = row.mpc[0];
+          row.mpc[0].text = item.text.match(/(?<=\()(.*?)(?=\))/gm) ? item.text.match(/(?<=\()(.*?)(?=\))/gm)[0] : '';
+        }
+      }
+
       // if (row.technicalInformationPdfPresent) {
       //   row.technicalInformationPdfPresent.forEach(item => {
       //     item.text = item.text == 'true' ? 'Yes' : 'No';

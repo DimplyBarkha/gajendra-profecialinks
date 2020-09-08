@@ -102,6 +102,8 @@ module.exports = {
         }
       };
 
+      addHiddenDiv('ii_producturl', window.location.href);
+
       let productID = getEleByXpath('(//span[contains(@class, "DetailsHeader__")]//span)[1]');
       productID = productID.replace('| Art.-Nr. ', '').replace(' | ', '').trim();
       const graphQLCall = `GraphqlProduct:${productID}`;

@@ -8,7 +8,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-
   async function autoScroll () {
     await context.evaluate(async function () {
       await new Promise((resolve, reject) => {
@@ -28,7 +27,7 @@ async function implementation (
     });
   }
   autoScroll();
-  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

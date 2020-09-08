@@ -408,3 +408,6 @@ fields:
   - name: uninterruptedPDP
     singleValue: false
     xpath: //div[contains(@class, "RecommendationSlider") and contains(@data-test, "mms-carousel-recos-select")]//li//div[contains(@class, "ProductTile")]//*[self::div]//text()
+  - name: productUrl
+    singleValue: true
+    xpath: //*[@id="ii_producturl"]
