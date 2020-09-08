@@ -559,7 +559,7 @@ module.exports = {
             pricePerUnitUom: price.unitPriceSize ? (price.unitPriceSize.includes('undefined') ? '' : price.unitPriceSize) : '',
             promotion: promotions(),
             variantInformation: infos.primaryAttribute ? infos.primaryAttribute : (infos.color ? infos.color : ''),
-            firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1], // Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => arr[0].value, ''),
+            firstVariant: infos.productId.split('prod')[infos.productId.split('prod').length - 1],
             variants: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => [...acc, ...arr.map(v => v.value)], []),
             additionalDescBulletInfo: additionalDescBulletInfo(),
             ratingCount: reviews ? reviews.reviewCount : '',
@@ -597,7 +597,6 @@ module.exports = {
         .map(url => (getXpathByText('//li//a', 'style', url)));
       if (result.length > 21) {
         result.splice(21, result.length);
-        // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
       }
       console.log(result);
       return result;
