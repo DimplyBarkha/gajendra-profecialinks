@@ -9,10 +9,14 @@ module.exports = {
     domain: 'elcorteingles.es',
   },
 
+<<<<<<< HEAD
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     const sectionsDiv = 'h1[itemprop="description"]';
     await context.waitForSelector(sectionsDiv, { timeout: 20000 });
 
+=======
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+>>>>>>> 0d99df0c0d77a4c1cf29013bb9d0065ea743a207
     await context.evaluate(async function () {
       // function to append the elements to DOM
       function addElementToDocument(key, value) {
