@@ -7,7 +7,7 @@ module.exports = {
     domain: 'debijenkorf.nl',
     url: 'https://www.debijenkorf.nl/product-lister-page.html?SearchTerm={searchTerms}',
     loadedSelector: 'ul.productlist__list',
-    noResultsXPath: '//div[contains(@class,"dbk-search-empty")]/h2',
+    noResultsXPath: '//div[contains(@class,"dbk-search-empty")]',
     zipcode: '',
   },
 };
