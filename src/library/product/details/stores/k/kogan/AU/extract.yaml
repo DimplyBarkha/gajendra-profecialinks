@@ -90,3 +90,20 @@ fields:
     singleValue: true
     description: Stated shipping dimensions
     xpath: //div[contains(@class,'react-sanfona-item-body')]/div[contains(h3,'dimensions')]//dl//div[contains(dt,'Dimensions')]//dd
+  - name: productOtherInformation
+    singleValue: false
+    description: Any other product information
+    xpath: //div[contains(@class,'_3mYU4 C4g-m')]/a//div[contains(@class,'VJurb')]/div/h4
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[contains(@class,'_3ndHf')]//div[contains(@itemprop,'aggregateRating')]/meta[contains(@itemprop,'ratingValue')]/@content
+  - name: currency
+    singleValue: true
+    xpath: //meta[@property="product:price:currency"]/@content
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[contains(@class,'react-sanfona')]/div[contains(h3,'Overview')]/div
