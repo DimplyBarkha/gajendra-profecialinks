@@ -94,6 +94,8 @@ const transform = (data, context) => {
           },
         ];
       }
+      console.log('row.videos');
+      console.log(row.videos);
 
       if (row.videos) {
         console.log(row.videos);
@@ -142,6 +144,17 @@ const transform = (data, context) => {
         row.productOtherInformation = [
           {
             text: text,
+          },
+        ];
+      }
+      if (row.description) {
+        const textArr = [];
+        row.description.forEach(item => {
+          textArr.push(item.text);
+        });
+        row.description = [
+          {
+            text: textArr.join(' | '),
           },
         ];
       }

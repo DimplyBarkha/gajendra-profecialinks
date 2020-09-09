@@ -14,6 +14,20 @@ module.exports = {
       return !!document.querySelector('div[class^="RichProductDescription"] button');
     });
 
+    const expandDetailsButton = await context.evaluate(async function () {
+      return !!document.querySelector('div[class^="ProductFeatures"] a[class*="ExpandLink"]');
+    });
+
+    if (expandDetailsButton) {
+      await context.click('div[class^="ProductFeatures"] a[class*="ExpandLink"]');
+
+      await context.evaluate(async function () {
+        if (document.querySelector('div[class^="ProductFeatures"] a[class*="ExpandLink"]') && !(document.querySelector('div[class^="ProductFeatures"] a[class*="ExpandLink"]').textContent.includes('Details ausblenden'))) {
+          document.querySelector('div[class^="ProductFeatures"] a[class*="ExpandLink"]').click();
+        }
+      });
+    }
+
     const link = await context.evaluate(async function () {
       return window.location.href;
     });
@@ -138,7 +152,7 @@ module.exports = {
                     console.log(video);
                     console.log(video.links[0]);
                     const videoText = video.links[0].location;
-                    videos.push(videoText);
+                    videos.push(videoText.replace('/thumb/', '/vm/'));
                   });
                 });
               }

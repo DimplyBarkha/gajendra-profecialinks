@@ -42,13 +42,14 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: (//meta[@itemprop="availability"]/@content)[1]
+    xpath: //*[@id="ii_availText"]
+    # xpath: (//meta[@itemprop="availability"]/@content)[1]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: InStock
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: InStock
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //dl[@class="product-details"]|//div[contains(@id, "pdp_default_configuration-content_product_detail")]//article
@@ -155,10 +156,11 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    # xpath: //div[contains(@id,"flix-inpage")]//div[@id="inpage_container"]//text()
+    xpath: //*[@id="ii_manufContent"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
+    xpath: //*[@id="ii_manufImg"]
     # xpath: //div[contains(@id,"flix-inpage")]//div[@id="inpage_container"]//img/@srcset
     description: Images within the third party description
   - name: videos

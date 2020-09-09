@@ -26,7 +26,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@itemprop="name"]
+    xpath: //div[@data-test="mms-select-details-header"]//h1
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -42,7 +42,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //button[contains(text(), "In den Warenkorb")]
+    xpath: //button[contains(text(), "In den Warenkorb")][not(@disabled)]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -64,7 +64,7 @@ fields:
     # xpath: 
   - name: brandText
     singleValue: true
-    xpath: //div[@itemprop="brand"]//meta[@itemprop="name"]/@content
+    xpath: //div[contains(@class, "DetailsHeader")]//img/@title
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -111,7 +111,7 @@ fields:
       the site to quantity)
   - name: legalDisclaimer
     singleValue: true
-    xpath: //div[contains(@class,"FooterLegal__StyledFooterLegal")]//div//p
+    xpath: (//div[contains(@class,"FooterLegal__StyledFooterLegal")]//div[contains(@class, "Cellstyled")])[2]
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
@@ -121,7 +121,8 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //meta[@itemprop="ratingCount"]/@content
+    xpath: (//meta[@itemprop="ratingCount"]/@content|//div[contains(@class, "ReviewHeader")]//p)[1]
+    # regExp: (\d+)
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
@@ -165,8 +166,9 @@ fields:
     xpath: //*[@id="manufImg"]
     description: Images within the third party description
   - name: videos
-    singleValue: false
-    xpath: //div[@id='ii_videos']
+    singleValue: true
+    xpath: //div[@id="ii_videos"]
+    # xpath: //*[@id="ii_videos"]
     description: URLs of videos on page
   - name: name
     singleValue: true
