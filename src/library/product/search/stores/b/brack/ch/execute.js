@@ -17,7 +17,7 @@ module.exports = {
     dependencies,
   ) {
     // Hack : We are getting more number of results when searched with keyword on the webpage rather than loading the direct search term url
-    await context.goto(parameters.url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(parameters.url, { timeout: 300000, waitUntil: 'load', checkBlocked: true });
     await context.evaluate(function (inputs) {
       document.querySelector('input.form-control').value = inputs.keywords;
     }, inputs);
