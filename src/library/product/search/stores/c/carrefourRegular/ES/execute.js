@@ -7,7 +7,7 @@ module.exports = {
     domain: 'carrefour.es',
     url: 'https://www.carrefour.es/?q={searchTerms}',
     loadedSelector: "section[id='ebx-grid']",
-    noResultsXPath: "//font[contains(text(),'Aucun résultat trouvé, veuillez modifier les termes de votre recherche.')]",
+    noResultsXPath: "//p[contains(@class,'ebx-no-results__message')]",
     zipcode: '',
   },
 };
