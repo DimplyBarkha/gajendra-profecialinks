@@ -1,0 +1,41 @@
+Search:
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: /html/body//div[contains(@id,"ProductModule")]
+fields:
+- name: name
+  xpath: //h2
+- name: price
+  xpath: //div[h2]/div/h3
+  regExp: (\d+)
+- name: listPrice
+  xpath: //div//span
+  regExp: (\d+)
+- name: manufacturer
+  xpath: //div[not(h2)]/div/h3
+- name: productUrl
+  xpath: div/a/@href
+- name: thumbnail
+  xpath: //a//img/@src 
+  regExp: (.+)
+  regExpReplace: https:$1
+- name: id
+  xpath: div/a/@href
+  regExp: (.+)(p-mp)(\d+)
+  regExpReplace: $3
+- name: aggregateRating
+  xpath: //*[@alt="star icon"]/..
+- name: ratingCount
+  xpath: //*[@alt="star icon"]/../following-sibling::div
+  regExp: (\d+)
+- name: reviewCount
+- name: rank
+  xpath: ((count(../../../preceding-sibling::div))*count(../../../div)) + ((count(../../preceding-sibling::div))+1)
+  type: NUMBER
+- name: rankOrganic
+  type: NUMBER
+- name: sponsored
+  defaultValue: false
+- name: soldBy
+- name: endorsementText
