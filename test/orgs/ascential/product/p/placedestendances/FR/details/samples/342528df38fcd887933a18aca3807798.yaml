@@ -2,7 +2,7 @@ input:
   _url: http://placedestendances.com/fr/fr
   URL: https://beaute-printemps.placedestendances.com/fr/fr/dyson-dyson-supersonic-edition-speciale-fete-des-meres-4178292
 extractions:
-  - html: https://workbench.import.io/html/run=bb2c8a1c-b142-47a4-a1ce-d63763fa3a24/task=77fb99fd-14e9-45ae-a4cc-0918df34157f/ae6b7493-0def-4990-9be8-55d819f573ba.html
+  - html: https://workbench.import.io/html/run=59edc17f-877e-4c87-97fe-5f8bd8e25617/task=11f6a166-ac8b-42e3-8f1b-3fa2617a6dd6/93dd415f-81a3-4ac4-835a-cee2ffbce252.html
     extractionConfigId: product/details/stores/p/placedestendances/FR/extract
     data:
       - group:
@@ -58,7 +58,7 @@ extractions:
               - text: "4178291"
                 xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/input[1]/@value
             ratingCount:
-              - text: "15823"
+              - text: "15840"
                 xpath: /html/body/div[6]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/a[1]/span[1]/span[3]
             aggregateRating:
               - text: 4,75
@@ -72,6 +72,36 @@ extractions:
             warranty:
               - text: 2 ans
                 xpath: /html/body/@warranty
+            additionalDescBulletInfo:
+              - text: "Technologies Air Multiplier : Contrôle intelligent de la chaleur pour des
+                  cheveux brillants"
+                xpath: /html/body/div[14]/li[2]/@value
+              - text: "Moteur : Numérique Dyson V9"
+                xpath: /html/body/div[14]/li[4]/@value
+              - text: "Réglages de vitesse : 3"
+                xpath: /html/body/div[14]/li[6]/@value
+              - text: "Réglages de chaleur : 4 (28°C à 100°C)"
+                xpath: /html/body/div[14]/li[8]/@value
+              - text: "Puissance : 1600W"
+                xpath: /html/body/div[14]/li[10]/@value
+              - text: "Flux d'air : 41 l/s"
+                xpath: /html/body/div[14]/li[12]/@value
+              - text: Acoustique optimisée
+                xpath: /html/body/div[14]/li[14]/@value
+              - text: "Ions négatifs : contribuent à réduire l'électricité statique"
+                xpath: /html/body/div[14]/li[16]/@value
+              - text: "Longueur de câble : 2,7m"
+                xpath: /html/body/div[14]/li[18]/@value
+              - text: "ous les accessoires et embouts inclus dans la boîte :"
+                xpath: /html/body/div[14]/li[20]/@value
+              - text: Embout lissant
+                xpath: /html/body/div[14]/li[21]/@value
+              - text: Concentrateur pour brushing
+                xpath: /html/body/div[14]/li[22]/@value
+              - text: Diffuseur-Crochet de rangement
+                xpath: /html/body/div[14]/li[23]/@value
+              - text: Tapis antidérapant
+                xpath: /html/body/div[14]/li[24]/@value
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
@@ -136,7 +166,7 @@ extractions:
                   Poids : 630 g Garantie 2 ans - pièces, main d'oeuvre et
                   transport"
             descriptionBullets:
-              - text: "0"
+              - text: "26"
             legalDisclaimer:
               - text: En changeant de pays, certains articles peuvent être retirés de votre
                   panier et votre sélection
@@ -145,4 +175,4 @@ extractions:
             secondaryImageTotal:
               - text: "5"
         xpath: /
-    timestamp: 1599566195810
+    timestamp: 1599588682952
