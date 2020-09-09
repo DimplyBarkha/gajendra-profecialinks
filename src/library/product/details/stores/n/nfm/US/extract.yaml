@@ -46,7 +46,7 @@ fields:
     xpath: //ul[@id="breadCrumbContainer"]//li
   - name: shippingDimensions
     singleValue: false
-    manualSelector: span#DT_ProductDimensions
+    manualSelector: td#DT_OverviewCratedDimensionsDimensions0
   - name: image
     singleValue: false
     xpath: //img[@id="Product_Main_Image_0"]/@src
@@ -63,6 +63,10 @@ fields:
   - name: aggregateRatingText
     singleValue: false
     xpath: //div[@id="ReviewSnippet"]//span[@class="pr-accessible-text"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="ReviewSnippet"]//span[@class="pr-accessible-text"]
+    regExp: \d+.\d+
   - name: weightNet
     singleValue: false
     xpath: //div[@id="collapseThree1"]//table[contains(@class, "table")]/tbody/tr[3]/td[2]
@@ -84,3 +88,12 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@id='videosExtracted']
+  - name: variantCount
+    singleValue: false
+    defaultValue: 1
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class, 'wc-aplus-body')]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class, 'wc-aplus-body')]//img/@src

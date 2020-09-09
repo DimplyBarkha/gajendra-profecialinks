@@ -15,7 +15,7 @@ module.exports = {
     const src = await context.evaluate(async function () {
       const iframeDoc = document.querySelector('#wcframable1-0');
       const iframe = iframeDoc ? iframeDoc.contentDocument : '';
-      const src = iframe.querySelector('#vjs_video_1_html5_api') ? iframe.querySelector('#vjs_video_1_html5_api').getAttribute('src') : '';
+      const src = iframe ? iframe.querySelector('#vjs_video_1_html5_api') ? iframe.querySelector('#vjs_video_1_html5_api').getAttribute('src') : '' : '';
       return src;
     });
     await context.evaluate(async function (src) {
