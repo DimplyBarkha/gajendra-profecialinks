@@ -72,6 +72,14 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //div[@id='feature_groups']//td[contains(text(),'Weight')]/following-sibling::td
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,'tf-based with-tooltip')]/span[contains(@class,'only')]
+    regExp: '(.*) ratings'
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'tf-rating')]
   # - name: _url
   #   singleValue: false
   # - name: _input
@@ -83,9 +91,6 @@ fields:
   # - name: aggregateRatingText
   #   singleValue: false
   #   xpath: //button[@id="avg-rating-button"]/@aria-label
-  # - name: aggregateRating
-  #   singleValue: false
-  #   xpath: //span[@itemprop="ratingValue"]
   # - name: color
   #   singleValue: false
   # - name: colorCode
@@ -136,8 +141,6 @@ fields:
   #   singleValue: false
   #   xpath: //div[contains(@evtperfname,"product-localized-promotions-component")]//span
   # - name: quantity
-  #   singleValue: false
-  # - name: ratingCount
   #   singleValue: false
   #   xpath: //span[@itemprop="reviewCount"]
   #   type: NUMBER
