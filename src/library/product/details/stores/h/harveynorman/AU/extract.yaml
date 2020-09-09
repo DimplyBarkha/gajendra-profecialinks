@@ -26,10 +26,10 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="product-short-description short-description"]  
+    xpath: //div[contains(@id, "product-information")]//div[@id="productDescription"]//ul/li
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@class="product-short-description short-description"]/ul/li)
+    xpath: count(//div[contains(@id, "product-information")]//div[@id="productDescription"]//ul/li)
     type: NUMBER
   - name: brandText
     singleValue: false
@@ -47,7 +47,7 @@ fields:
     xpath: //*[contains(@class,"product-id")][2]
   - name: ratingCount
     singleValue: false
-    xpath: (//span[@class="bv-rating-label"]/span)[1]
+    xpath: //div[@id="overview"]//div[2]//dd[@class="bv-rating-ratio-count"]/@title
     type: NUMBER
   - name: aggregateRating
     singleValue: false
@@ -55,7 +55,7 @@ fields:
     type: NUMBER
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div.box-description
+    manualSelector: div.box-description > div.product-long-description
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,"box-description")]//div[position() > 1 and position() < last()]//a/img/@src | //div[contains(@class,"box-description")]//div/img/@src
@@ -93,10 +93,10 @@ fields:
     regExpReplace: $1 Months
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class="product-short-description")]/ul/li
+    xpath: //div[contains(@id, "product-information")]//div[@id="productDescription"]//ul/li
   - name: additionalDescBulletInfoCount
     singleValue: false
-    xpath: count(//div[contains(@class="product-short-description")]/ul/li)
+    xpath: count(//div[contains(@id, "product-information")]//div[@id="productDescription"]//ul/li)
     type: NUMBER
   - name: termsAndConditions
     singleValue: false
@@ -122,6 +122,9 @@ fields:
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
   - name: sku
+    singleValue: false
+    xpath: //small[contains(@class, "product-id")][1]
+  - name: rpc
     singleValue: false
     xpath: //small[contains(@class, "product-id")][1]
   - name: variantId

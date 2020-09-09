@@ -53,6 +53,10 @@ const transform = (data) => {
           row.manufacturerImages = [...row.manufacturerImages, ...row.manufacturerImages1];
           delete row.manufacturerImages1;
         }
+
+        if(!row.manufacturerImages) {
+          delete row.manufacturerDescription;
+        }
       }
     }
     return data;
