@@ -1,0 +1,89 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //meta[contains(@property, "image")]/@content
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[contains(@class,'images-carusel')]//ul//li//a/@href)[position()>1]
+  - name: url
+    singleValue: false
+    xpath: //div[contains(@class,'card-row')]//a[@id="comments_reviews_link"]/@href
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class,'bread-crumbs')]//li
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,"card-row")]//div[contains(@class,'product-title')]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"card-row")]//div[contains(@class,'product-title')]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class,'old-price')]
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,'final-cost')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //link[@itemprop="availability"]/@href
+  - name: description
+    singleValue: false
+    xpath: //meta[@itemprop="description"]/@content
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //meta[@itemprop="description"]/@content
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: weightNet
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
+  - name: weightGross
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"card-row")]//div[contains(@class,'second-horizontal')]//div[1]
+    regExp: (Артикул.*?):(\s)(\d.*)
+    regExpReplace: $3
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[contains(@class,"card-error-report")]//p[contains(@class,'card-error-report-info')]
+  - name: directions
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //meta[contains(@itemprop, "reviewCount")]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //meta[contains(@itemprop, "ratingValue")]/@content
+  - name: shippingDimensions
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'card-right')]//span[contains(@class,'color')]
+  - name: specifications
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
+  - name: warranty
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
+  - name: manufacturer
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@id="certificate-tooltip"]
+
+
+    
+  
