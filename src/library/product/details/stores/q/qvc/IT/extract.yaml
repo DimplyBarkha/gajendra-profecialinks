@@ -20,7 +20,7 @@ fields:
     xpath: //div[@id='availabilityText'][last()]
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(@class,'product-detail-page')]//li[contains(.,'peso')]
+    xpath: //div[@class='tab-pane-title' and contains(.,'Descrizione')]/following-sibling::div[@class='tab-pane-content']//p[contains(.,'Misure') or contains(.,'MISURE') ]/following-sibling::ul[1]//li[contains(., 'peso')]
   - name: sku
     singleValue: false
     xpath: //div[@id='sku'][last()]
