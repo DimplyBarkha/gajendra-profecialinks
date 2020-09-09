@@ -1,0 +1,92 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[contains(@class,'image-gallery-slides')]//div[1][contains(@class,'image-gallery-slide ')]//div//img/@src
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+    xpath: //div[contains(@class,'react-sanfona-item-body')]/div[contains(h3,'dimensions')]//dl//div[contains(dt,'Weight')]//dd
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[contains(@class,'image-gallery-slides')]//div[1][contains(@class,'image-gallery-slide ')]//div//img/@alt
+  - name: warranty
+    singleValue: true
+    description: Guarantee associated with the product
+    xpath: //div[contains(@class,'react-sanfona-item-body')]/div[contains(h3,'warranty')]//dl//div/dd
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+    xpath: //meta[@name="description"]/@content
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //meta[@itemprop="name"]/@content
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //img[contains(@class,'_1FhiD')]/@src
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[contains(@class,'_1WvMC')]/p[@itemprop = 'gtin13']
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //img[contains(@class,'image-gallery-image')]/@src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[contains(@class,'_3nTKX')]/ol/li
+  - name: subCategory
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[contains(@class,'_1WvMC')]/div/a
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[contains(@class,'xaIXU')]/h1
+  - name: productUrl
+    singleValue: true
+    description: Content under "legal disclaimer" header
+    xpath: //meta[@property='og:url']/@content
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    type: NUMBER
+    xpath: count(//div[contains(@class, 'react-sanfona-item-body-wrapper')]//section/ul/li)
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@class,'react-sanfona')]/div[contains(h3,'Overview')]/div
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //h3[contains(@class,'_2gfEE')]
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: //div[contains(@class,'react-sanfona-item-body')]//div[contains(@class,"react-sanfona-item-body")]/span/ul
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //p[@itemprop="model"]
+  - name: shippingDimensions
+    singleValue: true
+    description: Stated shipping dimensions
+    xpath: //div[contains(@class,'react-sanfona-item-body')]/div[contains(h3,'dimensions')]//dl//div[contains(dt,'Dimensions')]//dd
