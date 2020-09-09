@@ -32,6 +32,15 @@ const transform = (data) => {
         }
       }
 
+      if (row.sku) {
+        const prodInfo = JSON.parse(row.sku[0].text);
+        if (prodInfo && prodInfo.pdpTaxonomyObj && prodInfo.pdpTaxonomyObj.productInfo[0] && prodInfo.pdpTaxonomyObj.productInfo[0].productId) {
+          row.sku[0].text = prodInfo.pdpTaxonomyObj.productInfo[0].productId
+        } else {
+          delete row.sku
+        }
+      }
+
       if (row.variantId) {
         const prodInfo = JSON.parse(row.variantId[0].text);
         if (prodInfo && prodInfo.productID) {
@@ -50,7 +59,7 @@ const transform = (data) => {
       }
 
       if (!row.shippingDimensions && row.shippingDimensionsSplit) {
-        row.shippingDimensions = [{text: row.shippingDimensionsSplit[0].text}];
+        row.shippingDimensions = [{ text: row.shippingDimensionsSplit[0].text }];
         delete row.shippingDimensionsSplit;
       }
 

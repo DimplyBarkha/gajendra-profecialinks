@@ -39,7 +39,7 @@ fields:
   - name: eangtin
     xpath: //dt[contains(., 'EAN')]//following-sibling::dd[1]
   - name: sku
-    xpath: //dt[contains(.,'Artikelnummer')]//following-sibling::dd[1]
+    xpath: //div[@data-test='taxonomy_data']
   - name: variantId
     xpath: //script[@type='application/ld+json' and contains(., '"@id":"https://www.bol.com/')]
   - name: instructions
@@ -59,9 +59,9 @@ fields:
     regExp: (.+):(.+)
     regExpReplace: $2
   - name: variantCount
-    xpath: count(//div[@class='feature-options']/a)
+    xpath: count(//div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href)
   - name: color
-    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title
+    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title | //div[@class='feature-list__item feature-list__item--current']/div[@class='feature-list__text']fsk
   - name: name
     xpath: //h1[@class='page-heading']
   - name: videos
@@ -72,3 +72,24 @@ fields:
     xpath: //div[@data-test='specifications']/*[not(contains(@class, 'show-more__fade'))]
   - name: warranty
     xpath: //dt[@class='specs__title' and contains(., 'garantie')]/following-sibling::dd[1] 
+  - name: productOtherInformation
+    xpath: //ul[@class='pros-cons-list']/li
+  - name: promotion
+    xpath: //div[@data-test='discount']
+  - name: variantInfo
+    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title | //div[@class='feature-list__item feature-list__item--current']/div[@class='feature-list__text']
+  - name: firstVariant
+    xpath: //div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a[1]/@href
+    regExp: \/(\d+)\/
+    regExpReplace: $1
+  - name: variants
+    xpath: //div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href
+    regExp: \/(\d+)\/
+    regExpReplace: $1
+  - name: additionalDescriptionBulletInfo
+    xpath: //div[@data-test='description']//ul/li
+  - name: technicalInformationPdfPresent
+    xpath: //a[@class='product-warning__link']
+    defaultValue: NO
+    regExp: (.+)
+    reExpReplace: Yes
