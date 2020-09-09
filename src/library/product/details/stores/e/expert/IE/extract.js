@@ -1,10 +1,11 @@
+const { transform } = require('../transform');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IE',
     store: 'expert',
-    transform: null,
+    transform: transform,
     domain: 'expert.ie',
     zipcode: '',
   },
@@ -31,8 +32,12 @@ module.exports = {
         return document.querySelector('iframe#loadbeeTabContent').getAttribute('src');
       } else if (document.querySelector('iframe#eky-dyson-iframe')) {
         return document.querySelector('iframe#eky-dyson-iframe').getAttribute('src');
+      } else if (document.querySelector('div#flix-minisite > a')) {
+        const url = document.querySelector('div#flix-minisite > a').getAttribute('onclick');
+        const flickSplitURL = url.split('_FFOpenWin("').length ? (url.split('_FFOpenWin("')[1]) : '';
+        const flickURL = flickSplitURL.split(')')[0];
+        return 'https:' + flickURL;
       }
-
       return null;
     });
 

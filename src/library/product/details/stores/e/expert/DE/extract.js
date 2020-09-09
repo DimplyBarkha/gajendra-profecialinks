@@ -35,7 +35,6 @@ module.exports = {
       await context.goto(apiManufCall);
       // The code snippet below will be executed in the website's scope.
       await context.evaluate(async function () {
-        console.log('hiiii');
         console.log(document.querySelector('h1.next-chapter'));
       });
       const text = await context.evaluate(async function () {
@@ -48,14 +47,19 @@ module.exports = {
         [...images].forEach((element) => {
           imagesSrc.push(element.getAttribute('src'));
         });
-        return imagesSrc.join(' || ');
+        return imagesSrc;
+        // return imagesSrc.join(' || ');
       });
       image = images;
       await context.goto(link);
       addHiddenInfo('ii_manufContent', content);
-      addHiddenInfo('ii_manufImg', image);
+      if (image) {
+        image.forEach((element, index) => {
+          addHiddenInfo('ii_manufImg'+index, element);
+        })
+      }
     }
 
-    return await context.extract(productDetails, { transform: transformParam });
+    await context.extract(productDetails, { transform: transformParam });
   },
 };

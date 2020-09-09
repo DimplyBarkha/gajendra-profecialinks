@@ -23,14 +23,16 @@ const transform = (data, context) => {
         if (row.gtin && row.gtin[0] && row.gtin[0].text) {
           let jsonObj = row.gtin[0].text;
           console.log(jsonObj)
-          jsonObj = jsonObj.replace('window.emos3.send(', '').slice(0, -2).replace(/\'/gm, '"').trim();
-          console.log(jsonObj)
-          const jsonDetails = JSON.parse(jsonObj);
-          const gtin = jsonDetails.ec_Event ? (jsonDetails.ec_Event[0] ? jsonDetails.ec_Event[0].pid : '') : '';
-          row.gtin[0].text = gtin;
-          row.upc[0].text = gtin;
+          if (jsonObj.includes('window.emos3.send(')) {
+            jsonObj = jsonObj.replace('window.emos3.send(', '').slice(0, -2).replace(/\'/gm, '"').trim();
+            console.log(jsonObj)
+            const jsonDetails = JSON.parse(jsonObj);
+            const gtin = jsonDetails.ec_Event ? (jsonDetails.ec_Event[0] ? jsonDetails.ec_Event[0].pid : '') : '';
+            row.gtin[0].text = gtin;
+            row.upc[0].text = gtin;
+          }
         }
-        if (row.category && row.category[0] && row.category[0].text) {
+        // if (row.category && row.category[0] && row.category[0].text) {
           // let jsonObj = row.category[0].text;
           // jsonObj = jsonObj.replace(/\n/gm, '').replace(/\n \n/g, '').trim();
           // jsonObj = jsonObj.replace('window.dataLayer = window.dataLayer || [];', '').replace('dataLayer.push(', '');
@@ -48,7 +50,7 @@ const transform = (data, context) => {
           // row.category = [{ text: category }];
 
         //   row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
-        }
+        // }
 
         if (row.specifications) {
           const text = [];
@@ -92,14 +94,24 @@ const transform = (data, context) => {
           }
         }
 
-        if (row.alternateImages) {
+        if (row.alternateImages && row.alternateImages[0]) {
           const pictureSrc = [];
-          let mainPictureSrc = row.alternateImages[0].text.split('product/cache/');
-          mainPictureSrc = mainPictureSrc.length === 2 ? mainPictureSrc[1] : '';
-          mainPictureSrc = mainPictureSrc.length ? mainPictureSrc.split('/')[0] : '';
-          row.alternateImages = row.alternateImages.slice(1);
-          row.alternateImages.forEach(item => {
-            item.text = item.text.replace(/(?<=product\/cache\/)(.*)(?=\/)/gm, mainPictureSrc);
+          if (row.alternateImages[0].text.includes('product/cache/')) {
+            let mainPictureSrc = row.alternateImages[0].text.split('product/cache/');
+            mainPictureSrc = mainPictureSrc.length === 2 ? mainPictureSrc[1] : '';
+            mainPictureSrc = mainPictureSrc.length ? mainPictureSrc.split('/')[0] : '';
+            row.alternateImages = row.alternateImages.slice(1);
+            row.alternateImages.forEach(item => {
+              item.text = item.text.replace(/(?<=product\/cache\/)(.*)(?=\/)/gm, mainPictureSrc);
+            });
+          }
+        }
+
+        if (row.manufacturerImages && row.manufacturerImages[0]) {
+          row.manufacturerImages.forEach(item => {
+            if (!(item.text.includes('http'))) {
+              item.text = 'https://' + item.text;
+            }
           });
         }
 
