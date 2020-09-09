@@ -1,0 +1,70 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,'product-detail-primary-image')]//img/@src
+    regExp: ([^()]+)
+    regExpReplace: https://www.farmers.co.nz$1
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail-primary-image')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[contains(@class, 'ish-productAltImages-list-item')]/a/@data-image
+    regExp: ([^()]+)
+    regExpReplace: https://www.farmers.co.nz$1
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _url
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'URL')]/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class, 'breadcrumb')]//li
+  - name: nameExtended
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'name')]/@content
+  - name: price
+    singleValue: false
+    xpath: (//span[contains(@class, 'kor-product-sale-price-value')]//div[@class='std-price'])[1]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+    xpath: //button[@id='add-to-cart-button']
+  - name: sku
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'sku')]/@content
+  - name: asin
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'sku')]/@content
+  - name: brandText
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'brand')]/@content
+  - name: name
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'name')]/@content
+  - name: gtin
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'gtin14')]/@content
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class, 'product-detail-bullet-list')]//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class, 'product-detail-bullet-list')]//li
+  - name: description
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'description')]/@content
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class, 'product-detail-bullet-list')]//li[contains(text(),'warranty')]
+  - name: largeImageCount
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail-primary-image')]//img/@src
+  - name: firstVariant
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'sku')]/@content
