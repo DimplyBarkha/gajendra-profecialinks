@@ -33,7 +33,43 @@ const transform = (data) => {
             let data = JSON.parse(item.text);
             if(data['description']){
               item.text = data['description'].replace(/(\s*\n\s*)+/g, ' || ').trim();
-            }            
+            }else{
+              item.text = ''
+            }
+          });
+        }
+
+        if (row.soldBy) {
+          row.soldBy.forEach(item => {
+            let data = JSON.parse(item.text);
+            if(data['name']){
+              item.text = data['name'].trim();
+            }else{
+              item.text = ''
+            }
+          });
+        }
+
+        if (row.brandLink) {
+          row.brandLink.forEach(item => {
+            let data = JSON.parse(item.text);
+            if(data['link']){
+              item.text = data['link'].trim();
+            }else{
+              item.text = ''
+            }
+                        
+          });
+        }
+
+        if (row.manufacturerImages) {
+          row.manufacturerImages.forEach(item => {
+            let data = JSON.parse(item.text);
+            if(data['coverImage']){
+              item.text = data['coverImage'].trim();
+            }else{
+              item.text = ''
+            }
           });
         }
 

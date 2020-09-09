@@ -45,10 +45,10 @@ fields:
     xpath: //ol[@class='b6z4']//li[last()]//span
   - name: brandLink
     singleValue: false
-    xpath: //a[contains(@class,'b1c3')]/@href
+    xpath: //script[contains(@id,'state-webBrand-')]/text()
   - name: manufacturerImages
     singleValue: false
-    xpath: //a[contains(@class,'b1c3')]//img[contains(@class,'b1c4')]/@src
+    xpath: //script[contains(@id,'state-webBrand-')]/text()
   - name: reviewCount
     singleValue: false
     xpath: //a[@class='b8w7']
@@ -62,7 +62,7 @@ fields:
     xpath: //div[@class='b8w6 a1y6 a1z']/@title
   - name: soldBy
     singleValue: false
-    xpath: //a[@class='b2l6']
+    xpath: //script[contains(@id,'state-webCurrentSeller-')]/text()
   - name: shippingInfo
     singleValue: false
     xpath: //div[@data-widget='webTrustFactors']//div[@class='a1e7']//span[@class='a1f']
