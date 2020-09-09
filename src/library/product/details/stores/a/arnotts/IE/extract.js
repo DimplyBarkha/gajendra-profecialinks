@@ -24,6 +24,10 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      // if (document.querySelector('div#flix-inpage-wrapper')) {
+      //   const manuDesc = document.querySelector('div#flix-inpage').innerText;
+      //   addHiddenDiv('manuDesc', manuDesc);
+      // }
       if (document.querySelector('li#pdp-carousel-video img.productthumbnail')) {
         const videoData = JSON.parse(document.querySelector('li#pdp-carousel-video img.productthumbnail').getAttribute('data-lgimg'));
         if (videoData) {

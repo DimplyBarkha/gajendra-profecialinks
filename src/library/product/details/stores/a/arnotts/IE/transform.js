@@ -36,6 +36,11 @@ const transform = (data, context) => {
           weightNet.text = weightNet.text.replace('Weight', '').replace(': ', '').trim();
         });
       }
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription.forEach(manufacturerDescription => {
+          manufacturerDescription.text = cleanUp(manufacturerDescription.text.replace(/\n/g, '').trim());
+        });
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {

@@ -182,7 +182,9 @@ fields:
     xpath: count(//div[@itemprop='description']//li)
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#flix-inpage
+    manualSelector: div#flix-inpage-wrapper
   - name: manufacturerImages  
     singleValue: false
-    manualSelector: div#flix-inpage img
+    xpath: //div[contains(@id, 'flix-inpage-wrapper')]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
