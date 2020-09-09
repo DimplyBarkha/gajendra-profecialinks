@@ -48,7 +48,7 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //*[@id="Characteristics"]//dt[contains(text(),"Marca")]//following-sibling::*
+    xpath: //div[@id="added_brandText"]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
