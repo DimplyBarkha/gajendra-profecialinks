@@ -14,110 +14,100 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      await new Promise(r => setTimeout(r, 8000));
-      let getColor = document.querySelector('li.item_description')
-      let color = ''
+      const getColor = document.querySelector('li.item_description');
+      let color = '';
+      let getInput;
       if (getColor) {
-        let hasColorDetails = document.querySelector('li.item_description').innerText.includes('Couleur')
+        const hasColorDetails = document.querySelector('li.item_description').innerText.includes('Couleur');
         if (hasColorDetails) {
-          colors = document.querySelector('li.item_description').innerText.split('Couleur ')[1]
-          if (colors)
-            color = colors.split('\n')[0]
-          console.log("color done");
+          const colors = document.querySelector('li.item_description').innerText.split('Couleur ')[1];
+          if (colors) { color = colors.split('\n')[0]; }
+          console.log('color done');
         }
-        document.body.setAttribute('color', color)
+        document.body.setAttribute('color', color);
       }
-      let getNetWeight = document.querySelector('li.item_description')
-      let netweight = ''
+      const getNetWeight = document.querySelector('li.item_description');
+      let netweight = '';
       if (getNetWeight) {
-        let hasnetweightDetails = document.querySelector('li.item_description').innerText.includes('Poids net')
+        const hasnetweightDetails = document.querySelector('li.item_description').innerText.includes('Poids net');
         if (hasnetweightDetails) {
-          netweights = document.querySelector('li.item_description').innerText.split('Poids net ')[1].split(':')[1]
-          if (netweights)
-            netweight = netweights.split('\n')[0]
+          const netweights = document.querySelector('li.item_description').innerText.split('Poids net ')[1].split(':')[1];
+          if (netweights) { netweight = netweights.split('\n')[0]; }
           console.log(netweight);
         }
-        document.body.setAttribute('netweight', netweight)
+        document.body.setAttribute('netweight', netweight);
       }
-      let getGrossWeight = document.querySelector('li.item_description')
-      let grossweight = ''
+      const getGrossWeight = document.querySelector('li.item_description');
+      let grossweight = '';
       if (getGrossWeight) {
-        let hasgrossweightDetails = document.querySelector('li.item_description').innerText.includes('Poids brut')
+        const hasgrossweightDetails = document.querySelector('li.item_description').innerText.includes('Poids brut');
         if (hasgrossweightDetails) {
-          grossweights = document.querySelector('li.item_description').innerText.split('Poids brut ')[1].split(':')[2]
-          if (grossweights)
-            grossweight = grossweights.split('\n')[0]
+          const grossweights = document.querySelector('li.item_description').innerText.split('Poids brut ')[1].split(':')[2];
+          if (grossweights) { grossweight = grossweights.split('\n')[0]; }
         }
-        document.body.setAttribute('grossweight', grossweight)
+        document.body.setAttribute('grossweight', grossweight);
       }
-      let getWarranty = document.querySelector('li.item_description')
-      let warranty = ''
+      const getWarranty = document.querySelector('li.item_description');
+      let warranty = '';
       if (getWarranty) {
-        let haswarrantyDetails = document.querySelector('li.item_description').innerText.includes('Garantie')
+        const haswarrantyDetails = document.querySelector('li.item_description').innerText.includes('Garantie');
         if (haswarrantyDetails) {
-          warranties = document.querySelector('li.item_description').innerText.split('Garantie')[1]
-          if (warranties)
-            warranty = warranties.split('-')[0]
+          const warranties = document.querySelector('li.item_description').innerText.split('Garantie')[1];
+          if (warranties) { warranty = warranties.split('-')[0]; }
         }
-        document.body.setAttribute('warranty', warranty)
+        document.body.setAttribute('warranty', warranty);
       }
-      let getVideo = document.querySelector('div[data-typevideo="youtube"]')
+      const getVideo = document.querySelector('div[data-typevideo="youtube"]');
       let video = '';
       if (getVideo) {
-        let videoId = document.querySelector('div[data-typevideo="youtube"]').getAttribute('data-video-id');
-        if (videoId)
-          video = 'https://youtu.be/' + videoId
+        const videoId = document.querySelector('div[data-typevideo="youtube"]').getAttribute('data-video-id');
+        if (videoId) { video = 'https://youtu.be/' + videoId; }
       }
-      document.body.setAttribute('video', video)
-
+      document.body.setAttribute('video', video);
       var div = document.createElement('div');
+      var i = 0;
       div.className = 'bulletsdescription';
-      let getBulletDescription = document.querySelector('li.item_description')
+      const getBulletDescription = document.querySelector('li.item_description');
       if (getBulletDescription) {
-        let getCount = document.querySelector('li.item_description').innerText.includes('Informations produit') ? document.querySelector('li.item_description').innerText.split('Informations produit')[1].split('\n\n')[0].split('\n') : null
-        let getDataBullet = document.querySelector('li.item_description').innerText.includes('Accessoires de coiffage') ? document.querySelector('li.item_description').innerText.split('Accessoires de coiffage')[1].split('\n\n')[0].split('\n') : null
-        let getDataBulletDescription = document.querySelector('li.item_description').innerText.includes('Listing des magasins Printemps :') ? document.querySelector('li.item_description').innerText.split('Listing des magasins Printemps :')[1].split('\n\n')[0].split('\n') : null
-        let getDataBulletCharacteristics = document.querySelector('li.item_description').innerText.includes('Caractéristiques :') ? document.querySelector('li.item_description').innerText.split('Caractéristiques :')[1].split('Couleur')[0].split('\n') : null; if (getCount) {
+        const getCount = document.querySelector('li.item_description').innerText.includes('Informations produit') ? document.querySelector('li.item_description').innerText.split('Informations produit')[1].split('\n\n')[0].split('\n') : null;
+        const getDataBullet = document.querySelector('li.item_description').innerText.includes('Accessoires de coiffage') ? document.querySelector('li.item_description').innerText.split('Accessoires de coiffage')[1].split('\n\n')[0].split('\n') : null;
+        const getDataBulletDescription = document.querySelector('li.item_description').innerText.includes('Listing des magasins Printemps :') ? document.querySelector('li.item_description').innerText.split('Listing des magasins Printemps :')[1].split('\n\n')[0].split('\n') : null;
+        const getDataBulletCharacteristics = document.querySelector('li.item_description').innerText.includes('Caractéristiques :') ? document.querySelector('li.item_description').innerText.split('Caractéristiques :')[1].split('Couleur')[0].split('\n') : null; if (getCount) {
           for (i = 0; i < getCount.length; i++) {
-            var getInput = document.createElement('li');
+            getInput = document.createElement('li');
             div.appendChild(getInput);
             document.body.appendChild(div);
-            if (getCount[i] != ' ' || getCount[i] != '')
-              getInput.setAttribute("value", getCount[i].slice(1));
-            getInput.setAttribute("valuefeatures", getCount[i].slice(1))
+            if (getCount[i] !== ' ' || getCount[i] !== '') { getInput.setAttribute('value', getCount[i].slice(1)); }
+            getInput.setAttribute('valuefeatures', getCount[i].slice(1));
           }
         }
         if (getDataBulletCharacteristics) {
           for (i = 0; i < getDataBulletCharacteristics.length; i++) {
-            var getInput = document.createElement('li');
+            getInput = document.createElement('li');
 
             div.appendChild(getInput);
             document.body.appendChild(div);
-            if (getDataBulletCharacteristics[i] != ' ' || getDataBulletCharacteristics[i] != '')
-              getInput.setAttribute("value", getDataBulletCharacteristics[i].slice(1));
-            getInput.setAttribute("valuecharacteristics", getDataBulletCharacteristics[i].slice(1));
+            if (getDataBulletCharacteristics[i] !== ' ' || getDataBulletCharacteristics[i] !== '') { getInput.setAttribute('value', getDataBulletCharacteristics[i].slice(1)); }
+            getInput.setAttribute('valuecharacteristics', getDataBulletCharacteristics[i].slice(1));
           }
         }
         if (getDataBullet) {
           for (i = 0; i < getDataBullet.length; i++) {
-            var getInput = document.createElement('li');
+            getInput = document.createElement('li');
 
             div.appendChild(getInput);
             document.body.appendChild(div);
-            if (getDataBullet[i] != ' ' || getDataBullet[i] != '')
-              getInput.setAttribute("value", getDataBullet[i].slice(1));
-            getInput.setAttribute("valueaccessories", getDataBullet[i].slice(1));
+            if (getDataBullet[i] !== ' ' || getDataBullet[i] !== '') { getInput.setAttribute('value', getDataBullet[i].slice(1)); }
+            getInput.setAttribute('valueaccessories', getDataBullet[i].slice(1));
           }
         }
         if (getDataBulletDescription) {
           for (i = 0; i < getDataBulletDescription.length; i++) {
-            var getInput = document.createElement('li');
+            getInput = document.createElement('li');
 
             div.appendChild(getInput);
             document.body.appendChild(div);
-            if (getDataBulletDescription[i] != ' ' || getDataBulletDescription[i] != '')
-
-              getInput.setAttribute("value", getDataBulletDescription[i].slice(1));
+            if (getDataBulletDescription[i] !== ' ' || getDataBulletDescription[i] !== '') { getInput.setAttribute('value', getDataBulletDescription[i].slice(1)); }
           }
         }
       }
