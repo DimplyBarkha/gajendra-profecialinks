@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../elcorteingles/ES/transform');
+const { transform } = require('../../elcorteingles/ES/transform');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles_electronica',
-    transform: cleanUp,
+    transform: transform,
     domain: 'elcorteingles.es',
     zipcode: '',
   },
