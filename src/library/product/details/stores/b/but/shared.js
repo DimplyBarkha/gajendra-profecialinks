@@ -10,11 +10,11 @@ const transform = (data) => {
         if (row.specifications) {
           let text = '';
           row.specifications.forEach(item => {
-            text += `${item.text.replace(/\n/g, ' : ')} || `;
+            text += `|| ${item.text.replace(/\n/g, ' : ')}`;
           });
           row.specifications = [
             {
-              text: text.slice(0, -4),
+              text: text,
             },
           ];
         }
@@ -127,6 +127,9 @@ const transform = (data) => {
           });
         }
         if (row.alternateImages) {
+          row.alternateImages.forEach(item => {
+            item.text = item.text.replace(/selectImage\(\'(.*)\'\)/,'$1');
+          });
           row.alternateImages.shift();
         }
       }

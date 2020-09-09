@@ -16,6 +16,9 @@ fields:
   - name: nameExtended
     xpath: //h1[@class="t-1"]
     singleValue: false
+  - name: name
+    xpath: //h1[@class="t-1"]
+    singleValue: false
   - name: brandText
     xpath: //div[@class="product-visual-infos"]/h1 | //li/span[contains(text() , "Marque")]//following-sibling::span
     singleValue: false
@@ -23,11 +26,11 @@ fields:
     xpath: //script/@data-flix-ean
     singleValue: false
   - name: alternateImages
-    xpath: //div[@class="product-swiper"]/ul/li[contains(@class , 'simpleImage')]/img/@onclick
+    xpath: //div[@class="product-swiper"]/ul/li[contains(@class , 'simpleImage')]/img/@onclick | //div[@class="mcs-items-container"]/div[@class="mcs-item"]/a/@href
     # xpath: //div[@class="product-swiper"]/ul/li[contains(@class , 'simpleImage')]/img/@src
     singleValue: false
-    regExp: selectImage\(\'(.*)\'\)
-    regExpReplace: $1 
+    # regExp: selectImage\(\'(.*)\'\)
+    # regExpReplace: $1 
   - name: videos
     # xpath: //div[@class="mfp-content"]/div[@class="mfp-iframe-scaler"]/iframe/@src
     xpath: //div[@id="videos"]
@@ -128,7 +131,7 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: 1
-  - name: productsPerPage
+  - name: variantId
     singleValue: false
-    defaultValue: 1
+    xpath: //script/@data-flix-ean
     
