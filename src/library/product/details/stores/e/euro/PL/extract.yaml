@@ -21,7 +21,7 @@ fields:
   - name: description
     singleValue: false
     #xpath: //meta[contains(@property,"description")]/@content
-    xapth: //table[@class='description-tech-details js-tech-details']//tbody//tr[not(@class="group-name")]
+    xapth: //table[@class="description-tech-details js-tech-details"]//tbody//tr[not(@class="group-name")]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: gtin
@@ -38,14 +38,14 @@ fields:
     description: The store-specific product identifier
   - name: ratingCount
     singleValue: true
-    xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
+    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
     regExp: reviewCount":\s"([^"]+)
     regExpReplace: $1
     description: The number of ratings
     type: NUMBER
   - name: aggregateRating
     singleValue: true
-    xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
+    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
     regExp: ratingValue":\s"([^"]+)
     regExpReplace: $1
     description: The stated aggregate rating normalized to be out of 5
@@ -56,9 +56,9 @@ fields:
     description: Alt text of the main product image
   - name: category
     singleValue: false
-    xpath: //li[@class='home']//a[@itemprop ="item"] | //li[@class= 'selenium-last-breadcrumb']
-    regExp: category":\s"([^"]+)
-    regExpReplace: $1
+    xpath: normalize-space(//li[@class='selenium-last-breadcrumb']//a/text())
+    #regExp: category":\s"([^"]+)
+    #regExpReplace: $1
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
