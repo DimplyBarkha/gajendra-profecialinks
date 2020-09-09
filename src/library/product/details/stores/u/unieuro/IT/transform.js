@@ -34,6 +34,11 @@ const transform = (data, context) => {
         const text = row.specifications.map(elm => elm.text.trim().replace(/\n/, ' - ')).join(', ');
         row.specifications = [{ text }];
       }
+
+      if (row.aggregateRating) {
+        const text = row.aggregateRating.map(elm => elm.text.trim().replace(/\./g, ','));
+        row.aggregateRating = [{ text, type: 'NUMBER', locale: 'it-IT' }];
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
