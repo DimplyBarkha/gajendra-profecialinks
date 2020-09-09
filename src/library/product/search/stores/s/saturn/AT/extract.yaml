@@ -1,0 +1,84 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="products-list"]/li/div[@class="product-wrapper"]
+fields:
+  - name: paid
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    xpath: //a[contains(@class,"manufacturer")]/img/@alt
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: productUrl
+    xpath: //h2/a[@data-gtm-event="EEC_PRODUCT_CLICK"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.saturn.at$1
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //figure/a/img/@src
+    regExp: (.+)\/fee[^/]
+    regExpReplace: https:$1
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //h2/a[@data-gtm-event="EEC_PRODUCT_CLICK"]
+    description: The product name
+  - name: sku
+    description: The store-specific product identifier
+  - name: mpc
+    description: The model code of the product
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRating2
+    xpath: ./parent::li//div[contains(@class,"rating")]/div/@class
+    description: The stated aggregate rating
+  - name: ratingCount
+    xpath: //a[@class="clickable see-reviews"]
+    regExp: \((\d+)\)$
+    regExpReplace: $1
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //a[@class="clickable see-reviews"]
+    regExp: \((\d+)\)$
+    regExpReplace: $1
+    description: The number of reviews
+  - name: price
+    xpath: //div[@class="price-box"]/div
+    description: The offered price for the product
+  - name: listPrice
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    xpath: //a[contains(@class,"manufacturer")]/img/@alt
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    xpath: ./@data-modelnumber
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
