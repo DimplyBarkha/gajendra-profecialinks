@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: article[data-productid]
+recordXPath: //article[@data-productid]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div/../@data-code
+  - name: name
+    singleValue: false
+    manualSelector: div.productTitle>a
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"productTitle")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.smithandcaugheys.co.nz$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="imageContainer"]//img/@src
+    regExp: (.+)\?.*
+    regExpReplace: https:$1
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"price")]/text()
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: searchUrl
+    singleValue: false
