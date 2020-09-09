@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@id="vertical_product_thumbnails"]//div[@class="thumb_image_container"]//a/@href)[position() >2]
+    xpath: (//div[@id="vertical_product_thumbnails"]//a[contains(@class,'cloud-zoom-gallery')]/@href)[position()>1]
     regExp: (\/\/.*)
     regExpReplace: https:$1
   - name: metaKeywords
@@ -79,11 +79,11 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: (//div[contains(@class,'wc-fragment')]/@data-gtin)[1]
+    xpath: //div[@id="pricing_container"]//span[@class="abt_product_upc"]
   - name: eangtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: (//div[contains(@class,'wc-fragment')]/@data-gtin)[1]   
+    xpath: //div[@id="pricing_container"]//span[@class="abt_product_upc"]  
   - name: sku
     singleValue: true
     description: The store-specific product identifier

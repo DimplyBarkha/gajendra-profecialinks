@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/121684/Dyson-Pure-Cool-White-Air-Purifier-Tower-31012401.html
 extractions:
-  - html: https://workbench.import.io/html/run=b7fca3a7-0039-4513-a176-17440f9a3ddb/task=2a22ff52-2573-4fa3-8808-715388951d7f/18609701-ea58-472f-8997-4bc91b058b71.html
+  - html: https://workbench.import.io/html/run=f8e373c2-76ae-4d30-b8fa-36d95267af38/task=75c845e9-edee-47de-a6fe-e7c680b7f97a/6b381f4b-b896-4b23-8164-35f3c8b8cfa1.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -13,6 +13,8 @@ extractions:
               - text: Large image of Dyson Pure+Cool White Air Purifier Tower - 310124-01
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/img[1]/@alt
             alternateImages:
+              - text: https://content.abt.com/image.php/2(new)-TP04.jpg?image=/images/products/BDP_Images/2(new)-TP04.jpg&canvas=1&quality=80&min_w=600&min_h=400
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
               - text: https://content.abt.com/image.php/3(new)-TP04.jpg?image=/images/products/BDP_Images/3(new)-TP04.jpg&canvas=1&quality=80&min_w=600&min_h=400
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
               - text: https://content.abt.com/image.php/4(new)-TP04.jpg?image=/images/products/BDP_Images/4(new)-TP04.jpg&canvas=1&quality=80&min_w=600&min_h=400
@@ -115,11 +117,11 @@ extractions:
               - text: 10.98 lbs
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[6]/li[1]/text()[1]
             gtin:
-              - text: "00885609014159"
-                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/@data-gtin
+              - text: "885609014159"
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[2]/span[1]
             eangtin:
-              - text: "00885609014159"
-                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/@data-gtin
+              - text: "885609014159"
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[2]/span[1]
             sku:
               - text: 310124-01
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/meta[7]/@content
@@ -144,7 +146,7 @@ extractions:
                 locale: en
                 value: 4.5
             shippingInfo:
-              - text: FREE SHIPPING & FREE RETURNS Estimated delivery date Sep 15th This item
+              - text: FREE SHIPPING & FREE RETURNS Estimated delivery date Sep 11th This item
                   ships UPS and a signature is required. Sold by abt.com
                 xpath: /html/body/div[16]
             shippingWeight:
@@ -203,4 +205,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1599639576498
+    timestamp: 1599655259347

@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/136991/Dyson-Pure-Cool-White-Air-Purifier-Tower-30824701.html
 extractions:
-  - html: https://workbench.import.io/html/run=b7fca3a7-0039-4513-a176-17440f9a3ddb/task=ca63c18c-a11c-4c29-88db-1c552c8fbdd4/2b9f25af-d62a-4d56-83a3-45c97b078e51.html
+  - html: https://workbench.import.io/html/run=f8e373c2-76ae-4d30-b8fa-36d95267af38/task=8d90a6de-9c73-4103-8c40-898890867f1a/f7a28915-1c8f-44ce-94ef-0d6742cc93e9.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -13,6 +13,8 @@ extractions:
               - text: Large image of Dyson Pure+Cool White Air Purifier Tower - 308247-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
             alternateImages:
+              - text: https://content.abt.com/image.php/1(new)-TP01.jpg?image=/images/products/BDP_Images/1(new)-TP01.jpg&canvas=1&quality=80&min_w=600&min_h=400
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
               - text: https://content.abt.com/image.php/2(new)-TP01.jpg?image=/images/products/BDP_Images/2(new)-TP01.jpg&canvas=1&quality=80&min_w=600&min_h=400
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
               - text: https://content.abt.com/image.php/3(new)-TP01.jpg?image=/images/products/BDP_Images/3(new)-TP01.jpg&canvas=1&quality=80&min_w=600&min_h=400
@@ -86,6 +88,12 @@ extractions:
             weightNet:
               - text: 8.4 lbs
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[4]/li[1]/text()[1]
+            gtin:
+              - text: "885609010250"
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[2]/span[1]
+            eangtin:
+              - text: "885609010250"
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[2]/span[1]
             sku:
               - text: 308247-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/meta[7]/@content
@@ -151,4 +159,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1599639575554
+    timestamp: 1599655257201
