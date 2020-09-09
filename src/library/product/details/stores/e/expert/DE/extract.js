@@ -23,6 +23,18 @@ module.exports = {
       }, elementID, content);
     }
 
+    async function addHiddenArrayList (elementID, value) {
+      await context.evaluate(async function (elementID, value) {
+        const htmlString = `<span style="display:none" id="added_${elementID}" ></span>`;
+        const root = document.body;
+        root.insertAdjacentHTML('beforeend', htmlString);
+        const innerHTML = value.reduce((acc, val) => {
+          return `${acc}<li>${val}</li>`;
+        }, '<ul>') + '</ul>';
+        document.querySelector(`#added_${elementID}`).innerHTML = innerHTML;
+      }, elementID, value);
+    }
+
     const link = await context.evaluate(async function () {
       return window.location.href;
     });
@@ -43,10 +55,11 @@ module.exports = {
       content = text;
       const images = await context.evaluate(async function () {
         const images = document.querySelectorAll('body img');
-        const imagesSrc = [];
+        let imagesSrc = [];
         [...images].forEach((element) => {
           imagesSrc.push(element.getAttribute('src'));
         });
+        // imagesSrc = imagesSrc.slice(0, imagesSrc.length - 1);
         return imagesSrc;
         // return imagesSrc.join(' || ');
       });
@@ -54,12 +67,13 @@ module.exports = {
       await context.goto(link);
       addHiddenInfo('ii_manufContent', content);
       if (image) {
-        image.forEach((element, index) => {
-          addHiddenInfo('ii_manufImg'+index, element);
-        })
+        addHiddenArrayList('ii_manufImg', image);
+        // image.forEach((element, index) => {
+        //   addHiddenInfo('ii_manufImg'+index, element);
+        // });
       }
     }
 
-    await context.extract(productDetails, { transform: transformParam });
+    return await context.extract(productDetails, { transform: transformParam });
   },
 };

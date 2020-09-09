@@ -156,7 +156,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="flix-inpage"]//div[@id="inpage_container"]//img/@srcset|//*[@id="ii_manufImg"]
+    xpath: //div[@id="flix-inpage"]//div[@id="inpage_container"]//img/@srcset|//*[@id="added_ii_manufImg"]
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -367,10 +367,11 @@ fields:
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
   - name: termsAndConditions
     singleValue: true
-    xpath: //*[contains(text(), "Terms and Conditions")]
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No
+    xpath: //*[@id="ii_termCond"]//text()
+    # xpath: (//*[contains(text(), "Terms and Conditions")]//text())[1]
+    # regExp: Terms and Conditions
+    # regExpReplace: Yes
+    # defaultValue: No
     description: Terms and conditions information text ['Yes','No']
   # - name: privacyPolicy
   #   singleValue: true

@@ -110,7 +110,7 @@ const transform = (data, context) => {
         if (row.manufacturerImages && row.manufacturerImages[0]) {
           row.manufacturerImages.forEach(item => {
             if (!(item.text.includes('http'))) {
-              item.text = 'https://' + item.text;
+              item.text = 'https:' + item.text;
             }
           });
         }

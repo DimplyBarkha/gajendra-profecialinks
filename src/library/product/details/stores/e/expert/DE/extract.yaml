@@ -152,7 +152,8 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //*[contains(@id,"ii_manufImg")]
+    # xpath: //*[contains(@id,"ii_manufImg")]
+    xpath: //*[@id='added_ii_manufImg']//text()
     description: Images within the third party description
   - name: videos
     singleValue: false

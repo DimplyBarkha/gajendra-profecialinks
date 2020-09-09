@@ -47,6 +47,12 @@ const transform = (data, context) => {
           }
         }
       }
+      if (row.price) {
+        row.price = [{ text: row.price[0].text.replace('.', ',') }];
+      }
+      if (row.listPrice) {
+        row.listPrice = [{ text: row.listPrice[0].text.replace('.', ',') }];
+      }
       if (row.sku) {
         row.sku = [{ text: row.sku[0].text.replace('| ', '') }];
       }
