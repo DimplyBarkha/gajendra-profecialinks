@@ -26,6 +26,14 @@ const transform = (data) => {
         });
       }
 
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach((manufacturerImagesItem) => {
+          if (!manufacturerImagesItem.text.toLowerCase().includes('https')) {
+            manufacturerImagesItem.text = 'https:' + manufacturerImagesItem.text;
+          }
+        });
+      }
+
       if (row.warranty) {
         row.warranty.forEach((warrantyItem) => {
           warrantyItem.text = warrantyItem.text.replace(/(\n\s*){2,}/g, ' : ');

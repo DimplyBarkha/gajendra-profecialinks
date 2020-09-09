@@ -140,7 +140,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="box-description cms"]//img/@src
+    xpath: //div[contains(@class, "box-description cms")]/div[not(contains(@id, "flix-inpage"))]//img/@src | //div[contains(@class, "box-description cms")]/div[contains(@id, "flix-inpage")]//img/@srcset
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -502,4 +502,4 @@ fields:
     xpath: //*[contains(text(), "Instruction Manual")]
   - name: variantId
     singleValue: false
-    xpath: (//*[contains(@class, "product-id")])[1]
+    xpath: //div[@id="added-productId"]
