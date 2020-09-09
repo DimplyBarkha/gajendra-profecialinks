@@ -5,9 +5,9 @@ module.exports = {
     country: 'PL',
     store: 'euro',
     domain: 'euro.com.pl',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.euro.com.pl/search.bhtml?keyword={searchTerms}',
+    loadedSelector: 'div#products',
+    noResultsXPath: '/div[@id="empty-search"]',
     zipcode: '',
   },
 };

@@ -8,39 +8,39 @@ fields:
     xpath: //div[@class="product-tile js-UA-product "]/@data-product-id
   - name: rankOrganic
     singleValue: false
-    xpath: //div[@id='pd_rank']
+    #xpath: //div[@id='pd_rank']
   - name: name
     singleValue: false
-    xpath: //div[@class='product-row']//div//h2/a[@class="js-save-keyword"]
+    xpath: //div[@class="product-row"]//div//h2/a[@class="js-save-keyword"]/text()
   - name: productUrl
     singleValue: false
-    xpath: concat(('https://www.euro.com.pl'),'',(//div[@class="product-tile js-UA-product "]/@data-product-href))
+    xpath: concat('https://www.euro.com.pl',//div[@class="product-tile js-UA-product "]/@data-product-href)
   - name: gtin
-    singleValue: true
+    singleValue: false
   - name: thumbnail
     singleValue: false
     #xpath: concat('https://www.euro.com.pl','',//div[@class="product-photo"]/a/@href)
     xpath: concat('https://www.euro.com.pl',//div[@class='product-row']//div//h2/a[@class='js-save-keyword']/@href)
   - name: aggregateRating
-    singleValue: true
-    xpath: //div[@class="product-row"]//a[@class='js-save-keyword js-scroll-by-hash']/@title  
+    singleValue: false
+    xpath: //div[@class="product-row"]//a[@class="js-save-keyword js-scroll-by-hash"]/@title  
     regExp: ([0-9]) .*
     regExpReplace: $1
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="product-row"]//a[@class="js-save-keyword js-scroll-by-hash"]//following-sibling::a
     regExp: ([0-9]+) 
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: (//div[@class="product-main"]//div[@class="price-normal selenium-price-normal"])/text()
+    xpath: //div[@class="product-main"]//div[@class="price-normal selenium-price-normal"])/text()
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="product-row"]//a[@class="product-brand"]/text()
   - name: soldBy
-    singleValue: true
+    singleValue: false
   - name: rank
-    singleValue: true
+    singleValue: false
   - name: endorsementText
-    singleValue: true
+    singleValue: false
 
