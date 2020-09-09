@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: section#product-list article.en_griditem
+recordXPath: null
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+    xpath: //article/@count
+  - name: name
+    description: The product name
+    xpath: //div[@class="en_mdl_product__name"]
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[contains(@class,'en_mdl_product__inner')]/a/@href
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    description: The URL for the product thumbnail image 
+    xpath: //article/@img
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+  - name: ratingCount
+    description: The number of ratings
+  - name: price
+    description: The offered price for the product
+    xpath: //span[@class="en_price"]
+  - name: manufacturer
+    description: Product manufacturer
+    xpath: //h3[@class="en_mdl_product__label en_heading_h5"]
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+    defaultValue: Sold by kastner-oehler.at
+  - name: rank
+    description: search/listing rank
+    xpath: //article/@count
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
