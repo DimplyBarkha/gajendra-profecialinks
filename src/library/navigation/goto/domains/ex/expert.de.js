@@ -47,7 +47,7 @@ module.exports = {
       waitUntil: 'load',
     });
 
-    if (zipcode.length) {
+    if (zipcode && zipcode.length) {
       // const zipcodeHref = document.querySelector('a[class^="widget-ExpertLogo--link"]') ? document.querySelector('a[class^="widget-ExpertLogo--link"]').getAttribute('href') : '';
       await context.waitForSelector('a[class^="widget-ExpertLogo--link"][href="' + location + '"]', { timeout: 55000 });
     }

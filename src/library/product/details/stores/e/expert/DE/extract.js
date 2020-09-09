@@ -67,6 +67,7 @@ module.exports = {
       await context.goto(link);
       addHiddenInfo('ii_manufContent', content);
       if (image) {
+        image = image.slice(1);
         addHiddenArrayList('ii_manufImg', image);
         // image.forEach((element, index) => {
         //   addHiddenInfo('ii_manufImg'+index, element);
