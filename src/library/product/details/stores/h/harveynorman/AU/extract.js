@@ -34,7 +34,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
 
       for (let i=0; i < manufacturerImagesList.length; i++) {
-        const imgUrl = imageVideoUrl + manufacturerImagesList[i].getAttribute('src');
+        let imgUrl = imageVideoUrl + manufacturerImagesList[i].getAttribute('src');
         imgUrl && manufacturerImageArray.push(imgUrl);
       }
 

@@ -26,7 +26,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@id, "product-information")]//div[@id="productDescription"]//ul/li
+    xpath: //div[contains(@id, "product-information")]//div[contains(@class,"box-description")]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@id, "product-information")]//div[@id="productDescription"]//ul/li)
@@ -58,7 +58,7 @@ fields:
     manualSelector: div.box-description > div.product-long-description
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class,"box-description")]//div[position() > 1 and position() < last()]//a/img/@src | //div[contains(@class,"box-description")]//div/img/@src
+    xpath: //div[contains(@class,"product-long-description")]//div[position() > 1 and position() < last()]//a/img/@src | //div[contains(@class,"product-long-description")]//img/@src
   - name: videos
     singleValue: false
     xpath: //div[@class="hn-carousel-embed-container"]/iframe/@src
@@ -70,6 +70,9 @@ fields:
   - name: manufacturerImages1
     singleValue: false
     xpath: //div[contains(@id, "added-manufacturer-images")]
+  - name: manufacturerImages2
+    singleValue: false
+    xpath: //div[contains(@id, 'flix-dyson-inpage')]//img/@data-flixsrcset
   - name: manufacturerDescription1
     singleValue: false
     xpath: //div[@id="added-manufacturer-description"]

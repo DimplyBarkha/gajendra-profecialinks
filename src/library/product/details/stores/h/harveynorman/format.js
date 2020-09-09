@@ -49,9 +49,21 @@ const transform = (data) => {
           delete row.videos1;
         }
 
-        if(row.manufacturerImages && row.manufacturerImages1) {
-          row.manufacturerImages = [...row.manufacturerImages, ...row.manufacturerImages1];
-          delete row.manufacturerImages1;
+        if(row.manufacturerImages2) {
+          row.manufacturerImages2 = row.manufacturerImages2.map((image) => {
+            image.text = 'https:' + image.text.replace(/([^\s]+)\s.*/, '$1');
+            return image;
+          });
+
+          row.manufacturerImages = [...row.manufacturerImages, ...row.manufacturerImages2];
+          delete row.manufacturerImages2;
+        }
+
+        if(row.manufacturerImages) {
+          if(row.manufacturerImages1) {
+            row.manufacturerImages = [...row.manufacturerImages, ...row.manufacturerImages1];
+            delete row.manufacturerImages1;
+          }
         }
 
         if(!row.manufacturerImages) {
