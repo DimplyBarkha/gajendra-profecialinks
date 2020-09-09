@@ -55,21 +55,37 @@ async function implementation (
     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
     let ratingList = document.querySelectorAll('ol li[class="ui-search-layout__item"]');
-    // console.log('ratingList: ', ratingList);
       let itemArr = [];
       for (let index = 0; index < ratingList.length; index++) {
-        let fullStarCount = 0;
-        let halfStarCount = 0;
-        // let ratingParentDiv = ratingList[index];
-        // console.log('ratingParentDiv: ', ratingParentDiv);
         let ratingParentDiv = ratingList[index].querySelector('span[class="ui-search-reviews__ratings"]');
         console.log('ratingParentDiv: ', ratingParentDiv);
-        // let starList = ratingParentDiv.querySelectorAll('svg');
-        // starList.forEach(element => {
-        //   let classList = element.classList;
-        //   console.log('classList: ', classList);
-
-        // });
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        let starList = ratingParentDiv ? ratingParentDiv.querySelectorAll('svg') : [];
+        let fullStarCount = 0;
+        let halfStarCount = 0;
+        starList.forEach(element => {
+          let classList = element.classList;
+          console.log('classList: ', classList);
+          // @ts-ignore
+          classList.forEach(element => { 
+            if(element === "ui-search-icon--star-full"){
+              fullStarCount = fullStarCount+1;
+            }else if(element === "ui-search-icon--star-half"){
+              halfStarCount = halfStarCount+0.5;
+            }
+          }); 
+        });
+        console.log("fullStarCount", fullStarCount);
+        console.log("Halfstarcount", halfStarCount);
+        console.log("RatingCount", (Number(fullStarCount)+Number(halfStarCount)))
+        let aggregateRating = Number(fullStarCount)+Number(halfStarCount);
+        let aggregateRating2 = aggregateRating;
+        if(aggregateRating2 == 0){
+          addHiddenDiv('mc_aggregateRating2', '', index);
+        }else{
+          addHiddenDiv('mc_aggregateRating2', aggregateRating2, index);
+        }
+        
       }
 //---------------------------------------------------------------
   })
