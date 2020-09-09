@@ -113,8 +113,6 @@ fields:
     singleValue: false
     description: The physical dimensions of the product including packaging.
     xpath: //div[@id="tabs-2"]//div/table/tbody/tr[position() > 1]
-  - name: productsPerPage
+  - name: variantId
     singleValue: false
-    defaultValue: 1
-
-  
+    xpath: //script/@data-flix-sku
