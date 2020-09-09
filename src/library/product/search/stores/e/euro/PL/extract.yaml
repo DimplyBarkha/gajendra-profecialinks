@@ -33,7 +33,9 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[@class="product-main"]//div[@class="price-normal selenium-price-normal"])/text()
+    xpath: //div[@class="product-main"]//div[@class="price-normal selenium-price-normal"]/text()
+    #regExp: ([0-9]+) 
+    #regExpReplace: $1
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="product-row"]//a[@class="product-brand"]/text()
