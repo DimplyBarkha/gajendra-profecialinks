@@ -10,12 +10,12 @@ fields:
     regExpReplace: $2
   - name: price
     singleValue: false
-    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//div[@class="_28doBv"]
+    xpath: //div[contains(@class,"wQ1zdx _14LFJJ _1ryioq")]/div//div[contains(@class,"_28doBv")]/span[2]
   - name: productUrl
     singleValue: false
     xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div/a/@href
-    regExp: (.*)
-    regExpReplace: https://www.microspot.ch/$1
+    regExp: (.+)
+    regExpReplace: https://www.microspot.ch$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
@@ -26,7 +26,7 @@ fields:
     xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//img[@itemprop="contentUrl"]/@alt
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,"wQ1zdx _14LFJJ _1ryioq")]//div[contains(@class,"_3Xsu6q")]//*[local-name() = 'svg']//*[local-name() = 'path']/@d
+    xpath:
   - name: ratingCount
     singleValue: false
     xpath:

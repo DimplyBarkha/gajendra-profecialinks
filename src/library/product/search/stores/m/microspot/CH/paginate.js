@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '#container-productlist',
-    noResultsXPath: '//h1[@class="_3L3q2V Qmn5eI"]',
+    noResultsXPath: '//*[contains(text(),"Tipps für Ihre Suche:")]',
     openSearchDefinition: null,
     domain: 'microspot.ch',
     zipcode: '',
