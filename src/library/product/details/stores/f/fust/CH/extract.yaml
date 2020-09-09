@@ -1,0 +1,119 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class='sliderdetail__init']/div[1]/img[contains(@class,'lazyloaded')]/@src
+    regExp: (.+)
+    regExpReplace: https://fust.ch/$1
+  - name: imageAlt
+    # singleValue: true
+    xpath: //div[@class='sliderdetail__init']/div[1]/img[contains(@class,'lazyloaded')]/@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    xpath: //div[@class='thumbnail__pager']//img/@src
+    regExp: (.+)
+    regExpReplace: https://fust.ch$1
+  - name: metaKeywords
+    # singleValue: true
+    xpath: //meta[@name='keywords']/@content
+    description: The <meta> keywords content
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class='show-for-large locationpointer']/li[last()]/a/span/text()|//ul[@class='show-for-large locationpointer']/li[position()<last()]/a/span/text()
+  - name: nameExtended
+    xpath: //meta[@property='og:title']/@content
+    regExp: (.+)( - )(.+)
+    regExpReplace: $1
+  - name: listPrice
+    #     # singleValue: true
+    # regExp: (\d+)\.(\d*)
+    # regExpReplace: $1,$2
+    regExp: (\d*)(\’*)(\d*)\.(\d*)
+    regExpReplace: $1$3,$4
+    xpath: //div[contains(@class,'productDetailTxtContainer')]//span[@class='oldprice']/text()
+  - name: price
+    # regExp: (\d+)\.(\d*)
+    # regExpReplace: $1,$2
+    xpath: //div[@class='prices-container']//div[@class='endprice']/text()
+    regExp: (\d*)(\’*)(\d*)\.(\d*)
+    regExpReplace: $1$3,$4
+  - name: priceCurrency
+    xpath: //meta[@itemprop='priceCurrency']/@content
+  - name: availabilityText
+    xpath: //link[@itemprop='availability']/@href
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //div[@itemprop='description']//text()
+  - name: descriptionBullets
+    #     # singleValue: true
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    xpath: //h1[contains(@class,'productDetail ')]/span/text()
+  - name: manufacturer
+    # singleValue: true
+    description: Product manufacturer
+    xpath: //h1[contains(@class,'productDetail ')]/span/text()
+  - name: weightNet
+    # singleValue: true
+    description: Net weight as described on the page
+    xpath: //td[text()='Gewicht (kg)']/following-sibling::td/text()|//td[text()='Gewicht']/following-sibling::td/text()
+    # regExp: (.+)
+    # regExpReplace: $1$2
+  #   # - name: weightGross
+  #   #   singleValue: true
+  #   #   description: Gross weight as described on the page
+  - name: gtin
+    # singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //meta[@itemprop='gtin']/@content
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //div[@id='tabs-1']//span[contains(@content,'sku')]/text()
+  - name: variantId
+    singleValue: true
+    xpath: //input[@id='storeProductId']/@value
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: ratingCount
+    xpath: //button[@class='bv_numReviews_text ']/text()
+    regExp: (\d+)
+    description: The number of ratings
+  #     # type: NUMBER
+  - name: aggregateRatingText
+    #     # singleValue: true
+    #     # description: The stated aggregate rating
+    xpath: //button[@class='bv_stars_button_container ']/@aria-label
+    regExp: (\d.\d)\s\w+\s\d\s\w+
+  - name: aggregateRating
+    #     # singleValue: true
+    xpath: //button[@class='bv_avgRating ']/text()
+    regExp: (\d+)\.(\d+)
+    regExpReplace: $1,$2
+    description: The stated aggregate rating normalized to be out of 5
+  - name: color
+    xpath: //td[contains(text(),'Farbe')]/following-sibling::td/text()
+  #     singleValue: true
+  #     description: A textual description of the colour
+  #   - name: colorCode
+  #     singleValue: true
+  #     description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    #     # singleValue: false
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@class='tabsContainer']/div[@id='tabs-1'][1]//div[@itemprop='description']/p|//table[@class='not-basic-table specification']//td/text()|//div[@id='flix-inpage']//div[contains(@class,'title')]|//div[@id='flix-inpage']//div[contains(@class,'desc')]//text()
+  #   - name: manufacturerImages
+  #     singleValue: false
+  #     description: Images within the third party description
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="demoupUI-playbutton demoup-play "]/meta[@itemprop='contentURL']/@content|//div[contains(@class,'youtube productDetail')]/a[1]/@href
+  - name: energyEfficiency
+    singleValue: true
+    description: Energy rating of a product.
+    xpath: //div[contains(@class,'js-energylabel')]/text()
+  - name: _url
+    xpath: //link[@rel='canonical']/@href

@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'results n-results')]/li
+fields:
+  - name: id
+    # singleValue: false
+    xpath: //span[contains(@content,'sku')]/text()
+    description: The store-specific product identifier
+  - name: name
+    singleValue: false
+    xpath: //span[contains(@class,'produc')][2]/text()
+    description: The product name
+  - name: manufacturer
+    singleValue: false
+    xpath: //span[@class='producer']/text()
+    description: The brand name
+  - name: productUrl
+    xpath: //div[@class='title-wrapper']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.fust.ch$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class,'product__overview-img')]/@src
+    # regExp: (^\d{3})(\d+)
+    # regExp: ()
+    regExp: (.+)
+    regExpReplace: https://www.fust.ch$1
+    description: The URL for the product thumbnail image
+  - name: price
+    singleValue: false
+    xpath: //div[@class='endprice']/text()
+    regExp: (\d*)(\’*)(\d*)\.(\d*)
+    regExpReplace: $1$3,$4
+  - name: priceCurrency
+    xpath: //ul[contains(@class,'results n-results')]/li//div[@class='miniBasket']/p/text()
+    regExp: (\w+)(\s)(\w+)
+    regExpReplace: $3
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@itemprop='ratingValue']/text()
+    regExp: (\d+)\.(\d+)
+    regExpReplace: $1,$2
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,'bv_numReviews')]/div/text()
+    regExp: (\d+)
+  - name: rank
+  - name: rankOrganic
