@@ -28,8 +28,7 @@ fields:
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //p[contains(@class,"original-price")]
-    regExp: ([A-Za-z]{0,}. )(\$\d+.\d+)
-    regExpReplace: $2
+    regExp: \$[0-9\.]+
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
@@ -119,7 +118,7 @@ fields:
     xpath: //div[@id="wc-power-page"]//img/@src
   - name: videos
     description: URLs of videos on page
-    xpath: //body/@class | //div[@itemprop="video"]/meta[@itemprop="contentUrl"]/@content
+    xpath: //body/@video-src | //div[@itemprop="video"]/meta[@itemprop="contentUrl"]/@content
   - name: name
     description: The product name
     xpath: //h1[@itemprop="name"]
@@ -127,8 +126,6 @@ fields:
   - name: inStorePrice
     description: Price in the selected store
     xpath: //h3[contains(@class,"price-sales")]
-    regExp: (\$)(.+)
-    regExpReplace: $2
   - name: asin
     description: null
   - name: coupon

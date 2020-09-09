@@ -32,11 +32,14 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
     }, inputs);
 
-    let iframeSelector = "[title='Product Videos']";
-    const result = await context.evaluate(async (iframeSelector) => {
-      return await Boolean(document.querySelector(iframeSelector));
-    }, iframeSelector);
+    const checkExistance = async (selector) => {
+      return await context.evaluate(async (currentSelector) => {
+        return await Boolean(document.querySelector(currentSelector));
+      }, selector)
+    };
 
+    let iframeSelector = '[title="Product Videos"]';
+    const result = await checkExistance(iframeSelector);
     if (result) {
       await context.evaluate(async (iframeSelector) => {
         const mainBody = document.querySelector('body');
@@ -44,26 +47,21 @@ async function implementation (inputs, parameters, context, dependencies) {
         const iframeDoc = iframe.contentDocument;
         const video = await iframeDoc.querySelector('video');
         const videoSrc = video.getAttribute('src');
-        mainBody.setAttribute('class', videoSrc);
+        mainBody.setAttribute('video-src', videoSrc);
       }, iframeSelector);
     }
 
     iframeSelector = '[title="Product Views"]';
-    const result1 = await context.evaluate(async (iframeSelector) => {
-      return await Boolean(document.querySelector(iframeSelector));
-    }, iframeSelector);
-
+    const result1 = await checkExistance(iframeSelector);
     if (result1) {
       await context.evaluate(async (iframeSelector) => {
         const mainBody = document.querySelector('body');
-        mainBody.setAttribute('id', 'Yes');
+        mainBody.setAttribute('three-sixty', 'Yes');
       }, iframeSelector);
     }
 
     const zoomContainer = '.zoomContainer';
-    const zoomFeature = await context.evaluate((zoom) => {
-      return Boolean(document.querySelector(zoom));
-    }, zoomContainer);
+    const zoomFeature = await checkExistance(zoomContainer);
     if (zoomFeature) {
       await context.evaluate(() => {
         const body = document.querySelector('body');

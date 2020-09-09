@@ -5,8 +5,8 @@ module.exports = {
     country: 'CA',
     store: 'londondrugs',
     domain: 'londondrugs.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '.ld-sg-tabs__content',
+    noResultsXPath: '//div[@class="error-page-message"]',
     zipcode: '',
   },
 };

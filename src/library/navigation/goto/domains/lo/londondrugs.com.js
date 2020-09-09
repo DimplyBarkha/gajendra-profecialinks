@@ -15,6 +15,11 @@ module.exports = {
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
 
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setJavaScriptEnabled(true);
+
     await context.goto(url, {
       timeout: timeout,
       waitUntil: 'load',
@@ -59,10 +64,8 @@ module.exports = {
       });
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation({ timeout });
-      console.log('Captcha vanished');
     }
 
-    console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
