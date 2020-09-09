@@ -52,6 +52,11 @@ const transform = (data) => {
           text: row.aggregateRating[0].text.replace('.',',')
         }]
       }
+      if (!row.brandText && row.name) {
+        row.brandText = [{
+          text: row.name[0].text.replace(/(\w+).*/,'$1')
+        }]
+      }
 
       if (row.specifications) {
         row.specifications = [{
