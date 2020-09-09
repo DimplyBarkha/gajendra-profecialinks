@@ -12,6 +12,8 @@ module.exports = {
   },
   // @ts-ignore
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await context.click('li#tab-description a');
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -44,11 +46,19 @@ module.exports = {
       if (manufacturerDesc2) {
         addElementToDocument('desc_manufacturer2', manufacturerDesc2.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
-      const warrantyXpath = document.evaluate("//h3[contains(text(), 'arantie')]/..",document, null, XPathResult.STRING_TYPE, null);
+      const warrantyXpath = document.evaluate("//h3[contains(text(), 'arantie')]/..", document, null, XPathResult.STRING_TYPE, null);
       const warranty = warrantyXpath ? warrantyXpath.stringValue : '';
       if (warranty) {
         addElementToDocument('warranty', warranty.replace(/•/g, '||').replace(/\s{2,}|\n/g, ' '));
       }
+      const dimensions = document.evaluate("//th[contains(text(),'Breite') or contains(text(),'Höhe') or contains(text(),'Tiefe')]/following-sibling::td", document, null, XPathResult.ANY_TYPE, null);
+      // eslint-disable-next-line prefer-const
+      let nodes = [];
+      for (let node = dimensions.iterateNext(); node; node = dimensions.iterateNext()) {
+        nodes.push(node.innerText);
+      }
+      const specifications = nodes.join(' x ');
+      addElementToDocument('specifications', specifications);
       const pdfPresent = document.querySelector('a[title="Produktdatenblatt anzeigen"]')
         // @ts-ignore
         ? document.querySelector('a[title="Produktdatenblatt anzeigen"]').getAttribute('href') : '';

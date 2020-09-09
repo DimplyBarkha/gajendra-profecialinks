@@ -22,18 +22,17 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumbs"]//span[not(contains(@class, 'sep'))]
+    xpath: //div[@class="breadcrumbs"]//li[not(@class='product')]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[@class="product-name"]/h1, ' - ', //div[@class="sku"]/span[@class='value'])
+    xpath: //div[@class="product-name"]/h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //div[contains(@class,"product-primary-column ")]//div[@class="price-box"]
-      /p[not(contains(@class, 'special'))]//span[@class="price"][span[@class="decimal"]]|
-      //span[@class="regular-price"]/span
+      /p[not(contains(@class, 'special'))]//span[@class="price"][span[@class="decimal"]]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -75,10 +74,10 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //th[text()='Gewicht in kg']/following-sibling::td
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //th[text()='Gewicht in kg']/following-sibling::td
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -94,6 +93,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class="sku"]/span[@class='value']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -126,8 +126,8 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: concat(//a[@title='Informationen zum Versand']/img/@alt, ' ', 
-      //div[contains(@class,"zblock-shipping_delivery_time")], 
+    xpath: concat(//div[@class="feature-wrapper"]//span[contains(@class,"stockstatus")
+      and not(contains(@class, 'yellow'))], ' electronic4you.at ',
       //div[contains(@class,'product-primary-column')]//a[@title="Übersicht Versandkosten"])
   - name: shippingDimensions
     singleValue: true
@@ -142,6 +142,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //th[text()='Farbe']/following-sibling::td
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -174,11 +175,11 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //th[contains(text(),'Geräteabmessungen')]/following-sibling::td
+    xpath: //th[contains(text(),'Geräteabmessungen')]/following-sibling::td | //div[@id='specifications']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //div[@id='warranty']
+    xpath: //div[@id='warranty'] | //th[contains(text(),'Garantie')]/following-sibling::td
   - name: storage
     singleValue: true
     description: Suggested storage location for product
