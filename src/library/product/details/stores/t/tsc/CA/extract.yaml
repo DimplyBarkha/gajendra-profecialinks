@@ -63,9 +63,7 @@ fields:
     regExpReplace: $1$2
   - name: variantId
     singleValue: false
-    xpath: //*[@id="lblItemNo"]
-    regExp: (.*)-(.*)
-    regExpReplace: $1$2
+    xpath: //div[@id="added_variantId"]
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -101,7 +99,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    xpath: //div[@id="added-variantCount"]
+    xpath: //div[@id="added_variantCount"]
   - name: color
     singleValue: false
     xpath: //div[@id="added_color"]
@@ -418,6 +416,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[@id="added_variants"]
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

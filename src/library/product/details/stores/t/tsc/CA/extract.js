@@ -27,6 +27,31 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
+    // Function to fetch variantId
+    function fetchVariantId () {
+      const variantId = window.analyticsData ? window.analyticsData.product ? window.analyticsData.product.DefaultEdp ? window.analyticsData.product.DefaultEdp : '' : '' : '';
+      addHiddenDiv('added_variantId', variantId);
+    }
+
+    // Function to fetch variants
+    function fetchVariants () {
+      const productDetails = window.analyticsData ? window.analyticsData.product ? window.analyticsData.product.Edps : [] : [];
+      const variantArray = [];
+      let variants;
+      // If the product details fetched from JSON are blank then add the current variant
+      if (productDetails.length === 0) {
+        variants = window.analyticsData ? window.analyticsData.product ? window.analyticsData.product.DefaultEdp ? window.analyticsData.product.DefaultEdp : '' : '' : '';
+      } else {
+        for (let i = 0; i < productDetails.length; i++) {
+          const variantNumber = productDetails[i].EdpNo;
+          variantArray.push(variantNumber);
+        }
+        variants = variantArray.join(' | ');
+      }
+      addHiddenDiv('added_variants', variants);
+      addHiddenDiv('added_variantCount', variantArray.length);
+    }
+
     // Function to fetch color and add to DOM
     function fetchColor () {
       let colorSelector = document.evaluate('//label[@class="style-swatch-label style-selected"]/@title', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -64,14 +89,6 @@ async function implementation (
     }
     addHiddenDiv('added-brand', brand);
 
-    // Adding variantCount based on variants present on the website else 1
-    const variantCountSelector = document.querySelectorAll('div[id="radStyle"] > label');
-    let variantCount = variantCountSelector ? variantCountSelector.length : '';
-    if (!variantCount) {
-      variantCount = 1;
-    }
-    addHiddenDiv('added-variantCount', variantCount);
-
     // Adding additional description bullet info by looping through description as li tags are not avaialble on webpage
     const descriptionSelector = document.querySelector('div[id="infoTabContent"] div[id="tab0"]');
     const description = descriptionSelector ? descriptionSelector.innerText : '';
@@ -86,6 +103,8 @@ async function implementation (
     const additionalDescBulletInfo = bulletInfoArray.join('');
     addHiddenDiv('added-additionalDescBulletInfo', additionalDescBulletInfo.replace(/^ ?\|\|/gm, '').trim());
     fetchGtinFromScript();
+    fetchVariantId();
+    fetchVariants();
     fetchColor();
   });
 
