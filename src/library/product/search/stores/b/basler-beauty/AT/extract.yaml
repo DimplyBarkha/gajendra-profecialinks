@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@id="searchList"]//div[contains(@class,'product--listing')]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //*[contains(@class,"product--listing")]//input[@name="aid"]/@value
+  - name: name
+    singleValue: false
+    xpath: //*[@class="product__title"]//text()
+  - name: productUrl
+    singleValue: false
+    xpath: //*[@class="product__title"]//a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //*[contains(@class,"product__row--media")]//img/@src
+  - name: price
+    singleValue: false
+    xpath: //*[contains(@class,"product__row--title")]/following::div[1]//*[@class="product__price"]
+  - name: reviewCount
+    singleValue: false
+		xpath: //div[contains(@class,"product--listing")]//*[@class="star-ratings-listing"]//text()
