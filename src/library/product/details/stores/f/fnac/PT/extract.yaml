@@ -20,7 +20,7 @@ fields:
     description: The <meta> keywords content
   - name: description
     singleValue: false
-    xpath: //h2[contains(text(), "Descrição")]/parent::*/following-sibling::div
+    xpath: //h2[contains(text(), "Descrição")]/parent::*/following-sibling::div | //h2[contains(text(), "Resumo")]/parent::*/following-sibling::div
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -105,4 +105,7 @@ fields:
   - name: videos
     singleValue: false  
     xpath: //meta[@itemprop="contentURL"]/@content
+  - name: countryOfOrigin
+    singleValue: false  
+    xpath: //*[contains(text(), "de expedição")]/following-sibling::dd[1]
   

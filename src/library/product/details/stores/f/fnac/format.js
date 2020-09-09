@@ -18,6 +18,9 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (!row.brandText) {
+        row.brandText = [{ text: row.name[0].text.replace(/^([\w-]+).*/gm, '$1') }];
+      }
       if (row.description) {
         row.description.forEach(item => {
           item.text = cleanUp(item.text);
