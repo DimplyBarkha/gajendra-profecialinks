@@ -10,7 +10,8 @@ fields:
   - name: _url
     singleValue: false
   - name: additionalDescBulletInfo
-    xpath: //div[contains(@class, "long-description-wrapper")]//ul[1]
+    xpath: //div[@itemprop="description"]//li
+    # //div[contains(@class, "long-description-wrapper")]//ul[1]
     singleValue: false
   - name: aggregateRating
     singleValue: false
@@ -41,7 +42,7 @@ fields:
     xpath: //div[contains(@class, "product-description")]//strong[contains(text(), "Dimensions")]/parent::p/preceding-sibling::p
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class, "long-description-wrapper")]//ul[1]//li)
+    xpath: count(//div[@itemprop="description"]//li)
     type: NUMBER
   - name: gtin
     singleValue: false
@@ -108,7 +109,9 @@ fields:
     xpath: //div[contains(@class, "long-description-wrapper")]
   - name: variantId
     singleValue: false
-    xpath: //select[contains(@class,"product-variants")]//option[@selected="selected"]/@value
+    xpath: //div[contains(@class, "product-id")]/@class
+    regExp: .*product-id-(\d*).*
+    regExpReplace: $1
   - name: warranty
     singleValue: false
     xpath: //div[@id="tab2"]
