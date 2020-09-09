@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='product-list-block']//li
+fields:
+- name: id
+  singleValue: false
+  xpath: //div[@itemtype='http://schema.org/Product']//meta[@itemprop='sku']//@content
+- name: name
+  singleValue: false
+  xpath: //div[@class='product-list-block']//li//h3
+- name: brandText
+  singleValue: false
+  xpath: //div[@itemtype='http://schema.org/Product']//meta[@itemprop='brand']//@content
+- name: thumbnail
+  singleValue: false
+  xpath: //div[@itemtype='http://schema.org/Product']//meta[@itemprop='image']//@content
+- name: price
+  singleValue: false
+  xpath: //div[contains(@class,'ish-priceContainer-salePrice')]//div[@class = 'std-price' or @class = 'new-price'] 
+- name: listPrice
+  singleValue: false
+  xpath: //div[contains(@class,'ish-priceContainer-salePrice')]//div[@class = 'old-price']
+- name: searchUrl
+  singleValue: false
+  xpath: ancestor::html//div[@id='added-searchurl']
+- name: productUrl
+  singleValue: false
+  xpath: //div[contains(@class,'product-list-item')]//a//@href
+- name: sku
+  singleValue: false
+  xpath: //div[@itemtype='http://schema.org/Product']//meta[@itemprop='sku']//@content
+- name: gtin
+  singleValue: false
+  xpath: //div[@itemtype='http://schema.org/Product']//meta[@itemprop='gtin14']//@content
+- name: variantId
+  singleValue: false
+  xpath: //div[@itemtype='http://schema.org/Product']//meta[@itemprop='sku']//@content
+
+
