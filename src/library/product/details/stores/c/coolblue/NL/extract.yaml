@@ -187,6 +187,9 @@ fields:
   - name: warranty
     singleValue: false
     xpath: (//dl[contains(translate(string(), 'Garantie', 'Garantie'), 'Garantie')]/dd)[1]
+  - name: mpc
+    singleValue: false
+    xpath: (//dl[contains(translate(string(), 'Fabrikantcode', 'Fabrikantcode'), 'Fabrikantcode')]/dd)[1]
   - name: storage
     singleValue: false
   - name: countryOfOrigin
