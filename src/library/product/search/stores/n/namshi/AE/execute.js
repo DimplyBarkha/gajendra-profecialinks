@@ -42,7 +42,7 @@ module.exports = {
     country: 'AE',
     store: 'namshi',
     domain: 'namshi.com',
-    url: 'https://ar-ae.namshi.com/?q={searchTerms}',
+    url: 'https://en-ae.namshi.com/?q={searchTerms}',
     loadedSelector: 'section#catalog_container',
     noResultsXPath: '//div[@id="section_404_container"]',
     zipcode: "''",

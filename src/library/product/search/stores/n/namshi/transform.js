@@ -9,7 +9,7 @@ const transform = (data) => {
         for (const row of group) {
             if (row.productUrl) {
                 row.productUrl.forEach(item => {
-                    item.text = "https://ar-ae.namshi.com" + item.text;
+                    item.text = "https://en-ae.namshi.com" + item.text;
                 });
             }
             if (row.rankOrganic) {
