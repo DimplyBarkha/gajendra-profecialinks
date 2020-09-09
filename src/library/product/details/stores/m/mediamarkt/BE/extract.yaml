@@ -132,7 +132,7 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="price-sidebar"]//div[contains(@class, "infobox availability")]//ul//li//div[contains(text(), "Gratis levering")]|//div[@class="price-sidebar"]//div[contains(@class, "infobox availability")]//ul//li//div[contains(@class, "delvrmsg")]
+    # xpath: //div[@class="price-sidebar"]//div[contains(@class, "infobox availability")]//ul//li//div[contains(text(), "Gratis levering")]|//div[@class="price-sidebar"]//div[contains(@class, "infobox availability")]//ul//li//div[contains(@class, "delvrmsg")]
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
