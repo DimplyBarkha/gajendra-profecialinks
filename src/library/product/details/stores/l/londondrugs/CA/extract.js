@@ -35,7 +35,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     const checkExistance = async (selector) => {
       return await context.evaluate(async (currentSelector) => {
         return await Boolean(document.querySelector(currentSelector));
-      }, selector)
+      }, selector);
     };
 
     let iframeSelector = '[title="Product Videos"]';
