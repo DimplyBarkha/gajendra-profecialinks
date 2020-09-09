@@ -29,7 +29,8 @@ module.exports = {
       // @ts-ignore
         ? document.querySelector('div#product_shipping_container').innerText : '';
       if (shippingInfo) {
-        addElementToDocument('shippingInfo', shippingInfo.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
+        const shippingTxt = (shippingInfo.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' ')).concat(' Sold by abt.com');
+        addElementToDocument('shippingInfo', shippingTxt);
       }
 
       const variants = document.querySelector('div.display-group-color');
@@ -47,19 +48,25 @@ module.exports = {
       } else {
         addElementToDocument('color', descColor);
       }
+      const specificationsXpath = document.evaluate("//u[contains(text(),'Dimensions')]/../../following-sibling::ul[1]",
+        document, null, XPathResult.STRING_TYPE, null);
+      const specifications = specificationsXpath ? specificationsXpath.stringValue : '';
+      if (specifications) {
+        addElementToDocument('specifications', specifications.replace(/\s{2,}|\n/g, ' '));
+      }
       const pdfExist = document.querySelector('div#documents_content ul li');
       if (pdfExist) addElementToDocument('pdfExist', 'Yes');
       const manufacturerContent = document.querySelector('a#from_manufacturer');
       await new Promise(resolve => setTimeout(resolve, 3000));
       if (manufacturerContent) manufacturerContent.click();
       await new Promise(resolve => setTimeout(resolve, 3000));
+      const manufacturerDescription = document.querySelector('div#from_manufacturer_content')
+        ? document.querySelector('div#from_manufacturer_content').innerText.replace(/\n{2,}|\s{2,}/g, '') : '';
+      if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);
       const iframes = document.querySelectorAll('iframe[title="Product Videos"]');
       if (iframes) {
-        // eslint-disable-next-line prefer-const
-        let videos = [];
-        iframes.forEach(el => videos.push(el.contentDocument.querySelector('video').getAttribute('src')));
-        var video = videos.join('; ');
-        addElementToDocument('video', `${video}`);
+        iframes.forEach(el =>
+          addElementToDocument('video', `${el.contentDocument.querySelector('video').getAttribute('src')}`));
       }
     });
     await context.extract(productDetails);

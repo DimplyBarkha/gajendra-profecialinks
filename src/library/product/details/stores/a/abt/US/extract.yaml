@@ -16,7 +16,7 @@ fields:
     description: Other product images (not in manufacturer description)
     xpath: (//div[@id="vertical_product_thumbnails"]//div[@class="thumb_image_container"]//a/@href)[position() >2]
     regExp: (\/\/.*)
-    regExpReplace: $1
+    regExpReplace: https:$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -149,7 +149,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="from_manufacturer_content"]
+    xpath: //div[@id="manufacturerDescription"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -175,7 +175,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //u[contains(text(),'Dimensions')]/../../following-sibling::ul[1]
+    xpath: //div[@id='specifications']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
