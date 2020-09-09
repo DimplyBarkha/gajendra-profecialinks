@@ -72,6 +72,8 @@ fields:
       should be "In Stock"
     regExpReplace: Out of Stock
     defaultValue: In Stock
+    xpath: //h2[contains(@class,'subscribe-form__header--sold-out')]
+    regExp: (.+)
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
