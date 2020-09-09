@@ -115,6 +115,14 @@ const transform = (data, context) => {
           });
         }
 
+        if (row.videos && row.videos[0]) {
+          row.videos.forEach(item => {
+            if (!(item.text.includes('http'))) {
+              item.text = 'https://www.expert.at/' + item.text;
+            }
+          });
+        }
+
         if (row.price && row.price[0]) {
           row.price[0].text = row.price[0].text.replace('.', ',');
         }

@@ -56,6 +56,12 @@ module.exports = {
       addHiddenInfo('ii_manufImg', image);
     }
 
+    const urlLink = await context.evaluate(async function () {
+      return window.location.href;
+    });
+
+    addHiddenInfo('iio_product_url', urlLink);
+
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

@@ -92,6 +92,7 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[contains(@class,"product-desc-wrapper")]/@data-url
+    regExp: (\d+)
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -398,7 +399,7 @@ fields:
     xpath: //*[@id="iio_product_url"]
   - name: contentSyndication
     singleValue: false
-    xpath: //*[@id="iio_product_url"]
+    # xpath: //*[@id="iio_product_url"]
   - name: inTheBox
     singleValue: false
     # xpath: //*[@id="iio_product_url"]
