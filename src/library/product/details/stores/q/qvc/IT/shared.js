@@ -23,20 +23,20 @@ const transform = (data) => {
         ];
       }
 
-      if (row.weightNet) {
-        let text = '';
-        let xpath = '';
-        row.weightNet.forEach(item => {
-          text = item.text.replace('peso: ', '');
-          xpath = item.xpath;
-        });
-        row.weightNet = [
-          {
-            text: text,
-            xpath: xpath,
-          },
-        ];
-      }
+      // if (row.weightNet) {
+      //   let text = '';
+      //   let xpath = '';
+      //   row.weightNet.forEach(item => {
+      //     text = item.text.replace('peso: ', '');
+      //     xpath = item.xpath;
+      //   });
+      //   row.weightNet = [
+      //     {
+      //       text: text,
+      //       xpath: xpath,
+      //     },
+      //   ];
+      // }
 
       if (row.aggregateRating) {
         let text = '';

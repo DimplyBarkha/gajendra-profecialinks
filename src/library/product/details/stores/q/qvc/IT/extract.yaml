@@ -20,7 +20,7 @@ fields:
     xpath: //div[@id='availabilityText'][last()]
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(@class,'product-detail-page')]//li[contains(.,'peso:')]
+    xpath: //div[contains(@class,'product-detail-page')]//li[contains(.,'peso')]
   - name: sku
     singleValue: false
     xpath: //div[@id='sku'][last()]
@@ -35,7 +35,7 @@ fields:
     xpath: //div[@class='tab-pane-title' and contains(.,'Descrizione')]/following-sibling::div[@class='tab-pane-content']//li
   - name: specifications
     singleValue: false
-    xpath: //div[@class='tab-pane-title' and contains(.,'Descrizione')]/following-sibling::div[@class='tab-pane-content']//p[contains(.,'Misure') or contains(.,'MISURE') or contains(.,'Specifiche tecniche')]/following-sibling::ul//li
+    xpath: //div[@class='tab-pane-title' and contains(.,'Descrizione')]/following-sibling::div[@class='tab-pane-content']//p[contains(.,'Misure') or contains(.,'MISURE') or contains(.,'Specifiche tecniche') or contains(.,'Specifiche')  or contains(.,'Dati tecnici')or contains(.,'Dati tecnici') or contains(.,'tecnici') or contains(.,'tecniche')]/following-sibling::ul[1]//li
   - name: description
     singleValue: false
     xpath: //div[@id='ii_desc']

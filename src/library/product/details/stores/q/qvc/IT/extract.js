@@ -42,10 +42,12 @@ async function implementation (
         }
         addHiddenDiv('availabilityText', newText);
       } else {
-        var availNode = document.evaluate("//div[contains(@class,'inventory') and not(contains(@class,'hide'))]/span", document, null, XPathResult.ANY_TYPE, null);
+        var availNode = document.evaluate("//div[contains(@class,'inventory') and not(contains(@class,'hide'))]/span | //div[contains(@class,'alert-stock') and not(contains(@class,'hide'))]/span ", document, null, XPathResult.ANY_TYPE, null);
         const descEle = availNode.iterateNext();
         if (descEle) {
           addHiddenDiv('availabilityText', descEle.textContent);
+        } else {
+          addHiddenDiv('availabilityText', 'Out of Stock');
         }
       }
       addHiddenDiv('sku', productVariable.sku[index].sku);
