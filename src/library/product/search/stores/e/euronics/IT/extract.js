@@ -56,6 +56,11 @@ async function implementation (
          } else {
            resultsArr.push(true);
         }
+        if (el.querySelector('.productCard__image')) {
+          const splitSrc = el.querySelector('.productCard__image').getAttribute('src').split('/');
+          const id = splitSrc[splitSrc.length - 1].split('.')[0];
+          addHiddenDiv(el, 'id', id);
+        }
         addHiddenDiv(el, 'rank', resultsArr.length);
       });
 
