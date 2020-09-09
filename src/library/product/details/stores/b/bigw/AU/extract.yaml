@@ -49,10 +49,10 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Brand Name:')]/following-sibling::div | //div[contains(@class,'productDescription')]/h1
+    xpath: normalize-space(concat(//ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Brand Name:')]/following-sibling::div,'  ',//div[contains(@class,'productDescription')]/h1 ))
   - name: manufacturer
     singleValue: true
-    xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Brand Name:')]/following-sibling::div | //div[contains(@class,'productDescription')]/h1
+    xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Brand Name:')]/following-sibling::div
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
