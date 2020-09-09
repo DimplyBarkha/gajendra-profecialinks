@@ -19,6 +19,13 @@ const transform = (data) => {
           });
         }
 
+        if(row.id){
+          row.id.forEach(item => {
+            var res = item.text.split("|");
+            item.text=parseInt(res[1]);
+          });
+        }
+
         if(row.aggregateRating){
             row.aggregateRating.forEach(item => {
                 var res = item.text.split(":");
