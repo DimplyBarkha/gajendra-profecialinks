@@ -42,10 +42,9 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //*[@id="availability"]/span[@class='in-stock']
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //*[@itemprop="availability"]/@content
+    regExp: (.+/)(.+)
+    regExpReplace: $2
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -137,7 +136,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //*[@class="embed_features"]/div/div[2]
+    xpath: //*[@class="embed_features"]//strong | //*[@class="embed_features"]//p
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //*[@data-flix-embed-meta="features"]//*[@class="embed_features"]/div//img/@src

@@ -4,9 +4,6 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: _input
-    xpath: //*[@class="ais-stats--nb-results"]/strong
-    description: Search Term
   - name: productUrl
     xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//a[@class="ais-details-a product-tile"]/@href
     description: The URL for the product details page
@@ -14,7 +11,7 @@ fields:
     regExpReplace: https://www.jbhifi.com.au$1
   - name: thumbnail
     xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//div[@class="product-tile__image--aspect-ratio"]/img/@src
-    regExp: '(^.+_)(.+\.)(.+)'
+    regExp: (^.+_)(.+\.)(.+)
     regExpReplace: $11920x1080.$3
     description: The URL for the product thumbnail image
   - name: name
