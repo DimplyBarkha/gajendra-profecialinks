@@ -17,7 +17,7 @@ fields:
     xpath: //div[@class="c-modal_container"]//div[@class="a-price clearfix2"]/div[@class="a-price_new  is-big  "]
   - name: description
     singleValue: false
-    xpath: //div[@class="lap_gaming_content"]/div[2]//div[@class="prawa"]
+    xpath: //div[@class="is-description"]//div[contains(@class,"cells_holder")]//div[@class="opis_market"][2]//div[@class="prawa"]
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="is-carouselContainer"]//div[position()>1]/div[@class="c-offerBox_galleryItem"]/div[@data-component="magnifier modal"]/img/@src
@@ -27,7 +27,7 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //span[@class="c-reviews-general_summaryCount"]
-  - name: manufacture
+  - name: manufacturer
     singleValue: false
     xpath: //*[contains(text(),"Nazwa producenta/importera")]//ancestor::div[contains(@class,"c-accordion_item")]
   - name: warranty
@@ -39,3 +39,9 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //*[contains(text(),"Nazwa producenta/importera")]//ancestor::div[contains(@class,"c-accordion_item")]
+  - name: url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="c-reviews-general_typo"]

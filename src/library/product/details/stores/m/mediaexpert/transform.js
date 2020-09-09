@@ -19,6 +19,13 @@ const transform = (data) => {
           });
         }
 
+        if(row.reviewCount){
+          row.reviewCount.forEach(item => {
+            let reviewCountData=item.text.replace(' opinii','');
+            item.text=parseInt(reviewCountData);
+          });
+        }
+
         if (row.manufacture) {
           row.manufacture.forEach(item => {
             var myRegexp = /producenta\/importera\s+\n(.+?)\s*\n/g;
