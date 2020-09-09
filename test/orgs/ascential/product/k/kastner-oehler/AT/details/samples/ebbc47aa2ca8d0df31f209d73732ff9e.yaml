@@ -1,0 +1,140 @@
+input:
+  _url: http://kastner-oehler.at
+  URL: https://www.kastner-oehler.at/dyson-markenshop/dyson-haartrockner-dyson-supersonic-anthrazit-fuchsia-pink-7113862.html
+extractions:
+  - html: https://workbench.import.io/html/run=447c8284-3896-45a3-8723-ef75d2099d52/task=c88d5ed6-6e03-49d4-b79d-00ac117529fa/7a41e18c-f00f-43f4-89f4-fe89f1710493.html
+    extractionConfigId: product/details/stores/k/kastner-oehler/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.kastner-oehler.at/dyson-haartrockner+-+dyson+supersonic+%28+anthrazit+_+fuchsia+%29-1-768_1024_75-7113862_1.jpg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: DYSON | Haartrockner - dyson supersonic ( Anthrazit / Fuchsia ) | pink
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.kastner-oehler.at/dyson-haartrockner+-+dyson+supersonic+%28+anthrazit+_+fuchsia+%29-2-192_256_75-7113862_2.jpg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[2]/div[1]/@style
+              - text: https://www.kastner-oehler.at/dyson-haartrockner+-+dyson+supersonic+%28+anthrazit+_+fuchsia+%29-3-192_256_75-7113862_3.jpg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[3]/div[1]/@style
+              - text: https://www.kastner-oehler.at/dyson-haartrockner+-+dyson+supersonic+%28+anthrazit+_+fuchsia+%29-4-192_256_75-7113862_4.jpg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[4]/div[1]/@style
+              - text: https://www.kastner-oehler.at/dyson-haartrockner+-+dyson+supersonic+%28+anthrazit+_+fuchsia+%29-5-192_256_75-7113862_5.jpg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[5]/div[1]/@style
+              - text: https://www.kastner-oehler.at/dyson-haartrockner+-+dyson+supersonic+%28+anthrazit+_+fuchsia+%29-6-192_256_75-7113862_6.jpg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[6]/div[1]/@style
+              - text: https://www.kastner-oehler.at/dyson-haartrockner+-+dyson+supersonic+%28+anthrazit+_+fuchsia+%29-7-192_256_75-7113862_7.jpg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[7]/div[1]/@style
+            category:
+              - text: Startseite
+                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[1]
+              - text: MARKEN
+                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[2]
+              - text: DYSON
+                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[3]
+              - text: DYSON HAARTROCKNER - DYSON SUPERSONIC ( ANTHRAZIT / FUCHSIA )
+                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[4]
+            nameExtended:
+              - text: Dyson - Haartrockner - dyson supersonic ( Anthrazit / Fuchsia )
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/h1[1]/span[2]
+            price:
+              - text: "399"
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[2]/span[3]/span[1]/@content
+            brandText:
+              - text: DYSON
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/span[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/h1[1]/span[1]
+            weightNet:
+              - text: 630 g
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[20]
+            gtin:
+              - text: "5025155024997"
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[2]
+            eangtin:
+              - text: "5025155024997"
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[2]
+            sku:
+              - text: "2900260674202"
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[1]
+            mpc:
+              - text: 305967-01
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[3]
+            shippingInfo:
+              - text: |-
+                  Kostenloser Versand ab € 75,- nach AT & DE
+                   
+                  Click & Collect (Filialabholung)
+                   
+                  30 Tage Rückgaberecht
+                   
+                  Kostenloser Rückversand
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[2]/div[1]/ul[1]
+            shippingDimensions:
+              - text: 372 x 255 x 91
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[21]
+            color:
+              - text: pink$$7113862
+                xpath: /html/body/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/label[1]/@for
+            name:
+              - text: Haartrockner - dyson supersonic ( Anthrazit / Fuchsia )
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/h1[1]/span[2]
+            specifications:
+              - text: 372 x 255 x 91
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[21]
+            warranty:
+              - text: 2 Jahre Garantie
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/p[1]/strong[1]
+            variants:
+              - text: " Anthrazit/Fuchsia"
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[23]
+            description:
+              - text: "Temperatursensor schützt vor extremen Hitzeschäden, um den natürlichen
+                  Glanz zu erhalten Die intelligente Temperatur-Regulierung
+                  misst die Lufttemperatur 20-mal pro Sekunde. Schnelles
+                  Trocknen Präziser und starker Luftstrom dank des
+                  leistungsstarken Dyson digitalen Motors V9 und der Air
+                  Multiplier™ Technologie. Entwickelt für Balance Der erste
+                  Haartrockner, bei dem der Motor nicht im Kopf, sondern im
+                  Griff sitzt. Optimierte Akustik Der leistungsstarke Dyson
+                  digitale Motor V9 wurde so optimiert, dass er eine unhörbare
+                  Frequenz erzeugt. Er ist außerdem von einem System zur
+                  Vibrationsreduzierung umgeben. Magnetische Aufsätze Der erste
+                  Haartrockner mit magnetischen Aufsätzen, die sich leicht
+                  austauschen und drehen lassen. Cool Touch Technologie Dank
+                  Heat Shield-Technologie bleiben die Oberflächen der Aufsätze
+                  kühl – selbst beim Stylen aus nächster Nähe. 2 Jahre Garantie
+                  Mit kostenlosem Dyson Abhol- und Lieferservice. Gewicht des
+                  Dyson Digitaler Motors (DDM) V9: 49 g Durchmesser des DDM V9:
+                  27 mm Geschwindigkeit des DDM V9: Bis zu 110.000 U / min
+                  Leistung: 1.600 W Stromspannung: 230 V Lautstärke: 77 dBA
+                  Kabellänge: 2,7 m Ionisation: Ja LED-Anzeige: Ja Abnehmbare
+                  Filtermanschette: Ja Luftvolumen: 41 Liter / Sekunde
+                  Trocknungszeit: 5,7 g / Minute Luftstromstufen: 3
+                  Temperaturstufen: 4 Höchste Stufe: 100° C Mittlere Stufe: 80°
+                  C Niedrige Stufe: 60° C Kaltstufe: 28° C Produktmaße (HxBxT in
+                  mm): 245 x 78 x 97 Nettogewicht (mit Kabel): 630 g Boxmaße
+                  (HxBxT in mm): 372 x 255 x 91,5 Bruttogewicht: 2, 41 kg Farbe:
+                  Anthrazit/Fuchsia Lieferumfang: Haartrockner, Smoothing Düse,
+                  Styling Düse, Diffusor, Aufhängungslasche, Anti-Rutsch-Matte"
+                xpath: /html/body/div[5]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[6]
+            quantity:
+              - text: 1
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            Image360Present:
+              - text: No
+            descriptionBullets:
+              - text: "24"
+                type: NUMBER
+                raw: "24"
+                locale: de_AT
+                value: 24
+        xpath: /html/body
+    timestamp: 1599658998272

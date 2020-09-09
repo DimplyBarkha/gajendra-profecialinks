@@ -5,7 +5,7 @@ module.exports = {
     country: 'AT',
     store: 'kastner-oehler',
     domain: 'kastner-oehler.at',
-    loadedSelector: null,
+    loadedSelector: 'div#details_container',
     noResultsXPath: null,
     zipcode: '',
   },
