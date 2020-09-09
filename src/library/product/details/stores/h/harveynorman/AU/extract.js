@@ -82,6 +82,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       const descriptionSelector = document.querySelector('div[id="no-parallax"]');
       const description = descriptionSelector ? descriptionSelector.innerText : '';
       addHiddenDiv('added-description', description);
+
+      const scriptDataTagSelector = document.evaluate('//*[contains(text(),"HN_PAGE_INFO")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const scriptTagData = scriptDataTagSelector ? scriptDataTagSelector.innerText : '';
+      const availability = scriptTagData ? scriptTagData.replace(/.*pack_size":"(\d+).*/gm, '$1').match(/\d+/) : '';
+      addHiddenDiv('added_packSize', availability);
     }, [manContentObj, manufacturerContentLink]);
   }
 

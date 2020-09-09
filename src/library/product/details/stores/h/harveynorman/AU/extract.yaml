@@ -33,7 +33,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //div[@class="brand-logo"]/a/@title
+    xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Brand")]/following-sibling::td
   - name: weightNet
     singleValue: false
     xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Weight")]/following-sibling::td
@@ -121,4 +121,13 @@ fields:
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
+  - name: sku
+    singleValue: false
+    xpath: //small[contains(@class, "product-id")][1]
+  - name: variantId
+    singleValue: false
+    xpath: //small[contains(@class, "product-id")][1]
+  - name: packSize
+    singleValue: false
+    xpath: //div[contains(@id, "added_packSize")]
     
