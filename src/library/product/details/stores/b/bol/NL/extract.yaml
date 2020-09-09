@@ -64,3 +64,11 @@ fields:
     xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title
   - name: name
     xpath: //h1[@class='page-heading']
+  - name: videos
+    xpath: //video[@data-test='wsp-video-element']/source/@src
+  - name : lbb
+    defaultValue: No
+  - name : specifications
+    xpath: //div[@data-test='specifications']/*[not(contains(@class, 'show-more__fade'))]
+  - name: warranty
+    xpath: //dt[@class='specs__title' and contains(., 'garantie')]/following-sibling::dd[1] 
