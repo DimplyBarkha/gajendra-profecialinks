@@ -1,0 +1,77 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-list-box card desktop-cart")]
+fields:
+  - name: paid
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    description: The brand name
+    example: Panasonic
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //*[@class="product-list-box card desktop-cart"]//a[@target="_blank"]//@href
+    regExp: (.*)
+    regExpReplace: https://www.nykaa.com$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //*[@class="card-img"]//img/@src
+  - name: name
+    description: The product name
+    xpath: //h2/span
+  - name: sku
+    description: The store-specific product identifier
+  - name: mpc
+    description: The model code of the product
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+  - name: ratingCount
+    description: The number of ratings
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //*[@class="m-content__product-list__ratings"]
+    regExp: (\d+)
+  - name: price
+    description: The offered price for the 
+    xpath: //div[@class="price-info"]//span[2]
+    regExp: (\d+)
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //div[contains(@class,"price-info")]//span[contains(@class,"mrp-price")]
+    regExp: (\d+)
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: rank
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN    
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //*[@class="product-list-box card desktop-cart"]//a[@target="_blank"]//@href
+    regExp: (.+)(skuId=)(\d+)(&)(.+)
+    regExpReplace: $3
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER 
+
