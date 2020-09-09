@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'ozon',
     domain: 'ozon.ru',
-    loadedSelector: 'div[data-widget="webCharacteristics"] div h2[class="b0g6"]',
+    loadedSelector: null,
     noResultsXPath: '//div[@class="error-main"]//h2[contains(text(),"Произошла ошибка")]',
     zipcode: '',
   },
