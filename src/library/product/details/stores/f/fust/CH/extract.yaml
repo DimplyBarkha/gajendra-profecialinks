@@ -8,7 +8,6 @@ fields:
     regExp: (.+)
     regExpReplace: https://fust.ch/$1
   - name: imageAlt
-    # singleValue: true
     xpath: //div[@class='sliderdetail__init']/div[1]/img[contains(@class,'lazyloaded')]/@alt
     description: Alt text of the main product image
   - name: alternateImages
@@ -27,15 +26,10 @@ fields:
     regExp: (.+)( - )(.+)
     regExpReplace: $1
   - name: listPrice
-    #     # singleValue: true
-    # regExp: (\d+)\.(\d*)
-    # regExpReplace: $1,$2
     regExp: (\d*)(\’*)(\d*)\.(\d*)
     regExpReplace: $1$3,$4
     xpath: //div[contains(@class,'productDetailTxtContainer')]//span[@class='oldprice']/text()
   - name: price
-    # regExp: (\d+)\.(\d*)
-    # regExpReplace: $1,$2
     xpath: //div[@class='prices-container']//div[@class='endprice']/text()
     regExp: (\d*)(\’*)(\d*)\.(\d*)
     regExpReplace: $1$3,$4
@@ -49,26 +43,18 @@ fields:
   - name: description
     xpath: //div[@itemprop='description']//text()
   - name: descriptionBullets
-    #     # singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     xpath: //h1[contains(@class,'productDetail ')]/span/text()
   - name: manufacturer
-    # singleValue: true
     description: Product manufacturer
     xpath: //h1[contains(@class,'productDetail ')]/span/text()
   - name: weightNet
     # singleValue: true
     description: Net weight as described on the page
     xpath: //td[text()='Gewicht (kg)']/following-sibling::td/text()|//td[text()='Gewicht']/following-sibling::td/text()
-    # regExp: (.+)
-    # regExpReplace: $1$2
-  #   # - name: weightGross
-  #   #   singleValue: true
-  #   #   description: Gross weight as described on the page
   - name: gtin
-    # singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //meta[@itemprop='gtin']/@content
   - name: sku
@@ -84,30 +70,18 @@ fields:
     description: The number of ratings
   #     # type: NUMBER
   - name: aggregateRatingText
-    #     # singleValue: true
-    #     # description: The stated aggregate rating
     xpath: //button[@class='bv_stars_button_container ']/@aria-label
     regExp: (\d.\d)\s\w+\s\d\s\w+
   - name: aggregateRating
-    #     # singleValue: true
     xpath: //button[@class='bv_avgRating ']/text()
     regExp: (\d+)\.(\d+)
     regExpReplace: $1,$2
     description: The stated aggregate rating normalized to be out of 5
   - name: color
     xpath: //td[contains(text(),'Farbe')]/following-sibling::td/text()
-  #     singleValue: true
-  #     description: A textual description of the colour
-  #   - name: colorCode
-  #     singleValue: true
-  #     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    #     # singleValue: false
     description: The extended description of the product supplied by the lister
     xpath: //div[@class='tabsContainer']/div[@id='tabs-1'][1]//div[@itemprop='description']/p|//table[@class='not-basic-table specification']//td/text()|//div[@id='flix-inpage']//div[contains(@class,'title')]|//div[@id='flix-inpage']//div[contains(@class,'desc')]//text()
-  #   - name: manufacturerImages
-  #     singleValue: false
-  #     description: Images within the third party description
   - name: videos
     singleValue: false
     xpath: //div[@class="demoupUI-playbutton demoup-play "]/meta[@itemprop='contentURL']/@content|//div[contains(@class,'youtube productDetail')]/a[1]/@href
