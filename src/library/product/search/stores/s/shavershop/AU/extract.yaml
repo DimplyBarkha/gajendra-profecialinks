@@ -3,18 +3,17 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields: 
-
   - name: id
-    xpath: //div/@data-product-id
+    xpath: //div[contains(@class,'product-tile')]/@data-product-id
     singleValue: true
   - name: name
-    xpath: //div[@class='product-name']/a[@class='name-link gtm-product-click']/span[@class='desktop-only']
+    xpath: //div[contains(@class,'product-tile')]/@data-product-name
     singleValue: true
-  - name: producturl
-    xpath: //div[@class='product-image']/a[@class='thumb-link gtm-product-click']/@href
+  - name: productUrl
+    xpath: (//div[(@class='product-tile')]//div[@class='product-image']/a/@href)
     singleValue: true
   - name: manufacturer
-    xpath: //div[@class='product-name']/div[@class='brand-name']/a
+    xpath: //div[contains(@class,'product-tile')]/@data-product-brand
     singleValue: true    
   - name: thumbnail
     xpath: //div[@class='product-image']/a[@class='thumb-link gtm-product-click']/img/@src
