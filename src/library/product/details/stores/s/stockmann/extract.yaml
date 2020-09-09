@@ -60,6 +60,9 @@ fields:
   - name: gtin
     singleValue: true
     xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+  - name: eangtin
+    singleValue: true
+    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
   - name: sku
     singleValue: true
     xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
@@ -103,3 +106,18 @@ fields:
   - name: promotion
     singleValue: true
     xpath: //div[contains(@class, "marketing-texts")]
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[contains(@class, "form-group-color")]//ul//li
+  - name: firstVariant
+    singleValue: true
+    xpath: //div[contains(@class, "form-group-color")]//ul//li[contains(@class, "selected")]
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class, "form-group-color")]//ul//li
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@id,"stflix")]//div[contains(@id, "inpage_container")]//img//@srcset
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@id, "inpage_container")]//div[contains(@class, "flix-Text-block")]//text()
