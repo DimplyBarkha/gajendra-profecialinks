@@ -4,8 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: price
-    singleValue: false
-    xpath: //span[@class='js-productprice']
+    singleValue: false    
+    xpath: //span[contains(@class,"price__discount")]
   - name: image
     singleValue: false
     xpath: (//div[@class="slick-track"]//img[1]/@src)[1]
