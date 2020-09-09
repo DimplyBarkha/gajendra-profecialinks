@@ -32,7 +32,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[contains(@class, "floatl")]//strong[contains(@class, "userPrice")]
+    xpath: //div[contains(@class, "floatl")]//*[contains(@class, "userPrice")]
   - name: rank
     singleValue: false
     description: search/listing rank
