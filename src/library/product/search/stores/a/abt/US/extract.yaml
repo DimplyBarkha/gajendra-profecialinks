@@ -21,7 +21,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="category_image_container"]/a/img[1]/@src
+    xpath: //img[@class="category_first_image"]/@data-src
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
