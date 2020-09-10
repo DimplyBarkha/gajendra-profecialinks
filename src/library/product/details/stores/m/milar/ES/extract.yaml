@@ -44,13 +44,10 @@ fields:
     xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']/ul/li[2]/span[2]/strong
   - name: category
     singleValue: false
-    xpath: //section[@class='listadoCategoriasHead']/div[@class='wrap']/div[@class='breadcrumb']/span/a[3]
-  - name: varient
-    singleValue: false
-    xpath: //h1[@class='infoProduct-title']
+    xpath: //*[@class='breadcrumb']
   - name: ratingCount
     singleValue: false
-    xpath: //dd[@class="bv-rating-ratio-count"]/a[@class='bv-rating-label bv-text-link bv-focusable']
+    xpath: //*[@id="num-reviews-button"]
   - name: description
     singleValue: false
     xpath: //*[@id="more_product_info"]/div/div[3]/p
