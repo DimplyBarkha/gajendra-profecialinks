@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    manualSelector: img#mainImageFrame
+    xpath: //img[@id="mainImageFrame"]/@src
   - name: imageAlt
     singleValue: false
     xpath: //img[@id="mainImageFrame"]/@alt
@@ -17,122 +17,74 @@ fields:
     xpath: //ul[@class="breadcrumb"]/li[position() > 1 and position() < last()]/a
   - name: price
     singleValue: false
-    xpath: //div[@class="product-details"]//div[@class="price"]//b
+    xpath: //div[@class="product-details"]//div[@class="price"]
+    regExp: (.+)(₪.+)
+    regExpReplace: $2
   - name: availabilityText
     singleValue: false
-    manualSelector: button#btn-add-to-cart
+    xpath: //span[contains(string(), "הוספה לסל")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@id, "product-information")]//div[contains(@class,"box-description")]
+    xpath: //div[@class="product-details"]/div[@class="description"] | //div[@id="Tab-2"]/div[1]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@id, "product-information")]//div[@id="productDescription"]//ul/li)
+    xpath: count(//div[@class="product-details"]/div[@class="description"]//ul/li)
     type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Brand")]/following-sibling::td
-  - name: weightNet
-    singleValue: false
-    xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Weight")]/following-sibling::td
-    regExp: (.+)
-    regExpReplace: $1 Kg
-  - name: varianId
-    singleValue: false
-    xpath: //*[contains(@class,"product-id")][1]
-  - name: gtin
-    singleValue: false
-    xpath: //*[contains(@class,"product-id")][2]
-  - name: ratingCount
-    singleValue: false
-    xpath: //div[@id="overview"]//div[2]//dd[@class="bv-rating-ratio-count"]/@title
-    type: NUMBER
-  - name: aggregateRating
-    singleValue: false
-    xpath: //dd[@class="bv-rating-ratio"]/@title
-    type: NUMBER
-  - name: manufacturerDescription
-    singleValue: false
-    manualSelector: div.box-description > div.product-long-description
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[contains(@class,"product-long-description")]//div[position() > 1 and position() < last()]//a/img/@src | //div[contains(@class,"product-long-description")]//img/@src
-  - name: videos
-    singleValue: false
-    xpath: //div[@class="hn-carousel-embed-container"]/iframe/@src
-    regExp: (\d+)
-    regExpReplace: https://vimeo.com/$1
-  - name: videos1
-    singleValue: false
-    xpath: //div[contains(@id, "added-manufacturer-videos")]
-  - name: manufacturerImages1
-    singleValue: false
-    xpath: //div[contains(@id, "added-manufacturer-images")]
-  - name: manufacturerImages2
-    singleValue: false
-    xpath: //div[contains(@id, 'flix-dyson-inpage')]//img/@data-flixsrcset
-  - name: manufacturerDescription1
-    singleValue: false
-    xpath: //div[@id="added-manufacturer-description"]
+    xpath: //script[@type="text/javascript"]/@data-flix-brand
   - name: name
     singleValue: false
-    manualSelector: h1.product-name-with-option > span.product-name
+    manualSelector: div.wrapper-title > h1
   - name: nameExtended
     singleValue: false
-    manualSelector: h1.product-name-with-option > span.product-name
+    manualSelector: div.wrapper-title > h1
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class,"carousel-item--image")][position() > 1]/div/img/@data-image-src)
+    xpath: count(//div[@class="owl-item"]/img)
     type: NUMBER
-  - name: specifications
-    singleValue: false
-    manualSelector: div#product-specs
   - name: warranty
     singleValue: false
-    xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Warranty")]/following-sibling::td
-    regExp: (.+)
-    regExpReplace: $1 Months
+    xpath: //div[contains(@class, 'tab-content product.conditions.tab')]//p
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@id, "product-information")]//div[@id="productDescription"]//ul/li
+    xpath: //div[@class="product-details"]/div[@class="description"]//ul/li
   - name: additionalDescBulletInfoCount
     singleValue: false
-    xpath: count(//div[contains(@id, "product-information")]//div[@id="productDescription"]//ul/li)
-    type: NUMBER
-  - name: termsAndConditions
-    singleValue: false
-    xpath: //a[@data-target="#terms-and-conditions"]
-    regExp: (.+)
-    regExpReplace: Yes
-  - name: color
-    singleValue: false
-    xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Colour")]/following-sibling::td
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //*[contains(@class,"product-short-description")]/ul/li
-  - name: additionalDescBulletInfoCount
-    singleValue: false
-    xpath: count(//*[contains(@class,"product-short-description")]/ul/li)
+    xpath: count(//div[@class="product-details"]/div[@class="description"]//ul/li)
   - name: variantCount
     singleValue: false
     defaultValue: 1
-  - name: mpc
-    singleValue: false
-    xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Model")]/following-sibling::td
-  - name: metaKeywords
-    singleValue: false
-    xpath: //meta[@name="keywords"]/@content
   - name: sku
     singleValue: false
-    xpath: //small[contains(@class, "product-id")][1]
+    xpath: //div[contains(@class,"yotpo-medium")]/@data-product-id
   - name: rpc
     singleValue: false
-    xpath: //small[contains(@class, "product-id")][1]
+    xpath: //div[contains(@class,"yotpo-medium")]/@data-product-id
   - name: variantId
     singleValue: false
-    xpath: //small[contains(@class, "product-id")][1]
-  - name: packSize
+    xpath: //div[contains(@class,"yotpo-medium")]/@data-product-id
+  - name: specifications
     singleValue: false
-    xpath: //div[contains(@id, "added_packSize")]
+    xpath: //div[contains(@class, 'tab-content additional')]/ul
+  - name: weightNet
+    singleValue: false
+    xpaht: //div[contains(@class, 'tab-content additional')]/ul/li[contains(string(), 'משקל')]/p
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class, 'tab-content additional')]/ul/li[contains(string(), 'צבע')]/p
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@class,"yotpo-sum-reviews")]/span
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@class,"yotpo-star-digits")]
+    type: NUMBER
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[contains(@class,"yotpo-star-digits")]
+    type: NUMBER
