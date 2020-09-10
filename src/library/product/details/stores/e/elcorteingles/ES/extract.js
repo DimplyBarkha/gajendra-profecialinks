@@ -77,10 +77,6 @@ module.exports = {
               addElementToDocument('retailer_product_code', retailerProductCode);
             }
           }
-          // Check for the quantity  and append to DOM
-          if (dataObj[0].product.quantity) {
-            addElementToDocument('quantity', dataObj[0].product.quantity);
-          }
         }
       }
 
@@ -179,7 +175,7 @@ module.exports = {
       }
       const ratings = await getRatings();
       document.body.setAttribute('rating-count', ratings.ratingCount);
-      document.body.setAttribute('rating-value', ratings.ratingValue.toFixed(1));
+      document.body.setAttribute('rating-value', ratings.ratingValue.toFixed(1).replace('.', ','));
       document.body.setAttribute('review-count', ratings.reviewCount.toString());
 
       // Get quantity
@@ -191,7 +187,7 @@ module.exports = {
 
       // Function to remove the `\n` from the textContent
       function textContent(element, attributeName) {
-        const text = (element && element.textContent.trim()
+        const text = (element && element.innerText.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
           .join(' ')) ||

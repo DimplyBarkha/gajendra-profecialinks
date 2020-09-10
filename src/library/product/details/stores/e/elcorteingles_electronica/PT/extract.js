@@ -263,7 +263,7 @@ module.exports = {
 
       // Function to remove the `\n` from the textContent
       function textContent (element, attributeName) {
-        const text = (element && element.textContent.trim()
+        const text = (element && element.innerText.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
           .join(' ')) ||

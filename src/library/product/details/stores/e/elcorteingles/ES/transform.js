@@ -20,7 +20,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.allergyAdvice) {
-        const text = row.allergyAdvice.map(elm => elm.text.trim()).join(',');
+        const text = row.allergyAdvice.map(elm => elm.text.trim()).join(', ');
         row.allergyAdvice = [{ text }];
       }
 
