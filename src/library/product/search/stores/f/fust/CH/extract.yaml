@@ -4,7 +4,6 @@ recordSelector: null
 recordXPath: //ul[contains(@class,'results n-results')]/li
 fields:
   - name: id
-    # singleValue: false
     xpath: //span[contains(@content,'sku')]/text()
     description: The store-specific product identifier
   - name: name
@@ -23,8 +22,6 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //img[contains(@class,'product__overview-img')]/@src
-    # regExp: (^\d{3})(\d+)
-    # regExp: ()
     regExp: (.+)
     regExpReplace: https://www.fust.ch$1
     description: The URL for the product thumbnail image
@@ -33,10 +30,6 @@ fields:
     xpath: //div[@class='endprice']/text()
     regExp: (\d*)(\’*)(\d*)\.(\d*)
     regExpReplace: $1$3,$4
-  - name: priceCurrency
-    xpath: //ul[contains(@class,'results n-results')]/li//div[@class='miniBasket']/p/text()
-    regExp: (\w+)(\s)(\w+)
-    regExpReplace: $3
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@itemprop='ratingValue']/text()

@@ -5,7 +5,7 @@ module.exports = {
     store: 'fust',
     domain: 'fust.ch',
     url: 'https://www.fust.ch/de/search.html?searchtext={searchTerms}',
-    loadedSelector: null,
+    loadedSelector: 'div[id="productlisting"]',
     noResultsXPath: null,
     zipcode: '',
   },

@@ -4,8 +4,8 @@ module.exports = {
     country: 'CH',
     store: 'fust',
     domain: 'fust.ch',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="inner n-bodycontainer__inner"]',
+    noResultsXPath: '//meta[contains(@content,"Seite nicht gefunden")]',
     zipcode: '',
   },
 };
