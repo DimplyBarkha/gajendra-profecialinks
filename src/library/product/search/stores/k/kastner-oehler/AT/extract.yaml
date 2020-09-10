@@ -5,10 +5,11 @@ recordXPath: null
 fields:
   - name: id
     description: Unique id (within this extractor)
+    xpath: //div[@id='itemId']
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
-    xpath: //article/@count
+    xpath: //div[@id='count']
   - name: name
     description: The product name
     xpath: //div[@class="en_mdl_product__name"]
@@ -19,7 +20,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image 
-    xpath: //article/@img
+    xpath: //div[@id='img']
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
@@ -39,6 +40,6 @@ fields:
     defaultValue: Sold by kastner-oehler.at
   - name: rank
     description: search/listing rank
-    xpath: //article/@count
+    xpath: //div[@id='count']
   - name: endorsementText
     description: The text that signifies that a product is endorsed

@@ -16,17 +16,33 @@ module.exports = {
   ) => {
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      const allProducts = document.querySelectorAll('section#product-list article.en_griditem');
-      // const buttons = document.querySelectorAll('span[data-qv-href]');
-      console.log(allProducts);
-      for (let x = 0; allProducts.length - 1 >= x; x++) {
-        allProducts[x].setAttribute('count', `${x + 1}`);
-        // buttons[x].click();
-        // let img = document.querySelector('(//div/@data-en-photoswipe-url)[1]');
-        // let id = document.querySelector('span[itemprop="sku"]');
-        // allProducts[x].setAttribute('img', `${img}`);
-        // allProducts[x].setAttribute('id', `${id}`);
-        //div.mdl_inner span.close_button.trigger.en_js_close_quickview
+      function addElementToDocument (elem, id, value) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = value;
+        newDiv.style.display = 'none';
+        elem.appendChild(newDiv);
+      }
+      const cookie = document.querySelector('span.tao_button_cookie_settings');
+      if (cookie) cookie.click();
+      const productsOnPage = document.querySelectorAll('section#product-list article.en_griditem');
+      const numberOfProductsOnPage = productsOnPage ? productsOnPage.length : 0;
+      for (let i = 0; i < numberOfProductsOnPage; i++) {
+        const item = document.querySelectorAll('section#product-list article.en_griditem')
+          ? document.querySelectorAll('section#product-list article.en_griditem')[i] : [];
+        // @ts-ignore
+        const itemId = item && item.querySelector('div.en_mdl_product__image--alt')
+          // @ts-ignore
+          ? item.querySelector('div.en_mdl_product__image--alt').getAttribute('id').replace(/(^.+)_alt/g, '$1') : '';
+        addElementToDocument(item, 'itemId', itemId);
+        addElementToDocument(item, 'count', `${i + 1}`);
+        const imgId = item.querySelector('div.en_mdl_product__image_img.cssimg')
+          ? item.querySelector('div.en_mdl_product__image_img.cssimg').getAttribute('id') : '';
+        const element = document.evaluate('//style[contains(text(),"cssimg")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        const regex = new RegExp(imgId + '\\s[^}]*url\\((.+)\\);\\}', 'g');
+        const imgArr = element.innerText.match(regex);
+        const img = imgArr[0].replace(regex, '$1').replace(/'\/\//g, 'https://').replace(/'/g, '');
+        addElementToDocument(item, 'img', img);
       }
     });
     return await context.extract(productDetails);
