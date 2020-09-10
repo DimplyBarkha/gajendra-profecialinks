@@ -12,6 +12,7 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     let content = null;
     let image = null;
+    let manufVideo = null;
 
     async function addHiddenInfo (elementID, content) {
       await context.evaluate(async function (elementID, content) {
@@ -42,11 +43,11 @@ module.exports = {
     const apiManufCall = await context.evaluate(async function () {
       return document.querySelector('iframe#loadbeeTabContent') ? document.querySelector('iframe#loadbeeTabContent').getAttribute('src') : null;
     });
-    console.log('apiManufCall')
-    console.log(apiManufCall)
+    console.log('apiManufCall');
+    console.log(apiManufCall);
 
     if (apiManufCall) {
-      console.log(apiManufCall)
+      console.log(apiManufCall);
       await context.goto(apiManufCall);
       // The code snippet below will be executed in the website's scope.
       await context.evaluate(async function () {
@@ -61,7 +62,9 @@ module.exports = {
         // return imagesElements;
         const imagesSrc = [];
         [...imagesElements].forEach((element) => {
-          imagesSrc.push(element.getAttribute('data-src').toString());
+          if (element.getAttribute('data-src')) {
+            imagesSrc.push(element.getAttribute('data-src').toString());
+          }
           // imagesSrc.push(element.src.toString());
         });
         // imagesSrc = imagesSrc.slice(0, imagesSrc.length - 1);
@@ -69,11 +72,25 @@ module.exports = {
         // return imagesSrc.join(' || ');
       });
       image = images;
-
+      /*
       const imgHTML = await context.evaluate(async function () {
         return document.querySelector('body').outerHTML;
       });
+      */
+
+      const video = await context.evaluate(async function () {
+        const videosElements = document.querySelectorAll('div.wrapper div.play-btn');
+        const videoSrc = [];
+        [...videosElements].forEach((element) => {
+          if (element.getAttribute('data-video')) {
+            videoSrc.push(element.getAttribute('data-video').toString());
+          }
+        });
+        return videoSrc.join(' || ');
+      });
+      manufVideo = video;
       await context.goto(link);
+      /*
       const allImgs = await context.evaluate(async function (imgHTML) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(imgHTML, "text/html");
@@ -82,25 +99,33 @@ module.exports = {
         // return imagesElements;
         const imagesSrc = [];
         [...imagesElements].forEach((element) => {
-          imagesSrc.push(element.getAttribute('data-src').toString());
+          if (element.getAttribute('data-src')) {
+            imagesSrc.push(element.getAttribute('data-src').toString());
+          }
           // imagesSrc.push(element.src.toString());
         });
         return imagesSrc;
       }, imgHTML);
       console.log(allImgs);
+      */
+
       addHiddenInfo('ii_manufContent', content);
       // if (allImgs) {
       //   addHiddenInfo('ii_manufContentImg', allImgs.join(' || '));
       //   // addHiddenArrayList('ii_manufImg', allImgs);
       // }
-      // if (image) {
-      //   console.log(image);
-      //   addHiddenInfo('ii_manufContentImg', image.join(' || '));
-      //   addHiddenArrayList('ii_manufImg', image);
-      //   // image.forEach((element, index) => {
-      //   //   addHiddenInfo('ii_manufImg'+index, element);
-      //   // });
-      // }
+      if (image) {
+        console.log(image);
+        addHiddenInfo('ii_manufContentImg', image.join(' || '));
+        addHiddenArrayList('ii_manufImg', image);
+        // image.forEach((element, index) => {
+        //   addHiddenInfo('ii_manufImg'+index, element);
+        // });
+      }
+      if (manufVideo) {
+        console.log(manufVideo);
+        addHiddenInfo('ii_manufVideo', manufVideo);
+      }
     }
 
     return await context.extract(productDetails, { transform: transformParam });

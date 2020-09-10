@@ -40,7 +40,16 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: priceCurrency
     singleValue: true
-    default: €
+    # xpath: (//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price")]/text()|(//div[contains(@class, "widget-Grid--subContent")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price") and not(contains(@style,'display:none'))]/text()))[last()]
+    # regExp: (.*)
+    # regExpReplace: (€)
+    defaultValue: €
+  - name: onlinePriceCurrency
+    singleValue: true
+    xpath: (//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price")]/text()|(//div[contains(@class, "widget-Grid--subContent")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price") and not(contains(@style,'display:none'))]/text()))[last()]
+    regExp: (.*)
+    regExpReplace: €
+    # defaultValue: €
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -57,7 +66,8 @@ fields:
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[contains(@class, "widget-ArticlePriceTagText")]//ul//li//text()|(//div[contains(@class,'widget-Accordion--header')]//*[contains(text(),"Beschreibung")]/parent::p/parent::div/parent::div/following-sibling::div//div//li)[1])
+    xpath: count(//div[contains(@class, "widget-ArticlePriceTagText")]//ul//li[contains(@class, "widget-ArticlePriceTagText--detail")]//text()|(//div[contains(@class,'widget-Accordion--header')]//*[contains(text(),"Beschreibung:")]/parent::p/parent::div/parent::div/following-sibling::div//div//li//text())[1])
+    # xpath: count(//div[contains(@class, "widget-ArticlePriceTagText")]//ul//li//text()|(//div[contains(@class,'widget-Accordion--header')]//*[contains(text(),"Beschreibung")]/parent::p/parent::div/parent::div/following-sibling::div//div//li)[1])
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -75,18 +85,23 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
-    xpath: //th[contains(text(),'Gewicht')]//ancestor::th//parent::tr//td
+    xpath: (//th[contains(text(),'Gewicht')]//ancestor::th//parent::tr//td|//div[contains(@class,"widget-ArticleDescription--articleDescription")]//li[contains(text(), "Nettogewicht")])[1]
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
-    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr//td
+    xpath: (//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr//td|//div[contains(@class,"widget-ArticleDescription--articleDescription")]//li[contains(text(), "Bruttogewicht")])[1]
     description: Gross weight as described on the page
   - name: upc
     singleValue: true
+    xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]
   - name: gtin
     singleValue: true
+    xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]
     # xpath: //script[contains(text(), "window.emos3.send({'ec_Event':")][2]
     description: GTIN code (includes UPC/EAN)
+  - name: eangtin
+    singleValue: true
+    xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]
   - name: sku
     singleValue: true
     xpath: //span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
@@ -127,17 +142,20 @@ fields:
     # type: NUMBER
   - name: shippingInfo
     singleValue: true
-    xpath: //th[contains(text(),'Lieferumfang')]//ancestor::th//parent::tr//td|//div[contains(@class, "widget widget-ArticlePrice")]/following-sibling::div//p//text()
+    # xpath: //th[contains(text(),'Lieferumfang')]//ancestor::th//parent::tr//td|//div[contains(@class, "widget widget-ArticlePrice")]/following-sibling::div//p//text()
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
+    xpath: //th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr//td|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr//td|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr//td|//th[contains(text(),'Abmessungen in cm H x B x T')]//ancestor::th//parent::tr//td
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
+    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr//td
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: 0
     type: NUMBER
   - name: color
     singleValue: true
@@ -165,7 +183,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//div[@title="Play video"]//meta[@itemprop="embedURL"]/@content|//div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//img[contains(@data-type, "Video")]/@src
+    xpath: //div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//div[@title="Play video"]//meta[@itemprop="embedURL"]/@content|//div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//img[contains(@data-type, "Video")]/@src|//*[@id="ii_manufVideo"]
     description: URLs of videos on page
   - name: name
     xpath: //meta[@itemprop="name"]/@content
@@ -422,12 +440,12 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
-    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr
+    singleValue: false
+    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr|//th[contains(text(),'Abmessungen in cm H x B x T')]//ancestor::th//parent::tr
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
-    xpath: //div[contains(@class, "widget-AdditionalServices")]//span[contains(text(), "Garantie")]/text()
+    xpath: //div[contains(@class, "widget-AdditionalServices")]//span[contains(text(), "Garantie")]/text()|//th[contains(text(),'Garantie')]//ancestor::th//parent::tr//td
     # xpath: //div[contains(@class, "widget-AdditionalServices")]//text()
     description: Guarantee associated with the product
   - name: storage

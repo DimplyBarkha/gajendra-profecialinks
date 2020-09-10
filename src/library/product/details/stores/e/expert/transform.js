@@ -53,17 +53,27 @@ const transform = (data, context) => {
         // }
 
         if (row.specifications) {
-          const text = [];
+          const textArr = [];
           row.specifications.forEach(item => {
-            if (item.text.length > 0) { text.push(item.text); }
+            textArr.push(item.text);
           });
-          if (text.length > 0) {
-            row.specifications = [
-              {
-                text: text.join(' || ').trim(),
-              },
-            ];
-          }
+          row.specifications = [
+            {
+              text: textArr.join(' || ').trim(),
+            },
+          ];
+        }
+
+        if (row.shippingDimensions) {
+          const textArr = [];
+          row.shippingDimensions.forEach(item => {
+            textArr.push(item.text);
+          });
+          row.shippingDimensions = [
+            {
+              text: textArr.join(' '),
+            },
+          ];
         }
 
         if (row.packaging) {
@@ -133,6 +143,14 @@ const transform = (data, context) => {
 
         if (row.aggregateRating && row.aggregateRating[0]) {
           row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
+        }
+
+        if (row.weightNet && row.weightNet[0]) {
+          row.weightNet[0].text = row.weightNet[0].text.replace('Nettogewicht: ', '');
+        }
+
+        if (row.weightGross && row.weightGross[0]) {
+          row.weightGross[0].text = row.weightGross[0].text.replace('Bruttogewicht: ', '');
         }
 
         Object.keys(row).forEach(header => row[header].forEach(el => {
