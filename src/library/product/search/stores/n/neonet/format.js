@@ -38,6 +38,11 @@ const transform = (data, context) => {
         });
       }
 
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('\nzł', 'zł').replace('\n', ',');
+        });
+      }
       rankCounter += 1;
       row.rank = [{ text: rankCounter }];
     }

@@ -8,7 +8,9 @@ fields:
     xpath: //h2[@class="listingItemCss-name-3RF"]/@title
   - name: productUrl
     singleValue: false
-    xpath: concat('https://www.neonet.pl/',//a[@class="listingItemCss-nameLink-1rv"]/@href)
+    xpath: //a[@class="listingItemCss-nameLink-1rv"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.neonet.pl/$1
   - name: manufacturer
     singleValue: true
     xpath: //a[@id="manufacturerLogo"]/img/@alt
@@ -39,7 +41,9 @@ fields:
     regExpReplace: $2      
   - name: price
     singleValue: false
-    xpath: concat(normalize-space(//div[@class="listingItemCss-sp__integer-3NZ"]), '.', normalize-space(//div[@class="listingItemCss-sp__formatter-1Pf"]))
+    #xpath: concat(normalize-space(//div[@class="listingItemCss-sp__integer-3NZ"]), '.', normalize-space(//div[@class="listingItemCss-sp__formatter-1Pf"]))
+    xpath: //div[@class="specialPriceFormatterCss-sp__root-24o"]
+    # //div[@class="listingItemCss-sp__integer-3NZ"]|//div[@class="listingItemCss-sp__formatter-1Pf"]
   - name: shippingInfo
     singleValue: false    
     xath: //span[@class="productAvailabilityDesktopCss-product__available-37U"]/span
