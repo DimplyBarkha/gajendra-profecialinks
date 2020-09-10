@@ -139,7 +139,7 @@ fields:
     xpath : ancestor::html //div[@id="aggregateRating"]
   - name: shippingInfo
     singleValue: true
-    xpath : ancestor::html //li[@data-promotion-type="shipping"]
+    xpath : ancestor::html //div[@class="shipping_and_returns"]/div[@class="table"][1]
   - name: shippingDimensions
     singleValue: true
     xpath :  
