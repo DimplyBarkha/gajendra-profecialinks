@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"productMainImage")]//img[contains(@class,"productImageZoom")]/@src
     regExp: (.+)\?.*
-    regExpReplace: https:$1
+    regExpReplace: $1
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,"productMainImage")]//img[contains(@class,"productImageZoom")]/@alt
@@ -27,7 +27,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"thumbnails")]//img[contains(@class,"opacityThumbnail")]/@src
     regExp: (.+)\?.*
-    regExpReplace: https:$1
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -54,7 +54,7 @@ fields:
     singleValue: false
   - name: variantId
     singleValue: false
-    manualSelector: //div[contains(@class,"hidden-xs")]/span[@itemprop='productID'] | //span[@data-id]/@data-id
+    xpath: //div[contains(@class,"hidden-xs")]/span[@itemprop='productID'] | //span[@data-id]/@data-id
   - name: mpc
     singleValue: false
   - name: ratingCount
@@ -88,6 +88,7 @@ fields:
     manualSelector: h1.hidden-xs
   - name: specifications
     singleValue: false
+    xpath: //p[span/strong[contains(text(),'PRODUCT SPECIFICATIONS')]]/following-sibling::p
   - name: warranty
     singleValue: false
     xpath: //span[contains(text(),'warranty')] 

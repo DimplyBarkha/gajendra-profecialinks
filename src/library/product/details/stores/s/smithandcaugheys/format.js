@@ -9,9 +9,31 @@ const transform = (data) => {
         for (const row of group) {
             if (row.brandText && row.nameExtended) {
                 let text = row.brandText[0].text;
-                if(!row.nameExtended[0].text.startsWith(text)){
+                if (!row.nameExtended[0].text.startsWith(text)) {
                     row.nameExtended[0].text = `${text} - ${row.nameExtended[0].text}`
                 }
+            }
+            if (row.image && !row.image[0].text.startsWith('http')) {
+                row.image[0].text = `https:${row.image[0].text}`;
+            }
+            if (row.alternateImages) {
+                row.alternateImages.forEach(image => {
+                    if (!image.text.startsWith('http')) {
+                        image.text = `https:${image.text}`;
+                    }
+                });
+            }
+            if (row.specifications) {
+                let text = '';
+                for (const spec of row.specifications) {
+                    if (!spec.text.includes(':')) {
+                        break;
+                    }
+                    text = text ? `${text} || ${spec.text}` : spec.text;
+                }
+                row.specifications = [{
+                    text,
+                }]
             }
         }
     }
