@@ -34,14 +34,16 @@ async function implementation (
     return true;
   }
 
-  let url = await context.evaluate(function () {
-    /** @type { HTMLLinkElement } */
-    const next = document.querySelector('head link[rel="next"]');
-    if (!next) {
-      return false;
-    }
-    return next.href;
-  });
+  let url = null;
+
+  // let url = await context.evaluate(function () {
+  //   /** @type { HTMLLinkElement } */
+  //   const next = document.querySelector('head link[rel="next"]');
+  //   if (!next) {
+  //     return false;
+  //   }
+  //   return next.href;
+  // });
 
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
@@ -61,6 +63,8 @@ async function implementation (
       if (parseInt(currentButton) !== (currentPage - 1)) {
         return false;
       }
+    } else {
+      return false;
     }
   }
 
@@ -90,7 +94,7 @@ module.exports = {
     country: 'IE',
     store: 'expert',
     // nextLinkSelector: 'li.pages-item-next a[title="Next"]',
-    nextLinkSelector: null,
+    // nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.product-item-info',

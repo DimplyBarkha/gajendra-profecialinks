@@ -153,7 +153,15 @@ fields:
   - name: manufacturerImages
     singleValue: false
     # xpath: //*[contains(@id,"ii_manufImg")]
-    xpath: //*[@id='added_ii_manufImg']//text()
+    xpath: //*[@id='added_ii_manufImg']
+  - name: manufImages
+    singleValue: false
+    # xpath: //*[contains(@id,"ii_manufImg")]
+    xpath: //*[@id='added_ii_manufImg']
+  - name: manufImg
+    singleValue: true
+    # xpath: //*[contains(@id,"ii_manufImg")]
+    xpath: //*[@id='ii_manufContentImg']
     description: Images within the third party description
   - name: videos
     singleValue: false

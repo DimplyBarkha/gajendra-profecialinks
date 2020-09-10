@@ -42,8 +42,11 @@ module.exports = {
     const apiManufCall = await context.evaluate(async function () {
       return document.querySelector('iframe#loadbeeTabContent') ? document.querySelector('iframe#loadbeeTabContent').getAttribute('src') : null;
     });
+    console.log('apiManufCall')
+    console.log(apiManufCall)
 
     if (apiManufCall) {
+      console.log(apiManufCall)
       await context.goto(apiManufCall);
       // The code snippet below will be executed in the website's scope.
       await context.evaluate(async function () {
@@ -54,25 +57,50 @@ module.exports = {
       });
       content = text;
       const images = await context.evaluate(async function () {
-        const images = document.querySelectorAll('body img');
-        let imagesSrc = [];
-        [...images].forEach((element) => {
-          imagesSrc.push(element.getAttribute('src'));
+        const imagesElements = document.querySelectorAll('div.wrapper img[data-src]');
+        // return imagesElements;
+        const imagesSrc = [];
+        [...imagesElements].forEach((element) => {
+          imagesSrc.push(element.getAttribute('data-src').toString());
+          // imagesSrc.push(element.src.toString());
         });
         // imagesSrc = imagesSrc.slice(0, imagesSrc.length - 1);
         return imagesSrc;
         // return imagesSrc.join(' || ');
       });
       image = images;
+
+      const imgHTML = await context.evaluate(async function () {
+        return document.querySelector('body').outerHTML;
+      });
       await context.goto(link);
+      const allImgs = await context.evaluate(async function (imgHTML) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(imgHTML, "text/html");
+        // console.log(doc.querySelector('img'));
+        const imagesElements = doc.querySelectorAll('div.wrapper img');
+        // return imagesElements;
+        const imagesSrc = [];
+        [...imagesElements].forEach((element) => {
+          imagesSrc.push(element.getAttribute('data-src').toString());
+          // imagesSrc.push(element.src.toString());
+        });
+        return imagesSrc;
+      }, imgHTML);
+      console.log(allImgs);
       addHiddenInfo('ii_manufContent', content);
-      if (image) {
-        image = image.slice(1);
-        addHiddenArrayList('ii_manufImg', image);
-        // image.forEach((element, index) => {
-        //   addHiddenInfo('ii_manufImg'+index, element);
-        // });
-      }
+      // if (allImgs) {
+      //   addHiddenInfo('ii_manufContentImg', allImgs.join(' || '));
+      //   // addHiddenArrayList('ii_manufImg', allImgs);
+      // }
+      // if (image) {
+      //   console.log(image);
+      //   addHiddenInfo('ii_manufContentImg', image.join(' || '));
+      //   addHiddenArrayList('ii_manufImg', image);
+      //   // image.forEach((element, index) => {
+      //   //   addHiddenInfo('ii_manufImg'+index, element);
+      //   // });
+      // }
     }
 
     return await context.extract(productDetails, { transform: transformParam });
