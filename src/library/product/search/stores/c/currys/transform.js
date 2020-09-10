@@ -39,12 +39,12 @@ const transform = (data, context) => {
       }
 
       if (!row.aggregateRating && row.aggregateRatingText) {
-        row.aggregateRating = [];
+        row.aggregateRating2 = [];
         row.aggregateRatingText.forEach(item => {
           const num = Number(item.text);
           const normalizedRating = num / 2;
           item.text = normalizedRating;
-          row.aggregateRating.push(item);
+          row.aggregateRating2.push(item);
         });
       }
 
