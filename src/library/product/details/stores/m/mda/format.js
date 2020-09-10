@@ -54,10 +54,19 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.description && row.brandText) {
+      if (row.name && row.brandText) {
+        row.nameExtended = [
+          { text: row.brandText[0].text + ' - ' + row.name[0].text },
+        ];
+      }
+      if (row.description) {
+        let desc = '';
+        row.description.forEach(item => {
+          desc += ` || ${item.text.trim()}`;
+        });
         row.description = [
           {
-            text: `${row.brandText[0].text} : ${row.description[0].text}`,
+            text: desc.slice(1),
           },
         ];
       }
