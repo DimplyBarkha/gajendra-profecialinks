@@ -35,6 +35,13 @@ module.exports = {
       }, elementID, value);
     }
 
+    await context.evaluate(async function () {
+      var elmnt = document.querySelector('div.page-wrapper, div.footer-main');
+      elmnt.scrollIntoView();
+    });
+
+
+
     const link = await context.evaluate(async function () {
       return window.location.href;
     });
