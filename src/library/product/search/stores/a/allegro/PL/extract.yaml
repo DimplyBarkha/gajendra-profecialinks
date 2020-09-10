@@ -5,11 +5,11 @@ recordXPath: //div[@id="opbox-listing--base"]//section//article
 fields:
   - name: id
     singleValue: false
-    xpath: 
+    xpath: //div[@id="opbox-listing--base"]//section//article/@data-visible-for
   - name: productUrl
     singleValue: false
     xpath: //div[@id="opbox-listing--base"]//section//article//h2/a/@href
-  - name: _url
+  - name: url
     singleValue: false
     xpath: //meta[@property="og:url"]/@content
   - name: thumbnail
