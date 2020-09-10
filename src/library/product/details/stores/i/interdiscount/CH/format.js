@@ -23,6 +23,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text += ` ${item.text}`;
+        });
+        row.variantInformation = [
+          {
+            text: text.trim(),
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         let count = 0;
@@ -40,9 +51,6 @@ const transform = (data) => {
           },
         ];
       }
-    //   row.variantCount = [{
-    //     text: row.variantCount[0].text === '0' ? 1 : row.variantCount[0].text,
-    //   }];
     }
   }
 

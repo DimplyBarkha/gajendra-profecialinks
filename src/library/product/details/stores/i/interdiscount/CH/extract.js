@@ -29,23 +29,33 @@ module.exports = {
         // @ts-ignore
         const dataObj = window.__INITIAL_STATE__.products[skuNumber];
         console.log(dataObj);
-        if (dataObj) {
-          dataObj.ean && addElementToDocument('pd_gtin', dataObj.ean);
-          dataObj.code && addElementToDocument('pd_sku', dataObj.code);
-          dataObj.ratings && addElementToDocument('pd_aggregateRating', dataObj.ratings.ratingAvg);
-          dataObj.ratings && addElementToDocument('pd_ratingCount', dataObj.ratings.ratingCount);
-          dataObj.ratings && addElementToDocument('pd_ratingCount', dataObj.ratings.ratingCount);
-          const image = dataObj.customImageData[0].sizes.pop();
-          image && addElementToDocument('pd_image', `https://www.interdiscount.ch/${image.url}`);
-          const alternateImages = dataObj.customImageData;
-          alternateImages.shift();
-          alternateImages && alternateImages.length && alternateImages.forEach(element => {
-            const currrentImage = element.sizes.pop();
-            image && addElementToDocument('pd_alternateImages', `https://www.interdiscount.ch/${currrentImage.url}`);
-          });
-          dataObj.productPriceData && dataObj.productPriceData.insteadPrice && addElementToDocument('pd_listPrice', dataObj.productPriceData.insteadPrice.value);
-          dataObj.productPriceData && dataObj.productPriceData.finalPrice && addElementToDocument('pd_price', dataObj.productPriceData.finalPrice.value);
-          dataObj.manufacturer && addElementToDocument('pd_manufacturer', dataObj.manufacturer);
+        try {
+          if (dataObj) {
+            dataObj.ean && addElementToDocument('pd_gtin', dataObj.ean);
+            dataObj.code && addElementToDocument('pd_sku', dataObj.code);
+            dataObj.ratings && addElementToDocument('pd_aggregateRating', dataObj.ratings.ratingAvg);
+            dataObj.ratings && addElementToDocument('pd_ratingCount', dataObj.ratings.ratingCount);
+            dataObj.ratings && addElementToDocument('pd_ratingCount', dataObj.ratings.ratingCount);
+            const image = dataObj.customImageData ? dataObj.customImageData[0].sizes.pop() : '';
+            image && addElementToDocument('pd_image', `https://www.interdiscount.ch/${image.url}`);
+            const alternateImages = dataObj.customImageData;
+            alternateImages.shift();
+            alternateImages && alternateImages.length && alternateImages.forEach(element => {
+              const currrentImage = element.sizes.pop();
+              image && addElementToDocument('pd_alternateImages', `https://www.interdiscount.ch/${currrentImage.url}`);
+            });
+            dataObj.productPriceData && dataObj.productPriceData.insteadPrice && addElementToDocument('pd_listPrice', dataObj.productPriceData.insteadPrice.value);
+            dataObj.productPriceData && dataObj.productPriceData.finalPrice && addElementToDocument('pd_price', dataObj.productPriceData.finalPrice.value);
+            dataObj.manufacturer && addElementToDocument('pd_manufacturer', dataObj.manufacturer);
+            if (dataObj.productVariants) {
+              addElementToDocument('pd_variantCount', dataObj.productVariants[0].options.length);
+              dataObj.productVariants[0].options.forEach(item => {
+                addElementToDocument('pd_variants', item.product.code);
+              });
+            }
+          }
+        } catch (error) {
+          console.log('Adding element to Dom Failed!!');
         }
       }
     });
