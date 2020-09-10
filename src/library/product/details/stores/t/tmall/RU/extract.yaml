@@ -9,3 +9,30 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //li[position()>1]/div[@class="images-view-item"]/img/@src
+  - name: name
+    singledValue: false
+    xpath: //h1[@class="product-title-text"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="product-reviewer-reviews black-link"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-price-current"]/span[@class="product-price-value"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="product-quantity-tip"]
+  - name: quantity
+    singleValue: false
+    xpath: //span[@class="next-input next-medium next-input-group-auto-width"]/input/@aria-valuemax
+  - name: internationalShipping
+    singleValue: false
+    xpath: //div[@class="product-shipping"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//span[@class="overview-rating-average"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="sku-property-image"]/img/@src
+  - name: coupon
+    singleValue: false
+    xpath: //div[@class="coupon-mark-new"]
