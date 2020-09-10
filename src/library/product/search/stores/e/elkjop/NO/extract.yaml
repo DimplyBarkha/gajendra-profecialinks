@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"mini-product-list")]/div
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@class,"product-number")]
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  - name: name
+    description: The product name
+    xpath: //*[contains(@class,"table-cell")]
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[contains(@class, "product-name")]/@href
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //img[contains(@class,"b-lazy product-image b-loaded")]/@src
+    regExp: (.+)
+    regExpReplace: https://elkjop.no$1
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[contains(@class,'product-ratings__avarage')]
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //div[contains(@class,'product-ratings__count')]
+  - name: price
+    description: The offered price for the product
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
