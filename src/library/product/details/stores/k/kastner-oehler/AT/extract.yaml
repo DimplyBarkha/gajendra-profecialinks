@@ -124,7 +124,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //li[contains(@class, "en_tab__item") and @data-tab-id="1"]/div/ul[1]
+    xpath: concat('Ships from and sold by kastner-oehler.at. ', //li[contains(@class, "en_tab__item") and @data-tab-id="1"]/div/ul[1])
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions

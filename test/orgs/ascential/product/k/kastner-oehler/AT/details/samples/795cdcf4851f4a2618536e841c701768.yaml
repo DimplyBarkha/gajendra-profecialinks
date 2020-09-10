@@ -2,7 +2,7 @@ input:
   _url: http://kastner-oehler.at
   URL: https://www.kastner-oehler.at/dyson-markenshop/dyson-haarstyler-dyson-airwrap-complete-long-langes-haar-anthrazit-fuchsia-7330036.html
 extractions:
-  - html: https://workbench.import.io/html/run=447c8284-3896-45a3-8723-ef75d2099d52/task=97a6255e-5e32-4485-b5f2-a9f7f8765f95/4a5df523-312b-4610-a192-ae98fe8ea5f7.html
+  - html: https://workbench.import.io/html/run=7bfa8713-fb14-4fdf-87f7-5ffabaf342a6/task=ad85ea09-562f-4905-aeab-58f3720e28e7/b2befc38-9fa3-443c-9ef7-9950173479af.html
     extractionConfigId: product/details/stores/k/kastner-oehler/AT/extract
     data:
       - group:
@@ -62,16 +62,6 @@ extractions:
             mpc:
               - text: 343555-01
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[3]
-            shippingInfo:
-              - text: |-
-                  Kostenloser Versand ab € 75,- nach AT & DE
-                   
-                  Click & Collect (Filialabholung)
-                   
-                  30 Tage Rückgaberecht
-                   
-                  Kostenloser Rückversand
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[2]/div[1]/ul[1]
             shippingDimensions:
               - text: 384 x 166 x 186
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[20]
@@ -148,5 +138,12 @@ extractions:
                 raw: "23"
                 locale: de_AT
                 value: 23
+            shippingInfo:
+              - text: |
+                  Ships from and sold by kastner-oehler.at. 
+                  Kostenloser Versand ab € 75,- nach AT & DE
+                  Click & Collect (Filialabholung)
+                  30 Tage Rückgaberecht
+                  Kostenloser Rückversand
         xpath: /html/body
-    timestamp: 1599658998769
+    timestamp: 1599753323144

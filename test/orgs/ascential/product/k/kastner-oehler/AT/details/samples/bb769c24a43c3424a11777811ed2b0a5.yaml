@@ -2,7 +2,7 @@ input:
   _url: http://kastner-oehler.at
   URL: https://www.kastner-oehler.at/dyson-markenshop/dyson-haarglaetter-corrale-nickel-fuchsia-7330010.html
 extractions:
-  - html: https://workbench.import.io/html/run=447c8284-3896-45a3-8723-ef75d2099d52/task=fd800487-026e-47fc-9a60-7fc36694beb1/ef95b446-5806-4535-a230-f948fd916966.html
+  - html: https://workbench.import.io/html/run=7bfa8713-fb14-4fdf-87f7-5ffabaf342a6/task=f4c58be7-5e68-4956-bfff-f22b093c40a3/13b98a1f-cf69-4202-b334-281baa123a83.html
     extractionConfigId: product/details/stores/k/kastner-oehler/AT/extract
     data:
       - group:
@@ -63,16 +63,6 @@ extractions:
             mpc:
               - text: 322952-01
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[3]
-            shippingInfo:
-              - text: |-
-                  Kostenloser Versand ab € 75,- nach AT & DE
-                   
-                  Click & Collect (Filialabholung)
-                   
-                  30 Tage Rückgaberecht
-                   
-                  Kostenloser Rückversand
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[2]/div[1]/ul[1]
             color:
               - text: transparent$$7330010
                 xpath: /html/body/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/label[1]/@for
@@ -135,5 +125,12 @@ extractions:
                 raw: "15"
                 locale: de_AT
                 value: 15
+            shippingInfo:
+              - text: |
+                  Ships from and sold by kastner-oehler.at. 
+                  Kostenloser Versand ab € 75,- nach AT & DE
+                  Click & Collect (Filialabholung)
+                  30 Tage Rückgaberecht
+                  Kostenloser Rückversand
         xpath: /html/body
-    timestamp: 1599658996345
+    timestamp: 1599753320131
