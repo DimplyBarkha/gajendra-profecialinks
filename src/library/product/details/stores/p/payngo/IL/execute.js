@@ -5,7 +5,7 @@ module.exports = {
     country: 'IL',
     store: 'payngo',
     domain: 'payngo.co.il',
-    loadedSelector: null,
+    loadedSelector: 'div.container',
     noResultsXPath: null,
     zipcode: '',
   },
