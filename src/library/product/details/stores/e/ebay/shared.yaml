@@ -1,0 +1,99 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: nameExtended
+    singleValue: false
+    manualSelector: h1#itemTitle 
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,"keyword")]/@content
+  - name: image
+    singleValue: false
+    xpath: //img[@id="icImg"]/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="vi_main_img_fs"]//img/@src
+    regExp: (.+\/s-)l.*?(\..*)
+    regExpReplace: $1l500$2
+  - name: videos
+    singleValue: false
+  - name: price
+    singleValue: false
+    manualSelector: span#prcIsum
+  - name: listPrice
+    singleValue: false
+    manualSelector: span.vi-originalPrice
+  - name: promotion
+    singleValue: false
+    manualSelector: span.vi-discount
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"itemAttr")]//table//tr[td[contains(@class,"attrLabels")]]
+  - name: availabilityText
+    singleValue: false
+    manualSelector: a#binBtn_btn
+  - name: description
+    singleValue: false
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@id="icImg"]/@alt
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop="reviewCount"]/@content | //a[@id="_rvwlnk"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop="ratingValue"]/@content | //a[contains(@class,"reviews-star-rating")]/@aria-label
+  - name: category
+    singleValue: false
+    manualSelector: li.bc-w > a[itemprop="item"]:not([title]) > span
+  - name: brandText
+    singleValue: false
+    xpath: normalize-space(//td[contains(translate(text(),'BRAND','brand'),'brand')]/following-sibling::td)
+  - name: descriptionBullets
+    singleValue: false
+  - name: weightNet
+    singleValue: false
+    xpath: //div[span[contains(@class,"title") and contains(text(),'Weight')]]/@data-title
+  - name: weightGross
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
+  - name: mpc
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(), 'MPN')]/following-sibling::td)
+  - name: variantId
+    singleValue: false
+  - name: shippingDimensions
+    singleValue: false
+  - name: name
+    singleValue: false
+    manualSelector: h1#itemTitle
+  - name: additionalDescBulletInfo
+    singleValue: false
+  - name: variantCount
+    singleValue: false
+    defaultValue: '1'
+  - name: gtin
+    singleValue: false
+    xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //td[contains(text(), 'GTIN')]/following-sibling::td
+  - name: upc
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(), 'UPC')]/following-sibling::td)
+  - name: sku
+    singleValue: false
+  - name: manufacturerDescription
+    singleValue: false
+  - name: shippingWeight
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
+  - name: color
+    singleValue: false
+    xpath: normalize-space(//td[contains(translate(text(),'COLOR','color'),'color')]/following-sibling::td)
+  - name: warranty
+    singleValue: false
+    xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td)
+  - name: manufacturerImages
+    singleValue: false
+  - name: termsAndConditions
+    singleValue: false
