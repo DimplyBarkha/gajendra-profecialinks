@@ -12,6 +12,13 @@ const transform = (data) => {
             item.text='https://www.mediaexpert.pl'+item.text;
           });
         }
+
+        if(row.variantId){
+          row.variantId.forEach(item => {
+            item.text=parseInt(item.text);
+          });
+        }
+        
       }
     }
     return data;
