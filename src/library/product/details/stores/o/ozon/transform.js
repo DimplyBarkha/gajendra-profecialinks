@@ -56,18 +56,6 @@ const transform = (data) => {
           });
         }
 
-        if (row.brandLink) {
-          row.brandLink.forEach(item => {
-            let data = JSON.parse(item.text);
-            if(data['link']){
-              item.text = data['link'].trim();
-            }else{
-              item.text = ''
-            }
-                        
-          });
-        }
-
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
             let data = JSON.parse(item.text);
