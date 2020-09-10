@@ -18,9 +18,9 @@ module.exports.implementation = async function implementation (
 
     const searchUrl = window.location.href;
 
-    let searchDiv = document.querySelector('#searchUrl');
-    searchDiv ? searchDiv.textContent = searchUrl : addElementToDocument('searchUrl',searchUrl);
+    const searchDiv = document.querySelector('#searchUrl');
+    searchDiv ? searchDiv.textContent = searchUrl : addElementToDocument('searchUrl', searchUrl);
   });
-  
+
   return await context.extract(productDetails, { transform: parameters.transform });
 };

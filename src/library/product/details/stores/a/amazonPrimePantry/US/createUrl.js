@@ -7,6 +7,6 @@ module.exports = {
     url: 'https://amazon.com/dp/{id}',
     country: 'US',
     store: 'amazonPrimePantry',
-    zipcode: "10001"
+    zipcode: '10001',
   },
 };

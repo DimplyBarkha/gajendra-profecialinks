@@ -152,7 +152,7 @@ const transform = (data, context) => {
           if (item.text.includes('#')) {
             const regex = /\#[0-9,]{1,} in (.+) \(/s;
             const rawCat = item.text.match(regex);
-            return { text: rawCat ? rawCat[1] : ''};
+            return { text: rawCat ? rawCat[1] : '' };
           }
           return { text: item.text };
         });
