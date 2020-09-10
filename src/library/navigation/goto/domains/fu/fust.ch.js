@@ -6,5 +6,5 @@ module.exports = {
     country: 'CH',
     store: 'fust',
     zipcode: '',
-  }
+  },
 };
