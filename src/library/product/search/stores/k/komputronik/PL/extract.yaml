@@ -17,7 +17,7 @@ fields:
 
   - name: price
     SingleValue: false
-    xpath: //div[@class="prices"]
+    xpath: //*[@id="products-list"]/div[4]/div[7]/ul/li[1]/div[6]/div/div/div/div/span
 
   - name: shippingInfo
     SingleValue: false
@@ -35,7 +35,7 @@ fields:
     SingleValue: false
     xpath: //span[@class="btn2 btn2-transparent btn2-inline btn2-auto btn2-s0 btn2-p0 rating"]
     
-  - name: Id
+  - name: variantId
     SingleValue: false
     xpath: //div[@class="pe2-codes"]
 

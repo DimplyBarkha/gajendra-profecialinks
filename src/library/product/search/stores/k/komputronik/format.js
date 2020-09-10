@@ -85,7 +85,15 @@ const transform = (data) => {
             ];
           }
           
-           
+          if (row.variantId) {
+            row.variantId.forEach(item => {
+              item.text = item.text + "sj";
+                item.text = item.text.slice(33,-1);
+                item.text = item.text.match(/[^[\]]+(?=])/g);
+               
+                
+            });
+        }     
           
           
       }
