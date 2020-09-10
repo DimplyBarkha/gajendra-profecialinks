@@ -1,66 +1,42 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //article[contains(@class, 'panelProduct')]
 fields:
   - name: searchUrl
     singleValue: false
-  - name: brand
-    singleValue: false
-    description: The brand name
-    example: Panasonic
+    xpath: //div[@id='searchUrl']
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //article[contains(@class, 'panelProduct')]//a[contains(@class, 'styled__StyledLink-sc-5q25ol-0')]/@href
+    xpath: //article[contains(@class, 'panelProduct')]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.galaxus.ch$1
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
+    xpath: //article[contains(@class, 'panelProduct')]//img/@src
   - name: name
     singleValue: false
     description: The product name
-    manualSelector: .productName
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: false
-    description: The model code of the product
-  - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: false
-    description: The stated aggregate rating
+    xpath: //div[contains(@class, 'productName')]
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    xpath: //*[contains(@class, 'rating')]/following-sibling::*
+    xpath: //a[contains(@aria-label, 'Rating')]
   - name: reviewCount
     singleValue: false
     description: The number of reviews
-    xpath: //*[contains(@class, 'rating')]/following-sibling::*
+    xpath: //a[contains(@aria-label, 'Rating')]
   - name: price
     singleValue: false
     description: The offered price for the product
-    manualSelector: .ZZg2
+    xpath: //*[contains(text(), '.–')]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
     manualSelector: .appendix
     regExp: /\d+.–/
-  - name: manufacturer
-    singleValue: false
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: false
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: false
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -69,21 +45,18 @@ fields:
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-  - name: sponsored
-    singleValue: false
-    description: Is sponsored/paid
-    type: BOOLEAN
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //*[contains(@class, 'styled__StyledLink-sc-5q25ol-0')]/@href
-    regExp: \d+
+    xpath: //article[contains(@class, 'panelProduct')]/a/@href
+    regExp: -(\d{7,})
+    regExpReplace: $1
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-    manualSelector: .productName
-  - name: aggregateRating
+    xpath: //div[contains(@class, 'productName')]
+  - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
