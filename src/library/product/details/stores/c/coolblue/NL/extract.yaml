@@ -121,7 +121,7 @@ fields:
     xpath: //div[@class='grid-section-xs--gap-1']//ul[@class='list']
   - name: description
     singleValue: false
-    xpath: (//div[contains(@class,'cms-content js-product-description-content')]//p)[1]
+    xpath: (//div[contains(@class,'cms-content js-product-description-content')]//p)
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li)
@@ -142,8 +142,6 @@ fields:
     singleValue: false
     xpath:
   - name: shippingDimensions
-    singleValue: false
-    xpath: //dl[contains(string(),'Hoogte') or contains(string(),'Breedte') or contains(string(),'Diepte')]/dd
   - name: shippingWeight
     singleValue: false
     xpath:
