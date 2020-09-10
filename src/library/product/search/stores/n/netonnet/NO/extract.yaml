@@ -6,3 +6,36 @@ fields:
 - name: id
   singleValue: false
   xpath: //div[contains(@class,"cProductItem")]/div/input[contains(@name,"ProductId")]/@value
+- name: name
+  singleValue: false
+  xpath: //div[contains(@class,"cProductItem")]//div[contains(@class,"panel-body")]//div[@class="smallHeader"]//div//a
+- name: price
+  singleValue: false
+  xpath: //div[contains(@class,"cProductItem")]/div/input[contains(@name,"ProductPrice")]/@value
+- name: productUrl
+  singleValue: false
+  xpath: //div[contains(@class,"cProductItem")]//div[contains(@class,"panel-body")]//div[@class="smallHeader"]//div//a/@href
+  regExp: (.+)
+  regExpReplace: https://www.netonnet.no$1
+- name: thumbnail
+  singleValue: false
+  xpath: //div[contains(@class,"cProductItem")]//div[@class="panel-body leftContent"]//div[@class="verticalTable"]//img//@src
+  regExp: (.+)
+  regExpReplace: https://www.netonnet.no$1
+- name: aggregateRating
+  singleValue: false
+  xpath: //div[contains(@class,"panel-body")]//div[contains(@class,"smallHeader")]//div[@class="ratingBg"]//div[contains(@class,"ratingOverlay")]//@style
+  description: The stated aggregate rating normalized to be out of 5
+  type: NUMBER
+- name: reviewCount
+  singleValue: false
+  xpath: //div[contains(@class,"panel-body")]//div[contains(@class,"smallHeader")]//div[@class="rating"]//span
+  description: The number of ratings
+  type: NUMBER
+- name: ratingCount
+  singleValue: false
+  xpath: //div[contains(@class,"panel-body")]//div[contains(@class,"smallHeader")]//div[@class="rating"]//span
+  description: The number of Review
+  type: NUMBER    
+
+
