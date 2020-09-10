@@ -8,36 +8,35 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-if(inputs.id){
-  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+  if (inputs.id) {
+    await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+    await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
 
-  const productUrl = await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    await stall(100);
-    const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
-    if (link !== null) {
-      const href = link.getAttribute('href');
-      if (href.indexOf('preselect=') > -1) {
-        let productId = href.split('preselect=')[1];
-        productId = productId.split('#')[0];
-        const splitUrl = href.split('-');
-        splitUrl[splitUrl.length - 1] = productId;
-        return splitUrl.join('-');
+    const productUrl = await context.evaluate(async function () {
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
       }
-      return href;
-    }
-  });
+      await stall(100);
+      const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
+      if (link !== null) {
+        const href = link.getAttribute('href');
+        if (href.indexOf('preselect=') > -1) {
+          let productId = href.split('preselect=')[1];
+          productId = productId.split('#')[0];
+          const splitUrl = href.split('-');
+          splitUrl[splitUrl.length - 1] = productId;
+          return splitUrl.join('-');
+        }
+        return href;
+      }
+    });
 
-
-  await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
-}
+    await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
+  }
 
   const manufacturerCTA = await context.evaluate(async function () {
     let scrollTop = 750;
@@ -56,7 +55,6 @@ if(inputs.id){
 
     window.scroll(0, 1000);
     return Boolean(document.querySelector('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]'));
-
   });
 
   if (manufacturerCTA) {
@@ -642,33 +640,32 @@ if(inputs.id){
       let deliver = false;
       let availabilitySuccess = false;
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
-      .then(data => data.json())
-      .then(availabilityData => {
-        if (availabilityData &&
+        .then(data => data.json())
+        .then(availabilityData => {
+          if (availabilityData &&
         availabilityData.data &&
         availabilityData.data.product &&
         availabilityData.data.product.fulfillment) {
-          if (availabilityData.data.product.fulfillment.store_options &&
+            if (availabilityData.data.product.fulfillment.store_options &&
               availabilityData.data.product.fulfillment.store_options.length) {
-                availabilitySuccess = true;
-                availabilityData.data.product.fulfillment.store_options.forEach(store => {
-                  if(store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
-                    inStore = true;
-                  }
-                });
-          }
+              availabilitySuccess = true;
+              availabilityData.data.product.fulfillment.store_options.forEach(store => {
+                if (store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
+                  inStore = true;
+                }
+              });
+            }
 
-          if (availabilityData.data.product.fulfillment.shipping_options) {
-            availabilitySuccess = true;
-          }
+            if (availabilityData.data.product.fulfillment.shipping_options) {
+              availabilitySuccess = true;
+            }
 
-          if (availabilityData.data.product.fulfillment.shipping_options &&
+            if (availabilityData.data.product.fulfillment.shipping_options &&
               (availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK' || availabilityData.data.product.fulfillment.shipping_options.availability_status.includes('LIMITED_STOCK'))) {
-            deliver = true;
+              deliver = true;
+            }
           }
-        }
-
-      });
+        });
 
       if (availabilitySuccess) {
         if (deliver) {
@@ -680,7 +677,6 @@ if(inputs.id){
           addHiddenDiv(newDiv, 'availability', 'Out of stock');
         }
       } else {
-
         const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
         if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
           inStore = true;
