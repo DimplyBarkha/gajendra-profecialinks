@@ -6,21 +6,21 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="product-tile js-UA-product "]/@data-product-id
-  - name: rankOrganic
-    singleValue: false
-    #xpath: //div[@id='pd_rank']
   - name: name
     singleValue: false
     xpath: //div[@class="product-row"]//div//h2/a[@class="js-save-keyword"]/text()
   - name: productUrl
     singleValue: false
-    xpath: concat('https://www.euro.com.pl',//div[@class="product-tile js-UA-product "]/@data-product-href)
+    xpath: //div[@class="product-tile js-UA-product "]/@data-product-href
+    regExp: (.+)
+    regExpReplace: https://www.euro.com.pl$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    #xpath: concat('https://www.euro.com.pl','',//div[@class="product-photo"]/a/@href)
-    xpath: concat('https://www.euro.com.pl',//div[@class='product-row']//div//h2/a[@class='js-save-keyword']/@href)
+    xpath: //div[@class="product-row"]//div[@class="product-photo"]/a/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.euro.com.pl$1
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="product-row"]//a[@class="js-save-keyword js-scroll-by-hash"]/@title  
@@ -45,4 +45,3 @@ fields:
     singleValue: false
   - name: endorsementText
     singleValue: false
-
