@@ -61,7 +61,7 @@ fields:
     xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
   - name: brandText
     singleValue: false
-    xpath: //span[@itemprop="brand"]/meta/@content
+    xpath: //span[@itemprop="brand"]/meta/@content | //div[@class="brand-logo"]//img/@alt
   - name: variantCount 
     singleValue: false
     defaultValue: '1'
