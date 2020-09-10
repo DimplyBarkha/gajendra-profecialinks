@@ -1,5 +1,4 @@
-
-module.exports = {
+ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'SA',
