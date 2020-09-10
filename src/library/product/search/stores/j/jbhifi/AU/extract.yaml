@@ -17,9 +17,6 @@ fields:
   - name: name
     xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//h4[@class="ais-hit--title product-tile__title"]
     description: The product name
-  - name: manufacturer
-    xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//*[@class="product-preamble"][not(img)] | //div[@class="ais-infinite-hits--item ais-hits--item"]//*[@class="product-preamble"]/img/@alt
-    description: Product Manufacturer
   - name: aggregateRating2
     xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//span[@class="review-rating"]
     description: The stated aggregate rating
@@ -49,3 +46,8 @@ fields:
   - name: id
     xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//a[@class="ais-details-a product-tile"]/@data-product-sku
     description: Unique id (within this extractor)
+  - name: gtin
+    description: GTIN code
+    xpath: //div[@class="ais-hit ais-product product-tile__container"]//*[@class="product-tile__overlay"]/following-sibling::script
+    regExp: 'gtin13": "(\d+)"'
+    regExpReplace: $1    
