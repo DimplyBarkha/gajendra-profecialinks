@@ -53,12 +53,13 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@id='desc_bullets'], //div[@id='desc_techDetails'])
+    xpath: concat(//div[@id='desc_bullets'], //div[@id='desc_manufacturer3'],
+      //div[@id='desc_manufacturer5'], //div[@id='desc_techDetails'])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@class="short-description"]//ul/li)
+    xpath: count(//h3[contains(text(),'Details')]/following-sibling::div[contains(@class,'std')]/ul/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -149,7 +150,8 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: concat(//div[@id='desc_manufacturer1'], //div[@id='desc_manufacturer2'])
+    xpath: concat(//div[@id='desc_manufacturer'], //div[@id='desc_manufacturer1'],
+      //div[@id='desc_manufacturer2'], //div[@id='desc_manufacturer3'])
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -222,6 +224,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id='desc_manufacturer4']
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14

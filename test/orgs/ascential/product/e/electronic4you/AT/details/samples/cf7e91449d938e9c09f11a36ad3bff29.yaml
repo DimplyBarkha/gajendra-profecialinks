@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-cyclone-v10-motorhead-175618.html
 extractions:
-  - html: https://workbench.import.io/html/run=c3815de8-9a53-4deb-976f-938b9b6ffde3/task=c21225d1-854e-4bbc-8448-606efbff4e21/d73bb04b-c1f8-49ae-b3d3-9a58870aef9f.html
+  - html: https://workbench.import.io/html/run=228260a1-c111-4136-a686-432b90575690/task=cb763d39-bb53-46a4-b0c7-dfc0b8a8b4f7/abdf2efd-319f-43f8-85c3-f34127368a1b.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -28,12 +28,10 @@ extractions:
                 xpath: /html/head[1]/meta[4]/@content
             category:
               - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
-              - text: Dyson Cyclone V10 Motorhead
-                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[2]/span[1]
-            listPrice:
-              - text: € 449,–
-                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/span[1]/span[1]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]
+            nameExtended:
+              - text: Dyson Cyclone V10 Motorhead 230309-01 Akkusauger
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[1]/h1[1]
             price:
               - text: € 449,–
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/span[1]/span[1]
@@ -46,7 +44,7 @@ extractions:
             manufacturer:
               - text: DYSON
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[6]/div[1]/div[1]/div[1]/span[1]/img[1]/@alt
-            weightGross:
+            weightNet:
               - text: 2,5 kg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
             gtin:
@@ -56,6 +54,9 @@ extractions:
               - text: "5025155034811"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[13]/td[1]
             sku:
+              - text: "175618"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[2]/span[2]
+            variantId:
               - text: "175618"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/form[1]/div[5]/div[2]/span[2]
             mpc:
@@ -68,27 +69,20 @@ extractions:
               - text: 124,1 x 25,6 x 25 cm
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
             warranty:
-              - text: "2 Jahre Dyson Garantie Die Garantiezeit beginnt mit dem Tag des
-                  Verkaufes. Für Ihren Dyson Kundendienstanspruch benötigt Dyson
-                  den Original-Kaufbeleg auf dem das Kaufdatum ersichtlich ist,
-                  sowie die Seriennummer des Gerätes, welche Sie dem Typenschild
-                  entnehmen können. Dyson garantiert jedem Kunden eine
-                  Vollgarantie inklusive kostenlosen Abhol- und Lieferservice,
-                  soweit sich in dem entsprechenden Land eine Dyson
-                  Niederlassung befindet. Garantiezeiten: || Bodenstaubsauger 5
-                  Jahre || Kabellose Staubsauger 2 Jahre || Raumklimageräte 2
-                  Jahre || Haarpflege 2 Jahre || Leuchten 2 Jahre || Zubehör &
-                  Ersatzteile 1 Jahr"
+              - text: 2 Jahre
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            additionalDescBulletInfo:
+              - text: Neuer DYSON Digitaler Motor V10 14 konzentrisch angeordnete Zyklonen Neuer
+                  Nickel-Cobalt-Aluminium Akku Vom Boden bis zur Decke – und für
+                  alles dazwischen
                 xpath: /html/body/div[9]
             technicalInformationPdfPresent:
               - text: Yes
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[13]
             termsAndConditions:
               - text: No
             Image360Present:
               - text: No
-            nameExtended:
-              - text: Dyson Cyclone V10 Motorhead 230309-01 Akkusauger - 175618
             description:
               - text: "Neuer DYSON Digitaler Motor V1014 konzentrisch angeordnete ZyklonenNeuer
                   Nickel-Cobalt-Aluminium AkkuVom Boden bis zur Decke – und für
@@ -106,7 +100,7 @@ extractions:
                 locale: de_DE
                 value: 4
             shippingInfo:
-              - text: Derzeit nicht vorrätig! + Versand € 6,99
+              - text: Derzeit nicht vorrätig! electronic4you.at + Versand € 6,99
             manufacturerDescription:
               - text: " 2 Jahre Dyson Garantie  Die Garantiezeit beginnt mit dem Tag des
                   Verkaufes. Für Ihren Dyson Kundendienstanspruch benötigt Dyson
@@ -130,4 +124,4 @@ extractions:
                   Behälterentleerung landet der Schmutz mit nur einem Handgriff
                   ganz einfach in Ihrem Mülleimer.   "
         xpath: /
-    timestamp: 1599219271169
+    timestamp: 1599735385261
