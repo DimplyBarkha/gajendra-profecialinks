@@ -1,9 +1,11 @@
+const { transform } = require('../format');
 async function implementation(
   inputs,
   parameters,
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { productDetails } = dependencies;
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   const applyScroll = async function (context) {
@@ -28,7 +30,7 @@ async function implementation(
     });
   };
   await applyScroll(context);
-  return await context.extract(productDetails, {});
+  return await context.extract(productDetails, {transform});
 }
 
 module.exports = {
@@ -36,7 +38,7 @@ module.exports = {
   parameterValues: {
     country: 'AE',
     store: 'sprii',
-    transform: null,
+    transform: transform,
     domain: 'sprii.ae',
     zipcode: '',
   },

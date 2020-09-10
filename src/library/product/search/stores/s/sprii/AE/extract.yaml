@@ -27,4 +27,12 @@ fields:
     singleValue: false
     description: 
     xpath: //div[contains(@class, 'price-final_price')]//span[@data-price-type="finalPrice"]
+  - name: id
+    singleValue: false
+    description: 
+    xpath: //form[@data-role="tocart-form"]/@data-product-sku
+  - name: brandText
+    singleValue: false
+    description: 
+    xpath: //div[contains(@class, 'product-item-info')]/a/@href
   
