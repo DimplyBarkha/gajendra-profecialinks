@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='category-products']/ul
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, 'product-name')]
+  - name: price
+    singleValue: false
+    xpath: //div[@class='category-products']//div[contains(@class, 'price')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='category-products']//a[contains(@class, 'bni')]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='category-products']//a//img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: searchUrl
+    singleValue: true
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER   
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //li/div//a/@data-product_sku    
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: gtin
+    singleValue: false
+    xpath: //li/div//a/@data-product_sku
