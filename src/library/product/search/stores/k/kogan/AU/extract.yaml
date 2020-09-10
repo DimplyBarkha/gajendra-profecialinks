@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    xpath: //div[contains(@class,'productSlot')]/@data-product-code
+    singleValue: false
+  - name: name
+    xpath: //div[contains(@class,'_2_1T4')]/h2
+    singleValue: false
+  - name: producturl
+    xpath: //div[contains(@class,'_2_1T4')]/h2/a/@href
+    singleValue: false
+    regExp: (https:\/\/www.kogan.com)?(.+)
+    regExpReplace: https://www.kogan.com$2
+  - name: thumbnail
+    xpath: //figure[contains(@class,'wyCdD')]/a/img/@src
+    singleValue: false
+  - name: price
+    type: NUMBER
+    xpath: //div[contains(@class,'_2PrMB')]/span
+    singleValue: true 
+  - name: seller
+    xpath: //span[contains(@class,'_2MTjQ vAAKf')]//span[contains(@class,'_1nVaV')]/strong
+    singleValue : false
+  - name: aggregateRating  
+    singleValue: true
+    xpath: //meta[@itemprop="ratingValue"]/@content
+    defaultValue: '0'
+  - name: reviewCount  
+    singleValue: true
+    type: NUMBER
+    xpath: //meta[@itemprop="reviewCount"]/@content
+    defaultValue: '0'
+  
