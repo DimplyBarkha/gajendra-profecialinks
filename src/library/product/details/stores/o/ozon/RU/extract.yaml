@@ -2,8 +2,7 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields:
-  
+fields:  
   - name: sku
     singleValue: false    
     xpath: //span[@data-widget='detailSKU']
@@ -87,7 +86,6 @@ fields:
     defaultValue: 0
   - name: variantInformation
     singleValue: false
-    defaultValue: '|'
   - name: variants
     singleValue: false
     xpath: //script[contains(@id,'state-webAspects-')]/text()

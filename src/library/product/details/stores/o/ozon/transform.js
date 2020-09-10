@@ -40,7 +40,7 @@ const transform = (data) => {
             if(data['description']){
               item.text = data['description'].replace(/(\s*\n\s*)+/g, ' || ').trim();
             }else{
-              item.text = ''
+              item.text = '';
             }
           });
         }
@@ -51,7 +51,7 @@ const transform = (data) => {
             if(data['name']){
               item.text = data['name'].trim();
             }else{
-              item.text = ''
+              item.text = '';
             }
           });
         }
@@ -62,7 +62,7 @@ const transform = (data) => {
             if(data['coverImage']){
               item.text = data['coverImage'].trim();
             }else{
-              item.text = ''
+              item.text = '';
             }
           });
         }
@@ -76,9 +76,9 @@ const transform = (data) => {
         if (row.availabilityText) {
           row.availabilityText.forEach(item => {                            
               if (item.text != 'In Stock') {
-                item.text = 'Out of Stock'
+                item.text = 'Out of Stock';
                 row.quantity.forEach(item => { 
-                  item.text = 0
+                  item.text = 0;
                 });                
               }
           });
@@ -110,26 +110,26 @@ const transform = (data) => {
 
         if (row.variants) {
             let variations = [];
-            let variant_info = []
+            let variant_info = [];
             row.variants.forEach(item => {
                 let data = JSON.parse(item.text);
                 if(data['aspects']){                    
                     data['aspects'].forEach(variation => {                      
                       variation['variants'].forEach(variants_data => {
-                        var link_data = variants_data['link']
+                        var link_data = variants_data['link'];
                         var matches = /.+\/(\d+)\//isg.exec(link_data);
                         var matches1 = /.+-(\d+)\//isg.exec(link_data);
                         if (matches){
-                          link_data = matches[1]
+                          link_data = matches[1];
                         }
                         else if(matches1){
-                          link_data = matches1[1]
+                          link_data = matches1[1];
                         }                        
                         if (!variations.includes(link_data)) {
                           variations.push(link_data);
                         }
                         if (variation['type'] == 'apparelPics' || variation['type'] == 'colors')  {
-                          variant_info.push(variants_data['data']['textRs'][0]['content'])
+                          variant_info.push(variants_data['data']['textRs'][0]['content']);
                         }
                       });
                     });
