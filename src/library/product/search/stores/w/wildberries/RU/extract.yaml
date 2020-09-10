@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: '//div[contains(@class,"products-container")]//div[contains(@class,"card-item")]'
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtlist-inner-brand-name")]//span[contains(@class,"goods-name")]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")]/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//span[contains(@itemprop,"aggregateRating")]/@class
+    regExp: (c-stars-line-lg j-stars stars-line-sm)(\s)(star)(\d.*)
+    regExpReplace: $5
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//span[contains(@class,"dtList-comments-count")]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//div[contains(@class,'cataloger-price')]
