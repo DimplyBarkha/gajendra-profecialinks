@@ -27,13 +27,6 @@ const transform = (data) => {
                     item.text = category_arr.join(" > ");
                 });
             }
-            if (row.alternateImages) {
-                var imag_arr = [];
-                row.alternateImages.forEach(item => {
-                    imag_arr.push(item.text.replace(/cart\./g, 'zoom-desktop.').trim());
-                });
-                row.alternateImages = [{"text": imag_arr.join(' | '), "xpath": row.alternateImages[0]["xpath"]}];
-            }
             if (row.variantInformation) {
                 let info = [];
                 row.variantInformation.forEach(item => {
@@ -69,12 +62,12 @@ const transform = (data) => {
                 }
                 if (row.ratingCount) {
                     row.ratingCount.forEach(item => {
-                        item.text = parseInt(item.text);
+                        item.text = item.text;
                     });
                 }
                 if (row.aggregateRating) {
                     row.aggregateRating.forEach(item => {
-                        item.text = parseFloat(item.text);
+                        item.text = item.text;
                     });
                 }
             }
