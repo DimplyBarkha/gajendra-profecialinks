@@ -14,7 +14,9 @@ fields:
     xpath: //div[@class="indexGoods__item__descriptionCover"]/a
   - name: productUrl
     singleValue: false
-    xpath: concat("https://www.onlinetrade.ru",//a[@class="indexGoods__item__name"]/@href)
+    xpath: //a[@class="indexGoods__item__name"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.onlinetrade.ru$1
   - name: gtin
     singleValue: false
     xpath: //span[@class="indexGoods__item__fastView js__ajaxExchange ic__set ic__set__viewed"]/@data-itemid
