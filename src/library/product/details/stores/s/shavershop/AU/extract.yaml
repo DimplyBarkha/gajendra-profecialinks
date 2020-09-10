@@ -29,12 +29,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath : //div[@class='pdp-details']/div[@id='primary']/div[@id='pdpMain']/div[@class='product-detail-ouline clearfix']/div[@class='product-col-2 product-detail ']/div[@id='product-content']/div[@class='group-price clearfix']/div[@class='product-price']/span[@class='price-sales charcoal']
+    xpath : //span[@class="price-standard red"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath : //div[@class='pdp-details']/div[@id='primary']/div[@id='pdpMain']/div[@class='product-detail-ouline clearfix']/div[@class='product-col-2 product-detail ']/div[@id='product-content']/div[@class='group-price clearfix']/div[@class='product-price']/span[@class='price-sales charcoal']  
+    xpath : //span[@class="price-sales charcoal"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -122,7 +122,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath : //div[@class='bv-summary-bar  ']/dl[@class='bv-stars-container']/dd[@class='bv-rating-ratio-count']/a[@class='bv-rating-label bv-text-link bv-focusable']
+    xpath : //span[@itemprop='reviewCount']
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
