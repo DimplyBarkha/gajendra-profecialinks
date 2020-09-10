@@ -20,7 +20,18 @@ const transform = (data) => {
             },
           ];
         }
-         
+        if (row.productUrl) {
+          row.productUrl.forEach(item => {
+            item.text = "https://www.trademe.co.nz" + item.text;
+          });
+        }
+        if (row.Id) {
+          row.Id.forEach(item => {
+              item.text = item.text.replace(/\?.*$/g, '').trim();
+              item.text = item.text.replace(/\D/g, ' ').trim();
+          });
+      }
+ 
          
           
          
