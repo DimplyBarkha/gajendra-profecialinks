@@ -3,15 +3,6 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: pageTimestamp
-    singleValue: false
-    xpath: //*[@class='buybox--annotation']/span/span
-  - name: technicalInformationPdfPresent
-    singleValue: false
-    xpath: //*[@class='buybox--annotation']/span/span
-  - name: Image360Present
-    singleValue: false
-    xpath: //*[@class='buybox--annotation']/span/span
   - name: availabilityText
     singleValue: false
     xpath: //*[@class='buybox--annotation']/span/span
@@ -38,13 +29,10 @@ fields:
     xpath: //link[@rel='alternate']/@href
   - name: category
     singleValue: true
-    xpath: //ol[@class='sGfvFM9eniJW1hvlF8Fp_ container breadcrumbs--container']/li[2]/a
+    xpath: //header[@class='header skel--header']/div[3]/ol
   - name: listPrice
     singleValue: true
     xpath: //div[@class='detail-options--price']/span/span[2]/span
-  - name: gtin
-    singleValue: false
-    xpath: //*[@class='detail-navigation-section--specification']/div[1]/div[2]
   - name: weightNet
     singleValue: false
     xpath: //*[@class='detail-navigation-section--specification']/div[36]/div[2]/span
