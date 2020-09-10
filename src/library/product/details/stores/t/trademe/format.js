@@ -65,6 +65,18 @@ const transform = (data) => {
               },
             ];
           }
+          if (row.manufacturerDescription) {
+            let text = '';
+            row.manufacturerDescription.forEach(item => {
+              text += `${item.text
+                .replace(/\s\n/g, '')}  `;
+            });
+            row.manufacturerDescription = [
+              {
+                text: text.slice(),
+              },
+            ];
+          }
           if (row.category) {
             let text = '';
             row.category.forEach(item => {
@@ -82,6 +94,17 @@ const transform = (data) => {
               text += `${item.text.match(/[^#]*$/g)}  `;
             });
             row.sku = [
+              {
+                text: text.slice(0,-4),
+              },
+            ];
+          }
+          if (row.variantId) {
+            let text = '';
+            row.variantId.forEach(item => {
+              text += `${item.text.match(/[^#]*$/g)}  `;
+            });
+            row.variantId = [
               {
                 text: text.slice(0,-4),
               },
