@@ -15,7 +15,13 @@ const transform = (data) => {
           });          
           row.alternateImages = [{'text':info.join(' | '),'xpath':row.alternateImages[0].xpath}];          
         }
-
+        if (row.imageAlt) {
+          let info = [];          
+          row.imageAlt.forEach(item => {
+            info.push(item.text.trim());            
+          });          
+          row.imageAlt = [{'text':info.join(' | '),'xpath':row.imageAlt[0].xpath}];          
+        }
         if (row.reviewCount) {
           row.reviewCount.forEach(item => {
             item.text = item.text.trim();
