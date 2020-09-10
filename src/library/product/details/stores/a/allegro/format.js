@@ -6,23 +6,33 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
+      if (row.availabilityText) {
+        const availabilityText = row.availabilityText.map((item) => {
+          return item.text;
+        });
+        if (availabilityText[0].includes('kup teraz')) {
+          row.availabilityText = [{ text: 'In Stock' }];
+        }
+      }
       if (row.variants) {
         const variantArray = row.variants.map((item) => {
           return item.text;
         });
-        row.variants = [{ text: variantArray.join('|') }];
+        const uniqueVariants = Array.from(new Set(variantArray));
+        row.variants = [{ text: uniqueVariants.join(' | ') }];
+        row.varaintCount = [{ text: uniqueVariants.length }];
       }
       if (row.shippingInfo) {
         const shippingInfoArray = row.shippingInfo.map((item) => {
           return item.text.replace(/\n/g, '');
         });
-        row.shippingInfo = [{ text: shippingInfoArray.join('||') }];
+        row.shippingInfo = [{ text: shippingInfoArray.join(' || ') }];
       }
       if (row.productOtherInformation) {
         const otherInformation = row.productOtherInformation.map((item) => {
           return item.text.replace('\n', '');
         });
-        row.productOtherInformation = [{ text: otherInformation.join('||'), xpath: row.productOtherInformation[0].xpath }];
+        row.productOtherInformation = [{ text: otherInformation.join(' || '), xpath: row.productOtherInformation[0].xpath }];
       }
       if (row.specifications) {
         if (row.specifications) {
@@ -39,7 +49,7 @@ const transform = (data) => {
         const additionalDescBulletInfo = row.additionalDescBulletInfo.map((item) => {
           return item.text;
         });
-        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfo.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfo.join(' | '), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.brandText) {
         const brandTextArray = row.brandText.map((item) => {

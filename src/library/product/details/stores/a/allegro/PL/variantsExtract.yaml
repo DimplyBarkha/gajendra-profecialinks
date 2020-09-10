@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: varaintId
+    singleValue: false
+    xpath: //div[@data-analytics-view-label="offerVariants" and position() > 1]//a[@data-analytics-clickable="true"]/@href
+    regExp: (.*)-(\d+)
+    regExpReplace: $2  
+  - name: varaintUrl
+    singleValue: false
+    xpath: //div[@data-analytics-view-label="offerVariants" and position() > 1]//a[@data-analytics-clickable="true"]/@href

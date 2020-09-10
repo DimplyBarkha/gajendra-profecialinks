@@ -5,16 +5,20 @@ recordXPath: null
 fields:
   - name: availabilityText
     singleValue: false
-    xpath: 
+    defaultValue: 'In Stock'
+    xpath: //button[@id="buy-now-button"]
   - name: shippingInfo
     singleValue: false
     xpath: //div[@data-box-name="About seller"]//div[@data-role="app-container"]//section
   - name: promotion
     singleValue: false
     xpath: (//div[@data-role="app-container"]//div[@class="_9a071_3b3ty"]//div[@class=''])[1]
-  - name: product_image
+  - name: image
     singleValue: false
-    xpath: //meta[@property="og:image"]/@content
+    xpath: (//div[@data-prototype-id="allegro.gallery"]//div[@role="presentation"]//img[@role="presentation"]/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@data-prototype-id="allegro.gallery"]//div[@role="presentation"]//img[@role="presentation"]/@alt)[1]
   - name: alternativeImages
     singleValue: false
     xpath: //div[@class='_b8e15_3mjBl']//div//img/@src
@@ -134,6 +138,8 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Kod producenta')]
+    regExp: (.*):(.\d+)
+    regExpReplace: $2  
   - name: category
     singleValue: false
     xpath: //div[@data-role="breadcrumbs-list"]//div[@data-role="breadcrumb-item"]
