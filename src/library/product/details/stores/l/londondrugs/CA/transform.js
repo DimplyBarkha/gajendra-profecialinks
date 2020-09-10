@@ -7,7 +7,6 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -15,7 +14,6 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [{ text }];
       }
-
     }
   }
 
