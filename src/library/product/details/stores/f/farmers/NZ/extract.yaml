@@ -30,7 +30,7 @@ fields:
     xpath: //meta[contains(@itemprop, 'name')]/@content
   - name: price
     singleValue: false
-    xpath: (//span[contains(@class, 'kor-product-sale-price-value')]//div[@class='std-price'])[1]
+    xpath: (//span[contains(@class,'kor-product-sale-price-value')]//div)[1]
   - name: availabilityText
     singleValue: false
     defaultValue: Out of Stock
@@ -58,7 +58,7 @@ fields:
     xpath: //div[contains(@class, 'product-detail-bullet-list')]//li
   - name: description
     singleValue: false
-    xpath: //meta[contains(@itemprop, 'description')]/@content
+    xpath: //div[contains(@class,'product-description')]/text() | //div[@class='tab-pane active']/text()
   - name: warranty
     singleValue: false
     xpath: //div[contains(@class, 'product-detail-bullet-list')]//li[contains(text(),'warranty')]
@@ -68,3 +68,23 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //meta[contains(@itemprop, 'sku')]/@content
+  - name: variantCount
+    singleValue: false
+    defaultValue: 1
+  - name: videos
+    singleValue: false
+    manualSelector: div#video-url
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='inpage_container']//div[contains(@class,'flix-Text-block') or contains(@class,'flix-std-content')]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='inpage_container']//div[contains(@class,'flix-std-row') or contains(@class,'flix-std-table')]//img/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: specification
+    singleValue: false
+    xpath: //div[contains(@class,'inpage_selector_specification')]//td
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@class,'inpage_selector_specification')]//*[contains(text(),'Weight')]
