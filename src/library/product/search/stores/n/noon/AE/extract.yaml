@@ -6,6 +6,9 @@ fields:
   - name: prodcutUrl
     SingleValue: false
     xpath: //div[contains(@class,"productContainer")]//a/@href
+  - name: Id
+    singleValue: false
+    xpath: //div[contains(@class,'mediaContainer')]//img/@alt
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class,'mediaContainer')]//img/@src

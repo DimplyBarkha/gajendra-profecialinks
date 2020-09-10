@@ -11,7 +11,7 @@ const transform = (data) => {
             item.text = "https://www.noon.com" + item.text;
           });
         }
-      }
+        }
     }
     return data;
   };
