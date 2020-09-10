@@ -28,8 +28,9 @@ const transform = (data, context) => {
         row.availabilityText = [{ text }];
       }
       if (row.aggregateRating) {
-        const text = row.aggregateRating[0].text.replace(/./g, ',');
+        const text = row.aggregateRating[0].text.replace(/\./g, ',');
         row.aggregateRating = [{ text }];
+        row.aggregateRatingText = row.aggregateRating;
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
