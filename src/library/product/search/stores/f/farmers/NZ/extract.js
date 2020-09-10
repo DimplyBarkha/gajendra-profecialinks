@@ -18,12 +18,10 @@ module.exports = {
     const { productDetails } = dependencies;
     const brandUrl = await context.evaluate(async () => {
       const brandUrlArr = document.querySelectorAll('div.filter-container a');
-      console.log('BrandUrl', brandUrlArr);
       if (brandUrlArr) {
         for (let i = 0; i < brandUrlArr.length; i++) {
           const brandLink = brandUrlArr[i].href;
           if (brandLink.includes('brandslisting')) {
-            console.log('brandLink', brandUrlArr);
             return brandLink;
           }
         }

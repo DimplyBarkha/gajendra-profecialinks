@@ -14,7 +14,7 @@ fields:
   xpath: //div[@itemtype='http://schema.org/Product']//meta[@itemprop='brand']//@content
 - name: thumbnail
   singleValue: false
-  xpath: //div[@itemtype='http://schema.org/Product']//meta[@itemprop='image']//@content
+  xpath: //div[contains(@class,'product-list-item')]//img/@src
 - name: price
   singleValue: false
   xpath: //div[contains(@class,'ish-priceContainer-salePrice')]//div[@class = 'std-price' or @class = 'new-price'] 
