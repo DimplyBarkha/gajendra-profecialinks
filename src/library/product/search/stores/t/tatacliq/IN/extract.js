@@ -1,11 +1,11 @@
-//const { transform } = require('../../../../shared')
+// const { transform } = require('../../../../shared')
 module.exports = {
     implements: 'product/search/extract',
     parameterValues: {
-        country: 'UK',
-        store: 'boots',
+        country: 'IN',
+        store: 'tatacliq',
         transform: null,
-        domain: 'boots.com',
+        domain: 'tatacliq.com',
         zipcode: '',
     },
 
@@ -18,5 +18,5 @@ module.exports = {
         const { transform } = parameters;
         const { productDetails } = dependencies;
         return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
-    }
+    },
 };

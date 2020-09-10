@@ -19,10 +19,10 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
-    xpath:  //*[@itemprop="offers"]//div[2]//span[1]
+    xpath:  //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]
     description: The stated undiscounted price for the product
   - name: price
-    xpath: //*[@itemprop="lowPrice"]//@content
+    xpath: //*[@itemprop="lowPrice"]//following-sibling::h3
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -85,18 +85,19 @@ fields:
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
+    xpath:  //*[@itemprop="ratingCount"]//@content
     description: The number of ratings
     type: NUMBER
+  - name: ratingCount
+    xpath:  //*[@itemprop="reviewCount"]//@content
   - name: aggregateRatingText
-    singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
+    xpath:  //*[@itemprop="itemReviewed"]//@content
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
-    singleValue: true
+    xpath:  //*[@id="DWSN"]//div
     description: Shipping information for the product
   - name: shippingDimensions
     xpath: //div[contains(text(),'Weight')]/../following-sibling::div | //div[contains(text(),'Weight')]/../preceding-sibling::div
@@ -109,16 +110,16 @@ fields:
     description: Number of variants listed
     type: NUMBER
   - name: color
-    singleValue: true
+    xpath:  //div[contains(text(),'Color')]/following-sibling::div
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    xpath: //*[@id="flixinpage"]/following-sibling::div[2]/div[1]
+    xpath: //*[@id="flixinpage"]/following-sibling::div//p|//*[@id="flixinpage"]/following-sibling::div//p/preceding-sibling::h3
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    singleValue: false
+    xpath:  //*[@id="flixinpage"]/following-sibling::div//div[@id="recommendedSection"]/preceding-sibling::div//img/@src
     description: Images within the third party description
   - name: videos
     singleValue: false
