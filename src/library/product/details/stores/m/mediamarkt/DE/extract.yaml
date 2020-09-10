@@ -51,7 +51,8 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@data-test, "mms-accordion-description")]
+    xpath: //div[contains(@data-test, "mms-accordion-description")]/*[not(li)]|//div[contains(@data-test, "mms-accordion-description")]//li//ancestor::div[1]/@data-test|//div[contains(@data-test, "mms-accordion-description")]//li|//div[contains(@data-test, "mms-accordion-description")]/text()
+    # xpath: //div[contains(@data-test, "mms-accordion-description")]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -64,7 +65,7 @@ fields:
     # xpath: 
   - name: brandText
     singleValue: true
-    xpath: //div[contains(@class, "DetailsHeader")]//img/@title
+    xpath: (//div[contains(@class, "DetailsHeader")]//img/@title|//div[contains(@data-test, "mms-select-details-header")]//a[contains(@class, "Linkstyled")]//span[contains(@class, "Typostyled") and @color="grey3"])[1]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -274,7 +275,8 @@ fields:
     description: null
   - name: specifications
     singleValue: true
-    # xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]//following-sibling::dd)[1])
+    xpath: concat(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Packmaße (BxHxT)")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Breite")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Höhe")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Tiefe")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Gewicht")]//ancestor::tr)
+    # xpath: concat((//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Packmaße (BxHxT)")])[1], ": " ,(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Packmaße (BxHxT)")]//parent::td//following-sibling::td)[1], " ", (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Breite")])[1], ": ",(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Breite")]//parent::td//following-sibling::td)[1], " ", (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Höhe")])[1], ": ",(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Höhe")]//parent::td//following-sibling::td)[1], " ", (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Tiefe")])[1], ": ",(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Tiefe")]//parent::td//following-sibling::td)[1], " ", (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Gewicht")])[1], ": ",(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Gewicht")]//parent::td//following-sibling::td)[1])
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
@@ -284,6 +286,7 @@ fields:
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: true
+    xpath: (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Ursprungsland/Herkunftsort")]//parent::td//following-sibling::td)[1]
     description: The country from which the product originates
   - name: allergyAdvice
     singleValue: true

@@ -148,15 +148,26 @@ const transform = (data, context) => {
         ];
       }
       if (row.description) {
+        let ignoreSinglePip = false;
+        row.description.forEach(item => {
+          if (item.text.includes('mms-accordion-description')) {
+            item.text = '';
+            ignoreSinglePip = true;
+          }
+        });
         const textArr = [];
         row.description.forEach(item => {
           textArr.push(item.text);
+          // if (!item.text.includes('mms-accordion-description')) {
+          //   textArr.push(item.text);
+          // }
         });
         row.description = [
           {
-            text: textArr.join(' | '),
+            text: ignoreSinglePip ? textArr.join(' || ') : textArr.join(' | '),
           },
         ];
+        console.log(row.description)
       }
       if (row.aggregateRating) {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
