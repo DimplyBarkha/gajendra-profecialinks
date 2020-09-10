@@ -13,7 +13,7 @@ fields:
     xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img[contains(@class,"Article-itemVisualImg")]/@src 
+    xpath: //img[contains(@class,"Article-itemVisualImg")]/@data-lazyimage
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a
