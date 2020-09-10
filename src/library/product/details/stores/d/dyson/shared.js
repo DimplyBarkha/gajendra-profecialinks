@@ -56,11 +56,12 @@ async function implementation (
 
     // try to get the brand from multiple different sources
     const tm = '™';
-    let brandText;
+    let brandText = 'Dyson';
     const setBrand = (text) => {
       if (text && text.includes(tm)) brandText = text.split(tm)[0];
     };
-    setBrand(getSel('title', 'innerText'));
+    // setBrand(getSel('title', 'innerText'));
+    setBrand(brandText);
     if (!brandText) {
       const lastCat = [...new Set([...document.querySelectorAll('.breadcrumb li')].map(i => i.innerText.trim()))].slice(-1)[0];
       setBrand(lastCat);
@@ -154,7 +155,8 @@ async function implementation (
     // add the type of info the variants are on
     const varInfo = [...getSel('.product-hero .swatches > div', 'classList')] || [];
     if (varInfo[0]) {
-      addElementToDocument('added_variantinformation', varInfo[0].replace('swatches__', ''));
+      // addElementToDocument('added_variantinformation', varInfo[0].replace('swatches__', ''));
+      addElementToDocument('added_variantinformation', getSel('.product-hero .swatches > div .swatches__color-id', 'innerText'));
     }
 
     // Get the manufacturer description
@@ -164,6 +166,11 @@ async function implementation (
     addElementToDocument('added_productOtherInformation', getAllXpath(otherDescription, 'innerText').join(' '));
     addElementToDocument('added_manufacturerDescription', getAllXpath(descr, 'innerText').join(' '));
     addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
+
+    // Get the description bullets
+    const descBullets = getAllXpath("//div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//*[contains(text(), '•')] | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//li", 'innerText')
+      .map(b => b.split('•').join(''));
+    addElementToDocument('added_descBullets', descBullets);
 
     // get the videos
     const videos = " (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src";
