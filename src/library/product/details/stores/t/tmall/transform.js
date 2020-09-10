@@ -32,6 +32,15 @@ const transform = (data) => {
             item.text=parseFloat(item.text);
           });
         }
+
+        if(row.sku){
+          row.sku.forEach(item => {
+            var skuArr=item.text.split("/item/");
+            var skuArr1=skuArr[1].split(".");
+            item.text=parseInt(skuArr1[0]);
+          });
+        }
+        
       }
     }
     return data;

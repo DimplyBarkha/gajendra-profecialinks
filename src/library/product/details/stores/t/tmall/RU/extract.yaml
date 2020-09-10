@@ -36,3 +36,9 @@ fields:
   - name: coupon
     singleValue: false
     xpath: //div[@class="coupon-mark-new"]
+  - name: url
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[1]/@content
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[1]/@content
