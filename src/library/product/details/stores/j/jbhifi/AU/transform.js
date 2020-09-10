@@ -7,7 +7,6 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-
       if (row.shippingDimensions) {
         let text = '';
         row.shippingDimensions.forEach(item => {
@@ -43,7 +42,6 @@ const transform = (data) => {
       if ((!row.listPrice || !row.listPrice.length) && row.price) {
         row.listPrice = row.price;
       }
-
     }
   }
 
