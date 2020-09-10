@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: id
+    singleValue: true
+    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2])
   - name: image
     singleValue: true
     xpath: (//img[contains(@class, "widget-ArticleImage--articleImage")]/@src)[1]
