@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'shavershop',
     nextLinkSelector: '.page-next',    
-    loadedSelector: 'body',
+    loadedSelector: '.search-result-content',
     noResultsXPath: 'div.sli_no_results_text',
     domain: 'shavershop.com.au',
     zipcode: '',

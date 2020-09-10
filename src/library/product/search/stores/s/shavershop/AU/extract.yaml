@@ -10,30 +10,28 @@ fields:
     xpath: //div[contains(@class,'product-tile')]/@data-product-name
     singleValue: true
   - name: productUrl
-    xpath: (//div[(@class='product-tile')]//div[@class='product-image']/a/@href)
+    xpath: //div[contains(@class,'product-tile')]/div[contains(@class,'product-name')]/a[contains(@class,'name-link gtm-product-click')]/@href
     singleValue: true
   - name: manufacturer
     xpath: //div[contains(@class,'product-tile')]/@data-product-brand
     singleValue: true    
   - name: thumbnail
-    xpath: //div[@class='product-image']/a[@class='thumb-link gtm-product-click']/img/@src
+    xpath: (//div[@class='product-image']/a[@class='thumb-link gtm-product-click']/img/@src)[1]
     singleValue: true
   - name: price
-    xpath: //div[@class='product-pricing']/span[@class='product-sales-price charcoal']
+    xpath: //div[contains(@class,'product-tile')]/@data-product-price
     singleValue: true 
   - name: rankOrganic
     singleValue: true 
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@class='bv-inline-rating-container']/dl[@class='bv-stars-container']/dd[@class='bv-rating-ratio-number']/span[@class='bv-rating']/span
-    defaultValue: '0'
+    xpath: //div[(@data-itemid=//div[contains(@class,'product-tile')]/@data-product-id) ]//span[(@class='bv-rating')]//span[@aria-hidden='true']
   - name: reviewCount
     singleValue: true
-    xpath: //div[@class='bv-inline-rating-container']/dl[@class='bv-stars-container']/dd[@class='bv-rating-ratio-count']/span[@class='bv-rating-label']
-    defaultValue: '0'
+    xpath: //div[(@data-itemid=//div[contains(@class,'product-tile')]/@data-product-id) ]//span[(@class='bv-rating-label')]
   - name: ratingCount
     singleValue: true
-    xpath: //div[@class='bv-inline-rating-container']/dl[@class='bv-stars-container']/dd[@class='bv-rating-ratio-count']/span[@class='bv-rating-label']
+    xpath: //div[(@data-itemid=//div[contains(@class,'product-tile')]/@data-product-id) ]//span[(@class='bv-rating-label')]
     defaultValue: '0'
   - name: rank
     singleValue: true
