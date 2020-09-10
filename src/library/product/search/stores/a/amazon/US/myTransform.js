@@ -29,10 +29,23 @@ const transform = (data, context) => {
       }
       row.rank = [{ text: rankCounter }];
 
+      const filterStringToAfterSecondIndex = (string, text) => {
+        const wordSize = text.length;
+        let count = 0;
+        let secondIdx = null;
+        for (let i = 0; i < string.length; i++) {
+          if (string.slice(i, wordSize + i) === text) {
+            count++;
+            if (count === 2) secondIdx = i;
+          }
+        }
+        return string.slice(secondIdx);
+      };
+
       if (row.productUrl && row.productUrl[0].text) {
         const url = row.productUrl[0].text;
         if (url.split('amazon.com').length > 2) {
-          row.productUrl = [{ text: url.slice(114) }];
+          row.productUrl = [{ text: filterStringToAfterSecondIndex(url, 'https://www.amazon.com') }];
         }
       }
 
