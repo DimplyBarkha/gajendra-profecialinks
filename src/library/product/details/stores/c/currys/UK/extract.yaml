@@ -89,7 +89,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
-    xpath: //th[contains(text(), "odel number")]/following-sibling::td
+    xpath: //*[@data-flix-mpn]/@data-flix-mpn | //th[contains(text(), "odel number")]/following-sibling::td
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true

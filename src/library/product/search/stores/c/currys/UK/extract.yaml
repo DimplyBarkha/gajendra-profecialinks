@@ -42,7 +42,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
+  - name: aggregateRatingText2
     singleValue: true
     xpath: //article[contains(@class,"result-prd")]//span[contains(@class,"score-")]/@class | //article[contains(@class,"result-prd")]//div[@data-component="Rating"]/@data-score
     regExp: score-(\d+)
@@ -66,6 +66,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: manufacturer
     singleValue: true
+    xpath: //article[contains(@class,"result-prd")]//span[@data-product="brand"]
     description: Product manufacturer
   - name: soldBy
     singleValue: true
