@@ -19,9 +19,7 @@ fields:
     regExpReplace: $1
   - name: id
     singleValue: false 
-    xpath: //div[@class="title"]/a/@href
-    regExp: (\d+)-(\d+)
-    regExpReplace: $1-$2
+    xpath: //a/@data-idprod
   - name: productUrl
     singleValue: false 
     xpath: //div[@class="title"]/a/@href
