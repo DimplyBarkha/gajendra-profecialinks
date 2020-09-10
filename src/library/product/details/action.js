@@ -6,7 +6,7 @@
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,

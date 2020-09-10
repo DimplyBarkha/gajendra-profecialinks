@@ -20,19 +20,18 @@ module.exports = {
       await context.click('li[data-target="description"]');
       await context.waitForSelector('div[data-target="description"]');
       await context.evaluate(() => {
-        var body = document.querySelector('body')
-        var avail = document.querySelector('a.avvisami-btn')
+        var body = document.querySelector('body');
+        var avail = document.querySelector('a.avvisami-btn');
         if (!avail) {
-          var new1 = document.createElement("div");
+          var new1 = document.createElement('div');
           new1.className = 'avilable';
-          new1.setAttribute('availability', "In stock");
+          new1.setAttribute('availability', 'In stock');
           body.append(new1);
-        }
-        else {
-          var new1 = document.createElement("div");
+        } else {
+          var new2 = document.createElement('div');
           new1.className = 'avilable';
-          new1.setAttribute('availability', "out of stock");
-          body.append(new1);
+          new1.setAttribute('availability', 'out of stock');
+          body.append(new2);
         }
       });
       await context.evaluate(() => {
@@ -60,7 +59,7 @@ module.exports = {
     } catch (e) {
       console.error(e);
     } finally {
-      await context.extract(productDetails, { transform })
+      await context.extract(productDetails, { transform });
     }
-  }
+  },
 };
