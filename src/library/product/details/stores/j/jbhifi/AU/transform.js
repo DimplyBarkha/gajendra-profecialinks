@@ -27,9 +27,17 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
+          text = text + (text ? ' | ' : '') + item.text;
         });
         row.manufacturerDescription = [{ text }];
+      }
+
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.description = [{ text }];
       }
 
       if ((!row.listPrice || !row.listPrice.length) && row.price) {

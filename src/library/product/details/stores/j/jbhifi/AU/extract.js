@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./transform');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'AU',
     store: 'jbhifi',
-    transform: cleanUp,
+    transform,
     domain: 'jbhifi.com.au',
     zipcode: '',
   },
