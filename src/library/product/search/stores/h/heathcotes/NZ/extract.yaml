@@ -24,7 +24,7 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="designations"]//h2//a/@href
+    xpath: //div[contains(@data-hook, "list_item")]//a[@itemprop="url"]/@href
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="visuel"]//img/@src | //div[@class="visuel"]//img/@data-lazy-src
