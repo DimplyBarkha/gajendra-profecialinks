@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: id
-    xpath: //div[contains(@class,'product-item-details')]//a[@itemprop="url"]//@data-objectid
+    xpath: //div[contains(@class,'product-sku-code')]
     singleValue: true
   - name: name
     xpath: //h2[contains(@class,'product-name')]
@@ -13,13 +13,13 @@ fields:
     xpath: //div[contains(@class,'product-image-area')]//a//@href
     singleValue: true    
   - name: manufacturer
-    xpath: //div[contains(@class,'product-item-info')]//a//@data-brand
+    xpath: //div[contains(@class,'manufacturer-logo')]//img//@alt
     singleValue: true    
   - name: thumbnail
-    xpath: //img[@itemprop="image"]//@src
+    xpath: //div[contains(@class,'product-image-area')]//img//@src
     singleValue: true    
   - name: price
-    xpath: //span[@itemprop="lowPrice"]//span
+    xpath: //span[contains(@class,'regular-price')]//span
     singleValue: true 
   - name: rankOrganic
     singleValue: true 
