@@ -15,7 +15,6 @@ module.exports = {
       const url = document.querySelector('head > link:nth-child(7)').href;
       const variantAvailable = document.querySelector('div.selectable-card input');
       if (!variantAvailable && sku) {
-        console.log('variants not available, appending SKU');
         sku = `collection-item-${sku}`;
         const div = document.createElement('div');
         div.className = 'selectable-card';
@@ -24,7 +23,6 @@ module.exports = {
         div.appendChild(getInput);
         document.body.appendChild(div);
         getInput.setAttribute('value', url);
-        console.log('variants not available________appended SKU');
       }
     });
     await context.extract(variants);
