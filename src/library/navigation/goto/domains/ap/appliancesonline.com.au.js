@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'appliancesonline.com.au',
-    timeout: 50000,
+    timeout: 150000,
     country: 'AU',
     store: 'appliancesonline',
     zipcode: '',
