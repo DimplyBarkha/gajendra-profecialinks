@@ -125,9 +125,6 @@ fields:
     xpath: count(//div[contains(@class,'fa-liste-decli')]//a/@href)
   - name: category
     singleValue: false
-    xpath: (//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')])[2]
-  - name: subCategory
-    singleValue: false
     xpath: concat(//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][2],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][3],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][4],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][5]) 
   - name: description
     singleValue: false
