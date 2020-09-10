@@ -1,0 +1,106 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@data-index="0"]/@src | //a[@data-imgindex="0"]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@data-index="0"]/@alt | //a[@data-imgindex="0"]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //figure[contains(@class,"gallery-image-container")]/a/img/@src | //div[@class="ui-pdp-thumbnail__picture"]/img/@src
+    # xpath: //div[@class="gallery-content item-gallery__wrapper"]/@data-full-images | //div[@class="ui-pdp-thumbnail__picture"]/img/@src
+  - name: category
+    singleValue: false
+    xpath: //ul/li[@class="andes-breadcrumb__item"] | //*[contains(@class,"vip-navigation-breadcrumb-list")]/li
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class , "ui-pdp-title")] | //header[@class="item-title"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class , "ui-pdp-price--size-large")]/del | //span[@class="price-tag price-tag__del"]/del/span[@class="price-tag-symbol"]/@content
+  - name: price
+    singleValue: false
+    xpath: //*[@id="productInfo"]//span[@class="price-tag-fraction"]| //div[contains(@class , "ui-pdp-price--size-large")]//span[contains(@class , 'ui-pdp-price__part')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //input[@data-js="vip-action-cart"]/@value | //h3[contains(@class,"ui-pdp-stock-information__title")] | //*[@class="stock-information--available"]
+  - name: description
+    singleValue: false
+    xpath: //div[@id="mc_description"]
+  - name: brandText
+    singleValue: false
+    xpath: //li[@class="specs-item specs-item-primary"]/strong[contains(text(),"Marca")]/parent::li/span | //th[contains(text(),"Marca")]/parent::tr/td
+    defaultValue: "BrandC"
+  - name: variantId
+    singleValue: false
+    xpath: //input[@name="itemId"]/@value | //input[@name="item_id"]/@value
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="ui-pdp-review__amount"] | //span[@class="average-legend"]
+    regExp: (.*)\sopinio
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="ui-pdp-review__amount"] | //span[@class="average-legend"]
+    regExp: (.*)\sopinio
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="review-summary-average"] | //h2[@class="ui-pdp-reviews__rating__summary__average"]
+  - name: shippingInfo
+    singleValue: false
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="ui-pdp-variations"]/div[@class="ui-pdp-variations__picker"]/a/@href)+count(//div[@class="ui-pdp-variations"]/div[@class="ui-pdp-variations__picker"]//div[contains(@class, "ui-pdp-thumbnail--BLOCKED")])
+    defaultValue: 1
+  - name: color
+    singleValue: false
+    xpath: //*[@data-id="COLOR"]//*[@data-js="variations-title"] | //div[@class="ui-pdp-variations"]//p[contains(text() , 'Color:')]//following-sibling::span | //*[contains(text(), "Color")]/parent::li/span
+  - name: videos
+    singleValue: false
+    xpath: //iframe[@class="ui-pdp-iframe"]/@src | //*[@data-video-id]/@data-video-id
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class , "ui-pdp-title")] | //header[@class="item-title"]
+  - name: coupon
+    singleValue: false
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class, "ui-pdp-specs__table")]//tr | //ul[@class="ui-pdp-list__wrapper"]//li | //ul[contains(@class, "specs-list")]//li
+  - name: warranty
+    singleValue: false
+    xpath: //p[contains(text() , 'Garantía de')]/following-sibling::p[contains(text() , "Garantía de")] | //h2[@class="ui-pdp-media__title"][contains(text() , "garantía")] | //section[contains(@class,"vip-section-warranty")]//p[contains(@class, "warranty__store")]
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //h3[contains(text() , "Otras características")]/following-sibling::div/ul/li
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="ui-pdp-variations__picker"]/p[contains(@class,"ui-pdp-variations__label")]
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@id="bb_firstVariant"]
+  - name: variants
+    singleValue: false
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[contains(@class,"ui-pdp-features")]/li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//ul[contains(@class , 'ui-pdp-features')]/li)
+  - name: Image360Present
+    singleValue: false
+    defaultValue: Yes
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: weightNet
+    singleValue: false
+    xpath: //li[@class="ui-pdp-list__item"]//*[contains(text(), "Peso")]/parent::p
+  - name: packSize
+    singleValue: false
+    xpath: //li[contains(@class,"specs-item")]/strong[contains(text(),"Piezas del set")]/parent::li/span
+
