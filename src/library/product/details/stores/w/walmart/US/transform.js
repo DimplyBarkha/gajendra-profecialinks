@@ -122,6 +122,10 @@ const transform = (data, context) => {
           row.availabilityText = [{ text: 'In Stock' }];
         }
 
+        if (row.price && row.price[0].text === '0'){
+          delete row.price;
+        }
+
         if (row.variantInformation) {
           let text = '';
           row.variantInformation.forEach(item => {
