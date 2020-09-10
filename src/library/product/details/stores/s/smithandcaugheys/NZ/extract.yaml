@@ -91,7 +91,7 @@ fields:
     xpath: //p[span/strong[contains(text(),'PRODUCT SPECIFICATIONS')]]/following-sibling::p
   - name: warranty
     singleValue: false
-    xpath: //span[contains(text(),'warranty')] 
+    xpath: //span[contains(text(),'warranty')] | //div[@class="panel-body"]//text()[contains(.,"warranty")]
   - name: variantInformation
     singleValue: false
   - name: technicalInformationPdfPresent
