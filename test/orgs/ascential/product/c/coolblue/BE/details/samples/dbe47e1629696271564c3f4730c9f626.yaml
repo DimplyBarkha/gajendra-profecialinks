@@ -1,0 +1,179 @@
+input:
+  _url: http://coolblue.be
+  URL: https://www.coolblue.be/en/product/790466/dyson-v8-absolute.html
+extractions:
+  - html: https://workbench.import.io/html/run=f0f0c26a-3d22-4ee3-a8ed-d66b1847f06b/task=ee03e79c-e2b2-48f5-9d18-39dddbda2c98/3a386293-ceb9-4cea-b9fe-92e074e73c34.html
+    extractionConfigId: product/details/stores/c/coolblue/BE/extract
+    data:
+      - group:
+          - image:
+              - text: https://image.coolblue.be/max/500x500/products/1403412
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V8 Absolute Main Image
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            category:
+              - text: Coolblue.be
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[1]
+            nameExtended:
+              - text: Dyson V8 Absolute
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            description:
+              - text: "With the Dyson V8 Absolute, you have an extensive Dyson stick vacuum at
+                  your disposal. A turbo brush for rugs and carpets, a parquet
+                  brush for wooden flooring, and a motorized mini brush: this
+                  stick vacuum has it all. The V8 motor is a very powerful motor
+                  that allows you to vacuum for up to 25-40 minutes. This
+                  changes when you use the turbo mode; in this mode, the battery
+                  lasts 10 minutes. Use this mode when you want to vacuum a rug
+                  or low-pile carpet. You can easily transform the stick vacuum
+                  into a handheld vacuum. Use the motorized mini brush to
+                  quickly clean the trunk of your car, for instance. Do you have
+                  wooden flooring and carpeting or a rug? If so, this stick
+                  vacuum offers you extensive possibilities, making it the best
+                  choice for you."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            additionalDescription:
+              - text: "With the Dyson V8 Absolute, you have an extensive Dyson stick vacuum at
+                  your disposal. A turbo brush for rugs and carpets, a parquet
+                  brush for wooden flooring, and a motorized mini brush: this
+                  stick vacuum has it all. The V8 motor is a very powerful motor
+                  that allows you to vacuum for up to 25-40 minutes. This
+                  changes when you use the turbo mode; in this mode, the battery
+                  lasts 10 minutes. Use this mode when you want to vacuum a rug
+                  or low-pile carpet. You can easily transform the stick vacuum
+                  into a handheld vacuum. Use the motorized mini brush to
+                  quickly clean the trunk of your car, for instance. Do you have
+                  wooden flooring and carpeting or a rug? If so, this stick
+                  vacuum offers you extensive possibilities, making it the best
+                  choice for you."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            sku:
+              - text: "790466"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            mpc:
+              - text: "790466"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            ratingCount:
+              - text: "1511"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+                type: NUMBER
+                raw: "1511"
+                locale: en_US
+                value: 1511
+            aggregateRatingText:
+              - text: "9.0"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/div[1]/a[1]/div[1]/span[1]/meter[1]/@value
+            name:
+              - text: Dyson V8 Absolute
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            firstVariant:
+              - text: "790466"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            alternateImages:
+              - text: https://image.coolblue.be/max/2048x1536/products/1371529
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://image.coolblue.be/max/2048x1536/products/859494
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/858043
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/943585
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1246362
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1464267
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/858041
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/859491
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/858063
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/858047
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/858044
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/859504
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/858068
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/858040
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/858045
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[16]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/859503
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[17]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/859488
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[18]/div[1]/img[1]/@data-src
+            subCategory:
+              - text: Vacuum cleaning
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[2]
+              - text: Vacuums
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[3]
+              - text: Dyson vacuums
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[4]
+              - text: Dyson stick vacuums
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[5]
+              - text: |-
+                  Dyson V8
+                   Dyson V8
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[6]
+              - text: V8 Absolute
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[7]
+            price:
+              - text: 399,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/button[1]
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/button[1]
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en_US
+                value: 0
+            additionalDescriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en_US
+                value: 0
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/script[1]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en_US
+                value: 0
+            secondaryImageTotal:
+              - text: "17"
+                type: NUMBER
+                raw: "17"
+                locale: en_US
+                value: 17
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[2]/a[1]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/footer[1]/div[3]/ul[1]/li[3]/div[1]/a[1]
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1598619046216

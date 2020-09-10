@@ -1,0 +1,159 @@
+input:
+  _url: http://coolblue.be
+  URL: https://www.coolblue.be/en/product/458722/dyson-am07-wit-zilver.html
+extractions:
+  - html: https://workbench.import.io/html/run=f0f0c26a-3d22-4ee3-a8ed-d66b1847f06b/task=aa680624-dc40-4c3d-9eb7-f6f0292bdf1e/1c49eb08-2a0d-40f7-9193-f327d02126e6.html
+    extractionConfigId: product/details/stores/c/coolblue/BE/extract
+    data:
+      - group:
+          - image:
+              - text: https://image.coolblue.be/max/500x500/products/1362985
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson AM07 Wit/Zilver Main Image
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            category:
+              - text: Coolblue.be
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[1]
+            nameExtended:
+              - text: Dyson AM07 Wit/Zilver
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            description:
+              - text: With the Dyson AM07, you have a modern fan without fan blades at your
+                  disposal. This is useful if you have small children or curious
+                  pets running around the house. To create a refreshing breeze,
+                  you can choose one of the 10 fan settings. Thanks to the
+                  included remote, you can easily adjust this from the comfort
+                  of your chair. Use the lowest settings for a gentle breeze and
+                  the highest settings for a powerful airflow. In the highest
+                  setting, the fan produces a noise level of 64 decibels. Do you
+                  want to use it in the bedroom? If so, use the lowest settings.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            additionalDescription:
+              - text: With the Dyson AM07, you have a modern fan without fan blades at your
+                  disposal. This is useful if you have small children or curious
+                  pets running around the house. To create a refreshing breeze,
+                  you can choose one of the 10 fan settings. Thanks to the
+                  included remote, you can easily adjust this from the comfort
+                  of your chair. Use the lowest settings for a gentle breeze and
+                  the highest settings for a powerful airflow. In the highest
+                  setting, the fan produces a noise level of 64 decibels. Do you
+                  want to use it in the bedroom? If so, use the lowest settings.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            sku:
+              - text: "458722"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            mpc:
+              - text: "458722"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            ratingCount:
+              - text: "527"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+                type: NUMBER
+                raw: "527"
+                locale: en_US
+                value: 527
+            aggregateRatingText:
+              - text: "8.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/div[1]/a[1]/div[1]/span[1]/meter[1]/@value
+            name:
+              - text: Dyson AM07 Wit/Zilver
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            firstVariant:
+              - text: "458722"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            alternateImages:
+              - text: https://image.coolblue.be/max/2048x1536/products/1060637
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://image.coolblue.be/max/2048x1536/products/299406
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1060636
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/1443294
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/299407
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/299405
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/299410
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/299409
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/299408
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.be/max/2048x1536/products/299412
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/img[1]/@data-src
+            subCategory:
+              - text: Climate control
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[2]
+              - text: Fans
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[3]
+              - text: |-
+                  Pedestal fans
+                   Pedestal fans
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[4]
+              - text: AM07 Wit/Zilver
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[5]
+            listPrice:
+              - text: 599,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]/span[1]/span[1]
+            price:
+              - text: 399,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/form[1]/button[1]
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/form[1]/button[1]
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en_US
+                value: 0
+            additionalDescriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en_US
+                value: 0
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/script[1]
+            variantId:
+              - text: "458722423883802"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            variantCount:
+              - text: "8"
+                type: NUMBER
+                raw: "8"
+                locale: en_US
+                value: 8
+            secondaryImageTotal:
+              - text: "10"
+                type: NUMBER
+                raw: "10"
+                locale: en_US
+                value: 10
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[2]/a[1]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/footer[1]/div[3]/ul[1]/li[3]/div[1]/a[1]
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1598619050339

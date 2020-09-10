@@ -1,0 +1,223 @@
+input:
+  _url: http://coolblue.nl
+  URL: https://www.coolblue.nl/product/866166
+extractions:
+  - html: https://workbench.import.io/html/run=bd4f1fc5-1cc7-4624-8e57-e66292bef86b/task=ff9616b5-05ac-483f-acc7-c4d73970f8f4/ea31db4e-6a58-4b0b-a102-17da023b4522.html
+    extractionConfigId: product/details/stores/c/coolblue/NL/extract
+    data:
+      - group:
+          - image:
+              - text: https://image.coolblue.nl/max/500x500/products/1458141
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V7 Motorhead Origin + Dyson Flexi Crevice Tool Main Image
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            category:
+              - text: Coolblue.nl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[1]
+            nameExtended:
+              - text: Dyson V7 Motorhead Origin + Dyson Flexi Crevice Tool
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            description:
+              - text: De Dyson V7 Motorhead Origin + Dyson Flexi Crevice Tool gebruik je met de
+                  gemotoriseerde combiborstel zowel op harde vloeren als op
+                  laagpolig tapijt of grove vloerkleden. Dankzij de Flexi
+                  Crevice Tool van 30 centimeter stofzuig je de meest moeilijk
+                  bereikbare plekken gemakkelijk. Door de lange borstelharen
+                  hoef je niet bang te zijn dat je beschadigingen achterlaat.
+                  Doordat de zuigmond een eigen aandrijving heeft, draait de
+                  borstel in de zuigmond rond. Naast deze borstel ontvang je
+                  verschillende accessoires. Met de 2-in-1 accessoire heb je
+                  zowel een brede kierenzuigmond als een zachte afstofborstel.
+                  Schuif de zachte haren naar voren en je maakt kwetsbare
+                  meubels in een handomdraai schoon. Schuif deze naar achteren
+                  om restanten popcorn van de bank te zuigen. Met de V7 motor
+                  stofzuig je tot 30 minuten lang op de laagste stand.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            additionalDescription:
+              - text: De Dyson V7 Motorhead Origin + Dyson Flexi Crevice Tool gebruik je met de
+                  gemotoriseerde combiborstel zowel op harde vloeren als op
+                  laagpolig tapijt of grove vloerkleden. Dankzij de Flexi
+                  Crevice Tool van 30 centimeter stofzuig je de meest moeilijk
+                  bereikbare plekken gemakkelijk. Door de lange borstelharen
+                  hoef je niet bang te zijn dat je beschadigingen achterlaat.
+                  Doordat de zuigmond een eigen aandrijving heeft, draait de
+                  borstel in de zuigmond rond. Naast deze borstel ontvang je
+                  verschillende accessoires. Met de 2-in-1 accessoire heb je
+                  zowel een brede kierenzuigmond als een zachte afstofborstel.
+                  Schuif de zachte haren naar voren en je maakt kwetsbare
+                  meubels in een handomdraai schoon. Schuif deze naar achteren
+                  om restanten popcorn van de bank te zuigen. Met de V7 motor
+                  stofzuig je tot 30 minuten lang op de laagste stand.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            weightNet:
+              - text: 2,4 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[1]/dd[1]
+            weightGross:
+              - text: 2,4 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[1]/dd[1]
+            sku:
+              - text: "866166"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            mpc:
+              - text: "866166"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            ratingCount:
+              - text: "75"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+                type: NUMBER
+                raw: "75"
+                locale: nl_NL
+                value: 75
+            aggregateRatingText:
+              - text: "9.2"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/div[1]/a[1]/div[1]/span[1]/meter[1]/@value
+            color:
+              - text: Blauw
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[7]/dd[1]
+            name:
+              - text: Dyson V7 Motorhead Origin + Dyson Flexi Crevice Tool
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            specifications:
+              - text: |-
+                  Gewicht 
+                   
+                   2,4 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[1]
+              - text: |-
+                  Materiaal 
+                   
+                   Kunststof
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[2]
+              - text: |-
+                  Materiaal wielen 
+                   
+                   n.v.t.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[3]
+              - text: |-
+                  Breedte 
+                   
+                   25 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[4]
+              - text: |-
+                  Diepte 
+                   
+                   21 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[5]
+              - text: |-
+                  Hoogte 
+                   
+                   124,3 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[6]
+              - text: |-
+                  Kleur 
+                   
+                   Blauw
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[7]
+            firstVariant:
+              - text: "866166"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            materials:
+              - text: Kunststof
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/dl[2]/dd[1]
+            alternateImages:
+              - text: https://image.coolblue.nl/max/2048x1536/products/1256979
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1258009
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1256972
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1332642
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1258007
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1256970
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1256976
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1258011
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1258010
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1256971
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1256975
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1258012
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1258013
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1438393
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/img[1]/@data-src
+            subCategory:
+              - text: Stofzuigen
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[2]
+              - text: Stofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[3]
+              - text: Dyson stofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[4]
+              - text: Dyson steelstofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[5]
+              - text: |-
+                  Dyson V7
+                   Dyson V7
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[6]
+              - text: V7 Motorhead Origin + Dyson Flexi Crevic
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[7]
+            listPrice:
+              - text: 348,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]/span[1]
+            price:
+              - text: 299,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            additionalDescriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/script[1]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            secondaryImageTotal:
+              - text: "14"
+                type: NUMBER
+                raw: "14"
+                locale: nl_NL
+                value: 14
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[2]/a[1]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/footer[1]/div[3]/ul[1]/li[3]/div[1]/a[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1598613528067

@@ -1,0 +1,233 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: availabilityText
+    singleValue: false
+    xpath: //script[contains(text(),"ecomm_availability")]/text()
+    regExp: \"ecomm_availability":"(([^,]+)")
+    regExpReplace: $2
+  - name: shippingInfo
+    singleValue: false
+    xpath: //span[@class='js-delivery-information-usp']
+  - name: price
+    singleValue: true
+    xpath: //div[@class="product-order"]//strong[contains(@class,"sales-price__current")][1]
+    regExp: (\d+)(\,?\.?)?(\d+)?(\,-?)?
+    regExpReplace: € $1,$3
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,"flex-unit")]//div[@class="js-configurator-discount-element"]
+  - name: lbb
+    singleValue: false
+    xpath:
+  - name: lbbPrice
+    singleValue: false
+    xpath: 
+  - name: _input
+    singleValue: false
+    xpath:
+  - name: image
+    singleValue: false
+    xpath: //li[@data-label="Main Image"]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //li[@data-label="Main Image"]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: (//ul[@class="product-media-gallery-zoom__wrapper js-product-media-gallery-zoom__wrapper"]//li//div[@class="product-media-gallery-zoom__container"]//img[not(@data-src)]/@src | //ul[@class="product-media-gallery-zoom__wrapper js-product-media-gallery-zoom__wrapper"]//li//div[@class="product-media-gallery-zoom__container"]//img[contains(@data-src,"")]/@data-src)[position()>1]
+  - name: metaKeywords
+    singleValue: false
+    xpath:
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: (//ol[contains(@class,"breadcrumbs")]//li)[position()>1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //span[contains(@class,'js-product-name')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='js-desktop-order-block']//div//span[@class='sales-price__former-price']
+    regExp: (\d+)(\,?\.?)?(\d+)?(\,-?)?
+    regExpReplace: € $1,$3
+  - name: priceCurrency
+    singleValue: false
+    xpath: //script[contains(text(),"priceCurrency")]/text()
+    regExp: \"priceCurrency":\s\s"([\d,]+.*)"
+    regExpReplace: $2
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value
+    regExp: (\/product\/)(\d+)
+    regExpReplace: $2
+  - name: Image360Present
+    singleValue: false
+    xpath:
+  - name: weightNet
+    singleValue: false
+    xpath: //dl[contains(translate(string(), 'Gewicht', 'Gewicht'), 'Gewicht')]/dd
+  - name: weightGross
+    singleValue: false
+    xpath: 
+  - name: gtin
+    singleValue: false
+    xpath: 
+  - name: sku
+    singleValue: false
+    xpath: //script[contains(text(),"sku")]/text()
+    regExp: \"sku":\s"(\d+)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //dl[contains(translate(string(), 'Artikelnummer', 'Artikelnummer'), 'Artikelnummer')]/dd
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value)[1]
+    regExp: (\/product\/)(\d+)
+    regExpReplace: $2
+  - name: packSize
+    singleValue: false
+    xpath:
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: 
+  - name: directions
+    singleValue: false
+    xpath:
+  - name: mpc
+    singleValue: false
+    xpath: (//dl[contains(translate(string(), 'Fabrikantcode', 'Fabrikantcode'), 'Fabrikantcode')]/dd)[1]
+  - name: warnings
+    singleValue: false
+    xpath: 
+  - name: ratingCount
+    singleValue: false
+    xpath: //script[contains(text(),"aggregateRating")]/text()
+    regExp: \"reviewCount":\s"(\d+)
+    regExpReplace: $1
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: (//div[@class='review-rating__extra-enhanced-score'])[1]
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class="product-page--title-links"]//span[contains(@class,"review-rating__score")]//meter/@value
+    regExp: (\d+)\.?(\d+)?
+    regExpReplace: $1,$2
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class='grid-section-xs--gap-1']//ul[@class='list']
+  - name: description
+    singleValue: false
+    xpath: (//div[contains(@class,'cms-content js-product-description-content')]//p)
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li)
+  - name: brandText
+    singleValue: false
+    xpath: //dl[contains(translate(string(), 'Brand', 'Brand'), 'Brand')]/dd
+    defaultValue: Dyson
+  - name: manufacturer
+    singleValue: false
+    xpath: //dl[contains(translate(string(), 'Brand', 'Brand'), 'Brand')]/dd
+    defaultValue: Dyson
+  - name: quantity
+    singleValue: false
+    xpath: //script[contains(text(),"ecomm_quantity")]/text()
+    regExp: \"ecomm_quantity":(\d+)
+    regExpReplace: $1
+  - name: lbb
+    singleValue: false
+    xpath:
+  - name: shippingDimensions
+    singleValue: false
+  - name: shippingWeight
+    singleValue: false
+    xpath:
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value)
+  - name: color
+    singleValue: false
+    xpath: //div[@class='flex-unit js-field-title-value']
+  - name: colorCode
+    singleValue: false
+    xpath: 
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //meta[contains(@name,"description")]/@content
+  - name: lbbPrice
+    singleValue: false
+  - name: energyEfficiency
+    singleValue: false
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    xpath: (//ul[contains(@class,"bullet-list")]//li[@class="js-product-in-the-box--item"]//a/@href)[1]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: manufacturerImages
+    singleValue: false
+    xpath:
+  - name: videos
+    singleValue: false
+    xpath: //li[@data-label="video"]/@data-video
+  - name: name
+    singleValue: false
+    xpath: //span[@class="js-product-name"]
+  - name: coupon
+    singleValue: false  
+    xpath: 
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@id,"product-specifications")]//div[@class="js-specifications-content"]
+  - name: warranty
+    singleValue: false
+    xpath: (//dl[contains(translate(string(), 'Garantie', 'Garantie'), 'Garantie')]/dd)[1]
+  - name: storage
+    singleValue: false
+  - name: countryOfOrigin
+    singleValue: false
+  - name: recyclingInformation
+    singleValue: false
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@id="product-information"]
+  - name: packaging
+    singleValue: false
+    xpath:
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='flex-unit js-field-title-value']
+  - name: termsAndConditions
+    singleValue: true
+    xpath: (//ul[contains(@class,"bullet-list")]//li[@class="js-product-in-the-box--item"]//a/@href)[1]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    xpath: (//img[contains(@class,"zoom__image")]/@class)[1]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: Yes
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    xpath: //a[contains(@title,"privacy")]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: customerServiceAvailability 
+    singleValue: true
+    xpath: //h5//font[contains(text(),"Customer service")]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: Yes

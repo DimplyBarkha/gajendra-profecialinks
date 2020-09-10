@@ -1,0 +1,224 @@
+input:
+  _url: http://coolblue.nl
+  URL: https://www.coolblue.nl/product/800543
+extractions:
+  - html: https://workbench.import.io/html/run=bd4f1fc5-1cc7-4624-8e57-e66292bef86b/task=6bbc45d3-146c-4d2c-8bc3-1c812aeac69c/d9e1dcfd-1de8-47c3-acca-a89afadcc2c9.html
+    extractionConfigId: product/details/stores/c/coolblue/NL/extract
+    data:
+      - group:
+          - image:
+              - text: https://image.coolblue.nl/max/500x500/products/1453276
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V8 Absolute Pro Main Image
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            category:
+              - text: Coolblue.nl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[1]
+            nameExtended:
+              - text: Dyson V8 Absolute Pro
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            description:
+              - text: De Dyson V8 Absolute Pro is een van de meest complete Dyson
+                  steelstofzuigers. Naast een krachtige turboborstel en zachte
+                  parketborstel, ontvang je ook een gemotoriseerde miniborstel
+                  en een speciale Up Top borstel. Met deze laatste borstel
+                  stofzuig je door de buigbare hals ook gemakkelijk boven op de
+                  kast of de wasmachine. Met de krachtige V8 motor stofzuig je
+                  40 minuten door. Schakel de turbostand in als je het
+                  vloerkleed of tapijt wilt zuigen. Let wel op, doordat je de
+                  zuigkracht hiermee erg verhoogt gaat de accu na 10 minuten
+                  leeg. Haal de steel van de steelstofzuiger en je hebt een
+                  kruimeldief. Met de gemotoriseerde miniborstel erop heb jij
+                  die auto zo schoon. Heb jij verschillende soorten vloeren
+                  thuis en wil je graag een uitgebreid pakket aan accessoires,
+                  dan is deze steelstofzuiger de beste keuze voor jou.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            additionalDescription:
+              - text: De Dyson V8 Absolute Pro is een van de meest complete Dyson
+                  steelstofzuigers. Naast een krachtige turboborstel en zachte
+                  parketborstel, ontvang je ook een gemotoriseerde miniborstel
+                  en een speciale Up Top borstel. Met deze laatste borstel
+                  stofzuig je door de buigbare hals ook gemakkelijk boven op de
+                  kast of de wasmachine. Met de krachtige V8 motor stofzuig je
+                  40 minuten door. Schakel de turbostand in als je het
+                  vloerkleed of tapijt wilt zuigen. Let wel op, doordat je de
+                  zuigkracht hiermee erg verhoogt gaat de accu na 10 minuten
+                  leeg. Haal de steel van de steelstofzuiger en je hebt een
+                  kruimeldief. Met de gemotoriseerde miniborstel erop heb jij
+                  die auto zo schoon. Heb jij verschillende soorten vloeren
+                  thuis en wil je graag een uitgebreid pakket aan accessoires,
+                  dan is deze steelstofzuiger de beste keuze voor jou.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            weightNet:
+              - text: 2,63 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[1]/dd[1]
+            weightGross:
+              - text: 2,63 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[1]/dd[1]
+            sku:
+              - text: "800543"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            mpc:
+              - text: "800543"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            ratingCount:
+              - text: "1511"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+                type: NUMBER
+                raw: "1511"
+                locale: nl_NL
+                value: 1511
+            aggregateRatingText:
+              - text: "9.0"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/div[1]/a[1]/div[1]/span[1]/meter[1]/@value
+            color:
+              - text: Roze
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[7]/dd[1]
+            name:
+              - text: Dyson V8 Absolute Pro
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            specifications:
+              - text: |-
+                  Gewicht 
+                   
+                   2,63 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[1]
+              - text: |-
+                  Materiaal 
+                   
+                   Kunststof
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[2]
+              - text: |-
+                  Materiaal wielen 
+                   
+                   n.v.t.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[3]
+              - text: |-
+                  Breedte 
+                   
+                   25 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[4]
+              - text: |-
+                  Diepte 
+                   
+                   21 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[5]
+              - text: |-
+                  Hoogte 
+                   
+                   124,3 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[6]
+              - text: |-
+                  Kleur 
+                   
+                   Roze
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[7]
+            firstVariant:
+              - text: "800543"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            materials:
+              - text: Kunststof
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[2]/dd[1]
+            alternateImages:
+              - text: https://image.coolblue.nl/max/2048x1536/products/960026
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://image.coolblue.nl/max/2048x1536/products/960023
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/960024
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1343371
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/960025
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/943107
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/942093
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/942091
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/943103
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/942092
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/943104
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/942090
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/960014
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/img[1]/@data-src
+            subCategory:
+              - text: Stofzuigen
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[2]
+              - text: Stofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[3]
+              - text: Dyson stofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[4]
+              - text: Dyson steelstofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[5]
+              - text: |-
+                  Dyson V8
+                   Dyson V8
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[6]
+              - text: V8 Absolute Pro
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[7]
+            price:
+              - text: 429,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/button[1]
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/button[1]
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            additionalDescriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/script[1]
+            variantId:
+              - text: "800543977060596"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            variantCount:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: nl_NL
+                value: 3
+            secondaryImageTotal:
+              - text: "13"
+                type: NUMBER
+                raw: "13"
+                locale: nl_NL
+                value: 13
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[2]/a[1]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/footer[1]/div[3]/ul[1]/li[3]/div[1]/a[1]
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1598613527370

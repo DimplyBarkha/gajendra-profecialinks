@@ -1,0 +1,221 @@
+input:
+  _url: http://coolblue.nl
+  URL: https://www.coolblue.nl/product/858549
+extractions:
+  - html: https://workbench.import.io/html/run=bd4f1fc5-1cc7-4624-8e57-e66292bef86b/task=847dbf61-b9fc-4ab7-b285-c3e9da678993/67ec06ea-5942-48f2-ae68-1a77adc7e55a.html
+    extractionConfigId: product/details/stores/c/coolblue/NL/extract
+    data:
+      - group:
+          - image:
+              - text: https://image.coolblue.nl/max/500x500/products/1404724
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V10 Absolute Pro Main Image
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            category:
+              - text: Coolblue.nl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[1]
+            nameExtended:
+              - text: Dyson V10 Absolute Pro
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            description:
+              - text: Met de Dyson V10 Absolute Pro haal je een snoerloze steelstofzuiger in
+                  huis waarmee je tot aan 60 minuten meerdere kamers stofzuigt.
+                  Je laadt de accu binnen 3,5 uur volledig op en gebruikt de V10
+                  op alle vloertypen. Door de meegeleverde zuigmonden maakt de
+                  Dyson geen schade op vloeren. Je ontvangt er een vloerzuigmond
+                  voor tapijten en een zuigmond voor harde vloeren bij. Deze
+                  gebruik je op vloerbedekkingen en laminaat. Je bouwt de
+                  stofzuiger gemakkelijk om naar een kruimelzuiger. Je stelt de
+                  zuigkracht handmatig in en bepaalt daarmee zelf hoe krachtig
+                  de Dyson te werk gaat. Het vuil komt in de grote opvangbak van
+                  0,75 liter terecht welke je gemakkelijk leegt.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            additionalDescription:
+              - text: Met de Dyson V10 Absolute Pro haal je een snoerloze steelstofzuiger in
+                  huis waarmee je tot aan 60 minuten meerdere kamers stofzuigt.
+                  Je laadt de accu binnen 3,5 uur volledig op en gebruikt de V10
+                  op alle vloertypen. Door de meegeleverde zuigmonden maakt de
+                  Dyson geen schade op vloeren. Je ontvangt er een vloerzuigmond
+                  voor tapijten en een zuigmond voor harde vloeren bij. Deze
+                  gebruik je op vloerbedekkingen en laminaat. Je bouwt de
+                  stofzuiger gemakkelijk om naar een kruimelzuiger. Je stelt de
+                  zuigkracht handmatig in en bepaalt daarmee zelf hoe krachtig
+                  de Dyson te werk gaat. Het vuil komt in de grote opvangbak van
+                  0,75 liter terecht welke je gemakkelijk leegt.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            weightNet:
+              - text: 2,67 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[1]/dd[1]
+            weightGross:
+              - text: 2,67 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[1]/dd[1]
+            sku:
+              - text: "858549"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            mpc:
+              - text: "858549"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            ratingCount:
+              - text: "676"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+                type: NUMBER
+                raw: "676"
+                locale: nl_NL
+                value: 676
+            aggregateRatingText:
+              - text: "8.9"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/span[1]/a[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[1]/div[1]/div[1]/a[1]/div[1]/span[1]/meter[1]/@value
+            color:
+              - text: Grijs, Koper
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[7]/dd[1]
+            name:
+              - text: Dyson V10 Absolute Pro
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]
+            specifications:
+              - text: |-
+                  Gewicht 
+                   
+                   2,67 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[1]
+              - text: |-
+                  Materiaal 
+                   
+                   Kunststof, Metaal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[2]
+              - text: |-
+                  Materiaal wielen 
+                   
+                   n.v.t.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[3]
+              - text: |-
+                  Breedte 
+                   
+                   25 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[4]
+              - text: |-
+                  Diepte 
+                   
+                   25,6 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[5]
+              - text: |-
+                  Hoogte 
+                   
+                   126,6 cm
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[6]
+              - text: |-
+                  Kleur 
+                   
+                   Grijs, Koper
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[7]
+            firstVariant:
+              - text: "858549"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            materials:
+              - text: Kunststof, Metaal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[11]/div[1]/div[1]/div[7]/div[1]/dl[2]/dd[1]
+            alternateImages:
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404752
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404733
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404748
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404750
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404746
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404747
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404749
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404728
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404745
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404730
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404735
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404736
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404734
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404732
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[16]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404731
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[17]/div[1]/img[1]/@data-src
+              - text: https://image.coolblue.nl/max/2048x1536/products/1404744
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[18]/div[1]/img[1]/@data-src
+            subCategory:
+              - text: Stofzuigen
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[2]
+              - text: Stofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[3]
+              - text: Dyson stofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[4]
+              - text: Dyson steelstofzuigers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[5]
+              - text: |-
+                  Dyson V10
+                   Dyson V10
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[6]
+              - text: V10 Absolute Pro
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/ol[1]/li[7]
+            price:
+              - text: 579,-
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/button[1]
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/button[1]
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            additionalDescriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/script[1]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl_NL
+                value: 0
+            secondaryImageTotal:
+              - text: "16"
+                type: NUMBER
+                raw: "16"
+                locale: nl_NL
+                value: 16
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[1]/a[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]/ul[1]/li[2]/a[1]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/footer[1]/div[3]/ul[1]/li[3]/div[1]/a[1]
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1598613528238
