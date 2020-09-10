@@ -5,9 +5,9 @@ module.exports = {
     country: 'CH',
     store: 'interdiscount',
     domain: 'interdiscount.ch',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.interdiscount.ch/de/search?search={searchTerms}',
+    loadedSelector: 'div[class="ulvVbt _1GNlFj"],div[class="_2K5zWg"]',
+    noResultsXPath: '//h1[contains(text(),"Ihre Suche nach")]',
     zipcode: '',
   },
 };
