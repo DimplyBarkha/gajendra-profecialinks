@@ -31,6 +31,14 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
+
+      if (row.price) {
+        let newText = '';
+        row.price.forEach(item => {
+          newText = item.text.replace('%', '');
+        });
+        row.price = [{ text: newText }];
+      }
     }
   }
   context.setState({ rankCounter });
