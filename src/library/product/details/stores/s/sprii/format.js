@@ -13,6 +13,9 @@ const transform = (data) => {
             if (row.availabilityText) {
                 const product = JSON.parse(row.availabilityText[0].text);
                 row.availabilityText[0].text = product.offers.availability.replace('http://schema.org/', '');
+                if (row.availabilityText[0].text == 'InStock') {
+                    row.availabilityText[0].text = 'In Stock';
+                }
             }
             if (row.alternateImages) {
                 var regex = /(\/)(?!.*\/)(.*_)(.*)(\.)/g;
