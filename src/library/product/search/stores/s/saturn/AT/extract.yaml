@@ -42,12 +42,12 @@ fields:
     xpath: ./parent::li//div[contains(@class,"rating")]/div/@class
     description: The stated aggregate rating
   - name: ratingCount
-    xpath: //a[@class="clickable see-reviews"]
+    xpath: ./parent::li//a[@class="clickable see-reviews"]
     regExp: \((\d+)\)$
     regExpReplace: $1
     description: The number of ratings
   - name: reviewCount
-    xpath: //a[@class="clickable see-reviews"]
+    xpath: ./parent::li//a[@class="clickable see-reviews"]
     regExp: \((\d+)\)$
     regExpReplace: $1
     description: The number of reviews
