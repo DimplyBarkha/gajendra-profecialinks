@@ -4,26 +4,22 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: id
-    xpath: //div[contains(@class,'product-item-info')]//a//@data-id
+    xpath: //div[contains(@class,'product-item-details')]//a[@itemprop="url"]//@data-objectid
     singleValue: true
   - name: name
-    xpath: //div[contains(@class,'product-item-info')]//a//@data-name
+    xpath: //div[contains(@class,'product-item-details')]//strong[@itemprop="name"]
     singleValue: true
   - name: productUrl
-    xpath: //div[contains(@class,'product-item-info')]//a//@href
-    singleValue: true
-    regExp: (https:\/\/www.betta.com.au)?(.+)
-    regExpReplace: https://www.betta.com.au$2
+    xpath: //div[contains(@class,'product-item-details')]//a[@itemprop="url"]//@href
+    singleValue: true    
   - name: manufacturer
     xpath: //div[contains(@class,'product-item-info')]//a//@data-brand
     singleValue: true    
   - name: thumbnail
-    xpath: //div[contains(@class,'product-item-info')]//img[contains(@class,'product-image-photo')]//@src
-    singleValue: false
-    regExp: (https:\/\/www.betta.com.au)?(.+)
-    regExpReplace: https://www.betta.com.au$2
+    xpath: //img[@itemprop="image"]//@src
+    singleValue: true    
   - name: price
-    xpath: //div[contains(@class,'product-item-info')]//a//@data-price
+    xpath: //span[@itemprop="lowPrice"]//span
     singleValue: true 
   - name: rankOrganic
     singleValue: true 
