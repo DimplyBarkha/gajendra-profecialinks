@@ -17,6 +17,7 @@ const variantsTransform = (data, context) => {
       try {
         if (row.variantId && row.variantName) {
           row.variantUrl = [{ text: `http://walmart.com/ip/${row.variantName[0].text}/${row.variantId[0].text}` }];
+          delete row.variantName;
         }
       } catch (exception) {
         console.log('Transform failed');
