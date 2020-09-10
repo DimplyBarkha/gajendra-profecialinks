@@ -21,7 +21,7 @@ module.exports = {
       await context.waitForSelector('div[data-target="description"]');
       await context.evaluate(() => {
         var body = document.querySelector('body')
-        var avail = document.querySelector('.openPopupAvvisami')
+        var avail = document.querySelector('a.avvisami-btn')
         if (!avail) {
           var new1 = document.createElement("div");
           new1.className = 'avilable';
@@ -53,6 +53,9 @@ module.exports = {
         videoDiv2.className = 'myvdo';
         videoDiv2.setAttribute('lnk', lnk);
         bdy.append(videoDiv2);
+      });
+      await context.evaluate(() => {
+
       });
     } catch (e) {
       console.error(e);
