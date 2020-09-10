@@ -4,39 +4,39 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //div[contains(@class,"Gallerystyled__StyledSimpleCarousel")]//div[@class="slick-list"]/div/div[position()=1]//picture/img/@src
-    regExp: (.+)/[^/]+$
-    regExpReplace: $1
+    xpath: //img[@itemprop="image"]/@src
+    regExp: (.+)/[^/]+/[^/]+$
+    regExpReplace: https:$1
     description: URL of the main product image
   - name: imageAlt
-    xpath: //div[contains(@class,"Gallerystyled__StyledSimpleCarousel")]//div[@class="slick-list"]/div/div[position()=1]//picture/img/@alt
+    xpath: //img[@itemprop="image"]/@alt
     description: Alt text of the main product image
   - name: alternateImages
-    xpath: //div[@data-test="mms-th-gallery"]//div[@class="slick-list"]/div/div[position() > 1]//picture/img/@src | //img[@data-test="mms-product-assets-image"]/@srcset
-    regExp: (.+)/[^/]+$
-    regExpReplace: $1
+    xpath: //ul[@class="thumbnail-carousel__list js-list"]/li//img/@src
+    regExp: (.+)/[^/]+/[^/]+$
+    regExpReplace: https:$1
     singleValue: false
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
     description: The <meta> keywords content
   - name: category
-    xpath: //ul[starts-with(@class,"Breadcrumbstyled")]/li/a
+    xpath: //ul[@class="breadcrumbs"]/li[not(@class="home")]/a
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    xpath: //div[@data-test="mms-select-details-header"]/h1
+    xpath: //h1[@itemprop="name"]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
-    xpath: translate(//div[contains(@class,"StrikePriceWrapper")]//span[contains(@class,"StrikeThrough__StyledStrikePriceTypo")], ".",",")
+    xpath: //div[@itemprop="offers"]//div[contains(@class,"old-price-block")]/div[1]
     description: The stated undiscounted price for the product
   - name: price
-    xpath: translate(//span[@font-family="price"],'.',',')
+    xpath: //div[@itemprop="offers"]//div[contains(@class,"price big")]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //script[@type="application/ld+json"][contains(text(),'"availability":"http://schema.org/InStock"')]
+    xpath: //div[@class="box infobox availability"]/ul/*[not(@class="section-store-availability")]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -44,105 +44,92 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
+    xpath: //*[@id="produktbeschreibung"]
     singleValue: false
-    xpath: //div[@data-test="mms-accordion-description"]/div[starts-with(@class,"ProductDescription")]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
-    xpath: count(//div[@data-test="mms-accordion-description"]/div[starts-with(@class,"ProductDescription")]/ul/li)
+    xpath: count(//*[@id="produktbeschreibung"]/ul/li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    xpath: //script[@type="application/ld+json"][contains(text(),"Brand")]
-    regExp: type":"Brand","name":"([^"]+)
-    regExpReplace: $1
+    xpath: //meta[@property="product:brand"]/@content
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
+    # Brand can potentially be taken as manufacturer. Currently not taking if not mentioned in specs.
+    xpath: //dt[contains(text(),"Hersteller:")]/following-sibling::dd[1]
     description: Product manufacturer
-    xpath: //div[contains(@class,"StyledManufacturerImageWrap")]//img/@alt
   - name: quantity
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    xpath: //td[span[contains(text(),"Gewicht")]]/following-sibling::td
+    xpath: //dt[contains(text(),"Gewicht")]/following-sibling::dd[1]
     description: Net weight as described on the page
   - name: weightGross
     description: Gross weight as described on the page
   - name: gtin
-    xpath: //script[@type="application/ld+json"][contains(text(),'gtin')]
-    regExp: gtin13":"([^"]+)
+    xpath: (//script[contains(text(),'"ean"')] | //no-script[contains(text(),'"ean"')])[1]
+    regExp: ean":\s*"([^"]+)
     regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    xpath: //script[@type="application/ld+json"][contains(text(),'sku')]
-    regExp: sku":"([^"]+)
-    regExpReplace: $1
+    xpath: //*[@itemprop="sku"]
     description: The store-specific product identifier
   - name: variantId
-    xpath: //script[@type="application/ld+json"][contains(text(),'sku')]
-    regExp: sku":"([^"]+)
-    regExpReplace: $1
+    # variants don't share sku so not needed.
+    # xpath: //select[@class="product-attributes__item-select"]/option[@selected="true"]/@value 
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: //td[span[contains(text(),"Hersteller Artikelnummer")]]/following-sibling::td
+    xpath: //dt[contains(text(),"Hersteller Modellnummer:")]/following-sibling::dd[1]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
-    xpath: //div[contains(@class,"FooterLegal__StyledFooterLegal")]//p[@font-size="xxs"]/..
+    xpath: //div[@class="ms-site-footer__row--legal ms-site-footer__row"]
     description: Content under "legal disclaimer" header
   - name: directions
     description: Content under "directions" header
   - name: warnings
     description: Content under "warnings" header
   - name: ratingCount
+    xpath: //span[@itemprop="reviewCount"]
     description: The number of ratings
-    xpath: //script[@type="application/ld+json"][contains(text(),'ratingCount')]
-    regExp: ratingCount":"([^"]+)
-    regExpReplace: $1
     type: NUMBER
   - name: aggregateRatingText
-    xpath: translate(//div[contains(@class,"StyledAverageRating")]//span[contains(@class,"AverageRatingSummary")],'.',',')
     description: The stated aggregate rating
   - name: aggregateRating
-    xpath: translate(//div[contains(@class,"StyledAverageRating")]//span[contains(@class,"AverageRatingSummary")],'.',',')
+    xpath: //span[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     description: Shipping information for the product
   - name: shippingDimensions
-    xpath: //td[span[contains(text(),"Packmaße")]]/following-sibling::td
     description: Stated shipping dimensions
   - name: shippingWeight
     description: Stated shipping weight
   - name: variantCount
-    xpath: count(//div[contains(@class,"ProductVariantsstyled__StyledColorVariantsThumbsTest")]/a)
     description: Number of variants listed
     type: NUMBER
   - name: color
-    xpath: //td[span[contains(text(),"Farbe")]]/following-sibling::td
+    xpath: //dt[contains(text(),"Farbe:")]/following-sibling::dd[1]
     description: A textual description of the colour
   - name: colorCode
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    xpath: //div[@id="enhanced-content"]//div[@class="wrapper preview"]
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    xpath: //div[@id="enhanced-content"]//div[@class="wrapper preview"]//img/@data-src | //div[@id="enhanced-content"]//div[@class="wrapper preview"]//img[not(@data-src)]/@src
-    regExp: (https:)?//(.+)
-    regExpReplace: https://$2
     singleValue: false
     description: Images within the third party description
   - name: videos
+    xpath: //*[@class="video_proddetail"]/@src
     singleValue: false
-    xpath: //div[@id="enhanced-content"]//*[@data-video]/@data-video
     description: URLs of videos on page
   - name: name
+    xpath: //h1[@itemprop="name"]
     description: The product name
-    xpath: //div[@data-test="mms-select-details-header"]/h1
   - name: inStorePrice
     description: Price in the selected store
   - name: asin
@@ -331,15 +318,14 @@ fields:
   - name: dietaryInformation
     description: null
   - name: specifications
-    xpath: //div[contains(@class,"ProductFeatures")]//tbody/tr
+    xpath: //dl[@class="specification"]
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    xpath: //div[@data-test="mms-info-teaser-regular"][div[contains(.,"Geld-Zurück-Garantie")]]
+    xpath: //div[@class="jahre"][h3[text()="Herstellergarantie"]]
     description: Guarantee associated with the product
   - name: storage
     description: Suggested storage location for product
   - name: countryOfOrigin
-    xpath: //td[span[contains(text(),"Ursprungsland/Herkunftsort")]]/following-sibling::td
     description: The country from which the product originates
   - name: allergyAdvice
     description: Allergy information associated with the product
@@ -357,7 +343,6 @@ fields:
   - name: pricePerUnitUom
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    xpath: //div[@data-test="mms-select-gallery"]/div/div[contains(@class,"Badgestyled__StyledBadgeWrapper")]
     description: promotion text on product page
   - name: alcoholContent
     description: Alcohol content information
@@ -371,10 +356,9 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    xpath: //label[contains(@class,"ProductVariantsstyled")]
     description: colour / scent / flavour / other
   - name: firstVariant
-    xpath: //div[contains(@class,"ProductVariantsstyled__StyledColorVariantsThumbsTest")]/a/@href
+    xpath: //select[@class="product-attributes__item-select"]/option[1]/@data-action-id
     regExp: ([^-]+).html$
     regExpReplace: $1
     description: Unique identifier for a collection of variants. For a subset of
@@ -387,13 +371,13 @@ fields:
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
   - name: variants
-    xpath: //div[contains(@class,"ProductVariantsstyled__StyledColorVariantsThumbsTest")]/a/@href
+    xpath: //select[@class="product-attributes__item-select"]/option/@data-action-id
     regExp: ([^-]+).html$
     regExpReplace: $1
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
-    xpath: //div[@data-test="mms-accordion-description"]/div[starts-with(@class,"ProductDescription")]/ul/li
+    xpath: //*[@id="produktbeschreibung"]/ul/li
     singleValue: false
     description: null
   - name: prop65Warning
@@ -403,6 +387,7 @@ fields:
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
   - name: energyEfficiency
+    xpath: //dt[contains(text(),"Energieeffizienzklasse:")]/following-sibling::dd[1]
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B

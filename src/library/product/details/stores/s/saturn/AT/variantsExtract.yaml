@@ -10,4 +10,6 @@ fields:
     regExp: (https://www.saturn.at)?(.+)
     regExpReplace: https://www.saturn.at$2
   - name: variantId
-    xpath: ./@value | .//*[@itemprop="sku"]
+    xpath: ./@data-action-id | .//link[@rel="canonical"]/@href
+    regExp: ([^-]+).html$
+    regExpReplace: $1
