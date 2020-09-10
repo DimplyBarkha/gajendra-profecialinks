@@ -48,7 +48,7 @@ async function implementation (
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 80000 }, loadedSelector, noResultsXPath);
+    }, { timeout: 200000 }, loadedSelector, noResultsXPath);
   }
   console.log('Checking no results', noResultsXPath);
   return await context.evaluate(function (xp) {
@@ -65,10 +65,10 @@ module.exports = {
   parameterValues: {
     country: 'NO',
     store: 'netonnet',
-    nextLinkSelector: 'nav > ul.pagination > li > a',
+    nextLinkSelector: 'nav > ul.pagination > li:last-child > a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.tab-content',
+    loadedSelector: 'div.tab-content, div.row > div > div#productList > div.row',
     noResultsXPath: '//div[contains(@class,"alert-warning search-warning")]',
     openSearchDefinition: {
       template: 'https://www.netonnet.no/Search?query={searchTerms}&page={page}',
