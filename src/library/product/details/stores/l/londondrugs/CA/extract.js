@@ -61,8 +61,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
 
     const prodVideoSelector = '.thumb-video';
-    const prodVideo = await checkExistance (prodVideoSelector);
-    if (prodVideo){
+    const prodVideo = await checkExistance(prodVideoSelector);
+    if (prodVideo) {
       await context.evaluate(() => {
         const thumbVideo = document.querySelector('div[class*="thumb-video"]>a');
         const dataVideo = thumbVideo.getAttribute('data-video');
