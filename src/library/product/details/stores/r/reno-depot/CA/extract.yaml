@@ -29,7 +29,7 @@ fields:
     xpath: //div[@id="price"]
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@data-test="product-title"]
+    xpath: //h1[@itemprop="name"]
   - name: listPrice
     singleValue: true
     xpath: //div[@id="listPrice"]
@@ -50,52 +50,55 @@ fields:
     xpath: //div[@id="quantityInfo"]
   - name: weightNet
     singleValue: true
-    xpath: //div[@id="weightInfo"]
-  - name: weightGross
+    xpath: //div[@id="weightNet"]
+  #- name: weightGross
+  #  singleValue: true
+  #  xpath: //div[@data-test="estimatedShipWeight"]
+  - name: mpc
     singleValue: true
-    xpath: //div[@data-test="estimatedShipWeight"]
-  - name: gtin
-    singleValue: true
-    xpath: //div[@id="upcInfo"]
+    xpath: //meta[@itemprop="mpn"]/@content
   - name: sku
     singleValue: true
-    xpath: //div[@id="skuInfo"]
-  - name: packSize
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: variantId
     singleValue: true
-    xpath: //div[@id="packSize"]|//div[@id="quantityInfo"]
-  - name: disclaimer
-    singleValue: true
-    xpath: //div[@id="disclaimerInfo"]
-  - name: warning
-    singleValue: true
-    xpath: //div[@data-test="chokingHazard"]|//div[@id='warningInfo']
+    xpath: //meta[@itemprop="sku"]/@content
+  #- name: packSize
+  #  singleValue: true
+  #  xpath: //div[@id="packSize"]|//div[@id="quantityInfo"]
+  #- name: disclaimer
+  #  singleValue: true
+  #  xpath: //div[@id="disclaimerInfo"]
+  #- name: warning
+  #  singleValue: true
+  #  xpath: //div[@data-test="chokingHazard"]|//div[@id='warningInfo']
   - name: ratingCount
     singleValue: true
-    xpath: //span[@data-test="ratingCount"]
+    xpath: //meta[@itemprop="reviewCount"]/@content
   - name: aggregatedRatingText
     singleValue: true
-    xpath: //div[@class="Col-favj32-0 styles__StyledCol-sc-1n8m629-12 gciueZ h-padding-h-default h-padding-t-tight"]//span[@class="utils__ScreenReaderOnly-sc-1kni3r7-0 cZmbcQ"]
+    xpath: //div[@id="aggregatedRatingText"]
   - name: aggregatedRating
     singleValue: true
-    xpath: //div[@class="RatingSummary__StyledRating-bxhycp-0 fcPxtT h-text-bold"]
+    xpath: //div[@itemprop="ratingValue"]
   - name: shippingInfo
     singleValue: true
     xpath: //div[@id="shippingInfo"]
-  - name: shippingDimensions
-    singleValue: true
-    xpath: //div[@data-test="estimatedShipDimensions"]
-  - name: shippingWeight
-    singleValue: true
-    xpath: //div[@data-test="estimatedShipWeight"]
-  - name: variantCount
-    singleValue: true
-    xpath: //div[@id="variantCount"]
+  #- name: shippingDimensions
+  #  singleValue: true
+  #  xpath: //div[@data-test="estimatedShipDimensions"]
+  #- name: shippingWeight
+  #  singleValue: true
+  #  xpath: //div[@data-test="estimatedShipWeight"]
+  #- name: variantCount
+  #  singleValue: true
+  #  xpath: //div[@id="variantCount"]
   - name: color
     singleValue: true
-    xpath: //div[@data-test="variationTheme-color"]//span/text()
+    xpath: //div[@id="color"]
   - name: manufacturerDescription
     singleValue: true
-    xpath: //div[@class="wc-rich-content-description"]
+    xpath: //div[@id="manufacturerDescription"]
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@id="manufacturerImgs"]
@@ -104,46 +107,28 @@ fields:
     xpath: //video//source/@src
   - name: name
     singleValue: true
-    xpath: //div[@id="productName"]
+    xpath: //h1[@itemprop="name"]
   - name: specifications
     singleValue: true
-    xpath: //div[@id="dimensionsInfo"]
+    xpath: //div[@id="specifications"]
   - name: warranty
     singleValue: true
-    xpath: //div[@id="warrantyInfo"]
-  - name: storage
-    singleValue: true
-    xpath: //div[@id="storageInfo"]
+    xpath: //div[@id="warranty"]
   - name: countryOfOrigin
     singleValue: true
     xpath: //div[@id="originInfo"]
-  - name: allergyAdvice
-    singleValue: true
-    xpath: //div[@id="allergyAdviceInfo"]
   - name: promotion
     singleValue: true
     xpath: //div[@class="rebate"]
-  - name: alcoholContent
-    singleValue: true
-    xpath: //div[@id="alcoholInfo"]
-  - name: variants
-    singleValue: true
-    xpath: //div[@id="variants"]
   - name: additionDescBulletInfo
     singleValue: true
     xpath: //div[@id="additionalInfo"]
-  - name: prop65Warning
-    singleValue: true
-    xpath: //div[@id="p65Info"]
-  - name: ageSuitability
-    singleValue: true
-    xpath: //div[@id="ageInfo"]
   - name: termsAndConditions
     singleValue: true
     xpath: //div[@id="terms"]
   - name: privacyPolicy
     singleValue: true
-    xpath: //div[@id="privacy"]
+    xpath: //div[@id="privacyPolicy"]
   - name: customerServiceAvailability
     singleValue: true
     xpath: //div[@id="customerServiceAvailability"]
