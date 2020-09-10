@@ -1,3 +1,4 @@
+const { implementation } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -8,4 +9,5 @@ module.exports = {
     domain: 'ebay.com.au',
     zipcode: '',
   },
+  implementation,
 };

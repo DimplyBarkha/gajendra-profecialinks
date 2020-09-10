@@ -36,6 +36,7 @@ fields:
     manualSelector: a#binBtn_btn
   - name: description
     singleValue: false
+    manualSelector: div.prodDetailSec
   - name: imageAlt
     singleValue: false
     xpath: //img[@id="icImg"]/@alt
@@ -84,6 +85,7 @@ fields:
     singleValue: false
   - name: manufacturerDescription
     singleValue: false
+    manualSelector: div#ds_div
   - name: shippingWeight
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
@@ -95,5 +97,6 @@ fields:
     xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td)
   - name: manufacturerImages
     singleValue: false
+    xpath: //div[@id="ds_div"]//img[contains(@src,"http")]/@src
   - name: termsAndConditions
     singleValue: false
