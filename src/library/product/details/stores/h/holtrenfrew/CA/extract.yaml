@@ -8,13 +8,13 @@ fields:
     manualSelector: h1[class="product-details__name"]
   - name: image
     singleValue: false
-    xpath: (//img[@class='pdp-carousel__main-img js-carousel-img']/@src)[1]
+    xpath: (//img[contains(@class,'pdp-carousel__main-img')]/@src)[1]
   - name: imageAlt
     singleValue: false
-    xpath: (//img[@class='pdp-carousel__main-img js-carousel-img']/@alt)[1]
+    xpath: (//img[contains(@class,'pdp-carousel__main-img')]/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class="pdp-carousel__thumb-list js-pdp-carousel__thumb-list swiper-wrapper"]/li/img/@src
+    xpath: //ul[contains(@class,"pdp-carousel__thumb-list")]/li/img/@src
     regExp: ([^\?]+)(\?.*)?
     regExpReplace: $1
   - name: color
@@ -49,14 +49,14 @@ fields:
     xpath: count(//div[@class="product-details__descr"]/ul/li | //div[@class="product-details__descr"]/li)
   - name: brandText
     singleValue: false
-    xpath: //h2[contains(@class,"product-details__brand text-uppercase")]/a
+    xpath: //h2[contains(@class,"product-details__brand")]/a
   - name: sku
     singleValue: false
     xpath: (//input[@name="productCodePost"])[1]/@value
   - name: variantId
     singleValue: false
     xpath: (//input[@name="productCodePost"])[1]/@value
-  - name: mpc
+  - name: gtin
     singleValue: false
     xpath: //p[@class="product-details__id"]
     regExp: ([^\d]+)(\d+)?
@@ -84,7 +84,7 @@ fields:
     xpath: //a[contains(@class,"color-list__link ")]/@title
   - name: firstVariant
     singleValue: false
-    xpath: (//ul[@class="color-list no-padding flex-no-wrap swiper-wrapper"]/li/a)[1]/@href
+    xpath: (//ul[contains(@class,"color-list no-padding")]/li/a)[1]/@href
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[@class="product-details__descr"]/li[contains(text(), 'Made in')]
