@@ -7,7 +7,7 @@ module.exports = {
     domain: 'expert.at',
     url: 'https://www.expert.at/shop/?q={searchTerms}',
     loadedSelector: 'section.product-grid',
-    noResultsXPath: '//*[contains(text(),"Leider aktuell kein Treffer zu Ihrem Suchbegriff")]',
+    noResultsXPath: '//*[contains(text(),"Leider aktuell kein Treffer zu Ihrem Suchbegriff")]|//div[contains(@class, "marken-img-slider__item")]',
     zipcode: '',
   },
 };

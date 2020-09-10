@@ -24,7 +24,6 @@ fields:
   - name: category
     singleValue: false
     xpath: //li[@itemprop="itemListElement"][position()>1 and position()<last()]
-    # xpath: //script[contains(text(), "window.dataLayer")]/text()
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
@@ -116,16 +115,16 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    # xpath: //div[@id="alatest_snippet_rating_user"]//span[contains(@class, "alatest_snippet_rating_label_number")]
+    xpath: //*[@id="iio_rating_count"]
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
-    # xpath: (//button[@id="ratings-summary"]//div[@itemprop="ratingValue"]/text())[1]
+    xpath: //*[@id="iio_rating"]
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    # xpath: (//button[@id="ratings-summary"]//div[@itemprop="ratingValue"]/text())[1]
+    xpath: //*[@id="iio_rating"]
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -144,7 +143,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: true
-    xpath: //div[contains(@class, "product_features")]//strong[contains(text(), "Farben")]//following-sibling::ul
+    xpath: //div[contains(@class, "product_features")]//*[contains(text(), "Farben")]//following-sibling::ul
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
@@ -268,11 +267,11 @@ fields:
     description: null
   - name: specifications
     singleValue: true
-    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr
+    # xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
-    xpath: //div[contains(@class, "widget-AdditionalServices")]//span[contains(text(), "Garantie")]/text()
+    xpath: //div[contains(@id, "tab-content")]//strong[contains(text(), "Garantie")]//parent::li
     # xpath: //div[contains(@class, "widget-AdditionalServices")]//text()
     description: Guarantee associated with the product
   - name: storage
@@ -305,7 +304,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
-    xpath: //div[contains(@class, "widget-ArticlePromotion--container")]//text()
+    xpath: (//div[contains(@class, "price-advantage text-fine font-bold")]//text())[2]
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
@@ -358,7 +357,7 @@ fields:
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: true
-    xpath: //div[contains(@class, "widget-ArticleDownloads")]//a[contains(@href, "pdf")]/@href
+    xpath: //div[contains(@id, "datasheet-button")]//a[contains(@target, "_blank")]//span[contains(@class, "icon-pdf")]/@class
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
@@ -366,7 +365,7 @@ fields:
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
   - name: termsAndConditions
     singleValue: true
-    xpath: (//*[contains(text(), "AGB Onlinekauf / Widerrufsbelehrung")])[1]
+    xpath: (//*[contains(text(), "AGB")])[1]
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No

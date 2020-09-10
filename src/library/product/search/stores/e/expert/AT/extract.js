@@ -21,31 +21,33 @@ module.exports = {
         doc.appendChild(catElement);
       }
 
-      const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
       const product = document.querySelectorAll('div.product-item.is-clickable');
       for (let i = 0; i < product.length; i++) {
         const fullStar = product[i].querySelectorAll('svg[viewBox="0 0 46.773 44.751"]');
         const halfStar = product[i].querySelectorAll('svg[viewBox="0 0 46.773 44.75"]');
         let fullRating = null;
-        if (fullStar.length === 5) {
-          fullRating = '';
-          const stars = product[i].querySelectorAll('svg[viewBox="0 0 46.773 44.751"]');
-          let count = 1;
-          while (count < stars.length) {
-            if (!(stars[count - 1].isEqualNode(stars[count]))) {
-              break;
+        console.log('fullStar')
+        console.log(fullStar)
+        if (fullStar.length || halfStar.length) {
+          if (fullStar.length === 5) {
+            const stars = product[i].querySelectorAll('svg[viewBox="0 0 46.773 44.751"]');
+            let count = 1;
+            while (count < stars.length) {
+              if (!(stars[count - 1].isEqualNode(stars[count]))) {
+                break;
+              }
+              count++;
             }
-            count++;
-          }
-          fullRating = count;
-        } else {
-          if (halfStar) {
-            const halfStarTotal = 0.5 * halfStar.length;
-            fullRating = (5 - halfStarTotal);
+            fullRating = count;
+          } else {
+            if (halfStar) {
+              const halfStarTotal = 0.5 * halfStar.length;
+              fullRating = (5 - halfStarTotal);
+            }
           }
         }
 
-        addElementToDocument(product[i], 'aggrRating', fullRating);
+        addElementToDocument(product[i], 'aggrRating', fullRating || '');
       }
     });
     return await context.extract(productDetails, { transform });

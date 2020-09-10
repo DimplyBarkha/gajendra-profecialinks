@@ -61,6 +61,23 @@ module.exports = {
     });
 
     addHiddenInfo('iio_product_url', urlLink);
+    const ratingReviews = await context.evaluate(async function () {
+      function getEleByXpath (xpath) {
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        console.log('Element' + element);
+        const text = element ? element.textContent : null;
+        return text;
+      }
+
+      const productObj = getEleByXpath('//script[contains(@type, "application/ld+json") and contains(text(), "Product")]');
+      return JSON.parse(productObj);
+    });
+
+    console.log('ratingReviews');
+    console.log(ratingReviews);
+
+    addHiddenInfo('iio_rating', ratingReviews && ratingReviews.aggregateRating && ratingReviews.aggregateRating.ratingValue ? ratingReviews.aggregateRating.ratingValue : '');
+    addHiddenInfo('iio_rating_count', ratingReviews && ratingReviews.aggregateRating && ratingReviews.aggregateRating.reviewCount ? ratingReviews.aggregateRating.reviewCount : '');
 
     return await context.extract(productDetails, { transform: transformParam });
   },
