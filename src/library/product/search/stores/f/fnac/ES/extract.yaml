@@ -20,6 +20,9 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Modelo")]/following-sibling::span
+  - name: manufacturer
+    singleValue: false
+    xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span
   - name: ratingCount
     singleValue: false
     xpath: //span[contains(@class,"Article-rate")]/span/span[2]
