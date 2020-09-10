@@ -10,10 +10,16 @@ module.exports = {
   },
   // For navigating from home page to search page because search page is redirecting to home page.
   implementation: async (inputs, parameterValues, context, dependencies) => {
-    let url = `${inputs.url}`;
-    url = `${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_timeout":350000,"load_all_resources":true}[/!opt!]`;
+    const url = `${inputs.url}`;
+    await context.setAntiFingerprint(false);
+    await context.setLoadAllResources(true);
+    await context.setBlockAds(false);
+    await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
 
-    await context.goto(url, { timeout: 350000, waitUntil: 'load'});
+    // let url = `${inputs.url}`;
+    // url = `${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_timeout":350000,"load_all_resources":true}[/!opt!]`;
+
+    // await context.goto(url, { timeout: 350000, waitUntil: 'load'});
     // await context.waitForSelector('input[name="OutsideHomePageControl$cmdPostCode"]');
     // await context.click('input[name="OutsideHomePageControl$cmdPostCode"]');
     // await context.waitForSelector('input[name="BLC$txtPostcode"]');
