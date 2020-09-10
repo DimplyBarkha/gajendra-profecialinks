@@ -108,4 +108,6 @@ fields:
   - name: countryOfOrigin
     singleValue: false  
     xpath: //*[contains(text(), "de expedição")]/following-sibling::dd[1]
-  
+  - name: variantId
+    singleValue: false  
+    xpath: //div[contains(@class, "f-productPage") and @data-prid]/@data-prid

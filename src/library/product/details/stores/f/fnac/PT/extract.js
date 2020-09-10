@@ -24,7 +24,11 @@ async function implementation (inputs, parameters, context, dependencies) {
     function fetchBrandFromScript () {
       const scriptDataTagSelector = document.evaluate('//script[@type="application/ld+json"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const scriptTagData = scriptDataTagSelector ? scriptDataTagSelector.innerText : '';
-      let brandText = scriptTagData ? scriptTagData.replace(/.*Brand.*?name":"(.*?)".*/gm, '$1') : '';
+      const brandRegex = /.*Brand.*?name":"(.*?)".*/gm;
+      let brandText = '';
+      if (brandRegex.test(scriptTagData)) {
+        brandText = scriptTagData ? scriptTagData.replace(brandRegex, '$1') : '';
+      }
       brandText = brandText ? brandText.trim() : '';
       addHiddenDiv('added_brandText', brandText);
     }
