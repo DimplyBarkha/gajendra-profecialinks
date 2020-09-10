@@ -126,3 +126,7 @@ fields:
     description: The number of ratings
     xpath: //div[contains(@class,'vPREP')]/h2
     type: NUMBER
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //p//video/source/@src
