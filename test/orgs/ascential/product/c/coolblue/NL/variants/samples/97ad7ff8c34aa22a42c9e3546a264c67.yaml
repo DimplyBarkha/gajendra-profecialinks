@@ -1,0 +1,28 @@
+input:
+  _url: http://coolblue.nl
+  URL: https://www.coolblue.nl/product/800543
+extractions:
+  - html: https://workbench.import.io/html/run=5d0e1c12-8f6b-430d-b077-893a790e60a9/task=c14caeb6-10fb-405e-a3e1-2272a9096582/ecf557d1-c5c7-4007-9dd0-092117891989.html
+    extractionConfigId: product/details/stores/c/coolblue/NL/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "80054"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/800543/dyson-v8-absolute-pro.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@value
+          - variantId:
+              - text: "83070"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/830703/dyson-v8-parquet.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@value
+          - variantId:
+              - text: "86638"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/866383/dyson-v8-absolute-dyson-extension-hose.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/input[1]/@value
+        xpath: /html
+    timestamp: 1598964863558

@@ -1,0 +1,52 @@
+input:
+  _url: http://coolblue.nl
+  URL: https://www.coolblue.nl/product/854954
+extractions:
+  - html: https://workbench.import.io/html/run=b35cead2-3aa3-4393-a7a0-2b99840da3d2/task=6db15062-22b2-429c-934c-5b89212c8c3b/e7d729be-2699-437d-93b2-5f6e2590877b.html
+    extractionConfigId: product/details/stores/c/coolblue/NL/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "81191"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/811915/dyson-pure-cool-tower-wit-2018.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@value
+          - variantId:
+              - text: "85949"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/859490/dyson-pure-cool-tower-wit-2018-filterset.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@value
+          - variantId:
+              - text: "83752"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/837523/dyson-pure-cool-tower-duo-pack-wit.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]/input[1]/@value
+          - variantId:
+              - text: "82492"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[4]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/824928/dyson-pure-hot-cool-wit-zilver-2018.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[4]/div[1]/input[1]/@value
+          - variantId:
+              - text: "85495"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[5]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/854954/dyson-pure-hot-cool-wit-zilver-2018-filterset.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[5]/div[1]/input[1]/@value
+          - variantId:
+              - text: "85347"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[6]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/853477/dyson-pure-hot-cool-wit-zilver-2018.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[6]/div[1]/input[1]/@value
+          - variantId:
+              - text: "85879"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[7]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.nl/product/858792/dyson-pure-humidify-cool-wit-zilver.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[7]/div[1]/input[1]/@value
+        xpath: /html
+    timestamp: 1598964408299
