@@ -11,7 +11,7 @@ fields:
     xpath: //img[contains(@class,"f-productVisuals-mainMedia")]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class, "js-productVisuals-thumbnails")]//div[@data-type="image"]/img/@src
+    xpath: //div[contains(@class, "js-productVisuals-thumbnails")]//div[@data-type="image"]/@data-src-zoom
   - name: category
     singleValue: false
     xpath: //ul[@class="f-breadcrumb"]/li[position() > 1]
@@ -37,7 +37,7 @@ fields:
   - name: brandText
     singleValue: false
     manualSelector: h1.f-productHeader-Title
-    regExp: (Dyson)(.+)
+    regExp: ([^ ]+) .*
     regExpReplace: $1
   - name: weightNet
     singleValue: false
@@ -52,13 +52,9 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-productHeader-reviewLabel")]
     type: NUMBER
-  - name: aggregateRatingText
-    singleValue: false
-    description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-star--large")]
-    type: NUMBER
+    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-star--large")]    
   - name: variantCount
     singleValue: false
     defaultValue: 1
