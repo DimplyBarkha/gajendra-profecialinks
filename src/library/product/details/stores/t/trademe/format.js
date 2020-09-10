@@ -46,20 +46,13 @@ const transform = (data) => {
               },
             ];
           }
-         
+    
           if (row.alternateImages) {
-            let text = '';
             row.alternateImages.forEach(item => {
-              text += `${item.text
-                .match(/\(([^)]+)\)/)[1]
-                }  `;
+              item.text = item.text.match(/\(([^)]+)\)/)[1].slice(1,-1);
             });
-            row.alternateImages = [
-              {
-                text: text.slice(),
-              },
-            ];
           }
+
           if (row.specifications) {
             let text = '';
             row.specifications.forEach(item => {
