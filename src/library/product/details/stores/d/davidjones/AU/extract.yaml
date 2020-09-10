@@ -22,16 +22,133 @@ fields:
     xpath: //ul[contains(@class, 'breadcrumb')]//li[position()>1 and position()<last()]
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class='product-content']/h1
-  - name: listPrice
-    singleValue: true
-    description:     
+    xpath: //div[@class='product-content']/h1  
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,"price-display")]
+    xpath: (//p[(@class='price now')]//span[(@class='price-display')]|//p[(@class='price')]//span[(@class='price-display')])
   - name: availabilityText
     singleValue: true
-    xpath: //*[contains(@class,'availability')]
+    xpath: //button[@title="Add to bag"]
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class='content long-description']/p
+  - name: descriptionBullets
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[contains(@class,'long-description')]/p/strong)
+  - name: brandText
+    singleValue: true
+    xpath: //*[@class="brand"]//span
+  - name: manufacturer
+    singleValue: true
+    xpath: //*[@class="brand"]//span
+  - name: quantity
+    singleValue: true
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: true    
+  - name: weightGross
+    singleValue: true
   - name: gtin
     singleValue: true
-    xpath: //h3[@class='style-number']/following::p[1]
+    xpath: //@data-product-sku
+  - name: sku
+    singleValue: true
+    xpath: //@data-product-sku
+  - name: variantId
+    singleValue: true
+    xpath: //@data-product-sku
+  - name: mpc
+    singleValue: true
+    xpath: //@data-product-sku
+  - name: packSize
+    singleValue: true
+  - name: productUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: videos
+    singleValue: true
+    xpath: //li[(@class="video top-product default slick-slide")]/a/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.davidjones.com$1
+  - name: name
+    singleValue: true
+    xpath: //*[@class="brand"]//h1
+  - name: secondaryImageTotal
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[@class='slick-track']/li/a/img/@src)
+  - name: specifications
+    singleValue: true
+    xpath: //div[(@class='content long-description')]/p/strong[contains(text(),'Product Specifications')]/following-sibling::text()
+  - name: warranty
+    singleValue: true
+    xpath: //div[(@class='content long-description')]/p/strong[contains(text(),'Warranty')]/following-sibling::text()[1]
+  - name: shippingDimensions
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: recyclingInformation
+    singleValue: true
+  - name: variantCount
+    singleValue: true
+    type: NUMBER
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@class='content long-description']/p/strong[contains(text(),'Features')]/following-sibling::text() | //div[@class='content long-description']/p/b[contains(text(),'FEATURES')]/following-sibling::b
+  - name: color
+    singleValue: false
+    xpath: //span[contains(@class, 'colour-label')]
+  - name: packaging
+    singleValue: false
+    xpath: //div[@class='content long-description']/p/strong[contains(text(),'What’s in the box:')]/following-sibling::text()
+  - name: promotion
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+  - name: countryOfOrigin
+    singleValue: true
+  - name: energyEfficiency
+    singleValue: true
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //div[@class='content long-description']/li/strong
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: Image360Present
+    singleValue: true
+  - name: manufacturerImages
+    singleValue: false
+  - name: upc
+    singleValue: true
+    xpath: //@data-product-sku
+  - name: eangtin
+    singleValue: true
+    xpath: //@data-product-sku
+  - name: listPrice
+    singleValue: true
+    xpath: //p[(@class='price was')]//span[(@class='price-display')]
+  - name: colorCode
+    singleValue: true
+    xpath: //span[contains(@class, 'colour-label')]
+  - name: newDescription
+    singleValue: true
+    xpath: //div[@class='content long-description']/p/strong[contains(text(),'Features')]/following-sibling::text() | //div[@class='content long-description']/p/b[contains(text(),'FEATURES')]/following-sibling::b
+  - name: lbbPrice
+    singleValue: true
+    xpath: 
+  - name: firstVariant
+    singleValue: false
+  - name: variants
+    singleValue: false
+    xpath:
+  - name: gtin
+    singleValue: true
+    xpath: //@data-product-sku
