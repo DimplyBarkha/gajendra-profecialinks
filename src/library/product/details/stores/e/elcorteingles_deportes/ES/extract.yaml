@@ -1,1 +1,9 @@
 extends: ../../elcorteingles_perfumeria/ES/extract
+recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul[contains(@class,"colors_list")]/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"] |//div[contains(@class,"product_detail-aside")]//div[contains(@class,"product_detail-colors") and count(//div[@class="colors_content_mobile"]) < 1]//parent::div//h1[@id="js-product-detail-title"]//h1[@id="js-product-detail-title"]
+fields:
+  - name: variantInformation
+    singleValue: true
+    xpath : ancestor::html //div/@variantInformation
+  - name: color
+    singleValue: true
+    xpath : //div/@title   

@@ -9,7 +9,7 @@ module.exports = {
     domain: 'elcorteingles.es',
   },
 
-  implementation: async ({ inputString }, { country, domain,transform }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     try {
@@ -75,13 +75,11 @@ module.exports = {
           }
         };
 
-        /* Use the function if needed
-         *
-        function setAttributes (el, attrs) {
+        function setAttributes(el, attrs) {
           for (var key in attrs) {
             el.setAttribute(key, attrs[key]);
           }
-        } */
+        }
 
         const imageData = findJsonObj('image');
         // Check for the data and append to DOM
@@ -149,6 +147,8 @@ module.exports = {
         const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
         const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
         const productID = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).code_a.trim('') : '';
+        const sku = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).variant.trim('') : '';
+        const storeId = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).store_id.trim('') : '';
 
         const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
         const apiReviewResponse = await makeApiCall(reviewData, {});
@@ -157,6 +157,29 @@ module.exports = {
           : '';
         addElementToDocument('ratingCount', responseRatingCount);
         addElementToDocument('aggregateRating', responseReviewRating);
+
+
+        const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${storeId}&original_store=0`;
+        const apiDataResponse = await makeApiCall(productsData, {});
+
+        const element = document.querySelectorAll('div.colors_content_mobile > ul li');
+
+        if (apiDataResponse) {
+          // GTIN,SKU,SIZE,variantInformation
+          for (var i = 0; i < element.length; i++) {
+            setAttributes(element[i].querySelector('a div'),
+              {
+                title: JSON.parse(apiDataResponse)._all_colors[i].title,
+                gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
+                retailer_product_code: JSON.parse(apiDataResponse)._all_colors[0].skus[0].reference_id,
+                sku: JSON.parse(apiDataResponse).id,
+                variantInformation : JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => {return e.color.title === "Gris / Negro"}).map((e) => {return e.variant[1].value}).join('/') 
+              });
+          }
+        }
+
+
+
 
         function ratingFromDOM() {
           const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
