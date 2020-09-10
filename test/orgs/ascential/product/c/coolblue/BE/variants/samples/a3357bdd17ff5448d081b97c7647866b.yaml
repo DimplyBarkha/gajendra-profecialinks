@@ -1,0 +1,22 @@
+input:
+  _url: http://coolblue.be
+  URL: https://www.coolblue.be/en/product/458722/dyson-am07-wit-zilver.html
+extractions:
+  - html: https://workbench.import.io/html/run=924df937-ba47-43cb-9cfd-4a90a361d3f0/task=dc76d58a-66dc-44f4-84e9-b950d40d4995/b86d518c-e233-48c2-9421-ba511cf5cc39.html
+    extractionConfigId: product/details/stores/c/coolblue/BE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "45871"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.be/en/product/458719/dyson-am06-wit-zilver.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@value
+          - variantId:
+              - text: "45872"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.be/en/product/458722/dyson-am07-wit-zilver.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@value
+        xpath: /html
+    timestamp: 1598969226534

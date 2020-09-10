@@ -1,0 +1,22 @@
+input:
+  _url: http://coolblue.be
+  URL: https://www.coolblue.be/en/product/828972/dyson-pure-cool-me-white-silver.html
+extractions:
+  - html: https://workbench.import.io/html/run=924df937-ba47-43cb-9cfd-4a90a361d3f0/task=1c512b63-7f51-4470-875b-a1e4e2fa371e/0865ff37-3202-423c-9be5-e7c2e1dc9d10.html
+    extractionConfigId: product/details/stores/c/coolblue/BE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "82897"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.be/en/product/828972/dyson-pure-cool-me-white-silver.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]/@value
+          - variantId:
+              - text: "83752"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@id
+            URL:
+              - text: https://www.coolblue.be/en/product/837521/dyson-pure-cool-me-duo-pack-white-silver.html
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/input[1]/@value
+        xpath: /html
+    timestamp: 1598969224812
