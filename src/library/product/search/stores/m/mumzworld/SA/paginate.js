@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'SA',
     store: 'mumzworld',
-    nextLinkSelector: '#paginationbottom > div > ol > li:last-child > a',
+    nextLinkSelector: '#paginationbottom > div > ol > li:last-child > a[onclick *="gotoPage"]',
     mutationSelector: 'span#stats div[@class="stats"] h2',
     spinnerSelector: 'div[id="alg_showloaderdv"][style=""]',
     loadedSelector: 'div#hits ul[class *="products-grid"]',
