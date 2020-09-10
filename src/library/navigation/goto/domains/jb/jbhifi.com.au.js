@@ -10,10 +10,10 @@ module.exports = {
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     const currentUrl = url;
-    const result = await context.evaluate((currentUrl)=>{
+    const result = await context.evaluate((currentUrl) => {
       return currentUrl.search('/products/');
-    },currentUrl)
-    if(result > 0){
+    }, currentUrl);
+    if (result > 0) {
       await context.setBlockAds(false);
       await context.setLoadAllResources(true);
       await context.setLoadImages(true);
