@@ -42,7 +42,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText2
+  - name: aggregateRatingText
     singleValue: true
     xpath: //article[contains(@class,"result-prd")]//span[contains(@class,"score-")]/@class | //article[contains(@class,"result-prd")]//div[@data-component="Rating"]/@data-score
     regExp: score-(\d+)
@@ -99,7 +99,7 @@ fields:
     xpath: //header[@class="productTitle"]/a
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     xpath: //article[contains(@class,"result-prd")]//span[contains(@class,"score-")]/@class | //article[contains(@class,"result-prd")]//div[@data-component="Rating"]/@data-score
     regExp: score-(\d+)
