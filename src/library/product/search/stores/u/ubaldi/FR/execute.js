@@ -5,6 +5,9 @@ async function implementation(
     dependencies,
 ) {
     console.log('params', parameters);
+    if (inputs.keywords.toLowerCase() == "dyson") {
+        inputs.keywords.replace(/./g, 'dyson-brand');
+    }
     const inputKeyWord = inputs.keywords.replace(/ /g, '-');
     const url = parameters.url.replace('{searchTerms}', inputKeyWord);
     await dependencies.goto({ url, zipcode: inputs.zipcode });

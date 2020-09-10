@@ -7,7 +7,6 @@ async function implementation(
     context.evaluate(() => {
 
         for (let i = 2; i < 90; i++) {
-            if (((i - 1) % 30) == 0) i = i + 1;
             try {
                 const selector = '.la-article:nth-child(' + i + ') .la-visuel .la-image-container .img-placeholder a img'
                 const x = document.querySelector(selector);

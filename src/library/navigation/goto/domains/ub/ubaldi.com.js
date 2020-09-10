@@ -7,8 +7,21 @@ module.exports = {
         store: 'ubaldi',
         zipcode: '',
     },
-    implementation: async({ url, zipcode, storeId }, parameters, context, dependencies) => {
-        const timeout = parameters.timeout ? parameters.timeout : 50000;
-        await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    implementation: async({ url }, { country, domain, timeout }, context, dependencies) => {
+        const newUrl = await context.evaluate(function(url) {
+            let searchTerm = url.split('recherche/')[1].toLowerCase();
+            searchTerm = searchTerm.split('.')[0];
+            if (searchTerm &&
+                searchTerm.match(/[a-zA-Z]+/g) &&
+                searchTerm.match(/[a-zA-Z]+/g).length === 1 &&
+                searchTerm.match(/dyson/i)
+            ) {
+                console.log('redirecting to dyson all products');
+                return 'https://www.ubaldi.com/recherche/dyson-brand.php';
+                return false;
+            };
+        }, url);
+        url = newUrl || url;
+        await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
     },
 };
