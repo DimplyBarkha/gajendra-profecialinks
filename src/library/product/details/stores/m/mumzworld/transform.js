@@ -69,10 +69,10 @@ const transform = (data) => {
           row.weightNet.forEach(item => {                
               var matches = /Weight\s*:\s(.*?)\n/isg.exec(item.text);
               if (matches) {
-                item.text = matches[1]
+                item.text = matches[1];
               }
               else{
-                item.text = ''
+                item.text = '';
               }
           });
       }
@@ -80,10 +80,10 @@ const transform = (data) => {
           row.shippingWeight.forEach(item => {
               var matches = /Shipping\s+Weight\s*:\s*(.*?)\n/isg.exec(item.text);                
               if (matches) {
-                item.text = matches[1]
+                item.text = matches[1];
               }
               else{
-                item.text = ''
+                item.text = '';
               }
           });
       }
@@ -92,13 +92,13 @@ const transform = (data) => {
               var matches = /Product\s+Dimensions\s*:\s*(.*?)\n/isg.exec(item.text);
               var matches2 = /Package\s+Dimensions\s*:\s*(.*?)\n/isg.exec(item.text);                
               if (matches) {
-                item.text = matches[1]
+                item.text = matches[1];
               }
               else if (matches2) {
-                item.text = matches2[1]
+                item.text = matches2[1];
               }
               else{
-                item.text = ''
+                item.text = '';
               }
           });
       }
@@ -106,23 +106,13 @@ const transform = (data) => {
           row.warnings.forEach(item => {
               var matches = /Cautions\s*:\s*(.*?)\n/isg.exec(item.text);                
               if (matches) {
-                item.text = matches[1]
+                item.text = matches[1];
               }
               else{
-                item.text = undefined
+                item.text = '';
               }
           });
-      }
-      if (row.availabilityText) {
-        row.availabilityText.forEach(item => {                            
-            if (item.text != 'In Stock') {
-              item.text = 'Out of Stock'
-              row.quantity.forEach(item => { 
-                item.text = 0
-              });                
-            }
-        });
-      }        
+      }              
     }
   }
   return data;

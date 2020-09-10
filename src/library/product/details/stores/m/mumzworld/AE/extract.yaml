@@ -3,23 +3,23 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: _url
-    singleValue: false    
-    xpath: //link[@rel='canonical']/@href
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='product_infotop']/@data-sku
   - name: image
-    singleValue: false    
+    singleValue: false
     xpath: //a[@class='cloudZoom']/@href
   - name: imageAlt
     singleValue: false
     xpath: //ul[@class='bxslides']//li//a[@class='cloud-zoom-gallery']/@alt
   - name: alternateImages
-    singleValue: false    
+    singleValue: false
     xpath: //ul[@class='bxslides']//li//a[@class='cloud-zoom-gallery']/@href
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name='keywords']/@content
   - name: category
-    singleValue: false    
+    singleValue: false
     xpath: //div[@class='breadcrumbs']//ul//li[contains(@class,'category')]
   - name: listPrice
     singleValue: false
@@ -66,29 +66,13 @@ fields:
     singleValue: false
     xpath: //div[@class='product_logo mbot12']//a//img/@src
   - name: name
-    singleValue: false    
-    xpath: //div[@class='product-name']//h1/text()  
-  - name: brandLink
     singleValue: false
-    xpath: //div[@class='product_logo mbot12']//a/@href  
+    xpath: //div[@class='product-name']//h1
   - name: featureBullets
     singleValue: false
-    xpath: //div[@class='desc_divider']//ul 
-  - name: videos
-    singleValue: false
-    xpath: //div[@id='full-desc']//iframe/@src
-  - name: variantInformation
-    singleValue: false
-    xpath: //select[@id='attribute211']/option[preceding::option]/text()    
-  - name: quantity
-    singleValue: false
-    defaultValue: 1  
-  - name: availabilityText
-    singleValue: false
-    xpath: //span[contains(@class,'prod-no-stock')]
-    defaultValue: 'In Stock'
+    xpath: //div[@class='desc_divider']//ul  
   - name: variantCount
-    singleValue: false    
+    singleValue: false
     defaultValue: 0
   - name: specifications
     singleValue: false
@@ -98,4 +82,9 @@ fields:
     xpath: //div[@id='full-desc']//div[@class='desc_divider']//ul//li
   - name: descriptionBullets
     singleValue: false
-    defaultValue: 0
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='full-desc']//iframe/@src
+  - name: variantInformation
+    singleValue: false
+    xpath: //select[@id='attribute211']/option[preceding::option]
