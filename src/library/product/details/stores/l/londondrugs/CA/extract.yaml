@@ -19,7 +19,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="breadcrumbs"]/li[2]
+    xpath: //ul[@class="breadcrumbs"]/li[position()>1]
   - name: nameExtended
     description:
       The product name, prefixing "${brand} - " if not included in "name"
@@ -57,7 +57,6 @@ fields:
     description: Product manufacturer
   - name: quantity
     description: Quantity as described on the page
-    xpath: //p[contains(@class,"hide")]
   - name: weightNet
     description: Net weight as described on the page
     xpath: //h3[contains(text(), 'Weight')]/following-sibling::p | //td[contains(text(), 'Weight')]/following-sibling::td
@@ -98,7 +97,6 @@ fields:
     xpath: //div[contains(@class, "delivery-info-row-home")]//div[@class="delivery-method__description"]
   - name: shippingDimensions
     description: Stated shipping dimensions
-    xpath: //h3[contains(text(), 'Dimensions')]/following-sibling::p | //*[contains(text(),"Width")]/following-sibling::* | //*[contains(text(),"Depth")]/following-sibling::* | //*[contains(text(),"Height")]/following-sibling::*
   - name: shippingWeight
     description: Stated shipping weight
   - name: variantCount
@@ -112,13 +110,13 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //*[@class="wc-rich-content-description"] | //*[@class="wc-rich-content-description"]/preceding-sibling::h3
+    xpath: //ul[contains(@class,'wc-rich-features')]//li[not(contains(@class,"wc-has-no-caption"))]//h3 | //ul[contains(@class,'wc-rich-features')]//li[not(contains(@class,"wc-has-no-caption"))]//div[@class="wc-rich-content-description"]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[@id="wc-power-page"]//img/@src
+    xpath: //ul[contains(@class,'wc-rich-features')]//li[not(contains(@class,"wc-has-no-caption"))]//img/@src
   - name: videos
     description: URLs of videos on page
-    xpath: //body/@video-src | //div[@itemprop="video"]/meta[@itemprop="contentUrl"]/@content
+    xpath: //body/@video-src | //body/@prod-video | //div[@itemprop="video"]/meta[@itemprop="contentUrl"]/@content
   - name: name
     description: The product name
     xpath: //h1[@itemprop="name"]
@@ -325,7 +323,9 @@ fields:
     xpath: //div[@id="ccs-ext-spec"]
   - name: warranty
     description: Guarantee associated with the product
-    xpath: //*[contains(@aria-label,"Warranty")]/following-sibling::* | //*[contains(text(),"Warranty")]/following-sibling::* | //span[contains(text(),"warranty")] | //div[@class="wc-reset"][2]//li[1]//img/@src
+    xpath: //*[contains(@aria-label,"Warranty")]/following-sibling::* | //*[contains(text(),"Warranty")]/following-sibling::* | //span[contains(text(),"warranty")] | //div[@id="wc-power-page"]//*[contains(text(),"warranty")]
+    regExp: \d\s?-?years?
+    singleValue: true
   - name: storage
     description: Suggested storage location for product
   - name: countryOfOrigin
@@ -383,7 +383,7 @@ fields:
     regExpReplace: $1
   - name: additionalDescBulletInfo
     description: null
-    xpath: //div[@itemprop="description"]/div[1]/ul
+    xpath: //div[@itemprop="description"]/div[1]/ul/li/text()
   - name: prop65Warning
     description: null
   - name: ageSuitability
@@ -397,15 +397,28 @@ fields:
   - name: technicalInformationPdfPresent
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //div[@data-section-caption="Operating Manual"]
+    regExp: .+
+    regExpReplace: Yes
+    singleValue: true
     defaultValue: No
   - name: termsAndConditions
     description: Terms and conditions information text ['Yes','No']
+    xpath: //div[@class="copyright-legal"]//a[contains(text(),"Terms")]
+    regExp: .+
+    regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
     description: Privacy Policy information text ['Yes','No']
+    xpath: //div[@class="copyright-legal"]//a[contains(text(),"Policy")]
+    regExp: .+
+    regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
     description: Information related to customer service availability (text), ['Yes','No']
+    xpath: //div[@class="footer-content"]//*[contains(text(),"Customer Service")]
+    regExp: .+
+    regExpReplace: Yes
     defaultValue: No
   - name: materials
     description: Materials used to make the product
@@ -413,7 +426,9 @@ fields:
   - name: Image360Present
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    xpath: //body/@id
+    xpath: //div[@class="wc-mediaGalleryThreeSixty"]/@data-module-id
+    regExp: .+
+    regExpReplace: Yes
     defaultValue: No
   - name: imageZoomFeaturePresent
     description: If Zoom feature is available for Main image or images in the

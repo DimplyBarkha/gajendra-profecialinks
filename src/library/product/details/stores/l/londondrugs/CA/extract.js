@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./transform');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
@@ -38,7 +38,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       }, selector);
     };
 
-    let iframeSelector = '[title="Product Videos"]';
+    const iframeSelector = '[title="Product Videos"]';
     const result = await checkExistance(iframeSelector);
     if (result) {
       await context.evaluate(async (iframeSelector) => {
@@ -51,15 +51,6 @@ async function implementation (inputs, parameters, context, dependencies) {
       }, iframeSelector);
     }
 
-    iframeSelector = '[title="Product Views"]';
-    const result1 = await checkExistance(iframeSelector);
-    if (result1) {
-      await context.evaluate(async (iframeSelector) => {
-        const mainBody = document.querySelector('body');
-        mainBody.setAttribute('three-sixty', 'Yes');
-      }, iframeSelector);
-    }
-
     const zoomContainer = '.zoomContainer';
     const zoomFeature = await checkExistance(zoomContainer);
     if (zoomFeature) {
@@ -67,6 +58,18 @@ async function implementation (inputs, parameters, context, dependencies) {
         const body = document.querySelector('body');
         body.setAttribute('zoom', 'Yes');
       });
+    }
+
+    const prodVideoSelector = '.thumb-video';
+    const prodVideo = await checkExistance(prodVideoSelector);
+    if (prodVideo){
+      await context.evaluate(()=>{
+        const thumbVideo = document.querySelector('div[class*="thumb-video"]>a');
+        const dataVideo = thumbVideo.getAttribute('data-video');
+        const videoLink = dataVideo.match(/(https:.+);/g);
+        const body = document.querySelector('body');
+        body.setAttribute('prod-video', videoLink);
+      })
     }
 
     return await context.extract(productDetails, { transform });
@@ -80,7 +83,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'londondrugs',
-    transform: cleanUp,
+    transform,
     domain: 'londondrugs.com',
     zipcode: '',
   },

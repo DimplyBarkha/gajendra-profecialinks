@@ -19,11 +19,13 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
+    await context.setAntiFingerprint(false);
 
     await context.goto(url, {
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: true,
+      embed_iframes: true,
     });
 
     const searchPageSelector = 'section.search-result-options';
