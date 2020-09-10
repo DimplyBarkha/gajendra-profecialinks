@@ -104,7 +104,7 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
+    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2])
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: false
