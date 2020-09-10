@@ -5,7 +5,7 @@ module.exports = {
     country: 'MX',
     store: 'palaciodehierro',
     domain: 'elpalaciodehierro.com',
-    loadedSelector: null,
+    loadedSelector: "div[class*='product_images'] img",
     noResultsXPath: null,
     zipcode: '',
   },
