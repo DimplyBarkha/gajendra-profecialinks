@@ -24,10 +24,10 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[@class="ProductPricingPanel"]//span[not(contains(@class,"Text--line-through"))]/text()
+    xpath: //div[contains(@class,"ProductPricingPanel")]//span[not(contains(@class,"Text--line-through"))]/text()
   - name: listPrice
     singleValue: false
-    xpath: //div[@class="ProductPricingPanel"]//span[contains(@class,"Text--line-through")]/text()
+    xpath: //div[contains(@class,"ProductPricingPanel")]//span[contains(@class,"Text--line-through")]/text()
   - name: availabilityText
     singleValue: false
     manualSelector: button[aria-label="Add To Bag"]
