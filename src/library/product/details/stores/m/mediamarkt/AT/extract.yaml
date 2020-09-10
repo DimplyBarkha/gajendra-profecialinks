@@ -45,8 +45,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: InStock
-    regExpReplace: In Stock
+    # regExp: (InStock)
+    # regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
@@ -60,7 +60,7 @@ fields:
     type: NUMBER
   - name: promotion
     singleValue: true
-    xpath: //div[contains(@class, "dy-icon-info-promo-popup")]
+    xpath: (//div[contains(@class, "dy-icon-info-promo-popup")]|//div[contains(@class, "price-old-you-save")])[1]
   - name: brandText
     singleValue: true
     xpath: //div[@class="model"]//div[@class="logo"]//img/@alt

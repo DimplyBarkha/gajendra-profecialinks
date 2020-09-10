@@ -46,9 +46,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
+    regExp: ^(.*)$
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //dl[@class="product-details"]|//div[contains(@id, "pdp_default_configuration-content_product_detail")]//article
@@ -128,7 +127,7 @@ fields:
     # type: NUMBER
   - name: shippingInfo
     singleValue: false
-    xpath: //div[contains(@class, "infobox availability")]//ul//li[not(a)]
+    # xpath: //div[contains(@class, "infobox availability")]//ul//li[not(a)]
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
