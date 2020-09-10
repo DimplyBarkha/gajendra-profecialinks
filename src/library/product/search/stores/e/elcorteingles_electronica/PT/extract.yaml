@@ -19,7 +19,7 @@ fields:
     regExpReplace: https://beta.elcorteingles.pt$1
   - name: thumbnail
     xpath: //a[@class="product_link"]//img/@data-src
-    regExp: (.+)(sgfm|www)(.+)
+    regExp: (.+)(cdn|www)(.+)
     regExpReplace: https://$2$3
   - name: aggregateRating2
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
