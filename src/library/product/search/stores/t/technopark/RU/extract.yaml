@@ -6,18 +6,19 @@ fields:
   - name: id
     singleValue: false
     xpath: //article/@data-article
-    #product-id
   - name: name
     singleValue: false
     xpath: //div[@class="card-listing__name"]
-    #//article/@data-name-full    
   - name: productUrl
     singleValue: false
-    xpath: concat('https://www.technopark.ru',//article/div/a/@href)
+    xpath: //article//a[@class="card-listing__overlay-link js-analytics-card--link"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.technopark.ru$1
   - name: thumbnail
     singleValue: false
-    xpath: concat('https://cdn1.technopark.ru/technopark/photos_resized/product/248_248/', //article/@data-product-id, '/1_', //article/@data-product-id, '.jpg')
-    # //div[@class="card-listing__image js-analytics-card--image"]/img/@data-src
+    xpath: //article/@data-product-id
+    regExp: (.+)
+    regExpReplace: https://cdn1.technopark.ru/technopark/photos_resized/product/248_248/$1/1_$1.jpg
   - name: price
     singleValue: false
     xpath: //div[@class="card-listing__price"]//span    

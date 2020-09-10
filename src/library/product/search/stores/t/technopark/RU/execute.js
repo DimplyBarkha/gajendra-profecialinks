@@ -6,7 +6,7 @@ module.exports = {
     store: 'technopark',
     domain: 'technopark.ru',
     url: 'https://www.technopark.ru/search/?q={searchTerms}&strategy=vectors_extended,zero_queries',
-    loadedSelector: null,
+    loadedSelector: 'div.listing__products-list.listing__products-list--big',
     noResultsXPath: null,
     zipcode: '',
   },
