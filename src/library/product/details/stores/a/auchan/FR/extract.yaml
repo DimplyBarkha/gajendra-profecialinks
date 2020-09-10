@@ -1,0 +1,88 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="x-scroller"]//meta[@itemprop="image"]/@content
+  - name: imageAlt
+    xpath: //div[@class="x-scroller"]//meta[@itemprop="image"]/@alt
+  - name: alternateImages
+    xpath: //div[@class="js-native-scroller--wrapper"]//label[not(contains(@class,"active"))]//img/@src
+  - name: metaKeywords
+  - name: category
+    xpath: //nav[@itemscope="itemscope"]//span[@itemprop="itemListElement"][position()>1]//a[@itemprop="item"]
+  - name: nameExtended
+    xpath: //h1[@itemprop="name"]
+  - name: listPrice
+    xpath: (//div[@itemprop="offers"]//del[@class="product-price--oldPrice"])[1]
+  - name: price
+    xpath: (//div[@itemprop="offers"]//span[@class="product-price--formattedValue"])[1]
+  - name: availabilityText
+    xpath: (//label[contains(@class,"ui-btn")])[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: (//div[contains(@class,"product-aside--textBlock")])[1]
+  - name: descriptionBullets
+  - name: brandText
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: manufacturer
+  - name: quantity
+  - name: weightNet
+    xpath: //ul[contains(@class,"product-aside--list")]//span[contains(.,"Poids")]/following-sibling::div | //td[contains(.,"Poids net")]/following-sibling::td
+  - name: weightGross
+    xpath: //td[contains(.,"Poids brut")]/following-sibling::td
+  - name: sku
+    xpath: //div[contains(@class,"product-detail--reference")]/span[1]
+    regExp: (.+:)(.+)
+    regExpReplace: $2
+  - name: gtin
+    xpath: //div[contains(@class,"product-detail--reference")]/span[last()]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: variantId
+    xpath: //div[contains(@class,"product-detail--reference")]/span[1]
+    regExp: (.+:)(.+)
+    regExpReplace: $2
+  - name: mpc
+    xpath: //div[contains(@class,"product-detail--reference")]/span[1]
+    regExp: (.+:)(.+)
+    regExpReplace: $2
+  - name: packSize
+  - name: legalDisclaimer
+  - name: directions
+  - name: warnings
+  - name: ratingCount
+    xpath: //div[@class="product-detail--rating"]//meta[@itemprop="ratingValue"]/@content
+  - name: aggregateRatingText
+    xpath: //div[@class="product-detail--rating"]//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    xpath: //div[@class="product-detail--rating"]//meta[@itemprop="reviewCount"]/@content
+  - name: shippingInfo
+    xpath: (//div[@class="product-price--seller"]/span)[1]
+  - name: shippingDimensions
+    xpath: //strong[contains(.,"Dimensions")]/following-sibling::font[1] | //td[contains(.,"Dimensions")]/parent::tr/following-sibling::tr[1]/td[3]
+  - name: shippingWeight
+  - name: variantCount
+  - name: color
+  - name: colorCode
+  - name: manufacturerDescription
+    xpath: normalize-space(//div[@class="flix-std-container-fluid"])
+  - name: manufacturerImages
+    xpath: //div[@class="flix-std-container-fluid"]//img/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: videos
+    xpath: //div[contains(@class,"flix-videocontainer")]//iframe/@src
+  - name: name
+    xpath: //h1[@itemprop="name"]
+  - name: coupon
+    xpath: //div[@data-layerid="tabFounding"]//div[@class="product-tab--description"]
+  - name: warranty
+    xpath: //div[@class="product-tab--description"]//span[@class="red-txt"]/text()
+  - name: specifications
+    xpath: //strong[contains(.,"Specificities")]/following-sibling::font | //div[contains(@class,"product-detail--subtitle")]
+  - name: promotion
+    xpath: //span[@class="product-price--discount"]

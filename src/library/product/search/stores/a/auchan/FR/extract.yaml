@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-list--container")]//article
+fields:
+- name: endorsementText
+- name: rankOrganic
+- name: rank
+- name: sponsored
+- name: gtin
+- name: name
+  xpath: //div[@class='product-item--wrapper']//a//span[@itemprop="name"]
+- name: productUrl
+  xpath: //div[@class="product-item--wrapper"]/a/@href
+  regExp: (.+)
+  regExpReplace: https://www.auchan.fr$1
+- name: id
+  xpath: //div[@class="product-item--wrapper"]/parent::article/@data-code
+- name: aggregateRating2
+  xpath: //span//meta[@itemprop="ratingValue"]/@content
+- name: reviewCount
+  xpath: //span//meta[@itemprop="reviewCount"]/@content
+- name: thumbnail
+  xpath: //span[contains(@class,"product-item--imgFlapContainer")]//meta[@itemprop="image"]/@content
+- name: price
+  xpath: //div[@itemprop="offers"]//meta[@itemprop="price"]/@content
+- name: soldBy
+  xpath: //div//span[@class="product-item--vendorname"]

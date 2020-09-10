@@ -1,0 +1,66 @@
+input:
+  id: MA3388602
+  _url: http://auchan.fr
+extractions:
+  - html: https://workbench.import.io/html/run=90f1d027-66c3-4821-a184-1b4e7de832f3/task=a6124fa5-7c13-486a-b7c2-5c33e3b4f360/755db3a1-ba85-48a3-91fb-1ea87303c957.html
+    extractionConfigId: product/details/stores/a/auchan/FR/extract
+    data:
+      - group:
+          - category:
+              - text: Mode homme
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/nav[1]/span[2]/a[1]
+              - text: Sous-vêtements, pyjama
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/nav[1]/span[3]/a[1]
+              - text: Sous vêtement
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/nav[1]/span[4]/a[1]
+              - text: Chaussettes, socquettes homme
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/nav[1]/span[5]/a[1]
+            image:
+              - text: https://media1.auchan.fr/images/h7f/h0b/15481547489310.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/meta[1]/@content
+            imageAlt:
+              - text: ALL BLACKS Chaussettes Homme All Blacks(Noir, 43/46)
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/meta[1]/@alt
+            nameExtended:
+              - text: ALL BLACKS Chaussettes Homme All Blacks
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 7,90 €
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/del[1]
+            price:
+              - text: 3,90 €
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/section[2]/label[1]
+            brandText:
+              - text: ALL BLACKS
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@content
+            sku:
+              - text: " MA3388602"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/span[1]
+            gtin:
+              - text: "3388602"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/span[1]
+            variantId:
+              - text: " MA3388602"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/span[1]
+            mpc:
+              - text: " MA3388602"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/span[1]
+            shippingInfo:
+              - text: Vendu et expédié par WEBTEX
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/section[2]/div[2]/span[1]
+            name:
+              - text: ALL BLACKS Chaussettes Homme All Blacks
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            warranty:
+              - text: Garantie
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/text()[1]
+            promotion:
+              - text: -51%
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]
+            manufacturerDescription:
+              - text: ""
+        xpath: /html
+    timestamp: 1599719984758

@@ -1,0 +1,142 @@
+input:
+  keywords: dyson
+  _url: http://auchan.fr
+extractions:
+  - html: https://workbench.import.io/html/run=63eedea1-759f-4312-8cd9-962cc4122c28/task=8a15b8fe-3c9d-4703-bfb3-d8b57434b2ff/333a05fc-198e-4a49-a1d9-797226349cfe.html
+    extractionConfigId: product/search/stores/a/auchan/FR/extract
+    data:
+      - group:
+          - name:
+              - text: DYSON Aspirateur balai - V8 Animal+
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[1]/div[1]/a[1]/span[3]
+            productUrl:
+              - text: https://www.auchan.fr/dyson-aspirateur-balai-v8-animal-/p-c1076518
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[1]/div[1]/a[1]/@href
+            id:
+              - text: C1076518
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[1]/@data-code
+            aggregateRating2:
+              - text: "4.6154"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[1]/div[1]/a[1]/span[4]/meta[1]/@content
+            reviewCount:
+              - text: "39"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[1]/div[1]/a[1]/span[4]/meta[2]/@content
+            thumbnail:
+              - text: https://media.auchan.fr/MEDIASTEP64699464_188x188/AFR/9bdbcf30-e68b-4276-93fa-87309aa5e1cf
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[1]/div[1]/a[1]/span[2]/img[1]/@src
+            price:
+              - text: "349.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[1]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            soldBy:
+              - text: Auchan
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+          - name:
+              - text: DYSON Humidificateur-Ventilateur AM10 White Silver
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[2]/div[1]/a[1]/span[3]
+            productUrl:
+              - text: https://www.auchan.fr/dyson-humidificateur-ventilateur-am10-white-silver/p-c941688
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[2]/div[1]/a[1]/@href
+            id:
+              - text: C941688
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[2]/@data-code
+            aggregateRating2:
+              - text: "3.8235"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[2]/div[1]/a[1]/span[4]/meta[1]/@content
+            reviewCount:
+              - text: "17"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[2]/div[1]/a[1]/span[4]/meta[2]/@content
+            thumbnail:
+              - text: https://media.auchan.fr/MEDIASTEP74785246_188x188/AFR/5d44c759-2aa7-406e-afc2-56d05a098ff7
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[2]/div[1]/a[1]/span[2]/img[1]/@src
+            price:
+              - text: "498.82"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[2]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            soldBy:
+              - text: Auchan
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+          - name:
+              - text: DYSON Ventilateur purifiant - PURE COOL ME
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[3]/div[1]/a[1]/span[3]
+            productUrl:
+              - text: https://www.auchan.fr/dyson-ventilateur-purifiant-pure-cool-me/p-c1133171
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[3]/div[1]/a[1]/@href
+            id:
+              - text: C1133171
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[3]/@data-code
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[3]/div[1]/a[1]/span[4]/meta[1]/@content
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[3]/div[1]/a[1]/span[4]/meta[2]/@content
+            thumbnail:
+              - text: https://media.auchan.fr/MEDIASTEP72647665_188x188/AFR/333acc53-2879-44a5-b60e-c43ba45d0dba
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[3]/div[1]/a[1]/span[2]/img[1]/@src
+            price:
+              - text: "349.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[3]/div[1]/div[1]/div[1]/div[3]/div[1]/meta[1]/@content
+            soldBy:
+              - text: Auchan
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[3]/div[1]/div[1]/div[1]/div[1]/span[1]
+          - name:
+              - text: DYSON Chauffage et ventilateur AM09 White Nikel
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[4]/div[1]/a[1]/span[3]
+            productUrl:
+              - text: https://www.auchan.fr/dyson-chauffage-et-ventilateur-am09-white-nikel/p-c874464
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[4]/div[1]/a[1]/@href
+            id:
+              - text: C874464
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[4]/@data-code
+            aggregateRating2:
+              - text: "4.4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[4]/div[1]/a[1]/span[4]/meta[1]/@content
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[4]/div[1]/a[1]/span[4]/meta[2]/@content
+            thumbnail:
+              - text: https://media.auchan.fr/MEDIASTEP57181468_188x188/AFR/fb8f307d-2e41-4ce3-89cc-f05049751e0d
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[4]/div[1]/a[1]/span[2]/img[1]/@src
+            price:
+              - text: "349.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[4]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            soldBy:
+              - text: Auchan
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+          - name:
+              - text: DYSON Purificateur d'air PH01 PURE HUMIDIFY + COOL
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[5]/div[1]/a[1]/span[3]
+            productUrl:
+              - text: https://www.auchan.fr/dyson-purificateur-d-air-ph01-pure-humidify-cool/p-m3607901
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[5]/div[1]/a[1]/@href
+            id:
+              - text: M3607901
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[5]/@data-code
+            thumbnail:
+              - text: https://media1.auchan.fr/images/hd3/h1b/15973571788830.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[5]/div[1]/a[1]/span[2]/img[1]/@src
+            price:
+              - text: "699.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[5]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            soldBy:
+              - text: Boulanger
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[5]/div[1]/div[1]/div[1]/div[1]/span[1]
+          - name:
+              - text: DYSON Filtre DP01/HP02 Evo
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[6]/div[1]/a[1]/span[3]
+            productUrl:
+              - text: https://www.auchan.fr/dyson-filtre-dp01-hp02-evo/p-m2387702
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[6]/div[1]/a[1]/@href
+            id:
+              - text: M2387702
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[6]/@data-code
+            thumbnail:
+              - text: https://media1.auchan.fr/images/h77/h6a/15450298417182.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[6]/div[1]/a[1]/span[2]/img[1]/@src
+            price:
+              - text: "59.9"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[6]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            soldBy:
+              - text: Boulanger
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/article[6]/div[1]/div[1]/div[1]/div[1]/span[1]
+        xpath: /html
+    timestamp: 1599647570168

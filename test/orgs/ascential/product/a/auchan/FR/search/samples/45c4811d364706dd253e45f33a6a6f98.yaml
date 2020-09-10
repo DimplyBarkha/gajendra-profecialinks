@@ -1,0 +1,52 @@
+input:
+  keywords: dyson hair
+  _url: http://auchan.fr
+extractions:
+  - html: https://workbench.import.io/html/run=3945884a-02f9-4f17-b623-2c2dc007d4a7/task=a8f21fc3-174d-4770-926a-057cd7911cb2/d2a8b9c5-6e6e-4b3c-870f-ebbdb34bebf2.html
+    extractionConfigId: product/search/stores/a/auchan/FR/extract
+    data:
+      - group:
+          - name:
+              - text: DYSON Purificateur d'air PH01 PURE HUMIDIFY + COOL
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[1]/div[1]/a[1]/span[3]
+            productUrl:
+              - text: https://www.auchan.fr/dyson-purificateur-d-air-ph01-pure-humidify-cool/p-m3607901
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[1]/div[1]/a[1]/@href
+            id:
+              - text: M3607901
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[1]/@data-code
+            thumbnail:
+              - text: https://media1.auchan.fr/images/hd3/h1b/15973571788830.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[1]/div[1]/a[1]/span[2]/img[1]/@src
+            price:
+              - text: 699 €
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            soldBy:
+              - text: Boulanger
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+          - name:
+              - text: DYSON Ventilateur purifiant - PURE COOL ME
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[2]/div[1]/a[1]/span[3]
+            productUrl:
+              - text: https://www.auchan.fr/dyson-ventilateur-purifiant-pure-cool-me/p-c1133171
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[2]/div[1]/a[1]/@href
+            id:
+              - text: C1133171
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[2]/@data-code
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[2]/div[1]/a[1]/span[4]/meta[1]/@content
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[2]/div[1]/a[1]/span[4]/meta[2]/@content
+            thumbnail:
+              - text: https://media.auchan.fr/MEDIASTEP72647665_188x188/AFR/333acc53-2879-44a5-b60e-c43ba45d0dba
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[2]/div[1]/a[1]/span[2]/img[1]/@src
+            price:
+              - text: 349 €
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[2]/div[1]/div[1]/div[1]/div[3]/div[1]/span[1]
+            soldBy:
+              - text: Auchan
+                xpath: /html/body/div[2]/div[2]/div[1]/div[6]/article[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+        xpath: /html
+    timestamp: 1599646038989
