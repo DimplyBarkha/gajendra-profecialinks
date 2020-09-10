@@ -24,17 +24,13 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//img[@itemprop="contentUrl"]/@alt
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
-    xpath:
+    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]//a/div[@id="rating"]
   - name: ratingCount
     singleValue: false
-    xpath:
-    regExp: \d+
   - name: reviewCount
     singleValue: false
-    xpath:
-    regExp: \d+
   - name: mpc
     singleValue: false
     xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div/a/@href
