@@ -88,55 +88,55 @@ async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, coun
       return true;
     };
   
-    const isCorrectLocation = async () => {
-      const addressText = await context.evaluate(() => {
-        /**
-         * @var HTMLElement
-         */
-        var addressElement = document.querySelector('#nav-global-location-slot #glow-ingress-line2');
-        if (!addressElement) {
-          throw new Error('Address element is not where we expect, cannot tell if this is the correct country or not');
-        }
-        // @ts-ignore Element cast here
-        return addressElement.innerText.trim();
-      });
+    // const isCorrectLocation = async () => {
+    //   const addressText = await context.evaluate(() => {
+    //     /**
+    //      * @var HTMLElement
+    //      */
+    //     var addressElement = document.querySelector('#nav-global-location-slot #glow-ingress-line2');
+    //     if (!addressElement) {
+    //       throw new Error('Address element is not where we expect, cannot tell if this is the correct country or not');
+    //     }
+    //     // @ts-ignore Element cast here
+    //     return addressElement.innerText.trim();
+    //   });
   
-      const m = zipRegExp.exec(addressText.toString());
-      const zip = m && (m[1] || m[0]);
+    //   const m = zipRegExp.exec(addressText.toString());
+    //   const zip = m && (m[1] || m[0]);
   
-      console.log('Zip code', zip);
+    //   console.log('Zip code', zip);
   
-      const saysEnterYourAddress = addressRegExp.test(addressText.toString());
+    //   const saysEnterYourAddress = addressRegExp.test(addressText.toString());
   
-      if (zipcode) {
-        return Boolean(zip && zip.toLowerCase() === zipcode.toLowerCase());
-      }
+    //   if (zipcode) {
+    //     return Boolean(zip && zip.toLowerCase() === zipcode.toLowerCase());
+    //   }
   
-      // either a zip or enter address is fine if not specified
-      return Boolean(zipcode || saysEnterYourAddress);
-    };
+    //   // either a zip or enter address is fine if not specified
+    //   return Boolean(zipcode || saysEnterYourAddress);
+    // };
   
-    const changeLocation = () => context.evaluate(async (country, zip) => {
+    // const changeLocation = () => context.evaluate(async (country, zip) => {
   
-      const body = zip
-        ? `locationType=LOCATION_INPUT&zipCode=${zip}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`
-        : `locationType=COUNTRY&district=${country}&countryCode=${country}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+    //   const body = zip
+    //     ? `locationType=LOCATION_INPUT&zipCode=${zip}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`
+    //     : `locationType=COUNTRY&district=${country}&countryCode=${country}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
   
-      const response = await fetch('/gp/delivery/ajax/address-change.html', {
-        headers: {
-          accept: 'text/html,*/*',
-          'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-          'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
-          'x-requested-with': 'XMLHttpRequest',
-        },
-        body,
-        method: 'POST',
-        mode: 'cors',
-        credentials: 'include',
-      });
-      return response.status;
+    //   const response = await fetch('/gp/delivery/ajax/address-change.html', {
+    //     headers: {
+    //       accept: 'text/html,*/*',
+    //       'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+    //       'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+    //       'x-requested-with': 'XMLHttpRequest',
+    //     },
+    //     body,
+    //     method: 'POST',
+    //     mode: 'cors',
+    //     credentials: 'include',
+    //   });
+    //   return response.status;
   
-    }, countryCode, zipcode);
+    // }, countryCode, zipcode);
   
     /*************************************************
      * START LOGIC
@@ -186,22 +186,22 @@ async function implementation({ url, zipcode }, { addressRegExp, zipRegExp, coun
       return;
     }
   
-    if (await isCorrectLocation()) {
-      return;
-    }
+    // if (await isCorrectLocation()) {
+    //   return;
+    // }
   
-    if (await changeLocation() !== 200) {
-      throw new Error(`Cannot change location (${changeLocation})`);
-    }
+    // if (await changeLocation() !== 200) {
+    //   throw new Error(`Cannot change location (${changeLocation})`);
+    // }
   
     // reload the page to check that it worked ok
     lastResponseData = await context.goto(url, {
       waitUntil: 'load',
     });
   
-    if (!await isCorrectLocation()) {
-      throw Error('Changing location failed');
-    }
+    // if (!await isCorrectLocation()) {
+    //   throw Error('Changing location failed');
+    // }
   }
   
   module.exports = {
