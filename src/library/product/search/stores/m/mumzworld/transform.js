@@ -8,19 +8,16 @@ const transform = (data) => {
   for (const { group } of data) {
       for (const row of group) {          
           if (row.rankOrganic) {
-              row.rankOrganic.forEach(item => {
-                  p_count = parseInt(p_count) + 1;
-                  item.text = p_count
+              row.rankOrganic.forEach(item => {                  
+                  item.text = p_count;
               });
+              p_count = p_count + 1;
           }
-          if (row.productUrl) {
-            row.productUrl.forEach(item => {
+          if (row.id) {
+            row.id.forEach(item => {
                 var arr = item.text.split('/');
-                var url_len = arr.length
-                var item_id = arr[url_len-1]
-                row.id.forEach(item => { 
-                    item.text = item_id
-                });
+                var url_len = arr.length;
+                item.text = arr[url_len-1];                
             });
           }            
       }

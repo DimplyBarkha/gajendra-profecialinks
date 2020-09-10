@@ -2,11 +2,10 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //ul[contains(@class,'products-grid')]/li
-fields:
-  
+fields:  
   - name: id
     SingleValue: false
-    defaultValue: 1
+    xpath: //div[@class='prodGrid text-center']//h2//a/@href
   - name: productUrl
     SingleValue: false
     xpath: //div[@class='prodGrid text-center']//h2//a/@href
@@ -20,5 +19,4 @@ fields:
     SingleValue: false
     xpath: //div[@class='prodGrid text-center']//div[@class='itemsmain']//div[@class='special-price' or @class='regular-price']
   - name: rankOrganic
-    SingleValue: false
-    defaultValue: 1
+    SingleValue: false    
