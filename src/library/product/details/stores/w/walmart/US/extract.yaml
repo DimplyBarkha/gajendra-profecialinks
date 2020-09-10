@@ -24,7 +24,6 @@ fields:
   xpath: //li[contains(@class,"breadcrumb")]//span[not(contains(@class,'separator'))] | (//div[contains(@class,'breadcrumb-container')])[1]//li[contains(@class,"breadcrumb")]//a
 - name: name
   singleValue: true
-  # xpath: //h1[@class='prod-ProductTitle font-normal']
   xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1]  
 - name: nameExtended
   singleValue: true
@@ -34,13 +33,16 @@ fields:
   xpath: //section[contains(@class,'prod-PriceSection')]//span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')]
 - name: price
   singleValue: true
-  xpath: //span[@itemprop="highPrice"]/@content|//*[@class="prod-PriceHero"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
+  manualSelector: script[id='item']
+  regExp: ("price":)([\d+,.]+)(,"pre)
+  regExpReplace: $2
+  # xpath: //span[@itemprop="highPrice"]/@content|//*[@class="prod-PriceHero"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
+- name: outOfStockMsg
+  singleValue: true
+  xpath: //span[contains(text(),"Out of stock")] | //span[contains(text(),"Get in-stock alert")]
 - name: shippingPrice
   singleValue: true
   xpath: //div[@id='added-sprice']  
-# - name: availabilityText
-#   singleValue: true
-#   xpath: //link[@itemprop="availability"]/@href | //div[contains(@class,'Price-OOS')]
 - name: availabilityMessage
   singleValue: true
   xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')] |//h2[contains(@class,'prod-InvalidPromptMsg')]
@@ -142,10 +144,6 @@ fields:
   singleValue: false
   manualSelector: script[id='item'], script[id='product']
   regExp: ("productId":")(\w+)(","usItem)
-  regExpReplace: $2
-- name: scriptPrice
-  manualSelector: script[id='item']
-  regExp: ("price":)([\d+,.]+)(,"pre)
   regExpReplace: $2
 - name: unavailableMsg
   manualSelector: 'h2[class*="Price--unavailable"]'
