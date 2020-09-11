@@ -29,6 +29,11 @@ const transform = (data) => {
           });          
           row.alternateImages = [{'text':info.join(' | '),'xpath':row.alternateImages[0].xpath}];          
         }
+        if (row.sku) {
+          row.sku.forEach(item => {
+            item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+          });
+        }
         if (row.imageAlt) {
           let info = [];          
           row.imageAlt.forEach(item => {
