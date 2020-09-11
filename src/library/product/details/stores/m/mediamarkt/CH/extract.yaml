@@ -37,6 +37,14 @@ fields:
   - name: price
     singleValue: true
     xpath: //meta[@property="product:price:amount"]/@content
+    # regExp: (\d+(\.)(\d+)?)
+    # regExpReplace: $1
+    # regExp: (\d+(\.\d)?)+(\w+)
+    # regExpReplace: $1
+    # regExp: >-
+    #   (?:([\d\.\,]+)\s?)
+    # regExp: (.+)
+    # regExpReplace: https:$1
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText

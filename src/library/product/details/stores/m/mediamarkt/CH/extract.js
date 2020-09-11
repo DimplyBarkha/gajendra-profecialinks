@@ -3,10 +3,10 @@ const { transform } = require('../transform');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'NL',
+    country: 'CH',
     store: 'mediamarkt',
     transform: transform,
-    domain: 'mediamarkt.nl',
+    domain: 'mediamarkt.ch',
     zipcode: '',
   },
 

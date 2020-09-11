@@ -175,7 +175,11 @@ const transform = (data, context) => {
       // if (row.aggregateRatingText) {
       //   row.aggregateRatingText[0].text = row.aggregateRatingText[0].text.replace('.', ',');
       // }
+        console.log('row.price');
+        console.log(row.price);
       if (row.price) {
+        console.log('row.price');
+        console.log(row.price);
         row.price[0].text = row.price[0].text.replace('.', ',');
       }
       if (row.listPrice) {
