@@ -26,8 +26,8 @@ const transform = (data) => {
               item.text = item.text.toString();
           });
       }
-      if (row.Id) {
-        row.Id.forEach(item => {
+      if (row.id) {
+        row.id.forEach(item => {
             item.text = item.text.replace(/\?.*$/g, '').trim();
             item.text = item.text.replace(/\D/g, ' ').trim();
             item.text = item.text.toString();
