@@ -4,12 +4,12 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: id
-    xpath: //div[contains(@class,'productSlot')]/@data-product-code
+    xpath: //div[contains(@class,'_2_1T4')]/h2
     singleValue: false
   - name: name
     xpath: //div[contains(@class,'_2_1T4')]/h2
     singleValue: false
-  - name: producturl
+  - name: productUrl
     xpath: //div[contains(@class,'_2_1T4')]/h2/a/@href
     singleValue: false
     regExp: (https:\/\/www.kogan.com)?(.+)
