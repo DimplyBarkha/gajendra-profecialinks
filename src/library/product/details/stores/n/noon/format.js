@@ -12,22 +12,47 @@ const transform = (data) => {
           });
         }
         if (row.category) {
-          let text = '';
+          let info = [];          
           row.category.forEach(item => {
-            text += `${item.text.replace(/\//g, '|')}  `;
-          });
-          row.category = [
-            {
-              text: text.slice(5, -1),
-            },
-          ];
-        }
-        if (row.specifications) {
-          row.specifications.forEach(item => {
-            item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
-          });
+            if (item.text != 'Home'){
+              info.push(item.text);            
+            }
+          });          
+          row.category = [{'text':info.join(' > '),'xpath':row.category[0].xpath}];
         }
         
+        
+        if (row.alternateImages) {
+          let info = [];          
+          row.alternateImages.forEach(item => {
+            info.push(item.text);            
+          });          
+          row.alternateImages = [{'text':info.join(' | '),'xpath':row.alternateImages[0].xpath}];          
+        }
+        if (row.imageAlt) {
+          let info = [];          
+          row.imageAlt.forEach(item => {
+            info.push(item.text.trim());            
+          });          
+          row.imageAlt = [{'text':info.join(' | '),'xpath':row.imageAlt[0].xpath}];          
+        }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
+            var matches = /\s*(\d+)/isg.exec(item.text);
+            if (matches) {
+                item.text = matches[1]
+            }
+            
+          });
+        }
+        if (row.specifications) {
+          let info = [];          
+          row.specifications.forEach(item => {
+          info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());            
+          });          
+          row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
+        }
+
       }
     }
     return data;
