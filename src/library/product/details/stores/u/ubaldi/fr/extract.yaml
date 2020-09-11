@@ -4,14 +4,14 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //meta[@property="og:image"]/@content
     regExp: >-
       ^(.*)$
     regExpReplace: >-
       https:$1
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: //img[@id='image_grande']/@alt
   - name: alternateImages
     singleValue: false
@@ -19,13 +19,16 @@ fields:
     regExp: (.*)(v_)(.*)
     regExpReplace: https:$1$3
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     xpath: //meta[@name='keywords']/@content
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@class,'prix')]
-    regExp: (\d+)(€)(\d+)
+    regExp: (\d+)(\D+)(\d+)
     regExpReplace: $1 $2 $3
+  - name: priceCurrency
+    singleValue: false
+    defaultValue: €
   - name: sku
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
@@ -60,13 +63,13 @@ fields:
     regExp: brand":{"@context":"[^"]+","@type":"[^"]+","name":"([^"]+)
     regExpReplace: $1
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"availability")]
     regExp: InStock
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'fa-vendu-par')]
   - name: nameExtended
     singleValue: false
@@ -79,7 +82,7 @@ fields:
     xpath: //div[@class='p-l p-b']//a/@href
     defaultValue: No
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'fa-infos-prix')]//span[contains(@class,'prix-origine')]
     regExp: (\d+)(€)(\d+)
     regExpReplace: $1 $2 $3
@@ -104,7 +107,7 @@ fields:
     singleValue: false
     xpath: //div[@class='fa-fiche-bloc points-forts']//div[@class='fa-description']
   - name: termsAndConditions
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(text(),'Conditions générales de la Marketplace')]
     regExp: .*
     regExpReplace: Yes
