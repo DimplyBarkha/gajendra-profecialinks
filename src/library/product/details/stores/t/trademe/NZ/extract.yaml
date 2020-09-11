@@ -6,104 +6,46 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //tm-listing-auction/tg-box2/p[2]/strong
-
   - name: category
     singleValue: false
     xpath: //div/tm-breadcrumbs/ol
-
   - name: name
     singleValue: false 
     xpath: //div/tg-row[1]/tg-col[2]/tm-buyer-options/h1
-
   - name: nameExtended
     singleValue: false 
     xpath: //div/tg-row[1]/tg-col[2]/tm-buyer-options/h1
-
   - name: description
     singleValue: false
     xpath: //div[@class="tm-markdown"]
-
   - name: price
     singleValue: false 
     xpath: //tm-buy-now-box/tg-box2/div/div/p[2]/strong
-
   - name: sku
     singleValue: false 
     xpath: //tm-potential-r18-content/div/tg-row[2]/tg-col[2]/div/small[1]
-
   - name: variantId
     singleValue: false 
     xpath: //tm-potential-r18-content/div/tg-row[2]/tg-col[2]/div/small[1]
-
-  - name: pageTimestamp
-    singleValue: false 
-    xpath: //tm-mini-summary/tg-rack/tg-rack-item[1]/div/div/tg-rack-item-primary/div
-
   - name: image
     singleValue: false 
     xpath: //tg-image-viewer2/div/div/tg-image-viewer-item[1]/tg-aspect-ratio/@style
-
   - name: alternateImages
     singleValue: false 
     xpath: //tg-content-slider2-item/tg-aspect-ratio/@style
-
   - name: shippingInfo
     singleValue: false 
     xpath: //*[@id="shipping-options"]/tg-row/tg-col[2]/tm-listing-shipping-details/table/tbody
-
   - name: manufacturer 
     singleValue: false 
     xpath: //tm-member-summary/section/div[2]/h3
-
   - name: manufacturerDescription 
     singleValue: false 
     xpath: //section/div[3]/tm-core-seller-details/tg-rack
-
-  - name: specifications 
-    singleValue: false 
-    xpath: //tm-marketplace-listing-body/div/div[2]/tg-row/tg-col[2]/tm-listing-attributes/div/table/tbody
-
   - name: color
     singleValue: false 
     xpath: //tm-listing-attributes/div/table/tbody/tr[2]/td[2]/text()
-
   - name: ratingcount
     singleValue: false 
     xpath: //*[@id="comments-animation"]/ktr-product-comments/div/ng-transclude/div[1]/div[1]/font/font
     defaultValue: 0
-
-  - name: imageZoomFeaturePresent
-    singleValue: false    
-    defaultValue: Yes
-
-  - name: quantity
-    singleValue: false
-    defaultValue: 1  
-
-  - name: availabilityText
-    singleValue: false
-    defaultValue: 'In Stock'
-
-  - name: technicalInformationPdfPresent
-    singleValue: false
-    defaultValue: No
-    
-  - name: Image360Present
-    singleValue: false
-    defaultValue: No
-
-
-
-
- 
-
-
-
-
-    
-
-
-
-  
- 
- 
