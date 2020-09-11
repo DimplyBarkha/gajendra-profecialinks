@@ -157,7 +157,7 @@ const transform = (data, context) => {
         });
         const textArr = [];
         row.description.forEach(item => {
-          textArr.push(item.text);
+          textArr.push(item.text.replace('Descripción', ''));
           // if (!item.text.includes('mms-accordion-description')) {
           //   textArr.push(item.text);
           // }
@@ -194,6 +194,21 @@ const transform = (data, context) => {
         }
       }
 
+      if (row.manufacturerImages && row.manufacturerImages[0]) {
+        if (row.manufacturerImages[0].text.includes('media.flixcar.com') && row.manufacturerImages[0].text.includes('1000w')) {
+          row.manufacturerImages.forEach(item => {
+            const img = item.text.split(' ')[0];
+            const imgText = 'https' + img;
+            item.text = imgText;
+          });
+        }
+      }
+
+      if (row.image && row.image[0]) {
+        if (row.image[0].text.includes('fee_325_225_png')) {
+          row.image[0].text = row.image[0].text.replace('fee_325_225_png', 'fee_800_800_png');
+        }
+      }
       // if (row.technicalInformationPdfPresent) {
       //   row.technicalInformationPdfPresent.forEach(item => {
       //     item.text = item.text == 'true' ? 'Yes' : 'No';

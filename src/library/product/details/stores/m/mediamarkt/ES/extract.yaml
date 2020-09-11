@@ -73,6 +73,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Peso:")]//following-sibling::dd)[1]
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -292,7 +293,7 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: true
-    xpath: (//dl[@class="specification"]//dt[contains(text(),"Caract. especiales")]//following-sibling::dd)[1]
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Contenido")]//following-sibling::dd)[1]
     description: Packaging information
   - name: additives
     singleValue: true

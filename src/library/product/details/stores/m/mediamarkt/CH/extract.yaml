@@ -157,7 +157,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id,"flix-inpage")]//div[@id="inpage_container"]//img/@srcset
+    xpath: //div[contains(@id,"flix-inpage")]//div[@id="inpage_container"]//img/@data-flixsrcset
     description: Images within the third party description
   - name: videos
     singleValue: false
