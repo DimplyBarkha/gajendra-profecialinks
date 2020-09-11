@@ -3,10 +3,10 @@ const { implementation } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'UK',
+    country: 'FR',
     store: 'ebay',
     transform: null,
-    domain: 'ebay.co.uk',
+    domain: 'ebay.fr',
     zipcode: '',
   },
   implementation,
