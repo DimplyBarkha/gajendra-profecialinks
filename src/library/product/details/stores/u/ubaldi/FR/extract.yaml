@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[@id="image_grande"]/@data-zoom-image
+    xpath: //img[@id="image_grande"]/@src
     regExp: (.+)
     regExpReplace: https://www.ubaldi.com$1
   - name: imageAlt
