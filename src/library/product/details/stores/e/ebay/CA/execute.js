@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'AU',
+    country: 'CA',
     store: 'ebay',
-    domain: 'ebay.com.au',
+    domain: 'ebay.ca',
     loadedSelector: 'div#CenterPanelInternal',
     noResultsXPath: '//p[contains(text(),"We looked everywhere")]',
     zipcode: '',

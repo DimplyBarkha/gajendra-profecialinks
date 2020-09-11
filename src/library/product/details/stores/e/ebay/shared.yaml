@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: nameExtended
     singleValue: false
-    manualSelector: h1#itemTitle 
+    xpath: //h1[@id="itemTitle"]/text() 
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
@@ -34,6 +34,9 @@ fields:
   - name: availabilityText
     singleValue: false
     manualSelector: a#binBtn_btn
+    regExp: (.+)
+    regExpReplace: 'In Stock'
+    defaultValue: 'Out of Stock'
   - name: description
     singleValue: false
     manualSelector: div.prodDetailSec
@@ -69,7 +72,7 @@ fields:
     singleValue: false
   - name: name
     singleValue: false
-    manualSelector: h1#itemTitle
+    xpath: //h1[@id="itemTitle"]/text()
   - name: additionalDescBulletInfo
     singleValue: false
   - name: variantCount
