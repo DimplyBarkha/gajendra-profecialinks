@@ -23,6 +23,7 @@ const transform = (data) => {
          if (row.gtin) {
           row.gtin.forEach(item => {
             item.text = item.text.match(/[^[\]]+(?=])/g);
+            item.text = item.text.toString();
           });
          }
 
