@@ -9,8 +9,11 @@ module.exports = {
     },
     implementation: async({ url }, { country, domain, timeout }, context, dependencies) => {
         const newUrl = await context.evaluate(function(url) {
-            let searchTerm = url.split('recherche/')[1].toLowerCase();
-            searchTerm = searchTerm.split('.')[0];
+            let searchTerm;
+            if (url.split('recherche/')[1]) {
+                searchTerm = url.split('recherche/')[1].toLowerCase();
+                searchTerm = searchTerm.split('.')[0];
+            }
             if (searchTerm &&
                 searchTerm.match(/[a-zA-Z]+/g) &&
                 searchTerm.match(/[a-zA-Z]+/g).length === 1 &&
