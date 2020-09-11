@@ -10,11 +10,11 @@ module.exports = {
   },
   implementation: async ({ url }, { country, domain, timeout }, context, dependencies) => {
     const newUrl = await context.evaluate(function (url) {
-      const searchTerm = url.split('query=')[1].toLowerCase();
+      const searchTerm = url.split('query=')[1];
       if (searchTerm &&
         searchTerm.match(/[a-zA-Z]+/g) &&
         searchTerm.match(/[a-zA-Z]+/g).length === 1 &&
-        searchTerm.match(/dyson/i)
+        searchTerm.toLowerCase().match(/dyson/i)
       ) {
         console.log('redirecting to dyson all products');
         return 'https://www.coolblue.nl/zoeken?query=Dyson+*';
