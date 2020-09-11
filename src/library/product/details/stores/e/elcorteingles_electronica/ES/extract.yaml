@@ -87,6 +87,7 @@ fields:
     xpath : 
   - name: variantCount
     xpath :  
+    defaultValue: "0"
   - name: color
     xpath : //dt[contains(text(),"Alimentação")]/following-sibling::dd[1] | //*[contains(text(),"Color")]/following-sibling::span  | //dt[contains(text(),"Color")]/following-sibling::dd[1]
   - name: colorCode

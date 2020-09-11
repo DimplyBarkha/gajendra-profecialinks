@@ -1,1 +1,4 @@
 extends: ../../elcorteingles_electronica/ES/extract
+fields:
+  - name: color
+    xpath: (//dt[contains(text(),"Cor")]/following-sibling::dd[1])[1]
