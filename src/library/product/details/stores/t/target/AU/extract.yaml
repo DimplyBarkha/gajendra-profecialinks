@@ -45,7 +45,7 @@ fields:
   - name: aggregateRating
     xpath: //div[@itemprop="ratingValue"]
   - name: videos
-    xpath: //a[@class='appendedvideo']/@href
+    xpath: //a[@class='appendedvideo']/@href | //div[contains(@class,"ProductDetails")]//div[@id="prod-gallery"][1]//div[@class="GalleryItem-container"]//meta[@itemprop="contentURL"]/@content
   - name: name
     xpath: //h1[@itemprop="name"]
   - name: warnings
@@ -57,13 +57,7 @@ fields:
     regExp: (.+:)(.+)
     regExpReplace: $2
   - name: eangtin
-    xpath: //div[@class="GalleryItem-heroImage"]//img[2]/@src
-    regExp: (.+/)(.\d+)(-|.)(.+)
-    regExpReplace: $2
   - name: gtin
-    xpath: //div[@class="GalleryItem-heroImage"]//img[2]/@src
-    regExp: (.+/)(.\d+)(-|.)(.+)
-    regExpReplace: $2
   - name: specifications
     xpath: //p[contains(.,"Specifications")]/ul[2]
   - name: variantId
