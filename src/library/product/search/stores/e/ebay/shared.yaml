@@ -7,15 +7,26 @@ fields:
     singleValue: false
   - name: name
     singleValue: false
+    manualSelector: h3.s-item__title
   - name: productUrl
     singleValue: false
+    xpath: //a[contains(@class,'s-item__link')]/@href
   - name: thumbnail
     singleValue: false
+    xpath: //img[contains(@class,'s-item__image-img')]/@src
+    regExp: (.+\/s-)l.*?(\..*)
+    regExpReplace: $1l500$2
   - name: price
     singleValue: false
+    manualSelector: span.s-item__price
   - name: aggregateRating2
     singleValue: false
+    manualSelector: div.b-starrating > span.clipped
   - name: reviewCount
     singleValue: false
+    manualSelector: span.s-item__reviews-count
   - name: searchUrl
     singleValue: false
+  - name: sponsored
+    singleValue: false
+    manualSelector: span.s-item__title--tagblock__SPONSORED
