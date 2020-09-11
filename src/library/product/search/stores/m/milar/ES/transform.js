@@ -5,10 +5,15 @@ const transform = (data) => {
                 row.id.forEach(item => {
                     var myRegexp = /productos\/00\/00\/(\d+\/\d+\/\d+\/)/g;
                     var match = myRegexp.exec(item.text);
-                    if(match.length){
-                        match[1] = match[1].replace('/','');
-                        item.text = match[1].trim();
-                    }else{
+                    if(match){
+                        if(match.length){
+                            match[1] = match[1].replace('/','');
+                            item.text = match[1].trim();
+                        }else{
+                            delete item.text;
+                        }
+                    }
+                    else{
                         delete item.text;
                     }
                  });
