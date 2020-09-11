@@ -110,10 +110,10 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //ul[contains(@class,'wc-rich-features')]//li[not(contains(@class,"wc-has-no-caption"))]//h3 | //ul[contains(@class,'wc-rich-features')]//li[not(contains(@class,"wc-has-no-caption"))]//div[@class="wc-rich-content-description"]
+    xpath: //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//h3 | //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//div[@class="wc-rich-content-description"]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //ul[contains(@class,'wc-rich-features')]//li[not(contains(@class,"wc-has-no-caption"))]//img/@src
+    xpath: //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//img/@src
   - name: videos
     description: URLs of videos on page
     xpath: //body/@video-src | //body/@prod-video | //div[@itemprop="video"]/meta[@itemprop="contentUrl"]/@content

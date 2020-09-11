@@ -4,15 +4,22 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  const targetSelector = 'h1[itemprop="name"]';
-  const name = await context.evaluate((selector) => {
-    return Boolean(document.querySelector(selector));
-  }, targetSelector);
+  const checkExistance = async (selector) => {
+    return await context.evaluate(async (currentSelector) => {
+      return await Boolean(document.querySelector(currentSelector));
+    }, selector);
+  };
 
+  const name = await checkExistance('h1[itemprop="name"]');
   if (name) {
-    await context.evaluate(async (inputs) => {
+    const sku = 'span[itemprop="productID"]';
+    const id = await context.evaluate(async (sku) => {
+      const id = document.querySelector(sku) ? document.querySelector(sku).innerText : null;
+      return id;
+    }, sku);
+
+    await context.evaluate(async (id) => {
       try {
-        const id = inputs.id;
         const API = `https://api.bazaarvoice.com/data/batch.json?passkey=casUKJbj2JhoSjjK5eHePNQeioLk0kTsox3ZkK2H1tajU&apiversion=5.5&displaycode=3532-en_ca&resource.q1=statistics&filter.q1=productid:eq:${id}&filter.q1=contentlocale:eq:en_CA,en_US,en_GB&stats.q1=reviews&filter_reviews.q1=contentlocale:eq:en_CA,en_US,en_GB&filter_reviewcomments.q1=contentlocale:eq:en_CA,en_US,en_GB&limit.q1=1`;
         const response = await fetch(API);
         const data = await response.json();
@@ -30,13 +37,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       } catch (err) {
         console.log(err);
       }
-    }, inputs);
-
-    const checkExistance = async (selector) => {
-      return await context.evaluate(async (currentSelector) => {
-        return await Boolean(document.querySelector(currentSelector));
-      }, selector);
-    };
+    }, id);
 
     const iframeSelector = '[title="Product Videos"]';
     const result = await checkExistance(iframeSelector);
@@ -70,6 +71,11 @@ async function implementation (inputs, parameters, context, dependencies) {
         const body = document.querySelector('body');
         body.setAttribute('prod-video', videoLink);
       });
+    }
+
+    const enContent = await checkExistance('#wc-power-page>div');
+    if (enContent) {
+      await context.waitForXPath('//ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//img', 50000);
     }
 
     return await context.extract(productDetails, { transform });

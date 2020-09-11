@@ -21,13 +21,14 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
 
-    await context.goto(url, {
+    const responseStatus = await context.goto(url, {
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: true,
       embed_iframes: true,
     });
-
+    console.log('Status :', responseStatus.status);
+    console.log('URL :', responseStatus.url);
     const searchPageSelector = 'section.search-result-options';
     const searchPage = await context.evaluate(async (searchPageSelector) => {
       return Boolean(document.querySelector(searchPageSelector));
@@ -47,13 +48,13 @@ module.exports = {
       }
     }
     const captchaFrame = 'iframe[_src*="https://geo.captcha"]';
-    const captchaSelector = '.g-recaptcha';
+    // const captchaSelector = '.g-recaptcha';
     const checkExistance = async (selector) => {
       return await context.evaluate(async (captchaSelector) => {
         return Boolean(document.querySelector(captchaSelector));
       }, selector);
     };
-    await checkExistance(captchaSelector);
+    // await checkExistance(captchaSelector);
     const isCaptchaFramePresent = await checkExistance(captchaFrame);
 
     if (isCaptchaFramePresent) {
@@ -66,6 +67,10 @@ module.exports = {
       });
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation({ timeout });
+    }
+
+    if (responseStatus.url === 'https://www.londondrugs.com/on/demandware.store/Sites-LondonDrugs-Site/default/DDUser-Challenge') {
+      return context.reportBlocked(responseStatus.url, 'Blocked: ' + responseStatus.url);
     }
 
     if (zipcode) {

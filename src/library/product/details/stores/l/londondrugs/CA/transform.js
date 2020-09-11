@@ -14,6 +14,14 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [{ text }];
       }
+
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.variantInformation = [{ text }];
+      }
     }
   }
 

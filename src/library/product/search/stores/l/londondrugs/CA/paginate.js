@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '.ld-sg-tabs__content',
-    noResultsXPath: '//div[@class="error-page-message"]',
+    noResultsXPath: '//div[@class="search-no-results"]/preceding-sibling::h1',
     openSearchDefinition: null,
     domain: 'londondrugs.com',
     zipcode: '',

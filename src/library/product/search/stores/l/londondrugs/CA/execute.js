@@ -6,7 +6,7 @@ module.exports = {
     domain: 'londondrugs.com',
     url: 'https://www.londondrugs.com/search/?&start=0&sz=100&q={searchTerms}',
     loadedSelector: 'div.product-details > a',
-    noResultsXPath: '//div[@class="search-no-results"]',
+    noResultsXPath: '//div[@class="search-no-results"]/preceding-sibling::h1',
     zipcode: '',
   },
 };
