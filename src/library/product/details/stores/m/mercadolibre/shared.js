@@ -35,6 +35,11 @@ const transform = (data) => {
                 }
             });
          }
+         if (row.aggregateRating) {
+          row.aggregateRating.forEach(element => {
+            element.text = element.text.replace('.',',')
+          });
+         }
          if (row.videos) {
           row.videos.forEach(element => {
               if(element.text.includes('https://')){
