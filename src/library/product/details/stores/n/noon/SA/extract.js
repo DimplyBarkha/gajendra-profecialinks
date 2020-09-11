@@ -1,5 +1,5 @@
 
-const { transform } = require('../format');
+const { transform } = require('../formatVariants');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
