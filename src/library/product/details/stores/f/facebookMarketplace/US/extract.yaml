@@ -19,22 +19,23 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //script[2][@type="application/ld+json"][contains(text(),"name")]
-    regExp: name":"([^"]+)
-    regExpReplace: $1
+    xpath: //div[@class='am9z0op8 j83agx80 o387gat7 datstx6m k4urcfbm jr1d8bo4 dwxd3oue']//div[2]//a[1]//div[1]//span[1]
+    #regExp: name":"([^"]+)
+    #regExpReplace: $1
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //script[2][@type="application/ld+json"][contain
   - name: listPrice
-    singleValue: false
-    description: The stated undiscounted price for the product
-  - name: price
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"price")]
     regExp: price":"([^"]+)
     regExpReplace: $1
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: false
   - name: availabilityText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"availability")]
@@ -55,14 +56,12 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
-    regExp: brand":"([^"]+)
-    regExpReplace: $1
+    xpath: //div[@class='a8nywdso f10w8fjw rz4wbd8a pybr56ya i1fnvgqd j83agx80 ll8tlv6m kjdn3f0s']//span[@class='oi732d6d ik7dh3pa d2edcug0 hpfvmrgz qv66sw1b c1et5uql jq4qci2q a3bd9o3v knj5qynh oo9gr5id']
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: false
-    description: Product manufacturer
+    xpath: //div[@class='a8nywdso f10w8fjw rz4wbd8a pybr56ya i1fnvgqd j83agx80 ll8tlv6m kjdn3f0s']//span[@class='oi732d6d ik7dh3pa d2edcug0 hpfvmrgz qv66sw1b c1et5uql jq4qci2q a3bd9o3v knj5qynh oo9gr5id']
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
