@@ -40,15 +40,31 @@ const transform = (data) => {
 			}
 
 			if (row.technicalInformationPdfPresent) {				
-				let newText = '';
-				row.technicalInformationPdfPresent.forEach(item => {
-					if(item.text.includes('.pdf')){
-						newText =  item.text.replace(item.text, 'Yes');
-					} else {
-						newText =  item.text.replace(item.text, 'No');
+				let newText = 'No';
+				row.technicalInformationPdfPresent.forEach(item => {                    			
+					if (item.text.trim() > 0) {
+						newText = 'Yes';
 					}
 				});
 				row.technicalInformationPdfPresent = [{ text: newText }];
+			}
+
+			if (row.weightNet) {				
+				let newText = '';
+				row.weightNet.forEach(item => {
+					newText +=  `${item.text.trim() + ' ' }` ;
+				});
+				
+				row.weightNet = [{ text: newText }];
+			}
+
+			if (row.specifications) {				
+				let newText = '';
+				row.specifications.forEach(item => {
+					newText +=  `${item.text.trim() + ' ' }` ;
+				});
+				
+				row.specifications = [{ text: newText }];
 			}
 		}
 	}

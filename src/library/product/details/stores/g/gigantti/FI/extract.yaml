@@ -182,7 +182,7 @@ fields:
   - name: productUrl
     singleValue: true
     description: null
-    xpath: //meta[contains(@property, "og:url")]/@content
+    xpath: //div[contains(@id, "product-detail-wrapper")]//link[contains(@itemprop, "url")]/@href
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
