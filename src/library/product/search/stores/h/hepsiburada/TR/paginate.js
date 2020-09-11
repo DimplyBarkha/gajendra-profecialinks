@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul.product-list.results-container.do-flex.list',
-    noResultsXPath: null,
+    noResultsXPath: '//ul[contains(@class,"no-results")]',
     openSearchDefinition: null,
     domain: 'hepsiburada.com',
     zipcode: '',
