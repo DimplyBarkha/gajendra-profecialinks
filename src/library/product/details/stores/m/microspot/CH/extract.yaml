@@ -8,7 +8,9 @@ fields:
     xpath: //div[@id="TOP_CONTENT_ANCHOR"]//h1
   - name: brandText
     singleValue: false
-    xpath: //div[@id="details"]//img/@alt
+    xpath: //a[contains(@href,"?brand")]/@href
+    regExp: brand=(.+)
+    regExpReplace: $1
   - name: image
     singleValue: false
     xpath: //div[@id="pd_image"]
