@@ -41,7 +41,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     regExp: (\d+)(\D)(\d+)
-    regExpReplace: $2$1
+    regExpReplace: $2$1,$3
   
   - name: availabilityText
     singleValue: true
