@@ -37,6 +37,7 @@ fields:
     singleValue: false
   - name: sku
     singleValue: false
+    manualSelector: span#product_store_sku
   - name: quantity
     singleValue: false
     xpath: //div[@id="specsContainer"]//div[contains(text(),'Package Quantity')]/following-sibling::div
@@ -98,11 +99,11 @@ fields:
     xpath: normalize-space(//h2[contains(@class,'modelNo')])
   - name: variantCount
     singleValue: false
-    defaultValue: 1
   - name: shippingInfo
     singleValue: false
   - name: color
     singleValue: false
+    manualSelector: div[itemprop="color"]
   - name: colorCode
     singleValue: false
   - name: description
@@ -124,6 +125,11 @@ fields:
     xpath: normalize-space(//div[@id="savingsText"]/p)
   - name: Image360Present
     xpath: //span[contains(@class, 'threesixty-icon')]/@class
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No' 
+  - name: technicalInformationPdfPresent
+    manualSelector: div#more-info a[href*="pdf"]
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: 'No' 
