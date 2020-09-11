@@ -61,14 +61,7 @@ fields:
     xpath: //script[contains(@id,'state-webCurrentSeller-')]/text()
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@data-widget='webTrustFactors']//div[@class='a1e7']//span[@class='a1f']
-  - name: quantity
-    singleValue: false
-    defaultValue: 1
-  - name: availabilityText
-    singleValue: false
-    xpath: //span[@class='b0r3 b2r7']//span[contains(text(),'Нет в наличии')]
-    defaultValue: 'In Stock'
+    xpath: //div[@data-widget='webTrustFactors']//div[@class='a1e7']//span[@class='a1f']  
   - name: weightNet
     singleValue: false
     xpath: //div[@data-widget='webCharacteristics']//span[contains(text(),'Вес в упаковке')]/parent::*/parent::*/dd
