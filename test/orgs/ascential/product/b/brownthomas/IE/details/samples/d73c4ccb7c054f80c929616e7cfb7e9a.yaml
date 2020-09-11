@@ -1,0 +1,179 @@
+input:
+  _url: http://brownthomas.com
+  URL: https://www.brownthomas.com/tech-skus/airwrap-smooth-control/136544841.html
+extractions:
+  - html: https://workbench.import.io/html/run=fb5994f8-0494-4292-9af1-405d90c0c456/task=d07dc908-7d14-43a2-a3ba-f611c923e046/1a027e2f-cf16-4aae-b0a8-af7af88cdb91.html
+    extractionConfigId: product/details/stores/b/brownthomas/IE/extract
+    data:
+      - group:
+          - image:
+              - text: https://i8.amplience.net/i/brown_thomas/5661x516741x31072401_01?$pdp_zoom$&$jpg$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[2]/a[1]/picture[1]/img[1]/@data-xlgimg
+            imageAlt:
+              - text: Airwrap™ Smooth + Control
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[2]/a[1]/picture[1]/img[1]/@title
+            alternateImages:
+              - text: https://i8.amplience.net/i/brown_thomas/5661x516741x31072401_02?$pdp_zoom$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[3]/a[1]/@href
+              - text: https://i8.amplience.net/i/brown_thomas/5661x516741x31072401_03?$pdp_zoom$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[4]/a[1]/@href
+              - text: https://i8.amplience.net/i/brown_thomas/5661x516741x31072401_04?$pdp_zoom$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+              - text: https://i8.amplience.net/i/brown_thomas/5661x516741x31072401_05?$pdp_zoom$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[6]/a[1]/@href
+              - text: https://i8.amplience.net/i/brown_thomas/5661x516741x31072401_06?$pdp_zoom$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[7]/a[1]/@href
+              - text: https://i8.amplience.net/i/brown_thomas/5661x516741x31072401_07?$pdp_zoom$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[8]/a[1]/@href
+              - text: https://i8.amplience.net/i/brown_thomas/5661x516741x31072401_08?$pdp_zoom$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[9]/a[1]/@href
+            category:
+              - text: Airwrap™ Smooth + Control
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            nameExtended:
+              - text: DYSON 31072401 Airwrap™ Smooth + Control - Multi
+                xpath: /html/head[1]/meta[12]/@content
+            listPrice:
+              - text: was €449.99
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]
+            price:
+              - text: Now €442.00
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Now
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/head[1]/meta[7]/@content
+            description:
+              - text: >-
+                  "Hair care, re-engineered. 
+                   Discover Dyson hair care technology. 
+                   Powerful, precise styling with no extreme heat. Helps protect your natural shine, every time you style. 
+                   Curl. Wave. Smooth. Dry. With no extreme heat. Explore the Dyson Airwrap™ styler. 
+                   
+                   Dyson Airwrap™ styler Smooth+Control
+                   
+                   30mm Airwrap™ barrels
+                   
+                   40mm Airwrap™ barrels
+                   
+                   Firm smoothing brush
+                   
+                   Pre-styling dryer
+                   
+                   Storage case
+                   
+                   Non-slip Mat
+                   
+                   Filter cleaning brush
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]
+            brandText:
+              - text: DYSON
+                xpath: /html/head[1]/meta[8]/@content
+            weightNet:
+              - text: 0.66 kg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]/div[2]
+            sku:
+              - text: 5661x516741x31072401
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/@data-master-product-id
+            variantId:
+              - text: 5661x516741x31072401
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/@data-master-product-id
+            mpc:
+              - text: "31072401"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/h1[1]/span[1]
+            manufacturerImages:
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058869-dyson_airwrap_smooth_control_motif.png
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058575-Full-width_1_module_3_text_boxes_Attracts_wraps_and_curls_video.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058587-Full-width_2_module_3_text_boxes_coanda_effect_video.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058599-Full-width_3_module_3_text_boxes_Style_and_dries.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058618-Full-width_4_module_3_text_boxes_Coanda_to_smooth.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058636-Full-width_5_module_3_text_boxes_attracts_and_wraps.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058657-Full-width_6_module_3_text_boxes_no_extreme_heat.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058673-Feature_30mm.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]/div[1]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058684-Feature_40mm.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]/div[2]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058690-Feature_firm_smoothing_brush.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]/div[3]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058727-Features_pre_style.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[3]/div[1]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058733-In_the_Box_product.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058745-In_the_Box_tool_30mm.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058757-In_the_Box_tool_40mm.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058763-In_the_Box_tool_Firm_smoothing_brush.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058783-In_the_Box_tool_pre_styler_dryer.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058791-In_the_Box_tool_Heat_mat.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058797-In_the_Box_tool_filter_cleaning_brush.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/img[1]/@data-flixsrcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45058803-Specifications_product.jpg
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@data-flixsrcset
+            videos:
+              - text: https://i8.amplience.net/v/brown_thomas/5661x516741x31072401_v\/mp4_720p
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[1]/a[1]/@style
+            name:
+              - text: Airwrap™ Smooth + Control
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/h1[1]/span[2]
+            firstVariant:
+              - text: " Multi, No Size"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]
+            descriptionBullets:
+              - text: "16"
+            specifications:
+              - text: Power 1200 AW Cable length 2.62 m Airflow 13 litres/sec Weight 0.66 kg
+                  Negative ions Helps reduce static electricity Sound level 77
+                  dBA Power/Heat setting 4 heat, 3 speed
+            variantCount:
+              - text: "1"
+            manufacturerDescription:
+              - text: Attracts, wraps and curls hair. Using air. Harnessing the Coanda effect to
+                  style hair. Powered by the Dyson digital motor V9. “Extreme
+                  temperatures can damage hair. That’s why we use controlled
+                  heat and air.” - Dyson Engineer Styles and dries
+                  simultaneously The Dyson Airwrap™ styler combines powerful
+                  airflow with controlled heat, to style and dry your hair at
+                  the same time. Coanda to smooth The smoothing brushes harness
+                  the Coanda effect to attract hair to the surface of the brush,
+                  propelling air along the strands, to mimic a stylist’s
+                  blow-dry technique. Attracts and wraps hair. Using air. The
+                  Dyson Airwrap™ styler attracts and wraps hair for you, using
+                  air. Harnessing an aerodynamic phenomenon called the Coanda
+                  effect, it attracts hair to the barrel. Style with no extreme
+                  heat The Dyson Airwrap™ styler is engineered to style your
+                  hair from damp. By combining the water in your hair with
+                  powerful airflow, it doesn’t need to use extreme heat. 0.66 kg
+                  weight 1200 AW power 2.62 m cable length 272 mm height What's
+                  included 30mm Airwrap™ barrels Engineered to create voluminous
+                  curls or waves. Compatible with the Dyson Airwrap™ styler.
+                  40mm Airwrap™ barrels Engineered to create loose curls or
+                  waves. Compatible with the Dyson Airwrap™ styler. Firm
+                  smoothing brush Engineered to smooth and control unruly,
+                  frizz-prone hair. Compatible with the Dyson Airwrap™ styler.
+                  Pre-styling dryer Takes hair from wet to damp, ready for
+                  styling. In the box Dyson Airwrap™ styler Fuchsia/Iron/Nickel
+                  with tan case 30mm Airwrap™ barrels 40mm Airwrap™ barrels Firm
+                  smoothing brush Pre-styling dryer Non-slip heat-resistant mat
+                  Filter cleaning brush Specifications Power 1200 AW Cable
+                  length 2.62 m Airflow 13 litres/sec Weight 0.66 kg Negative
+                  ions Helps reduce static electricity Sound level 77 dBA
+                  Power/Heat setting 4 heat, 3 speed Height 272 mm Length 41 mm
+                  Width 48 mm
+            variantInformation:
+              - text: |2
+                   
+                  No Size
+        xpath: /
+    timestamp: 1599829166652

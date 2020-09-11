@@ -15,9 +15,9 @@ fields:
   - name: nameExtended
     xpath: //meta[@property="og:title"]/@content
   - name: listPrice
-    xpath: //div[@id="product-content-wrapper"]//div[@itemprop="offers"]//span[contains(@class,"was-price")][1]/text()[2]
+    xpath: //div[@id="product-content-wrapper"]//div[@itemprop="offers"]//span[contains(@class,"was-price")]
   - name: price
-    xpath: //div[@id="product-content-wrapper"]//div[@itemprop="offers"]//span[contains(@class,"price-sales")][1]/text()[2]
+    xpath: //div[@id="product-content-wrapper"]//div[@itemprop="offers"]//span[contains(@class,"price-sales")]
   - name: availabilityText
     xpath: //meta[@property="og:availability"]/@content
     regExp: (instock)
@@ -32,107 +32,69 @@ fields:
   - name: specifications
     xpath: normalize-space(//div[contains(.,"Specifications")]/div//tbody)
   - name: quantity
-    xpath:
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     xpath: //div[contains(@class,"flix-value")][contains(.,"Weight")]/following-sibling::div[contains(@class,"flix-title")]
   - name: weightGross
-    xpath:
   - name: gtin
+    xpath: //script[@type="text/javascript"][@data-flix-language="ie"]
+  - name: eangtin
     xpath: //script[@type="text/javascript"][@data-flix-language="ie"]
   - name: sku
     xpath: //div[@id="pdpMain"]/@data-master-product-id
   - name: variantId
     xpath: //div[@id="pdpMain"]/@data-master-product-id
   - name: mpc
-    xpath: //script[@type="text/javascript"][@data-flix-language="ie"]
+    xpath: //h1//span[@class="product-collection"]
   - name: packSize
-    xpath:
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
   - name: legalDisclaimer
-    xpath:
-    description: Content under "legal disclaimer" header
   - name: directions
-    xpath:
-    description: Content under "directions" header
   - name: warnings
-    xpath:
-    description: Content under "warnings" header
   - name: ratingCount
     xpath: (//a[@class="text-m"])[1]
-    regEx: (.+)( .+)
+    regExp: (.+)( .+)
     regExpReplace: $1
   - name: aggregateRatingText
     xpath: (//a[@class="text-m"]/@aria-label)[1]
-    regEx: (.+)( .+)
+    regExp: (.+)( star rating)
+    regExpReplace: $1
+  - name: aggregateRating
+    xpath: (//a[@class="text-m"]/@aria-label)[1]
+    regExp: (.+)( star rating)
     regExpReplace: $1
   - name: shippingInfo
-    xpath: //div[@data-asset-id="delivery-and-returns"]
-    description: Shipping information for the product
   - name: shippingDimensions
-    xpath:
-    description: Stated shipping dimensions
   - name: shippingWeight
-    xpath:
-    description: Stated shipping weight
   - name: variantCount
     xpath: count(//ul[contains(@class,"color")]//li)
   - name: color
-    xpath:
-    description: A textual description of the colour
   - name: colorCode
-    xpath:
-    description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    xpath: normalize-space(//div[@id="inpage_container"])supplied by the lister
+    xpath: normalize-space(//div[@id="inpage_container"])
   - name: manufacturerImages
-    xpath: //div[@id="inpage_container"]//img/@srcset
-    regEx: (.+)
-    regExpReplace: https:$1
+    xpath: //div[@id="inpage_container"]//img/@data-flixsrcset
+    regExp: (.+)(, )(.+)(\s.+)
+    regExpReplace: https:$3
   - name: videos
     xpath: //li[@id="pdp-carousel-video"]//a/@style
-    regEx: (.+')(.+)(\?.+)
+    regExp: (.+')(.+)(\?.+)
     regExpReplace: $2\/mp4_720p
   - name: name
     xpath: //h1[@itemprop="name"]//span[@class="product-name-title"]
-    description: The product name
   - name: storage
-    xpath:
-    description: Suggested storage location for product
   - name: countryOfOrigin
-    xpath:
-    description: The country from which the product originates
   - name: allergyAdvice
-    xpath:
-    description: Allergy information associated with the product
   - name: recyclingInformation
-    xpath:
-    description: Recycling information associated with the product
   - name: productOtherInformation
-    xpath:
-    description: Any other product information
   - name: packaging
-    xpath:
-    description: Packaging information
   - name: promotion
-    xpath:
-    description: promotion text on product page
   - name: newDescription
-    xpath:
-    description: In product page, information about a new version of the product -
-      new desription info
   - name: variantInformation
     xpath: concat(//ul[contains(@class,"color")]//li//span,' ',//select[@id="va-size"]//option[position()>1])
     description: colour / scent / flavour / other
   - name: firstVariant
     xpath: (//div[@class="prod-feedback-txt"])[1]
-    regEx: (.+:)(.+)
+    regExp: (.+:)(.+)
     regExpReplace: $2
   - name: variants
     xpath: //ul[contains(@class,"color")]//li//span
-    description: null
   - name: additionalDescBulletInfo
-    xpath:
