@@ -2,10 +2,8 @@ const transform = (data) => {
     for (const { group} of data) {
         for (const row of group) {
             if (row.id) {
-                 var string = row.id[0].text.split('/').splice(-4).toString();
-                 var lastIndex = string.lastIndexOf(",");
-                 var text = string.substring(0, lastIndex);
-                row.id = text.replace(/,/g , '');
+                var string= row.id[0].text.split('/').slice(-4)
+                row.id = string.slice(0,3).toString().replace(/,/g, "")
             }
 
             if(row.productUrl) {
