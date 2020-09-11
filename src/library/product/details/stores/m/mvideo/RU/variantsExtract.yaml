@@ -3,10 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: variant
+    singleValue: true
+    xpath: //div[contains(@class,'c-multisku__group-controls')]//span[@class="c-btn__text"]  
   - name: variantId
     singleValue: true
-    xpath:  //div[contains(@class,'c-btn-group__item')]//a/@href
+    xpath: //div[contains(@class,'c-multisku__group-controls')]//a/@href
   - name: variantUrl
     singleValue: true
-    xpath: //link[@rel="canonical"]/@href
-  
+    xpath: //div[contains(@class,'c-multisku__group-controls')]//a/@href
