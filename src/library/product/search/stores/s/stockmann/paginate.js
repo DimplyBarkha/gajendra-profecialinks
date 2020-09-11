@@ -73,5 +73,5 @@ module.exports = {
       template: 'https://www.stockmann.com/haku?available_at_locations=all&sort=recommended&page={page}&q={searchTerms}&nodeHash=53daa7f4e8bde88f',
     },
   },
-  // implementation,
+  implementation,
 };
