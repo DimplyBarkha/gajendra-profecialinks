@@ -14,7 +14,7 @@ module.exports = {
       const videoUrl = getAllData.CatalogEntryView[0].Attributes;
       videoUrl.find(element => {
         if (element.name === 'eVideoshopping') {
-          let videoUrl = element && element.Values[0] && element.Values[0].values;
+          const videoUrl = element && element.Values[0] && element.Values[0].values;
           document.body.setAttribute('video', videoUrl);
         }
       });
