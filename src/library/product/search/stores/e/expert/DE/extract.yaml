@@ -47,11 +47,11 @@ fields:
     description: The product name
   - name: sku
     singleValue: false
-    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
     description: The store-specific product identifier
   - name: mpc
     singleValue: false
-    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
     description: The model code of the product
   - name: gtin
     singleValue: false
@@ -104,7 +104,7 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2])
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: false
@@ -116,12 +116,12 @@ fields:
     xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating normalized to be out of 5
     # type: NUMBER
-    regExp: >-
-      ^.{0,3}
+    # regExp: >-
+    #   ^.{0,3}
   - name: aggregateRating2
     singleValue: false
     xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating normalized to be out of 5
     # type: NUMBER
-    regExp: >-
-      ^.{0,3}
+    # regExp: >-
+    #   ^.{0,3}

@@ -59,24 +59,16 @@ module.exports = {
       content = text;
       const images = await context.evaluate(async function () {
         const imagesElements = document.querySelectorAll('div.wrapper img[data-src]');
-        // return imagesElements;
         const imagesSrc = [];
         [...imagesElements].forEach((element) => {
           if (element.getAttribute('data-src')) {
             imagesSrc.push(element.getAttribute('data-src').toString());
           }
-          // imagesSrc.push(element.src.toString());
         });
-        // imagesSrc = imagesSrc.slice(0, imagesSrc.length - 1);
         return imagesSrc;
         // return imagesSrc.join(' || ');
       });
       image = images;
-      /*
-      const imgHTML = await context.evaluate(async function () {
-        return document.querySelector('body').outerHTML;
-      });
-      */
 
       const video = await context.evaluate(async function () {
         const videosElements = document.querySelectorAll('div.wrapper div.play-btn');
@@ -90,37 +82,12 @@ module.exports = {
       });
       manufVideo = video;
       await context.goto(link);
-      /*
-      const allImgs = await context.evaluate(async function (imgHTML) {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(imgHTML, "text/html");
-        // console.log(doc.querySelector('img'));
-        const imagesElements = doc.querySelectorAll('div.wrapper img');
-        // return imagesElements;
-        const imagesSrc = [];
-        [...imagesElements].forEach((element) => {
-          if (element.getAttribute('data-src')) {
-            imagesSrc.push(element.getAttribute('data-src').toString());
-          }
-          // imagesSrc.push(element.src.toString());
-        });
-        return imagesSrc;
-      }, imgHTML);
-      console.log(allImgs);
-      */
 
       addHiddenInfo('ii_manufContent', content);
-      // if (allImgs) {
-      //   addHiddenInfo('ii_manufContentImg', allImgs.join(' || '));
-      //   // addHiddenArrayList('ii_manufImg', allImgs);
-      // }
       if (image) {
         console.log(image);
         addHiddenInfo('ii_manufContentImg', image.join(' || '));
         addHiddenArrayList('ii_manufImg', image);
-        // image.forEach((element, index) => {
-        //   addHiddenInfo('ii_manufImg'+index, element);
-        // });
       }
       if (manufVideo) {
         console.log(manufVideo);

@@ -56,6 +56,15 @@ const transform = (data, context) => {
       if (row.sku) {
         row.sku = [{ text: row.sku[0].text.replace('| ', '') }];
       }
+      if (row.aggregateRatingText) {
+        row.aggregateRatingText = [{ text: row.aggregateRatingText[0].text.replace('.', ',') }];
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',') }];
+      }
+      if (row.aggregateRating2) {
+        row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace('.', ',') }];
+      }
       counter += 1;
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
