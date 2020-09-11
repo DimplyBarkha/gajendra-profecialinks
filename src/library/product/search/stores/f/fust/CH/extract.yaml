@@ -7,7 +7,7 @@ fields:
     xpath: //span[contains(@content,'sku')]/text()
     description: The store-specific product identifier
   - name: name
-    singleValue: falsexpath: //span[@class="producer"] | //span[@class="product-title"]
+    xpath: //span[@class="producer"] | //span[@class="product-title"]
     description: The product name
   - name: manufacturer
     singleValue: false
