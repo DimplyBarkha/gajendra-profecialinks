@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'interdiscount.ch',
-    timeout: null,
+    timeout: 50000,
     country: 'CH',
     store: 'interdiscount',
     zipcode: '',

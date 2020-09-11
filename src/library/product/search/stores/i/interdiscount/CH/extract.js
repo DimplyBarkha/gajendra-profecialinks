@@ -12,9 +12,7 @@ async function implementation (
       const productCode = new RegExp(`--p${code}`, 'g');
       const productsDiv = document.querySelectorAll('div._3oe9VX');
       const productDiv = Array.from(productsDiv, ele => ele.innerHTML);
-      console.log('proddiv', productDiv);
       const filteredDiv = productDiv.filter(element => element.match(productCode));
-      console.log('filter', filteredDiv);
       const prodEle = document.createElement('div');
       prodEle.id = key;
       prodEle.textContent = value;
@@ -35,7 +33,9 @@ async function implementation (
         var code = info[i];
         var item = productInfo[code].code;
         var aggregateRating = productInfo[code].averageRating;
-        if (item) {
+        const image = productInfo[code].customImageData ? productInfo[code].customImageData[0].sizes.pop() : '';
+        image && addEleToDoc('pd_image', `https://www.interdiscount.ch/${image.url}`, `${item}`);
+        if (item && aggregateRating > 0) {
           addEleToDoc('rating', `${aggregateRating}`, `${item}`);
         }
       }

@@ -25,6 +25,9 @@ const transform = (data, context) => {
       if (row.aggregateRating2) {
         row.aggregateRating2 = [{ text: row.aggregateRating2[0].text }];
       }
+      if (row.thumbnail) {
+        row.thumbnail = [{ text: row.thumbnail[0].text }];
+      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
