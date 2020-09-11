@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product_listing_tab"]//ul/li
+fields:
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+  - name: id
+    xpath: //*[@id="partNumber"]/@value  
+  - name: name
+    singleValue: false
+    xpath: //*[@class="product-tile-name"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="pricepoint-price"]
+  - name: productUrl
+    xpath: //div[@class="product-tile-imagewrap"]//a[@class="disp-block"]/@href
+  - name: thumbnail
+    xpath: //div[@class="product-tile-thumb"]/img[1]/@src
+  - name: ratingCount
+    singleValue: false
+    xpath: //*[@class="reviews-stars-link"]/a
+    regExp: \d+
