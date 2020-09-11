@@ -30,7 +30,7 @@ fields:
   - name: descriptionBulletCount
     xpath: count(//div[@data-test='description']//ul/li)
     defaultValue: 0
-  - name: brand
+  - name: brandText
     xpath: //div[@data-test = 'brand']/a
   - name: weightGross
     xpath: //dt[contains(., 'Gewicht verpakking')]//following-sibling::dd[1]
