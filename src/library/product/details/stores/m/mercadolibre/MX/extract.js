@@ -103,7 +103,7 @@ async function implementation(
     let finalArr = [];
     let bulletArr = [];
     let mc_desc;
-    let description = document.querySelector('div[class="item-description__content"]');
+    let description = document.querySelector('div[id="description-includes"]');
     let description2 = document.querySelector('p[class="ui-pdp-description__content"]');
     let bullets = document.querySelectorAll('ul.ui-pdp-features li');
     let descBullet;
@@ -127,7 +127,7 @@ async function implementation(
     console.log('descPara: ', descPara);
     finalArr.push(descPara);
     mc_desc = finalArr.join(' ');
-    addElementToDocument('mc_description', mc_desc.replace(/(\s*[\r\n]\s*)+/g, ' ').trim());
+    addElementToDocument('mc_description', mc_desc.replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace(/(\s*[\r\n]\s*)+/g, ' ').trim());
   });
   return await context.extract(productDetails, { transform });
 }
