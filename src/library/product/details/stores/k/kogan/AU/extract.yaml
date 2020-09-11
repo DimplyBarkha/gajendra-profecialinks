@@ -43,18 +43,14 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[contains(@class,'_3nTKX')]/ol/li
-  - name: subCategory
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class,'_1WvMC')]/div/a
+  # - name: subCategory
+  #   singleValue: false
+  #   description: The categories (e.g. from breadcrumbs)
+  #   xpath: //div[contains(@class,'_1WvMC')]/div/a
   - name: name
     singleValue: true
     description: The product name
     xpath: //div[contains(@class,'xaIXU')]/h1
-  - name: productUrl
-    singleValue: true
-    description: Content under "legal disclaimer" header
-    xpath: //meta[@property='og:url']/@content
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
