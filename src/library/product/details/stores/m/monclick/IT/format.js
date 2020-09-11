@@ -10,14 +10,24 @@ const transform = (data) => {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/\n \n/g, ' || ');
       }
       if (row.description) {
-        row.description[0].text = row.description[0].text.replace(/\n \n/g, ' || ').replace(/\n/g, ' ').replace(/-/g, '');
-      }
-      if (row.specifications) {
+        row.description1[0].text = row.description1[0].text.replace(/\n \n/g, ' ');
         let demo = '';
-        row.specifications.forEach(item => {
-          demo += item.text.replace(/\n \n \n \n/g, ' : ') + ' || ';
+        row.description2.forEach(item => {
+          demo += item.text.replace(/\n \n \n \n/g, ' : ') + '  ';
         });
-        row.specifications = [{ text: demo.slice(0, -3).trim() }];
+        row.description2 = [{ text: demo.slice(0, -1).trim() }];
+        row.description[0].text = row.description[0].text.replace(/\n - /g, ' || ').replace(/\n \n-/g, ' || ').replace(/\n \n \n \n/g, ' ').replace(/\n \n \n/g, ' ').replace(/\n \n/g, ' ').replace(/\n/g, ' ');
+        const info = row.description[0].text;
+        const count = info.split('||').length - 1;
+        if (count > 1) {
+          row.descriptionBullets = [{
+            text: count,
+          }];
+        }
+        row.description[0].text = row.description1[0].text + ' | ' + row.description[0].text + ' | ' + row.description2[0].text;
+      }
+      if (row.availabilityText) {
+        row.availabilityText = row.availabilityText[0].text.includes('Non disponibile') ? [{ text: 'Out of Stock' }] : [{ text: 'In Stock' }];
       }
       if (row.price) {
         let amt = '';

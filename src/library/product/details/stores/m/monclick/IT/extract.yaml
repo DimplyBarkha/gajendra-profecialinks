@@ -3,15 +3,13 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[contains(@class,'mk-quick-info')]//ul
   - name: alternateImages
     singleValue: false
     xpath: //div[@data-component='carousel']//a[not (contains(@data-image-index,1))]/img/@data-src
   - name: availabilityText
     singleValue: false
     xpath: //span[contains(@class,'mk-lbl-dispo')] | //strong[contains(@class,'labelNoDispo')]
+    defaultValue: Out of Stock
   - name: brandText
     singleValue: false
     xpath: //span[@itemprop='brand']
@@ -23,10 +21,15 @@ fields:
     xpath: //div[contains(@class,'mk-quick-info')]//span[contains(text(),'Colore:')]/following::span[1]
   - name: description
     singleValue: false
-    xpath: //div[@id='description' and @role='tabpanel']
+    xpath: //div[@id='description' and @role]
+  - name: description1
+    singleValue: false
+    xpath: //div[contains(@class,'mk-quick-info')]//ul
+  - name: description2
+    singleValue: false
+    xpath: //div[@id='techspecs' and @role='tabpanel']//div[contains(@class,'mk-product-tech-specifications-item')]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,'mk-quick-info')]//li)
   - name: image
     singleValue: false
     xpath: //img[@data-component='image-magnifier']/@src
@@ -59,9 +62,6 @@ fields:
   - name: sku
     singleValue: false
     xpath: //span[@itemprop='identifier']
-  - name: specifications
-    singleValue: false
-    xpath: //div[@id='techspecs' and @role='tabpanel']//div[contains(@class,'mk-product-tech-specifications-item')]
   - name: variantCount
     singleValue: false
   - name: variantId
