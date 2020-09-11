@@ -67,6 +67,7 @@ fields:
     description: The number of ratings
   - name: reviewCount
     singleValue: false
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//meta[@itemprop="reviewCount"]/@content
     description: The number of reviews
   - name: price
     singleValue: false
