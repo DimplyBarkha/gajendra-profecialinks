@@ -7,6 +7,25 @@ async function implementation (
   dependencies,
 ) {
   await context.evaluate(async function () {
+    let scrollSelector = document.querySelector('#container-productlist > div:last-child');
+    // @ts-ignore
+    let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+    let yPos = 0;
+    while (scrollLimit && yPos < scrollLimit) {
+      yPos = yPos + 350;
+      window.scrollTo(0, yPos);
+      scrollSelector = document.querySelector('#container-productlist > div:last-child');
+      // @ts-ignore
+      scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      await new Promise(resolve => setTimeout(resolve, 3500));
+    }
+  });
+  try {
+    await context.waitForSelector('#container-productlist > div:last-child img');
+  } catch (error) {
+    console.log('img content not loaded');
+  }
+  await context.evaluate(async function () {
     // @ts-ignore
     const productInfo = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products;
     function addEleToDoc (key, value, code) {
@@ -32,8 +51,6 @@ async function implementation (
       for (var i = 0; i < info.length; i++) {
         var code = info[i];
         var item = productInfo[code].code;
-        const image = productInfo[code].customImageData ? productInfo[code].customImageData[0].sizes.pop() : '';
-        image && addEleToDoc('pd_image', `https://www.microspot.ch/${image.url}`, `${item}`);
         var aggregateRating = productInfo[code].averageRating;
         if (item && aggregateRating !== 0) {
           addEleToDoc('rating', `${aggregateRating}`, `${item}`);
