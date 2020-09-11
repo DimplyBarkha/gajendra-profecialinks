@@ -27,7 +27,7 @@ fields:
     xpath: //*[@id="productInfo"]//span[@class="price-tag-fraction"]| //div[contains(@class , "ui-pdp-price--size-large")]//span[contains(@class , 'ui-pdp-price__part')]
   - name: availabilityText
     singleValue: false
-    xpath: //input[@data-js="vip-action-cart"]/@value | //h3[contains(@class,"ui-pdp-stock-information__title")] | //*[@class="stock-information--available"]
+    xpath: //input[@data-js="vip-action-cart"]/@value | //h3[contains(@class,"ui-pdp-stock-information__title")] | //*[@class="stock-information--available"] | //*[@data-js="ui-dropdown-quantity-available"]
   - name: description
     singleValue: false
     xpath: //div[@id="mc_description"]
@@ -74,9 +74,9 @@ fields:
   - name: warranty
     singleValue: false
     xpath: //p[contains(text() , 'Garantía de')]/following-sibling::p[contains(text() , "Garantía de")] | //h2[@class="ui-pdp-media__title"][contains(text() , "garantía")] | //section[contains(@class,"vip-section-warranty")]//p[contains(@class, "warranty__store")]
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //h3[contains(text() , "Otras características")]/following-sibling::div/ul/li
+  # - name: productOtherInformation
+  #   singleValue: false
+  #   xpath: //h3[contains(text() , "Otras características")]/following-sibling::div/ul/li
   - name: variantInformation
     singleValue: false
     xpath: //div[@class="ui-pdp-variations__picker"]/p[contains(@class,"ui-pdp-variations__label")]
@@ -87,10 +87,11 @@ fields:
     singleValue: false
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //ul[contains(@class,"ui-pdp-features")]/li
+    xpath: //ul[contains(@class,"ui-pdp-features")]/li | //div[@id="mc_additionalDescBulletInfo"]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//ul[contains(@class , 'ui-pdp-features')]/li)
+    # xpath: count(//ul[contains(@class , 'ui-pdp-features')]/li)
+    xpath: //div[@id="mc_bulletCount"]
   - name: Image360Present
     singleValue: false
     defaultValue: Yes

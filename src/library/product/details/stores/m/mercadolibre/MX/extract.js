@@ -113,9 +113,12 @@ async function implementation(
       bulletArr.push(element.innerText);
       // finalArr.push(element.innerText)
       });
-      descBullet =  bulletArr.join(' || ');
+      if(bulletArr.length > 1){
+        descBullet =  bulletArr.join(' || ');
+        descBullet = "|| "+descBullet;
+      }
     }
-    finalArr.push("|| "+descBullet);
+    finalArr.push(descBullet);
     if(description){
       // @ts-ignore
       descArr.push(description.innerText);
@@ -127,6 +130,16 @@ async function implementation(
     console.log('descPara: ', descPara);
     finalArr.push(descPara);
     mc_desc = finalArr.join(' ');
+    let bulletCount;
+    if(bullets){
+      bulletCount = bullets.length;
+    }else{
+      bulletCount = 0;
+    }
+    let desBullets;
+    desBullets = mc_desc.match(/•/gm) ? mc_desc.match(/•/gm).length : 0;
+    bulletCount = bulletCount + desBullets;
+    addElementToDocument('mc_bulletCount', bulletCount)
     addElementToDocument('mc_description', mc_desc.replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace(/(\s*[\r\n]\s*)+/g, ' ').trim());
   });
   return await context.extract(productDetails, { transform });
