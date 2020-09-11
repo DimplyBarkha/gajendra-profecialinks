@@ -175,7 +175,9 @@ async function implementation (
     addHiddenDiv('alternateImages', alternateImages.join(' | '));
 
     if (document.querySelector('meta[itemprop="ratingValue"]')) {
-      addHiddenDiv('aggregateRatingText', document.querySelector('meta[itemprop="ratingValue"]').getAttribute('content') + ' out of 10')
+      const roundedRating = Math.round((document.querySelector('meta[itemprop="ratingValue"]').getAttribute('content') / 2) * 10) / 10;
+      addHiddenDiv('aggregateRating', roundedRating);
+      addHiddenDiv('aggregateRatingText', roundedRating + ' out of 5');
     }
 
     document.querySelectorAll('.margin-10-0').forEach(el => {
