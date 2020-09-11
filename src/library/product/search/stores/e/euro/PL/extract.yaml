@@ -13,7 +13,7 @@ fields:
     singleValue: false
     xpath: //div[@class="product-tile js-UA-product "]/@data-product-href
     regExp: (.+)
-    regExpReplace: https://www.euro.com.pl$1
+    regExpReplace: https://www.euro.com.pl$&
   - name: gtin
     singleValue: false
   - name: thumbnail
