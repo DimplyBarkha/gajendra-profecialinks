@@ -18,4 +18,13 @@ fields:
     - name: price
       singleValue: false
       xpath: //div[@class="price price-m"]
+    - name: aggregateRating
+      singleValue: false
+      xpath: //div[@class="rate-history"]/span/@title
+    - name: ratingCount
+      singleValue: false
+      xpath: //div[@class="rate-history"]/a
+    - name: soldBy
+      singleValue: false
+      xpath: //div[@class="store-name util-clearfix"]/a
     
