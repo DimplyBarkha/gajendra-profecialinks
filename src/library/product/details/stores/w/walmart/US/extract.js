@@ -78,9 +78,38 @@ module.exports = {
 
     await context.waitForXPath("//meta[@property='og:image']/@content", { timeout: 5000 })
       .catch(() => console.log('no product image available'));
+ 
+    await context.waitForXPath("//p[@class='Directions']", { timeout: 4000 })
+      .catch(() => console.log('no directions present'));
 
     await context.waitForXPath("//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div", { timeout: 5000 })
       .catch(() => console.log('no desc for item'));
+
+    await context.click('body');
+    await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-1]', { timeout:3000 })
+      .then(async()=>{
+        await new Promise(res=>setTimeout(res,3000));
+      })
+      .catch(()=>console.log('no nutrTab'))
+
+    await context.waitForXPath('//span[contains(text(),"Total Carbohydrate")]/following-sibling::span)[position()=1]',{ timeout:3000 })
+      .catch(() => console.log('n/a'))
+
+    await context.evaluate(()=>{
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      let carbs = document.evaluate('(//span[contains(text(),"Total Carbohydrate")]/following-sibling::span)[position()=1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      console.log(`carbs:${carbs}`)
+      addHiddenDiv('my-carbs', carbs);
+    })
+
+    await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-0]', { timeout:3000 })
+      .catch(() => console.log('no specTab'))
 
     await addAdditionalContent();
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });

@@ -117,7 +117,7 @@ const transform = (data, context) => {
         if ((row.price && row.price[0].text === '0') || (!row.price) || (row.unavailableMsg) || (row.outOfStockMsg)) {
           row.availabilityText = [{ text: 'Out of Stock' }];
         } else if (row.availabilityMessage && row.availabilityMessage[0].text.includes('in-store')) {
-          row.availabilityText = [{ text: 'In Store Only' }];
+          row.availabilityText = [{ text: 'In stores only' }];
         } else {
           row.availabilityText = [{ text: 'In Stock' }];
         }
@@ -246,6 +246,13 @@ const transform = (data, context) => {
             }
           }
         }
+
+        if(!row.nutritionInfo && row.carbsPerServing){
+          let carbs = row.carbsPerServing[0].text;
+          row.totalCarbPerServing = [{ text: carbs.replace(/[^\d]/g, '') }];
+          row.totalCarbPerServingUom = [{ text: carbs.replace(/[^a-zA-Z]/g, '') }];
+        }
+
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = el.text ? clean(el.text) : el.text;
         }));

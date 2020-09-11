@@ -89,7 +89,7 @@ fields:
   regExp: ("primaryProductId":")([^"]+)(","primary)
 - name: mpc
   singleValue: true
-  xpath: //td[contains(text(),"Manufacturer Part Number")]/parent::tr/td/div
+  xpath: //td[contains(text(),"Model")]/parent::tr/td/div
   # manualSelector: script[id='item'], script[id='product']
   # regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
   regExpReplace: $2
@@ -227,6 +227,9 @@ fields:
   manualSelector: script[id='item'], script[id='product']
   regExp: ("nutritionFacts":{"calorieInfo(.*)}})(,"legalBadges")
   regExpReplace: $1
+- name: carbsPerServing
+  singleValue: true
+  xpath: //div[@id="my-carbs"]
 - name: servingSize
   singleValue: false
     
