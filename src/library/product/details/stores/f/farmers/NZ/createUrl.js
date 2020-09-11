@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'farmers.co.nz',
     prefix: null,
-    url: null,
+    url: 'https://www.farmers.co.nz/{id}',
     country: 'NZ',
     store: 'farmers',
     zipcode: '',

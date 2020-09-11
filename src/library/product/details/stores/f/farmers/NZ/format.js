@@ -66,6 +66,9 @@ const transform = (data) => {
       if (row.firstVariant) {
         row.firstVariant[0].text = row.firstVariant[0].text.substring(1);
       }
+      if (row.variantId) {
+        row.variantId[0].text = row.variantId[0].text.substring(1);
+      }
       if (row.price) {
         row.price[0].text = ((row.price[0].text.split(' ')).slice(-1))[0];
       }

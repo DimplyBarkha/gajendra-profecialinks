@@ -68,6 +68,9 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //meta[contains(@itemprop, 'sku')]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[contains(@itemprop, 'sku')]/@content
   - name: variantCount
     singleValue: false
     defaultValue: 1
