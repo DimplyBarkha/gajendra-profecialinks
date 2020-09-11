@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: 'div.product-main'
-recordXPath: '//div[@class="product-main"]'
+recordSelector: null
+recordXPath: //div[@class="product-main"]
 fields:
   - name: image
     singleValue: false
@@ -12,24 +12,12 @@ fields:
   - name: name
     singledValue: false
     xpath: //h1[@class="product-title-text"]
-  - name: ratingCount
-    singleValue: false
-    xpath: //span[@class="product-reviewer-reviews black-link"]
   - name: price
     singleValue: false
     xpath: //div[@class="product-price-current"]/span[@class="product-price-value"]
-  - name: internationalShipping
-    singleValue: false
-    xpath: //div[@class="product-shipping"]
-  - name: aggregateRating
-    singleValue: false
-    xpath: //div[@itemprop="aggregateRating"]//span[@class="overview-rating-average"]
-  - name: variantId
-    singleValue: false
-    xpath: //div[@class="sku-property-image"]/img/@src
-  - name: coupon
-    singleValue: false
-    xpath: //div[@class="coupon-mark-new"]
   - name: sku
     singleValue: false
     xpath: //div[@class="product-info"]/meta[1]/@content
+  - name: brandText
+    singleValue: false
+    defaultValue: tmall
