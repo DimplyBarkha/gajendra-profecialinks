@@ -44,11 +44,11 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: category
     singleValue: false
-    xpath: //*[contains(@class, 'breadcrumb')]//li[position()=1]
+    xpath: //*[contains(@class, 'breadcrumb')]//li
     description: The categories (e.g. from breadcrumbs)
   - name: subCategory
     singleValue: false
-    xpath: //*[contains(@class, 'breadcrumb')]//li[position()>1]
+    # xpath: //*[contains(@class, 'breadcrumb')]//li[position()>1]
     description: The sub Category (e.g. from breadcrumbs)  
   - name: variants
     singleValue: false
@@ -113,7 +113,7 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
-    xpath: //td[contains(text(), 'Lager')]/following::td[1]
+    # xpath: //td[contains(text(), 'Lager')]/following::td[1]
     description: Suggested storage location for product
   - name: specifications
     singleValue: false
