@@ -18,7 +18,6 @@ const transform = (data) => {
           let tmp_variations = {};
           tmp_variations["variantId"] = [];
           tmp_variations["variantUrl"] = [];
-         // productboxImg_v1568307514/N29885947A_1
           var variant_id = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
           tmp_variations["variantId"].push({"text": variant_id, "xpath": item["xpath"]});
           tmp_variations["variantUrl"].push({"text": variant_url.replace(/\/N(.+?)\//g, "/" + variant_id + "/").trim(), "xpath": item["xpath"]});

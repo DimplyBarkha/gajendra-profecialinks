@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: variantId
     singleValue: false
-    xpath: //ul[contains(@class,'thumbnails')]//img/@alt
+    xpath: //div[contains(@class,'thumbnailsContainer')]//div[contains (@class,'swiper-slide-active')][1]//img[1]/@src
   - name: variantUrl
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
