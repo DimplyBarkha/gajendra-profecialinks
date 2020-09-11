@@ -12,7 +12,7 @@ fields:
   - name: thumbnail
     xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//div[@class="product-tile__image--aspect-ratio"]/img/@src
     regExp: (^.+_)(.+\.)(.+)
-    regExpReplace: https:$11920x1080.$3
+    regExpReplace: $11920x1080.$3
     description: The URL for the product thumbnail image
   - name: name
     xpath: //div[@class="ais-infinite-hits--item ais-hits--item"]//h4[@class="ais-hit--title product-tile__title"]

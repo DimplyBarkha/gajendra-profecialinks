@@ -62,7 +62,9 @@ fields:
     description: Net weight as described on the page
   - name: weightGross
     description: Gross weight as described on the page
-    xpath: //th[text()='Packaged Weight (kg)']/..
+    xpath: //th[text()='Packaged Weight (kg)']/following-sibling::td
+    regExp: (.+)
+    regExpReplace: $1 kg
   - name: gtin
     description: GTIN code (includes UPC/EAN)
     xpath: //div[@class="three-quarters"]//*[contains(@itemprop,"gtin")]/@content

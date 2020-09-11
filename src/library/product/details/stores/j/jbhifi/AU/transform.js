@@ -23,6 +23,20 @@ const transform = (data) => {
         row.specifications = [{ text }];
       }
 
+      if (row.availabilityText) {
+        let text = '';
+        row.availabilityText.forEach(item => {
+          if(item.text ==='InStock')
+          {
+            text = 'In Stock'
+          }
+          else{
+            text = 'Out Of Stock'
+          }
+        });
+        row.availabilityText = [{ text }];
+      }
+
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
