@@ -6,6 +6,12 @@
 const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
+        
+        if (row.sku) {
+          row.sku.forEach(item => {
+            item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+          });
+        }
         if (row.description) {
           row.description.forEach(item => {
             item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
