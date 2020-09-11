@@ -9,13 +9,13 @@ const transform = (data) => {
     for (const row of group) {
       let text = '';
       if (row.availabilityJson) {
-        let availabilityData = JSON.parse(row.availabilityJson[0].text.replace(/\\/g, ""));
+        let inStore = false;
+        let deliver = false;
+        const availabilityData = JSON.parse(row.availabilityJson[0].text.replace(/\\/g, ''));
         if (availabilityData &&
       availabilityData.data &&
       availabilityData.data.product &&
       availabilityData.data.product.fulfillment) {
-          availabilitySuccess = true;
-
           if (!availabilityData.data.product.fulfillment.is_out_of_stock_in_all_store_locations) {
             inStore = true;
           }
