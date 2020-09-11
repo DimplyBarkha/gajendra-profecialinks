@@ -17,7 +17,7 @@ fields:
       xpath: //a[contains(@class,"history-item")]/img/@src
     - name: price
       singleValue: false
-      xpath: //div[@class="price price-m"][1]/div[1]
+      xpath: //div[@class="price price-m"]//span[@itemprop="price"]
     - name: aggregateRating
       singleValue: false
       xpath: //div[@class="rate-history"]/span/@title

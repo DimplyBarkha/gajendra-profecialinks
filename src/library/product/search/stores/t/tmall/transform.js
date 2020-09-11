@@ -22,14 +22,14 @@ const transform = (data) => {
           row.ratingCount.forEach(item => {
             var res = item.text.replace("(", "");
             var res1 = res.replace(")", "");
-            item.text=parseInt(res1);
+            item.text=res1;
           });
         }
 
         if(row.id){
           row.id.forEach(item => {
             var res = item.text.split("|");
-            item.text=parseInt(res[1]);
+            item.text=res[1];
           });
         }
 
@@ -38,7 +38,7 @@ const transform = (data) => {
                 var res = item.text.split(":");
                 var res1 = res[1].trim();
                 var res2 =res1.split(" ");
-                item.text=parseFloat(res2[0]);
+                item.text=res2[0];
             });
         }
       }
