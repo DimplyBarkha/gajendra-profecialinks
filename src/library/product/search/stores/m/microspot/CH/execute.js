@@ -6,7 +6,7 @@ module.exports = {
     store: 'microspot',
     domain: 'microspot.ch',
     url: 'https://www.microspot.ch/de/search?search={searchTerms}',
-    loadedSelector: '#container-productlist',
+    loadedSelector: '#container-productlist > div:last-child img',
     noResultsXPath: '//*[contains(text(),"Tipps für Ihre Suche:")]',
     zipcode: '',
   },

@@ -32,8 +32,10 @@ async function implementation (
       for (var i = 0; i < info.length; i++) {
         var code = info[i];
         var item = productInfo[code].code;
+        const image = productInfo[code].customImageData ? productInfo[code].customImageData[0].sizes.pop() : '';
+        image && addEleToDoc('pd_image', `https://www.microspot.ch/${image.url}`, `${item}`);
         var aggregateRating = productInfo[code].averageRating;
-        if (item) {
+        if (item && aggregateRating !== 0) {
           addEleToDoc('rating', `${aggregateRating}`, `${item}`);
         }
       }

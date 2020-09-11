@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'li[class="K2DOit"] a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '#container-productlist',
+    loadedSelector: '#container-productlist > div:last-child img',
     noResultsXPath: '//*[contains(text(),"Tipps für Ihre Suche:")]',
     openSearchDefinition: null,
     domain: 'microspot.ch',
