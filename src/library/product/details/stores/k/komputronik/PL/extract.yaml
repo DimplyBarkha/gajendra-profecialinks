@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: listprice
+  - name: price
     singleValue: false
     xpath: //*[@id="p-inner-prices"]/div[1]/span
   - name: category
@@ -33,9 +33,6 @@ fields:
   - name: alternateImages
     singleValue: false 
     xpath: //div[@class='wrap']//img/@ng-src
-  - name: sku
-    singleValue: false 
-    xpath: //div[@class='codes']/ul/li[1]
   - name: gtin
     singleValue: false 
     xpath: //div[@class='codes']/ul/li[3]
