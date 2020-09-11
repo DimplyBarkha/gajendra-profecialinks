@@ -46,6 +46,9 @@ async function implementation (
         addHiddenDiv(el, 'rank', resultArr.length);
 
         if (el.querySelector('.product-card__image-wrap')) {
+          const splitHref =  el.querySelector('.product-card__image-wrap').getAttribute('href').split('/');
+          const sku = splitHref[splitHref.length - 1];
+          addHiddenDiv(el, 'id', sku);
           addHiddenDiv(el, 'url', 'https://euronics.co.uk' + el.querySelector('.product-card__image-wrap').getAttribute('href'));
         }
 
