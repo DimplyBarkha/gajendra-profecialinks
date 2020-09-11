@@ -8,84 +8,46 @@ const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
           if (row.aggregateRating) {
-            let text = '';
             row.aggregateRating.forEach(item => {
-              text += `${item.text
-                .replace(/\|.*$/g, '')
-            .replace(/\//g, '')}  `;
+                item.text = item.text.replace(/\|.*$/g, '').slice();
+                item.text = item.text.replace(/\//g, '').slice(0, -2);
             });
-            row.aggregateRating = [
-              {
-                text: text.slice(0, -4),
-              },
-            ];
-          }
-          if (row.ratingCount) {
-            let text = '';
-            row.ratingCount.forEach(item => {
-              text += `${item.text
-                .replace(/\|.*$/g, '')
-            .replace(/\//g, '')}  `;
-            });
-            row.ratingCount = [
-              {
-                text: text.slice(0, -4),
-              },
-            ];
-          }
-          if (row.reviewCount) {
-            let text = '';
-            row.reviewCount.forEach(item => {
-              text += `${item.text
-                .replace(/.+(\|)/g, '')
-                .replace(/\s/g, '')
-                }  `;
-            });
-            row.reviewCount = [
-              {
-                text: text.slice(0,-8),
-              },
-            ];
-          }
-          if (row.shippingInfo) {
-            let text = '';
-            row.shippingInfo.forEach(item => {
-              text += `${item.text
-                .replace(/\s\n/g, '')}  `;
-            });
-            row.shippingInfo = [
-              {
-                text: text.slice(0, -4),
-              },
-            ];
-          }
-          if (row.name) {
-            let text = '';
-            row.name.forEach(item => {
-              text += `${item.text
-                .replace(/\s\n/g, '')}  `;
-            });
-            row.name = [
-              {
-                text: text.slice(),
-              },
-            ];
-          }
-          if (row.price) {
-            let text = '';
-            row.price.forEach(item => {
-              text += `${item.text
-                .replace(/\s\n/g, '')
-              .replace(/\s*/g, '')}  `;
-            });
-            row.price = [
-              {
-                text: text.slice(),
-              },
-            ];
-          }
-          
-          if (row.variantId) {
+        }
+
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
+              item.text = item.text.replace(/\|.*$/g, '').slice();
+              item.text = item.text.replace(/\//g, '').slice(0, -2);
+          });
+      }
+
+      if (row.reviewCount) {
+        row.reviewCount.forEach(item => {
+            item.text = item.text.replace(/.+(\|)/g, '').slice();
+            item.text = item.text.replace(/\s/g, '').slice(0,-6);
+        });
+      }
+
+      if (row.shippingInfo) {
+        row.shippingInfo.forEach(item => {
+            item.text = item.text.replace(/\s\n/g, '').trim();
+        });
+      }   
+
+      if (row.name) {
+        row.name.forEach(item => {
+            item.text = item.text.replace(/\s\n/g, '').trim();
+        });
+      }   
+
+      if (row.price) {
+        row.price.forEach(item => {
+            item.text = item.text.replace(/\s\n/g, '').trim();
+            item.text = item.text.replace(/\s*/g, '').trim();
+        });
+      }   
+         
+       if (row.variantId) {
             row.variantId.forEach(item => {
               item.text = item.text + "sj";
                 item.text = item.text.slice(33,-1);
