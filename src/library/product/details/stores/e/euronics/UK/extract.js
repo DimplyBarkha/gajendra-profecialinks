@@ -227,8 +227,8 @@ async function implementation (
       if (document.querySelector('.out-of-ten')) {
         const rating = document.querySelector('.out-of-ten').innerText.split(' ')[0];
         const roundedRating = Math.round((rating / 2) * 10) / 10;
-        addHiddenDiv('aggregatedRatingText', roundedRating);
-        addHiddenDiv('aggregatedRating', roundedRating + ' out of 5');
+        addHiddenDiv('aggregatedRatingText', Math.round(roundedRating));
+        addHiddenDiv('aggregatedRating', Math.round(roundedRating) + ' out of 5');
       }
     }
 
