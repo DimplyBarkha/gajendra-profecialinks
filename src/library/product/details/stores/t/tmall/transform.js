@@ -33,6 +33,14 @@ const transform = (data) => {
           });
         }
 
+        if(row.variantId){
+          row.variantId.forEach(item => {
+            var variantIdArr=item.text.split("/kf/");
+            var variantIdArr2=variantIdArr[1].split("/");
+            item.text=variantIdArr2[0];
+          });
+        }
+
         if(row.sku){
           row.sku.forEach(item => {
             var skuArr=item.text.split("/item/");
