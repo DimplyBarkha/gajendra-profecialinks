@@ -68,7 +68,7 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'basler-beauty',
-    nextLinkSelector: '#itemsPager > li.next',
+    nextLinkSelector: '#itemsPager > li:last-child',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.list-container',

@@ -20,4 +20,5 @@ fields:
     xpath: //*[contains(@class,"product__row--title")]/following::div[1]//*[@class="product__price"]
   - name: reviewCount
     singleValue: false
-		xpath: //div[contains(@class,"product--listing")]//*[@class="star-ratings-listing"]//text()
+    xpath: //*[contains(@class,"product--listing")]//*[@class="star-ratings-listing"]
+    type: NUMBER
