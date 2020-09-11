@@ -137,7 +137,7 @@ async function implementation (
     }
 
     const splitUrl = window.location.href.split('/');
-    const sku = splitUrl[splitUrl.length - 2];
+    const sku = splitUrl[splitUrl.length - 2].replace('eProd', '');
     addHiddenDiv('sku', sku);
 
     if (document.querySelector('#flix-inpage')) {
