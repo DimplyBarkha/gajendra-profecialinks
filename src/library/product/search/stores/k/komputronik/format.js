@@ -7,24 +7,19 @@
 const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
-          if (row.aggregateRating) {
-            row.aggregateRating.forEach(item => {
-                item.text = item.text.replace(/\|.*$/g, '').slice();
-                item.text = item.text.replace(/\//g, '').slice(0, -2);
-            });
-        }
-
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
               item.text = item.text.replace(/\|.*$/g, '').slice();
               item.text = item.text.replace(/\//g, '').slice(0, -2);
+              item.text = parseInt(item.text);
           });
       }
 
       if (row.reviewCount) {
         row.reviewCount.forEach(item => {
             item.text = item.text.replace(/.+(\|)/g, '').slice();
-            item.text = item.text.replace(/\s/g, '').slice(0,-6);
+            item.text = item.text.replace(/\s/g, '').slice(0,-6)
+            item.text = parseInt(item.text);
         });
       }
 
