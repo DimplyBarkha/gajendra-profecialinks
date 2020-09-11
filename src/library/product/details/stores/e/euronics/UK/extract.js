@@ -225,8 +225,10 @@ async function implementation (
         addHiddenDiv('ratingCount', document.querySelector('.filtered-count.summary').innerText.replace('reviews', '').replace('review', ''). trim());
       }
       if (document.querySelector('.out-of-ten')) {
-        addHiddenDiv('aggregatedRatingText', document.querySelector('.out-of-ten').innerText);
-        addHiddenDiv('aggregatedRating', document.querySelector('.out-of-ten').innerText.split(' ')[0]);
+        const rating = document.querySelector('.out-of-ten').innerText.split(' ')[0];
+        const roundedRating = Math.round((rating / 2) * 10) / 10;
+        addHiddenDiv('aggregatedRatingText', roundedRating);
+        addHiddenDiv('aggregatedRating', roundedRating + ' out of 5');
       }
     }
 
