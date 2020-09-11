@@ -1,4 +1,8 @@
 
+const { transform } = require('../transform');
+const { implementation } = require('../extractImplementation');
+
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -8,4 +12,5 @@ module.exports = {
     domain: 'bedbathandbeyond.com',
     zipcode: '',
   },
+  implementation,
 };
