@@ -9,68 +9,52 @@ fields:
   - name: imageAlt
     singleValue: true
     xpath: //div[contains(@class,'woocommerce-product-gallery__image')]/img[contains(@class,'zoomImg')]/@alt
-    defaultValue: Not Available
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,'woocommerce-product-gallery')]//ol//li//img/@src
-  - name: category
-    singleValue: true
-    xpath: //nav[contains(@class, 'woocommerce-breadcrumb')]//a[position()>1 and position()<last()]
   - name: listPrice
     singleValue: true
     xpath: //DIV[@class='rrp']
-  - name: netWeight
+  - name: weightNet
     singleValue: true
     xpath: //td[contains(text(), 'Weight')]/following-sibling::td
-  - name: brand
+  - name: brandText
     singleValue: true
     xpath: //th[contains(text(), 'Brand')]/following-sibling::td
   - name: specifications 
     singleValue: true
     xpath: //th[contains(text(), 'Dimensions')]/following-sibling::td
-  - name: harvestedProductDescription 
+  - name: name 
     singleValue: true
     xpath: //h1[contains(@class, 'product_title')]
-  - name: sku 
+  - name: sku
     singleValue: true
     xpath: //span[contains(@class,'sku_wrapper')]//span[contains(@class,'sku')]
-  - name: retailerProductCode  
+  - name: variantId  
     singleValue: true
     xpath: //span[contains(@class,'sku_wrapper')]//span[contains(@class,'sku')]
   - name: mpc  
     singleValue: true
     xpath: //span[contains(@class,'sku_wrapper')]//span[contains(@class,'sku')]
-  - name: rpcSkuHybrid  
-    singleValue: true
-    xpath: //span[contains(@class,'sku_wrapper')]//span[contains(@class,'sku')]
   - name: warranty  
     singleValue: true
     xpath: //td[contains(text(), 'Warranty')]/following-sibling::td
-  - name: url  
+  - name: productUrl 
     singleValue: true
     xpath: //meta[@property='og:url']/@content
-  - name: subCategory 
-    singleValue: true
-    xpath: //nav[contains(@class, 'woocommerce-breadcrumb')]//a[last()]
+  - name: category
+    singleValue: false
+    xpath: //nav[contains(@class, 'woocommerce-breadcrumb')]//a[position()<last()]
   - name: nameExtended
     singleValue: true
     xpath: //h1[contains(@class, 'product_title')]
-  - name: colour 
+  - name: color 
     singleValue: true
     xpath: //th[contains(text(), 'Colour')]/following-sibling::td
-  - name: harvestedListPrice
-    singleValue: true
-    xpath: //DIV[@class='rrp']
-  - name: onlinePrice
-    singleValue: false
-    xpath: (//SPAN[@class='woocommerce-Price-amount amount'])[1]
-  - name: onlinePriceCurrency
-    singleValue: false
-    defaultValue: AUD
-  - name: harvestedPrice
+  - name: price
     singleValue: false
     xpath: (//SPAN[@class='woocommerce-Price-amount amount'])[1]
   - name: availabilityText
