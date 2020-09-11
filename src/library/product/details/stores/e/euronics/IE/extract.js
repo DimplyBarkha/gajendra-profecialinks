@@ -167,8 +167,8 @@ async function implementation (
         if (frame.querySelector('reevoo-score')) {
           const rating = frame.querySelector('reevoo-score').getAttribute('data-score');
           const roundedRating = Math.round((rating / 2) * 10) / 10;
-          addHiddenDiv('aggregatedRating', roundedRating);
-          addHiddenDiv('aggregatedRatingText', roundedRating + ' out of 5');
+          addHiddenDiv('aggregatedRating', Math.round(roundedRating));
+          addHiddenDiv('aggregatedRatingText', Math.round(roundedRating) + ' out of 5');
         }
         if (frame.querySelector('.reevoo__section--number-of-reviews')) {
           addHiddenDiv('ratingCount', frame.querySelector('.reevoo__section--number-of-reviews').innerText.split(' ')[0]);

@@ -176,8 +176,8 @@ async function implementation (
 
     if (document.querySelector('meta[itemprop="ratingValue"]')) {
       const roundedRating = Math.round((document.querySelector('meta[itemprop="ratingValue"]').getAttribute('content') / 2) * 10) / 10;
-      addHiddenDiv('aggregateRating', roundedRating);
-      addHiddenDiv('aggregateRatingText', roundedRating + ' out of 5');
+      addHiddenDiv('aggregateRating', Math.round(roundedRating));
+      addHiddenDiv('aggregateRatingText', Math.round(roundedRating) + ' out of 5');
     }
 
     document.querySelectorAll('.margin-10-0').forEach(el => {
