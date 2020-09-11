@@ -47,6 +47,7 @@ const transform = (data) => {
               item.text = item.text + "sj";
                 item.text = item.text.slice(33,-1);
                 item.text = item.text.match(/[^[\]]+(?=])/g);
+                item.text = item.text.toString();
                
                 
             });
