@@ -26,7 +26,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //section[contains(@class, "mdl_section_header")]/nav[contains(@class, "mdl_breadcrumb")]/ul/li
+    xpath: //section[contains(@class, "mdl_section_header")]//li[@class='breadcrumb_item']
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
