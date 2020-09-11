@@ -1,0 +1,159 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'mk-quick-info')]//ul
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@data-component='carousel']//a[not (contains(@data-image-index,1))]/img/@data-src
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[contains(@class,'mk-lbl-dispo')] | //strong[contains(@class,'labelNoDispo')]
+  - name: brandText
+    singleValue: false
+    xpath: //span[@itemprop='brand']
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class,'breadcrumbs')]/li/a[not(contains(@title,'Home'))]
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'mk-quick-info')]//span[contains(text(),'Colore:')]/following::span[1]
+  - name: description
+    singleValue: false
+    xpath: //div[@id='description' and @role='tabpanel']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class,'mk-quick-info')]//li)
+  - name: image
+    singleValue: false
+    xpath: //img[@data-component='image-magnifier']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@data-component='image-magnifier']/@alt
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id='sticker']//span[contains(@class,'price-catalog')]
+  - name: manufacturer
+    singleValue: false
+    xpath: //span[@itemprop='brand']
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,'keywords')]/@content
+  - name: name
+    singleValue: false
+    xpath: //img[@data-component='image-magnifier']/@alt
+  - name: nameExtended
+    singleValue: false
+    xpath: //img[@data-component='image-magnifier']/@alt
+  - name: price
+    singleValue: false
+    xpath: //div[@id='sticker']//div[contains(@class,'big mk-award')]
+    regExp: '€(.*)'
+    regExpReplace: € $1
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Peso (Shipping)')]/following::p[1]
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop='identifier']
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='techspecs' and @role='tabpanel']//div[contains(@class,'mk-product-tech-specifications-item')]
+  - name: variantCount
+    singleValue: false
+  - name: variantId
+    singleValue: false
+    xpath: //aside[contains(@class,'mk-product-page')]//a[@data-action='add-to-cart']/@data-product-code
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Garanzia')]/following::p[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='techspecs' and @role]//strong[(text()='Peso')]/following::p[1]
+  # - name: _input
+  #   singleValue: false
+  # - name: _pageTimestamp
+  #   singleValue: false
+  # - name: _url
+  #   singleValue: false
+  # - name: aggregateRatingText
+  #   singleValue: false
+  # - name: aggregateRating
+  #   singleValue: false
+  # - name: colorCode
+  #   singleValue: false
+  # - name: countryOfOrigin
+  #   singleValue: false
+  # - name: coupon
+  #   singleValue: false
+  # - name: descriptionBulletsInfo
+  #   singleValue: false
+  #   type: NUMBER
+  # - name: directions
+  #   singleValue: false
+  # - name: energyEfficiency
+  #   singleValue: false
+  # - name: firstVariant
+  #   singleValue: false
+  # - name: gtin
+  #   singleValue: false
+  # - name: Image360Present
+  #   singleValue: false
+  # - name: lbb
+  #   singleValue: false
+  # - name: lbbPrice
+  #   singleValue: false
+  # - name: legalDisclaimer
+  #   singleValue: false
+  # - name: manufacturerDescription
+  #   singleValue: false
+  # - name: manufacturerImages
+  #   singleValue: false
+  # - name: mpc
+  #   singleValue: false
+  # - name: newDescription
+  #   singleValue: false
+  # - name: packaging
+  #   singleValue: false
+  # - name: packSize
+  #   singleValue: false
+  # - name: productOtherInformation
+  #   singleValue: false
+  # - name: promotion
+  #   singleValue: false
+  # - name: quantity
+  #   singleValue: false
+  # - name: ratingCount
+  #   singleValue: false
+  #   type: NUMBER
+  # - name: recyclingInformation
+  #   singleValue: false
+  # - name: shippingDimensions
+  #   singleValue: false
+  # - name: shippingInfo
+  #   singleValue: false
+  # - name: dimensionsSpecifications
+  #   singleValue: false
+  # - name: detailsSpecifications
+  #   singleValue: false
+  # - name: warrantySpecifications
+  #   singleValue: false
+  # - name: storage
+  #   singleValue: false
+  # - name: technicalInformationPdfPresent
+  #   singleValue: false
+  # - name: termsAndConditions
+  #   singleValue: false
+  # - name: variantInformation
+  #   singleValue: false
+  # - name: variants
+  #   singleValue: false
+  # - name: videos
+  #   singleValue: false
+  # - name: warnings
+  #   singleValue: false
+  # - name: weightGross
+  #   singleValue: false
