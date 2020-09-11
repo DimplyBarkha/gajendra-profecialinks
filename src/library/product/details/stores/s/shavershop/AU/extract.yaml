@@ -40,6 +40,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //button[@class="button-fancy-large add-to-cart"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -47,11 +48,11 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath : //div[@class='product-info-list']/div[@class='product-long-description-outline']/div[@class='product-long-description']/h2[@class='toggle-collapse']
+    xpath : //div[@class='product-long-description']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    xpath : //div[@id='pdpMain']/div[@class='product-info-list']/div[@class='product-long-description-outline']/div[@class='product-long-description']/ul/li
+    xpath : count(//div[@class='product-long-description']/ul/li)
     type: NUMBER
   - name: manufacturerImages
     singleValue: true
@@ -61,64 +62,63 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath : //div[@class='pdp-top-outline second-section clearfix']/div[@class='pdp-top-left']/div[@class='brand-name']/a  
+    xpath : //div[@class='brand-name']/a  
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath : //div[@class='pdp-top-outline second-section clearfix']/div[@class='pdp-top-left']/div[@class='brand-name']/a
+    xpath : //div[@class='brand-name']/a
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
-    xpath : //div[@class='quantity']/span[@id='addToCartQtySelectBoxItContainer']/span[@id='addToCartQtySelectBoxIt']/span[@id='addToCartQtySelectBoxItText'][1]
-    defaultValue : "1"
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath : //div[@class='product-name']/a[@class='name-link ']/span[@class='desktop-only']
-    defaultValue: NA
+    xpath : (//strong[contains(text(),'Product weight:')]/following-sibling::text())[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    defaultValue: NA
+    xpath : //strong[contains(text(),'Product weight:')]/following-sibling::text()[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath : //div[@class='pdp-top-outline clearfix']/div[@class='product-number']/span
+    xpath : //span[@itempro="productID"]
+  - name: upc
+    singleValue: true
+    xpath: //span[@itempro="productID"]
+  - name: eangtin
+    singleValue: true
+    xpath: //span[@itempro="productID"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath : //div[@class='pdp-top-outline clearfix']/div[@class='product-number']/span
+    xpath : //span[@itempro="productID"]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath : //div[@class='pdp-top-outline clearfix']/div[@class='product-number']/span
+    xpath : //span[@itempro="productID"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@class='pdp-top-outline clearfix']/div[@class='product-number']/span
-  - name: url
+    xpath: //span[@itempro="productID"]
+  - name: productUrl
     singleValue: true
     description: Url of the page 
     xpath: //link[@rel="canonical"]/@href
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
-    defaultValue: NA  
+      the site to quantity)   
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
-    defaultValue: No
   - name: directions
     singleValue: true
     description: Content under "directions" header
-    defaultValue: No
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-    defaultValue: No
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -126,7 +126,7 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath : //div[@class='bv-summary-bar  ']/dl[@class='bv-stars-container']/dd[@class='bv-rating-ratio-count']/a[@class='bv-rating-label bv-text-link bv-focusable']
+    xpath : //a[@class='bv-rating bv-text-link bv-popup-target bv-focusable']/@aria-label
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -147,16 +147,13 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: count(//div[@id='primary']/div[@id='pdpMain']/div[@class='section-recommendations']/div[@id='cq_recomm_slot-7480b05cca4adac4c839c19745']/div[@class='recommendations']/div[@class='section-recommendation clearfix']/div[@class='group-product-tile'])
     type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
-    defaultValue: NA
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
-    defaultValue: NA
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
@@ -168,7 +165,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class='how-to-use-inner clearfix']/ul[@id='videosList']/li/a/@href
+    xpath: //ul[@id='videosList']/li/a/@href
   - name: name
     singleValue: true
     description: The product name
@@ -269,6 +266,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//div[@class='owl-stage']/div[contains(@class,'owl-item')])
   - name: news
     singleValue: true
     description: null
@@ -433,6 +431,7 @@ fields:
     xpath: //div[@class='feature-item']/div[@class='content-asset']/p
   - name: warranty
     singleValue: true
+    xpath: //div[@class='product-long-description']/ul/li[contains(text(),'guarantee')]
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -440,7 +439,6 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
-    defaultValue: true
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -466,6 +464,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath : //div[@id='product-content']/div[@class='group-price clearfix']/div[@class='pdp-sale dektop-only red']/div[@class='price-save']/span
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -481,6 +480,7 @@ fields:
     singleValue: true
     description: In product page, information about a new version of the product -
       new desription info
+    xpath: //div[(@class='product-description desktop-only')]/p/text()
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
@@ -536,12 +536,9 @@ fields:
   - name: materials
     singleValue: true
     description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
     singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
+    xpath: boolean(//div[@id='pdpMain']//a[contains(@class,'btn-zoom')])
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
