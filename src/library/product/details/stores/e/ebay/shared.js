@@ -13,6 +13,7 @@ async function implementation(
     }
     const src = await context.evaluate(async function () {
         const iframe = document.querySelector('iframe#desc_ifr');
+        // @ts-ignore
         const src = iframe ? iframe.src : '';
         return src;
     });

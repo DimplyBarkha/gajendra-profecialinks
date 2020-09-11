@@ -14,7 +14,7 @@ fields:
     xpath: //img[@id="icImg"]/@src
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="vi_main_img_fs"]//img/@src
+    xpath: //div[@id="vi_main_img_fs"]//li[position()>1]//img/@src
     regExp: (.+\/s-)l.*?(\..*)
     regExpReplace: $1l500$2
   - name: videos
