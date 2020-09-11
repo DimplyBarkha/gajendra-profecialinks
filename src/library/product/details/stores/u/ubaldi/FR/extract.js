@@ -1,9 +1,10 @@
+const { cleanUp } = require('../shared');
 module.exports = {
     implements: 'product/details/extract',
     parameterValues: {
         country: 'FR',
         store: 'ubaldi',
-        transform: null,
+        transform: cleanUp,
         domain: 'ubaldi.com',
         zipcode: '',
     },

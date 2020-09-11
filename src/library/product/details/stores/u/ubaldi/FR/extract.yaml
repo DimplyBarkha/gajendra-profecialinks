@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[@class="gv-img"]/@src
+    xpath: //img[@id="image_grande"]/@data-zoom-image
     regExp: (.+)
     regExpReplace: https://www.ubaldi.com$1
   - name: imageAlt
@@ -26,10 +26,10 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //span[@class="br-lien"]
+    xpath: //span[@class="br-lien"]/a/span[1]/text()
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class="fa-fiche-bloc caracteristiques carac-detaillees"]//div[@class="fa-bloc-main"]
+    xpath: //*[@itemprop="name"]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -37,7 +37,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //span[@class="prix rebours-prix rebours-inited"]
+    xpath: //*[contains(@class,"fa-prix")]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     regExp: (\d+)(\D)(\d+)
@@ -129,7 +129,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //*[@class="fa-livraison"]/text()
+    xpath: //*[contains(@class,"fa-livraison") or contains(@class,"fa-vendu-par")]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -541,4 +541,4 @@ fields:
   - name: warranty
     description: Guarantee associated with the product
     xpath: //*[contains(text(),"serenity")]
-    regExp: ([0-9-a-zA-Z]+)(?= serenity)
+    regExp: \d
