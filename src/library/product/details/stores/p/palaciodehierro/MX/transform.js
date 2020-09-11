@@ -67,6 +67,11 @@ const transform = (data) => {
           item.text = item.text.split(':') && item.text.split(':')[1] ? item.text.split(':')[1].trim() : '';
         });
       }
+      if (row.packSize) {
+        row.packSize.forEach((item) => {
+          item.text = item.text.includes('Piezas') ? item.text : '';
+        });
+      }
       if (row.mpc) {
         row.mpc.forEach((item) => {
           item.text = item.text.split(':') && item.text.split(':')[1] ? item.text.split(':')[1].trim() : '';

@@ -8,7 +8,7 @@ fields:
     xpath: //div[contains(@class,'product_images')]//picture//img[1]/@src
     description: URL of the main product image
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'product_images')]//picture//img[1]/@alt
     description: Alt text of the main product image
   - name: alternateImages
@@ -16,7 +16,7 @@ fields:
     xpath: //div[contains(@class,'product_images')]//img/@src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     xpath: //meta[@name='keywords']/@content
     description: The <meta> keywords content
   - name: category
@@ -24,7 +24,7 @@ fields:
     xpath: //ul[contains(@class,'b-breadcrumbs')]//li
     description: The categories (e.g. from breadcrumbs)
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //h1[contains(@class,'b-product_main_info')]
     description: The product name
   - name: nameExtended
@@ -33,16 +33,16 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'b-product_price-old')]
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'b-product_price-sales')]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@data-component,'product/Availability')]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
@@ -58,24 +58,24 @@ fields:
     xpath: count(//div[contains(@class,'b-product_description-specifications')]//li)
     description: Number of ul > li tags in the description
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: //meta[@itemprop='brand']/@content
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: sku
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@class,'b-product_description-key') and contains(.,'SKU')]
     description: The store-specific product identifier
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //meta[contains(@itemprop,'productID')]/@content
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@class,'b-product_description-key') and contains(.,'Model')]
     description: The manufacturer model code (unique) of the product
   - name: variantCount
-    singleValue: true
+    singleValue: false
     defaultValue: 1
     description: Number of variants listed
   - name: specifications
@@ -83,10 +83,15 @@ fields:
     xpath: //div[contains(@class,'b-pdp_specification-table')]//span[contains(@class,'b-pdp_specification-label') or contains(@class,'b-pdp_specification-value')]
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@class,'b-pdp_specification-label') and contains(.,'Garanti')]/following-sibling::span[contains(@class,'b-pdp_specification-value')]
     description: Guarantee associated with the product
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
     xpath: //div[contains(@class,'b-product_description-specifications')]//li
+  - name: packSize
+    singleValue: false
+    description: null
+    xpath: //span[contains(@class,'b-pdp_specification-label') and contains(.,'Incluye')]/following-sibling::span[contains(@class,'b-pdp_specification-value')]
+    

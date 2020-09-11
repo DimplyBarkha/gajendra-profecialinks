@@ -22,7 +22,7 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    const descNode = (document.querySelectorAll("div[class*='b-product_description-short'] , div[class*='b-product_description-specifications'] li")) ? document.querySelectorAll("div[class*='b-product_description-short'] , div[class*='b-product_description-specifications'] li") : null;
+    const descNode = (document.querySelectorAll("div[class*='b-product_description-short'] , div[class*='b-product_description-specifications']")) ? document.querySelectorAll("div[class*='b-product_description-short'] , div[class*='b-product_description-specifications'] ul") : null;
     const descContent = [];
     for (let i = 0; i < descNode.length; i++) {
       const element = descNode[i];
