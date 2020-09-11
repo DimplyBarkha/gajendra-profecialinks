@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CH',
     store: 'interdiscount',
-    nextLinkSelector: 'li[class="l-Be8I"]:last-child a',
+    nextLinkSelector: 'li[class="l-Be8I"]:last-child a button:not([disabled])',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'section .ulvVbt > div:nth-last-child(2) img',

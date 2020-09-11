@@ -6,6 +6,25 @@ async function implementation (
   dependencies,
 ) {
   await context.evaluate(async function () {
+    let scrollSelector = document.querySelector('section .ulvVbt > div:nth-last-child(2)');
+    // @ts-ignore
+    let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+    let yPos = 0;
+    while (scrollLimit && yPos < scrollLimit) {
+      yPos = yPos + 350;
+      window.scrollTo(0, yPos);
+      scrollSelector = document.querySelector('section .ulvVbt > div:nth-last-child(2)');
+      // @ts-ignore
+      scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      await new Promise(resolve => setTimeout(resolve, 3500));
+    }
+  });
+  try {
+    await context.waitForSelector('section .ulvVbt > div:nth-last-child(2) img');
+  } catch (error) {
+    console.log('img content not loaded');
+  }
+  await context.evaluate(async function () {
     // @ts-ignore
     const productInfo = window.__INITIAL_STATE__.products;
     function addEleToDoc (key, value, code) {
@@ -33,8 +52,6 @@ async function implementation (
         var code = info[i];
         var item = productInfo[code].code;
         var aggregateRating = productInfo[code].averageRating;
-        const image = productInfo[code].customImageData ? productInfo[code].customImageData[0].sizes.pop() : '';
-        image && addEleToDoc('pd_image', `https://www.interdiscount.ch/${image.url}`, `${item}`);
         if (item && aggregateRating > 0) {
           addEleToDoc('rating', `${aggregateRating}`, `${item}`);
         }
