@@ -23,7 +23,8 @@ fields:
     xpath: //td[contains(text(), 'Weight')]/following-sibling::td
   - name: brandText
     singleValue: true
-    xpath: //th[contains(text(), 'Brand')]/following-sibling::td
+    xpath: //meta[@property="product:brand"]/@content
+    defaultValue: ""
   - name: specifications 
     singleValue: true
     xpath: //th[contains(text(), 'Dimensions')]/following-sibling::td
