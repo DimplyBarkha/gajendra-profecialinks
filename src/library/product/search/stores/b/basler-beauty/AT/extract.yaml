@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: 'div.product--listing'
 recordXPath: //*[@id="searchList"]//div[contains(@class,'product--listing')]
 fields:
   - name: id
@@ -22,3 +22,5 @@ fields:
     singleValue: false
     xpath: //*[contains(@class,"product--listing")]//*[@class="star-ratings-listing"]
     type: NUMBER
+  - name: aggregateRating
+    singleValue: false

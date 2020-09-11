@@ -7,12 +7,9 @@ async function implementation(
   const { keywords, page, offset } = inputs;
   const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
 
-
-  console.log('logtest', nextLinkSelector);
-
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
-    console.log('logtest-1', hasNextLink);
+
     if (!hasNextLink) {
       return false;
     }
