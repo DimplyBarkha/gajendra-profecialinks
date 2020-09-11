@@ -1,0 +1,220 @@
+input:
+  _url: http://krefel.be
+  URL: https://www.krefel.be/nl/p/13000239-luchtreiniger-pure-cool-me
+extractions:
+  - html: https://workbench.import.io/html/run=94c6f7a3-424d-408c-bfd1-1d3fc846aa1a/task=c0f06d5a-e4d9-4d21-82fd-68baf3227c6e/3b53e7e1-a892-4ac7-a851-e8f097e5d26e.html
+    extractionConfigId: product/details/stores/k/krefel/BE/extract
+    data:
+      - group:
+          - image:
+              - text: https://media.krefel.be/sys-master/products/8886976544798/570x450.13000239_01_1.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Luchtreiniger Pure Cool Me
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://media.krefel.be/sys-master/products/8886976479262/570x450.13000239_02_1.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976413726/570x450.13000239_03.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976348190/570x450.13000239_04.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976217118/570x450.13000239_05.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976282654/570x450.13000239_06.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976741406/570x450.13000239_07.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976675870/570x450.13000239_08.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976610334/570x450.13000239_09.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8940275499038/570x450.13000239_99.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[10]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976544798/98x98.13000239_01_1.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976479262/98x98.13000239_02_1.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976413726/98x98.13000239_03.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976348190/98x98.13000239_04.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976217118/98x98.13000239_05.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976282654/98x98.13000239_06.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976741406/98x98.13000239_07.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976675870/98x98.13000239_08.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8886976610334/98x98.13000239_09.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8940275499038/98x98.13000239_99.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: Dyson Luchtreiniger Pure Cool Me bij Krëfel - voor 22u00 besteld, levering
+                  de volgende dag, ook op zondag. Bestel nu online!
+                xpath: /html/head[1]/meta[2]/@content
+            category:
+              - text: Huishouden & Groot Elektro
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Klimaatbeheersing
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Luchtkwaliteit
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Luchtreiniger Pure Cool Me
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/@availability
+            description:
+              - text: >-
+                  Beschrijving
+
+                  DysonLuchtreiniger Pure Cool Me
+
+                  Dyson Core Flow™ Technologie:
+                   De aerodynamica ingenieurs van Dyson ontdekten dat wanneer luchtstralen elkaar op een bollend oppervlak ontmoeten, ze samensmelten om een hogedrukkern te creëren. Met gebruik van dit fenomeen hebben ze een manier ontwikkeld om een nauwkeurige luchtstroom te projecteren.
+                   
+                   Verwijdert gassen en 99,95% van verontreinigende stoffen:
+                   Een actief koolstoffilter en HEPA-filter van glasvezel verwijderen gassen en 99,95% van ultrafijne deeltjes uit de lucht.
+                   
+                   Soepele oscillatie:
+                   Stel de ventilator in om van links naar rechts te draaien, en een luchtstroom met een bereik van 70˚ te verspreiden.
+                   
+                   Richt de luchtstroom precies waar u hem nodig hebt:
+                   Dit unieke convex mechanisme regelt de kracht van elke luchtstraal, zodat u precies kunt kiezen waar u de lucht wilt hebben.
+                   
+                   Slaaptimer:
+                   's Nachts kunt u de timer instellen om zichzelf uit te schakelen met tussenpozen van 15 minuten tot 9 uur.
+                   
+                   Krachtige, persoonsgerichte koeling:
+                   Verspreidt verkoelende, gereinigde lucht – precies waar u het nodig heeft.
+                   
+                   Eenvoudig te onderhouden filter:
+                   Het is snel en eenvoudig om te doen en waarborgt dat de ventilator altijd optimaal presteert. Op basis van gebruik. De gebruiksduur van het filter wisselt op grond van de verontreinigingsniveaus.
+                   
+                   Ontdek hier een volledig overzicht van alle Dyson luchtreinigers en hun eigen attributten: PDF
+
+                   
+                  Volledige beschrijving
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[2]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
+            weightNet:
+              - text: 6 kg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]/span[3]
+            gtin:
+              - text: "5025155040850"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
+            sku:
+              - text: "13000239"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            mpc:
+              - text: "5025155040850"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
+            ratingCount:
+              - text: "20"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[8]/section[1]/div[2]/div[1]/div[1]/a[1]/h2[1]/span[1]
+                type: NUMBER
+                raw: "20"
+                locale: nl
+                value: 20
+            aggregateRatingText:
+              - text: "4.2"
+                xpath: /html/body/@ratingvalue
+            aggregateRating:
+              - text: "4.2"
+                xpath: /html/body/@ratingvalue
+                type: NUMBER
+                raw: "4.2"
+                locale: nl
+                value: 4.2
+            color:
+              - text: Wit/zilver
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            name:
+              - text: Luchtreiniger Pure Cool Me
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[2]
+            specifications:
+              - text: |-
+                  Product
+                  Krëfel code13000239
+                  MerkDyson
+                  EAN5025155040850
+                  Algemene eigenschappen
+                  Breedte25 cm
+                  Diepte25 cm
+                  Hoogte40 cm
+                  Gewicht6 kg
+                  Vermogen40 W
+                  Fysieke eigenschappen
+                  KleurWit/zilver
+                  MateriaalKunststof
+                  Display
+                  Capaciteit
+                  ReinigingstechniekFilters
+                  Type filterKoolstoffilter, HEPA-filter
+                  Max. geluidsniveau59 dB
+                  Functies
+                  Automatische functie
+                  Aantal snelheden10
+                  Filtert sigarettenrook
+                  Filtert slechte geuren
+                  Filtert virussen
+                  Filtert fijne deeltjes
+                  Filtert pollen
+                  Filtert huidschilfers dieren
+                  Slaapfunctie
+                  Gebruiksgemak
+                  Connecteren met app 
+                  Timer
+                  Afstandsbediening
+                  Functie LCD schermSnelheid en standen
+                  Functie(s)Luchtreiniger & ventilator
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            nameExtended:
+              - text: Dyson - Luchtreiniger Pure Cool Me
+            listPrice:
+              - text: 349,00 €
+            price:
+              - text: 349,00 €
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
+            shippingInfo:
+              - text: "Op voorraad + Click&Collect: afhalen in een Krëfel-winkel - kies
+                  postcodeStandaard thuislevering  - kies postcodeAfhaalpunt:
+                  afhalen in een bpost afhaalpunt  - kies postcode + Gratis
+                  verzending vanaf €20Prijsgarantie: altijd de laagste prijsVoor
+                  22u00 besteld, morgen in huisLevering op zaterdag en zondag30
+                  dagen bedenktijdKlanten geven Krëfel 8.6/10"
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
+            inStorePrice:
+              - text: 349,00 €
+        xpath: /
+    timestamp: 1599821817491
