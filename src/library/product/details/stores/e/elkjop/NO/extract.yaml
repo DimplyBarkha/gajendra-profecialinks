@@ -22,7 +22,7 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    xpath: (//html/head/meta[name="keywords"]/@content)
+    xpath: //meta[@name="name"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -477,11 +477,11 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //div[contains(@class,"table-cell variations")]/div[@class="variation active"]
+    xpath: //div[contains(@class,"variation")][@class='variation active']/div/a
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[contains(@class,"table-cell variations")]/div[@class="variation"]
+    xpath: //div[contains(@class,"table-cell variations")]/div[@class="variation"]/div/a
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
