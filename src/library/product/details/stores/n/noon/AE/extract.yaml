@@ -1,12 +1,12 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
     - name: category
       singleValue: false
-      xpath: //span[contains(@class,'crumb')]
-    - name: url
+      xpath: //div[contains(@class,'breadcrumb ')]//span[contains(@class,'crumb')]
+    - name: productUrl
       singleValue: false
       xpath: //link[contains(@rel,'canonical')]//@href
     - name: image
@@ -24,9 +24,6 @@ fields:
     - name: name
       singleValue: false
       xpath: //h1[@class='jsx-2771165322']
-    - name: variantId
-      singleValue: false
-      xpath: //p[@class='jsx-2771165322 modelNumber']
     - name: ratingCount
       singleValue: false
       xpath: //p[@class='jsx-2756475694 counter']
@@ -35,13 +32,13 @@ fields:
       xpath: //p[@class='jsx-2756475694 scoreTag']
     - name: coupon
       singleValue: false
-      xpath: //p[@class='jsx-2027916868 productTag']
+      xpath: //div[@class="jsx-180529803 productTagContainer"]/p[@class="jsx-2027916868 productTag"]
     - name: listPrice
       singleValue: false
-      xpath: //span[@class='jsx-4251264678 preReductionPrice']
+      xpath: //span[@class="jsx-4251264678 value"]/span[@class="jsx-4251264678 preReductionPrice"]
     - name: price
       singleValue: false
-      xpath: //span[@class='jsx-4251264678 sellingPrice']
+      xpath: //span[@class="jsx-4251264678 sellingPriceContainer"]/span[@class="jsx-4251264678 sellingPrice"]
     - name: quantity
       singleValue: false
       xpath: //div[@class='Select-control']
@@ -53,4 +50,4 @@ fields:
       xpath: //ul[contains(@class,'highlights')]
     - name: specifications
       singleValue: false
-      xpath: //div[@class='jsx-1537324451 groupContainer']
+      xpath: //div[@class='jsx-1537324451 groupContainer']//table//tr
