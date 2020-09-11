@@ -11,6 +11,13 @@ const transform = (data) => {
             item.text = "https://www.noon.com" + item.text;
           });
         }
+
+        if (row.id) {
+          row.id.forEach(item => {
+            item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+          });
+        }
+
         }
     }
     return data;
