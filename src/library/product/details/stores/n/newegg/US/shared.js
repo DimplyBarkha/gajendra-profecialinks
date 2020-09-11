@@ -56,7 +56,7 @@ const transform = (data) => {
           text += row.specifications[i].text + ': ' + row.specifications[i + 1].text + ' || ';
         }
         row.specifications = [{
-          text: (text.slice(0, -2)).trim(),
+          text: (text.slice(0, -3)).trim(),
         }];
       }
       if (row.shippingInfo) {

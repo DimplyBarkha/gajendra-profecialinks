@@ -99,7 +99,7 @@ fields:
     xpath: (//div[@class="featured-seller"]/div/a/@href)[1]
   - name: specifications
     singleValue: false
-    xpath: //div[@id='detailSpecContent']//dt | //div[@id='detailSpecContent']//dd
+    xpath: //div[@id='detailSpecContent']//dt[(normalize-space(.)!='')] | //div[@id='detailSpecContent']//dt[(normalize-space(.)!='')]//parent::dl//dd
   - name: countryOfOrigin
     singleValue: false
     xpath: //script[contains(@type,"text/javascript")][contains(text(),"code")]

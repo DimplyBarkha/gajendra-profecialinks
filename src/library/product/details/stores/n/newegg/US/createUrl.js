@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'newegg.com',
     prefix: null,
-    url: null,
+    url: 'https://www.newegg.com/p/{id}',
     country: 'US',
     store: 'newegg',
     zipcode: '',
