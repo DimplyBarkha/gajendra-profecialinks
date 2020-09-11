@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[contains(@class,'hits')]//section//article
+fields:
+  - name: id
+    singleValue: false
+    xpath: //section[contains(@class,'hits')]//section//article/@data-product-tile-sku
+  - name: rankOrganic
+    singleValue: false
+  - name: name
+    singleValue: false
+    xpath: //article//div//div//div[@class='title']/a/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //section[contains(@class,'hits')]//section//article/@data-product-tile-url
+    regExp: (.+)
+    regExpReplace: http://www.unieuro.it$&
+  - name: _url    
+    singleValue: false
+    xpath: //iframe[@id='esw_storage_iframe']/@src
+  - name: gtin
+    singleValue: false
+    xpath: //form/@name
+    regExp: cart(\w+)_.*
+    regExpReplace: $1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-img-container']//a//img
+    regExp: (.*)
+    regExpReplace: https://www.medikamente-per-klick.de$1
+  - name: price
+    singleValue: false
+    xpath: //a//div[@class='price']
+  - name: aggregateRating
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: manufacturer
+    singleValue: false
+    xpath: //article//div//div//div[@class='title']/a/text()
+    regExp: ^\S+
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_rank')]
+  
