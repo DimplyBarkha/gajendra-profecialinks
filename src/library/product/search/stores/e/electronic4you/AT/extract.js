@@ -23,9 +23,9 @@ async function implementation (
       const item = document.querySelectorAll('div.category-products>ul>li')
         ? document.querySelectorAll('div.category-products>ul>li')[i] : [];
       // @ts-ignore
-      const itemId = item && item.querySelector('div.art-nr')
+      const itemId = item && item.querySelector('p.product-name')
         // @ts-ignore
-        ? item.querySelector('div.art-nr').innerText.replace(/[\D]+/g, '') : '';
+        ? item.querySelector('p.product-name').getAttribute('id').replace(/.*_(\d+)/g, '$1') : '';
       addElementToDocument(item, 'itemId', itemId);
     }
   });
