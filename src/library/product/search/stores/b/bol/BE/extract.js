@@ -38,13 +38,14 @@ async function implementation(
   await applyScroll(context);
   return await context.extract(productDetails, { transform });
 }
+const { transform } = require('./shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'BE',
     store: 'bol',
-    transform: null,
+    transform,
     domain: 'bol.com',
     zipcode: '',
   },
