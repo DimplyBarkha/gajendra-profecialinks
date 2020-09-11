@@ -2,33 +2,11 @@ input:
   _url: http://elkjop.no
   URL: https://www.elkjop.no/product/hjem-og-husholdning/stovsuger-og-rengjoring/53306/dyson-v8-animal-tradlos-stovsuger-dy24836701
 extractions:
-  - html: https://workbench.import.io/html/run=dd8e65b2-a23e-4faf-a43a-2cc707dc0cd2/task=c8f9615e-2adf-44d6-a601-b34d37616303/3fe5bcda-e93a-49a0-b237-ada4ca571813.html
+  - html: https://workbench.import.io/html/run=9c0ecc67-b6be-4e77-bb52-e67d84e179a5/task=fb955015-80a7-4d65-a147-6e88278bff59/692bf109-bf20-4390-8498-f5cfce0c821e.html
     extractionConfigId: product/details/stores/e/elkjop/NO/extract
     data:
       - group:
-          - category:
-              - text: Hjem og Husholdning
-                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[2]/a[1]/@title
-              - text: Støvsuger og rengjøring
-                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
-              - text: Dyson V8 Animal+ trådløs støvsuger DY24836701
-                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
-            brandText:
-              - text: Dyson
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/span[1]/meta[1]/@content
-            gtin:
-              - text: "5025155033838"
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[7]/@content
-            sku:
-              - text: "53306"
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[3]/@content
-            videos:
-              - text: https://elkjop.no/video/DV_Vid_D180001001477269/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.mp4
-                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/video[1]/@src
-            name:
-              - text: Dyson V8 Animal+ trådløs støvsuger DY24836701
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[1]/h1[1]
-            image:
+          - image:
               - text: https://elkjop.no/image/dv_web_D180001002419672/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.jpg?$prod_all4one$
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
             imageAlt:
@@ -45,6 +23,20 @@ extractions:
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
               - text: https://elkjop.no/image/dv_web_D180001002353458/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.jpg?$prod_all4one$
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+            metaKeywords:
+              - text: Dyson V8 Animal+ trådløs støvsuger DY24836701, AEG CE støvsuger VX31WBP,
+                  AEG CyclonClean poseløs støvsuger LX4-1-WR (rød), Bissell
+                  Auto-Mate Garage Pro Wet & Dry støvsuger, Bissell Crosswave
+                  gulvvasker 23371, Bissell MultiReach XL trådløs støvsuger
+                  BIS24
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Hjem og Husholdning
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[2]/a[1]/@title
+              - text: Støvsuger og rengjøring
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
+              - text: Dyson V8 Animal+ trådløs støvsuger DY24836701
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[4]/div[1]/div[1]/div[2]/span[1]/span[1]
@@ -60,6 +52,18 @@ extractions:
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[2]
               - text: Munnstykke med motorisert børste
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[3]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/span[1]/meta[1]/@content
+            gtin:
+              - text: "5025155033838"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[7]/@content
+            sku:
+              - text: "53306"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[3]/@content
+            name:
+              - text: Dyson V8 Animal+ trådløs støvsuger DY24836701
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[1]/h1[1]
             productOtherInformation:
               - text: >-
                   Mer informasjon
@@ -161,5 +165,5 @@ extractions:
                    25,00 Bredde (cm) 
                    12,40 Dybde (cm) 
                    22,40
-        xpath: /html
-    timestamp: 1599810615955
+        xpath: /
+    timestamp: 1599821382184
