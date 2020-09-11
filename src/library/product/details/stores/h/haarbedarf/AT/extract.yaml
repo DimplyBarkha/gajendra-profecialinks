@@ -152,6 +152,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //iframe[contains(@src, 'youtube')]
   - name: name
     singleValue: true
     description: The product name
@@ -425,9 +426,10 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-  - name: warranty
+  - name: warranty 
     singleValue: true
     description: Guarantee associated with the product
+    xpath: (//*[contains(text(), 'Garantie')]/text())[1]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
