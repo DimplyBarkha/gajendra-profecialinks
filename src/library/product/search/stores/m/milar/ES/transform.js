@@ -6,8 +6,8 @@ const transform = (data) => {
                     var myRegexp = /productos\/00\/00\/(\d+\/\d+\/\d+\/)/g;
                     var match = myRegexp.exec(item.text);
                     if(match){
-                        if(match.length){
-                            match[1] = match[1].replace('/','');
+                        if(match.length){                            
+                            match[1] = match[1].replace(/\//g, '')
                             item.text = match[1].trim();
                         }else{
                             delete item.text;
