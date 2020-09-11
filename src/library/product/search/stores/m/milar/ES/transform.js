@@ -2,17 +2,25 @@ const transform = (data) => {
     for (const { group} of data) {
         for (const row of group) {
             if (row.id) {
-                var string= row.id[0].text.split('/').slice(-4)
-                row.id = string.slice(0,3).toString().replace(/,/g, "")
-            }
-
+                row.id.forEach(item => {
+                    var myRegexp = /productos\/00\/00\/(\d+\/\d+\/\d+\/)/g;
+                    var match = myRegexp.exec(item.text);
+                    if(match.length){
+                        match[1] = match[1].replace('/','');
+                        item.text = match[1].trim();
+                    }else{
+                        delete item.text;
+                    }
+                 });
+            }  
             if(row.productUrl) {
-                row.productUrl = 'https://www.milar.es'.concat(row.productUrl[0].text)
+                row.productUrl.forEach(item => {
+                    item.text = 'https://www.milar.es'.concat(item.text);
+                });
             }
         }
-      }
-      return data;
-  };
-  
+    }
+    return data;
+  };  
   module.exports = { transform } 
   
