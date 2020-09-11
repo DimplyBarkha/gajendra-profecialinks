@@ -55,7 +55,7 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     # Brand can potentially be taken as manufacturer. Currently not taking if not mentioned in specs.
-    xpath: //dt[contains(text(),"Hersteller:")]/following-sibling::dd[1]
+    xpath: //dt[normalize-space(text())="Hersteller:"]/following-sibling::dd[1]
     description: Product manufacturer
   - name: quantity
     description: Quantity as described on the page
@@ -75,8 +75,7 @@ fields:
     xpath: //*[@itemprop="sku"]
     description: The store-specific product identifier
   - name: variantId
-    # variants don't share sku so not needed.
-    # xpath: //select[@class="product-attributes__item-select"]/option[@selected="true"]/@value 
+    xpath: //*[@itemprop="sku"]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     xpath: //dt[contains(text(),"Hersteller Modellnummer:")]/following-sibling::dd[1]
