@@ -17,6 +17,8 @@ fields:
     regExpReplace: https://www.mediaworld.it$1
   - name: thumbnail
     xpath: //article[contains(@class,"product clearfix")]//div[@class="product-image_cont"]//a//img/@src
+    regExp: (.+)(_thumb)(.+)
+    regExpReplace: $1$3
     description: The URL for the product thumbnail image
   - name: name
     xpath: //article[contains(@class,"product clearfix")]//h3[contains(@class,"product-name")]

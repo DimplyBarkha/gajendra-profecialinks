@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'it',
+    country: 'IT',
     store: 'mediaworld',
     nextLinkSelector: "div.is-search-page span.pagination.top span[class='round-border next']",
     mutationSelector: null,

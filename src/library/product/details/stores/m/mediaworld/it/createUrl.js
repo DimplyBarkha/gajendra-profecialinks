@@ -7,6 +7,6 @@ module.exports = {
     url: null,
     zipcode: '',
     store: 'mediaworld',
-    country: 'it',
+    country: 'IT',
   },
 };

@@ -17,6 +17,7 @@ async function implementation (
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
   await execute({ url, id, zipcode: parameters.zipcode });
+
   await extract({ url, id });
 }
 

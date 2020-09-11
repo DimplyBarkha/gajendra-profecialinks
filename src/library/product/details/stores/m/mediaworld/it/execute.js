@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'it',
+    country: 'IT',
     store: 'mediaworld',
     domain: 'mediaworld.it',
     loadedSelector: null,

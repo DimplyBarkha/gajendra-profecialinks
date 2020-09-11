@@ -2,7 +2,7 @@ const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'it',
+    country: 'IT',
     store: 'mediaworld',
     transform,
     domain: 'mediaworld.it',

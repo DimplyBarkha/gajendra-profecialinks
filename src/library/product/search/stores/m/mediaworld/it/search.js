@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search',
   parameterValues: {
-    country: 'it',
+    country: 'IT',
     store: 'mediaworld',
     domain: 'mediaworld.it',
     zipcode: '',
