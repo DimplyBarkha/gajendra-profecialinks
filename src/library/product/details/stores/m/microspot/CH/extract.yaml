@@ -11,13 +11,13 @@ fields:
     xpath: //div[@id="details"]//img/@alt
   - name: image
     singleValue: false
-    xpath: (//img[contains(@class,"swiper-lazy")]/@src)[1]
+    xpath: //div[@id="pd_image"]
   - name: imageAlt
     singleValue: false
-    xpath: (//img[contains(@class,"swiper-lazy")]/@alt)[1]
+    xpath: (//img[@property="image"]/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: (//img[contains(@class,"swiper-lazy")]/@src)[position()>1] | //img[contains(@class,"swiper-lazy")]/@data-src
+    xpath: //div[@id="pd_alternateImages"]
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -26,19 +26,24 @@ fields:
     xpath: //div[@class="s-AGc2"]//ol//li[position()>1]//a
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="container-productdetailPrice"]/span[2]
+    xpath: //div[@id="pd_listPrice"]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: //div[@id="container-productdetailPrice"]/span[2]
+    xpath: //div[@id="pd_price"]
   - name: availabilityText
     singleValue: false
-    xpath: (//div[contains(@class,"_3jMYnB")])[2]/ul/li[2]
+    xpath: (//div[contains(@id,"TOP_CONTENT_ANCHOR")]//script[@type="application/ld+json"])[2]
+    regExp: InStock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: descriptionOne
+    xpath: //ul[contains(@class,"_1Auvoh")]//li/span
   - name: description
-    xpath: //ul[contains(@class,"_1Auvoh")]/li/span
+    xpath: //div[contains(@class,"VqBhdw")] | //div[contains(@class,"_3fzVYj")]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//ul[contains(@class,"_1Auvoh")]/li)
+    xpath: 
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"_3i5YKg")]/span
@@ -51,9 +56,9 @@ fields:
     regExpReplace: $3
   - name: mpc
     singleValue: false
-    xpath: //div[contains(@class,"_3i5YKg")]/span
-    regExp: (.*)(\s)(\d+)
-    regExpReplace: $3
+    xpath: (//span[contains(text(),"Hersteller-Nr.")])[1]
+    regExp: Hersteller-Nr.\s*(\d+-?\d+)
+    regExpReplace: $1  
   - name: ratingCount
     singleValue: false
     xpath: //span[contains(@class,"_2THh0N")]
@@ -97,15 +102,18 @@ fields:
     singleValue: false
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,"VqBhdw")] | //div[contains(@class,"_3fzVYj")]
+    xpath: 
   - name: manufacturerImages
     singleValue: false
   - name: gtin
     singleValue: false
-    xpath: //div[@id="gtin"]/@value
+    xpath: //div[@id="gtin"]
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@class="_3i5pck _3iEEhx"]/div | //div[@class="_3KumkR"]/div)
+    xpath: //div[@id="pd_variantCount"]
+  - name: variants
+    singleValue: false
+    xpath: //div[@id="pd_variants"]
   - name: color
     singleValue: false
     xpath: (//div[contains(@class,"_1k-W7f") and .//h3[contains(text(),"Allgemein")]])[1]//tr/th[contains(text(),"Farbe")]/following-sibling::td
@@ -119,9 +127,13 @@ fields:
     regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //ul[contains(@class,"_1Auvoh")]//li | //div[contains(@class,"VqBhdw")]//ul//li | //div[contains(@class,"_3fzVYj")]//ul//li
   - name: termsAndConditions
     singleValue: false
     defaultValue: No
   - name: materials
     singleValue: false
     xpath: (//div[contains(@class,"_1k-W7f") and .//h3[contains(text(),"Allgemein")]])[1]//tr/th[contains(text(),"Material")]/following-sibling::td
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[contains(text(),"Verkauft durch")]  

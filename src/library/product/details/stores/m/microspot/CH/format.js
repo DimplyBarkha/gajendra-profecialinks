@@ -35,34 +35,41 @@ const transform = (data) => {
         ];
       }
       if (row.description) {
+        let descriptionOne = '';
+        if (row.descriptionOne) {
+          let text = '';
+          let count = 0;
+          row.descriptionOne.forEach(item => {
+            if (count % 2 === 0) {
+              text += `${item.text} : `;
+            } else {
+              text += `${item.text} || `;
+            }
+            count++;
+          });
+          descriptionOne = text.slice(0, -4);
+        }
         let desc = '';
-        let count = 0;
         row.description.forEach(item => {
-          if (count % 2 === 0) {
-            desc += `${item.text.replace(/\n \n/g, '')} : `;
-          } else {
-            desc += `${item.text.replace(/\n \n/g, '')} || `;
-          }
-          count++;
+          desc += item.text.replace(/•/g, '||');
         });
+        const text = desc.match(/\|\|/g);
+        if (text) {
+          row.descriptionBullets = [
+            {
+              text: text.length,
+            },
+          ];
+        }
+        if (descriptionOne) {
+          desc = `${descriptionOne} | ${desc}`;
+        }
         row.description = [
           {
-            text: desc.slice(0, -4),
+            text: clean(desc),
           },
         ];
       }
-      if (row.availabilityText) {
-        row.availabilityText = [{
-          text: 'In Stock',
-        }];
-      } else {
-        row.availabilityText = [{
-          text: 'Out of Stock',
-        }];
-      }
-      row.variantCount = [{
-        text: row.variantCount[0].text === '0' ? 1 : row.variantCount[0].text,
-      }];
     }
   }
 

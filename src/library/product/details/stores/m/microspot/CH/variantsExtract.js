@@ -10,7 +10,7 @@ async function implementation (
     // @ts-ignore
     const variant = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products[productKey];
     let variantUrls = [];
-    if (variant.productVariants) {
+    if (variant && variant.productVariants) {
       variantUrls = variant.productVariants[0].options;
     }
     function addEleToDoc (key, value) {

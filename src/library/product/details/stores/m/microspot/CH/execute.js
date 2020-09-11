@@ -5,8 +5,8 @@ module.exports = {
     country: 'CH',
     store: 'microspot',
     domain: 'microspot.ch',
-    loadedSelector: 'div[class=demoup-container]',
-    noResultsXPath: null,
+    loadedSelector: 'div[class~=demoup-container] img[property="image"]',
+    noResultsXPath: '//h2[contains(text(),"Dieses Produkt ist leider nicht mehr verfügba")] | //*[contains(text(),"Aber so schnell geben Sie doch nicht auf, ode")]',
     zipcode: '',
   },
 };
