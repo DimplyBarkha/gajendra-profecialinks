@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, "listingMainContent")]
+fields:
+  - name: _input
+    singleValue: false
+  - name: _pageTimestamp
+    singleValue: false
+  - name: _url
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //p[contains(@class, "listingProductOpinions")]//i/@class
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class, "generic-bands-container")]//a/@data-product-brand
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, "generic-bands-container")]//a/@data-product-code
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, "productListingTitle")]//h5
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, "generic-bands-container")]//a/@data-product-price
+  - name: currencytoFetch
+    singleValue: false
+    xpath: //div[contains(@class, "priceListing")]//span[contains(@class, "currency")]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class, "generic-bands-container")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.monclick.it$1
+  - name: ratingCount
+    singleValue: false
+    xpath: //p[contains(@class, "listingProductOpinions")]/a
+    type: NUMBER
+  - name: reviewCount
+    singleValue: false
+    xpath: //p[contains(@class, "listingProductOpinions")]/a
+    type: NUMBER
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, "generic-bands-container")]//a//img/@src
