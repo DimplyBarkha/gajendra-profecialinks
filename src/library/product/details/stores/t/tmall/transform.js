@@ -21,12 +21,6 @@ const transform = (data) => {
           });
         }
 
-        if(row.quantity){
-          row.quantity.forEach(item => {
-            item.text=parseInt(item.text);
-          });
-        }
-
         if(row.aggregateRating){
           row.aggregateRating.forEach(item => {
             item.text=parseFloat(item.text);
