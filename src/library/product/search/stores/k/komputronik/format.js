@@ -51,7 +51,18 @@ const transform = (data) => {
                
                 
             });
-        }     
+        } 
+
+        if (row.Id) {
+            row.Id.forEach(item => {
+              item.text = item.text + "sj";
+                item.text = item.text.slice(33,-1);
+                item.text = item.text.match(/[^[\]]+(?=])/g);
+                item.text = item.text.toString();
+               
+                
+            });
+        }         
           
           
       }
