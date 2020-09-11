@@ -34,34 +34,28 @@ async function implementation (
       }
 
       document.querySelectorAll('.product-listing__item').forEach(el => {
-        if (resultArr.length >= 150) {
-          el.remove();
-        } else {
-          resultArr.push(true);
-        }
+        if (resultArr.length < 150) {
 
-        let name = el.querySelector('h3').innerText;
-        addHiddenDiv(el, 'name', name);
-        addHiddenDiv(el, 'manufacturer', name.split(' ')[0]);
-        addHiddenDiv(el, 'rank', resultArr.length);
+          let resultObj = {};
+          let name = el.querySelector('h3').innerText;
+          resultObj['name'] = name;
+          resultObj['manufacturer'] = name.split(' ')[0];
+          resultObj['rank'] = resultArr.length + 1;
+          //addHiddenDiv(el, 'name', name);
+          //addHiddenDiv(el, 'manufacturer', name.split(' ')[0]);
+          //addHiddenDiv(el, 'rank', resultArr.length);
 
-        if (el.querySelector('.product-card__image-wrap')) {
-          const splitHref =  el.querySelector('.product-card__image-wrap').getAttribute('href').split('/');
-          const sku = splitHref[splitHref.length - 1];
-          addHiddenDiv(el, 'id', sku);
-          addHiddenDiv(el, 'url', 'https://euronics.co.uk' + el.querySelector('.product-card__image-wrap').getAttribute('href'));
-        }
-
-        if (el.querySelector('iframe')) {
-          console.log('hasIframe');
-          if (el.querySelector('iframe').contentWindow.document.querySelector('reevoo-stars')) {
-            addHiddenDiv(el, 'rating', el.querySelector('iframe').contentWindow.document.querySelector('reevoo-stars').getAttribute('data-score'));
+          if (el.querySelector('.product-card__image-wrap')) {
+            const splitHref =  el.querySelector('.product-card__image-wrap').getAttribute('href').split('/');
+            const sku = splitHref[splitHref.length - 1];
+            resultObj['id'] = sku;
+            //addHiddenDiv(el, 'id', sku);
+            resultObj['url'] = 'https://euronics.co.uk' + el.querySelector('.product-card__image-wrap').getAttribute('href');
+            //addHiddenDiv(el, 'url', 'https://euronics.co.uk' + el.querySelector('.product-card__image-wrap').getAttribute('href'));
           }
-          if (el.querySelector('iframe').contentWindow.document.querySelector('.reevoo__section--number-of-reviews')) {
-            addHiddenDiv(el, 'reviews', el.querySelector('iframe').contentWindow.document.querySelector('.reevoo__section--number-of-reviews').innerText.split(' ')[1]);
-          }
-        }
 
+          resultArr.push(resultObj);
+        }
 
       });
       return resultArr;
@@ -69,17 +63,24 @@ async function implementation (
 
     console.log('totalResults', resultArr.length);
 
-    const results = context.extract(productDetails, { transform });
-    dataResults.push(results);
-    await stall(2000);
-
-    if (hasNextButton && resultArr.length < 150) {
+    if (hasNextButton && resultArr.length < 24) {
       await context.evaluate(function() {
         document.querySelector('.pagination__item--next').querySelector('a').click();
       });
     } else {
       break;
     }
+  }
+
+  for (let result of resultArr) {
+    try {
+      await context.goto('https://mark.reevoo.com/reevoomark/en-GB/product?sku='+ result.id + '&trkref=ERN');
+    } catch {
+      
+    }
+    const results = context.extract(productDetails, { transform });
+    dataResults.push(results);
+    await stall(2000);
   }
 
   return dataResults;
