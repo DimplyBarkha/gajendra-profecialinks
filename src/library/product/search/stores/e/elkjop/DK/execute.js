@@ -5,9 +5,9 @@ module.exports = {
     country: 'DK',
     store: 'elkjop',
     domain: 'elgiganten.dk',
-    url: "https://www.elgiganten.dk/search?SearchTerm={searchTerms}&search=&searchResultTab=",
+    url: "https://www.elgiganten.dk/search?SearchTerm='{searchTerms}'&search=&searchResultTab=",
     loadedSelector: 'html body',
-    noResultsXPath: '//p[@id="no-search-result"]',
+    noResultsXPath: '//p[@id="no-search-result"]|//div[@id="site-wrapper"]',
     zipcode: '',
   },
 };
