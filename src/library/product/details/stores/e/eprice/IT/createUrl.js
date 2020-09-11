@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'eprice.it',
     prefix: null,
-    url: null,
+    url: 'https://www.eprice.it/{id}',
     country: 'IT',
     store: 'eprice',
     zipcode: '',
