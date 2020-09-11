@@ -2,30 +2,11 @@ input:
   _url: http://elgiganten.dk
   URL: https://www.elgiganten.dk/product/husholdning/klima-ventilation/ventilator/DYSAM07/dyson-cool-tarnventilator-am07
 extractions:
-  - html: https://workbench.import.io/html/run=762f3473-3625-46d6-824e-a6084174fc96/task=4c544405-6363-48b2-9925-88e61d0297ae/e682c0b9-6da1-4d4c-8e41-3ddcc554d8f4.html
+  - html: https://workbench.import.io/html/run=a8a67641-7768-4c89-b535-fb8b98e7f529/task=0938a519-8239-4c3b-8867-a5589cdb1956/7f818f3f-329b-47b9-9108-2c6abc91ac26.html
     extractionConfigId: product/details/stores/e/elkjop/DK/extract
     data:
       - group:
-          - category:
-              - text: Husholdning
-                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[2]/a[1]/@title
-              - text: Klima & Ventilation
-                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
-              - text: Ventilator
-                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
-            brandText:
-              - text: Dyson
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/span[1]/meta[1]/@content
-            gtin:
-              - text: "5025155017838"
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[7]/@content
-            sku:
-              - text: DYSAM07
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[3]/@content
-            name:
-              - text: Dyson Cool tårnventilator AM07
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[1]/h1[1]
-            image:
+          - image:
               - text: https://elkjop.no/image/dv_web_D18000100291664/DYSAM07/dyson-cool-taarnventilator-am07.jpg?$prod_all4one$
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
             imageAlt:
@@ -42,6 +23,20 @@ extractions:
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
               - text: https://elkjop.no/image/dv_web_D18000100291678/DYSAM07/dyson-cool-taarnventilator-am07.jpg?$prod_all4one$
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+            metaKeywords:
+              - text: Dyson Cool tårnventilator AM07, Bomann bordventilator VL1137CB,
+                  Bordventilator / håndventilator genopladelig - mørkeblå,
+                  Bordventilator / håndventilator genopladelig - mørkeblå,
+                  Bærbar bordventilator med aftagelig base - Hvid, Bærbar
+                  bordventilator med af
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Husholdning
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[2]/a[1]/@title
+              - text: Klima & Ventilation
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
+              - text: Ventilator
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[4]/div[1]/div[1]/div[2]/span[1]/span[1]
@@ -57,6 +52,21 @@ extractions:
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[2]
               - text: Fjenstyring, let at rengøre
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[3]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/span[1]/meta[1]/@content
+            gtin:
+              - text: "5025155017838"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[7]/@content
+            sku:
+              - text: DYSAM07
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[3]/@content
+            color:
+              - text: Sølv;Hvid
+                xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[3]/div[1]/div[1]/dl[4]/dd[1]/table[1]/tbody[1]/tr[1]/td[2]
+            name:
+              - text: Dyson Cool tårnventilator AM07
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[1]/h1[1]
             productOtherInformation:
               - text: >-
                   Mere information
@@ -89,9 +99,6 @@ extractions:
 
                   - Fjernbetjening
                 xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[2]
-            color:
-              - text: Sølv;Hvid
-                xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[3]/div[1]/div[1]/dl[4]/dd[1]/table[1]/tbody[1]/tr[1]/td[2]
             manufacturer:
               - text: Dyson
             technicalInformationPdfPresent:
@@ -132,5 +139,5 @@ extractions:
                    100,00 Bredde (cm) 
                    19,00 Dybde (cm) 
                    11,00
-        xpath: /html
-    timestamp: 1599809891512
+        xpath: /
+    timestamp: 1599821783550
