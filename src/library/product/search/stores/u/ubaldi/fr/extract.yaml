@@ -15,7 +15,7 @@ fields:
     xpath: //div[@class='liste-articles']//div[contains(@class,"la-article")]//div[contains(@class,"la-infos")]//h2/a/span/span/span[contains(@class,"marque")]
     singleValue: false
   - name: price
-    xpath: //div[@class='liste-articles']//div[contains(@class,"la-article")]//div[contains(@class,"la-infos")]//div[contains(@class,"lai-prix-delai")]//span[contains(@class,"rebours-clignote")]
+    xpath: //span[@class='la-prix']//span[contains(@class,'uba-prix')]//span[contains(@class,'rebours-clignote')]//span
     singleValue: false
   - name: productUrl
     xpath: //div[@class='liste-articles']//div[contains(@class,"la-article")]//div[contains(@class,"la-infos")]//h2/a/@href
@@ -34,7 +34,7 @@ fields:
     singleValue: false
     regExp: (\d+)
     regExpReplace: $1
-  - name: aggregateRating
+  - name: aggregateRatingText
     xpath: //div[@class='liste-articles']//div[contains(@class,"la-article")]//div[contains(@class,"la-visuel")]//span[contains(@class,"pr-snippet-rating-decimal")]
     singleValue: false
   - name: reviewCount
