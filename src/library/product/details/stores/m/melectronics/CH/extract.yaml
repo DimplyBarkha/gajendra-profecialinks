@@ -1,89 +1,71 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: availabilityText
     singleValue: false
-    xpath: //*[@class='buybox--annotation']/span/span
+    xpath: //div[@class='buybox--annotation']//span[contains(text(),'Sofort lieferbar')]
   - name: price
     singleValue: false
-    xpath: //div[@class='detail-options--price']/span/span[1]
-  - name: promotion
+    xpath: //div[@class='detail-options--price']//span[@class='o9HipJE77IlXUHdhYDV3G']
+  - name: listPrice
     singleValue: false
-    xpath: //div[@class='detail-options--price']
+    xpath: //div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']  
   - name: sku
     singleValue: false
-    xpath: //*[@class='detail-navigation-section--specification']/div[1]/div[2]
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: image
     singleValue: false
-    xpath: //div[@class='detail-showcase--main-img-container']/img/@src
-  - name: imageAlt
-    singleValue: false
-    xpath: //div[@class='detail-showcase--main-img-container']/img/@alt
+    xpath: //div[@class='detail-showcase--main-img-container']//img/@src
   - name: alternateImages
     singleValue: false
-    xpath: //*[@class='detail-showcase--img-teaser-box']/div/div/img/@src
-  - name: _url
-    singleValue: true
-    xpath: //link[@rel='alternate']/@href
+    xpath: //div[@class='detail-showcase--additional-imgs']//img[@class='detail-showcase--additional-img']/@src  
   - name: category
-    singleValue: true
-    xpath: //header[@class='header skel--header']/div[3]/ol
-  - name: listPrice
-    singleValue: true
-    xpath: //div[@class='detail-options--price']/span/span[2]/span
+    singleValue: false
+    xpath: //div[@class='_9yxos7T0YNnslpWJEfrD9 _1eeHdGL1eQGdh2zWVt2iX9']//ol[contains(@class,'breadcrumbs--container')]//li//a[@class='u-reset']
   - name: weightNet
     singleValue: false
-    xpath: //*[@class='detail-navigation-section--specification']/div[36]/div[2]/span
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Gewicht']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: ratingCount
     singleValue: false
-    xpath: //*[@id="msrc-widget"]/div/a[3]/span
+    xpath: //div[@id="msrc-widget"]//span[@class='sc-fznLPX kRYZuI']
   - name: aggregateRating
     singleValue: false
-    xpath: //*[@id="msrc-widget"]/div/a[2]/span
+    xpath: //div[@id="msrc-widget"]//span[@class='sc-fzoXWK iIptZR']//span[text()='Durchschnittsbewertung']//following-sibling::text()
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //ul[@class='detail-options--topfacts']/li
+    xpath: //ul[@class='detail-options--topfacts']
   - name: description
     singleValue: false
-    xpath: //ul[@class='detail-options--topfacts']/li
+    xpath: //div[@name='description']
   - name: descriptionBullets
     singleValue: false
-    xpath: //ul[@class='detail-options--topfacts']/li
+    xpath: //ul[@class='detail-options--topfacts']//li
   - name: brandText
     singleValue: false
-    xpath: //*[@class='detail-showcase--brand']/img/@alt
+    xpath: //div[@class='detail-showcase--brand']/img/@alt
   - name: manufacturer
     singleValue: false
-    xpath: //*[@class='detail-showcase--brand']/img/@src
+    xpath: //div[@class='detail-showcase--brand']/img/@alt
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class='detail-showcase--brand']/img/@src
   - name: quantity
     singleValue: false
-    xpath: //*[@id="test-detail-btn-test-select-flyout"]
+    xpath: //button[@id="test-detail-btn-test-select-flyout"]
   - name: color
     singleValue: false
-    xpath: //*[@class='detail-navigation-section--specification']/div[37]/div[2]/span
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //*[@name="description"]/div[2]
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Farbe']/parent::*/div[@class='detail-navigation-section--specification-item-tx']  
   - name: specifications
     singleValue: false
-    xpath: //*[@name="specification"]/div[2]
+    xpath: //div[@name="specification"]//div[@class='detail-navigation-section--specification']//div[@class='detail-navigation-section--specification-item']
   - name: name
     singleValue: false
-    xpath: //section[@class='detail-showcase--title-box']/h1
-  - name: warranty
-    singleValue: false
-    xpath: //*[@class='detail-navigation-section--specification']/div[38]/div[2]/span
+    xpath: //section[@class='detail-showcase--title-box']/h1  
   - name: storage
     singleValue: false
-    xpath: //*[@class='detail-navigation-section--specification']/div[15]/div[2]/span
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Speicherkapazität')]/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: countryOfOrigin
     singleValue: false
-    xpath: //*[@id="test-header-link-Language"]/div[1]
-  - name: technicalInformationPdfPresent
-    singleValue: false
-    defaultValue: 'No'
-  - name: Image360Present
-    singleValue: false
-    defaultValue: 'No'
+    xpath: //div[@id="test-header-link-Language"]/div[1]  
