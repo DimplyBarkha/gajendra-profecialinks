@@ -68,6 +68,7 @@ fields:
     xpath: normalize-space(//td[contains(text(), 'MPN')]/following-sibling::td)
   - name: variantId
     singleValue: false
+    manualSelector: div#descItemNumber
   - name: shippingDimensions
     singleValue: false
   - name: name

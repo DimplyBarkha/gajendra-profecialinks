@@ -5,6 +5,7 @@ recordXPath: //ul[contains(@class,"srp-results")]/li[@data-view]
 fields:
   - name: id
     singleValue: false
+    xpath: //a/@data-id
   - name: name
     singleValue: false
     manualSelector: h3.s-item__title
