@@ -135,15 +135,15 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    defaultValue: No
+    
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    defaultValue: No
+    
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-    defaultValue: No
+    
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -157,7 +157,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    defaultValue: NA
+    
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -173,7 +173,6 @@ fields:
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
-    defaultValue: No
   - name: asin
     singleValue: true
     description: null
@@ -244,15 +243,15 @@ fields:
       other stores) - LBB occurs when a product is bought from someone other
       than Amazon (on Amazon Website) - even though Amazon has the product "in
       Stock"
-    defaultValue: No
+    
   - name: lbbPrice
     singleValue: true
     description: null
-    defaultValue: No
+    
   - name: featureBullets
     singleValue: false
     description: null
-    defaultValue: No
+    
   - name: otherSellersName
     singleValue: false
     description: null
@@ -446,7 +445,7 @@ fields:
     singleValue: true
     description: Recycling information associated with the product
   - name: productOtherInformation
-    singleValue: false
+    singleValue: true
     description: Any other product information
     xpath: //div[@class='feature-item']/div[@class='content-asset']/p
   - name: packaging
@@ -518,7 +517,7 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    
   - name: termsAndConditions
     singleValue: true
     xpath: //div[@class='footer-container clearfix']/div[@class='footer-left clearfix']/div[@class='footer-link clearfix']/div[@class='content-asset']/ul[1]/li[7]/a[contains(text(),'Terms and Conditions')]
@@ -528,11 +527,11 @@ fields:
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    
   - name: materials
     singleValue: true
     description: Materials used to make the product
