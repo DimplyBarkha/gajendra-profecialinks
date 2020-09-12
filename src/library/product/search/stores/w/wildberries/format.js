@@ -21,7 +21,6 @@ const transform = (data, context) => {
                 row.thumbnail.pop();
             }
             if (row.price && row.price[0]) {
-              console.log('row.thumbnail[0].text.split("₽")[0]', row.price[0].text.split("₽")[0] )
               row.price[0].text = row.price[0].text !="" ? `${row.price[0].text.split("₽")[0].trim()} ₽` :  "";
             }
         }
