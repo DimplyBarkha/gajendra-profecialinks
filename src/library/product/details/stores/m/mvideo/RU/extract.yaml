@@ -17,7 +17,7 @@ fields:
     xpath: //div[@class='c-breadcrumbs']//ul
   - name: sku
     singleValue: flase
-    xpath: //span[@class="c-product-code__first-part"]    
+    xpath: //meta[@property="og:url"]/@content
   - name: image
     singleValue: flase
     xpath: //img[@class='c-media-container__image']/@src
