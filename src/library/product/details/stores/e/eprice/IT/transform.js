@@ -69,6 +69,18 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.variantUrl) {
+        row.variantUrl.forEach(variantUrl => {
+          if (!(variantUrl.text.includes('https'))) {
+            variantUrl.text = `https://www.eprice.it${variantUrl.text}`;
+          }
+        });
+      }
+      if (row.variantId) {
+        row.variantId.forEach(variantId => {
+          variantId.text = variantId.text.replace('/', '');
+        });
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
