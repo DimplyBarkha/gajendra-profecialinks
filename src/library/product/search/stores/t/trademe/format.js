@@ -1,4 +1,3 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -24,24 +23,17 @@ const transform = (data) => {
               item.text = item.text.replace(/\?.*$/g, '').trim();
               item.text = item.text.replace(/\D/g, ' ').trim();
               item.text = item.text.toString();
-          });
-      }
-      if (row.id) {
+            });
+        }
+       if (row.id) {
         row.id.forEach(item => {
             item.text = item.text.replace(/\?.*$/g, '').trim();
             item.text = item.text.replace(/\D/g, ' ').trim();
             item.text = item.text.toString();
-        });
-    }
- 
-         
-          
-         
-      }
-      
+         });
+        }        
+      } 
     }
     return data;
   };
-  
-  module.exports = { transform };
-  
+ module.exports = { transform };

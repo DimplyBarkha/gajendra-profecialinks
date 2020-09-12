@@ -13,8 +13,8 @@ fields:
     SingleValue: false
     xpath: //div[@class="o-card"]/a/@href
   - name: thumbnail
-    SingleValue: false
-    xpath: //tm-image-container/tg-aspect-ratio/@style
+    SingleValue: true
+    xpath: //tg-image-viewer-item[1]/tm-image-container/tg-aspect-ratio/@style
   - name: name
     SingleValue: false
     xpath: //*[@id="-title"]
