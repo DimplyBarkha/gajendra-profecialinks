@@ -12,11 +12,6 @@ const transform = (data) => {
             item.text =  splitData[splitData.length-1];
           });
         }
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {           
-            item.text = item.text;
-          });
-        }
         if (row.thumbnail) {
           row.thumbnail.forEach(item => {           
             item.text = 'https:'+item.text;
