@@ -53,7 +53,6 @@ async function implementation (
           }
         }
 
-
       });
       return resultTotal;
     }, resultTotal);
