@@ -26,9 +26,11 @@ const transform = (data) => {
             })
             :
             text = "";
+            let textArr = [];
+            textArr.push(`${text.slice(0,-3)}`)
             row.category = [
               {
-                text: text.slice(0,-3)
+                text: textArr
               },
             ];
           }
