@@ -1,8 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,"sel-product-tile-main")]
 fields:
+  - name: prodcutUrl
+    SingleValue: false
+    xpath: //h4[@itemprop="name"]/a/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="c-pdp-price__current"]
   - name: id
     SingleValue: false
     xpath: //div[contains(@class,"sel-product-tile-main")]/@data-sel
+  - name: name
+    SingleValue: false
+    xpath: //h4[@itemprop="name"]/@title
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,"sel-product-tile")]//img/@src
+  - name: reviewCount
+    SingleValue: false
+    xpath: //span[@class="c-star-rating_reviews-qty"]
