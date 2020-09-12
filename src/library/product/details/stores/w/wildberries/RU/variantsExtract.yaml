@@ -1,0 +1,12 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: (//div[@class="card-right"]//div[contains(@class,"colors-preview")]//ul//li)[position()>1]/@data-cod1s   
+  - name: variantUrl
+    singleValue: false
+    xpath: (//div[@class="card-right"]//div[contains(@class,"colors-preview")]//ul//li)[position()>1]//a/@href
+ 
