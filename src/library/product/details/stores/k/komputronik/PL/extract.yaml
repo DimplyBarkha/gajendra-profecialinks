@@ -26,13 +26,10 @@ fields:
     xpath: //*[@id="top-labels-animation"]/ul
   - name: image
     singleValue: false 
-    xpath: //div[@class='original']//img/@src
-  - name: imageAlt
-    singleValue: false 
-    xpath: //div[@class='original']//img/@src
+    xpath: //*[@id="p-inner-gallery"]/ktr-gallery/div/ktr-transclude/div/div/ktr-image-zoom/div/div/img/@src
   - name: alternateImages
     singleValue: false 
-    xpath: //div[@class='wrap']//img/@ng-src
+    xpath: //*[@id="p-inner-gallery"]/ktr-gallery/div/ktr-transclude/div/div/ktr-image-zoom/div/div/img/@src
   - name: gtin
     singleValue: false 
     xpath: //div[@class='codes']/ul/li[3]
@@ -57,7 +54,3 @@ fields:
   - name: color
     singleValue: false 
     xpath: //*[@id="p-inner-features"]/ktr-product-main-attributes/div/div/ul/li[7]/strong
-  - name: ratingcount
-    singleValue: false 
-    xpath: //*[@id="comments-animation"]/ktr-product-comments/div/ng-transclude/div[1]/div[1]/font/font
-    defaultValue: 0
