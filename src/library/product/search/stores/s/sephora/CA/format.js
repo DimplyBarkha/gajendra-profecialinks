@@ -103,7 +103,7 @@ const transform = (data, context) => {
         let text = row.thumbnail[0].text;
         let joins;
         if(!text.includes("sephora.com")){
-          joins = "https://www.sephora.com" + text;
+          joins = "https://www.sephora.com/ca/en" + text;
         } else {
           joins = text;
         }

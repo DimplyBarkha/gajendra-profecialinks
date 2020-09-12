@@ -94,25 +94,30 @@ module.exports = {
       }
     }
 
-    const scrollFunc = await context.evaluate(function(){
-      let scrollTop = 0;
-      while (scrollTop !== 10000) {
+    let scrollTop = 0;
+    while (scrollTop !== 20000) {
+      try{
         scrollTop += 1000;
-        window.scroll(0, scrollTop);
-  
-        console.log("SCROLLING")
-        if (scrollTop === 10000) {
-          break;
-        }
+        await context.waitForFunction(async function(scrollTop){
+          console.log("SCROLLING");
+          window.scroll(0, scrollTop);
+          let allProds = document.querySelectorAll('a[data-comp="ProductItem "]')
+          let prodsWithImg = document.querySelectorAll('a[data-comp="ProductItem "] img')
+        }, { timeout: 2000 }, scrollTop)
+      } catch(err) {
+        console.log("Failed")
       }
-    })
+      if (scrollTop === 20000) {
+        break;
+      }
+    }
 
     const videoIdArray = await context.evaluate(function(){
       let videoEle = document.querySelector('#linkJSON');
       let videoIdForUrl = [];
       if(videoEle){
         let videoObj = JSON.parse(videoEle.innerText);
-        if(videoObj[4].props.currentProduct){
+        if(videoObj[4] && videoObj[4].props.currentProduct){
           let videoIds = videoObj[4].props.currentProduct.productVideos
           if(videoIds){
             videoIds.forEach(obj => {
@@ -166,9 +171,11 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-
-      addHiddenDiv(`ii_url`, window.location.href);
+      let prodUrl = window.location.href.split("&keyword=")
+      let srcForSku
+      addHiddenDiv(`ii_url`, prodUrl[0]);
       addHiddenDiv(`ii_parentInput`, parentInput);
+
 
 
 
@@ -187,7 +194,9 @@ module.exports = {
         }
       }
       if(variantObj){
-        if(variantObj.offers){
+        if(variantObj.offers && variantObj.offers[0].sku){
+          addHiddenDiv(`ii_sku`, variantObj.offers[0].sku);
+
           for(let j = 0; j < variantObj.offers.length; j++){
             if(variantObj.offers[j].sku){
               variantSkuArray.push(variantObj.offers[j].sku)

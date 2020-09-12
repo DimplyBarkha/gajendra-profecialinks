@@ -35,6 +35,11 @@ module.exports = {
       await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     }
 
+    const setLocale = await context.evaluate(function() {
+      document.cookie = "site_locale=ca;"
+    });
+
+
     const pageCheck = await context.evaluate(function() {
       let pageLoaded = '//main[contains(@data-comp, "ProductPage")]'
       var checkElement = document.evaluate( pageLoaded, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -168,8 +173,11 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-
-      addHiddenDiv(`ii_url`, window.location.href);
+      let prodUrl = window.location.href.split("&keyword=")
+      if(prodUrl[0]){
+        let urlUpdate = prodUrl[0].replace(/.com/g, ".com/ca/en")
+        addHiddenDiv(`ii_url`, urlUpdate);
+      }
       addHiddenDiv(`ii_parentInput`, parentInput);
 
 

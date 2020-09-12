@@ -8,6 +8,8 @@ fields:
     xpath: //div[@id='ii_parentInput']
   - name: productUrl
     xpath: //div[@id='ii_url']
+  - name: name
+    xpath: //h1[contains(@data-comp,"DisplayName")]/span
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -93,10 +95,10 @@ fields:
   - name: variantInformation
     xpath: //div[@id="ii_variantInfo"]
   - name: sku
-    xpath: //div[@id='ii_url']
-    regExp: ([0-9]+$)
+    xpath: //div[@id='ii_sku']
+    # regExp: ([0-9]+$)
   - name: variantId
-    xpath: //div[@id='ii_url']
+    xpath: //div[@id='ii_sku']
     regExp: ([0-9]+$)
   - name: color
     xpath: //div[@id='ii_color']

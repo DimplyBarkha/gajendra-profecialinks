@@ -27,7 +27,7 @@ async function implementation (
   const json = JSON.parse(jsonText);
 
   if (json && json.products && json.totalProducts) {
-    await context.evaluate(function (domain, products, cnt) {
+    await context.evaluate(function (domain, products, cnt, searchTerms) {
       function addHiddenDiv (id, content, parentDiv = null) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -43,7 +43,8 @@ async function implementation (
       }
       document.body.innerText = '';
       addHiddenDiv('totalProducts', cnt);
-      addHiddenDiv('ii_url', window.location.href);
+        let newUrl = `https://www.sephora.com/search?keyword=${searchTerms}`
+        addHiddenDiv('ii_url', newUrl);
       for (let i = 0; i < products.length; i++) {
         const newDiv = addHiddenDiv('ii_product', '');
         const product = products[i];
@@ -64,7 +65,7 @@ async function implementation (
           }
         }
       }
-    },domain , json.products, json.totalProducts);
+    },domain , json.products, json.totalProducts, json.keyword);
   }
   return await context.extract(productDetails, { transform });
 }

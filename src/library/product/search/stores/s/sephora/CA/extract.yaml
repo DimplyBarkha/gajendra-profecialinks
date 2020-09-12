@@ -3,6 +3,8 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@id='ii_product']
 fields:
+  - name: searchUrl
+    xpath: ancestor::html//div[@id="ii_url"]
   - name: manufacturer
     singleValue: true
     description: The brand name

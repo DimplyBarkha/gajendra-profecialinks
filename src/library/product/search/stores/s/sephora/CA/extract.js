@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'sephora',
     transform,
-    domain: 'sephora.ca',
+    domain: 'sephora.com',
     zipcode: '',
   },
   implementation
@@ -24,7 +24,7 @@ async function implementation (
   const json = JSON.parse(jsonText);
 
   if (json && json.products && json.totalProducts) {
-    await context.evaluate(function (domain, products, cnt) {
+    await context.evaluate(function (domain, products, cnt, searchTerms) {
       function addHiddenDiv (id, content, parentDiv = null) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -40,7 +40,8 @@ async function implementation (
       }
       document.body.innerText = '';
       addHiddenDiv('totalProducts', cnt);
-      addHiddenDiv('ii_url', window.location.href);
+        let newUrl = `https://www.sephora.com/ca/en/search?keyword=${searchTerms}`
+        addHiddenDiv('ii_url', newUrl);
       for (let i = 0; i < products.length; i++) {
         const newDiv = addHiddenDiv('ii_product', '');
         const product = products[i];
@@ -48,7 +49,7 @@ async function implementation (
           addHiddenDiv('ii_brand', product.brandName, newDiv);
           addHiddenDiv('ii_id', product.currentSku.skuId, newDiv);
           addHiddenDiv('ii_title', `${product.brandName} - ${product.productName}`, newDiv);
-          addHiddenDiv('ii_productUrl', `https://sephora.com${product.targetUrl}?preferedSku=${product.currentSku.skuId}`, newDiv);
+          addHiddenDiv('ii_productUrl', `https://${domain}/ca/en${product.targetUrl}?preferedSku=${product.currentSku.skuId}`, newDiv);
           var price = product.currentSku.salePrice ? product.currentSku.salePrice : (product.currentSku.listPrice ? product.currentSku.listPrice.split('-')[0].trim() : '');
 
           addHiddenDiv('ii_price', price, newDiv);
@@ -61,7 +62,7 @@ async function implementation (
           }
         }
       }
-    },domain , json.products, json.totalProducts);
+    },domain , json.products, json.totalProducts, json.keyword);
   }
   return await context.extract(productDetails, { transform });
 }

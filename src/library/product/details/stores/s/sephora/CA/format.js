@@ -52,7 +52,7 @@ const transform = (data, context) => {
             let text = row.image[0].text;
             let splits = text.split("?");
 
-            row.image[0].text = `https://sephora.com${splits[0]}`
+            row.image[0].text = `https://sephora.com/ca/en${splits[0]}`
           }
           
           if(row.alternateImages){
@@ -61,7 +61,7 @@ const transform = (data, context) => {
                 for(let i = 0; i < row.alternateImages.length; i++){
                   let text = row.alternateImages[i].text
                   let splits = text.split("?");
-                  imageArray.push(`https://sephora.com${splits[0]}`);
+                  imageArray.push(`https://sephora.com/ca/en${splits[0]}`);
                 }
                 let oneLess = imageArray.slice(1);
                 let joins = oneLess.join(" | ");

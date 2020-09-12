@@ -54,7 +54,7 @@ module.exports = {
 
 
       let name = [];
-      let variant = '//*[contains(@class, "product-variant-swatch active")]';
+      let variant = '//*[contains(@class, "product-variant-swatch active")]/@title';
       let brandName = '//div[contains(@class, "product-info")]//*[contains(@class, "product-brand")]';
       let prodName = '//div[contains(@class, "product-info")]//*[contains(@class, "product-name")]';
       let directions = '//div[contains(@id, "product-how-to")]';
@@ -88,6 +88,7 @@ module.exports = {
         }
 
         let fullName = name.join(" - ")
+        // debugger
         console.log("HELLO123" + fullName)
 
         addHiddenDiv('ii_nameExtended', fullName);

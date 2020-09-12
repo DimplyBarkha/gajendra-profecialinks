@@ -17,7 +17,7 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { variants } = dependencies;
+  const { variants } = dependencies; 
 
   const variantArray = await context.evaluate(function () {
     function addHiddenDiv (id, content) {
