@@ -30,6 +30,13 @@ const implementation = async (
 
         // PreDefined Functions 
 
+        const htmlDecode = (input) => {
+            var e = document.createElement('textarea');
+            e.innerHTML = input;
+            // handle case of empty input
+            return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+        }
+
         const addElement = (id, content) => {
             const packagingElem = document.createElement('div');
 
@@ -83,17 +90,54 @@ const implementation = async (
         };
 
 
-        const alternateImagesPull = (selector) => {
+        const alternateImagesTransform = (selector) => {
             if (selector) {
-                selector.map((e) => {
-                    return `https://b3h2.scene7.com/is/image/BedBathandBeyond/${e}?$1200$&wid=1200&hei=1200`
-                }).join(", ");
+                let images = selector.map((e) => { return `https://b3h2.scene7.com/is/image/BedBathandBeyond/${e}?$1200$&wid=1200&hei=1200` }).join(", ");
+                return images;
             } else {
                 return "";
             }
         };
 
+        const listPriceTransform = (selector) => {
+            let price = "";
+            if (selector) {
+                if (!selector.WAS_PRICE) {
+                    return price = "";
+                }
+                if (selector.WAS_PRICE) {
+                    price = selector.IS_PRICE
+                    return price;
+                }
+            } else {
+                return "";
+            }
+        };
 
+        const priceTransform = (selector) => {
+
+            if (selector) {
+                let price = selector.IS_PRICE
+                return price;
+            } else {
+                return "";
+            }
+        };
+
+        const buildDescription = (selector) => {
+            const description = selector.DESCRIPTION
+            const longDescription = selector.LONG_DESCRIPTION.replace(/((<ul>|<UL>|<li>|<LI>|<\/li>|<\/LI>|<\/UL>|<\/ul>))/g, "");
+            let finaldescription = htmlDecode(description + longDescription).trim()
+            return finaldescription;
+        };
+
+
+        const bulletDescriptionTransform = (selector) => {
+
+            const longDescription = selector.LONG_DESCRIPTION.split(/<\/li>|<\/LI>/).filter((e) => { if (e.includes('<li>')) { return e.includes('<li>') } else { return e.includes('<LI>') } });
+            console.log(longDescription.length, "ceck")
+            return longDescription.length;
+        };
 
 
         let productID = getXpath("//meta[@property='og:url']/@content", 'nodeValue').match("[^/]+$")[0];
@@ -105,10 +149,17 @@ const implementation = async (
         const nameExtended = (productApiDetails.data.PRODUCT_DETAILS && productApiDetails.data.PRODUCT_DETAILS.DISPLAY_NAME) || '';
         const image = `https://b3h2.scene7.com/is/image/BedBathandBeyond/${productApiDetails.data.PRODUCT_DETAILS.SCENE7_URL}?$1200$&wid=1200&hei=1200`;
         const imageAlt = getXpath("//div[contains(@class,'slick-active')]//img[contains(@class,'ProductMediaCarouselStyle')]/@alt", 'nodeValue');
-        const alternateImages = productApiDetails.data.SKU_DETAILS ? alternateImagesPull(productApiDetails.data.SKU_DETAILS[0].ALT_IMG_SORTED) : ""
+        const alternateImages = productApiDetails.data.SKU_DETAILS ? alternateImagesTransform(productApiDetails.data.SKU_DETAILS[0].ALT_IMG_SORTED) : ""
+        const listPrice = productApiDetails.data.PRODUCT_DETAILS ? listPriceTransform(productApiDetails.data.PRODUCT_DETAILS) : "";
+        const price = productApiDetails.data.PRODUCT_DETAILS ? priceTransform(productApiDetails.data.PRODUCT_DETAILS) : "";
+        const description = productApiDetails.data.PRODUCT_DETAILS ? buildDescription(productApiDetails.data.PRODUCT_DETAILS) : "";
+        const descriptionBullets = productApiDetails.data.PRODUCT_DETAILS ? bulletDescriptionTransform(productApiDetails.data.PRODUCT_DETAILS) : "";
+        const brandText = (productApiDetails.data.PRODUCT_DETAILS && productApiDetails.data.PRODUCT_DETAILS.BRAND_NAME) || '';
+        const sku = (productApiDetails.data.PRODUCT_DETAILS && productApiDetails.data.PRODUCT_DETAILS.SKU_ID[0]) || '';
+        const ratingCount = (productApiDetails.data.PRODUCT_DETAILS && productApiDetails.data.PRODUCT_DETAILS.REVIEWS) || '';
+        const aggregateRating = (productApiDetails.data.PRODUCT_DETAILS && productApiDetails.data.PRODUCT_DETAILS.RATINGS) || '';
 
-       
-        console.log(alternateImagesPull(productApiDetails.data.SKU_DETAILS[0].ALT_IMG_SORTED) , "data");
+
 
 
 
@@ -116,27 +167,19 @@ const implementation = async (
         addElement('image', image);
         addElement('imageAlt', imageAlt);
         addElement('alternateImages', alternateImages);
+        addElement('listPrice', listPrice);
+        addElement('price', price);
+        addElement('description', description);
+        addElement('descriptionBullets', descriptionBullets);
+        addElement('brandText', brandText);
+        addElement('gtin', productID);
+        addElement('sku', sku);
+        addElement('ratingCount', ratingCount);
+        addElement('aggregateRating', aggregateRating);
 
 
 
 
-
-
-
-
-        // const buildDescription = () => {
-        //     const article = document.querySelector('#product-info article');
-        //     const description = document.querySelector('.highlights-tablet .main-desc .section-title ~ ul');
-        //     const subNodes = description.querySelectorAll('li');
-
-        //     let text = '';
-        //     subNodes.forEach(subNode => {
-        //         text += `||${subNode.textContent}`;
-        //     });
-
-        //     text += article ? ` ${article.textContent.trim()}` : '';
-        //     return text.trim();
-        // };
 
         // const getSpecification = () => {
         //     const tbodys = document.querySelectorAll('div#tab2 tbody');
