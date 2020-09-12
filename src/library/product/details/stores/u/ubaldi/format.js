@@ -14,7 +14,7 @@ const transform = (data) => {
       }
       if (row.additionalDescBulletInfo) {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '| ') : '';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' | ') : '';
         });
         row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
@@ -29,6 +29,12 @@ const transform = (data) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' ') : '';
         });
         row.manufacturerDescription = [{ text: manufacturerDescriptionArr.join('|'), xpath: row.manufacturerDescription[0].xpath }];
+      }
+      if (row.specifications) {
+        const specificationsArr = row.specifications.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '|') : '|';
+        });
+        row.specifications = [{ text: specificationsArr.join('|'), xpath: row.specifications[0].xpath }];
       }
     }
   }

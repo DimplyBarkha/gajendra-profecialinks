@@ -92,14 +92,14 @@ fields:
     xpath: //div[contains(@class,'fa-article-infos-bottom')]//ul[contains(@class,'fa-liste-points-forts')]
   - name: specifications
     singleValue: false
-    xpath: normalize-space(//div[contains(@class,'fa-bloc-main')]//div[contains(@class,'liste-specs')])
+    xpath: //div[contains(@class,'fa-bloc-main')]//div[contains(@class,'liste-specs')]
   - name: warranty
     singleValue: false
     xpath: (//div[contains(@class,'fa-avantage')]//div[contains(@class,'uba-icone-avantage uba-icone-avantage-texte')])[1]
   - name: colorCode
     singleValue: false
     xpath: //span[@class='fa-couleur current']/@style
-    regExp: (#(.*\d+))
+    regExp: (#(.*))
     regExpReplace: $2
   - name: manufacturerDescription
     singleValue: false
