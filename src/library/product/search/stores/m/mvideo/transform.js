@@ -9,12 +9,12 @@ const transform = (data) => {
         if (row.id) {
           row.id.forEach(item => {           
             var splitData = item.text.split('-');
-            item.text =  parseInt(splitData[splitData.length-1]);
+            item.text =  splitData[splitData.length-1];
           });
         }
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {           
-            item.text = parseInt(item.text);
+            item.text = item.text;
           });
         }
         if (row.thumbnail) {
