@@ -176,6 +176,10 @@ const transform = (data, context) => {
           row.weightGross[0].text = row.weightGross[0].text.replace('Bruttogewicht: ', '');
         }
 
+        if (row.color && row.color[0]) {
+          row.color[0].text = row.color[0].text.replace('Farbe: ', '');
+        }
+
         if (row.productOtherInformation && row.productOtherInformation[0]) {
           row.productOtherInformation.forEach(item => {
             item.text = item.text.replace('Mehr Details anzeigen', '');
@@ -190,7 +194,7 @@ const transform = (data, context) => {
 
         if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]) {
           row.additionalDescBulletInfo.forEach(item => {
-            item.text = item.text.replace('1 Stern ? Filter entfernen', '').replace('1 Stern ✘ Filter entfernen', '');
+            item.text = item.text.replace(/(\d+)\sStern[e]*\s*✘\s*Filter entfernen/gm, '').replace(/(.+)✘(.+)/gm, '');
           });
         }
 

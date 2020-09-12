@@ -78,6 +78,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: manufacturer
     singleValue: true
+    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//img[contains(@class, "widget-ArticleBrand--articleBrandLogo")]/@title
     description: Product manufacturer
   - name: soldBy
     singleValue: true
