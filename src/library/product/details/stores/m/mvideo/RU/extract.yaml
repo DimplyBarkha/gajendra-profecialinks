@@ -6,9 +6,6 @@ fields:
   - name: price
     singleValue: flase
     xpath: //div[@class="c-pdp-price__current sel-product-tile-price"]
-  - name: url
-    singleValue: false
-    xpath: //link[@rel="canonical"]/@href
   - name: name
     singleValue: flase
     xpath: //h1[@class='e-h1 sel-product-title']
@@ -34,12 +31,6 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="o-product-gallary__carousel"]//div[@class="c-carousel__item-wrapper"]//img[@class="c-carousel__img"]/@src
-  - name: quantity
-    singleValue: false    
-    defaultValue: 1  
   - name: brandText
     singleValue: false
     xpath: //div[@class="c-brand-logo"]//img/@alt
-  - name: metaKeywords
-    singleValue: false
-    xpath: //meta[@name='keywords']/@content

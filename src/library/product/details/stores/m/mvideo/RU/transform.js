@@ -44,7 +44,7 @@ const transform = (data) => {
 
         if (row.sku) {
           row.sku.forEach(item => {
-            item.text = parseInt(item.text);
+            item.text = item.text;
           });
         }
 
