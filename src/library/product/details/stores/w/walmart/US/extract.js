@@ -86,30 +86,36 @@ module.exports = {
       .catch(() => console.log('no desc for item'));
 
     await context.click('body');
-    await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-1]', { timeout:3000 })
-      .then(async()=>{
-        await new Promise(res=>setTimeout(res,3000));
-      })
-      .catch(()=>console.log('no nutrTab'))
 
-    await context.waitForXPath('//span[contains(text(),"Total Carbohydrate")]/following-sibling::span)[position()=1]',{ timeout:3000 })
-      .catch(() => console.log('n/a'))
-
-    await context.evaluate(()=>{
-      function addHiddenDiv(id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
+    const nutrTabPresentAndClicked = await context.evaluate(()=>{
+      const nutrTab = document.evaluate('//span[contains(text(),"Nutrition Facts")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      if (nutrTab){
+        nutrTab.click();
       }
-      let carbs = document.evaluate('(//span[contains(text(),"Total Carbohydrate")]/following-sibling::span)[position()=1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
-      console.log(`carbs:${carbs}`)
-      addHiddenDiv('my-carbs', carbs);
+      return !!nutrTab
     })
 
-    await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-0]', { timeout:3000 })
-      .catch(() => console.log('no specTab'))
+    if (nutrTabPresentAndClicked){
+      await context.waitForSelector('h6.nutrition-facts-title', { timeout: 4000 })
+        .then(async()=>{
+          await context.evaluate(() => {
+            function addHiddenDiv(id, content) {
+              const newDiv = document.createElement('div');
+              newDiv.id = id;
+              newDiv.textContent = content;
+              newDiv.style.display = 'none';
+              document.body.appendChild(newDiv);
+            }
+            let carbs = document.evaluate('(//span[contains(text(),"Total Carbohydrate")]/following-sibling::span)[position()=1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+            console.log(`carbs:${carbs}`)
+            addHiddenDiv('my-carbs', carbs);
+          })
+        })
+        .catch(() => console.log('n/a'))
+
+      await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-0]', { timeout: 3000 })
+        .catch(() => console.log('no specTab'))
+    }
 
     await addAdditionalContent();
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
