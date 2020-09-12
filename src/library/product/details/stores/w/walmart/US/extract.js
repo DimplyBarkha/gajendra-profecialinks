@@ -87,34 +87,33 @@ module.exports = {
 
     await context.click('body');
 
-    const nutrTabPresentAndClicked = await context.evaluate(()=>{
+    const nutrTabPresentAndClicked = await context.evaluate(async()=>{
       const nutrTab = document.evaluate('//span[contains(text(),"Nutrition Facts")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
       if (nutrTab){
         nutrTab.click();
       }
       return !!nutrTab
     })
-
     if (nutrTabPresentAndClicked){
-      await context.waitForSelector('h6.nutrition-facts-title', { timeout: 4000 })
-        .then(async()=>{
-          await context.evaluate(() => {
-            function addHiddenDiv(id, content) {
-              const newDiv = document.createElement('div');
-              newDiv.id = id;
-              newDiv.textContent = content;
-              newDiv.style.display = 'none';
-              document.body.appendChild(newDiv);
-            }
-            let carbs = document.evaluate('(//span[contains(text(),"Total Carbohydrate")]/following-sibling::span)[position()=1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
-            console.log(`carbs:${carbs}`)
-            addHiddenDiv('my-carbs', carbs);
+        await context.waitForSelector('.nutrition-facts-title', { timeout: 4000 })
+          .then(async()=>{
+            await context.evaluate(() => {
+              function addHiddenDiv(id, content) {
+                const newDiv = document.createElement('div');
+                newDiv.id = id;
+                newDiv.textContent = content;
+                newDiv.style.display = 'none';
+                document.body.appendChild(newDiv);
+              }
+              let carbs = document.evaluate('(//span[contains(text(),"Total Carbohydrate")]/following-sibling::span)[position()=1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+              console.log(`carbs:${carbs}`)
+              addHiddenDiv('my-carbs', carbs);
+            })
           })
-        })
-        .catch(() => console.log('n/a'))
-
-      await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-0]', { timeout: 3000 })
-        .catch(() => console.log('no specTab'))
+          .catch(() => console.log('n/a'))
+  
+        await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-0]', { timeout: 3000 })
+          .catch(() => console.log('no specTab'))
     }
 
     await addAdditionalContent();
