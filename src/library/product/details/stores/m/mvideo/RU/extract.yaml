@@ -6,9 +6,6 @@ fields:
   - name: price
     singleValue: flase
     xpath: //div[@class="c-pdp-price__current sel-product-tile-price"]
-  - name: url
-    singleValue: false
-    xpath: //link[@rel="canonical"]/@href
   - name: name
     singleValue: flase
     xpath: //h1[@class='e-h1 sel-product-title']
@@ -24,7 +21,7 @@ fields:
   - name: image
     singleValue: flase
     xpath: //img[@class='c-media-container__image']/@src
-  - name: imageimageAlt
+  - name: imageAlt
     singleValue: flase
     xpath: //img[@class='c-media-container__image']/@alt
   - name: ratingCount

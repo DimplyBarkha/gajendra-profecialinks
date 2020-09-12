@@ -24,21 +24,22 @@ const transform = (data) => {
           });
         }
 
-        if (row.brandImage) {
-          row.brandImage.forEach(item => {
-            item.text = 'https:'+item.text;
-          });
-        }
-
         if (row.alternateImages) {
+          var img_arr = [];
           row.alternateImages.forEach(item => {
-            item.text = 'https:'+item.text;
+            img_arr.push([{"text":'https:'+item.text.replace(/small_pic\/65\//g, ''), "xpath": row.alternateImages[0]["xpath"]}]);
           });
+          if (img_arr.length > 1){
+            img_arr.splice(0,1);
+            row.alternateImages = img_arr;
+          }else{
+            delete row.alternateImages;
+          }
         }
 
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
-            item.text = parseInt(item.text);
+            item.text = item.text.replace(/\D/g, '');
           });
         }
 
@@ -54,7 +55,6 @@ const transform = (data) => {
             item.text = item.text.replace(/(\s*\n\s*)+/g, ' > ').trim();
           });
         }
-
       }
     }
     return data;
