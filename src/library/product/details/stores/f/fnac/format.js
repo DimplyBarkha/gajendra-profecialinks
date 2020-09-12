@@ -41,6 +41,11 @@ const transform = (data) => {
           item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
         });
       }
+      if (row.description) {
+        row.description.forEach(descriptionItem => {
+          descriptionItem.text = cleanUp(descriptionItem.text);
+        });
+      }
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n\s*){1,}/g, ' || ');
         row.additionalDescBulletInfo[0].text = cleanUp(row.additionalDescBulletInfo[0].text);

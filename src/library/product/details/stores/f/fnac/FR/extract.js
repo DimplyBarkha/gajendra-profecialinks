@@ -16,19 +16,25 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-    // Function to fetch sku number and gtin from script tag as not available directly on DOM.
-    function fetchRatingFromScript () {
-      const scriptDataTagSelector = document.evaluate('//script[@type="application/ld+json"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      // @ts-ignore
-      const scriptTagData = scriptDataTagSelector ? scriptDataTagSelector.innerText : '';
-      const sku = scriptTagData ? scriptTagData.replace(/.*sku":"(\d+).*/gm, '$1') : '';
-      const gtin = scriptTagData ? scriptTagData.replace(/.*gtin13":"(\d+).*/gm, '$1') : '';
-      const url = scriptTagData ? scriptTagData.replace(/.*?url":"(.*?)",.*/gm, '$1') : '';
+    function fetchDetailsFromScript () {
+      const scriptTagSelectorLD = document.querySelector('script[type="application/ld+json"]');
+      const scriptTagDataLD = scriptTagSelectorLD ? scriptTagSelectorLD.innerText : '';
+      let scriptTagJSONLD = '';
+      try {
+        scriptTagJSONLD = scriptTagDataLD ? JSON.parse(scriptTagDataLD) : '';
+      } catch (e) {
+        console.log('Error in converting text to JSON....');
+        scriptTagJSONLD = '';
+      }
+      let sku = scriptTagJSONLD ? scriptTagJSONLD.sku ? scriptTagJSONLD.sku : '' : '';
+      // If sku is blank then taking product id as sku
+      if (!sku) {
+        const skuSelector = document.querySelector('div[class*="f-productPage"]');
+        sku = skuSelector ? skuSelector.getAttribute('data-prid') : '';
+      }
       addHiddenDiv('added_sku', sku);
-      addHiddenDiv('added_gtin', gtin);
-      addHiddenDiv('added_url', url);
     }
-    fetchRatingFromScript();
+    fetchDetailsFromScript();
   });
   return await context.extract(productDetails, { transform });
 }

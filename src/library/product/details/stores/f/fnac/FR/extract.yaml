@@ -6,15 +6,15 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //img[@class="f-productVisuals-mainMedia js-ProductVisuals-imagePreview"]/@src
+    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and contains(@class, "slick-current")]/@data-src-zoom
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: //img[@class="f-productVisuals-mainMedia js-ProductVisuals-imagePreview"]/@alt
+    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and contains(@class, "slick-current")]//img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="f-productVisuals-thumbnail js-articleVisuals-item slick-slide slick-active"]//@src
+    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and not(contains(@class, "slick-current"))]/@data-src-zoom
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -42,8 +42,6 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[@class="f-buyBox-availability f-buyBox-availabilityStatus-available"]
-    # regExp: (.+)
-    # regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: brandText
     singleValue: false
@@ -89,10 +87,7 @@ fields:
     xpath: //div[@id="added_sku"]
   - name: gtin
     singleValue: false
-    xpath: //div[@id="added_gtin"]
-  - name: url
-    singleValue: false  
-    xpath: //div[@id="added_url"]
+    xpath: //div[contains(@class, "f-productPage")]/@data-ean13
   - name: specifications
     singleValue: false  
     xpath: //div[contains(@class, "productStrate characteristicsStrate")]
@@ -106,4 +101,9 @@ fields:
   - name: videos
     singleValue: false  
     xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
-  
+  - name: variantId
+    singleValue: false  
+    xpath: //div[contains(@class, "f-productPage")]/@data-prid
+  - name: description
+    singleValue: false  
+    xpath: //div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")]
