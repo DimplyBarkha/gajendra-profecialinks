@@ -4,9 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'euronics',
-    openSearchDefinition: {
-      indexOffset: 0,
-    },
+    nextLinkSelector: '.pagination__item--next a',
     loadedSelector: 'div[class="yCmsContentSlot product-grid-right-result-slot"] div',
     domain: 'euronics.co.uk',
   },

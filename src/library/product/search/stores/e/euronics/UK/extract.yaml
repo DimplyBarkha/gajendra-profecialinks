@@ -1,21 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="product-listing__item"]
+recordXPath: //div[contains(@class,"product-item product-card")]
 #recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="id"]
+    xpath: //div[@class="product-card__sku"]
   - name: rankOrganic
-    singleValue: false
-    xpath: //div[@class="rank"]
+    singleValue: false   
   - name: name
     singleValue: false
     xpath: //div[@class="name"]
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="url"]
+    xpath: //a[@class='product-card__heading-wrap']/@href
+    regExp: (.+)
+    regExpReplace: https://www.euronics.co.uk$1
   - name: thumbnail
     singleValue: true
     xpath: //img/@src
@@ -35,7 +36,8 @@ fields:
     singleValue: true
   - name: rank
     singleValue: false
-    xpath: //div[@class="rank"]
+  - name: sponsored
+    singleValue: false    
   - name: endorsementText
     singleValue: false
     xpath: //div[@class="endorsement"]
