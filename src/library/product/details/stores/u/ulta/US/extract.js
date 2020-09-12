@@ -8,8 +8,14 @@ async function implementation(
   // await new Promise((resolve) => setTimeout(resolve, 20000));
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  try {
+    await context.waitForSelector('div#wc-power-page')
+  } catch (error) {
+    console.log('Manufacturer contents are not loaded')
+  }
   await context.evaluate(async () => {
-    function addHiddenDiv (id, content) {
+    function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -23,9 +29,16 @@ async function implementation(
         addHiddenDiv(`video_${index}_${index1}`, video.src);
       });
     });
+    const manufacturerContent = document.querySelector('div#wc-power-page')
+    if (manufacturerContent) {
+      manufacturerContent.scrollIntoView({behavior: "smooth"})
+      await new Promise(resolve => setTimeout(resolve, 5000))
+      manufacturerContent.innerHTML = manufacturerContent.innerHTML.replace(/<div\s*class="wc-json-data".*?<\/div>/g, ' ');
+    }
   });
   return await context.extract(productDetails, { transform });
 }
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -35,4 +48,5 @@ module.exports = {
     domain: 'ulta.us',
     zipcode: '',
   },
+  implementation,
 };

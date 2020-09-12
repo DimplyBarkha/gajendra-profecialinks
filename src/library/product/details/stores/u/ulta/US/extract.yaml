@@ -95,7 +95,9 @@ fields:
     xpath: //meta[@property="product:color"]/@content
   - name: variantInformation
     singleValue: false  
-    xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/alt
+    xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@alt
+    regExp: ([^\s]+)(\s.*)?
+    regExpReplace: $1 
   - name: directions
     singleValue: false  
     manualSelector: div.ProductDetail__howToUse > div.Collapsible
