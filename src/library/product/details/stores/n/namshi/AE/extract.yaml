@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="product-usp"]/i[@class="icon-delivery"]/parent::div
   - name: price
     singleValue: false
-    xpath: //p[@class="product__price"]/span[@class="reduction"]
+    xpath: //p[@class="product__price"]/span
   - name: image
     singleValue: false
     xpath: //div[@class="slim-slide zoom active"]/img/@src
@@ -63,6 +63,3 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[@id="sizeSelector"]//ul[@id="product_size"]/li
-  - name: availabilityText
-    singleValue: false
-    defaultValue: 'In Stock'
