@@ -80,10 +80,11 @@ module.exports = {
             videoSrc.push(element.getAttribute('data-video').toString());
           }
         });
-        return videoSrc.join(' || ');
+        const videosArr = Array.from(new Set(videoSrc));
+        return videosArr.join(' || ');
       });
       manufVideo = video;
-      await context.goto(link, {       
+      await context.goto(link, {
         timeout: 50000,
         waitUntil: 'load',
       });
@@ -92,7 +93,7 @@ module.exports = {
       if (image) {
         console.log(image);
         addHiddenInfo('ii_manufContentImg', image.join(' || '));
-        addHiddenArrayList('ii_manufImg', image);
+        // addHiddenArrayList('ii_manufImg', image);
       }
       if (manufVideo) {
         console.log(manufVideo);

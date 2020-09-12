@@ -31,6 +31,14 @@ const transform = (data, context) => {
             row.gtin[0].text = gtin;
             row.upc[0].text = gtin;
           }
+          if (jsonObj.includes('&ean=')) {
+            jsonObj = jsonObj.split('/ean/');
+            jsonObj = jsonObj.length === 2 ? jsonObj[1] : '';
+            jsonObj = jsonObj.split('?&ean=')[0];
+            row.gtin[0].text = jsonObj;
+            row.upc[0].text = jsonObj;
+            row.eangtin[0].text = jsonObj;
+          }
         }
         // if (row.category && row.category[0] && row.category[0].text) {
           // let jsonObj = row.category[0].text;
@@ -70,6 +78,18 @@ const transform = (data, context) => {
             textArr.push(item.text);
           });
           row.shippingDimensions = [
+            {
+              text: textArr.join(' '),
+            },
+          ];
+        }
+
+        if (row.promotion) {
+          const textArr = [];
+          row.promotion.forEach(item => {
+            textArr.push(item.text);
+          });
+          row.promotion = [
             {
               text: textArr.join(' '),
             },
@@ -130,6 +150,9 @@ const transform = (data, context) => {
             if (!(item.text.includes('http'))) {
               item.text = 'https://www.expert.at/' + item.text;
             }
+            if (item.text.includes('ajax-loader.gif')) {
+              item.text = item.text.replace('https://www.expert.de/static/images/loader/ajax-loader.gif', '');
+            }
           });
         }
 
@@ -151,6 +174,24 @@ const transform = (data, context) => {
 
         if (row.weightGross && row.weightGross[0]) {
           row.weightGross[0].text = row.weightGross[0].text.replace('Bruttogewicht: ', '');
+        }
+
+        if (row.productOtherInformation && row.productOtherInformation[0]) {
+          row.productOtherInformation.forEach(item => {
+            item.text = item.text.replace('Mehr Details anzeigen', '');
+          });
+        }
+
+        if (row.description && row.description[0]) {
+          if (row.description.length > 1) {
+            row.description[0].text = row.description[0].text.startsWith('|| ') ? row.description[0].text : `|| ${row.description[0].text}`;
+          }
+        }
+
+        if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]) {
+          row.additionalDescBulletInfo.forEach(item => {
+            item.text = item.text.replace('1 Stern ? Filter entfernen', '').replace('1 Stern ✘ Filter entfernen', '');
+          });
         }
 
         Object.keys(row).forEach(header => row[header].forEach(el => {

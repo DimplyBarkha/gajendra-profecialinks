@@ -31,9 +31,9 @@ module.exports = {
       location = '/ahlen';
     } else if (zipcode === 'saarwellingen') {
       location = '/saarwellingen';
-    } else if (zipcode === 'loerrach') {
+    } else if (zipcode === 'lorrach') {
       location = '/loerrach';
-    } else if (zipcode === 'nuernberg') {
+    } else if (zipcode === 'nurnberg') {
       location = '/nuernberg1';
     } else if (zipcode === 'mannheim') {
       location = '/mannheim1';
