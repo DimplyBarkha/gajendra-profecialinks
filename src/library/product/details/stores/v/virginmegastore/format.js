@@ -14,11 +14,6 @@ const transform = (data) => {
       }
       if (row.category) {
         row.category.shift();
-        // eslint-disable-next-line camelcase
-        const categoryArray = row.category.map((item) => {
-          return item.text.replace(/\n /g, '');
-        });
-        row.category = [{ text: categoryArray.join(' > '), xpath: row.category[0].xpath }];
       }
       if (row.alternateImages) {
         row.alternateImages.shift();
