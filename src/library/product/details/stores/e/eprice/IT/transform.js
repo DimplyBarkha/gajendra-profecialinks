@@ -35,10 +35,61 @@ const transform = (data) => {
       }
       if (row.manufacturer) {
         row.manufacturer.shift();
-        const text = '';
         row.manufacturer.forEach(manufacturer => {
           manufacturer.text = manufacturer.text.replace(": '", '');
         });
+      }
+      if (row.shippingInfo) {
+        row.shippingInfo.forEach(shippingInfo => {
+          shippingInfo.text = cleanUp(shippingInfo.text);
+        });
+      }
+      if (row.variantAsins) {
+        if (!(row.variantAsins.length > 1)) {
+          row.firstVariant.shift();
+        }
+        let text = '';
+        row.variantAsins.forEach(item => {
+          text += `${item.text.replace('/', '')} | `;
+        });
+        row.variantAsins = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text += `${item.text.replace('/', '')} | `;
+        });
+        row.variants = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += `${item.text} || `;
+        });
+        row.specifications = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text += `Colore: ${item.text.replace('Colore', '')} | `;
+        });
+        row.variantInformation = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
       }
     }
   }
