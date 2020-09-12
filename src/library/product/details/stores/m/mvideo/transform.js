@@ -43,12 +43,6 @@ const transform = (data) => {
           });
         }
 
-        if (row.sku) {
-          row.sku.forEach(item => {
-            item.text = item.text;
-          });
-        }
-
         if (row.category) {
           row.category.forEach(item => {
             item.text = item.text.replace('Главная', '').trim();
