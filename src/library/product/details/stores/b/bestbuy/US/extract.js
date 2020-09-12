@@ -38,6 +38,7 @@ async function implementation(
     const request = await context.searchAllRequests('videos') || [];
     const videos = new Set(request.map(({url})=>url));
     await new Promise(resolve => setTimeout(resolve, 2000))
+    
     await context.evaluate(async function (videos) {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -48,6 +49,11 @@ async function implementation(
       }
       for (const [index, video] of videos.entries()) {
         addHiddenDiv(`ii_video_${index}`, video)
+      }
+      try {
+        document.querySelector('li.image-more-thumbnail button').click()
+      } catch (error) {
+        console.log('No extra Image',error);
       }
       const descContent = (document.querySelector('div.overview-accordion-content-wrapper')) ? document.querySelector('div.overview-accordion-content-wrapper').innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
       descContent && addHiddenDiv('ii_description', descContent);

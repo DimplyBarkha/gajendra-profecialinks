@@ -11,6 +11,14 @@ const transform = (data, context) => {
                 text: row.specifications.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/(\s*\n\s*)+/, ': ')}` : currItem.text.replace(/(\s*\n\s*)+/, ': '), ''),
               }];
         }
+        if (row.additionalDescBulletInfo) {
+            row.descriptionBullets = [{
+                text: row.additionalDescBulletInfo.length,
+              }];
+        }
+        if (row.alternateImages2) {
+            row.alternateImages = [...row.alternateImages2];
+        }
         if (row.warranty) {
             row.warranty = [{
                 text: row.warranty.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/(\s*\n\s*)+/, ': ')}` : currItem.text.replace(/(\s*\n\s*)+/, ': '), ''),
@@ -23,10 +31,9 @@ const transform = (data, context) => {
           row.variants = [{
               text: row.variants.reduce((item, currItem) => item ? `${item} | ${currItem.text}` : currItem.text, '')+ ' | ' + row.sku[0].text,
           }];
-        } else {
-          row.variantCount = [{
-            text: 1
-          }]
+          row.variantInformation = [{
+              text: row.variantInformation.reduce((item, currItem) => item ? `${item} | ${currItem.text.replace(/\.$/,'')}` : currItem.text.replace(/\.$/,''), ''),
+          }];
         }
         if (row.manufacturerDescription) {
           row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\s*\n\s*)+/g, ' ');
