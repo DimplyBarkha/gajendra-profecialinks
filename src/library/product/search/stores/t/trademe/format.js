@@ -25,6 +25,14 @@ const transform = (data) => {
               item.text = item.text.toString();
             });
         }
+        if (row.price) {
+          row.price.forEach(item => {
+              item.text = item.text;
+          });
+        }
+        else {
+          row.price = row.listprice ;
+        }
        if (row.id) {
         row.id.forEach(item => {
             item.text = item.text.replace(/\?.*$/g, '').trim();
