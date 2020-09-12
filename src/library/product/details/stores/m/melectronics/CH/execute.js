@@ -5,7 +5,7 @@ module.exports = {
     country: 'CH',
     store: 'melectronics',
     domain: 'melectronics.ch',
-    loadedSelector: null,
+    loadedSelector: 'div[class="tiles--row"] > div[class="tiles--item slider--item"] a[class="u-reset"]',
     noResultsXPath: null,
     zipcode: '',
   },
