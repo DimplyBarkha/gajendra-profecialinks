@@ -13,14 +13,10 @@ fields:
     defaultValue: Out Of Stock
   - name: price
     singleValue: false
-    xpath: //script[@type="application/ld+json"]/@content
-    regExp: (\d+.*)
-    regExpReplace: CHF $1
+    xpath: //p[@class='productStage__offeredPrice']
   - name: priceCurrency
     singleValue: false
-    xpath: //script[@type="application/ld+json"]
-    regExp: priceCurrency":\s"([^"]+)
-    regExpReplace: $1
+    defaultValue: CHF
   - name: promotion
     singleValue: false
     xpath: //span[@class='js-pdpDiscountPercentage gallery__discountPercentage']
@@ -50,7 +46,7 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: category
     singleValue: false
-    xpath: concat(//div[@class='topBar container wrapper js-storelist']//span[2],' > ',//div[@class='topBar container wrapper js-storelist']//span[3],' > ',//div[@class='topBar container wrapper js-storelist']//span[4],' > ',//div[@class='topBar container wrapper js-storelist']//span[5])
+    xpath: (//div[@class='topBar container wrapper js-storelist']//text())[position()>1]
   - name: nameExtended
     singleValue: false
     xpath: //form[@id='AddToCartForm']//div//h1//font//font
@@ -108,7 +104,7 @@ fields:
     defaultValue: 0
     xpath: //a[@class='ratingStars js-smoothScrolling']//span[@class='rating__count']
     regExp: (\d+)
-  - name: aggregateRating
+  - name: aggregateRatingText
     singleValue: false
     defaultValue: 0
     xpath: //span[@class='total__rating']
