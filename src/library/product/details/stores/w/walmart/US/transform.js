@@ -247,8 +247,8 @@ const transform = (data, context) => {
           }
         }
 
-        if(!row.nutritionInfo && row.carbsPerServing){
-          let carbs = row.carbsPerServing[0].text;
+        if (!row.nutritionInfo && row.carbsPerServing) {
+          const carbs = row.carbsPerServing[0].text;
           row.totalCarbPerServing = [{ text: carbs.replace(/[^\d]/g, '') }];
           row.totalCarbPerServingUom = [{ text: carbs.replace(/[^a-zA-Z]/g, '') }];
         }

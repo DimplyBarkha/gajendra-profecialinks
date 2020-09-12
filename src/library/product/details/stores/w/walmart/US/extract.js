@@ -78,7 +78,7 @@ module.exports = {
 
     await context.waitForXPath("//meta[@property='og:image']/@content", { timeout: 5000 })
       .catch(() => console.log('no product image available'));
- 
+
     await context.waitForXPath("//p[@class='Directions']", { timeout: 4000 })
       .catch(() => console.log('no directions present'));
 
@@ -87,33 +87,33 @@ module.exports = {
 
     await context.click('body');
 
-    const nutrTabPresentAndClicked = await context.evaluate(async()=>{
+    const nutrTabPresentAndClicked = await context.evaluate(async () => {
       const nutrTab = document.evaluate('//span[contains(text(),"Nutrition Facts")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-      if (nutrTab){
+      if (nutrTab) {
         nutrTab.click();
       }
-      return !!nutrTab
-    })
-    if (nutrTabPresentAndClicked){
-        await context.waitForSelector('.nutrition-facts-title', { timeout: 4000 })
-          .then(async()=>{
-            await context.evaluate(() => {
-              function addHiddenDiv(id, content) {
-                const newDiv = document.createElement('div');
-                newDiv.id = id;
-                newDiv.textContent = content;
-                newDiv.style.display = 'none';
-                document.body.appendChild(newDiv);
-              }
-              let carbs = document.evaluate('(//span[contains(text(),"Total Carbohydrate")]/following-sibling::span)[position()=1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
-              console.log(`carbs:${carbs}`)
-              addHiddenDiv('my-carbs', carbs);
-            })
-          })
-          .catch(() => console.log('n/a'))
-  
-        await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-0]', { timeout: 3000 })
-          .catch(() => console.log('no specTab'))
+      return !!nutrTab;
+    });
+    if (nutrTabPresentAndClicked) {
+      await context.waitForSelector('.nutrition-facts-title', { timeout: 4000 })
+        .then(async () => {
+          await context.evaluate(() => {
+            function addHiddenDiv (id, content) {
+              const newDiv = document.createElement('div');
+              newDiv.id = id;
+              newDiv.textContent = content;
+              newDiv.style.display = 'none';
+              document.body.appendChild(newDiv);
+            }
+            const carbs = document.evaluate('(//span[contains(text(),"Total Carbohydrate")]/following-sibling::span)[position()=1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+            console.log(`carbs:${carbs}`);
+            addHiddenDiv('my-carbs', carbs);
+          });
+        })
+        .catch(() => console.log('n/a'));
+
+      await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-0]', { timeout: 3000 })
+        .catch(() => console.log('no specTab'));
     }
 
     await addAdditionalContent();
