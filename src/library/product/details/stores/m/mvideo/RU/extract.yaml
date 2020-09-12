@@ -9,9 +9,6 @@ fields:
   - name: name
     singleValue: flase
     xpath: //h1[@class='e-h1 sel-product-title']
-  - name: description
-    singleValue: flase
-    xpath: //div[@class='o-about-product']  
   - name: category
     singleValue: flase
     xpath: //div[@class='c-breadcrumbs']//ul
@@ -21,13 +18,6 @@ fields:
   - name: image
     singleValue: flase
     xpath: //img[@class='c-media-container__image']/@src
-  - name: imageimageAlt
-    singleValue: flase
-    xpath: //img[@class='c-media-container__image']/@alt
-  - name: ratingCount
-    singleValue: flase
-    xpath: //div[@class="c-star-rating"]//span[@class="c-link c-link_pseudo c-link_gray20 sel-product-tile-review"]
-    defaultValue: 0
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="o-product-gallary__carousel"]//div[@class="c-carousel__item-wrapper"]//img[@class="c-carousel__img"]/@src
