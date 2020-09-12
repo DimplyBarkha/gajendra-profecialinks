@@ -2,19 +2,10 @@ singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields:
-  - name: pageTimestamp
-    singleValue: false
-    xpath: //*[@class='link no-disponible']/p[1]/span
-  - name: technicalInformationPdfPresent
-    singleValue: false
-    xpath: //*[@class='link no-disponible']/p[1]/span
-  - name: Image360Present
-    singleValue: false
-    xpath: //*[@class='link no-disponible']/p[1]/span
+fields:  
   - name: manufacturerImages
     singleValue: false
-    xpath: //*[@class="flix-feature-image"]/img/@srcset
+    xpath: //div[@class="brand-image"]//img/@src
   - name: name
     singleValue: false
     xpath: //h1[@class='infoProduct-title']
@@ -23,7 +14,7 @@ fields:
     xpath: //ul[@class='description-tech']
   - name: descriptionBullets
     singleValue: false
-    xpath: //ul[@class='description-tech']/li
+    xpath: //ul[@class='description-tech']
   - name: price
     singleValue: false
     xpath: //p[@class='price']
@@ -32,42 +23,37 @@ fields:
     xpath: //div[@class='active item']/img[@class='img-responsive']/@src
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='item']/img[@class='img-responsive']/@src
-  - name: weightNet
-    singleValue: false
-    xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']/ul/li[14]/span[2]/strong
+    xpath: //div[@id='carousel-pager']//div[@class='item']//img[@class='img-responsive']/@src  
   - name: aggregateRating
     singleValue: false
-    xpath: //*[@class='bv-secondary-rating-summary-stars bv-table-row']/span[2]
+    xpath: //*[@class='bv-secondary-rating-summary-stars bv-table-row']//span[@class='bv-secondary-rating-summary-rating bv-table-cell']
   - name: storage
     singleValue: false
-    xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']/ul/li[2]/span[2]/strong
+    xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']//ul//li//span[contains(text(),'Capacidad de almacenamiento')]/parent::*/span/strong
   - name: category
     singleValue: false
-    xpath: //*[@class='breadcrumb']
+    xpath: //input[@id='productCategory']/@value
   - name: ratingCount
     singleValue: false
-    xpath: //*[@id="num-reviews-button"]
+    xpath: //div[@id='ratings-summary']//meta[@itemprop="reviewCount"]/@content
   - name: description
     singleValue: false
-    xpath: //*[@id="more_product_info"]/div/div[3]/p
+    xpath: //div[@class="text description-content js-description-content"]
   - name: manufacturer
     singleValue: false
-    xpath: //*[@class='brand-image']/a[@class='marca']/img/@src
-  - name: manufacturerDescription
+    xpath: //input[@id='productBrand']/@value
+  - name: brandText
     singleValue: false
-    xpath: //*[@id="more_product_info"]/div/div[3]/p
+    xpath: //input[@id='productBrand']/@value
   - name: specifications
     singleValue: false
-    xpath: //*[@id="inpage_container"]/div[4]/div[2]/div
+    xpath: //div[@class='text fichaTecnica-content js-fichaTecnica-content']//ul//li
   - name: color
     singleValue: false
-    xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']/ul/li[5]/span[2]/strong
-  - name: url
-    singleValue: false
-    xpath: //*[@rel='canonical']/@href
+    xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']//ul//li//span[contains(text(),'Color')]/parent::*/span/strong
   - name: sku
     singleValue: false
-    xpath: //*[@class='info-title']/div[2]/@data-bv-product-id
-   
-    
+    xpath: //input[@id='productId']/@value
+  - name: gtin
+    singleValue: false
+    xpath: //input[@name='productoCodigoEan']/@value

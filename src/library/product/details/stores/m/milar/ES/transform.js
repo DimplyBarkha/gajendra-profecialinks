@@ -2,37 +2,28 @@
 
 const transform = (data) => {
   for (const { group} of data) {
-      for (const row of group) {
-
-            if (row.pageTimestamp) {
-                var d = new Date();
-                row.pageTimestamp = d.toISOString();
-            }
-
-            if (row.technicalInformationPdfPresent) {
-                row.technicalInformationPdfPresent = 'No';
-            }
-
-            if (row.Image360Present) {
-                row.Image360Present = 'No';
-            }
-
+      for (const row of group) {        
           if (row.additionalDescBulletInfo) {
-              row.additionalDescBulletInfo.forEach(item => {
+            let add_bul = ''
+              row.additionalDescBulletInfo.forEach(item => {                
                   item.text  = item.text.replace(/(\s*\n\s\n\s*)/g, ' | ').trim();
+                  add_bul = item.text
               });
-          }
-
-
-          if (row.descriptionBullets) {
-            row.descriptionBullets = row.descriptionBullets.length
-        }
-
+              let bullet_count = add_bul.split('|');
+              row.descriptionBullets = [{'text':bullet_count.length,'xpath':row.additionalDescBulletInfo[0].xpath}];
+          }          
           if (row.specifications) {
+            let info = [];          
             row.specifications.forEach(item => {
-                item.text  = item.text.replace(/(\s*\n\s\n\s*)/g, ' | ').trim();
+              info.push(item.text);            
+            });          
+            row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
+          }
+          if (row.description) {
+            row.description.forEach(item => {
+                item.text  = item.text.replace(/(\s*\n\s\n\s*)/g, ' || ').trim();
             });
-        }
+          }
 
    
 
