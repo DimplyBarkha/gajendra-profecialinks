@@ -8,7 +8,7 @@ fields:
     xpath: //*[@class='buybox--annotation']/span/span
   - name: price
     singleValue: false
-    xpath: //div[@class='detail-options--price']/span/span[1]/span[2]/span
+    xpath: //div[@class='detail-options--price']/span/span[1]
   - name: promotion
     singleValue: false
     xpath: //div[@class='detail-options--price']
@@ -24,7 +24,7 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //*[@class='detail-showcase--img-teaser-box']/div/div/img/@src
-  - name: url
+  - name: _url
     singleValue: true
     xpath: //link[@rel='alternate']/@href
   - name: category
@@ -81,7 +81,9 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     xpath: //*[@id="test-header-link-Language"]/div[1]
-  
-  
-  
-  
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: 'No'
+  - name: Image360Present
+    singleValue: false
+    defaultValue: 'No'
