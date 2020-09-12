@@ -12,12 +12,9 @@ module.exports = {
     await context.evaluate(() => {
       const getAllData = JSON.parse(window.mwProductDetailData);
       const videoUrl = getAllData.CatalogEntryView[0].Attributes;
-      videoUrl.find(element => {
-        if (element.name === 'eVideoshopping') {
-          const videoUrl = element && element.Values[0] && element.Values[0].values;
-          document.body.setAttribute('video', videoUrl);
-        }
-      });
+      const element = videoUrl.find(product => product.name === 'eVideoshopping');
+      const videoLink = element && element.Values[0] && element.Values[0].values;
+      document.body.setAttribute('video', videoLink);
     });
     await context.extract(productDetails, { transform });
   },
