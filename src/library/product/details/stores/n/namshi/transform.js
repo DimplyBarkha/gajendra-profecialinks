@@ -30,7 +30,7 @@ const transform = (data) => {
             if (row.variantInformation) {
                 let info = [];
                 row.variantInformation.forEach(item => {
-                    info.push(item.text.replace(/cart\./g, 'zoom-desktop.').trim());
+                    info.push(item.text);
                 });
                 if(info.length){
                     row.variantInformation = [{"text": info.join(' | '), "xpath": row.variantInformation[0]["xpath"]}];
@@ -38,6 +38,12 @@ const transform = (data) => {
                     delete row.variantInformation;
                 }
             }
+            if (row.alternateImages) {
+                let info = [];
+                row.alternateImages.forEach(item => {
+                    info.push(item.text.replace(/cart\./g, 'zoom-desktop.').trim());
+                });
+            }            
             if (row.variants) {
                 let variations = [];
                 let color = null;
