@@ -23,9 +23,7 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,'prix')]
-    regExp: (\d+)(\D+)(\d+)
-    regExpReplace: $1 $2 $3
+    xpath: //span[@class='prix rebours-prix rebours-inited']
   - name: priceCurrency
     singleValue: false
     defaultValue: €
@@ -42,7 +40,7 @@ fields:
     xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
     regExp: reviewCount":(\d+)
     regExpReplace: $1
-  - name: aggregateRating
+  - name: aggregateRatingText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
     regExp: aggregateRating":{"@context":"[^"]+","@type":"[^"]+","reviewCount":(\d+),"ratingValue":([\d+])(\.)(\d*)
@@ -80,12 +78,12 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //div[@class='p-l p-b']//a/@href
+    regExp: (^.*)
+    regExpReplace: Yes
     defaultValue: No
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,'fa-infos-prix')]//span[contains(@class,'prix-origine')]
-    regExp: (\d+)(€)(\d+)
-    regExpReplace: $1 $2 $3
+    xpath: //span[@class='prix-origine']
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,'fa-fiche-bloc points-forts')]//li)
@@ -125,7 +123,7 @@ fields:
     xpath: count(//div[contains(@class,'fa-liste-decli')]//a/@href)
   - name: category
     singleValue: false
-    xpath: concat(//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][2],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][3],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][4],' > ',//div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][5]) 
+    xpath: //div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')]
   - name: description
     singleValue: false
     xpath: //div[@class='fa-fiche-bloc points-forts']//div[@class='fa-description']
