@@ -23,6 +23,11 @@ const transform = (data) => {
                     item.text = 'https://www.melectronics.ch'.concat(item.text);
                 });
             }
+            if(row.name) {
+                row.name.forEach(item => {
+                    item.text = row.brandText[0].text.concat(' ',item.text)
+                });
+            }
         }
     }
     return data;
