@@ -41,7 +41,7 @@ const transform = (data) => {
             if (row.alternateImages) {
                 let info = [];
                 row.alternateImages.forEach(item => {
-                    info.push(item.text.replace(/cart\./g, 'zoom-desktop.').trim());
+                    item.text = item.text.replace(/cart\./g, 'zoom-desktop.').trim();
                 });
             }            
             if (row.variants) {
