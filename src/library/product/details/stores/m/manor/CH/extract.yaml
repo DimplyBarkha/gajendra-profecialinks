@@ -57,10 +57,10 @@ fields:
     xpath: //div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href  
   - name: manufacturer
     singleValue: false
-    xpath: (//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"]//h2)[0]
+    xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line")]//h2
   - name: brandText
     singleValue: false
-    xpath: (//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"]//h2)[0]
+    xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line")]//h2
   - name: specifications
     singleValue: false
     xpath: //div[@class='m-productfactslist']
