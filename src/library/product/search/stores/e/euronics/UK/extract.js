@@ -1,4 +1,3 @@
-
 async function implementation (
   inputs,
   parameters,
@@ -8,7 +7,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  let resultArr = [];
+  let resultTotal = 0;
   let dataResults = [];
 
   function stall(ms) {
@@ -24,7 +23,7 @@ async function implementation (
     const hasNextButton = await context.evaluate(function() {
       return document.querySelector('.pagination__item--next') && document.querySelector('.pagination__item--next').querySelector('a');
     });
-    resultArr = await context.evaluate(function(resultArr) {
+    resultTotal = await context.evaluate(function(resultTotal) {
 
       function addHiddenDiv(el, id, text) {
         const div = document.createElement('div');
@@ -33,54 +32,45 @@ async function implementation (
         el.appendChild(div);
       }
 
-      document.querySelectorAll('.product-listing__item').forEach(el => {
-        if (resultArr.length < 150) {
-
-          let resultObj = {};
-          let name = el.querySelector('h3').innerText;
-          resultObj['name'] = name;
-          resultObj['manufacturer'] = name.split(' ')[0];
-          resultObj['rank'] = resultArr.length + 1;
-          //addHiddenDiv(el, 'name', name);
-          //addHiddenDiv(el, 'manufacturer', name.split(' ')[0]);
-          //addHiddenDiv(el, 'rank', resultArr.length);
-
-          if (el.querySelector('.product-card__image-wrap')) {
-            const splitHref =  el.querySelector('.product-card__image-wrap').getAttribute('href').split('/');
-            const sku = splitHref[splitHref.length - 1];
-            resultObj['id'] = sku;
-            //addHiddenDiv(el, 'id', sku);
-            resultObj['url'] = 'https://euronics.co.uk' + el.querySelector('.product-card__image-wrap').getAttribute('href');
-            //addHiddenDiv(el, 'url', 'https://euronics.co.uk' + el.querySelector('.product-card__image-wrap').getAttribute('href'));
-          }
-
-          resultArr.push(resultObj);
+      document.querySelectorAll('.product-item__details').forEach(el => {
+        if (resultTotal >= 150) {
+          el.remove();
+        } else {
+          resultTotal++;
         }
 
+        let name = el.querySelector('h3').innerText;
+        addHiddenDiv(el, 'name', name);
+        addHiddenDiv(el, 'manufacturer', name.split(' ')[0]);
+        addHiddenDiv(el, 'rank', resultTotal);
+
+        if (el.querySelector('iframe')) {
+          if (el.querySelector('iframe').contentWindow.document.querySelector('reevoo-stars')) {
+            addHiddenDiv(el, 'rating', el.querySelector('iframe').contentWindow.document.querySelector('reevoo-stars').getAttribute('data-score'));
+          }
+          if (el.querySelector('iframe').contentWindow.document.querySelector('.reevoo__section--number-of-reviews')) {
+            addHiddenDiv(el, 'reviews', el.querySelector('iframe').contentWindow.document.querySelector('.reevoo__section--number-of-reviews').innerText.split(' ')[1]);
+          }
+        }
+
+
       });
-      return resultArr;
-    }, resultArr);
+      return resultTotal;
+    }, resultTotal);
 
-    console.log('totalResults', resultArr.length);
+    console.log('totalResults', resultTotal);
 
-    if (hasNextButton && resultArr.length < 24) {
+    const results = context.extract(productDetails, { transform });
+    dataResults.push(results);
+    await stall(2000);
+
+    if (hasNextButton && resultTotal < 150) {
       await context.evaluate(function() {
         document.querySelector('.pagination__item--next').querySelector('a').click();
       });
     } else {
       break;
     }
-  }
-
-  for (let result of resultArr) {
-    try {
-      await context.goto('https://mark.reevoo.com/reevoomark/en-GB/product?sku='+ result.id + '&trkref=ERN');
-    } catch {
-      
-    }
-    const results = context.extract(productDetails, { transform });
-    dataResults.push(results);
-    await stall(2000);
   }
 
   return dataResults;
