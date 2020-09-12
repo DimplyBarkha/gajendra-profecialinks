@@ -98,17 +98,15 @@ const transform = (data) => {
             row.weightNet.forEach(item => {
                 if(item.text.length > 0 && item.text.split('\n').length > 0){
                     item.text.split('\n').forEach(eachDesc =>{
-                        if(eachDesc.indexOf('Вес без упаковки (кг)') >=0)
-                            text += `${eachDesc.replace('Вес без упаковки (кг)','').replace('\n','')}`
-                        if(eachDesc.indexOf('Вес товара без упаковки (г)') >=0)
-                            text += `${eachDesc.replace('Вес товара без упаковки (г)','').replace('\n','')}`
+                      if(eachDesc.indexOf('Вес') >=0 && eachDesc.indexOf('без упаковки') >=0)
+                         text += `${eachDesc}`
                             
                     })
                 }
             })
             row.weightNet = [
               {
-                text: text.trim()
+                text: `${text.replace(/[^0-9\.]+/g,"")} ${text.split(' ')[text.split(' ').length-1]}`
               },
             ];
           }
@@ -117,17 +115,15 @@ const transform = (data) => {
             row.weightGross.forEach(item => {
                 if(item.text.length > 0 && item.text.split('\n').length > 0){
                     item.text.split('\n').forEach(eachDesc =>{
-                        if(eachDesc.indexOf('Вес с упаковкой (кг)') >=0)
-                            text += `${eachDesc.replace('Вес с упаковкой (кг)','').replace('\n','')}`
-                        if(eachDesc.indexOf('Вес товара с упаковкой (г)') >=0)
-                            text += `${eachDesc.replace('Вес товара с упаковкой (г)','').replace('\n','')}`
+                      if(eachDesc.indexOf('Вес') >=0 && eachDesc.indexOf('с упаковкой') >=0)
+                          text += `${eachDesc}`
                             
                     })
                 }
             })
             row.weightGross = [
               {
-                text: text.trim()
+                text: `${text.replace(/[^0-9\.]+/g,"")} ${text.split(' ')[text.split(' ').length-1]}`
               },
             ];
           }
