@@ -48,8 +48,6 @@ fields:
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"card-row")]//div[contains(@class,'second-horizontal')]//div[1]
-    regExp: (Артикул.*?):(\s)(\d.*)
-    regExpReplace: $3
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[contains(@class,"card-error-report")]//p[contains(@class,'card-error-report-info')]
@@ -83,6 +81,13 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@id="certificate-tooltip"]
+  - name: variants
+    singleValue: false
+    xpath: (//div[@class="card-right"]//div[contains(@class,"colors-preview")]//ul//li)[position()>1]/@data-cod1s
+  - name: variantCount
+    singleValue: false
+    xpath: count((//div[@class="card-right"]//div[contains(@class,"colors-preview")]//ul//li)[position()>1])
+
 
 
     

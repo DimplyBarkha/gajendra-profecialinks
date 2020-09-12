@@ -37,9 +37,11 @@ const transform = (data) => {
             })
             :
             text='';
+            let textArr = [];
+            textArr.push(`${text.slice(0,-3)}`)
             row.category = [
               {
-                text: text.slice(0,-3)
+                text: textArr
               },
             ];
           }
@@ -227,6 +229,17 @@ const transform = (data) => {
               },
             ];
           }
+          if (row.sku) {
+            let text = '';
+            row.sku.forEach(item => {
+                text = item.text.replace("Артикул: ",'');
+            })
+            row.sku = [
+              {
+                text: text
+              },
+            ];
+          }
           if (row.promotion) {
             let text = '';
             row.promotion.forEach(item => {
@@ -237,6 +250,19 @@ const transform = (data) => {
             row.promotion = [
               {
                 text: text.trim()
+              },
+            ];
+          }
+          if (row.variants) {
+            let text = '';
+            row.variants.forEach(item => {
+                if(item.text.length > 0){
+                    text += `${item.text} | `;
+                }
+            })
+            row.variants = [
+              {
+                text: text.slice(0,-3)
               },
             ];
           }
