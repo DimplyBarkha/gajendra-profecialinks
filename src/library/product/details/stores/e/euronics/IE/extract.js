@@ -27,17 +27,17 @@ async function implementation (
     }
   });
 
-  await context.goto('https://mark.reevoo.com#[!opt!]{"type":"js","init_js":""}[/!opt!]', { timeout: 20000, waitUntil: 'load', checkBlocked: true });
 
-  const ratingAndReviews = await context.evaluate(async function() {
-    return await fetch(`https://mark.reevoo.com/reevoomark/product_summary?locale=en-IE&sku=OLED55CX5LB&trkref=ERI&callback=ReevooLib.Data.callbacks`)
-      .then(res => res.text());
-  });
+  let ratingsAndReviews = await context.evaluate(async function (sku) {
+    return await fetch(`https://mark.reevoo.com/reevoomark/product_summary?locale=en-IE&sku=${sku}&trkref=ERI&callback=ReevooLib.Data.callbacks`)
+      .then(response => response.text());
+  }, sku);
 
-  await context.goto(productUrl);
-  console.log('ratingsAndReviewsRes', ratingAndReviews);
+  if (ratingsAndReviews) {
+   ratingsAndReviews = ratingsAndReviews.substring(ratingsAndReviews.indexOf('{')).replace('})', '}');
+  }
 
-  await context.evaluate(async function() {
+  await context.evaluate(async function(ratingsAndReviews) {
 
     function stall(ms) {
       return new Promise(resolve => {
@@ -71,6 +71,15 @@ async function implementation (
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
+    }
+
+    if (ratingsAndReviews) {
+      const ratingsAndReviewsData = JSON.parse(ratingsAndReviews);
+      addHiddenDiv('ratingCount', ratingsAndReviewsData.review_count);
+      if (ratingsAndReviewsData.average_score) {
+        addHiddenDiv('aggregatedRating', (ratingsAndReviewsData.average_score / 2).toString().replace('.',','));
+        addHiddenDiv('aggregatedRatingText', (ratingsAndReviewsData.average_score / 2).toString().replace('.',',') + ' out of 5');
+      }
     }
 
     if (document.getElementById('thumbnails') && document.getElementById('thumbnails').querySelector('a')) {
@@ -179,24 +188,6 @@ async function implementation (
       if (el.getAttribute('src') && el.getAttribute('src').includes('youtube')) {
         videos.push(el.getAttribute('src'));
       }
-      /*if(!el.getAttribute('src')) {
-        console.log('hasRatings');
-        const frame = el.contentWindow.document;
-        if (frame.querySelector('reevoo-score')) {
-          const rating = frame.querySelector('reevoo-score').getAttribute('data-score');
-          addHiddenDiv('aggregatedRating', (rating / 2).replace('.', ','));
-          addHiddenDiv('aggregatedRatingText', (rating / 2).replace('.', ',') + ' out of 5');
-        }
-        if (frame.querySelector('.reevoo__section--number-of-reviews')) {
-          addHiddenDiv('ratingCount', frame.querySelector('.reevoo__section--number-of-reviews').innerText.split(' ')[0]);
-        }
-      }*/
-    });
-
-    await fetch('https://mark.reevoo.com/reevoomark/product_summary?locale=en-GB&sku=459KD65XH9005B&trkref=ERI&callback=ReevooLib.Data.callbacks')
-    .then(data => data.json())
-    .then(res => {
-      console.log('ratingResponse', res);
     });
 
     if (document.querySelector('.shippingFrom')) {
@@ -215,7 +206,7 @@ async function implementation (
       addHiddenDiv('rotateInfo', 'Yes');
     }
 
-  });
+  }, ratingsAndReviews);
   return await context.extract(productDetails, { transform });
 }
 
