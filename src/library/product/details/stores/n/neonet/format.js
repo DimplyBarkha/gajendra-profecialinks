@@ -15,19 +15,11 @@ const transform = (data) => {
       const categs = [];
       let idx = 0;
       if (row.category) {
-        let catText = '';
         row.category.forEach(item => {
-          categs[0] = item;
-          if (idx === 1) {
-            catText = item.text;
-          }
-          if (idx > 1 && idx < row.category.length) {
-            catText = catText + '>' + item.text;
+          if (idx > 0) {
+            categs.push(item);
           }
           idx++;
-        });
-        categs.forEach(item => {
-          item.text = catText;
         });
         row.category = categs;
       }
