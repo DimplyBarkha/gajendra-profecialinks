@@ -4,6 +4,22 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+    const cleanUp = (data, context) => {
+      let dataStr = JSON.stringify(data);
+      console.log('INSIDE OF CLEANUP');
+      dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
+        .replace(/&amp;nbsp;/g, ' ')
+        .replace(/&amp;#160/g, ' ')
+        .replace(/\\u00A0/g, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/"\s{1,}/g, '"')
+        .replace(/\s{1,}"/g, '"')
+        .replace(/^ +| +$|( )+/g, ' ')
+        // eslint-disable-next-line no-control-regex
+        .replace(/[^\x00-\x7F]/g, '');
+
+      return JSON.parse(dataStr);
+    };
     for (const { group } of data) {
       for (let row of group) {
         try {
@@ -29,22 +45,22 @@ const transform = (data) => {
               },
             ];
           }
-          if (row.category) {
-            let text = '';
-            row.category.length > 0 ? 
-            row.category.forEach(item => {
-                text += `${item.text} > `
-            })
-            :
-            text='';
-            let textArr = [];
-            textArr.push(`${text.slice(0,-3)}`)
-            row.category = [
-              {
-                text: textArr
-              },
-            ];
-          }
+          // if (row.category) {
+          //   let text = '';
+          //   row.category.length > 0 ? 
+          //   row.category.forEach(item => {
+          //       text += `${item.text} > `
+          //   })
+          //   :
+          //   text='';
+          //   let textArr = [];
+          //   textArr.push(`${text.slice(0,-3)}`)
+          //   row.category = [
+          //     {
+          //       text: textArr
+          //     },
+          //   ];
+          // }
           if (row.name) {
             let text = '';
             row.name.forEach(item => {
@@ -104,9 +120,10 @@ const transform = (data) => {
                     })
                 }
             })
+            text = text != "" ? `${text.replace(/[^0-9\.]+/g,"")} ${text.split(' ')[text.split(' ').length-1]}`: "";
             row.weightNet = [
               {
-                text: `${text.replace(/[^0-9\.]+/g,"")} ${text.split(' ')[text.split(' ').length-1]}`
+                text: text
               },
             ];
           }
@@ -121,9 +138,10 @@ const transform = (data) => {
                     })
                 }
             })
+            text = text != "" ? `${text.replace(/[^0-9\.]+/g,"")} ${text.split(' ')[text.split(' ').length-1]}`: "";
             row.weightGross = [
               {
-                text: `${text.replace(/[^0-9\.]+/g,"")} ${text.split(' ')[text.split(' ').length-1]}`
+                text: text
               },
             ];
           }
@@ -262,6 +280,7 @@ const transform = (data) => {
               },
             ];
           }
+          row = cleanUp(row);
         } catch (exception) {
           console.log(exception);
         }

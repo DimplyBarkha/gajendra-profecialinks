@@ -3,12 +3,18 @@ regionsSelector: null
 recordSelector: null
 recordXPath: '//div[contains(@class,"products-container")]//div[contains(@class,"card-item")]'
 fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]/@data-catalogercod1s
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtlist-inner-brand-name")]//span[contains(@class,"goods-name")]
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//a/@href
+  - name: url
+    singleValue: false
+    xpath: //meta[contains(@property, ":url")]/@content
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")]/@src
