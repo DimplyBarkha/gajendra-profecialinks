@@ -61,7 +61,12 @@ fields:
   - name: variants
     singleValue: false
     xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
-    regExp: .*\/(.*?)\?
+    regExp: .*\/(.*?)\?.*
+    regExpReplace: $1
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
+    regExp: .*\/(.*?)\?.*
     regExpReplace: $1
   - name: weightNet
     singleValue: false

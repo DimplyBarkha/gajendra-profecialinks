@@ -12,16 +12,13 @@ const transform = (data) => {
           text: row.variants.length,
         }];
         row.variantInformation = [{
-          text: 'color',
-        }];
-        row.variantInformation = [{
           text: row.variantInformation.reduce((item, currentitem) => {
             return `${item} | ${currentitem.text}`;
           }, '').slice(3),
         }];
         row.variants = [{
           text: row.variants.reduce((item, currentitem) => {
-            return `${item} | ${currentitem.text.replace(/.*\/(.*)\?.*/, '$1')}`;
+            return `${item} | ${currentitem.text}`;
           }, '').slice(3),
         }];
       }
