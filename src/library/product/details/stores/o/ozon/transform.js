@@ -73,7 +73,11 @@ const transform = (data) => {
           });
         }
 
-        
+        if (row.variantId) {
+          row.variantId.forEach(item => {
+            item.text = item.text.replace(/(\s*Код\s*товара\s*:\s*)+/g, '').trim();
+          });
+        }
 
         if (row.shippingInfo) {
           let info = [];          
