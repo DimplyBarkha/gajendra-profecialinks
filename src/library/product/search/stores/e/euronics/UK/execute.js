@@ -12,7 +12,6 @@ async function implementation (
   context,
   dependencies,
 ) {
-
   function stall (ms) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -22,7 +21,7 @@ async function implementation (
   }
 
   const url = 'https://www.euronics.co.uk/search/?text=' + inputs.keywords || inputs.Keywords;
-  await dependencies.goto({ url }, {timeout: 50000});
+  await dependencies.goto({ url }, { timeout: 50000 });
   await stall(5000);
   return context.evaluate(function () {
     return document.querySelectorAll('.product-listing__item').length > 0;

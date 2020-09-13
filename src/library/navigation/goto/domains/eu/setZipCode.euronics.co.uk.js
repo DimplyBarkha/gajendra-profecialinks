@@ -5,7 +5,6 @@ async function implementation (
   dependencies,
 ) {
 
-
 }
 module.exports = {
   implements: 'navigation/goto/setZipCode',
