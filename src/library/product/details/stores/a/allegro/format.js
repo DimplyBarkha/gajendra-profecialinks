@@ -67,15 +67,21 @@ const transform = (data) => {
           row.color = [{ text: colorArray.join('') }];
         }
       }
-      if (row.category) {
-        row.category.shift();
-        const categoryArray = row.category.map((item) => {
-          return item.text;
+      // if (row.category) {
+      //   row.category.shift();
+      //   const categoryArray = row.category.map((item) => {
+      //     return item.text;
+      //   });
+      //   const uniqueItems = Array.from(new Set(categoryArray));
+      //   if (uniqueItems) {
+      //     row.category = [{ text: uniqueItems.join(' > ') }];
+      //   }
+      // }
+      if (row.price) {
+        const priceRow = row.price.map((item) => {
+          return item.text.replace('.', ',');
         });
-        const uniqueItems = Array.from(new Set(categoryArray));
-        if (uniqueItems) {
-          row.category = [{ text: uniqueItems.join(' > ') }];
-        }
+        row.price = [{ text: priceRow.join(''), xpath: priceRow[0].xpath }];
       }
       if (row.description) {
         const rowData = row.description.map((item) => {
