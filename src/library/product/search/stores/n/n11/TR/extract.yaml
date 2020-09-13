@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //a[@class="plink"]/@data-id
+    singleValue: true
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[@class="plink"]/@href
+    singleValue: true
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //a[@class="plink"]/img/@src
+  - name: name
+    description: The product name
+    xpath: //h3[contains(@class, "productName")]
+  - name: aggregateRating2
+    description: The stated aggregate rating
+    xpath: //div[@class="ratingCont"]/span[1]/@class
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //div[@class="ratingCont"]/span[@class="ratingText"]
+    regExp: \d+
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //div[@class="ratingCont"]/span[@class="ratingText"]
+    regExp: \d+
+  - name: price
+    description: The offered price for the product
+    xpath: //*[@class="newPrice"]
+  - name: listPrice
+    description: The stated undiscounted price for the products
+    xpath: //*[@class="oldPrice"]
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+    xpath: //div[@id="adSlider"]/div/ul/li
