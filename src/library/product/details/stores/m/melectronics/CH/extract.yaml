@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -13,6 +13,9 @@ fields:
     singleValue: false
     xpath: //div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']  
   - name: sku
+    singleValue: false
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
+  - name: variantId
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: image
