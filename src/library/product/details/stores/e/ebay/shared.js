@@ -22,7 +22,6 @@ async function implementation(
         try {
             await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
         } catch (error) {
-            console.log('xxxxxxxxxxxxxxxxxxxxvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvbb');
             await context.evaluate(async function (src) {
                 window.location.assign(src);
             }, src);
