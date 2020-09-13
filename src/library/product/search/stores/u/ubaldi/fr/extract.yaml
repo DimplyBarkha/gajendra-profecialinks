@@ -25,7 +25,7 @@ fields:
     regExpReplace: >-
       https://www.ubaldi.com$1
   - name: thumbnail
-    xpath: //div[@class='liste-articles']//div[contains(@class,"la-article")]//div[contains(@class,"la-image-container")]//div[contains(@class,"img-placeholder")]//a/img/@src
+    xpath: //div[@class='liste-articles']//div[contains(@class,"la-article")]//div[contains(@class,"la-image-container")]//div[contains(@class,"img-placeholder")]//a/img/@data-src
     singleValue: false
     regExp: ^(.*)$
     regExpReplace: https:$1
@@ -34,7 +34,7 @@ fields:
     singleValue: false
     regExp: (\d+)
     regExpReplace: $1
-  - name: aggregateRatingText
+  - name: aggregateRating
     xpath: //div[@class='liste-articles']//div[contains(@class,"la-article")]//div[contains(@class,"la-visuel")]//span[contains(@class,"pr-snippet-rating-decimal")]
     singleValue: false
   - name: reviewCount
@@ -52,3 +52,4 @@ fields:
     singleValue: false
     regExp: --(\d+)
     regExpReplace: $1
+  - name: rankOrganic

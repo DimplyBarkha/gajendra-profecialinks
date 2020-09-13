@@ -1,10 +1,10 @@
-
+const { transform } = require('../format');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'fr',
     store: 'ubaldi',
-    transform: null,
+    transform: transform,
     domain: 'ubaldi.com',
     zipcode: "''",
   },
@@ -12,12 +12,12 @@ module.exports = {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
-        while (scrollTop !== 20000) {
-          await stall(500);
-          scrollTop += 1000;
+        while (scrollTop !== 40000) {
+          await stall(40000);
+          scrollTop += 40000;
           window.scroll(0, scrollTop);
-          if (scrollTop === 20000) {
-            await stall(5000);
+          if (scrollTop === 40000) {
+            await stall(40000);
             break;
           }
         }
@@ -30,6 +30,7 @@ module.exports = {
         }
       });
     };
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await applyScroll(context);
     return await context.extract(productDetails, { transform });
   },
