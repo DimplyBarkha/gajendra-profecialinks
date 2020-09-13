@@ -78,7 +78,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: concat((//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1],",",(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[2])
+    xpath: concat((//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]," ",(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[2])
   - name: promotion
     singleValue: false
     xpath: //span[@class="offer"]//div[1]
@@ -115,7 +115,7 @@ fields:
     regExpReplace: $2
   - name: variantCount
     singleValue: false
-    defaultValue: 1
+    defaultValue: 0
   - name: color
     singleValue: false
     xpath: concat((//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1],",",(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[2])

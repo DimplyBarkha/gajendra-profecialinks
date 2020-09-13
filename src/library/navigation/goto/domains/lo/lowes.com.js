@@ -7,9 +7,9 @@ module.exports = {
     store: 'lowes',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    // await context.setAntiFingerprint(false);
-    // await context.setLoadAllResources(true);
-    // await context.setBlockAds(false);
+    await context.setAntiFingerprint(false);
+    await context.setLoadAllResources(true);
+    await context.setBlockAds(false);
     await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
