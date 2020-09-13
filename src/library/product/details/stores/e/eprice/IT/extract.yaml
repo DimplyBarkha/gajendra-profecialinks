@@ -99,7 +99,8 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    defaultValue: 0
+    xpath: count(//div[contains(@class, 'js_colorVar')]//a/@href | //meta[contains(@property, 'og:url')]/@content)
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
