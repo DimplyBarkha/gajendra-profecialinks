@@ -12,6 +12,7 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out Of Stock
   - name: price
+    type: number
     singleValue: false
     xpath: //p[@class='productStage__offeredPrice']
   - name: priceCurrency
@@ -46,7 +47,7 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: category
     singleValue: false
-    xpath: (//div[@class='topBar container wrapper js-storelist']//text())[position()>1]
+    xpath: //nav[@class='breadcrumb breadcrumb--small']//text()
   - name: nameExtended
     singleValue: false
     xpath: //form[@id='AddToCartForm']//div//h1//font//font
@@ -161,7 +162,7 @@ fields:
     xpath: //div[contains(@class,'embed-responsive')]//iframe/@src
   - name: name
     singleValue: false
-    xpath: //meta[@property="og:title"]/@content
+    xpath: //form[@id='AddToCartForm']//div//h1//font//font
   - name: coupon
     singleValue: false
   - name: specifications
