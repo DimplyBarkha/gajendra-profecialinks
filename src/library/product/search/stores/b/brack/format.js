@@ -10,7 +10,16 @@ const transform = (data, context) => {
     for (const row of group) {
       rankCounter = rankCounter + 1;
       row.rank = [{ text: rankCounter }];
+      row.rankOrganic = [{ text: rankCounter }];
       context.setState({ rankCounter });
+      // Price
+      if (row.price && row.price[0]) {
+        row.price[0].text = row.price[0].text.replace(/\./g, ',');
+      }
+      // Aggregate Rating
+      if (row.aggregateRating && row.aggregateRating[0]) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace(/\./g, ',');
+      }
     }
   }
   return data;

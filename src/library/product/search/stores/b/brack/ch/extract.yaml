@@ -7,6 +7,7 @@ fields:
     xpath: //ul[@class='productList']/li/@data-sku
     singleValue: false
   - name: rank
+  - name: rankOrganic
   - name: manufacturer
     xpath: //ul[@class='productList']/li/div[contains(@class, "product")]//a[@class="productManufacturerFilter"]
     singleValue: false
@@ -37,3 +38,6 @@ fields:
     singleValue: false
     regExp: (.*_)
     regExpReplace: https:$1xxl3.jpg
+  - name: aggregateRating
+    xpath: //div[contains(@class,'product__contentWrapper')]//a/@data-rating
+    singleValue: false
