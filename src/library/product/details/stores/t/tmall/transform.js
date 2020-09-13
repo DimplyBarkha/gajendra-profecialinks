@@ -21,6 +21,14 @@ const transform = (data) => {
             item.text=skuArr1[0];
           });
         }
+
+        if(row.variantId){
+          row.variantId.forEach(item => {
+            var skuArr=item.text.split("/item/");
+            var skuArr1=skuArr[1].split(".");
+            item.text=skuArr1[0];
+          });
+        }        
         
       }
     }
