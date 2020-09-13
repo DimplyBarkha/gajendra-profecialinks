@@ -92,22 +92,44 @@ module.exports = {
       const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${storeId}&original_store=0`;
       const apiDataResponse = await makeApiCall(productsData, {});
       const element = document.querySelectorAll('div.colors_content_mobile > ul li');
+      const singleElement = document.querySelector('h1[id="js-product-detail-title"]')
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
 
       if (apiDataResponse) {
-        // GTIN,SKU,SIZE,variantInformation
-        if (element) {
-          for (var i = 0; i < element.length; i++) {
-            setAttributes(element[i].querySelector('a div'),
+        try {
+          // GTIN,SKU,SIZE,variantInformation
+
+          if (element.length > 1) {
+            console.log(JSON.parse(apiDataResponse), "res")
+            for (var i = 0; i < element.length; i++) {
+              setAttributes(element[i].querySelector('a div'),
+                {
+                  title: JSON.parse(apiDataResponse)._all_colors[i].title,
+                  gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
+                  retailer_product_code: JSON.parse(apiDataResponse)._all_colors[0].skus[0].reference_id,
+                  sku: JSON.parse(apiDataResponse).id,
+                });
+            }
+          }
+
+          if (element.length < 1) {
+            let div = document.createElement("div");
+            singleElement.appendChild(div);
+            console.log(JSON.parse(apiDataResponse), "_gtin")
+            setAttributes(singleElement.querySelector('div'),
               {
-                title: JSON.parse(apiDataResponse)._all_colors[i].title,
-                gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
-                retailer_product_code: JSON.parse(apiDataResponse)._all_colors[0].skus[0].reference_id,
-                sku: JSON.parse(apiDataResponse).id,
+                title: JSON.parse(apiDataResponse).title ? JSON.parse(apiDataResponse).title : "",
+                gtin: JSON.parse(apiDataResponse)._gtin ? JSON.parse(apiDataResponse)._gtin : "",
+                retailer_product_code: JSON.parse(apiDataResponse)._reference ? JSON.parse(apiDataResponse)._reference : "",
+                sku: JSON.parse(apiDataResponse)._add_to_cart ? JSON.parse(apiDataResponse)._add_to_cart.id : "",
+                variantInformation: JSON.parse(apiDataResponse)._all_colors ? JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[0].title }).map((e) => { return e.variant[1].value }).join('/') : ""
               });
           }
+        } catch (e) {
+          throw "Error in API"
         }
+
       }
 
       // Check for the data and append to DOM
@@ -131,7 +153,7 @@ module.exports = {
             if (dataObj[0].product.brand) {
               addElementToDocument('brand', dataObj[0].product.brand);
             }
-            
+
             // Check for List Price
             if (Number(dataObj[0].product.price.o_price) === Number(dataObj[0].product.price.f_price)) {
               addElementToDocument('listPrice', '');
@@ -164,6 +186,31 @@ module.exports = {
             } else {
               addElementToDocument('brand', '');
             }
+
+            if (element.length < 1) {
+              // Check for  gtin
+              if (dataObj[0].product.gtin) {
+                setAttributes(singleElement.querySelector('div'), { gtin: dataObj[0].product.gtin });
+              } else {
+                addElementToDocument('gtin', '');
+              }
+
+              // Check for  retailer_product_code
+              if (dataObj[0].product.id) {
+                setAttributes(singleElement.querySelector('div'), { retailer_product_code: dataObj[0].product.id });
+              } else {
+                addElementToDocument('retailer_product_code', '');
+              }
+
+              // Check for  sku
+              if (dataObj[0].product.code_a) {
+                setAttributes(singleElement.querySelector('div'), { sku: dataObj[0].product.code_a });
+              } else {
+                addElementToDocument('sku', '');
+              }
+
+            }
+
           }
         }
       } catch (err) {

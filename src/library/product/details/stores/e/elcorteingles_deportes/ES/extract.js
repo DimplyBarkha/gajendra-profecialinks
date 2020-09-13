@@ -163,23 +163,38 @@ module.exports = {
         const apiDataResponse = await makeApiCall(productsData, {});
 
         const element = document.querySelectorAll('div.colors_content_mobile > ul li');
-
+        const singleElement = document.querySelector('h1[id="js-product-detail-title"]')
+          ;
         if (apiDataResponse) {
           // GTIN,SKU,SIZE,variantInformation
-          for (var i = 0; i < element.length; i++) {
-            setAttributes(element[i].querySelector('a div'),
+          if (element) {
+            for (var i = 0; i < element.length; i++) {
+              console.log(JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[i].title }).map((e) => { return e.variant[1].value }).join('/'), "vraints")
+              setAttributes(element[i].querySelector('a div'),
+                {
+                  title: JSON.parse(apiDataResponse)._all_colors[i].title,
+                  gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
+                  retailer_product_code: JSON.parse(apiDataResponse)._all_colors[0].skus[0].reference_id,
+                  sku: JSON.parse(apiDataResponse).id,
+                  variantInformation: JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[i].title }).map((e) => { return e.variant[1].value }).join('/')
+                });
+            }
+          }
+
+          if (element.length < 1) {
+            let div = document.createElement("div");
+            singleElement.appendChild(div);
+            console.log(JSON.parse(apiDataResponse).title, "title")
+            setAttributes(singleElement.querySelector('div'),
               {
-                title: JSON.parse(apiDataResponse)._all_colors[i].title,
-                gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
-                retailer_product_code: JSON.parse(apiDataResponse)._all_colors[0].skus[0].reference_id,
-                sku: JSON.parse(apiDataResponse).id,
-                variantInformation : JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => {return e.color.title === "Gris / Negro"}).map((e) => {return e.variant[1].value}).join('/') 
+                title: JSON.parse(apiDataResponse).title ? JSON.parse(apiDataResponse).title : "",
+                gtin: JSON.parse(apiDataResponse)._gtin ? JSON.parse(apiDataResponse)._gtin : "",
+                retailer_product_code: JSON.parse(apiDataResponse)._reference ? JSON.parse(apiDataResponse)._reference : "",
+                sku: JSON.parse(apiDataResponse)._add_to_cart ? JSON.parse(apiDataResponse)._add_to_cart.id : "",
+                variantInformation: JSON.parse(apiDataResponse)._all_colors ? JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[0].title }).map((e) => { return e.variant[1].value }).join('/') : ""
               });
           }
         }
-
-
-
 
         function ratingFromDOM() {
           const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');

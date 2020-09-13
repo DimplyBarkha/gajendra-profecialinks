@@ -160,7 +160,8 @@ module.exports = {
         const response = await fetch(API);
         const data = await response.json();
         const ratingCount = data.Results[0].ProductStatistics.ReviewStatistics.TotalReviewCount;
-        let ratingValue = data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating.toFixed(1).replace('.', ',') || 0;
+        
+        let ratingValue = data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating ? data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating.toFixed(1).replace('.', ',') : 0;
         let reviewCount = 0;
         if (ratingCount > 0) {
           const ratingOnlyElm = Array.from(document.querySelectorAll('[itemprop="headline"]')).find(elm => elm.textContent.includes('valoraciones sin reseña'));
