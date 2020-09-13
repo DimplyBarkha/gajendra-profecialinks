@@ -20,9 +20,9 @@ const transform = (data) => {
       }
       if (row.description) {
         const descriptionArray = row.description.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '| ') : '';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' | ') : '';
         });
-        row.description = [{ text: descriptionArray.join('|'), xpath: row.description[0].xpath }];
+        row.description = [{ text: descriptionArray.join(' | '), xpath: row.description[0].xpath }];
       }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {

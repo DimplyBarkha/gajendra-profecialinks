@@ -114,7 +114,7 @@ fields:
     xpath: //div[@class='productStage__infoText']//ul
   - name: description
     singleValue: false
-    xpath: //div[@class='pdp__contentSection-leftSide']
+    xpath: //div[@id='description-block']//div[@class='pdp__contentSection-leftSide']//h3|//div[@id='description-block']//div[@class='pdp__contentSection-leftSide']//p
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class='productStage__infoText']//li)
