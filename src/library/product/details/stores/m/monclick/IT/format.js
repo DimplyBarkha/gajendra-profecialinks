@@ -34,7 +34,9 @@ const transform = (data) => {
         amt = row.price[0].text.split('\n', 1)[0];
         row.price = [{ text: amt }];
       }
-      row.variantCount = [{ text: 1 }];
+      if (row.variantCount) {
+        row.variantCount = [{ text: 1 }];
+      }
     }
   }
   return data;
