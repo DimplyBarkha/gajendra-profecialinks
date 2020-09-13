@@ -19,7 +19,9 @@ const transform = (data) => {
           item.text = item.text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ');
         });
       }
-      row.variantCount = [{ text: 1 }];
+      if (row.variantCount) {
+        row.variantCount = [{ text: 1 }];
+      }
     }
   }
   return data;
