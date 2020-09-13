@@ -44,6 +44,16 @@ const transform = (data, context) => {
           item.text = item.text.replace('.',',');
         });
       }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          item.text = item.text.replace(',','');
+        });
+      }
+      if (row.reviewCount) {
+        row.reviewCount.forEach(item => {
+          item.text = item.text.replace(',','');
+        });
+      }
     }
     }
     return data;

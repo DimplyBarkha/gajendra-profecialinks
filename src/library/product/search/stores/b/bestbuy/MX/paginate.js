@@ -4,14 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'MX',
     store: 'bestbuy',
-    nextLinkSelector: null,
+    nextLinkSelector: 'li[class="pager"] a[aria-label="Página Siguiente"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="product-line-item-line"]',
     noResultsXPath: '//p[@class="plp-no-results"]',
-    openSearchDefinition: {
-      template: 'https://www.bestbuy.com.mx/c/buscar-best-buy/buscar?query={searchTerms}&page={page}',
-    },
+    // openSearchDefinition: {
+    //   template: 'https://www.bestbuy.com.mx/c/buscar-best-buy/buscar?query={searchTerms}&page={page}',
+    // },
     domain: 'bestbuy.com.mx',
     zipcode: '',
   },

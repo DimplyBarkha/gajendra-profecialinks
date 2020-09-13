@@ -34,7 +34,7 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //span/span[@class="c-total-reviews"]
-    regExp: \((.*)\sreseña
+    regExp: \((.*)\sres
     regExpReplace: $1
   - name: price
     singleValue: false
@@ -48,6 +48,7 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //span/span[@class="c-total-reviews"]
-    regExp: \((.*)\sreseña
+    # regExp: \((.*)\sreseña
+    regExp: \((.*)\sres
     regExpReplace: $1
   
