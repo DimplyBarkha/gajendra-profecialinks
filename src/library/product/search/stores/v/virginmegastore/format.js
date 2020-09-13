@@ -6,11 +6,11 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.name) {
-        var count = 0;
-        row.name.map((item) => {
-          return count++;
+      if (row.rank) {
+        const rankArray = row.rank.map((item) => {
+          return item.text + 1;
         });
+        row.variants = [{ text: rankArray.join(), xpath: row.rank[0].xpath }];
       }
     }
   }

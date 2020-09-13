@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'AE',
+    country: 'SA',
     store: 'virginmegastore',
     nextLinkSelector: 'li.pagination-wrapper__item.pagination-wrapper__item--next a',
     mutationSelector: 'div.count.mr-auto',
@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: 'ul.product-listing.product-list__item-wrapper',
     noResultsXPath: '//h2[@class="search-empty__headline text-center"]',
     openSearchDefinition: null,
-    domain: 'virginmegastore.ae',
+    domain: 'virginmegastore.sa',
     zipcode: '',
   },
 };

@@ -2,7 +2,7 @@ const { transform } = require('../format');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'AE',
+    country: 'SA',
     store: 'virginmegastore',
     transform: transform,
     domain: 'virginmegastore.sa',

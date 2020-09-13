@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'SA',
     store: 'virginmegastore',
-    domain: 'virginmegastore.se',
+    domain: 'virginmegastore.sa',
     zipcode: '',
   },
 };

@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'SA',
     store: 'virginmegastore',
-    domain: 'virginmegastore.se',
-    url: 'https://www.virginmegastore.sa/en/search/?text={searchTerms}',
+    domain: 'virginmegastore.sa',
+    url: 'https://www.virginmegastore.sa/ar/search/?text={searchTerms}',
     loadedSelector: 'ul.product-listing.product-list__item-wrapper',
     noResultsXPath: '//h2[@class="search-empty__headline text-center"]',
     zipcode: '',
