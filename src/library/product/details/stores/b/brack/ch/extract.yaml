@@ -50,7 +50,7 @@ fields:
     xpath: //nav[@class='breadcrumb breadcrumb--small']//text()
   - name: nameExtended
     singleValue: false
-    xpath: //form[@id='AddToCartForm']//div//h1//font//font
+    xpath: //form[@id='AddToCartForm']//h1
   - name: listPrice
     singleValue: false
     xpath: //span[@class='js-basePrice']
@@ -162,7 +162,7 @@ fields:
     xpath: //div[contains(@class,'embed-responsive')]//iframe/@src
   - name: name
     singleValue: false
-    xpath: //form[@id='AddToCartForm']//div//h1//font//font
+    xpath: //form[@id='AddToCartForm']//h1
   - name: coupon
     singleValue: false
   - name: specifications
