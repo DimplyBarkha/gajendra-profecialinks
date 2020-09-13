@@ -11,7 +11,7 @@ fields:
   - name: id
     singleValue: false
     xpath: //ul[contains(@class,"product-listing")]//li[contains(@class,"product-list__item")]//a[contains(@class,"product-list__thumb")]/@href
-    regExp: \/en\/p\/(\d+)
+    regExp: \/ar\/p\/(\d+)
     regExpReplace: $1
   - name: thumbnail
     singleValue: false
