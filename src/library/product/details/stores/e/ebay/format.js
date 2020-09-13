@@ -16,6 +16,30 @@ const transform = (data) => {
             if (row.image && !row.image[0].text.includes('l500')) {
                 row.image[0].text = row.image[0].text.replace(/(.+\/s-)l.*?(\..*)/,'$1l500$2')
               }
+            if (row.gtin) {
+                const GTIN = row.gtin.find(gtin=>/\d+/.test(gtin.text))
+                if(GTIN) {
+                    row.gtin = [{
+                        text : GTIN.text,
+                    }] 
+                } else {
+                    delete row.gtin
+                }
+              }
+            if (row.upc && /\d+/.test(row.upc[0].text) && !row.gtin) {
+                row.gtin = [{
+                    text: row.upc[0].text
+                }]
+              }
+            if (row.nameExtended  && row.brandText && !row.nameExtended[0].text.startsWith(row.brandText[0].text)) {
+                row.nameExtended[0].text = `${row.brandText[0].text} - ${row.nameExtended[0].text}`
+              }
+            if (row.name && !row.brandText) {
+                row.brandText[0].text = row.name[0].text.trim().replace(/([^\s]+).*/,'$1')
+              }
+            if (row.mpc) {
+                row.mpc = row.mpc.filter(mpc=>/Does not apply/i.test(mpc.text))
+              }
         
         }
     }

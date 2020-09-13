@@ -21,7 +21,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    manualSelector: span#prcIsum
+    manualSelector: span#prcIsum, span#prcIsum_bidPrice
   - name: listPrice
     singleValue: false
     manualSelector: span.vi-originalPrice
@@ -33,7 +33,7 @@ fields:
     xpath: //div[contains(@class,"itemAttr")]//table//tr[td[contains(@class,"attrLabels")]]
   - name: availabilityText
     singleValue: false
-    manualSelector: a#binBtn_btn
+    xpath: //*[contains(@id,"binBtn_btn")]/@class
     regExp: (.+)
     regExpReplace: 'In Stock'
     defaultValue: 'Out of Stock'
@@ -54,7 +54,7 @@ fields:
     manualSelector: li.bc-w > a[itemprop="item"]:not([title]) > span
   - name: brandText
     singleValue: false
-    xpath: normalize-space(//td[contains(translate(text(),'BRAND','brand'),'brand')]/following-sibling::td)
+    xpath: normalize-space(//td[not(contains(text(),'Compatible')) and contains(translate(text(),'BRAND','brand'),'brand')]/following-sibling::td)
   - name: descriptionBullets
     singleValue: false
   - name: weightNet

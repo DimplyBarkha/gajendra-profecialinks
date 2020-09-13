@@ -21,13 +21,21 @@ async function implementation(
     if (src) {
         try {
             await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-            await context.waitForSelector('div#ds_div');
+        } catch (error) {
+            console.log('xxxxxxxxxxxxxxxxxxxxvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvbb');
+            await context.evaluate(async function (src) {
+                window.location.assign(src);
+            }, src);
+        }
+        try {
+            if (parameters.loadedSelector) {
+                await context.waitForFunction(function () {
+                  return Boolean(document.querySelector('div#ds_div'));
+                }, { timeout: 10000 });
+              }
             return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
         } catch (error) {
             try {
-                await context.evaluate(async function (src) {
-                    window.location.assign(src);
-                }, src);
                 await context.waitForSelector('div#ds_div');
                 return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
             } catch (err) {
