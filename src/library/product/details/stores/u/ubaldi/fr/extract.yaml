@@ -24,7 +24,7 @@ fields:
   - name: price
     type: number
     singleValue: false
-    xpath: //span[contains(@class,'prix rebours-prix rebours-inited')]//@data-prix-vente
+    xpath: //div[@class='fa-infos-prix']//div[@class='fa-prix uba-prix']
   - name: priceCurrency
     singleValue: false
     defaultValue: €
@@ -41,7 +41,7 @@ fields:
     xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
     regExp: reviewCount":(\d+)
     regExpReplace: $1
-  - name: aggregateRatingText
+  - name: aggregateRating
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
     regExp: aggregateRating":{"@context":"[^"]+","@type":"[^"]+","reviewCount":(\d+),"ratingValue":([\d+])(\.)(\d*)
@@ -69,7 +69,7 @@ fields:
     defaultValue: Out of Stock
   - name: shippingInfo
     singleValue: false
-    xpath: //div[contains(@class,'fa-vendu-par')]
+    xpath: //div[@class='fa-buy-box']//div[contains(@class,'fa-vendu-par')]
   - name: nameExtended
     singleValue: false
     xpath: //title
@@ -85,7 +85,7 @@ fields:
   - name: listPrice
     type: number
     singleValue: false
-    xpath: //span[contains(@class,'prix rebours-prix rebours-inited')]//@data-prix-origine
+    xpath: //div[@class='fa-infos-prix']//@data-prix-origine
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,'fa-fiche-bloc points-forts')]//li)
@@ -135,9 +135,12 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: normalize-space(//div[span[contains(text(), 'Dimensions')]]//span[2])
+    defaultValue: No
   - name: color
     singleValue: false
     xpath: normalize-space(//div[span[contains(text(), 'Coloris :')]]//span[2])
+    defaultValue: No
   - name: countryOfOrigin
     singleValue: false
     xpath: normalize-space(//div[span[contains(text(), 'Origine')]]//span[2])
+    defaultValue: No
