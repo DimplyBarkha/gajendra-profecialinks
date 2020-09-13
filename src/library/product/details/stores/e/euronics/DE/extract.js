@@ -176,8 +176,8 @@ async function implementation (
 
     if (document.querySelector('meta[itemprop="ratingValue"]')) {
       const rating = document.querySelector('meta[itemprop="ratingValue"]').getAttribute('content') / 2;
-      addHiddenDiv('aggregateRating', rating.replace('.', ','));
-      addHiddenDiv('aggregateRatingText', rating.replace('.', ',') + ' out of 5');
+      addHiddenDiv('aggregateRating', rating.toString().replace('.', ','));
+      addHiddenDiv('aggregateRatingText', rating.toString().replace('.', ',') + ' out of 5');
     }
 
     document.querySelectorAll('.margin-10-0').forEach(el => {

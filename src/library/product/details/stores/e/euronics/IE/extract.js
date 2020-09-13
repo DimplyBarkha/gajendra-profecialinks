@@ -30,7 +30,7 @@ async function implementation (
   await context.goto('https://mark.reevoo.com#[!opt!]{"type":"js","init_js":""}[/!opt!]', { timeout: 20000, waitUntil: 'load', checkBlocked: true });
 
   const ratingAndReviews = await context.evaluate(async function() {
-    return await fetch(`https://mark.reevoo.com/reevoomark/product_summary?locale=en-GB&sku=459KD65XH9005B&trkref=ERI&callback=ReevooLib.Data.callbacks`)
+    return await fetch(`https://mark.reevoo.com/reevoomark/product_summary?locale=en-IE&sku=OLED55CX5LB&trkref=ERI&callback=ReevooLib.Data.callbacks`)
       .then(res => res.text());
   });
 
