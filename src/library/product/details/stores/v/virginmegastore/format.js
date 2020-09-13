@@ -20,7 +20,7 @@ const transform = (data) => {
       }
       if (row.availabilityText) {
         const availabilityTextArr = row.availabilityText.map((item) => {
-          return (typeof (item.text) === 'string') && (item.text.trim() === 'Add to bag') ? 'In Stock' : 'Out of Stock';
+          return (typeof (item.text) === 'string') && (item.text.trim() === 'Add to bag' || item.text.trim() === 'إضافة إلى عربة التسوق') ? 'In Stock' : 'Out of Stock';
         });
         row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
       }

@@ -45,6 +45,8 @@ fields:
   - name: url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
+    regExp: (.*sa)(\/.*)
+    regExpReplace: $1/ar$2
   - name: category
     singleValue: false
     xpath: //div[@class='container hidden-m breadcrumb-list__wrapper']//div[@class="breadcrumb-list"]//div[@class="breadcrumb-list__item d-inline-block"]
@@ -68,7 +70,7 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //p[@class='longDesc']
-    regExp: (\d+.\d+.kg)
+    regExp: (\d+.\d+.كجم|\d+.\d+.رطل)
     regExpReplace: $1
   - name: weightGross
     singleValue: false
@@ -130,12 +132,12 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: //p[@class='longDesc']
-    regExp: (\d+\sx.*mm)
+    regExp: (\d+\s×\s.*مم)
     regExpReplace: $1
   - name: shippingWeight
     singleValue: false
     xpath: //p[@class='longDesc']
-    regExp: (\d+.\d+.kg)
+    regExp: (\d+.\d+.\sكجم)
     regExpReplace: $1
   - name: variantCount
     singleValue: false
@@ -167,7 +169,7 @@ fields:
     xpath: 
   - name: specifications
     singleValue: false
-    xpath: //div[@class='product-classifications']
+    xpath: //div[@class='product-classifications']/table
   - name: warranty
     singleValue: false
     xpath: 
