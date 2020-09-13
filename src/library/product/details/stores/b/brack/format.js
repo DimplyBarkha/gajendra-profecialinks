@@ -42,11 +42,17 @@ const transform = (data) => {
         });
         row.shippingDimensions = [{ text: shippingDimensionsArray.join(' x '), xpath: row.shippingDimensions[0].xpath }];
       }
+      // Price
       if (row.price && row.price[0]) {
         row.price[0].text = row.price[0].text.replace(/\./g, ',');
       }
+      // List Price
       if (row.listPrice && row.listPrice[0]) {
         row.listPrice[0].text = row.listPrice[0].text.replace(/\./g, ',');
+      }
+      // Aggregate Rating
+      if (row.aggregateRating && row.aggregateRating[0]) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace(/\./g, ',');
       }
     }
   }
