@@ -174,7 +174,7 @@ module.exports = {
       }
       const ratings = await getRatings();
       document.body.setAttribute('rating-count', ratings.ratingCount);
-      document.body.setAttribute('rating-value', ratings.ratingValue.toFixed(1).replace('.', ','));
+      document.body.setAttribute('rating-value', ratings.ratingValue);
       document.body.setAttribute('review-count', ratings.reviewCount.toString());
 
       // Get quantity
