@@ -17,6 +17,26 @@ async function implementation (
 
   await stall(5000);
 
+  const productUrl = await context.evaluate(function() {
+    return window.location.href;
+  });
+
+  const sku = await context.evaluate(function() {
+    if (document.querySelector('.sku-man.hide-for-small')) {
+      return document.querySelector('.sku-man.hide-for-small').innerText.split(' ')[1];
+    }
+  });
+
+  await context.goto('https://mark.reevoo.com#[!opt!]{"type":"js","init_js":""}[/!opt!]', { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+
+  const ratingAndReviews = await context.evaluate(async function() {
+    return await fetch(`https://mark.reevoo.com/reevoomark/product_summary?locale=en-GB&sku=459KD65XH9005B&trkref=ERI&callback=ReevooLib.Data.callbacks`)
+      .then(res => res.text());
+  });
+
+  await context.goto(productUrl);
+  console.log('ratingsAndReviewsRes', ratingAndReviews);
+
   await context.evaluate(async function() {
 
     function stall(ms) {
@@ -156,25 +176,27 @@ async function implementation (
     }
 
     document.querySelectorAll('iframe').forEach(el => {
-      console.log(el);
       if (el.getAttribute('src') && el.getAttribute('src').includes('youtube')) {
         videos.push(el.getAttribute('src'));
       }
-
-      if(!el.getAttribute('src')) {
+      /*if(!el.getAttribute('src')) {
         console.log('hasRatings');
         const frame = el.contentWindow.document;
         if (frame.querySelector('reevoo-score')) {
           const rating = frame.querySelector('reevoo-score').getAttribute('data-score');
-          const roundedRating = Math.round((rating / 2) * 10) / 10;
-          addHiddenDiv('aggregatedRating', Math.round(roundedRating));
-          addHiddenDiv('aggregatedRatingText', Math.round(roundedRating) + ' out of 5');
+          addHiddenDiv('aggregatedRating', (rating / 2).replace('.', ','));
+          addHiddenDiv('aggregatedRatingText', (rating / 2).replace('.', ',') + ' out of 5');
         }
         if (frame.querySelector('.reevoo__section--number-of-reviews')) {
           addHiddenDiv('ratingCount', frame.querySelector('.reevoo__section--number-of-reviews').innerText.split(' ')[0]);
         }
-      }
+      }*/
+    });
 
+    await fetch('https://mark.reevoo.com/reevoomark/product_summary?locale=en-GB&sku=459KD65XH9005B&trkref=ERI&callback=ReevooLib.Data.callbacks')
+    .then(data => data.json())
+    .then(res => {
+      console.log('ratingResponse', res);
     });
 
     if (document.querySelector('.shippingFrom')) {

@@ -72,7 +72,7 @@ async function implementation (
         rating += .5;
       });
       addHiddenDiv(el, 'itemId', el.getAttribute('data-ordernumber'));
-      addHiddenDiv(el, 'rating', Math.ceil(rating));
+      addHiddenDiv(el, 'rating', rating.replace('.', ','));
       addHiddenDiv(el, 'rank', ind + 1);
     });
 
