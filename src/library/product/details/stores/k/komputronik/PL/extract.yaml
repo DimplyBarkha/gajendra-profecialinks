@@ -3,54 +3,64 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: sku
+    singleValue: false
+    xpath: //meta[@property='product:retailer_part_no']/@content
+  - name: variants
+    singleValue: false
+    xpath: //meta[@property='product:retailer_part_no']/@content
   - name: price
     singleValue: false
-    xpath: //*[@id="p-inner-prices"]/div[1]/span
+    xpath: //section[@id="p-inner-prices"]//span[@class="price"]
   - name: category
     singleValue: false
-    xpath: //*[@id="p-inner-breadcrumb"]/div
+    xpath: //div[@class="breadcrumb"]//ul//li//a[contains(@href,'/category/')]
   - name: name
     singleValue: false 
-    xpath: //h1[@ng-if='!$ctrl.changeBaseData']
-  - name: nameExtended
-    singleValue: false 
-    xpath: //h1[@ng-if='!$ctrl.changeBaseData']
-  - name: coupon
-    singleValue: false 
-    xpath: //span[@class='head']
-  - name: variants
-    singleValue: false 
-    xpath: //*[@id="p-inner-features"]/ktr-product-main-attributes/div/div
-  - name: promotion
-    singleValue: false 
-    xpath: //*[@id="top-labels-animation"]/ul
-  - name: image
-    singleValue: false 
-    xpath: //*[@id="p-inner-gallery"]/ktr-gallery/div/ktr-transclude/div/div/ktr-image-zoom/div/div/img/@src
-  - name: alternateImages
-    singleValue: false 
-    xpath: //*[@id="p-inner-gallery"]/ktr-gallery/div/ktr-transclude/div/div/ktr-image-zoom/div/div/img/@src
-  - name: gtin
-    singleValue: false 
-    xpath: //div[@class='codes']/ul/li[3]
+    xpath: //section[@id='p-inner-name']//h1
   - name: variantinformation
     singleValue: false 
-    xpath: //div[@class='codes']/ul/li[2]
+    xpath: //div[@class='features']/ul/li/div/button | //div[@class='features']/ul/li/div/ul  
+  - name: image
+    singleValue: false 
+    xpath: //section[@id="p-inner-gallery"]//div[@class='original']//div[@class='zoomed screen-only']//img/@src
+  - name: alternateImages
+    singleValue: false 
+    xpath: //div[@class='gallery-thumbs-wrap']//ul/li/a//img/@src
+  - name: gtin
+    singleValue: false 
+    xpath: //div[@class='codes']//ul//li[contains(text(),'Kod EAN:')]
+    regExp: .*?(\d+).+
+    regExpReplace: $1  
   - name: shippingInfo
     singleValue: false 
-    xpath: //*[@id="p-inner-delivery"]/div
+    xpath: //section[@id="p-inner-delivery"]//div[@class='delivery green dktr-delivery']
   - name: brandText
     singleValue: false 
-    xpath: //*[@id="p-inner-producer-logo"]/a/img/@alt
+    xpath: //section[@id="p-inner-producer-logo"]//a[1]//img/@alt
   - name: manufacturer 
     singleValue: false 
-    xpath: //*[@id="p-content-specification"]/div[2]/div/div[1]/table/tbody/tr[1]/td
+    xpath: //section[@id="p-content-specification"]//div[@class='full-specification']//tr//th[text()='Producent']/parent::*/td
   - name: manufacturerImages
     singleValue: false 
-    xpath: //*[@id="p-inner-producer-logo"]/a/img/@src
+    xpath: //section[@id="p-inner-producer-logo"]//a[1]//img/@src
   - name: warranty 
     singleValue: false 
-    xpath: //*[@id="p-content-specification"]/div[2]/div/div[1]/table/tbody/tr[2]/td
+    xpath: //section[@id="p-content-specification"]//div[@class='full-specification']//tr//th//section//tooltip[@class='tooltips _right _steady _ready']/parent::*/parent::*/parent::*/td
   - name: color
     singleValue: false 
-    xpath: //*[@id="p-inner-features"]/ktr-product-main-attributes/div/div/ul/li[7]/strong
+    xpath: //section[@id="p-content-specification"]//div[@class='full-specification']//tr//th[text()='Kolor']/parent::*/td
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='rv-counter']//strong    
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='rv-status']//div[@class='score']
+    regExp: (.*)\/.+
+    regExpReplace: $1
+  - name: description
+    singleValue: false
+    xpath: //section[@id='p-content-producer-desc']//div[@id='p-producer-desc']
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='full-specification']//table//tr
