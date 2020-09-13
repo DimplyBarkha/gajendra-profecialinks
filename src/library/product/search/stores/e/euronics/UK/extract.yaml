@@ -23,12 +23,16 @@ fields:
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="rating"]
+    regExp: (\d+).?(\d+)
+    regExpReplace: $1,$2
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="reviews"]
   - name: price
     singleValue: false
     xpath: //li[@class="prd-price__now"]
+    regExp: (.[^\d]*\d+).?(\d+)
+    regExpReplace: $1,$2
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="manufacturer"]
