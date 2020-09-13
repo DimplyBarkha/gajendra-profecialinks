@@ -8,7 +8,7 @@ fields:
     xpath: //div[@id="opbox-listing--base"]//section//article/@data-analytics-view-value
   - name: productUrl
     singleValue: false
-    xpath: //div[@id="opbox-listing--base"]//section//article//h2/a/@href
+    xpath: //div[contains(@data-box-name,"items") and @data-analytics-category="allegro.listing"]//div[@id="opbox-listing--base"]//div//section//article//div[contains(@class,"mpof_ki")]/div//div[contains(@class,"mpof_ki")]/a/@href
   - name: url
     singleValue: false
     xpath: //meta[@property="og:url"]/@content
