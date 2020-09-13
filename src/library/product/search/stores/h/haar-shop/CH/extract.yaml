@@ -3,15 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class='products wrapper grid products-grid cs-page-category__products-wrapper']
 fields:
-  - name: variantId
+  - name: id
     singleValue: false
-    xpath: //div[@class='cs-product-tile__addons']//input[@name='product']//@value
+    xpath: //div[@data-product-id]/@data-product-id
   - name: product_url
     singleValue: false
     xpath: //div[@class='cs-product-tile__thumbnail']//a/@href
-  - name: _url
-    singleValue: false
-    xpath: //meta[@property="og:url"]/@content
   - name: thumbnail
     singleValue: false
     xpath: //picture[@class='cs-product-tile__image']//img/@src
@@ -21,3 +18,4 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@data-price-type='finalPrice']//span[@class='price']
+    
