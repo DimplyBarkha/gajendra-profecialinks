@@ -23,7 +23,7 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: price
     singleValue: false
-    xpath: //span[@class='prix rebours-prix rebours-inited']
+    xpath: //span[contains(@class,'prix rebours-prix rebours-inited')]//@data-prix-vente
   - name: priceCurrency
     singleValue: false
     defaultValue: €
@@ -83,7 +83,7 @@ fields:
     defaultValue: No
   - name: listPrice
     singleValue: false
-    xpath: //span[@class='prix-origine']
+    xpath: //span[contains(@class,'prix rebours-prix rebours-inited')]//@data-prix-origine
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,'fa-fiche-bloc points-forts')]//li)
