@@ -4,27 +4,27 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description:
     xpath: //div[contains(@class, 'fotorama__loaded--img') and @data-active='true']/@href
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description:
     xpath: //div[contains(@class, 'fotorama__loaded--img') and @data-active='true']//img[@aria-hidden="false"]/@alt
   - name: name
-    singleValue: true
+    singleValue: false
     description:
     xpath: //h1[contains(@class, 'page-title')]
   - name: sku
-    singleValue: true
+    singleValue: false
     description:
     xpath: //td[@data-th='رمز المنتج']
   - name: brandText
-    singleValue: true
+    singleValue: false
     description:
     xpath: //td[@data-th='الماركة']
   - name: description
-    singleValue: true
+    singleValue: false
     description:
     xpath: (//div[contains(@class,'description')]//div[contains(@class,'value')]/text())[1]
   - name: category
@@ -32,31 +32,31 @@ fields:
     description:
     xpath: (//ul[contains(@class,'breadcrumb')]//li/a/text())[position()>2]
   - name: color
-    singleValue: true
+    singleValue: false
     description:
     xpath: (//script[@type='application/ld+json'])[1]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     description:
     xpath: (//script[@type='application/ld+json'])[1]
   - name: price
-    singleValue: true
+    singleValue: false
     description:
     xpath: //span[@data-price-type='finalPrice']
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description:
     xpath: //span[@data-price-type='oldPrice']
   - name: promotion
-    singleValue: true
+    singleValue: false
     description:
     xpath: //meta[@name='description']/@content
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     description:
     xpath: //meta[@name='keywords']/@content
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description:
     xpath: //meta[@name='description']/@content
   - name: alternateImages
@@ -68,15 +68,14 @@ fields:
     description:
     xpath: //iframe[contains(@allow, 'autoplay')]//@src
   - name: packSize
-    singleValue: true
+    singleValue: false
     description:
     xpath: //td[@data-th='الحجم/العمر']
   - name: promotion
-    singleValue: true
+    singleValue: false
     description:
     xpath: //div[@id= 'stock-threshold-block']
   - name: variantId
-    singleValue: true
+    singleValue: false
     description:
     xpath: //td[@data-th='رمز المنتج']
-  
