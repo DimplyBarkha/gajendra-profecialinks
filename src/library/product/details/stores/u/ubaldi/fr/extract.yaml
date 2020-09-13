@@ -22,6 +22,7 @@ fields:
     singleValue: false
     xpath: //meta[@name='keywords']/@content
   - name: price
+    type: number
     singleValue: false
     xpath: //span[contains(@class,'prix rebours-prix rebours-inited')]//@data-prix-vente
   - name: priceCurrency
@@ -82,6 +83,7 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: listPrice
+    type: number
     singleValue: false
     xpath: //span[contains(@class,'prix rebours-prix rebours-inited')]//@data-prix-origine
   - name: descriptionBullets
