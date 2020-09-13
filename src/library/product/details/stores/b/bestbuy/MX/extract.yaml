@@ -123,8 +123,8 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
     xpath: count(//div[@class="variation-group"]/ul/li)
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -410,3 +410,7 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //*[@class="variant-value"]
+  - name: promotion
+    singleValue: false
+    description: promotion text on product page
+    xpath: //div[@class="product-savings"]

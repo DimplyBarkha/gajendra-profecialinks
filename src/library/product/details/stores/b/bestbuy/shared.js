@@ -51,13 +51,6 @@ const transform = (data, context) => {
           item.text = 'https://youtu.be/' + item.text
         });
       }
-      if (row.variantCount) {
-        row.variantCount.forEach(item => {
-          if (item.text === '0') {
-            item.text = '1';
-          }
-        });
-      }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           item.text = item.text.trim().replace(",", '');
