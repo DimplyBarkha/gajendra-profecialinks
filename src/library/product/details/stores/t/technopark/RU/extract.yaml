@@ -7,10 +7,6 @@ fields:
     singleValue:  false
     xpath: //head/meta[contains(@property,"og:image")]/@content
     description: URL of the main product image
-  - name: imageAlt
-    singleValue:  false
-    xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img/@title
-    description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img/@data-src
@@ -60,6 +56,7 @@ fields:
     singleValue:  false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //body/section[@class='product']/div/meta[1]/@content
   - name: manufacturer
     singleValue:  false
     xpath: //body/section[@class='product']/div/meta[1]/@content
