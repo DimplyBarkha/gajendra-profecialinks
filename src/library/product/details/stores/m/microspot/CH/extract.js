@@ -37,7 +37,7 @@ module.exports = {
               });
             }
             const image = dataObj.customImageData ? dataObj.customImageData[0].sizes.pop() : '';
-            image && addElementToDocument('pd_image', `https://www.interdiscount.ch/${image.url}`);
+            image && addElementToDocument('pd_image', `https://www.microspot.ch${image.url}`);
             const alternateImages = dataObj.customImageData;
             alternateImages.shift();
             alternateImages && alternateImages.length && alternateImages.forEach(element => {
