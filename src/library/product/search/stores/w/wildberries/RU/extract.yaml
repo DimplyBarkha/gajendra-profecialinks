@@ -22,7 +22,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//span[contains(@itemprop,"aggregateRating")]/@class
     regExp: (c-stars-line-lg j-stars stars-line-sm)(\s)(star)(\d.*)
-    regExpReplace: $5
+    regExpReplace: $4
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//span[contains(@class,"dtList-comments-count")]
