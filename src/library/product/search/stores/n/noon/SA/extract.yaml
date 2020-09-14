@@ -3,12 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class,"productList")]/div[contains(@class,"productContainer")]
 fields:
-  - name: prodcutUrl
+  - name: productUrl
     SingleValue: false
     xpath: //div[contains(@class,"productContainer")]//a/@href
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,'jsx-2714670158 mediaContainer')]//img/@alt
+    xpath: //div[contains(@class,'productContainer')]//a/@href
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class,'mediaContainer')]//img/@src
