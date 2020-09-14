@@ -15,30 +15,22 @@ module.exports = {
         context,
         dependencies,
     ) {
-        // const result = await context.evaluate(() => {
-        //     return document.querySelector('#root>div>div:nth-child(4)>div')
-        // })
-        // if (result) {
-        //     await context.waitForFunction(() => {
-        //         return !document.querySelector('#root>div>div:nth-child(4)>div')
-        //     }, 50000)
-        // }
+        const timeout = 50000;
 
-        await context.evaluate(() => {
-            document.querySelector('div#grid-wrapper_desktop>div>div>div>div>div:last-child').scrollIntoView({ behavior: "smooth" })
-        })
-        await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
+        const req = await context.searchForRequest('searchText=.*');
+        const pageData = JSON.parse(req.responseBody.body);
+        const searchResults = pageData.searchresult;
 
-        try {
-            await context.waitForSelector("div[id='grid-wrapper_desktop']>div>div>div>div>div:last-child>div:last-child", 80000)
-        } catch (e) {
-            console.log(e);
-        }
+        await context.evaluate(function (results) {
+            results.forEach(s => {
+                const sel = `#ProductModule-${s.productId} > div > a`;
+                const el = document.querySelector(sel);
+                el.setAttribute('imageUrl', `https:${s.imageURL}`);
+            });
+        }, searchResults);
 
         const { transform } = parameters;
         const { productDetails } = dependencies;
-        const delay = t => new Promise(resolve => setTimeout(resolve, t));
-        await delay(7000);
         return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 
 
