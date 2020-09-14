@@ -31,5 +31,6 @@ fields:
     xpath: //*[contains(@class,"product-tile-inner")]//script
     regExp: (?<='brand':\s')([a-zA-z\s]+)
   - name: aggregateRating2
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="rating"]
+
