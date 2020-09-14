@@ -2,17 +2,16 @@ input:
   _url: http://elkjop.no
   URL: https://www.elkjop.no/product/hjem-og-husholdning/inneklima/vifter/DYSAM07/dyson-cool-tarnvifte-am07
 extractions:
-  - html: https://workbench.import.io/html/run=7d73f178-d690-420e-8b1b-56bfcff6b0b7/task=3c0d26d7-fa8c-41b0-be07-f7a47a1933d3/2a34a79a-e85d-449e-b9f0-345fa708b2d1.html
+  - html: https://workbench.import.io/html/run=9b8246a8-fc3b-4252-9a16-773e27f89c6a/task=e033d46a-af10-4f49-adf4-2fe61cf46b95/7f7ab2c5-9889-4bd4-a7c9-6a5286effcc7.html
     extractionConfigId: product/details/stores/e/elkjop/NO/extract
     data:
       - group:
-          - image:
-              - text: https://elkjop.no/image/dv_web_D18000100291664/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
-            imageAlt:
+          - imageAlt:
               - text: Dyson Cool tårnvifte AM07
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
             alternateImages:
+              - text: https://elkjop.no/image/dv_web_D18000100291670/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
               - text: https://elkjop.no/image/dv_web_D18000100291665/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
               - text: https://elkjop.no/image/dv_web_D18000100291666/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
@@ -60,6 +59,20 @@ extractions:
             sku:
               - text: DYSAM07
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[3]/@content
+            ratingCount:
+              - text: "22"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[1]/meta[1]/@content
+                type: NUMBER
+                raw: "22"
+                locale: nb_NO
+                value: 22
+            aggregateRating:
+              - text: "4.45"
+                xpath: /html/body/div[6]
+                type: NUMBER
+                raw: "4.45"
+                locale: nb_NO
+                value: 4.45
             color:
               - text: Sølv;Hvit
                 xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[3]/div[1]/div[1]/dl[4]/dd[1]/table[1]/tbody[1]/tr[1]/td[2]
@@ -122,6 +135,8 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            image:
+              - text: https://www.elkjop.no/image/dv_web_D18000100291664/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
             nameExtended:
               - text: "Dyson Cool tårnvifte AM07 "
             listPrice:
@@ -135,7 +150,7 @@ extractions:
                 locale: nb_NO
                 value: 3
             weightNet:
-              - text: 2,85  kg
+              - text: "2,85 "
             variantCount:
               - text: "0"
                 type: NUMBER
@@ -149,4 +164,4 @@ extractions:
                    19,00 Dybde (cm) 
                    11,00
         xpath: /
-    timestamp: 1599826166658
+    timestamp: 1600100077118
