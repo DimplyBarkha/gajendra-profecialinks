@@ -22,7 +22,14 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {      
-      var test =row.id;
+      //var test = row.id;
+
+       if(row.id){
+        //console.log('jjjjjj',row.id[0].text.split('.')[0].split('_')[0]);
+        row.id = [{ text: row.id[0].text.split('.')[0].split('_')[0] }];
+      } 
+      
+
       // console.log("startIdx :-" , row.id.indexOf('('));
       // console.log("startIdx :-" , row.id.indexOf(')'));
       // const startIdx = row.id.indexOf('(');

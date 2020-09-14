@@ -1,11 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,'_3dbuB _2TkM7')]
 fields:
   - name: id
-    xpath: //script[contains(.,"k3.bootstrapData = JSON.parse")]
+    xpath: //figure[contains(@class,'wyCdD')]/a//img/@src
     singleValue: false
+    regExp: \/([^\/]+)\/?$
+    regExpReplace: $1
   - name: name
     xpath: //div[contains(@class,'_2_1T4')]/h2
     singleValue: false
