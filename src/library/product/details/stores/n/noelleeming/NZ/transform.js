@@ -22,11 +22,33 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = item.text.replace(/\n \n /, '').replace(/\n \n/g, ' || ').trim();
+          text += item.text.replace(/\n \n/g, ' || ').trim();
         });
         row.description = [
           {
             text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = item.text;
+        });
+        row.manufacturerDescription = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += `${item.text} || `;
+        });
+        row.specifications = [
+          {
+            text: cleanUp(text.slice(0, -3)),
           },
         ];
       }

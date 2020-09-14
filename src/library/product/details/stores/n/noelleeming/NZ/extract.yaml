@@ -42,14 +42,14 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //link[contains(@itemprop, 'availability')]/@href
-    regExp: InStock
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExp: Out
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@id, 'prodOverview')]
+    xpath: //div[contains(@class, 'intro')] | //ul[contains(@class, 'tick-list')]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -62,6 +62,7 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
+    xpath: //span[contains(text(), 'Weight')]/parent::*/following-sibling::*
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -70,6 +71,10 @@ fields:
     singleValue: false
     description: The store-specific product identifier
     xpath: //h2[contains(@class, 'product__sku')]
+  - name: mpc
+    singleValue: false
+    description: The manufacturer model code (unique) of the product
+    xpath: //h2[contains(@class, 'product__model')]
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -87,17 +92,23 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    defaultValue: 1
+    defaultValue: '0'
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    manualSelector: div#no-parallax
+    xpath: //div[contains(@id, 'inpage_container')] | //div[contains(@id, 'no-parallax')]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[contains(@id, 'inpage_container')]//img/@srcset | //div[contains(@id, 'no-parallax')]//img/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[contains(@class, 'flix-videocontainer inpage_selector_video')]//input/@value
+    regExp: file":"(.*?)"
+    regExpReplace: https:$1
   - name: name
     singleValue: false
     description: The product name
@@ -120,6 +131,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id='specsArr']
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
