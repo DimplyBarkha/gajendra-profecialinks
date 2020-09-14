@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+- name: name
+  singleValue: false
+  xpath: //a[contains(@class,'product-name')]/@title
+- name: price 
+  singleValue: false
+  xpath: //div[contains(@class,'product-price')]/text()
+- name: productUrl
+  singlevalue: false
+  xpath: //a[contains(@class,'product-image-link')]/@href
+- name: aggregateRating
+  singlevalue: false
+  xpath: //div[contains(@class,'product-ratings__avarage')]
+- name: ratingCount
+  singlevalue: false
+  xpath: //div[contains(@class,'product-ratings__count')]
+  regExp: ([0-9]+)
+- name: reviewCount
+  singleValue: false
+  xpath: //div[contains(@class,'product-ratings__count')]
+  regExp: ([0-9]+)
+- name: id
+  singleValue: false
+  xpath: //div[contains(@class,'product-number')]
+- name: thumbnail
+  singleValue: false
+  xpath: //a[contains(@class,'product-image-link')]//img[contains(@class,'product-image')]/@src
+  regExp: (.+)
+  regExpReplace: https://www.elgiganten.dk$1

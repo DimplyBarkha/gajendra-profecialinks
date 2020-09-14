@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'elgiganten.dk',
-    timeout: 90000,
     country: 'DK',
     store: 'elgiganten',
+    domain: 'elgiganten.dk',
     zipcode: '',
   },
 };
