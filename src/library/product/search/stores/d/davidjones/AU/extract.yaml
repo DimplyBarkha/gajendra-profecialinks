@@ -11,15 +11,15 @@ fields:
     singleValue: true
   - name: productUrl
     xpath: //div[contains(@class,'item sli_wrapper sli_col3 isUpdated')]/div/figure/a/@href
-    singleValue: false
+    singleValue: true
   - name: manufacturer
     xpath: //div[contains(@class,'item sli_wrapper sli_col3 isUpdated')]/div/div/div[contains(@class,'item-brand')]
-    singleValue: false    
+    singleValue: true    
   - name: thumbnail
     xpath: //div[contains(@class,'item sli_wrapper sli_col3 isUpdated')]/div/figure/a/img/@src
-    singleValue: false
+    singleValue: true
     regExp: (.+)
-    regExpReplace: https://www.davidjones.com$2
+    regExpReplace: https://www.davidjones.com$1
   - name: price
     xpath: //div[@class='pricing']//span[contains(@class,'price-display')]
     singleValue: true 
