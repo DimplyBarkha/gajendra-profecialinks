@@ -10,9 +10,23 @@ const transform = (data) => {
       if (row.shippingDimensions) {
         let text = '';
         row.shippingDimensions.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
+          const value = item.text.replace(/\r\n|\r|\n/g, ' ');
+          item.text = value;
+          const res = item.text.replace(/(.+\))(.+)/g, '$1:$2');
+          item.text = res;
+          text = text + (text ? ' || ' : '') + item.text;
         });
         row.shippingDimensions = [{ text }];
+      }
+
+      if (row.shippingWeight) {
+        const text = '';
+        row.shippingWeight.forEach(item => {
+          const value = item.text.replace(/\r\n|\r|\n/g, ' ');
+          item.text = value;
+          const res = item.text.replace(/(.+\))(.+)/g, '$1:$2');
+          item.text = res;
+        });
       }
 
       if (row.specifications) {
@@ -43,16 +57,22 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text }];
       }
 
+      const text = '0';
+      row.variantCount = [{ text }];
+
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
           text = text + (text ? ' | ' : '') + item.text;
         });
+        let text2 = '';
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo.forEach(item => {
+            text2 = text2 + (text2 ? ' || ' : '') + item.text;
+          });
+          text = '|| ' + text2 + ' | ' + text;
+        }
         row.description = [{ text }];
-      }
-
-      if ((!row.listPrice || !row.listPrice.length) && row.price) {
-        row.listPrice = row.price;
       }
     }
   }

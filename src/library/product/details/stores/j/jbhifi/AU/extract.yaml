@@ -15,13 +15,13 @@ fields:
   - name: alternateImages
     description: Other product images (not in manufacturer description)
     xpath: //*[contains(@class,"thumbnail--image-wrapper slick-slide")]/img/@src
-    regExp: (.+)
-    regExpReplace: https:$1
+    regExp: (^.+_)(.+\.)(.+)
+    regExpReplace: https:$11920x1080.$3
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //*[contains(@class,"breadcrumbnav")]/li[1]/following-sibling::li/a
+    xpath: //*[contains(@class,"breadcrumbnav")]/li[position()<last()]/a
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
@@ -43,7 +43,7 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[@class="descriptions"]/p | //*[@class="descriptions"]/text()
+    xpath: //*[@class="descriptions"]/p | //*[@class="descriptions"]/text() | //*[@class="descriptions"]/div/span
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -60,6 +60,9 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     description: Net weight as described on the page
+    xpath: //th[text()='Product Weight (kg)']/following-sibling::td
+    regExp: (.+)
+    regExpReplace: $1 kg
   - name: weightGross
     description: Gross weight as described on the page
     xpath: //th[text()='Packaged Weight (kg)']/following-sibling::td
@@ -100,7 +103,7 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     description: Stated shipping dimensions
-    xpath: //th[contains(text(),'(mm)')]/..
+    xpath: //th[contains(text(),'Packaged')][contains(text(),'(mm)')]/..
   - name: shippingWeight
     description: Stated shipping weight
     xpath: //th[text()='Packaged Weight (kg)']/..
@@ -309,7 +312,6 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //th[contains(text(),'(mm)')]/..
   - name: warranty
     description: Guarantee associated with the product
     xpath: //th[contains(text(),'warranty')]/following-sibling::td
