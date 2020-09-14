@@ -1,0 +1,77 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='gallery']//div[@class='image']//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='gallery']//div[@class='image']//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='gallery']//div[@class='thumbs']//li//img/@src
+  - name: category
+    singleValue: false
+    xpath: //li[@property='breadcrumb' and position()>1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1
+  - name: name
+    singleValue: false
+    xpath: //h1
+  - name: listPrice
+    singleValue: false
+    xpath: //p[@class='price']/span[contains(@class,'oldPriceWrapper ') and not (contains(@style,'none'))]/span[contains(@class,'amount ')]
+  - name: price
+    singleValue: false
+    xpath: //p[@class='price']/span[contains(@class,'amount ')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //a[contains(@class,'btn cart add-from-product ')]//span
+  - name: description
+    singleValue: false
+    xpath: //div[@id='desc']
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@property='brand']/@content
+  - name: weightGross
+    singleValue: false
+    xpath: //ul//p[contains(.,'Packaged Weight')]
+  - name: sku
+    singleValue: false
+    xpath: //p[@class='sku']/@data-sku
+  - name: variantId
+    singleValue: false
+    xpath: //span[@id='prodID']
+  - name: mpc
+    singleValue: false
+    xpath: //div[@class='prod-code']/h2
+  - name: promotion
+    singleValue: false
+    xpath: //p[@class='price']/span[@class='offer']
+  - name: shippingWeight
+    singleValue: false
+    xpath: //ul//p[contains(.,'Packaged Weight')]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='tab2']//ul//p
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@id='tab3']//ol//li
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='abc']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='primary_image']
+  - name: warranty
+    singleValue: false
+    xpath: //ul//p[contains(.,'warranty')]
+  - name: color
+    singleValue: false
+    xpath: //ul//p[contains(.,'colour')]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
