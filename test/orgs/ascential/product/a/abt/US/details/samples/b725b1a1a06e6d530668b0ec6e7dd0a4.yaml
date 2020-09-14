@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/136991/Dyson-Pure-Cool-White-Air-Purifier-Tower-30824701.html
 extractions:
-  - html: https://workbench.import.io/html/run=30889302-eb14-4566-b880-0e0ca80f9b4c/task=bd6d3619-255d-4073-9f24-725ab8e6283b/df8be99e-bb88-4399-a99e-817e887409eb.html
+  - html: https://workbench.import.io/html/run=627a7eb3-559b-4a34-b87b-8e0e19b748cb/task=ebed29db-a300-4828-be8a-25322742edb4/059f1b40-662f-4acc-b529-5229da448b46.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -98,15 +98,12 @@ extractions:
                 raw: "4.0"
                 locale: en
                 value: 4
-            shippingInfo:
-              - text: Ships from and sold by abt.com
-                xpath: /html/body/div[16]
             shippingWeight:
               - text: 14 lbs
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[4]/li[2]/text()[1]
             color:
               - text: White
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[16]
             manufacturerDescription:
               - text: From the Manufacturer|Powered byIs the information in this section
                   helpful? Yes / NoDyson Pure Cool purifying fan Additional
@@ -125,7 +122,7 @@ extractions:
                   approval. The seal of approval families trust.Certified Asthma
                   and Allergy friendly Certified Asthma and Allergy friendly™ by
                   the Asthma and Allergy Foundation of America.
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             manufacturerImages:
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-c56d08c1-20a8-ba29-2654-405d0c78bf12/0f8e090535ef4a2793eb17848ba98341.jpg.w1920.jpg
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
@@ -233,4 +230,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1600100149578
+    timestamp: 1600120583934

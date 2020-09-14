@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/121684/Dyson-Pure-Cool-White-Air-Purifier-Tower-31012401.html
 extractions:
-  - html: https://workbench.import.io/html/run=30889302-eb14-4566-b880-0e0ca80f9b4c/task=8e38ee48-2b9e-4e77-ac14-2d4a589bfac0/91bf4100-12f9-4c29-a34e-070f445757a3.html
+  - html: https://workbench.import.io/html/run=627a7eb3-559b-4a34-b87b-8e0e19b748cb/task=d8d2dad2-a640-472c-a87b-bace535cd9cb/0fc1448a-6335-4a2d-8d36-2ba34724938b.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -103,20 +103,17 @@ extractions:
                 raw: "4.5"
                 locale: en
                 value: 4.5
-            shippingInfo:
-              - text: Ships from and sold by abt.com
-                xpath: /html/body/div[18]
             shippingWeight:
               - text: 16 lbs
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[6]/li[2]/text()[1]
             color:
               - text: White
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[18]
             manufacturerDescription:
               - text: From the Manufacturer Powered byIs the information in this section
                   helpful? Yes / NoDyson Pure Cool Tower TP04 Product Demo
                   Smokebox Demo Dyson Pure Cool Tower TP04 Overview
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[19]
             manufacturerImages:
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus/_cp/products/1523994362811/tab-47fdf6ff-e834-4f38-ad4e-565a4e30dcf3/392a8168-0896-4ce7-88ce-fb1796725cee.jpg.w1920.jpg
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
@@ -128,9 +125,9 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
             videos:
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus//_cp/products/1523994362811/tab-3a2fdeee-4ab3-4fb3-bc06-cb95dd0ddb0b/7c5463aa-08b7-4f48-88d3-776b87e38156.mp4.mp4full.mp4
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[20]
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus//_cp/products/1523994362811/tab-212c5c96-6208-49b0-b760-6a93f8ffc455/61b2c70d-5f7c-4f9c-8fbf-16f3515a7038.mov.mp4full.mp4
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[21]
             name:
               - text: Dyson Pure+Cool TP04 White Air Purifier Tower - 310124-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]
@@ -183,4 +180,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1600100155804
+    timestamp: 1600120586687
