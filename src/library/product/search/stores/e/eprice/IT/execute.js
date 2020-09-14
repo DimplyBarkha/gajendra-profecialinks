@@ -5,9 +5,9 @@ module.exports = {
     country: 'IT',
     store: 'eprice',
     domain: 'eprice.it',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.eprice.it/sa/?qs={searchTerms}',
+    loadedSelector: 'section.ep_box_prodListing img',
+    noResultsXPath: "//div[contains(text(), 'Nessun risultato trovato per')]",
     zipcode: '',
   },
 };
