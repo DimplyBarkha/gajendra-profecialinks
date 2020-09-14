@@ -34,9 +34,9 @@ module.exports = {
       if (techDetails) {
         addElementToDocument('desc_techDetails', techDetails.replace(/\n|•/g, '').replace(/\s{2,}/g, ' '));
       }
-      const manufacturerDesc = document.querySelector('div#flix-dyson-inpage')
+      const manufacturerDesc = document.querySelector('div#flix-dyson-new-inpage')
         // @ts-ignore
-        ? document.querySelector('div#flix-dyson-inpage').innerText : '';
+        ? document.querySelector('div#flix-dyson-new-inpage').innerText : '';
       if (manufacturerDesc) {
         addElementToDocument('desc_manufacturer', manufacturerDesc.replace(/•/g, '||').replace(/\n|\s{2,}|-{1,}/g, ' '));
       }
