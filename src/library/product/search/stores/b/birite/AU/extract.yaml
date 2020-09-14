@@ -5,17 +5,19 @@ recordXPath: null
 fields:
   - name: name
     singleValue: false
-    xpath: //H2[@class='woocommerce-loop-product__title']
+    xpath: //span[@class="gtm4wp_productdata"]/@ data-gtm4wp_product_name
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,'wcbd_product_details')]//a[contains(@class, 'woocommerce-LoopProduct-link woocommerce-loop-product__link')]/@href
+    xpath: //span[@class="gtm4wp_productdata"]/@ data-gtm4wp_product_url
   - name: thumbnail
     singleValue: false
     xpath: //img[@class='attachment-woocommerce_thumbnail size-woocommerce_thumbnail']/@src
   - name: id
     singleValue: false
-    xpath: //H2[@class='woocommerce-loop-product__title']
-    regExp: \b[A-Z0-9]{5,}\b
+    xpath: //span[@class="gtm4wp_productdata"]/@ data-gtm4wp_product_id
+  - name: price
+    singleValue: false
+    xpath: //span[@class="gtm4wp_productdata"]/@ data-gtm4wp_product_price
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -25,9 +27,6 @@ fields:
   - name: reviewCount
     singleValue: true
     description: The number of reviews
-  - name: price
-    singleValue: true
-    description: The offered price for the product
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
