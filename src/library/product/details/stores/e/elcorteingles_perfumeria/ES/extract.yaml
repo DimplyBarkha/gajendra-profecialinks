@@ -43,7 +43,7 @@ fields:
     xpath : ancestor::html //div[@id="brand"]
   - name: quantity
     singleValue: true
-    xpath : //div/@title
+    xpath : 
   - name : weightNet    
     xpath : 
   - name : weightGross    
@@ -133,7 +133,7 @@ fields:
     xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
   - name: variantInformation
     singleValue: true
-    xpath : ancestor::html //div/@color
+    xpath : //div/@title
   - name: aggregateRating
     singleValue: true
     xpath : ancestor::html //div[@id="aggregateRating"]
