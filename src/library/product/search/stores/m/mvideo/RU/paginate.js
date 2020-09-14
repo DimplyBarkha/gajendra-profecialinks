@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'mvideo',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a.ico-pagination-next',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#js-product-tile-list',
