@@ -69,6 +69,14 @@ const transform = (data) => {
           item.text = item.text.replace('"','').replace("'",'').replace(/\"/,'');
           });
         }
+        if (row.variantId) {
+          row.variantId.forEach(item => {
+          let arr = item.text.split('/');
+          let length = arr.length;
+          let id = arr[length-1];
+          item.text = id.replace(/(.*)\.html/,'$1').trim();
+          });
+        }
       }
     }
     return data;
