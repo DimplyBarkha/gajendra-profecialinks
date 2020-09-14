@@ -25,17 +25,10 @@ const transform = (data) => {
           descriptionItem.text = cleanUp(descriptionItem.text);
         });
       }
-      if (row.availabilityText) {
-        row.availabilityText.forEach(availabilityTextItem => {
-          const availability = availabilityTextItem.text.replace(/.*availability": ?"(.*?)".*/gs, '$1');
-          if (availability && availability.toLowerCase().includes('instock')) {
-            availabilityTextItem.text = 'In stock';
-          } else {
-            availabilityTextItem.text = 'Out of stock';
-          }
-        });
-      }
 
+      if (!row.brandText) {
+        row.brandText = [{ text: row.name[0].text.replace(/^([\w]+).*/gm, '$1') }];
+      }
       if (row.specifications) {
         row.specifications[0].text = row.specifications[0].text.replace(/(\n\s*){8,}/g, ' || ').replace(/(\n\s*){6,}/g, ' || ').replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){2,}/g, '');
       }
