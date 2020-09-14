@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@id="itemTitle"]/text() 
+    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2]) 
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
@@ -54,7 +54,7 @@ fields:
     manualSelector: li.bc-w > a[itemprop="item"]:not([title]) > span
   - name: brandText
     singleValue: false
-    xpath: normalize-space(//td[not(contains(text(),'Compatible')) and contains(translate(text(),'BRAND','brand'),'brand')]/following-sibling::td)
+    xpath: normalize-space(//td[not(contains(text(),'Compatible')) and contains(translate(text(),'BRAND','brand'),'brand') or contains(translate(text(),'MARCA','marca'),'marca') or contains(translate(text(),'MARKE','marke'),'marke')]/following-sibling::td)
   - name: descriptionBullets
     singleValue: false
   - name: weightNet
@@ -65,7 +65,7 @@ fields:
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
   - name: mpc
     singleValue: false
-    xpath: normalize-space(//td[contains(text(), 'MPN')]/following-sibling::td)
+    xpath: normalize-space(//td[contains(text(), 'MPN') or contains(text(), 'Modell')]/following-sibling::td)
   - name: variantId
     singleValue: false
     manualSelector: div#descItemNumber
@@ -73,7 +73,7 @@ fields:
     singleValue: false
   - name: name
     singleValue: false
-    xpath: //h1[@id="itemTitle"]/text()
+    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2])
   - name: additionalDescBulletInfo
     singleValue: false
   - name: variantCount
