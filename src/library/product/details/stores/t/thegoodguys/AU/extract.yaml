@@ -49,7 +49,8 @@ fields:
 
   - name: availabilityText
     singleValue: true
-    xpath: //div[contains(@id,"elivery")]//div[contains(@class,"estimate")][1]/div//span[@class="text-success-sat"]
+    xpath: //div[@id="ShopperActions"]//div[@class="visible-lg"]/button[@id="add2CartBtn"]/text()
+
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"

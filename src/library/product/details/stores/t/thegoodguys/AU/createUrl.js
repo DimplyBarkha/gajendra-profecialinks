@@ -6,6 +6,6 @@ module.exports = {
         url: null,
         country: 'AU',
         store: 'thegoodguys',
-        zipcode: '3805',
+        zipcode: '',
     },
 };

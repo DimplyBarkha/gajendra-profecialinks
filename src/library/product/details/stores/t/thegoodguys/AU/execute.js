@@ -6,6 +6,6 @@ module.exports = {
         domain: 'thegoodguys.com.au',
         loadedSelector: '#delivery_store_stock_opt',
         noResultsXPath: null,
-        zipcode: '3805',
+        zipcode: '',
     },
 };
