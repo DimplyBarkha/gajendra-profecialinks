@@ -27,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@property='og:title']//@content          
+    xpath: //meta[@property='og:title']//@content
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -44,7 +44,7 @@ fields:
       should be "In Stock"
     # xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]
     # xpath: //meta[@itemprop='availability']//@content[text(),'http://schema.org/InStock']
-    xpath: //meta[@itemprop='availability']//@content='http://schema.org/InStock'
+    xpath: //meta[@itemprop='availability']/@content
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -62,9 +62,10 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //meta[@itemprop='brand']//@content 
+    xpath: //meta[@itemprop='brand']//@content
   - name: manufacturer
     singleValue: true
+    xpath: //meta[@itemprop='brand']//@content
     description: Product manufacturer
   - name: quantity
     singleValue: true
@@ -80,6 +81,7 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
+    xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
@@ -87,16 +89,21 @@ fields:
     xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
   - name: variantId
     singleValue: true
+    xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[contains(@class,'description-block')]/ul/li[contains(text(),'Model')]
+    #xpath: //div[contains(@class,'description-block')]/ul/li[contains(text(),'Model')]
+    xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Pack contents')]
+  - name: productUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -117,13 +124,16 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+    xpath: //div[@class='review reviews-statistics']/p[@class='review-average-rating']
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
     singleValue: true
+    xpath: //div[@class='seller-info']/div[@class='seller-info__description']/a
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
+    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Dimensions')]
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
@@ -431,6 +441,7 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: true
+    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Dimensions')]
     description: Packaging information
   - name: additives
     singleValue: true
@@ -457,13 +468,16 @@ fields:
       new asin info
   - name: newDescription
     singleValue: true
+    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[@id='sublist']
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
     singleValue: true
+    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Colour')]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
+    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Colour')]
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -489,6 +503,7 @@ fields:
     example: 4 - 99 years
   - name: energyEfficiency
     singleValue: true
+    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]//p[contains(text(),'Energy Rating')]
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
