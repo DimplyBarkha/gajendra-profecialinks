@@ -2,17 +2,16 @@ input:
   _url: http://elkjop.no
   URL: https://www.elkjop.no/product/hjem-og-husholdning/stovsuger-og-rengjoring/53306/dyson-v8-animal-tradlos-stovsuger-dy24836701
 extractions:
-  - html: https://workbench.import.io/html/run=7d73f178-d690-420e-8b1b-56bfcff6b0b7/task=6b2c1d12-051e-4e43-a65f-9913eaf4dde4/dbe1e6cb-91a5-473c-82cc-cf4eb7b95f6b.html
+  - html: https://workbench.import.io/html/run=9b8246a8-fc3b-4252-9a16-773e27f89c6a/task=54bb60ed-0450-4406-9333-57e287db91c7/cfa0acd0-703b-48c9-beb3-869b67ce7db2.html
     extractionConfigId: product/details/stores/e/elkjop/NO/extract
     data:
       - group:
-          - image:
-              - text: https://elkjop.no/image/dv_web_D180001002419672/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.jpg?$prod_all4one$
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
-            imageAlt:
+          - imageAlt:
               - text: Dyson V8 Animal+ trådløs støvsuger DY24836701
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
             alternateImages:
+              - text: https://elkjop.no/image/dv_web_D180001002353453/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
               - text: https://elkjop.no/image/dv_web_D180001002353454/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.jpg?$prod_all4one$
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
               - text: https://elkjop.no/image/dv_web_D180001002353455/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.jpg?$prod_all4one$
@@ -61,6 +60,23 @@ extractions:
             sku:
               - text: "53306"
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[3]/@content
+            ratingCount:
+              - text: "82"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[1]/meta[1]/@content
+                type: NUMBER
+                raw: "82"
+                locale: nb_NO
+                value: 82
+            aggregateRating:
+              - text: "4.44"
+                xpath: /html/body/div[6]
+                type: NUMBER
+                raw: "4.44"
+                locale: nb_NO
+                value: 4.44
+            videos:
+              - text: https://www.elkjop.no/video/DV_Vid_D180001001477269/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.mp4
+                xpath: /html/body/div[7]
             name:
               - text: Dyson V8 Animal+ trådløs støvsuger DY24836701
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[1]/h1[1]
@@ -139,6 +155,8 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            image:
+              - text: https://www.elkjop.no/image/dv_web_D180001002419672/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.jpg?$prod_all4one$
             nameExtended:
               - text: "Dyson V8 Animal+ trådløs støvsuger DY24836701 "
             listPrice:
@@ -152,7 +170,7 @@ extractions:
                 locale: nb_NO
                 value: 3
             weightNet:
-              - text: 2,63  kg
+              - text: "2,63 "
             variantCount:
               - text: "0"
                 type: NUMBER
@@ -166,4 +184,4 @@ extractions:
                    12,40 Dybde (cm) 
                    22,40
         xpath: /
-    timestamp: 1599826099043
+    timestamp: 1600100081218

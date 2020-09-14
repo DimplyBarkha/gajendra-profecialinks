@@ -6,17 +6,17 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//*[contains(@class, "product-detail-wrapper row")]//*[contains(@class, "first-product-image")]/@src)[1]
+    xpath: concat('https://www.elkjop.no',//*[contains(@class, "first-product-image")]/@src[1])
     regExp: (.+)
     regExpReplace: https://elkjop.no$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: (//*[contains(@class, "product-detail-wrapper row")]//*[contains(@class, "first-product-image")]/@alt)[1]
+    xpath: (//*[contains(@class, "first-product-image")]/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//*[contains(@class, "product-detail-wrapper row")]//*[contains(@class, "slick-dots")]/li/img/@src)[position()>1]
+    xpath: //*[contains(@class, "slick-dots")]/li[position()>1]/img/@src
     regExp: (.+)
     regExpReplace: https://elkjop.no$1
   - name: metaKeywords
@@ -35,12 +35,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: concat(//*[contains(@class, "product-price align-left any-1-1 margin-1")]/meta[1]/@content,' ',//*[contains(@class, "product-price align-left any-1-1 margin-1")]/meta[2]/@content)
+    xpath: concat(//meta[@itemprop='price']/@content,' ',//meta[@itemprop='priceCurrency']/@content)
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: concat(//*[contains(@class, "product-price align-left any-1-1 margin-1")]/meta[1]/@content,' ',//*[contains(@class, "product-price align-left any-1-1 margin-1")]/meta[2]/@content)
+    xpath: concat(//meta[@itemprop='price']/@content,' ',//meta[@itemprop='priceCurrency']/@content)
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -111,8 +111,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //div[contains(@class, "bv_numReviews_text")]
-    regExp: \d+
+    xpath: //div[@itemprop='aggregateRating']//meta[@itemprop='reviewCount']/@content
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -121,7 +120,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: (//div[contains(@class, "bv_avgRating_component_container notranslate")])
+    xpath: //div[@id='rating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -152,9 +151,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //video[contains(@class, "el-videoplayer")]/@src
-    regExp: (.+)
-    regExpReplace: https://elkjop.no$1
+    xpath:  //div[@data-vidurl="vidURL"]
   - name: name
     singleValue: true
     description: The product name

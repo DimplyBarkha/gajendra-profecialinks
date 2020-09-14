@@ -2,17 +2,16 @@ input:
   _url: http://elkjop.no
   URL: https://www.elkjop.no/product/hjem-og-husholdning/belysning/lamper/166988/dyson-lightcycle-morph-led-skrivebordslampe-294677-01
 extractions:
-  - html: https://workbench.import.io/html/run=7d73f178-d690-420e-8b1b-56bfcff6b0b7/task=9e4a60c5-45ee-40c5-b8f0-850c8c5b559e/7502faf4-ef1b-40eb-af07-e242b0f5c359.html
+  - html: https://workbench.import.io/html/run=9b8246a8-fc3b-4252-9a16-773e27f89c6a/task=e87a7965-a303-44da-90bc-8e9fbb2dc541/e28bb26b-be1c-4752-837b-db3eea43ce9d.html
     extractionConfigId: product/details/stores/e/elkjop/NO/extract
     data:
       - group:
-          - image:
-              - text: https://elkjop.no/image/dv_web_D180001002434334/166988/dyson-lightcycle-morph-led-skrivebordslampe-294677-01.jpg?$prod_all4one$
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
-            imageAlt:
+          - imageAlt:
               - text: Dyson Lightcycle Morph LED skrivebordslampe 294677-01
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
             alternateImages:
+              - text: https://elkjop.no/image/dv_web_D180001002434212/166988/dyson-lightcycle-morph-led-skrivebordslampe-294677-01.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
               - text: https://elkjop.no/image/dv_web_D180001002434211/166988/dyson-lightcycle-morph-led-skrivebordslampe-294677-01.jpg?$prod_all4one$
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
               - text: https://elkjop.no/image/dv_web_D180001002434210/166988/dyson-lightcycle-morph-led-skrivebordslampe-294677-01.jpg?$prod_all4one$
@@ -64,6 +63,13 @@ extractions:
             color:
               - text: Sølv
                 xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[3]/div[1]/div[1]/dl[4]/dd[1]/table[1]/tbody[1]/tr[1]/td[2]
+            videos:
+              - text: https://www.elkjop.no/video/DV_Vid_D180001001434054/166988/dyson-lightcycle-morph-led-skrivebordslampe-294677-01.mp4
+                xpath: /html/body/div[6]
+              - text: https://www.youtube.com/watch?v=tYEFYonpnAc&feature=youtu.be
+                xpath: /html/body/div[7]
+              - text: https://www.youtube.com/watch?v=iF5Fjwsdd-A&feature=youtu.be
+                xpath: /html/body/div[8]
             name:
               - text: Dyson Lightcycle Morph LED skrivebordslampe 294677-01
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[1]/h1[1]
@@ -116,6 +122,8 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            image:
+              - text: https://www.elkjop.no/image/dv_web_D180001002434334/166988/dyson-lightcycle-morph-led-skrivebordslampe-294677-01.jpg?$prod_all4one$
             nameExtended:
               - text: |
                   Dyson Lightcycle Morph LED skrivebordslampe 294677-01 
@@ -131,7 +139,7 @@ extractions:
                 locale: nb_NO
                 value: 3
             weightNet:
-              - text: 3 500,00  g
+              - text: "3 500,00 "
             variantCount:
               - text: "1"
                 type: NUMBER
@@ -145,4 +153,4 @@ extractions:
                    20,02 Dybde (cm) 
                    41,44
         xpath: /
-    timestamp: 1599826098781
+    timestamp: 1600100082858
