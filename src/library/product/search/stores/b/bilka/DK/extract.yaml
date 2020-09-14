@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="products"]//div//div
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, 'v-card__title title')]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, 'after-price')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class, 'products')]//div[contains(@class, 'fill-height')]//a[contains(@class, 'product-card')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.bilka.dk$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, 'product-image-container')]//div[contains(@class, 'image__wrapper')]//div[contains(@class, 'image__container')]//img/@src
+  - name: ratingCount
+    singleValue: false
+    xpath: ""
+    defaultValue: " "
+  - name: reviewCount
+    singleValue: false
+    xpath: ""
+    defaultValue: " "
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, 'products')]//div[contains(@class, 'fill-height')]/@id
+    regExp: ([0-9]+)
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class, 'v-card__title title')]
+    regExp: (?:^|(?:[.!?]\s))(\w+)
