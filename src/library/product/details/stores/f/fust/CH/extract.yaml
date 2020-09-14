@@ -27,10 +27,7 @@ fields:
   - name: price
     xpath: concat(//meta[@itemprop="price"]//@content,' ',//meta[@itemprop="priceCurrency"]//@content)
   - name: availabilityText
-    xpath: //link[@itemprop='availability']/@href
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //div[contains(@class,'checkfix')]//div[contains(@class,'availability stati')][1]|//div[@class='filialen hidden']/div[@class='item'][1]//div[contains(@class,'filialeAvailability stati')]
   - name: description
     xpath: //div[@itemprop='description']//text()|//table[@class='not-basic-table specification']//text()
   - name: descriptionBullets
