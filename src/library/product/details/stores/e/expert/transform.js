@@ -84,6 +84,18 @@ const transform = (data, context) => {
           ];
         }
 
+        if (row.manufacturerDescription) {
+          const textArr = [];
+          row.manufacturerDescription.forEach(item => {
+            textArr.push(item.text);
+          });
+          row.manufacturerDescription = [
+            {
+              text: textArr.join(' '),
+            },
+          ];
+        }
+
         if (row.promotion) {
           const textArr = [];
           row.promotion.forEach(item => {
@@ -135,12 +147,18 @@ const transform = (data, context) => {
               item.text = item.text.replace(/(?<=product\/cache\/)(.*)(?=\/)/gm, mainPictureSrc);
             });
           }
+          if (row.alternateImages[0].text.includes('produkte/bilder/')) {
+            row.alternateImages.forEach(item => {
+              item.text = 'https://www.expert.at/' + item.text;
+            });
+          }
         }
 
         if (row.manufacturerImages && row.manufacturerImages[0]) {
           row.manufacturerImages.forEach(item => {
+            const imgUrl = item.text.split(' 200w, ')[0];
             if (!(item.text.includes('http'))) {
-              item.text = 'https:' + item.text;
+              item.text = 'https:' + imgUrl;
             }
           });
         }

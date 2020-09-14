@@ -54,7 +54,11 @@ const transform = (data, context) => {
         row.listPrice = [{ text: row.listPrice[0].text.replace('.', ',') }];
       }
       if (row.sku) {
-        row.sku = [{ text: row.sku[0].text.replace('| ', '') }];
+        if (row.sku[0].text.includes('|')) {
+          row.sku = [{ text: row.sku[0].text.replace(/\|(.*)/gm, '') }];
+        }
+
+        row.id = [{ text: row.sku[0].text }];
       }
       if (row.aggregateRatingText) {
         row.aggregateRatingText = [{ text: row.aggregateRatingText[0].text.replace('.', ',') }];

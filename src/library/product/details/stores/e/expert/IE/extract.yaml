@@ -47,7 +47,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //button[@id="product-addtocart-button"]/@title
-    regExp: (.+)
+    regExp: (.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
@@ -77,6 +77,8 @@ fields:
     singleValue: true
     # xpath: //div[contains(@class,"product_specification")]//span[contains(text(), "Weight")]//ancestor::td//following-sibling::td
     xpath: //div[contains(@class,"product_specification")]//span[contains(text(), "Weight")]//ancestor::td//following-sibling::td|//div[contains(@class, "product_description")]//li[contains(text(), "Weight:")]
+    regExp: \:(.*)
+    regExpReplace: $1
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -97,6 +99,7 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
+    xpath: (//div[@itemprop="sku"])[1]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true

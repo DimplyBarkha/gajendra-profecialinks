@@ -12,6 +12,11 @@ fields:
     xpath: //div[contains(@class, "brand")]//a//img/@title
     description: The brand name
     example: Panasonic
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class, "brand")]//a//img/@title
+    description: The brand name
+    example: Panasonic
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -44,7 +49,7 @@ fields:
   - name: sku
     singleValue: false
     xpath: //a[@class="product-item-link"]//text()
-    regExp: \|(.*)
+    regExp: ( (?<=\|\s)(.*)(?=\|{0,1}))|(\sl\s)(.*)
     description: The store-specific product identifier
   - name: mpc
     singleValue: false
@@ -99,6 +104,8 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: true
+    xpath: //a[@class="product-item-link"]//text()
+    regExp: ( (?<=\|\s)(.*)(?=\|{0,1}))|(\sl\s)(.*)
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: false
@@ -111,6 +118,12 @@ fields:
     # type: NUMBER
   - name: aggregateRating2
     singleValue: false
+  - name: refererUrl
+    singleValue: false
+    xpath: ancestor::html//*[@id="ii_refererUrl"]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//*[@id="ii_refererUrl"]
 
 
 

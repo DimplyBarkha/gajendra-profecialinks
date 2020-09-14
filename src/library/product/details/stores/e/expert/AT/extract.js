@@ -56,6 +56,18 @@ module.exports = {
       addHiddenInfo('ii_manufImg', image);
     }
 
+    const loadManufactuter = await context.evaluate(async function () {
+      return document.querySelector('li#tab-nav-external-content');
+    });
+
+    if (loadManufactuter) {
+      await context.evaluate(async function () {
+        if (document.querySelector('a[href="#tab-external-content"]')) {
+          document.querySelector('a[href="#tab-external-content"]').click();
+        }
+      });
+    }
+
     const urlLink = await context.evaluate(async function () {
       return window.location.href;
     });
@@ -78,6 +90,11 @@ module.exports = {
 
     addHiddenInfo('iio_rating', ratingReviews && ratingReviews.aggregateRating && ratingReviews.aggregateRating.ratingValue ? ratingReviews.aggregateRating.ratingValue : '');
     addHiddenInfo('iio_rating_count', ratingReviews && ratingReviews.aggregateRating && ratingReviews.aggregateRating.reviewCount ? ratingReviews.aggregateRating.reviewCount : '');
+
+
+    await context.waitForFunction(function (sel) {
+      return Boolean(document.querySelector(sel));
+    }, { timeout: 20000 }, 'body');
 
     return await context.extract(productDetails, { transform: transformParam });
   },
