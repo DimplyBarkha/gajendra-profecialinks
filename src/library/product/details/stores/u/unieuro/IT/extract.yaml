@@ -1,0 +1,131 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@id='slick-slide10']/@src
+    description: URL of the main product image
+  - name: _url
+    singleValue: false 
+    xpath: //head//link[@rel='canonical']
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='details-table']//div[@class='slick-track']//div//img/@src
+    description: Other product images (not in manufacturer description)
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin13")]
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1
+    description: GTIN code (includes UPC/EAN)
+  - name: ratingCount
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"ratingCount")]
+    regExp: ratingCount":"([^"]+)
+    regExpReplace: $1
+    description: The number of ratings
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
+    regExp: ratingValue":"([^"]+)
+    regExpReplace: $1
+    description: The stated aggregate rating normalized to be out of 5
+  - name: brandText
+    singleValue: false
+    xpath: //section[@class='details-table-footer']//..//script/text()
+    regExp: brand 		:\s([^ ]+) .*
+    regExpReplace: $1
+  - name: listPrice
+    singleValue: false
+    xpath: concat(//div[@class='discount']//span[@class='original-price']//span[1]/text(),'',//div[@class='discount']//span[@class='original-price']//span[2]/text(), '',//div[@class='discount']//span[@class='original-price']//span[3]/text())
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: false
+    xpath: concat(//div[@class='prices-content']//div[@class='price']//span[1]/text(),'',//div[@class='prices-content']//div[@class='price']//span[2]/text(), '',//div[@class='prices-content']//div[@class='price']//span[3]/text())
+  - name: category
+    singleValue: false
+    xpath: //section[@class='breadcrumbs']//span//a/text()
+    #regExp: category":\s"([^"]+)
+    #regExpReplace: $1
+    description: The categories (e.g. from breadcrumbs)
+  - name: materials
+    singleValue:  false
+    xpath: //span[contains(text(),'Materiali')]//following-sibling::span/text()
+    regExp: (.+)
+    regExpReplace: $1
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: color
+    singleValue: false
+    xpath: //div//span[contains(text(),'Colore')]//..//..//span[contains(text(),"Colore")]//following-sibling::span
+    regExp: (.+)
+    regExpReplace: $1
+    description: A textual description of the colour
+  - name: weightNet
+    singleValue: false
+    xpath: //span[contains(text(),'Peso dell')]//following-sibling::span/text()
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: false
+    xpath: (//span[contains(text(),'Peso')]//following-sibling::span/text())[2]
+    description: Gross weight as described on the page
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='subtitle']
+  - name: warranty
+    singleValue: false
+    description: Guarantee associated with the product
+  - name: shippingDimensions
+    singleValue: false
+    xpath: (//span[contains(text(),'Larghezza')]//following-sibling::span)[2]/text() | (//span[contains(text(),'Profondità')]//following-sibling::span)[2]/text() | (//span[contains(text(),'Altezza')]//following-sibling::span)[2]/text() 
+    description: Stated shipping dimensions
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@id='specifications']//div[@class='accordion-menu']//div[not(@class='head')])
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: description
+    singleValue: false
+    xpath: //div[@class='info-classification-content']//div[@class='techs']//div[@class='item']
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: promotion
+    singleValue: true
+    xpath: normalize-space(//div[@class='promotion-mobile']/div[@class='unieuro-club']/span/text()) 
+    description: The offered price for the selected product variant - if a user
+  - name: specifications
+    singleValue: true
+    xpath: (//span[contains(text(),'Larghezza')]//following-sibling::span)[2]/text() | (//span[contains(text(),'Profondità')]//following-sibling::span)[2]/text() | (//span[contains(text(),'Altezza')]//following-sibling::span)[2]/text()
+    description: The physical dimensions of the product including packaging
+  - name: video
+    singleValue: false
+    #xpath: //div[@class ="eky-header-video-container black"]/video/@src
+    #regExp: (.+)
+    #regExpReplace: $1
+    description: URLs of videos on page
+  - name: sku
+    singleValue: false
+    xpath: //div[@data-module ='productdetail']/@data-productdetail-productean
+    description: GTIN code (includes UPC/EAN)
+  - name: brand
+    singleValue: false 
+    xpath: //h1[@class='subtitle']
+    regExp:  ^\S*
+  - name: availability
+    singleValue: false
+    xpath: //section[@class='details-table-footer']//..//script 
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue:  'No'
+  - name: colorCode
+    singleValue: false
+    xpath: //meta[contains(@name, "msapplication-TileColor")]/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='subtitle']
+  - name: energyEfficiency
+    singleValue: true
+    xpath: normalize-space(//div//span[contains(text(),'Altre caratteristiche')]//..//..//span[contains(text(),"Classe efficienza energetica")]//following-sibling::span/text())
