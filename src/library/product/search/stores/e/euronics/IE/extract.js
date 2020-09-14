@@ -63,18 +63,6 @@ async function implementation (
          }
       }
 
-      console.log('ratingsAndReviewsRes', ratingsAndReviews);
-
-      if (el.querySelector('iframe')) {
-        if (el.querySelector('iframe').contentWindow.document.querySelector('reevoo-score')) {
-          const roundedRating = Math.round((el.querySelector('iframe').contentWindow.document.querySelector('reevoo-score').getAttribute('data-score') / 2) * 10) / 10;
-          addHiddenDiv(el, 'rating', roundedRating);
-        }
-        if (el.querySelector('iframe').contentWindow.document.querySelector('.reevoo__section--number-of-reviews')) {
-          addHiddenDiv(el, 'reviews', el.querySelector('iframe').contentWindow.document.querySelector('.reevoo__section--number-of-reviews').innerText.trim().split(' ')[0]);
-        }
-      }
-
     });
     await stall(500);
 
