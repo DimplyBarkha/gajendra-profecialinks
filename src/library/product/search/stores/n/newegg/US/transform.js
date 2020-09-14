@@ -14,7 +14,7 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   const state = context.getState();
@@ -46,6 +46,18 @@ const transform = (data, context) => {
       }
       if (row.aggregateRating2) {
         row.aggregateRating2[0].text = (row.aggregateRating2[0].text.split('-'))[1];
+      }
+      if (row.manufacturer) {
+        var str = (row.manufacturer[0].text.split(' ').slice(-1));
+        if (str.length > 0 && str[0]) {
+          row.manufacturer[0].text = str[0];
+        }
+      }
+      if (row.soldBy) {
+        var soldby = (row.soldBy[0].text.split(' ').slice(-1));
+        if (soldby.length > 0 && soldby[0]) {
+          row.soldBy[0].text = soldby[0];
+        }
       }
     }
   }

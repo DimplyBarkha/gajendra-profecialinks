@@ -38,3 +38,9 @@ fields:
     xpath: //div[@class="item-info"]//div//a//i/@class
   - name: sponsored
     singleValue: false
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,'d2c-section-title')]
+  - name: soldBy
+    singleValue: false
+    xpath: //div[contains(@class,'d2c-section-title')]
