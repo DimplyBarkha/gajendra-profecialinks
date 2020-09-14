@@ -29,12 +29,22 @@ module.exports = {
           await timeout(3000);
         }
       }
-      const description = document.querySelector('div#overview_content')
+      const specification = document.querySelector('div#specifications_content tr')
         // @ts-ignore
-        ? document.querySelector('div#overview_content').innerText : '';
-      if (description) {
-        addElementToDocument('description', description.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
+        ? document.querySelector('div#specifications_content tr').innerText : '';
+      if (specification) {
+        addElementToDocument('specification', specification.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
+      const bulletInfo = document.querySelectorAll('div#overview_content td ul li');
+      const keyFeatures = document.querySelectorAll('ul#key_features li');
+      const descBulletInfo = [];
+      keyFeatures.forEach(e => {
+        descBulletInfo.push(e.innerText);
+      });
+      bulletInfo.forEach(e => {
+        descBulletInfo.push(e.innerText);
+      });
+      addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
       const availablility = document.querySelector('button.addToCart.green_button') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availablility', availablility);
       const shippingInfo = document.querySelector('button.addToCart.green_button')

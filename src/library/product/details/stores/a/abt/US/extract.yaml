@@ -49,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id="description"]
+    xpath: //div[@id="overview_content"]//td/h2 | //div[@id="overview_content"]//td/p[text()] | //div[@id="specification"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -67,7 +67,6 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //input[@name="quantity"]/@value
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -75,7 +74,7 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //u[contains(text(),'Weight')]/../../following-sibling::ul//li[strong[contains(text(),'Shipping')]]/text()
+    xpath: //u[contains(text(),'Weight')]/../../following-sibling::ul//li[strong[contains(text(),'Shipping')]]/text()| //u[contains(text(),'Weight')]/../../following-sibling::ul//li[b[contains(text(),'Shipping')]]/text()
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -134,7 +133,7 @@ fields:
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-    xpath: //u[contains(text(),'Weight')]/../../following-sibling::ul//li[strong[contains(text(),'Shipping')]]/text()
+    xpath: //u[contains(text(),'Weight')]/../../following-sibling::ul//li[strong[contains(text(),'Shipping')]]/text() | //u[contains(text(),'Weight')]/../../following-sibling::ul//li[b[contains(text(),'Shipping')]]/text()
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -162,7 +161,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //span[@itemprop="name"]
+    xpath: //h1[@id="product_title"]
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
@@ -192,6 +191,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
+    xpath: //a[@id="questions"]/h2 | //div[@class='tt-c-question-container']
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -224,6 +224,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id='descBulletInfo']
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
