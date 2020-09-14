@@ -29,7 +29,8 @@ const transform = (data, context) => {
       }
       if (row.price) {
         row.price.forEach((priceItem) => {
-          priceItem.text = priceItem.text.replace(/'/gm, '').replace(/(.*)\..*/gm, '$1');
+          priceItem.text = priceItem.text.replace(/החל מ-/gm, '').replace(/₪/gm, 'NIS ');
+          priceItem.text = priceItem.text.trim();
         });
       }
       if (row.productUrl) {

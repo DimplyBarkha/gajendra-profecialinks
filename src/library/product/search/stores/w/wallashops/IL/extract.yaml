@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="fr item_cube brelative"]
+recordXPath: //ul[contains(@class, "items_strip_bk")]/li
 fields:
   - name: searchUrl
     singleValue: false
@@ -57,10 +57,9 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class="item_price fr"]
+    xpath: //div[contains(@class, "item_price_box")]//div[contains(@class, "item_price")]
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,"item_price")]//span[@class="dealpricesale"]
     description: The stated undiscounted price for the product
   - name: manufacturer
     singleValue: false
@@ -86,8 +85,8 @@ fields:
     description: Is sponsored/paid
   - name: id
     singleValue: false
+    xpath: //div[contains(@class, "item_cube brel")]/@data-pm-auction
     description: Unique id (within this extractor)
-    xpath: //div[contains(@class, "desktop-layout-item")]/@data-et-code
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
