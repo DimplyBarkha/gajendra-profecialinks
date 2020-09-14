@@ -36,23 +36,30 @@ const transform = (data) => {
         if (row.availabilityText) {
           let text = '';
           row.availabilityText.forEach(item => {
-            if(item.text.includes('TEMP OUT OF STOCK')) {
+            if((item.text.includes('TEMP OUT OF STOCK')) ||(item.text.includes('outOfStock'))) {
               item.text = 'Out of Stock'
-            } else {
+            } else if((item.text.includes('Add To Cart'))|| (item.text.includes('in stock')) || (item.text.includes('inStock'))) {
               item.text = 'In Stock'
-            }
-            
+            } 
           });
         }
         if (row.description) {
           row.description.forEach(item => {
-             item.text = item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim();
+             item.text = item.text.replace(/(\|\|\s\|\|)/g,'||').replace(/(\s*[\r\n]\s*)+/g, ' ').replace('&amp;','&').trim();
           });
         }
         if (row.brandText) {
+          let text = '';
           row.brandText.forEach(item => {
-             item.text = item.text.split(' ')[0];
-          });
+            if(item.text === 'BRAND'){
+              if(row.name){
+                row.name.forEach(item => {
+                  text = item.text.split(' ')[0];
+               });
+              }
+              item.text = text;
+            }
+         });
         }
         if (row.manufacturerDescription) {
           row.manufacturerDescription.forEach(item => {
@@ -62,13 +69,8 @@ const transform = (data) => {
         if (row.specifications) {
           let text = '';
           row.specifications.forEach(item => {
-            text += `${item.text.replace(/\n \n/g, ':')} || `;
+            item.text = item.text
           });
-          row.specifications = [
-            {
-              text: text,
-            },
-          ];
         }
       }
     }
