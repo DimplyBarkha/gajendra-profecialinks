@@ -26,24 +26,29 @@ module.exports = {
       if (tabs) {
         for (let i = 0; i < tabs.length; i++) {
           tabs[i].click();
-          await timeout(3000);
+          await timeout(2000);
         }
       }
-      const specification = document.querySelector('div#specifications_content tr')
-        // @ts-ignore
-        ? document.querySelector('div#specifications_content tr').innerText : '';
-      if (specification) {
-        addElementToDocument('specification', specification.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
+      const specificationArr = document.querySelectorAll('div#specifications_content tr');
+      const specification = [];
+      if (specificationArr) {
+        specificationArr.forEach(e => {
+          specification.push(e.innerText.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
+        });
       }
+      addElementToDocument('description', specification.join('|'));
       const bulletInfo = document.querySelectorAll('div#overview_content td ul li');
       const keyFeatures = document.querySelectorAll('ul#key_features li');
       const descBulletInfo = [];
-      keyFeatures.forEach(e => {
-        descBulletInfo.push(e.innerText);
-      });
-      bulletInfo.forEach(e => {
-        descBulletInfo.push(e.innerText);
-      });
+      if (keyFeatures) {
+        keyFeatures.forEach(e => {
+          descBulletInfo.push(e.innerText);
+        });
+      } else if (bulletInfo) {
+        bulletInfo.forEach(e => {
+          descBulletInfo.push(e.innerText);
+        });
+      }
       addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
       const availablility = document.querySelector('button.addToCart.green_button') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availablility', availablility);
@@ -75,6 +80,15 @@ module.exports = {
       if (iframes) {
         iframes.forEach(el =>
           addElementToDocument('video', `${el.contentDocument.querySelector('video').getAttribute('src')}`));
+      };
+      const viedoContainer = document.querySelector('div#productvideocontainer script');
+      const regex = new RegExp("youtubeid:\\s'(.+)'", 'g');
+      const videoArr = viedoContainer.innerText.match(regex);
+      if (videoArr) {
+        for (let i = 0; i < videoArr.length; i++) {
+          const videoSrc = videoArr[i].replace(regex, '$1');
+          if (videoSrc) addElementToDocument('video', 'https://www.youtube.com/watch?v='.concat(videoSrc));
+        }
       }
     });
     await context.extract(productDetails);

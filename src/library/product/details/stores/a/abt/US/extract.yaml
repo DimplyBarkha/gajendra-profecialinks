@@ -49,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id="overview_content"]//td/h2 | //div[@id="overview_content"]//td/p[text()] | //div[@id="specification"]
+    xpath: //div[@id="overview_content"]//td/h2 | //div[@id="overview_content"]//td/p[text()] | //div[@id="description"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -157,7 +157,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id='video']
+    xpath: //div[@id='video'] | //div[@class="ytp-title"]//a[contains(@class,'ytp-title-link')]/@href
   - name: name
     singleValue: true
     description: The product name
@@ -191,7 +191,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //a[@id="questions"]/h2 | //div[@class='tt-c-question-container']
+    xpath: //a[@id="questions"]/h2[//div[@id='questions_content']//div[@class='tt-c-question-container']] | //div[@class='tt-c-question-container']
   - name: packaging
     singleValue: true
     description: Packaging information
