@@ -1,0 +1,204 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@src)[position()>1]
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumbs"]/li/a
+  - name: nameExtended
+    singleValue: false
+    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class="old-price"]/span[@class="strikethrough"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-info"]//div[contains(@class,"price-wrap")]/span[contains(@class,"current-price")]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id="add-to-cart-btn"]/div
+    regExp: Acheter maintenant
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: descriptionOne
+    singleValue: false
+    xpath: (//div[@class="product-info"]//ul/li)[position() <= (last() - 1)]
+  - name: description
+    singleValue: false
+    xpath: //section[@class="description"]//div[@class="content-wrap"]
+  - name: descriptionBullets
+    singleValue: false
+    type: NUMBER
+    xpath: count(//div[@class="product-usp-overview"]/div)
+  - name: brandText
+    singleValue: false
+    xpath: //h1/span[@class="brand"]
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: false
+    xpath: //ul[contains(@class,"block-list")]/li//span[contains(text(),"Poids")]/following-sibling::span
+    regExp: (.*) kg
+    regExpReplace: $1
+  - name: weightGross
+    singleValue: false
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: false
+    xpath: //ul[contains(@class,"block-list")]/li//span[./span[contains(text(),"EAN")]]/following-sibling::span
+  - name: sku
+    singleValue: false
+    xpath: //ul[contains(@class,"block-list")]/li//span[./span[contains(text(),"Code HIFI")]]/following-sibling::span
+  - name: variantId
+    singleValue: false
+    xpath: //ul[contains(@class,"block-list")]/li//span[./span[contains(text(),"Code HIFI")]]/following-sibling::span
+  - name: mpc
+    singleValue: false
+    xpath: //ul[contains(@class,"block-list")]/li//span[./span[contains(text(),"Code HIFI")]]/following-sibling::span
+  - name: packSize
+    singleValue: false
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    singleValue: false
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: false
+    description: Content under "directions" header
+  - name: warnings
+    singleValue: false
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: false
+    type: NUMBER
+    xpath: //a[@name="reviews"]/h2/span
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id=pd_rating]
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+  - name: shippingDimensions
+    singleValue: false
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue: false
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: false
+    type: NUMBER
+    xpath: count(//select[@class="product-variant-select"]/option)
+    defaultValue: '0'
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@class="pic-text"]/div[2]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="wrapper preview"]//img/@src
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@class="header-content desktop"]//div[@class="play-btn centered desktop"]/@data-video
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
+  - name: secondaryImageTotal
+    singleValue: false
+    type: NUMBER
+    xpath: count((//div[@class="media-wrapper"]/img[@srcset]/@src)[position()>1])
+  - name: specifications
+    singleValue: false
+    xpath: //section[@id="product-specifications"]//div[@class="specs-overview"]//ul/li
+  - name: warranty
+    singleValue: false
+    description: Guarantee associated with the product
+  - name: countryOfOrigin
+    singleValue: false
+    description: The country from which the product originates
+  - name: allergyAdvice
+    singleValue: false
+    description: Allergy information associated with the product
+  - name: recyclingInformation
+    singleValue: false
+    description: Recycling information associated with the product
+  - name: promotion
+    singleValue: false
+    xpath: //p[@class="italic"]/span[contains(text(),"promo")]
+  - name: variantInformation
+    singleValue: false
+    description: colour / scent / flavour / other
+  - name: variants
+    singleValue: false
+    xpath: //select[@class="product-variant-select"]/option/@value
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="product-usp-overview"]/div
+  - name: prop65Warning
+    singleValue: false
+    description: null
+  - name: ageSuitability
+    singleValue: false
+    description: Recommended age displayed on the product page.
+      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+    example: 4 - 99 years
+  - name: energyEfficiency
+    singleValue: false
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: false
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    singleValue: false
+    description: Materials used to make the product
+  - name: Image360Present
+    singleValue: false
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[@class="o-zoom"]
+    regExp: Agrandir
+    regExpReplace: Yes
+    defaultValue: No
