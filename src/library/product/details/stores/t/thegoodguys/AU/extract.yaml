@@ -7,7 +7,8 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[@class="slick-slide slick-current slick-active"]/img/@src
-
+    regExp: (.+)(?=\?)
+    regExpReplace: http:$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -17,6 +18,8 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //nav[@class="product-gallery-nav"]//li[@class !="product-gallery-video link-icon"]//img/@src
+    regExp: (.+)(?=\?)
+    regExpReplace: http:$1
     
   - name: metaKeywords
     singleValue: true
@@ -35,10 +38,6 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
 
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-    xpath: //*[@itemprop="price"]
   - name: price
     singleValue: true
     xpath: //*[@itemprop="price"]
@@ -521,7 +520,7 @@ fields:
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: true
-    xpath: //div[@id="technical_speci"]//h2
+    xpath: //div[@id="tech_toogle"]//h2
     regExp: (.+)
     regExpReplace: 'Yes'
     description: If there is for example a manual in pdf format on the website. ['Yes','No']

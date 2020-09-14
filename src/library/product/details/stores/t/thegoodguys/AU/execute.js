@@ -4,7 +4,7 @@ module.exports = {
         country: 'AU',
         store: 'thegoodguys',
         domain: 'thegoodguys.com.au',
-        loadedSelector: null,
+        loadedSelector: '#delivery_store_stock_opt',
         noResultsXPath: null,
         zipcode: '3805',
     },
