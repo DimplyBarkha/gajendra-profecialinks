@@ -1,22 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="product-listing product-grid js-product-grid"]//div[@class="row"]//div
+recordXPath: //div[contains(@class,'product-item hover-box col-xs-6 col-md-4 ng-scope')]
 fields:
   - name: name
     singleValue: false
     xpath: //P[@class='ng-binding']
-  - name: brand
+  - name: manufacturer
     singleValue: false
     xpath: //h3[@class="ng-binding ng-scope"]
   - name: thumbnail
-    singleValue: true
-    xpath: //div[@class='item-thumb']/img/@src
+    singleValue: false
+    xpath: //div[contains(@class, 'item-thumb')]/img/@src
     regExp: (.+)
     regExpReplace: https://www.qantasstore.com.au$1
   - name: productUrl
     singleValue: false
-    xpath: //a[@class="item-link"]/@href
+    xpath: //a[contains(@class, 'item-link')]/@href
     regExp: (.+)
     regExpReplace: https://www.qantasstore.com.au$1
   - name: price
@@ -29,71 +29,10 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="pr-category-snippet__total pr-category-snippet__item"]
+  - name: endorsementText
+    singleValue: false
+    xpath: //div[contains(@class,'promo-label')]//span[contains(@class,'ng-binding')]
   - name: id
     singleValue: false
     xpath: //a[@class="item-link"]/@href
-    regExp: \b[^\/]+$\b
-  - name: endorsementText
-    singleValue: true
-    xpath: //div[@class='promo-label promo-label-sm on-sale ng-scope']//SPAN[@class='ng-binding']
-  - name: rank
-    singleValue: true
-    description: search/listing rank
-    type: NUMBER
-  - name: rankOrganic
-    singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER  
-
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
-  - name: productUrl
-    singleValue: true
-    description: The URL for the product details page
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-  - name: sponsored
-    singleValue: true
-    description: Is sponsored/paid
-    type: BOOLEAN
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  
+    regExp: \b[^\/]+$\b 
