@@ -1,46 +1,46 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="multiSkuContainer"][.//div[contains(@id,"swatches")]]//ul/li
 fields:
   - name: image
     singleValue: true
-    xpath : //div[@id="image"]
+    xpath : ancestor::html //div[@id="image"]
   - name: imageAlt
     singleValue: true
-    xpath : //div[@id="imageAlt"]
+    xpath : ancestor::html  //div[@id="imageAlt"]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="alternateImages"]
+    xpath: ancestor::html  //div[@id="alternateImages"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[@id="first"]/ul/li
+    xpath: ancestor::html  //div[@id="first"]/ul/li
   - name: nameExtended
     singleValue: true
-    xpath : //div[@id='nameExtended'] 
+    xpath : ancestor::html  //div[@id='nameExtended'] 
   - name: listPrice
     singleValue: true
-    xpath: //div[@id='listPrice']
+    xpath: ancestor::html  //div[@id='listPrice']
   - name: price
     singleValue: true
-    xpath: //div[@id='price'] 
+    xpath: ancestor::html  //div[@id='price'] 
   - name: availabilityText
     singleValue: true
-    xpath : //div[contains(@class,'OutOfStock')]
+    xpath : ancestor::html  //div[contains(@class,'OutOfStock')]
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@id='description'] 
+    xpath: ancestor::html  //div[@id='description'] 
   - name: descriptionBullets
     singleValue: true
-    xpath: //div[@id='descriptionBullets'] 
+    xpath: ancestor::html  //div[@id='descriptionBullets'] 
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //div[@id='brandText']
+    xpath: ancestor::html  //div[@id='brandText']
   - name: manufacturer
     singleValue: true
     xpath: 
@@ -52,20 +52,20 @@ fields:
     xpath:
   - name: weightGross
     singleValue: true
-    xpath: //li[contains(text(),'Weighs')]
+    xpath: ancestor::html  //li[contains(text(),'Weighs')]
     regExp: (\d+).+
   - name: gtin
     singleValue: true
-    xpath: //div[@id='gtin']
+    xpath: ancestor::html //div[@id='gtin']
   - name: sku
     singleValue: true
-    xpath: //div[@id='sku']
+    xpath:  //@sku
   - name: variantId
     singleValue: true
     xpath: 
   - name: mpc
     singleValue: true
-    xpath: //div[@id='gtin']
+    xpath: ancestor::html //div[@id='gtin']
   - name: packSize
     singleValue: true
     xpath: 
@@ -77,17 +77,17 @@ fields:
     description: Content under "directions" header
   - name: warnings
     singleValue: true
-    xpath: //div[@class="alert-feo"]
+    xpath: ancestor::html  //div[@class="alert-feo"]
   - name: ratingCount
     singleValue: true
-    xpath: //div[@id='ratingCount']
+    xpath: ancestor::html  //div[@id='ratingCount']
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
-    xpath: //div[@id='aggregateRating']
+    xpath: ancestor::html  //div[@id='aggregateRating']
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@id='aggregateRating']
+    xpath: ancestor::html  //div[@id='aggregateRating']
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -104,7 +104,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: true
-    description: A textual description of the colour
+    xpath: //@color
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)

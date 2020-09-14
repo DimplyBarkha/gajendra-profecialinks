@@ -89,6 +89,11 @@ const implementation = async (
             return result;
         };
 
+        function setAttributes(el, attrs) {
+            for (var key in attrs) {
+                el.setAttribute(key, attrs[key]);
+            }
+        }
 
         const alternateImagesTransform = (selector) => {
             if (selector) {
@@ -144,7 +149,7 @@ const implementation = async (
 
         const uri = `https://www.bedbathandbeyond.ca/apis/services/composite/v1.0/product-sku?product=${productID}`;
         const productApiDetails = await makeApiCall(uri);
-
+        const apiDataResponse = productApiDetails.data;
 
         const nameExtended = (productApiDetails.data.PRODUCT_DETAILS && productApiDetails.data.PRODUCT_DETAILS.DISPLAY_NAME) || '';
         const image = `https://b3h2.scene7.com/is/image/BedBathandBeyond/${productApiDetails.data.PRODUCT_DETAILS.SCENE7_URL}?$1200$&wid=1200&hei=1200`;
@@ -158,8 +163,23 @@ const implementation = async (
         const sku = (productApiDetails.data.PRODUCT_DETAILS && productApiDetails.data.PRODUCT_DETAILS.SKU_ID[0]) || '';
         const ratingCount = (productApiDetails.data.PRODUCT_DETAILS && productApiDetails.data.PRODUCT_DETAILS.REVIEWS) || '';
         const aggregateRating = (productApiDetails.data.PRODUCT_DETAILS && productApiDetails.data.PRODUCT_DETAILS.RATINGS) || '';
+        const element = document.querySelectorAll('div[id="multiSkuContainer"] ul[role="listbox"] li');
 
 
+
+
+        if (apiDataResponse) {
+            // SKU
+            if (element) {
+                for (var i = 0; i < element.length; i++) {
+                    setAttributes(element[i],
+                        {
+                            sku: apiDataResponse.SKU_DETAILS[i].SKU_ID,
+                            color: apiDataResponse.SKU_DETAILS[i].COLOR,
+                        });
+                }
+            }
+        }
 
 
 
@@ -181,71 +201,9 @@ const implementation = async (
 
 
 
-        // const getSpecification = () => {
-        //     const tbodys = document.querySelectorAll('div#tab2 tbody');
-        //     let content = '';
-        //     tbodys.forEach(tb => {
-        //         const trs = tb.querySelectorAll('tr');
-        //         trs.forEach(t => {
-        //             if (content) {
-        //                 content += ' || ';
-        //             }
-        //             content += t.querySelector('th').textContent + ' : ' + t.querySelector('td').textContent;
-        //         });
-        //     });
 
-        //     return content;
-        // };
-        // addElement('specification', getSpecification());
 
-        // const isSelectorPresent = (sel) => {
-        //     return Boolean(document.querySelector(sel));
-        // };
 
-        // const zipInput = isSelectorPresent('div[data-anonid="locationinput"] input[type="search"]');
-        // const delivery = isSelectorPresent('#delivery.available');
-        // const outOfStock = isSelectorPresent('.prd-channels .nostock');
-        // let availability = 'In Stock';
-
-        // if (zipInput) {
-        //     let countryRoute = 'https://www.currys.co.uk/gb/uk';
-        //     let long = '-0.106932';
-        //     let lat = '51.508413';
-
-        //     if (country === 'IE') {
-        //         countryRoute = 'https://www.currys.ie/ie/en';
-        //         long = '-6.26495';
-        //         lat = '53.33537';
-        //     }
-
-        //     const uri = `${countryRoute}/mcd_postcode_check/sProductId/${basicDetails.sku}/sPostCode/${zip}/latitude/${lat}/longitude/${long}/ajax.html`;
-        //     const res = await makeApiCall(uri);
-        //     console.log(res);
-        //     if (res.status === 'success' && res.data && res.data.postCodeCheck && res.data.postCodeCheck.state !== 'DELIVERABLE') {
-        //         availability = 'Out Of Stock';
-        //     }
-        // } else if (outOfStock) {
-        //     availability = 'Out Of Stock';
-        // } else if (!delivery) {
-        //     availability = 'Out Of Stock';
-        // }
-        // addElement('availability', availability);
-
-        // const actualRating = basicDetails && basicDetails.aggregateRating && basicDetails.aggregateRating.ratingValue && Number(basicDetails.aggregateRating.ratingValue);
-        // const updatedRating = actualRating ? (actualRating * 5) / 10 : '';
-        // addElement('rating', updatedRating);
-
-        // const productId = productDigitalData.productID || '';
-        // addElement('productId', productId);
-
-        // const manufacturer = productDigitalData.manufacturer || '';
-        // addElement('manufacturer', manufacturer);
-
-        // const brand = (basicDetails.brand && basicDetails.brand.name) || '';
-        // addElement('brand', brand);
-
-        // const description = buildDescription();
-        // addElement('description', description);
     }, parameters.zipcode, parameters.country);
 
     const { transform } = parameters;
