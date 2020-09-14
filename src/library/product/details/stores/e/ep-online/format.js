@@ -61,6 +61,12 @@ const transform = (data) => {
         });
       }
 
+      if (row.variantId) {
+        row.variantId.forEach((variantIdItem) => {
+          variantIdItem.text = variantIdItem.text.replace(/[^\d]/gm, '');
+        });
+      }
+
       if (row.specifications) {
         row.specifications[0].text = row.specifications[0].text.replace(/(\n\s*){8,}/g, ' || ').replace(/(\n\s*){6,}/g, ' || ').replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){2,}/g, '');
       }
