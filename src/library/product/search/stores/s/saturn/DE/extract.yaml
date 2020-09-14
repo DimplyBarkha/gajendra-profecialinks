@@ -10,9 +10,7 @@ fields:
     regExpReplace: https://www.saturn.de$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@data-test='product-image']//img/@src
-    regExp: (.+)(mobile_200_200_png)
-    regExpReplace: $1fee_325_325_png
+    xpath: //a/@thumbnail
   - name: name
     description: The product name
     xpath: //p[@data-test='product-title']/text()
@@ -20,12 +18,10 @@ fields:
     description: The store-specific product identifier
   - name: ratingCount
     description: The number of ratings
-    xpath: //div[@data-test='mms-customer-rating']/span
-    regExp: (\d+)
+    xpath: //a/@rating-count
   - name: reviewCount
     description: The number of reviews
-    xpath: //div[@data-test='mms-customer-rating']/span
-    regExp: (\d+)
+    xpath: //a/@rating-count
   - name: price
     description: The offered price for the product
     xpath: //div[contains(@class,'PriceDisplay')]/div[span]
@@ -48,3 +44,6 @@ fields:
     xpath: //div[@data-test='mms-customer-rating']/parent::div/@aria-label
     regExp: (Bewertung:\s)(.+)(\svon)(.+)
     regExpReplace: $2
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html/body/@search-url

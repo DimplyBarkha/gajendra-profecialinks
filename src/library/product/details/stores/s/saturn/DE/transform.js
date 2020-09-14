@@ -27,6 +27,11 @@ const transform = (data, context) => {
         const text = row.promotion.map(elm => elm.text.trim()).join(', ');
         row.promotion = [{ text }];
       }
+      if (row.videos) {
+        let videos = row.videos.map(elm => elm.text.trim());
+        videos = Array.from(new Set(videos)).map(elm => ({ text: elm }));
+        row.videos = videos;
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

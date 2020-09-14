@@ -45,11 +45,11 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@data-test="mms-accordion-description"]/div[starts-with(@class,"ProductDescription")]
+    xpath: //div[@data-test="mms-accordion-description"]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
-    xpath: count(//div[@data-test="mms-accordion-description"]/div[starts-with(@class,"ProductDescription")]/ul/li)
+    xpath: count(//div[@data-test="mms-accordion-description"]/div[starts-with(@class,"ProductDescription")]/ul/li | //div[@data-test="mms-accordion-description"]/ul/li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -102,9 +102,7 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     description: The number of ratings
-    xpath: //script[@type="application/ld+json"][contains(text(),'ratingCount')]
-    regExp: ratingCount":"([^"]+)
-    regExpReplace: $1
+    xpath: //body/@rating-count
     type: NUMBER
   - name: aggregateRatingText
     xpath: translate(//div[contains(@class,"StyledAverageRating")]//span[contains(@class,"AverageRatingSummary")],'.',',')
@@ -341,7 +339,7 @@ fields:
   - name: storage
     description: Suggested storage location for product
   - name: countryOfOrigin
-    xpath: //td[span[contains(text(),"Ursprungsland/Herkunftsort")]]/following-sibling::td
+    xpath: //td[span[contains(text(),"Ursprungsland/Herkunftsort")]]/following-sibling::td | //td[span[contains(text(),"Produktionsland")]]/following-sibling::td
     description: The country from which the product originates
   - name: allergyAdvice
     description: Allergy information associated with the product
@@ -395,7 +393,7 @@ fields:
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
-    xpath: //div[@data-test="mms-accordion-description"]/div[starts-with(@class,"ProductDescription")]/ul/li
+    xpath: //div[@data-test="mms-accordion-description"]/div[starts-with(@class,"ProductDescription")]/ul/li | //div[@data-test="mms-accordion-description"]/ul/li
     singleValue: false
     description: null
   - name: prop65Warning
@@ -405,6 +403,7 @@ fields:
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
   - name: energyEfficiency
+    xpath: //td[span[contains(text(),"Energieeffizienzklasse")]]/following-sibling::td[not(normalize-space(text()="-"))]
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
