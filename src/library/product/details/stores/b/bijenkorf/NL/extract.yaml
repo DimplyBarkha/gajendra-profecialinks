@@ -21,7 +21,7 @@ fields:
     manualSelector: ul.dbk-breadcrumb-group > li > a
   - name: nameExtended
     singleValue: false
-    manualSelector: div[data-dbk-product-summary] span[itemprop="name"]
+    manualSelector: div[data-dbk-product-summary] p[itemprop="description"]
   - name: listPrice
     singleValue: false
     manualSelector: span.price--recommended.price--large > span.price__value
@@ -54,7 +54,7 @@ fields:
     manualSelector: span[itemprop="sku"]
   - name: variantCount
     singleValue: false
-    defaultValue: 1
+    defaultValue: '0'
   - name: color
     singleValue: false
     manualSelector: div[data-dbk-color-selector] span.dbk-product-indicator--value
@@ -69,7 +69,7 @@ fields:
     manualSelector: div.dbk-accordion__body > ul > li
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@data-dbk-product-information]/p[(contains(text(),'- ') or contains(text(),':')) and contains(@br,"")]
+    xpath: //div[@data-dbk-product-information]/ul/li
   - name: warranty
     singleValue: false
     manualSelector: span[data-at="specifications-Fabrieksgarantie"]

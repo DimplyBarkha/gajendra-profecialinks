@@ -8,12 +8,6 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.additionalDescBulletInfo) {
-        const bullets = row.additionalDescBulletInfo[0].text.split(/\s*\n\s*-\s*/);
-        for (let i = 0; i < bullets.length - 1; i++) {
-          row.additionalDescBulletInfo[i] = {
-            text: bullets[i + 1],
-          };
-        }
         row.descriptionBullets = [{
           text: row.additionalDescBulletInfo.length,
         },
@@ -21,12 +15,8 @@ const transform = (data) => {
       }
 
       if (row.description) {
-        let text = row.description[0].text.replace(/\s*\n\s*-\s*/g, ' || ').split(' || ');
-        const txt = text[text.length - 1].replace(/(\s*\n)+/, ' | ');
-        text[text.length - 1] = txt;
-        text = text.join(' || ');
         row.description = [{
-          text: text.replace(/\n\s*\n*/g, ' '),
+          text: row.description[0].text.replace(/\s*\n\s*/g, ' '),
         },
         ];
       }
@@ -57,6 +47,24 @@ const transform = (data) => {
 
       if (row.listPrice && row.currency) {
         row.listPrice[0].text = row.currency[0].text + row.listPrice[0].text;
+      }
+
+      if (row.name) {
+        if (row.brandText) {
+          row.name = [{
+            text: row.brandText[0].text + ' - ' + row.name[0].text,
+          },
+          ];
+        }
+      }
+
+      if (row.nameExtended) {
+        if (row.brandText) {
+          row.nameExtended = [{
+            text: row.brandText[0].text + ' - ' + row.nameExtended[0].text,
+          },
+          ];
+        }
       }
     }
     return data;
