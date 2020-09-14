@@ -63,6 +63,7 @@ module.exports = {
 
     var reqAccept = "application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk"
     if (videos && videos.length) {
+      
       for (let i = 0; i < videos.length; i++) {   
         // Click a link on the page
         var selectorCheck = await context.evaluate(function (videos, i){
@@ -75,6 +76,7 @@ module.exports = {
           }
         }, videos, i)
         if(selectorCheck){
+          
           await context.click(`img[src='${videos[i]}']`);
           // await context.click('#tabItem_ogt_3_0 > button.css-snmyc5.e65zztl0[type="button"] > div.css-38q71r > div.css-5ix92y.e65zztl0 > div.css-16g8jcx.e65zztl0 > div.css-10aokas.e65zztl0 > div.css-1u6gbn2.e65zztl0 > svg.css-1a5s7yv.e65zztl0');
             console.log(`img[src='${videos[i]}']`)
@@ -83,8 +85,20 @@ module.exports = {
             // await context.waitForPage();
           await new Promise(resolve => setTimeout(resolve, 5000));
             console.log('finished waiting for page');
-              const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
-          //    const req = await context.searchForRequest('/productimages/*');
+            const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
+            
+            let closeCheck = await context.evaluate(function() {
+              let sel = document.querySelector('button[data-at="modal_close"]')
+              if(sel){
+                sel.click()
+                return true;
+              } else {
+                return false;
+              }
+            })
+            // if(closeCheck){
+            //   await click('button[data-at="modal_close"]')
+            // }
           if(req){
             if(req[0]){
               reqAccept = req[0].requestHeaders.Accept;
@@ -103,7 +117,7 @@ module.exports = {
           window.scroll(0, scrollTop);
           let allProds = document.querySelectorAll('a[data-comp="ProductItem "]')
           let prodsWithImg = document.querySelectorAll('a[data-comp="ProductItem "] img')
-        }, { timeout: 2000 }, scrollTop)
+        }, { timeout: 1000 }, scrollTop)
       } catch(err) {
         console.log("Failed")
       }
@@ -117,8 +131,13 @@ module.exports = {
       let videoIdForUrl = [];
       if(videoEle){
         let videoObj = JSON.parse(videoEle.innerText);
-        if(videoObj[4] && videoObj[4].props.currentProduct){
-          let videoIds = videoObj[4].props.currentProduct.productVideos
+        if(videoObj[4] || videoObj[1]){
+          let videoIds;
+          if(videoObj[4]){
+            videoIds = videoObj[4].props.currentProduct.productVideos
+          } else if(videoObj[1]){
+            videoIds = videoObj[1].props.product.product.productVideos
+          }
           if(videoIds){
             videoIds.forEach(obj => {
               videoIdForUrl.push(obj.videoUrl)
@@ -177,8 +196,6 @@ module.exports = {
       addHiddenDiv(`ii_parentInput`, parentInput);
 
 
-
-
       const element = document.querySelectorAll("script[type='application/ld+json']");
       let variantObj;
       let variantSkuArray = [];
@@ -195,7 +212,6 @@ module.exports = {
       }
       if(variantObj){
         if(variantObj.offers && variantObj.offers[0].sku){
-          addHiddenDiv(`ii_sku`, variantObj.offers[0].sku);
 
           for(let j = 0; j < variantObj.offers.length; j++){
             if(variantObj.offers[j].sku){
@@ -242,6 +258,13 @@ module.exports = {
           if(!splits[0].includes("ITEM")){
             let removeSize = splits[0].replace(/SIZE /g, "");
             addHiddenDiv(`ii_quantity`, removeSize);
+          }
+        }
+        if(info.includes("ITEM")){
+          let skuSelect = info.match(/ITEM ([0-9])+/g);
+          if(skuSelect){
+            let skuNum = skuSelect[0].replace(/ITEM /g, "")
+            addHiddenDiv(`ii_sku`, skuNum);
           }
         }
       }
