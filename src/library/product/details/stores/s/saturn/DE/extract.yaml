@@ -403,7 +403,7 @@ fields:
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
   - name: energyEfficiency
-    xpath: //td[span[contains(text(),"Energieeffizienzklasse")]]/following-sibling::td[not(normalize-space(text()="-"))]
+    xpath: //td[span[contains(text(),"Energieeffizienzklasse")]]/following-sibling::td[not(normalize-space(.)="")]
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
