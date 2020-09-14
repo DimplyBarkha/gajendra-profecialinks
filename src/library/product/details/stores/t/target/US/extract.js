@@ -699,14 +699,19 @@ async function implementation (
         origData = res;
         if (res && res.product && res.product.item && res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
           parentId = res.product.item.parent_items;
+          console.log('parientIdis', parentId);
           getProductInfo(res.product.item, res.product.item.product_description.title);
           await fetch('https://redsky.target.com/v3/pdp/tcin/' + parentId + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
             .then(data => data.json())
             .then(async function (parentRes) {
               parentData = parentRes;
+              console.log('childItems', parentRes.product.item.child_items);
               parentRes.product.item.child_items.forEach(async (variant) => {
                 await getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
               });
+            })
+            .catch(e => {
+              console.log('parent does not exist');
             });
         } else if (res && res.product && res.product.item && res.product.item.child_items) {
           for (const variant of res.product.item.child_items) {
