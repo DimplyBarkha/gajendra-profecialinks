@@ -21,6 +21,11 @@ module.exports = {
             description: 'default results value.',
             optional: true,
         },
+        {
+            name: 'mergeType',
+            description: 'For merge rows ranking calculation.',
+            optional: true,
+        },
     ],
     inputs: [{
             name: 'keywords',
@@ -49,7 +54,7 @@ module.exports = {
         extract: 'action:product/search/extract',
     },
     path: './search/stores/${store[0:1]}/${store}/${country}/search',
-    implementation: async({ keywords, Keywords, Brands, results }, { country, store, domain, zipcode, defaultResults }, context, { execute, extract, paginate }) => {
+    implementation: async({ keywords, Keywords, Brands, results }, { country, store, domain, zipcode, defaultResults, mergeType }, context, { execute, extract, paginate }) => {
         results = results || defaultResults || 150;
         // TODO: consider moving this to a reusable function
         const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
@@ -77,16 +82,23 @@ module.exports = {
         }
 
         let page = 2;
-        while (collected < results && await paginate({ keywords, page, offset: collected })) {
+        while (collected < results && await paginate({ keywords, page, offset: collected, mergeType })) {
             const data = await extract({});
             const count = length(data);
-            if (count === 0) {
-                // no results
-                break;
-            }
-            collected += count;
-            console.log('Got more results', collected);
+            // if (count === 0) {
+            //     // no results
+            //     break;
+            // }
+            collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
+            collected = count;
+
             page++;
+            console.log('count value', collected);
         }
+        console.log("MergeType", mergeType === 'MERGE_ROWS');
+        console.log('type', typeof mergeType);
+        console.log("mergeType value", mergeType);
+
+
     },
 };

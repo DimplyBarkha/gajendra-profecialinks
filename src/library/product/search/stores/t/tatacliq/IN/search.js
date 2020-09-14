@@ -5,6 +5,6 @@ module.exports = {
         store: 'tatacliq',
         domain: 'tatacliq.com',
         zipcode: '',
-        defaultResults: 241,
+        mergeType: 'MERGE_ROWS',
     },
 };

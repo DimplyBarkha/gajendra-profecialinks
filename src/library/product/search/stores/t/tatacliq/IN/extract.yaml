@@ -12,7 +12,7 @@ fields:
 - name: listPrice
   xpath: //div//span
   regExp: (\d+)
-- name: manufacturer
+- name: brand
   xpath: //div[not(h2)]/div/h3
 - name: productUrl
   xpath: div/a/@href
@@ -22,9 +22,9 @@ fields:
   regExpReplace: https:$1
 - name: id
   xpath: div/a/@href
-  regExp: (.+)(p-mp)(\d+)
-  regExpReplace: $3
-- name: aggregateRating
+  regExp: (.+)(p-mp)(00000000)(\d+)
+  regExpReplace: $4
+- name: aggregateRating2
   xpath: //*[@alt="star icon"]/..
 - name: ratingCount
   xpath: //*[@alt="star icon"]/../following-sibling::div
@@ -36,6 +36,7 @@ fields:
 - name: rankOrganic
   type: NUMBER
 - name: sponsored
-  defaultValue: false
+  description: Is sponsored/paid
+  type: BOOLEAN
 - name: soldBy
 - name: endorsementText
