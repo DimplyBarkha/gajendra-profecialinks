@@ -174,7 +174,7 @@ module.exports = {
                 {
                   title: JSON.parse(apiDataResponse)._all_colors[i].title,
                   gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
-                  retailer_product_code: JSON.parse(apiDataResponse)._all_colors[0].skus[0].reference_id,
+                  retailer_product_code: JSON.parse(apiDataResponse)._all_colors[i].skus[0].reference_id,
                   sku: JSON.parse(apiDataResponse).id,
                   variantInformation: JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[i].title }).map((e) => { return e.variant[1].value }).join('/')
                 });
