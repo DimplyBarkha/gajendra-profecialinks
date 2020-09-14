@@ -43,15 +43,6 @@ const transform = (data) => {
           item.text = text[1] ? text[1] : '';
         });
       }
-      // if (row.sku) {
-      //   row.sku.forEach(item => {
-      //     const text = item.text.split(':');
-      //     item.text = text[1] ? text[1] : '';
-      //   });
-      //   if (row.variantId) {
-      //     row.variantId = row.sku;
-      //   }
-      // }
       if (row.videos) {
         row.videos.forEach(item => {
           const videoJSON = JSON.parse(item.text.replace(/\\"/gm, '"'));
@@ -60,41 +51,10 @@ const transform = (data) => {
           }
         });
       }
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     text = row.description.map(elm => elm.text).join(' | ');
-      //   });
-      //   row.description = [{ text }];
-      // }
-      // if (row.availabilityText) {
-      //   let newText = 'Out Of Stock';
-      //   row.availabilityText.forEach(item => {
-      //     if (item.text.trim() === 'Añadir') {
-      //       newText = 'In Stock';
-      //     }
-      //   });
-      //   row.availabilityText = [{ text: newText }];
-      // }
-      // if (row.specifications) {
-      //   let text = '';
-      //   row.specifications.forEach((item, index) => {
-      //     if (index % 2 === 0) {
-      //       text += item.text.trim() + ' : ';
-      //     } else {
-      //       text += item.text.trim() + ' || ';
-      //     }
-      //   });
-      //   row.specifications = [
-      //     {
-      //       text: text.slice(0, -4),
-      //     },
-      //   ];
-      // }
       if (row.shippingDimensions) {
         let text = '';
         row.shippingDimensions.forEach((item, index) => {
-          text += item.text.trim() + ' X ';
+          text += item.text.trim() + ' x ';
         });
         row.shippingDimensions = [
           {

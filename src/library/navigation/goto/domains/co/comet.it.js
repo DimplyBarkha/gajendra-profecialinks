@@ -13,7 +13,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setBlockAds(false);
     url = `${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
-    await context.goto(url, { timeout: timeout, waitUntil: 'networkidle0', checkBlocked: true });
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });

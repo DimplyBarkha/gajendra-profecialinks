@@ -54,7 +54,7 @@ fields:
     xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso') and not(contains(.,'imballo'))]/following-sibling::td
     description: Net weight as described on the page
   - name: weightGross
-    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso dell')]/following-sibling::td
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso dell') and contains(.,'imballo') ]/following-sibling::td
     description: Gross weight as described on the page
   - name: gtin
     xpath: //script/@data-flix-ean
@@ -111,7 +111,14 @@ fields:
     singleValue: false
     description: null
     xpath: //div[contains(@class,'scheda-prodotto__info')]//li
-
-
+  - name: listPrice
+    description: null
+    xpath: //div[contains(@class,'scheda-prodotto__info')]//span[contains(@class,'caption__barred-price')]
+  - name: promotion
+    description: null
+    xpath: //span[contains(@class,'caption__discount__grey')]
+  - name: quantity
+    description: null
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Quantità')]/following-sibling::td
 
     

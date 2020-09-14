@@ -40,6 +40,16 @@ async function implementation (
           specContent += specVal[i].innerText + ' || ';
         }
       }
+      const specList = document.querySelectorAll(`div[id*=${id}] li`) ? document.querySelectorAll(`div[id*=${id}] li`) : null;
+      let specContentList = '';
+      for (let i = 0; i < specList.length; i++) {
+        if (specList[i]) {
+          // @ts-ignore
+          specContentList += specList[i].innerText + ' || ';
+        }
+      }
+      console.log('Specification list', specContentList.slice(0, -4));
+      specContentList && addHiddenDiv('ii_spec', specContentList.slice(0, -4));
       specContent && addHiddenDiv('ii_spec', specContent.slice(0, -4));
     }
     // ratings
@@ -49,7 +59,8 @@ async function implementation (
     if (iframeNode) {
       const iframeDOM = domparser.parseFromString(iframeNode, 'text/html');
       const review = iframeDOM.querySelector("div[class*='number-of-reviews']");
-      console.log('review ', review);
+      // @ts-ignore
+      console.log('Review count', review.innerText);
       // @ts-ignore
       addHiddenDiv('ii_review', review.innerText);
       const rating = iframeDOM.querySelector('reevoo-score').getAttribute('data-score');
@@ -66,12 +77,15 @@ async function implementation (
       descContent += descEle.textContent;
       descEle = descNode.iterateNext();
     }
+    descContent = descContent.replace(/\n/gm, ' ').replace(/\s{2,}/gm, ' ').trim();
     if (descBullets && descContent) {
-      console.log('ii_desc', (descBullets + ' | ' + descContent));
+      console.log('Description', (descBullets + ' | ' + descContent));
       addHiddenDiv('ii_desc', (descBullets + ' | ' + descContent));
     } else if (descBullets) {
+      console.log('Description', descBullets);
       addHiddenDiv('ii_desc', (descBullets));
     } else if (descContent) {
+      console.log('Description', descContent);
       addHiddenDiv('ii_desc', (descContent));
     }
     // sku
@@ -79,7 +93,7 @@ async function implementation (
     const skuJSON = (document.querySelector('script[type*="application/ld+json"]')) ? document.querySelector('script[type*="application/ld+json"]').innerText : {};
     if (skuJSON) {
       const skuParsed = JSON.parse(skuJSON) && JSON.parse(skuJSON).sku ? JSON.parse(skuJSON).sku : '';
-      console.log('ii_sku', (skuParsed));
+      console.log('SKU', (skuParsed));
       skuJSON && addHiddenDiv('ii_sku', (skuParsed));
     }
     function addHiddenDiv (id, content) {
