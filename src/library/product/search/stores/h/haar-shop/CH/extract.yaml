@@ -18,4 +18,8 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@data-price-type='finalPrice']//span[@class='price']
-    
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='cs-product-tile__brand']
+  - name: rank
+    type: NUMBER
