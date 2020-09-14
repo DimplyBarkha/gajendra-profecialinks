@@ -19,19 +19,27 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      function timeout (ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+      const tabs = document.querySelectorAll('ul#product-tabs>li>a');
+      if (tabs) {
+        for (let i = 0; i < tabs.length; i++) {
+          tabs[i].click();
+          await timeout(3000);
+        }
+      }
       const description = document.querySelector('div#overview_content')
         // @ts-ignore
         ? document.querySelector('div#overview_content').innerText : '';
       if (description) {
         addElementToDocument('description', description.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
-      const shippingInfo = document.querySelector('div#product_shipping_container')
-      // @ts-ignore
-        ? document.querySelector('div#product_shipping_container').innerText : '';
-      if (shippingInfo) {
-        const shippingTxt = (shippingInfo.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' ')).concat(' Sold by abt.com');
-        addElementToDocument('shippingInfo', shippingTxt);
-      }
+      const availablility = document.querySelector('button.addToCart.green_button') ? 'In Stock' : 'Out of Stock';
+      addElementToDocument('availablility', availablility);
+      const shippingInfo = document.querySelector('button.addToCart.green_button')
+        ? 'Ships from and sold by abt.com' : '';
+      addElementToDocument('shippingInfo', shippingInfo);
 
       const variants = document.querySelector('div.display-group-color');
       const variantColor = variants && document.querySelector('div.display-group-color strong')
@@ -48,18 +56,8 @@ module.exports = {
       } else {
         addElementToDocument('color', descColor);
       }
-      const specificationsXpath = document.evaluate("//u[contains(text(),'Dimensions')]/../../following-sibling::ul[1]",
-        document, null, XPathResult.STRING_TYPE, null);
-      const specifications = specificationsXpath ? specificationsXpath.stringValue : '';
-      if (specifications) {
-        addElementToDocument('specifications', specifications.replace(/\s{2,}|\n/g, ' '));
-      }
       const pdfExist = document.querySelector('div#documents_content ul li');
       if (pdfExist) addElementToDocument('pdfExist', 'Yes');
-      const manufacturerContent = document.querySelector('a#from_manufacturer');
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      if (manufacturerContent) manufacturerContent.click();
-      await new Promise(resolve => setTimeout(resolve, 3000));
       const manufacturerDescription = document.querySelector('div#from_manufacturer_content')
         ? document.querySelector('div#from_manufacturer_content').innerText.replace(/\n{2,}|\s{2,}/g, '') : '';
       if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);

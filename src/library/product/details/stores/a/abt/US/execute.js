@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'abt',
     domain: 'abt.com',
-    loadedSelector: 'div#product_top_container',
+    loadedSelector: 'div#tabbed-pane',
     noResultsXPath: null,
     zipcode: '',
   },
