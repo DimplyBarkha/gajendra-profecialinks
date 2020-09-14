@@ -142,6 +142,7 @@ async function implementation (
     const manufacturerImages = [];
     const videos = [];
     if (document.getElementById('flix-inpage')) {
+      console.log('hasEnhancedContent');
       enhancedContent = document.getElementById('flix-inpage').innerText;
       console.log('hasFlix', enhancedContent);
       document.getElementById('flix-inpage').querySelectorAll('img').forEach(img => {
