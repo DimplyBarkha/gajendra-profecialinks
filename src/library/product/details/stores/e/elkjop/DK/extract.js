@@ -33,9 +33,9 @@ module.exports = {
         const formattedRating = rating.replace(',', '.');
         addElementToDocument('rating', formattedRating);
       }
-      const weight = document.evaluate("//div[contains(text(), 'Vægt')]", document, null, XPathResult.STRING_TYPE, null).stringValue;
+      const weight = document.evaluate("//*[contains(text(), 'Vægt')]", document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (weight) {
-        const formattedWeight = weight.replace(/\n|Paino|\(|\)\s/g, '');
+        const formattedWeight = weight.replace(/\n|Vægt|\(|\)\s/g, '');
         addElementToDocument('weight', formattedWeight);
       }
     });
