@@ -27,7 +27,7 @@ module.exports = {
         await context.evaluate(() => {
             document.querySelector('div#grid-wrapper_desktop>div>div>div>div>div:last-child').scrollIntoView({ behavior: "smooth" })
         })
-        await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
+        await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
 
         try {
             await context.waitForSelector("div[id='grid-wrapper_desktop']>div>div>div>div>div:last-child>div:last-child", 80000)
