@@ -11,7 +11,6 @@ const transform = (data) => {
           item.text = "https://www.noon.com" + item.text;
         });
       }
-
       if (row.id) {
         row.id.forEach(item => {
           var idArr=item.text.split('/p?');
@@ -19,10 +18,8 @@ const transform = (data) => {
           item.text=idArr1[idArr1.length-1];
         });
       }
-
-      }
+    }
   }
   return data;
 };
-
 module.exports = { transform };
