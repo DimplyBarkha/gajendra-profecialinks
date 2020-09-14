@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'product-list')]/div/ol/li
+fields:
+  - name: id
+    xpath: //@data-product-id
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //span[contains(@class,'product name product-item__name')]/a/@href
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //span[contains(@class,'product-image-wrapper')]/img/@src
+  - name: name
+    description: The product name
+    xpath: //span[contains(@class,'product name product-item__name')]
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRating2
+    description: The stated aggregate rating
+  - name: aggregateRating
+    description: The stated aggregate rating
+  - name: ratingCount
+    description: The number of ratings
+  - name: reviewCount
+    description: The number of reviews
+  - name: price
+    description: The offered price for the product
+    xpath: //@data-price-amount
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+    defaultValue: false
