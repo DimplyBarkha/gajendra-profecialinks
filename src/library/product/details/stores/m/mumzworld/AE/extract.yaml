@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class='product_infotop']/@data-sku    
   - name: image
     singleValue: false
-    xpath: //a[@class='cloudZoom']/@href
+    xpath: //div[contains(@class,'product-img-box')]//p[contains(@class,'product-image')]//a/@href
   - name: imageAlt
     singleValue: false
     xpath: //ul[@class='bxslides']//li//a[@class='cloud-zoom-gallery']/@alt
@@ -32,7 +32,7 @@ fields:
     xpath: //div[@class='price-box']//div[@class='regular-price' or @class='special-price']
   - name: description
     singleValue: false
-    xpath: //div[@id='full-desc']//strong[contains(text(),'Description:')]/following-sibling::text()
+    xpath: //div[@id='full-desc']//div[@class='col-sm-6'][1]
   - name: brandText
     singleValue: false
     xpath: //div[@class='product_logo mbot12']//a
