@@ -126,7 +126,7 @@ async function implementation (
     addHiddenDiv('shippingInfo', shippingInfo);
 
     if (document.getElementById('wc-power-page')) {
-      console.log('hasManufacturerInfo1', document.getElementById('wc-power-page').innerText);
+      console.log('hasManufacturerInfo', document.getElementById('wc-power-page').innerText);
       addHiddenDiv('manufacturerDescription', document.getElementById('wc-power-page').innerText);
     }
 
