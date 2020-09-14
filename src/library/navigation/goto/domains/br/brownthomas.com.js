@@ -10,9 +10,9 @@ module.exports = {
   },
   implementation: async ({ url }, { country, domain, timeout }, context, dependencies) => {
     await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
-    const newUrl = await context.evaluate(function ( url ) {
+    const newUrl = await context.evaluate(function (url) {
       const isSelector = document.querySelector('div[id="primary"] div.slot-panels-container div.asset:nth-last-child(1) a.asset-link');
-      if ( isSelector ) {
+      if (isSelector) {
         return 'https://www.brownthomas.com/brands/dyson/shop-all/';
       }
     }, url);
