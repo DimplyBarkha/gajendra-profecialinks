@@ -20,7 +20,6 @@ const transform = (data) => {
       }
 
       if (row.shippingWeight) {
-        const text = '';
         row.shippingWeight.forEach(item => {
           const value = item.text.replace(/\r\n|\r|\n/g, ' ');
           item.text = value;
