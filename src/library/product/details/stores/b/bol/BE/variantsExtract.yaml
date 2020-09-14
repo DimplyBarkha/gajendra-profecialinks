@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    xpath: //div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href
+    regExp: \/(\d+)\/
+    regExpReplace: $1
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href
+    regExp: (.+)
+    regExpReplace: https:bol.com$1
