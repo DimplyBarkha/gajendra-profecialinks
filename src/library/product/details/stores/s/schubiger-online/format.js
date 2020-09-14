@@ -60,6 +60,10 @@ const transform = (data) => {
       } else {
         row.technicalInformationPdfPresent = [{ text: 'No' }];
       }
+
+      if (row.name) {
+        row.nameExtended = [{ text: row.name[0].text }];
+      }
     }
   }
   return data;

@@ -71,8 +71,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       const extraProductSelector = document.querySelector('div[class*="accordion__item"] div[class*="detail__wrapper"]');
       if (extraProductSelector) {
         extraProductSelector.remove();
+        await new Promise((resolve) => setTimeout(resolve, 4000));
         const infoTabSelector = document.querySelectorAll('div[class*="accordion__item"] div[class*="accordion__item-head"]');
         for (let i = 1; i < infoTabSelector.length; i++) {
+          console.log('Opening tech details tab');
           const infoTab = infoTabSelector[i];
           infoTab && infoTab.click();
         }
