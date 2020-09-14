@@ -36,6 +36,8 @@ module.exports.implementation = async function implementation (
         BE: { lang: 'nl' },
         CH: { lang: 'de' },
         AT: { lang: 'de' },
+        NO: { lang: 'nb' },
+        SE: { lang: 'sv' },
       };
       return map[country] && map[country][type] ? map[country][type] : country.toLowerCase();
     };
@@ -52,6 +54,8 @@ module.exports.implementation = async function implementation (
     }).then(r => r.json());
 
     if (!searchResults.products) return;
+
+    console.log(searchResults)
 
     searchResults.products.forEach((category) => {
       const brand = category.name ? category.name.split('™')[0] : '';
