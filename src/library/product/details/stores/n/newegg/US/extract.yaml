@@ -17,7 +17,7 @@ fields:
     manualSelector: div.wc-fragment > h2
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="objImages"]//ul/li/a[contains(@class, "noLine")]//img/@src
+    manualSelector: div#alternate-images
     regExp: ([^()]+)
     regExpReplace: https:$1
   - name: metaKeywords
@@ -85,11 +85,11 @@ fields:
     xpath: //div[@class="quick-info"]//ul//li[contains(text(), "year")]
   - name: name
     singleValue: false
-    xpath: //*[@id="grpDescrip_0NW-00AC-00043"]
+    xpath: //h1[contains(@id, 'grpDescrip_h')]
   - name: largeImageCount
     singleValue: false
     xpath: //div[@class="objImages"]//ul/li/a[contains(@class, "noLine")]//img/@src
-  - name: firstVariant
+  - name: variantId
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
     regExp: sku":"([^"]+)
@@ -105,9 +105,6 @@ fields:
     xpath: //script[contains(@type,"text/javascript")][contains(text(),"code")]
     regExp: code":"([^"]+)
     regExpReplace: $1
-  - name: promotion
-    singleValue: false
-    xpath: //div[@id="landingpage-topshipping"]//span
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,'grpRating')]//i/@title
@@ -116,11 +113,23 @@ fields:
     xpath: //div[contains(@class,'grpRating')]//span[3]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class,'wc-reset')]//li//img/@src
+    xpath: //article[contains(@class, 'a_plus_content')]//img/@src | //div[contains(@class,'wc-reset')]//li//img/@src
+    regExp: ([^()]+)
+    regExpReplace: https:$1
   - name: manufacturerDescription
-    singleeValue: false
-    xpath: //div[contains(@class,'wc-reset')]//li
-  - name: variantId
-    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    regExp: sku":"([^"]+)
+    singleValue: false
+    manualSelector: article.a_plus_content,div.wc-reset
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: mpc
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"mpn")]
+    regExp: mpn":"([^"]+)
     regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
+    xpath: (//div[@class="featured-seller"]//span)[4]
+  - name: videos
+    singleValue: false
+    manualSelector: div#video-url

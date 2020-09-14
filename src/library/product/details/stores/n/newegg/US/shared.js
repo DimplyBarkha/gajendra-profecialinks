@@ -34,21 +34,24 @@ const transform = (data) => {
           text: text.trim(),
         }];
       }
-      if (row.largeImageCount) {
+      if (row.alternateImages) {
+        var altImages = row.alternateImages[0].text.split(',');
+        row.alternateImages = [];
+        altImages.forEach((ele) => {
+          var temp = {};
+          temp.text = ele.replace('CompressAll', '');
+          row.alternateImages.push(temp);
+        });
+        if (row.alternateImages[0].text === row.image[0].text) {
+          row.alternateImages.shift();
+        }
+      }
+      if (row.largeImageCount && row.alternateImages) {
         row.largeImageCount = [
           {
             text: row.alternateImages.length,
           },
         ];
-      }
-      if (row.alternateImages) {
-        row.alternateImages = row.alternateImages.map((ele) => {
-          ele.text = ele.text.replace('CompressAll35', '');
-          return ele;
-        });
-        if (row.alternateImages[0].text === row.image[0].text) {
-          row.alternateImages.shift();
-        }
       }
       if (row.specifications) {
         let text = '';
@@ -68,12 +71,6 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.nameExtended) {
-        var name = '';
-        name = row.brandText ? row.brandText[0].text + ' - ' + row.nameExtended[0].text : row.nameExtended[0].text;
-        name = row.color ? name + ' - ' + row.color[0].text : text;
-        row.nameExtended[0].text = name.trim();
-      }
       if (row.Image360Present) {
         var imagesVal = row.Image360Present[0].text === 'No' ? row.Image360Present[0].text : 'Yes';
         row.Image360Present = [
@@ -89,10 +86,23 @@ const transform = (data) => {
         row.availabilityText[0].text = row.availabilityText[0].text.includes('In stock') ? 'In Stock' : row.availabilityText[0].text;
       }
       if (row.manufacturerDescription) {
-        row.manufacturerDescription = row.manufacturerDescription.map((ele) => {
-          ele.text = ele.text.replace(/\n/g, '');
-          return ele;
+        var manuDesc = '';
+        var flag = false;
+        row.manufacturerDescription.forEach((ele) => {
+          if (ele.text.includes('{\"duration\"')) {
+            flag = true;
+          } else {
+            manuDesc += '' + ele.text.replace(/\n/g, '');
+          }
         });
+        if (flag) {
+          delete row.manufacturerDescription;
+        } else {
+          row.manufacturerDescription = [
+            {
+              text: manuDesc.trim(),
+            }];
+        }
       }
     }
   }
