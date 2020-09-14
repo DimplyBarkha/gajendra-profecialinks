@@ -38,11 +38,17 @@ const transform = (data) => {
         }
 
         if(row.shippingInfo) {
-            row.shippingInfo[0].text = cleanUp(row.shippingInfo[0].text);
+          row.shippingInfo[0].text = cleanUp(row.shippingInfo[0].text);
         }
 
         if(row.ratingCount) {
-            row.ratingCount[0].text = cleanUp(row.ratingCount[0].text.replace(/[^\d]/gm, ''));
+          row.ratingCount[0].text = cleanUp(row.ratingCount[0].text.replace(/[^\d]/gm, ''));
+        }
+
+        if(row.countryOfOrigin) {
+          let [ text ] = row.countryOfOrigin;
+          text = text.text.split(' ').pop();
+          row.countryOfOrigin[0].text = text;
         }
       }
     }

@@ -48,9 +48,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="review-top-section"]//p[@class="review-summary__info"]/span/strong
-  - name: shippingInfo
-    singleValue: false
-    xpath: //table[@class="delivery-results"]/tbody
   - name: videos
     singleValue: false
     xpath: //div[@class="video-wrapper"]//img/@data-src
@@ -65,7 +62,10 @@ fields:
     regExpReplace: $1
   - name: sku
     singleValue: false
-    xpath: //section[@class="product-main ssModified"]/meta[@itemprop="productID"]/@content
+    xpath: meta[@itemprop="sku"]/@content
+  - name: rpc
+    singleValue: false
+    xpath: meta[@itemprop="sku"]/@content
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@itemprop="description"]/div/ul/li | //div[@itemprop="description"]/ul/li
@@ -90,3 +90,9 @@ fields:
   - name: warranty
     singleValue: false
     xpath: //div[@itemprop="description"]/p[contains(text(), "guarantee") or contains(text(), "warranty")] | //div[@itemprop="description"]/ul/li[contains(text(), "guarantee") or contains(text(), "warranty")]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@itemprop="description"]/ul/li[contains(text(), 'Made in')]
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
