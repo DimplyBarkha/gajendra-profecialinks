@@ -39,7 +39,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@class="product-info-wrapper js-comp"]//h2[@class="product-description"],//div[@data-target="description"]//div[@id="marketing-content"])
+    xpath: concat(//div[@class="product-info-wrapper js-comp"]//h2[@class="product-description"]," ",//div[@data-target="description"]//div[@id="marketing-content"])
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
