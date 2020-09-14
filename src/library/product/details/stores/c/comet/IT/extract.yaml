@@ -1,0 +1,117 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'img__img-big')]//img[1]/@src
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'img__img-big')]//img[1]/@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'img__img-big')]//img[position()>1]/@src
+    description: Other product images (not in manufacturer description)
+  - name: category
+    singleValue: false
+    xpath: //section[contains(@class,'breadcrumb')]//li[position()>1 and position()<last()]
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    xpath: //h1[contains(@class,'prodotto__info') and contains(@class,'title')]
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    description: The stated undiscounted price for the product
+  - name: price
+    xpath: //div[contains(@class,'prodotto__info')]//span[contains(@class,'caption__price')]
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[contains(@class,'caption__availability')]
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //div[contains(@id,'ii_desc')] 
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class,'scheda-prodotto__info')]//li)
+    description: Number of ul > li tags in the description
+  - name: brandText
+    xpath: //script/@data-flix-brand
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: weightNet
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso') and not(contains(.,'imballo'))]/following-sibling::td
+    description: Net weight as described on the page
+  - name: weightGross
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso dell')]/following-sibling::td
+    description: Gross weight as described on the page
+  - name: gtin
+    xpath: //script/@data-flix-ean
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    xpath: //div[@id='ii_sku']
+    description: The store-specific product identifier
+  - name: variantId
+    xpath: //div[@id='ii_sku']
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    xpath: //div[contains(@class,'row')]//p[contains(.,'Modello:')]
+    description: The manufacturer model code (unique) of the product
+  - name: ratingCount
+    xpath: //div[contains(@id,'ii_review')]
+    description: The number of ratings
+  - name: aggregateRating 
+    xpath: //div[contains(@id,'ii_rating')]
+    description: The stated aggregate rating normalized to be out of 5
+  - name: shippingDimensions
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Larghezza imballo') or contains(.,'Profondità imballo') or contains(.,'Altezza imballo') ]/following-sibling::td
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso dell') and contains(.,'imballo') ]/following-sibling::td
+    description: Stated shipping weight
+  - name: color
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Colore')]/following-sibling::td
+    description: A textual description of the colour
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@id,'inpage_container')]
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@id,'inpage_container')]//img/@srcset
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,'fullJwPlayerWarp') and contains(@class,'fullPlaylist')]/input/@value
+    description: URLs of videos on page
+  - name: name
+    xpath: //h1[contains(@class,'prodotto__info') and contains(@class,'title')]
+    description: The product names
+  - name: variantCount
+    description: Number of variants listed
+    defaultValue: '0'
+  - name: specifications
+    xpath: //div[@id='ii_spec']
+    description: The physical dimensions of the product including packaging.
+  - name: countryOfOrigin
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Paese di origine')]/following-sibling::td
+    description: The country from which the product originates
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+    xpath: //div[contains(@class,'scheda-prodotto__info')]//li
+
+
+
+    
