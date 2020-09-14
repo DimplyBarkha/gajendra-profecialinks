@@ -22,6 +22,7 @@ const transform = (data) => {
           row.variantId.forEach(item => {
               item.text = item.text.replace(/\?.*$/g, '').trim();
               item.text = item.text.replace(/\D/g, ' ').trim();
+              item.text = item.text.replace(/\s/g, '').trim();
               item.text = item.text.toString();
             });
         }
@@ -36,12 +37,13 @@ const transform = (data) => {
        if (row.id) {
         row.id.forEach(item => {
             item.text = item.text.replace(/\?.*$/g, '').trim();
-            item.text = item.text.replace(/\D/g, ' ').trim();
+            item.text = item.text.replace(/\D/g, '').trim();
+            item.text = item.text.replace(/\s/g, '').trim();
             item.text = item.text.toString();
-         });
-        }        
-      } 
-    }
-    return data;
-  };
- module.exports = { transform };
+          });
+      }
+    } 
+  }
+  return data;
+};
+module.exports = { transform };
