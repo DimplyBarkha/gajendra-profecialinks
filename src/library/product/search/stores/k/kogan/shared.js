@@ -21,12 +21,43 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
-    for (const row of group) {
+    for (const row of group) {      
+      var test =row.id;
+      // console.log("startIdx :-" , row.id.indexOf('('));
+      // console.log("startIdx :-" , row.id.indexOf(')'));
+      // const startIdx = row.id.indexOf('(');
+      // const endIdx = test.indexOf(')');
+      //  console.log(startIdx);
+      // console.log(endIdx);  
 
-      var test =row.id.slice(59);
-      var test1 = test.toString().substring(0, test.length-3);
+      // function to get the json data from the string
+      // function findJsonData (scriptSelector, startString, endString) {
+      //   try {
+      //     //const xpath = `//script[contains(.,'${scriptSelector}')]`;
+      //     const xpath = scriptSelector;
+      //     const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      //     const scriptContent = element.textContent;
+      //     const startIdx = scriptContent.indexOf(startString);
+      //     const endIdx = scriptContent.indexOf(endString);
+      //     let jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
+      //     jsonStr = jsonStr.trim();
+      //     return JSON.parse(jsonStr);
+      //   } catch (error) {
+      //     console.log(error.message);
+      //   }
+      // }
 
-      console.log("row data:-" , test1);
+
+       // elements from data Layer object
+      // const dataObj = findJsonData(row.id, '(', ')');
+       // Check for the data and append to DOM
+      //  console.log("print:-  ", dataObj)
+      //  if (dataObj) {
+         
+      //  }    
+
+
+
 
       rankCounter += 1;
       if (!row.sponsored) {
