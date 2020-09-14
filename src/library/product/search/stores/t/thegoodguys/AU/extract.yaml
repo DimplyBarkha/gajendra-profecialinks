@@ -14,12 +14,23 @@ fields:
     xpath: //*[@class="product-tile-name"]
   - name: price
     singleValue: false
-    xpath: //span[@class="pricepoint-price"]
+    xpath: //span[contains(@class,"pricepoint-price")]
+    regExp: .+(\D\d+).(\d+) 
+    regExpReplace: $1,$2
+  - name: gtin
+    xpath: //*[contains(@class,"product-tile-model")]
   - name: productUrl
     xpath: //div[@class="product-tile-imagewrap"]//a[@class="disp-block"]/@href
   - name: thumbnail
-    xpath: //div[@class="product-tile-thumb"]/img[1]/@src
+    xpath: //div[@class="product-tile-thumb"]/img[1]/@data-src
+    regExp: .+(?=\?)
   - name: ratingCount
     singleValue: false
     xpath: //*[@class="reviews-stars-link"]/a
     regExp: \d+
+  - name: manufacturer
+    xpath: //*[contains(@class,"product-tile-inner")]//script
+    regExp: (?<='brand':\s')([a-zA-z\s]+)
+  - name: aggregaterating2
+    singleValue: true
+    xpath: //div[@class="rating"]
