@@ -58,11 +58,23 @@ const transform = (data) => {
         row.shippingInfo[0].text = row.shippingInfo[0].text.replace('Verkoop door:', '')
       }
 
-      if (!row.shippingDimensions && row.shippingDimensionsSplit) {
+      if (!row.shippingDimensions && row.shippingDimensionsSplit && row.shippingDimensionsSplit[0].text !== 'xx') {
         row.shippingDimensions = [{ text: row.shippingDimensionsSplit[0].text }];
         delete row.shippingDimensionsSplit;
       }
 
+      let specifications = '';
+      if (row.specifications && row.specTitle && row.specValue) {
+        for (let i = 0; i < row.specTitle.length; i++) {
+          specifications += `${row.specTitle[i].text} : ${row.specValue[i].text} || `;
+        }
+        specifications = specifications.substring(0,specifications.lastIndexOf('||')-1).trim();
+        row.specifications = [{ text: specifications }];
+      }
+
+      if(row.technicalInformationPdfPresent && row.technicalInformationPdfPresent[0].text === 'Bekijk de handleiding') {
+        row.technicalInformationPdfPresent = [{text: 'Yes'}]
+      }
     }
   }
 

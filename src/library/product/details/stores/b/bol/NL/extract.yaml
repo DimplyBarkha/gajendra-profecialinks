@@ -32,7 +32,7 @@ fields:
     defaultValue: 0
   - name: brandText
     xpath: //div[@data-test = 'brand']/a
-  - name: grossWeight
+  - name: weightGross
     xpath: //dt[contains(., 'Gewicht')]//following-sibling::dd[1]
   - name: gtin
     xpath: //script[@type='application/ld+json' and contains(., '"@id":"https://www.bol.com/')]
@@ -61,7 +61,7 @@ fields:
   - name: variantCount
     xpath: count(//div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href)
   - name: color
-    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title | //div[@class='feature-list__item feature-list__item--current']/div[@class='feature-list__text']fsk
+    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title | //div[@class='feature-list__item feature-list__item--current']/div[@class='feature-list__text']
   - name: name
     xpath: //h1[@class='page-heading']
   - name: videos
@@ -69,11 +69,15 @@ fields:
   - name : lbb
     defaultValue: No
   - name : specifications
-    xpath: //div[@data-test='specifications']/*[not(contains(@class, 'show-more__fade'))]
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl
+  - name: specTitle
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dt/text()
+  - name: specValue
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dd
   - name: warranty
-    xpath: //dt[@class='specs__title' and contains(., 'garantie')]/following-sibling::dd[1] 
-  - name: productOtherInformation
-    xpath: //ul[@class='pros-cons-list']/li
+    xpath: //dt[@class='specs__title' and contains(., 'garantie') and not(contains(., 'Taal garantiebewijs'))]/following-sibling::dd[1] 
+  # - name: productOtherInformation
+  #   xpath: //ul[@class='pros-cons-list']/li
   - name: promotion
     xpath: //div[@data-test='discount']
   - name: variantInfo
@@ -89,7 +93,7 @@ fields:
   - name: additionalDescriptionBulletInfo
     xpath: //div[@data-test='description']//ul/li
   - name: technicalInformationPdfPresent
-    xpath: //a[@class='product-warning__link']
+    xpath: //a[@class='product-warning__lidnk']
     defaultValue: NO
     regExp: (.+)
     reExpReplace: Yes
