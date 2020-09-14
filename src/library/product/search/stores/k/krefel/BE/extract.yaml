@@ -27,7 +27,7 @@ fields:
     regExpReplace: $1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //img[@class='product-image']
+    xpath: //div[contains(@class, 'col-md-4')]/@img_src
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER

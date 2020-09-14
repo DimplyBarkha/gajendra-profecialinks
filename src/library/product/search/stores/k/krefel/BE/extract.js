@@ -9,13 +9,15 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    const hoverDivs = await context.evaluate(async function (y) {
-      const allProducts = document.querySelectorAll('div[class^="col-md-4"]');
-      hoverDivs[y].setAttribute('abc', `${y}`);
-      return allProducts;
-    });
-    for (let y = 1; hoverDivs.length <= y; y++) {
-      hoverDivs;
+    const numberOfDivs = await context.evaluate(() => document.querySelectorAll('div[class^="col-md-4"]').length);
+    let y = 1;
+    let z = 1;
+    for (y; numberOfDivs >= y; y++) {
+      await context.hover(`section[class="products-overview tile"] > div[class="row"] > div:nth-child(${y})`);
+      await context.evaluate(async function (z) {
+        const img = document.evaluate(`//div[contains(@class, 'col-md-4')][${z}]//img[@class='product-image']/@src`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        document.querySelector(`section[class="products-overview tile"] > div[class="row"] > div:nth-child(${z})`).setAttribute('img_src', img);
+      }, z++);
     }
     await context.evaluate(async function () {
       const allProducts = document.querySelectorAll('div[class^="col-md-4"]');
