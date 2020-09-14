@@ -102,31 +102,33 @@ const transform = (data) => {
           });          
           row.productOtherInformation = [{'text':info.join(' || '),'xpath':row.productOtherInformation[0].xpath}];          
         }
-
+        
         if (row.variants) {
             let variations = [];
             let variant_info = [];
             row.variants.forEach(item => {
-                let data = JSON.parse(item.text);
+                let data = JSON.parse(item.text);                
                 if(data['aspects']){                    
-                    data['aspects'].forEach(variation => {                      
-                      variation['variants'].forEach(variants_data => {
-                        var link_data = variants_data['link'];
-                        var matches = /.+\/(\d+)\//isg.exec(link_data);
-                        var matches1 = /.+-(\d+)\//isg.exec(link_data);
-                        if (matches){
-                          link_data = matches[1];
-                        }
-                        else if(matches1){
-                          link_data = matches1[1];
-                        }                        
-                        if (!variations.includes(link_data)) {
-                          variations.push(link_data);
-                        }
-                        if (variation['type'] == 'apparelPics' || variation['type'] == 'colors')  {
-                          variant_info.push(variants_data['data']['textRs'][0]['content']);
-                        }
-                      });
+                    data['aspects'].forEach(variation => {
+                      if (variation['variants'] != null) {
+                        variation['variants'].forEach(variants_data => {
+                          var link_data = variants_data['link'];
+                          var matches = /.+\/(\d+)\//isg.exec(link_data);
+                          var matches1 = /.+-(\d+)\//isg.exec(link_data);
+                          if (matches){
+                            link_data = matches[1];
+                          }
+                          else if(matches1){
+                            link_data = matches1[1];
+                          }                        
+                          if (!variations.includes(link_data)) {
+                            variations.push(link_data);
+                          }
+                          if (variation['type'] == 'apparelPics' || variation['type'] == 'colors')  {
+                            variant_info.push(variants_data['data']['textRs'][0]['content']);
+                          }
+                        });
+                      }
                     });
                 }
                 
@@ -141,6 +143,7 @@ const transform = (data) => {
                 delete row.variants;
             }          
         }
+        
                
       }
     }
