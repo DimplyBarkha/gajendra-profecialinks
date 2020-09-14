@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"product-list-box card desktop-cart")]
+recordXPath: /html/body/table/tbody/tr
 fields:
   - name: paid
     description: Whether this is a sponsored/paid result
@@ -14,15 +14,13 @@ fields:
     example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
   - name: productUrl
     description: The URL for the product details page
-    xpath: //*[@class="product-list-box card desktop-cart"]//a[@target="_blank"]//@href
-    regExp: (.*)
-    regExpReplace: https://www.nykaa.com$1
+    xpath: //td[contains(@class,"product_url ")]
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //*[@class="card-img"]//img/@src
+    xpath: //td[contains(@class,"image_url")]
   - name: name
     description: The product name
-    xpath: //h2/span
+    xpath: //td[@class="products depth_1"]//td[@class="name depth_2"]
   - name: sku
     description: The store-specific product identifier
   - name: mpc
@@ -35,16 +33,13 @@ fields:
     description: The number of ratings
   - name: reviewCount
     description: The number of reviews
-    xpath: //*[@class="m-content__product-list__ratings"]
-    regExp: (\d+)
+    xpath: //td[contains(@class,"rating_count ")]
   - name: price
     description: The offered price for the 
-    xpath: //div[@class="price-info"]//span[2]
-    regExp: (\d+)
+    xpath: //td[contains(@class,"final_price ")]
   - name: listPrice
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class,"price-info")]//span[contains(@class,"mrp-price")]
-    regExp: (\d+)
+    xpath: //td[@class="price depth_2"]
   - name: manufacturer
     description: Product manufacturer
   - name: soldBy
@@ -66,9 +61,7 @@ fields:
 #  Should these be source specific formulas or in the extractor? 
   - name: id
     description: Unique id (within this extractor)
-    xpath: //*[@class="product-list-box card desktop-cart"]//a[@target="_blank"]//@href
-    regExp: (.+)(skuId=)(\d+)(&)(.+)
-    regExpReplace: $3
+    xpath: //td[contains(@class,"products ")]//td[contains(@class,"parent_id ")]
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating

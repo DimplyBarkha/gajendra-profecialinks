@@ -6,7 +6,7 @@ module.exports = {
     store: 'nykaa',
     domain: 'nykaa.com',
     url: "https://www.nykaa.com/search/result/?q={searchTerms}",
-    loadedSelector: 'div[class="main-product-listing-page"]',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
