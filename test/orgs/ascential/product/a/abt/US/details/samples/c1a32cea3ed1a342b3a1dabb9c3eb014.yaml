@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/133866/Dyson-V11-Torque-Drive-Nickel-And-Blue-Cordless-Vacuum-26873101.html
 extractions:
-  - html: https://workbench.import.io/html/run=f8e373c2-76ae-4d30-b8fa-36d95267af38/task=53d95a3e-0391-4e8b-80ae-a6727d0489b3/c7f29fe4-232e-4b08-849e-020bf005651b.html
+  - html: https://workbench.import.io/html/run=30889302-eb14-4566-b880-0e0ca80f9b4c/task=4ecc4dde-a016-4161-bf34-35b124effe53/4f3e6c11-ffb2-4280-a529-431e28816e54.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -38,68 +38,17 @@ extractions:
             nameExtended:
               - text: Dyson V11 Torque Drive Nickel And Blue Cordless Vacuum - 268731-01
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[1]/div[1]/h1[1]
-            listPrice:
-              - text: $699.00
-                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+                xpath: /html/body/div[17]
             description:
-              - text: "Key Features Powerful Cleaning On Floors And Carpets Dyson Technology
-                  Helps Create A Cleaner, Healthier Home Intelligently Reports
-                  In Real Time The Right Cleaning Mode For The Right Task
-                  Integrated Power Management System Drop-In Docking Powered By
-                  The Dyson Digital Motor V11 Fade-Free Power 14 Cyclones
-                  Whole-Machine Filtration Acoustically Engineered Nickel Torque
-                  Drive Cleaner Head 0.2 Gallon Bin Volume Nickel And Blue
-                  Finish Vacuum Buying Guide Dyson V11 Torque Drive Nickel And
-                  Blue Cordless Vacuum - 268731-01 Intelligently optimizes
-                  suction and run time. Deep cleans everywhere. Features:
-                  Features Powerful cleaning on floors and carpets An integrated
-                  digital motor spins the brush bar up to 60 times a second. It
-                  drives stiff nylon bristles deep into carpet to remove dirt,
-                  and carbon fiber filaments capture fine dust on hard floors.
-                  Dyson technology helps create a cleaner, healthier home Our
-                  vacuums and purifiers are scientifically proven to capture
-                  particles as small as allergens and bacteria. Intelligently
-                  reports in real time Monitors system performance 8,000 times a
-                  second, then reports in real time on the LCD screen. The right
-                  cleaning mode for the right task Three cleaning modes
-                  optimized for a variety of tasks. The right balance of power
-                  and run time, where you need it. Integrated power management
-                  system Dyson's battery technology and battery-saving trigger
-                  help to provide our longest run time by only using power when
-                  you need it. 'Point and shoot' hygienic bin emptying The
-                  'point and shoot' mechanism hygienically ejects dust and
-                  debris deep into your bin, in one action – so there's no need
-                  to touch the dirt. Drop-in docking The Dyson V11™ vacuum drops
-                  into the wall-mounted dock, to charge it and tidily store
-                  tools. So it's ready to grab and go. Technology Powered by the
-                  Dyson digital motor V11 Twice the suction of any cord-free
-                  vacuum. Tested at the cleaner head to ASTM F558, dust loaded.
-                  Fade-free power The seven-cell nickel-cobalt-aluminum battery
-                  has the fade-free power to clean here, there and everywhere
-                  around your home. 14 cyclones 14 cyclones generate forces of
-                  more than 79,000g to fling microscopic particles – such as
-                  pollen and bacteria – into the bin. Whole-machine filtration
-                  The fully-sealed filtration system traps 99.97% of particles
-                  as small as 0.3 microns – expelling cleaner air. Acoustically
-                  engineered Designed to absorb vibrations and dampen noise, to
-                  keep sound levels down. In-line configuration The motor, bin
-                  and cyclone are aligned, so air is drawn into the cyclones in
-                  a straight line – helping to create powerful Dyson suction.
-                  Specifications: Cleaner head: Nickel Torque Drive Cyclone
-                  technology: 14 concentric cyclones Filtration: Advanced
-                  whole-machine filtration Charge time: 4.5 hrs Bin volume: 0.2
-                  gallon Run time: Up to 60** mins In the Box: Dyson V11 Torque
-                  Drive (Nickel/Blue) Nickel Torque Drive Mini Motorized tool
-                  Combination tool Crevice tool Mini soft dusting brush Stubborn
-                  dirt brush Docking station Charger Approximate Dimensions:
-                  Height: 10.28\" Width: 9.84\" Length: 50.63\" Approximate
-                  Weight: Unit: 6.68 lbs Shipping: 12.63 lbs Warranty
-                  Information: Manufacturer Warranty (authorized online
-                  retailer): 2 Years Parts and Labor California customers:
-                  Proposition 65 WARNING SHOW MORE"
+              - text: Dyson V11 Torque Drive Nickel And Blue Cordless Vacuum - 268731-01
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/h2[1]
+              - text: Intelligently optimizes suction and run time. Deep cleans everywhere.
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/p[1]
+              - text: Color Blue|Type Handheld|Bagless Yes|Cordless Yes|Flooring Multi|Powered
+                  Head Yes|Hand Tool Yes|Pets No|Steam Cleaner No|Wet / Dry
+                  Surfaces No|Product Weight 6.68|
                 xpath: /html/body/div[15]
             brandText:
               - text: Dyson
@@ -107,12 +56,12 @@ extractions:
             manufacturer:
               - text: Dyson
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/div[1]/meta[1]/@content
-            quantity:
-              - text: "1"
-                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/input[7]/@value
             weightNet:
               - text: 6.68 lbs
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[6]/li[1]/text()[1]
+            weightGross:
+              - text: 12.63 lbs
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[6]/li[2]/text()[1]
             gtin:
               - text: "885609016238"
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[2]/span[1]
@@ -120,6 +69,9 @@ extractions:
               - text: "885609016238"
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[2]/span[1]
             sku:
+              - text: 268731-01
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/meta[7]/@content
+            variantId:
               - text: 268731-01
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/meta[7]/@content
             mpc:
@@ -143,15 +95,14 @@ extractions:
                 locale: en
                 value: 4.7
             shippingInfo:
-              - text: FREE SHIPPING & FREE RETURNS Same Day Delivery Available Sep 9th Sold by
-                  abt.com
-                xpath: /html/body/div[16]
+              - text: Ships from and sold by abt.com
+                xpath: /html/body/div[18]
             shippingWeight:
               - text: 12.63 lbs
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[6]/li[2]/text()[1]
             color:
               - text: Blue
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[19]
             manufacturerDescription:
               - text: From the Manufacturer|Powered byIs the information in this section
                   helpful? Yes / No360° Spin Healthier Home 360 View The Dyson
@@ -183,7 +134,7 @@ extractions:
                   Drive cleaner headMini Motorized ToolCrevice ToolStubborn dirt
                   brushSoft dusting brushCombination toolWand Storage ClipWall
                   Dock
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[21]
             manufacturerImages:
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1588961537326_775b2c8b-f854-4248-a368-5ac501e6d29b/module/dysonus/_cp/products/1552515224667/tab-d688dd45-e15a-4ff5-afef-f486c0acf29a/578f137100214f4589223833fe73adb7.jpg.w1920.jpg
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
@@ -239,22 +190,139 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[10]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/img[1]/@src
             videos:
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1588961537326_775b2c8b-f854-4248-a368-5ac501e6d29b/module/dysonus//_cp/products/1552515224667/tab-e83a720c-1e70-47de-8147-c2a2ea70553e/e0ec5a087c2d45f9b5c1911ea3d34708.mp4.mp4full.mp4
-                xpath: /html/body/div[21]
-              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1588961537326_775b2c8b-f854-4248-a368-5ac501e6d29b/module/dysonus//_cp/products/1552515224667/tab-70093ba6-98e8-456f-9057-983afd8f17de/d67f375c1d934baf9431dd865f3212ab.mp4.mp4full.mp4
                 xpath: /html/body/div[22]
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1588961537326_775b2c8b-f854-4248-a368-5ac501e6d29b/module/dysonus//_cp/products/1552515224667/tab-70093ba6-98e8-456f-9057-983afd8f17de/d67f375c1d934baf9431dd865f3212ab.mp4.mp4full.mp4
+                xpath: /html/body/div[23]
+              - text: https://www.youtube.com/watch?v=er1ooq10_n8
+                xpath: /html/body/div[24]
+              - text: https://www.youtube.com/watch?v=_G-E0uZleDk
+                xpath: /html/body/div[25]
             name:
-              - text: Dyson V11 Torque Drive Nickel And Blue Cordless Vacuum
-                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[1]/div[1]/h1[1]/span[1]
-            specifications:
-              - text: 'Height: 10.28" Width: 9.84" Length: 50.63"'
-                xpath: /html/body/div[18]
+              - text: Dyson V11 Torque Drive Nickel And Blue Cordless Vacuum - 268731-01
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[1]/div[1]/h1[1]
             warranty:
               - text: "Manufacturer Warranty (authorized online retailer): 2 Years Parts and
                   Labor"
                 xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[7]
+            productOtherInformation:
+              - text: Questions & Answers−
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[5]/a[1]/h2[1]
+              - text: >-
+                  0
+                   
+                  I cleaned the upper filter and now I can not get it to charge can you help me?
+                   
+                  Mr. B Jun 15, 2020 
+                   
+
+                   
+                  Best Answer: Make sure the filter is completely dry before putting back. Recommended 24 hr air dry. If not it can potentially stop your vacuum from working and damage your motor. The second thing is make sure the filter is twisted on all the way. If not secured all the way, it will not work.
+                   
+                  Alex Z. staff Jun 17, 2020 Reply Inaccurate 
+                   
+                   Reply
+                   Inaccurate
+                   
+                   
+                   
+                   See 2 answers Answer
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[5]/div[1]/div[1]/div[3]/div[2]/div[1]
+              - text: >-
+                  0
+                   
+                  I have hard floors and I don’t want brushes spinning. Can you just have suction on?
+                   
+                  Rich C. Aug 27, 2020 
+                   
+
+                   
+                  Best Answer: No unfortunately you will not be able to shut off the roller brush.
+                   
+                  Alex Z. staff Sep 4, 2020 Reply Inaccurate 
+                   
+                   Reply
+                   Inaccurate
+                   
+                   
+                   
+                   Answer
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[5]/div[1]/div[1]/div[3]/div[2]/div[2]
+              - text: >-
+                  0
+                   
+                  do you need an electrical outlet for the docking station to charge the battery?
+                   
+                  Kathy B. Jul 29, 2020 
+                   
+
+                   
+                  Best Answer: Yes
+                   
+                  Alex Z. staff Jul 31, 2020 Reply Inaccurate 
+                   
+                   Reply
+                   Inaccurate
+                   
+                   
+                   
+                   Answer
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[5]/div[1]/div[1]/div[3]/div[2]/div[3]
+              - text: >-
+                  0
+                   
+                  Does the power switch have to be pressed continuously?
+                   
+                  Philip T. Dec 13, 2019 
+                   
+
+                   
+                  Best Answer: Yes, you have to hold the power button while you are using the machine
+                   
+                  Karen S. expert Dec 14, 2019 Reply Inaccurate 
+                   
+                   Reply
+                   Inaccurate
+                   
+                   
+                   
+                   Answer
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[5]/div[1]/div[1]/div[3]/div[2]/div[4]
+              - text: >-
+                  0
+                   
+                  What's the difference between this V11 model and the V11 Animal?
+                   
+                  Terri M. Dec 3, 2019 
+                   
+                   
+                   Dyson V11 Animal Cordless Vacuum - 332037-01
+
+                   
+
+                   
+                  Best Answer: Hello, thank for your question. Both units are similar in features, but the model V11TORQUE does have a low battery indicator on the unit. Have a great day!
+                   
+                  Jose A. expert Dec 10, 2019 Reply Inaccurate 
+                   
+                   Reply
+                   Inaccurate
+                   
+                   
+                   
+                   Answer
+                xpath: /html/body/div[3]/main[1]/div[6]/div[2]/form[1]/div[4]/ul[1]/li[5]/div[1]/div[1]/div[3]/div[2]/div[5]
+            additionalDescBulletInfo:
+              - text: Powerful Cleaning On Floors And Carpets||Dyson Technology Helps Create A
+                  Cleaner, Healthier Home||Intelligently Reports In Real
+                  Time||The Right Cleaning Mode For The Right Task||Integrated
+                  Power Management System||Drop-In Docking||Powered By The Dyson
+                  Digital Motor V11||Fade-Free Power||14 Cyclones||Whole-Machine
+                  Filtration||Acoustically Engineered||Nickel Torque Drive
+                  Cleaner Head||0.2 Gallon Bin Volume||Nickel And Blue Finish
+                xpath: /html/body/div[16]
             technicalInformationPdfPresent:
               - text: Yes
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[20]
             termsAndConditions:
               - text: No
             Image360Present:
@@ -274,4 +342,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1599655333578
+    timestamp: 1600100156861

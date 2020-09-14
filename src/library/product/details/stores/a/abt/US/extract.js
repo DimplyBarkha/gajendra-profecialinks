@@ -81,9 +81,11 @@ module.exports = {
         iframes.forEach(el =>
           addElementToDocument('video', `${el.contentDocument.querySelector('video').getAttribute('src')}`));
       };
-      const viedoContainer = document.querySelector('div#productvideocontainer script');
+      const viedoContainer = document.querySelector('div#productvideocontainer script')
+        // @ts-ignore
+        ? document.querySelector('div#productvideocontainer script').innerText : '';
       const regex = new RegExp("youtubeid:\\s'(.+)'", 'g');
-      const videoArr = viedoContainer.innerText.match(regex);
+      const videoArr = viedoContainer.match(regex);
       if (videoArr) {
         for (let i = 0; i < videoArr.length; i++) {
           const videoSrc = videoArr[i].replace(regex, '$1');

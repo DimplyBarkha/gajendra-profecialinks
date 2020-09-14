@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/136991/Dyson-Pure-Cool-White-Air-Purifier-Tower-30824701.html
 extractions:
-  - html: https://workbench.import.io/html/run=f8e373c2-76ae-4d30-b8fa-36d95267af38/task=8d90a6de-9c73-4103-8c40-898890867f1a/f7a28915-1c8f-44ce-94ef-0d6742cc93e9.html
+  - html: https://workbench.import.io/html/run=30889302-eb14-4566-b880-0e0ca80f9b4c/task=bd6d3619-255d-4073-9f24-725ab8e6283b/df8be99e-bb88-4399-a99e-817e887409eb.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://content.abt.com/image.php/big(new)-TP01.jpg?image=/images/products/BDP_Images/big(new)-TP01.jpg&canvas=1&min_w=600&min_h=400
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
             imageAlt:
-              - text: Large image of Dyson Pure+Cool White Air Purifier Tower - 308247-01
+              - text: Large image of Dyson Pure+Cool TP01 White Air Purifier Tower - 308247-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@alt
             alternateImages:
               - text: https://content.abt.com/image.php/1(new)-TP01.jpg?image=/images/products/BDP_Images/1(new)-TP01.jpg&canvas=1&quality=80&min_w=600&min_h=400
@@ -35,59 +35,37 @@ extractions:
               - text: Air Purifiers
                 xpath: /html/body/div[3]/main[1]/div[4]/div[1]/nav[1]/ul[1]/li[4]
             nameExtended:
-              - text: Dyson Pure+Cool White Air Purifier Tower - 308247-01
+              - text: Dyson Pure+Cool TP01 White Air Purifier Tower - 308247-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]
             listPrice:
-              - text: $299.00
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]
+              - text: $399.00
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[2]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[15]
             description:
-              - text: 'Key Features Air Multiplier Purifier Fan Technology Dyson Technology
-                  Helps Create A Cleaner, Healthier Home Second Generation
-                  Filter Certified Asthma And Allergy Friendly Remote Control
-                  Smooth Oscillation LED Display HEPA Filter White And Silver
-                  Finish Energy Star Rated No Air Purifier Buying Guide Dyson
-                  Pure+Cool White Air Purifier Tower - TP01 Air Multiplier™
-                  purifier fan technology projects a powerful stream of smooth,
-                  uninterrupted, purified air. Cooling tower fan when you need
-                  it. Features: Dual functionality The Dyson Pure Cool Link™
-                  tower purifier fan purifies year-round. Cooling fan in summer
-                  Dyson technology helps create a cleaner, healthier home Our
-                  vacuums and purifiers are scientifically proven to capture
-                  particles as small as allergens and bacteria Second generation
-                  filter Captures ultrafine particles from all angles, including
-                  pollen, bacteria and pet dander Air Multiplier™ technology
-                  Amplifies surrounding air, giving an uninterrupted stream of
-                  purified airflow Certified Asthma and Allergy friendly Dyson
-                  purifiers are certified asthma and allergy friendly by the
-                  Asthma and Allergy Foundation of America Parent Tested Parent
-                  Approved Awarded the PTPA seal of approval. The seal of
-                  approval families trust Remote control Curved and magnetized
-                  to store neatly on the machine Safe, and easy to clean No
-                  fast-spinning blades, or awkward grilles Smooth oscillation
-                  Projects and circulates purified air across the room
-                  Specifications: Air treatment type: Cool Airflow at max.
-                  setting: 114.7 Gal/s Amp Diameter: 4.3" Base diameter with
-                  plate: 7.7" Cord Length: 6.6 Ft. Format: Tower Color:
-                  White/Silver In The Box Dyson Pure Cool™ TP01 purifying fan
-                  Remote control Dyson Genuine Replacement Filter (TP01, TP02,
-                  BP01) #968126-03 Approximate Dimensions: Height: 40" Width:
-                  7.5" Depth: 7.7" Approximate Weight: Unit: 8.4 lbs Shipping:
-                  14 lbs Warranty Information: Manufacturer Warranty (authorized
-                  online retailer): 2 Years Parts and Labor California
-                  customers: Proposition 65 WARNING SHOW MORE'
-                xpath: /html/body/div[12]
+              - text: Dyson TP01 Pure+Cool White Air Purifier Tower
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/h2[1]
+              - text: Air Multiplier™ purifier fan technology projects a powerful stream of
+                  smooth, uninterrupted, purified air. Cooling tower fan when
+                  you need it.
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/p[1]
+              - text: Color White|Coverage (sq. ft.) 800|Type Tower Fan|Control Type
+                  Electronic|Height (inches) 40|Width (inches) 7.5|Depth
+                  (inches) 7.7|Remote Yes|
+                xpath: /html/body/div[13]
             brandText:
               - text: Dyson
                 xpath: /html/head[1]/script[5]/@data-flix-brand
             manufacturer:
               - text: Dyson
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/div[1]/meta[1]/@content
-            quantity:
-              - text: "1"
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/input[7]/@value
             weightNet:
               - text: 8.4 lbs
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[4]/li[1]/text()[1]
+            weightGross:
+              - text: 14 lbs
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[4]/li[2]/text()[1]
             gtin:
               - text: "885609010250"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[2]/span[1]
@@ -97,47 +75,143 @@ extractions:
             sku:
               - text: 308247-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/meta[7]/@content
+            variantId:
+              - text: 308247-01
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/meta[7]/@content
             mpc:
               - text: 308247-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/meta[8]/@content
             ratingCount:
-              - text: "32"
+              - text: "33"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]
                 type: NUMBER
-                raw: "32"
+                raw: "33"
                 locale: en
-                value: 32
+                value: 33
             aggregateRatingText:
-              - text: 4.1 out of 5 stars
+              - text: 4.0 out of 5 stars
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]
             aggregateRating:
-              - text: "4.1"
+              - text: "4"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
                 type: NUMBER
-                raw: "4.1"
+                raw: "4.0"
                 locale: en
-                value: 4.1
+                value: 4
+            shippingInfo:
+              - text: Ships from and sold by abt.com
+                xpath: /html/body/div[16]
             shippingWeight:
               - text: 14 lbs
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[4]/li[2]/text()[1]
             color:
               - text: White
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[17]
+            manufacturerDescription:
+              - text: From the Manufacturer|Powered byIs the information in this section
+                  helpful? Yes / NoDyson Pure Cool purifying fan Additional
+                  Information Filtration 360° filtration system uses activated
+                  carbon to remove gases and odors and a HEPA filter to capture
+                  99.97% pollutants as small as 0.3 microns.Air Multiplier
+                  Technology Amplifies surrounding air, giving an uninterrupted
+                  stream of purified airflow.Dual functionality The Dyson Pure
+                  Cool tower purifying fan purifies year-round. Cooling you when
+                  you need it.Smooth oscillation Projects and circulates
+                  purified air across the room with with your choice between 0
+                  and 70(degree symbol) oscillationMaintenance Safe and easy to
+                  clean with low maintenance, easy-to-replace filters.Remote
+                  Curved and magnetized remote stores neatly on the
+                  machine.Parent Tested Parent ApprovedAwarded the PTPA seal of
+                  approval. The seal of approval families trust.Certified Asthma
+                  and Allergy friendly Certified Asthma and Allergy friendly™ by
+                  the Asthma and Allergy Foundation of America.
+                xpath: /html/body/div[18]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-c56d08c1-20a8-ba29-2654-405d0c78bf12/0f8e090535ef4a2793eb17848ba98341.jpg.w1920.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-c56d08c1-20a8-ba29-2654-405d0c78bf12/6eb3dd09e4874750a7d4938ac562ac6d.jpg.w1920.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-c56d08c1-20a8-ba29-2654-405d0c78bf12/b71d7aec11a64c55b230e70078cef707.jpg.w1920.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-c56d08c1-20a8-ba29-2654-405d0c78bf12/27b3cdd9e89244a1bb42d4efb116d97d.jpg.w1920.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[4]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-c56d08c1-20a8-ba29-2654-405d0c78bf12/ab6e7adc0c014c1a9588c057f289f430.jpg.w1920.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[5]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-82b11ae6-c472-3beb-b5e4-e26e1c6839c2/a69af2c790c64c5589b976b0a1d21df8.jpg.w480.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-82b11ae6-c472-3beb-b5e4-e26e1c6839c2/6ce16543494a452b94dae5b9267dc654.png.w480.png
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-82b11ae6-c472-3beb-b5e4-e26e1c6839c2/bfed44bc7b60404fb252a88c55ce3883.png.w480.png
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-82b11ae6-c472-3beb-b5e4-e26e1c6839c2/79e447b32bd64b0c92b21ed12dda707d.png.w480.png
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-82b11ae6-c472-3beb-b5e4-e26e1c6839c2/66e62998c7c442f4a798eebe57026079.jpg.w480.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-82b11ae6-c472-3beb-b5e4-e26e1c6839c2/725c9190a9924f7d97f1f351e0a31f71.jpg.w480.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-82b11ae6-c472-3beb-b5e4-e26e1c6839c2/c1ce1ff3ef244f87b5a99ed770b74d0b.jpg.w480.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1591298899589_bd784bc6-098d-4bf4-8a87-2f8a867d2b74/module/ovjthxnphtjuooybiekyelxnd/_cp/products/1589405346464/tab-82b11ae6-c472-3beb-b5e4-e26e1c6839c2/2479dd90e1504ebd99a7821faa9bf7fe.jpg.w480.jpg
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[1]/img[1]/@src
             name:
-              - text: Dyson Pure+Cool White Air Purifier Tower
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]/span[1]
-            specifications:
-              - text: 'Height: 40" Width: 7.5" Depth: 7.7"'
-                xpath: /html/body/div[14]
+              - text: Dyson Pure+Cool TP01 White Air Purifier Tower - 308247-01
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]
             warranty:
               - text: "Manufacturer Warranty (authorized online retailer): 2 Years Parts and
                   Labor"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/ul[5]
+            productOtherInformation:
+              - text: Questions & Answers−
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[5]/a[1]/h2[1]
+              - text: >-
+                  1
+                   
+                  does this remove viruses?
+                   
+                  Patty S. Apr 3, 2020 
+                   
+
+                   
+                  Best Answer: Hello, thank you for your question. This does remove bacteria from the air.
+                   
+                  Dempsey B. expert Apr 3, 2020 Reply Inaccurate 
+                   
+                   Reply
+                   Inaccurate
+                   
+                   
+                   
+                   Answer
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[5]/div[1]/div[1]/div[3]/div[2]/div[1]
+              - text: >-
+                  0
+                   
+                  Does this model have activated carbon for removing odors?
+                   
+                  Lucy K. Apr 10, 2020 
+                   
+
+                   
+                  Best Answer: Hello, thank you for your question. This model does not remove odor. It removes pollen, bacteria and pet dander.
+                   
+                  Dempsey B. expert Apr 11, 2020 Reply Inaccurate 
+                   
+                   Reply
+                   Inaccurate
+                   
+                   
+                   
+                   Answer
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[5]/div[1]/div[1]/div[3]/div[2]/div[2]
             promotion:
               - text: Save $100.00 through 09/26/2020
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[5]
-            availabilityText:
-              - text: Out of Stock
+            additionalDescBulletInfo:
+              - text: Air Multiplier Purifier Fan Technology||Dyson Technology Helps Create A
+                  Cleaner, Healthier Home||Second Generation Filter||Certified
+                  Asthma And Allergy Friendly||Remote Control||Smooth
+                  Oscillation||LED Display||HEPA Filter||White And Silver Finish
+                xpath: /html/body/div[14]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -159,4 +233,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1599655257201
+    timestamp: 1600100149578
