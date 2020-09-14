@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="multiSkuContainer"][.//div[contains(@id,"swatches")]]//ul/li
+recordXPath: //div[@id="multiSkuContainer"][.//div[contains(@id,"swatches")]]//ul/li | //div/div[contains(@id,'swatches') != 1]//h1[@itemprop="name"]
 fields:
   - name: image
     singleValue: true
