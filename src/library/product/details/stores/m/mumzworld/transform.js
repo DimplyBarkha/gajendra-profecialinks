@@ -64,55 +64,7 @@ const transform = (data) => {
         row.featureBullets.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
         });
-      }
-      if (row.weightNet) {
-          row.weightNet.forEach(item => {                
-              var matches = /Weight\s*:\s(.*?)\n/isg.exec(item.text);
-              if (matches) {
-                item.text = matches[1];
-              }
-              else{
-                item.text = '';
-              }
-          });
-      }
-      if (row.shippingWeight) {
-          row.shippingWeight.forEach(item => {
-              var matches = /Shipping\s+Weight\s*:\s*(.*?)\n/isg.exec(item.text);                
-              if (matches) {
-                item.text = matches[1];
-              }
-              else{
-                item.text = '';
-              }
-          });
-      }
-      if (row.shippingDimensions) {
-          row.shippingDimensions.forEach(item => {
-              var matches = /Product\s+Dimensions\s*:\s*(.*?)\n/isg.exec(item.text);
-              var matches2 = /Package\s+Dimensions\s*:\s*(.*?)\n/isg.exec(item.text);                
-              if (matches) {
-                item.text = matches[1];
-              }
-              else if (matches2) {
-                item.text = matches2[1];
-              }
-              else{
-                item.text = '';
-              }
-          });
-      }
-      if (row.warnings) {
-          row.warnings.forEach(item => {
-              var matches = /Cautions\s*:\s*(.*?)\n/isg.exec(item.text);                
-              if (matches) {
-                item.text = matches[1];
-              }
-              else{
-                item.text = '';
-              }
-          });
-      }              
+      }                   
     }
   }
   return data;
