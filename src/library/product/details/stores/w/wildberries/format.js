@@ -280,6 +280,32 @@ const transform = (data) => {
               },
             ];
           }
+          if (row.listPrice) {
+            let text = '';
+            row.listPrice.forEach(item => {
+                if(item.text.length > 0){
+                    text += `${item.text.replace(/ /, ',')}`;
+                }
+            })
+            row.listPrice = [
+              {
+                text: text
+              },
+            ];
+          }
+          if (row.price) {
+            let text = '';
+            row.price.forEach(item => {
+                if(item.text.length > 0){
+                    text += `${item.text.replace(/ /, ',')}`;
+                }
+            })
+            row.price = [
+              {
+                text: text
+              },
+            ];
+          }
           row = cleanUp(row);
         } catch (exception) {
           console.log(exception);
