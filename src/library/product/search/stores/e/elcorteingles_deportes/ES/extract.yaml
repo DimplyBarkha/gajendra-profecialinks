@@ -5,7 +5,7 @@ recordXPath: //div[@id="products-list"]/ul/li
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[contains(@data-event,"product_click")]/@href
+    xpath: //div[@class="product_preview-image "]/a/@href
     regExp: ^(.+)$
     regExpReplace: https://www.elcorteingles.es$1
   - name: thumbnail
@@ -14,7 +14,7 @@ fields:
     regExpReplace: https:$1    
     xpath: //img/@data-src
   - name: name
-    xpath: //div[contains(@class,"product-name")]//a[contains(@data-event,"product_click")]
+    xpath: //div[@class="title-box"]
   - name: gtin
     regExp: gtin":"([^"]+)
     regExpReplace: $1
