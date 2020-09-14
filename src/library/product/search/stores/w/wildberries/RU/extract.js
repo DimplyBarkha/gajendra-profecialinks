@@ -29,6 +29,8 @@ async function implementation (
       }
     });
   };
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await context.setLoadAllResources()
   await applyScroll(context);
   return await context.extract(productDetails, { transform });
 }
@@ -38,7 +40,7 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'wildberries',
-    transform,
+    transform: transform,
     domain: 'wildberries.ru',
     zipcode: '',
   },

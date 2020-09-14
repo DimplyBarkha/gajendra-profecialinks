@@ -17,7 +17,7 @@ fields:
     xpath: //meta[contains(@property, ":url")]/@content
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")]/@src
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")][1]/@src
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//span[contains(@itemprop,"aggregateRating")]/@class
