@@ -15,7 +15,6 @@ fields:
 - name: alternateImages
   singleValue: false
   xpath: (//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1]
-  # xpath: //div[@id='product-overview']//li[@class='slider-slide']//img/@src
 - name: metaKeywords
   singleValue: true
   xpath: //meta[@name="keywords"]/@content
@@ -111,11 +110,11 @@ fields:
   singleValue: true
   xpath: //*[@itemprop='aggregateRating']//span[@class='stars-reviews-count-node']
   regExp: (\d*)  
-- name: aggregateRatingText
-  singleValue: true
 - name: aggregateRating
   singleValue: true
-  xpath: //*[@itemprop='aggregateRating']//*[@itemprop='ratingValue']
+  manualSelector: script[id=item]
+  regExp: ("roundedAverageOverallRating":)([\d+,.]+)(,")
+  regExpReplace: $2
 - name: shippingInfo
   singleValue: true 
   xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
@@ -186,7 +185,7 @@ fields:
   singleValue: true  
 - name: additionalDescBulletInfo
   singleValue: false 
-  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li | //div[contains(text(),'•')]
+  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li | //div[contains(@class,'about-desc') and contains(text(),'•')]
 - name: promotion
   singleValue: false
   xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
