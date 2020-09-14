@@ -1,4 +1,5 @@
 const { cleanUp } = require('../../../../shared');
+const { implementation } = require('../extractImplementation');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -9,4 +10,5 @@ module.exports = {
     domain: 'costco.ca',
     zipcode: 'M5V 2A5',
   },
+  implementation,
 };
