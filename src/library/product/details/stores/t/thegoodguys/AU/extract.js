@@ -6,7 +6,7 @@ module.exports = {
         store: 'thegoodguys',
         transform: cleanUp,
         domain: 'thegoodguys.com.au',
-        zipcode: '',
+        zipcode: '3805',
     },
     implementation: async function(
         inputs,
