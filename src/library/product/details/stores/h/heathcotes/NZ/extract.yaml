@@ -52,7 +52,7 @@ fields:
     description: Number of ul > li tags in the description
   - name: brandText
     singleValue: false
-    xpath: //div[@id="brandText"]
+    xpath: //div[@id="added-brandText"]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -65,7 +65,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    xpath: //*[contains(text(), "Packaged Weight")]/parent::td//following-sibling::td
+    xpath: //*[contains(text(), "Weight")]/parent::td//following-sibling::td
     description: Net weight as described on the page
   - name: weightGross
     singleValue: false
@@ -79,6 +79,7 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
+    xpath: //*[contains(@class,"product-side-block")]//*[@class="sku"]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
@@ -119,6 +120,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
+    defaultValue: '0'
   - name: color
     singleValue: false
     xpath: //*[contains(text(), "Colour")]/parent::td//following-sibling::td
@@ -319,7 +321,7 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
-    xpath: //*[@id="warranties"]
+    xpath: //*[contains(text(),"Total warranty")]/parent::*
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
@@ -355,6 +357,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //*[@id="overview"]//li
     description: null
   - name: prop65Warning
     singleValue: false

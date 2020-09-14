@@ -28,11 +28,6 @@ const transform = (data) => {
           ratingCountItem.text = ratingCountItem.text.replace(/[^\d]/gm, '');
         });
       }
-      if (row.warranty) {
-        row.warranty.forEach(warrantyItem => {
-          warrantyItem.text = warrantyItem.text.replace(/[^\d]/gm, '');
-        });
-      }
       if (row.availabilityText) {
         row.availabilityText.forEach(availabilityTextItem => {
           const availability = availabilityTextItem.text.replace(/.*availability": ?"(.*?)".*/gs, '$1');
@@ -66,10 +61,14 @@ const transform = (data) => {
           item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
         });
       }
+
+      const additionalDescBulletInfoArray = [];
       if (row.additionalDescBulletInfo) {
-        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n\s*){1,}/g, ' || ');
-        row.additionalDescBulletInfo[0].text = cleanUp(row.additionalDescBulletInfo[0].text);
+        row.additionalDescBulletInfo.forEach((additionalDescBulletInfoItem) => {
+          additionalDescBulletInfoArray.push(additionalDescBulletInfoItem.text);
+        });
       }
+      row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArray.join(' || ') }];
 
       if (row.descriptionBullets) {
         row.descriptionBullets.forEach((descriptionBulletsItem) => {
