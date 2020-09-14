@@ -115,7 +115,7 @@ fields:
     regExpReplace: $2
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: '0'
   - name: color
     singleValue: false
     xpath: concat((//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1],",",(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[2])

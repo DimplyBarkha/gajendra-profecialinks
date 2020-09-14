@@ -27,7 +27,9 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text;
+          if (!item.text.includes('hideMenu')) {
+            text += item.text.replace(/\\/g, '');
+          }
         });
         row.manufacturerDescription = [
           {
