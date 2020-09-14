@@ -82,7 +82,7 @@ module.exports = {
     await context.waitForXPath("//p[@class='Directions']", { timeout: 4000 })
       .catch(() => console.log('no directions present'));
 
-    await context.waitForXPath("//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div", { timeout: 10000 })
+    await context.waitForXPath("//div[contains(@class,'about-desc')] | //div[contains(@class,'about-item')]/div", { timeout: 20000 })
       .catch(() => console.log('no desc for item'));
 
     await context.waitForXPath('(//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1]', { timeout: 6000 })
