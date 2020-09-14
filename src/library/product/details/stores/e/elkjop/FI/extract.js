@@ -18,6 +18,7 @@ module.exports = {
     });
     await context.waitForSelector('a#tab-specs-trigger', { timeout: 10000 });
     await context.click('a#tab-specs-trigger');
+    await context.waitForSelector('a#tab-more-info-trigger', { timeout: 10000 });
     await context.click('a#tab-more-info-trigger');
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
@@ -26,6 +27,11 @@ module.exports = {
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
+      }
+      const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null).stringValue;
+      if (rating) {
+        const formattedRating = rating.replace(',', '.');
+        addElementToDocument('rating', formattedRating);
       }
       const weight = document.evaluate("//td[contains(text(), 'Paino')]", document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (weight) {

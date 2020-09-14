@@ -1,0 +1,154 @@
+input:
+  _url: http://gigantti.fi
+  URL: https://www.gigantti.fi/product/kodin-tuotteet/ilmastointi-ja-ilmanpuhdistus/tuulettimet/DYSAM07/dyson-cool-tornituuletin-am07
+extractions:
+  - html: https://workbench.import.io/html/run=19f3091c-9aa5-4701-aa97-9272b56d0aa1/task=b1c50448-eae5-414d-b0fd-b96a2e6569e2/d5e28099-0171-44a6-ac7b-537ff8158854.html
+    extractionConfigId: product/details/stores/e/elkjop/FI/extract
+    data:
+      - group:
+          - imageAlt:
+              - text: Dyson Cool tornituuletin AM07
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://www.gigantti.fi/image/dv_web_D18000100291670/DYSAM07/dyson-cool-tornituuletin-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://www.gigantti.fi/image/dv_web_D18000100291665/DYSAM07/dyson-cool-tornituuletin-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://www.gigantti.fi/image/dv_web_D18000100291666/DYSAM07/dyson-cool-tornituuletin-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://www.gigantti.fi/image/dv_web_D18000100291667/DYSAM07/dyson-cool-tornituuletin-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://www.gigantti.fi/image/dv_web_D18000100291675/DYSAM07/dyson-cool-tornituuletin-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
+              - text: https://www.gigantti.fi/image/dv_web_D18000100291678/DYSAM07/dyson-cool-tornituuletin-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+            metaKeywords:
+              - text: Dyson Cool tornituuletin AM07, Electrolux ilmanpuhdistin, Electrolux
+                  ilmanpuhdistin, ACA Clean Line ilmanpuhdistajan laukku M501,
+                  ACA Clean Line ilmanpuhdistin M1002, ACA Clean Line
+                  ilmanpuhdistin M501SW (valkoinen), , Ilmastointi ja
+                  ilmanpuhdistus
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Kodin tuotteet
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[2]/a[1]/@title
+              - text: Ilmastointi ja ilmanpuhdistus
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
+              - text: Tuulettimet
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
+            description:
+              - text: Tyylikäs Dyson Cool -tornituuletin viilentää ilmaa tehokkaasti Air
+                  Multiplier -teknologian avulla. Siivetön tuuletin on
+                  turvallinen käyttää ja helppo puhdistaa.
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/p[1]
+              - text: "Tuulettimen halkaisija: 35,6 cm"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[1]
+              - text: Tehokas ilmavirta Air Multiplier -teknologialla
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[2]
+              - text: Kaukosäädin, helppo puhdistaa
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[3]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/span[1]/meta[1]/@content
+            gtin:
+              - text: "5025155017838"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[7]/@content
+            sku:
+              - text: DYSAM07
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[3]/@content
+            ratingCount:
+              - text: "20"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[1]/meta[1]/@content
+                type: NUMBER
+                raw: "20"
+                locale: en
+                value: 20
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[6]
+                type: NUMBER
+                raw: "4.60"
+                locale: en
+                value: 4.6
+            color:
+              - text: Hopea;Valkoinen
+                xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[3]/div[1]/div[1]/dl[4]/dd[1]/table[1]/tbody[1]/tr[1]/td[2]
+            name:
+              - text: Dyson Cool tornituuletin AM07
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[1]/h1[1]
+            productOtherInformation:
+              - text: >-
+                  Lisätietoa
+                   
+
+                   
+
+                   
+
+                   
+                  Dyson Cool -tornituuletin viilentää mukavasti kesähelteillä ja tuottaa tasaisen ilmavirran Air Multiplier -teknologian avulla. Quiet Mark -palkitussa tuulettimessa on oskillaatiotoiminto ja ajastin.
+
+                  Air Multiplier -teknologia: Tuuletin tuottaa voimakkaan ilmavirran, jota on helppo säätää.
+
+                  Oskillaatio: Kääntyvän liikkeen ansiosta tuuletin suuntaa ilman eri puolille huonetta.
+
+                  Ajastin: Tuulettimen voi ohjelmoida sammumaan halutun ajan jälkeen, 15 minuutista aina yhdeksään tuntiin.
+
+                  Quiet Mark -tunnustus: Tällä tuulettimella on Noise Abatement Societyn myöntämä Quiet Mark -tunnustus, joka takaa sen hiljaisen toiminnan.
+
+                  Turvallinen: Tuulettimessa ei ole lainkaan pyöriviä siipiä, joten se on erittäin turvallinen ja lisäksi helppo puhdistaa kuivalla tai kostealla liinalla.
+
+                  Kaukosäädin: Voit vaihtaa 10 nopeusasetuksen välillä helposti kaukosäätimellä, jonka voi kiinnittää tuulettimen runkoon säilytystä varten magneettien avulla.
+
+                  Myyntipakkaukseen sisältyy:
+
+                  - Kaukosäädin
+
+                  Tuotteella on 2 vuoden takuu.
+                xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[2]
+            availabilityText:
+              - text: Out of Stock
+            manufacturer:
+              - text: Dyson
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            image:
+              - text: https://gigantti.fi/image/dv_web_D18000100291664/DYSAM07/dyson-cool-tornituuletin-am07.jpg?$prod_all4one$
+            nameExtended:
+              - text: "Dyson Cool tornituuletin AM07 "
+            listPrice:
+              - text: 299 EUR
+            price:
+              - text: 299 EUR
+            descriptionBullets:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            weightNet:
+              - text: 2,85  kg
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            specifications:
+              - text: |-
+                  Korkeus (cm) 
+                   100,00 Leveys (cm) 
+                   19,00 Syvyys (cm) 
+                   11,00
+        xpath: /
+    timestamp: 1600102038159
