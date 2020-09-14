@@ -52,9 +52,6 @@ module.exports = {
       addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
       const availablility = document.querySelector('button.addToCart.green_button') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availablility', availablility);
-      const shippingInfo = document.querySelector('button.addToCart.green_button')
-        ? 'Ships from and sold by abt.com' : '';
-      addElementToDocument('shippingInfo', shippingInfo);
 
       const variants = document.querySelector('div.display-group-color');
       const variantColor = variants && document.querySelector('div.display-group-color strong')
