@@ -2,135 +2,169 @@ input:
   keywords: dyson
   _url: http://abt.com
 extractions:
-  - html: https://workbench.import.io/html/run=878e870a-2264-4355-91cc-b0e49859333b/task=2e4da004-82b2-422e-a66d-b3ace8bae8ab/b60ea0bd-036a-4675-951d-1de29bc5942a.html
+  - html: https://workbench.import.io/html/run=4548c44e-d477-4a3c-9c5f-be68c9ac12a1/task=2c4963e8-b528-4f1d-8fec-e6d6eae57089/7b6be289-9b8c-4ea9-8da4-13ae89797574.html
     extractionConfigId: product/search/stores/a/abt/US/extract
     data:
       - group:
           - id:
-              - text: 310124-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            name:
-              - text: Dyson Pure+Cool White Air Purifier Tower - 310124-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            productUrl:
-              - text: https://www.abt.com/product/121684/Dyson-Pure-Cool-White-Air-Purifier-Tower-31012401.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://content.abt.com/image.php/afd18c610a0bf04d8879029c9ac26e15?image=/media/images/products/BDP_Images/big(new)-TP04.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/div[1]/span[1]
-                type: NUMBER
-                raw: "4.5"
-                locale: en
-                value: 4.5
-            reviewCount:
-              - text: "44"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/span[1]
-                type: NUMBER
-                raw: "44"
-                locale: en
-                value: 44
-            ratingCount:
-              - text: "44"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/span[1]
-            price:
-              - text: $549.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
-          - id:
               - text: 244314-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[3]
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
             name:
               - text: Dyson Pure Hot+Cool HP04 Purifying Heater + Fan White Silver Air Purifier
                   - 244314-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/130117/Dyson-Pure-Hot-Cool-HP04-Purifying-Heater-Fan-White-Silver-Air-Purifier-24431401.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://content.abt.com/image.php/712143290004df76b1ccf994292c7a86?image=/media/images/products/BDP_Images/big-PUREHOTCOOL.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
                 raw: "5"
                 locale: en
                 value: 5
             reviewCount:
               - text: "5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[6]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
                 raw: "5"
                 locale: en
                 value: 5
             ratingCount:
               - text: "5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[6]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $649.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[3]
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
           - id:
               - text: 268731-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[3]
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
             name:
               - text: Dyson V11 Torque Drive Nickel And Blue Cordless Vacuum - 268731-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/133866/Dyson-V11-Torque-Drive-Nickel-And-Blue-Cordless-Vacuum-26873101.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://content.abt.com/image.php/25108c281cd538022d7cf8169706fcf2?image=/media/images/products/BDP_Images/big-V11TORQUE.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "4.5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
                 raw: "4.5"
                 locale: en
                 value: 4.5
             reviewCount:
               - text: "530"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[6]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
                 raw: "530"
                 locale: en
                 value: 530
             ratingCount:
               - text: "530"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[6]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $699.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[3]
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
           - id:
               - text: 334176-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[3]
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
             name:
               - text: Dyson Ball Animal 2 Upright Vacuum - 334176-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/109169/Dyson-Ball-Animal-2-Upright-Vacuum-33417601.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://content.abt.com/image.php/a431271124c829f0d4aca8b5bbc318ef?image=/media/images/products/BDP_Images/big3-BALLANIMALII.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[6]/div[1]/span[1]
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            reviewCount:
+              - text: "33"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[6]/span[1]
+                type: NUMBER
+                raw: "33"
+                locale: en
+                value: 33
+            ratingCount:
+              - text: "33"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[6]/span[1]
+            price:
+              - text: $499.00
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[3]
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+          - id:
+              - text: 229602-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[3]
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            name:
+              - text: Dyson V8 Animal Cordless Vacuum - 229602-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.abt.com/product/109176/Dyson-V8-Animal-Cordless-Vacuum-22960201.html
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/4584d4130b95e2af19b31082405c55c6?image=/media/images/products/BDP_Images/big_V8ANIMAL.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "4"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -138,147 +172,183 @@ extractions:
                 locale: en
                 value: 4
             reviewCount:
-              - text: "33"
+              - text: "220"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "33"
+                raw: "220"
                 locale: en
-                value: 33
+                value: 220
             ratingCount:
-              - text: "33"
+              - text: "220"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[6]/span[1]
             price:
-              - text: $499.00
+              - text: $399.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "4"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[3]
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
           - id:
-              - text: 311383-01
+              - text: 334189-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            name:
-              - text: Dyson Pure+Hot+Cool Purifying White Heater + Fan Air Purifier - 311383-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            productUrl:
-              - text: https://www.abt.com/product/135906/Dyson-Pure-Hot-Cool-Purifying-White-Heater-Fan-Air-Purifier-31138301.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://content.abt.com/image.php/eda8accb5bc455401c692b49a24eb903?image=/media/images/products/BDP_Images/big(new)-HP01.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+            rankOrganic:
               - text: "5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[3]
                 type: NUMBER
                 raw: "5"
                 locale: en
                 value: 5
-            reviewCount:
-              - text: "3"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[6]/span[1]
-                type: NUMBER
-                raw: "3"
-                locale: en
-                value: 3
-            ratingCount:
-              - text: "3"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[6]/span[1]
-            price:
-              - text: $399.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
-          - id:
-              - text: 229602-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            name:
-              - text: Dyson V8 Animal Cordless Vacuum - 229602-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            productUrl:
-              - text: https://www.abt.com/product/109176/Dyson-V8-Animal-Cordless-Vacuum-22960201.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://content.abt.com/image.php/4584d4130b95e2af19b31082405c55c6?image=/media/images/products/BDP_Images/big_V8ANIMAL.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
-              - text: "4"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[6]/div[1]/span[1]
-                type: NUMBER
-                raw: "4"
-                locale: en
-                value: 4
-            reviewCount:
-              - text: "219"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[6]/span[1]
-                type: NUMBER
-                raw: "219"
-                locale: en
-                value: 219
-            ratingCount:
-              - text: "219"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[6]/span[1]
-            price:
-              - text: $399.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
-          - id:
-              - text: 334189-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             name:
               - text: Dyson Ball Animal 2 Total Clean Upright Vacuum - 334189-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/121074/Dyson-Ball-Animal-2-Total-Clean-Upright-Vacuum-33418901.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://content.abt.com/image.php/a3306dd329e6f2727e9899e1509fc110?image=/media/images/products/BDP_Images/big-BALLANIMALIITOTALCLEAN.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "4"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
                 raw: "4"
                 locale: en
                 value: 4
             reviewCount:
-              - text: "419"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[6]/span[1]
+              - text: "421"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "419"
+                raw: "421"
                 locale: en
-                value: 419
+                value: 421
             ratingCount:
-              - text: "419"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[6]/span[1]
+              - text: "421"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $599.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[3]
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
           - id:
               - text: 227591-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[3]
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
             name:
               - text: Dyson V7 Motorhead Cordless Vacuum - 227591-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/109179/Dyson-V7-Motorhead-Cordless-Vacuum-22759101.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://content.abt.com/image.php/21b27914c0f949c2f19faf4008c871f8?image=/media/images/products/BDP_Images/big_V7MOTORHEAD.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[6]/div[1]/span[1]
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "955"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[6]/span[1]
+                type: NUMBER
+                raw: "955"
+                locale: en
+                value: 955
+            ratingCount:
+              - text: "955"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[6]/span[1]
+            price:
+              - text: $299.00
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[3]
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+          - id:
+              - text: 298706-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[3]
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+            name:
+              - text: Dyson V11 Outsize Cordless Vacuum - 298706-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.abt.com/product/143680/Dyson-V11-Outsize-Cordless-Vacuum-29870601.html
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/9b95b4fdfecfb53d0d8f667977c577b2?image=/media/images/products/BDP_Images/big-V11OUTSIZE.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[6]/div[1]/span[1]
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "180"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[6]/span[1]
+                type: NUMBER
+                raw: "180"
+                locale: en
+                value: 180
+            ratingCount:
+              - text: "180"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[6]/span[1]
+            price:
+              - text: $799.00
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[3]
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+          - id:
+              - text: 343783-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[3]
+                type: NUMBER
+                raw: "8"
+                locale: en
+                value: 8
+            name:
+              - text: Dyson Cyclone V10 Animal Iron Cordless Vacuum - 343783-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.abt.com/product/143906/Dyson-Cyclone-V10-Animal-Iron-Cordless-Vacuum-34378301.html
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/80dd91cea289ada84e13b0bbf0327f0e?image=/media/images/products/BDP_Images/big-V10ANIMALIRON.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "4.5"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -286,135 +356,183 @@ extractions:
                 locale: en
                 value: 4.5
             reviewCount:
-              - text: "955"
+              - text: "59"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "955"
+                raw: "59"
                 locale: en
-                value: 955
+                value: 59
             ratingCount:
-              - text: "955"
+              - text: "59"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[6]/span[1]
-            price:
-              - text: $299.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
-          - id:
-              - text: 298706-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            name:
-              - text: Dyson V11 Outsize Cordless Vacuum - 298706-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            productUrl:
-              - text: https://www.abt.com/product/143680/Dyson-V11-Outsize-Cordless-Vacuum-29870601.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[6]/div[1]/span[1]
-                type: NUMBER
-                raw: "4.5"
-                locale: en
-                value: 4.5
-            reviewCount:
-              - text: "172"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[6]/span[1]
-                type: NUMBER
-                raw: "172"
-                locale: en
-                value: 172
-            ratingCount:
-              - text: "172"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[6]/span[1]
-            price:
-              - text: $799.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
-          - id:
-              - text: 343783-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            name:
-              - text: Dyson Cyclone V10 Animal Iron Cordless Vacuum - 343783-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            productUrl:
-              - text: https://www.abt.com/product/143906/Dyson-Cyclone-V10-Animal-Iron-Cordless-Vacuum-34378301.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[6]/div[1]/span[1]
-                type: NUMBER
-                raw: "4.5"
-                locale: en
-                value: 4.5
-            reviewCount:
-              - text: "56"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[6]/span[1]
-                type: NUMBER
-                raw: "56"
-                locale: en
-                value: 56
-            ratingCount:
-              - text: "56"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $499.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[3]
+                type: NUMBER
+                raw: "8"
+                locale: en
+                value: 8
           - id:
               - text: 310731-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[3]
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
             name:
               - text: Dyson Airwrap Nickel And Fuchsia Styler Complete - 310731-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/133987/Dyson-Airwrap-Nickel-And-Fuchsia-Styler-Complete-31073101.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/12b4569dac6cf5d31bc4c0d0acde5ffe?image=/media/images/products/BDP_Images/big-AIRWRAP-2.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "4"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
                 raw: "4"
                 locale: en
                 value: 4
             reviewCount:
-              - text: "378"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[6]/span[1]
+              - text: "381"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "378"
+                raw: "381"
                 locale: en
-                value: 378
+                value: 381
             ratingCount:
-              - text: "378"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[6]/span[1]
+              - text: "381"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $549.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[3]
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
           - id:
               - text: 968125-03
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[3]
+                type: NUMBER
+                raw: "10"
+                locale: en
+                value: 10
             name:
               - text: Dyson 2nd Generation Desk Air Purifier Replacement HEPA Filter - 968125-03
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/116832/Dyson-2nd-Generation-Desk-Air-Purifier-Replacement-HEPA-Filter-96812503.html
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/f04359a194d58407e7ef0ca231c8f07f?image=/media/images/products/BDP_Images/big_N455N469EVOFILTER.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[6]/div[1]/span[1]
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[6]/span[1]
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[6]/span[1]
+            price:
+              - text: $69.00
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "10"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[3]
+                type: NUMBER
+                raw: "10"
+                locale: en
+                value: 10
+          - id:
+              - text: 334175-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[3]
+                type: NUMBER
+                raw: "11"
+                locale: en
+                value: 11
+            name:
+              - text: Dyson Ball Multi Floor 2 Upright Vacuum - 334175-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.abt.com/product/109181/Dyson-Ball-Multi-Floor-2-Upright-Vacuum-33417501.html
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/2884f5a943d2b304560cd59215eda007?image=/media/images/products/BDP_Images/big-BALLMULTIFLOORII.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[6]/div[1]/span[1]
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "232"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[6]/span[1]
+                type: NUMBER
+                raw: "232"
+                locale: en
+                value: 232
+            ratingCount:
+              - text: "232"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[6]/span[1]
+            price:
+              - text: $399.00
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "11"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[3]
+                type: NUMBER
+                raw: "11"
+                locale: en
+                value: 11
+          - id:
+              - text: 275371-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[3]
+                type: NUMBER
+                raw: "12"
+                locale: en
+                value: 12
+            name:
+              - text: Dyson Pure+Humidify+Cool PH01 Air Purifier - 275371-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.abt.com/product/143701/Dyson-Pure-Humidify-Cool-PH01-Air-Purifier-27537101.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
+            thumbnail:
+              - text: https://content.abt.com/image.php/01dc1286597d5ef581ed6b48fd099101?image=/media/images/products/BDP_Images/big(new)-PH01.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -422,317 +540,443 @@ extractions:
                 locale: en
                 value: 5
             reviewCount:
-              - text: "6"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[6]/span[1]
-                type: NUMBER
-                raw: "6"
-                locale: en
-                value: 6
-            ratingCount:
-              - text: "6"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[6]/span[1]
-            price:
-              - text: $69.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
-          - id:
-              - text: 334175-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            name:
-              - text: Dyson Ball Multi Floor 2 Upright Vacuum - 334175-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            productUrl:
-              - text: https://www.abt.com/product/109181/Dyson-Ball-Multi-Floor-2-Upright-Vacuum-33417501.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[6]/div[1]/span[1]
-                type: NUMBER
-                raw: "4.5"
-                locale: en
-                value: 4.5
-            reviewCount:
-              - text: "232"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[6]/span[1]
-                type: NUMBER
-                raw: "232"
-                locale: en
-                value: 232
-            ratingCount:
-              - text: "232"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[6]/span[1]
-            price:
-              - text: $399.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
-          - id:
-              - text: 275371-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            name:
-              - text: Dyson Pure+Humidify+Cool Air Purifier - 275371-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            productUrl:
-              - text: https://www.abt.com/product/143701/Dyson-Pure-Humidify-Cool-Air-Purifier-27537101.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
-              - text: "5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[6]/div[1]/span[1]
-                type: NUMBER
-                raw: "5"
-                locale: en
-                value: 5
-            reviewCount:
               - text: "2"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[6]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
                 raw: "2"
                 locale: en
                 value: 2
             ratingCount:
               - text: "2"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[6]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $799.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[3]
+                type: NUMBER
+                raw: "12"
+                locale: en
+                value: 12
           - id:
               - text: 322851-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[3]
+                type: NUMBER
+                raw: "13"
+                locale: en
+                value: 13
             name:
               - text: Dyson Corrale Black Nickel/Fuchsia Hair Straightener - 322851-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/143953/Dyson-Corrale-Black-Nickel-Fuchsia-Hair-Straightener-32285101.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/4c89e77875eb7626d001df3940629001?image=/media/images/products/BDP_Images/big-CORRALE.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "4"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
                 raw: "4"
                 locale: en
                 value: 4
             reviewCount:
-              - text: "297"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[6]/span[1]
+              - text: "300"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "297"
+                raw: "300"
                 locale: en
-                value: 297
+                value: 300
             ratingCount:
-              - text: "297"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[6]/span[1]
+              - text: "300"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $499.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "13"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[13]/div[3]
+                type: NUMBER
+                raw: "13"
+                locale: en
+                value: 13
           - id:
               - text: 306002-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[3]
+                type: NUMBER
+                raw: "14"
+                locale: en
+                value: 14
             name:
               - text: Dyson Supersonic Fuchsia Hair Dryer - 306002-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/113556/Dyson-Supersonic-Fuchsia-Hair-Dryer-30600201.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/254a5bbe7bd790fc3f07e7f3b8092812?image=/media/images/products/BDP_Images/big_SUPERSONICFUCHSIA.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "4.5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
                 raw: "4.5"
                 locale: en
                 value: 4.5
             reviewCount:
-              - text: "1069"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[2]/div[6]/span[1]
+              - text: "1079"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "1069"
+                raw: "1079"
                 locale: en
-                value: 1069
+                value: 1079
             ratingCount:
-              - text: "1069"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[2]/div[6]/span[1]
+              - text: "1079"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $399.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "14"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[14]/div[3]
+                type: NUMBER
+                raw: "14"
+                locale: en
+                value: 14
           - id:
               - text: 306003-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[3]
+                type: NUMBER
+                raw: "15"
+                locale: en
+                value: 15
             name:
               - text: Dyson Supersonic White Hair Dryer - 306003-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/113557/Dyson-Supersonic-White-Hair-Dryer-30600301.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/de437e801c4d06a73664c39ad1e4543e?image=/media/images/products/BDP_Images/big_SUPERSONICWHT.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "4.5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
                 raw: "4.5"
                 locale: en
                 value: 4.5
             reviewCount:
-              - text: "1069"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[6]/span[1]
+              - text: "1079"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "1069"
+                raw: "1079"
                 locale: en
-                value: 1069
+                value: 1079
             ratingCount:
-              - text: "1069"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[6]/span[1]
+              - text: "1079"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $399.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "15"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[15]/div[3]
+                type: NUMBER
+                raw: "15"
+                locale: en
+                value: 15
           - id:
               - text: 292217-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[3]
+                type: NUMBER
+                raw: "16"
+                locale: en
+                value: 16
             name:
               - text: Dyson Lightcycle Morph White And Silver Floor Light - 292217-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/142548/Dyson-Lightcycle-Morph-White-And-Silver-Floor-Light-29221701.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/459e8152a2659d4fcfb3b117b2971037?image=/media/images/products/BDP_Images/big-CF06-WH.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[1]/a[1]/img[1]/@src
             price:
               - text: $849.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "16"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[16]/div[3]
+                type: NUMBER
+                raw: "16"
+                locale: en
+                value: 16
+          - id:
+              - text: 214895-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[3]
+                type: NUMBER
+                raw: "17"
+                locale: en
+                value: 17
+            name:
+              - text: Dyson Cinetic Big Ball Animal Canister Vacuum - 214895-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.abt.com/product/105671/Dyson-Cinetic-Big-Ball-Animal-Canister-Vacuum-21489501.html
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/4f0fe3d554849a76f861582723e38295?image=/media/images/products/BDP_Images/big-N33-1.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[6]/div[1]/span[1]
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            reviewCount:
+              - text: "63"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[6]/span[1]
+                type: NUMBER
+                raw: "63"
+                locale: en
+                value: 63
+            ratingCount:
+              - text: "63"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[2]/div[6]/span[1]
+            price:
+              - text: $599.00
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "17"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[17]/div[3]
+                type: NUMBER
+                raw: "17"
+                locale: en
+                value: 17
           - id:
               - text: 231770-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[3]
+                type: NUMBER
+                raw: "18"
+                locale: en
+                value: 18
             name:
               - text: Dyson V7 Trigger Handheld Vacuum Cleaner - 231770-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/114485/Dyson-V7-Trigger-Handheld-Vacuum-Cleaner-23177001.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://content.abt.com/image.php/61a2c7b0a8f4ab2505a6e34b4b0dc2e2?image=/media/images/products/BDP_Images/big_V7TRIGGER.jpg&width=230&height=170&canvas
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "3.5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
                 raw: "3.5"
                 locale: en
                 value: 3.5
             reviewCount:
               - text: "32"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[6]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
                 raw: "32"
                 locale: en
                 value: 32
             ratingCount:
               - text: "32"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[6]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $199.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
-          - id:
-              - text: 292215-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            name:
-              - text: Dyson Lightcycle Morph Black Floor Light - 292215-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
-            productUrl:
-              - text: https://www.abt.com/product/142547/Dyson-Lightcycle-Morph-Black-Floor-Light-29221501.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[1]/a[1]/@href
-            price:
-              - text: $849.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
-        xpath: /html
-    timestamp: 1599652377912
-  - html: https://workbench.import.io/html/run=878e870a-2264-4355-91cc-b0e49859333b/task=2e4da004-82b2-422e-a66d-b3ace8bae8ab/8f662d5a-6c2f-4b2a-a3c2-ee010142563b.html
-    extractionConfigId: product/search/stores/a/abt/US/extract
-    data:
-      - group:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "18"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[18]/div[3]
+                type: NUMBER
+                raw: "18"
+                locale: en
+                value: 18
           - id:
               - text: 316456-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[3]
+                type: NUMBER
+                raw: "19"
+                locale: en
+                value: 19
             name:
               - text: Dyson Supersonic Black/Nickel Hair Dryer - 316456-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/150301/Dyson-Supersonic-Black-Nickel-Hair-Dryer-31645601.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://content.abt.com/image.php/5eead2715408708d0b05e344371673d2?image=/media/images/products/BDP_Images/big-SUPERSONICBKN.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
               - text: "4.5"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/div[1]/span[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
                 raw: "4.5"
                 locale: en
                 value: 4.5
             reviewCount:
-              - text: "1069"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/span[1]
+              - text: "1079"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "1069"
+                raw: "1079"
                 locale: en
-                value: 1069
+                value: 1079
             ratingCount:
-              - text: "1069"
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/span[1]
+              - text: "1079"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $399.00
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "19"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[19]/div[3]
+                type: NUMBER
+                raw: "19"
+                locale: en
+                value: 19
           - id:
               - text: 307173-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[3]
+                type: NUMBER
+                raw: "20"
+                locale: en
+                value: 20
             name:
               - text: Dyson Airblade V White Low Voltage Hand Dryer - 307173-01
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/109190/Dyson-Airblade-V-White-Low-Voltage-Hand-Dryer-30717301.html
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://content.abt.com/image.php/1409b2fca37c97ba62c7ab5110c75cdd?image=/media/images/products/BDP_Images/big_HU02W.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[2]/div[6]/div[1]/span[1]
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[2]/div[6]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[2]/div[6]/span[1]
+            price:
+              - text: $799.00
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "20"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[20]/div[3]
+                type: NUMBER
+                raw: "20"
+                locale: en
+                value: 20
+        xpath: /html
+    timestamp: 1600120148411
+  - html: https://workbench.import.io/html/run=4548c44e-d477-4a3c-9c5f-be68c9ac12a1/task=2c4963e8-b528-4f1d-8fec-e6d6eae57089/3a3729f9-9be1-4a03-a837-9720e3daecef.html
+    extractionConfigId: product/search/stores/a/abt/US/extract
+    data:
+      - group:
+          - id:
+              - text: 968126-03
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "21"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[3]
+                type: NUMBER
+                raw: "21"
+                locale: en
+                value: 21
+            name:
+              - text: Dyson 2nd Generation Tower Air Purifier Replacement HEPA Filter -
+                  968126-03
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.abt.com/product/116831/Dyson-2nd-Generation-Tower-Air-Purifier-Replacement-HEPA-Filter-96812603.html
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[1]/a[1]/@href
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/div[1]/span[1]
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/span[1]
+                type: NUMBER
+                raw: "10"
+                locale: en
+                value: 10
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[2]/div[6]/span[1]
+            price:
+              - text: $69.00
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "21"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[1]/div[3]
+                type: NUMBER
+                raw: "21"
+                locale: en
+                value: 21
+          - id:
+              - text: 969048-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "22"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[3]
+                type: NUMBER
+                raw: "22"
+                locale: en
+                value: 22
+            name:
+              - text: Dyson Pure Cool Purifying Fan Replacement Filter - 969048-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.abt.com/product/127726/Dyson-Pure-Cool-Purifying-Fan-Replacement-Filter-96904801.html
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[1]/a[1]/@href
+            aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -750,27 +994,33 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[2]/div[6]/span[1]
             price:
-              - text: $799.00
+              - text: $79.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "22"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[2]/div[3]
+                type: NUMBER
+                raw: "22"
+                locale: en
+                value: 22
           - id:
-              - text: 968126-03
+              - text: 311383-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "23"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[3]
+                type: NUMBER
+                raw: "23"
+                locale: en
+                value: 23
             name:
-              - text: Dyson 2nd Generation Tower Air Purifier Replacement HEPA Filter -
-                  968126-03
+              - text: Dyson Pure+Hot+Cool Purifying White Heater + Fan HP01 Air Purifier -
+                  311383-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
-              - text: https://www.abt.com/product/116831/Dyson-2nd-Generation-Tower-Air-Purifier-Replacement-HEPA-Filter-96812603.html
+              - text: https://www.abt.com/product/135906/Dyson-Pure-Hot-Cool-Purifying-White-Heater-Fan-HP01-Air-Purifier-31138301.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://content.abt.com/image.php/512f64b38f615ec0d330b412c12dc74b?image=/media/images/products/BDP_Images/big_N475EVOFILTER-1.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+            aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -778,73 +1028,85 @@ extractions:
                 locale: en
                 value: 5
             reviewCount:
-              - text: "10"
+              - text: "3"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "10"
+                raw: "3"
                 locale: en
-                value: 10
+                value: 3
             ratingCount:
-              - text: "10"
+              - text: "3"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[2]/div[6]/span[1]
             price:
-              - text: $69.00
+              - text: $399.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "23"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[3]/div[3]
+                type: NUMBER
+                raw: "23"
+                locale: en
+                value: 23
           - id:
-              - text: 969048-01
+              - text: 310124-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "24"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[3]
+                type: NUMBER
+                raw: "24"
+                locale: en
+                value: 24
             name:
-              - text: Dyson Pure Cool Purifying Fan Replacement Filter - 969048-01
+              - text: Dyson Pure+Cool TP04 White Air Purifier Tower - 310124-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
-              - text: https://www.abt.com/product/127726/Dyson-Pure-Cool-Purifying-Fan-Replacement-Filter-96904801.html
+              - text: https://www.abt.com/product/121684/Dyson-Pure-Cool-TP04-White-Air-Purifier-Tower-31012401.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://content.abt.com/image.php/329268f7f18ef10080f3543e7aa9fbfb?image=/media/images/products/BDP_Images/big-X438X520FILTER.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
-              - text: "5"
+            aggregateRating2:
+              - text: "4.5"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
-                raw: "5"
+                raw: "4.5"
                 locale: en
-                value: 5
+                value: 4.5
             reviewCount:
-              - text: "1"
+              - text: "44"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "1"
+                raw: "44"
                 locale: en
-                value: 1
+                value: 44
             ratingCount:
-              - text: "1"
+              - text: "44"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[2]/div[6]/span[1]
             price:
-              - text: $79.00
+              - text: $549.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "24"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[4]/div[3]
+                type: NUMBER
+                raw: "24"
+                locale: en
+                value: 24
           - id:
               - text: 308247-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "25"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[3]
+                type: NUMBER
+                raw: "25"
+                locale: en
+                value: 25
             name:
-              - text: Dyson Pure+Cool White Air Purifier Tower - 308247-01
+              - text: Dyson Pure+Cool TP01 White Air Purifier Tower - 308247-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
-              - text: https://www.abt.com/product/136991/Dyson-Pure-Cool-White-Air-Purifier-Tower-30824701.html
+              - text: https://www.abt.com/product/136991/Dyson-Pure-Cool-TP01-White-Air-Purifier-Tower-30824701.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://content.abt.com/image.php/a329415ba01b0da6ec54fb5e8a718f46?image=/media/images/products/BDP_Images/big(new)-TP01.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+            aggregateRating2:
               - text: "4"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -852,36 +1114,42 @@ extractions:
                 locale: en
                 value: 4
             reviewCount:
-              - text: "32"
+              - text: "33"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "32"
+                raw: "33"
                 locale: en
-                value: 32
+                value: 33
             ratingCount:
-              - text: "32"
+              - text: "33"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $299.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "25"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[5]/div[3]
+                type: NUMBER
+                raw: "25"
+                locale: en
+                value: 25
           - id:
               - text: 332037-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "26"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[3]
+                type: NUMBER
+                raw: "26"
+                locale: en
+                value: 26
             name:
               - text: Dyson V11 Animal Cordless Vacuum - 332037-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/133864/Dyson-V11-Animal-Cordless-Vacuum-33203701.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://content.abt.com/image.php/18bf77929232449dde6b7d879c1d3d37?image=/media/images/products/BDP_Images/big-V11ANIMAL.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+            aggregateRating2:
               - text: "4.5"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -889,36 +1157,42 @@ extractions:
                 locale: en
                 value: 4.5
             reviewCount:
-              - text: "316"
+              - text: "317"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "316"
+                raw: "317"
                 locale: en
-                value: 316
+                value: 317
             ratingCount:
-              - text: "316"
+              - text: "317"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $599.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "26"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[6]/div[3]
+                type: NUMBER
+                raw: "26"
+                locale: en
+                value: 26
           - id:
               - text: 310150-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "27"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[3]
+                type: NUMBER
+                raw: "27"
+                locale: en
+                value: 27
             name:
-              - text: Dyson Pure+Cool White Air Purifier - 310150-01
+              - text: Dyson Pure+Cool DP04 White Air Purifier - 310150-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
-              - text: https://www.abt.com/product/121680/Dyson-Pure-Cool-White-Air-Purifier-31015001.html
+              - text: https://www.abt.com/product/121680/Dyson-Pure-Cool-DP04-White-Air-Purifier-31015001.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://content.abt.com/image.php/2ca98f7c0d22e4f534619e1d86fab908?image=/media/images/products/BDP_Images/big-X520WH.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+            aggregateRating2:
               - text: "4.5"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -938,24 +1212,30 @@ extractions:
             price:
               - text: $449.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "27"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[7]/div[3]
+                type: NUMBER
+                raw: "27"
+                locale: en
+                value: 27
           - id:
               - text: 231772-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "28"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[3]
+                type: NUMBER
+                raw: "28"
+                locale: en
+                value: 28
             name:
               - text: Dyson V7 Car+Boat Handheld Vacuum Cleaner - 231772-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/114482/Dyson-V7-Car-Boat-Handheld-Vacuum-Cleaner-23177201.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://content.abt.com/image.php/45c5e0c26dd9192c9f9fc4769a0ac1c6?image=/media/images/products/BDP_Images/big_V7CAR-BOAT.jpg&width=230&height=170&canvas
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[1]/a[1]/img[1]/@data-src
-            aggregateRating:
+            aggregateRating2:
               - text: "3.5"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -975,21 +1255,30 @@ extractions:
             price:
               - text: $239.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "28"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[8]/div[3]
+                type: NUMBER
+                raw: "28"
+                locale: en
+                value: 28
           - id:
               - text: 292214-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "29"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[3]
+                type: NUMBER
+                raw: "29"
+                locale: en
+                value: 29
             name:
               - text: Dyson Lightcycle Morph White And Silver Desk Light - 292214-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/142541/Dyson-Lightcycle-Morph-White-And-Silver-Desk-Light-29221401.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
+            aggregateRating2:
               - text: "4"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -997,33 +1286,42 @@ extractions:
                 locale: en
                 value: 4
             reviewCount:
-              - text: "24"
+              - text: "25"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[6]/span[1]
                 type: NUMBER
-                raw: "24"
+                raw: "25"
                 locale: en
-                value: 24
+                value: 25
             ratingCount:
-              - text: "24"
+              - text: "25"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[2]/div[6]/span[1]
             price:
               - text: $649.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "29"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[9]/div[3]
+                type: NUMBER
+                raw: "29"
+                locale: en
+                value: 29
           - id:
               - text: 307174-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "30"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[3]
+                type: NUMBER
+                raw: "30"
+                locale: en
+                value: 30
             name:
               - text: Dyson Airblade V Sprayed Nickel Low Voltage Hand Dryer - 307174-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
               - text: https://www.abt.com/product/109187/Dyson-Airblade-V-Sprayed-Nickel-Low-Voltage-Hand-Dryer-30717401.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[1]/a[1]/@href
-            aggregateRating:
+            aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[2]/div[6]/div[1]/span[1]
                 type: NUMBER
@@ -1043,27 +1341,64 @@ extractions:
             price:
               - text: $849.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "30"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[10]/div[3]
+                type: NUMBER
+                raw: "30"
+                locale: en
+                value: 30
           - id:
-              - text: 301853-01
+              - text: 292215-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "31"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[3]
+                type: NUMBER
+                raw: "31"
+                locale: en
+                value: 31
             name:
-              - text: Dyson Airblade dB Gray Hand Dryer - 301853-01
+              - text: Dyson Lightcycle Morph Black Floor Light - 292215-01
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
             productUrl:
-              - text: https://www.abt.com/product/74015/Dyson-Airblade-dB-Gray-Hand-Dryer-30185301.html
+              - text: https://www.abt.com/product/142547/Dyson-Lightcycle-Morph-Black-Floor-Light-29221501.html
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[1]/a[1]/@href
             price:
-              - text: $1,349.00
+              - text: $849.00
                 xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[3]/div[1]/div[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[2]/div[1]/a[1]/img[1]/@alt
-            soldBy:
-              - text: abt.com
+            rank:
+              - text: "31"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[11]/div[3]
+                type: NUMBER
+                raw: "31"
+                locale: en
+                value: 31
+          - id:
+              - text: 301853-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            rankOrganic:
+              - text: "32"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[3]
+                type: NUMBER
+                raw: "32"
+                locale: en
+                value: 32
+            name:
+              - text: Dyson Airblade dB Gray Hand Dryer - 301853-01
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[2]/div[1]/div[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.abt.com/product/74015/Dyson-Airblade-dB-Gray-Hand-Dryer-30185301.html
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[1]/a[1]/@href
+            price:
+              - text: $1,349.00
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[2]/div[3]/div[1]/div[1]/span[1]
+            rank:
+              - text: "32"
+                xpath: /html/body/div[3]/main[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/form[1]/div[1]/div[1]/fieldset[1]/ul[1]/li[12]/div[3]
+                type: NUMBER
+                raw: "32"
+                locale: en
+                value: 32
         xpath: /html
-    timestamp: 1599652377912
+    timestamp: 1600120148411

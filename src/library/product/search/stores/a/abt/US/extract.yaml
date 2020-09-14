@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@id="category_results_list"]/li
+recordXPath: //ul[@id="category_results_list"]/li[@data-productid]
 fields:
   - name: id
     description: Unique id (within this extractor)
@@ -11,6 +11,7 @@ fields:
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //div[@id='pd_rank']
   - name: name
     description: The product name
     xpath: //div[@class="cl_title"]/a/text()
@@ -21,8 +22,8 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //img[@class="category_first_image"]/@data-src
-  - name: aggregateRating
+    xpath: //img[@class="category_first_image"]/@src
+  - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //div[@class="abt-tt-rating "]/span[@class="sr-only"]
@@ -41,13 +42,11 @@ fields:
     regExpReplace: $1
   - name: manufacturer
     description: Product manufacturer
-    xpath: //div[@class="category_image_container"]/a/img[1]/@alt
-    regExp: (^\D+)\s\-.*
-    regExpReplace: $1
   - name: soldBy
     description: The name of the seller of the item (if available)
-    defaultValue: abt.com
   - name: rank
     description: search/listing rank
+    type: NUMBER
+    xpath: //div[@id='pd_rank']
   - name: endorsementText
     description: The text that signifies that a product is endorsed
