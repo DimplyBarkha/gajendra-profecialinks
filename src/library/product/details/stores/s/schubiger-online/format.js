@@ -29,6 +29,7 @@ const transform = (data) => {
       if (row.specifications) {
         row.specifications.forEach((specificationsItem) => {
           specificationsItem.text = specificationsItem.text.replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){3,}/g, ' : ');
+          specificationsItem.text = cleanUp(specificationsItem.text);
         });
       }
 
@@ -58,10 +59,6 @@ const transform = (data) => {
         });
       } else {
         row.technicalInformationPdfPresent = [{ text: 'No' }];
-      }
-
-      if (row.name && row.brandText) {
-        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
       }
     }
   }

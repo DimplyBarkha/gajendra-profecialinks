@@ -31,6 +31,29 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   }
 
+  async function fetchGtinFromScript () {
+    await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      const scriptTagSelector = document.querySelector('script[type="application/ld+json"]');
+      const scriptTagData = scriptTagSelector ? scriptTagSelector.innerText : '';
+      let scriptTagJSON = '';
+      try {
+        scriptTagJSON = scriptTagData ? JSON.parse(scriptTagData) : '';
+      } catch (e) {
+        console.log('Error in converting text to JSON....');
+        scriptTagJSON = '';
+      }
+      const gtin = scriptTagJSON ? scriptTagJSON.gtin12 ? scriptTagJSON.gtin12 : '' : '';
+      addHiddenDiv('added_gtin', gtin);
+    });
+  }
+
   async function openProductDetailsTab () {
     // Clicking on the product specifications and other tabs to load product details on the DOM
     await context.evaluate(async function () {
@@ -58,6 +81,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
 
   await fetchBrandAndAvailabilityText();
+  await fetchGtinFromScript();
   await openProductDetailsTab();
 
   await new Promise((resolve) => setTimeout(resolve, 10000));

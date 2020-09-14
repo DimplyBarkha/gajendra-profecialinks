@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'schubiger-online.ch',
     prefix: null,
-    url: null,
+    url: 'https://www.schubiger-online.ch/p/{id}',
     country: 'CH',
     store: 'schubiger-online',
     zipcode: '',

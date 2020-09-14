@@ -26,6 +26,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[contains(@class, "product-name")]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -66,9 +67,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //*[contains(@class, "infos__manufacturer-code")]
-    regExp: .* (.*)
-    regExpReplace: $1
+    xpath: //div[@id="added_gtin"]
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -78,12 +77,13 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: (//*[contains(@class, "detail-infos__code")])[1]
+    regExp: .* (.*)
+    regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
     xpath: //*[contains(@class, "infos__manufacturer-code")]
-    regExp: .* (.*)
-    regExpReplace: $1
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -121,7 +121,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -138,6 +138,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[contains(@class, "video-item")]//iframe/@src
   - name: name
     singleValue: false
     description: The product name
