@@ -14,7 +14,10 @@ const transform = (data) => {
 
         if (row.id) {
           row.id.forEach(item => {
-            item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+            //item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+            var idArr=item.text.split('/p?');
+            var idArr1=idArr[0].split('/');
+            item.text=idArr1[idArr1.length-1];
           });
         }
 
