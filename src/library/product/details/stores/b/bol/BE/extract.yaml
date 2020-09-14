@@ -32,7 +32,7 @@ fields:
     defaultValue: 0
   - name: brandText
     xpath: //div[@data-test = 'brand']/a
-  - name: weightGross
+  - name: grossWeight
     xpath: //dt[contains(., 'Gewicht verpakking')]//following-sibling::dd[1]
   - name: weightNet
     xpath: //dt[normalize-space(text())='Gewicht']/following-sibling::dd[1]
@@ -64,6 +64,8 @@ fields:
     xpath: count(//div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href)
   - name: color
     xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title | //div[@class='feature-list__item feature-list__item--current']/div[@class='feature-list__text']
+  - name: variantInformation
+    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title | //div[@class='feature-list__item feature-list__item--current']/div[@class='feature-list__text']
   - name: name
     xpath: //h1[@class='page-heading']
   - name: videos
@@ -71,11 +73,15 @@ fields:
   - name : lbb
     defaultValue: No
   - name : specifications
-    xpath: //div[@data-test='specifications']
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl
+  - name: specTitle
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dt/text()
+  - name: specValue
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dd
   - name: warranty
     xpath: (//dt[@class='specs__title' and contains(., 'garantie')]/following-sibling::dd)[1]
-  - name: productOtherInformation
-    xpath: //ul[@class='pros-cons-list']/li
+  # - name: productOtherInformation
+  #   xpath: //ul[@class='pros-cons-list']/li
   - name: promotion
     xpath: //div[@data-test='discount']
   - name: variantInfo
