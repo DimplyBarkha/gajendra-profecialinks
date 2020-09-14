@@ -39,26 +39,20 @@ async function implementation (
         await new Promise(resolve => setTimeout(resolve, 3000));
       }
     }
-
-    function fetchProductId () {
-      const productId = window.optionsPrice ? window.optionsPrice.productId ? window.optionsPrice.productId : '' : '';
-      addHiddenDiv('added-productId', productId);
-    }
-
     await scrollToLoadAplusImages();
 
     // If images are present in description then add to manufacturerDescription else add to description
     const manufacturerImageFlag = document.querySelector('div[class="box-description cms"] img');
     const descriptionSelector = document.querySelector('div[class="box-description cms"]');
     let description = descriptionSelector ? descriptionSelector.innerText : '';
-    description = description ? description.replace(/(\n\s*){1,}/g, ' || ') : '';
-    description = description ? description.replace(/\|\| Key Features/gm, 'Key Features') : '';
     if (manufacturerImageFlag) {
+      description = description ? description.replace(/(\n\s*){1,}/g, ' || ') : '';
+      description = description ? description.replace(/\|\| Key Features/gm, 'Key Features') : '';
       addHiddenDiv('added-manufacturerDesc', description);
     } else {
-      addHiddenDiv('added-description', description);
+      const descContent = document.querySelector('div[class="box-description cms"]') ? document.querySelector('div[class="box-description cms"]').innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+      addHiddenDiv('added-description', descContent);
     }
-    fetchProductId();
   });
 
   await new Promise(resolve => setTimeout(resolve, 10000));
