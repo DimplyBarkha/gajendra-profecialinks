@@ -1,27 +1,27 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: 'div[data-tb-sid="st_results-container"] > div[data-tb-sid="st_result-container-wrapper"]'
 recordXPath: null
 fields: 
   - name: id
-    xpath: //div[contains(@class,'item sli_wrapper sli_col3 isUpdated')]/@data-id
+    xpath: //@data-id
     singleValue: true
   - name: name
-    xpath: //div[contains(@class,'item sli_wrapper sli_col3 isUpdated')]/div/div/h4/a
+    xpath: //div//div//h4//a
     singleValue: true
   - name: productUrl
-    xpath: //div[contains(@class,'item sli_wrapper sli_col3 isUpdated')]/div/figure/a/@href
+    xpath: //div//figure//a//@href
     singleValue: true
   - name: manufacturer
-    xpath: //div[contains(@class,'item sli_wrapper sli_col3 isUpdated')]/div/div/div[contains(@class,'item-brand')]
-    singleValue: true    
+    xpath: //div//div[@class="item-brand"]
+    singleValue: false    
   - name: thumbnail
-    xpath: //div[contains(@class,'item sli_wrapper sli_col3 isUpdated')]/div/figure/a/img/@src
+    xpath: //div//figure//a//img//@src
     singleValue: true
     regExp: (.+)
     regExpReplace: https://www.davidjones.com$1
   - name: price
-    xpath: //div[@class='pricing']//span[contains(@class,'price-display')]
+    xpath: //span[@itemprop='price']
     singleValue: true 
   - name: rankOrganic
     singleValue: true 
