@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: '.col-xs-6'
+#recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="itemId"]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@class="rank"]
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product_name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="product_box js-addToCart-loader"]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="thumbnail"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="bv-rating-average"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="reviewCount"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="product_manufacturer"]
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: false
+    xpath: //div[@class="rank"]
+  - name: endorsementText
+    singleValue: false
+    xpath: //div[@class="endorsement"]
