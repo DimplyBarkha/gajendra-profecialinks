@@ -42,12 +42,13 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //*[@id="ii_availText"]
+    # xpath: (//div[contains(@class, "price-button")]//span[contains(text(), "In winkelwagen")]/text())[1]
     # xpath: (//meta[@itemprop="availability"]/@content)[1]
+    xpath: //*[@id="ii_availText"]//text()|//*[@id="iio_availText"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: InStock
+    # regExp: (.*)
     # regExpReplace: In Stock
     # defaultValue: Out of Stock
   - name: description
@@ -160,7 +161,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //*[@id="ii_manufImg"]
+    xpath: //*[@id="added_ii_manufImg"]//li
     # xpath: //div[contains(@id,"flix-inpage")]//div[@id="inpage_container"]//img/@srcset
     description: Images within the third party description
   - name: videos

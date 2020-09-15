@@ -10,11 +10,14 @@ module.exports = {
   },
   // For navigating from home page to search page because search page is redirecting to home page.
   implementation: async (inputs, parameterValues, context, dependencies) => {
-    const url = `${inputs.url}`;
-    await context.setAntiFingerprint(false);
-    await context.setLoadAllResources(true);
-    await context.setBlockAds(false);
-    await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    let url = `${inputs.url}`;
+    // await context.setAntiFingerprint(false);
+    // await context.setLoadAllResources(true);
+    // await context.setBlockAds(false);
+    // await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    await context.goto(url);
 
     // let url = `${inputs.url}`;
     // url = `${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_timeout":350000,"load_all_resources":true}[/!opt!]`;

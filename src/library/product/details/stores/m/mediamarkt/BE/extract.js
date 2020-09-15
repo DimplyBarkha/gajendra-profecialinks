@@ -91,13 +91,23 @@ module.exports = {
       return window.location.href;
     });
 
-    // const hasManuf = await context.evaluate(async function () {
-    //   return document.querySelector('div#containerLoadbee');
+    // const manufacturerInfo = await context.evaluate(function () {
+    //   return !!document.querySelector('button#more_flixmedia');
     // });
 
-    // if (hasManuf) {
-    //   await context.waitForSelector('div.loadbeeTabContent', { timeout: 65000 });
-    // }
+    const hasManuf = await context.evaluate(async function () {
+      return !!document.querySelector('div#containerLoadbee');
+    });
+
+    if (hasManuf) {
+      try {
+        await context.waitForSelector('div#containerLoadbee', { timeout: 65000 });
+        await context.waitForSelector('div.loadbeeTabContent', { timeout: 65000 });
+        await context.waitForSelector('iframe#loadbeeIframeId', { timeout: 65000 });
+      } catch (error) {
+        console.log('Error loading manufacturer content');
+      }
+    }
 
     const apiManufCall = await context.evaluate(async function () {
       return document.querySelector('iframe#loadbeeIframeId') ? document.querySelector('iframe#loadbeeIframeId').getAttribute('src') : null;
@@ -128,7 +138,7 @@ module.exports = {
       });
       image = images;
       await context.goto(link);
-      addHiddenInfo('ii_manufContent', 'dsd');
+      addHiddenInfo('ii_manufContent', content);
       if (image) {
         addHiddenArrayList('ii_manufImg', image);
         // image.forEach((element, index) => {
@@ -137,11 +147,26 @@ module.exports = {
       }
     }
     const availText = await context.evaluate(async function () {
-      return document.querySelector('meta[itemprop="availability"]') ? document.querySelector('meta[itemprop="availability"]').getAttribute('content') : '';
+      return document.querySelector('div.price-button span') ? (document.querySelector('div.price-button span').innerText === 'In winkelwagen' ? 'In Stock' : 'In Stock') : 'Out of Stock';
     });
-    ;
+
+    await context.evaluate(async function () {
+      function hideDivElement (elementID, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = elementID;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      const avail = document.querySelector('div.price-button span') ? (document.querySelector('div.price-button span').innerText === 'In winkelwagen' ? 'In Stock' : 'In Stock') : 'Out of Stock';
+      hideDivElement('iio_availText', avail);
+    });
 
     addHiddenInfo('ii_availText', availText);
+
+    await context.waitForFunction(function (sel) {
+      return Boolean(document.querySelector(sel));
+    }, { timeout: 20000 }, 'body');
 
     return await context.extract(productDetails, { transform });
   },

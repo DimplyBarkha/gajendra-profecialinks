@@ -152,7 +152,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="wrp_flixmedia"]//div[contains(@class, "wrapper_flixmedia")]//text()|//div[@id="wrp_loadbee"]//div[contains(@class, "wrapper_loadbee")]//text()
+    xpath: //div[@id="wrp_flixmedia"]//div[contains(@class, "wrapper_flixmedia")]//div[contains(@id, "flixinpage")]/*[not(self::style)]|//div[@id="wrp_loadbee"]//div[contains(@class, "wrapper_loadbee")]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false

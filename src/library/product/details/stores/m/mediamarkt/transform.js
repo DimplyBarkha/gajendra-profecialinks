@@ -86,7 +86,7 @@ const transform = (data, context) => {
         let text = '';
         console.log(row.manufacturerDescription);
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim() + ' ';
         });
         row.manufacturerDescription = [
           {
@@ -199,13 +199,20 @@ const transform = (data, context) => {
       }
 
       if (row.manufacturerImages && row.manufacturerImages[0]) {
-        if (row.manufacturerImages[0].text.includes('media.flixcar.com') && row.manufacturerImages[0].text.includes('1000w')) {
+        if ((row.manufacturerImages[0].text.includes('media.flixcar.com') || row.manufacturerImages[0].text.includes('syndication.flix360.com')) && row.manufacturerImages[0].text.includes('1000w')) {
           row.manufacturerImages.forEach(item => {
             const img = item.text.split(' ')[0];
-            const imgText = 'https' + img;
+            const imgText = 'https:' + img;
             item.text = imgText;
           });
         }
+        row.manufacturerImages.forEach(item => {
+          if (!(item.text.startsWith('http'))) {
+            const img = item.text;
+            const imgText = 'https:' + img;
+            item.text = imgText;
+          }
+        });
       }
 
       if (row.image && row.image[0]) {
