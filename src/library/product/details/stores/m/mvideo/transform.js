@@ -27,7 +27,7 @@ const transform = (data) => {
         if (row.alternateImages) {
           var img_arr = [];
           row.alternateImages.forEach(item => {
-            img_arr.push([{"text":'https:'+item.text.replace(/small_pic\/65\//g, ''), "xpath": row.alternateImages[0]["xpath"]}]);
+            img_arr.push({"text":'https:'+item.text.replace(/small_pic\/65\//g, ''), "xpath": row.alternateImages[0]["xpath"]});
           });
           if (img_arr.length > 1){
             img_arr.splice(0,1);
@@ -53,6 +53,12 @@ const transform = (data) => {
           row.category.forEach(item => {
             item.text = item.text.replace('Главная', '').trim();
             item.text = item.text.replace(/(\s*\n\s*)+/g, ' > ').trim();
+          });
+        }
+
+        if(row.variantId){
+          row.variantId.forEach(item => {
+            item.text = item.text.replace(/.+-(\d+)/g, '$1');
           });
         }
       }

@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class="c-pdp-price__current sel-product-tile-price"]
+    xpath: //div[contains(@class,"o-pay__content-trade")]//div[contains(@class,"c-pdp-price__current")]
   - name: name
     singleValue: false
     xpath: //h1[@class='e-h1 sel-product-title']
