@@ -35,11 +35,6 @@ module.exports = {
       await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     }
 
-    const setLocale = await context.evaluate(function() {
-      document.cookie = "site_locale=ca;"
-    });
-
-
     const pageCheck = await context.evaluate(function() {
       let pageLoaded = '//main[contains(@data-comp, "ProductPage")]'
       var checkElement = document.evaluate( pageLoaded, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -69,6 +64,7 @@ module.exports = {
 
     var reqAccept = "application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk"
     if (videos && videos.length) {
+      
       for (let i = 0; i < videos.length; i++) {   
         // Click a link on the page
         var selectorCheck = await context.evaluate(function (videos, i){
@@ -81,6 +77,7 @@ module.exports = {
           }
         }, videos, i)
         if(selectorCheck){
+          
           await context.click(`img[src='${videos[i]}']`);
           // await context.click('#tabItem_ogt_3_0 > button.css-snmyc5.e65zztl0[type="button"] > div.css-38q71r > div.css-5ix92y.e65zztl0 > div.css-16g8jcx.e65zztl0 > div.css-10aokas.e65zztl0 > div.css-1u6gbn2.e65zztl0 > svg.css-1a5s7yv.e65zztl0');
             console.log(`img[src='${videos[i]}']`)
@@ -89,8 +86,20 @@ module.exports = {
             // await context.waitForPage();
           await new Promise(resolve => setTimeout(resolve, 5000));
             console.log('finished waiting for page');
-              const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
-          //    const req = await context.searchForRequest('/productimages/*');
+            const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
+            
+            let closeCheck = await context.evaluate(function() {
+              let sel = document.querySelector('button[data-at="modal_close"]')
+              if(sel){
+                sel.click()
+                return true;
+              } else {
+                return false;
+              }
+            })
+            // if(closeCheck){
+            //   await click('button[data-at="modal_close"]')
+            // }
           if(req){
             if(req[0]){
               reqAccept = req[0].requestHeaders.Accept;
@@ -100,26 +109,36 @@ module.exports = {
       }
     }
 
-    const scrollFunc = await context.evaluate(function(){
-      let scrollTop = 0;
-      while (scrollTop !== 10000) {
+    let scrollTop = 0;
+    while (scrollTop !== 20000) {
+      try{
         scrollTop += 1000;
-        window.scroll(0, scrollTop);
-  
-        console.log("SCROLLING")
-        if (scrollTop === 10000) {
-          break;
-        }
+        await context.waitForFunction(async function(scrollTop){
+          console.log("SCROLLING");
+          window.scroll(0, scrollTop);
+          let allProds = document.querySelectorAll('a[data-comp="ProductItem "]')
+          let prodsWithImg = document.querySelectorAll('a[data-comp="ProductItem "] img')
+        }, { timeout: 1000 }, scrollTop)
+      } catch(err) {
+        console.log("Failed")
       }
-    })
+      if (scrollTop === 20000) {
+        break;
+      }
+    }
 
     const videoIdArray = await context.evaluate(function(){
       let videoEle = document.querySelector('#linkJSON');
       let videoIdForUrl = [];
       if(videoEle){
         let videoObj = JSON.parse(videoEle.innerText);
-        if(videoObj[4].props.currentProduct){
-          let videoIds = videoObj[4].props.currentProduct.productVideos
+        if(videoObj[4] || videoObj[1]){
+          let videoIds;
+          if(videoObj[4]){
+            videoIds = videoObj[4].props.currentProduct.productVideos
+          } else if(videoObj[1]){
+            videoIds = videoObj[1].props.product.product.productVideos
+          }
           if(videoIds){
             videoIds.forEach(obj => {
               videoIdForUrl.push(obj.videoUrl)
@@ -128,7 +147,8 @@ module.exports = {
         }
       }
       return videoIdForUrl
-    })
+    });
+
 
     
     const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl, acceptHeader) {

@@ -23,9 +23,9 @@ module.exports = {
       "secure": false,
       "httpOnly": false
   }]});
-    await context.evaluate(function() {
-      document.cookie = "site_locale=ca;"
-    });
+    // await context.evaluate(function() {
+    //   document.cookie = "site_locale=ca;"
+    // });
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
