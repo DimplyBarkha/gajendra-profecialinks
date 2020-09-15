@@ -102,7 +102,7 @@ fields:
   - name: variantCount
     singleValue: true
     xpath: count(//ul[@aria-label='Auswahl']//li[not(contains(@state,'disabled'))]/@data-id)
-    defaultValue: 1
+    defaultValue: 0
     description: Number of variants listed
   - name: color
     singleValue: false

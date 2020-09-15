@@ -69,14 +69,14 @@ const transform = (data) => {
           item.text = item.text.replace(/\n/gm, '').replace(/\s{2,}/gm, ' ').trim();
         });
       }
-      if (row.variantCount) {
-        row.variantCount.forEach(item => {
-          // eslint-disable-next-line eqeqeq
-          if (item.text == 0) {
-            item.text = 1;
-          }
-        });
-      }
+      // if (row.variantCount) {
+      //   row.variantCount.forEach(item => {
+      //     // eslint-disable-next-line eqeqeq
+      //     if (item.text == 0) {
+      //       item.text = 1;
+      //     }
+      //   });
+      // }
       if (row.technicalInformationPdfPresent) {
         row.technicalInformationPdfPresent.forEach(item => {
           item.text = item.text.replace(/(.*)/, 'Yes');
