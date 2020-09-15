@@ -7,45 +7,13 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.price) {
-        let text = '';
-        let xpath = '';
-        row.price.forEach(item => {
-          text = item.text.replace('.', ',');
-          xpath = item.xpath;
-        });
-        row.price = [
-          {
-            text: text,
-            xpath: xpath,
-          },
-        ];
-      }
-
-      if (row.shippingWeight) {
-        let text = '';
-        let xpath = '';
-        row.shippingWeight.forEach(item => {
-          const unit = item.text.substring(item.text.indexOf('(') + 1, item.text.indexOf(')'));
-          const weight = item.text.substring(item.text.indexOf('-') + 1, item.text.length);
-          text = weight.replace('.', ',') + unit;
-          xpath = item.xpath;
-        });
-        row.shippingWeight = [
-          {
-            text: text.trim(),
-            xpath: xpath,
-          },
-        ];
-      }
-
       if (row.weightGross) {
         let text = '';
         let xpath = '';
         row.weightGross.forEach(item => {
           const unit = item.text.substring(item.text.indexOf('(') + 1, item.text.indexOf(')'));
           const weight = item.text.substring(item.text.indexOf('-') + 1, item.text.length);
-          text = weight.replace('.', ',') + unit;
+          text = weight + unit;
           xpath = item.xpath;
         });
         row.weightGross = [
@@ -88,25 +56,10 @@ const transform = (data) => {
         ];
       }
 
-      if (row.category) {
-        let text = '';
-        const temp = row.category;
-        temp.length = row.category.length - 1;
-        row.category = temp;
-        row.category.forEach(item => {
-          text = row.category.map(elm => elm.text).join(' | ');
-        });
-        row.category = [
-          {
-            text: text,
-          },
-        ];
-      }
-
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text = row.manufacturerDescription.map(elm => elm.text).join(' | ');
+          text = row.manufacturerDescription.map(elm => elm.text).join(' ');
         });
         row.manufacturerDescription = [
           {
@@ -179,6 +132,17 @@ const transform = (data) => {
         });
         row.specifications = [
           {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
+      if (row.shippingDimensions) {
+        let text = '';
+        row.shippingDimensions.forEach((item, index) => {
+          text += item.text.trim() + ' | ';
+        });
+        row.shippingDimensions = [
+          {
             text: text.slice(0, -3),
           },
         ];
@@ -198,10 +162,7 @@ const transform = (data) => {
         let text = '';
         let xpath = '';
         row.manufacturerDescription.forEach(item => {
-          text = item.text.replace('«', '');
-          text = text.replace('»', '');
-          text = text.replace('|', '');
-          text = text.replace('« » |', '');
+          text = item.text.replace(/«/g, '').replace(/»/g, '').replace(/|/g, '').replace(/« » |/g, '').replace(/(#.*{.*?})/gm, '');
           xpath = item.xpath;
         });
         row.manufacturerDescription = [

@@ -5,7 +5,7 @@ module.exports = {
     country: 'NZ',
     store: 'jbhifi',
     domain: 'jbhifi.co.nz',
-    loadedSelector: null,
+    loadedSelector: "div[class*='gallery'] div[class='image'] img",
     noResultsXPath: null,
     zipcode: '',
   },

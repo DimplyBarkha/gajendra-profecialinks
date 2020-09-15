@@ -14,13 +14,13 @@ fields:
     xpath: //div[@class='gallery']//div[@class='thumbs']//li//img/@src
   - name: category
     singleValue: false
-    xpath: //li[@property='breadcrumb' and position()>1]
+    xpath: //li[@property='breadcrumb' and position()>1 and position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //h1
+    xpath: //div[@id='ii_nameExtended']
   - name: name
     singleValue: false
-    xpath: //h1
+    xpath: //div[@id='ii_name']
   - name: listPrice
     singleValue: false
     xpath: //p[@class='price']/span[contains(@class,'oldPriceWrapper ') and not (contains(@style,'none'))]/span[contains(@class,'amount ')]
@@ -56,13 +56,13 @@ fields:
     xpath: //ul//p[contains(.,'Packaged Weight')]
   - name: specifications
     singleValue: false
-    xpath: //div[@id='tab2']//ul//p
+    xpath: //div[@id='tab2']//ul//p | //div[@id='ii_specs']
   - name: productOtherInformation
     singleValue: false
     xpath: //div[@id='tab3']//ol//li
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='abc']
+    xpath: //div[@id='ii_manufactureDesc']
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id='primary_image']
@@ -75,3 +75,13 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: '0'
+  - name: shippingDimensions
+    xpath: //ul//p[contains(.,'Packaged Height')] | //ul//p[contains(.,'Packaged Width')] | //ul//p[contains(.,'Packaged Depth')]
+  - name: weightNet
+    xpath: //div[@id='ii_weight']
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(@class,'info')]//div[contains(@itemprop,'description')]//li
+  - name: descriptionBullets
+    xpath: count(//div[contains(@class,'info')]//div[contains(@itemprop,'description')]//li)
+  - name: videos
+    xpath: //div[@id='ii_video']
