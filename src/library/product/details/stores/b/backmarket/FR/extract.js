@@ -84,8 +84,12 @@ module.exports = {
       }
       // @ts-ignore
       addHiddenDiv('cc_description', finalDescription);
-
-      let specification = description2 ? description2.split('CARACTERISTIQUES')[1] : '';
+      let specification;
+     if(description2.includes('CARACTERISTIQUES')){
+      specification = description2 ? description2.split('CARACTERISTIQUES')[1] : ''
+     }else if(description2.includes('CARACTÉRISTIQUES')){
+      specification = description2 ? description2.split('CARACTÉRISTIQUES')[1] : ''
+     }
       // @ts-ignore
       addHiddenDiv('cc_specification', specification);
     });
