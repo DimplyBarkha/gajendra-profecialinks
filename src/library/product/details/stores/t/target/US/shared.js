@@ -46,6 +46,17 @@ const transform = (data) => {
         text = 'Out of Stock';
       }
       row.availabilityText = [{ text }];
+
+
+      row.variantCount = [{ text:'0' }];
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text = text + (text ? ' || ' : '') + item.text;
+          text = text.replace('<B>','').replace('</B>','')
+        });
+        row.specifications = [{ text }];
+      }
     }
   }
 

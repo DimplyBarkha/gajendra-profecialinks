@@ -1,4 +1,3 @@
-
 async function implementation (
   inputs,
   parameters,
@@ -7,12 +6,8 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
-<<<<<<< HEAD
   if (inputs.id) {
     await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-    await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-
     const productUrl = await context.evaluate(async function () {
       function stall (ms) {
         return new Promise((resolve, reject) => {
@@ -35,32 +30,6 @@ async function implementation (
         return href;
       }
     });
-=======
-  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
-
-  const productUrl = await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    await stall(100);
-    const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
-    if (link !== null) {
-      const href = link.getAttribute('href');
-      if (href.indexOf('preselect=') > -1) {
-        let productId = href.split('preselect=')[1];
-        productId = productId.split('#')[0];
-        const splitUrl = href.split('-');
-        splitUrl[splitUrl.length - 1] = productId;
-        return splitUrl.join('-');
-      }
-      return href;
-    }
-  });
->>>>>>> DS-core-target-us
 
     await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
   }
@@ -202,7 +171,7 @@ async function implementation (
 
       let description = '';
       if (variant.product_description && variant.product_description.soft_bullets && variant.product_description.soft_bullets.bullets && variant.product_description.soft_bullets.bullets.length) {
-        description = '|| ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')) + ' ';
+        description = decodeHtml(variant.product_description.soft_bullets.bullets.join(' | ')) + ' ';
         addHiddenDiv(newDiv, 'descriptionBullets', variant.product_description.soft_bullets.bullets.length);
         addHiddenDiv(newDiv, 'additionalDesc', ' || ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')));
       }
@@ -252,13 +221,13 @@ async function implementation (
           if (e.includes('<B>Weight:</B>') || e.includes('<B>Net weight:</B>')) {
             addHiddenDiv(newDiv, 'netWeight', e.split('</B>')[1].trim());
           }
-          if (e.includes('Number of') || e.includes('Quantity:')) {
+          if (e.includes('Quantity:')) {
             addHiddenDiv(newDiv, 'packSize', e.split('</B>')[1].trim());
           }
-          if (e.includes('Dimensions')) {
-            hasSpecifications = true;
-            addHiddenDiv(newDiv, 'specifications', e.split('</B>')[1].trim());
-          }
+          // if (e.includes('Specifications')) {
+          //   hasSpecifications = true;
+          //   addHiddenDiv(newDiv, 'specifications', e.split('</B>')[1].trim());
+          // }
           if (e.includes('Warranty')) {
             addHiddenDiv(newDiv, 'warranty', e.split('</B>')[1].trim());
           }
@@ -528,7 +497,14 @@ async function implementation (
                 videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
               }
             } else if (ind > 0) {
-              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
+              var images = e.getAttribute('src')
+              if (!images.startsWith('https')) {
+                var image = e.getAttribute('src').startsWith('//');
+                secondaryImages.push(e.getAttribute('src').replace('//', 'https://').replace('/sc/64x64', ''));
+              }
+              if (images.startsWith('https')) {
+                secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
+              }
             }
           });
         }
@@ -547,7 +523,14 @@ async function implementation (
                 videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
               }
             } else if (ind > 0) {
-              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
+              var images = e.getAttribute('src')
+              if (!images.startsWith('https')) {
+                var image = e.getAttribute('src').startsWith('//');
+                secondaryImages.push(e.getAttribute('src').replace('//', 'https://').replace('/sc/64x64', ''));
+              }
+              if (images.startsWith('https')) {
+                secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
+              }
             }
           });
         }
@@ -663,80 +646,25 @@ async function implementation (
       }
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
 
-<<<<<<< HEAD
-      let inStore = false;
-      let deliver = false;
-      let availabilitySuccess = false;
-      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=eb2551e4accc14f38cc42d32fbc2b2ea&tcin=' + variant.tcin + '&store_id=1465&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=1465&fulfillment_test_mode=grocery_opu_team_member_test')
-        .then(data => data.json())
-        .then(availabilityData => {
-          if (availabilityData &&
-        availabilityData.data &&
-        availabilityData.data.product &&
-        availabilityData.data.product.fulfillment) {
-            if (availabilityData.data.product.fulfillment.store_options &&
-              availabilityData.data.product.fulfillment.store_options.length) {
-              availabilitySuccess = true;
-              availabilityData.data.product.fulfillment.store_options.forEach(store => {
-                if (store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
-                  inStore = true;
-                }
-              });
-            }
-
-            if (availabilityData.data.product.fulfillment.shipping_options) {
-              availabilitySuccess = true;
-            }
-
-            if (availabilityData.data.product.fulfillment.shipping_options &&
-              (availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK' || availabilityData.data.product.fulfillment.shipping_options.availability_status.includes('LIMITED_STOCK'))) {
-              deliver = true;
-            }
-          }
-        });
-
-      if (availabilitySuccess) {
-        if (deliver) {
-          addHiddenDiv(newDiv, 'availability', 'In Stock');
-        } else if (inStore) {
-          addHiddenDiv(newDiv, 'availability', 'In Store Only');
-        }
-        if (!deliver && !inStore) {
-          addHiddenDiv(newDiv, 'availability', 'Out of stock');
-        }
-      } else {
-        const inStoreOnlyMessage = document.querySelector('div[data-test="inStoreOnlyMessage"]') || document.querySelector('div[data-test="orderPickupMessage"]');
-        if (inStoreOnlyMessage && (inStoreOnlyMessage.querySelector('.h-text-greenDark.h-text-bold') || inStoreOnlyMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
-          inStore = true;
-        }
-
-        const orderMessage = document.querySelector('div[data-test="deliverToZipCodeMessage"]');
-        if (orderMessage && (orderMessage.querySelector('.h-text-greenDark.h-text-bold') || orderMessage.querySelector('.h-text-orangeDark.h-text-bold'))) {
-          deliver = true;
-        }
-
-        const scheduledDelivery = document.querySelector('div[data-test="scheduledDeliveryBlock"]');
-        if (scheduledDelivery && (scheduledDelivery.querySelector('.h-text-greenDark.h-text-bold') || scheduledDelivery.querySelector('.h-text-orangeDark.h-text-bold'))) {
-          deliver = true;
-        }
-
-        if (deliver) {
-          addHiddenDiv(newDiv, 'availability', 'In Stock');
-        } else if (inStore) {
-          addHiddenDiv(newDiv, 'availability', 'In Store Only');
-        }
-        if (!deliver && !inStore) {
-          addHiddenDiv(newDiv, 'availability', 'Out of stock');
-        }
-      }
-=======
       await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=ff457966e64d5e877fdbad070f276d18ecec4a01&tcin=' + variant.tcin + '&store_id=281&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=281&fulfillment_test_mode=grocery_opu_team_member_test')
         .then(data => data.json())
         .then(availabilityData => {
           addHiddenDiv(newDiv, 'availabilityJson', JSON.stringify(availabilityData));
           console.log('availabilityData', availabilityData);
         });
->>>>>>> DS-core-target-us
+
+      await fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=ff457966e64d5e877fdbad070f276d18ecec4a01&pricing_store_id=1901&storeId=1901&fulfillment_test_mode=grocery_opu_team_member_test')
+        .then(response => response.json())
+        .then(data => data.product.item.product_description.bullet_description.map(val => {
+          return addHiddenDiv(newDiv, 'specificationsdiv', val);
+        }));
+
+        var query = document.evaluate('//div[@class="Col-favj32-0 hezhbt h-padding-h-default"]/div/b/parent::div', document,
+        null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      var results = Array(query.snapshotLength).fill(0).map((element, index) =>  query.snapshotItem(index).innerText)
+      results.map(val => {
+        return addHiddenDiv(newDiv, 'specificationsdiv', val);
+      });
 
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
         .then(data => data.json())
@@ -746,12 +674,25 @@ async function implementation (
             if (variantData.price.current_retail || variantData.price.formatted_current_price) {
               addHiddenDiv(newDiv, 'price', variantData.price.current_retail || variantData.price.formatted_current_price);
             }
-            if (variantData.price.reg_retail) {
-              addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
+            // if (variantData.price.reg_retail) {
+            //   addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
+            // }
+            // if (variantData.price.save_dollar) {
+            //   addHiddenDiv(newDiv, 'promotion', 'Save $' + variantData.price.save_dollar.toFixed(2) + ' ' + variantData.price.save_percent + '%' + ' off');
+            // }
+          }
+        });
+
+
+      await fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
+        .then(data => data.json())
+        .then(variantData => {
+          console.log('pricingData', variantData);
+          if (variantData.price) {
+            if (variantData.price.current_retail || variantData.price.formatted_current_price) {
+              addHiddenDiv(newDiv, 'price', variantData.price.current_retail || variantData.price.formatted_current_price);
             }
-            if (variantData.price.save_dollar) {
-              addHiddenDiv(newDiv, 'promotion', 'Save $' + variantData.price.save_dollar.toFixed(2) + ' ' + variantData.price.save_percent + '%' + ' off');
-            }
+
           }
         });
 
@@ -765,6 +706,10 @@ async function implementation (
         if (document.querySelector('span[data-test="product-savings"]') && document.querySelector('span[data-test="product-savings"]').innerText) {
           addHiddenDiv(newDiv, 'promotion', 'Save ' + document.querySelector('span[data-test="product-savings"]').innerText.split('Save')[1]);
         }
+      }
+
+      if (document.querySelector('span[data-test="product-savings"]')) {
+        addHiddenDiv(newDiv, 'listPrice', document.querySelector('span[data-test="product-savings"]').innerText.split(' ')[1]);
       }
 
       if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
