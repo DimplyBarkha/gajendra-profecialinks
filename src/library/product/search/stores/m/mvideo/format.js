@@ -17,8 +17,8 @@ const transform = (data) => {
             item.text = 'https:'+item.text;
           });
         }
-        if (row.prodcutUrl) {
-          row.prodcutUrl.forEach(item => {       
+        if (row.productUrl) {
+          row.productUrl.forEach(item => {       
             item.text = 'https://www.mvideo.ru'+item.text;
           });
         }          
