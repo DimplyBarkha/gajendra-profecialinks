@@ -8,13 +8,13 @@ fields:
     xpath: //div[@class='product_infotop']/@data-sku
   - name: variantId
     singleValue: false
-    xpath: //div[@class='product_infotop']/@data-sku    
+    xpath: //div[@class='product_infotop']/@data-sku     
   - name: image
     singleValue: false
     xpath: //div[contains(@class,'product-img-box')]//p[contains(@class,'product-image')]//a/@href
   - name: imageAlt
     singleValue: false
-    xpath: //ul[@class='bxslides']//li//a[@class='cloud-zoom-gallery']/@alt
+    xpath: //div[contains(@class,'product-img-box')]//p[contains(@class,'product-image')]//a/@alt
   - name: alternateImages
     singleValue: false
     xpath: //ul[@class='bxslides']//li//a[@class='cloud-zoom-gallery']/@href
@@ -59,10 +59,7 @@ fields:
     xpath: //ul[@class='countdown mtop20']
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[@id='full-desc']//strong[text()='Package Dimensions:']/following-sibling::text()[1]
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@class='product_logo mbot12']//a//img/@src
+    xpath: //div[@id='full-desc']//strong[text()='Package Dimensions:']/following-sibling::text()[1]  
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//h1
