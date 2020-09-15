@@ -17,7 +17,14 @@ fields:
     xpath: //div[@class="product-price-current"]/span[@class="product-price-value"]
   - name: sku
     singleValue: false
+<<<<<<< HEAD
     xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
+=======
+    xpath: //div[@class="product-info"]/meta[1]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[1]/@content    
+>>>>>>> f412d793236d945a4592f804ab835eb6a3ff294b
   - name: brandText
     singleValue: false
     xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
