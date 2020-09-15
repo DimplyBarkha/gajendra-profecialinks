@@ -1,0 +1,86 @@
+input:
+  _url: http://power.dk
+  URL: https://www.power.dk/hus-og-fritid/stoevsugning/tilbehoer-til-stoevsugere/dyson-tool-kit-til-v6-stoevsugere/p-260083/
+extractions:
+  - html: https://workbench.import.io/html/run=342b931a-efa2-46f9-99a8-d78f2aa25a60/task=87bf1705-6965-4dc9-b5ce-e6f20161c095/1a68c8db-5aa7-41c4-a89d-d0f5ed93a1e0.html
+    extractionConfigId: product/details/stores/p/power/DK/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://media.power-cdn.net/images/h-c1ad0decf71012ede4882ef44aed27f2/products/260083/260083_1_600x600_w_g.webp
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
+              - text: https://media.power-cdn.net/images/h-34adaab9a44f8f9cd7204634cdad8f68/products/260083/260083_2_600x600_w_g.webp
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[2]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
+              - text: https://media.power-cdn.net/images/h-b4a36ef7ce3034c9e04c99762581ba41/products/260083/260083_3_600x600_w_g.webp
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[3]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
+            category:
+              - text: Power.dk
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Hus og fritid
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Støvsugning
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Tilbehør til støvsugere
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
+            nameExtended:
+              - text: DYSON TOOL KIT TIL V6 STØVSUGERE
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]
+            gtin:
+              - text: "5025155009550"
+                xpath: /html/body/div[3]
+            eangtin:
+              - text: "5025155009550"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/pwr-product-specifications[1]/div[2]/div[3]/div[2]
+            mpc:
+              - text: DYTOOLKIT
+                xpath: /html/body/div[6]
+            color:
+              - text: DYTOOLKIT
+                xpath: /html/body/div[5]
+            manufacturerDescription:
+              - text: >-
+                  Ekstra tilbehør til din ledningsfrie rengøring - perfekt til
+                  bilen og møbler
+
+                  Med Dyson toolkit tilbehøret får du hele 6 forskellige slags tilbehørsdele
+
+                  Mundstykke med bløde børster - Bløde børster som forsigtigt fjerner støv og allergener fra flade overflader og møbler.
+
+                  Mundstykke til det grove snavs - mundstykke med faste børster som grenstedig snavs som mudder
+
+                  Ekstra bredt mundstykke - Perfekt til møbler
+                   
+                   Læs mere
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[2]
+            image:
+              - text: https://media.power-cdn.net/images/h-c1ad0decf71012ede4882ef44aed27f2/products/260083/260083_1_600x600_w_g.jpg
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/img[1]/@src
+            descriptionBullets:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: da
+                value: 3
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            quantity:
+              - text: 1
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1600180805891
