@@ -33,6 +33,8 @@ fields:
   - name: brandText
     xpath: //div[@data-test = 'brand']/a
   - name: weightGross
+    xpath: //p[contains(., 'Gewicht verpakking')]
+  - name: weightNet
     xpath: //dt[contains(., 'Gewicht')]//following-sibling::dd[1]
   - name: gtin
     xpath: //script[@type='application/ld+json' and contains(., '"@id":"https://www.bol.com/')]
