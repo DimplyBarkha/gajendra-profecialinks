@@ -23,7 +23,7 @@ fields:
     defaultValue: 'Trademe'
   - name: price
     singleValue: false 
-    xpath: //tm-buy-now-box/tg-box2/div/div/p[2]/strong
+    xpath: //tm-buy-now-box/tg-box2//p[contains(@class,"p-h1")]
   - name: sku
     singleValue: false 
     xpath: //tm-potential-r18-content/div/tg-row[2]/tg-col[2]/div/small[1]
