@@ -116,7 +116,9 @@ module.exports = {
       let numberOfReviews = initialData ? initialData.numberOfReviews : '';
       addHiddenDiv('cc_numberOfReviews', numberOfReviews);
       let averageRating = initialData ? initialData.averageRating : '';
-      addHiddenDiv('cc_averageRating', averageRating.toFixed(1));
+      if(averageRating){
+        addHiddenDiv('cc_averageRating', averageRating.toFixed(1));
+      }
     });
     return await context.extract(productDetails, { transform });
   },
