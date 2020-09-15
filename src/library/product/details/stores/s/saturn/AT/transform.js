@@ -32,6 +32,20 @@ const transform = (data, context) => {
         row.aggregateRating = [{ text }];
         row.aggregateRatingText = row.aggregateRating;
       }
+      if (row.manufacturerDescription) {
+        const text = row.manufacturerDescription.map(elm => elm.text).join(' ');
+        row.manufacturerDescription = [{ text }];
+      }
+      if (row.videos) {
+        const videos = row.videos.map(video => {
+          if (video.text.includes('content.jwplatform.com')) {
+            const json = JSON.parse(video.text);
+            return { text: json.playlist.map(elm => `https${elm.file}`).join(' | ') };
+          }
+          return { text: video.text };
+        });
+        row.videos = videos.map(elm => elm);
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

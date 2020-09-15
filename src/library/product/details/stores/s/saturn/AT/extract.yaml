@@ -114,13 +114,15 @@ fields:
   - name: colorCode
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
+    xpath: //div[starts-with(@id,"flixinpage_")]/*[not(name() = 'script')][not(name() = 'style')]
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
+    xpath: //div[starts-with(@id,"flixinpage_")]//img/@srcset | //div[starts-with(@id,"flixinpage_")]//img/@src[not(contains(.,"loading.gif"))][not(@srcset)]
     singleValue: false
     description: Images within the third party description
   - name: videos
-    xpath: //*[@class="video_proddetail"]/@src
+    xpath: //*[@class="video_proddetail"]/@src | //input[@class="flix-jw"]/@value
     singleValue: false
     description: URLs of videos on page
   - name: name
