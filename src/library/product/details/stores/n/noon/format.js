@@ -21,22 +21,7 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });
       }
-      if (row.category) {
-        let info = [];          
-        row.category.forEach(item => {
-          if (item.text != 'Home'){
-            info.push(item.text);            
-          }
-        });          
-        row.category = [{'text':info.join(' > '),'xpath':row.category[0].xpath}];
-      }
-      if (row.imageAlt) {
-        let info = [];          
-        row.imageAlt.forEach(item => {
-          info.push(item.text.trim());            
-        });          
-        row.imageAlt = [{'text':info.join(' | '),'xpath':row.imageAlt[0].xpath}];          
-      }
+            
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           var matches = /\s*(\d+)/isg.exec(item.text);

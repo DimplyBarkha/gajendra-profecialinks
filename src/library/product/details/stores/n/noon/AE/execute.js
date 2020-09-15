@@ -1,4 +1,3 @@
-const { transform } = require('../variantsTransform');
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
