@@ -1,1 +1,5 @@
 extends: ../shared
+fields:
+  - name: priceConverted
+    singleValue: false
+    xpath: //span[@id="convbinPrice"]/text() | //span[@id="prcIsum_bidPrice"]/text()
