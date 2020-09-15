@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'mvideo',
-    nextLinkSelector: 'a.ico-pagination-next',
+    nextLinkSelector: 'a.ico-pagination-next:not(.disabled)',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div.ajax-overlay-wrapper[style*="display: none"]',
     loadedSelector: 'div#js-product-tile-list',
     noResultsXPath: '//div[@class="search-no-results"]',
     openSearchDefinition: null,

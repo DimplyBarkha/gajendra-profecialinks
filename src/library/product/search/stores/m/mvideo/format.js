@@ -5,6 +5,7 @@
  */
 const transform = (data) => {
     for (const { group } of data) {
+      var rank = 1;
       for (const row of group) {
         if (row.id) {
           row.id.forEach(item => {           
@@ -21,9 +22,12 @@ const transform = (data) => {
           row.productUrl.forEach(item => {       
             item.text = 'https://www.mvideo.ru'+item.text;
           });
-        }          
+        }
+        row.rank = [{"text":rank}];
+        row.rankOrganic = [{"text":rank}];
+        rank++;
       }
     }
     return data;
-  };  
+  };
   module.exports = { transform };
