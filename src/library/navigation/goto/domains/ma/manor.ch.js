@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'manor.ch',
-    timeout: null,
+    timeout: 100000,
     country: 'CH',
     store: 'manor',
     zipcode: '',

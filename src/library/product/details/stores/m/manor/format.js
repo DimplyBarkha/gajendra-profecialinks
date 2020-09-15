@@ -42,7 +42,7 @@ const transform = (data) => {
             row.alternateImages.forEach(item => {              
               info.push('https://www.manor.ch'+item.text)
             });
-            row.category = info;
+            row.alternateImages = info;
         }
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
@@ -81,14 +81,7 @@ const transform = (data) => {
           row.aggregateRating.forEach(item => {
             item.text = parseInt(item.text);
           });
-        }
-        if (row.alternateImages) {
-          var imag_arr = [];
-          row.alternateImages.forEach(item => {
-            imag_arr.push(item.text);
-          });
-          row.alternateImages = [{"text": imag_arr.join(' | '), "xpath": row.alternateImages[0]["xpath"]}];
-        }        
+        }                
       }
     }
     return data;
