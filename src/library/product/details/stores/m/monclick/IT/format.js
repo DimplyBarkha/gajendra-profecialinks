@@ -19,8 +19,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.additionalDescBulletInfo) {
-        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/\n \n/g, ' || ');
+      if (row.additionalDescBulletInfo && row.additionalDescBulletInfo.length === 1) {
+        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/\n -/g, ' || ').replace(/^-/, '||').replace(/\\n/g, ' ')
+        const bulletCount = row.additionalDescBulletInfo[0].text.match(/\|\|/g).length
+        row.descriptionBullets = [{ text: bulletCount }]
+      } else if (row.additionalDescBulletInfo && row.additionalDescBulletInfo.length > 1) {
+        row.descriptionBullets = [{ text: row.additionalDescBulletInfo.length }]
+        const bulletText = row.additionalDescBulletInfo.reduce((bulletText = '', item) => {
+          bulletText += ' || ' + item.text.replace(/^-/, '').replace(/\\n/g, ' ')
+          return bulletText
+        }, '')
+        row.additionalDescBulletInfo = [{ text: bulletText }]
       }
       if (row.description) {
         row.description1[0].text = row.description1[0].text.replace(/\n \n/g, ' ');
@@ -30,13 +39,6 @@ const transform = (data) => {
         });
         row.description2 = [{ text: demo.slice(0, -1).trim() }];
         row.description[0].text = row.description[0].text.replace(/\n - /g, ' || ').replace(/\n \n-/g, ' || ').replace(/\n \n \n \n/g, ' ').replace(/\n \n \n/g, ' ').replace(/\n \n/g, ' ').replace(/\n/g, ' ');
-        const info = row.description[0].text;
-        const count = info.split('||').length - 1;
-        if (count > 1) {
-          row.descriptionBullets = [{
-            text: count,
-          }];
-        }
         row.description[0].text = row.description1[0].text + ' | ' + row.description[0].text + ' | ' + row.description2[0].text;
       }
       if (row.availabilityText) {

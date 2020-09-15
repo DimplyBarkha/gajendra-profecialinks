@@ -28,8 +28,6 @@ fields:
   - name: description2
     singleValue: false
     xpath: //div[@id='techspecs' and @role='tabpanel']//div[contains(@class,'mk-product-tech-specifications-item')]
-  - name: descriptionBullets
-    singleValue: false
   - name: image
     singleValue: false
     xpath: //img[@data-component='image-magnifier']/@src
@@ -79,3 +77,6 @@ fields:
     xpath: //iframe[@id="iframeVideo"]/@src
     regExp: (.+)
     regExpReplace: https:$1
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id="description" and @role="tabpanel"]//div[@id="product-sheet-mk-description"]//div[starts-with(text(), '-')]
