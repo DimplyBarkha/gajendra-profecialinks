@@ -41,8 +41,11 @@ const transform = (data) => {
             info.push(item.text);            
           }
         });
-        if(info.length){
-          row.category = info;
+        if(info.length){          
+          row.category = [];
+          info.forEach(item => {
+              row.category.push({"text": item});
+          });
         }
       }
       
@@ -52,8 +55,11 @@ const transform = (data) => {
         row.alternateImages.forEach(item => {
           info.push(item.text);            
         });
-        if(info.length){
-          row.alternateImages = info;
+        if(info.length){          
+          row.alternateImages = [];
+          info.forEach(item => {
+              row.alternateImages.push({"text": item});
+          });
         }
       }
       if (row.imageAlt) {
