@@ -6,7 +6,7 @@
  */
 const transform = (data) => {
   for (const { group } of data) {
-    for (const row of group) {
+    for (const row of group) {      
       if (row.variantInformation) {
         let info = [];          
         row.variantInformation.forEach(item => {
@@ -14,21 +14,7 @@ const transform = (data) => {
         });
         row.variantCount = [{'text': info.length}];
         row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
-      }
-      if (row.alternateImages) {
-        let info = [];          
-        row.alternateImages.forEach(item => {
-          info.push(item.text.trim());            
-        });          
-        row.alternateImages = [{'text':info.join(' | '),'xpath':row.alternateImages[0].xpath}];          
-      }
-      if (row.imageAlt) {
-        let info = [];          
-        row.imageAlt.forEach(item => {
-          info.push(item.text.trim());            
-        });          
-        row.imageAlt = [{'text':info.join(' | '),'xpath':row.imageAlt[0].xpath}];          
-      }
+      }           
       if (row.additionalDescBulletInfo) {
         let info = [];          
         row.additionalDescBulletInfo.forEach(item => {
@@ -54,12 +40,7 @@ const transform = (data) => {
         row.shippingInfo.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
-      }
-      if (row.category) {
-        row.category.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' > ').trim();
-        });
-      }
+      }      
       if (row.featureBullets) {
         row.featureBullets.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
