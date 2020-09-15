@@ -20,46 +20,6 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-        if (row.gtin && row.gtin[0] && row.gtin[0].text) {
-          let jsonObj = row.gtin[0].text;
-          console.log(jsonObj)
-          if (jsonObj.includes('window.emos3.send(')) {
-            jsonObj = jsonObj.replace('window.emos3.send(', '').slice(0, -2).replace(/\'/gm, '"').trim();
-            console.log(jsonObj)
-            const jsonDetails = JSON.parse(jsonObj);
-            const gtin = jsonDetails.ec_Event ? (jsonDetails.ec_Event[0] ? jsonDetails.ec_Event[0].pid : '') : '';
-            row.gtin[0].text = gtin;
-            row.upc[0].text = gtin;
-          }
-          if (jsonObj.includes('&ean=')) {
-            jsonObj = jsonObj.split('/ean/');
-            jsonObj = jsonObj.length === 2 ? jsonObj[1] : '';
-            jsonObj = jsonObj.split('?&ean=')[0];
-            row.gtin[0].text = jsonObj;
-            row.upc[0].text = jsonObj;
-            row.eangtin[0].text = jsonObj;
-          }
-        }
-        // if (row.category && row.category[0] && row.category[0].text) {
-          // let jsonObj = row.category[0].text;
-          // jsonObj = jsonObj.replace(/\n/gm, '').replace(/\n \n/g, '').trim();
-          // jsonObj = jsonObj.replace('window.dataLayer = window.dataLayer || [];', '').replace('dataLayer.push(', '');
-
-          // console.log('jsonObj');
-          // console.log(jsonObj);
-          // jsonObj = jsonObj.split('(function')[0];
-          // jsonObj = jsonObj.split('function Tracking(){}')[0];
-          // jsonObj = jsonObj.slice(0, -2);
-          // console.log('JSON');
-          // console.log(jsonObj);
-          // const jsonDetails = JSON.parse(jsonObj);
-          // const detailObj = jsonDetails.ecommerce.detail.products[0];
-          // const category = detailObj.category;
-          // row.category = [{ text: category }];
-
-        //   row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
-        // }
-
         if (row.specifications) {
           const textArr = [];
           row.specifications.forEach(item => {
@@ -137,7 +97,6 @@ const transform = (data, context) => {
         }
 
         if (row.alternateImages && row.alternateImages[0]) {
-          const pictureSrc = [];
           if (row.alternateImages[0].text.includes('product/cache/')) {
             let mainPictureSrc = row.alternateImages[0].text.split('product/cache/');
             mainPictureSrc = mainPictureSrc.length === 2 ? mainPictureSrc[1] : '';
@@ -199,7 +158,6 @@ const transform = (data, context) => {
           row.technicalInformationPdfPresent[0].text = row.technicalInformationPdfPresent[0].text.replace('true', 'Yes');
           row.technicalInformationPdfPresent[0].text = row.technicalInformationPdfPresent[0].text.replace('false', 'No');
         }
-        
 
         if (row.weightNet && row.weightNet[0]) {
           row.weightNet[0].text = row.weightNet[0].text.replace('Nettogewicht: ', '');

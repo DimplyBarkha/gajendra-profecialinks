@@ -143,6 +143,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
+    xpath: count(//select[contains(@class, "product-variant")]//option[not(@selected)])
     description: Number of variants listed
     type: NUMBER
   - name: color
@@ -327,9 +328,11 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
+    xpath: //select[contains(@class, "product-variant")]//option[@selected]//text()
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
+    xpath: //select[contains(@class, "product-variant")]//option[@selected]/@value
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -341,6 +344,7 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
+    xpath: //select[contains(@class, "product-variant")]//option[not(@selected)]
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
