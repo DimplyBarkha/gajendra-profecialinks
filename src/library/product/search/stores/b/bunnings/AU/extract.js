@@ -1,10 +1,10 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'AU',
     store: 'bunnings',
-    transform: null,
+    transform,
     domain: 'bunnings.com.au',
     zipcode: '',
   },
