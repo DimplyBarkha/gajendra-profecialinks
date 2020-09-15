@@ -6,8 +6,8 @@ module.exports = {
     store: 'elkjop',
     domain: 'elkjop.no',
     url: "https://www.elkjop.no/search?SearchTerm='{searchTerms}'&search=&searchResultTab=",
-    loadedSelector: 'html body',
-    noResultsXPath: '//p[@id="no-search-result"]|//div[@id="site-wrapper"]',
+    loadedSelector: 'html body div#site-wrapper',
+    noResultsXPath: '//*[contains(@class, "no-search-result")]',
     zipcode: '',
   },
 };
