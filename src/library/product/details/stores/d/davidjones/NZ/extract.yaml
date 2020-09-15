@@ -55,6 +55,7 @@ fields:
     xpath: //article[@id='page-content']//div[@itemtype="http://schema.org/Product"]/@data-product-sku
   - name: variantCount
     singleValue: false
+    defaultValue: '0'
   - name: variantId
     singleValue: false
     xpath: //article[@id='page-content']//div[@itemtype="http://schema.org/Product"]/@data-pdid
