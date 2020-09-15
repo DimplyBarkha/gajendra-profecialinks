@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    xpath: //article[contains(@class, "codified-product-tile")]//@data-product-id
+    singleValue: true
+  - name: name
+    xpath: //div[contains(@class, "codified-product-tile__row codified-product-tile__row--title")]
+    singleValue: true
+  - name: producturl
+    xpath: //article[contains(@class, "codified-product-tile")]//a//@href
+    singleValue: true
+  - name: manufacturer
+    xpath: //div[contains(@class, "codified-product-tile__brand-image--image")]//@alt
+    singleValue: true    
+  - name: thumbnail
+    xpath: //div[contains(@class, "codified-product-tile__product-image__image--product")]//@style
+    singleValue: false
+  - name: price
+    xpath: //div[contains(@class, "codified-product-tile__price--value price-value")]
+    singleValue: true 
+  - name: rankOrganic
+    singleValue: true 
+  - name: aggregateRating  
+    singleValue: true
+    xpath: //span[contains(@class, "bui-star-rating__star--grey")]//@aria-label
+    defaultValue: '0'
+  - name: reviewCount  
+    singleValue: true
+    xpath: //span[contains(@class, "bui-star-rating__total")]
+    defaultValue: '0'
+    type: NUMBER
+  - name: ratingCount  
+    xpath: //span[contains(@class, "bui-star-rating__total")]
+    singleValue: true
+    defaultValue: '0'
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: search/listing rank
