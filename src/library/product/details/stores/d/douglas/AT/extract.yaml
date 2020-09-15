@@ -43,9 +43,8 @@ fields:
   - name: variantId
     xpath: //body/@variantid
   - name: ratingCount
-    xpath: //span[contains(@class,'bv-secondary-rating-summary-rating')]
-    regExp: (.*)von (.*?)\s(.*)
-    regExpReplace: $2
+    xpath: //dd[@class="bv-rating-ratio-count"]/a
+    regExp: \d+
   - name: aggregateRatingText
     xpath: //span[contains(@class,'bv-secondary-rating-summary-rating')]
   - name: aggregateRating

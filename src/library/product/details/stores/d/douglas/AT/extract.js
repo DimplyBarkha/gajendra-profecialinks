@@ -15,6 +15,7 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
+
       let brand = document.querySelector('a.product-detail-header__brand-line') ? document.querySelector('a.product-detail-header__brand-line').innerText : '';
       let name = document.querySelector('span.product-detail-header__name') ? document.querySelector('span.product-detail-header__name').innerText : '';
       let nameExtended = brand + ' ' + name;
@@ -33,6 +34,11 @@ module.exports = {
         let ingredients = document.querySelector('div.product-detail-content__html').innerText;
         document.body.setAttribute('ingredients', ingredients);
       }
+
+      let expandDescription = document.querySelector('span.product-detail-content__toggle');
+      if (expandDescription && expandDescription.innerText.includes('Mehr'))
+        expandDescription.click();
+
       let url = window.location.href;
       console.log('url');
       if (url.includes('variant')) {
