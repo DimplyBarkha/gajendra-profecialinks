@@ -1,6 +1,10 @@
 const transform = (data) => {
     for (const { group} of data) {
+        var rank_count = 1
         for (const row of group) {
+            row.rankOrganic = [{'text':rank_count,'xpath':''}];
+            row.rank = [{'text':rank_count,'xpath':''}];
+            rank_count = rank_count + 1;
             if (row.id) {
                 row.id.forEach(item => {
                     var myRegexp = /de\/p\/(\d+\/)/g;
