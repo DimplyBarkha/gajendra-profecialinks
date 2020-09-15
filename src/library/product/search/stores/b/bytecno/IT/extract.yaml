@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //span[contains(@id, 'product-price')]/@id
+    regExp: -(\d+)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//a[@class='product-image']/@title
+  - name: brandText
+    singleValue: false
+    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//a[@class='product-image']/@title
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[contains(@class,'products-grid')]//img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'price-box')]//span[@class='price']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'price-box')]//div[@class='prezzomercato']
+  - name: searchUrl
+    singleValue: false
+    xpath: //meta[@property='og:url']//@content
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="item-cell"]//div[@class="item-container"]/a/@href
+  - name: sponsored
+    singleValue: false
