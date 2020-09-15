@@ -1,10 +1,10 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='mini-product ']
+recordXPath: //div[@class='mini-product-content']
 fields:
   - name: id
-    xpath: //div[contains(@class, "col-infos")]/div[contains(@class, "product-number sku rsNoDrag")]
+    xpath: //div[contains(@class,"product-number")]
     singleValue: true
   - name: name
     xpath: //a[contains(@class, "product-name")]//span//span

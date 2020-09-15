@@ -35,7 +35,7 @@ module.exports = {
           }  
         }
         function keepScrolling (recordsCollected, maxRecords) {
-          const recordSelector ='div.mini-product';
+          const recordSelector ='div.mini-product-content';
           const recordsOnPage = 
              document.querySelectorAll(recordSelector).length;
           console.log(recordsOnPage);
