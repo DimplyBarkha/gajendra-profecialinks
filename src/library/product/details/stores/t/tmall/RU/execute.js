@@ -25,7 +25,7 @@ async function implementation (
   }catch (e) {
     console.log(e);
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  //await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
   try {
     //await context.click('button#wzrk-cancel');
@@ -33,7 +33,7 @@ async function implementation (
   }catch (e) {
     console.log(e);
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 15000));
+  // new Promise((resolve, reject) => setTimeout(resolve, 15000));
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {

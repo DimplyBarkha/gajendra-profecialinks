@@ -39,6 +39,13 @@ const transform = (data) => {
           item.text=skuArr1[0];
         });
       }
+
+      if(row.ratingCount){
+        row.ratingCount.forEach(item => {
+          var ratingCountArr=item.text.split(" ");
+          item.text=ratingCountArr[0];
+        });
+      }
       
     }
   }

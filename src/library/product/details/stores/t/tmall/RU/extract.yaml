@@ -17,7 +17,22 @@ fields:
     xpath: //div[@class="product-price-current"]/span[@class="product-price-value"]
   - name: sku
     singleValue: false
-    xpath: //div[@class="product-info"]/meta[1]/@content
+    xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
   - name: brandText
     singleValue: false
-    defaultValue: tmall
+    xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
+  - name: url
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[@itemprop="description"]/@content
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="reviewCount"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+  - name: color
+    singleValue: false
+    xpath: //div[@class="product-sku"]//div[@class="sku-property"][1]//span[@class="sku-title-value"]
