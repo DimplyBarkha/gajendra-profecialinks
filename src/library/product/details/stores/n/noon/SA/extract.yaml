@@ -1,53 +1,59 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-    - name: category
-      singleValue: false
-      xpath: //span[contains(@class,'crumb')]
-    - name: image
-      singleValue: false
-      xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
-    - name: alternateImages
-      singleValue: false
-      xpath: //div[contains(@class,'standardSlider')]//img/@src
-    - name: imageAlt
-      singleValue: false
-      xpath: //img[contains(@class,'pdpImage')]//@alt
-    - name: brandText
-      singleValue: false
-      xpath: //a[@class='jsx-2771165322 brand']
-    - name: name
-      singleValue: false
-      xpath: //h1[@class='jsx-2771165322']
-    - name: variantId
-      singleValue: false
-      xpath: //p[@class='jsx-2771165322 modelNumber']
-    - name: ratingCount
-      singleValue: false
-      xpath: //p[@class='jsx-2756475694 counter']
-    - name: aggregateRating
-      singleValue: false
-      xpath: //p[@class='jsx-2756475694 scoreTag']
-    - name: coupon
-      singleValue: false
-      xpath: //p[@class='jsx-2027916868 productTag']
-    - name: listPrice
-      singleValue: false
-      xpath: //span[@class='jsx-4251264678 preReductionPrice']
-    - name: price
-      singleValue: false
-      xpath: //span[@class='jsx-4251264678 sellingPrice']
-    - name: quantity
-      singleValue: false
-      xpath: //div[@class='Select-control']
-    - name: color
-      singleValue: false
-      xpath: //p[@class='jsx-1264480987 thumbnails']
-    - name: description
-      singleValue: false
-      xpath: //ul[contains(@class,'highlights')]
-    - name: specifications
-      singleValue: false
-      xpath: //div[@class='jsx-1537324451 groupContainer']
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src      
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'breadcrumb ')]//span[contains(@class,'crumb')]
+  - name: productUrl
+    singleValue: false
+    xpath: //link[contains(@rel,'canonical')]//@href
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'standardSlider')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[contains(@class,'pdpImage')]//@alt
+  - name: brandText
+    singleValue: false
+    xpath: //a[@class='jsx-2771165322 brand']
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='jsx-2771165322']
+  - name: ratingCount
+    singleValue: false
+    xpath: //p[@class='jsx-2756475694 counter']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //p[@class='jsx-2756475694 scoreTag']
+  - name: coupon
+    singleValue: false
+    xpath: //div[@class="jsx-180529803 productTagContainer"]/p[@class="jsx-2027916868 productTag"]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class="jsx-4251264678 value"]/span[@class="jsx-4251264678 preReductionPrice"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="jsx-4251264678 sellingPriceContainer"]/span[@class="jsx-4251264678 sellingPrice"]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='Select-control']
+  - name: color
+    singleValue: false
+    xpath: //p[@class='jsx-1264480987 thumbnails']
+  - name: description
+    singleValue: false
+    xpath: //ul[contains(@class,'highlights')]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='jsx-1537324451 groupContainer']//table//tr

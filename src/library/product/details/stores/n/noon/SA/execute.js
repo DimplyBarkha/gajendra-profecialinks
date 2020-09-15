@@ -1,5 +1,4 @@
 
-const { transform } = require('../formatVariants');
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
