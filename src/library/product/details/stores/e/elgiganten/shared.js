@@ -28,6 +28,17 @@ const transform = (data) => {
             },
           ];
         }
+        if (row.manufacturerDescription) {
+          let text = '';
+          row.manufacturerDescription.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ':')} || `;
+          });
+          row.manufacturerDescription = [
+            {
+              text: text.slice(0, -4),
+            },
+          ];
+        }
       }
     }
     return data;
