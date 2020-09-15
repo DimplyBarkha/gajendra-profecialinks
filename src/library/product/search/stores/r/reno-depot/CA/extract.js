@@ -42,7 +42,7 @@ async function implementation (
         addHiddenDiv(el, 'itemId', el.querySelector('.sku').innerText.replace('Article', '').replace('#', '').trim());
         addHiddenDiv(el, 'rank', ind + 1);
         addHiddenDiv(el, 'price', '$' + el.querySelector('.integer').innerText);
-        addHiddenDiv(el, 'reviewCount', document.querySelector('.bv-rating-number').innerText.replace(')', '').replace('(', ''));
+        addHiddenDiv(el, 'reviewCount', el.querySelector('.bv-rating-number').innerText.replace(')', '').replace('(', ''));
         const bgStyle = el.querySelector('.product_img').getAttribute('style');
         addHiddenDiv(el, 'thumbnail', bgStyle.replace("');", '').replace("background-image:url('", ""));
       }

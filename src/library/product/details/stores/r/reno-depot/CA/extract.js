@@ -125,10 +125,18 @@ async function implementation (
     }
     addHiddenDiv('shippingInfo', shippingInfo);
 
+    const manufacturerImgs = [];
     if (document.getElementById('wc-power-page')) {
+      document.getElementById('wc-power-page').querySelector('h1').remove();
+      document.getElementById('wc-power-page').querySelector('p').remove();
       console.log('hasManufacturerInfo', document.getElementById('wc-power-page').innerText);
       addHiddenDiv('manufacturerDescription', document.getElementById('wc-power-page').innerText);
+      document.getElementById('wc-power-page').querySelectorAll('img').forEach(img => {
+        manufacturerImgs.push(img.getAttribute('src'));
+      });
     }
+
+    addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
 
     addHiddenDiv('terms', 'No');
     addHiddenDiv('privacyPolicy', 'Yes');
