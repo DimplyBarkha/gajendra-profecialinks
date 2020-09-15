@@ -5,7 +5,7 @@ recordXPath: //div[@class="c-grid_col is-grid-col-1"]
 fields: 
   - name: id
     singleValue: false
-    xpath: //div[@class='c-offerBox is-wide is-available']/@id
+    xpath: //div[contains(@class,"is-row1")]/meta/@data-analytics-item
   - name: productUrl
     singlgeValue: false
     xpath: //h2[@class="c-offerBox_data"]/a/@href
@@ -24,3 +24,13 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //a[@class="c-reviews_rating "]/span[@class="is-full wf-star01"]/@class
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,"is-row1")]/meta/@data-analytics-item
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='c-offerBox is-wide is-available']/@id
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: false
