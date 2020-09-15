@@ -9,16 +9,14 @@ fields:
     regExp: \"ecomm_availability":"(([^,]+)")
     regExpReplace: $2
   - name: shippingInfo
-    singleValue: false
-    xpath: //span[@class='js-delivery-information-usp']
   - name: price
     singleValue: true
     xpath: //div[@class="product-order"]//strong[contains(@class,"sales-price__current")][1]
     regExp: (\d+)(\,?\.?)?(\d+)?(\,-?)?
-    regExpReplace: € $1,$3
+    regExpReplace: EUR $1,$3
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@class,"flex-unit")]//div[@class="js-configurator-discount-element"]
+    xpath: 
   - name: lbb
     singleValue: false
     xpath:
@@ -46,7 +44,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//ol[contains(@class,"breadcrumbs")]//li)[position()>1]
+    xpath: (//ol[contains(@class,"breadcrumbs")]//li[not(@style)])[position()>1]
   - name: nameExtended
     singleValue: false
     xpath: //span[contains(@class,'js-product-name')]
@@ -54,12 +52,13 @@ fields:
     singleValue: false
     xpath: //div[@class='js-desktop-order-block']//div//span[@class='sales-price__former-price']
     regExp: (\d+)(\,?\.?)?(\d+)?(\,-?)?
-    regExpReplace: € $1,$3
+    regExpReplace: EUR $1,$3
   - name: priceCurrency
     singleValue: false
     xpath: //script[contains(text(),"priceCurrency")]/text()
     regExp: \"priceCurrency":\s\s"([\d,]+.*)"
     regExpReplace: $2
+    defaultValue: 'EUR'
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value
@@ -121,29 +120,20 @@ fields:
     regExpReplace: $1,$2
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class='grid-section-xs--gap-1']//ul[@class='list']
+    xpath: //div[@class='grid-section-xs--gap-1']//ul[@class='list']//li
   - name: description
     singleValue: false
-    xpath: (//div[contains(@class,'cms-content js-product-description-content')]//p)
+    xpath: (//div[contains(@class,'cms-content js-product-description-content')])
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li)
   - name: brandText
     singleValue: false
-    xpath: //dl[contains(translate(string(), 'Brand', 'Brand'), 'Brand')]/dd
+    xpath: //dl[contains(translate(string(), 'Merk', 'Merk'), 'Merk')]/dd
     defaultValue: Dyson
   - name: manufacturer
-    singleValue: false
-    xpath: //dl[contains(translate(string(), 'Brand', 'Brand'), 'Brand')]/dd
-    defaultValue: Dyson
   - name: quantity
-    singleValue: false
-    xpath: //script[contains(text(),"ecomm_quantity")]/text()
-    regExp: \"ecomm_quantity":(\d+)
-    regExpReplace: $1
   - name: lbb
-    singleValue: false
-    xpath:
   - name: shippingDimensions
     singleValue: false
   - name: shippingWeight
@@ -154,13 +144,12 @@ fields:
     xpath: count(//div[contains(@class,"collection-entrance-card")]//div[contains(@class,"selectable-card")]//input/@value)
   - name: color
     singleValue: false
-    xpath: //div[@class='flex-unit js-field-title-value']
+    xpath: //dl[contains(translate(string(), 'Kleur', 'Kleur'), 'Kleur')]/dd
   - name: colorCode
     singleValue: false
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //meta[contains(@name,"description")]/@content
   - name: lbbPrice
     singleValue: false
   - name: energyEfficiency
@@ -185,7 +174,7 @@ fields:
     xpath: 
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@id,"product-specifications")]//div[@class="js-specifications-content"]
+    xpath: normalize-space(//div[contains(@id,"product-specifications")]//div[@class="js-specifications-content"])
   - name: warranty
     singleValue: false
     xpath: (//dl[contains(translate(string(), 'Garantie', 'Garantie'), 'Garantie')]/dd)[1]
@@ -195,21 +184,18 @@ fields:
     singleValue: false
   - name: recyclingInformation
     singleValue: false
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@id="product-information"]
   - name: packaging
     singleValue: false
     xpath:
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class='flex-unit js-field-title-value']
+    xpath:  //dl[contains(translate(string(), 'Kleur', 'Kleur'), 'Kleur')]/dd
   - name: termsAndConditions
     singleValue: true
     xpath: (//ul[contains(@class,"bullet-list")]//li[@class="js-product-in-the-box--item"]//a/@href)[1]
     regExp: (.*)
     regExpReplace: Yes
-    defaultValue: No
+    defaultValue: Yes
   - name: imageZoomFeaturePresent
     singleValue: false
     description: If Zoom feature is available for Main image or images in the
@@ -231,3 +217,5 @@ fields:
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: Yes
+  - name: productOtherInformation
+    xpath: //div[@class="js-preferred-specifications"]//div[contains(@class,"product-specs")]//dl
