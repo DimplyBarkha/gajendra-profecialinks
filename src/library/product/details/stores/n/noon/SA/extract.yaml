@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src      
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,'breadcrumb ')]//span[contains(@class,'crumb')]
+    xpath: //div[contains(@class,'breadcrumb ')]//span[contains(@class,'crumb')]//button
   - name: productUrl
     singleValue: false
     xpath: //link[contains(@rel,'canonical')]//@href
@@ -23,7 +23,7 @@ fields:
     xpath: //div[contains(@class,'standardSlider')]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //img[contains(@class,'pdpImage')]//@alt
+    xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@alt
   - name: brandText
     singleValue: false
     xpath: //a[@class='jsx-2771165322 brand']
@@ -47,7 +47,7 @@ fields:
     xpath: //span[@class="jsx-4251264678 sellingPriceContainer"]/span[@class="jsx-4251264678 sellingPrice"]
   - name: quantity
     singleValue: false
-    xpath: //div[@class='Select-control']
+    xpath: //div[contains(@class,'qtyContainer')]//div[@class='Select-control']//span[@class='Select-value-label']
   - name: color
     singleValue: false
     xpath: //p[@class='jsx-1264480987 thumbnails']
