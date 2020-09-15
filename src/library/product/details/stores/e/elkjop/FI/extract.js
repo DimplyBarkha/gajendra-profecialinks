@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FI',
     store: 'elkjop',
-    transform: null,
+    transform: cleanUp,
     domain: 'gigantti.fi',
     zipcode: '',
   },
@@ -28,14 +28,14 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null).stringValue;
-      if (rating) {
-        const formattedRating = rating.replace(',', '.');
+      const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null);
+      if (rating && rating.stringValue) {
+        const formattedRating = rating.stringValue.replace(',', '.');
         addElementToDocument('rating', formattedRating);
       }
-      const weight = document.evaluate("//td[contains(text(), 'Paino')]", document, null, XPathResult.STRING_TYPE, null).stringValue;
-      if (weight) {
-        const formattedWeight = weight.replace(/\n|Paino|\(|\)\s/g, '');
+      const weight = document.evaluate("//td[contains(text(), 'Paino')]", document, null, XPathResult.STRING_TYPE, null);
+      if (weight && weight.stringValue) {
+        const formattedWeight = weight.stringValue.replace(/\n|Paino|\(|\)\s/g, '');
         addElementToDocument('weight', formattedWeight);
       }
     });
@@ -47,31 +47,36 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      const sku = document.evaluate("//meta[@itemprop='sku']/@content", document, null, XPathResult.STRING_TYPE, null).stringValue;
-      const name = document.evaluate("//meta[@itemprop='name']/@content", document, null, XPathResult.STRING_TYPE, null).stringValue;
+      const sku = document.evaluate("//meta[@itemprop='sku']/@content", document, null, XPathResult.STRING_TYPE, null);
+      const name = document.evaluate("//meta[@itemprop='name']/@content", document, null, XPathResult.STRING_TYPE, null);
       const embeedVideos = document.querySelectorAll('video.el-videoplayer');
-      for (var i = 0; i < embeedVideos.length; i++) {
-        // @ts-ignore
-        var urlEmbeedVideo =  embeedVideos[i].src;
-        addHiddenDiv('vidURL', urlEmbeedVideo);
+      if (embeedVideos) {
+        for (var i = 0; i < embeedVideos.length; i++) {
+          // @ts-ignore
+          var urlEmbeedVideo = embeedVideos[i].src;
+          addHiddenDiv('vidURL', urlEmbeedVideo);
+        }
       }
-      const vidApiUrl = `https://dapi.videoly.co/1/videos/0/5/?SKU=${sku}&productTitle=${name}&hn=www.gigantti.fi`;
-      const videoApi = await fetch(vidApiUrl,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
+      if (sku && name) {
+        var skuS = sku.stringValue;
+        var nameS = name.stringValue;
+        const vidApiUrl = `https://dapi.videoly.co/1/videos/0/5/?SKU=${skuS}&productTitle=${nameS}&hn=www.gigantti.fi`;
+        const videoApi = await fetch(vidApiUrl,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            method: 'GET',
           },
-          method: 'GET',
-        },
-      ).then(x => x.json());
-
-      const video = videoApi.items;
-      let videoUrl;
-      video.forEach(vid => {
-        videoUrl = `https://www.youtube.com/watch?v=${vid.videoId}&feature=youtu.be`;
-        addHiddenDiv('vidURL', videoUrl);
-      });
+        ).then(x => x.json());
+        const video = videoApi.items;
+        let videoUrl;
+        video.forEach(vid => {
+          videoUrl = `https://www.youtube.com/watch?v=${vid.videoId}&feature=youtu.be`;
+          addHiddenDiv('vidURL', videoUrl);
+        });
+      }
     });
     await context.extract(productDetails);
   },
