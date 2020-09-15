@@ -57,6 +57,8 @@ async function implementation (
       }
     }
 
+    await stall(10000);
+
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -77,8 +79,8 @@ async function implementation (
       const ratingsAndReviewsData = JSON.parse(ratingsAndReviews);
       addHiddenDiv('ratingCount', ratingsAndReviewsData.review_count);
       if (ratingsAndReviewsData.average_score) {
-        addHiddenDiv('aggregatedRating', (ratingsAndReviewsData.average_score / 2).toString().replace('.',','));
-        addHiddenDiv('aggregatedRatingText', (ratingsAndReviewsData.average_score / 2).toString().replace('.',',') + ' out of 5');
+        addHiddenDiv('aggregatedRating', ratingsAndReviewsData.average_score / 2);
+        addHiddenDiv('aggregatedRatingText', (ratingsAndReviewsData.average_score / 2) + ' out of 5');
       }
     }
 
@@ -141,25 +143,46 @@ async function implementation (
     let enhancedContent = '';
     const manufacturerImages = [];
     const videos = [];
+    const enhancedSpecifications = [];
     if (document.getElementById('flix-inpage')) {
       console.log('hasEnhancedContent');
       enhancedContent = document.getElementById('flix-inpage').innerText;
-      console.log('hasFlix', enhancedContent);
+      addHiddenDiv('enhancedContent', enhancedContent);
       document.getElementById('flix-inpage').querySelectorAll('img').forEach(img => {
-        manufacturerImages.push(img.getAttribute('src'));
+        manufacturerImages.push('https:' + img.getAttribute('src'));
       });
       if (document.querySelector('.flix-std-specs-table')) {
-        document.querySelector('.flix-std-specs-table').querySelectorAll('tr').forEach(tr => {
-          if (tr.querySelector('.flix-value').querySelector('span').innerText === 'Weight') {
-            addHiddenDiv('weightNet', tr.querySelector('.flix-title').innerText);
-          }
+        document.querySelectorAll('.flix-std-specs-table').forEach(el => {
+          el.querySelectorAll('tr').forEach(tr => {
+            if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Weight') {
+              addHiddenDiv('weightNet', tr.querySelector('.flix-title').innerText);
+            }
+            if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Height') {
+              enhancedSpecifications.push(tr.querySelector('.flix-title').innerText + ' height');
+            }
+            if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Width') {
+              enhancedSpecifications.push(tr.querySelector('.flix-title').innerText + ' width');
+            }
+            if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Length') {
+              enhancedSpecifications.push(tr.querySelector('.flix-title').innerText + ' length');
+            }
+          });
         });
       }
     }
 
+    if (enhancedSpecifications.length) {
+      addHiddenDiv('specifications', enhancedSpecifications.join(' x '));
+    }
+
+    addHiddenDiv('manufacturerImages', manufacturerImages.join(' | '));
+
     const specifications = [];
     if (document.querySelector('#specificationTab').querySelector('table')) {
       document.querySelector('#specificationTab').querySelector('table').querySelectorAll('tr').forEach(tr => {
+        if(!tr.querySelectorAll('td')[0]) {
+          return;
+        }
         if (tr.querySelectorAll('td')[0].innerText === 'Weight (kg)') {
           addHiddenDiv('weightNet', tr.querySelectorAll('td')[1].innerText);
         }
@@ -178,7 +201,7 @@ async function implementation (
         if (tr.querySelectorAll('td')[0].innerText === 'Length (mm)') {
           specifications.push(tr.querySelectorAll('td')[1].innerText + ' length');
         }
-      })
+      });
     }
 
     if (specifications.length) {

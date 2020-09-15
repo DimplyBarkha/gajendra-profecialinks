@@ -141,13 +141,13 @@ async function implementation (
     addHiddenDiv('sku', sku);
 
     if (document.querySelector('#flix-inpage')) {
-      console.log('enhancedContent', document.querySelector('#flix-inpage').innerText);
+      console.log('enhancedContentHere', document.querySelector('#flix-inpage').innerText);
       addHiddenDiv('manufacturerDescription', document.querySelector('#flix-inpage').innerText);
       const manufacturerImgs = [];
       document.querySelector('#flix-inpage').querySelectorAll('img').forEach(el => {
-        manufacturerImgs.push(el.getAttribute('src'));
+        manufacturerImgs.push('https://' + el.getAttribute('src'));
       });
-      addHiddenDiv('manufacturerImages', manufacturerImgs);
+      addHiddenDiv('manufacturerImgs', manufacturerImgs);
     }
 
     document.querySelectorAll('script').forEach(el => {
