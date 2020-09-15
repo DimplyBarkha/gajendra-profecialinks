@@ -12,11 +12,11 @@ const transform = (data) => {
             var myRegexp = /Farbe\s*:\s*(.+)/g;
             var match = myRegexp.exec(item.text);
             if(match){
-            if(match.length){
-            item.text = match[1].trim();
-            }else{
-            item.text = "";
-            }
+              if(match.length){
+                item.text = match[1].trim();
+              }else{
+                item.text = "";
+              }
             }
           });        
         }
@@ -35,14 +35,15 @@ const transform = (data) => {
           row.category.forEach(item => {            
             info.push(item.text.trim());
           });
-          row.category = [{'text':info.join(' > '),'xpath':row.category[0].xpath}];        
+          row.category = info;
         }   
         if (row.alternateImages) {
-            row.alternateImages.forEach(item => {
-              item.text = 'https://www.manor.ch'+item.text
+            let info = [];
+            row.alternateImages.forEach(item => {              
+              info.push('https://www.manor.ch'+item.text)
             });
-          }
-
+            row.category = info;
+        }
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
             item.text = 'https://www.manor.ch'+item.text
@@ -81,7 +82,6 @@ const transform = (data) => {
             item.text = parseInt(item.text);
           });
         }
-
         if (row.alternateImages) {
           var imag_arr = [];
           row.alternateImages.forEach(item => {
