@@ -4,6 +4,18 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+  // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
       if (!row.brandText && row.nameExtended) {
@@ -16,9 +28,9 @@ const transform = (data) => {
         ];
       }
       if (row.alternateImages) {
-        const enlargePrefix = row.alternateImagesEnlargePath && row.alternateImagesEnlargePath[0].text ? row.alternateImagesEnlargePath[0].text : ''
+        const enlargePrefix = row.alternateImagesEnlargePath && row.alternateImagesEnlargePath[0].text ? row.alternateImagesEnlargePath[0].text : '';
         row.alternateImages.forEach(item => {
-          item.text = enlargePrefix ? enlargePrefix + item.text.replace(/(.*\/)(.*\/.*\/.*)/, '$2') : item.text
+          item.text = enlargePrefix ? enlargePrefix + item.text.replace(/(.*\/)(.*\/.*\/.*)/, '$2') : item.text;
         });
       }
       if (row.description) {
@@ -43,9 +55,11 @@ const transform = (data) => {
       if (row.availabilityText) {
         row.availabilityText = row.availabilityText.length ? [{ text: 'In Stock' }] : [{ text: 'Out of Stock' }];
       }
-      row.variantCount = [{ text: 1 }];
     }
   }
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 
