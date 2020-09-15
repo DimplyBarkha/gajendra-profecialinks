@@ -77,6 +77,8 @@ module.exports = {
       let finalDescription;
       if(description2.includes("CARACTERISTIQUES")){
         finalDescription = description2 ? description2.split('CARACTERISTIQUES')[0] : '';
+      }else if(description2.includes("CARACTÉRISTIQUES")){ 
+        finalDescription = description2 ? description2.split('CARACTÉRISTIQUES')[0] : '';
       }else{
           finalDescription = description2 ? description2 : '';
       }
