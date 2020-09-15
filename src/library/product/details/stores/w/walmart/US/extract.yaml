@@ -52,7 +52,8 @@ fields:
   regExpReplace: $2
 - name: description
   singleValue: false
-  xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div
+  # xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div
+  xpath: //div[@id="my-desc"]
 - name: descriptionBullets
   singleValue: true
   xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li)
