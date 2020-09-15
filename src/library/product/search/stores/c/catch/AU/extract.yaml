@@ -1,0 +1,53 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product--title']//a
+  - name: price
+    singleValue: false
+    xpath: //span[@class='price--dollars']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product--title']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.catch.com.au$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product--image-container']//img/@src   
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='rating-stars']//*[name()='svg']/@data-rating
+    regExp: ^.{0,3}
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='rating-stars']//*[name()='svg']/@data-rating
+    regExp: ^.{0,3}
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class='tags-rating']//span[@class='rating-num']
+    regExp: ([0-9]+)
+  - name: searchUrl
+    singleValue: true
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER   
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[@class='product--title']//a/@data-product-id
+    regExp: ([0-9]+)
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
