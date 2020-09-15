@@ -4,17 +4,47 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const cleanUp = (data, context) => {
+    const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+      el.text = clean(el.text);
+    }))));
+    return data;
+  };
   for (const { group } of data) {
-    for (const row of group) {
+    for (let row of group) {
       
       if (row.sku) {
         row.sku.forEach(item => {
-          item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+          var myRegexp = /.+\/(.+?)_.+/g;
+          var match = myRegexp.exec(item.text);
+          if(match.length){
+            item.text = match[1].trim();
+          }else{
+            delete item.text;
+          }
         });
       }
       if (row.variantId) {
-        row.variantId.forEach(item => {
-          item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+        row.variantId.forEach(item => {          
+          var myRegexp = /.+\/(.+?)_.+/g;
+          var match = myRegexp.exec(item.text);
+          if(match.length){
+            item.text = match[1].trim();
+          }else{
+            delete item.text;
+          }
         });
       }      
       if (row.description) {
@@ -29,7 +59,7 @@ const transform = (data) => {
             info.push(item.text);            
           }
         });          
-        row.category = info;
+        row.category = [{'text':info.join(' > '),'xpath':row.category[0].xpath}];
       }
       
       
@@ -37,15 +67,20 @@ const transform = (data) => {
         let info = [];          
         row.alternateImages.forEach(item => {
           info.push(item.text);            
-        });          
-        row.alternateImages = info;          
+        });
+        if(info.length){
+          row.alternateImages = info;
+        }
       }
       if (row.imageAlt) {
         let info = [];          
         row.imageAlt.forEach(item => {
           info.push(item.text.trim());            
-        });          
-        row.imageAlt = info[0];          
+        });
+        if (info.length){
+          row.imageAlt = info[0];
+        }
+        
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
@@ -65,8 +100,8 @@ const transform = (data) => {
       }
 
     }
-  }
-  return data;
+  }  
+  return cleanUp(data);
 };
 
 module.exports = { transform };
