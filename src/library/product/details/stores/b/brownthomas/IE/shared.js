@@ -7,11 +7,36 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-
       if ((!row.listPrice || !row.listPrice.length) && row.price) {
         row.listPrice = row.price;
       }
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.specifications = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
 
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.manufacturerDescription = [{ text }];
+      }
+
+      if (row.warranty) {
+        let text = '';
+        row.warranty.forEach(item => {
+          text = text + (text ? 'guarantee' : '') + item.text;
+        });
+        row.warranty = [{ text }];
+      }
     }
   }
 

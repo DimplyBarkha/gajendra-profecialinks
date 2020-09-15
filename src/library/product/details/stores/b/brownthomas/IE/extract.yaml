@@ -30,15 +30,19 @@ fields:
   - name: brandText
     xpath: //meta[@itemprop="brand"]/@content
   - name: specifications
-    xpath: normalize-space(//div[contains(.,"Specifications")]/div//tbody)
+    xpath: //div[contains(.,"Specifications")]/div//tbody//tr//td
   - name: quantity
   - name: weightNet
     xpath: //div[contains(@class,"flix-value")][contains(.,"Weight")]/following-sibling::div[contains(@class,"flix-title")]
   - name: weightGross
   - name: gtin
-    xpath: //script[@type="text/javascript"][@data-flix-language="ie"]
+    xpath: //div[@id="flix-inpage"]/script/@src
+    regExp: (.+)(ean=)(.+)(&br.+)
+    regExpReplace: $3
   - name: eangtin
-    xpath: //script[@type="text/javascript"][@data-flix-language="ie"]
+    xpath: //div[@id="flix-inpage"]/script/@src
+    regExp: (.+)(ean=)(.+)(&br.+)
+    regExpReplace: $3
   - name: sku
     xpath: //div[@id="pdpMain"]/@data-master-product-id
   - name: variantId
@@ -81,6 +85,8 @@ fields:
   - name: name
     xpath: //h1[@itemprop="name"]//span[@class="product-name-title"]
   - name: storage
+  - name: warranty
+    xpath: //p[contains(.,"guarantee")]|//span[contains(.,"guarantee")]
   - name: countryOfOrigin
   - name: allergyAdvice
   - name: recyclingInformation
