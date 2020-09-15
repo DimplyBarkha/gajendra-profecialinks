@@ -1,0 +1,17 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //select[@class="product-variant-select"]/option/@value
+    regExp: (.*)p\/(\d+)(.*)
+    regExpReplace: $2
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //select[@class="product-variant-select"]/option/@value
+    regExp: (.+)
+    regExpReplace: https://www.hifi.lu/fr$1
