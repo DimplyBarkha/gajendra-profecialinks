@@ -10,6 +10,31 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        const scrollBox = document.querySelector('body');
+        const elemClick = scrollBox.querySelector('div#product-list-load-more button');
+        let scrollTop = 0;
+        while (elemClick) {
+          await stall(1000);
+          elemClick.click();
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(1000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
     await context.evaluate(() => {
       function addElementToDocument (elem, id, value) {
         const newDiv = document.createElement('div');
