@@ -11,29 +11,15 @@ const transform = (data) => {
         if (row.alternateImages) {
           let info = [];          
           row.alternateImages.forEach(item => {
-            info.push(item.text.replace(/(\/wc\d+\/)+/g, '\/wc1200\/'));            
+            item.text = item.text.replace(/(\/wc\d+\/)+/g, '\/wc1200\/');
           });          
-          row.alternateImages = [{'text':info.join(' | '),'xpath':row.alternateImages[0].xpath}];          
         }
-        if (row.imageAlt) {
-          let info = [];          
-          row.imageAlt.forEach(item => {
-            info.push(item.text.trim());            
-          });          
-          row.imageAlt = [{'text':info.join(' | '),'xpath':row.imageAlt[0].xpath}];          
-        }
+        
         if (row.reviewCount) {
           row.reviewCount.forEach(item => {
             item.text = item.text.trim();
           });
         }
-
-        if (row.category) {
-          row.category.forEach(item => {
-            item.text = item.text.replace(/(\s*\n\s*)+/g, ' > ').trim();
-          });
-        }
-
         if (row.description) {
           row.description.forEach(item => {
             let data = JSON.parse(item.text);
@@ -50,17 +36,6 @@ const transform = (data) => {
             let data = JSON.parse(item.text);
             if(data['name']){
               item.text = data['name'].trim();
-            }else{
-              item.text = '';
-            }
-          });
-        }
-
-        if (row.manufacturerImages) {
-          row.manufacturerImages.forEach(item => {
-            let data = JSON.parse(item.text);
-            if(data['coverImage']){
-              item.text = data['coverImage'].trim();
             }else{
               item.text = '';
             }

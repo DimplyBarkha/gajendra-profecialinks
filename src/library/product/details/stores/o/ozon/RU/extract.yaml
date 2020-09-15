@@ -17,16 +17,16 @@ fields:
     xpath: //div[@class='magnifier-container' or @class='a8n3']//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class='portal-content-list' or contains(@class,'b2k3')]//div[contains(@class,'gallery-image-') or contains(@class,'a9u9')]//img/@alt
+    xpath: //div[@class='magnifier-container' or @class='a8n3']//img/@alt
   - name: alternateImages
     singleValue: false    
-    xpath: //div[@class='portal-content-list' or contains(@class,'b2k3')]//div[contains(@class,'gallery-image-') or contains(@class,'a9u9')]//img/@src
+    xpath: //div[@class='portal-content-list' or contains(@class,'b2k3')]//div[contains(@id,'gallery-image-') or contains(@class,'a9u9')]//img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //title/text()
   - name: category
     singleValue: false    
-    xpath: //ol[@class='b6z4']
+    xpath: //ol[@class='b6z4']//li
   - name: listPrice
     singleValue: false
     xpath: //div[@class='b1u9']//span[contains(@class,'b1v7')]
@@ -41,13 +41,7 @@ fields:
     xpath: //script[@type='application/ld+json']
   - name: brandText
     singleValue: false
-    xpath: //ol[@class='b6z4']//li[last()]//span    
-  - name: manufacturer
-    singleValue: false
-    xpath: //ol[@class='b6z4']//li[last()]//span  
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //script[contains(@id,'state-webBrand-')]/text()
+    xpath: //ol[@class='b6z4']//li[last()]//span
   - name: reviewCount
     singleValue: false
     xpath: //a[@class='b8w7']
