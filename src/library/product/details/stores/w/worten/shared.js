@@ -37,12 +37,14 @@ const transform = (data) => {
       }
       if (row.aggregateRating) {
         let text = '';
+        let rating = '';
         row.aggregateRating.forEach(item => {
-          text += item.text.replace(new RegExp('(.+)\\.(.+)', 'g'), '$1,$2');
+          text += item.text;
+          rating = parseFloat(text).toFixed(2).replace('.', ',')
         });
         row.aggregateRating = [
           {
-            text: text,
+            text: rating,
           },
         ];
       }
@@ -56,7 +58,7 @@ const transform = (data) => {
       if (row.productOtherInformation) {
         let text = '';
         row.productOtherInformation.forEach(item => {
-          text = row.productOtherInformation.map(elm => elm.text).join(' ').replace(/●/g, '||');
+          text = row.productOtherInformation.map(elm => elm.text).join(' | ').replace(/●/g, '||');
         });
         row.productOtherInformation = [{ text }];
       }

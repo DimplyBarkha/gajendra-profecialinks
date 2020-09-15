@@ -6,7 +6,7 @@ module.exports = {
     store: 'worten',
     domain: 'worten.es',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//article[@class="page-404"]',
     zipcode: '',
   },
 };

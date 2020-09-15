@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -7,6 +7,8 @@ fields:
     xpath: //div[contains(@class,"product-gallery__thumbs")]//div[contains(@class,"swiper-slide")][position()>1]//a//@data-zoom-image
     regExp: (.+)
     regExpReplace: https://www.worten.es$1
+  - name: imageAlt
+    xpath: //div[@class="zoomWrapper"]//img//@alt
   - name: category 
     description: The categories (e.g. from breadcrumbs)
     xpath: //section[@data-module-template="breadcrumbs"]//li
@@ -51,9 +53,13 @@ fields:
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //ul//li//span[contains(text(),'Referencia')]/../span[position()>last()-1]
+  - name: mpc
+    xpath: //ul//li//span[contains(text(),'Modelo')]/../span[position()>last()-1]
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
     xpath: //div[contains(@class,"product__legal-disclaimer")]
+  - name: variantCount
+    defaultValue: '0'
   - name: ratingCount
     description: The number of ratings
     xpath: //script[@type="application/ld+json"][1][contains(text(),"reviewCount")]
@@ -100,4 +106,4 @@ fields:
     xpath: //h1
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //p[contains(text(),'specíficas')]/following-sibling::ul[1]/li/span
+    xpath: //p[contains(text(),'ísicas')]/following-sibling::ul[1]/li[not (contains(.,'olor'))]/span

@@ -38,7 +38,8 @@ async function implementation (
         document.querySelectorAll('#products-list-block > div').forEach(val => {
           const sku = val.getAttribute('data-sku');
           if (sku === item.sku) {
-            val.setAttribute('aggregaterating', item.rating_bazaar.toString().replace('.', ','));
+            let rating = parseFloat(item.rating_bazaar).toFixed(2);
+            val.setAttribute('aggregaterating', rating.toString().replace('.', ','));
           }
         });
       }
