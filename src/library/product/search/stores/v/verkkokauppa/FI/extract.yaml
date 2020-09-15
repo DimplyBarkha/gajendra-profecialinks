@@ -19,10 +19,8 @@ fields:
     singleValue: false
     regExp: (.+)
   - name: price
-    xpath: //div[contains(@class,"list-product")]//div[contains(@class,"list-product-info")]//div[contains(@class,"list-product-info__price-and-rating")]//div[contains(@class,"price-container")]
-    singleValue: false 
-    regExp: /,/g
-    regExpReplace: '.'
+    xpath: //span[@class='product-price__price product-price__price--large']
+    singleValue: false     
   - name: aggregateRating  
     singleValue: true
     xpath: //div[contains(@class,'product-rating product-rating--large')]//span/@data-average-rating

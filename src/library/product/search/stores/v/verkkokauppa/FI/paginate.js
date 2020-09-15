@@ -47,8 +47,6 @@ async function implementation(
   }, noResultsXPath);
 }
 
-
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
