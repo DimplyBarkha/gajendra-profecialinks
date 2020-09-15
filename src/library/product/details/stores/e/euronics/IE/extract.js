@@ -79,8 +79,8 @@ async function implementation (
       const ratingsAndReviewsData = JSON.parse(ratingsAndReviews);
       addHiddenDiv('ratingCount', ratingsAndReviewsData.review_count);
       if (ratingsAndReviewsData.average_score) {
-        addHiddenDiv('aggregatedRating', ratingsAndReviewsData.average_score / 2);
-        addHiddenDiv('aggregatedRatingText', (ratingsAndReviewsData.average_score / 2) + ' out of 5');
+        addHiddenDiv('aggregatedRating', (ratingsAndReviewsData.average_score / 2).toString().replace('.', ','));
+        addHiddenDiv('aggregatedRatingText', (ratingsAndReviewsData.average_score / 2).toString().replace('.', ',') + ' out of 5');
       }
     }
 
