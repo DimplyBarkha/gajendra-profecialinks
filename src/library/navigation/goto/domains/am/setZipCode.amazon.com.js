@@ -2,7 +2,7 @@
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { zipcode } = inputs;
 
-  await context.evaluate(async (zipcode) => {
+  const apiZipChange = await context.evaluate(async (zipcode) => {
     const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
 
     const response = await fetch('/gp/delivery/ajax/address-change.html', {
@@ -17,12 +17,26 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       mode: 'cors',
       credentials: 'include',
     });
-    if (response.status !== 200) {
-      throw new Error('Zipcode change failed');
-    } else {
-      window.location.reload();
-    }
+    return response.status === 200;
   }, zipcode);
+
+  const { Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+  const helpers = new Helpers(context);
+  const amazonHelp = new AmazonHelp(context, helpers);
+
+  if (!apiZipChange) {
+    await amazonHelp.setLocale(zipcode);
+    await context.evaluate((zipcode) => {
+      const zipText = document.querySelector('div#glow-ingress-block');
+      if (!zipText.textContent.includes(zipcode)) {
+        throw new Error('API and manual Zip change failed');
+      }
+    }, zipcode);
+  } else {
+    await context.evaluate(() => {
+      window.location.reload();
+    });
+  }
 };
 
 module.exports = {
@@ -32,6 +46,10 @@ module.exports = {
     domain: 'amazon.com',
     store: 'amazon',
     zipcode: '10001',
+  },
+  dependencies: {
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };
