@@ -47,13 +47,45 @@ module.exports = {
       addHiddenDiv('bb_rating', rating);
       let reviewCount = aggregateRatingObj ? aggregateRatingObj.reviewCount : '';
       addHiddenDiv('bb_reviewCount', reviewCount);
-      // let image = JSONObj ? JSONObj.image : '';
-      // addHiddenDiv('bb_image', image);
-      // let description = JSONObj ? JSONObj.description : '';
-      // addHiddenDiv('bb_description', description);
       let brand = JSONObj ? JSONObj.brand : '';
       brand = brand ? brand.name : '';
       addHiddenDiv('bb_brand', brand);
+      let description;
+      let descriptiontag1 = document.querySelectorAll('div[class="main-container"] div[slot="content"]');
+      let descriptiontag2 = document.querySelectorAll('div[id="main_container"]');
+      if(descriptiontag1 && (descriptiontag1.length > 0)){
+        description = descriptiontag1;
+      }else if(descriptiontag2 && (descriptiontag2.length > 0)){
+        description = descriptiontag2;
+      }
+      console.log("hjkk",description)
+      let div;
+      let divFinal = 0;
+      for (let index = 0; index < description.length; index++) {
+        const element = description[index];
+        // @ts-ignore
+        const element1 = description[index].innerText;
+        if(element1.length > divFinal){
+         div = element;
+         divFinal = element1.length
+        }
+      }
+      console.log("DIVVVV", div)
+      // @ts-ignore
+      let description2 = div ? div.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+      console.log('description2: ', description2);
+      let finalDescription;
+      if(description2.includes("CARACTERISTIQUES")){
+        finalDescription = description2 ? description2.split('CARACTERISTIQUES')[0] : '';
+      }else{
+          finalDescription = description2 ? description2 : '';
+      }
+      // @ts-ignore
+      addHiddenDiv('cc_description', finalDescription);
+
+      let specification = description2 ? description2.split('CARACTERISTIQUES')[1] : '';
+      // @ts-ignore
+      addHiddenDiv('cc_specification', specification);
     });
     
     const { transform } = parameters;

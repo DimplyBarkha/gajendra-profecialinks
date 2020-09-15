@@ -44,8 +44,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[@data-qa="product-page-buy-button-bottom-var-1"]
-    defaultValue: Out of Stock
+    xpath: //button[@data-qa="product-page-buy-button-bottom-var-1"]  | //*[@data-test="buy-button"] | //*[@data-test="active-alert-button"]
+    defaultValue: 'In Stock'
     # xpath: //div[@id="bb_availability"]
     # regExp: \"availability\"\:\s\"http\:\/\/schema\.org\/(.*)\"
     # regExpReplace: $1
@@ -53,16 +53,19 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class, "main-container")]//div[contains(@slot,"content")]
+    # xpath: //div[contains(@class, "main-container")]//div[contains(@slot,"content")]
+    xpath: //div[@id="cc_description"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//div[contains(@class, "main-container")]//div[contains(@slot,"content")]//ul//li | //div[@id="main_container"]//ul//li)
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@id="bb_brand"]
+    defaultVale: "BRAND"
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -109,17 +112,14 @@ fields:
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    xpath: //div[@id="bb_reviewCount"]
-  # - name: aggregateRatingText
-  #   singleValue: false
-  #   description: The stated aggregate rating
+    xpath: //div[@data-test="product-page-rating-icons-desktop"]/div[@data-test="rating-icons-link"]/span[2] | //div[@data-test="product-page-rating-icons-mobile"]/div[@data-test="rating-icons-link"]/span[2]
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@id="bb_rating"]
-    # xpath: //div[@data-test="product-page-rating-icons-desktop"]/@title
-    # regExp: (.*)\/
-    # regExpReplace: $1
+    # xpath: //div[@id="bb_rating"]
+    xpath: //div[@data-test="product-page-rating-icons-desktop"]/@title | //div[@data-test="product-page-rating-icons-mobile"]/@title
+    regExp: (.*)\/
+    regExpReplace: $1
   # - name: shippingInfo
   #   singleValue: false
   #   description: Shipping information for the product
@@ -407,10 +407,11 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="cc_specification"]
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
-    xpath: //div[@data-qa="productpage-product-warranty"]
+    xpath: //div[@data-qa="productpage-product-warranty"] | //div[@class="wording"]/*[contains(text(), "Garantie ")]
   - name: storage
     singleValue: false
     description: Suggested storage location for product
@@ -475,7 +476,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: //div[contains(@class, "main-container")]//div[contains(@slot,"content")]//ul//li | //div[@id="main_container"]//ul//li
   - name: prop65Warning
     singleValue: false
     description: null

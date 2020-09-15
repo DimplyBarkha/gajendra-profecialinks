@@ -12,7 +12,7 @@ const transform = (data) => {
           row.availabilityText.forEach(item => {
             if(item.text.includes("Ajouter au panier")){
                 item.text = "In Stock";
-            }else{
+            }else if(item.text.includes('Créer une alerte')){
                 item.text = "Out of Stock";
             }
           });
@@ -38,23 +38,23 @@ const transform = (data) => {
           });
         }
         if (row.brandText) {
-          row.brandText.forEach(item => {
-          item.text = item.text.trim();
-          });
-        }else{
           let text = '';
-          if(row.name){
-            row.name.forEach(item => {
-              text = item.text.split(' ')[0];
-            });
-          }
-          row.brandText = [
-            {
-              text: text,
-            },
-          ];
+          row.brandText.forEach(item => {
+            if(item.text === 'BRAND'){
+              if(row.name){
+                row.name.forEach(item => {
+                  text = item.text.split(' ')[0];
+               });
+              }
+              item.text = text;
+            }
+         });
         }
-
+        if (row.description) {
+          row.description.forEach(item => {
+             item.text = item.text.replace(/(\|\|\s\|\|)/g,'||').replace(/(\s*[\r\n]\s*)+/g, ' ').replace('&amp;','&').trim();
+          });
+        }
         if (row.image) {
           row.image.forEach(item => {
           item.text = item.text.split('(')[1];
@@ -68,6 +68,17 @@ const transform = (data) => {
           item.text = item.text.split(')')[0];
           item.text = item.text.replace('"','').replace("'",'').replace(/\"/,'');
           });
+        }
+        if (row.additionalDescBulletInfo) {
+          let text = '';
+          row.additionalDescBulletInfo.forEach(item => {
+            text += `|| ${item.text.replace(/\n \n/g, ' ')}  `;
+          });
+          row.additionalDescBulletInfo = [
+            {
+              text: text,
+            },
+          ];
         }
         if (row.variantId) {
           row.variantId.forEach(item => {
